@@ -29,62 +29,61 @@ For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/
 
 To run this application, follow these steps:
 
-1. Create a new Node.js project in your favorite IDE or editor.
-2. Add the provided code.
-3. Replace the `subscriptionKey` value with your subscription key.
-3. Replace the `insightsToken` value with an insights token from an /images/search response.
-4. Run the program.
+1. Create a folder for your project (or use your favorite IDE or editor).
+2. From a command prompt or terminal, navigate to the folder you just created.
+3. Install the request modules:  
+  ```  
+  npm install request  
+  ```  
+3. Install the form-data modules:  
+  ```  
+  npm install form-data  
+  ```  
+4. Create a file named GetVisualInsights.js and add the following code to it.
+5. Replace the `subscriptionKey` value with your subscription key.
+6. Replace the `insightsToken` value with an insights token from an /images/search response.
+7. Run the program.  
+  ```
+  node GetVisualInsights.js
+  ```
 
 ```javascript
-var request = require("request");
+var request = require('request');
+var FormData = require('form-data');
 
 var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
-var subscriptionKey = '<YOUR-SUBSCRIPTION-KEY-GOES-HERE>';
-var insightsToken = '<YOUR-INSIGHTS-TOKEN-GOES-HERE>';
+var subscriptionKey = '<yoursubscriptionkeygoeshere>';
+var insightsToken = "ccid_tmaGQ2eU*mid_D12339146CFEDF3D409CC7A66D2C98D0D71904D4*simid_608022145667564759*thid_OIP.tmaGQ2eUI1yq3yll!_jn9kwHaFZ";
 
-var BOUNDARY = 'boundary_ABC123DEF456'
-var START_BOUNDARY = '--' + BOUNDARY
-var END_BOUNDARY = '--' + BOUNDARY + '--'
-
-
-CRLF = '\r\n'
-POST_BODY_HEADER = "Content-Disposition: form-data; name=\"knowledgeRequest\"" + CRLF + CRLF
-
-requestBody = START_BOUNDARY + CRLF;
-requestBody += POST_BODY_HEADER;
-requestBody += "{\"imageInfo\":{\"imageInsightsToken\":\"" + insightsToken + "\"}}" + CRLF + CRLF;
-requestBody += END_BOUNDARY + CRLF;
-
-
-var options = {
-    url: baseUri,
-    method: 'POST',
-    headers: {
-        'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        'Content-Type' : 'multipart/form-data; boundary=' + BOUNDARY
-    },
-    body: requestBody
-}
-
-
-var req = request(options, function(err, resp, body) {
-    if (err) {
-        console.log('Error ', err);
-    } 
-    else {
-        console.log(JSON.stringify(JSON.parse(body), null, '  '))
+var knowledgeRequest = {
+    "imageInfo" : {
+        "imageInsightsToken" : insightsToken
     }
+};
+
+var form = new FormData();
+form.append('knowledgeRequest', JSON.stringify(knowledgeRequest));
+
+form.getLength(function(err, length){
+  if (err) {
+    return requestCallback(err);
+  }
+
+  var r = request.post(baseUri, requestCallback);
+  r._form = form; 
+  r.setHeader('Ocp-Apim-Subscription-Key', subscriptionKey);
 });
+
+function requestCallback(err, res, body) {
+    console.log(JSON.stringify(JSON.parse(body), null, '  '))
+}
 ```
 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)
-
-## See also 
-
+[Get insights about an image you upload](../upload-image.md#using-nodejs)  
+[Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)  
 [Bing Visual Search overview](../overview.md)  
 [Try it](https://aka.ms/bingvisualsearchtryforfree)  
 [Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
