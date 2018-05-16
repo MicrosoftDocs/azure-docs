@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -199,21 +199,15 @@ The objective of this section is to create a test user in the Azure portal calle
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
- 
+
 ### Create a Zendesk test user
 
 The objective of this section is to create a user called Britta Simon in Zendesk. Zendesk supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-zendesk-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 **If you need to create user manually, please perform following steps:**
 
-To enable Azure AD users to log into **Zendesk**, they must be provisioned into **Zendesk**.
-Depending on the role assigned in the apps, it's the expected behavior:
-
- 1. **End-user** accounts are automatically provisioned when signing in.
-
- 2. **Agent** and **Admin** accounts need to be manually provisioned in **Zendesk** before signing in.
-
-**To provision a user account, perform the following steps:**
+> [!NOTE]
+> **End-user** accounts are automatically provisioned when signing in. **Agent** and **Admin** accounts need to be manually provisioned in **Zendesk** before signing in.
 
 1. Log in to your **Zendesk** tenant.
 
