@@ -18,7 +18,7 @@ ms.author: larryfr
 #Customer intent: As a developer, I need to use the Kafka IoT Hub connector with Kafka on HDInsight.
 ---
 
-# Use Apache Kafka with Azure IoT Hub
+# Use Apache Kafka on HDInsight with Azure IoT Hub
 
 Learn how to use the [Kafka Connect Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) connector to move data between Apache Kafka on HDInsight and Azure IoT Hub. In this document, you learn how to run the IoT Hub connector from an edge node in the cluster.
 
