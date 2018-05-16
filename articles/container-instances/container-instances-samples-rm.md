@@ -26,17 +26,21 @@ The following sample templates deploy container instances in various configurati
 | [secret][vol-secret] | Deploys a Linux container with a PFX cert mounted as a secret volume. |
 | **Networking** ||
 | [UDP-exposed container][net-udp] | Deploys a Windows or Linux container that exposes a UDP port. |
-| [Linux container with public IP][net-publicip] | Deploy a single Linux container accessible via a public IP. |
+| [Linux container with public IP][net-publicip] | Deploys a single Linux container accessible via a public IP. |
 | **Azure resources** ||
 | [Create Azure Storage account and Files share][az-files] | Uses the Azure CLI in a container instance to create a storage account and an Azure Files share.
 
 ## Deployment
 
-[Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+You have several options for deploying resources with Resource Manager templates:
 
-[Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+[Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-[Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+[Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+
+[Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+
+[REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 <!-- LINKS - External -->
 [app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-dynamicsnav
