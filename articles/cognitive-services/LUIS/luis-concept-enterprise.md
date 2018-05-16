@@ -7,7 +7,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 05/07/2018
 ms.author: v-geberr
 ---
 
@@ -28,8 +28,14 @@ If your app is meant to predict a wide variety of user utterances, consider impl
 
 Schedule a periodic [review of endpoint utterances](label-suggested-utterances.md) for active learning, such as every two weeks, then retrain and republish. 
 
+## When you need to combine several LUIS and QnA maker apps
+Use the [Dispatch][dispatcher-application] command line tool, found in  [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) to combine multiple LUIS and QnA Maker apps into a single LUIS app. 
+
+![Screenshot of LUIS apps list with LUIS app created by dispatch tool](./media/luis-concept-enterprise/dispatch.png)
+
 ## Next steps
 
 * Learn how to [test a batch](luis-how-to-batch-test.md)
 
 [LUIS]:luis-reference-regions.md
+[dispatcher-application]:https://aka.ms/bot-dispatch

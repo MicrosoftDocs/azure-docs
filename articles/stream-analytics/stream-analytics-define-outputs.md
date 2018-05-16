@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 05/14/2018
 ---
 
 # Understand outputs from Azure Stream Analytics
@@ -82,7 +82,7 @@ The table below lists the property names and their description for creating a bl
 | Storage Account | The name of the storage account where you are sending your output. |
 | Storage Account Key | The secret key associated with the storage account. |
 | Storage Container | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. |
-| Path pattern | Optional. The file path pattern used to write your blobs within the specified container. </br> In the path pattern, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written: </br> {date}, {time} </br> Example 1: cluster1/logs/{date}/{time} </br> Example 2: cluster1/logs/{date} <BR> <BR> File naming follows the following convention: </br> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension </br></br> Example output files: </br>Myoutput/20170901/00/45434_gguid_1.csv </br> Myoutput/20170901/01/45434_gguid_1.csv |
+| Path pattern | Optional. The file path pattern used to write your blobs within the specified container. </br></br> In the path pattern, you may choose to use one or more instances of the date time variables to specify the frequency that blobs are written: </br> {date}, {time} </br> </br>If you are signed up for the [preview](https://aka.ms/ASAPreview), you may also specify one custom {field} name from your event data to partition blobs by, where the field name is alphanumeric and can include spaces, hyphens, and underscores. Restrictions on custom fields include the following: <ul><li>Case insensitivity (cannot different between column "ID" and column "id")</li><li>Nested fields are not permitted (instead use an alias in the job query to "flatten" the field)</li><li>Expressions cannot be used as a field name</li></ul>Examples: <ul><li>Example 1: cluster1/logs/{date}/{time}</li><li>Example 2: cluster1/logs/{date}</li><li>Example 3 (preview): cluster1/{client_id}/{date}/{time}</li><li>Example 4 (preview): cluster1/{myField} where the query is: SELECT data.myField AS myField FROM Input;</li></ul><BR> File naming follows the following convention: </br> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension </br></br> Example output files: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Date format | Optional. If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
 | Time format | Optional. If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH. |
 | Event serialization format | Serialization format for output data.  JSON, CSV, and Avro are supported.
@@ -92,12 +92,14 @@ The table below lists the property names and their description for creating a bl
 
 When using blob storage as output, a new file is created in the blob in the following cases:
 
-* If the file exceeds the maximum number of allowed blocks. The maximum allowed number of blocks may be reached without reaching the maximum allowed blob size. For example, if the output rate is high, you can see more bytes per block, and the file size is larger. If the output rate is low, each block has less data, and the file size is smaller.
+* If the file exceeds the maximum number of allowed blocks (currently 50,000). The maximum allowed number of blocks may be reached without reaching the maximum allowed blob size. For example, if the output rate is high, you can see more bytes per block, and the file size is larger. If the output rate is low, each block has less data, and the file size is smaller.
 * If there is a schema change in the output, and the output format requires fixed schema (CSV and Avro).  
-* If a job is restarted either externally or internal restart of a job.  
+* If a job is restarted, either externally by a user stopping it and starting it, or internally for system maintenance or error recovery.  
 * If the query is fully partitioned, new file is created for each output partition.  
 * If a file or a container of the storage account is deleted by the user.  
 * If the output is time partitioned by using the path prefix pattern, a new blob is used when the query moves to the next hour.
+* If the output is partitioned by a custom field, a new blob is created per partition key if it does not exist.
+*	If the output is partitioned by a custom field where the partition key cardinality exceeds 8000, a new blob may be created per partition key.
 
 ## Event Hub
 The [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) service is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second. One use of an Event Hub as output is when the output of a Stream Analytics job becomes the input of another streaming job.
@@ -283,7 +285,7 @@ The following table summarizes the partition support and the number of output wr
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Yes | Use {date} and {time} tokens in the Path prefix pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). | 
 | Azure SQL Database | No | None | Not applicable. | 
-| Azure Blob storage | Yes | Use {date} and {time} tokens in the Path pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). | 
+| Azure Blob storage | Yes | Use {date} and {time} tokens from your event fields in the Path pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. As part of the [preview](https://aka.ms/ASAPreview), blob output can be partitioned by a single custom event attribute {fieldname}. | Follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). | 
 | Azure Event Hub | Yes | Yes | Varies depending on partition alignment.</br> When the output Event Hub partition key is equally aligned with upstream (previous) query step, the number of writers is the same the number of output Event Hub partitions. Each writer uses EventHub’s [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) to send events to the specific partition. </br> When the output Event Hub partition key is not aligned with upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses EventHubClient [SendBatchAsync class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) to send events to all the output partitions. |
 | Power BI | No | None | Not applicable. | 
 | Azure Table storage | Yes | Any output column.  | Follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). | 

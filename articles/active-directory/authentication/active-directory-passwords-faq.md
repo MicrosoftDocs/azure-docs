@@ -1,23 +1,17 @@
 ---
 title: Self-service password reset FAQ - Azure Active Directory
 description: Frequently asked questions about Azure AD self-service password reset
+
 services: active-directory
-keywords: Active directory password management, password management, Azure AD self service password reset
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 01/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
-ms.assetid: 
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
-ms.custom: seohack1
 
 ---
 # Password management frequently asked questions

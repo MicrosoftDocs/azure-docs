@@ -1,21 +1,18 @@
 ---
 title: Use existing NPS servers to provide Azure MFA capabilities | Microsoft Docs
-description: The Network Policy Server extension for Azure Multi-Factor Authentication is a simple solution to add cloud-based two-step vericiation capabilities to your existing authentication infrastructure.
+description: Add cloud-based two-step vericiation capabilities to your existing authentication infrastructure
+
 services: multi-factor-authentication
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 05/01/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-
-ms.assetid:
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/14/2017
-ms.author: joflore
 ms.reviewer: richagi
-ms.custom: H1Hack27Feb2017; it-pro
+
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
 
@@ -113,9 +110,9 @@ When you deploy the NPS extension, use these factors to evaluate which methods a
 
 You can [disable unsupported authentication methods](howto-mfa-mfasettings.md#selectable-verification-methods) in Azure.
 
-### Enable users for MFA
+### Register users for MFA
 
-Before you deploy the full NPS extension, you need to enable MFA for the users that you want to perform two-step verification. More immediately, to test the extension as you deploy it, you need at least one test account that is fully registered for Multi-Factor Authentication.
+Before you deploy and use the NPS extension, users that will be required to perform two-step verification need to be registered for MFA. More immediately, to test the extension as you deploy it, you need at least one test account that is fully registered for Multi-Factor Authentication.
 
 Use these steps to get a test account started:
 1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account. 
