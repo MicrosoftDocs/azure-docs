@@ -169,7 +169,7 @@ sections:
         - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
         - href: https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
 
-- title: SDK's in Consideration
+- title: SDKs in Consideration
   items:
   - type: table
     style: dataMatrix
