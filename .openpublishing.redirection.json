@@ -5066,6 +5066,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/hdinsight/hdinsight-hadoop-r-scripts.md",
+            "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-storm-develop-java-event-hub-topology.md",
             "redirect_url": "https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/",
             "redirect_document_id": false
