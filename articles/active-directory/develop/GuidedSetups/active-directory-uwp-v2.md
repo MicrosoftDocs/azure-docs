@@ -25,6 +25,7 @@ This guide explains how a native Universal Windows Platform (UWP) application (X
 
 At the end of this guide, your application calls a protected API by using personal accounts (including outlook.com, live.com, and others). Your application also calls work and school accounts from any company or organization that has Azure Active Directory.
 
+>[!NOTE]
 > This guide requires Visual Studio 2017 with Universal Windows Platform development installed. See [Get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) for instructions to download and configure Visual Studio to develop Universal Windows Platform apps.
 
 ### How this guide works
@@ -48,15 +49,16 @@ This section provides step-by-step instructions to integrate a Windows Desktop .
 
 This guide creates an application that displays a button that queries Graph API, a sign-out button, and text boxes that display the results of the calls.
 
+>[!NOTE]
 > Do you want to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip) and skip to the [application registration](#register-your-application "application registration step") step to configure the code sample before it runs.
 
 
 ### Create your application
 1. In Visual Studio, select **File** > **New** > **Project**.
-2. Under *Templates*, select **Visual C#**.
+2. Under **Templates**, select **Visual C#**.
 3. Select **Blank App (Universal Windows)**.
-4. Name the app, and select **Ok**.
-5. If prompted, select any version for *Target* and *Minimum* versions, and select **Ok**.
+4. Name the app, and select **OK**.
+5. If prompted, select any version for **Target** and **Minimum** versions, and select **OK**.
 
     >![Minimum and Target versions](media/active-directory-uwp-v2.md/vs-minimum-target.png)
 
@@ -94,7 +96,7 @@ This step helps you create a class to handle interaction with MSAL, such as hand
 
 A **MainPage.xaml** file is created automatically as a part of your project template. Open this file, and then follow the instructions:
 
-1.	Replace your application’s **Grid** node with the following code:
+* Replace your application’s **Grid** node with the following code:
 
     ```xml
     <Grid>
@@ -196,7 +198,7 @@ Eventually, the `AcquireTokenSilentAsync` method fails. Reasons for failure migh
 
 ## Call Microsoft Graph API by using the token you just obtained
 
-1. Add the following new method to your **MainPage.xaml.cs**. This method is used to make a `GET` request against Graph API by using an **Authorize** header:
+* Add the following new method to your **MainPage.xaml.cs**. This method is used to make a `GET` request against Graph API by using an **Authorize** header:
 
     ```csharp
     /// <summary>
@@ -227,12 +229,12 @@ Eventually, the `AcquireTokenSilentAsync` method fails. Reasons for failure migh
 
 ### More information on making a REST call against a protected API
 
-In this sample application, the `GetHttpContentWithToken` method is used to make an HTTP `GET` request against a protected resource that requires a token. Then the method returns the content to the caller. This method adds the acquired token in the *HTTP Authorization** header. For this sample, the resource is the Microsoft Graph API *me* endpoint, which displays the user's profile information.
+In this sample application, the `GetHttpContentWithToken` method is used to make an HTTP `GET` request against a protected resource that requires a token. Then the method returns the content to the caller. This method adds the acquired token in the **HTTP Authorization** header. For this sample, the resource is the Microsoft Graph API **me** endpoint, which displays the user's profile information.
 <!--end-collapse-->
 
 ## Add a method to sign out the user
 
-1. To sign out the user, add the following method to **MainPage.xaml.cs**:
+* To sign out the user, add the following method to **MainPage.xaml.cs**:
 
     ```csharp
     /// <summary>
@@ -264,7 +266,7 @@ The application in this sample supports a single user. But MSAL supports scenari
 
 ## Display basic token information
 
-1. Add the following method to your **MainPage.xaml.cs** to display basic information about the token:
+* Add the following method to your **MainPage.xaml.cs** to display basic information about the token:
 
     ```csharp
     /// <summary>
@@ -285,11 +287,11 @@ The application in this sample supports a single user. But MSAL supports scenari
 
 ### More information
 
-ID tokens acquired via *OpenID Connect* also contain a small subset of information pertinent to the user. `DisplayBasicTokenInfo` displays basic information contained in the token. Examples are the user's display name and ID, the expiration date of the token, and the string that represents the access token itself. This information displays for you to see. If you select the **Call Microsoft Graph API** button several times, you'll see that the same token was reused for subsequent requests. You can also see the expiration date extended when MSAL decides it's time to renew the token.
+ID tokens acquired via **OpenID Connect** also contain a small subset of information pertinent to the user. `DisplayBasicTokenInfo` displays basic information contained in the token. Examples are the user's display name and ID, the expiration date of the token, and the string that represents the access token itself. This information displays for you to see. If you select the **Call Microsoft Graph API** button several times, you'll see that the same token was reused for subsequent requests. You can also see the expiration date extended when MSAL decides it's time to renew the token.
 
 ## Register your application
 
-Now you need to register your application in the *Microsoft Application Registration Portal*:
+Now you need to register your application in the Microsoft Application Registration Portal:
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application.
 2. Enter a name for your application.
 3. Make sure that the option for **Guided Setup** is not selected.
@@ -327,7 +329,7 @@ To test your application, select `F5` to run your project in Visual Studio. Your
 
 ![Application's user interface](media/active-directory-uwp-v2.md/testapp-ui.png)
 
-When you're ready to test, select *Call Microsoft Graph API* and use a Microsoft Azure Active Directory (organizational account) or a Microsoft Account (live.com or outlook.com) to sign in. If it's your first time, you see a window asking the user to sign in:
+When you're ready to test, select *Call Microsoft Graph API*. Then use a Microsoft Azure Active Directory organizational account or a Microsoft account, such as live.com or outlook.com, to sign in. If it's your first time, you see a window asking the user to sign in:
 
 ![Sign-in page](media/active-directory-uwp-v2.md/sign-in-page.png)
 
@@ -356,7 +358,7 @@ Optionally, copy the value in **Access Token** and paste it in https://jwt.ms to
 
 Microsoft Graph API requires the *user.read* scope to read a user's profile. This scope is added automatically by default in every application that's registered in the Application Registration Portal. Other APIs for Microsoft Graph, and custom APIs for your back-end server, might require additional scopes. Microsoft Graph API requires the *Calendars.Read* scope to list the user’s calendars.
 
-To access a user’s calendars in the context of an application, add the *Calendars.Read* delegated permission to the application registration information. Then add the *Calendars.Read* scope to the `acquireTokenSilent` call. 
+To access a user’s calendars in the context of an application, add the Calendars.Read delegated permission to the application registration information. Then add the Calendars.Read scope to the `acquireTokenSilent` call. 
 
 > [!NOTE]
 > Users might be prompted for additional consents as you increase the number of scopes.
@@ -378,4 +380,4 @@ You enable [integrated authentication on federated domains](#enable-integrated-a
 
 **Cause:** This issue is a known limitation of the web authentication broker in UWP applications that run on Windows 10 desktop. It works fine on Windows 10 Mobile.
 
-**Workaround:** Select **Sign in with other options**. Then choose *Sign in with a username and password*. Select **Provide your password**. Then go through the phone authentication process.
+**Workaround:** Select **Sign in with other options**. Then select **Sign in with a username and password**. Select **Provide your password**. Then go through the phone authentication process.
