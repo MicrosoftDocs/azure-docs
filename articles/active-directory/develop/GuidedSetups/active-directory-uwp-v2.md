@@ -23,7 +23,7 @@ ms.custom: aaddev
 
 This guide explains how a native Universal Windows Platform (UWP) application (XAML) gets an access token. It then uses the access token to call Microsoft Graph API. The guide also applies to other APIs that require access tokens from the Azure Active Directory v2.0 endpoint.
 
-At the end of this guide, your application calls a protected API by using personal accounts (including outlook.com, live.com, and others). Your application also calls work and school accounts from any company or organization that has Azure Active Directory.
+At the end of this guide, your application calls a protected API by using personal accounts. Examples are outlook.com, live.com, and others. Your application also calls work and school accounts from any company or organization that has Azure Active Directory.
 
 >[!NOTE]
 > This guide requires Visual Studio 2017 with Universal Windows Platform development installed. See [Get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) for instructions to download and configure Visual Studio to develop Universal Windows Platform apps.
