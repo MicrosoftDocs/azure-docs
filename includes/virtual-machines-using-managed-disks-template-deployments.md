@@ -216,4 +216,4 @@ To find full information on the REST API specifications, please review the [crea
 * Visit the [Azure Managed Disks Overview](../articles/virtual-machines/windows/managed-disks-overview.md) document to learn more about managed disks.
 * Review the template reference documentation for virtual machine resources by visiting the [Microsoft.Compute/virtualMachines template reference](/azure/templates/microsoft.compute/virtualmachines) document.
 * Review the template reference documentation for disk resources by visiting the [Microsoft.Compute/disks template reference](/azure/templates/microsoft.compute/disks) document.
- 
+* For information on how to use managed disks in Azure VM Scale Sets, visit the [Use data disks with scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) document.
