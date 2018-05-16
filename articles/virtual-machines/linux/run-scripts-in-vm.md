@@ -17,44 +17,43 @@ To automate tasks or troubleshoot issues, you may need to run commands in a VM. 
 
 The [Custom Script Extension](extensions-customscript.md) is primarily used for post deployment configuration and software installation.
 
-* Call from ARM template (to perform custom in-guest actions following VM creation)
-* Script referenced by URL, so the script file must be in a storage location that is reachable by URL
-* VM must be network connected
-* Automatic installation
+* Download and run scripts in Azure virtual machines.
+* Can be run using Azure Resource Manager templates, Azure CLI, REST API, PowerShell, or Azure portal.
+* Script files can be downloaded from Azure storage or GitHub, or provided from your PC when run from the Azure portal.
+* Run PowerShell script in Windows machines and Bash script in Linux machines.
+* Useful for post deployment configuration, software installation, and other configuration or management tasks.
 
 ## Run command
 
-The [Run Command](run-command.md) feature provides general VM and application management and troubleshooting using scripts.
+The [Run Command](run-command.md) feature enables virtual machine and application management and troubleshooting using scripts, and is available even when the machine is not network connected.
 
-* Available by default (no installation)
-* VM does not need to be network connected
-* Can run any custom script (PowerShell for Windows, shell script for Linux)
-* Requires VM contributor or higher priviledges
-* Available through [Azure portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), or [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)
+* Run scripts in Azure virtual machines.
+* Can be run using [Azure portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), or [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)
+* Quickly run a script and view output and repeat as needed in the Azure portal.
+* Scripts can be provided directly (no file reference), or you can run one of the built-in scripts.
+* Run PowerShell script in Windows machines and Bash script in Linux machines.
+* Useful for virtual machine and application management and for running scripts in virtual machines that are not network connected.
 
 ## Hybrid Runbook Worker
 
-The [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) provides general machine and application management with user's custom scripts stored in an Automation account.
+The [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) provides general machine, application, and environment management with user's custom scripts stored in an Automation account.
 
-* Scripts stored and managed in an Automation Account
-* Runs PowerShell, PowerShell workflow, Python, or Graphical runbooks
-* No time limit on script run time
-* Multiple scripts can run concurrently
-* Full script output is returned and stored
-* Job history available for 90 days
-* Scripts can run as Local System or with user-supplied credentials
-* Run scripts through the Azure portal or API
+* Run scripts in Azure and non-Azure virtual machines.
+* Can be run using Azure portal, Azure CLI, REST API, PowerShell, webhook.
+* Scripts stored and managed in an Automation Account.
+* Run PowerShell, PowerShell workflow, Python, or Graphical runbooks
+* No time limit on script run time.
+* Multiple scripts can run concurrently.
+* Full script output is returned and stored.
+* Job history available for 90 days.
+* Scripts can run as Local System or with user-supplied credentials.
 * Requires [manual installation](../../automation/automation-windows-hrw-install.md)
-* Requires these previledges: VM Contributor (to install), Contributor on Automation account (to install and run), Contributor on Log Analytics workspace (to install)
-* VM needs to be network connected
 
 ## Serial console
 
 The [Serial console](serial-console.md) provides direct access to a VM, similar to having a keyboard connected to the VM.
 
-* Available in the portal
-* Requires VM Contributor privileges
-* Requires boot diagnostics enabled on the VM and a storage account
-* Must login to VM with a local user account
-* Commands are typed in character by character
-* Session audit logs stored in boot diagnostics logs
+* Run commands in Azure virtual machines.
+* Can be run using a text-based console to the machine in the Azure portal.
+* Login to the machine with a local user account.
+* Useful when access to the virtual machine is needed regardless of the machine's network or operating system state.
