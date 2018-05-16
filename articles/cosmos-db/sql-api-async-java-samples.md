@@ -44,16 +44,16 @@ The latest sample applications that perform CRUD operations and other common ope
 
 You need the following to run this sample application:
 
-* Java Development Kit 7
+* Java Development Kit 8
 * Microsoft Azure Cosmos DB Java SDK
 
-You can optionally use Maven to get the latest Microsoft Azure Cosmos DB Java SDK binaries for use in your project. Maven automatically adds any necessary dependencies. Otherwise, you can directly download the dependencies listed in the pom.xml file and add them to your build path.
+You can optionally use Maven to get the latest Microsoft Azure Cosmos DB Java SDK binaries for use in your project. You can choose the latest version from [here](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Maven automatically adds any necessary dependencies. Otherwise, you can directly download the dependencies listed in the pom.xml file and add them to your build path.
 
 ```bash
 <dependency>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-cosmosdb</artifactId>
-	<version>LATEST</version>
+	<version>${LATEST}</version>
 </dependency>
 ```
 
@@ -95,7 +95,6 @@ The [DatabaseCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob
 | Task | API reference |
 | --- | --- |
 | [Create a database](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DatabaseCRUDAsyncAPITest.java#L115-L132) | [AsyncDocumentClient.createDatabase](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.createdatabase) |
-| [Create a database without lambda expression](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DatabaseCRUDAsyncAPITest.java#L138-L166) | |
 | [Create a database in a blocking fashion](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DatabaseCRUDAsyncAPITest.java#L172-L179) | |
 | [Fail to create a database that already exists](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DatabaseCRUDAsyncAPITest.java#L189-L204) | |
 | [Create a database and transform the Observable into a Listenable Future](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DatabaseCRUDAsyncAPITest.java#L213-L222) | |
@@ -110,7 +109,6 @@ The [CollectionCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/bl
 | --- | --- |
 | [Create a single partition collection](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java#L134-L153) | [AsyncDocumentClient.createCollection](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.createcollection) |
 | [Create a custom multi-partition collection](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java#L164-L184) | [DocumentCollection](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb._document_collection)<br>[PartitionKeyDefinition](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb._partition_key_definition)<br>[RequestOptions](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb._request_options) |
-| [Create a collection without lambda expression](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java#L190-L218) | |
 | [Create a collection in a blocking fashion](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java#L224-L231) | |
 | [Fail to create a collection that already exists](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java#L241-L256) | |
 | [Create a collection and transform the Observable into a Listenable Future](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java#L265-L275) | |
@@ -124,7 +122,6 @@ The [DocumentCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob
 | Task | API reference |
 | --- | --- |
 | [Create a document](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentCRUDAsyncAPITest.java#L137-L156) | [AsyncDocumentClient.createDocument](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.createdocument) |
-| [Create a document without lambda expression](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentCRUDAsyncAPITest.java#L162-L193) | |
 | [Create a document in a blocking fashion](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentCRUDAsyncAPITest.java#L199-L207) | |
 | [Create a document with a programmable document definition](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentCRUDAsyncAPITest.java#L213-L242) | [Document](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb._document)<br>[Resource.setId](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb._resource.setid) |
 | [Create documents and find total RU cost](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentCRUDAsyncAPITest.java#L248-L280) | [ResourceResponse.getRequestCharge](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb._resource_response.getrequestcharge) |
@@ -150,7 +147,6 @@ The [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/blob/mas
 | Task | API reference |
 | --- | --- |
 | [Perform a simple document query](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L154-L190) | [AsyncDocumentClient.queryDocuments](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments) |
-| [Perform a simple document query without lambda expression](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L200-L243) | |
 | [Perform a simple document query and find Total RU cost](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L249-L268) | [FeedResponse.getRequestCharge](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb._feed_response.getrequestcharge) |
 | [Perform a simple document query, read one page and unsubscribe from the returned observable](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L274-L312) | |
 | [Perform a simple document query and filter the results](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L318-L368) | |
