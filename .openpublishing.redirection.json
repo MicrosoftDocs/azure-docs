@@ -21146,7 +21146,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "/azure/dev-spaces/",
+            "source_path": "articles/dev-spaces/index.md",
             "redirect_url": "/azure/dev-spaces/azure-dev-spaces",
             "source_path": "articles/active-directory/active-directory-application-proxy-enable.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-enable",
