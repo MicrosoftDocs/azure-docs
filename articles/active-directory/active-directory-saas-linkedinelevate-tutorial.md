@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -193,7 +193,7 @@ The objective of this section is to create a test user in the Azure Management p
 
 ### Creating a LinkedIn Elevate test user
 
-Linked Elevate Application supports Just in time user provisioning and after authentication users will be created in the application automatically. You can find more details [here](active-directory-saas-linkedinelevate-provisioning-tutorial.md) on how to configure automatic user provisioning. On the admin settings page on the LinkedIn Elevate portal flip the switch **Automatically Assign licenses** to active Just in time provisioning and this will also assign a license to the user.
+LinkedIn Elevate Application supports Just in time user provisioning and after authentication users will be created in the application automatically. On the admin settings page on the LinkedIn Elevate portal flip the switch **Automatically Assign licenses** to active Just in time provisioning and this will also assign a license to the user. LinkedIn Elevate also supports automatic user provisioning, you can find more details [here](active-directory-saas-linkedinelevate-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
    ![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/LinkedinUserprovswitch.png)
 
