@@ -31,7 +31,7 @@ Identity is the new control plane of IT security. So authentication is an organi
 ### Out of scope
 Organizations that don't have an existing on-premises directory footprint aren't the focus of this article. Typically, those businesses create identities only in the cloud, which doesn’t require a hybrid identity solution. Cloud-only identities exist solely in the cloud and aren't associated with corresponding on-premises identities.
 
-## Choices for authentication methods
+## Authentication methods
 When the Azure AD hybrid identity solution is your new control plane, authentication is the foundation of cloud access. Choosing the correct authentication method is a crucial first decision in setting up an Azure AD hybrid identity solution. Implement the authentication method that is configured by using Azure AD Connect, which also provisions users in the cloud.
 
 To choose an authentication method, you need to consider the time, existing infrastructure, complexity, and cost of implementing your choice. These factors are different for every organization and might change over time. 
@@ -57,11 +57,11 @@ The authentication system can provide additional advanced authentication require
 
 The following section helps you decide which authentication method is right for you by using a decision tree. It helps you determine whether to deploy cloud or federated authentication for your Azure AD hybrid identity solution.
 
-## Azure AD authentication decision tree
+## Decision tree
 
 ![Azure AD authentication decision tree](media/azure-ad/azure-ad-authn-image1.png)
 
-## Detailed considerations on authentication methods
+## Detailed considerations
 
 ### Cloud authentication: Password hash synchronization
 
@@ -146,7 +146,7 @@ The following diagrams outline the high-level architecture components required f
 
 	![Azure AD hybrid identity with federated authentication](media/azure-ad/azure-ad-authn-image4.png)
 
-## Comparing the authentication methods
+## Comparing methods
 
 |Consideration|Password hash synchronization + Seamless SSO|Pass-through Authentication + Seamless SSO|Federation with AD FS|
 |:-----|:-----|:-----|:-----|
@@ -165,7 +165,7 @@ The following diagrams outline the high-level architecture components required f
 |Can you customize the logo, image, and description on the sign-in pages?|[Yes, with Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Yes, with Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Yes](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |What advanced scenarios are supported?|[Smart password lockout](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-secure-passwords)<br><br>[Leaked credentials reports](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events)|[Smart password lockout](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Multisite low-latency authentication system<br><br>[AD FS extranet lockout](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[Integration with third-party identity systems](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 
-## Recommendations and considerations from Azure AD
+## Recommendations
 Your identity system ensures your users' access to cloud apps and the line-of-business apps that you migrate and make available in the cloud. To keep authorized users productive and bad actors out of your organization’s sensitive data, authentication controls access to apps.
 
 Use or enable password hash synchronization for whichever authentication method you choose, for the following reasons:
