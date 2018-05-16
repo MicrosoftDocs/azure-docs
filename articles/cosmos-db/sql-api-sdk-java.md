@@ -52,6 +52,22 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ## Release notes
 
+### <a name="1.16.1"/>1.16.1
+* Added support for Unique Index.
+* Added support for limiting continuation token size in feed-options.
+* Fixed a bug in Json Serialization (timestamp).
+* Fixed a bug in Json Serialization (enum).
+* Dependency on com.fasterxml.jackson.core:jackson-databind upgraded to 2.9.5.
+
+### <a name="1.16.0"/>1.16.0
+* Improved Connection Pooling for Direct Mode.
+* Improved Prefetch improvement for non-orderby cross partition query.
+* Improved UUID generation.
+* Improved Session consistency logic.
+* Added support for multipolygon.
+* Added support for Partition Key Range Statistics for Collection.
+* Fixed a bug in Multi-region support.
+
 ### <a name="1.15.0"/>1.15.0
 * Improved Json Serialization performance.
 * This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
@@ -181,6 +197,8 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |May 16, 2018 |--- |
+| [1.16.0](#1.16.0) |March 15, 2018 |--- |
 | [1.15.0](#1.15.0) |Nov 14, 2017 |--- |
 | [1.14.0](#1.14.0) |Oct 28, 2017 |--- |
 | [1.13.0](#1.13.0) |August 25, 2017 |--- |
