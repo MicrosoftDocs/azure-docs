@@ -25,6 +25,10 @@
     href: tutorials/autosuggest.md
   - name: Single-page web app (source code)
     href: tutorials/autosuggest-source.md
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Autosuggest
 - name: How-to guides
   items: 
   - name: Use and display requirements
