@@ -1,5 +1,5 @@
 - name: Event Hubs Documentation
-  href: ./index.md
+  href: ./index.yml
 - name: Overview
   items:
   - name: What is Event Hubs?
@@ -27,8 +27,11 @@
     - name: .NET Framework
       href: event-hubs-dotnet-framework-api-overview.md
 - name: Samples
+  href: event-hubs-samples.md
 - name: Concepts
   items:
+  - name: Integrate with Event Grid
+    href: ../event-grid/event-grid-event-hubs-integration.md
   - name: Programming guide
     href: event-hubs-programming-guide.md
   - name: Event Hubs features
