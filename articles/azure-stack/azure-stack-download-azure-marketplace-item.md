@@ -150,13 +150,13 @@ There are two parts to this scenario:
 2. Import .VHD files to Azure Stack. To successfully import a virtual machine (VM) image, you must have the following information about the VM:
    - The *version*, as noted in step 7 of the preceding procedure.
    - The values for the VMs *publisher*, *offer*, and *sku*. To get these values, rename a copy of the **.azpkg** file to change its file extension to **.zip**. You can then use a text editor to open **DeploymentTemplates\CreateUiDefinition.json**. In the .json file, locate the *imageReference* section, which contains these values for the marketplace item. The following example demonstrates how this information appears:
-      ```json  
-      "imageReference": {  
-         "publisher": "MicrosoftWindowsServer",  
-         "offer": "WindowsServer",  
-         "sku": "2016-Datacenter-Server-Core"  
-       }
-      ```  
+     ```json  
+     "imageReference": {  
+        "publisher": "MicrosoftWindowsServer",  
+        "offer": "WindowsServer",  
+        "sku": "2016-Datacenter-Server-Core"  
+      }
+     ```  
 
    When you have all four values (version, publisher, offer, and sku), update the parameters in the following script to include those values. Then, run the script in your Azure Stack environment. 
 
@@ -194,8 +194,8 @@ There are two parts to this scenario:
    4. On the Upload blob pane, browse to the files that you want to load into storage and then select **Upload**.  
       ![upload](./media/azure-stack-download-azure-marketplace-item/upload.png)  
 
-    5. Files that you upload appear in the container pane. Select a file and then copy the URL from the **Blob properties** pane. You'll use this URL in the next step when you import the marketplace item to Azure Stack.  In the following image, the container is *blob-test-storage* and the file is *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  The file URL is *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
-       ![Blob properties](./media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+   5. Files that you upload appear in the container pane. Select a file and then copy the URL from the **Blob properties** pane. You'll use this URL in the next step when you import the marketplace item to Azure Stack.  In the following image, the container is *blob-test-storage* and the file is *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  The file URL is *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
+      ![Blob properties](./media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
 
 4.  Use PowerShell to publish the marketplace item to Azure Stack by using the **Add-AzsGalleryItem** cmdlet. For example:  
     ```powershell
