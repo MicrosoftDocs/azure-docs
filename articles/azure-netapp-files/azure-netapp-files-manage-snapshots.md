@@ -1,6 +1,6 @@
 ---
-title: Manage volumes by using Azure NetApp Files | Microsoft Docs
-description: Describes how to manage volumes by using the Azure NetApp Files service. 
+title: Manage snapshots by using Azure NetApp Files | Microsoft Docs
+description: Describes how to xxxxxxxxxxxxxxxxxxxxxxxxxxx
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
 ---
-# Manage volumes by using Azure NetApp Files
+# Manage snapshots by using Azure NetApp Files
 
 In this article:
 

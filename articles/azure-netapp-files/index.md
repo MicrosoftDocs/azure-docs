@@ -57,7 +57,7 @@ Learn how to use Azure NetApp Files to create and manage volumes, create a mount
         </a>
     </li> 
     <li>
-        <a href="/azure/azure-netapp-files/azure-netapp-files-prepare-to-deploy">
+        <a href="/azure/azure-netapp-files/azure-netapp-files-create-netapp-account">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

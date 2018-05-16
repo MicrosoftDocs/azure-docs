@@ -62,5 +62,5 @@ In this article:
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
 The following example shows the relationships of the Azure subscription, Azure NetApp Files accounts, capacity pools, and volumes.  
-    ![Conceptual diagram of storage hierarchy](../media/azure-netapp-files/azure-netapp-files-conceptual_diagram_of_storage_hierarchy.png)
+    ![Conceptual diagram of storage hierarchy](../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png)
 

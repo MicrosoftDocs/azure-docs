@@ -1,6 +1,6 @@
 ---
-title: Set up a volume for Azure NetApp Files | Microsoft Docs
-description: Describes how to create a volume, edit volume attributes, and create a mount target by using Azure NetApp Files
+title: Configure export policy for a volume (optional) | Microsoft Docs
+description: Describes how to xxxxxxxxxxxxxxxxxx
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
 ---
-# Set up a volume for Azure NetApp Files
+# Configure export policy for a volume (optional)
 
 In this article:
 

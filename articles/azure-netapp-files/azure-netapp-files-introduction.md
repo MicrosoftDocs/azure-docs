@@ -36,15 +36,12 @@ You need a valid Azure subscription for using Azure NetApp Files.
 
 ## Workflow overview for setting up and using Azure NetApp Files
 ^^^^^^^^^ WORKFLOW DIAGRAM STALE; NEEDS UPDATING ^^^^^^^^^
-![Azure NetApp Files workflow overview ](../media/azure-netapp-files/azure-netapp-files-workflow-overview.png)
-<!--
-![Alt text describes the content of the image.](/media/folder-with-same-name-as-article-file/service-technology-image-description.png)
--->
+
 
 ## Get started  
-1. [Prepare to deploy Azure NetApp Files](azure-netapp-files-prepare-to-deploy.md)
-2. [Create a NetApp account]
-3. Set up a capacity pool
-4. [Set up an NFS volume](azure-netapp-files-set-up-nfs-volumes.md)
+1. [Access Azure NetApp Files and create a NetApp account](azure-netapp-files-create-netapp-account.md)
+2. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+3. [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
+4. [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: Prepare to deploy Azure NetApp Files | Microsoft Docs
-description: Describes how to set up set up Azure network connectivity, including verifying Microsoft.Networking Resource Provider registration and creating resource group and granting access.
+title: Access Azure NetApp Files and create a NetApp account | Microsoft Docs
+description: Describes xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
 ---
-# Prepare to deploy Azure NetApp Files
+# Access Azure NetApp Files and create a NetApp account
 
 Follow the procedures in this article to prepare the deployment of Azure NetApp Files: 
 
