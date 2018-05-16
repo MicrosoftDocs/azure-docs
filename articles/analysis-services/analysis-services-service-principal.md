@@ -18,14 +18,14 @@ In Analysis Services, service principals are used with Azure Automation, PowerSh
 
 ## Create service principals
  
-Service principals can be created in the Azure portal or by using PowerShell. To learn more, see these articles:
+Service principals can be created in the Azure portal or by using PowerShell. To learn more, see:
 
 [Create service principal - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
 [Create service principal - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## Store credential and certificate assets in Azure Automation
 
-Service principal credentials and certificates can be stored securely in Azure Automation for runbook operations. To learn more, see these articles:
+Service principal credentials and certificates can be stored securely in Azure Automation for runbook operations. To learn more, see:
 
 [Credential assets in Azure Automation](../automation/automation-credentials.md)   
 [Certificate assets in Azure Automation](../automation/automation-certificates.md)
@@ -40,9 +40,7 @@ Service principal appID and password or certificate can be used in connection st
 
 ### PowerShell
 
-When using a service principal for resource management operations with the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)  module, use `Login-AzureRmAccount` cmdlet. 
-
-When using a service principal for server operations with the [SQLServer](https://www.powershellgallery.com/packages/SqlServer) module, use `Add-AzureAnalysisServicesAccount` cmdlet. 
+When using a service principal for resource management operations with the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)  module, use `Login-AzureRmAccount` cmdlet. When using a service principal for server operations with the [SQLServer](https://www.powershellgallery.com/packages/SqlServer) module, use `Add-AzureAnalysisServicesAccount` cmdlet. 
 
 In the following example, appID and a password are used to perform a model database refresh operation:
 
@@ -66,7 +64,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 When connecting with client applications and web apps, [AMO and ADOMD client libraries](analysis-services-data-providers.md) version 15.0.2 and higher installable packages from NuGet support service principals in connection strings using the following syntax: `app:AppID` and password or `cert:thumbprint`. 
 
-In the following example, appID and a password are used to perform a model database refresh operation:
+In the following example, `appID` and a `password` are used to perform a model database refresh operation:
 
 ```C#
 string appId = "xxx";
