@@ -53,6 +53,12 @@ Create an HDInsight Spark cluster using an Azure Resource Manager template. The 
 
 If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. For more information, see [Access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
+## Install IntelliJ/Eclipse for spark application
+Use the Azure Toolkit for IntelliJ/Eclipse plug-in to develop Spark applications written in Scala, and then submit them to an Azure HDInsight Spark cluster directly from the IntelliJ/Eclipse integrated development environment (IDE). For more information, see [Use Intellij](./apache-spark-intellij-tool-plugin.md) and [Use Eclipse](./apache-spark-eclipse-tool-plugin.md).
+
+## Install VS Code for pyspark/hive applications
+Learn how to use the Azure HDInsight Tools for Visual Studio Code (VS Code) to create and submit Hive batch jobs, interactive Hive queries, and pySpark scripts. The Azure HDInsight Tools can be installed on the platforms that are supported by VS Code. These include Windows, Linux, and macOS. For more information, see [Use VS Code](../hdinsight-for-vscode.md).
+
 ## Create a Jupyter notebook
 
 Jupyter Notebook is an interactive notebook environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown text and perform simple visualizations. 
