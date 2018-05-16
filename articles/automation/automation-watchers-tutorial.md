@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: eamonoreilly
 ms.author: eamono
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2017
 ---
 
