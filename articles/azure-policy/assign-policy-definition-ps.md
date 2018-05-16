@@ -55,7 +55,7 @@ You’re now ready to identify non-compliant resources to understand the complia
 Use the following information to identify resources that aren't compliant with the policy assignment you created. Run the following commands:
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks' }
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Name -eq 'Audit Virtual Machines without Managed Disks' }
 $policyAssignment.PolicyAssignmentId
 ```
 
