@@ -67,7 +67,7 @@ After you've created a CDN profile, you can use it to create an endpoint.
    ![CDN endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
    Because it takes time for the registration to propagate, the endpoint isn't immediately available for use: 
-   - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in ten minutes. 
+   - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
    - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
    - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
 

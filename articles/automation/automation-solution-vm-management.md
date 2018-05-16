@@ -3,10 +3,11 @@ title: Start/Stop VMs during off-hours solution (preview)
 description: This VM management solution starts and stops your Azure Resource Manager virtual machines on a schedule and proactively monitors from Log Analytics.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/20/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Start/Stop VMs during off-hours solution (preview) in Azure Automation
