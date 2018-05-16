@@ -97,7 +97,7 @@
       href: ../virtual-machines/windows/sizes-storage.md
       maintainContext: true
     - name: GPU optimized
-      href: ../virtual-machines/windows/izes-gpu.md
+      href: ../virtual-machines/windows/sizes-gpu.md
       maintainContext: true
       items:
       - name: Setup GPU drivers
@@ -151,9 +151,6 @@
     maintainContext: true
   - name: Monitoring
     href: ../virtual-machines/windows/monitor.md
-    maintainContext: true
-  - name: Backup and recovery
-    href: ../virtual-machines/windows/backup-recovery.md
     maintainContext: true
   - name: High performance computing
     href: ../virtual-machines/windows/high-performance-computing.md
