@@ -5,7 +5,7 @@ keywords: hadoop versions,hadoop ecosystem components,hadoop components,how to c
 services: hdinsight
 editor: cgronlun
 manager: asadk
-author: bprakash
+author: kkampf
 tags: azure-portal
 documentationcenter: ''
 
@@ -15,7 +15,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
-ms.author: bprakash
+ms.author: kakampf
 
 ---
 # What are the Hadoop components and versions available with HDInsight?
