@@ -31,5 +31,7 @@ Limited Trial project resources are attached to your Custom Vision login (that i
 |[Prediction](https://go.microsoft.com/fwlink/?linkid=865445) operations without storage (Transactions Per Second)|2|2|20|
 |[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (API calls Per Second)|2|2|10|
 |[Other API calls](https://go.microsoft.com/fwlink/?linkid=865446) (Transactions Per Second)|10|10|10|
+|Max image size (training image upload) |6MB|6MB|6MB|
+|Max image size (prediction)|4MB|4MB|4MB|
 
 Limitations on *# training images per project* and *# Tags/project* are expected to be increased over time for S0 projects. 

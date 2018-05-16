@@ -96,6 +96,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
             "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
         },
        "action":{
+            "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
             "severity":"[variables('alertActions').SeverityLevel]",
             "aznsAction":{
                 "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
