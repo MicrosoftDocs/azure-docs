@@ -24,7 +24,7 @@ You must:
 - Have at least one Azure Storage account with a storage container. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account). For information on storage container, go to [Create a storage container](storage-quickstart-blobs-portal.md#create-a-container).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems). 
-- Enable BitLocker on the Windows system. See [How to enable BitLocker](https://technet.microsoft.com/library/cc731549(v=ws.10).aspx).
+- Enable BitLocker on the Windows system. See [How to enable BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Download the WAImportExport version 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) on the Windows system. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 
 
@@ -36,7 +36,7 @@ Perform the following steps to prepare the drives.
 
 1.	Connect your disk drives to the Windows system via SATA connectors.
 1.  Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
-2.  Enable BitLocker encryption on the NTFS volume. Use the instructions on https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
+2.  Enable BitLocker encryption on the NTFS volume. If using a Windows Server system, use the instructions on [How to enable BitLocker on Windows Server 2012 R2](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 3.  Copy data to encrypted volume. Use drag and drop or Robocopy or any such copy tool.
 4.	Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
     
@@ -44,10 +44,10 @@ Perform the following steps to prepare the drives.
 5.  To get the BitLocker key of the drive, run the following command:
     
     ` manage-bde -protectors -get <DriveLetter>: `
-6.	To prepare the disk, run the following command. Depending on the data size, this may take several hours to days.
+6.	To prepare the disk, run the following command. **Depending on the data size, this may take several hours to days.** A journal file is created in the same where you ran the tool. Two other files are also created - an *.xml* file (folder where you run the tool) and a *drive-manifest.xml* file (folder where data resides).
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
     ```
     
     The parameters are described in the following table:
@@ -98,15 +98,15 @@ Perform the following steps to create an import job in the Azure portal.
 4. In **Return shipping info**:
 
     - Select the carrier from the dropdown list.
-    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. 
+    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. If you do not have an account number, create a [FedEx](http://www.fedex.com/us/oadr/) or [DHL](http://www.dhl.com/) carrier account.
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
 
     ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
 5. In the **Summary**:
 
-    - Provide the Azure datacenter shipping address to ship disks back to Azure. Ensure that the job name and the full address are mentioned on the shipping label.
-    - Click **OK** to complete import job creation.
+    - Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
+    - Click **OK** to create the import job.
 
     ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
