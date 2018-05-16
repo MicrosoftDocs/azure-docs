@@ -12,7 +12,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: jgao
 
 ---
@@ -32,7 +32,7 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
 
 1. Click the **Deploy to Azure** button below to sign in to Azure and open the Resource Manager template in the Azure portal. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive/azuredeploy.json" target="_blank"><img src="./media/hdinsight-grafana/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-grafana/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Enter or select the values as suggested in the following screenshot:
 
@@ -118,10 +118,10 @@ If you're ready to start working with your own data and need to know more about 
 
 To learn more about analyzing data with HDInsight, see the following articles:
 
-* To learn more about using Hive with HDInsight, including how to perform Hive queries from Visual Studio, see [Use Hive with HDInsight](hdinsight-use-hive.md).
-* To learn about Pig, a language used to transform data, see [Use Pig with HDInsight](hdinsight-use-pig.md).
-* To learn about MapReduce, a way to write programs that process data on Hadoop, see [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md).
-* To learn about using the HDInsight Tools for Visual Studio to analyze data on HDInsight, see [Get started using Visual Studio Hadoop tools for HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
+* To learn more about using Hive with HDInsight, including how to perform Hive queries from Visual Studio, see [Use Hive with HDInsight](../hdinsight-use-hive.md).
+* To learn about Pig, a language used to transform data, see [Use Pig with HDInsight](../hdinsight-use-pig.md).
+* To learn about MapReduce, a way to write programs that process data on Hadoop, see [Use MapReduce with HDInsight](../hdinsight-use-mapreduce.md).
+* To learn about using the HDInsight Tools for Visual Studio to analyze data on HDInsight, see [Get started using Visual Studio Hadoop tools for HDInsight](../apache-hadoop-visual-studio-tools-get-started.md).
 
 
 
