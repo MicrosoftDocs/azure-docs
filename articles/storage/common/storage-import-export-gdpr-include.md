@@ -24,4 +24,4 @@ When an Import/Export job is created, the users provide contact information and 
 Jobs can be deleted via the REST API or  via the Azure portal. To delete the job in the Azure portal, go to your Import/Export job, and click *Delete* from the command bar. For more information on Import/Export job deletion via REST API, go to [Delete an Import/Export job](storage-import-export-cancelling-and-deleting-jobs.md).
 
 
-For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter
+For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter)
