@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/23/2018
+ms.date: 05/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for out organization.
@@ -54,7 +54,7 @@ Azure Analysis Services servers can be created in the following [Azure regions](
 
 | Americas | Europe | Asia Pacific |
 |----------|--------|--------------|
-|  Brazil South<br> Canada Central<br> East US 2<br> North Central US<br> South Central US<br> West Central US<br> West US | North Europe<br> UK South<br> West Europe |   Australia Southeast<br> Japan East<br> Southeast Asia<br> West India  |
+|  Brazil South<br> Canada Central<br> East US<br> East US 2<br> North Central US<br> Central US<br> South Central US<br> West Central US<br> West US<br> West US2 | North Europe<br> UK South<br> West Europe |   Australia Southeast<br> Japan East<br> Southeast Asia<br> West India  |
 
 New regions are being added all the time, so this list might be incomplete. You choose a location when you create your server in Azure portal or by using Azure Resource Manager templates. To get the best performance, choose a location nearest your largest user base. Assure [high availability](analysis-services-bcdr.md) by deploying your models on redundant servers in multiple regions.
 

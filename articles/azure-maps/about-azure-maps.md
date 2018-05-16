@@ -16,7 +16,7 @@ ms.custom: mvc
 ---
  
 # An introduction to Azure Maps
-Azure Maps is a portfolio of geospatial services that include service APIs for Maps, Search, Routing, Traffic, and Time Zones. The portfolio of Azure OneAPI compliant services allows you to use familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. Azure Maps provides developers from all industries powerful geospatial capabilities packed with fresh mapping data imperative to providing geographic context to web and mobile applications. Azure Maps is a set of REST APIs accompanied with a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums. 
+Azure Maps is a portfolio of geospatial services that include service APIs for Maps, Search, Routing, Traffic, and Time Zones. The portfolio of services allows you to use familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. Azure Maps provides developers from all industries powerful geospatial capabilities packed with fresh mapping data imperative to providing geographic context to web and mobile applications. Azure Maps is a set of REST APIs accompanied with a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums. 
 
 The following video introduces Azure Maps:
 

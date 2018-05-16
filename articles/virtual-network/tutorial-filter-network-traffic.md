@@ -1,4 +1,4 @@
-﻿---
+---
 title: Filter network traffic - tutorial - Azure PowerShell | Microsoft Docs
 description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group, using PowerShell.
 services: virtual-network
@@ -143,6 +143,7 @@ $virtualNetwork = Get-AzureRmVirtualNetwork `
 ```
 Create a public IP address for each VM with [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
+```powershell-interactive
 $publicIpWeb = New-AzureRmPublicIpAddress `
   -AllocationMethod Dynamic `
   -ResourceGroupName myResourceGroup `
@@ -154,7 +155,7 @@ $publicIpMgmt = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   -Location eastus `
   -Name myVmMgmt
-
+```
 
 Create two network interfaces with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface), and assign a public IP address to the network interface. The following example creates a network interface, associates the *myVmWeb* public IP address to it, and makes it a member of the *myAsgWebServers* application security group:
 
