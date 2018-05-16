@@ -13,22 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/15/2018
+ms.date: 05/16/2018
 ms.author: srrengar
 
 ---
 
-# Diagnosting common scenarios with Service Fabric
+# Diagnosing common scenarios with Service Fabric
 
-This article addresses the following common scenarios: 
-
-* How do can I see unhandled exceptions in my application? 
-* How do I view which HTTP calls are used in my service?
-* How do I create an alert when a node goes down?
-* How do I see container metrics?
-* How can I be alerted of upgrade failures?
-* How can I monitor resource consumption to see if they are near thresholds?
-* How do I track performance of my service fabric services and actors?
+This article illustrates common scenarios customers have encountered in the area of monitoring and diagnostics with Service Fabric. 
 
 ## Prerequisites and Recommendations
 
@@ -72,10 +64,10 @@ The solutions in this article will use the following tools. We recommend you hav
 3. Here you have many graphs and tiles displaying various metrics. Click on one of the graphs and it will take you to the Log Search. Here you can query for any cluster events or performance counters.
 4. Enter the following query. These event IDs are found in the [Node events reference](service-fabric-diagnostics-event-generation-operational.md#application-events)
 
-```kusto
-    ServiceFabricOperationalEvent
-    | where EventId >= 25623 or EventId <= 25626
-```
+    ```kusto
+        ServiceFabricOperationalEvent
+        | where EventId >= 25623 or EventId <= 25626
+    ```
 
 5. Click "New Alert Rule" at the top and now anytime an event arrives based on this query, you will receive an alert in your chosen method of communication.
 
@@ -85,10 +77,10 @@ The solutions in this article will use the following tools. We recommend you hav
 
 1. On the same Log Search window as before enter the following query for upgrade rollbacks. These event IDs are found under [Application events reference](service-fabric-diagnostics-event-generation-operational.md#application-events)
 
-```kusto
-    ServiceFabricOperationalEvent
-    | where EventId == 29623 or EventId == 29624
-```
+    ```kusto
+        ServiceFabricOperationalEvent
+        | where EventId == 29623 or EventId == 29624
+    ```
 
 2. Click "New Alert Rule" at the top and now anytime an event arrives based on this query, you will receive an alert.
 
@@ -113,39 +105,33 @@ The solutions in this article will use the following tools. We recommend you hav
 
 3. Click on Data > Windows Performance Counters (Data > Linux Performance Counters for Linux machines) to start collecting specific counters from your nodes via the OMS Agent. Here are examples of the format for counters to add
 
-`.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
+    * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
+    * `Processor(_Total)\\% Processor Time`
+    * `Service Fabric Service(*)\\Average milliseconds per request`
 
-`Processor(_Total)\\% Processor Time`
+    In the quickstart, VotingData and VotingWeb are the process names used, so tracking these counters would look like
 
-`Service Fabric Service(*)\\Average milliseconds per request`
+    * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
+    * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-In the quickstart, VotingData and VotingWeb are the process names used, so tracking these counters would look like
-
-`.NET CLR Memory(VotingData)\\# Total committed Bytes`
-
-`.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
-
-![OMS Perf Counters](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.PNG)
+    ![OMS Perf Counters](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.PNG)
 
 4. This will allow you to see how your infrastructure is handling your workloads, and set relevant alerts based on resource utilization. For example – you may want to set an alert if the total Processor utilization goes above 90% or below 5%. The counter name you would use for this is “% Processor Time.” You could do this by creating an alert rule for the following query:
 
-```kusto
-    Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" | where CounterValue >= 90 or CounterValue <= 5.
-```
+    ```kusto
+        Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" | where CounterValue >= 90 or CounterValue <= 5.
+    ```
 
 ## How do I track performance of my Reliable Services and Actors?
 
 1. For tracking performance of Reliable Services or Actors in your applications, you should add the Service Fabric Actor, Actor Method, Service, and Service Method counters as well. You can add these counters in a similar fashion as the scenario above, here are examples of reliable service and actor performance counters to add in OMS
 
-`Service Fabric Service(*)\\Average milliseconds per request`
+    * `Service Fabric Service(*)\\Average milliseconds per request`
+    * `Service Fabric Service Method(*)\\Invocations/Sec`
+    * `Service Fabric Actor(*)\\Average milliseconds per request`
+    * `Service Fabric Actor Method(*)\\Invocations/Sec`
 
-`Service Fabric Service Method(*)\\Invocations/Sec`
-
-`Service Fabric Actor(*)\\Average milliseconds per request`
-
-`Service Fabric Actor Method(*)\\Invocations/Sec`
-
-Check these links for the full list of performance counters on Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) and [Actors](service-fabric-reliable-actors-diagnostics.md)
+    Check these links for the full list of performance counters on Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) and [Actors](service-fabric-reliable-actors-diagnostics.md)
 
 ## Next steps
 

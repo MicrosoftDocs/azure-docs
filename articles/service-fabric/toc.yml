@@ -587,10 +587,10 @@
         href: service-fabric-diagnostics-event-analysis-oms.md  
     - name: Monitor infrastructure
       items:
-      - name: Performance monitoring with WAD
-        href: service-fabric-diagnostics-perf-wad.md
       - name: Performance monitoring with the OMS Agent
         href: service-fabric-diagnostics-oms-agent.md
+      - name: Performance monitoring with WAD
+        href: service-fabric-diagnostics-perf-wad.md     
     - name: Monitor health
       items:
       - name: Report and check health
@@ -601,7 +601,7 @@
         href: service-fabric-view-entities-aggregated-health.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: Diagnosing common scenarios
+    - name: Diagnose common scenarios
       href: service-fabric-diagnostics-common-scenarios.md
 - name: Reference
   items:
