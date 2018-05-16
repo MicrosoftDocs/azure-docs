@@ -37,7 +37,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Download SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
 
-<tr><td>**API documentation**</td><td>[Node.js API reference documentation](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td>**API documentation**</td><td>[Node.js API reference documentation](https://docs.microsoft.com/en-us/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
 
 <tr><td>**SDK installation instructions**</td><td>[Installation instructions](http://azure.github.io/azure-documentdb-node/)</td></tr>
 
