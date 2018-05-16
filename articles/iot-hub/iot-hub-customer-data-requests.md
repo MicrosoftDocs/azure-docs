@@ -43,4 +43,4 @@ It is also possible to perform export operations for devices using REST APIs. Fo
 
 ## Links to additional documentation
 
-Full documentation for Azure IoT Hub Device APIs is located at[https://docs.microsoft.com/rest/api/iothub/deviceapi](https://docs.microsoft.com/rest/api/iothub/deviceapi).
+Full documentation for Azure IoT Hub Device APIs is located at [https://docs.microsoft.com/rest/api/iothub/deviceapi](https://docs.microsoft.com/rest/api/iothub/deviceapi).
