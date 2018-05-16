@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure Service Fabric cluster from a template | Microsoft Docs
 description: This article describes how to set up a secure Service Fabric cluster in Azure by using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
 services: service-fabric
@@ -9,7 +9,7 @@ editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
@@ -501,7 +501,7 @@ The cluster authentication certificate must be configured in both the Service Fa
 
 ### Add Azure AD configuration to use Azure AD for client access
 
-You add the Azure AD configuration s to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those Azure AD parameters and values in a Resource Manager template parameters file (azuredeploy.parameters.json).
+You add the Azure AD configuration to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those Azure AD parameters and values in a Resource Manager template parameters file (azuredeploy.parameters.json).
 
 ```json
 {

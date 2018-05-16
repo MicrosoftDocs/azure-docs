@@ -338,7 +338,6 @@
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
 
 ## [Troubleshoot](active-directory-troubleshooting-support-howto.md)
-### [Troubleshoot Active Directory item is missing or not available](active-directory-troubleshooting.md)
 
 ## Deploy Azure AD Proof of Concept (PoC)
 ### [PoC Playbook: Introduction](active-directory-playbook-intro.md)
