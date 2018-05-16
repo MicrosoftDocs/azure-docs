@@ -13,14 +13,24 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
-# Quickstart: Create app with intents and a simple entity
-In this quickstart, you create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
-
-This simple app has two intents and one entity. This app demonstrates how to pull data out of an utterance. In the utterance, `Send a message telling them to stop`, the intent (primary data) is to send a message and the simple entity (secondary data) is the content of the message, `telling them to stop`.  
-
-When the intent and entities of the utterance are identified, LUIS is done. The calling application or chat bot takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+# Quickstart: Create app that uses simple entity
+In this quickstart, create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
+## Purpose of the app
+This app demonstrates how to pull data out of an utterance. Consider the following utterance from a chat bot:
+
+```JSON
+Send a message telling them to stop
+```
+
+The intent is to send a message. The important data of the utterance is the message itself,  `telling them to stop`.  
+
+## Purpose of the simple entity
+The purpose of the simple entity is to teach LUIS what a message is and where it can be found in an utterance. The part of the utterance that is the message can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of messages in any utterance across all intents.  
+
+For this simple app, the message will be at the end of the utterance. 
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the region where you need the LUIS endpoints published.
