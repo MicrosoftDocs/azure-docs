@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -187,14 +187,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in ThousandEyes. ThousandEyes supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-thousandeyes-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
-**If you need to create user manually, please perform following steps:**
-
-In order to enable Azure AD users to log into ThousandEyes, they must be provisioned into ThousandEyes. In the case of ThousandEyes, provisioning is a manual task.
-
->[!NOTE]
->You can use any other ThousandEyes user account creation tools or APIs provided by ThousandEyes to provision Azure Active Directory user accounts.
-
-**To provision a user account to ThousandEyes, perform the following steps:**
+**If you need to create user manually, perform following steps:**
 
 1. Log into your ThousandEyes company site as an administrator.
 
@@ -220,8 +213,11 @@ In order to enable Azure AD users to log into ThousandEyes, they must be provisi
 
     b. Click **Add New User to Account**.
 
-    >[!NOTE]
-    >The Azure Active Directory account holder will get an email including a link to confirm and activate the account.
+    > [!NOTE]
+    > The Azure Active Directory account holder will get an email including a link to confirm and activate the account.
+
+> [!NOTE]
+> You can use any other ThousandEyes user account creation tools or APIs provided by ThousandEyes to provision Azure Active Directory user accounts.
 
 ### Assigning the Azure AD test user
 
