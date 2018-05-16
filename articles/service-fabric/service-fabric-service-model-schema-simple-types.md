@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/14/2018
+ms.date: 05/16/2018
 ms.author: ryanwi
 ---
 
@@ -22,7 +22,6 @@ ms.author: ryanwi
 
 ## FabricUri simpleType
 A URI that is used as a stable identifier of services by Microsoft Azure Service Fabric Naming system. 
-
 
 ### XML source
 ```xml

@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/14/2018
+ms.date: 05/16/2018
 ms.author: ryanwi
 ---
 
@@ -47,6 +47,7 @@ This article documents the ServiceFabricServiceModel.xsd schema file installed w
 <!--  Python script used to generate this article:
 
 
+
 try:
     from lxml import etree
     from lxml import objectify
@@ -63,7 +64,8 @@ class Element(object):
         self.TagAttributes={}
         self.TypeAttributes=[]
         self.ContentElements=[]
-        self.XmlSource=""        
+        self.XmlSource=""      
+        self.Id=""  
 
 class ComplexType(object):
     def __init__(self):
@@ -71,7 +73,7 @@ class ComplexType(object):
         self.Documentation=""
         self.TagAttributes={}
         self.TypeAttributes=[]
-        self.ContentElements=[]
+        self.ContentElements=[]        
 
 class Attribute(object):
     def __init__(self):
@@ -110,80 +112,10 @@ namedAttributeGroups=[]
 namedSimpleTypes=[]
 
 tree = etree.parse('C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd')
+#tree = etree.parse('C:\\Users\\ryanwi\\Desktop\\TestSchema.xsd')
 root = tree.getroot()
 
 NSMAP = {'xs': 'http://www.w3.org/2001/XMLSchema'}
-
-#
-# Build list of named simple types
-simpleTypes = tree.xpath("//xs:simpleType", namespaces=NSMAP)
-
-for simpleType in filter(lambda x: x.attrib.get('name','') != '', simpleTypes):
-    st = SimpleType()
-    st.Name = simpleType.attrib.get('name','')
-
-    # Get simple type documentation
-    doc = simpleType.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
-    if len(doc):
-        st.Documentation = doc[0].text
-
-    # Get element XML source
-    st.XmlSource = etree.tostring(simpleType, encoding='unicode')
-
-    namedSimpleTypes.append(st)
-
-#
-# Build list of named element groups
-elemGroups = tree.xpath("//xs:group", namespaces=NSMAP)
-
-for elemGroup in filter(lambda x: x.attrib.get('name','') != '', elemGroups): 
-    eg = ElementsGroup()
-    eg.Name = elemGroup.attrib.get('name','')    
-
-    # Get element documentation
-    doc = elemGroup.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
-    if len(doc):
-        eg.Documentation = doc[0].text
-
-    # Get element XML source
-    eg.XmlSource = etree.tostring(elemGroup, encoding='unicode')
-
-    namedElementGroups.append(eg)
-
-# 
-# Build list of named attributeGroups
-
-attrGroups = tree.xpath("//xs:attributeGroup", namespaces=NSMAP)
-
-for attrGroup in filter(lambda x: x.attrib.get('name','') != '', attrGroups):
-    
-    ag = AttributeGroup()
-    ag.Name = attrGroup.attrib.get('name','')    
-
-    # Get element documentation
-    doc = attrGroup.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
-    if len(doc):
-        ag.Documentation = doc[0].text
-
-    # Get element XML source
-    ag.XmlSource = etree.tostring(attrGroup, encoding='unicode')
-
-    # Get element attributes
-    ag.TagAttributes = dict(attrGroup.attrib)
-
-    # get group attributes
-    attrs = attrGroup.xpath("xs:attribute", namespaces=NSMAP)
-    for attr in attrs:
-        a = Attribute()
-        a.Name = attr.attrib.get('name')
-        a.Attributes = dict(attr.attrib)
-        a.XmlSource = etree.tostring(attr, encoding='unicode')
-        attrdoc = attr.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
-        if len(attrdoc):
-            a.Documentation = attrdoc[0].text
-        ag.GroupAttributes.append(a)
-
-    namedAttributeGroups.append(ag)
 
 # 
 # Build list of named complexTypes
@@ -196,6 +128,7 @@ for type in filter(lambda x: x.attrib.get('name','') != '', types):
     t.Name = type.attrib.get('name','')    
 
     # Get element documentation
+    doc=None
     doc = type.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
     if len(doc):
         t.Documentation = doc[0].text
@@ -213,6 +146,7 @@ for type in filter(lambda x: x.attrib.get('name','') != '', types):
         a.Name = attr.attrib.get('name')
         a.Attributes = dict(attr.attrib)
         a.XmlSource = etree.tostring(attr, encoding='unicode',pretty_print=True)
+        attrdoc=None
         attrdoc = attr.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
         if len(attrdoc):
             a.Documentation = attrdoc[0].text
@@ -233,6 +167,7 @@ for type in filter(lambda x: x.attrib.get('name','') != '', types):
         c.Name = contentEl.attrib.get('name')       
     
         # Get element documentation
+        doc=None
         doc = contentEl.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
         if len(doc):
             c.Documentation = doc[0].text
@@ -259,6 +194,7 @@ for elem in filter(lambda x: x.attrib.get('name','') != '', elements):
     el.Name = elem.attrib.get('name','')
         
     # Get element documentation
+    doc=None
     doc = elem.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
     if len(doc):
         el.Documentation = doc[0].text
@@ -280,6 +216,7 @@ for elem in filter(lambda x: x.attrib.get('name','') != '', elements):
             a.Name = attr.attrib.get('name')
             a.Attributes = dict(attr.attrib)
             a.XmlSource = etree.tostring(attr, encoding='unicode',pretty_print=True)
+            attrdoc=None
             attrdoc = attr.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
             if len(attrdoc):
                 a.Documentation = attrdoc[0].text
@@ -300,6 +237,7 @@ for elem in filter(lambda x: x.attrib.get('name','') != '', elements):
             c.Name = contentEl.attrib.get('name')       
     
             # Get element documentation
+            doc=None
             doc = contentEl.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
             if len(doc):
                 c.Documentation = doc[0].text
@@ -318,6 +256,85 @@ for elem in filter(lambda x: x.attrib.get('name','') != '', elements):
 
     # Add to list
     namedElements.append(el)
+
+#
+# Build list of named simple types
+simpleTypes = tree.xpath("//xs:simpleType", namespaces=NSMAP)
+
+for simpleType in filter(lambda x: x.attrib.get('name','') != '', simpleTypes):
+    st = SimpleType()
+    st.Name = simpleType.attrib.get('name','')
+
+    # Get simple type documentation
+    doc=None
+    doc = simpleType.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
+    if len(doc):
+        st.Documentation = doc[0].text
+
+    # Get element XML source
+    st.XmlSource = etree.tostring(simpleType, encoding='unicode')
+
+    namedSimpleTypes.append(st)
+
+#
+# Build list of named element groups
+elemGroups = tree.xpath("//xs:group", namespaces=NSMAP)
+
+for elemGroup in filter(lambda x: x.attrib.get('name','') != '', elemGroups): 
+    eg = ElementsGroup()
+    eg.Name = elemGroup.attrib.get('name','')    
+
+    # Get element documentation
+    doc=None
+    doc = elemGroup.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
+    if len(doc):
+        eg.Documentation = doc[0].text
+
+    # Get element XML source
+    eg.XmlSource = etree.tostring(elemGroup, encoding='unicode')
+
+    namedElementGroups.append(eg)
+
+# 
+# Build list of named attributeGroups
+
+attrGroups = tree.xpath("//xs:attributeGroup", namespaces=NSMAP)
+
+for attrGroup in filter(lambda x: x.attrib.get('name','') != '', attrGroups):
+    
+    ag = AttributeGroup()
+    ag.Name = attrGroup.attrib.get('name','')    
+
+    # Get element documentation
+    doc=None
+    doc = attrGroup.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
+    if len(doc):
+        ag.Documentation = doc[0].text
+
+    # Get element XML source
+    ag.XmlSource = etree.tostring(attrGroup, encoding='unicode')
+
+    # Get element attributes
+    ag.TagAttributes = dict(attrGroup.attrib)
+
+    # get group attributes
+    attrs = attrGroup.xpath("xs:attribute", namespaces=NSMAP)
+    for attr in attrs:
+        a = Attribute()
+        a.Name = attr.attrib.get('name')
+        a.Attributes = dict(attr.attrib)
+        a.XmlSource = etree.tostring(attr, encoding='unicode')
+        attrdoc=None
+        attrdoc = attr.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
+        if len(attrdoc):
+            a.Documentation = attrdoc[0].text
+        ag.GroupAttributes.append(a)
+
+    namedAttributeGroups.append(ag)
+
+
+
+
 
 # 
 # Open overview output file
@@ -343,7 +360,7 @@ file.write('ms.date: %s\n' % datetime.datetime.today().strftime('%m/%d/%Y'))
 file.write('ms.author: ryanwi\n')
 
 file.write('---\n\n')
-file.write('<!-- This article was generated by the Python script found in the end of this file -->\n\n')
+file.write('<!-- This article was generated by the Python script found in the end of this file - ->\n\n')
 file.write('# Service model XML schema documentation\n')
 file.write('This article documents the ServiceFabricServiceModel.xsd schema file installed with the Service Fabric SDK.  By default, the schema file is ')
 file.write('installed to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.\n\n')
@@ -385,11 +402,50 @@ file2 = open('CreateServiceModelSchema.py','r')
 lines = file2.readlines()
 for line in lines:
     file.write(line)
-file.write('\n\n-->')      
+file.write('\n\n- ->')      
 # 
 # close overview file
 file.close()
 
+# 
+# Open element groups output file
+file = open('service-fabric-service-model-schema-element-groups.md','w') 
+
+# Write header info
+file.write('---\n')
+file.write('title: Azure Service Fabric service model XML schema element groups | Microsoft Docs\n')
+file.write('description: Describes the element groups in the XML schema of the Service Fabric service model.\n')
+file.write('services: service-fabric\n')
+file.write('documentationcenter: na\n')
+file.write('author: rwike77\n')
+file.write('manager: timlt\n')
+file.write('editor: ''\n')
+
+file.write('ms.assetid: \n')
+file.write('ms.service: service-fabric\n')
+file.write('ms.devlang: xml\n')
+file.write('ms.topic: reference\n')
+file.write('ms.tgt_pltfrm: na\n')
+file.write('ms.workload: multiple\n')
+file.write('ms.date: %s\n' % datetime.datetime.today().strftime('%m/%d/%Y'))
+file.write('ms.author: ryanwi\n')
+
+file.write('---\n\n')
+file.write('<!-- This article was generated by the Python script found in the service-fabric-service-model-schema.md file - ->\n\n')
+file.write('# Service model XML schema elements\n')
+file.write('\n')
+# 
+# Write Element groups
+print('Writing elements groups...')
+orderedElementGroups = sorted(namedElementGroups,key=lambda x: x.Name)
+for e in orderedElementGroups:    
+     
+    file.write('## %s group\n' % e.Name)
+    if e.Documentation:
+        file.write('%s\n\n' % e.Documentation) 
+# 
+# close element groups file
+file.close()
 
 # 
 # Open elements output file
@@ -415,7 +471,7 @@ file.write('ms.date: %s\n' % datetime.datetime.today().strftime('%m/%d/%Y'))
 file.write('ms.author: ryanwi\n')
 
 file.write('---\n\n')
-file.write('<!-- This article was generated by the Python script found in the service-fabric-service-model-schema.md file -->\n\n')
+file.write('<!-- This article was generated by the Python script found in the service-fabric-service-model-schema.md file - ->\n\n')
 file.write('# Service model XML schema elements\n')
 file.write('\n')
 # 
@@ -430,7 +486,7 @@ for e in orderedElements:
     file.write('|Attribute|Value|\n')
     file.write('|---|---|\n')
     if e.TagAttributes.get('type','') != '':
-        file.write('|type|[%s](#%s-type)|\n' % (e.TagAttributes.get('type',''), e.TagAttributes.get('type','').lower()))
+        file.write('|type|[%s](service-fabric-service-model-schema-complex-types.md#%s-complexType)|\n' % (e.TagAttributes.get('type',''), e.TagAttributes.get('type','').lower()))
     else:
         file.write('|type|anonymous complexType|\n')    
     
@@ -513,7 +569,7 @@ file.write('ms.date: %s\n' % datetime.datetime.today().strftime('%m/%d/%Y'))
 file.write('ms.author: ryanwi\n')
 
 file.write('---\n\n')
-file.write('<!-- This article was generated by the Python script found in the service-fabric-service-model-schema.md file -->\n\n')
+file.write('<!-- This article was generated by the Python script found in the service-fabric-service-model-schema.md file - ->\n\n')
 file.write('# Service model XML schema complex types \n')
 file.write('\n')
 # 
@@ -529,8 +585,9 @@ for t in orderedComplexTypes:
     file.write('|---|---|\n')
     if t.TagAttributes.get('type','') != '':
         file.write('|type|[%s](#%s-type)|\n' % (t.TagAttributes.get('type',''), t.TagAttributes.get('type','').lower()))
-    else:
-        file.write('|type|anonymous complexType|\n')    
+    
+    #else:
+    #    file.write('|type|complexType|\n')    
     
     file.write('|content|%d element(s), %d attribute(s)|\n' % ( len(t.ContentElements), len(t.TypeAttributes) ) )
     for key,value in t.TagAttributes.items():    
@@ -609,7 +666,7 @@ file.write('ms.date: %s\n' % datetime.datetime.today().strftime('%m/%d/%Y'))
 file.write('ms.author: ryanwi\n')
 
 file.write('---\n\n')
-file.write('<!-- This article was generated by the Python script found in the service-fabric-service-model-schema.md file -->\n\n')
+file.write('<!-- This article was generated by the Python script found in the service-fabric-service-model-schema.md file - ->\n\n')
 file.write('# Service model XML schema attribute groups\n')
 file.write('\n')
 # 
@@ -680,7 +737,7 @@ file.write('ms.date: %s\n' % datetime.datetime.today().strftime('%m/%d/%Y'))
 file.write('ms.author: ryanwi\n')
 
 file.write('---\n\n')
-file.write('<!-- This article was generated by the Python script found in the service-fabric-service-model-schema.md file -->\n\n')
+file.write('<!-- This article was generated by the Python script found in the service-fabric-service-model-schema.md file - ->\n\n')
 file.write('# Service model XML schema simple types\n')
 file.write('\n')
 
@@ -694,7 +751,6 @@ for t in orderedSimpleTypes:
     if t.Documentation:
         file.write('%s\n\n' % t.Documentation)
 
-    file.write('\n')         
     file.write('### XML source\n')
     file.write('```xml\n')
     file.write('%s\n' % t.XmlSource)
