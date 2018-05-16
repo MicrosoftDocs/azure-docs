@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -104,12 +104,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![GitHub Domain and URLs single sign-on information](./media/active-directory-saas-github-tutorial/tutorial_github_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://github.com/orgs/<entity-id>/sso`
+    a. In the **Sign on URL** textbox, type a URL using the following pattern: `https://github.com/orgs/<entity-id>/sso`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://github.com/orgs/<entity-id>`
+	b. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern: `https://github.com/orgs/<entity-id>`
 
 	> [!NOTE]
-	> Please note that these are not the real values. You have to update these values with the actual Sing-on URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Go to GitHub Admin section to retrieve these values.
+	> Please note that these are not the real values. You have to update these values with the actual Sign on URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Go to GitHub Admin section to retrieve these values.
 
 4. On the **User Attributes** section, select **User Identifier** as user.mail.
 
