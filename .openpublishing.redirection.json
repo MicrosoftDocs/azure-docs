@@ -851,6 +851,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-docker-host.md",
+            "redirect_url": "https://docs.docker.com/docker-for-azure/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/windows/accelerated-maintenance.md",
             "redirect_url": "/azure/virtual-machines/windows/mitigate-se",
             "redirect_document_id": false
@@ -1962,7 +1967,7 @@
         },
         {
             "source_path": "articles/app-service/app-service-web-tutorial-content-delivery-network.md",
-            "redirect_url": "/azure/cdn/app-service-web-tutorial-content-delivery-network",
+            "redirect_url": "/azure/cdn/cdn-add-to-web-app",
             "redirect_document_id": false
         },
         {
@@ -3988,6 +3993,11 @@
         {
             "source_path": "articles/cache/index.md",
             "redirect_url": "https://docs.microsoft.com/azure/redis-cache/cache-faq#managed-cache-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cdn/cdn-cloud-service-with-cdn.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn",
             "redirect_document_id": false
         },
         {
@@ -15886,6 +15896,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-troubleshooting.md",
+            "redirect_url": "/azure/active-directory/get-started-azure-ad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/batch/batch-cli-samples.md",
             "redirect_url": "/azure/batch/batch-cli-get-started",
             "redirect_document_id": false
@@ -21131,6 +21146,8 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/dev-spaces/index.md",
+            "redirect_url": "/azure/dev-spaces/azure-dev-spaces",
             "source_path": "articles/active-directory/active-directory-application-proxy-enable.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-enable",
             "redirect_document_id": false
@@ -21233,6 +21250,11 @@
         {
             "source_path": "articles/active-directory/application-proxy-enable-remote-access-sharepoint.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-enterprise-app-role-management.md",
+            "redirect_url": "/azure/active-directory/active-directory-enterprise-app-role-management",
             "redirect_document_id": false
         }
 

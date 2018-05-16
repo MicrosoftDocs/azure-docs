@@ -32,7 +32,6 @@ To run this application, follow these steps:
 1. Create a new Python project in your favorite IDE or editor.
 2. Create a file named visualsearch.py and add the code shown in this quickstart.
 3. Replace the `SUBSCRIPTION_KEY` value with your subscription key.
-3. Replace the `INSIGHTS_TOKEN` value with an insights token from an /images/search response.
 4. Run the program.
 
 
@@ -40,38 +39,30 @@ To run this application, follow these steps:
 """Bing Visual Search example"""
 
 # Download and install Python at https://www.python.org/
-# Run 'pip3 install requests' in a command console window
-# Run 'python visualsearch.py` in the console window
+# Run the following in a command console window
+# pip3 install requests
 
 import requests, json
 
-
 BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
 
-INSIGHTS_TOKEN = "<YOUR-INSIGHTS-TOKEN-GOES-HERE>"
+SUBSCRIPTION_KEY = '<yoursubscriptionkeygoeshere>'
 
-SUBSCRIPTION_KEY = '<YOUR-SUBSCRIPTION-KEY-GOES-HERE>'
+HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
 
-BOUNDARY = 'boundary_ABC123DEF456'
-START_BOUNDARY = '--' + BOUNDARY
-END_BOUNDARY = '--' + BOUNDARY + '--'
+# To get an insights, call the /images/search endpoint. Get the token from
+# the imageInsightsToken field in the Image object.
+insightsToken = 'ccid_tmaGQ2eU*mid_D12339146CFEDF3D409CC7A66D2C98D0D71904D4*simid_608022145667564759*thid_OIP.tmaGQ2eUI1yq3yll!_jn9kwHaFZ'
 
-HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY,
-'Content-Type' : 'multipart/form-data; boundary=' + BOUNDARY}
+formData = '{"imageInfo":{"imageInsightsToken":"' + insightsToken + '"}}'
 
-CRLF = '\r\n'
-POST_BODY_HEADER = "Content-Disposition: form-data; name=\"knowledgeRequest\"" + CRLF + CRLF
 
-requestBody = START_BOUNDARY + CRLF;
-requestBody += POST_BODY_HEADER;
-requestBody += "{\"imageInfo\":{\"imageInsightsToken\":\"" + INSIGHTS_TOKEN + "\"}}" + CRLF + CRLF;
-requestBody += END_BOUNDARY + CRLF;
-
+file = {'knowledgeRequest' : (None, formData)}
 
 def main():
     
     try:
-        response = requests.post(BASE_URI, headers=HEADERS, data=requestBody)
+        response = requests.post(BASE_URI, headers=HEADERS, files=file)
         response.raise_for_status()
         print_json(response.json())
 
@@ -92,11 +83,8 @@ if __name__ == '__main__':
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)
-
-## See also 
-
+[Get insights about an image you upload](../upload-image.md#using-python)  
+[Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)  
 [Bing Visual Search overview](../overview.md)  
 [Try it](https://aka.ms/bingvisualsearchtryforfree)  
 [Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
