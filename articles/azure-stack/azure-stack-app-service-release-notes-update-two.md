@@ -48,6 +48,8 @@ Azure App Service on Azure Stack Update 2 includes the following improvements an
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
 
+- Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
+
 - **Updates to the following application frameworks and tools**:
   - Added .Net Framework 4.7.1
   - Added **Node.JS** versions:
@@ -57,18 +59,22 @@ Azure App Service on Azure Stack Update 2 includes the following improvements an
     - NodeJS 8.11.1
   - Added **NPM** versions:
     - 5.6.0
+  - Updated .Net Core components to be consistent with Azure App Service in public cloud.
+  - Updated Kudu
 
-- Auto Swap of deployment slots feature enabled
+- Auto Swap of deployment slots feature enabled - [Configuring Auto Swap](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
 
-- Testing in Production feature enabled
+- Testing in Production feature enabled - [Introduction to Testing in Production](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
-- Azure Functions Proxies enabled
+- Azure Functions Proxies enabled - [Work with Azure Functions Proxies](https://docs.microsoft.com/en-us/azure/azure-functions/functions-proxies)
 
 - App Service Admin extension UX support added for:
   - Secret rotation
   - Certificate rotation
   - System credential rotation
   - Connection string rotation
+
+
 
 #### Fixes
 
