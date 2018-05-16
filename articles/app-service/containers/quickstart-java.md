@@ -87,7 +87,7 @@ When the web app has been created, the Azure CLI shows information similar to th
 }
 ```
 
-Copy the value for **ftpPublishingUrl**. You will use this later, if you choose FTP deployment.
+Copy the value for **ftpPublishingUrl**. You will use this url later, if you choose FTP deployment.
 
 Browse to the newly created web app.
 
@@ -111,7 +111,7 @@ Change to the new *helloworld* project directory and build all modules using the
 
     mvn verify
 
-This will create all modules including the *helloworld.war* file in the *helloworld/target* subdirectory.
+This command will create all modules including the *helloworld.war* file in the *helloworld/target* subdirectory.
 
 
 ## Deploying the Java app to App Service on Linux
@@ -184,7 +184,7 @@ To deploy your WAR file with WarDeploy, use the following cURL example commandli
 curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
 ```
 
-Update the following:
+Update the following placeholders:
 
 * `username` - Use the deployment credential username you created earlier.
 * `war_file_path` - Use the local WAR file path.
@@ -217,12 +217,12 @@ FTP the file to the */home/site/wwwroot/webapps* directory of your web app. The 
 curl -T war_file_path -u "app_name\username" ftp://webappFTPURL/site/wwwroot/webapps/
 ```
 
-Update the following:
+Update the following placeholders:
 
 * `war_file_path` - Use the local WAR file path.
 * `app_name` - Use the app name your created earlier.
 * `username` - Use the deployment credential username you created earlier.
-* `webappFTPURL` - Use the **FTP hostname** value for your web app which you copied earlier. The FTP hostname is also listed on **Overview** blade for your web app in the [Azure portal](https://portal.azure.com/).
+* `webappFTPURL` - Use the **FTP hostname** value for your web app, which you copied earlier. The FTP hostname is also listed on **Overview** blade for your web app in the [Azure portal](https://portal.azure.com/).
 
 Execute the command. When prompted by cURL, type in the password for your deployment credentials.
 
@@ -247,7 +247,7 @@ The Java sample code is running in a web app with built-in image.
 
 ## Next steps
 
-In this quickstart, you used Maven to create a Java web app, then deployed the Java web app to App Service on Linux. To learn more about using Java with Azure, follow the link below.
+In this quickstart, you used Maven to create a Java web app, then you deployed the Java web app to App Service on Linux. To learn more about using Java with Azure, follow the link below.
 
 > [!div class="nextstepaction"]
 > [Azure for Java Developers](https://docs.microsoft.com/java/azure/)
