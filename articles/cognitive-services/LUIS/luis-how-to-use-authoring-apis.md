@@ -101,11 +101,66 @@ If intents are still not getting a high prediction score, consider added pattern
 ## Querying at the endpoint
 Once the model is published, it is available from an HTTPS URL. You can send an utterance to the endpoint URL and receive a prediction. The endpoint URL is shown at the bottom of the Publish page in the LUIS website. The API documentation also has a test console on each page for each region. 
 
+The following JSON object is a LUIS response: 
+
+```JSON
+{
+  "query": "who does John smith report to",
+  "topScoringIntent": {
+    "intent": "GetEmployeeOrgChart",
+    "score": 0.404669672
+  },
+  "intents": [
+    {
+      "intent": "GetEmployeeOrgChart",
+      "score": 0.404669672
+    },
+    {
+      "intent": "MoveAssetsOrPeople",
+      "score": 0.0576326065
+    },
+    {
+      "intent": "GetEmployeeBenefits",
+      "score": 0.05718075
+    },
+    {
+      "intent": "None",
+      "score": 0.0212533325
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.008972893
+    }
+  ],
+  "entities": [
+    {
+      "entity": "john smith",
+      "type": "Employee",
+      "startIndex": 9,
+      "endIndex": 18,
+      "score": 0.7615982
+    }
+  ]
+}
+```
+
 ## Using the APIs
 The APIs are divided between the authoring APIs and the endpoint APIs. 
 
 The authoring APIs do not have a limit for usage but you must use the correct key, found on your User page in the LUIS website. 
 
+The authoring API URL looks like: 
+
+```JSON
+https://<region>.api.cognitive.microsoft.com/luis/api/v2.0/apps/<appId>/versions/<versionId>/
+```
+
 The endpoint APIs have a limit for usage. While you are beginning with LUIS, use your authoring key for endpoint queries, up to 1000 queries. After that, you will either get a 403 - out of quota for the month or you can create a subscription key and associate it with your LUIS app on the Publish page of the LUIS website. 
 
-Both sets of APIs call the key the same thing, **Ocp-Apim-Subscription-Key**. It is important to understand that the value of the key needs to change based on whether you are accessing the authoring or endpoint API. 
+The endpoint API URL looks like: 
+
+```JSON
+https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<authoringKey>&verbose=true&timezoneOffset=0&q=
+```
+
+The URLs like the same but the authoring API has an additional route of **api** after "/luis/". Both sets of APIs call the key the same thing, **Ocp-Apim-Subscription-Key**. It is important to understand that the value of the key needs to change based on whether you are accessing the authoring or endpoint API. 
