@@ -57,3 +57,12 @@ The [Serial console](serial-console.md) provides direct access to a VM, similar 
 * Can be run using a text-based console to the machine in the Azure portal.
 * Login to the machine with a local user account.
 * Useful when access to the virtual machine is needed regardless of the machine's network or operating system state.
+
+## Next steps
+
+Learn more about the different features that are available to run scripts and commands within your VMs.
+
+* [Custom Script Extension](extensions-customscript.md)
+* [Run Command](run-command.md)
+* [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
+* [Serial console](serial-console.md)

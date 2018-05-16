@@ -30,7 +30,7 @@ The [Run Command](run-command.md) feature enables virtual machine and applicatio
 * Run scripts in Azure virtual machines.
 * Can be run using [Azure portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), or [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)
 * Quickly run a script and view output and repeat as needed in the Azure portal.
-* Scripts can be provided directly (no file reference), or you can run one of the built-in scripts.
+* Script can be typed directly or you can run one of the built-in scripts.
 * Run PowerShell script in Windows machines and Bash script in Linux machines.
 * Useful for virtual machine and application management and for running scripts in virtual machines that are not network connected.
 
@@ -38,10 +38,10 @@ The [Run Command](run-command.md) feature enables virtual machine and applicatio
 
 The [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) provides general machine, application, and environment management with user's custom scripts stored in an Automation account.
 
-* Run scripts in Azure and non-Azure virtual machines.
+* Run scripts in Azure and non-Azure machines.
 * Can be run using Azure portal, Azure CLI, REST API, PowerShell, webhook.
 * Scripts stored and managed in an Automation Account.
-* Run PowerShell, PowerShell workflow, Python, or Graphical runbooks
+* Run PowerShell, PowerShell Workflow, Python, or Graphical runbooks
 * No time limit on script run time.
 * Multiple scripts can run concurrently.
 * Full script output is returned and stored.
@@ -57,3 +57,12 @@ The [Serial console](serial-console.md) provides direct access to a VM, similar 
 * Can be run using a text-based console to the machine in the Azure portal.
 * Login to the machine with a local user account.
 * Useful when access to the virtual machine is needed regardless of the machine's network or operating system state.
+
+## Next steps
+
+Learn more about the different features that are available to run scripts and commands within your VMs.
+
+* [Custom Script Extension](extensions-customscript.md)
+* [Run Command](run-command.md)
+* [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
+* [Serial console](serial-console.md)
