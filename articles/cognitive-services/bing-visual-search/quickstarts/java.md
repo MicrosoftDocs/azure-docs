@@ -33,21 +33,15 @@ To run this application, follow these steps:
 2. Create a new Java project in your favorite IDE or editor.
 3. Add the provided code in a file named `VisualSearch.java`.
 4. Replace the `subscriptionKey` value with your subscription key.
-4. Replace the `insightsToken` value with an insights token from an /images/search response.
 5. Run the program.
 
 ```java
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package visualsearch;
+package insightstoken;
 
-import java.net.*;
 import java.util.*;
 import java.io.*;
-import javax.net.ssl.HttpsURLConnection;
+
+
 
 /*
  * Gson: https://github.com/google/gson
@@ -57,112 +51,74 @@ import javax.net.ssl.HttpsURLConnection;
  *     version: 2.8.2
  *
  * Once you have compiled or downloaded gson-2.8.2.jar, assuming you have placed it in the
- * same folder as this file (VisualSearch.java), you can compile and run this program at
+ * same folder as this file (BingImageSearch.java), you can compile and run this program at
  * the command line as follows.
  *
- * javac VisualSearch.java -classpath .;gson-2.8.2.jar -encoding UTF-8
- * java -cp .;gson-2.8.2.jar VisualSearch
+ * javac BingImageSearch.java -classpath .;gson-2.8.2.jar -encoding UTF-8
+ * java -cp .;gson-2.8.2.jar BingImageSearch
  */
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import java.nio.charset.StandardCharsets;
 
-/**
- *
- * @author microsoft
- */
-public class VisualSearch {
+// http://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
 
-    // Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY-GOES-HERE>";
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 
-    // Verify the endpoint URI. At this writing, only one endpoint is used for Bing
-    // search APIs. In the future, regional endpoints may be available.  If you
-    // encounter unexpected authorization errors, double-check this value against
-    // the endpoint for your Bing Web search instance in your Azure dashboard.
+
+public class InsightsToken {
+
+    
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
+    static String subscriptionKey = "<yoursubscriptionkeygoeshere>";
 
-    static String insightsToken = "<YOUR-INSIGHTS-TOKEN-GOES-HERE>";
+    // To get an insights, call the /images/search endpoint. Get the token from
+    // the imageInsightsToken field in the Image object.
+    static String insightsToken = "ccid_tmaGQ2eU*mid_D12339146CFEDF3D409CC7A66D2C98D0D71904D4*simid_608022145667564759*thid_OIP.tmaGQ2eUI1yq3yll!_jn9kwHaFZ";
 
-    static String boundary = "boundary_ABC123DEF456";
-
-    
-    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
+        
+        String knowledgeRequest = "{\"imageInfo\" : {\"imageInsightsToken\" : \"" + insightsToken + "\"}}";
+
         try {
-            System.out.println("Getting image insights for token: " + insightsToken);
+            HttpEntity entity = MultipartEntityBuilder
+                .create()
+                .addTextBody("knowledgeRequest", knowledgeRequest, ContentType.create("application/json"))
+                .build();
 
-            String body = BuildBody(insightsToken, boundary);
-            SearchResults result = GetInsights(body, boundary);
+            HttpPost httpPost = new HttpPost(endpoint);
+            httpPost.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+            httpPost.setEntity(entity);
+            HttpResponse response = httpClient.execute(httpPost);
 
-            System.out.println("\nRelevant HTTP Headers:\n");
-            for (String header : result.relevantHeaders.keySet())
-                System.out.println(header + ": " + result.relevantHeaders.get(header));
+            InputStream stream = response.getEntity().getContent();
+            String json = new Scanner(stream).useDelimiter("\\A").next();
 
             System.out.println("\nJSON Response:\n");
-            System.out.println(prettify(result.jsonResponse));
+            System.out.println(prettify(json));
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace(System.out);
+            System.exit(1);
         }
         catch (Exception e) {
             e.printStackTrace(System.out);
             System.exit(1);
         }
     }
-
-    
-    public static String BuildBody(String token, String boundary) throws Exception {
-        final String startBoundary = "--" + boundary;
-        final String endBoundary = "--" + boundary + "--";
-        final String CRLF = "\r\n";
-        final String postBodyHeader = "Content-Disposition: form-data; name=\"knowledgeRequest\"" + CRLF + CRLF;
-
-        String requestBody = startBoundary + CRLF;
-        requestBody += postBodyHeader;
-        requestBody += "{\"imageInfo\":{\"imageInsightsToken\":\"" + token + "\"}}" + CRLF + CRLF;
-        requestBody += endBoundary + CRLF;
-        
-        return requestBody;
-    }
-
-    public static SearchResults GetInsights(String body, String boundary) throws Exception {
-        // construct URL of search request (endpoint + query string)
-        URL url = new URL(endpoint);
-        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
-        connection.setRequestMethod("POST");
-        connection.setDoOutput(true);
-
-        OutputStream os = connection.getOutputStream();
-        os.write(body.getBytes(StandardCharsets.UTF_8));
-        
-        
-        // receive JSON body
-        InputStream stream = connection.getInputStream();
-        String response = new Scanner(stream).useDelimiter("\\A").next();
-
-        // construct result object for return
-        SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-
-        // extract Bing-related HTTP headers
-        Map<String, List<String>> headers = connection.getHeaderFields();
-        for (String header : headers.keySet()) {
-            if (header == null) continue;      // may have null key
-            if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
-                results.relevantHeaders.put(header, headers.get(header).get(0));
-            }
-        }
-
-        stream.close();
-        return results;
-    }
-
     
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
@@ -171,28 +127,15 @@ public class VisualSearch {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }
+
     
-}
-
-
-// Container class for search results encapsulates relevant headers and JSON data
-class SearchResults{
-    HashMap<String, String> relevantHeaders;
-    String jsonResponse;
-    SearchResults(HashMap<String, String> headers, String json) {
-        relevantHeaders = headers;
-        jsonResponse = json;
-    }
 }
 ```
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)
-
-## See also 
-
+[Get insights about an image you upload](../upload-image.md#using-java)  
+[Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)  
 [Bing Visual Search overview](../overview.md)  
 [Try it](https://aka.ms/bingvisualsearchtryforfree)  
 [Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
