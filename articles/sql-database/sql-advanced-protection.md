@@ -31,7 +31,7 @@ ATP pricing aligns with Azure Security Center standard tier at $15/node/month, w
 ## Getting Started with ATP  
 The following steps get you started with ATP.  
 
-### Enable ATP
+## 1. Enable ATP
 
 Enable ATP by navigating to **Advanced Threat Protection** under the **Security** heading in your Azure SQL Database pane. To enable ATP for all databases on the server, click **Enable Advanced Threat Protection on the server**.
 
@@ -40,7 +40,7 @@ Enable ATP by navigating to **Advanced Threat Protection** under the **Security*
 > [!NOTE]
 > The cost of ATP is $15/node/month, where a node is the entire SQL logical server. You are thus paying only once for protecting all databases on the server with ATP. The first 60 days are considered a free trial.
 
-### Configure Vulnerability Assessment
+## 2. Configure Vulnerability Assessment
 
 To start using Vulnerability Assessment, you need to configure a storage account where scan results are saved. To do so, click on the Vulnerability Assessment card.
 
@@ -50,17 +50,17 @@ Select or create a storage account for saving scan results. You can also turn on
 
 ![VA settings](./media/sql-advanced-protection/va_settings.png)  
 
-### Start classifying data, tracking vulnerabilities and investigating threat alerts
+## 3. Start classifying data, tracking vulnerabilities and investigating threat alerts
 
 Click the **Data Discovery and Classification** card to see recommended sensitive columns to classify and to classify your data with persistent sensitivity labels. Click the Vulnerability Assessment card to view and manage vulnerability scans and reports, and to track your security stature. If security alerts have been received, click the **Threat Detection** card to view details of the alerts and to see a consolidated report on all alerts in your Azure subscription via the Azure Security Center security alerts page.
 
-### Manage ATP settings on your SQL server
+## 4. Manage ATP settings on your SQL server
 
 To view and manage Advanced Threat Protection settings, navigate to **Advanced Threat Protection** under the **Security** heading in your SQL server pane. On this page, you can enable or disable ATP, and modify Threat Detection settings for your entire SQL server.
 
 ![Server settings](./media/sql-advanced-protection/server_settings.png)  
 
-### Manage ATP settings for a SQL database
+## 5. Manage ATP settings for a SQL database
 
 To override ATP Threat Detection settings for a particular database, check the **Enable Advanced Threat Protection at the database level** checkbox. Use this option only if you have a particular requirement to receive separate threat detection alerts for the individual database, in place of or in addition to the alerts received for all databases on the server. 
 
