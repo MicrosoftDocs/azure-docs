@@ -11,10 +11,10 @@ ms.assetid: 015d276e-f678-4f2b-9572-75553c56625b
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 05/01/2018
 ms.author: larryfr
 ---
 # Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight

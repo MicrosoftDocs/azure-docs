@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -24,8 +24,8 @@ Windows. In this tutorial, you learn how to:
 
 This tutorial is the third in a series. This tutorial assumes that you finished the tasks in the previous tutorials:
 
-* [Prepare Azure](tutorial-prepare-azure.md)
-* [Prepare on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md)
+* [Prepare Azure](tutorial-prepare-azure.md). This tutorial describes how to set up an Azure storage account and network, make sure your Azure account has the right permissions, and create a Recovery Services vault.
+* [Prepare on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md). In this tutorial you prepare accounts so that Site Recovery can access VMware servers to discover VMs, and to optionally do a push installation of the Site Recovery Mobility service component when you enable replication for a VM. You also make sure that your VMware servers and VMs comply with Site Recovery requirements.
 
 Before you start, it's helpful to [review the architecture](vmware-azure-architecture.md)
 for disaster recovery scenarios.
@@ -33,7 +33,7 @@ for disaster recovery scenarios.
 
 ## Select a replication goal
 
-1. In **Recovery Services vaults**, select the vault name, **ContosoVMVault**.
+1. In **Recovery Services vaults**, select the vault name. We're using **ContosoVMVault** for this scenario.
 2. In **Getting Started**, select Site Recovery. Then select **Prepare Infrastructure**.
 3. In **Protection goal** > **Where are your machines located**, select **On-premises**.
 4. In **Where do you want to replicate your machines**, select **To Azure**.
@@ -41,8 +41,6 @@ for disaster recovery scenarios.
 
 ## Set up the source environment
 
-> [!TIP]
-> The recomended method for deploying a Configuration server for protecting VMware virtual machine is to use the OVF based deployment model as suggested in this article. In case there are restrictions in your organization which prevents you from deploying an OVF template, then you can use the [UnifiedSetup.exe to install a Configuration server](physical-manage-configuration-server.md) .
 
 To set up the source environment, you need a single, highly available, on-premises machine to host on-premises Site Recovery components. Components include the configuration server, process server, and master target server:
 
@@ -51,6 +49,10 @@ To set up the source environment, you need a single, highly available, on-premis
 - The master target server handles replication data during failback from Azure.
 
 To set up the configuration server as a highly available VMware VM, download a prepared Open Virtualization Format (OVF) template and import the template into VMware to create the VM. After you set up the configuration server, register it in the vault. After registration, Site Recovery discovers on-premises VMware VMs.
+
+> [!TIP]
+> This tutorial uses an OVF template to create the configuration server VMware VM. If you're unable to do this, you can run [manual Setup](physical-manage-configuration-server.md) to do this. 
+
 
 ### Download the VM template
 
@@ -101,9 +103,9 @@ To add an additional NIC to the configuration server, add it before you register
 7. The tool performs some configuration tasks and then reboots.
 8. Sign in to the machine again. The configuration server management wizard starts automatically.
 
-### Configure settings and connect to VMware
+### Configure settings and add the VMware server
 
-1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC to receive replication traffic. Then select **Save**. You can't change this setting after it's configured.
+1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC that the process server uses to receive replication traffic from VMs. Then select **Save**. You can't change this setting after it's configured.
 2. In **Select Recovery Services vault**, select your Azure subscription and the relevant resource group and vault.
 3. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server.
 4. Select **Install VMware PowerCLI**. Make sure all browser windows are closed before you do this. Then select **Continue**.
@@ -136,7 +138,7 @@ Select and verify target resources.
 1. Open the [Azure portal](https://portal.azure.com), and select **All resources**.
 2. Select the Recovery Service vault named **ContosoVMVault**.
 3. To create a replication policy, select **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
-4. In **Create replication policy**, enter the policy name **VMwareRepPolicy**.
+4. In **Create replication policy**, enter the policy name. We're using **VMwareRepPolicy** for this scenario.
 5. In **RPO threshold**, use the default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
 6. In **Recovery point retention**, use the default of 24 hours for how long the retention window is for each recovery point. For this tutorial, use 72 hours. Replicated VMs can be recovered to any point in a window.
 7. In **App-consistent snapshot frequency**, use the default of 60 minutes for the frequency that application-consistent snapshots are created. Select **OK** to create the policy.

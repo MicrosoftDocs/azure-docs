@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/24/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ---
@@ -77,7 +77,7 @@ The system account must have the following privileges:
     | 1711: 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1710: 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
 
-4.  The Azure Stack root certificate is retrieved from the privileged endpoint. For the Azure SDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
+4.  For the Azure SDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
     If you need to provide your own certificate, place a .pfx file in the **DependencyFilesLocalPath** that meets the following criteria:
 
@@ -176,6 +176,8 @@ You can specify these parameters in the command line. If you do not, or if any p
 | **DebugMode** | Prevents automatic cleanup on failure. | No |
 | **AcceptLicense** | Skips the prompt to accept the GPL license.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
+>[!NOTE]
+> SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is created.
 
 ## Verify the deployment by using the Azure Stack portal
 
@@ -216,8 +218,7 @@ The SKU name should reflect the properties so that tenants can place their datab
 ![Create a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
->[!NOTE]
-> SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is created.
+
 
 
 ## Test your deployment by creating your first MySQL database

@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/12/2017
+ms.date: 04/01/2018
 ms.author: sstein
 
 ---
@@ -20,7 +20,7 @@ Application source code and management scripts are available in the [WingtipTick
 
 ## Application architecture
 
-The Wingtip SaaS app uses the database-per-tenant model. It uses SQL elastic pools to maximize efficiency. For provisioning and mapping tenants to their data, a catalog database is used. The core Wingtip SaaS application uses a pool with three sample tenants, plus the catalog database. Completing many of the Wingtip SaaS tutorials results in add-ons to the initial deployment. Add-ons such as analytic databases and cross-database schema management are introduced.
+The Wingtip SaaS app uses the database-per-tenant model. It uses SQL elastic pools to maximize efficiency. For provisioning and mapping tenants to their data, a catalog database is used. The core Wingtip SaaS application uses a pool with three sample tenants, plus the catalog database. The catalog and tenant servers have been provisioned with DNS aliases. These aliases are used to maintain a reference to the active resources used by the Wingtip application. These aliases are updated to point to recovery resources in the disaster recovery tutorials. Completing many of the Wingtip SaaS tutorials results in add-ons to the initial deployment. Add-ons such as analytic databases and cross-database schema management are introduced.
 
 
 ![Wingtip SaaS architecture](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)
@@ -39,7 +39,7 @@ After you deploy the app, explore the following tutorials that build on the init
 |[Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)|  Deploy and explore the Wingtip SaaS application with your Azure subscription. |
 |[Provision and catalog tenants](saas-dbpertenant-provision-and-catalog.md)| Learn how the application connects to tenants by using a catalog database, and how the catalog maps tenants to their data. |
 |[Monitor and manage performance](saas-dbpertenant-performance-monitoring.md)| Learn how to use monitoring features of SQL Database and set alerts when performance thresholds are exceeded. |
-|[Monitor with Azure Log Analytics (Operations Management Suite)](saas-dbpertenant-log-analytics.md) | Learn how to use [Log Analytics](../log-analytics/log-analytics-overview.md) to monitor large amounts of resources across multiple pools. |
+|[Monitor with Azure Log Analytics](saas-dbpertenant-log-analytics.md) | Learn how to use [Log Analytics](../log-analytics/log-analytics-overview.md) to monitor large amounts of resources across multiple pools. |
 |[Restore a single tenant](saas-dbpertenant-restore-single-tenant.md)| Learn how to restore a tenant database to a prior point in time. Also learn how to restore to a parallel database, which leaves the existing tenant database online. |
 |[Manage tenant database schema](saas-tenancy-schema-management.md)| Learn how to update schema and update reference data across all tenant databases. |
 |[Run cross-tenant distributed queries](saas-tenancy-cross-tenant-reporting.md) | Create an ad-hoc analytics database, and run real-time distributed queries across all tenants.  |

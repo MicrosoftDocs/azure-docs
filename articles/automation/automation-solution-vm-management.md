@@ -3,10 +3,11 @@ title: Start/Stop VMs during off-hours solution (preview)
 description: This VM management solution starts and stops your Azure Resource Manager virtual machines on a schedule and proactively monitors from Log Analytics.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/20/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Start/Stop VMs during off-hours solution (preview) in Azure Automation
@@ -21,7 +22,7 @@ This solution provides a decentralized automation option for users who want to r
 
 ## Prerequisites
 
-* The runbooks work with an [Azure Run As account](automation-offering-get-started.md#authentication-methods). The Run As account is the preferred authentication method, because it uses certificate authentication instead of a password that might expire or change frequently.
+* The runbooks work with an [Azure Run As account](automation-create-runas-account.md). The Run As account is the preferred authentication method, because it uses certificate authentication instead of a password that might expire or change frequently.
 * This solution manages only VMs that are in the same subscription as your Azure Automation account.
 * This solution is deployed only to the following Azure regions: Australia Southeast, Canada Central, Central India, East US, Japan East, Southeast Asia, UK South, and West Europe.
 
@@ -49,16 +50,15 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
 
 1. The **Add Solution** page appears. You are prompted to configure the solution before you can import it into your Automation subscription.
+
    ![VM Management Add Solution page](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
+
 1. On the **Add Solution** page, select **Workspace**. Select a Log Analytics workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **OMS Workspace** page, perform the following:
    * Specify a name for the new **OMS Workspace**.
    * Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
    * For **Resource Group**, you can create a new resource group or select an existing one.
    * Select a **Location**. Currently, the only locations available are **Australia Southeast**, **Canada Central**, **Central India**, **East US**, **Japan East**, **Southeast Asia**, **UK South**, and **West Europe**.
-   * Select a **Pricing tier**. The solution offers two tiers: **Free** and **Per Node (OMS)**. The Free tier has a limit on the amount of data collected daily, the retention period, and the runbook job runtime minutes. The Per Node tier does not have a limit on the amount of data collected daily.
-
-        > [!NOTE]
-        > Although the Per GB (Standalone) paid tier is displayed as an option, it is not applicable. If you select it and proceed with the creation of this solution in your subscription, it fails. This will be addressed when this solution is officially released. This solution only uses automation job minutes and log ingestion. It does not add additional nodes to your environment.
+   * Select a **Pricing tier**. Choose the **Per GB (Standalone)** option. Log Analytics has updated [pricing](https://azure.microsoft.com/pricing/details/log-analytics/) and the Per GB tier is the only option.
 
 1. After providing the required information on the **OMS workspace** page, click **Create**. You can track its progress under **Notifications** from the menu, which returns you to the **Add Solution** page when done.
 1. On the **Add Solution** page, select **Automation account**. If you're creating a new Log Analytics workspace, you need to also create a new Automation account to be associated with it. Select **Create an Automation account**, and on the **Add Automation account** page, provide the following:
@@ -75,6 +75,9 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    * Specify the **VM Exclude List (string)**. This is the name of one or more virtual machines from the target resource group. You can enter more than one name and separate each by using a comma (values are not case-sensitive). Using a wildcard is supported. This value is stored in the **External_ExcludeVMNames** variable.
    * Select a **Schedule**. This is a recurring date and time for starting and stopping the VMs in the target resource groups. By default, the schedule is configured to the UTC time zone. Selecting a different region is not available. To configure the schedule to your specific time zone after configuring the solution, see [Modifying the startup and shutdown schedule](#modify-the-startup-and-shutdown-schedule).
    * To receive **Email notifications** from SendGrid, accept the default value of **Yes** and provide a valid email address. If you select **No** but decide at a later date that you want to receive email notifications, you can update the **External_EmailToAddress** variable with valid email addresses separated by a comma, and then modify the variable **External_IsSendEmail** with the value **Yes**.
+
+    > [!IMPORTANT]
+    > The default value for **Target ResourceGroup Names** is a **&ast;**. This targets all VMs in a subscription. If you do not want the solution to target all the VMs in your subscription this value needs to be updated to a list of resource group names prior to enabling the schedules.
 
 1. After you have configured the initial settings required for the solution, click **OK** to close the **Parameters** page and select **Create**. After all settings are validated, the solution is deployed to your subscription. This process can take several seconds to finish, and you can track its progress under **Notifications** from the menu.
 
@@ -211,7 +214,7 @@ Across all scenarios, the **External_Start_ResourceGroupNames**,  **External_Sto
 
 ### Schedules
 
-The following table lists each of the default schedules created in your Automation account.  You can modify them or create your own custom schedules. By default, each of these are disabled except for **Scheduled_StartVM** and **Scheduled_StopVM**.
+The following table lists each of the default schedules created in your Automation account. You can modify them or create your own custom schedules. By default, each of these are disabled except for **Scheduled_StartVM** and **Scheduled_StopVM**.
 
 You should not enable all schedules, because this might create overlapping schedule actions. It's best to determine which optimizations you want to perform and modify accordingly. See the example scenarios in the overview section for further explanation.
 
@@ -219,7 +222,7 @@ You should not enable all schedules, because this might create overlapping sched
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Every 8 hours | Runs the AutoStop_CreateAlert_Parent runbook every 8 hours, which in turn stops the VM-based values in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables. Alternatively, you can specify a comma-separated list of VMs by using the VMList parameter.|
 |Scheduled_StopVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Stop* every day at the specified time. Automatically stops all VMs that meet the rules defined by asset variables. You should enable the related schedule, **Scheduled-StartVM**.|
-|Scheduled_StartVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Start* every day at the specified time.  Automatically starts all VMs that meet the rules defined by the appropriate variables. You should enable the related schedule, **Scheduled-StopVM**.|
+|Scheduled_StartVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Start* every day at the specified time. Automatically starts all VMs that meet the rules defined by the appropriate variables. You should enable the related schedule, **Scheduled-StopVM**.|
 |Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the Sequenced_Parent runbook with a parameter of *Stop* every Friday at the specified time. Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables. Refer to the Runbooks section for more details on tag values and asset variables. You should enable the related schedule, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the Sequenced_Parent runbook with a parameter of *Start* every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. Refer to the Runbooks section for more details on tag values and asset variables. You should enable the related schedule, **Sequenced-StopVM**.|
 

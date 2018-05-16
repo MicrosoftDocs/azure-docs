@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 05/14/2018
 ms.author: magoedte
 ---
 
@@ -32,7 +32,7 @@ When an Operations Manager management group is integrated with Log Analytics, th
 
 To provide high availability for direct connected or Operations Management groups that communicate with Log Analytics through the gateway, you can use network load balancing to redirect and distribute the traffic across multiple gateway servers.  If one gateway server goes down, the traffic is redirected to another available node.  
 
-It is recommended that you install the OMS agent on the computer running the OMS Gateway software to monitor the OMS Gateway and analyze performance or event data. Additionally, the agent helps the OMS Gateway identify the service end points that it needs to communicate with.
+The OMS agent is required on the computer running the OMS Gateway in order for it to identify the service end points that it needs to communicate with, and monitor the OMS Gateway to analyze its performance or event data.
 
 Each agent must have network connectivity to its gateway so that agents can automatically transfer data to and from the gateway. Installing the gateway on a domain controller is not recommended.
 
@@ -52,6 +52,7 @@ When designating a computer to run the OMS Gateway, this computer must have the 
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2,  Windows Server 2008
 * .Net Framework 4.5
 * Minimum of a 4-core processor and 8 GB of memory 
+* OMS Agent for Windows 
 
 ### Language availability
 
@@ -78,7 +79,7 @@ The OMS Gateway is available in the following languages:
 The OMS Gateway only supports Transport Layer Security (TLS) 1.0, 1.1 and 1.2.  It does not support Secure Sockets Layer (SSL).
 
 ### Supported number of agent connections
-The following table highlights the supported number of agents communicating with a gateway server.  This support is based on agents uploading ~200KB of data every 6 seconds. The data volume per agent tested is about 2.7GB per day.
+The following table highlights the the supported number of agents communicating with a gateway server.  This support is based on agents uploading ~200KB of data every 6 seconds. The data volume per agent tested is about 2.7GB per day.
 
 |Gateway |Approx. Number of agents supported|  
 |--------|----------------------------------|  
@@ -255,7 +256,7 @@ Cmdlets can help you complete tasks that are needed to update the OMS Gateway's 
 4. If no error occurred in the previous step, the module was successfully imported and the cmdlets can be used. Type `Get-Module OMSGateway`
 5. After you make changes by using the cmdlets, ensure that you restart the Gateway service.
 
-If you get an error in step 3, the module wasn't imported. The error might occur when PowerShell is unable to find the module. You can find it in the Gateway's installation path: *C:\Program Files\Microsoft OMS Gateway\PowerShell*.
+If you get an error in step 3, the module wasn't imported. The error might occur when PowerShell is unable to find the module. You can find it in the Gateway's installation path: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 
 | **Cmdlet** | **Parameters** | **Description** | **Example** |
 | --- | --- | --- | --- |  

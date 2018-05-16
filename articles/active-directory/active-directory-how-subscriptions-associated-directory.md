@@ -7,11 +7,9 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 12/12/2017
 ms.author: curtand
@@ -40,7 +38,7 @@ All users have a single home directory that authenticates them, but they can als
 2. Click **Change directory**.
 
     ![Screenshot showing the Change directory button](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. Review the warnings. All [Role-Based Access Control (RBAC)](role-based-access-control-configure.md) users with assigned access and all subscription admins lose access when the subscription directory changes.
+3. Review the warnings. All [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) users with assigned access and all subscription admins lose access when the subscription directory changes.
 4. Select a directory.
 
     ![Screenshot showing the change directory UI](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
@@ -52,13 +50,15 @@ All users have a single home directory that authenticates them, but they can als
     ![Screenshot showing the switcher](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
 
+Any Azure key vaults that you have are also affected by a subscription move, so [change the key vault tenant ID](../key-vault/key-vault-subscription-move-fix.md) before resuming operations.
+
 Changing the subscription directory is a service-level operation. It doesn't affect subscription billing ownership, and the Account Admin can still change Service Admin using the [Account Center](https://account.azure.com/subscriptions). If you want to delete the original directory, you must transfer the subscription billing ownership to a new Account Admin. To learn more about transferring billing ownership, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md). 
 
 ## Next steps
 
 * To learn more about creating a new Azure AD directory for free, see [How to get an Azure Active Directory tenant](develop/active-directory-howto-tenant.md)
 * To learn more about transferring billing ownership of an Azure subscription, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
-* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
+* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->

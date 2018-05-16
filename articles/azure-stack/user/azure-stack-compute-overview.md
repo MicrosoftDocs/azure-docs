@@ -16,30 +16,30 @@ ms.author: mabrigg
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 ## Overview
-An Azure Stack Virtual Machine (VM) is one type of on-demand, scalable computing resource that Azure Stack offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
+An Azure Stack Virtual Machine (VM) is one type of an on-demand, scalable computing resource that Azure Stack offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
 
-An Azure Stack VM gives you the flexibility of virtualization without the need to manage individual clusters or machines. However, you still need to maintain the VM by performing tasks, such as configuring, patching, and installing the software that runs on it.
+An Azure Stack VM gives you the flexibility of virtualization without the need to manage clusters or individual machines. However, you still need to maintain the VM by performing tasks such as configuring, patching, and installing the software that runs on it.
 
-Azure Stack virtual machines can be used in various ways. For example:
+You can use Azure Stack virtual machines in various ways. For example:
 
 * **Development and test** – Azure Stack VMs offer a quick and easy way to create a computer with a specific configuration required to code and test an application.
 
 * **Applications in the cloud** – Because demand for your application can fluctuate, it might make economic sense to run it on a VM in Azure Stack. You pay for extra VMs when you need them and shut them down when you don’t.
 
-* **Extended datacenter** – Virtual machines in an Azure Stack virtual network can easily be connected to your organization’s network or Azure.
+* **Extended datacenter** – Virtual machines in an Azure Stack virtual network can easily be connected to your organization’s network or to Azure.
 
-The number of VMs that your application uses can scale up and out to whatever is required to meet your needs.
+The VMs that your application uses can scale up or scale out to whatever is required to meet your needs.
 
 ## What do I need to think about before creating a VM?
 
-There are always a multitude of design considerations when you build out an application infrastructure in Azure Stack. These aspects of a VM are important to think about before you start:
+There are always numerous design considerations when you build out an application infrastructure in Azure Stack. These aspects of a VM are important to think about before you start creating your infrastructure:
 
-- The names of your application resources
-- The size of the VM
-- The maximum number of VMs that can be created
-- The operating system that the VM runs
-- The configuration of the VM after it starts 
-- The related resources that the VM needs
+* The names of your application resources.
+* The size of the VM.
+* The maximum number of VMs that can be created.
+* The operating system that the VM runs.
+* The configuration of the VM after it starts.
+* The related resources that the VM needs.
 
 ### Naming
 
@@ -58,10 +58,9 @@ Your subscription has default quota limits in place that can impact the deployme
 ### Operating system disks and images
 
 Virtual machines use virtual hard disks (VHDs) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS.
-Azure Stack provides a marketplace to use with various versions and types of operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest).
+Azure Stack provides a marketplace to use with various versions and types of operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest.)
 
 The following table shows some ways that you can find the information for an image:
-
 
 |Method|Description|
 |---------|---------|
@@ -109,7 +108,12 @@ The following table provides information to get you started creating your VM.
 
 ## How do I manage the VM that I created?
 
-VMs can be managed using a browser-based portal, command-line tools with support for scripting, or directly through APIs. Some typical management tasks that you might perform are getting information about a VM, logging on to a VM, managing availability, and making backups.
+You can manage VMs using a browser-based portal, command-line tools with support for scripting, or directly through APIs. Some typical management tasks that you might perform are:
+
+* Getting information about a VM
+* Connecting to a VM
+* Managing availability
+* Making backups
 
 ### Get information about a VM
 
@@ -127,5 +131,5 @@ The following table shows you some of the ways you can get information about a V
 You can use the **Connect** button in the Azure Stack portal to connect to your VM.
 
 ## Next steps
-* [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
 
+* [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)

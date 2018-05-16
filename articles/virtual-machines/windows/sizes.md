@@ -4,7 +4,7 @@ description: Lists the different sizes available for Windows virtual machines in
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -41,7 +41,7 @@ This article describes the available sizes and options for the Azure virtual mac
 
 
 
-## Rest API
+## REST API
 
 For information on using the REST API to query for VM sizes, see the following:
 
@@ -54,6 +54,10 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
+## Benchmark scores
+
+Learn more about compute performance for Windows VMs using the [CoreMark benchmark scores](compute-benchmark-scores.md).
+
 ## Next steps
 
 Learn more about the different VM sizes that are available:
@@ -63,6 +67,7 @@ Learn more about the different VM sizes that are available:
 - [Storage optimized](../virtual-machines-windows-sizes-storage.md)
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
+
 
 
 

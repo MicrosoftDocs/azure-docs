@@ -4,12 +4,12 @@ description: This article explains how to programmatically create Azure Dashboar
 services: azure-portal
 documentationcenter: ''
 author: adamab
-manager: timlt
+manager: dougeby
 editor: tysonn
 
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
@@ -52,7 +52,7 @@ After you have configured the dashboard to your liking the next steps are to pub
 
 ![share command](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Clicking the Share command shows a dialog that asks you to choose which subscription and resource group to publish to. Keep in mind that [you must have write access](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) to the subscription and resource group that you choose.
+Clicking the Share command shows a dialog that asks you to choose which subscription and resource group to publish to. Keep in mind that [you must have write access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) to the subscription and resource group that you choose.
 
 ![sharing and access](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

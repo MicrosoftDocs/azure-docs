@@ -3,18 +3,18 @@ title: Remote connect to an Azure Service Fabric cluster node | Microsoft Docs
 description: Learn how to remotely connect to a scale set instance (a Service Fabric cluster node).
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
 editor: ''
 
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: chackdan
+ms.author: aljo
 
 ---
 # Remote connect to a virtual machine scale set instance or a cluster node

@@ -3,7 +3,7 @@ title: Use Azure File with AKS
 description: Use Azure Disks with AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -14,13 +14,13 @@ ms.custom: mvc
 
 # Persistent volumes with Azure files
 
-A persistent volume represents a piece of storage that has been provisioned for use in a Kubernetes cluster. A persistent volume can be used by one or many pods and can be dynamically or statically provisioned. This document details dynamic provisioning of an Azure file share as a Kubernetes persistent volume in an AKS cluster. 
+A persistent volume represents a piece of storage that has been provisioned for use in a Kubernetes cluster. A persistent volume can be used by one or many pods and can be dynamically or statically provisioned. This document details dynamic provisioning of an Azure file share as a Kubernetes persistent volume in an AKS cluster.
 
 For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
 ## Create storage account
 
-When dynamically provisioning an Azure file share as a Kubernetes volume, any storage account can be used as long as it is contained in the same resource group as the AKS cluster. If needed, create a storage account in the same resource group as the AKS cluster. 
+When dynamically provisioning an Azure file share as a Kubernetes volume, any storage account can be used as long as it is contained in the same resource group as the AKS cluster. If needed, create a storage account in the same resource group as the AKS cluster.
 
 To identify the proper resource group, use the [az group list][az-group-list] command.
 
@@ -37,7 +37,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Use the [az storage account create][az-storage-account-create] command to create the storage account. 
+Use the [az storage account create][az-storage-account-create] command to create the storage account.
 
 Using this example, update `--resource-group` with the name of the resource group, and `--name` to a name of your choice.
 
@@ -63,15 +63,15 @@ parameters:
   storageAccount: mystorageaccount
 ```
 
-Create the storage class with the [kubectl create][kubectl-create] command.
+Create the storage class with the [kubectl apply][kubectl-apply] command.
 
 ```azurecli-interactive
-kubectl create -f azure-file-sc.yaml
+kubectl apply -f azure-file-sc.yaml
 ```
 
 ## Create persistent volume claim
 
-A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure file share. 
+A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure file share.
 
 The following manifest can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access.
 
@@ -91,10 +91,10 @@ spec:
       storage: 5Gi
 ```
 
-Create the persistent volume claim with the [kubectl create][kubectl-create] command.
+Create the persistent volume claim with the [kubectl apply][kubectl-apply] command.
 
 ```azurecli-interactive
-kubectl create -f azure-file-pvc.yaml
+kubectl apply -f azure-file-pvc.yaml
 ```
 
 Once completed, the file share will be created. A Kubernetes secret is also created that contains connection information and credentials.
@@ -123,18 +123,18 @@ spec:
         claimName: azurefile
 ```
 
-Create the pod with the [kubectl create][kubectl-create] command.
+Create the pod with the [kubectl apply][kubectl-apply] command.
 
 ```azurecli-interactive
-kubectl create -f azure-pvc-files.yaml
+kubectl apply -f azure-pvc-files.yaml
 ```
 
-You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. You can see the volume mount when inspecting your pod via `kubectl describe pod mypod`.
+You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`.
 
 ## Mount options
- 
+
 Default fileMode and dirMode values differ between Kubernetes versions as described in the following table.
- 
+
 | version | value |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
@@ -142,9 +142,9 @@ Default fileMode and dirMode values differ between Kubernetes versions as descri
 | v1.8.6 or above | 0755 |
 | v1.9.0 | 0700 |
 | v1.9.1 or above | 0755 |
- 
+
 If using a cluster of version 1.8.5 or greater, mount options can be specified on the storage class object. The following example sets `0777`.
- 
+
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -159,7 +159,7 @@ mountOptions:
 parameters:
   skuName: Standard_LRS
 ```
- 
+
 If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified with the `runAsUser` value set to `0`. For more information on Pod security context, see [Configure a Security Context][kubernetes-security-context].
 
 ## Next steps
@@ -171,7 +171,7 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/

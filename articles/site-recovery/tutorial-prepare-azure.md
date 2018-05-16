@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -17,8 +17,9 @@ ms.custom: MVC
 This tutorial shows you how to prepare Azure components when you want to replicate on-premises VMs (Hyper-V or VMware) or Windows/Linux physical servers to Azure. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Verify that your account has replication permissions.
-> * Create an Azure storage account.
+> * Verify that your Azure account has replication permissions.
+> * Create an Azure storage account. Replicated data is stored in it.
+> * Create a Recovery Services vault.
 > * Set an Azure network. When Azure VMs are created after failover, they're joined to this Azure network.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
@@ -35,9 +36,7 @@ If you just created your free Azure account, you're the administrator of your su
 - Create a VM in the selected virtual network.
 - Write to the selected storage account.
 
-The Virtual Machine Contributor built-in role has these permissions. You also need permission to
-manage Site Recovery operations. The Site Recovery Contributor role has all the permissions
-required to manage Site Recovery operations in a Recovery Services vault.
+To complete these tasks your account should be assigned the Virtual Machine Contributor built-in role. In addition, to manage Site Recovery operations in a vault, your account should be assigned the Site Recovery Contributor build-in role.
 
 ## Create a storage account
 
@@ -45,7 +44,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 when you fail over from on-premises to Azure.
 
 1. On the [Azure portal](https://portal.azure.com) menu, select **New** > **Storage** > **Storage account**.
-2. On **Create storage account**, enter a name for the account. For these tutorials, use the name **contosovmsacct1910171607**. The name must be unique within Azure and be between 3 and 24
+2. On **Create storage account**, enter a name for the account. For these tutorials, we're using **contosovmsacct1910171607**. The name you select must be unique within Azure and be between 3 and 24
    characters, with numbers and lowercase letters only.
 3. In **Deployment model**, select **Resource Manager**.
 4. In **Account kind**, select **General purpose**. In **Performance**, select **Standard**. Don't select blob storage.
@@ -61,7 +60,7 @@ when you fail over from on-premises to Azure.
 ## Create a vault
 
 1. In the Azure portal, select **Create a resource** > **Monitoring + Management** > **Backup and Site Recovery**.
-2. In **Name**, enter a friendly name to identify the vault. For this tutorial, use **ContosoVMVault**.
+2. In **Name**, enter a friendly name to identify the vault. For this set of tutorials we're using **ContosoVMVault**.
 3. In **Resource group**, select the existing resource group named **contosoRG**.
 4. In **Location**, enter the Azure region **West Europe** that is used in this set of tutorials.
 5. To quickly access the vault from the dashboard, select **Pin to dashboard** > **Create**.

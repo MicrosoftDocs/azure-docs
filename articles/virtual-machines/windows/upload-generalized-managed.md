@@ -4,7 +4,7 @@ description: Upload a generalized VHD to Azure and use it to create new VMs, in 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -104,7 +104,7 @@ You can also upload a VHD to your storage account using one of the following:
 	Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
 
 > [!IMPORTANT]
-> If you are using AzCopy uploading your VHD to Azure, make sure you have set [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) before running upload script. 
+> If you are using AzCopy uploading your VHD to Azure, make sure you have set [/BlobType:page](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) before running upload script. 
 > If the destination is a blob and this option is not specified, by default, AzCopy creates a block blob.
 > 
 > 
@@ -162,5 +162,5 @@ New-AzureRmVm `
 
 ## Next steps
 
-To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.com), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 

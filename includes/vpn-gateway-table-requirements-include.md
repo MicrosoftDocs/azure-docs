@@ -18,4 +18,6 @@ The following table lists the requirements for PolicyBased and RouteBased VPN ga
 | **Authentication method** |Pre-shared key |Pre-shared key for S2S connectivity, Certificates for P2S connectivity |Pre-shared key for S2S connectivity, Certificates for P2S connectivity |Pre-shared key for S2S connectivity, Certificates for P2S connectivity |
 | **Maximum number of S2S connections** |1 |10 |10 |30 |
 | **Maximum number of P2S connections** |Not supported |128 |128 |128 |
-| **Active routing support (BGP)** |Not supported |Not supported |Supported |Supported |
+| **Active routing support (BGP)** (*) |Not supported |Not supported |Supported |Supported |
+
+  (*) BGP is not supported for the classic deployment model.

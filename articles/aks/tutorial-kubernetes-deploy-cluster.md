@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial  - Deploy Cluster
 description: AKS tutorial - Deploy Cluster
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Tutorial: Deploy an Azure Container Service (AKS) cluster
+# Tutorial: Deploy an Azure Kubernetes Service (AKS) cluster
 
 Kubernetes provides a distributed platform for containerized applications. With AKS, provisioning of a production ready Kubernetes cluster is simple and quick. In this tutorial, part three of eight, a Kubernetes cluster is deployed in AKS. Steps completed include:
 
@@ -62,7 +62,7 @@ az aks install-cli
 To configure kubectl to connect to your Kubernetes cluster, run the following command:
 
 ```azurecli
-az aks get-credentials --resource-group=myResourceGroup --name=myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command.

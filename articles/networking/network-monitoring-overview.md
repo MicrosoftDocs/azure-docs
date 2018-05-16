@@ -57,9 +57,11 @@ NPM for ExpressRoute offers comprehensive ExpressRoute monitoring for private pe
 
 * Auto-detection of ER circuits associated with your subscription
 * Detection of network topology  from on-premises to your cloud applications
-* Capacity planning, utilization analysis
+* Capacity planning, utilization analysis, bandwidth utilization per Virtual Network
 * Monitoring and alerting on both primary and secondary paths
 * Detect degradation of connectivity to VNets
+
+![Geo-map showing traffic across regions](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 For more information, see the following articles:
 
@@ -113,7 +115,6 @@ Built for DNS Administrators, this solution collects, analyzes, and correlates D
 Related links:
 * [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## Next steps
+## Miscellaneous
 
-* [Configure Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
-* [Configure Network Performance Monitor for ExpressRoute](../expressroute/how-to-npm.md)
+* [New Pricing](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

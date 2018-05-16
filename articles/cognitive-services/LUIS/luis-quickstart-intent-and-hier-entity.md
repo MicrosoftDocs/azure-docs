@@ -1,26 +1,49 @@
 ---
 title: Create a LUIS app to get location data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and a hierarchical entity to extract data. 
+description: Learn how to create a simple LUIS app using intents and a hierarchical entity to extract data in this quickstart. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
+ms.component: luis
+ms.topic: quickstart
 ms.date: 03/27/2018
-ms.author: v-geberr;
+ms.author: v-geberr
+#Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
+
 --- 
 
-# Simple app with intents and a hierarchical entity
-This simple app has two [intents](luis-concept-intent.md) and one hierarchical [entity](luis-concept-entity-types.md). Its purpose is to book flights such as '1 ticket from Seattle to Cairo`. 
+# Quickstart: Create app that uses hierarchical entity
+In this quickstart, create an app that demonstrates how to find related pieces of data based on context. 
+
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
+## Purpose of the app with this entity
+This app determine if a user wants to book a flight. It uses the hierarchical entity to determine the locations, origin city and destination city, within the user's text. 
+
+The hierarchical entity is a good fit for this type of data because the two pieces of data:
+
+* Are both locations, usually expressed as cities or airport codes.
+* Usually have unique word choice around the words to be able to determine which is the origin and which is the destination. These words include: to, headed toward, from, leaving.
+* Both locations are frequently in the same utterance. 
+
+The purpose of the **hierarchical** entity is to find related data within the utterance based on context. Consider the following utterance:
+
+```JSON
+1 ticket from Seattle to Cairo`
+```
+
+The utterance has two locations specified. One is the origin city, Seattle, and the other is the destination city, Cairo. This cities are both important to book a flight. While they could be found using simple entities, they are related to each other and will frequently be found in the same utterance. Therefore, it makes sense that they are both grouped as children of a hierarchical entity, **"Location"**. 
+
+As machine-learned entities, the app will need example utterances with the origin and destination cities labeled. This teaches LUIS where the entities are in utterances, how long they are and the words around them. 
 
 ## App intents
 The intents are categories of what the user wants. This app has two intents: BookFlight and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
 
 ## Hierarchical entity is contextually learned 
 The purpose of the entity is to find and categorize parts of the text in the utterance. 
-A [hierarchical](luis-concept-entity-types.md) entity is learned based on the context of the usage. A person can determine the origin and destination cities in an utterance based on the usage of `to` and `from`. These are an example of contextual usage.  
+A [hierarchical](luis-concept-entity-types.md) entity is parent-child entity based on the context of the usage. A person can determine the origin and destination cities in an utterance based on the usage of `to` and `from`. These are an example of contextual usage.  
 
 For this Travel app, LUIS extracts the origin and destination locations in such as way that a standard reservation can be created and filled. LUIS allows utterances to have variations, abbreviations, and slang. 
 
@@ -40,7 +63,7 @@ SEA to NYC next Monday
 LA to MCO spring break
 ```
  
-The hierarchical entity matches origin and destination location. If only one child (origin or destination) of an hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
+The hierarchical entity matches origin and destination location. If only one child (origin or destination) of a hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
 
 ## What LUIS does
 When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 
@@ -50,27 +73,27 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
 
 2. On the [LUIS][LUIS] website, select **Create new app**.  
 
-    ![Create new app](./media/luis-quickstart-intent-and-hier-entity/app-list.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/app-list.png "Screenshot of App lists page")](media/luis-quickstart-intent-and-hier-entity/app-list.png#lightbox)
 
 3. In the pop-up dialog, enter the name `MyTravelApp`. 
 
-    ![Name the app MyTravelApp](./media/luis-quickstart-intent-and-hier-entity/create-new-app.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/create-new-app.png "Screenshot of Create new app pop-up dialog")](media/luis-quickstart-intent-and-hier-entity/create-new-app.png#lightbox)
 
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
 
-    ![Intents page](./media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png "Screenshot of Intents list with only None intent")](media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png#lightbox)
 
 ## Create a new intent
 
 1. On the **Intents** page, select **Create new intent**. 
 
-    ![Create new intents button](./media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png "Screenshot of Intents list with Create new intent button highlighted")](media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png#lightbox)
 
 2. Enter the new intent name `BookFlight`. This intent should be selected any time a user wants to make flight reservations.
 
     By creating an intent, you are creating the primary category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer or take appropriate action. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
 
-    ![Create new intent](./media/luis-quickstart-intent-and-hier-entity/create-new-intent.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/create-new-intent.png "Screenshot of Create new intent pop-up dialog")](media/luis-quickstart-intent-and-hier-entity/create-new-intent.png#lightbox)
 
 3. Add several utterances to the `BookFlight` intent that you expect a user to ask for, such as:
 
@@ -80,7 +103,7 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
     |Reserve a ticket to London tomorrow|
     |Schedule 4 seats from Paris to London for April 1|
 
-    ![Enter utterances for intent](./media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png "Screenshot of entering utterances on BookFlight intent page")](media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png#lightbox)
 
 ## Add utterances to None intent
 
@@ -88,7 +111,7 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
 
 1. Select **Intents** from the left panel. 
 
-    ![Enter utterances for intent](./media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png "Screenshot of BookFlight intent page with Intents button highlighted")](media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png#lightbox)
 
 2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app:
 
@@ -112,17 +135,17 @@ Now that the two intents have utterances, LUIS needs to understand what a locati
 
 3. In the utterance, `Book 2 flights from Seattle to Cairo next Monday`, select the word `Seattle`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `Location` in the text box then select **Create new entity** in the drop-down menu. 
 
-    ![Label utterance](./media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png "Screenshot of BookFlight intent page, creating a new entity from selected text")](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png#lightbox)
 
 4. In the pop-up window, select the **Hierarchical** entity type with `Origin` and `Destination` as the child entities. Select **Done**.
 
-    ![Verify entity type](./media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png "Screenshot of entity creation pop-up dialog for new Location entity")](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png#lightbox)
 
     The label for `Seattle` is marked as `Location` because LUIS doesn't know if the term was the origin or destination, or neither. Select `Seattle`, then select Location, then follow the menu to the right and select `Origin`.
 
 5. Now that the entity is created, and one utterance is labeled, label the other cities by selecting the city name, then selecting Location, then following the menu to the right to select `Origin` or `Destination`.
 
-    ![Label utterance with existing entity](./media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png "Screenshot of Bookflight entity with utterance text selected for entity selection")](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png#lightbox)
 
 ## Train the LUIS app
 LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
@@ -140,18 +163,18 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-    ![Select publish button](./media/luis-quickstart-intent-and-hier-entity/publish.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/publish.png "Screenshot of Bookflight intent with Publish button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish.png#lightbox)
 
-2. Select the **Publish to product slot**. 
+2. Select the Production slot and the **Publish** button.
 
-    ![publish app](./media/luis-quickstart-intent-and-hier-entity/publish-to-production.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-    ![Select endpoint URL](./media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png)
+    [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "Screenshot of Publish page with endpoint url highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
 
 2. Go to the end of the URL in the address and enter `1 ticket to Portland on Friday`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `BookFlight` intent with the hierarchical entity extracted.
 
@@ -192,9 +215,12 @@ Your chat bot now has enough information to determine the primary action, `BookF
 ## Where is this LUIS data used? 
 LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
+## Clean up resources
+When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
 ## Next steps
 
-[Learn more about entities](luis-concept-entity-types.md). 
+[Learn how to add a regular expression entity](luis-quickstart-intents-regex-entity.md). 
 
 Add the **number** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number of seats. 
 
