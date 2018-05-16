@@ -21405,6 +21405,11 @@
             "source_path": "articles/active-directory/active-directory-b2b-what-is-azure-ad-b2b.md",
             "redirect_url": "/azure/active-directory/b2b/what-is-b2b",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/bing-visual-search/upload-images.md",
+            "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/csharp",
+            "redirect_document_id": false
         }
 
     ]
