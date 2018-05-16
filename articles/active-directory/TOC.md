@@ -283,6 +283,7 @@
 ### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 ### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
+### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
@@ -336,7 +337,6 @@
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
 
 ## [Troubleshoot](active-directory-troubleshooting-support-howto.md)
-### [Troubleshoot Active Directory item is missing or not available](active-directory-troubleshooting.md)
 
 ## Deploy Azure AD Proof of Concept (PoC)
 ### [PoC Playbook: Introduction](active-directory-playbook-intro.md)
