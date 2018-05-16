@@ -62,7 +62,7 @@ When you link from your promotional campaigns to your free Word, Excel, or Power
 The following example shows a URL that includes the two query parameters: 
 
 ```
-https://store.office.com/app.aspx?assetid=WA102957661&mktcmpid=refexample&mktvid=PN102957641 
+https://appsource.microsoft.com/product/office/WA102957661?src=website&mktcmpid=blogpost_12
 ``` 
 
 Adding these parameters to your campaign URL enables us to provide more information about your campaign's user funnel.
