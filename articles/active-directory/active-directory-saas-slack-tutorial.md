@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -155,15 +155,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/tutorial_slack_configure.png)
 
-9.  In a different web browser window, log in to your Slack company site as an administrator.
+9. In a different web browser window, log in to your Slack company site as an administrator.
 
-10.  Navigate to **Microsoft Azure AD** then go to **Team Settings**.
+10. Navigate to **Microsoft Azure AD** then go to **Team Settings**.
 
      ![Configure Single Sign-On On App Side](./media/active-directory-saas-slack-tutorial/tutorial_slack_001.png)
 
-11.  In the **Team Settings** section, click the **Authentication** tab, and then click **Change Settings**.
+11. In the **Team Settings** section, click the **Authentication** tab, and then click **Change Settings**.
 
-     ![Configure Single Sign-On On App Side](./media/active-directory-saas-slack-tutorial/tutorial_slack_002.png)
+    ![Configure Single Sign-On On App Side](./media/active-directory-saas-slack-tutorial/tutorial_slack_002.png)
 
 12. On the **SAML Authentication Settings** dialog, perform the following steps:
 
@@ -196,11 +196,11 @@ The objective of this section is to create a test user in the Azure portal calle
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-slack-tutorial/create_aaduser_03.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-slack-tutorial/create_aaduser_03.png)
 
 4. On the **User** dialog page, perform the following steps:
 
-	![Creating an Azure AD test user](./media/active-directory-saas-slack-tutorial/create_aaduser_04.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-slack-tutorial/create_aaduser_04.png)
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -212,9 +212,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Creating a Slack test user
 
-The objective of this section is to create a user called Britta Simon in Slack. Slack supports just-in-time provisioning, which is by default enabled. You can find more details [here](active-directory-saas-slack-provisioning-tutorial.md) on how to configure automatic user provisioning.
-
-There is no action item for you in this section. A new user is created during an attempt to access Slack if it doesn't exist yet.
+The objective of this section is to create a user called Britta Simon in Slack. Slack supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Slack if it doesn't exist yet. Slack also supports automatic user provisioning, you can find more details [here](active-directory-saas-slack-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 > [!NOTE]
 > If you need to create a user manually, you need to contact [Slack support team](https://slack.com/help/contact).
@@ -223,7 +221,7 @@ There is no action item for you in this section. A new user is created during an
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Slack.
 
-![Assign User][200] 
+![Assign User][200]
 
 **To assign Britta Simon to Slack, perform the following steps:**
 
