@@ -38,7 +38,6 @@
 ### [Azure automation](automation-manage-key-vault.md)
 
 # Reference
-## [Azure Key Vault customer data features](key-vault-customer-data.md)
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
@@ -69,6 +68,7 @@
 ### [Certificate creation methods](create-certificate.md)
 ### [Monitor and manage certificate creation](create-certificate-scenarios.md)
 ## [Authentication, Requests and Responses](authentication-requests-and-responses.md)
+## [Azure Key Vault customer data features](key-vault-customer-data.md)
 ## [Common parameters and headers](common-parameters-and-headers.md)
 ## [Key Vault Versions](key-vault-versions.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
