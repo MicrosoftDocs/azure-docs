@@ -25,25 +25,28 @@ This article provides details about the data stored both inside and outside of E
 
 Most Azure AD-related European identity data, for organizations with European-based addresses, stays in European datacenters. Azure AD data that's not stored in European datacenters, includes:
 
-- **User-related attributes**<p>
-    The following user-related attributes are stored in, and replicated to, the United States (U.S.):
-    - GivenName
-    - Surname
-    - userPrincipalName
-    - Domain
-    - PasswordHash
+- **User-related attributes**
     
+    The following user-related attributes are stored in, and replicated to, the United States (U.S.):
+
+    * GivenName
+    * Surname
+    * userPrincipalName
+    * Domain
+    * PasswordHash
+
     In the situation where someone uses an on-premises, federated authentication method that stops the PasswordHash value from syncing with Azure AD, the associated value isn't stored in the U.S. Beyond these user-related attributes, some service-specific data is also stored in the U.S. However, these service-specific attributes are needed for the normal operation of Azure AD services and don't include any personal data.
 
 - **Identity-related attributes**
     
     The following identity-related attributes are replicated to the U.S.:
-    -   SourceAnchor
-    -   AccountEnabled
-    -   PasswordPolicies
-    -   StrongAuthenticationRequirement
-    -   ApplicationPassword
-    -   PUID
+    
+    * SourceAnchor
+    * AccountEnabled
+    * PasswordPolicies
+    * StrongAuthenticationRequirement
+    * ApplicationPassword
+    * PUID
 
 - **Microsoft Azure multi-factor authentication (MFA) and Azure AD self-service password reset (SSPR)**
     
