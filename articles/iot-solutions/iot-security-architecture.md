@@ -18,7 +18,7 @@ ms.date: 01/17/2018
 ms.author: dobett
 
 ---
-[!INCLUDE [iot-security-architecture](iot-security-architecture.md)]
+[!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
 ## See also
 To learn more about securing your IoT solution, see [Secure your IoT deployment][lnk-security-deployment].

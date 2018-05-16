@@ -17,7 +17,7 @@ ms.date: 01/17/2018
 ms.author: dobett
 
 ---
-[!INCLUDE [iot-security-best-practices](../iot-solutions/iot-security-best-practices.md)]
+[!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
 ## See also
 To learn more about securing your IoT solution, see:
