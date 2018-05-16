@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -100,7 +100,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-iwellnessnow-tutorial/tutorial_iwellnessnow_samlbase.png)
 
-3. On the **iWellnessNow Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+3. On the **iWellnessNow Domain and URLs** section, If you have **Service Provider metadata file** perform the following steps:
+
+	![iWellnessNow Domain and URLs single sign-on upload](./media/active-directory-saas-iwellnessnow-tutorial/tutorial_iwellnessnow_upload.png)
+
+	a. Click **Upload metadata file**.
+
+	![iWellnessNow Domain and URLs single sign-on uploadconfig](./media/active-directory-saas-iwellnessnow-tutorial/tutorial_iwellnessnow_uploadconfig.png)
+
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
+	
+	c. After successfull completion of uploading **Service Provider metadata file** the **Identifier** and **Reply URL** values get auto populated in **iWellnessNow Domain and URLs** section textbox as shown below:
+
+	![iWellnessNow Domain and URLs single sign-on information](./media/active-directory-saas-iwellnessnow-tutorial/tutorial_iwellnessnow_url3.png)
+
+4. If you dont have **Service Provider metadata file** and wish to configure the application in **IDP** initiated mode, perform the following steps:
 
 	![iWellnessNow Domain and URLs single sign-on information](./media/active-directory-saas-iwellnessnow-tutorial/tutorial_iwellnessnow_url.png)
 
@@ -108,14 +122,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<CustomerName>.iwellnessnow.com/ssologin`
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+5. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![iWellnessNow Domain and URLs single sign-on information](./media/active-directory-saas-iwellnessnow-tutorial/tutorial_iwellnessnow_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<CustomerName>.iwellnessnow.com/`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [iWellnessNow Client support team](mailto:info@iwellnessnow.com) to get these values. 
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [iWellnessNow Client support team](mailto:info@iwellnessnow.com) to get these values.
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
