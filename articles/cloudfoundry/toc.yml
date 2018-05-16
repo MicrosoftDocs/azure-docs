@@ -14,7 +14,7 @@
   - name: Deploy CF OMS Nozzle
     href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
   - name: Integrate Cloud Foundry with Azure
-    href: /azure/cloudfoundry/How-CloudFoundry-Integrates-with-Azure 
+    href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure 
 - name: Resources
   items:
   - name: Azure Roadmap
