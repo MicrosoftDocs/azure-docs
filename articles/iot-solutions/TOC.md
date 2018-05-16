@@ -9,7 +9,7 @@
 # Get started
 ## Remote Monitoring
 ### [Deploy the solution accelerator](iot-solutions-remote-monitoring-deploy.md)
-### [Operate the solution accelerator](../iot-suite/iot-suite-remote-monitoring-explore.md)
+### [Operate the solution accelerator](iot-solutions-remote-monitoring-explore.md)
 
 ## Remote Monitoring (previous version)
 ### [What are the solution accelerators?](../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md)
@@ -57,14 +57,14 @@
 
 # How-to guides
 ## Remote Monitoring
-### [Perform advanced monitoring](../iot-suite/iot-suite-remote-monitoring-monitor.md)
+### [Perform advanced monitoring](iot-solutions-remote-monitoring-monitor.md)
 ### [Use rules to detect issues](iot-solutions-remote-monitoring-automate.md)
-### [Integrate SIM data](../iot-suite/iot-suite-remote-monitoring-telefonica-sim.md)
-### [Manage your devices](../iot-suite/iot-suite-remote-monitoring-manage.md)
-### [Troubleshoot device issues](../iot-suite/iot-suite-remote-monitoring-maintain.md)
-### [Understand the device model schema](../iot-suite/iot-suite-remote-monitoring-device-schema.md)
+### [Integrate SIM data](iot-solutions-remote-monitoring-telefonica-sim.md)
+### [Manage your devices](iot-solutions-remote-monitoring-manage.md)
+### [Troubleshoot device issues](iot-solutions-remote-monitoring-maintain.md)
+### [Understand the device model schema](iot-solutions-remote-monitoring-device-schema.md)
 ### [Understand the device model behavior](../iot-suite/iot-suite-remote-monitoring-device-behavior.md)
-### [Create a new simulated device](../iot-suite/iot-suite-remote-monitoring-test.md)
+### [Create a new simulated device](iot-solutions-remote-monitoring-test.md)
 ### [Visualize with PowerBI](../iot-suite/iot-suite-integrate-data-powerbi.md)
 ### [Customize the solution UI](iot-solutions-remote-monitoring-customize.md)
 ### [Customize and redeploy a microservice](../iot-suite/iot-suite-microservices-example.md)
@@ -81,7 +81,7 @@
 #### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Concepts
-#### [Remote Monitoring implementation details](../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Remote Monitoring implementation details](iot-solutions-remote-monitoring-sample-walkthrough.md)
 #### [Remote Monitoring architectural choices](iot-solutions-remote-monitoring-architectural-choices.md)
 
 ## Connected Factory
