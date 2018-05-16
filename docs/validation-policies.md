@@ -75,7 +75,7 @@ This document describes the criteria that are used to validate that Office Add-i
 
 |Policy number|Description|
 |:-----|:-----|
-|5.1|You must submit a privacy link. The linked privacy documentation must be clearly titled as such. The content of the privacy statement must be under the direct control of the app or add-in provider. If your app or add-in does not collect or transmit user information, you must link to a statement that states this fact. For information about common mistakes to avoid, see *How can I avoid errors when submitting my app or add-in to AppSource?* in [AppSource submission FAQ](office-store-submission-faq.md).|
+|5.1|You must submit a privacy link. The linked privacy documentation must be clearly titled as such and must clearly relate to your app, add-in, or overall service. Linked documentation that refers solely to your website is not acceptable. The content of the privacy statement must be under the direct control of the app or add-in provider and must contain, at a minimum, what user data is collected and stored, what privacy controls are protecting the users data, and how the data is used. If your app or add-in does not collect or transmit user information, you must link to a statement that states this fact.|
 |5.2|Your app or add-in must obtain consent to publish personal information.|
 |5.3|Your app or add-in must not obtain or store customer information or content without notifying the user.|
 |5.4|Your app or add-in must not pass or transmit customer data without notifying the user.|
@@ -252,6 +252,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|May 16, 2018|Updated policy 5.1.|
 |2.2|March 30, 2018|Added policy 5.9. |
 |2.2|March 8, 2018|Added policy 14.18.|
 |2.2|February 20, 2018|Updated policies 13.3, 14.6, and 14.10.|
