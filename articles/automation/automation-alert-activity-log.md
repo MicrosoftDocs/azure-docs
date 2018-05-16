@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/23/2018
+ms.date: 05/16/2018
 ms.topic: article
 manager: carmonm
 ---
@@ -27,12 +27,11 @@ Under **1. Define alert condition**, click **+  Select target**. Under **Filter 
 
 Click **+ Add criteria**. Select **Metrics** for the **Signal type**, and choose **Total Jobs** from the table.
 
-On the **Configure signal logic** page, two dimensions are displayed **Runbook Name** and **Status**. For **Runbook Name**, select the runbook you want to alert on, for **Status** choose the status you want to alert on. The drop downs for the dimensions are based off of activity within the time frame selected. If you want to alert on a status there must have been a runbook in that state during that time period. For example, if you want to alert on Failed runbook
-> [!IMPORTANT] If you want to create an alert for the failure of a job for a particular runbook, you must of had a runbook fail recently to be selectable in the dropdown. You then can create an alert for that runbook and condition.
+On the **Configure signal logic** page, two dimensions are displayed **Runbook Name** and **Status**. For **Runbook Name**, select the runbook you want to alert on, for **Status** choose the status you want to alert on. The drop downs for the dimensions are based off of recent activity. If you want to alert on a status or runbook that is not shown in the dropdown, click the **+** next to the dimension. This opens a dialog that allows you to enter in a custom value which has not emitted for that dimension.
 
 ![Select a resource for the alert](./media/automation-alert-activity-log/configure-signal-logic.png)
 
-Under **2. Define alert details**, give the alert a friendly name and description. Set the **Severity** to **Sev 3** since the alert is for a successful run.
+Under **2. Define alert details**, give the alert a friendly name and description. Set the **Severity** to match your alert condition.
 
 Under **3. Define action group**, click **+ New action group**. An action group is a group of actions that you can use across multiple alerts. These can include but are not limited to, email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md)
 
