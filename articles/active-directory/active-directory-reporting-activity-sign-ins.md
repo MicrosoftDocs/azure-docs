@@ -33,7 +33,7 @@ The reporting architecture in Azure Active Directory consists of the following c
 
 This topic gives you an overview of the sign-in activities.
 
-## Pre-requisite
+## Prerequisites
 
 ### Who can access the data?
 * Users in the Security Admin, Security Reader, or Report Reader role
@@ -58,7 +58,7 @@ Your first entry point to all sign-in activities data is **Sign-ins** in the Act
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/61.png "Sign-in activity")
 
 
-An sign-ins log has a default list view that shows:
+A sign-ins log has a default list view that shows:
 
 - The sign-in date
 - The related user
@@ -77,7 +77,7 @@ This enables you to display additional fields or remove fields that are already 
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/02.png "Sign-in activity")
 
-By clicking an item in the list view, you get all available details about it i a horizontal view.
+By clicking an item in the list view, you get all available details about it in a horizontal view.
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/03.png "Sign-in activity")
 
