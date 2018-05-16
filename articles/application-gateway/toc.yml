@@ -74,12 +74,12 @@
       href: application-gateway-customize-waf-rules-powershell.md
     - name: Azure CLI
       href: application-gateway-customize-waf-rules-cli.md
-    - name: Redirect external traffic
+  - name: Redirect external traffic
     items:
-      - name: Azure PowerShell
-        href: redirect-external-site-powershell.md
-      - name: Azure CLI
-        href: redirect-external-site-cli.md
+    - name: Azure PowerShell
+      href: redirect-external-site-powershell.md
+    - name: Azure CLI
+      href: redirect-external-site-cli.md
   - name: Redirect HTTP to HTTPS
     items:
       - name: Azure PowerShell
