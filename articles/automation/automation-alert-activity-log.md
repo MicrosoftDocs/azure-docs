@@ -47,15 +47,13 @@ Click **OK** on the **Email/SMS/Push/Voice** page to close it and click **OK** t
 
 You can customize the subject of the email sent by clicking **Email subject** under **Customize Actions** on the **Create rule** page. When complete, click **Create alert rule**. This creates the rule that alerts you when a runbook completed with a certain status.
 
-## Test the alert
+## Understanding the alert
 
-Navigate to your Automation Account and select **Runbooks**, and click **+ Add a runbook**. Choose **Quick Create** and give the runbook a name and choose **PowerShell** for the **Runbook type**.
-
-In the canvas type `throw` and click **Publish**. When prompted choose **Yes** to publish the runbook. The logic in this runbook throws a default exception and causes the runbook to fail.
-
-On the **Runbook** page, click **Start** and when prompted click **Yes** to start the runbook.
+When the alert criteria is met, the action group runs the action defined. In this articles example an email is sent. The following image is an example of an email you receive after the alert is triggered:
 
 ![Email alert](./media/automation-alert-activity-log/alert-email.png)
+
+Once the metric is no longer breached outside of the threshold defined, the alert is deactivated and the action group runs the action defined. In the case of an email action type, a resolution email is sent stating it has been resolved.
 
 ## Next steps
 
