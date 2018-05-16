@@ -1,6 +1,6 @@
 ---
-title: Azure Availability Zones overview | Microsoft Docs
-description: This article provides an overview of how to use Availability Zones to create highly available and resilient applications in Azure
+title: What are Azure Availability Zones? | Microsoft Docs
+description: To create highly available and resilient applications in Azure, Availability Zones provide physically separate locations you can use to run your resources.
 services: 
 documentationcenter:
 author: iainfoulds
@@ -18,7 +18,7 @@ ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
 
-# Overview of Availability Zones in Azure
+# What are Availability Zones in Azure?
 Availability Zones is a high-availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region protects applications and data from datacenter failures. Zone-redundant services replicate your applications and data across Availability Zones to protect from single-points-of-failure. With Availability Zones, Azure offers industry best 99.99% VM uptime SLA. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
 Build high-availability into your application architecture by co-locating your compute, storage, networking, and data resources within a zone and replicating in other zones. Azure services that support Availability Zones fall into two categories:
@@ -32,7 +32,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 ## Regions that support Availability Zones
 
-- US Central
+- Central US
 - France Central
 - East US 2 (Preview)
 - West Europe (Preview)
