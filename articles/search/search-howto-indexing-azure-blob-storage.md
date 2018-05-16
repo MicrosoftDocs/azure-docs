@@ -277,7 +277,7 @@ You can also continue indexing if errors happen at any point of processing, eith
 	}
 
 ## Incremental indexing and deletion detection
-When you set up a blob indexer to run on a schedule, it re-indexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
+When you set up a blob indexer to run on a schedule, it reindexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
 
 > [!NOTE]
 > You don't have to specify a change detection policy – incremental indexing is enabled for you automatically.

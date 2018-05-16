@@ -40,6 +40,8 @@ Before following the instructions in this article, ensure that you have the foll
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) or higher.
 
+* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for an individual collection or a set of collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
+
 ## <a id="Overviewl"></a>Overview
 The Data Migration tool is an open source solution that imports data to Azure Cosmos DB from a variety of sources, including:
 
@@ -457,7 +459,7 @@ To import to a single collection, enter the name of the collection to which data
 Once the collection name(s) have been specified, choose the desired throughput of the collection(s) (400 RUs to 250,000 RUs). For best import performance, choose a higher throughput. For more information about performance levels, see [Performance levels in Azure Cosmos DB](performance-levels.md). Any import to collections with throughput >10,000 RUs require a partition key. If you choose to have more than 250,000 RUs, you need to file a request in the portal to have your account increased.
 
 > [!NOTE]
-> The throughput setting only applies to collection creation. If the specified collection already exists, its throughput will not be modified.
+> The throughput setting only applies to collection or database creation. If the specified collection already exists, its throughput will not be modified.
 > 
 > 
 

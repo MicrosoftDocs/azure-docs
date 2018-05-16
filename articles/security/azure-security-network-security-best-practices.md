@@ -4,7 +4,7 @@ description: This article provides a set of best practices for network security 
 services: security
 documentationcenter: na
 author: TomShinder
-manager: swadhwa
+manager: mbaldwin
 editor: TomShinder
 
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1

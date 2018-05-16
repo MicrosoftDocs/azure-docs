@@ -5,7 +5,7 @@
  author: MGoedtel
  ms.service: log-analytics
  ms.topic: include
- ms.date: 03/29/2018
+ ms.date: 05/16/2018
  ms.author: magoedte
  ms.custom: include file
 ---
@@ -35,5 +35,5 @@ The following limits apply to each Log Analytics workspace:
 | Category | Limits | Comments
 | --- | --- | --- |
 | Data Collector API | Maximum size for a single post is 30 MB<br>Maximum size for field values is 32 KB | Split larger volumes into multiple posts<br>Fields longer than 32 KB are truncated. |
-| Search API | 5000 records returned for non-aggregated data<br>500000 records for aggregated data | Aggregated data is a search that includes the `measure` command
+| Search API | 5000 records returned for non-aggregated data<br>500000 records for aggregated data | Aggregated data is a search that includes the `summarize` command
  
