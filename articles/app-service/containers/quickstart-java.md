@@ -123,6 +123,8 @@ Depending on which method of deployment you use, the relative path to browse to 
 
 ### Deploy with Maven
 
+In this section you will deploy the Java web app to Azure usign the [Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin).
+
 To deploy from Maven, add the following plugin definition inside the `<build>` element of the *pom.xml* file:
 
 ```xml
@@ -130,7 +132,7 @@ To deploy from Maven, add the following plugin definition inside the `<build>` e
       <plugin>
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-webapp-maven-plugin</artifactId> 
-        <version>0.2.0</version>
+        <version>1.1.0</version>
         <configuration> 
           <resourceGroup>YOUR-RESOURCE-GROUP</resourceGroup> 
           <appName>YOUR-WEB-APP</appName> 
