@@ -63,9 +63,9 @@ Shifting focus to the more commonly used standard tiers, **S1-S3** are a progres
 | partition size|  25 GB | 100 GB | 250 GB |  |  |  |  |
 | index and indexer limits| 50 | 200 | 200 |  |  |  |  |
 
-**S1** is a common choice when dedicated resources become a necessity. With partitions of 25 GB for up to 12 partitions, the per-service limit on **S1** is 300 GB total if you maximize partitions over replicas (see [Allocate partitions and replicas](search-capacity-planning.md#chart) for more realistic and balanced compositions.)
+**S1** is a common choice when dedicated resources and multiple partitions become a necessity. With partitions of 25 GB for up to 12 partitions, the per-service limit on **S1** is 300 GB total if you maximize partitions over replicas (see [Allocate partitions and replicas](search-capacity-planning.md#chart) for more balanced compositions.)
 
-Portal and pricing pages put the focus on partition size and storage, but for each tier, all compute capabilities (disk capacity, speed, CPUs) grow linearly with price. Storage aside, an **S2** replica is faster than **S1**. **S3** tiers break the general compute pricing pattern with disproportionately faster I/O. If you anticipate I/O as the bottleneck, an **S3** gives you much more IOPS than lower tiers.
+Portal and pricing pages put the focus on partition size and storage, but for each tier, all compute capabilities (disk capacity, speed, CPUs) grow linearly with price. An **S2** replica is faster than **S1**, and **S3** is faster than **S2**. **S3** tiers break the generally linear compute-pricing pattern with disproportionately faster I/O. If you anticipate I/O as the bottleneck, an **S3** gives you much more IOPS than lower tiers.
 
 **S3** and **S3 HD** are backed by identical high capacity infrastructure but each one reaches its maximum limit in different ways. **S3** targets a smaller number of very large indexes. As such, its maximum limit is resource-bound (2.4 TB for each service). **S3 HD** targets a large number of very small indexes. At 1,000 indexes, **S3 HD** reaches its limits in the form of index constraints. If you are an **S3 HD** customer who requires more than 1,000 indexes, contact Microsoft Support for information on how to proceed.
 
