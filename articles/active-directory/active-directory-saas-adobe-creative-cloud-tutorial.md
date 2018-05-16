@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -133,9 +133,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| LastName |user.surname |
 	| Email |user.mail |
 
-	> [!NOTE]
-	> Customers should have Office 365 ExO licence to have email attribute passed as claim.
-
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
 	![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_04.png)
@@ -147,6 +144,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	c. From the **Value** list, type the attribute value shown for that row.
 
 	d. Click **Ok**.
+
+	> [!NOTE]
+	> Customers should have a valid Office 365 ExO license attached to their email, only then the Email claim value will be populated in the SAML response.
 
 8. Click **Save** button.
 
