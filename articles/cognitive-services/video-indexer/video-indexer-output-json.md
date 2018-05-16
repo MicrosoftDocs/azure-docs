@@ -15,7 +15,7 @@ ms.author: juliako
 # Examine the Video Indexer output produced by v1 API
 
 > [!Note]
-> The Video Indexer v1 API is going to be deprecated on July 31, 2018. You should start using the Video Indexer v2 API. 
+> The Video Indexer v1 API is going to be deprecated on August 1, 2018. You should start using the Video Indexer v2 API. 
 > 
 > To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://aka.ms/viapi). 
 
