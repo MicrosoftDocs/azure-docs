@@ -311,7 +311,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 6. Specify the name of the dashboard and click **Create**. This tutorial uses **Credit Card Anomalies**.
 
-   ![Screenshot of specifying dashboard name.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-name.png
+   ![Screenshot of specifying dashboard name.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-name.png)
 
 7. On the Dashboard page, click **Add tile**, select **Custom Streaming Data** in the **REAL - TIME DATA** section, then click **Next**.
 
