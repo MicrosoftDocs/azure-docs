@@ -5,7 +5,7 @@ services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/07/2018
+ms.date: 05/16/2018
 ms.author: ponatara
 ---
 
