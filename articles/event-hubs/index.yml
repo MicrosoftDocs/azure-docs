@@ -48,7 +48,7 @@ sections:
   - type: paragraph
     text: Learn how to create, manage, and stream events, using Azure Event Hubs
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="https://review.docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-visualize-anomalies?branch=pr-en-us-41171">Read a stream of Event Hubs data with Azure Stream Analytics and visualize the anomalies</a>
 - title: Free Pluralsight Video Training
