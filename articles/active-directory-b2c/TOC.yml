@@ -108,12 +108,16 @@
           href: active-directory-b2c-setup-li-app.md
         - name: Twitter
           href: active-directory-b2c-setup-twitter-app.md
+        - name: GitHub
+          href: active-directory-b2c-setup-github-app.md
         - name: Weibo
           href: active-directory-b2c-setup-weibo-app.md
         - name: QQ
           href: active-directory-b2c-setup-qq-app.md
         - name: WeChat
           href: active-directory-b2c-setup-wechat-app.md
+        - name: Azure AD (Single Tenant) 
+          href: active-directory-b2c-setup-oidc-azure-active-directory.md 
         - name: Custom OpenID Connect 
           href: active-directory-b2c-setup-oidc-idp.md 
       - name: Set up self-serve-password reset

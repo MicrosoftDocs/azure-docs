@@ -3,10 +3,11 @@ title: Troubleshoot Azure Automation Hybrid Runbook Worker
 description: Describe the symptoms, causes, and resolution for the most common Hybrid Runbook Worker issues in Azure Automation.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/17/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Troubleshooting tips for Hybrid Runbook Worker
