@@ -15,7 +15,7 @@ In this tutorial, you use Power BI Desktop to connect to the adventureworks samp
 
 > [!div class="checklist"]
 > * Get your server name from the portal
-> * Connect to your server by using Power BI Desktop
+> * Connect by using Power BI Desktop
 > * Create a basic report
 
 ## Prerequisites

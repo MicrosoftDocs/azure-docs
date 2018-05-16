@@ -17,9 +17,9 @@ ms.reviewer: owend
 > [!div class="checklist"]
 > * Get your server name from the portal
 > * Connect to your server by using SSMS
-> * Add another server administrator or group
-> * Add another model database administrator or group
-> * Add a role and group or user
+> * Add a user or group to the server administrator role 
+> * Add a user or group to the model database administrator role
+> * Add a new model database role and add a user or group
 
 To learn more about user security in Azure Analysis Services, see [Authentication and user permissions](../analysis-services-manage-users.md). 
 
@@ -92,7 +92,7 @@ In this task, you add a user or group account to the Internet Sales Administrato
 4. Press **F5**, to execute the script.
 
 
-## Add a new model database role and add a group
+## Add a new model database role and add a user or group
 
 In this task, you use the [Create](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/create-command-tmsl?view=sql-analysis-services-2017) command in a TMSL script to create a new Internet Sales Global role, specify *read* permissions for the role, and add a user or group account from your Azure AD.
 

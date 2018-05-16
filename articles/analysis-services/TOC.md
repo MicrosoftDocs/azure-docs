@@ -10,7 +10,7 @@
 ## [Configure server firewall - Portal](analysis-services-qs-firewall.md)
 
 # Tutorials
-## [1 - Add a sample model - portal](analysis-services-create-sample-model.md) 
+## [1 - Add a sample model from the portal](analysis-services-create-sample-model.md) 
 ## [2 - Configure server administrator and user roles](tutorials/analysis-services-tutorial-roles.md)
 ## [3 - Connect with Power BI Desktop](tutorials/analysis-services-tutorial-pbid.md)
 

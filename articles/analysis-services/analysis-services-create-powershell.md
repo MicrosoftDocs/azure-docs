@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 05/14/2018
 ms.author: owend
 ms.reviewer: minewiskan
-
+#Customer intent: As a BI developer, I want to create an Azure Analysis Services server by using PowerShell.
 ---
 
 # Quickstart: Create a server - PowerShell

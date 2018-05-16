@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 05/14/2018
 ms.author: owend
 ms.reviewer: minewiskan
-
+#Customer intent: As a BI developer, I want to create an Azure Analysis Services server by using the Azure portal.
 ---
 # Quickstart: Create a server - Portal
 
@@ -32,8 +32,6 @@ This article describes how to create an Analysis Services server resource in you
 
 2. In **Analysis Services**, fill in the required fields, and then press **Create**.
    
-    ![Create server](./media/analysis-services-create-server/aas-create-server-blade.png)
-   
    * **Server name**: Type a unique name used to reference the server.
    * **Subscription**: Select the subscription this server will be associated with.
    * **Resource group**: Create a new resource group or select one you already have. Resource groups are designed to help you manage a collection of Azure resources. To learn more, see [resource groups](../azure-resource-manager/resource-group-overview.md).
@@ -42,9 +40,8 @@ This article describes how to create an Analysis Services server resource in you
     * **Administrator**: By default, this will be the account you are logged in with. You can choose a different account from your Azure Active Directory.
     * **Backup Storage setting**: Optional. If you already have a [storage account](../storage/common/storage-introduction.md), you can specify it as the default for model database backup. You can also specify [backup and restore](analysis-services-backup.md) settings later.
     * **Storage key expiration**: Optional. Specify a storage key expiration period.
-3. Click **Create**.
 
-Create usually takes under a minute. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **All services** > **Analysis Services** to see if your server is ready.
+Creating the server usually takes under a minute. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **All services** > **Analysis Services** to see if your server is ready.
 
 ## Clean up resources
 
