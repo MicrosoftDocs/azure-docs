@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Diagnosing Common Scenarios | Microsoft Docs
+title: Azure Service Fabric Diagnose Common Scenarios | Microsoft Docs
 description: Learn how to troubleshoot common scenarios with Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
@@ -18,9 +18,9 @@ ms.author: srrengar
 
 ---
 
-# Diagnosing common scenarios with Service Fabric
+# Diagnose common scenarios with Service Fabric
 
-This article illustrates common scenarios customers have encountered in the area of monitoring and diagnostics with Service Fabric. 
+This article illustrates common scenarios users have encountered in the area of monitoring and diagnostics with Service Fabric. The scenarios presented cover all 3 layers of service fabric: Application, Cluster, and Infrastructure. Each solution uses Application Insights and Log Analytics, Azure monitoring tools, to complete each scenario. The steps in each solution give users an introduction on how to use Application Insights and Log Analytics in the context of Service Fabric.
 
 ## Prerequisites and Recommendations
 
@@ -30,7 +30,6 @@ The solutions in this article will use the following tools. We recommend you hav
 * [Enable Azure Diagnostics on your cluster](service-fabric-diagnostics-event-aggregation-wad.md)
 * [Set up an OMS Log Analytics Workspace](service-fabric-diagnostics-oms-setup.md)
 * [OMS Agent to track Performance Counters](service-fabric-diagnostics-oms-agent.md)
-
 
 ## How can I see unhandled exceptions in my application?
 
@@ -91,7 +90,7 @@ The solutions in this article will use the following tools. We recommend you hav
     ![OMS Container Metrics](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
 
 >[!NOTE]
->To instrument telemetry from **inside** your container you will need to add the Application Insights nuget package for containers.
+>To instrument telemetry from **inside** your container you will need to add the [Application Insights nuget package for containers](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios).
 
 ## How can I monitor resource consumption to see if they are near thresholds?
 
