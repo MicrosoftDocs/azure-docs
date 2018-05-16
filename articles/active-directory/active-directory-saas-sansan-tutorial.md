@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -153,13 +153,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	[Parameter(Mandatory=$false)][string[]]$IdentifierUrls
 	)
 
-	Connect-AzureAD
-
-	# Assign the values to the variables
-	$ServicePrincipalObjectId = "2ee2359f-4795-4a7a-9b75-0e9bf79894d2"
-	$ReplyUrls = @("https://ap.sansan.com/contoso", "https://internal.api.sansan.com/contoso")
-	$IdentifierUrls = @("https://internal.api.sansan.com/saml2/contoso", "https://ap.sansan.com/v/saml2/contoso", "https://ap.sansan.com/s/saml2/contoso")
-
 	$servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
 
 	if($ReplyUrls.Length)
@@ -188,15 +181,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	echo "Not able to find the matched application with this service principal"
 	}
 	```
-8. After successfull completion of powershell script, if you need to check the auto populated **Identifier** and **Reply** URL values, check **Show advanced URL settings** under **Sansan Domain and URLs** section in Azure portal.
-
-	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_url1.png)
-
-9. On the **Sansan Configuration** section, click **Configure Sansan** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **Sansan Configuration** section, click **Configure Sansan** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_configure.png) 
 
-10. To configure single sign-on on **Sansan** side, you need to send the downloaded **Certificate**, **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** to [Sansan support team](https://www.sansan.com/form/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+9. To configure single sign-on on **Sansan** side, you need to send the downloaded **Certificate**, **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** to [Sansan support team](https://www.sansan.com/form/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
 >[!NOTE]
 >PC browser setting also work for Mobile app and Mobile browser along with PC web. 
