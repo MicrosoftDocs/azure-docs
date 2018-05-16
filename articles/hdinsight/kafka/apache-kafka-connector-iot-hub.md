@@ -367,7 +367,7 @@ To send messages through the connector, use the following steps:
 
 For more information on using the sink connector, see [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
-## Next Steps
+## Next steps
 
 In this document, you learned how to use the Kafka Connect API to start the IoT Kafka Connector on HDInsight. Use the following links to discover other ways to work with Kafka:
 
