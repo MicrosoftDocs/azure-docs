@@ -21,7 +21,7 @@ An **Asset** contains digital files (including video, audio, images, thumbnail c
 
 An asset is mapped to a blob container in the [Azure Storage account](storage-account-concept.md) and the files in the asset are stored as block blobs in that container. You can interact with the Asset files in the containers using the Storage SDK clients.
 
-Azure Media Services supports Blob tiers when the account uses General-purpose v2 (GPv2) storage. With GPv2, you can move files to cool or cold storage. Cold storage is suitable for archiving mezzanine files when no longer needed (for example, after they have been encoded.)
+Azure Media Services supports Blob tiers when the account uses General-purpose v2 (GPv2) storage. With GPv2, you can move files to cool or cold storage. Cold storage is suitable for archiving source files when no longer needed (for example, after they have been encoded.)
 
 In Media Services v3, the job input can be created from assets or from HTTP(s) URLs. To create an asset that can be used as an input for your job, see [Create a job input from a local file](job-input-from-local-file-how-to.md).
 
@@ -47,7 +47,7 @@ The following table shows the Asset's properties and gives their definitions.
 
 For the full definition, see [Assets](https://docs.microsoft.com/rest/api/media/assets).
 
-## Filtering, ordering and paging support
+## Filtering, ordering, and paging support
 
 Media Services supports the following OData query options for Assets: 
 
@@ -85,7 +85,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 Pagination is supported for each of the four enabled sort orders. 
 
-If a response of a query contains more than 1000 items, the service returns an "@odata.nextLink" property to gets the next page of results. This can be used to page through the entire result set. The page size is not configurable by the user. 
+If a response of a query contains more than 1000 items, the service returns an "@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. The page size is not configurable by the user. 
 
 If Assets are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
 
