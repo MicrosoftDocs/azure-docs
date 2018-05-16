@@ -4,7 +4,7 @@ description: Azure Policy is a service in Azure, that you use to create, assign 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/16/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
@@ -23,14 +23,14 @@ Azure Policy is a service in Azure that you use to create, assign and, manage po
 
 There are a few key differences between policy and role-based access control (RBAC). RBAC focuses on user actions at different scopes. For example, you might be added to the contributor role for a resource group at the desired scope. The role allows you to make changes to that resource group. Policy focuses on resource properties during deployment and for already existing resources. For example, through policies, you can control the types of resources that can be provisioned. Or, you can restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system.
 
-To use policies, you must be authenticated through RBAC. Specifically, your account needs the:
+### RBAC Permissions in Azure Policy
 
-- `Microsoft.Authorization/policydefinitions/write` permission to define a policy.
-- `Microsoft.Authorization/policyassignments/write` permission to assign a policy.
-- `Microsoft.Authorization/policySetDefinitions/write` permission to define an initiative.
-- `Microsoft.Authorization/policyassignments/write` permission to assign an initiative.
+Azure Policy has permissions represented as operations in two different Resource Providers:
 
-These permissions are not included in the **Contributor** role.
+- [Microsoft.Authorization](../role-based-access-control/resource-provider-operations#microsoftauthorization)
+- [Microsoft.PolicyInsight](../role-based-access-control/resource-provider-operations#microsoftpolicyinsights)
+
+Several of the Built-in roles have various levels of permission to Azure Policy resources, such as **Security Admin** that can manage policy assignments and definitions but cannot view compliance information and **Reader** that can read details regarding policy assignments and definitions, but cannot make changes or view compliance information. To grant permission to compliance details, create a [custom role](../role-based-access-control/custom-roles).
 
 ## Policy definition
 
@@ -47,7 +47,7 @@ In Azure Policy, we offer some built-in policies that are available to you by de
 - **Enforce tag and its value**: This policy enforces a required tag and its value to a resource.
 - **Not allowed resource types**: This policy enables you to specify the resource types that your organization cannot deploy.
 
-You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI. After you make changes to a policy definition, policy reevaluation happens about once an hour.
+You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI. After you make changes to a policy definition, policy re-evaluation happens about once an hour.
 
 To learn more about the structures of policy definitions, review [Policy Definition Structure](policy-definition.md).
 
@@ -114,11 +114,11 @@ While creating and managing policy definitions and assignments, here are a few p
 
    Keep in mind that once you have created an initiative assignment from an initiative definition, any new policy definitions added to the initiative definition automatically roll under the initiative assignment(s) under that initiative definition. However, if there’s a new parameter introduced to the new policy definition, you need to update the initiative definition and assignments by editing the initiative definition or assignment.
 
-   Note that once an initiative assignment is triggered, all policies within the initiative will be triggered as well. However, if you needed to execute a policy individually, it is better to not include it in an initiative.
+   Once an initiative assignment is triggered, all policies within the initiative will be triggered as well. However, if you needed to execute a policy individually, it is better to not include it in an initiative.
 
 ## Next steps
 
-Now that you have an overview of Azure Policy and some of the key concepts we’re introducing, here are the suggested next steps:
+Now that you have an overview of Azure Policy and some of the key concepts, here are the suggested next steps:
 
 - [Assign a policy definition](assign-policy-definition.md)
 - [Assign a policy definition using the Azure CLI](assign-policy-definition-cli.md)
