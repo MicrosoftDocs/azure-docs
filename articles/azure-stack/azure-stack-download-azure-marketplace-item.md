@@ -69,21 +69,23 @@ Your Azure Stack deployment must have internet connectivity, and be [registered 
 
 ## Disconnected or a partially connected scenario
 
-If Azure Stack is in a disconnected mode, you use PowerShell and the *marketplace syndication tool* to download the marketplace items to a machine with internet connectivity. You then transfer the items to your Azure Stack environment. In a disconnected environment, you can’t download marketplace items by using the Azure Stack portal. 
+If Azure Stack is in a disconnected mode and without internet connectivity, you use PowerShell and the *marketplace syndication tool* to download the marketplace items to a machine with internet connectivity. You then transfer the items to your Azure Stack environment. In a disconnected environment, you can’t download marketplace items by using the Azure Stack portal. 
 
 The marketplace syndication tool can also be used in a connected scenario. 
 
 There are two parts to this scenario:
-1. On the computer with internet access you configure PowerShell, download the syndication tool, and then download items form the Azure Marketplace.
-2. You move the files you downloaded to your Azure Stack environment, import them to Azure Stack, and then publish them to the Azure Stack Marketplace.  
+- **Part 1:** Download from Azure Marketplace. On the computer with internet access you configure PowerShell, download the syndication tool, and then download items form the Azure Marketplace.  
+- **Part 2:** Upload and publish to the Azure Stack Marketplace. You move the files you downloaded to your Azure Stack environment, import them to Azure Stack, and then publish them to the Azure Stack Marketplace.  
 
 
 ### Prerequisites
 - Your Azure Stack deployment must be [registered with Azure](azure-stack-register.md).  
-- The computer that has internet connectivity must have **Azure Stack PowerShell Module version 1.2.11** or higher. If not already present, [install Azure Stack specific PowerShell modules](azure-stack-powershell-install.md).  
-- To enable import of a downloaded marketplace item, the [PowerShell environment for the Azure Stack operator](azure-stack-powershell-configure-admin.md) must be configured.  
-- You must have a storage account in Azure Stack that has a publicly accessible container (which is a storage blob). You use the container as temporary storage for the marketplace items gallery files. If you are not familiar with storage accounts and containers, see [Work with blobs - Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) in the Azure documentation.
 
+- The computer that has internet connectivity must have **Azure Stack PowerShell Module version 1.2.11** or higher. If not already present, [install Azure Stack specific PowerShell modules](azure-stack-powershell-install.md).  
+
+- To enable import of a downloaded marketplace item, the [PowerShell environment for the Azure Stack operator](azure-stack-powershell-configure-admin.md) must be configured.  
+
+- You must have a storage account in Azure Stack that has a publicly accessible container (which is a storage blob). You use the container as temporary storage for the marketplace items gallery files. If you are not familiar with storage accounts and containers, see [Work with blobs - Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) in the Azure documentation.
 
 - The marketplace syndication tool is downloaded during the first procedure. 
 
@@ -159,7 +161,7 @@ There are two parts to this scenario:
       }
      ```  
 
-   When you have all four values (version, publisher, offer, and sku), update the parameters in the following script to include those values. Then, run the script in your Azure Stack environment. 
+   When you have all four values (version, publisher, offer, and sku), update the parameters in the following script to include those values. Update additional parameters as needed, like the path to the VHD file. When ready, run the script in your Azure Stack environment. 
 
    In the following example script, values for the Windows Server 2016 Datacenter - Server Core virtual machine are used. 
 
