@@ -69,4 +69,4 @@ Connected Factory includes the following features:
 Learn more about the Connected Factory preconfigured solution by reading the following articles:
 
 * [Connected Factory preconfigured solution walkthrough](iot-solutions-connected-factory-sample-walkthrough.md)
-* [Deploy a gateway for Connected Factory]( iot-suite-connected-factory-gateway-deployment.md)
+* [Deploy a gateway for Connected Factory]( iot-solutions-connected-factory-gateway-deployment.md)
