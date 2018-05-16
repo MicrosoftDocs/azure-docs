@@ -368,7 +368,7 @@ var device = new Device(deviceId)
   {
     X509Thumbprint = new X509Thumbprint()
     {
-      PrimaryThumbprint = "921BC9694ADEB8929D4F7FE4B9A3A6DE58B0790B"
+      PrimaryThumbprint = "B4172AB44C28F3B9E117648C6F7294978A00CDCBA34A46A1B8588B3F7D82C4F1"
     }
   }
 };
