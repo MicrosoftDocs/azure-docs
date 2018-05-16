@@ -11,7 +11,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 
+ms.topic: reference
 ms.date: 05/15/2018
 ms.author: barclayn
 
