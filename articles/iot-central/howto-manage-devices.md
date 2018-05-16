@@ -53,6 +53,39 @@ To add a device to your Azure IoT Central application:
 
 1. Choose **Real** or **Simulated**. A real device is for a physical device that you connect to your Azure IoT Central application. A simulated device has sample data generated for you by Azure IoT Central. This example uses a real device. Choose **Real** to navigate to the **Device Details** page for your new device.
 
+
+## Bulk-import devices
+
+To connect large number of devices to your application, Azure IoT Central offers bulk importing devices via a CSV file. 
+
+CSV file requirements:
+1. The CSV file should have only one column containing the Device IDs.
+
+1. File should not have any header.
+
+
+To bulk-register devices in your application:
+
+1. Choose **Explorer** on the left navigation menu.
+
+1. Choose the device template for which you want to bulk create the devices.
+
+1. Choose **New** and select **Bulk Import**.
+
+    ![Bulk Import Action](./media/howto-manage-devices/BulkImport1.png) 
+
+1. Select the CSV file that has the list of Device IDs to be imported.
+
+1. Device import starts once the file has been uploaded. You can track the import status at the top of the device grid.
+
+1. Once the import completes, a success message is shown on the device grid.
+
+    ![Bulk Import Success](./media/howto-manage-devices/BulkImport3.png)
+
+If the device import operation fails, there will be an error shown on the Device grid. A log file capturing all the errors is generated and can be downloaded by clicking the error message.
+
+
+
 ## Delete a device
 
 To delete either a real or simulated device from your Azure IoT Central application:
