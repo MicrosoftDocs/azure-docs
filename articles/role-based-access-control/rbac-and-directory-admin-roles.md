@@ -44,7 +44,7 @@ In the Azure portal, you can see who is assigned to the Account administrator an
 
 ![Account administrator and Service administrator in the Azure portal](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
 
-For more information about classic subscription administrators, see [Add or change Azure subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md) in the Azure Billing documentation.
+For information about how to add or change subscription administrators, see [Add or change Azure subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md) in the Azure Billing documentation.
 
 ### Azure account and Azure subscriptions
 
@@ -220,6 +220,6 @@ Roles in Azure are always evolving, but here is a list of roles and their corres
 
 ## Next Steps
 
-- [Add or change Azure subscription administrators](/azure/billing/billing-add-change-azure-subscription-administrator#types-of-classic-subscription-admins)
+- [Add or change Azure subscription administrators](/azure/billing/billing-add-change-azure-subscription-administrator)
 - [Assigning administrator roles in Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
 - [Role-based access control overview](overview.md)
