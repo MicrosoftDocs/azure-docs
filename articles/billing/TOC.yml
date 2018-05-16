@@ -16,8 +16,21 @@
     href: billing-use-existing-azure-account-for-office-365-subscription.md
   - name: Organize resources with management groups
     href: billing-enterprise-mgmt-group-overview.md
-  - name: Save money with Reserved VM Instances
+  - name: Save with Azure Reserved Instances
     href: billing-save-compute-costs-reservations.md
+    items:
+      - name: Prepay for Virtual Machines with Reserved Instances
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: Manage Reserved Instances
+        href: billing-manage-reserved-vm-instance.md
+      - name: Understand Reserved Instance discount application
+        href: billing-understand-vm-reservation-charges.md
+      - name: Understand Reserved Instance usage for Pay-As-You-Go
+        href: billing-understand-reserved-instance-usage.md
+      - name: Understand Reserved Instance usage for Enterprise
+        href: billing-understand-reserved-instance-usage-ea.md
+      - name: Reserve Instances Windows costs
+        href: billing-reserved-instance-windows-software-costs.md
   - name: Limits and quotas
     href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: How to
