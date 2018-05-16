@@ -35,7 +35,7 @@ Most Azure AD-related European identity data, for organizations with European-ba
     * Domain
     * PasswordHash
 
-    In the situation where someone uses an on-premises, federated authentication method that stops the PasswordHash value from syncing with Azure AD, the associated value isn't stored in the U.S. Beyond these user-related attributes, some service-specific data is also stored in the U.S. However, these service-specific attributes are needed for the normal operation of Azure AD services and don't include any personal data.
+In the situation where someone uses an on-premises, federated authentication method that stops the PasswordHash value from syncing with Azure AD, the associated value isn't stored in the U.S. Beyond these user-related attributes, some service-specific data is also stored in the U.S. However, these service-specific attributes are needed for the normal operation of Azure AD services and don't include any personal data.
 
 - **Identity-related attributes**
     
@@ -64,7 +64,7 @@ Most Azure AD-related European identity data, for organizations with European-ba
 
 - **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
     
-    Azure AD B2B stores all user data at-rest in European datacenters. However, B2B stores its non-personal metadata in tables within U.S. datacenters. This table includes fields like invitationId, redeemUrl, invitationTicket, resource tenant ID, and so on.
+    Azure AD B2B stores all user data at-rest in European datacenters. However, B2B stores its non-personal metadata in tables within U.S. datacenters. This table includes fields like redeemUrl, invitationTicket, resource tenant Id, InviteRedirectUrl, and InviterAppId.
 
 - **Microsoft Azure Active Directory Domain Services (Azure AD DS)**
 
