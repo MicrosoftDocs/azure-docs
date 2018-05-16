@@ -47,7 +47,7 @@ To complete this tutorial, you need an active Azure subscription.
 4. Click the tile to see the details of your solution in the right-hand pane.
 
 > [!NOTE]
-> If you encounter issues deploying the solution accelerator, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [Connected Factory FAQ](iot-suite-faq-cf.md). If the issues persist, create a service ticket on the [portal][lnk-portal].
+> If you encounter issues deploying the solution accelerator, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [Connected Factory FAQ](../iot-suite/iot-suite-faq-cf.md). If the issues persist, create a service ticket on the [portal][lnk-portal].
 
 Are there details you'd expect to see that aren't listed for your solution? Make feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
@@ -75,7 +75,7 @@ The solution dashboard enables you to manage the deployed solution. It is a hier
 
 The dashboard displays the following information:
 
-* A **Factory locations** panel that shows the status, location, and current production configuration in the solution. When you first run the solution, there are a number of simulated devices. The production line simulation is composed of three real OPC UA servers per production line that perform simulated tasks and share data. For more information about OPC UA, see the [Connected Factory FAQ](iot-suite-faq-cf.md).
+* A **Factory locations** panel that shows the status, location, and current production configuration in the solution. When you first run the solution, there are a number of simulated devices. The production line simulation is composed of three real OPC UA servers per production line that perform simulated tasks and share data. For more information about OPC UA, see the [Connected Factory FAQ](../iot-suite/iot-suite-faq-cf.md).
 * A **map** that displays the location of each device connected to the solution. The solution can use the Bing Maps API to plot information on the map. If your subscription is enabled for Bing Maps Enterprise API, then this feature is used automatically. If not, see the [FAQ][lnk-faq] to learn how to make the map dynamic.
 * An **Alarms** panel that displays alarms generated when a telemetry or OEE/KPI value exceeds a specific threshold.
 * An **Overall Equipment Efficiency** panel that shows the OEE values for the whole enterprise, or the factory/production line/station you are viewing. This value is aggregated from the station view to the enterprise level. The OEE figure and its constituent elements can be further analyzed.
@@ -290,11 +290,11 @@ Now that you’ve deployed a working solution accelerator, you can continue gett
 [cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/cf-filter-funnel.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-preconfigured-solutions]:../iot-solutions/iot-solutions-what-are-solution-accelerators.md
+[lnk-preconfigured-solutions]:iot-solutions-what-are-solution-accelerators.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
+[lnk-rm-walkthrough]:iot-solutions-connected-factory-sample-walkthrough.md
+[lnk-connect-cf]:iot-solutions-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-v1-permissions.md
 [lnk-faq]: iot-suite-v1-faq.md
