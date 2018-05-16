@@ -27,7 +27,7 @@ This article shows you how to migrate from the old metrics to the new metrics.
 
 Azure Storage collects old metric values, and aggregates and stores them in $Metric tables within the same storage account. You can use the Azure portal to set up a monitoring chart. You can also use the Azure Storage SDKs to read the data from $Metric tables that are based on the schema. For more information, see [Storage Analytics](./storage-analytics.md).
 
-Former metrics provide capacity metrics only on Azure Blob storage and transaction metrics on Blob storage, Table storage, Azure Files, and Queue storage. 
+Former metrics provide capacity metrics only on Azure Blob storage. Former metrics provide transaction metrics on Blob storage, Table storage, Azure Files, and Queue storage. 
 
 Former metrics are designed in a flat schema. The design results in zero metric value when you don't have the traffic patterns triggering the metric. For example, the **ServerTimeoutError** value is set to 0 in $Metric tables even when you don't receive any server timeout errors from the live traffic to a storage account.
 
