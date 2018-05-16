@@ -8,13 +8,13 @@ manager: jpconnock
 ms.service: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 5/15/2018
+ms.date: 5/16/2018
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to learn about Azure Firewall and what I can use it for.
 ---
 # What is Azure Firewall - Public Preview?
 
-Azure Firewall is a cloud-based network security service, providing filtering capabilities with built-in highly availability, unrestricted cloud scalability and zero maintenance.
+Azure Firewall is a cloud-based network security service, providing filtering capabilities with built-in high availability, unrestricted cloud scalability and zero maintenance.
 
 You can centrally create and enforce application and network connectivity policies to protect your Azure virtual network resources. It is fully integrated with the Azure platform, portal, and services.
 
@@ -29,7 +29,7 @@ Azure Firewall can scale up as much as you need  to accommodate changing network
 ##  FQDN filtering 
 You can limit outbound HTTPS/S traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature does not require SSL termination.
 
-## Layer-3 and layer-4 traffic filtering rules
+## Network traffic filtering rules
 
 You can centrally create allow or deny network filtering rules by source and destination IP address, port, and protocol. Azure Firewall is fully stateful. Rules are enforced and logged across multiple subscriptions and virtual networks.
 
