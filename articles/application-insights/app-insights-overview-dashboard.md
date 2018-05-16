@@ -58,4 +58,9 @@ To navigate back to the overview experience just select:
 
 ![Overview Button](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
 
+## Next steps
 
+- [Funnels](usage-funnels.md)
+- [Retention](app-insights-usage-retention.md)
+- [User Flows](app-insights-usage-flows.md)
+- [Dashboards](app-insights-dashboards.md)
