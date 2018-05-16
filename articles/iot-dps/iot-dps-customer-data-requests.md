@@ -21,7 +21,7 @@ Many of the devices managed in Azure Device Provisioning Service are not persona
 Tenant administrators can use either the Azure portal or the service's REST APIs to fulfill information requests by exporting or deleting data associated with a device ID or registration ID.
 
 > [!NOTE]
-> Devices that have been provisioned in Azure IoT Hub through Azure IoT Hub Device Provisioning Service have additional data stored in the Azure IoT Hub service. See the Azure IoT Hub reference documentation in order to complete a full request for a given device.
+> Devices that have been provisioned in Azure IoT Hub through Azure IoT Hub Device Provisioning Service have additional data stored in the Azure IoT Hub service. See the [Azure IoT Hub reference documentation](../iot-hub/iot-hub-customer-data-requests.md) in order to complete a full request for a given device.
 
 ## Deleting customer data
 
