@@ -11,7 +11,7 @@ manager: carmonm
 ---
 # Monitoring runbooks with Azure Activity logs
 
-In this article we discuss how to create alerts on the completion status of runbooks. You create a test runbook and alert when it fails. Once you test the logic you can go back into the alert and change the alert to the runbook you wish to alert on.
+In this article, you learn how to create alerts based on the completion status of runbooks.
 
 ## Log in to Azure
 
@@ -27,7 +27,7 @@ Under **1. Define alert condition**, click **+  Select target**. Under **Filter 
 
 Click **+ Add criteria**. Select **Metrics** for the **Signal type**, and choose **Total Jobs** from the table.
 
-On the **Configure signal logic** page, two dimensions are displayed **Runbook Name** and **Status**. For **Runbook Name**, select the runbook you want to alert on, for **Status** choose the status you want to alert on. The drop downs for the dimensions are based off of recent activity. If you want to alert on a status or runbook that is not shown in the dropdown, click the **+** next to the dimension. This opens a dialog that allows you to enter in a custom value which has not emitted for that dimension.
+On the **Configure signal logic** page, two dimensions are displayed **Runbook Name** and **Status**. For **Runbook Name**, select the runbook you want to alert on, for **Status** choose the status you want to alert on. The drop downs for the dimensions are based off of recent activity. If you want to alert on a status or runbook that is not shown in the dropdown, click the **+** next to the dimension. This opens a dialog that allows you to enter in a custom value, which has not emitted for that dimension.
 
 ![Select a resource for the alert](./media/automation-alert-activity-log/configure-signal-logic.png)
 
@@ -49,11 +49,11 @@ You can customize the subject of the email sent by clicking **Email subject** un
 
 ## Understanding the alert
 
-When the alert criteria is met, the action group runs the action defined. In this articles example an email is sent. The following image is an example of an email you receive after the alert is triggered:
+When the alert criteria is met, the action group runs the action defined. In this articles example, an email is sent. The following image is an example of an email you receive after the alert is triggered:
 
 ![Email alert](./media/automation-alert-activity-log/alert-email.png)
 
-Once the metric is no longer breached outside of the threshold defined, the alert is deactivated and the action group runs the action defined. In the case of an email action type, a resolution email is sent stating it has been resolved.
+Once the metric is no longer breached outside of the threshold defined, the alert is deactivated and the action group runs the action defined. If an email action type is selected, a resolution email is sent stating it has been resolved.
 
 ## Next steps
 
