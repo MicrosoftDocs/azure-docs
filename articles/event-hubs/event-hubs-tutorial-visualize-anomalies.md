@@ -176,7 +176,7 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 There is an app that will produce test data for you. Download the [Azure Event Hubs samples](https://github.com/Azure/azure-event-hubs/archive/master.zip) from GitHub and unzip it locally. Go to the folder \azure-event-hubs-master\samples\DotNet\AnomalyDetector\ and double-click on AnomalyDetector.sln to open the solution in Visual Studio. 
 
-Open Program.cs and replace **"Event Hubs connection string"** with the connection string you saved when running the script. Replace **Event Hub name** with your event hub name. Click F5 to run the application. It will start sending events to your event hub.
+Open Program.cs and replace **Event Hubs connection string** with the connection string you saved when running the script. Replace **Event Hub name** with your event hub name. Click F5 to run the application. It will start sending events to your event hub.
 
 ## Set up Azure Stream Analytics
 
