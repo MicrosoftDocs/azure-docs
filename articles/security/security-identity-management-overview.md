@@ -44,11 +44,11 @@ The article focuses on the following core Azure Identity management capabilities
 ## Single sign-on
 SSO means being able to access all the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all of the applications you need without being required to authenticate (for example, type a password) a second time.
 
-Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box and Salesforce for end user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
+Many organizations rely upon SaaS applications such as Office 365, Box, and Salesforce for user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
 
-Azure AD extends on-premises Active Directory environments into the cloud, enabling users to use their primary organizational account to not only sign in to their domain-joined devices and company resources, but also all the web and SaaS applications needed for their job.
+Azure AD extends on-premises Active Directory environments into the cloud, enabling users to use their primary organizational account to  sign in not only to their domain-joined devices and company resources, but also to all the web and SaaS applications they need for their jobs.
 
-Not only do users not have to manage multiple sets of usernames and passwords, application access can be automatically provisioned or de-provisioned based on organizational groups and their status as an employee. Azure AD introduces security and access governance controls that enable you to centrally manage users' access across SaaS applications.
+Not only do users not have to manage multiple sets of usernames and passwords, you can provision or de-provision application access automatically, based on their organizational groups and their employee status. Azure AD introduces security and access governance controls with which you can centrally manage users' access across SaaS applications.
 
 Learn more:
 
