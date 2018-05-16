@@ -1,7 +1,7 @@
 # [Key Vault Documentation](index.yml)
 
 # Overview
-## [Key Vault Overview](key-vault-overview.md)
+## [About Key Vault](key-vault-overview.md)
 
 # Quickstarts
 ## [Create a Key Vault - CLI](quick-create-cli.md)
@@ -54,10 +54,23 @@
 ### [Migrate to .NET 2.0](key-vault-dotnet2api-release-notes.md)
 ### [Save Web App secrets](vs-secure-secret-appsettings.md)
 ### [Service authentication using .NET](service-to-service-authentication.md)
+### Working with Visual Studio
+#### [Use the Key Vault Connected Service](vs-key-vault-add-connected-service.md)
+#### [Get started with ASP.NET projects](vs-key-vault-aspnet-get-started.md)
+#### [What happened to my ASP.NET project?](vs-key-vault-aspnet-what-happened.md)
+#### [Get started with ASP.NET Core projects](vs-key-vault-aspnet-core-get-started.md)
+#### [What happened to my ASP.NET Core project?](vs-key-vault-aspnet-core-what-happened.md)
 
 # Resources
 ## [Service overview](https://azure.microsoft.com/services/key-vault/)
-## [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
+## [About Keys, Secrets and Certificates](about-keys-secrets-and-certificates.md)
+### [Get started with certificates](certificate-scenarios.md)
+### [Certificate creation methods](create-certificate.md)
+### [Monitor and manage certificate creation](create-certificate-scenarios.md)
+## [Authentication, Requests and Responses](authentication-requests-and-responses.md)
+## [Customer data features](key-vault-customer-data.md)
+## [Common parameters and headers](common-parameters-and-headers.md)
+## [Key Vault Versions](key-vault-versions.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)

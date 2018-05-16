@@ -1,22 +1,17 @@
 ---
-
 title: Azure AD self-service password reset overview | Microsoft Docs
 description: What can Azure AD self-service password reset do for your organization? 
+
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 01/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
-ms.assetid: 
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
 
 ---
 # Azure AD self-service password reset for the IT professional
@@ -30,6 +25,8 @@ With Azure Active Directory (Azure AD) self-service password reset (SSPR), users
    * Send an email to a validated secondary email account.
    * Answer their security questions.
 * **Self-service account unlock**: The user is unable to sign in with their password and has been locked out. The user wants to unlock their account without administrator intervention by using their authentication methods.
+
+> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
 
 ## Why choose Azure AD SSPR
 

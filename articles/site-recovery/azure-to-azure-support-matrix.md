@@ -7,7 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 05/16/2018
 ms.author: sujayt
 
 ---
@@ -26,7 +26,7 @@ This article summarizes supported configurations and components for Azure Site R
 --- | ---
 **Azure portal** | Supported
 **Classic portal** | Not supported
-**PowerShell** | [Preview](azure-to-azure-powershell.md)
+**PowerShell** | [Azure to Azure replication with PowerShell](azure-to-azure-powershell.md)
 **REST API** | Not currently supported
 **CLI** | Not currently supported
 
@@ -171,7 +171,7 @@ GRS | Supported |
 RA-GRS | Supported |
 ZRS | Not supported |  
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
-Virtual Network Service Endpoints (Azure Storage firewalls and Virtual networks)  | No | Allowing access to specific Azure virtual networks on cache storage accounts used to store replicated data is not supported.
+Azure Storage firewalls for Virtual networks  | No | Allowing access to specific Azure virtual networks on cache storage accounts used to store replicated data is not supported.
 General purpose V2 storage accounts (Both Hot and Cool tier) | No | Transaction costs increase substantially compared to General purpose V1 storage accounts
 
 >[!IMPORTANT]
@@ -196,6 +196,8 @@ Unauthenticated Proxy | Supported | Refer to [networking guidance document.](sit
 Authenticated Proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it cannot be replicated using Azure Site Recovery.	 
 Site to Site VPN with on-premises (with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site recovery traffic is not routed to on-premises. Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
 VNET to VNET connection	| Supported | Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
+Virtual Network Service Endpoints | Supported | Azure Storage firewalls for virtual networks are not supported. Allowing access to specific Azure virtual networks on cache storage accounts used to store replicated data is not supported.
+Accelerated Networking | Not supported | A VM with Accelerated Networking enabled can be replicated, but the failover VM will not have Accelerated Networking enabled. Accelerated Networking will also be disabled for source VM on failback.
 
 
 ## Next steps

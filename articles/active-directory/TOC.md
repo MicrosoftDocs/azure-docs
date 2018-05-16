@@ -16,6 +16,7 @@
 ## [Add users to Azure AD](add-users-azure-active-directory.md)
 ## [Assign licenses to users](license-users-groups.md)
 ## [Configure Self-service password reset](authentication/quickstart-sspr.md)
+## [Add your organization's privacy info in Azure AD](active-directory-properties-area.md)
 
 
 # How to
@@ -53,10 +54,12 @@
 #### [Invitation email](active-directory-b2b-invitation-email.md)
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
 #### [Add B2B users without an invitation](active-directory-b2b-add-user-without-invite.md)
+#### [Allow or block invitations](active-directory-b2b-allow-deny-list.md)
 #### [Conditional access for B2B](active-directory-b2b-mfa-instructions.md)
 #### [B2B sharing policies](active-directory-b2b-delegate-invitations.md)
 #### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamic groups and B2B users](active-directory-b2b-dynamic-groups.md)
+#### [Leave an organization](active-directory-b2b-leave-the-organization.md)
 #### [Auditing and reports](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B for hybrid organizations](active-directory-b2b-hybrid-organizations.md)
 ##### [Grant B2B users access to local apps](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -166,47 +169,43 @@
 #### [Hybrid Azure AD joined legacy Windows devices](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Manage apps
-### [Overview](active-directory-enable-sso-scenario.md)
-### [Getting started](active-directory-integrating-applications-getting-started.md)
+### [Overview](manage-apps/what-is-application-management.md)
+### [Getting started](manage-apps/plan-an-application-integration.md)
 ### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-get-started.md)
-#### [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
+### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
+#### [Create snapshot reports](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### Agent-based discovery
-##### [What is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-##### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-##### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
-### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
+### [Access apps remotely with App Proxy](manage-apps/application-proxy.md)
 #### Get started
-##### [Enable App Proxy](active-directory-application-proxy-enable.md)
-##### [Publish apps](application-proxy-publish-azure-portal.md)
-##### [Custom domains](active-directory-application-proxy-custom-domains.md)
-#### [Single sign-on](application-proxy-sso-overview.md)
-##### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
-##### [SSO with headers](application-proxy-ping-access.md)
-##### [SSO with password vaulting](application-proxy-sso-azure-portal.md)
+##### [Enable App Proxy](manage-apps/application-proxy-enable.md)
+##### [Publish apps](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Custom domains](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Single sign-on](manage-apps/application-proxy-single-sign-on.md)
+##### [SSO with KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+##### [SSO with headers](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md)
+##### [SSO with password vaulting](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 #### Concepts
-##### [Connectors](application-proxy-understand-connectors.md)
-##### [Security](application-proxy-security-considerations.md)
-##### [Networks](application-proxy-network-topology-considerations.md)
+##### [Connectors](manage-apps/application-proxy-connectors.md)
+##### [Security](manage-apps/application-proxy-security.md)
+##### [Networks](manage-apps/application-proxy-network-topology.md)
 
 
-##### [Upgrade from TMG or UAG](application-proxy-transition-from-uag-tmg.md)
+##### [Upgrade from TMG or UAG](manage-apps/application-proxy-migration.md)
 
 #### Advanced configurations
-##### [Publish on separate networks](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Proxy servers](application-proxy-working-with-proxy-servers.md)
-##### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
-##### [Native client apps](active-directory-application-proxy-native-client.md)
-##### [Silent install](active-directory-application-proxy-silent-installation.md)
-##### [Custom home page](application-proxy-office365-app-launcher.md)
-##### [Translate inline links](application-proxy-link-translation.md)
+##### [Publish on separate networks](manage-apps/application-proxy-connector-groups.md)
+##### [Proxy servers](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+##### [Claims-aware apps](manage-apps/application-proxy-configure-for-claims-aware-applications.md)
+##### [Native client apps](manage-apps/application-proxy-configure-native-client-application.md)
+##### [Silent install](manage-apps/application-proxy-register-connector-powershell.md)
+##### [Custom home page](manage-apps/application-proxy-configure-custom-home-page.md)
+##### [Translate inline links](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
 #### Publishing walkthroughs
-##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
-##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Remote Desktop](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
+##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 
@@ -273,6 +272,7 @@
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 ### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
+### [Securing privileged roles](admin-roles-best-practices.md)
 
 ## Access reviews
 ### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)
@@ -283,10 +283,12 @@
 ### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 ### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
+### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
 #### [Conditions](active-directory-conditional-access-conditions.md)
+#### [Location conditions](active-directory-conditional-access-locations.md)
 #### [Controls](active-directory-conditional-access-controls.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
@@ -325,7 +327,7 @@
 #### [FAQs](active-directory-identity-protection-faqs.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
 ## [Integrate other services with Azure AD]()
 ### [Enable LinkedIn integration](linkedin-integration.md)
@@ -335,7 +337,6 @@
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
 
 ## [Troubleshoot](active-directory-troubleshooting-support-howto.md)
-### [Troubleshoot Active Directory item is missing or not available](active-directory-troubleshooting.md)
 
 ## Deploy Azure AD Proof of Concept (PoC)
 ### [PoC Playbook: Introduction](active-directory-playbook-intro.md)

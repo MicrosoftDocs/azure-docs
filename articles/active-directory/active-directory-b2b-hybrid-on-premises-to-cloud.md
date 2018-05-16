@@ -1,18 +1,16 @@
 ---
 title: Grant locally-managed partner accounts access to cloud resources as Azure AD B2B users | Microsoft Docs
 description: Give locally-managed external partners access to both local and cloud resources using the same credentials with Azure AD B2B collaboration.
+
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 04/24/2018
+
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-
-ms.service: active-directory
-ms.topic: article
-ms.workload: identity
-ms.date: 04/24/2018
-ms.author: twooley
 ms.reviewer: sasubram
 
 ---

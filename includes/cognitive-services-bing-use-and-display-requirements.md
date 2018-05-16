@@ -9,11 +9,9 @@ ms.custom: include file
 ms.date: 04/19/2018
 ms.author: rosh, v-gedod
 ---
-2018-04-19
-
 # Bing Search API use and display requirements
 
-Use and display requirements apply to any implementation of the content and associated information, for example, relationships, metadata and other signals, available through calls to Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Web Search, Spell Check, and Autosuggest APIs. Implementation details related to these requirements can be found in documentation for specific features and results.
+Use and display requirements apply to any implementation of the content and associated information, for example, relationships, metadata and other signals, available through calls to Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, Web Search, Spell Check, and Autosuggest APIs. Implementation details related to these requirements can be found in documentation for specific features and results.     
 
 ## 1. Bing Spell Check and Bing Autosuggest API.
 
@@ -24,10 +22,10 @@ Do not:
 
 ## 2. Definitions
 
-- "answer" refers to a category of results returned in a response. For example, a response from the Bing Web Search API may include answers in the categories of webpage results, image, video, and news;
+- "answer" refers to a category of results returned in a response. For example, a response from the Bing Web Search API may include answers in the categories of webpage results, image, video, visual, and news;   
 - "response" means any and all answers and associated data received in response to a single call to a Search API;
 - "result" refers to an item of information in an answer. For example, the set of data connected with a single news article is a result in a news answer.
-- “Search APIs” means, collectively, the Bing Custom Search, Entity Search, Image Search, News Search, Video Search, and Web Search APIs. 
+- “Search APIs” means, collectively, the Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, and Web Search APIs. 
 
 
 ## 3. Search APIs
@@ -52,13 +50,13 @@ The only exception to the internet search experience requirement is for URL disc
 - reorder, including by omission, results displayed in an answer when an order or ranking is provided (for the Bing Custom Search API, this rule does not apply to reordering implemented through the customsearch.ai portal), unless required by law or agreed by Microsoft;
 - display other content within any part of a response in a way that would lead an end user to believe that the other content is part of the response; 
 - display advertising that is not provided by Microsoft on any page that displays any part of a response; 
--display any advertising with responses (i) from the Bing Image, News or Video Search APIs; or (ii) that are filtered or limited primarily (or solely) to image, news and/or video results.
+-display any advertising with responses (i) from the Bing Image, News, Video Search, or Visual Search APIs; or (ii) that are filtered or limited primarily (or solely) to image, news and/or video/visual results.
 
 **C. Notices and Branding.** 
 
 - Prominently include a functional hyperlink to the Microsoft Privacy Statement, available at  https://go.microsoft.com/fwlink/?LinkId=521839, near each point in the user experience (UX) that offers a user the ability to input a search query. Label the hyperlink “Microsoft Privacy Statement”.
 - Prominently display Bing branding, consistent with the guidelines available at https://go.microsoft.com/fwlink/?linkid=833278, near each point in the UX that offers a user the ability to input a search query.  Such branding must clearly denote to the user that Microsoft is powering the internet search experience.
-- You may attribute each response (or portion of a response) displayed from the Bing Web, Image, News, and Video APIs to Microsoft as described in https://go.microsoft.com/fwlink/?linkid=833278, unless Microsoft specifies otherwise in writing for your use. 
+- You may attribute each response (or portion of a response) displayed from the Bing Web, Image, News, Video, and Visual APIs to Microsoft as described in https://go.microsoft.com/fwlink/?linkid=833278, unless Microsoft specifies otherwise in writing for your use. 
 - Do not attribute responses (or portions of responses) displayed from the Bing Custom Search API to Microsoft, unless Microsoft specifies otherwise in writing for your particular use.
 
 
@@ -66,7 +64,7 @@ The only exception to the internet search experience requirement is for URL disc
 - Transferred responses must:
   - Consist of content that is unmodified from the content of the responses displayed to the transferring user (formatting changes are permissible);
   - Not include any data in metadata form;
-  - For responses from the Bing Web, Image, News, and Video APIs, display language indicating the response was obtained through an internet search experience powered by Bing (for example, "Powered by Bing," "Learn more about this image on Bing," or using the Bing logo);
+  - For responses from the Bing Web, Image, News, Video, and Visual APIs, display language indicating the response was obtained through an internet search experience powered by Bing (for example, "Powered by Bing," "Learn more about this image on Bing," or using the Bing logo);
   - For responses from the Bing Custom Search API, display language indicating the response was obtained through an internet search experience (for example, "Learn more about this search result”);
   - Prominently display the full query used to generate the response; and
   - Include a prominent link or similar attribution to the underlying source of the response, either directly or through the search engine (bing.com, m.bing.com, or your custom search service, as applicable).
@@ -100,4 +98,6 @@ Whenever retained, results for a specific user cannot be commingled with results
 - Ensure your use of data (including the URLs) received from the Search APIs does not violate any applicable laws or third-party rights; and
 - You shall not use the data (including the URLs) received from the Search APIs as part of any search index or machine learning or similar algorithmic activity to create train, evaluate, or improve services that you or third parties may offer.
 
+## 4. GDPR Compliance.  
+With respect to any personal data subject to the European Union General Data Protection Regulation (GDPR) and that is processed in connection with calls to the Search APIs, Bing Spell Check API, or Bing Autosuggest API, you understand that you and Microsoft are independent data controllers under the GDPR and you are independently responsible for your compliance with the GDPR.  
 
