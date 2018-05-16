@@ -7,7 +7,7 @@ manager: abhemraj
 editor: raynew
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 05/15/2018
 ms.author: bsiva
 
 
