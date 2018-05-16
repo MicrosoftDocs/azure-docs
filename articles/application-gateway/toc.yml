@@ -68,7 +68,7 @@
     href: create-multiple-sites-portal.md
   - name: Customize WAF rules
     items:
-    - name: Portal
+    - name: Azure Portal
       href: application-gateway-customize-waf-rules-portal.md
     - name: Azure PowerShell
       href: application-gateway-customize-waf-rules-powershell.md
