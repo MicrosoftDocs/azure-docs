@@ -146,9 +146,10 @@ static void Main(string[] args)
 
     // run app...
 
+    // before exit, flush the remaining data
     telemetryClient.Flush();
     
-    // Flush is not blocking, so give 
+    // flush is not blocking so wait a bit
     Task.Delay(5000).Wait();
 
 }
