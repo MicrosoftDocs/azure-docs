@@ -5,6 +5,7 @@
   - name: What are virtual machine scale sets?
     href: overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create in the Azure portal
     href: quick-create-portal.md
