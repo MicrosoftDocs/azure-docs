@@ -112,7 +112,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	>[!NOTE]
 	> You can get this value from the Adaptive Suite’s **SAML SSO Settings** page.
-	>  
+	>
+	
+	Check the **Show advanced URL settings** box. In the **Identifier (Entity ID)** textbox, type the same URL you entered in the **Reply URL** textbox.
+	
+	>[!NOTE]
+	> The entity ID for each Adaptive Insights domain is the same as its reply URL.
+	>
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
