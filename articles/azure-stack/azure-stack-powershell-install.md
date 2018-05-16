@@ -113,8 +113,8 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
      -RequiredVersion 1.3.0 
    ```
 
-> [!Important]  
-> If you are not running Azure Stack with update 1804 or greater, change the **requiredversion** parameter value to `1.2.11`. 
+  > [!Important]  
+  > If you are not running Azure Stack with update 1804 or greater, change the **requiredversion** parameter value to `1.2.11`. 
 
 2. Copy the downloaded packages over to a USB device.
 
