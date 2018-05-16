@@ -1,6 +1,6 @@
 ---
 title: Azure Storage metrics migration | Microsoft Docs
-description: Learn how to migrate legacy metrics to new metrics that are managed by Azure Monitor.
+description: Learn how to migrate old metrics to new metrics that are managed by Azure Monitor.
 services: storage
 documentationcenter: na
 author: fhryo-msft
@@ -19,39 +19,39 @@ ms.author: fryu
 
 # Azure Storage metrics migration
 
-Aligned with the strategy of unifying the monitor experience in Azure, Azure Storage on-boards metrics to the Azure Monitor platform. In the future, the service of legacy metrics will end with an early notification based on Azure policy. If you rely on legacy storage metrics, you need to migrate prior to the service end date in order to maintain your metric information.
+Aligned with the strategy of unifying the monitor experience in Azure, Azure Storage integrates metrics to the Azure Monitor platform. In the future, the service of the former metrics will end with an early notification based on Azure policy. If you rely on former storage metrics, you need to migrate prior to the service end date in order to maintain your metric information.
 
-This article shows you how to migrate from legacy metrics to the new metrics.
+This article shows you how to migrate from the old metrics to the new metrics.
 
-## Understand legacy metrics that are managed by Azure Storage
+## Understand former metrics that are managed by Azure Storage
 
-Azure Storage collects legacy metric values, and aggregates and stores them in $Metric tables within the same storage account. You can use the Azure portal to set up a monitoring chart. You can also use the Azure Storage SDKs to read the data from $Metric tables that are based on the schema. For more information, see [Storage Analytics](./storage-analytics.md).
+Azure Storage collects old metric values, and aggregates and stores them in $Metric tables within the same storage account. You can use the Azure portal to set up a monitoring chart. You can also use the Azure Storage SDKs to read the data from $Metric tables that are based on the schema. For more information, see [Storage Analytics](./storage-analytics.md).
 
-Legacy metrics provide capacity metrics only on Blob, and transaction metrics on Blob, Table, File, and Queue.
+Former metrics provide capacity metrics only on Azure Blob storage and transaction metrics on Blob storage, Table storage, Azure Files, and Queue storage. 
 
-Legacy metrics are designed in a flat schema. The design results in zero metric value when you don't have the traffic patterns triggering the metric. For example, the **ServerTimeoutError** value is set to 0 in $Metric tables even when you don't receive any server timeout errors from the live traffic to a storage account.
+Former metrics are designed in a flat schema. The design results in zero metric value when you don't have the traffic patterns triggering the metric. For example, the **ServerTimeoutError** value is set to 0 in $Metric tables even when you don't receive any server timeout errors from the live traffic to a storage account.
 
 ## Understand new metrics managed by Azure Monitor
 
-For new storage metrics, Azure Storage emits the metric data to Azure Monitor backend. Monitor provides a unified monitoring experience, including data from the portal as well as data ingestion. For more details, you can refer to this [article](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+For new storage metrics, Azure Storage emits the metric data to Azure Monitor backend. Azure Monitor provides a unified monitoring experience, including data from the portal as well as data ingestion. For more details, you can refer to this [article](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 New metrics provide capacity metrics and transaction metrics on Blob, Table, File, Queue, and premium storage.
 
-Multi-dimension is one of the features provided by Azure Monitor. Azure Storage adopts the design in defining new metric schema. For supported dimensions on metrics, you can find details in [Azure Storage metrics in Azure Monitor](./storage-metrics-in-azure-monitor.md). Multi-dimension design provides cost efficiency on both bandwidth from ingestion and capacity from storing metrics. Consequently, if your traffic has not triggered related metrics, the related metric data will not be generated. For example, if your traffic has not triggered any server timeout errors, Azure Monitor doesn't return any data when you query the value of metric **Transactions** with dimension **ResponseType** equal to **ServerTimeoutError**.
+Multi-dimension is one of the features that Azure Monitor provides. Azure Storage adopts the design in defining new metric schema. For supported dimensions on metrics, you can find details in [Azure Storage metrics in Azure Monitor](./storage-metrics-in-azure-monitor.md). Multi-dimension design provides cost efficiency on both bandwidth from ingestion and capacity from storing metrics. Consequently, if your traffic has not triggered related metrics, the related metric data will not be generated. For example, if your traffic has not triggered any server timeout errors, Azure Monitor doesn't return any data when you query the value of metric **Transactions** with dimension **ResponseType** equal to **ServerTimeoutError**.
 
-## Metrics mapping between legacy metrics and new metrics
+## Metrics mapping between old metrics and new metrics
 
 If you read metric data programmatically, you need to adopt the new metric schema in your programs. To better understand the changes, you can refer to the mapping listed in the following table:
 
 **Capacity metrics**
 
-| Legacy metric | New metric |
+| Old metric | New metric |
 | ------------------- | ----------------- |
 | **Capacity**            | **BlobCapacity** with the dimension **BlobType** equal to **BlockBlob** or **PageBlob** |
 | **ObjectCount**        | **BlobCount** with the dimension **BlobType** equal to **BlockBlob** or **PageBlob** |
 | **ContainerCount**      | **ContainerCount** |
 
-The following metrics are new offerings that the legacy metrics don't support:
+The following metrics are new offerings that the former metrics don't support:
 * **TableCapacity**
 * **TableCount**
 * **TableEntityCount**
@@ -65,7 +65,7 @@ The following metrics are new offerings that the legacy metrics don't support:
 
 **Transaction metrics**
 
-| Legacy metric | New metric |
+| Old metric | New metric |
 | ------------------- | ----------------- |
 | **AnonymousAuthorizationError** | Transactions with the dimension **ResponseType** equal to **AuthorizationError** |
 | **AnonymousClientOtherError** | Transactions with the dimension **ResponseType** equal to **ClientOtherError** |
@@ -110,11 +110,11 @@ The following metrics are new offerings that the legacy metrics don't support:
 
 ### How should I migrate existing alert rules?
 
-A: If you have created classic alert rules based on legacy storage metrics, you need to create new alert rules based on the new metric schema.
+If you have created classic alert rules based on former storage metrics, you need to create new alert rules based on the new metric schema.
 
 ### Is new metric data stored in the same storage account by default?
 
-A: No. To archive the metric data to a storage account, use the [Azure Monitor Diagnostic Setting API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate).
+No. To archive the metric data to a storage account, use the [Azure Monitor Diagnostic Setting API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate).
 
 ## Next steps
 
