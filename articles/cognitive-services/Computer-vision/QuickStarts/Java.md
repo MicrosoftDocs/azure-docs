@@ -16,10 +16,10 @@ ms.author: nolachar
 
 These quickstarts provide information and code samples to help you quickly get started using the Computer Vision API with Java to accomplish the following tasks:
 
-* [Analyze an image](Java-analyze.md)
-* [Intelligently generate a thumbnail](Java-thumb.md)
-* [Detect and extract printed text from an image](Java-print-text.md)
-* [Detect and extract handwritten text from an image](Java-hand-text.md)
+* [Analyze an image](java-analyze.md)
+* [Intelligently generate a thumbnail](java-thumb.md)
+* [Detect and extract printed text from an image](java-print-text.md)
+* [Detect and extract handwritten text from an image](java-hand-text.md)
 
 The code in these samples is similar, which is expected since the majority of the work is setting up the request, and retrieving and displaying the response. The differences appear in the request parameters sent and the response received. These differences are summarized in the following table:
 

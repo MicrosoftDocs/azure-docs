@@ -27,13 +27,13 @@
     - name: Summary
       href: QuickStarts/Java.md
     - name: Analyze an image
-      href: QuickStarts/Java-analyze.md
+      href: QuickStarts/java-analyze.md
     - name: Generate a thumbnail
-      href: QuickStarts/Java-thumb.md
+      href: QuickStarts/java-thumb.md
     - name: Extract printed text
-      href: QuickStarts/Java-print-text.md
+      href: QuickStarts/java-print-text.md
     - name: Extract handwritten text
-      href: QuickStarts/Java-hand-text.md
+      href: QuickStarts/java-hand-text.md
 #  - name: JavaScript
 #    items:
 #    - name: Summary
