@@ -74,6 +74,10 @@
          "ShawnJackson", "PRmerger", "DuncanmaMSFT", "Saisang", "Ja-Dunn", "jomolnar", "KatieCumming", "rjagiewich", "v-thepet", "deneha", "ktoliver",
          "itechedit", "MattGLaBelle", "Lisaco88", "GitHubber17", "v-shils", "rmca14", "tfosmark", "sdwheeler"],
       "_op_documentIdPathDepotMapping": {
+        "articles/iot-central/": {
+          "depot_name": "MSDN.microsoft-iot-central",
+          "folder_relative_path_in_docset": "articles"
+        },
         "articles/billing/billing-add-change-azure-subscription-administrator.md": {
           "folder_relative_path_in_docset": "articles"
         },
