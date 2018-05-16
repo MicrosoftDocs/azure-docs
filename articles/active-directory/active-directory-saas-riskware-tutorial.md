@@ -108,16 +108,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| Environment| URL Pattern|
 	|--|--|
 	| UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
-	| prod| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-	| demo| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` | 
+	| PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
+	| DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` | 
 	|||
 
     b. In the **Identifier (Entity ID)** textbox, type a URL:
 	| Environment| URL Pattern|
 	|--|--|
 	| UAT| `https://riskcloud.net/uat` |
-	| prod| `https://riskcloud.net/prod` |
-	| demo| `https://riskcloud.net/demo` | 
+	| PROD| `https://riskcloud.net/prod` |
+	| DEMO| `https://riskcloud.net/demo` | 
 	|||
 
 	> [!NOTE] 
