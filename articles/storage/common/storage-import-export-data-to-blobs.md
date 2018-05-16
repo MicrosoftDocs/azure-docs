@@ -21,7 +21,7 @@ Before you create an import job to transfer data into Azure Blob Storage, carefu
 You must:
 
 - Have an active Azure subscription that can be used for the Import/Export service.
-- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
+- Have at least one Azure Storage account with a storage container. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account). For information on storage container, go to [Create a storage container](storage-quickstart-blobs-portal.md#create-a-container).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems). 
 - Enable BitLocker on the Windows system. See [How to enable BitLocker](https://technet.microsoft.com/library/cc731549(v=ws.10).aspx).
@@ -68,16 +68,24 @@ Perform the following steps to prepare the drives.
 
 Perform the following steps to create an import job in the Azure portal.
 1. Log on to https://portal.azure.com/.
-2. Go to **More services > Storage > Import/export jobs**. Click **Create Import/export Job**.
-2. In **Basics**:
+2. Go to **All services > Storage > Import/export jobs**. 
+    
+    ![Go to Import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+
+3. Click **Create Import/export Job**.
+
+    ![Click Create Import/export job](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+
+4. In **Basics**:
 
     - Select **Import into Azure**.
-    - Enter a string for job name.
-    - Select a subscription.
-    - Enter or select a resource group. 
     - Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
         - The name may contain only lowercase letters, numbers, hyphens, and underscores.
-        - The name must start with a letter, and may not contain spaces. 
+        - The name must start with a letter, and may not contain spaces.
+    - Select a subscription.
+    - Enter or select a resource group.  
+
+    ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 3. In **Job details**:
 
@@ -85,17 +93,22 @@ Perform the following steps to create an import job in the Azure portal.
     - Select the destination storage account where data will reside. 
     - The drop-off location is automatically populated based on the region of the storage account selected.
    
-   ![Create import job - Step 3](./media/storage-import-export-service/import-job-03.png)
+   ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+
 4. In **Return shipping info**:
 
     - Select the carrier from the dropdown list.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. 
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
+
+    ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
 5. In the **Summary**:
 
     - Provide the Azure datacenter shipping address to ship disks back to Azure. Ensure that the job name and the full address are mentioned on the shipping label.
     - Click **OK** to complete import job creation.
+
+    ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
 ## Step 3: Ship the drives 
 
