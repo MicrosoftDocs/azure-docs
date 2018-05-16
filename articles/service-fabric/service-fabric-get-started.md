@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
-ms.author: ryanwi, mikhegn
+ms.author: ryanwi
 
 ---
 # Prepare your development environment on Windows

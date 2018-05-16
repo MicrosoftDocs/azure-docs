@@ -170,7 +170,7 @@
     {
       "path_to_root": "samples-javascript",
       "url": "https://github.com/Microsoft/tsiclient",
-      "branch": "master",
+      "branch": "tutorial",
       "branch_mapping": {}
     }
   ],
