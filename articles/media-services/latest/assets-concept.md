@@ -29,7 +29,7 @@ Also, read about [storage accounts in Media Services](storage-account-concept.md
 
 ## Asset definition
 
-The following table shows the Asset's properties and give their definitions. 
+The following table shows the Asset's properties and gives their definitions.
 
 |Name|Type|Description|
 |---|---|---|
@@ -45,7 +45,7 @@ The following table shows the Asset's properties and give their definitions.
 |properties.storageEncryptionFormat |AssetStorageEncryptionFormat |The Asset encryption format. One of None or MediaStorageEncryption.|
 |type|string|The type of the resource.|
 
-Fore more detailed information, see [Assets](https://docs.microsoft.com/rest/api/media/assets).
+For the full definition, see [Assets](https://docs.microsoft.com/rest/api/media/assets).
 
 ## Filtering and ordering support
 
