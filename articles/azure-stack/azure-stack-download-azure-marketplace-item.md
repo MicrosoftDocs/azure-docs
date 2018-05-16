@@ -150,6 +150,7 @@ There are two parts to this scenario:
 2. Import .VHD files to Azure Stack. To successfully import a virtual machine (VM) image, you must have the following information about the VM:
    - The *version*, as noted in step 7 of the preceding procedure.
    - The values for the VMs *publisher*, *offer*, and *sku*. To get these values, rename a copy of the **.azpkg** file to change its file extension to **.zip**. You can then use a text editor to open **DeploymentTemplates\CreateUiDefinition.json**. In the .json file, locate the *imageReference* section, which contains these values for the marketplace item. The following example demonstrates how this information appears:
+
      ```json  
      "imageReference": {  
         "publisher": "MicrosoftWindowsServer",  
