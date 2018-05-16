@@ -38,14 +38,11 @@ Before you can use a service principal for Analysis Services server management o
 
 Service principal appID and password or certificate can be used in connection strings much the same as a UPN.
 
-> [!IMPORTANT]
-> Service principals cannot be used for unattended mode operations when [Multi-Factor Authentication](../multi-factor-authentication/index.md) is configured for the tenant. 
-
 ### PowerShell
 
-When using a service principal for resource management operations with the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)  module, use `Login-AzureRsAccount` cmdlet. 
+When using a service principal for resource management operations with the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)  module, use `Login-AzureRmAccount` cmdlet. 
 
-When using a service principal for server operations with the [SQLServer](https://www.powershellgallery.com/packages/SqlServer) module, use `Login-AzureAsAccount` cmdlet. 
+When using a service principal for server operations with the [SQLServer](https://www.powershellgallery.com/packages/SqlServer) module, use `Add-AzureAnalysisServicesAccount` cmdlet. 
 
 In the following example, appID and a password are used to perform a model database refresh operation:
 
@@ -60,14 +57,14 @@ $PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
 
 $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
 
-Login-AzureAsAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "westcentralus.asazure.windows.net"
+Add-AzureAnalysisServicesAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "westcentralus.asazure.windows.net"
 
 Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserver" -TableName "MyTable" -Database "MyDb" -RefreshType "Full"
 ```
 
 ### AMO and ADOMD 
 
-When connecting with client applications and web apps, [AMO and ADOMD client libraries](analysis-services-data-providers.md) version 15.0.2 and higher installable packages from NuGet support service principals in connection strings using the following syntax: `app:AppID and password or cert:thumbprint`. 
+When connecting with client applications and web apps, [AMO and ADOMD client libraries](analysis-services-data-providers.md) version 15.0.2 and higher installable packages from NuGet support service principals in connection strings using the following syntax: `app:AppID` and password or `cert:thumbprint`. 
 
 In the following example, appID and a password are used to perform a model database refresh operation:
 
