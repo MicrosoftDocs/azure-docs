@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 ---
@@ -21,7 +21,7 @@ ms.reviewer: jeffgo
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-As a cloud operator, download items from the Azure Marketplace and make them available in Azure Stack. The items you can choose are from a curated list of Azure Marketplace items that are pre-tested and supported to work with Azure Stack. New items are frequently added to this list, so continue to check back for new content. 
+As a cloud operator, download items from the Azure Marketplace and make them available in Azure Stack. The items you can choose are from a curated list of Azure Marketplace items that are pre-tested and supported to work with Azure Stack. Additional items are frequently added to this list, so continue to check back for new content. 
 
 There are two scenarios for connecting to the Azure Marketplace: 
 
@@ -52,7 +52,7 @@ Your Azure Stack deployment must have internet connectivity, and be [registered 
     
 3. Open the Azure Stack Marketplace and connect to Azure. To do so, select **Marketplace management**, and then select **Add from Azure**.
 
-    ![marketplace management](media/azure-stack-download-azure-marketplace-item/marketplace.png)
+    ![Add from Azure](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 
     The portal displays the list of items available for download from the Azure Marketplace. You can click on each item to view its description and additional information about it, including its download size. 
 
@@ -68,11 +68,11 @@ Your Azure Stack deployment must have internet connectivity, and be [registered 
 
 ## Disconnected or a partially connected scenario
 
-If Azure Stack is in a disconnected mode (without internet connectivity), you use PowerShell and the *marketplace syndication tool* to download the marketplace items to a machine with internet connectivity, and then transfer them to your Azure Stack environment. In a disconnected environment, you can’t download marketplace items by using the Azure Stack portal. 
+If Azure Stack is in a disconnected mode, you use PowerShell and the *marketplace syndication tool* to download the marketplace items to a machine with internet connectivity. You then transfer the items to your Azure Stack environment. In a disconnected environment, you can’t download marketplace items by using the Azure Stack portal. 
 
 The marketplace syndication tool can also be used in a connected scenario. 
 
-There are two steps to this scenario:
+There are two parts to this scenario:
 1. On the computer with internet access you configure PowerShell, download the syndication tool, and then download items form the Azure Marketplace.
 2. You move the files you downloaded to your Azure Stack environment, import them to Azure Stack, and then publish them to the Azure Stack Marketplace.  
 
@@ -80,13 +80,15 @@ There are two steps to this scenario:
 ### Prerequisites
 - Your Azure Stack deployment must be [registered with Azure](azure-stack-register.md).  
 - The computer that has internet connectivity must have **Azure Stack PowerShell Module version 1.2.11** or higher. If not already present, [install Azure Stack specific PowerShell modules](azure-stack-powershell-install.md).  
-- To enable import of a downloaded marketplace item, the [PowerShell environement for the Azure Stack operator](azure-stack-powershell-configure-admin.md) must be configured.  
+- To enable import of a downloaded marketplace item, the [PowerShell environment for the Azure Stack operator](azure-stack-powershell-configure-admin.md) must be configured.  
+- You must have a storage account in Azure Stack that has a publicly accessible container (which is a storage blob). You use the container as temporary storage for the marketplace items gallery files. If you are not familiar with storage accounts and containers, see [Work with blobs - Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) in the Azure documentation.
+
 
 - The marketplace syndication tool is downloaded during the first procedure. 
 
 ### Use the marketplace syndication tool to download marketplace items
 
-1. On a computer with a an internet connection, open a PowerShell console as an administrator.
+1. On a computer with an internet connection, open a PowerShell console as an administrator.
 
 2. Add the Azure account that you have used to register Azure Stack. To add the account, in PowerShell run `Add-AzureRmAccount` without any parameters. You are prompted to enter your Azure account credentials and you might have to use 2-factor authentication based on your account’s configuration.
 
@@ -97,7 +99,7 @@ There are two steps to this scenario:
    $AzureContext = Get-AzureRmContext
    ```
 
-4. Download the latest version of marketplace syndication tool by using the following script:  
+4. Download the latest version of the marketplace syndication tool by using the following script:  
 
    ```PowerShell
    # Download the tools archive.
@@ -115,7 +117,7 @@ There are two steps to this scenario:
 
    ```
 
-5. Import the syndication module and then launch the tool by running the following script. Replace the *destination folder path* with a location to store the download.   
+5. Import the syndication module and then launch the tool by running the following script. Replace the *destination folder path* with a location to store the files you download from the Azure Marketplace.   
 
    ```powershell
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
@@ -136,15 +138,17 @@ There are two steps to this scenario:
 
 8. Select **OK**, and then review and accept the legal terms. 
 
-9. The download time takes depends on the size of the item. After the download completes, the item is available in the folder that you specified in the script. The download includes a VHD file (for virtual machines) or a .ZIP file (for virtual machine extensions). It also includes a gallery package in the .azpkg format. (A .azpkg package is a .zip file.)
+9. The time that the download takes depends on the size of the item. After the download completes, the item is available in the folder that you specified in the script. The download includes a VHD file (for virtual machines) or a .ZIP file (for virtual machine extensions). It also includes a gallery package in the *.azpkg* format. (A *.azpkg* package is a *.zip* file.)
  
 
 ### Import the download and publish to Azure Stack Marketplace
 1. The files for virtual machine images or solution templates that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) must be made locally available to your Azure Stack environment.  
+   > [!NOTE]  
+   > The disconnected scenario cannot add virtual machine extensions to Azure Stack at this time.  
 
-2. **If your download is a virtual machine image**: To successfully import a virtual machine (VM) image, you must have the following information: 
-   - The *version* (as noted in step 7 of the preceding procedure *Use the marketplace syndication tool to download marketplace items*).
-   - The values for the VMs *publisher*, *offer*, and *sku*. To get these values, rename a copy of the **.azpkg** file to change its file extension to **.zip**. You can then use a text editor to open **DeploymentTemplates\CreateUiDefinition.json** and locate the following section, which is an example of how this information appears in the file:
+2. Import .VHD files to Azure Stack. To successfully import a virtual machine (VM) image, you must have the following information about the VM:
+   - The *version*, as noted in step 7 of the preceding procedure.
+   - The values for the VMs *publisher*, *offer*, and *sku*. To get these values, rename a copy of the **.azpkg** file to change its file extension to **.zip**. You can then use a text editor to open **DeploymentTemplates\CreateUiDefinition.json**. In the .json file, locate the *imageReference* section, which contains these values for the marketplace item. The following example demonstrates how this information appears:
       ```json
       "imageReference": {
          "publisher": "MicrosoftWindowsServer",
@@ -152,9 +156,9 @@ There are two steps to this scenario:
          "sku": "2016-Datacenter-Server-Core"
        }
       ```
-   When you have all four values (version, publisher, offer, and sku), update the parameters in the following script to include those values, and then run the script in your Azure Stack environment. 
+   When you have all four values (version, publisher, offer, and sku), update the parameters in the following script to include those values. Then, run the script in your Azure Stack environment. 
 
-   In the following example script, values for the Windows Server 2016 Datacenter - Server Core virtual machine are used.  
+   In the following example script, values for the Windows Server 2016 Datacenter - Server Core virtual machine are used. 
 
    ```powershell
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
@@ -169,32 +173,36 @@ There are two steps to this scenario:
     -CreateGalleryItem $False `
     -Location Local
    ```
-   **If your download is a solution template**: If the solution template you download includes a small 3 MB .VHD file with the name **fixed3.vhd**, do not need to import that file to Azure Stack. *Fixed3.vhd* is included with some solution templates to meet publishing requirements for the Azure Marketplace.
+   **About solution templates:**
+   Some templates can include a small 3 MB .VHD file with the name **fixed3.vhd**. You don't need to import that file to Azure Stack. Fixed3.vhd.  This file is included with some solution templates to meet publishing requirements for the Azure Marketplace.
 
-   In addition to the solution template, review the templates description and be sure to download any additional requirements, including VHDs that might be required to work with the solution template. 
+   Review the templates description and download and then import additional requirements like VHDs that are required to work with the solution template.
 
-3. Use the admin portal to upload your Marketplace item (the .azpkg file) to Azure Stack Blob storage. Upload requires you to have a storage account with a publicly accessible container (which is the storage blob) that you can use as temporary storage for the files. 
+3. Use the admin portal to upload the marketplace item package (the .azpkg file) to Azure Stack Blob storage. Upload of the package makes it available to Azure Stack so you can later publish the item the Azure Stack Marketplace.
 
-   If you are not familiar with storage accounts and containers, see [Work with blobs - Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) in the Azure documentation.  
+   Upload requires you to have a storage account with a publicly accessible container (see the prerequisites for this scenario).
 
-   a. In the Azure Stack admin portal, go to More **services** > **Storage accounts**. 
-   b. Select a storage account from your subscription, and then under **BLOB SERVICE**, select Containers.  
+   a. In the Azure Stack admin portal, go to **More services** > **Storage accounts**.  
+   
+   b. Select a storage account from your subscription, and then under **BLOB SERVICE**, select **Containers**.  
       ![Blob service](./media/azure-stack-download-azure-marketplace-item/blob-service.png)  
+   
    c. Select the container you want to use and then select **Upload** to open the **Upload blob** pane.  
       ![Container](./media/azure-stack-download-azure-marketplace-item/container.png)  
-   d. On the Uplod blob pane, browse to the files that you want to load into storage and then select **Upload**.  
+   
+   d. On the Upload blob pane, browse to the files that you want to load into storage and then select **Upload**.  
       ![upload](./media/azure-stack-download-azure-marketplace-item/upload.png)  
 
-    e. Files that you uploaded appear in the container pane. Select an uploaded file, and then copy the URL from the **Blob propertie**s pane. You will use this URL in the next step to import the marketplace item to Azure Stack.  In the following image, the container is blob-test-storage and the file is Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg.  The file URL is *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
+    e. Files that you upload appear in the container pane. Select a file and then copy the URL from the **Blob properties** pane. You'll use this URL in the next step when you import the marketplace item to Azure Stack.  In the following image, the container is *blob-test-storage* and the file is *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  The file URL is *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
        ![Blob properties](./media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
 
-5.  Use PowerShell to publish the marketplace item to Azure Stack by using the **Add-AzsGalleryItem** cmdlet. For example:  
+4.  Use PowerShell to publish the marketplace item to Azure Stack by using the **Add-AzsGalleryItem** cmdlet. For example:  
     ```powershell
     Add-AzsGalleryItem `
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-6. After you publish a gallery item, you can view it from **More services** > **Marketplace**.  If your download is a solution template, make sure you also download the dependent VHD image for that solution template.  
+5. After you publish a gallery item, you can view it from **More services** > **Marketplace**.  If your download is a solution template, make sure you add any dependent VHD image for that solution template.  
   ![View marketplace](./media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 
@@ -202,63 +210,3 @@ There are two steps to this scenario:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-2. If your download includes a small 3 MB VHD file named **fixed3.vhd**, the download is a solution template. Because the *fixed3.vhd* file is not needed, skip to step 4 (Use portal to upload your Marketplace item). Make sure you also download any dependent items as indicated in the description for the download.
-
-3. Import the image to Azure Stack by using the Add-AzsVMImage cmdlet. When using this cmdlet, make sure to replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. You can get the *publisher*, *offer*, and *sku* values of the image from the imageReference object of the Azpkg file that you downloaded earlier and the *version* value from step 6 in the previous section.
-
-   To find the imageReference, you will need to rename the AZPKG file with the .ZIP extension, extract it to a temporary location and open the DeploymentTemplates\CreateUiDefinition.json file with a text editor. Find this section:
-
-   ```json
-   "imageReference": {
-      "publisher": "MicrosoftWindowsServer",
-      "offer": "WindowsServer",
-      "sku": "2016-Datacenter-Server-Core"
-    }
-   ```
-
-   Replace the parameter values and run the following command:
-
-   ```powershell
-   Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-
-   Add-AzsVMImage `
-    -publisher "MicrosoftWindowsServer" `
-    -offer "WindowsServer" `
-    -sku "2016-Datacenter-Server-Core" `
-    -osType Windows `
-    -Version "2016.127.20171215" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
-    -CreateGalleryItem $False `
-    -Location Local
-   ```
-
-4. Use portal to upload your Marketplace item (.Azpkg) to Azure Stack Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible and note the URI.  
-
-5. Publish the marketplace item to Azure Stack by using the **Add-AzsGalleryItem**. For example:
-
-   ```powershell
-   Add-AzsGalleryItem `
-     -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.2.azpkg" `
-     –Verbose
-   ```
-
-7. After the gallery item is published, you can view it from the **New** > **Marketplace** pane. If your download was a solution template, make sure you also downloaded the dependent VHD image.
-
-   ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
-
-## Next steps
-
-[Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
