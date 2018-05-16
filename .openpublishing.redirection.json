@@ -21021,11 +21021,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/managed-service-identity/index.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/managed-service-identity/bread/index.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/overview",
             "redirect_document_id": false
