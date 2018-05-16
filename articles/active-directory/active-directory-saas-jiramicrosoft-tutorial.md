@@ -98,7 +98,7 @@ To configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft, y
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a JIRA SAML SSO by Microsoft test user](#create-a-microsoft-azure-active-directory-single-sign-on-for-jira-test-user)** - to have a counterpart of Britta Simon in JIRA SAML SSO by Microsoft that is linked to the Azure AD representation of user.
+3. **[Create a JIRA SAML SSO by Microsoft test user](#create-a-jira-saml-sso-by-microsoft-test-user)** - to have a counterpart of Britta Simon in JIRA SAML SSO by Microsoft that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
