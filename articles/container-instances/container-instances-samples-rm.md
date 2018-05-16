@@ -17,6 +17,8 @@ The following sample templates deploy container instances in various configurati
 
 For deployment options, see the [Deployment](#deployment) section. If you'd like to create your own templates, the Azure Container Instances [Resource Manager template reference][ref] details template format and available properties.
 
+## Sample templates
+
 | | |
 |-|-|
 | **Applications** ||
