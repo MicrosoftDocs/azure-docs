@@ -76,7 +76,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
        "actionGrp":{
         "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
         "Subject": "Customized Email Header",
-        "Webhook": "{}"           
+        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
          }
   },
   "resources":[ {
