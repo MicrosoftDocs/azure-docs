@@ -109,7 +109,6 @@ Defines input parameters for an instance of a workflow.
     }
   ]
 }
-
 ```
 
 ## Functions
@@ -236,7 +235,7 @@ Available actions to the next state. One or more user roles may perform an actio
 | Field | Description | Required |
 |-------|-------------|:--------:|
 | AllowedRoles | List of applications roles allowed to initiate the transition. All users of the specified role may be able to perform the action. | No |
-| AllowedInstanceRoles | List of user roles participating or specified in the smart contract allowed to initiate the transition. Instance roles are defined in **Properties** within Workflows. These users represent a user participating or specified in the smart contract as opposed to all users of a role type. | No |
+| AllowedInstanceRoles | List of user roles participating or specified in the smart contract allowed to initiate the transition. Instance roles are defined in **Properties** within workflows. AllowedInstanceRoles represent a user participating in an instance of a smart contract. AllowedInstanceRoles give you the ability to restrict taking an action to a user role in a contract instance.  For example, you may only want to allow the user who created the contract (InstanceOwner) to be able to terminate rather than all users in role type (Owner) if you specified the role in AllowedRoles. | No |
 | DisplayName | Friendly display name of the transition. | Yes |
 | Description | Description of the transition. | No |
 | Function | The name of the function to initiate the transition. | Yes |
