@@ -136,6 +136,7 @@ To deploy from Maven, add the following plugin definition inside the `<build>` e
         <configuration> 
           <resourceGroup>YOUR-RESOURCE-GROUP</resourceGroup> 
           <appName>YOUR-WEB-APP</appName> 
+          <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
           <deploymentType>ftp</deploymentType> 
           <resources> 
               <resource> 
@@ -158,6 +159,10 @@ Update the following placeholders in the plugin definition:
 
 * Replace `YOUR-RESOURCE-GROUP` with the name of the new resource group you created above,
 * Replace `YOUR-WEB-APP` with the name of the new web app you created above.
+
+Execute the following command to authenticate with the Azure CLI:
+
+    az login
 
 Deploy your Java app to the web app using the following command:
 
