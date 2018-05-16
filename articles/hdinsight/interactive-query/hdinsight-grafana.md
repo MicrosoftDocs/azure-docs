@@ -85,7 +85,7 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
 5. Enter the Hadoop cluster user credentials.
 6. The Grafana dashboard looks like:
 
-    ![HDInsight Grafana dashboard](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight graphana dashboard")
+    ![HDInsight Grafana dashboard](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana dashboard")
 
 ## Clean up resources
 After you complete the article, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. 
