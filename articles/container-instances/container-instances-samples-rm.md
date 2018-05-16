@@ -13,7 +13,9 @@ ms.author: marsma
 
 # Azure Resource Manager templates for Azure Container Instances
 
-The following sample templates deploy container instances in various configurations. For deployment options, see the [Deployment](#deployment) section.
+The following sample templates deploy container instances in various configurations.
+
+For deployment options, see the [Deployment](#deployment) section. If you'd like to create your own templates, the Azure Container Instances [Resource Manager template reference][ref] details template format and available properties.
 
 | | |
 |-|-|
@@ -34,13 +36,13 @@ The following sample templates deploy container instances in various configurati
 
 You have several options for deploying resources with Resource Manager templates:
 
-[Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+[Azure CLI][deploy-cli]
 
-[Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+[Azure PowerShell][deploy-powershell]
 
-[Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+[Azure portal][deploy-portal]
 
-[REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+[REST API][deploy-rest]
 
 <!-- LINKS - External -->
 [app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-dynamicsnav
@@ -52,3 +54,10 @@ You have several options for deploying resources with Resource Manager templates
 [vol-emptydir]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-emptydir
 [vol-gitrepo]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-gitrepo
 [vol-secret]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-secret
+
+<!-- LINKS - Internal -->
+[deploy-cli]: ../azure-resource-manager/resource-group-template-deploy-cli.md
+[deploy-portal]: ../azure-resource-manager/resource-group-template-deploy-portal.md
+[deploy-powershell]: ../azure-resource-manager/resource-group-template-deploy.md
+[deploy-rest]: ../azure-resource-manager/resource-group-template-deploy-rest.md
+[ref]: /azure/templates/microsoft.containerinstance/containergroups
