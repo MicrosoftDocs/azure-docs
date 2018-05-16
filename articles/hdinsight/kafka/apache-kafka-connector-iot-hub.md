@@ -1,5 +1,5 @@
 ---
-title: Apache Kafka connector for Azure IoT Hub | Microsoft Docs
+title: Use Apache Kafka on HDInsight with Azure IoT Hub | Microsoft Docs
 description: Learn how to use Apache Kafka on HDInsight with Azure IoT Hub. The Kafka Connect Azure IoT Hub project provides a source and sink connector for Kafka. The source connector can read data from IoT Hub, and the sink connector writes to IoT Hub.
 services: hdinsight
 documentationcenter: ''
@@ -22,6 +22,16 @@ ms.author: larryfr
 
 Learn how to use the [Kafka Connect Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) connector to move data between Apache Kafka on HDInsight and Azure IoT Hub. In this document, you learn how to run the IoT Hub connector from an edge node in the cluster.
 
+The Kafka Connect API allows you to implement connectors that continuously pull data into Kafka, or push data from Kafka to another system. The [Kafka Connect Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) is a connector that pulls data from Azure IoT Hub into Kafka. It can also push data from Kafka to the IoT Hub. 
+
+When pulling from the IoT Hub, you use a __source__ connector. When pushing to IoT Hub, you use a __sink__ connector. The IoT Hub connector provides both the source and sink connectors.
+
+The following diagram shows the data flow between Azure IoT Hub and Kafka on HDInsight when using the connector.
+
+![Image showing data flowing from IoT Hub to Kafka through the connector](./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png)
+
+For more information on the Connect API, see [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect).
+
 ## Prerequisites
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -34,35 +44,9 @@ Learn how to use the [Kafka Connect Azure IoT Hub](https://github.com/Azure/toke
 
 * An SSH client. The steps in this document use SSH to connect to the cluster. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
-## Kafka connect API
-
-The Connect API allows you to implement connectors that continuously pull data into Kafka, or push data from Kafka to another system. The [Kafka Connect Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) is a connector that pulls data from Azure IoT Hub into Kafka. It can also push data from Kafka to the IoT Hub. 
-
-When pulling from the IoT Hub, you use a __source__ connector. When pushing to IoT Hub, you use a __sink__ connector. The IoT Hub connector provides both the source and sink connectors.
-
-The following diagram shows the data flow between Azure IoT Hub and Kafka on HDInsight when using the connector.
-
-![Image showing data flowing from IoT Hub to Kafka through the connector](./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png)
-
-For more information on the connect API, see [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect).
-
 ## Install the connector
 
-> [!IMPORTANT]
-> To build the connector, you must have a Scala development environment with the [Scala build tool](http://www.scala-sbt.org/).
-
-1. Download the source for the connector from [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/) to your development environment.
-
-2. From a command-prompt in the project directory, use the following command to build and package the project:
-
-    ```bash
-    sbt assembly
-    ```
-
-    This command creates a file named `kafka-connect-iothub-assembly_2.11-0.6.jar` in the `target/scala-2.11` directory for this project.
-
-    > [!NOTE]
-    > For more information on building the connector, see the [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/) project.
+1. Download the latest release of the Kafka Connect for Azure IoT Hub from [https://github.com/Azure/toketi-kafka-connect-iothub/releases/](https://github.com/Azure/toketi-kafka-connect-iothub/releases).
 
 2. To upload the .jar file to the edge node of your Kafka on HDInsight cluster, use the following command:
 
@@ -70,7 +54,7 @@ For more information on the connect API, see [https://kafka.apache.org/documenta
     > Replace `sshuser` with the SSH user account for your HDInsight cluster. Replace `new-edgenode` with the edge node name. Replace `clustername` with the cluster name. For more information on the SSH endpoint for the edge node, see the [Used edge nodes with HDInsight](../hdinsight-apps-use-edge-node.md#access-an-edge-node) document.
 
     ```bash
-    scp target/scala-2.11/kafka-connect-iothub-assembly*.jar sshuser@new-edgenode.clustername-ssh.azurehdinsight.net:
+    scp kafka-connect-iothub-assembly*.jar sshuser@new-edgenode.clustername-ssh.azurehdinsight.net:
     ```
 
 3. Once the file copy completes, connect to the edge node using SSH:
@@ -86,6 +70,21 @@ For more information on the connect API, see [https://kafka.apache.org/documenta
     ```bash
     sudo mv kafka-connect-iothub-assembly*.jar /usr/hdp/current/kafka-broker/libs/
     ```
+
+> [!TIP]
+> If you run into problems with the rest of the steps in this document when using a pre-built .jar file, try building the package from source.
+>
+> To build the connector, you must have a Scala development environment with the [Scala build tool](http://www.scala-sbt.org/).
+>
+> 1. Download the source for the connector from [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/) to your development environment.
+>
+> 2. From a command-prompt in the project directory, use the following command to build and package the project:
+>
+>    ```bash
+>    sbt assembly
+>    ```
+>
+>    This command creates a file named `kafka-connect-iothub-assembly_2.11-0.6.jar` in the `target/scala-2.11` directory for the project.
 
 ## Configure Kafka
 
@@ -333,30 +332,13 @@ To send messages through the connector, use the following steps:
     ```bash
     ssh sshuser@new-edgenode.clustername-ssh.azurehdinsight.net
     ```
-2. Save the cluster name to a variable. Using a variable makes it easier to copy/paste the other commands in this section:
+2. To send messages to the `iotout` topic, use the following command:
 
-    ```bash
-    read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
-    ```
-
-3. Install the `jq` utility. This utility makes it easier to process JSON documents returned from Ambari queries:
-
-    ```bash
-    sudo apt -y install jq
-    ```
-
-4. Get the address of the Kafka brokers. There may be many brokers in your cluster, but you only need to reference one or two. To get the address of two broker hosts, use the following command:
-
-    ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
-    echo $KAFKABROKERS
-    ```
-
-    When prompted, enter the password for the cluster login (admin) account. The value returned is similar to the following text:
-
-    `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
-
-5. To send messages to the `iotout` topic, use the following command:
+    > [!WARNING]
+    > Since this is a new SSH connection, the `$KAFKABROKERS` variable does not contain any information. To set it, use one of the following methods:
+    >
+    > * Use the first three steps in the [Configure Kafka](#configure-kafka) section.
+    > * Use `echo $KAFKABROKERS` from the previous SSH connection to get the values, and then replace `$KAFKABROKERS` in the following command with the actual values.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic iotout
@@ -364,7 +346,7 @@ To send messages through the connector, use the following steps:
 
     This command does not return you to the normal Bash prompt. Instead, it sends keyboard input to the `iotout` topic.
 
-6. To send a message to your device, paste a JSON document into the SSH session for the `kafka-console-producer`.
+3. To send a message to your device, paste a JSON document into the SSH session for the `kafka-console-producer`.
 
     > [!IMPORTANT]
     > You must set the value of the `"deviceId"` entry to the ID of your device. In the following example, the device is named `fakepi`:
