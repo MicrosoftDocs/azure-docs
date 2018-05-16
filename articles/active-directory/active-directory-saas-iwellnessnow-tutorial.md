@@ -100,7 +100,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-iwellnessnow-tutorial/tutorial_iwellnessnow_samlbase.png)
 
-3. On the **iWellnessNow Domain and URLs** section, If you have **Service Provider metadata file** perform the following steps:
+3. On the **iWellnessNow Domain and URLs** section, if you have **Service Provider metadata file** and wish to configure the application in **IDP** initiated mode, perform the following steps:
 
 	![iWellnessNow Domain and URLs single sign-on upload](./media/active-directory-saas-iwellnessnow-tutorial/tutorial_iwellnessnow_upload.png)
 
