@@ -13,7 +13,7 @@ ms.author: marsma
 
 # Azure Resource Manager templates for Azure Container Instances
 
-The following Azure Resource Manager templates deploy container instances in various configurations.
+The following sample templates deploy container instances in various configurations. For deployment options, see the [Deployment](#deployment) section.
 
 | | |
 |-|-|
