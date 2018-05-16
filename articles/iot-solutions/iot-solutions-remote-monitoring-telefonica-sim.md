@@ -43,9 +43,9 @@ Navigate to [Telefónica IoT Connectivity Platform Portal](https://m2m-movistar-
 
 This task can also be done in bulk mode (refer to Telefónica IoT Connectivity Platform user manuals)
 
-![Telefónica Update](media/iot-suite-remote-monitoring-telefonica/telefonica_site.png)
+![Telefónica Update](./media/iot-solutions-remote-monitoring-telefonica-sim/telefonica_site.png)
 
-To connect your device to the Remote Monitoring, you can follow these tutorials using [C](iot-suite-connecting-devices-linux.md) or [Node](iot-suite-connecting-devices-node.md). 
+To connect your device to the Remote Monitoring, you can follow these tutorials using [C](../iot-suite/iot-suite-connecting-devices-linux.md) or [Node](../iot-suite/iot-suite-connecting-devices-node.md). 
 
 ## View device telemetry and SIM Properties
 
@@ -60,14 +60,14 @@ The following connectivity parameters are published:
 * Network-based location
 * Consumed data traffic
 
-![Dashboard](media/iot-suite-remote-monitoring-telefonica/dashboard.png)
+![Dashboard](./media/iot-solutions-remote-monitoring-telefonica-sim/dashboard.png)
 
 ## Next steps
 
 Now that you have an overview of how to integrate SIM Data into Azure IoT Remote Monitoring, here are suggested next steps for solutions accelerators:
 
-* [Operate the Azure IoT Remote Monitoring solution](iot-suite-remote-monitoring-explore.md)
-* [Perform advanced monitoring](iot-suite-remote-monitoring-monitor.md)
-* [Manage your devices](iot-suite-remote-monitoring-manage.md)
-* [Troubleshoot device issues](iot-suite-remote-monitoring-maintain.md)
+* [Operate the Azure IoT Remote Monitoring solution](iot-solutions-remote-monitoring-explore.md)
+* [Perform advanced monitoring](iot-solutions-remote-monitoring-monitor.md)
+* [Manage your devices](iot-solutions-remote-monitoring-manage.md)
+* [Troubleshoot device issues](iot-solutions-remote-monitoring-maintain.md)
 
