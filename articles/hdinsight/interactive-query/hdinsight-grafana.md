@@ -121,7 +121,7 @@ To learn more about analyzing data with HDInsight, see the following articles:
 * To learn more about using Hive with HDInsight, including how to perform Hive queries from Visual Studio, see [Use Hive with HDInsight](../hdinsight-use-hive.md).
 * To learn about Pig, a language used to transform data, see [Use Pig with HDInsight](../hdinsight-use-pig.md).
 * To learn about MapReduce, a way to write programs that process data on Hadoop, see [Use MapReduce with HDInsight](../hdinsight-use-mapreduce.md).
-* To learn about using the HDInsight Tools for Visual Studio to analyze data on HDInsight, see [Get started using Visual Studio Hadoop tools for HDInsight](../apache-hadoop-visual-studio-tools-get-started.md).
+* To learn about using the HDInsight Tools for Visual Studio to analyze data on HDInsight, see [Get started using Visual Studio Hadoop tools for HDInsight](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 
 
