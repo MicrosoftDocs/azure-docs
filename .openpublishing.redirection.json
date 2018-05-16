@@ -15896,6 +15896,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-troubleshooting.md",
+            "redirect_url": "/azure/active-directory/get-started-azure-ad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/batch/batch-cli-samples.md",
             "redirect_url": "/azure/batch/batch-cli-get-started",
             "redirect_document_id": false
@@ -21013,11 +21018,6 @@
         {
             "source_path": "articles/virtual-machines/workloads/sap/index.md",
             "redirect_url": "/azure/virtual-machines/workloads/sap/get-started",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/managed-service-identity/index.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/overview",
             "redirect_document_id": false
         },
         {
