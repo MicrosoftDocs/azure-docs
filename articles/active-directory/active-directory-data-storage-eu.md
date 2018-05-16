@@ -27,7 +27,7 @@ Most Azure AD-related European identity data, for organizations with European-ba
 
 - **User-related attributes**
     
-    The following user-related attributes are stored in the United States (U.S.):
+    The following user-related attributes are stored in, and replicated to, the United States (U.S.):
     - GivenName
     - Surname
     - userPrincipalName
@@ -38,18 +38,13 @@ Most Azure AD-related European identity data, for organizations with European-ba
 
 - **Identity-related attributes**
     
-    The following identity-related attributes will be replicated to the U.S.:
+    The following identity-related attributes are replicated to the U.S.:
     -   SourceAnchor
-    -   PasswordHash
-    -   GivenName
-    -   Surname
-    -   userPrincipalName
     -   AccountEnabled
     -   PasswordPolicies
     -   StrongAuthenticationRequirement
     -   ApplicationPassword
     -   PUID
-    -   Domain
 
 - **Microsoft Azure multi-factor authentication (MFA) and Azure AD self-service password reset (SSPR)**
     
