@@ -115,28 +115,24 @@ There are three different types of items in the marketplace: Virtual Machines, V
 
 3. If your download included a small 3MB VHD file named fixed3.vhd, it is a solution template. This file is not needed; skip to step 5. Make sure you download any dependent items as indicated in the description for the download.
 
-4. Import the image to Azure Stack by using the Add-AzsVMImage cmdlet. When using this cmdlet, make sure to replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. You can get the *publisher*, *offer*, and *sku* values of the image from the text file that is downloaded together with the AZPKG file and stored in the destination location.
+4. Import the image to Azure Stack by using the **Add-AzsPlatformimage** cmdlet. When using this cmdlet, make sure to replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. You can get the *publisher*, *offer*, and *sku* values of the image from the text file that is downloaded together with the AZPKG file and stored in the destination location.
 
 
    Replace the parameter values and run the following command:
 
    ```powershell
-   Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-
-   Add-AzsVMImage `
+   Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
     -Version "2016.127.20171215" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
-    -CreateGalleryItem $False `
-    -Location Local
    ```
 
-5. Use portal to upload your Marketplace item (.Azpkg) to Azure Stack Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible and note the URI.  
+5. Use portal to upload your Marketplace item (.Azpkg) to Azure Stack Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible and note the URI.   
 
-6. Publish the marketplace item to Azure Stack by using the **Add-AzsGalleryItem**. For example:
+6. Publish the marketplace item to Azure Stack by using the **Add-AzsGalleryItem** cmdlet. For example:
 
    ```powershell
    Add-AzsGalleryItem `
