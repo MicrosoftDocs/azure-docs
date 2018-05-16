@@ -32,6 +32,10 @@
   - name: Visual Search mobile app (Visual Studio solution)
     href: https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/
     maintainContext: true
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search
 - name: How-to guides
   items:
   - name: Use and display results
