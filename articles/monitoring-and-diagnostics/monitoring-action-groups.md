@@ -66,6 +66,13 @@ For information on how to use Azure Resource Manager templates to configure acti
 <dd>At this time the Azure app action only supports ServiceHealth alerts. Any other alert time will be ignored. See [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
 
 <dt>Email</dt>
+<dd>Emails will be sent from the following email addresses. Ensure that your email filtering is configured appropriately
+
+    - azure-noreply@microsoft.com
+    - azureemail-noreply@microsoft.com
+    - alerts-noreply@mail.windowsazure.com
+    
+</dd>
 <dd>You may have up to 50 email actions in an Action Group</dd>
 <dd>See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article</dd>
 
