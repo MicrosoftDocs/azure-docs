@@ -35,7 +35,13 @@ Starting in v6.2, you can also fetch the logs for a dead or crashed container us
 ### REST
 Use the [Get Container Logs Deployed On Node](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) operation to get the logs for a crashed container. Specify the name of the node that the container was running on, application name, service manifest name, and the code package name.  Specify `&Previous=true`. The response will contain the container logs for the dead container of the code package instance.
 
-Request:
+The request URI has the following form:
+
+```
+/Nodes/{nodeName}/$/GetApplications/{applicationId}/$/GetCodePackages/$/ContainerLogs?api-version=6.2&ServiceManifestName={ServiceManifestName}&CodePackageName={CodePackageName}&Previous={Previous}
+```
+
+Example request:
 ```
 GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$/GetCodePackages/$/ContainerLogs?api-version=6.2&ServiceManifestName=SimpleHttpServerSvcPkg&CodePackageName=Code&Previous=true  
 ```
