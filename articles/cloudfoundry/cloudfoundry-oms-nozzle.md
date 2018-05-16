@@ -74,14 +74,14 @@ For more information, see [Get started with Log Analytics](https://docs.microsof
 3. Type "Cloud Foundry" in the search window, select "OMS Cloud Foundry Monitoring Solution".
 4. The OMS Cloud Foundry monitoring solution template front page is loaded, click "Create" to launch the template blade.
 5. Enter the required parameters:
-- Subscription: Select an Azure subscription for the OMS workspace, usually the same with Cloud Foundry deployment.
-- Resource group: Select an existing resource group or create a new one for the OMS workspace.
-- Resource Group Location: Select the location of the resource group.
-- OMS_Workspace_Name: Enter a workspace name, if the workspace does not exist, the template will create a new one.
-- OMS_Workspace_Region: Select the location for the workspace.
-- OMS_Workspace_Pricing_Tier: Select the OMS workspace SKU. See the [pricing guidance](https://azure.microsoft.com/en-us/pricing/details/log-analytics/) for reference.
-- Legal terms: Click Legal terms, then click “Create” to accept the legal term.
-- After all above steps are done, click “Create” to deploy the template. When the deployment is completed, the status will show up at the notification tab.
+    * **Subscription**: Select an Azure subscription for the OMS workspace, usually the same with Cloud Foundry deployment.
+    * **Resource group**: Select an existing resource group or create a new one for the OMS workspace.
+    * **Resource Group Location**: Select the location of the resource group.
+    * **OMS_Workspace_Name**: Enter a workspace name, if the workspace does not exist, the template will create a new one.
+    * **OMS_Workspace_Region**: Select the location for the workspace.
+    * **OMS_Workspace_Pricing_Tier**: Select the OMS workspace SKU. See the [pricing guidance](https://azure.microsoft.com/en-us/pricing/details/log-analytics/) for reference.
+    * **Legal terms**: Click Legal terms, then click “Create” to accept the legal term.
+- After all parameters are specified, click “Create” to deploy the template. When the deployment is completed, the status will show up at the notification tab.
 
 
 ## Deploy the Nozzle
@@ -175,7 +175,7 @@ Make sure the OMS Nozzle application is running.
 
 ## View the data in the OMS portal
 
-If you have deployed the OMS monitoring solution through the market place template, go to Azure portal and located the OMS solution. You can find the solution in the resource group you specified in the template. Click the solution, browse to the "OMS Console", the pre-configured views are listed, with top 10 Cloud Foundry system KPIs, application data,alerts and VM level health metrics. 
+If you have deployed the OMS monitoring solution through the market place template, go to Azure portal and located the OMS solution. You can find the solution in the resource group you specified in the template. Click the solution, browse to the "OMS Console", the pre-configured views are listed, with top Cloud Foundry system KPIs, application data, alerts and VM lhealth metrics. 
 
 If you have created the OMS workspace manually, follow steps below to create the views and alerts:
 
@@ -243,7 +243,7 @@ To open an Azure support request, choose "Virtual Machine running Cloud Foundry"
 
 ## Next step
 
-Note from PCF2.0, VM performance metrics are transfered to Azure log analytics nozzle by System Metrics Forwarder, and integrated into the OMS workspace. You no longer need the OMS agent for the the VM performance metrics. 
+From PCF2.0, VM performance metrics are transferred to Azure log analytics nozzle by System Metrics Forwarder, and integrated into the OMS workspace. You no longer need the OMS agent for the the VM performance metrics. 
 However you can still use the OMS agent to collect Syslog information. The OMS agent is installed as a Bosh add-on to your CF VMs. 
 
 For details, see [Deploy OMS agent to your Cloud Foundry deployment](https://github.com/Azure/oms-agent-for-linux-boshrelease).
