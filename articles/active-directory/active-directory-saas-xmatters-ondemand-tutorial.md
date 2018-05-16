@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -155,11 +155,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. Select **Enable SAML**.
 
-    b. Paste **SAML Entity ID**, which you have copied from the Azure portal into the **Identity Provider ID** textbox.
+    b. In the **Identity Provider ID** textbox, paste **SAML Entity ID** value which you have copied from the Azure portal.
 
-    c. Paste **SAML Single Sign-On Service URL**, which you have copied from the Azure portal into the **Single Sign On URL** textbox.
+    c. In the **Single Sign On URL** textbox, paste **SAML Single Sign-On Service URL** value which you have copied from the Azure portal.
 
-    d. Paste **Sign-Out URL**, which you have copied from the Azure portal into the **Single Logout URL** textbox.
+    d. In the **Single Logout URL** textbox, paste **Sign-Out URL**, which you have copied from the Azure portal.
 
     e. On the Company Details page, at the top, click **Save Changes**.
 
@@ -200,11 +200,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in xMatters OnDemand. xMatters OnDemand supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-xmatters-ondemand-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
-**If you need to create user manually, please perform following steps:**
-
-In order to enable Azure AD users to log in to XMatters OnDemand, they must be provisioned into XMatters OnDemand. In the case of XMatters OnDemand, provisioning is a manual task.
-
-### To provision a user accounts, perform the following steps:
+**If you need to create user manually, perform following steps:**
 
 1. Log in to your **XMatters OnDemand** tenant.
 
