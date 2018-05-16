@@ -22,7 +22,7 @@ Application Insights has always provided a summary overview pane to allow quick,
 
 ## How do I test out the new experience?
 
- In Application Insights under: _Investigate_ select _Overview (preview)_.
+ In Application Insights under: _Overview_, select _Please try new Overview before it becomes the default experience_.
 
 ![Overview Preview](.\media\app-insights-overview-dashboard\01.png)
 
