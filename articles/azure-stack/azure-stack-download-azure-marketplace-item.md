@@ -45,6 +45,7 @@ As you decide what content to include in your Azure Stack marketplace, you shoul
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
 6. After the download completes, you can deploy your new marketplace item as either an Azure Stack operator or user. Click **+New**, search among the categories for the new marketplace item, and then select the item.
+
 7. Click **Create** to open up the creation experience for the newly downloaded item. Follow the step-by-step instructions to deploy your item.
 
 ## Download marketplace items in a disconnected or a partially connected scenario (with limited internet connectivity)
@@ -106,8 +107,6 @@ From the machine that has internet connectivity, use the following steps to down
 
 ### Import the image and publish it to Azure Stack marketplace
 There are three different types of items in the marketplace: Virtual Machines, Virtual Machine Extensions, and Solution Templates. Solution Templates are discussed below.
-> [!NOTE]
-> Virtual Machine Extensions cannot be added to Azure Stack  at this time.
 
 1. After you download the image and gallery package, save them and the contents in AzureStack-Tools-master folder to a removable disk drive and copy it to the Azure Stack environment (you can copy it locally to any location such as: "C:\MarketplaceImages").     
 
@@ -143,6 +142,15 @@ There are three different types of items in the marketplace: Virtual Machines, V
 7. After the gallery item is published, you can view it from the **New** > **Marketplace** pane. If your download was a solution template, make sure you also downloaded the dependent VHD image.
 
    ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
+
+> [!NOTE]
+> With the release of Azure Stack PowerShell 1.3.0 you can now add Virtual Machine Extensions.
+
+For example:
+
+````PowerShell
+Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
+````
 
 ## Next steps
 
