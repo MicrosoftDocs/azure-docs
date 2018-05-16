@@ -14,7 +14,7 @@ metadata:
   ms.date: 05/15/2018
   ms.author: tarcher
 abstract:
-  description: Use Chef Software to define and automate your Azure infrastructure, and detect compliance issues.
+  description: Chef Software on Azure Documentation - Tutorials, samples, reference, and resources
   aside: 
     image: 
       alt: Chef logo
@@ -23,7 +23,7 @@ abstract:
       src: media/chef.png
     title: 
 sections:
-- title: Quickstarts
+- title: 5-Minute Quickstarts
   items:
   - type: paragraph
     text: Install and configure Chef, and use it to create a Linux virtual machine in Azure.
