@@ -11,7 +11,7 @@ editor: ''
 ms.assetid: 25D89586-DE5B-4268-B5D5-CC2CE12207ED
 ms.service: multiple
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
 
