@@ -7,7 +7,7 @@ author: rolyon
 manager: mtillman
 
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
