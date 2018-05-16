@@ -17,7 +17,7 @@ ms.custom: mvc
 # Tutorial: Visualize data anomalies in events sent to an Event Hub
 
 Microsoft Azure Event Hubs is a big data streaming service that can collect and store millions of events per second. Event Hubs provides both real-time and batch streaming, while giving you low latency and configurable time retention. Event Hubs decouples smart endpoints, providing a durable time retention buffer in the cloud that enables you to focus on your business and big data analytics both fast and slow.
-
+ 
 In this tutorial, you feed simulated events to an event hub, then read the stream of data with Azure 
 Stream Analytics and visualize the anomalies with a PowerBI visualization. This usage is similar to what a company might do if they were ingesting credit card transactions into an event hub, and then separating the valid transactions from the invalid transactions. 
 
@@ -25,7 +25,6 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create an Event Hubs namespace
 > * Create an Event Hub
-> * Create a Standard V1 storage account with LRS replication
 > * Run the app that simulates events and sends them to the event hub
 > * Configure a Stream Analytics job to process events sent to the hub
 > * Configure a PowerBI visualization to show the results
@@ -65,7 +64,7 @@ This tutorial requires Azure PowerShell module version 5.7 or later. Run `Get-Mo
 
 ## Set up resources
 
-For this tutorial, you need an Event Hubs namespace, an event hub, and a storage account. These resources can all be created using Azure CLI or Azure PowerShell. Use the same resource group and location for all of the resources. Then at the end, you can remove everything in one step by deleting the resource group.
+For this tutorial, you need an Event Hubs namespace and an event hub. These resources can all be created using Azure CLI or Azure PowerShell. Use the same resource group and location for all of the resources. Then at the end, you can remove everything in one step by deleting the resource group.
 
 The following sections describe how to do these required steps. Follow the CLI *or* the PowerShell instructions.
 
@@ -74,8 +73,6 @@ The following sections describe how to do these required steps. Follow the CLI *
 2. Create an Event Hubs namespace. 
 
 3. Create an Event Hub.
-
-4. Create a standard V1 storage account with Standard_LRS replication.
 
 <!-- some day they will approve the tab control; 
   When that happens, put CLI and PSH in tabs. -->
@@ -94,30 +91,6 @@ resourceGroup=ContosoResourcesEH
 #   for all the resources for this tutorial.
 az group create --name $resourceGroup \
     --location $location
-
-storageAccountName=contosostorage$RANDOM
-
-# Create the storage account to be used as a routing destination.
-az storage account create --name $storageAccountName \
-    --resource-group $resourceGroup \
-	--location $location \
-    --sku Standard_LRS
-
-# Get the primary storage account key. 
-#    You need this to create the container.
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroup \
-    --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"') 
-
-# See the value of the storage account key.
-echo "$storageAccountKey"
-
-# Create the container in the storage account. 
-az storage container create --name $containerName \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
-    --public-access off 
 
 # The Event Hub namespace must be globally unique, so add a random number to the end.
 eventHubNamespace=ContosoEHNamespace$RANDOM
@@ -167,25 +140,6 @@ $resourceGroup = "ContosoResourcesEH"
 # Create the resource group to be used  
 #   for all resources for this tutorial.
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
-
-# Create the storage account to be used as a destination for the data.
-# Save the context for the storage account 
-#   to be used when creating a container.
-# The storage account name must be glocally unique, so add a random number to the end.
-$storageAccountName = "ehstorage$(Get-Random)"
-Write-Host "Storage Account name is " $storageAccountName
-
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
-    -Name $storageAccountName `
-    -Location $location `
-    -SkuName Standard_LRS `
-    -Kind Storage
-$storageContext = $storageAccount.Context 
-$containerName = "contosoresults"
-
-# Create the container in the storage account.
-New-AzureStorageContainer -Name $containerName `
-    -Context $storageContext
 
 # The Event Hub namespace must be glocally unique, so add a random number to the end.
 $eventHubNamespace = "contosoEHNamespace$(Get-Random)"
@@ -359,7 +313,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
    ![Screenshot of specifying dashboard name.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-name.png
 
-7. On the Dashboards page, click on your new dashboard. Click **Add tile**, select **Custom Streaming Data** in the **REAL - TIME DATA** section, then click **Next**.
+7. On the Dashboard page, click **Add tile**, select **Custom Streaming Data** in the **REAL - TIME DATA** section, then click **Next**.
 
    ![Screenshot specifying source for tile.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-real-time-data.png)
 
@@ -399,11 +353,11 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 ## Clean up resources
 
-If you want to remove all of the resources you've created, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the event hub, event hub namespace, storage account, stream analytics job, and the resource group itself. 
+If you want to remove all of the resources you've created, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the event hub, event hub namespace, stream analytics job, and the resource group itself. 
 
 ### Clean up resources in the PowerBI visualization
 
-Log into your [PowerBI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the PowerBI visualization, go to DataSets and click the trash can icon to delete your dataset. This tutorial uses **contosoehdataset**. 
+Log into your [PowerBI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. On the line with your Dashboard name, click the trash can icon. Next, go to DataSets and click the trash can icon to delete the dataset. This tutorial uses **contosoehdataset**. 
 <!-- robin  how to delete the dashboard ? -->
 
 ### Clean up resources using Azure CLI
@@ -428,7 +382,6 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create an Event Hubs namespace
 > * Create an Event Hub
-> * Create a Standard V1 storage account with LRS replication
 > * Run the app that simulates events and sends them to the event hub
 > * Configure a Stream Analytics job to process events sent to the hub
 > * Configure a PowerBI visualization to show the results
