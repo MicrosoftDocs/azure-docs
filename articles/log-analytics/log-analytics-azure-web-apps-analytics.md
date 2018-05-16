@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/18/2018
 ms.author: magoedte
 
 ---
@@ -22,7 +22,7 @@ ms.author: magoedte
 ![Web Apps symbol](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
 
 > [!NOTE]
-> The Azure Web Apps Analytics solution has been deprecated.  Customers who have already installed the solution can continue to use it, but Azure Web Apps Analytics can not be added to any new workspaces.
+> The Azure Web Apps Analytics solution has been deprecated.  Customers who have already installed the solution can continue to use it, but Azure Web Apps Analytics can not be added to any new workspaces.  To monitor your web application, we recommend you use [Application Insights](../application-insights/app-insights-overview.md). 
 
 The Azure Web Apps Analytics (Preview) solution provides insights into your [Azure Web Apps](../app-service/app-service-web-overview.md) by collecting different metrics across all your Azure Web App resources. With the solution, you can analyze and search for web app resource metric data.
 
