@@ -22,10 +22,18 @@
 #    items:
 #    - name: Summary
 #      href: QuickStarts/curl.md
-#  - name: Java
-#    items:
-#    - name: Summary
-#      href: QuickStarts/Java.md
+  - name: Java
+    items:
+    - name: Summary
+      href: QuickStarts/Java.md
+    - name: Analyze an image
+      href: QuickStarts/java-analyze.md
+    - name: Generate a thumbnail
+      href: QuickStarts/java-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/java-print-text.md
+    - name: Extract handwritten text
+      href: QuickStarts/java-hand-text.md
 #  - name: JavaScript
 #    items:
 #    - name: Summary
@@ -48,8 +56,6 @@
     items:
     - name: cURL
       href: QuickStarts/curl.md
-    - name: Java
-      href: QuickStarts/Java.md
     - name: JavaScript
       href: QuickStarts/JavaScript.md
     - name: PHP
