@@ -21394,6 +21394,56 @@
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-device-behavior.md",
             "redirect_url": "/azure/iot-solutions/iot-solutions-remote-monitoring-device-behavior",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connecting-pi-c.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-connecting-pi-c",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connecting-pi-node.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-connecting-pi-node",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-device-simulation-deploy.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-device-simulation-deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-device-simulation-explore.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-device-simulation-explore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-faq-cf.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-faq-cf",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-faq-rm-v2.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-faq-rm-v2",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-faq.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-integrate-data-lake.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-integrate-data-lake",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-integrate-data-powerbi.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-integrate-data-powerbi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-microservices-example.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-microservices-example",
+            "redirect_document_id": false
         }
     ]
 }
