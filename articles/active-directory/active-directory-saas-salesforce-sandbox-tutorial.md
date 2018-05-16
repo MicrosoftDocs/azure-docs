@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -190,7 +190,7 @@ This section assumes that you already have created a domain.  For more informati
 
    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
-As soon as you have a domain configured, your users should use the domain URL to login to the Salesforce sandbox.  
+As soon as you have a domain configured, your users should use the domain URL to login to the Salesforce sandbox.
 
 To get the value of the URL, click the SSO profile you have created in the previous section.
 
@@ -228,14 +228,13 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Create a Salesforce Sandbox test user
 
-In this section, a user called Britta Simon is created in Salesforce Sandbox. Salesforce Sandbox supports just-in-time provisioning, which is enabled by default. You can find more details [here](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md) on how to configure automatic user provisioning.
-There is no action item for you in this section. If a user doesn't already exist in Salesforce Sandbox, a new one is created when you attempt to access Salesforce Sandbox.
+In this section, a user called Britta Simon is created in Salesforce Sandbox. Salesforce Sandbox supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Salesforce Sandbox, a new one is created when you attempt to access Salesforce Sandbox. Salesforce Sandbox also supports automatic user provisioning, you can find more details [here](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Salesforce Sandbox.
 
-![Assign the user role][200] 
+![Assign the user role][200]
 
 **To assign Britta Simon to Salesforce Sandbox, perform the following steps:**
 
