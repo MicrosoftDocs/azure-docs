@@ -19,7 +19,7 @@ ms.custom: mvc
 Microsoft Azure Event Hubs is a big data streaming service that can collect and store millions of events per second. Event Hubs provides both real-time and batch streaming, while giving you low latency and configurable time retention. Event Hubs decouples smart endpoints, providing a durable time retention buffer in the cloud that enables you to focus on your business and big data analytics both fast and slow.
 
 In this tutorial, you feed simulated events to an event hub, then read the stream of data with Azure 
-Stream Analytics and visualize the anomalies with a PowerBI visualization. This is similar to what a company might do if they were ingesting credit card transactions into an event hub, and then separating the valid transactions from the invalid transactions. 
+Stream Analytics and visualize the anomalies with a PowerBI visualization. This usage is similar to what a company might do if they were ingesting credit card transactions into an event hub, and then separating the valid transactions from the invalid transactions. 
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -67,7 +67,7 @@ This tutorial requires Azure PowerShell module version 5.7 or later. Run `Get-Mo
 
 For this tutorial, you need an Event Hubs namespace, an event hub, and a storage account. These resources can all be created using Azure CLI or Azure PowerShell. Use the same resource group and location for all of the resources. Then at the end, you can remove everything in one step by deleting the resource group.
 
-The following sections describe how to do these required steps. Follow the CLI *or* the PowerShell instructinos.
+The following sections describe how to do these required steps. Follow the CLI *or* the PowerShell instructions.
 
 1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
 
@@ -154,7 +154,7 @@ echo "Connection string = " $connectionString
 
 The easiest way to use this script is to open [PowerShell ISE](/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise.md), copy the script to the clipboard, and then paste the whole script into the script window. 
 
-If you paste the script in one line at a time, you can change the values for the resource names (if you wish) before running the script. The variables that must be globally unique have `(Get-Random)` concatenated to them; this results in a random numeric string being concatenated to the end of the fixed string, which will hopefully make it unique.
+If you paste the script in one line at a time, you can change the values for the resource names (if you wish) before running the script. The variables that must be globally unique have `(Get-Random)` concatenated to them; using Get-Random results in a random numeric string being concatenated to the end of the fixed string, which will hopefully make it unique.
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -246,7 +246,7 @@ To use the data in a PowerBI visualization, first set up a Stream Analytics job 
 
     Accept the defaults for the rest of the fields. Click **Create**. 
 
-    To get to your Stream Analytics job, click **Resource Groups** in the portal, then select your resource group. This tutorial uses **ContosoResourcesEH**. This shows all of the resources in the group; select your stream analytics job. 
+    To get to your Stream Analytics job, click **Resource Groups** in the portal, then select your resource group. This tutorial uses **ContosoResourcesEH**. This action shows all of the resources in the group; select your stream analytics job. 
 
 ### Add an input to the Stream Analytics job
 
@@ -264,7 +264,7 @@ To use the data in a PowerBI visualization, first set up a Stream Analytics job 
 
    **Event Hub policy name**: Select **RootManageSharedAccessKey**.
 
-   **Event Hub consumer group**: Leave this blank to use the default consumer group.
+   **Event Hub consumer group**: Leave this field blank to use the default consumer group.
 
    Accept the defaults for the rest of the fields.
 
@@ -389,7 +389,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 14. Under Values, click **Add value** and select **fraudulentuses**.
 
-15. Under **Time window to display**, select the last 5 minutes. Click **Next**.
+15. Under **Time window to display**, select the last five minutes. Click **Next**.
 
 16. Specify a title and subtitle for the tile, click **Apply**. This tutorial uses **Show fraudulent uses over time** for the title, and specifies no subtitle. You are returned to your dashboard.
 
