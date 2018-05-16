@@ -33,7 +33,7 @@ Most Azure AD-related European identity data, for organizations with European-ba
     - userPrincipalName
     - Domain
     - PasswordHash
-    
+
     In the situation where someone uses an on-premise, federated authentication method that stops the PasswordHash value from syncing with Azure AD, the associated value isn't stored in the U.S. Beyond these user-related attributes, some service-specific data is also stored in the U.S. However, these service-specific attributes are needed for the normal operation of Azure AD services and don't include any personal data.
 
 - **Identity-related attributes**
