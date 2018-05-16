@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 ---
@@ -115,17 +115,8 @@ There are three different types of items in the marketplace: Virtual Machines, V
 
 3. If your download included a small 3MB VHD file named fixed3.vhd, it is a solution template. This file is not needed; skip to step 5. Make sure you download any dependent items as indicated in the description for the download.
 
-4. Import the image to Azure Stack by using the Add-AzsVMImage cmdlet. When using this cmdlet, make sure to replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. You can get the *publisher*, *offer*, and *sku* values of the image from the imageReference object of the Azpkg file that you downloaded earlier and the *version* value from step 6 in the previous section.
+4. Import the image to Azure Stack by using the Add-AzsVMImage cmdlet. When using this cmdlet, make sure to replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. You can get the *publisher*, *offer*, and *sku* values of the image from the text file that is downloaded together with the AZPKG file and stored in the destination location.
 
-To find the imageReference, you will need to rename the AZPKG file with the .ZIP extension, extract it to a temporary location and open the DeploymentTemplates\CreateUiDefinition.json file with a text editor. Find this section:
-
-   ```json
-   "imageReference": {
-      "publisher": "MicrosoftWindowsServer",
-      "offer": "WindowsServer",
-      "sku": "2016-Datacenter-Server-Core"
-    }
-   ```
 
    Replace the parameter values and run the following command:
 
