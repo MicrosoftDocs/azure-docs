@@ -57,13 +57,13 @@ Learn more:
 * [Integrate Azure Active Directory single sign-on with SaaS apps](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## Reverse proxy
-Azure AD Application Proxy lets you publish on-premises applications, such as [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), and [IIS](http://www.iis.net/)-based apps inside your private network and provides secure access to users outside your network. Application Proxy provides remote access and SSO for many types of on-premises web applications with the thousands of SaaS applications that Azure AD supports. Employees can log in to your apps from home on their own devices and authenticate through this cloud-based proxy.
+Azure AD Application Proxy lets you publish on-premises applications, such as [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), and [IIS](http://www.iis.net/)-based apps inside your private network and provides secure access to users outside your network. Application Proxy provides remote access and SSO for many types of on-premises web applications with the thousands of SaaS applications that Azure AD supports. Employees can sign in to your apps from home on their own devices and authenticate through this cloud-based proxy.
 
 Learn more:
 
 * [Enabling Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-enable.md)
 * [Publish applications using Azure AD Application Proxy](../active-directory/active-directory-application-proxy-publish.md)
-* [Single-sign-on with Application Proxy](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Single sign-on with Application Proxy](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Working with conditional access](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## Multi-Factor Authentication
