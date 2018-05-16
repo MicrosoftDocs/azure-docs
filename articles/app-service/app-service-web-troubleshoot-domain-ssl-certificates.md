@@ -82,7 +82,7 @@ This problem can occur for any of the following reasons:
 - The subscription reached the limit of purchases that are allowed on a subscription.
 
     **Solution**: App Service certificates have a limit of 10 certificate purchases for the Pay-As-You-Go and EA subscription types. For other subscription types, the limit is 3. To increase the limit, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- The App Service certificate was marked as fraud. You received the following error message: "Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours."
+- The App Service certificate was marked as fraud. You received the following error message: "Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours, please contact Azure Support."
 
     **Solution**: If the certificate is marked as fraud and isn't resolved after 24 hours, follow these steps:
 
