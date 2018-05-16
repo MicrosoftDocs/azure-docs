@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 05/16/2018
 ms.author: danis
 
 ---
@@ -32,12 +32,12 @@ The OMS Agent extension can be run against these Linux distributions.
 
 | Distribution | Version |
 |---|---|
-| CentOS Linux | 5, 6, and 7 |
-| Oracle Linux | 5, 6, and 7 |
-| Red Hat Enterprise Linux Server | 5, 6 and 7 |
-| Debian GNU/Linux | 6, 7, and 8 |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
-| SUSE Linux Enterprise Server | 11 and 12 |
+| CentOS Linux | 5, 6, and 7 (x86/x64) |
+| Oracle Linux | 5, 6, and 7 (x86/x64) |
+| Red Hat Enterprise Linux Server | 5, 6 and 7 (x86/x64) |
+| Debian GNU/Linux | 6, 7, and 8 (x86/x64) |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64) |
+| SUSE Linux Enterprise Server | 11 and 12 (x86/x64) |
 
 ### Agent and VM Extension version
 The following table provides a mapping of the version of the OMS VM extension and OMS Agent bundle for each release. A link to the release notes for the OMS agent bundle version is included. Release notes include details on bug fixes and new features available for a given agent release.  
