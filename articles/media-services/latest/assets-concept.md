@@ -27,6 +27,51 @@ In Media Services v3, the job input can be created from assets or from HTTP(s) U
 
 Also, read about [storage accounts in Media Services](storage-account-concept.md) and [transforms and jobs](transform-concept.md).
 
+## Asset definition
+
+The following table shows the Asset's properties and give their definitions. 
+
+|Name|Type|Description|
+|---|---|---|
+|Id|string|Fully qualified resource ID for the resource.|
+|name|string|The name of the resource.|
+|properties.alternateId |string|The alternate ID of the Asset.|
+|properties.assetId |string|The Asset ID.|
+|properties.container |string|The name of the asset blob container.|
+|properties.created |string|The creation date of the Asset.|
+|properties.description |string|The Asset description.|
+|properties.lastModified |string|The last modified date of the Asset.|
+|properties.storageAccountName |string|The name of the storage account.|
+|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |The Asset encryption format. One of None or MediaStorageEncryption.|
+|type|string|The type of the resource.|
+
+Fore more detailed information, see [Assets](https://docs.microsoft.com/rest/api/media/assets).
+
+## Filtering and ordering support
+
+The following table shows the current filtering and ordering support for the properties.
+
+|Name|Filter|Order|
+|---|---|---|
+|Id|Supports:<br/>Equals<br/>Greater than<br/>Less Than|Supports:<br/>Ascending<br/>Descending|
+|name|||
+|properties.alternateId |Supports:<br/>Equals||
+|properties.assetId |Supports:<br/>Equals||
+|properties.container |||
+|properties.created|Supports:<br/>Equals<br/>Greater than<br/>Less Than|Supports:<br/>Ascending<br/>Descending|
+|properties.description |||
+|properties.lastModified |||
+|properties.storageAccountName |||
+|properties.storageEncryptionFormat | ||
+|type|||
+
+The following C# example shows how to filter on the created date:
+
+```csharp
+var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
+var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
+```
+  
 ## Next steps
 
 > [!div class="nextstepaction"]
