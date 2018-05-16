@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
-ms.author: dugill;tomfitz
+ms.author: dugill
 
 ---
 # Use Resource Manager authentication API to access subscriptions
