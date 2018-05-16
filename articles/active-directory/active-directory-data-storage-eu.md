@@ -26,7 +26,7 @@ Most European identity data, for organizations with European-based addresses, st
 
 - **User-related attributes**
     
-    The following user-related attributes are stored in the United States (U.S.).
+    The following user-related attributes are stored in the United States (U.S.):
     - GivenName
     - Surname
     - userPrincipalName
