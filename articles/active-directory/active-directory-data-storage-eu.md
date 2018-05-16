@@ -21,8 +21,9 @@ Azure AD helps you to manage user identities and to create intelligence-driven a
 
 This article provides details about the data stored both inside and outside of European datacenters.
 
-## Azure AD data stored outside of European datacenters for European customers
-Most European identity data, for organizations with European-based addresses, stays in European datacenters. Azure AD data that's not stored in European datacenters, includes:
+## Data stored outside of European datacenters for European customers
+
+Most Azure AD-related European identity data, for organizations with European-based addresses, stays in European datacenters. Azure AD data that's not stored in European datacenters, includes:
 
 - **User-related attributes**
     
@@ -74,7 +75,7 @@ Most European identity data, for organizations with European-based addresses, st
 
 - **Services and apps integrated with Azure AD**
 
-    Any services and apps that integrate with Azure AD have access to identity data. You must evaluate each service and app to determine how identity data is processed by that specific service and app, and whether they meet your company's data storage requirements.
+    Any services and apps that integrate with Azure AD have access to identity data. Evaluate each service and app to determine how identity data is processed by that specific service and app, and whether they meet your company's data storage requirements.
 
     For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/en-us/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
