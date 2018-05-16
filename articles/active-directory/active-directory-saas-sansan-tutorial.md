@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Go to the **Properties** page of **Sansan** application and copy the **Object ID** using **Copy** button and paste it into Notepad.
 
-	b. The **Object ID**, which you have copied from Azure portal will be used as **ServicePrincipalObjectId** in powershell script used later in the tutorial. 
+	b. The **Object ID**, which you have copied from Azure portal will be used as **ServicePrincipalObjectId** in PowerShell script used later in the tutorial. 
 
 	c. Now open an elevated Windows PowerShell command prompt.
 	
@@ -181,11 +181,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	echo "Not able to find the matched application with this service principal"
 	}
 	```
-8. On the **Sansan Configuration** section, click **Configure Sansan** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+
+8. After successfull completion of PowerShell script the result of the script will be like this as shown below and the URL values get updated but they won't get reflected in Azure portal. :
+
+	![Configure Single Sign-On script](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_powershell.png)
+
+
+9. On the **Sansan Configuration** section, click **Configure Sansan** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_configure.png) 
 
-9. To configure single sign-on on **Sansan** side, you need to send the downloaded **Certificate**, **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** to [Sansan support team](https://www.sansan.com/form/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+10. To configure single sign-on on **Sansan** side, you need to send the downloaded **Certificate**, **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** to [Sansan support team](https://www.sansan.com/form/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
 >[!NOTE]
 >PC browser setting also work for Mobile app and Mobile browser along with PC web. 
@@ -224,7 +230,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Sansan test user
 
-In this section, you create a user called Britta Simon in SanSan. SanSan application needs the user to be provisioned in the application before doing SSO. 
+In this section, you create a user called Britta Simon in Sansan. Sansan application needs the user to be provisioned in the application before doing SSO. 
 
 >[!NOTE]
 >If you need to create a user manually or batch of users, you need to contact the [Sansan support team](https://www.sansan.com/form/contact). 
