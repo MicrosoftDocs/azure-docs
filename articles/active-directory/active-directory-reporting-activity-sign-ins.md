@@ -179,7 +179,6 @@ Your entry point to this data is the user sign-in graph on the **identity securi
 
 When you click on a day in the sign-in graph, you get an overview of the sign-in activities for this day.
 
-![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/07.png "Sign-in activity")
 
 Each row in the sign-in activities list shows:
 
@@ -234,7 +233,6 @@ If you want to, you can set the focus on a specific application.
 When you click on a day in the app usage graph, you get a detailed list of the sign-in activities.
 
 
-![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/48.png "Sign-in activity")
 
 
 The **Sign-ins** option gives you a complete overview of all sign-in events to your applications.
