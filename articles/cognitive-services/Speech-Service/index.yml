@@ -22,7 +22,7 @@ sections:
 - title: 10-Minute Quickstarts - New SDKs
   items:
   - type: paragraph
-    text: 'Learn how to install and use the Speeck SDK with our quickstarts:'
+    text: 'Learn how to install and use the Speech SDK with our quickstarts:'
   - type: table
     style: dataMatrix
     columns:
