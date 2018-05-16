@@ -105,11 +105,11 @@ When creating your first Batch account in user subscription mode, you need to re
 ### Create a key vault
 In user subscription mode, an Azure key vault is required that belongs to the same resource group as the Batch account to be created. Make sure the resource group is in a region where Batch is [available](https://azure.microsoft.com/regions/services/) and which your subscription supports.
 
-1. In the [Azure portal][azure_portal], click **New** > **Security + Identity** > **Key Vault**.
+1. In the [Azure portal][azure_portal], click **New** > **Security** > **Key Vault**.
 
 2. In the **Create Key Vault** page, enter a name for the key vault, and create a resource group in the region you want for your Batch account. Leave the remaining settings at default values, then click **Create**.
 
-When creating the Batch account in user subscription mode, use the resource group for the key vault, specify **User subscription** as the pool allocaiton mode, and select the key vault.
+When creating the Batch account in user subscription mode, use the resource group for the key vault, specify **User subscription** as the pool allocation mode, and select the key vault.
 
 ## Other Batch account management options
 In addition to using the Azure portal, you can create and manage Batch accounts with tools including the following:
