@@ -30,7 +30,7 @@ You can download and use these PowerShell modules to the Azure Stack Development
 
 ## How to get the tools
 
-To obtain these tools, clone the AzureStack-Tools GitHub repository or download the AzureStack-Tools folder by running the following script:
+To get these tools, clone the AzureStack-Tools GitHub repository or download the AzureStack-Tools folder by running the following script:
 
 ```PowerShell
 # Change directory to the root directory
