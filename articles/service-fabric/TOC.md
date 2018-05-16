@@ -227,7 +227,8 @@
 ## Work in a Windows/VS dev environment
 ### [Manage applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Debug a .NET service in VS](service-fabric-debugging-your-application.md)
+### [Debug a .NET service in Visual Studio](service-fabric-debugging-your-application.md)
+### [Debug Windows containers in Visual Studio](service-fabric-how-to-debug-windows-containers.md)
 ### [Common errors and exceptions](service-fabric-errors-and-exceptions.md)
 ### [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ### [Set up a Linux cluster on Windows](service-fabric-local-linux-cluster-windows.md)
