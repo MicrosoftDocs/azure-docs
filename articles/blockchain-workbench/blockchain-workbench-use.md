@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/26/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -47,6 +47,8 @@ To create a new contract, you need to be a member of an application role specifi
     ![Active contracts list](media/blockchain-workbench-use/active-contracts.png)
 
 ## Take action on contract
+
+Depending on the state the contract is in, members can take actions to transition to the next state of the contract. Actions are defined as [transitions](blockchain-workbench-configuration-overview.md#transitions) within a [state](blockchain-workbench-configuration-overview.md#states). Members belonging to an allowed application or instance role for the transition can take the action. 
 
 1. In Blockchain Workbench application section, select the application tile that contains the contract to take the action.
 2. Select the contract in the list. Details about the contract are displayed in different sections. 
