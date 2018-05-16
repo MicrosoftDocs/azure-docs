@@ -206,7 +206,8 @@ There are two parts to this scenario:
   ![View marketplace](./media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 
-
+## Next steps
+[Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
 
 
 
