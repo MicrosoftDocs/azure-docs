@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -476,7 +476,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a ServiceNow test user
 
-The objective of this section is to create a user called Britta Simon in ThousandEyes. ThousandEyes supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-servicenow-provisioning-tutorial.md) on how to configure automatic user provisioning.
+The objective of this section is to create a user called Britta Simon in ServiceNow. ServiceNow supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-servicenow-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 **If you need to create user manually, please perform following steps:**
 
