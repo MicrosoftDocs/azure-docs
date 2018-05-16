@@ -41,7 +41,7 @@ If you have [.NET Core](https://www.microsoft.com/net) installed, you can quickl
    dotnet new mvc --name webfrontend
 ```
 
-Or, **download sample code from GitHub** by navigating to https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/dotnetcore/getting-started/webfrontend`.
+Or, **download sample code from GitHub** by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/dotnetcore/getting-started/webfrontend`.
 
 [!INCLUDE[](includes/azds-prep.md)]
 

@@ -97,7 +97,7 @@ In this section you're going to create a second service, `mywebapi`, and have `w
 ![](media/common/multi-container.png)
 
 ## Download sample code for *mywebapi*
-For the sake of time, let's download sample code from a GitHub repository. Go to https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/dev-spaces and select **Clone or Download** to download the GitHub repository. The code for this section is in `samples/dotnetcore/getting-started/mywebapi`.
+For the sake of time, let's download sample code from a GitHub repository. Go to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository. The code for this section is in `samples/dotnetcore/getting-started/mywebapi`.
 
 ## Run *mywebapi*
 1. Open the project `mywebapi` in a *separate Visual Studio window*.
