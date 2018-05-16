@@ -1,19 +1,19 @@
 ---
-title: View SAML Returned by the Access Control Service (Java)
+title: View SAML returned by the Access Control Service (Java)
 description: Learn how to view SAML returned by the Access Control Service in Java applications hosted on Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: ''
+manager: mbaldwin
 
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
 

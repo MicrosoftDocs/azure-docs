@@ -1,213 +1,259 @@
-﻿---
+---
 title: Add entities in LUIS apps | Microsoft Docs
-description: Add entities (key data in your application's domain) in Language Understanding Intelligent Service (LUIS) apps.
+titleSuffix: Azure
+description: Add entities (key data in your application's domain) in Language Understanding (LUIS) apps.
 services: cognitive-services
-author: cahann
-manager: hsalama
-
+author: v-geberr
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: cahann
+ms.date: 05/07/2018
+ms.author: v-geberr
 ---
 
-# Add entities
-Entities are key data in your application’s domain. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). 
-Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. 
+# Manage entities
+After you identify your app's [intents](luis-concept-intent.md), you need to [label example utterances](luis-concept-utterance.md) with [entities](luis-concept-entity-types.md). Entities are the important pieces of a command or question, and may be essential for your client app to perform its task. 
 
-For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Bookflight" intent), that you can add as entities.
+You can add, edit, or delete entities in your app through the **Entities list** on the **Entities** page. LUIS offers two main types of entities: [prebuilt entities](luis-reference-prebuilt-entities.md), and your own custom entities.
 
-You do not need to create entities for every concept in your app, but only for those required for the app to take action. You can add up to **30** entities in a single LUIS app. 
+The following sections are only available inside a LUIS app, from the **Build** section. The **Build** link is in the top navigation bar. Once inside the **Build** section, select **Entities** from the left navigation menu. Once an entity is added to the application, if the entity is machine-learned, you can [label the entity](add-example-utterances.md) inside the utterance. Once the app is trained and published, you can receive entity data [extracted](luis-concept-data-extraction.md) from the prediction. 
 
-You can add, edit or delete entities in your app through the **Entities list** on the **Entities** page. Luis offers many types of entities; prebuilt entities, custom machine learned entities and list entities.
+## Add prebuilt entity
+Prebuilt entities are defined in the [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Common prebuilt entities added to an application are *number* and *datetimeV2*. 
 
-
-## Add prebuilt entities
-LUIS provides a set of prebuilt (system-defined) entities, covering many examples of the most common knowledge concepts such as date, age, temperature, percentage, dimension, cardinal and ordinal numbers, etc.  
-
-For example, the TravelAgent app may receive a request like "Book me a flight to Boston on May 4". This will require your app to understand date and time words in order to interpret the request properly. Rather than creating entities for such concepts from scratch, you can enable a ready-made prebuilt entity called "datetime". 
-
-As another example, a travel booking request like “Book me the first flight to Boston” might be sent to your app. This requires understanding of ordinal words (e.g. first, second). Therefore, you must add a prebuilt entity called "ordinal", for your app to recognize ordinal numbers.
-
-For a full list of prebuilt entities and their use, see [Prebuilt Entities List](Pre-builtEntities.md).
-
-**To add a prebuilt entity:**
-
-1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
-2. On the **Entities** page, click **Add prebuilt entity**.
-
-    ![Entities Page - Add first entity](./Images/EntitiesPage-AddFirstEntity.JPG)
-3. In **Add prebuilt entities** dialog box, click the prebuilt entity you want to add  (e.g. “datetime”), and then click **Save**.
-
-    ![Add prebuilt entity dialog box](./Images/AddPrebuilt-Dialogbox.JPG)
-
-
-## Custom entities
-Custom entities are the entities you create in your app. These are the available types of custom entities:
-
- * **Simple:** a generic entity.
- * **Hierarchical:** a parent including children (sub-types) which are dependent on the parent.
- * **Composite:** a compound of two or more separate entities combined together forming a composite and treated as a single entity.
- * **List:** a customized list of entity values, to be used as keywords or identifiers to recognize the entity within utterances.
-
-### Add simple entities
-A simple entity is a generic entity that describes a single concept. In the example of the TravelAgent app, a user may say "Book me a flight to London tomorrow on British Airways", where "British Airways" is the name of an airline company. In order to capture the notion of airline names, let's create the entity "Airline". 
-
-**To add a simple entity:**
-
-1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
-2. On the **Entities** page, click **Add custom entity**.
-3. In the **Add Entity** dialog box, type "Airline" in the **Entity name** box,  select **Simple** from the **Entity type** list, and then click **Save**.
-
-    ![Add Entity Dialog box - Simple](./Images/AddSimpleEntity.jpg)
-
-
-### Add hierarchical entities
-You can define relationships between entities based on hereditary hierarchical patterns, where the generic entity acts as the parent and the children are sub-types under the parent, and they share the same characteristics. For example, in the TravelAgent app, you can add three hierarchical entities:
-
-* “Location”, including the entity children “FromLocation” and “ToLocation”, representing source and destination locations.
-* "TravelClass", including the travel classes as children ("first", "business" and "economy")
-* "Category", including ticket categories ("adult", "child" and "infant").
-
-Do the following steps to add hierarchical entities and make sure to add the children at the same time you are creating the parent entity. You can add up to 10 entity children for each parent.
-
-**To add a hierarchical entity:**
-
-1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
-2. On the **Entities** page, click **Add custom entity**.
-3. In the **Add Entity** dialog box, type "Location" in the **Entity name** box, and then select **Hierarchical** from the **Entity type** list.
-
-    ![Add hierarchical entity](./Images/AddHierarchicalEntity.JPG)
-
-4. Click **Add Child**, and then type "FromLocation" in **Child #1** box. 
-5. Click **Add Child**, and then type "ToLocation" in **Child #2** box. 
-    >[!NOTE]
-    >To delete a child (in case of a mistake), click the trash bin icon next to it.
-
-6. Click **Save**.
-
+1. In your app, from the **Build** section, and then click **Entities** in the left panel.
  
-### Add composite entities
-You can also define relationships between entities by creating “composite entities”. A composite entity is created by combining two or more existing entities (simple or hierarchical) and treating them as one entity. Unlike a hierarchical entity, the composite entity and the children forming it are not in a parent-child relationship. They are independent of each other and they do not need to share common characteristics. The composite pattern enables your app to identify entities, not only individually, but also in groups. 
+2. On the **Entities** page, select **Manage prebuilt entities**.
 
-In the TravelAgent app example, a user may say “Book 2 adult business tickets to Paris next Monday”. In this example, we can create a composite entity called “TicketsOrder”, including three children entities: “number”, “category” and "class" which describe the tickets to be booked. Before creating a composite entity, you must first add the entities forming it, if they do not already exist. 
+    ![Screenshot of adding prebuilt entity on Entities Page](./media/add-entities/manage-prebuilt-entities-button.png)
 
-**To add the entities forming the composite:**
+3. In **Add or remove prebuilt entities** dialog box, select the **number** and **datetimeV2** prebuilt entities. Then select **Done**.
 
-1. Add the prebuilt entity “number”. For instructions, see the Add Prebuilt Entities section above. 
-2. Add the hierarchical entity "Category", including the sub-types: “adult”, “child” and “infant”, and "TravelClass" including "first", "business" and "economy". For more instructions, see the Hierarchical Entities section above. 
+    ![Screenshot of Add prebuilt entity dialog box](./media/add-entities/list-of-prebuilt-entities.png)
 
-**To add the composite entity:**
+    See [Data Extraction](luis-concept-data-extraction.md#prebuilt-entity-data) to learn more about extracting the prebuilt entity from the endpoint JSON query response.
 
-1. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
-2. On the **Entities** page, click **Add custom entity**.
-3. In the **Add Entity** dialog box, type "TicketsOrder" in the **Entity name** box, and then select **Composite** from the **Entity type** list.
-4. Click **Add Child** to add a new child.
-5. In **Child #1**, select the entity "number" from the list.
-6. In **Child #2**, select the parent entity "Category" from the list. 
-7. In **Child #3**, select the parent entity "TravelClass" from the list. 
+## Add simple entities
+A simple entity is a generic entity that describes a single concept. 
 
-    ![Add composite entity](./Images/AddCompositeEntity.jpg)
+1. In your app, from the **Build** section, and then click **Entities** in the left panel, and then select **Create new entity**.
 
-7. Click **Save**.
+    ![Screenshot of Entities page with Create new entity button highlighted](./media/add-entities/create-new-entity-button.png)
+
+2. In the pop-up dialog box, type `Airline` in the **Entity name** box,  select **Simple** from the **Entity type** list, and then select **Done**.
+
+    ![Screenshot of dialog box for creating Airline simple entity](./media/add-entities/create-simple-airline-entity.png)
+
+    See [Data Extraction](luis-concept-data-extraction.md#simple-entity-data) to learn more about extracting the simple entity from the endpoint JSON query response. Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more about how to use a simple entity.
+
+## Add regular expression entities
+A regular expression entity is used to pull out data from the utterance based on a regular expression you provide. 
+
+1. In your app, select **Entities** from the left navigation, and then select **Create new entity**.
+
+2. In the pop-up dialog box, , type `AirFrance Flight` in the **Entity name** box,  select **Regular expression** from the **Entity type** list, enter the regular expression `AFR[0-9]{3,4}`, and then select **Done**. 
+
+    This AirFrance Flight regular expression expects three characters, literally `AFR`, then 3 or 4 digits. The digits can be any number between 0 and 9. The regular expression matches AirFrance flight numbers such as: "AFR101", "ARF1302", and "AFR5006". See [Data Extraction](luis-concept-data-extraction.md) to learn more about extracting the entity from the endpoint JSON query response.
+
+    ![Image of dialog box to create regular expression entity](./media/add-entities/regex-entity-create-dialog.png)
+
+    See [Data Extraction](luis-concept-data-extraction.md#regular-expression-entity-data) to learn more about extracting the regular expression entity from the endpoint JSON query response. Try the regular expression entity [quickstart](luis-quickstart-intents-regex-entity.md) to learn more about how to use a regular expression entity.
+
+## Add hierarchical entities
+A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
+
+In the utterance `Book 2 tickets from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
+
+To add hierarchical entities, complete the following steps: 
+
+1. In your app, select **Entities** from the left navigation, and then select **Create new entity**.
+
+2. In the pop-up dialog box, type `Location` in the **Entity name** box, and then select **Hierarchical** from the **Entity type** list.
+
+    ![Add hierarchical entity](./media/add-entities/hier-location-entity-creation.png)
+
+3. Select **Add Child**, and then type "Origin" in **Child #1** box. 
+
+4. Select **Add Child**, and then type "Destination" in **Child #2** box. Select **Done**.
+5. 
+    >[!NOTE]
+    >To delete a child, select the trash bin icon next to it.
+
+    >[!CAUTION]
+    >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
+
+    See [Data Extraction](luis-concept-data-extraction.md#hierarchical-entity-data) to learn more about extracting the hierarchical entity from the endpoint JSON query response. Try the hierarchical entity [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more about how to use a hierarchical entity.
+
+## Add composite entities
+You can define relationships between several existing entities by creating a composite entity. In the following example, the entity contains count of tickets, origin, and destination locations. 
+
+In the utterance `Book 2 tickets from Seattle to Cairo`, the number 2 is matched to a prebuilt entity, Seattle is the origin location and Cairo is the destination location. Each entity is part of a larger, parent entity after the composite entity is created.
+
+1. In your app, add the prebuilt entity **number**. For instructions, see [Add Prebuilt Entities](#add-prebuilt-entity). 
+
+2. Add the hierarchical entity `Location`, including the subtypes: `origin`, `destination`. For more instructions, see [Add hierarchical entities](#add-hierarchical-entities). 
+
+3. Select **Entities** from the left navigation, and then select **Create new entity**.
+
+4. In the pop-up dialog box, type `TicketsOrder` in the **Entity name** box, and then select **Composite** from the **Entity type** list.
+
+5. Select **Add Child** to add a new child.
+
+6. In **Child #1**, select the entity **number** from the list.
+
+7. In **Child #2**, select the entity **Location::Origin** from the list. 
+
+8. In **Child #3**, select the entity **Location::Destination** from the list. 
+
+9. Select **Done**.
+
+    ![Image of dialog box to create a composite entity](./media/add-entities/ticketsorder-composite-entity.png)
 
     >[!NOTE]
-    >To delete a child (in case of a mistake), click the trash button next to it.
+    >To delete a child, select the trash button next to it.
+
+    See [Data Extraction](luis-concept-data-extraction.md#composite-entity-data) to learn more about extracting the composite entity from the endpoint JSON query response. Try the composite entity [tutorial](luis-tutorial-composite-entity.md) to learn more about how to use a composite entity.
 
 
-## List entities
-A list entity is an entity that is defined by a list of all its values. This entity type is identified in utterances, not by active learning of context, but by the direct matching of utterance text to the defined values.   
+## Add Pattern.any entities
+[Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md). This entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance.
 
-In some use cases, you may have a fixed list of definite values for an entity. In this case, you can create a list entity including these values. For each value, you define a standard form "Canonical Form" and variant forms "Synonyms". Your app will identify this entity in an utterance if the utterance includes an exact match of any of the entity values (canonical forms/synonyms), so the list entity will be predicted as existing in the utterance, with a prediction score of 100%.
+If an app has a `FindBookInfo` intent, the title of the book may interfere with the intent prediction. In order to clarify which words are in the book title, use a Pattern.any within a pattern. The LUIS prediction begins with the utterance. First, the utterance is checked and matched for entities, when the entities are found, then the pattern is checked and matched. 
 
-For example, in the TravelAgent app, we can create a list entity named “Coastal Cities”; including values such as “Barcelona, Venice, Miami, etc.” as canonical forms. For each canonical form, you can add synonyms. For example, synonyms of “Barcelona” can be “Capital City of Catalonia”, “BCN”, “Barna” and “Second Spanish City”. 
+In the utterance `Who wrote the book Ask and when was it published?`, the book title, Ask, is tricky because it is not contextually obvious where the title ends and where the rest of the utterance begins. Book titles can be any order of words including a single word, complex phrases with punctuation, and nonsensical ordering of words. A pattern allows you to create an entity where the full and exact entity can be extracted. Once the book title is found, the `FindBookInfo` intent is predicted because that is the intent for the pattern.
 
-List entity values can be added individually, or collectively by importing them as a JSON file. Furthermore, if your app culture is English, LUIS can propose some relevant values which you can add to your list. The following procedures explain how to add a list entity, and how to add its values by different methods.
+1. In your app, from the **Build** section, and then click **Entities** in the left panel, and then select **Create new entity**.
+
+2. In the **Add Entity** dialog box, type `BookTitle` in the **Entity name** box and select **Pattern.any** as the **Entity type**.
  
+    ![Screenshot of creating a pattern.any entity](./media/add-entities/create-pattern-any-entity.png)
 
-**To add a list entity:**
+    To use the pattern.any entity, add a pattern on the **Patterns** page (under the **Improve app performance** section) with the correct curly brace syntax, such as "For **{BookTitle}** who is the author?".
 
-1. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
-2. On the **Entities** page, click **Add custom entity**.
-3. In the **Add Entity** dialog box, type "Coastal Cities" in the **Entity name** box and select **List** as the **Entity type**.
+    See [Data Extraction](luis-concept-data-extraction.md#patternany-entity-data) to learn more about extracting the Pattern.any entity from the endpoint JSON query response. Try the [Pattern](luis-tutorial-pattern.md) tutorial to learn more about how to use a Pattern.any entity.
+
+If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem. 
+
+## Add role to pattern-based entity
+A role is a named subtype of an entity based on context. It is comparable to a [hierarchical](#add-hierarchical-entities) entity but roles are only used in [patterns](luis-how-to-model-intent-pattern.md). 
+
+For example, a plane ticket has an *origin city* and a *destination city*, but both are cities. LUIS determines that both are cities and can determine origin and destination cities based on context of word order and word choice. 
+
+The syntax for a role is **{Entity name:Role name}** where the entity name is followed by a colon, then the role name. For example, "Book a ticket from {Location:Origin} to {Location:Destination}".
+
+1. In your app, from the **Build** section, and then select **Entities** in the left panel.
+
+2. Select **Create new entity**. Enter the name of `Location`. Select the type **Simple** and select **Done**
+
+3. Select **Entities** from the left panel, then select the new entity **Location** created in step 2.
+
+4. In the **Role name** textbox, enter the name of the role `Origin` and enter. Add a second role name of `Destination`. As an example, a plane trip can have an origin and a destination city. The two roles are "Origin" and "Destination".
+
+    ![Screenshot of adding Origin role to Location entity](./media/add-entities/roles-enter-role-name-text.png)
+
+    See [Data Extraction](luis-concept-data-extraction.md) to learn more about extracting roles from the endpoint JSON query response. Try the pattern tutorial to learn more about how to use a Pattern.any entity.
+
+## Add list entities
+List entities represent a fixed, closed set of related words in your system. 
+
+For a drinks list entity, you can have two normalized values: water and soda pop. Each normalized name has synonyms. For water, synonyms are H20, gas, flat. For soda pop, synonyms are fruit, cola, ginger. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
+
+|Normalized name|Synonyms|
+|--|--|
+|Water|H20, gas, flat|
+|Soda pop|Fruit, cola, ginger|
+
+1. In your app, from the **Build** section, and then click **Entities** in the left panel, and then select **Create new entity**.
+
+2. In the **Add Entity** dialog box, type `Drinks` in the **Entity name** box and select **List** as the **Entity type**. Select **Done**.
  
-  ![Add a list entity](./media/luis-how-to-add-entities/add-list-entity.jpg)
+    ![Image of dialog box creating Drinks list entity](./media/add-entities/menu-list-dialog.png)
   
-4. Click **Save**. The list entity "Coastal Cities" will be added and its details page will be displayed where you should define its values.
+3.  The list entity page allows you to add normalized names. In the **Values** textbox, enter an item for the list, such as `Water` for the drinks list then press Enter on the keyboard. 
 
- ![List entity details page](./media/luis-how-to-add-entities/list-entity.jpg)
+    ![Screenshot of Drinks list entity with water normalized value in textbox](./media/add-entities/entity-list-normalized-name.png)
 
-**To add list entity values individually:**
+4. To the right of the normalized value **water**, enter synonyms `h20`, `flat`, and `gas`, pressing Enter on the keyboard after each item.
 
-1. On the "Coastal Cities" list entity page, type a standard form for each value in the **Canonical Form** column (e.g. Barcelona), and type other forms of it in **Synonyms** (e.g. "BCN", "Barna", etc.). After typing each synonym, press Enter.
+    ![Screenshot of Drinks list entity with synonym items for water highlighted](./media/add-entities/menu-list-synonyms.png)
 
-2. When you finish typing all synonyms, click **Add**.
+5. If you want more normalized items for the list, select **Recommend** to see options from the [semantic dictionary](luis-glossary.md#semantic-dictionary).
 
- ![Add list entity values](./media/luis-how-to-add-entities/list-entity-values.jpg)
- 
-3. Repeat the above two steps to add more values to the entity list.
+    ![Screenshot of Drink list entity with Recommended items highlighted](./media/add-entities/entity-list-recommended-list.png)
 
-**To import a list of values as a JSON file:**
+6. Select an item in the recommended list to add it as a normalized value or select **Add all** to add all the items. 
 
- 1. On the "Coastal Cities" list entity page, click **Import Lists**.
- 2. In **Import New Entries** dialog box, click **Choose File** and select the JSON file including the list.
+    ![Screenshot of Drink list entity with recommended item of beer and Add all button highlighted](./media/add-entities/list-entity-add-suggestions.png)
 
-  ![Import list entity values](./media/luis-how-to-add-entities/list-entity-import.jpg)
-  
- 3. To learn about the supported list syntax in JSON, click **Learn about supported list syntax** to expand the dialog and display an example of allowed syntax. To collapse the dialog and hide syntax, click it again.
+    See [Data Extraction](luis-concept-data-extraction.md#list-entity-data) to learn more about extracting list entities from the endpoint JSON query response. Try the [quickstart](luis-quickstart-intent-and-list-entity.md) to learn more about how to use a list entity.
 
- ![Allowed syntax of imported lists](./media/luis-how-to-add-entities/list-entity-import-syntx.jpg)
-  
- 4. Click **Import**.
+## Import list entity values
+You can import values into an existing list entity.
 
-**To get a list of proposed values (only for English culture apps):**
+ 1. On the list entity page, select **Import Lists**.
 
-1. On the "Coastal Cities" list entity page, with at least one canonical form added (e.g. Barcelona), click **Show Related Values**.
+ 2. In **Import New Entries** dialog box, select **Choose File** and select the JSON file that includes the list.
 
- ![Show Related Values](./media/luis-how-to-add-entities/list-entity-related-values.jpg)
- 
-2. Click **Recommend**. You'll get a number of proposed values that are semantically related to the added canonical form (Barcelona in this example). The following screenshot shows the proposed values.
-
- ![Proposed Values](./media/luis-how-to-add-entities/list-entity-proposed-values.jpg)
- 
-3. Click a value to add it to your list as a canonical form, or click **Add All** to add all values.
-
-> [!NOTE]
-> * The proposed values are added as canonical forms not synonyms; synonyms should be typed manually.
-> * To delete an added canonical form, click the trash bin button corresponding to it.
-
-  
-## Edit or delete entities
-You can edit or delete entities from the **Entities list** on the **Entities** page of your app. 
-
-**To edit an entity:**
-
-1. On the **Entities** page, click the entity in the **Entities list**.
-2. In the **Edit Entity** dialog box, you can edit the entity name and children names, or add more children (for hierarchical/composite entities), but the entity type is not editable. 
-
-    ![Edit Entity dialog box](./Images/EditEntity-dialogbox.JPG)
-
-3. Click **Save**.
-
-**To delete an entity:**
-
-* In the **Entities list**, click the trash bin icon next to the entity you want to delete. Then, click **OK** in the confirmation message to confirm deletion.
- 
-    ![Delete Entity](./Images/DeleteEntity-Confirmation.jpg)
+    ![Screenshot of Import list entity values pop-up dialog box](./media/add-entities/menu-list-import-json-dialog-with-file.png)
 
     >[!NOTE]
-    >* Deleting a hierarchical entity deletes all its children entities.
-    >* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
+    >LUIS imports files with the extension ".json" only.
 
+ 3. To learn about the supported list syntax in JSON, select **Learn about supported list syntax** to expand the dialog and display an example of allowed syntax. To collapse the dialog and hide syntax, select the link title again.
 
-## Review labeled utterances for entities
-To review the labeled utterances that contain a specific entity, click the **Labeled Utterances** tab on the **Entities** page, and choose the entity for which you want to display all labeled utterances. You can modify entity labels in labeled utterances, if required, and then click **Save**.
+ 4. Select **Done**.
 
-![Labeled Utterances for an entity](./Images/Entities-LabeledUtter.JPG)
+    An example of valid json for a **Colors** list entity is shown in the following JSON-formatted code:
 
+    ```
+    [
+        {
+            "canonicalForm": "Blue",
+            "list": [
+                "navy",
+                "royal",
+                "baby"
+            ]
+        },
+        {
+            "canonicalForm": "Green",
+            "list": [
+                "kelly",
+                "forest",
+                "avacado"
+            ]
+        }
+    ]  
+    ```
+
+## Edit entity name
+1. On the **Entities** list page, select the entity in the list. This action takes you to the **Entity** page.
+
+2. On the **Entity** page, you edit the entity name by selecting the edit icon next to the entity name. The entity type is not editable. 
+
+## Delete entity
+
+On the **Entity** page, select the **Delete Entity** button. Then, select **Ok** in the confirmation message to confirm deletion.
+ 
+![Screenshot of Location entity page with Delete Entity button highlighted](./media/add-entities/entity-delete.png)
+
+>[!NOTE]
+>* Deleting a hierarchical entity deletes all its children entities.
+>* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
+
+## Changing entity type
+LUIS does not allow you to change the type of the entity because it doesn't know what to add or remove to construct that entity. In order to change the type, it is better to create a new entity of the correct type with a slightly different name. Once the entity is created, in each utterance, remove the old labeled entity name and add the new entity name. Once all the utterances have been relabeled, delete the old entity. 
+
+## Create a pattern from an utterance
+See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+
+## Search utterances
+You can [search and filter](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances#search-in-utterances) utterances. 
+
+## Train your app after changing model with entities
+After you add, edit, or remove entities, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps
-Now that you have added intents, utterances and entities, you have a basic LUIS app ready to be trained and tested for publishing. 
-For more information on how to train and test your app, [click here](Train-Test.md).
+Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [train](luis-how-to-train.md), [test](train-test.md), and [publish](publishapp.md) your app.
  

@@ -1,26 +1,21 @@
 ---
-title: The elements of the Azure Active Directory B2B collaboration invitation email | Microsoft Docs
+title: The elements of the B2B collaboration invitation email - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration invitation email template
-services: active-directory
-documentationcenter: ''
-author: sasubram
-manager: femila
-editor: ''
-tags: ''
 
-ms.assetid:
+services: active-directory
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
+
+ms.author: twooley
+author: twooley
+manager: mtillman
+ms.reviewer: sasubram
 
 ---
 
-
-# The elements of the B2B collaboration invitation email
+# The elements of the B2B collaboration invitation email - Azure Active Directory
 
 Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. You can use them to increase the recipient's trust. you can add legitimacy and social proof to the email, to make sure the recipient feels comfortable with selecting the **Get Started** button to accept the invitation. This trust is a key means to reduce sharing friction. And you also want to make the email look great!
 
@@ -35,7 +30,7 @@ You're invited to the &lt;tenantname&gt; organization
 
 ### From address
 We use a LinkedIn-like pattern for the From address.  You should be clear who the inviter is and from which company, and also clarify that the email is coming from a Microsoft email address. The format is:
-&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com&gt;
+&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
 
 ### Reply To
 The reply-to email is set to the inviter's email when available, so that replying to the email sends an email back to the inviter.
@@ -75,16 +70,10 @@ The footer contains the Microsoft company brand and lets the recipient know if t
 
 ## Next steps
 
-Browse our other articles on Azure AD B2B collaboration:
+See the following articles on Azure AD B2B collaboration:
 
-* [What is Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
-* [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
-* [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
-* [Troubleshooting Azure Active Directory B2B collaboration](active-directory-b2b-troubleshooting.md)
-* [Azure Active Directory B2B collaboration frequently asked questions (FAQ)](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
-* [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
-* [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [What is Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
+- [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
+- [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
+- [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)

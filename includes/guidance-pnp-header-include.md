@@ -1,1 +1,0 @@
-![patterns & practices](media/guidance-pnp-include/pnp-logo.png)

@@ -3,7 +3,7 @@ title: Add the Office 365 Users connector in Logic Apps | Microsoft Docs
 description: Overview of Office 365 Users connector with REST API parameters
 services: ''
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the Office 365 Users connector
@@ -24,7 +24,7 @@ Connect to Office 365 Users to get profiles, search users, and more. With Office
 * Build your business flow based on the data you get from Office 365 Users. 
 * Use actions that get direct reports, get a manager's user profile, and more. These actions get a response, and then make the output available for other actions. For example, get a person's direct reports, and then take this information and update a SQL Azure database. 
 
-You can get started by creating a logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to Office 365 Users
 When you add this connector to your logic apps, you must sign-in to your Office 365 Users account and allow logic apps to connect to your account.
@@ -33,7 +33,7 @@ When you add this connector to your logic apps, you must sign-in to your Office 
 > 
 > 
 
-After you create the connection, you enter the Office 365 Users properties, like the user ID. The **REST API reference** in this topic describes these properties.
+After you create the connection, you enter the Office 365 Users properties, like the user ID. The **REST API reference** in this article describes these properties.
 
 ## Connector-specific details
 

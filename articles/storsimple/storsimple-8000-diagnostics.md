@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 
 ---
@@ -29,15 +29,15 @@ The diagnostics tool is primarily intended for StorSimple 8000 series on-premise
 
 This tool can be run via the Windows PowerShell interface of your StorSimple device. There are two ways to access the local interface of your device:
 
-* [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [Remotely access the tool via the Windows PowerShell for StorSimple](storsimple-remote-connect.md).
+* [Use PuTTY to connect to the device serial console](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Remotely access the tool via the Windows PowerShell for StorSimple](storsimple-8000-remote-connect.md).
 
 In this article, we assume that you have connected to the device serial console via PuTTY.
 
 #### To run the diagnostics tool
 
 Once you have connected to the Windows PowerShell interface of the device, perform the following steps to run the cmdlet.
-1. Log on to the device serial console by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. Log on to the device serial console by following the steps in [Use PuTTY to connect to the device serial console](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
 2. Type the following command:
 
@@ -82,11 +82,11 @@ This test determines the status of the hardware components, the USM firmware, an
 * The hardware components reported are those components that failed the test or are not present in the system.
 * The USM firmware and disk firmware versions are reported for the Controller 0, Controller 1, and shared components in your system. For a complete list of hardware components, go to:
 
-    * [Components in primary enclosure](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [Components in EBOD enclosure](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [Components in primary enclosure](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [Components in EBOD enclosure](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> If the hardware test reports failed components, [log in a service request with Microsoft Support](storsimple-contact-microsoft-support.md).
+> If the hardware test reports failed components, [log in a service request with Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 #### Sample output of hardware test run on an 8100 device
 
@@ -207,7 +207,7 @@ This test reports the system information, the updates available, the cluster inf
 * The system information includes the model, device serial number, time zone, controller status, and the detailed software version running on the system. To understand the various system parameters reported as the output, go to [Interpreting system information](#appendix-interpreting-system-information).
 
 * The update availability reports whether the regular and maintenance modes are available and their associated package names. If `RegularUpdates` and `MaintenanceModeUpdates` are `false`, this indicates that the updates are not available. Your device is up-to-date.
-* The cluster information contains the information on various logical components of all the HCS cluster groups and their respective statuses. If you see an offline cluster group in this section of the report, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+* The cluster information contains the information on various logical components of all the HCS cluster groups and their respective statuses. If you see an offline cluster group in this section of the report, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * The service information includes the names and statuses of all the HCS and CiS services running on your device. This information is helpful for the Microsoft Support in troubleshooting the device issue.
 
 #### Sample output of system test run on an 8100 device
@@ -384,7 +384,7 @@ To use this tool, perform the following steps:
 
     If the read-write latencies reported by the diagnostics tool are high:
 
-    1. Configure Storage Analytics for blob services and analyze the output to understand the latencies for the Azure storage account. For detailed instructions, go to [enable and configure Storage Analytics](../storage/storage-enable-and-view-metrics-classic-portal.md). If those latencies are also high and comparable to the numbers you received from the StorSimple Diagnostics tool, then you need to log a service request with Azure storage.
+    1. Configure Storage Analytics for blob services and analyze the output to understand the latencies for the Azure storage account. For detailed instructions, go to [enable and configure Storage Analytics](../storage/common/storage-enable-and-view-metrics.md). If those latencies are also high and comparable to the numbers you received from the StorSimple Diagnostics tool, then you need to log a service request with Azure storage.
 
     2. If the storage account latencies are low, contact your network administrator to investigate any latency issues in your network.
 

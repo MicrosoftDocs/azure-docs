@@ -1,4 +1,4 @@
----
+﻿---
   title: Security best practices for IaaS workloads in Azure | Microsoft Docs
   description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
   services: security
@@ -13,13 +13,12 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 03/29/2017
+  ms.date: 04/26/2018
   ms.author: barclayn
 
 
 
 ---
-
 # Security best practices for IaaS workloads in Azure
 
 As you started thinking about moving workloads to Azure infrastructure as a service (IaaS), you probably realized that some considerations are familiar. You might already have experience securing virtual environments. When you move to Azure IaaS, you can apply your expertise in securing virtual environments and use a new set of options to help secure your assets.
@@ -38,11 +37,11 @@ We'll discuss some of the options available in Azure that can help you meet your
 
 Organizations often fall prey to cyberattacks because administrators perform actions while using accounts with elevated rights. Usually this isn’t done maliciously but because existing configuration and processes allow it. Most of these users understand the risk of these actions from a conceptual standpoint but still choose to do them.
 
-Doing things like checking email and browsing the Internet seem innocent enough. But they might expose elevated accounts to compromise by malicious actors who can use browsing activities, specially crafted emails, or other techniques to gain access to your enterprise. We highly recommend the use of secure management workstations for conducting all Azure administration tasks, as a way of reducing exposure to accidental compromise.
+Doing things like checking email and browsing the Internet seem innocent enough. But they might expose elevated accounts to compromise by malicious actors. Browsing activities, specially crafted emails, or other techniques can be used to gain access to your enterprise. We highly recommend the use of secure management workstations (SAWs) for conducting all Azure administration tasks. SAWs are a way of reducing exposure to accidental compromise.
 
-Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks--one that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily-use workstations and devices provides strong protection from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-the-Ticket.
+Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks--one that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily-use workstations and devices provides strong protection. This separation limits the impact of phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks. (keystroke logging, Pass-the-Hash, and Pass-the-Ticket)
 
-The PAW approach is an extension of the well-established and recommended practice to use an individually assigned administrative account that is separate from a standard user account. A PAW provides a trustworthy workstation for those sensitive accounts.
+The PAW approach is an extension of the well-established and recommended practice to use an individually assigned administrative account. The administrative account is separate from a standard user account. A PAW provides a trustworthy workstation for those sensitive accounts.
 
 For more information and implementation guidance, see [Privileged Access Workstations](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations).
 
@@ -52,7 +51,7 @@ In the past, your network perimeter was used to control access to corporate data
 
 One of the most beneficial steps that you can take to secure an account is to enable two-factor authentication. Two-factor authentication is a way of authenticating by using something in addition to a password. It helps mitigate the risk of access by someone who manages to get someone else’s password.
 
-[Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options--phone call, text message, or mobile app notification. Users choose the method that they prefer.
+[Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options--phone call, text message, or mobile app notification. Users choose the method that they prefer.
 
 The easiest way to use Multi-Factor Authentication is the Microsoft Authenticator mobile app that can be used on mobile devices running Windows, iOS, and Android. With the latest release of Windows 10 and the integration of on-premises Active Directory with Azure Active Directory (Azure AD), [Windows Hello for Business](../active-directory/active-directory-azureadjoin-passport-deployment.md) can be used for seamless single sign-on to Azure resources. In this case, the Windows 10 device is used as the second factor for authentication.
 
@@ -64,7 +63,7 @@ The following screenshot shows some of the options available for Azure Multi-Fac
 
 ## Limit and constrain administrative access
 
-Securing the accounts that can manage your Azure subscription is extremely important. The compromise of any of those accounts negates the value of all the other steps that you might take to ensure the confidentiality and integrity of your data. As recently illustrated by the [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) leak of classified information, internal attacks pose a huge threat to the overall security of any organization.
+Securing the accounts that can manage your Azure subscription is extremely important. The compromise of any of those accounts negates the value of all the other steps that you might take to ensure the confidentiality and integrity of your data. As recently illustrated by the [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) internal attacks pose a huge threat to the overall security of any organization.
 
 Evaluate individuals for administrative rights by following criteria similar to these:
 
@@ -83,9 +82,9 @@ You can use [Privileged Identity Management](../active-directory/active-director
 
 Using Azure for labs and development environments enables organizations to gain agility in testing and development by taking away the delays that hardware procurement introduces. Unfortunately, a lack of familiarity with Azure or a desire to help expedite its adoption might lead the administrator to be overly permissive with rights assignment. This risk might unintentionally expose the organization to internal attacks. Some users might be granted a lot more access than they should have.
 
-The [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service uses [Azure Role-Based Access Control](../active-directory/role-based-access-control-what-is.md) (RBAC). By using RBAC, you can segregate duties within your team into roles that grant only the level of access necessary for users to do their jobs. RBAC comes with predefined roles (owner, lab user, and contributor). You can even use these roles to assign rights to external partners and greatly simplify collaboration.
+The [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service uses [Azure Role-Based Access Control](../role-based-access-control/overview.md) (RBAC). By using RBAC, you can segregate duties within your team into roles that grant only the level of access necessary for users to do their jobs. RBAC comes with predefined roles (owner, lab user, and contributor). You can even use these roles to assign rights to external partners and greatly simplify collaboration.
 
-Because DevTest Labs uses RBAC, it's possible to create additional, [custom roles](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs not only simplifies the management of permissions, it simplifies the process of getting environments provisioned. It also helps you deal with other typical challenges of teams that are working on development and test environments. It requires some preparation, but in the long term, it will make things easier for your team.
+Because DevTest Labs uses RBAC, it's possible to create additional, [custom roles](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs not only simplifies the management of permissions, it simplifies the process of getting environments provisioned. It also helps you deal with other typical challenges of teams that are working on development and test environments. It requires some preparation, but in the long term, it will make things easier for your team.
 
 Azure DevTest Labs features include:
 
@@ -118,7 +117,7 @@ Alternatively, you can use the [point-to-site](../vpn-gateway/vpn-gateway-howto-
 >[!NOTE]
 >You can use either VPN option to reconfigure the ACLs on the NSGs to not allow access to management endpoints from the Internet.
 
-Another option worth considering is a [Remote Desktop Gateway](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md) deployment. You can use this deployment to securely connect to Remote Desktop servers over HTTPS, while applying more detailed controls to those connections.
+Another option worth considering is a [Remote Desktop Gateway](../active-directory/authentication/howto-mfaserver-nps-rdg.md) deployment. You can use this deployment to securely connect to Remote Desktop servers over HTTPS, while applying more detailed controls to those connections.
 
 Features that you would have access to include:
 
@@ -142,7 +141,7 @@ Anyone with an Azure subscription can create and use key vaults. Although Key Va
 
 For more information, see [Azure Disk Encryption in Windows and Linux IaaS VMs](azure-security-disk-encryption.md).
 
-[Azure Storage Service Encryption](../storage/storage-service-encryption.md) helps protect your data at rest. It's enabled at the storage account level. It encrypts data as it's written in our datacenters, and it's automatically decrypted as you access it. It supports the following scenarios:
+[Azure Storage Service Encryption](../storage/common/storage-service-encryption.md) helps protect your data at rest. It's enabled at the storage account level. It encrypts data as it's written in our datacenters, and it's automatically decrypted as you access it. It supports the following scenarios:
 
 - Encryption of block blobs, append blobs, and page blobs
 - Encryption of archived VHDs and templates brought to Azure from on-premises
@@ -166,7 +165,7 @@ All virtual machines in Azure IaaS should be hardened so that they expose only s
 
 Security Compliance Manager is a free tool. You can use it to quickly configure and manage your desktops, traditional datacenter, and private and public cloud by using Group Policy and System Center Configuration Manager.
 
-Security Compliance Manager provides ready-to-deploy policies and Desired Configuration Management configuration packs that are tested. These baselines are based on [Microsoft Security Guidance](https://technet.microsoft.com/en-us/library/cc184906.aspx) recommendations and industry best practices. They help you manage configuration drift, address compliance requirements, and reduce security threats.
+Security Compliance Manager provides ready-to-deploy policies and Desired Configuration Management configuration packs that are tested. These baselines are based on [Microsoft Security Guidance](https://technet.microsoft.com/library/cc184906.aspx) recommendations and industry best practices. They help you manage configuration drift, address compliance requirements, and reduce security threats.
 
 You can use Security Compliance Manager to import the current configuration of your computers by using two different methods. First, you can import Active Directory-based group policies. Second, you can import the configuration of a “golden master” reference machine by using the [LocalGPO tool](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) to back up the local group policy. You can then import the local group policy into Security Compliance Manager.
 
@@ -224,10 +223,7 @@ The following screenshot shows an example of the information that Operations Man
 
 ![Operations Management Suite security baselines](./media/azure-security-iaas/oms-security-baseline.png)
 
-
-
 ## Next steps
-
 
 * [Azure Security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)

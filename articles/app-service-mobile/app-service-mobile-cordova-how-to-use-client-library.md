@@ -3,8 +3,8 @@ title: How to Use Apache Cordova Plugin for Azure Mobile Apps
 description: How to Use Apache Cordova Plugin for Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
+ms.author: crdun
 
 ---
 # How to use Apache Cordova client library for Azure Mobile Apps
@@ -198,4 +198,4 @@ You can find detailed API details in our [API documentation](http://azure.github
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

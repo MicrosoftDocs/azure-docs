@@ -10,7 +10,7 @@ editor: tglee
 ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
@@ -83,4 +83,4 @@ The following example shows how to apply a unique health check policy for each s
 </Policies>
 ```
 ## Next steps
-For more information about deploying an application, see [Deploy an existing application in Azure Service Fabric](service-fabric-deploy-existing-app.md).
+For more information about upgrading an application, see [Upgrade an application using Visual Studio](service-fabric-application-upgrade-tutorial.md).

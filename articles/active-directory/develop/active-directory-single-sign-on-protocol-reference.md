@@ -4,20 +4,21 @@ description: This article describes the Single Sign On SAML protocol in Azure Ac
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-
 ---
+
 # Single Sign-On SAML protocol
 This article covers the SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports for Single Sign-On.
 

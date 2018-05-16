@@ -1,3 +1,5 @@
+# [BizTalk Services Documentation](index.md)
+
 # Overview
 ## [Editions](biztalk-editions-feature-chart.md)
 
@@ -26,6 +28,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [Pricing](https://azure.microsoft.com/pricing/details/biztalk-services/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes](biztalk-release-notes.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=biztalk-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)

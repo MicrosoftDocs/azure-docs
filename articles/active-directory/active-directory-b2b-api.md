@@ -1,21 +1,17 @@
 ---
 title: Azure Active Directory B2B collaboration API and customization | Microsoft Docs
 description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications
-services: active-directory
-documentationcenter: ''
-author: sasubram
-manager: femila
-editor: ''
-tags: ''
 
-ms.assetid:
+services: active-directory
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 04/11/2017
-ms.author: sasubram
+
+ms.author: twooley
+author: twooley
+manager: mtillman
+ms.reviewer: sasubram
 
 ---
 
@@ -75,7 +71,7 @@ The API can be run in the following authorization modes:
 In this mode, whoever is using the API needs to have the permissions to be create B2B invitations.
 
 ### App only mode
-In app only context, the app needs the User.ReadWrite.All or Directory.ReadWrite.All scopes for the invitation to succeed.
+In app only context, the app needs the User.Invite.All scope for the invitation to succeed.
 
 For more information, refer to: https://graph.microsoft.io/docs/authorization/permission_scopes
 
@@ -98,16 +94,8 @@ You can also check out the invitation API reference in [https://developer.micros
 
 ## Next steps
 
-Browse our other articles on Azure AD B2B collaboration:
+- [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
+- [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
+- [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)
 
-* [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
-* [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
-* [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
-* [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
-* [Troubleshooting Azure Active Directory B2B collaboration](active-directory-b2b-troubleshooting.md)
-* [Azure Active Directory B2B collaboration frequently asked questions (FAQ)](active-directory-b2b-faq.md)
-* [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
-* [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

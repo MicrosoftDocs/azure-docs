@@ -31,9 +31,7 @@ Learn how to analyze website logs using Data Lake Analytics, especially on findi
 
   * [Develop U-SQL script using Data Lake tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * **A Data Lake Analytics account.**  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md).
-* **Upload the sample data to the Data Lake Analytics account.** See [To copy sample data files](data-lake-analytics-get-started-portal.md).
-
-    To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow.
+* **Install the sample data.** In the Azure Portal, open you Data Lake Analytics account and click **Sample Scripts** on the left menu, then click **Copy Sample Data**. 
 
 ## Connect to Azure
 Before you can build and test any U-SQL scripts, you must first connect to Azure.

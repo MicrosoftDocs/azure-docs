@@ -3,23 +3,23 @@ title: Troubleshoot Azure Site-to-Site VPN disconnects intermittently| Microsoft
 description: Learn how to troubleshoot the problem in which the Site-to-Site VPN connection disconnected regularly. 
 services: vpn-gateway
 documentationcenter: na
-author: genlin
-manager: willchen
+author: chadmath
+manager: cshepard
 editor: ''
 tags: ''
 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/21/2017
+ms.date: 05/11/2018
 ms.author: genli
 ---
 
 # Troubleshooting: Azure Site-to-Site VPN disconnects intermittently
 
-You might experience the problem that a new or existing Microsoft Azure Point-to-Site VPN connection is not stable or disconnects regularly. This article provides troubleshoot steps to help you identify and resolve the cause of the problem. 
+You might experience the problem that a new or existing Microsoft Azure Site-to-Site VPN connection is not stable or disconnects regularly. This article provides troubleshoot steps to help you identify and resolve the cause of the problem. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -36,7 +36,7 @@ Check the type of Azure  virtual network gateway:
 
 ### Step 1 Check whether the on-premises VPN device is validated
 
-1. Check whether you are using a [validated VPN device and operating system version](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). If the VPN device is not validated, you may have to contact the device manufacturer to see if there is any compatibility issue.
+1. Check whether you are using a [validated VPN device and operating system version](vpn-gateway-about-vpn-devices.md#devicetable). If the VPN device is not validated, you may have to contact the device manufacturer to see if there is any compatibility issue.
 2. Make sure that the VPN device is correctly configured. For more information, see [Editing device configuration samples](vpn-gateway-about-vpn-devices.md#editing).
 
 ### Step 2 Check the Security Association settings(for policy-based Azure virtual network gateways)

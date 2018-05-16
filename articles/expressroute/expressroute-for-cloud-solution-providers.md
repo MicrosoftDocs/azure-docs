@@ -18,22 +18,22 @@ ms.author: richcar
 
 ---
 # ExpressRoute for Cloud Solution Providers (CSP)
-Microsoft provides Hyper-scale services for traditional resellers and distributors (CSP) to be able to rapidly provision new services and solutions for your customers without the need to invest in developing these new services. To allow the Cloud Solution Provider (CSP) the ability to directly manage these new services, Microsoft provides programs and APIs that allow the CSP to manage Microsoft Azure resources on behalf of your customers. One of those resources is ExpressRoute. ExpressRoute allows the CSP to connect existing customer resources to Azure services. ExpressRoute is a high speed private communications link to services in Azure. 
+Microsoft provides hyper-scale services for traditional resellers and distributors (CSP) to be able to rapidly provision new services and solutions for your customers without the need to invest in developing these new services. To allow the Cloud Solution Provider (CSP) the ability to directly manage these new services, Microsoft provides programs and APIs that allow the CSP to manage Microsoft Azure resources on behalf of your customers. One of those resources is ExpressRoute. ExpressRoute allows the CSP to connect existing customer resources to Azure services. ExpressRoute is a high speed private communications link to services in Azure. 
 
-ExpresRoute is comprised of a pair of circuits for high availability that are attached to a single customer subscription(s) and cannot be shared by multiple customers. Each circuit should be terminated in a different router to maintain the high availability.
+ExpressRoute is comprised of a pair of circuits for high availability that are attached to a single customer's subscription(s) and cannot be shared by multiple customers. Each circuit should be terminated in a different router to maintain the high availability.
 
 > [!NOTE]
 > There are bandwidth and connection caps on ExpressRoute which means that large/complex implementations will require multiple ExpressRoute circuits for a single customer.
 > 
 > 
 
-Microsoft Azure provides a growing number of services that you can offer to your customers.  To best take advantage of these services will require the use ExpressRoute connections to provide high speed low latency access to the Microsoft Azure environment.
+Microsoft Azure provides a growing number of services that you can offer to your customers. ExpressRoute helps you and your customers take advantage of these services by providing high speed low latency access to the Microsoft Azure environment.
 
 ## Microsoft Azure management
 Microsoft provides CSPs with APIs to manage the Azure customer subscriptions by allowing programmatic integration with your own service management systems. Supported management capabilities can be found [here](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## Microsoft Azure resource management
-Depending on the contract you have with your customer will determine how the subscription will be managed. The CSP can directly manage the creation and maintenance of resources or the customer can maintain control of the Microsoft Azure subscription and create the Azure resources as they need. If your customer manages the creation of resources in their Microsoft Azure subscription they will use one of two models: “Connect-Through” model, or “Direct-To” model. These models are described in detail in the following sections.  
+The contract you have with your customer will determine how the subscription will be managed. The CSP can directly manage the creation and maintenance of resources or the customer can maintain control of the Microsoft Azure subscription and create the Azure resources as they need. If your customer manages the creation of resources in their Microsoft Azure subscription they will use one of two models: “*Connect-Through*” model, or “*Direct-To*” model. These models are described in detail in the following sections.  
 
 ### Connect-through model
 ![alt text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -62,9 +62,9 @@ This connectivity scenario requires that the customer connects directly through 
 
 The choice between these two option are based on your customer’s needs and your current need to provide Azure services. The details of these models and the associated role-based access control, networking, and identity design patterns are covered in details in the following links:
 
-* **Role Based Access Control (RBAC)** – RBAC is based on Azure Active Directory.  For more information on Azure RBAC see [here](../active-directory/role-based-access-control-configure.md).
+* **Role Based Access Control (RBAC)** – RBAC is based on Azure Active Directory.  For more information on Azure RBAC see [here](../role-based-access-control/role-assignments-portal.md).
 * **Networking** – Covers the various topics of networking in Microsoft Azure.
-* **Azure Active Directory (AAD)** – AAD provides the identity management for Microsoft Azure and 3rd party SaaS applications. For more information about Azure AD see [here](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Azure Active Directory (Azure AD)** – Azure AD provides the identity management for Microsoft Azure and 3rd party SaaS applications. For more information about Azure AD see [here](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## Network speeds
 ExpressRoute supports network speeds from 50 Mb/s to 10Gb/s. This allows customers to purchase the amount of network bandwidth needed for their unique environment.
@@ -132,7 +132,6 @@ The Cloud Solution Provider service provides you a way to increase your value to
 
 Additional Information can be found at the following links:
 
-[Microsoft Cloud Solution Provider program](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview).  
+[Azure in Cloud Solution Provider program](https://docs.microsoft.com/azure/cloud-solution-provider).  
 [Get ready to transact as a Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Microsoft Cloud Solution Provider resources](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
-

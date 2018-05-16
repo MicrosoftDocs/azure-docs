@@ -4,10 +4,9 @@ description: Shows how to get started using the Bing Video Search API.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 7E59692A-83A8-4F4C-B122-1F0EDC8E5C86
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
@@ -20,33 +19,26 @@ Before you can make your first call, you need to get a Bing Search Cognitive Ser
 To get Video search results, you'd send a GET request to the following endpoint:  
   
 ```
-https://api.cognitive.microsoft.com/bing/v5.0/videos/search
+https://api.cognitive.microsoft.com/bing/v7.0/videos/search
 ```
-
-> [!NOTE]
-> V7 Preview endpoint:
-> 
-> ```
-> https://api.cognitive.microsoft.com/bing/v7.0/videos/search
-> ```  
    
 The request must use the HTTPS protocol.
 
 We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity for a malicious third-party to access it. Also, making calls from a server provides a single upgrade point for future versions of the API.
 
   
-The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `pricing`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#query-parameters). All query parameter values must be URL encoded.  
+The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `pricing`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query-parameters). All query parameter values must be URL encoded.  
   
-The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
+The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
   
--   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#useragent)  
--   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#clientid)  
--   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#clientip)  
--   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#location)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#useragent)  
+-   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#clientid)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#location)  
 
 The client IP and location headers are important for returning location aware content.  
 
-For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#headers).
+For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#headers).
 
 
 ## The request
@@ -54,7 +46,7 @@ For a list of all request and response headers, see [Headers](https://docs.micro
 The following shows a search request that includes all the suggested query parameters and headers. If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination. 
   
 ```  
-GET https://api.cognitive.microsoft.com/bing/v5.0/videos/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
 X-Search-ClientIP: 999.999.999.999  
@@ -62,18 +54,6 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
-
-> [!NOTE]
-> V7 Preview request:
->
-> ```  
-> GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
-> Ocp-Apim-Subscription-Key: 123456789ABCDE  
-> X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-> X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-> Host: api.cognitive.microsoft.com  
-> ```  
 
 The following shows the response to the previous request. The example also shows the Bing-specific response headers.
 
@@ -95,16 +75,16 @@ BingAPIs-Market: en-US
             "datePublished" : "2014-03-04T11:51:53",
             "publisher" : [
                 {
-                    "name" : "YouTube"
+                    "name" : "Fabrikam"
                 }
             ],
             "creator" : {
-                "name" : "sailaboattv"
+                "name" : "Marcus Appel"
             },
-            "contentUrl" : "https:\/\/www.youtube.com\/watch?v=vzmPjHZ--g",
+            "contentUrl" : "https:\/\/www.fabrikam.com\/watch?v=vzmPjHZ--g",
             "hostPageUrl" : "https:\/\/www.bing.com\/cr?IG=81EF7545D56944...",
             "encodingFormat" : "h264",
-            "hostPageDisplayUrl" : "https:\/\/www.youtube.com\/watch?v=vzmPjBZ--g",
+            "hostPageDisplayUrl" : "https:\/\/www.fabrikam.com\/watch?v=vzmPjBZ--g",
             "width" : 1280,
             "height" : 720,
             "duration" : "PT2M47S",
@@ -122,7 +102,7 @@ BingAPIs-Market: en-US
         },
         . . .
     ],
-    "nextOffsetAddCount" : 0,
+    "nextOffset" : 0,
     "pivotSuggestions" : [
         {
             "pivot" : "sailing",
@@ -146,11 +126,6 @@ BingAPIs-Market: en-US
     ]
 }
 ```
-
-> [!NOTE]
-> V7 Preview response change:
->
-> Renamed the `nextOffsetAddCount` to `nextOffset`. You use the field to page images. In v7, you set the [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) query parameter to the value of `nextOffset`. For more information, see [Paging Images](./paging-videos.md).
 
 ## Next steps
 

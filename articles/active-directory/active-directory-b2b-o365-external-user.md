@@ -1,21 +1,17 @@
 ---
 title: Office 365 external sharing and Azure Active Directory B2B collaboration | Microsoft Docs
-description: claims mapping reference for Azure Active Directory B2B collaboration
-services: active-directory
-documentationcenter: ''
-author: sasubram
-manager: femila
-editor: ''
-tags: ''
+description: Discusses sharing resources with external partners using O365 and Azure Active Directory B2B collaboration.
 
-ms.assetid:
+services: active-directory
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/24/2017
-ms.author: sasubram
+
+ms.author: twooley
+author: twooley
+manager: mtillman
+ms.reviewer: sasubram
 
 ---
 
@@ -37,15 +33,7 @@ OneDrive/SharePoint Online has a separate invitation manager. Support for extern
 
 ## Next steps
 
-Browse our other articles on Azure AD B2B collaboration:
-
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B collaboration user properties](active-directory-b2b-user-properties.md)
 * [Adding a B2B collaboration user to a role](active-directory-b2b-add-guest-to-role.md)
 * [Delegate B2B collaboration invitations](active-directory-b2b-delegate-invitations.md)
 * [Dynamic groups and B2B collaboration](active-directory-b2b-dynamic-groups.md)
-* [B2B collaboration code and PowerShell samples](active-directory-b2b-code-samples.md)
-* [Configure SaaS apps for B2B collaboration](active-directory-b2b-configure-saas-apps.md)
-* [B2B collaboration user tokens](active-directory-b2b-user-token.md)
-* [B2B collaboration user claims mapping](active-directory-b2b-claims-mapping.md)
-* [B2B collaboration current limitations](active-directory-b2b-current-limitations.md)

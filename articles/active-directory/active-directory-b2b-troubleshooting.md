@@ -1,21 +1,17 @@
 ﻿---
 title: Troubleshooting Azure Active Directory B2B collaboration | Microsoft Docs
 description: Remedies for common problems with Azure Active Directory B2B collaboration
-services: active-directory
-documentationcenter: ''
-author: sasubram
-manager: femila
-editor: ''
-tags: ''
 
-ms.assetid:
+services: active-directory
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/25/2017
-ms.author: sasubram
+
+ms.author: twooley
+author: twooley
+manager: mtillman
+ms.reviewer: sasubram
 
 ---
 
@@ -60,7 +56,7 @@ To resolve this issue, the external user’s admin must synchronize the user’s
 
 ## How does ‘\#’, which is not normally a valid character, sync with Azure AD?
 
-“\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users, because the invited account user@contoso.com becomes user_contoso.com#EXT@fabrikam.onmicrosoft.com. Therefore, \# in UPNs coming from on-premises aren't allowed to sign in to the Azure portal. 
+“\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users, because the invited account user@contoso.com becomes user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Therefore, \# in UPNs coming from on-premises aren't allowed to sign in to the Azure portal. 
 
 ## I receive an error when adding external users to a synchronized group
 
@@ -81,16 +77,4 @@ If this scenario is important to you, you can suppress our API invitation email,
 
 ## Next steps
 
-Browse our other articles on Azure AD B2B collaboration:
-
-* [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
-* [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
-* [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
-* [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
-* [Azure Active Directory B2B collaboration frequently asked questions (FAQ)](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
-* [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
-* [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Get support for B2B collaboration](active-directory-b2b-support.md)

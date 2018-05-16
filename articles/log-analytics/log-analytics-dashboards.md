@@ -12,13 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 
 ---
 # Create a custom dashboard for use in Log Analytics
+
 This guide helps you understand how Log Analytics dashboards can visualize all of your saved log searches, giving you a single lens to view your environment.
+
+>[!NOTE]
+> You can no longer edit your existing **My Dashboard**. This feature is in the process of being deprecated.
 
 ![Example Dashboard](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 

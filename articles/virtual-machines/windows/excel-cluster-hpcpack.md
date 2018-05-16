@@ -4,7 +4,7 @@ description: Get started running large-scale Excel and SOA workloads on an HPC P
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,hpc-pack
 

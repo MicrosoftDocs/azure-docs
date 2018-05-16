@@ -1,29 +1,24 @@
 ---
-title: Azure portal dashboards | Microsoft Docs
+title: Create and share Azure portal dashboards | Microsoft Docs
 description: This article explains how to create and edit dashboards in the Azure portal.
 services: azure-portal
 documentationcenter: ''
 author: sewatson
-manager: timlt
+manager: doubeby
 editor: tysonn
 
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
 
 ---
-# Creating and sharing dashboards in the Azure portal
-You can create multiple dashboards and share them with others who have access to your Azure subscriptions.  This post goes through the basics of creating/editing, publishing, and managing access to dashboards.
-
-## Customizing dashboards versus blades
-Since launching dashboards a few months ago, there has been a steady decline in blade customizations and a rapid increase in dashboard customizations. This strong usage trend shows that you prefer customizing dashboards over blades. To support that trend, we will remove the ability to customize blades and dedicate our efforts to enhancing dashboard functionality. If you customized a blade, your customization will soon be removed. To preserve that customization, pin the customized tiles to a dashboard. Simply right-click the tile and select **Pin to dashboard** as shown in the following image.
-
-![save customized tile](./media/azure-portal-dashboards/save-customization.png)
+# Create and share dashboards in the Azure portal
+You can create multiple dashboards and share them with others who have access to your Azure subscriptions.  This article goes through the basics of creating, editing, publishing, and managing access to dashboards.
 
 ## Create a dashboard
 To create a dashboard, select the **New dashboard** button next to the current dashboard's name.  
@@ -77,7 +72,7 @@ When you create a dashboard, it is private by default, which means you are the o
 
 ![share dashboard](./media/azure-portal-dashboards/share-dashboard.png)
 
-You are asked to choose a subscription and resource group for your dashboard to be published to. To seamlessly integrate dashboards into the ecosystem, we've implemented shared dashboards as Azure resources (so you can't share by typing an email address).  Access to the information displayed by most of the tiles in the portal are governed by [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md). From an access control perspective, shared dashboards are no different from a virtual machine or a storage account.  
+You are asked to choose a subscription and resource group for your dashboard to be published to. To seamlessly integrate dashboards into the ecosystem, we've implemented shared dashboards as Azure resources (so you can't share by typing an email address).  Access to the information displayed by most of the tiles in the portal are governed by [Azure Role Based Access Control](../role-based-access-control/role-assignments-portal.md). From an access control perspective, shared dashboards are no different from a virtual machine or a storage account.  
 
 Let's say you have an Azure subscription and members of your team have been assigned the roles of **owner**, **contributor**, or **reader** of the subscription.  Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within that subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a shared dashboard, but are not able to publish those changes back to the server.  However, they can make a private copy of the dashboard for their own use.  As always, individual tiles on the dashboard enforce their own access control rules based on the resources they correspond to.  
 

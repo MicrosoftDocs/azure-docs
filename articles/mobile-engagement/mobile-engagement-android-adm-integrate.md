@@ -19,6 +19,10 @@ ms.author: piyushjo
 ---
 # How to Integrate ADM with Engagement
 > [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
+> [!IMPORTANT]
 > You must follow the integration procedure described in the How to Integrate Engagement on Android document before following this guide.
 > 
 > This document is useful only if you already integrated the Reach module and plan to push Amazon devices. To integrate Reach campaigns in your application, please read first How to Integrate Engagement Reach on Android.

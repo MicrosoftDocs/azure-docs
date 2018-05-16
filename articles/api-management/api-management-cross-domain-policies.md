@@ -3,7 +3,7 @@ title: Azure API Management cross domain policies | Microsoft Docs
 description: Learn about the cross domain policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
 ---
 # API Management cross domain policies
@@ -22,9 +22,7 @@ This topic provides a reference for the following API Management policies. For i
 ##  <a name="CrossDomainPolicies"></a> Cross domain policies  
   
 -   [Allow cross-domain calls](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.  
-  
 -   [CORS](api-management-cross-domain-policies.md#CORS) - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.  
-  
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) - Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients.  
   
 ##  <a name="AllowCrossDomainCalls"></a> Allow cross-domain calls  
@@ -59,7 +57,6 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** global  
   
 ##  <a name="CORS"></a> CORS  
@@ -143,7 +140,6 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** API, operation  
   
 ##  <a name="JSONP"></a> JSONP  
@@ -181,8 +177,13 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** outbound  
-  
 -   **Policy scopes:** global, product, API, operation  
   
 ## Next steps
-For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  
+
+For more information working with policies, see:
+
++ [Policies in API Management](api-management-howto-policies.md)
++ [Transform APIs](transform-api.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	

@@ -4,7 +4,7 @@ description: How to implement user assignment for Azure applications.
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 97ce69c1-4034-4e38-bd82-8caf984f6b98

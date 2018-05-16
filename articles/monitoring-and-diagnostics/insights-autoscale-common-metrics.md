@@ -1,8 +1,8 @@
 ---
 title: Azure Monitor autoscale common metrics | Microsoft Docs
 description: Learn which metrics are commonly used for autoscaling your Cloud Services, Virtual Machines and Web Apps.
-author: kamathashwin
-manager: carolz
+author: anirudhcavale
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2016
-ms.author: ashwink
+ms.author: ancav
 
 ---
 # Azure Monitor autoscaling common metrics
