@@ -127,9 +127,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_general_400.png)
 
-6. Sansan application supports multiple **Identifier** and **Reply** URL patterns for different environments (PC web, Native Mobile app, Mobile browser settings), the same can be configured directly using **powershell script**. The detailed steps are explained below.
+6. Sansan application expects multiple **Identifiers** and **Reply URLs** to support multiple environments (PC web, Native Mobile app, Mobile browser settings), which can be configured using PowerShell script. The detailed steps are explained below.
 
-7. To update **Sansan** application with multiple **Identifiers** and **Reply** URL values using **Powershell script** perform the following steps:
+7. To configure multiple **Identifiers** and **Reply URLs** for Sansan application using PowerShell script, perform following steps:
 
 	![Configure Single Sign-On obj](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_objid.png)	
 
