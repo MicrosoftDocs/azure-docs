@@ -175,6 +175,8 @@ items:
           href: bulk-executor-dot-net.md
         - name: BulkExecutor - Java
           href: bulk-executor-java.md
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md          
         - name: Query
           items:
           - name: Perform SQL queries
@@ -263,10 +265,12 @@ items:
           href: sql-api-sql-query-reference.md
       - name: Resources
         items:
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: SQL playground
-          href: https://aka.ms/cosmos-db-playground
+          href: https://aka.ms/cosmos-db-playground          
     - name: MongoDB API Docs
       items: 
       - name: Overview
@@ -325,8 +329,12 @@ items:
           href: mongodb-indexing.md
         - name: Visualize your data with Power BI
           href: powerbi-visualize.md
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
       - name: Resources
         items:
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Graph API Docs
@@ -349,6 +357,8 @@ items:
         items:
         - name: Graph partitioning
           href: graph-partitioning.md
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Integrate
           items:
           - name: Connect to Spark GraphX
@@ -359,6 +369,8 @@ items:
             href: graph-sdk-dotnet.md
       - name: Resources
         items:
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Table API Docs
@@ -415,6 +427,8 @@ items:
             href: table-sdk-python.md  
       - name: Resources
         items:
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Table storage overview
           href: table-storage-overview.md
         - name: Table storage design guide
@@ -457,8 +471,12 @@ items:
       href: key-value-store-cost.md
     - name: Expire data automatically
       href: time-to-live.md
+    - name: Manage using Storage Explorer
+      href: storage-explorer.md
   - name: Resources
     items:
+    - name: Manage using Storage Explorer
+      href: storage-explorer.md 
     - name: Query cheat sheet
       href: query-cheat-sheet.md
     - name: 20 days of tips
@@ -476,4 +494,4 @@ items:
     - name: Data consistency explained through baseball
       href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
     - name: Whitepapers
-      href: whitepapers.md 
+      href: whitepapers.md

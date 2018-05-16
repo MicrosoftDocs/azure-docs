@@ -31,10 +31,20 @@
 ### [Clients and tools](analysis-services-connect.md)
 ### [Client libraries](analysis-services-data-providers.md)
 
-# How-to guides
-## Servers
-### [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
-### [Configure scale-out](analysis-services-scale-out.md)
+# How-to 
+## [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
+## [Import a Power BI Desktop file](analysis-services-import-pbix.md)
+## [Backup and restore](analysis-services-backup.md)
+## [Refresh with REST API](analysis-services-async-refresh.md)
+## [Configure scale-out](analysis-services-scale-out.md)
+
+## Automate administrative tasks
+### [Automation with service principals](analysis-services-service-principal.md)
+### [Create service principal - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Create service principal - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Add a service principal to server administrator role](analysis-services-addservprinc-admins.md)
+
+## Server management
 ### [Configure a server name alias](analysis-services-server-alias.md)
 ### [Manage a server](analysis-services-manage.md)
 ### [Monitor server metrics](analysis-services-monitor.md)
