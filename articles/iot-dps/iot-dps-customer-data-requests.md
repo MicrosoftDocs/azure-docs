@@ -3,7 +3,7 @@
 title: Customer data request features​
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/15/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 ---
@@ -58,4 +58,4 @@ It is also possible to perform export operations for enrollments and registratio
 
 Full documentation for Azure IoT Hub Device Provisioning service APIs is located at [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps).
 
-Azure IoT Hub [customer data request features](../iot-hub/iot-hub-customer-date-requests.md).
+Azure IoT Hub [customer data request features](../iot-hub/iot-hub-customer-data-requests.md).
