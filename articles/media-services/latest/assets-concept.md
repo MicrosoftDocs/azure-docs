@@ -74,11 +74,23 @@ The following table shows how these options may be applied to the Asset properti
 |properties.storageEncryptionFormat | ||
 |type|||
 
-The following C# example shows how to filter on the created date:
+The following C# example filters on the created date:
 
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
+```
+
+The following REST example gets Assets by Asset ID. If there is no Asset with the given ID, an empty list is returned. 
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Media/mediaServices/{account}/assets?$filter=properties/assetId eq D38336FC-F01E-4429-B837-0AFDD86C384A 
+```
+
+The following REST example gets Assets created between two dates or with a particular alternate ID, ordered by the Asset name in descending order 
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Media/mediaServices/{account}/assets?$filter=(properties/created gt 2001-06-20T02:24:00Z and properties/created lt 2001-07-01) or properties/alternateid eq 'SomeName'&$orderby=name desc 
 ```
 
 ### Pagination
