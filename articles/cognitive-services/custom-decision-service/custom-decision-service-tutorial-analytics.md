@@ -11,7 +11,9 @@ ms.author: slivkins;marcozo;alekh;marossi;rafah.aboul
 ---
 # Offline Analytics
 
-This tutorial addresses the offline analytics capability in Custom Decision Service. The tutorial starts with [setting up](#setting-up) your working environment and downloading the log file. Next, it visualizes the performance of your system on the [performance visualization dashboard](#performance-visualization). Then it uses your logged data to [optimize a policy for choosing actions](#offline-optimization) and [answer the "what if" questions](#counterfactual-evaluation).
+This tutorial addresses *offline analytics*: analyzing the logged data without additional (and potentially costly) online experiments. The tutorial explains how to use the provided tools to (i) [visualize the performance of your system](#performance-visualization), and (ii) [optimize a policy for choosing actions](#offline-optimization) and estimate its performance.
+
+The logged data is fundamentally incomplete. Every time Custom Decision Service chooses an action, it can't record the reward/outcome for the other actions it could have chosen. Typically, these rewards/outcomes can't be deduced from the observations. This issue, known as "partial feedback", is an essential difficulty for policy optimization and performance estimation. See [this blog post](https://www.microsoft.com/en-us/research/blog/real-world-interactive-learning-cusp-enabling-new-class-applications/) and [this white paper](https://github.com/Microsoft/mwt-ds/raw/master/images/MWT-WhitePaper.pdf) for background on the underlying machine learning methodology.
 
 ## Setting up
 
@@ -32,7 +34,7 @@ Download the logged data using a python script `LogDownloader.py`. For example, 
 python LogDownloader.py -a AppId -l d:\data -s 2018-01-01 -e 2018-01-07 -o 2 --create_gzip
 ```
 
-The script creates a single file, as long as the Custom Decision Service has been run with the same setting throughout the specified date range. The file is gzipped, which is required for the data analysis and visualization tools described next. Refer to the [LogDownloader reference](custom-decision-service-log-downloader-reference.md) for a detailed syntax.
+The script creates a single file, as long as the Custom Decision Service has been run with the same setting throughout the specified date range. The file is gzipped, which is required for the data analysis and visualization tools described next. See the [LogDownloader reference](custom-decision-service-log-downloader-reference.md) for a detailed syntax.
 
 The script may create several files if the Custom Decision Service settings have been changed during the specified date range. Use this command to merge two or more log files:
 
@@ -50,11 +52,19 @@ You can use HTML-based dashboard to visualize how the rewards of the Custom Deci
 First, pre-process a raw log file into a `.dash` data file used by the dashboard.
 
 ```cmd
-python dashboard_utils.py -f d:/data/raw_log.gz -o d:/dashboard/data.dash
+python dashboard_utils.py -f d:\data\raw_log.gz -o d:\dashboard\data.dash
 ```
 
-Copy `index.html` from `mwt-ds/DataScience/` to the folder containing `.dash` file, and open it with any browser.
+Copy `index.html` from `mwt-ds\DataScience\` to the folder with the `.dash` file, and open it with any browser.
 
 ## Offline optimization
 
-## Counterfactual evaluation
+Optimize a policy for choosing actions using a python script `Experimentation.py`. The basic usage is
+
+```cmd
+python Experimentation.py -f D:\data\raw_log.gz
+```
+
+The script outputs the five best policies that it finds. It estimates the performance of each policy had this policy been deployed on the same time range as the logged data. The output is appended to file `mwt-ds\DataScience\experiments.csv`.
+
+The script builds on machine learning algorithms from [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki), and additionally attempts to optimize learning parameters and feature selection. See the [machine learning tutorial](#custom-decision-service-tutorial-ml) for background on feature specification in Custom Decision Service, and the [reference](#custom-decision-service-experimentation-reference) for a detailed description of the script and the options.
