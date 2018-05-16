@@ -12,7 +12,7 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to add re-built entities
+# How to add pre-built entities
 This tutorial shows how to add "pre-built" entities to your Conversation Learner application.
 
 ## Requirements
