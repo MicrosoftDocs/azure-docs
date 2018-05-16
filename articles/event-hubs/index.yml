@@ -50,9 +50,7 @@ sections:
   - type: list
     style: bullet
     items:
-    - html: <a href="/azure/service-bus-messaging/tutorial-update-inventory">Use topics and subscriptions to update an inventory assortment</a> 
-    - html: Learn how to control the message lifecycle
-    - html: Build an end-to-end business process
+    - html: <a href="/azure/event-hubs/event-hubs-tutorial-visualize-anomalies">Read a stream of Event Hubs data with Azure Stream Analytics and visualize the anomalies</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
