@@ -135,6 +135,8 @@ static void Main(string[] args)
     var telemetryClient = new TelemetryClient();
     using (InitializeDependencyTracking(configuration))
     {
+        // run app...
+        
         telemetryClient.TrackTrace("Hello World!");
 
         using (var httpClient = new HttpClient())
@@ -142,9 +144,8 @@ static void Main(string[] args)
             // Http dependency is automatically tracked!
             httpClient.GetAsync("https://microsoft.com").Wait();
         }
-    }
 
-    // run app...
+    }
 
     // before exit, flush the remaining data
     telemetryClient.Flush();
