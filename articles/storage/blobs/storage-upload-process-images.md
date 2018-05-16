@@ -207,7 +207,7 @@ In the sample code, the `post` route is responsible for uploading the image into
 As the file is sent to the route, the contents of the file remain in memory until the file is uploaded to the blob container.
 
 > [!IMPORTANT]
-> Loading loading very large files into memory may have a negative effect on the performance of your web application. If you expect users to post large files you may want to consider staging files on the web server file system and then scheduling uploads into blob storage. Once the files are in blob storage then you can remove them off the server file system.
+> Loading very large files into memory may have a negative effect on the performance of your web application. If you expect users to post large files you may want to consider staging files on the web server file system and then scheduling uploads into blob storage. Once the files are in blob storage then you can remove them off the server file system.
 
 ```javascript
 const
