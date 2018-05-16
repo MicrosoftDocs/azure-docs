@@ -119,7 +119,7 @@ Consider the following points when deciding how to implement this pattern:
 * Padding numeric values in the **RowKey** (for example, the employee id 000223), enables correct sorting and filtering based on upper and lower bounds.  
 * You do not necessarily need to duplicate all the properties of your entity. For example, if the queries that lookup the entities using the email address in the **RowKey** never need the employee's age, these entities could have the following structure:
   
-![Image10](/media/storage-table-design-guide/storage-table-design-IMAGE11.png)
+   ![Image10](/media/storage-table-design-guide/storage-table-design-IMAGE11.png)
 
 * It is typically better to store duplicate data and ensure that you can retrieve all the data you need with a single query than to use one query to locate an entity using the secondary index and another to lookup the required data in the primary index.  
 
@@ -1130,5 +1130,5 @@ The client application can call multiple asynchronous methods like this one, and
 
 - [Modeling relationships](table-storage-design-modelling.md)
 - [Design for querying](table-storage-design-for-query.md)
-- [Encrypting Table Data](table-storage-design-encrypt-data.md)
+- [Encrypting table data](table-storage-design-encrypt-data.md)
 - [Design for data modification](table-storage-design-for-modification.md)

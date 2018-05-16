@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.date: 04/23/2018
 ms.author: sngun
 ---
-# Quickstart: Create a table in the Azure portal 
+# Quickstart: Create an Azure Storage table in the Azure portal 
 
 This quickstart shows how to create tables and entities in the web-based Azure portal. This quickstart also shows you how to create an Azure storage account.
 

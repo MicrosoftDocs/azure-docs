@@ -24,15 +24,15 @@ You can use Azure Table storage or the Azure Cosmos DB Table API to store struct
 
 You can use Table storage or the Azure Cosmos DB Table API to store flexible datasets such as user data for web applications, address books, device information, or other types of metadata your service requires. You can store any number of entities in a table, and a storage account or Table API account may contain any number of tables, up to the capacity limit of the storage account or Table API account.
 
-### About this tutorial
-This tutorial shows you how to use the [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) in common Azure Table storage and Table API scenarios. The name of the package indicates it is for use with Azure Cosmos DB, but the package works with both the Azure Cosmos DB Table API and Azure Tables storage, each service just has a unique endpoint. These scenarios are explored using C# examples that illustrate how to:
+### About this sample
+This sample shows you how to use the [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) in common Azure Table storage and Table API scenarios. The name of the package indicates it is for use with Azure Cosmos DB, but the package works with both the Azure Cosmos DB Table API and Azure Tables storage, each service just has a unique endpoint. These scenarios are explored using C# examples that illustrate how to:
 * Create and delete tables
 * Insert, update and delete rows
 * Query tables
 
 ## Prerequisites
 
-You need the following to complete this tutorial successfully:
+You need the following to complete this sample successfully:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage Common Library for .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). This is a required preview package that is supported in production environments. 
@@ -70,12 +70,12 @@ In Visual Studio, create a new Windows console application. The following steps 
 4. In the **Name** field, enter a name for your application.
 5. Select **OK**.
 
-All code examples in this tutorial can be added to the `Main()` method of your console application's `Program.cs` file.
+All code examples in this sample can be added to the `Main()` method of your console application's `Program.cs` file.
 
 You can use the Azure CosmosDB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
 ### Use NuGet to install the required packages
-There are three recommended packages you need to reference in your project to complete this tutorial:
+There are three recommended packages you need to reference in your project to complete this sample:
 
 * [Azure Storage Common Library for .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
 * [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). This package provides programmatic access to data resources in your Azure Table storage account or Azure Cosmos DB Table API account.
@@ -108,7 +108,7 @@ You have two environment options for running the examples in this guide:
 If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure portal. For more information, see [View and copy storage access keys](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 > [!NOTE]
-> You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
+> You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this sample will be negligible.
 > 
 > 
 
