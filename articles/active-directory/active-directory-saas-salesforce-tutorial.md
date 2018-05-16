@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -237,7 +237,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Create a Salesforce test user
 
-In this section, a user called Britta Simon is created in Salesforce. Salesforce supports just-in-time provisioning, which is enabled by default. You can find more details [here](active-directory-saas-salesforce-provisioning-tutorial.md) on how to configure automatic user provisioning. There is no action item for you in this section. If a user doesn't already exist in Salesforce, a new one is created when you attempt to access Salesforce.
+In this section, a user called Britta Simon is created in Salesforce. Salesforce supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Salesforce, a new one is created when you attempt to access Salesforce. Salesforce also supports automatic user provisioning, you can find more details [here](active-directory-saas-salesforce-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ### Assign the Azure AD test user
 
