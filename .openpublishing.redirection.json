@@ -21444,6 +21444,51 @@
             "source_path": "articles/iot-suite/iot-suite-microservices-example.md",
             "redirect_url": "/azure/iot-solutions/iot-solutions-microservices-example",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-security-architecture.md",
+            "redirect_url": "/azure/iot-solutions/iot-security-architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-security-best-practices.md",
+            "redirect_url": "/azure/iot-solutions/iot-security-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-options.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-options",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-permissions.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-permissions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-predictive-overview.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-predictive-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-predictive-walkthrough.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-predictive-walkthrough",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-security-deployment.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-security-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-time-series-insights.md",
+            "redirect_url": "/azure/iot-solutions/iot-solutions-time-series-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/securing-iot-ground-up.md",
+            "redirect_url": "/azure/iot-solutions/securing-iot-ground-up",
+            "redirect_document_id": false
         }
     ]
 }

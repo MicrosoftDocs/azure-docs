@@ -90,6 +90,6 @@ See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](http://b
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
 * [Explore the capabilities of the remote monitoring solution accelerator](iot-solutions-remote-monitoring-explore.md)
-* [Predictive Maintenance solution accelerator overview](../iot-suite/iot-suite-predictive-overview.md)
+* [Predictive Maintenance solution accelerator overview](iot-solutions-predictive-overview.md)
 * [Connected Factory solution accelerator overview](iot-solutions-connected-factory-overview.md)
-* [IoT security from the ground up](../iot-suite/securing-iot-ground-up.md)
+* [IoT security from the ground up](securing-iot-ground-up.md)

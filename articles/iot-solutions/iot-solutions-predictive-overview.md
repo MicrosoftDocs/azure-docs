@@ -139,15 +139,15 @@ You can also explore some of the other features and capabilities of the IoT solu
 [img-machine-learning]: media/iot-suite-predictive-overview/machine-learning.png
 
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
-[lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
-[lnk_preconfigured_solutions]:../iot-solutions/iot-solutions-what-are-solution-accelerators.md
-[lnk_iot_suite]: iot-suite-options.md
+[lnk-predictive-walkthrough]:iot-solutions-predictive-walkthrough.md
+[lnk_preconfigured_solutions]:iot-solutions-what-are-solution-accelerators.md
+[lnk_iot_suite]:iot-solutions-options.md
 [lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 [lnk-faq]: iot-suite-v1-faq.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-security-groundup]:securing-iot-ground-up.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-azureiotsuite]: https://www.azureiotsuite.com

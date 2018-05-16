@@ -18,7 +18,7 @@ ms.date: 01/17/2018
 ms.author: dobett
 
 ---
-[!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
+[!INCLUDE [iot-security-architecture](iot-security-architecture.md)]
 
 ## See also
 To learn more about securing your IoT solution, see [Secure your IoT deployment][lnk-security-deployment].
@@ -30,8 +30,8 @@ You can also explore some of the other features and capabilities of the IoT solu
 
 You can read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-security] in the IoT Hub developer guide.
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-faq]:../iot-solutions/iot-solutions-faq.md
+[lnk-predictive-overview]:iot-solutions-predictive-overview.md
+[lnk-faq]:iot-solutions-faq.md
 
-[lnk-security-deployment]: iot-suite-security-deployment.md
+[lnk-security-deployment]:iot-solutions-security-deployment.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md

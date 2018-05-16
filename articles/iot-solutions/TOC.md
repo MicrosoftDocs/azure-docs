@@ -3,7 +3,7 @@
 
 # Overview
 ## [IoT architecture concepts](iot-solutions-what-is-azure-iot.md)
-## [Compare Azure IoT options](../iot-suite/iot-suite-options.md)
+## [Compare Azure IoT options](iot-solutions-options.md)
 ## [Solution accelerators overview](iot-solutions-what-are-solution-accelerators.md)
 
 # Get started
@@ -43,8 +43,8 @@
 
 
 ## Predictive Maintenance
-### [Predictive Maintenance solution accelerator overview](../iot-suite/iot-suite-predictive-overview.md)
-### [Predictive Maintenance solution accelerator walkthrough](../iot-suite/iot-suite-predictive-walkthrough.md)
+### [Predictive Maintenance solution accelerator overview](iot-solutions-predictive-overview.md)
+### [Predictive Maintenance solution accelerator walkthrough](iot-solutions-predictive-walkthrough.md)
 
 ## Connected Factory
 ### [What is Connected Factory?](iot-solutions-connected-factory-features.md)
@@ -70,7 +70,7 @@
 ### [Customize and redeploy a microservice](iot-solutions-microservices-example.md)
 ### [Deploy using the CLI](iot-solutions-remote-monitoring-deploy-cli.md)
 ### [Deploy locally](iot-solutions-remote-monitoring-deploy-local.md)
-### [Visualize data with Time Series Insights](../iot-suite/iot-suite-time-series-insights.md)
+### [Visualize data with Time Series Insights](iot-solutions-time-series-insights.md)
 ### [Integrate with Data Lake](iot-solutions-integrate-data-lake.md)
 ### Connect a physical device
 #### [C on Windows](iot-solutions-connecting-devices.md)
@@ -89,15 +89,15 @@
 ### [Customize Connected Factory](iot-solutions-connected-factory-customize.md)
 ### [Use the OPC publisher for Connected Factory](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Configure Connected Factory](iot-solutions-connected-factory-configure.md)
-## [Permissions on azureiotsuite.com](../iot-suite/iot-suite-permissions.md)
+## [Permissions on azureiotsuite.com](iot-solutions-permissions.md)
 
 # Reference
 ## [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [Security architecture](../iot-suite/iot-security-architecture.md)
-## [Security best practices](../iot-suite/iot-security-best-practices.md)
-## [Secure your IoT deployment](../iot-suite/iot-suite-security-deployment.md)
-## [Security from the ground up](../iot-suite/securing-iot-ground-up.md)
+## [Security architecture](iot-security-architecture.md)
+## [Security best practices](iot-security-best-practices.md)
+## [Secure your IoT deployment](iot-solutions-security-deployment.md)
+## [Security from the ground up](securing-iot-ground-up.md)
 
 # Related
 ## Solutions 
