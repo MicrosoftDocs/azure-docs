@@ -7,17 +7,17 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Direct web traffic - Portal
+  - name: Manage web traffic - Portal
     href: quick-create-portal.md
-  - name: Direct web traffic - PowerShell
+  - name: Manage web traffic - PowerShell
     href: quick-create-powershell.md
-  - name: Direct web traffic - Azure CLI
+  - name: Manage web traffic - Azure CLI
     href: quick-create-cli.md
 - name: Tutorials
   items:
   - name: Manage web traffic
     href: tutorial-manage-web-traffic-cli.md
-  - name: Restrict web traffic
+  - name: Enable web application firewall
     href: tutorial-restrict-web-traffic-cli.md
   - name: Secure with SSL
     href: tutorial-ssl-cli.md
@@ -35,18 +35,23 @@
     href: cli-samples.md
 - name: Concepts
   items:
+  - name: SSL termination
+    href: ssl-overview.md
+  - name: SSL policy overview
+    href: application-gateway-ssl-policy-overview.md
   - name: Web application firewall
     href: waf-overview.md
   - name: URL routing
     href: url-route-overview.md
   - name: Multiple site hosting
     href: multiple-site-overview.md
-  - name: SSL termination
-    href: ssl-overview.md
-  - name: URL redirection
+  - name: Redirection support
     href: redirect-overview.md
+  - name: Multi-tenant support
   - name: Health monitoring
     href: application-gateway-probe-overview.md
+  - name: WebSocket support
+    href: application-gateway-websocket.md
 - name: How-to guides
   items:
   - name: Create application gateway
@@ -55,16 +60,26 @@
       href: create-vmss-template.md
     - name: Web apps - PowerShell
       href: create-web-app.md
-  - name: Enable SSL termination - Portal
+    - name: Configure an internal load balancer
+      href: application-gateway-ilb.md
+  - name: Configure SSL termination - Portal
     href: create-ssl-portal.md
   - name: Host multiple sites - Portal
     href: create-multiple-sites-portal.md
+  - name: Customize WAF rules
+    items:
+    - name: Azure portal
+      href: application-gateway-customize-waf-rules-portal.md
+    - name: Azure PowerShell
+      href: application-gateway-customize-waf-rules-powershell.md
+    - name: Azure CLI
+      href: application-gateway-customize-waf-rules-cli.md
   - name: Redirect external traffic
     items:
-      - name: Azure PowerShell
-        href: redirect-external-site-powershell.md
-      - name: Azure CLI
-        href: redirect-external-site-cli.md
+    - name: Azure PowerShell
+      href: redirect-external-site-powershell.md
+    - name: Azure CLI
+      href: redirect-external-site-cli.md
   - name: Redirect HTTP to HTTPS
     items:
       - name: Azure PowerShell
@@ -111,6 +126,8 @@
         href: application-gateway-diagnostics.md
 - name: Reference
   items:
+  - name: CRS rules
+    href: application-gateway-crs-rulegroups-rules.md
   - name: Azure CLI
     href: /cli/azure/network/application-gateway
   - name: Azure PowerShell

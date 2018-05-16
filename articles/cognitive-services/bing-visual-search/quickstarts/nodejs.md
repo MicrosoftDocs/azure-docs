@@ -41,7 +41,6 @@ To run this application, follow these steps:
   ```  
 4. Create a file named GetVisualInsights.js and add the following code to it.
 5. Replace the `subscriptionKey` value with your subscription key.
-6. Replace the `insightsToken` value with an insights token from an /images/search response.
 7. Run the program.  
   ```
   node GetVisualInsights.js
@@ -53,6 +52,9 @@ var FormData = require('form-data');
 
 var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
 var subscriptionKey = '<yoursubscriptionkeygoeshere>';
+
+// To get an insights, call the /images/search endpoint. Get the token from
+// the imageInsightsToken field in the Image object.
 var insightsToken = "ccid_tmaGQ2eU*mid_D12339146CFEDF3D409CC7A66D2C98D0D71904D4*simid_608022145667564759*thid_OIP.tmaGQ2eUI1yq3yll!_jn9kwHaFZ";
 
 var knowledgeRequest = {

@@ -129,6 +129,16 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
  ```
  
+## Clean up resources
+
+When you no longer need the resources you created, use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to delete the resource group. This will delete the resource groups and all of the resources they contain.
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name TestRG1
+Remove-AzureRmResourceGroup -Name TestRG2
+```
+ 
+ 
  ## Script explanation
 
 This script uses the following commands to create the deployment. Each item in the table links to command specific documentation.
