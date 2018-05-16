@@ -175,7 +175,7 @@ Make sure the OMS Nozzle application is running.
 
 ## View the data in the OMS portal
 
-If you have deployed the OMS monitoring solution through the market place template, go to Azure portal and located the OMS solution. You can find the solution in the resource group you specified in the template. Click the solution, browse to the "OMS Console", the pre-configured views are listed, with top Cloud Foundry system KPIs, application data, alerts and VM lhealth metrics. 
+If you have deployed the OMS monitoring solution through the market place template, go to Azure portal and located the OMS solution. You can find the solution in the resource group you specified in the template. Click the solution, browse to the "OMS Console", the pre-configured views are listed, with top Cloud Foundry system KPIs, application data, alerts and VM health metrics. 
 
 If you have created the OMS workspace manually, follow steps below to create the views and alerts:
 
