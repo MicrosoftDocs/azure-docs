@@ -37,7 +37,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Download SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
 
-<tr><td>**API documentation**</td><td>[Python API reference documentation](https://docs.microsoft.com/en-us/python/api/pydocumentdb?view=azure-python)</td></tr>
+<tr><td>**API documentation**</td><td>[Python API reference documentation](https://docs.microsoft.com/python/api/pydocumentdb?view=azure-python)</td></tr>
 
 <tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](http://azure.github.io/azure-documentdb-python/)</td></tr>
 
