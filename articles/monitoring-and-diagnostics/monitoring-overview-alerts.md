@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 05/15/2018
 ms.author: robb
 
 ---
 # What are classic alerts in Microsoft Azure?
 
 > [!NOTE]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts](monitoring-overview-unified-alerts.md) and a new alerts experience. 
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](monitoring-overview-unified-alerts.md). 
 >
 
 Alerts allow you to configure conditions over data and become notified when the conditions match the latest monitoring data.
