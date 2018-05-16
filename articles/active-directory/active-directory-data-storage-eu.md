@@ -19,9 +19,7 @@ ms.custom: it-pro
 # Where does Microsoft Azure Active Directory (Azure AD) store identity data for European customers
 Azure AD helps you to manage user identities and to create intelligence-driven access policies that help secure your organization's resources. Identity data is stored in a location that's based on the address your organization provided when you subscribed to the service. For example, when you subscribed to Office 365 or Azure. For specific info about where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/en-us/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
-While most Azure AD-related European identity data stays in European datacenters, there are five user-related attributes that are typically stored in U.S. datacenters. These attributes are GivenName, Surname, userPrincipalName, Domain, and PasswordHash. 
-
-The PasswordHash attribute can be an exception and not stored in the U.S. if someone uses an on-premises, federated authentication method that stops the PasswordHash value from syncing with Azure AD. Additionally, there is some operational, service-specific data that's required for normal Azure AD operation, which is stored in the U.S. and doesn't include any personal data.
+While most Azure AD-related European identity data stays in European datacenters, there are five user-related attributes that are typically stored in U.S. datacenters. These attributes are GivenName, Surname, userPrincipalName, Domain, and PasswordHash. The PasswordHash attribute can be an exception and not stored in the U.S. if someone uses an on-premises, federated authentication method that stops the PasswordHash value from syncing with Azure AD. Additionally, there is some operational, service-specific data that's required for normal Azure AD operation, which is stored in the U.S. and doesn't include any personal data.
 
 ## Data stored outside of European datacenters for European customers
 
@@ -30,7 +28,7 @@ Most Azure AD-related European identity data, for organizations with European-ba
 - **User-related attributes**
 
     The following identity-related attributes will be replicated to the United States:
-    
+
     - GivenName
     - Surname
     - userPrincipalName
