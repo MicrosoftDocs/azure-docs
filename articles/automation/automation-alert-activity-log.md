@@ -45,7 +45,7 @@ On the **Email/SMS/Push/Voice** page, give it a name. Check the **Email** checkb
 
 Click **OK** on the **Email/SMS/Push/Voice** page to close it and click **OK** to close the **Add action group** page.
 
-You can customize the subject of the email sent by clicking **Email subject** under **Customize Actions** on the **Create rule** page. When complete, click **Create alert rule**. This creates the rule that alerts you when a runbook  fails.
+You can customize the subject of the email sent by clicking **Email subject** under **Customize Actions** on the **Create rule** page. When complete, click **Create alert rule**. This creates the rule that alerts you when a runbook completed with a certain status.
 
 ## Test the alert
 
@@ -55,5 +55,11 @@ In the canvas type `throw` and click **Publish**. When prompted choose **Yes** t
 
 On the **Runbook** page, click **Start** and when prompted click **Yes** to start the runbook.
 
+![Email alert](./media/automation-alert-activity-log/alert-email.png)
 
 ## Next steps
+
+Continue to the following article to learn about other ways that you can integrate alertings into your Automation Account.
+
+> [!div class="nextstepaction"]
+> [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md)
