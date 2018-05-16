@@ -47,9 +47,18 @@ The following table shows the Asset's properties and gives their definitions.
 
 For the full definition, see [Assets](https://docs.microsoft.com/rest/api/media/assets).
 
-## Filtering and ordering support
+## Filtering, ordering and paging support
 
-The following table shows the current filtering and ordering support for the properties.
+Media Services supports the following OData query options for Assets: 
+
+* $filter 
+* $orderby 
+* $top 
+* $skiptoken 
+
+### Filtering/ordering
+
+The following table shows how these options may be applied to the Asset properties: 
 
 |Name|Filter|Order|
 |---|---|---|
@@ -71,7 +80,29 @@ The following C# example shows how to filter on the created date:
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
 ```
-  
+
+### Pagination
+
+Pagination is supported for each of the four enabled sort orders. 
+
+If a response of a query contains more than 1000 items, the service returns an "@odata.nextLink" property to gets the next page of results. This can be used to page through the entire result set. The page size is not configurable by the user. 
+
+If Assets are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
+
+For example, if the page size is 3 and the service contains assets { A, B, C, D, E, F, G, H }, the first page would contain assets A, B, C. If Assets A and E are deleted, the second page would contain Assets D, F and G. If instead Assets B2 and E2 are created after returning the first page, the second page would contain D, E and E2 (Asset B2 would not be returned during this paging operation). 
+
+The following C# example shows how to enumerate through all the assets in the account.
+
+```csharp
+var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
