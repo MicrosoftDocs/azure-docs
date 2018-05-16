@@ -73,7 +73,7 @@
 ## [Key Vault Versions](key-vault-versions.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
-## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
+## [Code Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault&type=&language=)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 ## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
