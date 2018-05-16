@@ -21,7 +21,7 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Use Visual Studio to author and deploy Azure Resource Manager [templates](azure-stack-arm-templates.md) in Azure Stack. You can use the steps described in this article to install Visual Studio either from [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are connected through [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). These steps in this article are for a new installation of Visual Studio 2015 Community Edition. Read more about [coexistence](https://msdn.microsoft.com/library/ms246609.aspx) between other Visual Studio versions.
+Use Visual Studio to author and deploy Azure Resource Manager [templates](azure-stack-arm-templates.md) in Azure Stack. You can use the steps described in this article to install Visual Studio either from [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are connected through [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). These steps in this article are for a new installation of Visual Studio 2015 Community Edition. Read more about [coexistence](https://msdn.microsoft.com/library/ms246609.aspx) with other Visual Studio versions.
 
 ## Install Visual Studio
 
