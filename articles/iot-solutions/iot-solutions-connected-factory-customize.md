@@ -89,16 +89,14 @@ Learn more about the Connected Factory solution accelerator by reading the follo
 * [FAQ][lnk-faq]
 
 
-[img-oee-kpi]: ./media/iot-suite-connected-factory-customize/oeenadkpi.png
-[img-manufactured-items]: ./media/iot-suite-connected-factory-customize/manufactured.png
-[img-tsi]: ./media/iot-suite-connected-factory-customize/tsi.png
-[img-select-server]: ./media/iot-suite-connected-factory-customize/selectserver.png
-[img-published]: ./media/iot-suite-connected-factory-customize/published.png
-[img-munich]: ./media/iot-suite-connected-factory-customize/munich.png
-[img-server-uris]: ./media/iot-suite-connected-factory-customize/serveruris.png
-[lnk-kpi]: ./media/iot-suite-connected-factory-customize/kpidisplay.png
+[img-oee-kpi]: ./media/iot-solutions-connected-factory-customize/oeenadkpi.png
+[img-manufactured-items]: ./media/iot-solutions-connected-factory-customize/manufactured.png
+[img-tsi]: ./media/iot-solutions-connected-factory-customize/tsi.png
+[img-select-server]: ./media/iot-solutions-connected-factory-customize/selectserver.png
+[img-published]: ./media/iot-solutions-connected-factory-customize/published.png
+
 
 [lnk-rm-walkthrough]:iot-solutions-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]:iot-solutions-connected-factory-gateway-deployment.md
-[lnk-permissions]: iot-suite-v1-permissions.md
-[lnk-faq]: iot-suite-v1-faq.md
+[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md
+[lnk-faq]: ../iot-suite/iot-suite-v1-faq.md

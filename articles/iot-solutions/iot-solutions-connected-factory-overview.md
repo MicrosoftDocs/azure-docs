@@ -267,27 +267,27 @@ Now that you’ve deployed a working solution accelerator, you can continue gett
 * [Connect your device to the Connected Factory solution accelerator][lnk-connect-cf]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
 
-[img-cf-home]:media/iot-suite-connected-factory-overview/cf-dashboard.png
-[img-launch-solution]: media/iot-suite-connected-factory-overview/launch-cf.png
-[cf-img-menu]: media/iot-suite-connected-factory-overview/cf-dashboard-menu.png
-[cf-img-factories]:media/iot-suite-connected-factory-overview/cf-dashboard-factory.png
-[cf-img-map]:media/iot-suite-connected-factory-overview/cf-dashboard-map.png
-[cf-img-alerts]:media/iot-suite-connected-factory-overview/cf-dashboard-alerts.png
-[cf-img-oee]:media/iot-suite-connected-factory-overview/cf-dashboard-oee.png
-[cf-img-kpi]:media/iot-suite-connected-factory-overview/cf-dashboard-kpi.png
-[cf-img-tsi-visualization]:media/iot-suite-connected-factory-overview/cf-dashboard-tsi.png
-[cf-img-tsi-explorer]:media/iot-suite-connected-factory-overview/tsi-explorer.png
-[cf-img-server-browser]: media/iot-suite-connected-factory-overview/cf-dashboard-browser.png
-[cf-img-server-choice]: media/iot-suite-connected-factory-overview/cf-select-server.png
-[cf-img-server-tree]:media/iot-suite-connected-factory-overview/cf-server-tree.png
-[cf-img-publish-node]:media/iot-suite-connected-factory-overview/cf-publish-node1.png
-[cf-img-publish-success]:media/iot-suite-connected-factory-overview/cf-publish-success.png
-[cf-img-call-command]:media/iot-suite-connected-factory-overview/cf-command-and-control-call.png
-[cf-img-call-context]:media/iot-suite-connected-factory-overview/cf-command-and-control-call-button.png
-[cf-img-call-success]:media/iot-suite-connected-factory-overview/cf-command-and-control-succeed.png
-[img-cf-portal]:media/iot-suite-connected-factory-overview/cf-resource-group.png
-[cf-img-alert-filter]:media/iot-suite-connected-factory-overview/cf-filter.png
-[cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/cf-filter-funnel.png
+[img-cf-home]:media/iot-solutions-connected-factory-overview/cf-dashboard.png
+[img-launch-solution]: media/iot-solutions-connected-factory-overview/launch-cf.png
+[cf-img-menu]: media/iot-solutions-connected-factory-overview/cf-dashboard-menu.png
+[cf-img-factories]:media/iot-solutions-connected-factory-overview/cf-dashboard-factory.png
+[cf-img-map]:media/iot-solutions-connected-factory-overview/cf-dashboard-map.png
+[cf-img-alerts]:media/iot-solutions-connected-factory-overview/cf-dashboard-alerts.png
+[cf-img-oee]:media/iot-solutions-connected-factory-overview/cf-dashboard-oee.png
+[cf-img-kpi]:media/iot-solutions-connected-factory-overview/cf-dashboard-kpi.png
+[cf-img-tsi-visualization]:media/iot-solutions-connected-factory-overview/cf-dashboard-tsi.png
+[cf-img-tsi-explorer]:media/iot-solutions-connected-factory-overview/tsi-explorer.png
+[cf-img-server-browser]: media/iot-solutions-connected-factory-overview/cf-dashboard-browser.png
+[cf-img-server-choice]: media/iot-solutions-connected-factory-overview/cf-select-server.png
+[cf-img-server-tree]:media/iot-solutions-connected-factory-overview/cf-server-tree.png
+[cf-img-publish-node]:media/iot-solutions-connected-factory-overview/cf-publish-node1.png
+[cf-img-publish-success]:media/iot-solutions-connected-factory-overview/cf-publish-success.png
+[cf-img-call-command]:media/iot-solutions-connected-factory-overview/cf-command-and-control-call.png
+[cf-img-call-context]:media/iot-solutions-connected-factory-overview/cf-command-and-control-call-button.png
+[cf-img-call-success]:media/iot-solutions-connected-factory-overview/cf-command-and-control-succeed.png
+[img-cf-portal]:media/iot-solutions-connected-factory-overview/cf-resource-group.png
+[cf-img-alert-filter]:media/iot-solutions-connected-factory-overview/cf-filter.png
+[cf-img-alert-filter-funnel]:media/iot-solutions-connected-factory-overview/cf-filter-funnel.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]:iot-solutions-what-are-solution-accelerators.md
@@ -296,5 +296,5 @@ Now that you’ve deployed a working solution accelerator, you can continue gett
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-rm-walkthrough]:iot-solutions-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]:iot-solutions-connected-factory-gateway-deployment.md
-[lnk-permissions]: iot-suite-v1-permissions.md
-[lnk-faq]: iot-suite-v1-faq.md
+[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md
+[lnk-faq]: ../iot-suite/iot-suite-v1-faq.md
