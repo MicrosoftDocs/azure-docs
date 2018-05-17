@@ -21351,6 +21351,31 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
+            "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-javascriptspa",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-node.md",
+            "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-api.md",
+            "redirect_url": "https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-ios.md",
+            "redirect_url": "/azure/active-directory/develop/guidedsetups/active-directory-ios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-node-api.md",
+            "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/active-directory/active-directory-b2b-add-guest-to-role.md",
             "redirect_url": "/azure/active-directory/b2b/add-guest-to-role",
             "redirect_document_id": true
@@ -21416,7 +21441,6 @@
             "redirect_document_id": true
         },
         {
-
             "source_path": "articles/active-directory/active-directory-b2b-hybrid-cloud-to-on-premises.md",
             "redirect_url": "/azure/active-directory/b2b/hybrid-cloud-to-on-premises",
             "redirect_document_id": true
@@ -21495,6 +21519,11 @@
             "source_path": "articles/active-directory/active-directory-b2b-what-is-azure-ad-b2b.md",
             "redirect_url": "/azure/active-directory/b2b/what-is-b2b",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/bing-visual-search/upload-images.md",
+            "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/csharp",
+            "redirect_document_id": false
         }
     ]
 }
