@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 To follow this tutorial, you need:
 
 >[!div class="checklist"]
-> * [Deploy the remote monitoring preconfigured solution locally](iot-suite-remote-monitoring-deploy-local.md)
+> * [Deploy the remote monitoring preconfigured solution locally](../iot-accelerators/iot-accelerators-remote-monitoring-deploy-local.md)
 > * [A Docker account](https://hub.docker.com/)
 > * [Postman](https://www.getpostman.com/) - Needed to view the API response
 
@@ -188,7 +188,7 @@ In this tutorial, you saw how to:
 > * Pull the new docker image
 > * Visualize the changes 
 
-The next thing to try is [customizing the device simulator microservice in the Remote Monitoring solution](iot-suite-remote-monitoring-test.md)
+The next thing to try is [customizing the device simulator microservice in the Remote Monitoring solution](../iot-accelerators/iot-accelerators-remote-monitoring-test.md)
 
 For more developer information about the Remote Monitoring solution, see:
 
