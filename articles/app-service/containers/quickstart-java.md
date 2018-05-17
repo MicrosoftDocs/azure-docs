@@ -55,13 +55,13 @@ This command will verify and create all modules including the *helloworld.war* f
 
 ## Deploying the Java app to App Service on Linux
 
-There are multiple deployment options for deploying your Java web apps to App Service on Linux. These include:
+There are multiple deployment options for deploying your Java web apps to App Service on Linux. These options include:
 
 * [Deploying via Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)
 * [Deploying via ZIP or WAR](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip)
 * [Deploying via FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)
 
-In this quickstart you will use the Maven plugin for Azure web apps. It has advantages in that it is easy to use from Maven, and creates the necessary Azure resources for you (resource group, app service plan, and web app).
+In this quickstart, you will use the Maven plugin for Azure web apps. It has advantages in that it is easy to use from Maven, and creates the necessary Azure resources for you (resource group, app service plan, and web app).
 
 ### Deploy with Maven
 
@@ -100,7 +100,7 @@ Update the following placeholders in the plugin configuration:
 | Placeholder | Description |
 | ----------- | ----------- |
 | `YOUR-RESOURCE-GROUP` | Name for the new resource group in which to create your web app. By putting all the resources for an app in a group, you can manage them together. For example, deleting the resource group would delete all resources associated with the app. Update this value with either the name of an existing Azure resource group, or a unique new resource group name. You will use this resource group name to clean up all Azure resources in a later section. |
-| `YOUR-WEB-APP` | The app name will be part the host name for the app when deployed to Azure (<web app name>.azurewebsites.net). Replace `YOUR-WEB-APP` with a unique name for the new Azure web app which will host your Java app. |
+| `YOUR-WEB-APP` | The app name will be part the host name for the app when deployed to Azure (<web app name>.azurewebsites.net). Replace `YOUR-WEB-APP` with a unique name for the new Azure web app, which will host your Java app. |
 
 The `linuxRuntime` element of the configuration controls what built-in Linux image is used with your application.
 
