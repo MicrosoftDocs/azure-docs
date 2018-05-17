@@ -24,6 +24,8 @@ If you’re the Account Admin for an Azure subscription, you can use the Azure B
 
 This service is in preview, so you need to enable it in the Preview Features page first.
 
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+
 ## Set the alert threshold and email recipients
 1. Visit [the Preview Features page](https://account.windowsazure.com/PreviewFeatures) and enable **Billing Alert Service**.
 
