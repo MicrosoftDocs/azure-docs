@@ -1,5 +1,5 @@
 ---
-title: Introduction to LUIS - Azure | Microsoft Docs
+title: Developing a LUIS app - Azure | Microsoft Docs
 description: Learn high-level design and implementation concepts for those new to natural language processing.
 services: cognitive-services
 author: v-geberr
@@ -11,7 +11,7 @@ ms.date: 05/15/2018
 ms.author: v-geberr
 ---
 
-# Introduction to LUIS
+# Developing a LUIS app
 LUIS is a REST-based API that predicts user intention of text (500 characters max). The typical consumer of a LUIS app is a conversation-style application such as chat bot or virtual reality game.
 
 In the following example, the chat bot passes each textual interaction of the user to LUIS, one interaction at a time. 
@@ -26,7 +26,7 @@ Creating a LUIS app is called _authoring the model_. Using the LUIS app is known
 A model is the configuration of LUIS used to predict text for your specific domain. The domain is the _subject area_ of the app. In the previous bot conversation, the domain is Human resources. 
 
 ### Models begin with intentions
-Your model begins with user intentions. An intention is what the user is trying to ask for or do, within the conversational, natural language text. 
+A model begins with user intentions. An intention is what the user is trying to ask for or do, within the conversational, natural language text. 
 
 Different examples of a user's request that can be grouped into the same intention are called **Intents**.
 
@@ -36,8 +36,12 @@ Different examples of a user's request that can be grouped into the same intenti
 |Is anyone in HR available now?|
 |I want to schedule a meeting with Tom Smith in HR.|
 
-You can begin the model with just a single domain-specific intent such as HRContact. The only intent outside the domain of your app is the None intent. Since a domain is specific, such as a company's Human Resources (HR), LUIS doesn't guess what those non-domain utterances are. You need to provide a few examples. 
+You can begin the model with just a single domain-specific intent such as HRContact. 
 
+### None intent
+The only intent outside the domain of your app is the None intent, provided in all LUIS apps. Since a domain is specific, such as a company's Human Resources (HR) department, LUIS doesn't guess what those non-domain utterances are. You need to provide a few examples. 
+
+### Prebuilt domain
 If you want to quickly try LUIS without developing a model of your own, add a [prebuilt domain model](luis-reference-prebuilt-domains.md) to a new app. This allows you to see what the model looks like as well as test it. 
 
 ## An intent(ion) needs example utterances
@@ -66,7 +70,6 @@ The following table shows example utterances with the **Contact type** entity ma
 |What HR rep **calls** me?|
 |**Text** me the email address of my HR rep.|
 |Send me an **email** with the list of HR reps for the local engineers' group.|
-
 
 ## Train the model
 The model of intents, entities, and marked example utterances is not ready to be published (deployed) yet. It needs to be trained and tested first. Training applies the current model, including any changes, to the example utterances. 
@@ -104,38 +107,16 @@ The following JSON object is a LUIS response:
 
 ```JSON
 {
-  "query": "who does John smith report to",
+  "query": "I want to be called by my HR rep.",
   "topScoringIntent": {
-    "intent": "GetEmployeeOrgChart",
-    "score": 0.404669672
+    "intent": "HRContact",
+    "score": 0.921233
   },
-  "intents": [
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 0.404669672
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 0.0576326065
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 0.05718075
-    },
-    {
-      "intent": "None",
-      "score": 0.0212533325
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.008972893
-    }
-  ],
   "entities": [
     {
-      "entity": "john smith",
-      "type": "Employee",
-      "startIndex": 9,
+      "entity": "called",
+      "type": "Contact Type",
+      "startIndex": 13,
       "endIndex": 18,
       "score": 0.7615982
     }
@@ -143,10 +124,34 @@ The following JSON object is a LUIS response:
 }
 ```
 
+## Chat bot using LUIS results
+Once LUIS responds with the top intent(ion) and all entities inside an utterance, the chat bot uses this information to fulfill the request. 
+
+For example, the chat bot (not LUIS) could call an external messaging system: 
+
+```javascript
+
+// conversation and endpoint query happens here
+// ...
+
+// then LUIS information and chat bot session data 
+// are used to fulfill request
+
+// chat bot information found in session
+var requestor = session.data.user.email;
+var originalRequest = session.data.message;
+
+// luis information returned from querying endpoint
+var typeOfContact = luis.entities["Contact Type"];
+var receiver = luis.topScoringIntent;
+
+var responseFromMessageServer = sendMessage(requestor, receiver, typeOfContact, originalRequest);
+```
+
 ## Using the APIs
 The APIs are divided between the authoring APIs and the endpoint APIs. 
 
-The [authoring](https://aka.ms/luis-authoring-apis) APIs do not have a limit for usage but you must use the correct key, found on your User page in the [LUIS][LUIS] website. 
+The [authoring](https://aka.ms/luis-authoring-apis) APIs do not have a limit for usage but you must use the correct key, found on your [User account](luis-how-to-account-settings.md) page in the [LUIS][LUIS] website. This one authoring key is used for all apps you need to author from the APIs.
 
 The authoring API URL looks like: 
 
@@ -154,20 +159,23 @@ The authoring API URL looks like:
 https://<region>.api.cognitive.microsoft.com/luis/api/v2.0/apps/<appId>/versions/<versionId>/
 ```
 
-The [endpoint](https://aka.ms/luis-endpoint-apis) APIs have a limit for usage. While you are beginning with LUIS, use your authoring key for endpoint queries, up to 1000 queries. After that, you will either get a 403 - out of quota for the month or you can create a subscription key and associate it with your LUIS app on the Publish page of the [LUIS][LUIS] website. 
+The [endpoint](https://aka.ms/luis-endpoint-apis) APIs have a limit for usage per second and per month. 
 
-The endpoint API URL looks like: 
+While you are beginning with LUIS, use your authoring key for endpoint queries, up to 1000 queries. After that, you will either get a 403 - out of quota for the month or you can create a [subscription key](azureibizasubscription.md) and associate it with your LUIS app on the Publish page of the [LUIS][LUIS] website. A single subscription key can be used across LUIS apps but may affect the endpoint per minute or monthly quota. 
+
+The endpoint API URL looks like (where q is the key for the utterance text: 
 
 ```JSON
-https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<authoringKey>&verbose=true&timezoneOffset=0&q=
+https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<authoringKey>&verbose=true&timezoneOffset=0&q=I want to be called by my HR rep.
 ```
 
-The authoring and endpoint URLs look the same but the authoring API has an additional route of **api** after "/luis/". Both sets of APIs call the key the same thing, **Ocp-Apim-Subscription-Key**. It is important to understand that the value of the key needs to change based on whether you are accessing the authoring or endpoint API. 
+The authoring and endpoint URLs look the same but the authoring API has an additional route of **api** after "/luis/". Both sets of APIs call the LUIS key the same thing, **Ocp-Apim-Subscription-Key**. It is important to understand that the value of the key needs to change based on whether you are accessing the authoring or endpoint API. 
 
 ## Next steps
 
 * Learn [concepts](luis-concept-keys.md) about authoring and endpoint keys.
-* Learn concepts about [intents](luis-concept-intent.md), [entities](luis-concept-entity-types.md), [utterances](luis-concept-utterance.md), and [roles](luis-concept-roles.md).  
+* Learn concepts about [intents](luis-concept-intent.md), [entities](luis-concept-entity-types.md), [utterances](luis-concept-utterance.md), and [roles](luis-concept-roles.md).
 * Learn [best practices](luis-concept-best-practices.md). 
+* Learn about key [usage](luis-boundaries.md#key-limits) tiers.
 
 [LUIS]: luis-reference-regions.md#luis-website
