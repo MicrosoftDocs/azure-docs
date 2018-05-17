@@ -15,17 +15,8 @@
     href: event-hubs-quickstart-powershell.md
 - name: Tutorials
   items:
-  - name: Send events using .NET Framework
-    href: event-hubs-dotnet-framework-getstarted-send.md
-  - name: Receive events using .NET Framework
-    href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-  - name: Available APIs
-    href: event-hubs-api-overview.md
-    items:
-    - name: .NET Standard
-      href: event-hubs-dotnet-standard-api-overview.md
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-api-overview.md
+  - name: Visualize data anomalies on Event Hub stream
+    href: event-hubs-tutorial-visualize-anomalies.md
 - name: Samples
   href: event-hubs-samples.md
 - name: Concepts
@@ -58,6 +49,17 @@
   items:
   - name: Create an event hub
     href: event-hubs-create.md
+  - name: Send events using .NET Framework
+    href: event-hubs-dotnet-framework-getstarted-send.md
+  - name: Receive events using .NET Framework
+    href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+  - name: Available APIs
+    href: event-hubs-api-overview.md
+    items:
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-api-overview.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-api-overview.md   
   - name: Send events
     items:
     - name: .NET Standard
