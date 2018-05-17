@@ -86,7 +86,7 @@ The following video shows a walkthrough of connecting simulated and real devices
 
 To follow this tutorial, you need:
 
-* A deployed instance of the remote monitoring solution in your Azure subscription. If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-suite-remote-monitoring-deploy.md) tutorial.
+* A deployed instance of the remote monitoring solution in your Azure subscription. If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 * Visual Studio 2017. If you don't have Visual Studio 2017 installed, you can download the free [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edition.
 

@@ -37,7 +37,7 @@ The following video shows a walkthrough of the remote monitoring solution:
 
 To complete this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
 
-If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-suite-remote-monitoring-deploy.md) tutorial.
+If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 ## The Contoso sample IoT deployment
 
@@ -51,7 +51,7 @@ The Contoso sample provisions a set of simulated devices and rules to act on the
 Contoso is a company that manages a variety of assets in different environments. Contoso plans to use the power of cloud-based IoT applications to remotely monitor and manage multiple assets from a centralized application. The following sections provide a summary of the initial configuration of the Contoso sample:
 
 > [!NOTE]
-> The Contoso demo is only one way to provision simulated devices and create rules. Other provisioning options include the creation of your own custom devices. To learn more about how to create your own devices and rules, see [Manage and configure your devices](iot-suite-remote-monitoring-manage.md) and [Detect issues using threshold-based rules](iot-suite-remote-monitoring-automate.md).
+> The Contoso demo is only one way to provision simulated devices and create rules. Other provisioning options include the creation of your own custom devices. To learn more about how to create your own devices and rules, see [Manage and configure your devices](iot-suite-remote-monitoring-manage.md) and [Detect issues using threshold-based rules](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 
 ### Contoso devices
 
@@ -253,5 +253,5 @@ Now that you have explored the remote monitoring solution, the suggested next st
 
 * [Monitor your devices](./iot-suite-remote-monitoring-monitor.md).
 * [Manage your devices](./iot-suite-remote-monitoring-manage.md).
-* [Automate your solution with rules](./iot-suite-remote-monitoring-automate.md).
+* [Automate your solution with rules](./../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 * [Maintain your solution](./iot-suite-remote-monitoring-maintain.md).

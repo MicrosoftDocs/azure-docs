@@ -5,10 +5,10 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: 
+ms.custom:
 manager: dougeby
 ---
 
@@ -24,7 +24,8 @@ When you registered your Azure agreement or account, an account with admin permi
 > [!div class="checklist"]
 > * Create a user with admin access
 > * Create a user with user access
-> * Create entities
+> * Create and manage entities
+
 
 If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -53,11 +54,11 @@ Typical users that need access to cost management data like dashboards and repor
 
 To watch a tutorial video about adding users, see [Adding Users to Azure Cost Management](https://youtu.be/Nzn7GLahx30).
 
-## Create entities
+## Create and manage entities
 
-When you define your cost entity hierarchy, a best practice is to identify the structure of your organization.
+When you define your cost entity hierarchy, a best practice is to identify the structure of your organization. Entities allow you to segment spending by individual accounts or subscriptions. You create cost entities to create logical groups to manage and track spending. As you build the tree, consider how you want or need to see their costs segregated by business units, cost centers, environments, and sales departments. The entity tree in Cloudyn is flexible due to entity inheritance.
 
-As you build the tree, consider how you want or need to see their costs segregated by business units, cost centers, environments, and sales departments. The entity tree in Cloudyn is flexible due to entity inheritance. Individual subscriptions for your cloud accounts are linked to specific entities. So, entities are multi-tenant. You can assign specific users access to only their segment of your business using entities. Doing so keeps data isolated, even across large portions of a business like subsidiaries. And, data isolation helps with governance.  
+Individual subscriptions for your cloud accounts are linked to specific entities. You can associate an entity with a cloud service provider account or subscription. So, entities are multi-tenant. You can assign specific users access to only their segment of your business using entities. Doing so keeps data isolated, even across large portions of a business like subsidiaries. And, data isolation helps with governance.  
 
 When you registered your Azure agreement or account with Cloudyn, your Azure resource data including usage, performance, billing, and tag data from your subscriptions was copied to your Cloudyn account. However, you must manually create your entity tree. If you skipped the Azure Resource Manager registration, then only billing data and a few asset reports are available in the Cloudyn portal.
 
@@ -71,6 +72,23 @@ Next to **Entities**, click **Add Entity**. Enter information about the person o
 
 When you're done, **Save** the entity.
 
+### Entity access levels
+
+Entity access levels in conjunction with a user's access allows you to define what type of actions are available in the Cloudyn portal.
+
+- **Enterprise** - Provides the ability to create and manage child cost entities.
+- **Enterprise + Cost Allocation** - Provides the ability to create and manage child cost entities including cost allocation for consolidated accounts.
+- **Enterprise, Cost based on parent cost allocation** - Provides the ability to create and manage child cost entities. Costs for the account are based on the parent's cost allocation model.
+- **Custom Dashboards Only** - Provides the user to only see predefined custom dashboards.
+- **Dashboards Only** - Provides the user the ability to only see dashboards.
+
+### Create a cost entity hierarchy
+
+To create a cost entity hierarchy, you must have an account with enterprise or enterprise + cost allocation access.
+
+In the Cloudyn portal, click the gear symbol in the upper right and select  **Cloud Accounts**. The **Entities** tree is shown in the left pane. If necessary, expand the entity tree so that you can view the entity that you want to associate with an account.  Your cloud service provider accounts are shown on tabs in the right pane. Select a tab and then click and drag an account/subscription to the entity, then drop it. The **Move** box informs you that the account was successfully moved. Click **OK**.
+
+You can also associate multiple accounts to an entity. Select the accounts and then click **Move**. In the Move Accounts box, select the entity where you want to move the account to and then click **Save**. The Move accounts box asks you to verify that you want to move the accounts. Click **Yes**, and then click **OK**.
 
 To watch a tutorial video about creating a cost entity hierarchy, see [Creating a Cost Entity Hierarchy in Azure Cost Management](https://youtu.be/dAd9G7u0FmU).
 
@@ -83,7 +101,8 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create a user with admin access
 > * Create a user with user access
-> * Create entities
+> * Create and manage entities
+
 
 If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to the following article.
 
