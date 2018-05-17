@@ -1,5 +1,6 @@
 ---
 title: Microsoft Translator Text API Translate Method | Microsoft Docs
+titleSuffix: Cognitive Services
 description: Use the Microsoft Translator Text API Translate method.
 services: cognitive-services
 author: Jann-Skotdal
