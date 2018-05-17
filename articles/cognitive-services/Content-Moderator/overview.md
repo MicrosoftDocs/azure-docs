@@ -13,7 +13,7 @@ ms.author: sajagtap
 
 # What is Content Moderator?
 
-Content moderation is the process of monitoring user-generated content on online and social media websites, chat and messaging platforms, enterprise environments, gaming platforms, and peer communication platforms. The goal is to track, flag, assess, and filter out offensive and unwanted content that creates risk for your organization. Moderated content might include text, images, and videos.
+Content moderation is the process of monitoring for possible offensive, undesirable, and risky content. The moderated content might include images, text, and videos.
 
 ## Where it is used
 
@@ -27,14 +27,14 @@ The following list shows a few example scenarios where Content Moderator is used
 
 ## What it includes
 
-Content Moderator consists of several web service APIs and a built-in human-in-the-loop review tool that help detect potentially offensive and undesirable content in images, text, and videos.
+Content Moderator consists of several web service APIs and a built-in human-in-the-loop review tool that help moderate images, text, and videos.
 
 ![Content Moderator block diagram](images/content-moderator-block-diagram.png)
 
 ## APIs
 
 Content Moderator includes the following APIs:
-  - [**Text moderation API**](text-moderation-api.md): Use this API to scan text for profanity filtering, detect potential personally identifiable information (PII) and classify it for undesirable content.
+  - [**Text moderation API**](text-moderation-api.md): Use this API to scan text for possible profanity, explicit, suggestive, offensive, and personally identifiable information (PII).
   - [**Custom term list API**](try-terms-list-api.md): Use this API to match against custom lists of terms in addition to the built-in terms. Use these lists to block or allow content as per your content policies.  
   - [**Image moderation API**](image-moderation-api.md): Use this API to scan images for adult and racy content, detect text in images with the Optical Character Recognition (OCR) capability, and detect faces.
   - [**Custom image list API**](try-image-list-api.md): Use this API to match against custom lists of images, pre-identified content that you don’t need to classify again.
