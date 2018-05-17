@@ -7,14 +7,12 @@ services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 05/17/2018
 ms.author: alkohli
 
 ---
 # Use the Azure Import/Export service to export data from Azure Blob storage
-This article provides step-by-step instructions on how to use the Azure Import/Export service to securely export large amounts of data from Azure Blob storage. 
-
-The service requires you to ship empty drives to the Azure datacenter. The service exports data from your storage account to the drives and then ships the drives back.
+This article provides step-by-step instructions on how to use the Azure Import/Export service to securely export large amounts of data from Azure Blob storage. The service requires you to ship empty drives to the Azure datacenter. The service exports data from your storage account to the drives and then ships the drives back.
 
 ## Prerequisites
 
@@ -27,31 +25,46 @@ You must:
 
 ## Step 1: Create an export job
 
-Perform the following steps to create an import job in the Azure portal.
+Perform the following steps to create an export job in the Azure portal.
+
 1. Log on to https://portal.azure.com/.
-2. Go to **More services > Storage > Import/export jobs**. Click **Create Import/export Job**.
-3. In **Basics**:
+2. Go to **All services > Storage > Import/export jobs**. 
+
+    ![Go to Import/export jobs](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
+
+3. Click **Create Import/export Job**.
+
+    ![Click Import/export job](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
+
+4. In **Basics**:
     
     - Select **Export from Azure**. 
     - Enter a descriptive name for the export job. Use the name you choose to track the progress of your jobs. 
         - The name may contain only lowercase letters, numbers, hyphens, and underscores.
         - The name must start with a letter, and may not contain spaces. 
     - Select a subscription.
-    - Enter or select a resource group. 
+    - Enter or select a resource group.
+
+        ![Basics](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
     
 3. In **Job details**:
 
     - Select the storage account where the data to be exported resides. 
     - The drop-off location is automatically populated based on the region of the storage account selected. 
-    - Specify the blob data you wish to export from your storage account to your blank drive or drives. You can choose to export all blob data in the storage account, or you can specify which blobs or sets of blobs to export.
-        - **To specify a blob to export**: Use the **Equal To** selector. Specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.
-        - **To specify all blobs starting with a prefix**: Use the **Starts With** selector. Specify the prefix, beginning with a forward slash '/'. The prefix may be the prefix of the container name, the complete container name, or the complete container name followed by the prefix of the blob name.
+    - Specify the blob data you wish to export from your storage account to your blank drive or drives. 
+    - Choose to **Export all** blob data in the storage account.
     
-        You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. 
-   
-   ![Create export job - Step 3](./media/storage-import-export-service/export-job-03.png)
+         ![Export all](./media/storage-import-export-data-from-blobs/export-from-blob4.png) 
 
-    For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).
+    - You can specify which containers and blobs to export.
+        - **To specify a blob to export**: Use the **Equal To** selector. Specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.
+        - **To specify all blobs starting with a prefix**: Use the **Starts With** selector. Specify the prefix, beginning with a forward slash '/'. The prefix may be the prefix of the container name, the complete container name, or the complete container name followed by the prefix of the blob name. You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths). 
+   
+           ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob5.png) 
+
+    - You can export from  the blob list file.
+
+        ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob6.png)  
    
    > [!NOTE]
    > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
@@ -59,7 +72,7 @@ Perform the following steps to create an import job in the Azure portal.
 
 4. In **Return shipping info**:
 
-    - Select the carrier from the drop-down list.
+    - Select the carrier from the dropdown list.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. 
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
    
