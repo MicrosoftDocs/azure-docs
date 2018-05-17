@@ -85,42 +85,42 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 4. Add the **Endpoints** resource in the `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` file
 
-```xml 
-    <Resources>
-      <Endpoints>
-      	<Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
-      </Endpoints>
-   </Resources>
-```
+    ```xml 
+        <Resources>
+          <Endpoints>
+            <Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
+          </Endpoints>
+       </Resources>
+    ```
 
-The **ServiceManifest.xml** now looks like this: 
+    The **ServiceManifest.xml** now looks like this: 
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="SpringGettingStartedPkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <ServiceManifest Name="SpringGettingStartedPkg" Version="1.0.0"
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
 
-   <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="SpringGettingStartedType" UseImplicitHost="true">
-   </StatelessServiceType>
-   </ServiceTypes>
-   
-   <CodePackage Name="code" Version="1.0.0">
-      <EntryPoint>
-         <ExeHost>
-            <Program>entryPoint.sh</Program>
-            <Arguments></Arguments>
-            <WorkingFolder>CodePackage</WorkingFolder>
-         </ExeHost>
-      </EntryPoint>
-   </CodePackage>
-    <Resources>
-      <Endpoints>
-      	<Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
-      </Endpoints>
-   </Resources>
- </ServiceManifest>
-```
+       <ServiceTypes>
+          <StatelessServiceType ServiceTypeName="SpringGettingStartedType" UseImplicitHost="true">
+       </StatelessServiceType>
+       </ServiceTypes>
+
+       <CodePackage Name="code" Version="1.0.0">
+          <EntryPoint>
+             <ExeHost>
+                <Program>entryPoint.sh</Program>
+                <Arguments></Arguments>
+                <WorkingFolder>CodePackage</WorkingFolder>
+             </ExeHost>
+          </EntryPoint>
+       </CodePackage>
+        <Resources>
+          <Endpoints>
+            <Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
+          </Endpoints>
+       </Resources>
+     </ServiceManifest>
+    ```
 
 At this stage, you have created a Service Fabric application for the Spring Boot Getting Started sample that you can deploy to Service Fabric.
 
