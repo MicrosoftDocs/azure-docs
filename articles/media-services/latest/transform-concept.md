@@ -27,7 +27,7 @@ Since this API is driven by Azure Resource Manager, you can use Resource Manager
 
 ## Transform definition
 
-The following table shows Tranform's properties and gives their definitions.
+The following table shows Transform's properties and gives their definitions.
 
 |Name|Type|Description|
 |---|---|---|
