@@ -22,18 +22,19 @@
   - name: Azure Policy samples
     href: json-samples.md
   - name: Resource manager templates
+    href: policy-rmtemplates.md
 - name: Concepts
   items:
   - name: Azure Policy definition structure
     href: policy-definition.md
   - name: Understanding Policy effects
     href: policy-effects.md
-  - name: Gathering compliance data
-    href: policy-compliance.md
 - name: How-to guides
   items:
   - name: Programmatically create policies
     href: policy-insights.md
+  - name: Gathering compliance data
+    href: policy-compliance.md
 - name: Reference
   items:
   - name: Azure CLI

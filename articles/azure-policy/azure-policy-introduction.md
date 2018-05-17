@@ -51,13 +51,13 @@ In Azure Policy, we offer some built-in policies that are available to you by de
 
 In order to implement these policy definitions (both built-in and custom definitions), you will need to assign them. You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
 
-Keep in mind that a policy reevaluation happens about once an hour, which means that if you make changes to your policy definition after implementing the policy (creating a policy assignment) it will be re-evaluated over your resources within the hour.
+Keep in mind that a policy re-evaluation happens about once an hour, which means that if you make changes to your policy definition after implementing the policy (creating a policy assignment) it will be re-evaluated over your resources within the hour.
 
 To learn more about the structures of policy definitions, review [Policy Definition Structure](policy-definition.md).
 
 ## Policy assignment
 
-A policy assignment is a policy definition that has been assigned to take place within a specific scope. This scope could range from a management group to a resource group. The term *scope* refers to all the resource groups, subscriptions, or management groups that the policy definition is assigned to. Policy assignments are inherited by all child resources. This means that if a policy is applied to a resource group, it is applied to all the resources in that resource group. However, you can exclude a subscope from the policy assignment.
+A policy assignment is a policy definition that has been assigned to take place within a specific scope. This scope could range from a [management group](../azure-resource-manager/management-groups-overview.md) to a resource group. The term *scope* refers to all the resource groups, subscriptions, or management groups that the policy definition is assigned to. Policy assignments are inherited by all child resources. This means that if a policy is applied to a resource group, it is applied to all the resources in that resource group. However, you can exclude a subscope from the policy assignment.
 
 For example, at the subscription scope, you can assign a policy that prevents the creation of networking resources. However, you exclude one resource group within the subscription that is intended for networking infrastructure. You grant access to this networking resource group to users that you trust with creating networking resources.
 
@@ -108,6 +108,22 @@ In this scenario, when defining the initiative parameters for **initiativeC**, y
 
 For example, you might create a list of value options in an initiative definition that contain *EastUS*, *WestUS*, *CentralUS*, and *WestEurope*. If so, you are unable to input a different value such as *Southeast Asia* during the initiative assignment, because it is not part of the list.
 
+## Maximum count of Policy objects
+
+There is a maximum count for each object type for Azure Policy. An entry of _Scope_ means either the subscription or the management group.
+
+| Where | What | Maximum count |
+|---|---|---|
+| Scope | Policy Definitions | 100 |
+| Scope | Initiative Definitions | 100 |
+| Tenant | Initiative Definitions | 1000 |
+| Scope | Policy Assignment | 100 |
+| Policy Definition | Parameters | 20 |
+| Initiative Definition | Policies | 100 |
+| Initiative Definition | Parameters | 100 |
+| Policy Assignment | Exclusions (notScopes) | 10 |
+| Policy Rule | Nested Conditionals | 512 |
+
 ## Recommendations for managing policies
 
 While creating and managing policy definitions and assignments, here are a few pointers we advise you to follow and tips to keep in mind:
@@ -125,3 +141,4 @@ Now that you have an overview of Azure Policy and some of the key concepts, here
 - [Assign a policy definition](assign-policy-definition.md)
 - [Assign a policy definition using the Azure CLI](assign-policy-definition-cli.md)
 - [Assign a policy definition using PowerShell](assign-policy-definition-ps.md)
+- Review what a management group is with [Organize your resources with Azure Management Groups](../azure-resource-manager/management-groups-overview.md)

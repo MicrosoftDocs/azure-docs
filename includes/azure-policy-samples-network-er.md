@@ -14,6 +14,6 @@ ms.custom: include file
 
 |  |  |
 |---------|---------|
-| [Allowed Express Route bandwidth](scripts/allowed-er-band.md) | Requires that express routes use a specified set of bandwidths. You specify an array of SKUs that can be specified for Express Route. |
-| [Allowed Express Route SKUs](scripts/allowed-er-skus.md) | Requires that Express Routes use an approved SKU. You specify an array of allowed SKUs. |
-| [Allowed Peering Location for Express Route](scripts/allowed-peering-er.md) | Requires that Express Routes use specified peering locations. You specify an array of allowed peering locations. |
+| [Allowed Express Route bandwidth](../articles/azure-policy/scripts/allowed-er-band.md) | Requires that express routes use a specified set of bandwidths. You specify an array of SKUs that can be specified for Express Route. |
+| [Allowed Express Route SKUs](../articles/azure-policy/scripts/allowed-er-skus.md) | Requires that Express Routes use an approved SKU. You specify an array of allowed SKUs. |
+| [Allowed Peering Location for Express Route](../articles/azure-policy/scripts/allowed-peering-er.md) | Requires that Express Routes use specified peering locations. You specify an array of allowed peering locations. |
