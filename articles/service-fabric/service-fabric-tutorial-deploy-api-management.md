@@ -1,4 +1,4 @@
-﻿---
+---
 title: Integrate Azure Service Fabric with API Management | Microsoft Docs
 description: In this tutorial, you learn how to quickly get started with Azure API Management and Service Fabric.
 services: service-fabric
