@@ -1,5 +1,5 @@
 ﻿---
-title: Azure Virtual Machines security overview | Microsoft Docs
+title: Azure security features used with Azure virtual machines | Microsoft Docs
 description: This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines.
 services: security
 documentationcenter: na
