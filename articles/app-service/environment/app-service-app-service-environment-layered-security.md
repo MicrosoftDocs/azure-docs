@@ -87,7 +87,7 @@ The final step is to apply the NSG to the subnet that contains the "apiase" App 
 With the NSG applied to the subnet, only the three upstream App Service Environments, and the App Service Environment containing the API back-end, are allowed to call into the "apiase" environment.
 
 ## Additional Links and Information
-Information about [network security groups](../../virtual-network/virtual-networks-nsg.md). 
+Information about [network security groups](../../virtual-network/security-overview.md).
 
 Understanding [outbound IP addresses][NetworkArchitecture] and App Service Environments.
 

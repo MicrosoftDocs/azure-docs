@@ -30,7 +30,7 @@ Just in time virtual machine (VM) access can be used to lock down inbound traffi
 
 Brute force attacks commonly target management ports as a means to gain access to a VM. If successful, an attacker can take control over the VM and establish a foothold into your environment.
 
-One way to reduce exposure to a brute force attack is to limit the amount of time that a port is open. Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just in time is enabled, Security Center uses [Network Security Group](../virtual-network/virtual-networks-nsg.md) (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
+One way to reduce exposure to a brute force attack is to limit the amount of time that a port is open. Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just in time is enabled, Security Center uses [network security group](../virtual-network/security-overview.md#security-rules) (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
 
 ![Just in time scenario][1]
 

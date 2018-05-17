@@ -185,8 +185,8 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [manage-vm-availability]:../articles/virtual-machines/linux/manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
-[nsg]: ../articles/virtual-network/virtual-networks-nsg.md
-[nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
+[nsg]: ../articles/virtual-network/security-overview.md
+[nsg-default-rules]: ../articles/virtual-network/security-overview.md#default-security-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
 [premium-storage]:../articles/virtual-machines/windows/premium-storage.md

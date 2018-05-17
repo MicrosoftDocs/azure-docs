@@ -57,7 +57,7 @@ If you need basic network level access control (based on IP address and the TCP 
 
 Learn more:
 
-* [Network Security Groups](../virtual-network/virtual-networks-nsg.md)
+* [Network Security Groups](../virtual-network/security-overview.md)
 
 ### Route Control and Forced Tunneling
 The ability to control routing behavior on your Azure Virtual Networks is a critical network security and access control capability. If routing is configured incorrectly, applications and services hosted on your virtual machine may connect to unauthorized devices including systems owned and operated by potential attackers.

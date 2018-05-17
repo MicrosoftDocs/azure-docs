@@ -232,9 +232,9 @@ By using the nslookup command, you can send a DNS query for the name myip.opendn
     nslookup myip.opendns.com resolver1.opendns.com
 
 ## <a name="preventoutbound"></a>Preventing outbound connectivity
-Sometimes it's undesirable for a VM to be allowed to create an outbound flow. Or there might be a requirement to manage which destinations can be reached with outbound flows, or which destinations can begin inbound flows. In this case, you can use [network security groups](../virtual-network/virtual-networks-nsg.md) to manage the destinations that the VM can reach. You can also use NSGs to manage which public destination can initiate inbound flows. 
+Sometimes it's undesirable for a VM to be allowed to create an outbound flow. Or there might be a requirement to manage which destinations can be reached with outbound flows, or which destinations can begin inbound flows. In this case, you can use [network security groups](../virtual-network/security-overview.md) to manage the destinations that the VM can reach. You can also use NSGs to manage which public destination can initiate inbound flows.
 
-When you apply an NSG to a load-balanced VM, pay attention to the [default tags](../virtual-network/virtual-networks-nsg.md#default-tags) and [default rules](../virtual-network/virtual-networks-nsg.md#default-rules). You must ensure that the VM can receive health probe requests from Azure Load Balancer. 
+When you apply an NSG to a load-balanced VM, pay attention to the [service tags](../virtual-network/security-overview.md#service-tags) and [default security rules](../virtual-network/security-overview.md#default-security-rules). You must ensure that the VM can receive health probe requests from Azure Load Balancer. 
 
 If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, your VM health probe fails and the VM is marked down. Load Balancer stops sending new flows to that VM.
 
@@ -246,5 +246,5 @@ If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, 
 
 - Learn more about [Load Balancer](load-balancer-overview.md).
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
-- Learn more about [network security groups](../virtual-network/virtual-networks-nsg.md).
+- Learn more about [network security groups](../virtual-network/security-overview.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.

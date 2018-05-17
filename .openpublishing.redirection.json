@@ -8336,6 +8336,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-networks-nsg.md",
+            "redirect_url": "/azure/networking/virtual-network-vnet-plan-design-arm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/resource-groups-networking.md",
             "redirect_url": "/azure/networking/networking-overview",
             "redirect_document_id": false

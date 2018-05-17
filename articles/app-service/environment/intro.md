@@ -89,7 +89,7 @@ ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md

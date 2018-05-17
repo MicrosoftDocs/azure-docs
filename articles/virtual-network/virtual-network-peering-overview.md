@@ -41,7 +41,7 @@ The network latency between virtual machines in peered virtual networks in the s
 The traffic between virtual machines in peered virtual networks is routed directly through the Microsoft backbone infrastructure, not through a gateway or over the public Internet.
 
 Network security groups can be applied in either virtual network to block access to other virtual networks or subnets, if desired.
-When configuring virtual network peering, you can either open or close the network security group rules between the virtual networks. If you open full connectivity between peered virtual networks (which is the default option), you can apply network security groups to specific subnets or virtual machines to block or deny specific access. To learn more about network security groups, see [Network security groups overview](virtual-networks-nsg.md).
+When configuring virtual network peering, you can either open or close the network security group rules between the virtual networks. If you open full connectivity between peered virtual networks (which is the default option), you can apply network security groups to specific subnets or virtual machines to block or deny specific access. To learn more about network security groups, see [Network security groups overview](security-overview.md).
 
 ## Service chaining
 

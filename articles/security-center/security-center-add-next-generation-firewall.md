@@ -46,7 +46,7 @@ Return to the **Recommendations** blade. A new entry was generated after you add
    ![Route traffic through NGFW only][7]
 2. This opens the blade **Route traffic through NGFW only**, which lists VMs that you can route traffic to. Select a VM from the list.
    ![Select a VM][8]
-3. A blade for the selected VM opens, displaying related inbound rules. A description provides you with more information on possible next steps. Select **Edit inbound rules** to proceed with editing an inbound rule. The expectation is that **Source** is not set to **Any** for the Internet-facing endpoints linked with the NGFW. To learn more about the properties of the inbound rule, see [NSG rules](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+3. A blade for the selected VM opens, displaying related inbound rules. A description provides you with more information on possible next steps. Select **Edit inbound rules** to proceed with editing an inbound rule. The expectation is that **Source** is not set to **Any** for the Internet-facing endpoints linked with the NGFW. To learn more about the properties of the inbound rule, see [security rules](../virtual-network/security-overview.md#security-rules).
    ![Configure rules to limit access][9]
    ![Edit inbound rule][10]
 
