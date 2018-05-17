@@ -64,6 +64,9 @@ Perform the following steps to prepare the drives.
     |/dstdir:     |The name of the destination container in Azure Storage.         |
     |/skipwrite:     |The option that specifies that there is no new data required to be copied and existing data on the disk is to be prepared.          |
 7. Repeat the previous step for each disk that needs to be shipped. A journal file with the provided name is created for every run of the command line.
+    
+    > [!IMPORTANT]
+    > - Together with the journal file, a `<Journal file name>_DriveInfo_<Drive serial ID>.xml` file is also created in the same folder where the tool resides. The .xml file is used in place of journal file when creating a job if the journal file is too big. 
 
 ## Step 2: Create an import job
 
@@ -91,7 +94,7 @@ Perform the following steps to create an import job in the Azure portal.
 
 3. In **Job details**:
 
-    - Upload the drive journal files that you obtained during the drive preparation step. If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. 
+    - Upload the drive journal files that you obtained during the drive preparation step. If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. If the journal file size exceeds 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml` also created with the journal file. 
     - Select the destination storage account where data will reside. 
     - The drop-off location is automatically populated based on the region of the storage account selected.
    

@@ -36,9 +36,9 @@ Perform the following steps to prepare the drives.
 
 1. Connect our disk drives to the Windows system via SATA connectors.
 2. Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
-3. Create a *dataset.csv* file. Depending on whether you want to import a file or folder or both, add entries in the *dataset.csv* file similar to the following examples.  
+3. Modify the *dataset.csv* file in the root folder where the tool resides. Depending on whether you want to import a file or folder or both, add entries in the *dataset.csv* file similar to the following examples.  
 
-    - **To import a file**: In the following example, your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it is created. Folder structure is maintained.
+    - **To import a file**: In the following example, the data to copy resides in the C: drive. Your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it is created in the Azure Storage account. Folder structure is maintained.
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -62,7 +62,7 @@ Perform the following steps to prepare the drives.
     Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
 
-4. Create a *driveset.csv* file. Add entries in the *driveset.csv* file similar to the following examples. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.
+4. Modify the *driveset.csv* file in the root folder where the tool resides. Add entries in the *driveset.csv* file similar to the following examples. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.
 
     This example assumes that two disks are attached and basic NTFS volumes G:\ and H:\ are created. H:\is not encrypted while G: is already encrypted. The tool formats and encrypts the disk that hosts H:\ only (and not G:\).
 
@@ -85,19 +85,19 @@ Perform the following steps to prepare the drives.
 5.	Use the `PrepImport` option to copy and prepare data to the disk drive. For the first copy session to copy directories and/or files with a new copy session, run the following command:
 
         ```
-        WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+        .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
         ```
 
     An import example is shown below.
   
         ```
-        WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
+        .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
         ```
  
 6. A journal file with name you provided with `/j:` parameter, is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files are not processed.
 
-> [!WARNING]
-> Do not modify the data on the disk drives or the journal file after completing disk preparation.
+    > [!IMPORTANT]
+    > - Do not modify the data on the disk drives or the journal file after completing disk preparation.
 
 For additional samples, go to [Samples for journal files](#samples-for-journal-files).
 
@@ -146,6 +146,8 @@ Perform the following steps to create an import job in the Azure portal.
     - Provide the Azure datacenter shipping address for shipping disks back to Azure. Ensure that the job name and the full address are mentioned on the shipping label.
     - Click **OK** to complete import job creation.
 
+        ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+
 ## Step 3: Ship the drives to the Azure datacenter 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
@@ -179,7 +181,7 @@ For subsequent copy sessions to the same hard disk drives specified in *InitialD
     WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
     ```
 
-An import example is shown below
+An import example is shown below.
 
     ```
     WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
