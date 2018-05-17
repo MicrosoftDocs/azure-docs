@@ -24,11 +24,11 @@ Get started quickly with the IoT solution accelerators to build your IoT solutio
                     <div class="cardText">
                         <p>Learn about the solution accelerators, key scenarios, and how to get started</p>
                         <ul>
-                            <li><a href="/azure/iot-solutions/iot-solutions-what-are-solution-accelerators">Solution accelerators overview</a></li>
-                            <li><a href="/azure/iot-solutions/iot-solutions-remote-monitoring-deploy">Deploy a solution accelerator</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators">Solution accelerators overview</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy">Deploy a solution accelerator</a></li>
                             <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-explore">Out of the box solution capabilities</a></li>
                             <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-monitor">Monitoring capabilities</a></li>
-                            <li><a href="/azure/iot-solutions/iot-solutions-remote-monitoring-automate">Rules management capabilities</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Rules management capabilities</a></li>
                             <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-manage">Device management capabilities</a></li>
                         </ul>
                     </div>
@@ -71,8 +71,8 @@ Get started quickly with the IoT solution accelerators to build your IoT solutio
                     <div class="cardText">
                         <p>Learn how to customise a solution accelerator</p>
                         <ul>
-                            <li><a href="/azure/iot-solutions/iot-solutions-remote-monitoring-deploy-local">Run a solution locally</a></li>
-                            <li><a href="/azure/iot-solutions/iot-solutions-remote-monitoring-customize#presentation-and-visualization">Customize the UX</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local">Run a solution locally</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize#presentation-and-visualization">Customize the UX</a></li>
                         </ul>
                     </div>
                 </div>
