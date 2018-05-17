@@ -191,6 +191,64 @@
         href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Enable and view metrics (classic)
         href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+- name: Transfer data with Import/Export
+  items:  
+  - name: About Import/Export
+    href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Use Import/Export
+    items:
+    - name: Import data to blobs
+      href: ../common/storage-import-export-data-to-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Import data to files
+      href: ../common/storage-import-export-data-to-files?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Export data from blobs
+      href: ../common/storage-import-export-data-from-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json      
+  - name: How-to
+    items:
+    - name: View drive status
+      href: ../common/storage-import-export-view-drive-status?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Review job status
+      href: ../common/storage-import-export-tool-reviewing-job-status-v1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Repair import job
+      href: ../common/storage-import-export-tool-repairing-an-import-job-v1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Repair export job
+      href: ../common/storage-import-export-tool-repairing-an-export-job-v1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json  
+  - name: FAQ:Import/Export
+    href: ../common/storage-import-export-service-faq?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Reference
+    items:
+    - name: REST API
+      href: https://docs.microsoft.com/rest/api/storageimportexport/jobs
+    - name: Archive
+      items:
+      - name: Create import job
+        href: ../common/storage-import-export-creating-an-import-job?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Create export job
+        href: ../common/storage-import-export-creating-an-import-job?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Get job state
+        href: ../common/storage-import-export-retrieving-state-info-for-a-job?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Create export job
+        href: ../common/storage-import-export-creating-an-import-job?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Enumerate jobs
+        href: ../common/storage-import-export-enumerating-jobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Cancel & delete job
+        href: ../common/ storage-import-export-cancelling-and-deleting-jobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Back up drive manifest
+        href: ../common/storage-import-export-backing-up-drive-manifests?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Enumerate jobs
+        href: ../common/storage-import-export-enumerating-jobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Diagnostics & error recovery
+        href: ../common/storage-import-export-diagnostics-and-error-recovery?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Commands for import jobs
+        href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Import/Export service manifest file format
+        href: ../common/storage-import-export-file-format-manifest.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Import/Export service metadata and properties file format
+        href: ../common/storage-import-export-file-format-metadata-and-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Import/Export service log file format
+        href: ../common/storage-import-export-file-format-log.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Contact Support
+    href: ../common/storage-import-export-contact-microsoft-support?toc=%2fazure%2fstorage%2fblobs%2ftoc.json        
 - name: How to
   items:
   - name: Create a storage account
