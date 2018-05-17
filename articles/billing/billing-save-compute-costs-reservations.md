@@ -16,8 +16,8 @@ ms.date: 05/09/2018
 ms.author: yashar
 
 ---
-# What are Azure Reserved Instances?
-[Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances) allow you to save money by pre-paying for one-year or three-years of compute capacity allowing you to get a discount on the virtual machines you use. Azure Reserved Instances can significantly reduce your virtual machine costs—up to 72 percent on pay-as-you-go prices–with one-year or three-year upfront commitment. Reserved Instances provide a billing discount and do not affect the runtime state of your virtual machines.
+# What are Azure Reserved VM Instances?
+[Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances) help you to save money by pre-paying for one-year or three-years of compute capacity allowing you to get a discount on the virtual machines you use. Azure Reserved Instances can significantly reduce your virtual machine costs—up to 72 percent on pay-as-you-go prices–with one-year or three-year upfront commitment. Reserved Instances provide a billing discount and do not affect the runtime state of your virtual machines.
 
 You can buy a Reserved Instance (RI) in the [Azure portal](https://aka.ms/reservations). For more information, see [Prepay for virtual machines and save money with Reserved Instances](https://go.microsoft.com/fwlink/?linkid=861721).
 
