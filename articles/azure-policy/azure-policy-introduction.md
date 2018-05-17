@@ -12,9 +12,11 @@ ms.custom: mvc
 ---
 # What is Azure Policy?
 
-IT governance creates clarity between business goals and IT projects. Good IT governance involves planning your initiatives and setting priorities on a strategic level. Does your company experience a significant number of IT issues that never seem to get resolved? Implementing policies helps you better manage and prevent them. Implementing policies is where Azure Policy comes in.
+IT Governance ensures that your organization is able to achieve its goals through an effective and efficient use of IT. It does this by creating clarity between your business goals and IT projects.
 
-Azure Policy is a service in Azure that you use to create, assign and, manage policy definitions. Policy definitions enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. Azure Policy runs an evaluation of your resources, scanning for those not compliant with the policy definitions you have. For example, you can have a policy to allow only certain type of virtual machines. Another requires that all resources have a particular tag. These policies are then evaluated when creating and updating resources.
+Does your company experience a significant number of IT issues that never seem to get resolved? Good IT governance involves planning your initiatives and setting priorities on a strategic level to help manage and prevent issues. This is where Azure Policy comes in.
+
+Azure Policy is a service in Azure that you use to create, assign and, manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. Azure Policy does this by running evaluations of your resources and scanning for those not compliant with the policies you have created. For example, you can have a policy to allow only a certain SKU size of virtual machines in your environment. Once this policy has been implemented, it will then be evaluated when creating and updating resources, as well as over your already existing resources. Later on in this documentation, we will go over more details on how to create and implement policies with Azure policy.
 
 > [!IMPORTANT]
 > Azure Policy's compliance evaluation is now provided for all assignments regardless of pricing tier. If your assignments do not show the compliance data, please ensure that the subscription is registered with the Microsoft.PolicyInsights resource provider.
@@ -27,14 +29,14 @@ There are a few key differences between policy and role-based access control (RB
 
 Azure Policy has permissions represented as operations in two different Resource Providers:
 
-- [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsight](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.Authorization](../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
+- [Microsoft.PolicyInsight](../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Several of the Built-in roles have various levels of permission to Azure Policy resources, such as **Security Admin** that can manage policy assignments and definitions but cannot view compliance information and **Reader** that can read details regarding policy assignments and definitions, but cannot make changes or view compliance information. To grant permission to view Policy compliance details, create a [custom role](../../role-based-access-control/custom-roles.md).
+Several of the Built-in roles have various levels of permission to Azure Policy resources, such as **Security Admin** that can manage policy assignments and definitions but cannot view compliance information and **Reader** that can read details regarding policy assignments and definitions, but cannot make changes or view compliance information. To grant permission to view Policy compliance details, create a [custom role](../role-based-access-control/custom-roles.md).
 
 ## Policy definition
 
-Every policy definition has conditions under which it is enforced. And, it has an accompanying effect that takes place if the conditions are met.
+The journey of creating and implementing a policy in Azure Policy begins with creating a policy definition. Every policy definition has conditions under which it is enforced. And, it has an accompanying effect that takes place if the conditions are met.
 
 In Azure Policy, we offer some built-in policies that are available to you by default. For example:
 
@@ -47,13 +49,15 @@ In Azure Policy, we offer some built-in policies that are available to you by de
 - **Enforce tag and its value**: This policy enforces a required tag and its value to a resource.
 - **Not allowed resource types**: This policy enables you to specify the resource types that your organization cannot deploy.
 
-You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI. After you make changes to a policy definition, policy re-evaluation happens about once an hour.
+In order to implement these policy definitions (both built-in and custom definitions), you will need to assign them. You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
+
+Keep in mind that a policy reevaluation happens about once an hour, which means that if you make changes to your policy definition after implementing the policy (creating a policy assignment) it will be re-evaluated over your resources within the hour.
 
 To learn more about the structures of policy definitions, review [Policy Definition Structure](policy-definition.md).
 
 ## Policy assignment
 
-A policy assignment is a policy definition that has been assigned to take place within a specific scope. This scope could range from a management group to a resource group. The term *scope* refers to all the resource groups, subscriptions, or management groups that the policy definition is assigned to. Policy assignments are inherited by all child resources. So, if a policy is applied to a resource group, it is applied to all the resources in that resource group. However, you can exclude a subscope from the policy assignment.
+A policy assignment is a policy definition that has been assigned to take place within a specific scope. This scope could range from a management group to a resource group. The term *scope* refers to all the resource groups, subscriptions, or management groups that the policy definition is assigned to. Policy assignments are inherited by all child resources. This means that if a policy is applied to a resource group, it is applied to all the resources in that resource group. However, you can exclude a subscope from the policy assignment.
 
 For example, at the subscription scope, you can assign a policy that prevents the creation of networking resources. However, you exclude one resource group within the subscription that is intended for networking infrastructure. You grant access to this networking resource group to users that you trust with creating networking resources.
 
@@ -89,7 +93,7 @@ From the preceding example, the **Enable Monitoring in Azure Security Center** i
 
 Like policy parameters, initiative parameters help simplify initiative management by reducing redundancy. Initiative parameters are essentially the list of parameters being used by the policy definitions within the initiative.
 
-For example, take a scenario where you have an initiative definition - **initiativeC**, with two policy definitions. Each policy definition having one defined parameter:
+For example, take a scenario where you have an initiative definition - **initiativeC**, with policy definitions **policyA** and **policyB** each expecting a different type of parameter:
 
 | Policy | Name of parameter |Type of parameter  |Note |
 |---|---|---|---|
@@ -106,15 +110,13 @@ For example, you might create a list of value options in an initiative definitio
 
 ## Recommendations for managing policies
 
-While creating and managing policy definitions and assignments, here are a few pointers we advise you to follow:
+While creating and managing policy definitions and assignments, here are a few pointers we advise you to follow and tips to keep in mind:
 
 - If you are creating policy definitions in your environment, we recommend starting with an audit effect, as opposed to a deny effect, to keep track of the impact of your policy definition on the resources in your environment. If you have scripts already in place to autoscale up your applications, setting a deny effect may hinder those automations tasks you already have in place.
 - It is important to keep organizational hierarchies in mind when creating definitions and assignments. We recommend creating definitions at a higher level, for example at the management group or subscription level, and assigning at the next child level. For example, if you create a policy definition at the management group level, a policy assignment of that definition can be scoped down to a subscription level within that management group.
 - We recommend always using initiative definitions instead of policy definitions, even if you only have one policy in mind. For example, if you have a policy definition – *policyDefA* and you create it under the initiative definition - *initiativeDefC*, if you decide to create another policy definition later for *policyDefB* with goals similar to that of *policyDefA*, you can add it under *initiativeDefC* and track them better that way.
-
-   Keep in mind that once you have created an initiative assignment from an initiative definition, any new policy definitions added to the initiative definition automatically roll under the initiative assignment(s) under that initiative definition. However, if there’s a new parameter introduced to the new policy definition, you need to update the initiative definition and assignments by editing the initiative definition or assignment.
-
-   Once an initiative assignment is triggered, all policies within the initiative will be triggered as well. However, if you needed to execute a policy individually, it is better to not include it in an initiative.
+- Keep in mind that once you have created an initiative assignment from an initiative definition, any new policy definitions added to the initiative definition automatically roll under the initiative assignment(s) under that initiative definition. However, if there’s a new parameter introduced to the new policy definition, you need to update the initiative definition and assignments by editing the initiative definition or assignment.
+- Once an initiative assignment is triggered, all policies within the initiative will be triggered as well. However, if you needed to execute a policy individually, it is better to not include it in an initiative.
 
 ## Next steps
 

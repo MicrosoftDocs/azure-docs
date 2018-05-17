@@ -27,7 +27,7 @@ There are currently five effects that are supported in a policy definition:
 
 ## Order of Evaluation
 
-When a resource is requested to be created or updated through Azure Resource Manager, Policy will
+When a request to create or update a resource through Azure Resource Manager is made, Policy will
 process several of the effects prior to handing the request to the appropriate Resource Provider.
 Doing so prevents unnecessary processing by a Resource Provider when a resource does not meet the
 designed governance controls of Policy. Policy creates a list of all policy definitions,
@@ -183,18 +183,18 @@ that is marked as non-compliant.
 
 ### AuditIfNotExists Properties
 
-The **details** property of the AuditIfNotExists effects has all the sub-properties that define the
+The **details** property of the AuditIfNotExists effects has all the subproperties that define the
 related resources to match.
 
 - **Type** [required] Specifies the type of the related resource to match. Will start by trying to fetch a resource underneath the **if** condition resource, then will query within the same resource group as the **if** condition resource.
-- **Name** (optional) Specify the exact name of the resource to match.  This will cause the policy to fetch one specific resource instead of all resources of the specified type.
+- **Name** (optional) Specifies the exact name of the resource to match and will cause the policy to fetch one specific resource instead of all resources of the specified type.
 - **ResourceGroupName** (optional) Allows the matching of the related resource to come from a different resource group. Does not apply if **type** is a resource that would be underneath the **if** condition resource. Default is the **if** condition resource's resource group.
 - **ExistenceScope** (optional) Allowed values are _Subscription_ and _ResourceGroup_. Sets the scope of where to fetch the related resource to match from. Does not apply if **type** is a resource that would be underneath the **if** condition resource. For _ResourceGroup_, would limit to the **if** condition resource's resource group or the resource group specified in **ResourceGroupName**. For _Subscription_, queries the entire subscription for the related resource. Default is _ResourceGroup_.
 - **ExistenceCondition** (optional) If not specified, any related resource of **type** will satisfy the effect and will not trigger the audit. Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually. If any matching related resource evaluates to true, the effect will be satisfied and will not trigger the audit. Can use [field()] to check equivalence with values in the **if** condition. As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 
 ### AuditIfNotExists Example
 
-Example: Evaluates Virtual Machines to determine if the Antimalware extension exists and audits when missing.
+Example: Evaluates Virtual Machines to determine if the Antimalware extension exists then audits when missing.
 
 ```json
 {
@@ -239,11 +239,11 @@ marked as non-compliant, but no action is performed on that resource.
 
 ### DeployIfNotExists Properties
 
-The **details** property of the DeployIfNotExists effects has all the sub-properties that define the
+The **details** property of the DeployIfNotExists effects has all the subproperties that define the
 related resources to match and the template deployment to execute.
 
 - **Type** [required] Specifies the type of the related resource to match. Will start by trying to fetch a resource underneath the **if** condition resource, then will query within the same resource group as the **if** condition resource.
-- **Name** (optional) Specify the exact name of the resource to match.  This will cause the policy to fetch one specific resource instead of all resources of the specified type.
+- **Name** (optional) Specifies the exact name of the resource to match and will cause the policy to fetch one specific resource instead of all resources of the specified type.
 - **ResourceGroupName** (optional) Allows the matching of the related resource to come from a different resource group. Does not apply if **type** is a resource that would be underneath the **if** condition resource. Default is the **if** condition resource's resource group. If a template deployment is executed, it will be in the resource group of this value.
 - **ExistenceScope** (optional) Allowed values are _Subscription_ and _ResourceGroup_. Sets the scope of where to fetch the related resource to match from. Does not apply if **type** is a resource that would be underneath the **if** condition resource. For _ResourceGroup_, would limit to the **if** condition resource's resource group or the resource group specified in **ResourceGroupName**. For _Subscription_, queries the entire subscription for the related resource. Default is _ResourceGroup_.
 - **ExistenceCondition** (optional) If not specified, any related resource of **type** will satisfy the effect and will not trigger the audit. Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually. If any matching related resource evaluates to true, the effect will be satisfied and will not trigger the audit. Can use [field()] to check equivalence with values in the **if** condition. As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
