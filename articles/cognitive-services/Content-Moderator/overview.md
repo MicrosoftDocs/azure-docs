@@ -17,6 +17,13 @@ Content moderation is the process of monitoring user-generated content on online
 
 ## Where it is used
 
+The following list shows a few example scenarios where Content Moderator is used:
+
+- Online marketplaces moderating product catalogs and user generated content
+- Gaming companies moderating user generated game artifacts and chat rooms
+- Social messaging platform moderating images, text, and videos added by their users
+- Enterprise media companies implementing centralized content moderation for their content
+- K-12 education solution providers filtering bad and offensive content for students and educators
 
 ## What it includes
 
