@@ -48,6 +48,9 @@ Review endpoint utterances on a regular basis to find common usage where an enti
 
 As part of the review, consider adding a phrase list to add a signal to LUIS for words or phrases that are significant to your domain but are not exact matches, and for which LUIS doesn't have a high confidence. 
 
+## Entities for names
+See [Extracting names](luis-concept-data-extraction.md#extracting-names) for more information.
+
 ### If you need more than the maximum number of entities
 You might need to use hierarchical and composite entities. Hierarchical entities reflect the relationship between entities that share characteristics or are members of a category. The child entities are all members of their parent's category. For example, a hierarchical entity named PlaneTicketClass might have the child entities EconomyClass and FirstClass. The hierarchy spans only one level of depth. 
 
