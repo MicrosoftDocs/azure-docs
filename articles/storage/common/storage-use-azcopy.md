@@ -13,18 +13,29 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 05/17/2018
 ms.author: seguler
 
 ---
 # Transfer data with the AzCopy on Windows
 AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
-There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
+There are two versions of AzCopy that you can download. AzCopy on Windows offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
 
 ## Download and install AzCopy on Windows
 
-Download the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy).
+### Latest Preview version
+Download the [latest preview version of AzCopy on Windows](http://aka.ms/downloadazcopypr). This Preview version offers significant performance improvements and packages .NET Core in the installation.
+
+**AzCopy on Windows 8.0 Preview Release Notes**
+- Table service is no longer supported in the latest version. If you use Table export feature, please download the stable version below.
+- Built with .NET Core 2.1, and all .NET Core dependencies are now packaged in the AzCopy installation.
+- Significant performance improvements for both upload and download scenarios
+
+After installing AzCopy on Windows using the installer, open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
+
+### Latest Stable version
+Download the [latest stable version of AzCopy on Windows](http://aka.ms/downloadazcopy).
 
 After installing AzCopy on Windows using the installer, open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
