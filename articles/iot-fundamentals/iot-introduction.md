@@ -174,11 +174,11 @@ Explore the following areas of technologies and solutions, or see the Table of C
 [lnk-iot-edge-land]: /azure/iot-edge/index.yml
 [lnk-iot-hub-land]: /azure/iot-hub/index.md
 [lnk-iot-maps-land]: /azure/maps/index.yml
-[lnk-iot-sa-land]: ../iot-solutions/index.md
+[lnk-iot-sa-land]: ../iot-accelerators/index.md
 [lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
 
 [lnk-iot-hub]: ../iot-hub/about-iot-hub.md
-[lnk-iot-sa]: ../iot-solutions/iot-solutions-what-are-solution-accelerators.md
+[lnk-iot-sa]: ../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
 [lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf

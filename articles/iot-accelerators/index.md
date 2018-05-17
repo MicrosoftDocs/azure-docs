@@ -24,12 +24,12 @@ Get started quickly with the IoT solution accelerators to build your IoT solutio
                     <div class="cardText">
                         <p>Learn about the solution accelerators, key scenarios, and how to get started</p>
                         <ul>
-                            <li><a href="/azure/iot-solutions/iot-solutions-what-are-solution-accelerators">Solution accelerators overview</a></li>
-                            <li><a href="/azure/iot-solutions/iot-solutions-remote-monitoring-deploy">Deploy a solution accelerator</a></li>
-                            <li><a href="/azure/iot-solutions/iot-solutions-remote-monitoring-explore">Out of the box solution capabilities</a></li>
-                            <li><a href="/azure/iot-solutions/iot-solutions-remote-monitoring-monitor">Monitoring capabilities</a></li>
-                            <li><a href="/azure/iot-solutions/iot-solutions-remote-monitoring-automate">Rules management capabilities</a></li>
-                            <li><a href="/azure/iot-solutions/iot-solutions-remote-monitoring-manage">Device management capabilities</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators">Solution accelerators overview</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy">Deploy a solution accelerator</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore">Out of the box solution capabilities</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Monitoring capabilities</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Rules management capabilities</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Device management capabilities</a></li>
                         </ul>
                     </div>
                 </div>
@@ -49,9 +49,9 @@ Get started quickly with the IoT solution accelerators to build your IoT solutio
                     <div class="cardText">
                         <p>Learn how to connect your devices to a solution accelerator</p>
                         <ul>
-                            <li><a href="/azure/iot-solutions/iot-solutions-remote-monitoring-device-schema">Device model overview</a></li>
-                            <li><a href="/azure/iot-solutions/iot-solutions-remote-monitoring-device-behavior">Customize your simulated devices</a></li>
-                            <li><a href="/azure/iot-solutions/iot-solutions-connecting-devices-node">Connect physical devices</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema">Device model overview</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior">Customize your simulated devices</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-connecting-devices-node">Connect physical devices</a></li>
                         </ul>
                     </div>
                 </div>
@@ -91,10 +91,10 @@ Get started quickly with the IoT solution accelerators to build your IoT solutio
                 <div class="card">
                     <div class="cardText">
                         <h3>Resources</h3>
-                        <p><a href="/azure/iot-solutions/iot-security-architecture">Security architecture</a></p>
-                        <p><a href="/azure/iot-solutions/iot-security-best-practices">Security best practices</a></p>
-                        <p><a href="/azure/iot-solutions/iot-solutions-security-deployment">Secure your IoT deployment</a></p>
-                        <p><a href="/azure/iot-solutions/securing-iot-ground-up">Security from the ground up</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-architecture">Security architecture</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-best-practices">Security best practices</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-accelerators-security-deployment">Secure your IoT deployment</a></p>
+                        <p><a href="/azure/iot-accelerators/securing-iot-ground-up">Security from the ground up</a></p>
                    </div>
                 </div>
             </div>

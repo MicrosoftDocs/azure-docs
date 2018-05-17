@@ -93,7 +93,7 @@ If you're certain you have an Azure subscription, validate the tenant mapping fo
 ## Next steps
 To continue learning about IoT solution accelerators, see how you can [customize a solution accelerator][lnk-customize].
 
-[img-flowchart]: media/iot-solutions-permissions/flowchart.png
+[img-flowchart]: media/iot-accelerators-permissions/flowchart.png
 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring

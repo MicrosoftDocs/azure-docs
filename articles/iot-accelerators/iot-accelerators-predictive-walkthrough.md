@@ -73,7 +73,7 @@ You can also explore some of the other features and capabilities of the IoT solu
 * [Frequently asked questions for IoT solution accelerators][lnk-faq]
 * [IoT security from the ground up][lnk-security-groundup]
 
-[img-architecture]: media/iot-solutions-predictive-walkthrough/architecture.png
+[img-architecture]: media/iot-accelerators-predictive-walkthrough/architecture.png
 
 [lnk-remote-monitoring]: ../iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3

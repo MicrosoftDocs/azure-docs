@@ -40,7 +40,7 @@ Both solutions can be deployed in two ways, via website or via PowerShell.
 
 ### Deploy via website
 
-Follow the instructions in the [tutorial for the preconfigured solutions](../iot-solutions/iot-solutions-remote-monitoring-explore.md) by using the home page mentioned earlier.
+Follow the instructions in the [tutorial for the preconfigured solutions](../iot-accelerators/iot-accelerators-remote-monitoring-explore.md) by using the home page mentioned earlier.
 
 ### Deploy via PowerShell
 

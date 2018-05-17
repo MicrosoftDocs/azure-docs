@@ -209,6 +209,6 @@ To send telemetry data from non OPC UA devices to Connected Factory:
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Predictive Maintenance solution accelerator overview](iot-solutions-predictive-overview.md)
-* [Connected Factory solution accelerator overview](iot-solutions-connected-factory-overview.md)
+* [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
+* [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
 * [IoT security from the ground up](securing-iot-ground-up.md)

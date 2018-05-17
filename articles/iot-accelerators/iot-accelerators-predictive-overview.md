@@ -132,16 +132,16 @@ You can also explore some of the other features and capabilities of the IoT solu
 * [Frequently asked questions for IoT solution accelerators][lnk-faq]
 * [IoT security from the ground up][lnk-security-groundup]
 
-[img-resource-group]: media/iot-solutions-predictive-overview/resource-group.png
-[img-simulation-stopped]: media/iot-solutions-predictive-overview/simulation-stopped.png
-[img-simulation-running]: media/iot-solutions-predictive-overview/simulation-running.png
-[img-simulation-warning]: media/iot-solutions-predictive-overview/simulation-warning.png
-[img-machine-learning]: media/iot-solutions-predictive-overview/machine-learning.png
+[img-resource-group]: media/iot-accelerators-predictive-overview/resource-group.png
+[img-simulation-stopped]: media/iot-accelerators-predictive-overview/simulation-stopped.png
+[img-simulation-running]: media/iot-accelerators-predictive-overview/simulation-running.png
+[img-simulation-warning]: media/iot-accelerators-predictive-overview/simulation-warning.png
+[img-machine-learning]: media/iot-accelerators-predictive-overview/machine-learning.png
 
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
-[lnk-predictive-walkthrough]:iot-solutions-predictive-walkthrough.md
-[lnk_preconfigured_solutions]:iot-solutions-what-are-solution-accelerators.md
-[lnk_iot_suite]:iot-solutions-options.md
+[lnk-predictive-walkthrough]:iot-accelerators-predictive-walkthrough.md
+[lnk_preconfigured_solutions]:iot-accelerators-what-are-solution-accelerators.md
+[lnk_iot_suite]:iot-accelerators-options.md
 [lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 
