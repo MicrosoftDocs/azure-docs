@@ -12,7 +12,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: tomfitz
 
