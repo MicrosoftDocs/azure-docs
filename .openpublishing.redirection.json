@@ -21307,47 +21307,47 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
-            "redirect_url": "/azure/iot-solutions/iot-solutions-arduino-iot-devkit-az3166-devkit-remote-monitoringv2",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-device-schema.md",
-            "redirect_url": "/azure/iot-solutions/iot-solutions-remote-monitoring-device-schema",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-explore.md",
-            "redirect_url": "/azure/iot-solutions/iot-solutions-remote-monitoring-explore",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-maintain.md",
-            "redirect_url": "/azure/iot-solutions/iot-solutions-remote-monitoring-maintain",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-maintain",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-manage.md",
-            "redirect_url": "/azure/iot-solutions/iot-solutions-remote-monitoring-manage",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-monitor.md",
-            "redirect_url": "/azure/iot-solutions/iot-solutions-remote-monitoring-monitor",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md",
-            "redirect_url": "/azure/iot-solutions/iot-solutions-remote-monitoring-sample-walkthrough",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-sample-walkthrough",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-telefonica-sim.md",
-            "redirect_url": "/azure/iot-solutions/iot-solutions-remote-monitoring-telefonica-sim",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-telefonica-sim",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-test.md",
-            "redirect_url": "/azure/iot-solutions/iot-solutions-remote-monitoring-test",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-test",
             "redirect_document_id": false
         },
         {

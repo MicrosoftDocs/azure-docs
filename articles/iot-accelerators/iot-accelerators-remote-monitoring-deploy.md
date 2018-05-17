@@ -83,6 +83,6 @@ In this tutorial, you learned how to:
 > * Deploy the solution accelerator
 > * Sign in to the solution accelerator
 
-Now that you have deployed the remote monitoring solution, the next step is to [explore the capabilities of the solution dashboard](iot-solutions-remote-monitoring-explore.md).
+Now that you have deployed the remote monitoring solution, the next step is to [explore the capabilities of the solution dashboard](iot-accelerators-remote-monitoring-explore.md).
 
 <!-- Next tutorials in the sequence -->

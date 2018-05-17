@@ -458,7 +458,7 @@ To further modify the presentation and visualizations layer in the Remote Monito
 
 In this article, you learned about the resources available to help you customize the web UI in the Remote Monitoring solution accelerator.
 
-For more conceptual information about the Remote Monitoring solution accelerator, see [Remote Monitoring architecture](iot-solutions-remote-monitoring-sample-walkthrough.md)
+For more conceptual information about the Remote Monitoring solution accelerator, see [Remote Monitoring architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 For more information about customizing the Remote Monitoring solution, see [Customize and redeploy a microservice](../iot-suite/iot-suite-microservices-example.md)
 <!-- Next tutorials in the sequence -->

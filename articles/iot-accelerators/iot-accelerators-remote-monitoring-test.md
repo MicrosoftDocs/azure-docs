@@ -478,11 +478,11 @@ You are now ready to test your new simulated lightbulb type by running the devic
 
 1. In the **Monitoring** section, choose **Metrics**. Then verify that the number of **Connected devices** is two:
 
-    ![Number of connected devices](./media/iot-solutions-remote-monitoring-test/connecteddevices.png)
+    ![Number of connected devices](./media/iot-accelerators-remote-monitoring-test/connecteddevices.png)
 
 1. In your browser, navigate to the **Dashboard** for your remote monitoring solution. In the telemetry panel on the **Dashboard**, select **temperature**. The temperature for all your simulated devices displays on the chart:
 
-    ![Temperature telemetry](./media/iot-solutions-remote-monitoring-test/telemetry.png)
+    ![Temperature telemetry](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
 You now have the lightbulb device simulation running locally. The next step is to deploy your updated simulator code to the virtual machine that runs the remote monitoring microservices in Azure.
 
@@ -540,7 +540,7 @@ The following steps assume that you have a repository called **lightbulb** in yo
 
 1. To verify the upload, navigate to [https://hub.docker.com/](https://hub.docker.com/). Locate your **lightbulb** repository and choose **Details**. Then choose **Tags**:
 
-    ![Docker hub](./media/iot-solutions-remote-monitoring-test/dockerhub.png)
+    ![Docker hub](./media/iot-accelerators-remote-monitoring-test/dockerhub.png)
 
     The scripts added the **testing** tag to the image.
 
@@ -582,19 +582,19 @@ You have now completed the steps to deploy an updated version of the device simu
 
 In your browser, navigate to the **Dashboard** for your remote monitoring solution. In the telemetry panel on the **Dashboard**, select **temperature**. The temperature for your two simulated devices displays on the chart:
 
-![Temperature telemetry](./media/iot-solutions-remote-monitoring-test/telemetry.png)
+![Temperature telemetry](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
 On the **Devices** page, you can provision instances of your new type:
 
-![View the list of available simulations](./media/iot-solutions-remote-monitoring-test/devicesmodellist.png)
+![View the list of available simulations](./media/iot-accelerators-remote-monitoring-test/devicesmodellist.png)
 
 You can view the telemetry from the simulated device:
 
-![View lightbulb telemetry](./media/iot-solutions-remote-monitoring-test/devicestelemetry.png)
+![View lightbulb telemetry](./media/iot-accelerators-remote-monitoring-test/devicestelemetry.png)
 
 You can call the **SwitchOn** and **SwitchOff** methods on your device:
 
-![Call lightbulb methods](./media/iot-solutions-remote-monitoring-test/devicesmethods.png)
+![Call lightbulb methods](./media/iot-accelerators-remote-monitoring-test/devicesmethods.png)
 
 ## Add a new telemetry type
 
@@ -682,7 +682,7 @@ To deploy your updated device simulation service to the solution's virtual machi
 
 On the **Devices** page, you can provision instances of your updated type:
 
-![Add updated chiller](./media/iot-solutions-remote-monitoring-test/devicesupdatedchiller.png)
+![Add updated chiller](./media/iot-accelerators-remote-monitoring-test/devicesupdatedchiller.png)
 
 You can view the new **Internal temperature** telemetry from the simulated device.
 
