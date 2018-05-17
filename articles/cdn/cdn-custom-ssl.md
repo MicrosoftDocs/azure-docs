@@ -50,6 +50,8 @@ Before you can complete the steps in this tutorial, you must first create a CDN 
 
 In addition, you must associate an Azure CDN custom domain on your CDN endpoint. For more information, see [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
 
+---
+
 ## SSL certificates
 To enable the HTTPS protocol for securely delivering content on an Azure CDN custom domain, you must use an SSL certificate. You can choose to use a certificate that is managed by Azure CDN or use your own certificate.
 
@@ -91,13 +93,13 @@ To enable HTTPS on a custom domain, follow these steps:
  
 You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few additional steps.
 
-## Prepare your Azure Key vault account and certificate
+**Prepare your Azure Key vault account and certificate**
  
 1. Azure Key Vault: You must have a running Azure Key Vault account under the same subscription as the Azure CDN profile and CDN endpoints that you want to enable custom HTTPS. Create an Azure Key Vault account if you don’t have one.
  
 2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner Certificate Authorities (CA) that Azure Key Vault integrates with. 
 
-## Register Azure CDN
+**Register Azure CDN**
 
 Register Azure CDN as an app in your Azure Active Directory via PowerShell.
 
@@ -110,7 +112,7 @@ Register Azure CDN as an app in your Azure Active Directory via PowerShell.
     ![Register Azure CDN in PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
               
 
-## Grant Azure CDN access to your key vault
+**Grant Azure CDN access to your key vault**
  
 Grant Azure CDN permission to access the certificates (secrets) in your Azure Key Vault account.
 
@@ -128,7 +130,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
     Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault.
  
-## Select the certificate for Azure CDN to deploy
+**Select the certificate for Azure CDN to deploy**
  
 1. Return to the Azure CDN portal and select the profile and CDN endpoint you want to enable custom HTTPS. 
 
@@ -151,6 +153,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
   
 6. When you use your own certificate, domain validation is not required. Proceed to [Wait for propagation](#wait-for-propagation).
 
+---
 
 ## Validate the domain
 
