@@ -74,7 +74,7 @@ sections:
     - html: <a href="luis-quickstart-intent-and-list-entity.md">Create app with intents and a list entity</a>
     - html: <a href="luis-quickstart-intent-and-hier-entity.md">Create app with intents and a hierarchical entity</a>
     - html: <a href="luis-quickstart-intents-regex-entity.md">Create app with intents and a regular expression entity</a>
-    - html: <a href="uis-quickstart-intent-and-key-phrase.md">Create app with intents and a keyphrase entity</a>
+    - html: <a href="luis-quickstart-intent-and-key-phrase.md">Create app with intents and a keyphrase entity</a>
 
 
 - title: Reference
