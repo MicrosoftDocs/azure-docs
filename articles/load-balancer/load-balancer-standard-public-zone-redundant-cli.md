@@ -217,7 +217,7 @@ runcmd:
 ### Create the zonal virtual machines
 Create the VMs with [az vm create](/cli/azure/vm#az_vm_create) in zone 1, zone 2, and zone 3. The following example creates a VM in each zone and generates SSH keys if they do not already exist:
 
-Create VMs in zone 1
+Create a VM in each zone (zone 1, zone2, and zone 3) of the *westeurope* location.
 
 ```azurecli-interactive
  az vm create \
