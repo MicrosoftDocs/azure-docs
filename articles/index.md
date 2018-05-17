@@ -263,7 +263,7 @@ featureFlags:
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/chef">
-                                                            <img src="chef/media/Chef.svg" alt="">
+                                                            <img src="chef/media/Chef_Regular.svg" alt="">
                                                             Chef
                                                         </a>
                                                     </li>
