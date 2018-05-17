@@ -46,7 +46,7 @@ With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in cont
 
     To learn more about the DNS Service in Service Fabric, see [DNS Service in Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice).
 
-### Known limitations with the debugging containers in Service Fabric
+### Known limitations when debugging containers in Service Fabric
 
 Below is a list of known limitations with debugging containers in Service Fabric and possible resolutions:
 
