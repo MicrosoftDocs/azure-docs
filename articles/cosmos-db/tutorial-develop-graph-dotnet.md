@@ -164,7 +164,7 @@ foreach (KeyValuePair<string, string> gremlinQuery in gremlinQueries)
 
 ## Add vertices and edges
 
-Let's look at more details of the Gremlin statements shown in the preceding section. First we add some vertices using Gremlin's `addV` method. For example, the following snippet creates a "Thomas Andersen" vertex of type "Person", with properties for first name, and age.
+Let's look at more details about the Gremlin statements shown in the preceding section. First we add some vertices using Gremlin's `addV` method. For example, the following snippet creates a "Thomas Andersen" vertex of type "Person", with properties for first name, and age.
 
 ```cs
 // Create a vertex
