@@ -21305,6 +21305,7 @@
             "redirect_url": "/azure/iot-accelerators/iot-accelerators-what-is-azure-iot",
             "redirect_document_id": false
         },
+        {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
             "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-javascriptspa",
             "redirect_document_id": false
