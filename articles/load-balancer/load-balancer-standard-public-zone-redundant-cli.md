@@ -220,14 +220,16 @@ Create the VMs with [az vm create](/cli/azure/vm#az_vm_create) in zone 1, zone 2
 Create a VM in each zone (zone 1, zone2, and zone 3) of the *westeurope* location.
 
 ```azurecli-interactive
- az vm create \
---resource-group myResourceGroupSLB \
---name myVM$i \
---nics myNic$i \
---image UbuntuLTS \
---generate-ssh-keys \
---zone $i \
---custom-data cloud-init.txt
+for i in `seq 1 3`; do
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --zone $i \
+    --custom-data cloud-init.txt
+done
 ```
 ## Test the load balancer
 
