@@ -19,7 +19,9 @@ ms.author: b-juche
 # Access Azure NetApp Files and create a NetApp account
 
 
-![Azure Cloud Shell icon ](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
+![New NetApp account](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
+
+
 
 
 Follow the procedures in this article to prepare the deployment of Azure NetApp Files: 

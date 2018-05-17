@@ -18,6 +18,15 @@ ms.author: b-juche
 ---
 # Create a volume for Azure NetApp Files
 
+
+
+ 
+
+
+![Export policy](../media/azure-netapp-files/azure-netapp-files-export-policy.png)
+
+
+
 In this article:
 
 - [Prerequisites](#prerequisites)  
@@ -39,7 +48,7 @@ In this article:
 3.	Click **+Add** to create an NFS volume.
 4.	In the New NFS volume window, click **Create** and provide the required information:  
 
-    ![New NFS volume window](../media/azure-netapp-files/azure-netapp-files-new-nfs-volume.png)
+    ![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
 
     The fields are as follows:
     - `Name`  
