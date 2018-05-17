@@ -73,7 +73,7 @@ kubectl apply -f azure-file-sc.yaml
 
 A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure file share.
 
-The following YAML can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access.
+The following YAML can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access. For more information on access modes, see [access modes][access-modes].
 
 Create a file named `azure-file-pvc.yaml` and copy in the following YAML. Make sure that the `storageClassName` matches the storage class created in the last step.
 
