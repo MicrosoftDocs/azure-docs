@@ -247,4 +247,4 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)
+> [Smart contract integration patterns](blockchain-workbench-integration-patterns.md)
