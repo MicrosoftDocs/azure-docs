@@ -21476,6 +21476,48 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/security/manage-personal-data-azure.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/how-to-discover-classify-personal-data-azure.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-azure.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-azure-security-center.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-network-security.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-identity-access-controls.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-at-rest.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-in-transit-encryption.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protection-personal-data-azure-reporting-tools.md",
+            "redirect_url": "/azure/security",
             "source_path": "articles/cognitive-services/bing-visual-search/upload-images.md",
             "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/csharp",
             "redirect_document_id": false
