@@ -23,7 +23,7 @@ ms.author: b-juche
  
 
 
-![Export policy](../media/azure-netapp-files/azure-netapp-files-export-policy.png)
+![Restore snapshot to new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 
 

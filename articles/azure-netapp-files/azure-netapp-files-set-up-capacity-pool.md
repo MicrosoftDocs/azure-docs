@@ -19,8 +19,8 @@ ms.author: b-juche
 # Set up a capacity pool
 
 
-![New capacity pool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
+![New capacity pool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
 
 
