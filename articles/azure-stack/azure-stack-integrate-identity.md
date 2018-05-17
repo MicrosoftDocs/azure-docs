@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -285,6 +285,9 @@ There are many scenarios that require the use of a service principal name (SPN) 
 - Resource providers in Azure Stack when deployed with AD FS
 - Various applications
 - You require a non-interactive logon
+
+> [!Important]  
+> AD FS only supports interactive logon sessions. If you require a non-interactive logon for an automated scenario, you must use a SPN.
 
 For more information about creating an SPN, see [Create service principal for AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 

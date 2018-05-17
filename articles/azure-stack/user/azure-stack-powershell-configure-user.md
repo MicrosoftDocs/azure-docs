@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure the Azure Stack user's PowerShell environment | Microsoft Docs
 description: Configure the Azure Stack user's PowerShell environment
 services: azure-stack
@@ -40,7 +40,7 @@ You can configure these prerequisites from the [development kit](azure-stack-con
 
 Based on the type of your Azure Stack deployment (Azure AD or AD FS), run one of the following scripts to configure PowerShell for Azure Stack.
 
-Replace the following script variables with values from your Azure Stack configuration:
+Make sure you replace the following script variables with values from your Azure Stack configuration:
 
 * AAD tenantName
 * GraphAudience endpoint
