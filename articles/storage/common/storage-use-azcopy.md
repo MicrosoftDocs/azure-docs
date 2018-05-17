@@ -27,15 +27,15 @@ There are two versions of AzCopy that you can download. AzCopy on Windows offers
 ### Latest Preview version
 Download the [latest preview version of AzCopy on Windows](http://aka.ms/downloadazcopypr). This Preview version offers significant performance improvements and packages .NET Core in the installation.
 
-**AzCopy on Windows 8.0 Preview Release Notes**
-- Table service is no longer supported in the latest version. If you use Table export feature, please download the stable version below.
-- Built with .NET Core 2.1, and all .NET Core dependencies are now packaged in the AzCopy installation.
+#### AzCopy on Windows 8.0 Preview Release Notes
+- Table service is no longer supported in the latest version. If you use Table export feature, download the stable version.
+- Built with .NET Core 2.1, and all .NET Core dependencies are now packaged in the installation.
 - Significant performance improvements for both upload and download scenarios
-
-After installing AzCopy on Windows using the installer, open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 ### Latest Stable version
 Download the [latest stable version of AzCopy on Windows](http://aka.ms/downloadazcopy).
+
+### Post-installation Step
 
 After installing AzCopy on Windows using the installer, open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
