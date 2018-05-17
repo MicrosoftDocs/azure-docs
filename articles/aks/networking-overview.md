@@ -43,7 +43,7 @@ Advanced networking provides the following benefits:
 * Pods can access resources on the public Internet. Also a feature of Basic networking.
 
 > [!IMPORTANT]
-> Each node in an AKS cluster configured for Advanced networking can host a maximum of **30 pods**. Each VNet provisioned for use with the Azure CNI plugin is limited to **4096 IP addresses** (/20).
+> Each node in an AKS cluster configured for Advanced networking can host a maximum of **30 pods**. Each VNet provisioned for use with the Azure CNI plugin is limited to **4096 configured IP addresses**.
 
 ## Advanced networking prerequisites
 
@@ -59,7 +59,7 @@ Clusters configured with Advanced networking require additional planning. The si
 
 IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the VNet. Each node is configured with a primary IP, which is the IP of the node and 30 additional IP addresses pre-configured by Azure CNI that are assigned to pods scheduled to the node. When you scale out your cluster, each node is similarly configured with IP addresses from the subnet.
 
-The IP address plan for an AKS cluster consists of a VNET, at least one Subnet for VMs and Pods, a Kubernetes service address range.
+The IP address plan for an AKS cluster consists of a VNet, at least one Subnet for VMs and Pods, a Kubernetes service address range.
 
 | Address range | Description |
 | --------- | ------------- |
@@ -69,8 +69,7 @@ The IP address plan for an AKS cluster consists of a VNET, at least one Subnet f
 | Kubernetes DNS Service IP address | IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). |
 | Docker bridge address | IP address (in CIDR notation) used as the bridge ip address for VMs. Only needed if the default range is in-use in your VNet (172.16.0.0/16). |
 
-
-As mentioned previously, each VNet provisioned for use with the Azure CNI plugin is limited to **4096 IP addresses** (/20). Each node in a cluster configured for Advanced networking can host a maximum of **30 pods**.
+As mentioned previously, each VNet provisioned for use with the Azure CNI plugin is limited to **4096 configured IP addresses**. Each node in a cluster configured for Advanced networking can host a maximum of **30 pods**.
 
 ## Configure advanced networking
 
