@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -136,7 +136,7 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
 2. On the **Overview** page, click **Connect** to RDP into the VM.
 3. Log into the VM with the user name and password that you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
 4. On the server desktop, navigate to **Windows Administrative Tools**>**Windows PowerShell**.
-6. In the PowerShell Window, run the following commands to install the IIS server, remove the  default.htm file, add a new with default.htm file that displays the name of the VM:
+6. In the PowerShell Window, run the following commands to install the IIS server, remove the  default iisstart.htm file, and then add a new iisstart.htm file that displays the name of the VM:
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -144,10 +144,10 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-8. Close the RDP session with *myVM1*
-9. Repeat steps 1 to 8 to install IIS on *myVM2*.
+7. Close the RDP session with *myVM1*
+8. Repeat steps 1 to 7 to install IIS on *myVM2*.
 
 ## Create load balancer resources
 
