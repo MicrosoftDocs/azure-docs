@@ -220,7 +220,7 @@ Response Content Type: application/xml
 |Parameter|Value|Description|Parameter Type|Data Type|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|Required. If the `Authorization` or  `Ocp-Apim-Subscription-Key` header is used, leave the appid field empty else include a string containing  `"Bearer" + " " + "access_token"`.|query|string|
-|locale|(empty)	|Required. A string representing a combination of an ISO 639 two-letter lowercase culture code associated with a language and an ISO 3166 two-letter uppercase subculture code to localize the language names or a ISO 639 lowercase culture code by itself.|query|string|
+|locale|(empty)	|Required. A string representing a combination of an ISO 639 two-letter lowercase culture code associated with a language and an ISO 3166 two-letter uppercase subculture code to localize the language names or an ISO 639 lowercase culture code by itself.|query|string|
 |Authorization|(empty)	|Required if the appid field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(empty)	|Required if the appid field or `Authorization` header is not specified.|header|string|
 
