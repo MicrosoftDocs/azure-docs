@@ -22,7 +22,7 @@ ms.custom: mvc
 
 App Service on Linux currently provides a preview feature to support Java web apps. Please review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more information on previews. 
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching, web hosting service using the Linux operating system. This quickstart shows how to deploy a Java app to App Service on Linux using a built-in Linux image. You will use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) to create the web app with the built-in image.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching, web hosting service using the Linux operating system. This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) with the [Maven Plugin for Azure Web Apps (Preview)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web app with a built-in Linux image.
 
 ![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser.png)
 
@@ -35,73 +35,12 @@ App Service on Linux currently provides a preview feature to support Java web ap
 
 To complete this quickstart: 
 
-* [Install Git](https://git-scm.com/).
+* [Azure CLI 2.0 or later](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed locally.
 * [Apache Maven](http://maven.apache.org/).
 
 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
-
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
-
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
-
-
-## Create a web app
-
-In the Cloud Shell, create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan. You can do it by using the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. In the following example, replace *\<app_name>* with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). 
-
-```azurecli-interactive
-# Bash
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "TOMCAT|8.5-jre8"
-# PowerShell
-az --% webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "TOMCAT|8.5-jre8"
-```
-
-For the **runtime** parameter, use one of the following runtimes:
- * TOMCAT|8.5-jre8
- * TOMCAT|9.0-jre8
-
-
-When the web app has been created, the Azure CLI shows information similar to the following example:
-
-```json
-{
-  "additionalProperties": {},
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<your web app name>.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "<your web app name>.azurewebsites.net",
-    "<your web app name>.scm.azurewebsites.net"
-  ],
-  "ftpPublishingUrl": "ftp://<your ftp URL>",  
-  < JSON data removed for brevity. >
-}
-```
-
-Copy the value for **ftpPublishingUrl**. You will use this url later, if you choose FTP deployment.
-
-Browse to the newly created web app.
-
-```
-http://<app_name>.azurewebsites.net
-```
-
-If the web app is up and running, you should get a default screen similar to the following image:
-
-![Browse to Web App Before Deployment](media/quickstart-java/browse-web-app-not-deployed.png)
-
-
 ## Create a Java app
-
 
 Execute the following command using Maven to create a new *helloworld* web app:  
 
@@ -111,19 +50,20 @@ Change to the new *helloworld* project directory and build all modules using the
 
     mvn verify
 
-This command will create all modules including the *helloworld.war* file in the *helloworld/target* subdirectory.
+This command will verify and create all modules including the *helloworld.war* file in the *helloworld/target* subdirectory.
 
 
 ## Deploying the Java app to App Service on Linux
 
-To deploy your Java app WAR file, you can use Maven deployment, WarDeploy (currently in [Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)), or FTP.
+There are multiple deployment options for deploying your Java web apps to App Service on Linux. These include:
 
-Depending on which method of deployment you use, the relative path to browse to your Java web app will be slightly different.
+* [Deploying via Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)
+* [Deploying via ZIP or WAR](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip)
+* [Deploying via FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)
 
+In this quickstart you will use the Maven plugin for Azure web apps. It has advantages in that it is easy to use from Maven, and creates the necessary Azure resources for you (resource group, app service plan, and web app).
 
 ### Deploy with Maven
-
-In this section you will deploy the Java web app to Azure usign the [Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin).
 
 To deploy from Maven, add the following plugin definition inside the `<build>` element of the *pom.xml* file:
 
@@ -155,12 +95,16 @@ To deploy from Maven, add the following plugin definition inside the `<build>` e
     </plugins>
 ```    
 
-Update the following placeholders in the plugin definition:
+Update the following placeholders in the plugin configuration:
 
-* Replace `YOUR-RESOURCE-GROUP` with the name of the new resource group you created above,
-* Replace `YOUR-WEB-APP` with the name of the new web app you created above.
+| Placeholder | Description |
+| ----------- | ----------- |
+| `YOUR-RESOURCE-GROUP` | Name for the new resource group in which to create your web app. By putting all the resources for an app in a group, you can manage them together. For example, deleting the resource group would delete all resources associated with the app. Update this value with either the name of an existing Azure resource group, or a unique new resource group name. You will use this resource group name to clean up all Azure resources in a later section. |
+| `YOUR-WEB-APP` | The app name will be part the host name for the app when deployed to Azure (<web app name>.azurewebsites.net). Replace `YOUR-WEB-APP` with a unique name for the new Azure web app which will host your Java app. |
 
-Execute the following command to authenticate with the Azure CLI:
+The `linuxRuntime` element of the configuration controls what built-in Linux image is used with your application.
+
+Execute the following command and follow all directions to authenticate with the Azure CLI:
 
     az login
 
@@ -180,73 +124,6 @@ The Java sample code is running in a web app with built-in image.
 ![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser-curl.png)
 
 **Congratulations!** You've deployed your first Java app to App Service on Linux.
-
-
-
-### Deploy with WarDeploy 
-
-To deploy your WAR file with WarDeploy, use the following cURL example commandline to send a POST request to *https://<your app name>.scm.azurewebsites.net/api/wardeploy*. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication. For more information on WarDeploy, see [Deploy your app to Azure App Service with a ZIP or WAR file](../app-service-deploy-zip.md).
-
-```bash
-curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
-```
-
-Update the following placeholders:
-
-* `username` - Use the deployment credential username you created earlier.
-* `war_file_path` - Use the local WAR file path.
-* `app_name` - Use the app name your created earlier.
-
-Execute the command. When prompted by cURL, type in the password for your deployment credentials.
-
-Browse to the deployed application using the following URL in your web browser.
-
-```bash
-http://<app_name>.azurewebsites.net
-```
-
-The Java sample code is running in a web app with built-in image.
-
-![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser.png)
-
-
-**Congratulations!** You've deployed your first Java app to App Service on Linux.
-
-
-
-### FTP deployment
-
-Alternatively, you can also use FTP to deploy the WAR file. 
-
-FTP the file to the */home/site/wwwroot/webapps* directory of your web app. The following example commandline uses cURL:
-
-```bash
-curl -T war_file_path -u "app_name\username" ftp://webappFTPURL/site/wwwroot/webapps/
-```
-
-Update the following placeholders:
-
-* `war_file_path` - Use the local WAR file path.
-* `app_name` - Use the app name your created earlier.
-* `username` - Use the deployment credential username you created earlier.
-* `webappFTPURL` - Use the **FTP hostname** value for your web app, which you copied earlier. The FTP hostname is also listed on **Overview** blade for your web app in the [Azure portal](https://portal.azure.com/).
-
-Execute the command. When prompted by cURL, type in the password for your deployment credentials.
-
-
-Browse to the deployed application using the following URL in your web browser.
-
-```bash
-http://<app_name>.azurewebsites.net/helloworld
-```
-
-The Java sample code is running in a web app with built-in image.
-
-![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser-curl.png)
-
-
-**Congratulations!** You've deployed your first Java app to App Service on Linux.
-
 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
