@@ -15,7 +15,6 @@
 ## [3 - Connect with Power BI Desktop](tutorials/analysis-services-tutorial-pbid.md)
 
 # Concepts
-<<<<<<< HEAD
 
 ## Servers
 ### [Supported data sources](analysis-services-datasource.md)
@@ -36,7 +35,6 @@
 ## Servers
 ### [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
 ### [Configure scale-out](analysis-services-scale-out.md)
-=======
 ## [Automation with service principals](analysis-services-service-principal.md)
 ## [Supported data sources](analysis-services-datasource.md)
 ## [Connecting to on-premises data sources](analysis-services-gateway.md)
@@ -45,18 +43,22 @@
 ## [Compatibility level](analysis-services-compat-level.md)
 ## [High availability](analysis-services-bcdr.md)
 
+
 # How-to 
 ## [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
 ## [Import a Power BI Desktop file](analysis-services-import-pbix.md)
 ## [Backup and restore](analysis-services-backup.md)
 ## [Refresh with REST API](analysis-services-async-refresh.md)
 ## [Configure scale-out](analysis-services-scale-out.md)
+
 ## Automate administrative tasks
+### [Automation with service principals](analysis-services-service-principal.md)
 ### [Create service principal - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ### [Create service principal - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 ### [Add a service principal to server administrator role](analysis-services-addservprinc-admins.md)
+
 ## Server management
->>>>>>> b04c73575e64b80a7a85266e52b237f94d6acccd
+
 ### [Configure a server name alias](analysis-services-server-alias.md)
 ### [Manage a server](analysis-services-manage.md)
 ### [Monitor server metrics](analysis-services-monitor.md)
