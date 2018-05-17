@@ -37,8 +37,8 @@
       href: bing-visual-search-stats.md
 - name: How-to guides
   items:
-  - name: Get insights of uploaded image
-    href: upload-image.md
+  - name: Get insights using token
+    href: use-insights-token.md
   - name: Use and display results
     href: use-and-display-requirements.md
   - name: Resize and crop thumbnails
