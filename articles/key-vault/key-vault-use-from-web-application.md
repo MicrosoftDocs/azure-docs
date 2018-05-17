@@ -15,7 +15,7 @@ ms.author: adhurwit
 # Customer intent: As a web developer, I want to access a secret from Azure Key Vault so that it can be used in a web application.
 ---
 # Tutorial: Use Azure Key Vault from a web application
-Use this tutorial to help you learn how to use Azure Key Vault from a web application in Azure. It shows the process of accessing a secret from an Azure Key Vault for use in a web application. This tutorial is designed for web developers that understand the basics of creating web applications on Azure. 
+Use this tutorial to help you learn how to use Azure Key Vault from a web application in Azure. It shows the process of accessing a secret from an Azure Key Vault for use in a web application. The tutorial then builds on the process and uses a certificate instead of a client secret. This tutorial is designed for web developers that understand the basics of creating web applications on Azure. 
 
 In this tutorial, you learn how to: 
 
@@ -138,18 +138,24 @@ Now that you understand authenticating an Azure AD app using Client ID and Clien
 
  We'll make a test certificate for this tutorial. Here are some commands that you can use in a Developer Command Prompt to create a certificate. Change directory to where you want the cert files created.  For the beginning and ending date of the certificate, use the current date plus one year.
 
-```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
-pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
+```powershell
+#Create self-signed certificate and export pfx and cer files 
+$PfxFilePath = "c:\data\KVWebApp.pfx" 
+$CerFilePath = "c:\data\KVWebApp.cer" 
+$DNSName = "MyComputer.Contoso.com" 
+$Password ="MyPassword" 
+$SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
+Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $cert -FilePath $CerFilePath 
 ```
 
-Make note of the end date and the password for the .pfx (in this example: July 31, 2018 and test123). You'll need them for the script below. For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
-
+Make note of the end date and the password for the .pfx (in this example: May 15, 2019 and MyPassword). You'll need them for the script below. 
 ### Associate the certificate with an Azure AD application
 
 Now that you have a certificate, you need to associate it with an Azure AD application. This can be completed through PowerShell. Run the following commands to associate the certificate with the Azure AD application:
 
-```ps
+```powershell
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 $x509.Import("C:\data\KVWebApp.cer")
 $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
@@ -176,6 +182,9 @@ Now we'll add code to your Web App to access the cert and use it for authenticat
 First, there's code to access the cert. Note that StoreLocation is CurrentUser instead of LocalMachine. And that we're supplying 'false' to the Find method because we're using a test cert.
 
 ```cs
+//Add this using statement
+using System.Security.Cryptography.X509Certificates;  
+
 public static class CertificateHelper
 {
     public static X509Certificate2 FindCertificateByThumbprint(string findValue)
@@ -234,15 +243,12 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetA
 
 ### Add a certificate to your web app through the Azure portal
 
-Adding a Certificate to your Web App is a simple two-step process. First, go to the Azure portal and navigate to your Web App. On the Settings for your Web App, click on the entry for "Custom domains and SSL". When it opens,  upload the Certificate that you created in the preceding example, KVWebApp.pfx, make sure that you remember the password for the pfx.
+Adding a Certificate to your Web App is a simple two-step process. First, go to the Azure portal and navigate to your Web App. On the Settings for your Web App, click on the entry for "SSL settings". When it opens,  upload the Certificate that you created in the preceding example, KVWebApp.pfx, make sure that you remember the password for the pfx.
 
 ![Adding a Certificate to a Web App in the Azure portal][2]
 
 The last thing that you need to do is to add an Application Setting to your Web App that has the name WEBSITE\_LOAD\_CERTIFICATES and a value of *. This will make sure that all Certificates are loaded. If you wanted to load only the Certificates that you've uploaded, then you can enter a comma-separated list of their thumbprints. To learn more about adding a Certificate to a Web App, see [Using Certificates in Azure Websites Applications](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
 
-### Add a certificate to Key Vault as a secret
-
-Instead of uploading your certificate to the Web App service directly, you can store it in Key Vault as a secret and deploy it from there. This is a two-step process that is outlined in the following blog post, [Deploying Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
 
 ## Clean up resources
 When no longer needed, delete the app service, key vault, and Azure AD application you used for the tutorial.  
