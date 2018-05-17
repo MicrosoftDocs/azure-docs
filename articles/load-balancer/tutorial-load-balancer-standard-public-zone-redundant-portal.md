@@ -154,7 +154,7 @@ Create virtual machines in different zones (zone 1, zone 2, and zone 3) for the 
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
 6. Close the RDP session with *myVM1*.
-7. Repeat steps 1 to 5 to install IIS and the updated iisstart.htm file on *myVM2* and *myVM3*.
+7. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on *myVM2* and *myVM3*.
 
 ## Create load balancer resources
 
