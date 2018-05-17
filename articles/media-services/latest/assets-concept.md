@@ -81,27 +81,13 @@ var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:0
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
 ```
 
-The following REST example gets Assets by Asset ID. If there is no Asset with the given ID, an empty list is returned. 
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Media/mediaServices/{account}/assets?$filter=properties/assetId eq D38336FC-F01E-4429-B837-0AFDD86C384A 
-```
-
-The following REST example gets Assets created between two dates or with a particular alternate ID, ordered by the Asset name in descending order 
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Media/mediaServices/{account}/assets?$filter=(properties/created gt 2001-06-20T02:24:00Z and properties/created lt 2001-07-01) or properties/alternateid eq 'SomeName'&$orderby=name desc 
-```
-
 ### Pagination
 
 Pagination is supported for each of the four enabled sort orders. 
 
-If a response of a query contains more than 1000 items, the service returns an "@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. The page size is not configurable by the user. 
+If a query response contains many (currently over 1000) items, the service returns an "@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. The page size is not configurable by the user. 
 
 If Assets are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
-
-For example, if the page size is 3 and the service contains assets { A, B, C, D, E, F, G, H }, the first page would contain assets A, B, C. If Assets A and E are deleted, the second page would contain Assets D, F and G. If instead Assets B2 and E2 are created after returning the first page, the second page would contain D, E and E2 (Asset B2 would not be returned during this paging operation). 
 
 The following C# example shows how to enumerate through all the assets in the account.
 
@@ -114,6 +100,8 @@ while (currentPage.NextPageLink != null)
     currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
 }
 ```
+
+For REST examples, see [Assets - List](https://docs.microsoft.com/en-us/rest/api/media/assets/list)
 
 ## Next steps
 
