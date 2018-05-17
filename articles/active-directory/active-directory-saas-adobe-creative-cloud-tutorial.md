@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: jeedes
 
 ---
@@ -146,7 +146,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	d. Click **Ok**.
 
 	> [!NOTE]
-	> Customers should have a valid Office 365 ExO license attached to their email, only then the Email claim value will be populated in the SAML response.
+	> Users need to have a valid Office 365 ExO license for email claim value to be populated in the SAML response.
 
 8. Click **Save** button.
 
