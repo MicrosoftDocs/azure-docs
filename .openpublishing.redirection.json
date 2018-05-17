@@ -21449,7 +21449,6 @@
             "source_path": "articles/iot-suite/iot-suite-microservices-example.md",
             "redirect_url": "/azure/iot-solutions/iot-solutions-microservices-example",
             "redirect_document_id": false
-<<<<<<< HEAD
         },
         {
             "source_path": "articles/iot-suite/iot-security-architecture.md",
@@ -21495,7 +21494,6 @@
             "source_path": "articles/iot-suite/securing-iot-ground-up.md",
             "redirect_url": "/azure/iot-solutions/securing-iot-ground-up",
             "redirect_document_id": false
-=======
           },
           {
             "source_path": "articles/active-directory/active-directory-b2b-add-guest-to-role.md",
@@ -21642,7 +21640,6 @@
             "source_path": "articles/active-directory/active-directory-b2b-what-is-azure-ad-b2b.md",
             "redirect_url": "/azure/active-directory/b2b/what-is-b2b",
             "redirect_document_id": true
->>>>>>> suite-solution-accelerators-4
         }
     ]
 }
