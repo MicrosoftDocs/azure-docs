@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2018
+ms.date: 05/15/2018
 ms.author: billmath
 
 ---
@@ -34,14 +34,13 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 
 ## 1.1.819.0
 
-5/4/2018: Released for auto upgrade and download.
+### Release status
 
-
+5/14/2018: Released for auto upgrade and download.
 
 ### New features and improvements
 
 New features and improvements
-
 
 - This release includes the public preview of the integration of PingFederate in Azure AD Connect. With this release customers can easily and reliable configure their Azure Active Directory environment to leverage PingFederate as their federation provider. To learn more about how to use this new feature, please visit our [online documentation](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
 - We updated the Azure AD Connect Wizard Troubleshooting Utility, where we now analyze more error scenario’s, such as Linked Mailboxes and AD Dynamic Groups. Read more about the troubleshooting utility [here](active-directory-aadconnect-troubleshoot-objectsync.md).
@@ -59,14 +58,16 @@ New features and improvements
 
 ### Fixed issues 
 
-
+- This release updates the SQL Server Express installation to SQL Server 2012 SP4, which, among others, provides fixes for several security vulnerabilities.  Please see [here](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) for more information about SQL Server 2012 SP4.
 - Sync Rule Processing:  outbound Join sync rules with no Join Condition should be de-applied if the parent syncrule is no longer applicable
+- Several accessibility fixes have been applied to the Synchronization Service Manager UI and the Sync Rules Editor
 - Azure AD Connect Wizard: Error creating AD Connector account when Azure AD Connect is in a workgroup
 - Azure AD Connect Wizard: On the Azure AD Sign-in page display the verification checkbox whenever there is any mismatch in AD domains and Azure AD Verified domains
 - Auto-upgrade PowerShell fix to set auto upgrade state correctly in certain cases after auto upgrade attempted.
 - Azure AD Connect Wizard: Updated telemetry to capture previously missing information
-- Azure AD Connect Wizard: Install PTA agent before converting a domain to managed
-- Azure AD Connect Wizard: Do not convert users to managed (convert only domain) for PTA
+- Azure AD Connect Wizard: The following changes have been made when you use the **Change user sign-in** task to switch from AD FS to Pass-through Authentication:
+    - The Pass-through Authentication Agent is installed on the Azure AD Connect server and the Pass-through Authentication feature is enabled, before we convert domain(s) from federated to managed.
+    - Users are no longer converted from federated to managed. Only domain(s) are converted.
 - Azure AD Connect Wizard: AD FS Multi Domain Regex is not correct when user UPN has ' special character Regex update to support special characters
 - Azure AD Connect Wizard: Remove spurious "Configure source anchor attribute" message when no change 
 - Azure AD Connect Wizard: AD FS support for the dual federation scenario
