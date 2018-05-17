@@ -22,7 +22,7 @@ ms.author: dobett
 
 Connected Factory is an implementation of Microsoft's Azure Industrial IoT reference architecture, packaged as on open-source solution. You can use it as a starting point for a commercial product. You can deploy a pre-built version of the Connected Factory solution into your Azure subscription from [Azure IoT Suite](https://www.azureiotsuite.com/#solutions/types/CF).
 
-![Connected Factory solution dashboard](./media/iot-solutions-connected-factory-features/dashboard.png)
+![Connected Factory solution dashboard](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
 Connected Factory includes the following features:
 
@@ -52,7 +52,7 @@ Connected Factory includes the following features:
 
 ## Rules and alerts
 
-[Configure threshold-based rules for alerts](iot-solutions-connected-factory-configure.md).
+[Configure threshold-based rules for alerts](iot-accelerators-connected-factory-configure.md).
 
 ## End-to-end security
 
@@ -68,5 +68,5 @@ Connected Factory includes the following features:
 
 Learn more about the Connected Factory preconfigured solution by reading the following articles:
 
-* [Connected Factory preconfigured solution walkthrough](iot-solutions-connected-factory-sample-walkthrough.md)
-* [Deploy a gateway for Connected Factory]( iot-solutions-connected-factory-gateway-deployment.md)
+* [Connected Factory preconfigured solution walkthrough](iot-accelerators-connected-factory-sample-walkthrough.md)
+* [Deploy a gateway for Connected Factory]( iot-accelerators-connected-factory-gateway-deployment.md)

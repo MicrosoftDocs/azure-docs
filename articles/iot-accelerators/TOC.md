@@ -47,9 +47,9 @@
 ### [Predictive Maintenance solution accelerator walkthrough](../iot-suite/iot-suite-predictive-walkthrough.md)
 
 ## Connected Factory
-### [What is Connected Factory?](iot-solutions-connected-factory-features.md)
-### [Connected Factory solution overview](iot-solutions-connected-factory-overview.md)
-### [Connected Factory solution walkthrough](iot-solutions-connected-factory-sample-walkthrough.md)
+### [What is Connected Factory?](iot-accelerators-connected-factory-features.md)
+### [Connected Factory solution overview](iot-accelerators-connected-factory-overview.md)
+### [Connected Factory solution walkthrough](iot-accelerators-connected-factory-sample-walkthrough.md)
 
 ## Device Simulation
 ### [Deploy Device Simulation](../iot-suite/iot-suite-device-simulation-deploy.md)
@@ -57,14 +57,14 @@
 
 # How-to guides
 ## Remote Monitoring
-### [Perform advanced monitoring](iot-solutions-remote-monitoring-monitor.md)
-### [Use rules to detect issues](iot-solutions-remote-monitoring-automate.md)
-### [Integrate SIM data](iot-solutions-remote-monitoring-telefonica-sim.md)
-### [Manage your devices](iot-solutions-remote-monitoring-manage.md)
-### [Troubleshoot device issues](iot-solutions-remote-monitoring-maintain.md)
-### [Understand the device model schema](iot-solutions-remote-monitoring-device-schema.md)
-### [Understand the device model behavior](iot-solutions-remote-monitoring-device-behavior.md)
-### [Create a new simulated device](iot-solutions-remote-monitoring-test.md)
+### [Perform advanced monitoring](iot-accelerators-remote-monitoring-monitor.md)
+### [Use rules to detect issues](iot-accelerators-remote-monitoring-automate.md)
+### [Integrate SIM data](iot-accelerators-remote-monitoring-telefonica-sim.md)
+### [Manage your devices](iot-accelerators-remote-monitoring-manage.md)
+### [Troubleshoot device issues](iot-accelerators-remote-monitoring-maintain.md)
+### [Understand the device model schema](iot-accelerators-remote-monitoring-device-schema.md)
+### [Understand the device model behavior](iot-accelerators-remote-monitoring-device-behavior.md)
+### [Create a new simulated device](iot-accelerators-remote-monitoring-test.md)
 ### [Visualize with PowerBI](../iot-suite/iot-suite-integrate-data-powerbi.md)
 ### [Customize the solution UI](iot-accelerators-remote-monitoring-customize.md)
 ### [Customize and redeploy a microservice](../iot-suite/iot-suite-microservices-example.md)
@@ -73,9 +73,9 @@
 ### [Visualize data with Time Series Insights](../iot-suite/iot-suite-time-series-insights.md)
 ### [Integrate with Data Lake](../iot-suite/iot-suite-integrate-data-lake.md)
 ### Connect a physical device
-#### [C on Windows](iot-solutions-connecting-devices.md)
-#### [C on Linux](iot-solutions-connecting-devices-linux.md)
-#### [Node.js (generic)](iot-solutions-connecting-devices-node.md)
+#### [C on Windows](iot-accelerators-connecting-devices.md)
+#### [C on Linux](iot-accelerators-connecting-devices-linux.md)
+#### [Node.js (generic)](iot-accelerators-connecting-devices-node.md)
 #### [Node.js on Raspberry Pi](../iot-suite/iot-suite-connecting-pi-node.md)
 #### [C on Raspberry Pi](../iot-suite/iot-suite-connecting-pi-c.md)
 #### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
@@ -85,10 +85,10 @@
 #### [Remote Monitoring architectural choices](iot-accelerators-remote-monitoring-architectural-choices.md)
 
 ## Connected Factory
-### [Deploy a gateway for Connected Factory](iot-solutions-connected-factory-gateway-deployment.md)
-### [Customize Connected Factory](iot-solutions-connected-factory-customize.md)
+### [Deploy a gateway for Connected Factory](iot-accelerators-connected-factory-gateway-deployment.md)
+### [Customize Connected Factory](iot-accelerators-connected-factory-customize.md)
 ### [Use the OPC publisher for Connected Factory](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
-### [Configure Connected Factory](iot-solutions-connected-factory-configure.md)
+### [Configure Connected Factory](iot-accelerators-connected-factory-configure.md)
 ## [Permissions on azureiotsuite.com](../iot-suite/iot-suite-permissions.md)
 
 # Reference
