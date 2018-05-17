@@ -9,10 +9,8 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/01/2017
+ms.topic: conceptual
+ms.date: 02/23/2018
 ms.author: larryfr
 
 ---
@@ -271,13 +269,13 @@ You can use network security groups (NSG) or user-defined routes (UDR) to contro
 
 > [!WARNING]
 > HDInsight requires inbound access from specific IP addresses in the Azure cloud, and unrestricted outbound access. When using NSGs or UDRs to control traffic, you must perform the following steps:
->
-> 1. Find the IP addresses for the location that contains your virtual network. For a list of required IPs by location, see [Required IP addresses](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
->
-> 2. Allow inbound traffic from the IP addresses.
->
->    * __NSG__: Allow __inbound__ traffic on port __443__ from the __Internet__.
->    * __UDR__: Set the __Next Hop__ type of the route to __Internet__.
+
+1. Find the IP addresses for the location that contains your virtual network. For a list of required IPs by location, see [Required IP addresses](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+
+2. For the IP addresses identified in step 1, allow inbound traffic from that IP addresses.
+
+   * If you are using __NSG__: Allow __inbound__ traffic on port __443__ for the IP addresses.
+   * If you are using __UDR__: Set the __Next Hop__ type of the route to __Internet__ for the IP addresses.
 
 For an example of using Azure PowerShell or the Azure CLI to create NSGs, see the [Extend HDInsight with Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) document.
 

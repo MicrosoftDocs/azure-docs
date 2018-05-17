@@ -3,15 +3,16 @@ title: Configure sign-in auto-acceleration for an application using a Home Realm
 description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: billmath
+author: barbkess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
-ms.author: billmath
+ms.author: barbkess
 ---
 
 # Configure sign-in auto-acceleration for an application by using a Home Realm Discovery policy
@@ -79,9 +80,9 @@ There are three steps to setting sign-in auto-acceleration on an application:
 
 1. Creating an HRD policy for auto-acceleration.
 
-2. Locating the service principle to which to attach the policy.
+2. Locating the service principal to which to attach the policy.
 
-3. Attaching the policy to the service principle. Policies might have been created in a tenant, but they don’t have any effect until they are attached to an entity. 
+3. Attaching the policy to the service principal. Policies might have been created in a tenant, but they don’t have any effect until they are attached to an entity. 
 
 An HRD policy can be attached to a service principal, and only one HRD policy can be active on a given entity at any one time.  
 
@@ -154,7 +155,7 @@ In this example, you create a policy that auto-accelerates users to an AD FS sig
 
 #### Step 1: Create an HRD policy
 ``` powershell
-New-AzureADPoly -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 If you have a single federated domain that authenticates users for applications, you need to create only one HRD policy.  
@@ -166,12 +167,12 @@ Get-AzureADPolicy
 ```
 
 
-To enable auto-acceleration after you have an HRD policy, you can assign it to multiple application service principles.
+To enable auto-acceleration after you have an HRD policy, you can assign it to multiple application service principals.
 
 #### Step 2: Locate the service principal to which to assign the policy  
 You need the **ObjectID** of the service principals to which you want to assign the policy. There are several ways to find the **ObjectID** of service principals.    
 
-You can use the portal, or you can query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). You can also go to the [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign in to your Azure AD account to see all your organization's service principals. Because you are using PowerShell, you can use the get-AzureADServicePrincipal cmdlet to list the service principles and their IDs.
+You can use the portal, or you can query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). You can also go to the [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign in to your Azure AD account to see all your organization's service principals. Because you are using PowerShell, you can use the get-AzureADServicePrincipal cmdlet to list the service principals and their IDs.
 
 #### Step 3: Assign the policy to your service principal  
 After you have the **ObjectID** of the service principal of the application for which you want to configure auto-acceleration, run the following command. This command associates the HRD policy that you created in step 1 with the service principal that you located in step 2.

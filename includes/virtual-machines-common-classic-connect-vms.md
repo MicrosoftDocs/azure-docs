@@ -12,11 +12,11 @@ Virtual networks are the recommended way to connect virtual machines in Azure. T
 To connect virtual machines in a virtual network:
 
 1. Create the virtual network in the [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) and specify 'classic deployment'.
-2. Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure portal, click **New > Compute > Cloud service** for each cloud service.
+2. Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure portal, click **Create a resource > Compute > Cloud service** for each cloud service.
 
   As you fill out the cloud service details, choose the same _resource group_ used with the virtual network.
 
-3. To create each new virtual machine, click **New > Compute**, then select the appropriate VM image from the **Featured apps**.
+3. To create each new virtual machine, click **Create a resource > Compute**, then select the appropriate VM image from the **Featured apps**.
 
   In the VM **Basics** blade, choose the same _resource group_ used with the virtual network.
 

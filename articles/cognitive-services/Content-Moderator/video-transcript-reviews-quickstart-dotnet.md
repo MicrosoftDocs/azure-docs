@@ -4,9 +4,8 @@ description: How to create video transcript reviews using Azure Content Moderato
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sajagtap
@@ -205,7 +204,7 @@ The transcript must be in the WebVTT format. For more information, see [WebVTT: 
 
 > [!NOTE]
 > The program uses a sample transcript in the VTT format. In a real-world solution, you use 
-> the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/en-us/azure/media-services/media-services-index-content) from a video.
+> the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/azure/media-services/media-services-index-content) from a video.
 
 Add the following method definition to namespace VideotranscriptReviews, class Program.
 
@@ -314,7 +313,7 @@ Add the **Main** method definition to namespace VideoTranscriptReviews, class Pr
 
 > [!NOTE]
 > The program uses a sample transcript in the VTT format. In a real-world solution, you use 
-> the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/en-us/azure/media-services/media-services-index-content) from a video. 
+> the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/azure/media-services/media-services-index-content) from a video. 
 
 	static void Main(string[] args)
     {
@@ -370,4 +369,8 @@ You see the following features:
 
 ## Next steps
 
-[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
+Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) in the review tool.
+
+Check out the detailed tutorial on how to develop a [complete video moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).
+
+[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.

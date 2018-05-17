@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Create a Windows VM NLB | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a Windows VM NLB
 services: virtual-machines-windows

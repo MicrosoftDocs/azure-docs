@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
 
 ---
@@ -110,7 +110,6 @@ The following table illustrates a sample NSG you can configure, to lock down sec
 ## Troubleshooting
 If you have trouble connecting to the managed domain using secure LDAP, perform the following troubleshooting steps:
 * Ensure that the issuer chain of the secure LDAP certificate is trusted on the client. You may choose to add the Root certification authority to the trusted root certificate store on the client to establish the trust.
-* Verify that the secure LDAP certificate is not issued by an intermediate certificate authority that is not trusted by default on a fresh windows machine.
 * Verify that the LDAP client (for example, ldp.exe) connects to the secure LDAP endpoint using a DNS name, not the IP address.
 * Verify the DNS name the LDAP client connects to resolves to the public IP address for secure LDAP on the managed domain.
 * Verify the secure LDAP certificate for your managed domain has the DNS name in the Subject or the Subject Alternative Names attribute.

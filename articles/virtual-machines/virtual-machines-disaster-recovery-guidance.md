@@ -4,7 +4,7 @@ description: Learn what to do in the event that an Azure service disruption impa
 services: virtual-machines
 documentationcenter: ''
 author: kmouss
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40

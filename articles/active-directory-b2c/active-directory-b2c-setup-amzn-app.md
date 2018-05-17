@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Amazon configuration | Microsoft Docs'
 description: Provide sign-up and sign-in to consumers with Amazon accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''
-author: swkrish
+author: davidmu1
 manager: mtillman
-editor: bryanla
+editor: ''
 
-ms.assetid: 77c099bb-a005-4d75-87f9-f61e3de48725
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Amazon accounts

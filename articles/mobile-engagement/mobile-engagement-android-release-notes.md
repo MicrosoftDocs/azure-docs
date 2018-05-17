@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Release notes
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 
 ## 4.3.1 (07/17/2017)
 * Fix a crash that could rarely happen when calling `EngagementAgentUtils.isInDedicatedEngagementProcess`, which is also used by the `EngagementApplication` class.

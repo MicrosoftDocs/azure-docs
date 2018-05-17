@@ -10,10 +10,8 @@ tags: azure-portal
 
 ms.assetid: 77a1d0e0-55de-4e61-98a0-060914fb7ca0
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
@@ -168,7 +166,6 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 * [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action.
 * [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions.md).
 * [Install and use Spark on HDInsight clusters][hdinsight-install-spark]: Script Action sample about installing Spark.
-* [Install R on HDInsight clusters][hdinsight-install-r]: Script Action sample about installing R.
 * [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md): Script Action sample about installing Solr.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
@@ -176,6 +173,5 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

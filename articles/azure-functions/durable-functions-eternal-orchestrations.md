@@ -33,6 +33,9 @@ When `ContinueAsNew` is called, the instance enqueues a message to itself before
 > [!NOTE]
 > The Durable Task Framework maintains the same instance ID but internally creates a new *execution ID* for the orchestrator function that gets reset by `ContinueAsNew`. This execution ID is generally not exposed externally, but it may be useful to know about when debugging orchestration execution.
 
+> [!NOTE]
+> The `ContinueAsNew` method is not yet available in JavaScript.
+
 ## Periodic work example
 
 One use case for eternal orchestrations is code that needs to do periodic work indefinitely.
@@ -46,7 +49,7 @@ public static async Task Run(
 
     // sleep for one hour between cleanups
     DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
-    await context.CreateTimer<string>(nextCleanup);
+    await context.CreateTimer(nextCleanup, CancellationToken.None);
 
     context.ContinueAsNew(null);
 }
@@ -90,6 +93,3 @@ If an orchestrator function is in an infinite loop and needs to be stopped, use 
 
 > [!div class="nextstepaction"]
 > [Learn how to implement singleton orchestrations](durable-functions-singletons.md)
-
-> [!div class="nextstepaction"]
-> [Run a sample eternal orchestration](durable-functions-counter.md)

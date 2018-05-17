@@ -22,78 +22,82 @@ ms.reviewer: asmalser
 
 # Tutorial: Configure Pingboard for automatic user provisioning
 
-The objective of this tutorial is to show you the steps you need to perform to enable automatic provisioning and de-provisioning of user accounts from Azure Active Directory to Pingboard.
+The objective of this tutorial is to show you the steps you need to perform to enable automatic provisioning and de-provisioning of user accounts from Azure Active Directory (Azure AD) to Pingboard.
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-*   An Azure Active Directory tenant
-*   A Pingboard tenant [Pro Account](https://pingboard.com/pricing) 
-*   A user account in Pingboard with Admin permissions 
+*   An Azure AD tenant
+*   A Pingboard tenant [Pro account](https://pingboard.com/pricing) 
+*   A user account in Pingboard with admin permissions 
 
 > [!NOTE] 
-> The Azure Active Directory provisioning integration relies on the Pingboard API(`https://your_domain.pingboard.com/scim/v2`) which is available to your account.
+> Azure AD provisioning integration relies on the [Pingboard API](`https://your_domain.pingboard.com/scim/v2`), which is available to your account.
 
-## Assigning users to Pingboard
+## Assign users to Pingboard
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected applications. In the context of automatic user account provisioning, only the users that have been "assigned" to an application in Azure Active Directory are synchronized. 
+Azure AD uses a concept called "assignments" to determine which users should receive access to selected applications. In the context of automatic user account provisioning, only the users assigned to an application in Azure AD are synchronized. 
 
-Before configuring and enabling the provisioning service, you must decide what users in Azure Active Directory represent the users who need access to your Pingboard app. Once decided, you can assign these users to your Pingboard app by following the instructions here:
+Before you configure and enable the provisioning service, you must decide which users in Azure AD need access to your Pingboard app. Then you can assign these users to your Pingboard app by following the instructions here:
 
 [Assign a user to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
 
 ### Important tips for assigning users to Pingboard
 
-*	It is recommended that you assign a single Azure Active Directory user to Pingboard to test the provisioning configuration. Additional users may be assigned later.
+We recommend that you assign a single Azure AD user to Pingboard to test the provisioning configuration. Additional users can be assigned later.
 
-## Configuring user provisioning to Pingboard 
+## Configure user provisioning to Pingboard 
 
-This section guides you through connecting your Azure Active Directory to Pingboard user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Pingboard based on user assignment in Azure Active Directory.
+This section guides you through connecting your Azure AD to the Pingboard user account provisioning API. You also configure the provisioning service to create, update, and disable assigned user accounts in Pingboard based on user assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On for Pingboard, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> To enable SAML-based single sign-on for Pingboard, follow the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, although these two features complement each other.
 
-### To configure automatic user account provisioning to Pingboard in Azure Active Directory:
+### To configure automatic user account provisioning to Pingboard in Azure AD
 
-1)	In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
+1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory** > **Enterprise Apps** > **All applications** section.
 
-2) If you have already configured Pingboard for single sign-on, search for your instance of Pingboard using the search field. Otherwise, select **Add** and search for **Pingboard** in the application gallery. Select **Pingboard** from the search results, and add it to your list of applications.
+2. If you already configured Pingboard for single sign-on, search for your instance of Pingboard by using the search field. Otherwise, select **Add** and search for **Pingboard** in the application gallery. Select **Pingboard** from the search results, and add it to your list of applications.
 
-3)	Select your instance of Pingboard, then select the **Provisioning** tab.
+3. Select your instance of Pingboard, and then select the **Provisioning** tab.
 
-4)	Set the **Provisioning Mode** to **Automatic**.
+4. Set **Provisioning Mode** to **Automatic**.
 
-![Pingboard Provisioning](./media/active-directory-saas-pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
+    ![Pingboard Provisioning](./media/active-directory-saas-pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
     
-5) Under the Admin Credentials section, perform the following steps:
+5. Under the **Admin Credentials** section, perform the following steps:
 
-* In the **Tenant URL** textbox, enter `https://your_domain.pingboard.com/scim/v2` and replace your_domain with your real domain
-* Log in to [Pingboard](https://pingboard.com/) using admin account.
-* Click on Add-Ons > Integrations > Azure Active Directory.
-* Click on Configure tab and select **Enable user provisioning from Azure**.
-* Copy the **OAuth Bearer Token** field and enter into **Secret Token** textbox.
+    a. In **Tenant URL**, enter `https://your_domain.pingboard.com/scim/v2`, and replace "your_domain" with your real domain.
 
-6) In the Azure portal, click **Test Connection** to ensure Azure Active Directory can connect to your Pingboard app. If the connection fails, ensure your Pingboard account has Admin permissions and try the **"Test Connection"** step again.
+    b. Sign in to [Pingboard](https://pingboard.com/) by using your admin account.
 
-7) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the following checkbox.
+    c. Select **Add-Ons** > **Integrations** > **Azure Active Directory**.
 
-8) Click **Save**. 
+    d. Go to the **Configure** tab, and select **Enable user provisioning from Azure**.
 
-9) Under the Mappings section, select **Synchronize Azure Active Directory Users to Pingboard**.
+    e. Copy the token in **OAuth Bearer Token**, and enter it in **Secret Token**.
 
-10) In the **Attribute Mappings** section, review the user attributes to be synchronized from Azure Active Directory to Pingboard. The attributes selected as **Matching** properties are used to match the user accounts in Pingboard for update operations. Select the **Save** button to commit any changes. For more information, see [Customizing User Provisioning Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md).
+6. In the Azure portal, select **Test Connection** to ensure Azure AD can connect to your Pingboard app. If the connection fails, ensure that your Pingboard account has admin permissions, and try the **Test Connection** step again.
 
-11) To enable the Azure Active Directory provisioning service for Pingboard, change the **Provisioning Status** to **On** in the **Settings** section
+7. Enter the email address of a person or group that you want to receive provisioning error notifications in **Notification Email**. Select the check box underneath.
 
-12) Click **Save** to start the initial synchronization of users assigned to Pingboard.
+8. Select **Save**. 
 
-The initial takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Pingboard app.
+9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Pingboard**.
 
-For more information on how to read the Azure Active Directory provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
+10. In the **Attribute Mappings** section, review the user attributes to be synchronized from Azure AD to Pingboard. The attributes selected as **Matching** properties are used to match the user accounts in Pingboard for update operations. Select **Save** to commit any changes. For more information, see [Customize user provisioning attribute mappings](active-directory-saas-customizing-attribute-mappings.md).
 
-## Additional Resources
+11. To enable the Azure AD provisioning service for Pingboard, in the **Settings** section, change **Provisioning Status** to **On**.
 
-* [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
+12. Select **Save** to start the initial synchronization of users assigned to Pingboard.
+
+The initial synchronization takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. Use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs. The logs describe all actions performed by the provisioning service on your Pingboard app.
+
+For more information on how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
+
+## Additional resources
+
+* [Manage user account provisioning for enterprise apps](active-directory-enterprise-apps-manage-provisioning.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Configure Single Sign-on](active-directory-saas-pingboard-tutorial.md)
+* [Configure single sign-on](active-directory-saas-pingboard-tutorial.md)

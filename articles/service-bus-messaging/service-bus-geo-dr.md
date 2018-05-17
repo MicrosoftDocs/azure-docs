@@ -84,12 +84,13 @@ If you have a scenario in which you cannot change the connections of producers a
 
 ## Samples
 
-The [samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) show how to set up and initiate a failover. These samples demonstrate the following concepts:
+The [samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) show how to set up and initiate a failover. These samples demonstrate the following concepts:
 
-- Settings required in Azure Active Directory to use Azure Resource Manager with Service Bus. 
-- Steps required to execute the sample code. 
-- Send and receive from the current primary namespace. 
+- A .Net sample and settings required in Azure Active Directory to use Azure Resource Manager with Service Bus to setup and enable Geo-disaster recovery.
+- Steps required to execute the sample code.
 - How to use an existing namespace as alias.
+- Steps to alternatively enable Geo-disaster recovery via PowerShell or CLI.
+- [Send and receive](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) from the current primary or secondary namespace using the alias.
 
 ## Considerations
 
@@ -97,7 +98,7 @@ Note the following considerations to keep in mind with this release:
 
 1. In your failover planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the failover. 
  
-2. The fact that no data is replicated means that currently active sessions are not replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, scheduled messages, and new duplicates will work. 
+2. The fact that no data is replicated means that currently active sessions are not replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, new scheduled messages and new duplicates will work. 
 
 3. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) at least once. 
 
