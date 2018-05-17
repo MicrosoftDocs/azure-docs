@@ -32,6 +32,8 @@ Azure Storage Explorer is supported on the following versions of Windows:
 * Windows 8
 * Windows 7
 
+For all versions of Windows, .NET Framework 4.6.2 or greater is required.
+
 [Download and install Storage Explorer](http://www.storageexplorer.com)
 
 # [macOS](#tab/macos)
