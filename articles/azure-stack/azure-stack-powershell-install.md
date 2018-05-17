@@ -69,8 +69,8 @@ Install-Module -Name AzureRm.BootStrapper
 # Install and import the API Version Profile required by Azure Stack into the current PowerShell session. 
 Use-AzureRmProfile -Profile 2017-03-09-profile -Force 
 
-# Install Module Version 1.2.12 if Azure Stack is running 1804 at a minimum 
-Install-Module -Name AzureStack -RequiredVersion 1.2.12 
+# Install Module Version 1.3.0 if Azure Stack is running 1804 at a minimum 
+Install-Module -Name AzureStack -RequiredVersion 1.3.0 
 
 # Install Module Version 1.2.11 if Azure Stack is running a lower version then 1804 
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 
