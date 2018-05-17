@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 5/10/2018
+ms.date: 5/17/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ---
@@ -102,7 +102,7 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
      -Name AzureRM `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.3.0
+     -RequiredVersion 1.2.11
 
    Save-Package `
      -ProviderName NuGet `
