@@ -18,12 +18,13 @@ ms.author: v-rachiw
 
 ---
 
-# upgrade/migrate the SKU for PrimaryNodeType to higher SKU
+# Upgrade/migrate the SKU for Primary Node Type to higher SKU
 
-This article describes how to upgrade/migrate the SKU for PrimaryNodeType to higher SKU using Azure PowerShell
+This article describes how to upgrade/migrate the SKU of Primary Node Type of service fabric cluster to higher SKU using Azure PowerShell
 
-## Add a new Virtual Machine Scale Set with the same NodeType name as the primary node type
-Deploy a new Virtual Machine Scale Set and load balancer. The Service Fabric extension configuration (especially the node type) of new Virtual Machine Scale Set should be same as the old Virtual Machine Scale Set you're trying to upgrade. Verify in the SF explorer that your new nodes are available. 
+## Add a new virtual machine scale set 
+
+Deploy a new virtual machine scale set and Load Balancer. The Service Fabric extension configuration (especially the node type) of new virtual machine scale set should be same as the old scale set you're trying to upgrade. Verify in the SF explorer that your new nodes are available. 
 
 ### Azure PowerShell
 The following example uses Azure PowerShell to deploy updated Resource Manager template *template.json* using the resource group named *myResourceGroup*:
@@ -32,7 +33,7 @@ The following example uses Azure PowerShell to deploy updated Resource Manager t
 New-AzureRmResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile \template\template.json 
 ```
 
-Refer following example to modify json template to add new Virtual Machine Scale Set resource with Primary node type in existing cluster
+Refer following example to modify json template to add new virtual machine scale set resource with Primary node type in existing cluster
 
 ```json
         {
@@ -211,43 +212,43 @@ Refer following example to modify json template to add new Virtual Machine Scale
 ```
 
 
-## Remove old Virtual Machine Scale Set
+## Remove old virtual machine scale set
 
-Disable VM instances from old Virtual Machine Scale Set with intent to remove node. This operation may take a long time to complete. You can disable all at once and they'll be queued. Wait until all nodes are disabled. 
+Disable VM instances of old virtual machine scale set with intent to remove node. This operation may take a long time to complete. You can disable all at once and they'll be queued. Wait until all nodes are disabled. 
 
 ### Azure PowerShell
-The following example uses Azure Service Fabric PowerShell to disable node instance named *NTvm1_0* from old Virtual Machine Scale Set named *NTvm1*:
+The following example uses Azure Service Fabric PowerShell to disable node instance named *NTvm1_0* from old virtual machine scale set named *NTvm1*:
 
 ```powershell
 Disable-ServiceFabricNode -NodeName NTvm1_0 -Intent RemoveNode 
 ```
 
-Remove complete Virtual Machine Scale Set. Wait until Virtual Machine Scale Set Provisioning state is succeeded 
+Remove the complete scale set. Wait until scale set Provisioning state is succeeded 
 
 ### Azure PowerShell
-The following example uses Azure PowerShell to remove Virtual Machine Scale Set named *NTvm1* from resource group named *myResourceGroup*:
+The following example uses Azure PowerShell to remove the complete scale set named *NTvm1* from resource group named *myResourceGroup*:
 
 ```powershell
 Remove-AzureRmVmss -ResourceGroupName myResourceGroup -VMScaleSetName NTvm1
 ```
 
-## Remove Load Balancer related to old Virtual Machine Scale Set
+## Remove Load Balancer related to old scale set
 
-Remove Load Balancer related to old  Virtual Machine Scale Set. This step will cause a brief period of downtime for the cluster
+Remove Load Balancer related to old scale set. This step will cause a brief period of downtime for the cluster
 
 ### Azure PowerShell
-The following example uses Azure PowerShell to remove Load balancer named *LB-myCluster-NTvm1* related to old Virtual Machine Scale Set from resource group named *myResourceGroup*:
+The following example uses Azure PowerShell to remove Load balancer named *LB-myCluster-NTvm1* related to old scale set from resource group named *myResourceGroup*:
 
 ```powershell
 Remove-AzureRmLoadBalancer -Name LB-myCluster-NTvm1 -ResourceGroupName myResourceGroup
 ```
 
-## Remove Public IP related to old Primary Virtual Machine Scale Set
+## Remove Public IP related to old scale set
 
-Store DNS settings of public IP address related to old Primary Virtual Machine Scale Set into variable, then remove the Public IP address
+Store DNS settings of Public IP address related to old scale set into variable, then remove the Public IP address
 
 ### Azure PowerShell
-The following example uses Azure PowerShell to store DNS settings of public IP address named *LBIP-myCluster-NTvm1* into variable and remove the IP address:
+The following example uses Azure PowerShell to store DNS settings of Public IP address named *LBIP-myCluster-NTvm1* into variable and remove the IP address:
 
 ```powershell
 $oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name LBIP-myCluster-NTvm1  -ResourceGroupName myResourceGroup
@@ -256,9 +257,9 @@ $primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
 Remove-AzureRmPublicIpAddress -Name LBIP-myCluster-NTvm1 -ResourceGroupName myResourceGroup
 ```
 
-## Update public IP address related to new primary Virtual Machine Scale Set
+## Update public IP address related to new scale set
 
-Update DNS settings of public IP address related to new primary Virtual Machine Scale Set with DNS settings of public IP address related to old Primary Virtual Machine Scale Set
+Update DNS settings of Public IP address related to new scale set with DNS settings of Public IP address related to old scale set
 
 ### Azure PowerShell
 The following example uses Azure PowerShell to update DNS settings of public IP address named *LBIP-myCluster-NTvm3* with DNS settings stored in variables in earlier step:
@@ -270,10 +271,10 @@ $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP 
 ```
 
-## Remove knowledge of the SF node from the FM
+## Remove knowledge of service fabric node from FM
 
-Notify Service Fabric that the node, which is down has been removed from the cluster.
-(If the Durability level of the old Virtual Machine Scale Set was silver or gold, this step may not be needed. Since that step is done by the system automatically.)
+Notify Service Fabric that the nodes, which are down have been removed from the cluster. (Run this command for all VM instances of old virtual machine scale set)
+(If the Durability level of the old virtual machine scale set was silver or gold, this step may not be needed. Since that step is done by the system automatically.)
 
 ### Azure PowerShell
 The following example uses Azure Service Fabric PowerShell to notify service fabric that the node named *NTvm1_0* has been removed:
