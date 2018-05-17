@@ -59,7 +59,7 @@ The following prerequisites apply to the usage of Write Accelerator at this poin
 - The disks you want to apply Azure Write Accelerator against need to be [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) on Premium Storage.
 - You must be using an M-series VM
 
-## Enabling through Power Shell
+## Enabling Azure Write Accelerator using Azure PowerShell
 The Azure Power Shell module from version 5.5.0 include the changes to the relevant cmdlets to enable or disable Write Accelerator for specific Azure Premium Storage disks.
 In order to enable or deploy disks supported by Write Accelerator, the following Power Shell commands got changed, and extended to accept a parameter for Write Accelerator.
 
@@ -154,7 +154,7 @@ You need to adapt the names of VM, disk, and resource group. The script above ad
 > [!Note]
 > Executing the script above will detach the disk specified, enable Write Accelerator against the disk, and then attach the disk again
 
-### Enabling through Azure Portal
+### Enabling Azure Write Accelerator using the Azure Portal
 
 You can enable Write Accelerator via the Portal where you specify your disk caching settings: 
 
@@ -177,7 +177,7 @@ To disable Write Accelerator, use [az vm update](https://docs.microsoft.com/en-u
 az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false
 ```
 
-## Enabling through Rest APIs
+## Enabling Azure Write Accelerator using the Rest APIs
 In order to deploy through Azure Rest API, you can deploy through Azure CLI or PowerShell.
 
 #### Getting your current VM configuration
