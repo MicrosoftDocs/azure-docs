@@ -31,15 +31,15 @@ Create an IoT hub for your simulated device app to connect to. The following ste
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-2. Select **Next: Size and scale** to continue creating your IoT hub. 
-
    ![IoT Hub basics window][2]
+
+2. Select **Next: Size and scale** to continue creating your IoT hub. 
 
 3. Choose your **Pricing and scale tier**. For this article, select the **F1 - Free** tier if it's still available on your subscription. For more information, see the [Pricing and scale tier][lnk-pricing].
 
-4. Select **Review + create**.
-
    ![IoT Hub size and scale window][3]
+
+4. Select **Review + create**.
 
 1. Review your IoT hub information, then click **Create**. Your IoT hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
 
