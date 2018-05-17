@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/22/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -22,16 +22,20 @@ For more information about the components of Blockchain Workbench, see [Azure Bl
 
 Blockchain Workbench allows you to deploy a blockchain ledger along with a set of relevant Azure services most often used to build a blockchain-based application. Deploying Blockchain Workbench results in the following Azure services being provisioned within a resource group in your Azure subscription.
 
-* 2 App Service resource groups (Standard)
-* 1 Application Insights
 * 1 Event Grid Topic
-* 2 Azure Key Vaults
 * 1 Service Bus Namespace
+* 1 Application Insights
 * 1 SQL Database (Standard S0)
+* 2 App Services (Standard)
+* 2 Azure Key Vaults
 * 2 Azure Storage accounts (Standard LRS)
-* 2 Virtual machine scale sets (validator and worker nodes)
-* 2 Virtual Network resource groups (load balancer, network security group, public IP address, virtual network)
+* 2 Virtual machine scale sets (for validator and worker nodes)
+* 2 Virtual Networks (including load balancer, network security group, and public IP address for each virtual network)
 * Optional: Azure Monitor
+
+The following is an example deployment created in **myblockchain** resource group.
+
+![Example deployment](media/blockchain-workbench-deploy/example-deployment.png)
 
 The cost of Blockchain Workbench is an aggregate of the cost of the underlying Azure services. Pricing information for Azure services can be calculated using the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
 
@@ -276,7 +280,7 @@ When a deployment is no longer needed, you can remove a deployment by deleting t
 
 ## Next steps
 
-In this how-to article, you've deployed Azure Blockchain Workbench. To learn how to create a blockchain application, continue to the next how-to article.
+In this how-to article, you deployed Azure Blockchain Workbench. To learn how to create a blockchain application, continue to the next how-to article.
 
 > [!div class="nextstepaction"]
 > [Create a blockchain application in Azure Blockchain Workbench](blockchain-workbench-create-app.md)
