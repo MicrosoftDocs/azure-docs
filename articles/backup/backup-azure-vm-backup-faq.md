@@ -32,7 +32,7 @@ Go through [Supported operating systems](backup-azure-arm-vms-prepare.md#support
 ### Why can't I see my VM in configure backup wizard?
 In Configure backup wizard, Azure Backup only lists VMs that are:
   * Not already protected 
-      You can verify the backup status of a VM by going to VM blade and checking Backup status from Settings Menu . Learn more on how to [Check backup status of a VM](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
+      You can verify the backup status of a VM by going to VM blade and checking Backup status from Settings Menu . Learn more on how to [Check backup status of a VM](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
   * Belongs to same region as VM
 
 ## Backup
@@ -54,6 +54,9 @@ Yes. You can cancel backup job if it is in "Taking snapshot" phase. **You can't 
 ### I enabled Resource Group lock on my backed-up managed disk VMs. Will my backups continue to work?
 If the user locks the Resource Group, Backup service is not able to delete the older restore points. Due to this new backups start failing as there is a limit of maximum 18 restore points imposed from the backend. If your backups are failing with an internal error after the RG lock, follow these [steps to remove the restore point collection](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
 
+### Does Backup policy take Daylight Saving Time(DST) into account?
+No. Be aware that date and time on your local computer is displayed in your local time and with your current daylight saving time bias. So the configured time for scheduled backups can be different from your local time due to DST.
+
 ## Restore
 ### How do I decide between restoring disks versus full VM restore?
 Think of Azure full VM restore as a quick create option. Restore VM option changes the names of disks, containers used by those disks, public IP addresses and network interface names. The change is required to maintain the uniqueness of resources created during VM creation. But it will not add the VM to availability set. 
@@ -67,6 +70,13 @@ Use restore disks to:
   
 ### Can I use backups of unmanaged disk VM to restore after I upgrade my disks to managed disks?
 Yes, you can use the backups taken before migrating disks from unmanaged to managed. By default, restore VM job will create a VM with unmanaged disks. You can use restore disks functionality to restore disks and use them to create a VM on managed disks. 
+
+### What is the procedure to restore a VM to a restore point taken before the conversion from unmanaged to managed disks was done for a VM?
+In this scenario, by default, restore VM job will create a VM with unmanaged disks. To create a VM with managed disks:
+1. [Restore to unmanaged disks](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [Convert the restored disks to managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [Create a VM with managed disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+For Powershell cmdlets, refer [here](backup-azure-vms-automation.md#restore-an-azure-vm).
 
 ## Manage VM backups
 ### What happens when I change a backup policy on VM(s)?

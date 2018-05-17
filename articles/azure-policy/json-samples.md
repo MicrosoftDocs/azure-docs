@@ -1,23 +1,14 @@
 ---
-title: Policy template samples | Microsoft Docs
+title: Policy template samples
 description: JSON samples for Azure Policy
 services: azure-policy
-documentationcenter:
-author: bandersmsft
+author: DCtheGeek
 manager: carmonm
-editor:
-tags:
-
-ms.assetid:
 ms.service: azure-policy
-ms.devlang: na
-ms.topic: samples
-ms.tgt_pltfrm:
-ms.workload:
+ms.topic: sample
 ms.date: 01/17/2018
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-
 ---
 # Templates for Azure Policy
 
@@ -52,7 +43,7 @@ The following table includes links to json templates for Azure Policy. These sam
 | [Allowed Load Balancer SKUs](scripts/allowed-lb-skus.md) | Requires that load balancers use an approved SKU. You specify an array of allowed SKUs. |
 | [No network peering to ER network](scripts/no-peering-er-net.md) | Prohibits a network peering from being associated to a network in a specified resource group. Use to prevent connection with central managed network infrastructure. You specify the name of the resource group to prevent association. |
 | [No User Defined Route Table](scripts/no-user-def-route-table.md)  |Prohibits virtual networks from being deployed with a user-defined route table. |
-| [Allowed Virtual Network Gateway SKUs](scripts/no-user-def-route-table.md) | Requires that virtual network gateways use an approved SKU and gateway type. You specify an array of approved SKUs and an array of approved gateway types. |
+| [Allowed Virtual Network Gateway SKUs](scripts/allowed-vn-gate-sku.md) | Requires that virtual network gateways use an approved SKU and gateway type. You specify an array of approved SKUs and an array of approved gateway types. |
 | [Use approved subnet for VM network interfaces](scripts/use-approved-subnet-vm-nics.md) | Requires that network interfaces use an approved subnet. You specify the ID of the approved subnet. |
 | [Use approved vNet for VM network interfaces](scripts/use-approved-vnet-vm-nics.md) | Requires that network interfaces use an approved virtual network. You specify the ID of the approved virtual network. |
 |**Tags**||
@@ -76,6 +67,9 @@ The following table includes links to json templates for Azure Policy. These sam
 | [Allowed resource types](scripts/allowed-res-types.md) | Ensures only approved resource types are deployed. You specify an array of resource types that are permitted.  |
 | [Allowed storage account SKUs](scripts/allowed-stor-acct-skus.md) | Requires that storage accounts use an approved SKU. You specify an array of approved SKUs. |
 | [Apply tag and its default value](scripts/apply-tag-def-val.md) | Appends a specified tag name and value, if that tag is not provided. You specify the tag name and value to apply.  |
+| [Audit SQL Database encryption](scripts/sql-database-encryption-audit.md) | Audits if SQL database does not have transparent data encryption enabled. |
+| [Audit SQL Server audit settings](scripts/sql-server-audit.md) | Audits SQL server based on whether the audit settings are enabled. |
+| [Enforce Data Lake Store encryption](scripts/enforce-datalakestore-encryption.md) | Denies any Data Lake Store accounts that don't have encryption enabled. |
 | [Enforce tag and its value](scripts/enforce-tag-val.md) | Requires a specified tag name and value. You specify the tag name and value to enforce.  |
 | [Not allowed resource types](scripts/not-allowed-res-type.md) | Prohibits the deployment of specified resource types. You specify an array of the resource types to block.  |
 | [Require SQL Server version 12.0](scripts/req-sql-12.md) | Requires SQL servers to use version 12.0.  |

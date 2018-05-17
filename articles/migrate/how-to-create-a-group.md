@@ -5,7 +5,7 @@ author: rayne-wiselman
 ms.service: azure-migrate
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 05/15/2018
 ms.author: raynew
 ---
 

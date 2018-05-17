@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 03/13/2018
 ms.author: glenga
 ---
 # Azure Functions Tools for Visual Studio  
 
-Azure Functions Tools for Visual Studio 2017 is an extension for Visual Studio that lets you develop, test, and deploy C# functions to Azure. If this is your first experience with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
+Azure Functions Tools for Visual Studio 2017 is an extension for Visual Studio that lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
 
 The Azure Functions Tools provides the following benefits: 
 
@@ -30,13 +30,17 @@ The Azure Functions Tools provides the following benefits:
 This topic shows you how to use the Azure Functions Tools for Visual Studio 2017 to develop your functions in C#. You also learn how to publish your project to Azure as a .NET assembly.
 
 > [!IMPORTANT]
-> Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process will overwrite any functions that you developed in the portal.
+> Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
 
 ## Prerequisites
 
-Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2017 installation:
+Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2017 installation:
 
 ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+Make sure that your Visual Studio is up-to-date and that you are using the [most recent version](#check-your-tools-version) of the Azure Functions tools.
+
+### Other requirements
 
 To create and deploy functions, you also need:
 
@@ -44,22 +48,45 @@ To create and deploy functions, you also need:
 
 * An Azure Storage account. To create a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
+### Check your tools version
+
+1. From the **Tools** menu, choose **Extensions and Updates**. Expand **Installed** > **Tools** and choose **Azure Functions and Web Jobs Tools**.
+
+    ![Verify the Functions tools version](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
+
+2. Note the installed **Version**. You can compare this version with the latest version listed [in the release notes](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+
+3. If your version is older, update your tools in Visual Studio as shown in the following section.
+
+### Update your tools
+
+1. In the **Extensions and Updates** dialog, expand **Updates** > **Visual Studio Marketplace**, choose **Azure Functions and Web Jobs Tools** and select **Update**.
+
+    ![Update the Functions tools version](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
+
+2. After the tools update is downloaded, close Visual Studio to trigger the tools update using the VSIX installer.
+
+3. In the installer, choose **OK** to start and then **Modify** to update the tools. 
+
+4. After the update is complete, choose **Close** and restart Visual Studio.
+
 ## Create an Azure Functions project 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-
-## Configure the project for local development
-
-When you create a new project using the Azure Functions template, you get an empty C# project that contains the following files:
+The project template creates a C# project, installs the `Microsoft.NET.Sdk.Functions` NuGet package, and sets the target framework. Functions 1.x targets the .NET Framework, and Functions 2.x targets .NET Standard. The new project has the following files:
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
     
 * **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools topic.
 
-The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string.
+For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
 
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
+## Configure the project for local development
+
+The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. 
+
+[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
 
  To set the storage account connection string:
 
@@ -79,7 +106,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    A connection string key named **QueueStorage** is supplied, which is defined in the local.settings.json file. 
+    This trigger example uses a connection string with a key named **QueueStorage**. This connection string setting must be defined in the local.settings.json file. 
  
 3. Examine the newly added class. You see a static **Run** method, that is attributed with the **FunctionName** attribute. This attribute indicates that the method is the entry point for the function. 
 
@@ -109,7 +136,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
 
 Azure Functions Core Tools lets you run Azure Functions project on your local development computer. You are prompted to install these tools the first time you start a function from Visual Studio.  
 
-To test your function, press F5. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools.  You may also need to enable a firewall exception so that the tools can handle HTTP requests.
+To test your function, press F5. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools. You may also need to enable a firewall exception so that the tools can handle HTTP requests.
 
 With the project running, you can test your code as you would test deployed function. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md). When running in debug mode, breakpoints are hit in Visual Studio as expected. 
 
@@ -121,16 +148,28 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
->[!NOTE]  
->Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not added automatically. You can add required settings to your function app in one of these ways:
->
->* [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
->* [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
->* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
+## Function app settings   
+
+Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project. 
+
+The easiest way to upload the required settings to your function app in Azure is to use the **Manage Application Settings...** link that is displayed after you successfully publish your project. 
+
+![](./media/functions-develop-vs/functions-vstools-app-settings.png)
+
+This displays the **Application Settings** dialog for the function app, where you can add new application settings or modify existing ones.
+
+![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
+
+You can also manage application settings in one of these other ways:
+
+* [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
+* [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
+* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set). 
 
 ## Next steps
 
 For more information about Azure Functions Tools, see the Common Questions section of the [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blog post.
 
-To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).  
+To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
+
 To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This topic also links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    

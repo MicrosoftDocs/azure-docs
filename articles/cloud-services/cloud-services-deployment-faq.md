@@ -1,4 +1,4 @@
----
+﻿---
 title: Deployment issues for Microsoft Azure Cloud Services FAQ| Microsoft Docs
 description: This article lists the frequently asked questions about deployment for Microsoft Azure Cloud Services.
 services: cloud-services
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -76,4 +76,4 @@ Since the Cloud Service is a Classic resource which is not directly compatible w
 
 In the classic portal, the package was uploaded to the management API layer directly, and then the API layer would temporarily put the package into an internal storage account.  This process causes performance and scalability problems because the API layer was not designed to be a file upload service.  In the Azure portal (Resource Manager deployment model), we have bypassed the interim step of first uploading to the API layer, resulting in faster and more reliable deployments. 
 
-As for the cost, it is very small and you can reuse the same storage account across all deployments. You can use the [storage cost calculator](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) to determine the cost to upload the service package (CSPKG), download the CSPKG, then delete the CSPKG. 
+As for the cost, it is very small and you can reuse the same storage account across all deployments. You can use the [storage cost calculator](https://azure.microsoft.com/pricing/calculator/#storage1) to determine the cost to upload the service package (CSPKG), download the CSPKG, then delete the CSPKG. 

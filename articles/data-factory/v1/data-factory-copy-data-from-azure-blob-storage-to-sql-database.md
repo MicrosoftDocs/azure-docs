@@ -3,9 +3,9 @@ title: Copy data from Blob Storage to SQL Database - Azure | Microsoft Docs
 description: This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline to copy data from Blob storage to SQL database.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 
 ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
-ms.author: spelluru
+ms.date: 01/22/2018
+ms.author: jingwang
 
 robots: noindex
 ---
@@ -53,7 +53,7 @@ Before you begin this tutorial, you must have the following prerequisites:
 You need the account name and account key of your Azure storage account to do this tutorial. Note down **account name** and **account key** for your Azure storage account.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Click **More services** on the left menu and select **Storage Accounts**.
+2. Click **All services** on the left menu and select **Storage Accounts**.
 
     ![Browse - Storage accounts](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. In the **Storage Accounts** blade, select the **Azure storage account** that you want to use in this tutorial.
@@ -67,7 +67,7 @@ You need the account name and account key of your Azure storage account to do th
 ## Collect SQL server, database, user names
 You need the names of Azure SQL server, database, and user to do this tutorial. Note down names of **server**, **database**, and **user** for your Azure SQL database.
 
-1. In the **Azure portal**, click **More services** on the left and select **SQL databases**.
+1. In the **Azure portal**, click **All services** on the left and select **SQL databases**.
 2. In the **SQL databases blade**, select the **database** that you want to use in this tutorial. Note down the **database name**.  
 3. In the **SQL database** blade, click **Properties** under **SETTINGS**.
 4. Note down the values for **SERVER NAME** and **SERVER ADMIN LOGIN**.
@@ -76,7 +76,7 @@ You need the names of Azure SQL server, database, and user to do this tutorial. 
 ## Allow Azure services to access SQL server
 Ensure that **Allow access to Azure services** setting turned **ON** for your Azure SQL server so that the Data Factory service can access your Azure SQL server. To verify and turn on this setting, do the following steps:
 
-1. Click **More services** hub on the left and click **SQL servers**.
+1. Click **All services** hub on the left and click **SQL servers**.
 2. Select your server, and click **Firewall** under **SETTINGS**.
 3. In the **Firewall settings** blade, click **ON** for **Allow access to Azure services**.
 4. Close all the blades by clicking **X**.

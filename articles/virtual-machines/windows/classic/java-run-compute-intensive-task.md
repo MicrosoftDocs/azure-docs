@@ -1,11 +1,10 @@
 ---
-title: Compute-intensive Java application on a VM | Microsoft Docs
+title: Compute-intensive Java application on a VM
 description: Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: ''
+manager: mbaldwin
 tags: azure-service-management,azure-resource-manager
 
 ms.assetid: ae6f2737-94c7-4569-9913-d871450c2827
@@ -14,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 
 ---
@@ -49,7 +48,7 @@ The following is an example of the Java application monitoring the compute-inten
 
 ## To create a virtual machine
 1. Log in to the [Azure portal](https://portal.azure.com).
-2. Click **New**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
+2. Click **Create a resource**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
 3. In the **Virtual machine image select** dialog box, select **JDK 7 Windows Server 2012**.
    Note that **JDK 6 Windows Server 2012** is available in case you have legacy applications that are not yet ready to run in JDK 7.
 4. Click **Next**.

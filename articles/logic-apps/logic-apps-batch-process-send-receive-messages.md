@@ -52,7 +52,7 @@ To follow this example, you need these items:
 Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Basic knowledge about 
-[how to create logic apps](../logic-apps/logic-apps-create-a-logic-app.md) 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 * An email account with any 
 [email provider supported by Azure Logic Apps](../connectors/apis-list.md)
@@ -120,7 +120,7 @@ Each time the batch has five items or its past 5 minutes, the logic app sends an
 
 5. If you didn't previously create a connection for your email provider, 
 provide your email credentials for authentication when prompted. 
-Learn more about [authenticating your email credentials](../logic-apps/logic-apps-create-a-logic-app.md).
+Learn more about [authenticating your email credentials](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Set the properties for the action you just added.
 

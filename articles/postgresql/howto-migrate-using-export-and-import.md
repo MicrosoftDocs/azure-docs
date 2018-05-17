@@ -1,14 +1,14 @@
 ---
-title: Migrate a database using Import and Export in Azure Database for PostgreSQL | Microsoft Docs
+title: Migrate a database using Import and Export in Azure Database for PostgreSQL
 description: Describes how extract a PostgreSQL database into a script file and import the data into the target database from that file.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 02/28/2018
 ---
 # Migrate your PostgreSQL database using export and import
 You can use [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) to extract a PostgreSQL database into a script file and [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) to import the data into the target database from that file.
@@ -36,9 +36,9 @@ You can use the psql command line and the --dbname parameter (-d) to import the 
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```
-This example uses psql utility and a script file named **testdb.sql** from previous step to import data into the database **mypgsqldb** on the target server **mypgserver-20170401.postgres.database.azure.com**.
+This example uses psql utility and a script file named **testdb.sql** from previous step to import data into the database **mypgsqldb** on the target server **mydemoserver.postgres.database.azure.com**.
 ```bash
-psql --file=testdb.sql --host=mypgserver-20170401.database.windows.net --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb
+psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```
 
 ## Next steps

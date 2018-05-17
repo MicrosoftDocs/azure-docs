@@ -4,9 +4,8 @@ description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB
 keywords: Application development, database tutorial, learn node.js, node.js tutorial
 services: cosmos-db
 documentationcenter: nodejs
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
 ms.service: cosmos-db
@@ -14,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/14/2017
-ms.author: mimig
+ms.date: 03/23/2018
+ms.author: sngun
 
 ---
 # <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB
@@ -26,8 +25,6 @@ ms.author: mimig
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 This Node.js tutorial shows you how to use Azure Cosmos DB and the SQL API to store and access data from a Node.js Express application hosted on Azure Websites. You build a simple web-based task-management application, a ToDo app, that allows creating, retrieving, and completing tasks. The tasks are stored as JSON documents in Azure Cosmos DB. This tutorial walks you through the creation and deployment of the app and explains what's happening in each snippet.
 
@@ -48,7 +45,7 @@ that you have the following:
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js][Node.js] version v0.10.29 or higher.
+* [Node.js][Node.js] version v0.10.29 or higher. We recommend Node.js 6.10 or higher.
 * [Express generator](http://www.expressjs.com/starter/generator.html) (you can install this via `npm install express-generator -g`)
 * [Git][Git].
 
@@ -78,7 +75,7 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
    
     ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
-    Then, to stop the application, press CTRL+C in the terminal window and then click **y** to terminate the batch job.
+    Then, to stop the application, press CTRL+C in the terminal window and then, on Windows machines only, click **y** to terminate the batch job.
 
 ## <a name="_Toc395783179"></a>Step 3: Install additional modules
 The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. Later, when you deploy this application to Azure Websites, this file is used to determine which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
@@ -89,336 +86,323 @@ The **package.json** file is one of the files created in the root of the project
 2. Install the **documentdb** module via npm. This is the module where all the Azure Cosmos DB magic happens.
    
         npm install documentdb --save
-3. A quick check of the **package.json** file of the application should show the additional modules. This file will tell Azure which packages to download and install when running your application. It should resemble the example below.
-   
-        {
-          "name": "todo",
-          "version": "0.0.0",
-          "private": true,
-          "scripts": {
-            "start": "node ./bin/www"
-          },
-          "dependencies": {
-            "async": "^2.1.4",
-            "body-parser": "~1.15.2",
-            "cookie-parser": "~1.4.3",
-            "debug": "~2.2.0",
-            "documentdb": "^1.10.0",
-            "express": "~4.14.0",
-            "jade": "~1.11.0",
-            "morgan": "~1.7.0",
-            "serve-favicon": "~2.3.0"
-          }
-        }
-   
-    This tells Node (and Azure later) that your application depends on these additional modules.
 
 ## <a name="_Toc395783180"></a>Step 4: Using the Azure Cosmos DB service in a node application
 That takes care of all the initial setup and configuration, now let’s get down to why we’re here, and that’s to write some code using Azure Cosmos DB.
 
 ### Create the model
 1. In the project directory, create a new directory named **models** in the same directory as the package.json file.
-2. In the **models** directory, create a new file named **taskDao.js**. This file will contain the model for the tasks created by our application.
-3. In the same **models** directory, create another new file named **docdbUtils.js**. This file will contain some useful, reusable, code that we will use throughout our application. 
-4. Copy the following code in to **docdbUtils.js**
-   
-        var DocumentDBClient = require('documentdb').DocumentClient;
-   
-        var DocDBUtils = {
-            getOrCreateDatabase: function (client, databaseId, callback) {
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.id= @id',
-                    parameters: [{
-                        name: '@id',
-                        value: databaseId
-                    }]
-                };
-   
-                client.queryDatabases(querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        if (results.length === 0) {
-                            var databaseSpec = {
-                                id: databaseId
-                            };
-   
-                            client.createDatabase(databaseSpec, function (err, created) {
-                                callback(null, created);
-                            });
-   
-                        } else {
-                            callback(null, results[0]);
-                        }
-                    }
-                });
-            },
-   
-            getOrCreateCollection: function (client, databaseLink, collectionId, callback) {
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.id=@id',
-                    parameters: [{
-                        name: '@id',
-                        value: collectionId
-                    }]
-                };               
-   
-                client.queryCollections(databaseLink, querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {        
-                        if (results.length === 0) {
-                            var collectionSpec = {
-                                id: collectionId
-                            };
-   
-                            client.createCollection(databaseLink, collectionSpec, function (err, created) {
-                                callback(null, created);
-                            });
-   
-                        } else {
-                            callback(null, results[0]);
-                        }
-                    }
-                });
-            }
+2. In the **models** directory, create a new file named **task-model.js**. This file will contain the model for the tasks created by our application.
+3. In the same **models** directory, create another new file named **cosmosdb-manager.js**. This file will contain some useful, reusable, code that we will use throughout our application. 
+4. Copy the following code in to **cosmosdb-manager.js**
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+
+    module.exports = {
+    getOrCreateDatabase: (client, databaseId, callback) => {
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id = @id',
+        parameters: [{ name: '@id', value: databaseId }]
         };
-   
-        module.exports = DocDBUtils;
-   
-5. Save and close the **docdbUtils.js** file.
-6. At the beginning of the **taskDao.js** file, add the following code to reference the **DocumentDBClient** and the **docdbUtils.js** we created above:
-   
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var docdbUtils = require('./docdbUtils');
-7. Next, you will add code to define and export the Task object. This is responsible for initializing our Task object and setting up the Database and Document Collection we will use.
-   
-        function TaskDao(documentDBClient, databaseId, collectionId) {
-          this.client = documentDBClient;
-          this.databaseId = databaseId;
-          this.collectionId = collectionId;
-   
-          this.database = null;
-          this.collection = null;
+
+        client.queryDatabases(querySpec).toArray((err, results) => {
+        if (err) {
+            callback(err);
+        } else {
+            if (results.length === 0) {
+            let databaseSpec = { id: databaseId };
+            client.createDatabase(databaseSpec, (err, created) => {
+                callback(null, created);
+            });
+            } else {
+            callback(null, results[0]);
+            }
         }
-   
-        module.exports = TaskDao;
-8. Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in Azure Cosmos DB.
-   
-        TaskDao.prototype = {
-            init: function (callback) {
-                var self = this;
-   
-                docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function (err, db) {
-                    if (err) {
-                        callback(err);
-                    } else {
-                        self.database = db;
-                        docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function (err, coll) {
-                            if (err) {
-                                callback(err);
-   
-                            } else {
-                                self.collection = coll;
-                            }
-                        });
-                    }
-                });
-            },
-   
-            find: function (querySpec, callback) {
-                var self = this;
-   
-                self.client.queryDocuments(self.collection._self, querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        callback(null, results);
-                    }
-                });
-            },
-   
-            addItem: function (item, callback) {
-                var self = this;
-   
-                item.date = Date.now();
-                item.completed = false;
-   
-                self.client.createDocument(self.collection._self, item, function (err, doc) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        callback(null, doc);
-                    }
-                });
-            },
-   
-            updateItem: function (itemId, callback) {
-                var self = this;
-   
-                self.getItem(itemId, function (err, doc) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        doc.completed = true;
-   
-                        self.client.replaceDocument(doc._self, doc, function (err, replaced) {
-                            if (err) {
-                                callback(err);
-   
-                            } else {
-                                callback(null, replaced);
-                            }
-                        });
-                    }
-                });
-            },
-   
-            getItem: function (itemId, callback) {
-                var self = this;
-   
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.id = @id',
-                    parameters: [{
-                        name: '@id',
-                        value: itemId
-                    }]
-                };
-   
-                self.client.queryDocuments(self.collection._self, querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        callback(null, results[0]);
-                    }
-                });
-            }
+        });
+    },
+
+    getOrCreateCollection: (client, databaseLink, collectionId, callback) => {
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id=@id',
+        parameters: [{ name: '@id', value: collectionId }]
         };
-9. Save and close the **taskDao.js** file. 
+
+        client.queryCollections(databaseLink, querySpec).toArray((err, results) => {
+        if (err) {
+            callback(err);
+        } else {
+            if (results.length === 0) {
+            let collectionSpec = { id: collectionId };
+            client.createCollection(databaseLink, collectionSpec, (err, created) => {
+                callback(null, created);
+            });
+            } else {
+            callback(null, results[0]);
+            }
+        }
+        });
+    }
+    };
+    ```
+5. Save and close the **cosmosdb-manager.js** file.
+6. At the beginning of the **task-model.js** file, add the following code to reference the **DocumentDBClient** and the **cosmosdb-manager.js** we created above: 
+
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let docdbUtils = require('./cosmosdb-manager.js');
+    ```
+7. Next, you will add code to define and export the Task object. This is responsible for initializing our Task object and setting up the Database and Document Collection we will use.  
+
+    ```nodejs
+    function TaskModel(documentDBClient, databaseId, collectionId) {
+      this.client = documentDBClient;
+      this.databaseId = databaseId;
+      this.collectionId = collectionId;
+   
+      this.database = null;
+      this.collection = null;
+    }
+   
+    module.exports = TaskModel;
+    ```
+8. Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in Azure Cosmos DB.
+
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let docdbUtils = require('./cosmosdb-manager');
+
+    function TaskModel(documentDBClient, databaseId, collectionId) {
+    this.client = documentDBClient;
+    this.databaseId = databaseId;
+    this.collectionId = collectionId;
+
+    this.database = null;
+    this.collection = null;
+    }
+
+    TaskModel.prototype = {
+    init: function(callback) {
+        let self = this;
+
+        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function(err, db) {
+        if (err) {
+            callback(err);
+        } else {
+            self.database = db;
+            docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function(err, coll) {
+            if (err) {
+                callback(err);
+            } else {
+                self.collection = coll;
+            }
+            });
+        }
+        });
+    },
+
+    find: function(querySpec, callback) {
+        let self = this;
+
+        self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, results);
+        }
+        });
+    },
+
+    addItem: function(item, callback) {
+        let self = this;
+
+        item.date = Date.now();
+        item.completed = false;
+
+        self.client.createDocument(self.collection._self, item, function(err, doc) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, doc);
+        }
+        });
+    },
+
+    updateItem: function(itemId, callback) {
+        let self = this;
+
+        self.getItem(itemId, function(err, doc) {
+        if (err) {
+            callback(err);
+        } else {
+            doc.completed = true;
+
+            self.client.replaceDocument(doc._self, doc, function(err, replaced) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null, replaced);
+            }
+            });
+        }
+        });
+    },
+
+    getItem: function(itemId, callback) {
+        let self = this;
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id = @id',
+        parameters: [{ name: '@id', value: itemId }]
+        };
+
+        self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, results[0]);
+        }
+        });
+    }
+    };
+
+    module.exports = TaskModel;
+    ```
+9. Save and close the **task-model.js** file. 
 
 ### Create the controller
 1. In the **routes** directory of your project, create a new file named **tasklist.js**. 
 2. Add the following code to **tasklist.js**. This loads the DocumentDBClient and async modules, which are used by **tasklist.js**. This also defined the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:
    
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var async = require('async');
-   
-        function TaskList(taskDao) {
-          this.taskDao = taskDao;
-        }
-   
-        module.exports = TaskList;
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let async = require('async');
+
+    function TaskList(taskModel) {
+    this.taskModel = taskModel;
+    }
+
+    module.exports = TaskList;
+    ```
 3. Continue adding to the **tasklist.js** file by adding the methods used to **showTasks, addTask**, and **completeTasks**:
    
-        TaskList.prototype = {
-            showTasks: function (req, res) {
-                var self = this;
-   
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.completed=@completed',
-                    parameters: [{
-                        name: '@completed',
-                        value: false
-                    }]
-                };
-   
-                self.taskDao.find(querySpec, function (err, items) {
-                    if (err) {
-                        throw (err);
-                    }
-   
-                    res.render('index', {
-                        title: 'My ToDo List ',
-                        tasks: items
-                    });
-                });
-            },
-   
-            addTask: function (req, res) {
-                var self = this;
-                var item = req.body;
-   
-                self.taskDao.addItem(item, function (err) {
-                    if (err) {
-                        throw (err);
-                    }
-   
-                    res.redirect('/');
-                });
-            },
-   
-            completeTask: function (req, res) {
-                var self = this;
-                var completedTasks = Object.keys(req.body);
-   
-                async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-                    self.taskDao.updateItem(completedTask, function (err) {
-                        if (err) {
-                            callback(err);
-                        } else {
-                            callback(null);
-                        }
-                    });
-                }, function goHome(err) {
-                    if (err) {
-                        throw err;
-                    } else {
-                        res.redirect('/');
-                    }
-                });
+   ```nodejs
+    TaskList.prototype = {
+    showTasks: function(req, res) {
+        let self = this;
+
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.completed=@completed',
+        parameters: [
+            {
+            name: '@completed',
+            value: false
             }
+        ]
         };
+
+        self.taskModel.find(querySpec, function(err, items) {
+        if (err) {
+            throw err;
+        }
+
+        res.render('index', {
+            title: 'My ToDo List ',
+            tasks: items
+        });
+        });
+    },
+
+    addTask: function(req, res) {
+        let self = this;
+        let item = req.body;
+
+        self.taskModel.addItem(item, function(err) {
+        if (err) {
+            throw err;
+        }
+
+        res.redirect('/');
+        });
+    },
+
+    completeTask: function(req, res) {
+        let self = this;
+        let completedTasks = Object.keys(req.body);
+
+        async.forEach(
+        completedTasks,
+        function taskIterator(completedTask, callback) {
+            self.taskModel.updateItem(completedTask, function(err) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null);
+            }
+            });
+        },
+        function goHome(err) {
+            if (err) {
+            throw err;
+            } else {
+            res.redirect('/');
+            }
+        }
+        );
+    }
+    };
+    ```        
 4. Save and close the **tasklist.js** file.
 
 ### Add config.js
 1. In your project directory create a new file named **config.js**.
 2. Add the following to **config.js**. This defines configuration settings and values needed for our application.
    
-        var config = {}
+    ```nodejs
+    let config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
-        config.databaseId = "ToDoList";
-        config.collectionId = "Items";
+    config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+    config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+    config.databaseId = "ToDoList";
+    config.collectionId = "Items";
    
-        module.exports = config;
-3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your Azure Cosmos DB account on the [Microsoft Azure portal](https://portal.azure.com).
+    module.exports = config;
+    ```
+3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys page of your Azure Cosmos DB account on the [Microsoft Azure portal](https://portal.azure.com).
 4. Save and close the **config.js** file.
 
 ### Modify app.js
 1. In the project directory, open the **app.js** file. This file was created earlier when the Express web application was created.
-2. Add the following code to the top of **app.js**
+2. Add the following code to the top of **app.js**:
    
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var config = require('./config');
-        var TaskList = require('./routes/tasklist');
-        var TaskDao = require('./models/taskDao');
+    ```nodejs
+    var DocumentDBClient = require('documentdb').DocumentClient;
+    var config = require('./config');
+    var TaskList = require('./routes/tasklist');
+    var TaskModel = require('./models/taskModel');
+    ```
 3. This code defines the config file to be used, and proceeds to read values out of this file into some variables we will use soon.
 4. Replace the following two lines in **app.js** file:
    
-        app.use('/', index);
-        app.use('/users', users); 
+    ```nodejs
+    app.use('/', index);
+    app.use('/users', users); 
+    ```
    
-      with the following snippet:
+    with the following snippet:
    
-        var docDbClient = new DocumentDBClient(config.host, {
-            masterKey: config.authKey
-        });
-        var taskDao = new TaskDao(docDbClient, config.databaseId, config.collectionId);
-        var taskList = new TaskList(taskDao);
-        taskDao.init();
+    ```nodejs
+    let docDbClient = new DocumentDBClient(config.host, {
+        masterKey: config.authKey
+    });
+    let taskModel = new TaskModel(docDbClient, config.databaseId, config.collectionId);
+    let taskList = new TaskList(taskModel);
+    taskModel.init();
    
-        app.get('/', taskList.showTasks.bind(taskList));
-        app.post('/addtask', taskList.addTask.bind(taskList));
-        app.post('/completetask', taskList.completeTask.bind(taskList));
-        app.set('view engine', 'jade');
-5. These lines define a new instance of our **TaskDao** object, with a new connection to Azure Cosmos DB (using the values read from the **config.js**), initialize the task object and then bind form actions to methods on our **TaskList** controller. 
+    app.get('/', taskList.showTasks.bind(taskList));
+    app.post('/addtask', taskList.addTask.bind(taskList));
+    app.post('/completetask', taskList.completeTask.bind(taskList));
+    app.set('view engine', 'jade');
+    ```
+5. These lines define a new instance of our **TaskModel** object, with a new connection to Azure Cosmos DB (using the values read from the **config.js**), initialize the task object and then bind form actions to methods on our **TaskList** controller. 
 6. Finally, save and close the **app.js** file, we're just about done.
 
 ## <a name="_Toc395783181"></a>Step 5: Build a user interface
@@ -513,7 +497,7 @@ This should be all that we need for our application to work.
    
     ![Screenshot of the application with a new item in the ToDo list](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
 4. To complete a task, simply check the checkbox in the Complete column,
-   and then click **Update tasks**. This updates the document you already created.
+   and then click **Update tasks**. This updates the document you already created and removes it from the view.
 
 5. To stop the application, press CTRL+C in the terminal window and then click **Y** to terminate the batch job.
 

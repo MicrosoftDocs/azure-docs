@@ -4,15 +4,15 @@ description: Learn how to copy data from QuickBooks to supported sink data store
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -36,7 +36,7 @@ Currently this connector only support 1.0a, which means you need to have a devel
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to QuickBooks connector.
 
@@ -49,8 +49,8 @@ The following properties are supported for QuickBooks linked service:
 | type | The type property must be set to: **QuickBooks** | Yes |
 | endpoint | The endpoint of the QuickBooks server. (that is, quickbooks.api.intuit.com)  | Yes |
 | companyId | The company ID of the QuickBooks company to authorize.  | Yes |
-| accessToken | The access token for OAuth 1.0 authentication. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
-| accessTokenSecret | The access token secret for OAuth 1.0 authentication. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| accessToken | The access token for OAuth 1.0 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| accessTokenSecret | The access token secret for OAuth 1.0 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 
 **Example:**

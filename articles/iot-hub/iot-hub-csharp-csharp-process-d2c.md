@@ -98,7 +98,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application supports routing messages based on message body.
 
 > [!NOTE]
 > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot-path example shown here.
@@ -211,7 +211,7 @@ In this tutorial, you learned how to reliably dispatch device-to-cloud messages 
 
 The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your solution back end.
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite][lnk-suite].
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator][lnk-suite].
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 

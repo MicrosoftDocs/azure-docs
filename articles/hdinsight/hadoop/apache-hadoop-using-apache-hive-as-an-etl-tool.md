@@ -13,8 +13,6 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
 
@@ -91,7 +89,8 @@ If the target for the data is not a database, you can generate a file in the app
 
 If you need to execute several operations on the data as part of the ETL process, consider how you manage them. If the operations are controlled by an external program, rather than as a workflow within the solution, you need to decide whether some operations can be executed in parallel, and to detect when each job  completes. Using a workflow mechanism such as Oozie within Hadoop may be easier than trying to orchestrate a sequence of operations using external scripts or custom programs. For more information about Oozie, see [Workflow and job orchestration](https://msdn.microsoft.com/library/dn749829.aspx).
 
-<!-- ## Next steps -->
-<!-- * [ETL at scale](../hdinsight-etl-at-scale.md): Learn more about performing ETL at scale. -->
-<!-- * [Operationalize Data Pipelines with Oozie](hdinsight-operationalize-data-pipeline.md): Learn how to build a data pipeline that uses Hive to summarize CSV flight delay data, stage the prepared data in Azure Storage blobs, and then use Sqoop to load the summarized data into Azure SQL Database. -->
-<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md): Walk through an end-to-end ETL pipeline.  -->
+## Next steps
+
+* [ETL at scale](apache-hadoop-etl-at-scale.md)
+* [Operationalize a data pipeline](../hdinsight-operationalize-data-pipeline.md)
+<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

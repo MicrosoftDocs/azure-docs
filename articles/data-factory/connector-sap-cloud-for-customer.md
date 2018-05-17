@@ -4,15 +4,15 @@ description: Learn how to copy data from SAP Cloud for Customer to supported sin
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/17/2018
 ms.author: jingwang
 
 ---
@@ -44,7 +44,7 @@ The following properties are supported for SAP Cloud for Customer linked service
 | type | The type property must be set to: **SapCloudForCustomer**. | Yes |
 | url | The URL of the SAP C4C OData service. | Yes |
 | username | Specify the user name to connect to the SAP C4C. | Yes |
-| password | Specify the password for the user account you specified for the username. Mark this field as a SecureString. | Yes |
+| password | Specify the password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink |
 
 >[!IMPORTANT]
@@ -139,7 +139,7 @@ Sample query to get data for a specific day:
         ],
         "typeProperties": {
             "source": {
-                "type": "SAPC4CSource",
+                "type": "SapCloudForCustomerSource",
                 "query": "<custom query e.g. $top=10>"
             },
             "sink": {

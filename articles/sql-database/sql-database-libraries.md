@@ -2,19 +2,12 @@
 title: Connection libraries for SQL Database | Microsoft Docs
 description: Provides links for downloads of modules that enable connection to SQL Server and SQL Database from a broad variety of client programming languages. 
 services: sql-database
-documentationcenter: ''
 author: MightyPen
-manager: jhubbard
-editor: genemi
-
-ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 04/01/2018
 ms.author: genemi
 ---
 # Connectivity libraries and frameworks for SQL Server
@@ -25,13 +18,13 @@ The following table lists connectivity libraries or *drivers* that client applic
 
 | Language | Platform | Additional resources | Download | Get started |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Microsoft ADO.NET for SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Download](https://www.microsoft.com/net/download/) | [Get started](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Microsoft JDBC driver for SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Download](https://go.microsoft.com/fwlink/?linkid=852460) |  [Get started](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [PHP SQL driver for SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Operating system: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=55642) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Get started](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
-| Node.js | Windows, Linux, macOS | [Node.js driver for SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Install](https://msdn.microsoft.com/library/mt652094.aspx) |  [Get started](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [Python SQL driver](http://msdn.microsoft.com/library/mt652092.aspx) | Install choices: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Get started](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, macOS | [Ruby driver for SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Install](https://msdn.microsoft.com/library/mt711041.aspx) | [Get started](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
-| C++ | Windows, Linux, macOS | [Microsoft ODBC driver for SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Download](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET for SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Download](https://www.microsoft.com/net/download/) | [Get started](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| Java | Windows, Linux, macOS | [Microsoft JDBC driver for SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Download](https://go.microsoft.com/fwlink/?linkid=852460) |  [Get started](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [PHP SQL driver for SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Operating system: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=55642) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Get started](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu)
+| Node.js | Windows, Linux, macOS | [Node.js driver for SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Install](https://msdn.microsoft.com/library/mt652094.aspx) |  [Get started](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [Python SQL driver](http://msdn.microsoft.com/library/mt652092.aspx) | Install choices: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Get started](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Ruby driver for SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Install](https://msdn.microsoft.com/library/mt711041.aspx) | [Get started](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| C++ | Windows, Linux, macOS | [Microsoft ODBC driver for SQL Server](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [Download](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
 
 The following table lists examples of object-relational mapping (ORM) frameworks and web frameworks that client applications can use with SQL Server running on-premises or in the cloud. You can use the frameworks on Linux, Windows, or Docker and use them to connect to SQL Database and SQL Data Warehouse. 
 

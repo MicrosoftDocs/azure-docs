@@ -14,13 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
 
 ---
 # Create and modify peering for an ExpressRoute circuit
 
 This article helps you create and manage routing configuration for an ExpressRoute circuit in the Resource Manager deployment model using the Azure portal. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
+
+> [!div class="op_single_selector"]
+> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-routing-arm.md)
+> * [Azure CLI](howto-routing-cli.md)
+> * [Video - Private peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Video - Public peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Video - Microsoft peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [PowerShell (classic)](expressroute-howto-routing-classic.md)
+> 
 
 
 ## Configuration prerequisites
@@ -48,8 +58,6 @@ This section helps you create, get, update, and delete the Microsoft peering con
 > 
 
 ### To create Microsoft peering
-
-[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
 
 1. Configure ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Microsoft peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
 

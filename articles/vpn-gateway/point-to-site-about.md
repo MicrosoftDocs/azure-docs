@@ -33,7 +33,7 @@ Point-to-site VPN can use one of the following protocols:
 If you have a mixed client environment consisting of Windows and Mac devices, configure both SSTP and IKEv2.
 
 >[!NOTE]
->IKEv2 for P2S is available for the Resource Manager deployment model. It is not available for the classic deployment model.
+>IKEv2 for P2S is available for the Resource Manager deployment model only. It is not available for the classic deployment model.
 >
 
 ## <a name="authentication"></a>How are P2S VPN clients authenticated?
@@ -66,6 +66,10 @@ Users use the native VPN clients on Windows and Mac devices for P2S. Azure provi
 * For Mac devices, it consists of the mobileconfig file that users install on their devices.
 
 The zip file also provides the values of some of the important settings on the Azure side that you can use to create your own profile for these devices. Some of the values include the VPN gateway address, configured tunnel types, routes, and the root certificate for gateway validation.
+
+>[!NOTE]
+>For Windows clients, you must have administrator rights on the client device in order to initiate the VPN connection from the client device to Azure.
+>
 
 ### <a name="gwsku"></a>Which Gateway SKUs Support P2S VPN?
 

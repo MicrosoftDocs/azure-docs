@@ -4,8 +4,8 @@ description: Learn about how to move data from OData sources using Azure Data Fa
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: de28fa56-3204-4546-a4df-21a21de43ed7
 ms.service: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 
 robots: noindex

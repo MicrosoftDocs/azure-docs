@@ -3,8 +3,8 @@ title: Remote Desktop to a Linux VM | Microsoft Docs
 description: Learn how to install and configure Remote Desktop to connect to a Microsoft Azure Linux VM for the Classic deployment model
 services: virtual-machines-linux
 documentationcenter: ''
-author: SuperScottz
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: mingzhan
+ms.author: iainfou
 
 ---
 # Using Remote Desktop to connect to a Microsoft Azure Linux VM
@@ -31,7 +31,7 @@ This guidance will give you the answer! It will help you to install and config x
 The xrdp tool is an open source RDP server that allows you to connect your Linux server with Remote Desktop from a Windows machine. RDP has better performance than VNC (Virtual Network Computing). VNC renders using JPEG-quality graphics and can be slow, whereas RDP is fast and crystal clear.
 
 > [!NOTE]
-> You must already have an Microsoft Azure VM running Linux. To create and set up a Linux VM, see the [Azure Linux VM tutorial](createportal.md).
+> You must already have an Microsoft Azure VM running Linux. To create and set up a Linux VM, see the [Azure Linux VM tutorial](createportal-classic.md).
 > 
 > 
 

@@ -1,14 +1,14 @@
 ---
-title: Migrate your MySQL database using dump and restore in Azure Database for MySQL | Microsoft Docs
+title: Migrate your MySQL database using dump and restore in Azure Database for MySQL
 description: This article explains two common ways to back up and restore databases in your Azure Database for MySQL, using tools such as mysqldump, MySQL Workbench, and PHPMyAdmin.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/20/2018
 ---
 
 # Migrate your MySQL database to Azure Database for MySQL using dump and restore
@@ -83,10 +83,12 @@ $ mysqldump -u root -p --all-databases > alldb_backup.sql
 ## Create a database on the target Azure Database for MySQL server
 Create an empty database on the target Azure Database for MySQL server where you want to migrate the data. Use a tool such as MySQL Workbench, Toad, or Navicat to create the database. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.
 
-To get connected, locate the connection information on the Properties page in your Azure Database for MySQL.
-![Find the connection information in the Azure portal](./media/concepts-migrate-dump-restore/1_server-properties-name-login.png)
+To get connected, locate the connection information in the **Overview** of your Azure Database for MySQL.
+
+![Find the connection information in the Azure portal](./media/concepts-migrate-dump-restore/1_server-overview-name-login.png)
 
 Add the connection information into your MySQL Workbench.
+
 ![MySQL Workbench Connection String](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 
@@ -97,7 +99,7 @@ mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 In this example, restore the data into the newly created database on the target Azure Database for MySQL server.
 ```bash
-$ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p testdb < testdb_backup.sql
+$ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
 
 ## Export using PHPMyAdmin

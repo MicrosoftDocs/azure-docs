@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
 
 ---
 
 # Message browsing
 
-Message browsing ("peeking") enables a client to enumerate all messages residing in a queue or subscription, typically for diagnostic and debugging purposes.
+Message browsing ("peeking") enables a Service Bus client to enumerate all messages residing in a queue or subscription, typically for diagnostic and debugging purposes.
 
-The peek operations return all messages that exist in the queue or subscription message log, not only those available for immediate acquisition with *Receive()* or the *OnMessage()* loop. The *State* property of each message tells you whether the message is active (available to be received), deferred (see Deferral [TBD link]) or scheduled (see Scheduled Messages [TBD link]).
+The peek operations return all messages that exist in the queue or subscription message log, not only those available for immediate acquisition with `Receive()` or the `OnMessage()` loop. The `State` property of each message tells you whether the message is active (available to be received), [deferred](message-deferral.md), or [scheduled](message-sequencing.md).
 
-Consumed and expired messages are cleaned up by an asynchronous "garbage collection" run and not necessarily exactly when messages expire, and therefore Peek may indeed return messages that have already expired and will be removed or dead-lettered when a receive operation is next invoked on the queue or subscription.
+Consumed and expired messages are cleaned up by an asynchronous "garbage collection" run and not necessarily exactly when messages expire, and therefore `Peek` may indeed return messages that have already expired and will be removed or dead-lettered when a receive operation is next invoked on the queue or subscription.
 
 This is especially important to keep in mind when attempting to recover deferred messages from the queue. A message for which the [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) instant has passed is no longer eligible for regular retrieval by any other means, even when it is being returned by Peek. Returning these messages is deliberate, since Peek is a diagnostics tool reflecting the current state of the log.
 

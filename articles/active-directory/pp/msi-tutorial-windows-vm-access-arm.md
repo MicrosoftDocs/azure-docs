@@ -3,9 +3,9 @@ title: Use a Windows VM MSI to access Azure Resource Manager
 description: A tutorial that walks you through the process of using a Windows VM Managed Service Identity (MSI) to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: BryanLa
-manager: mbaldwin
-editor: bryanla
+author: daveba
+manager: mtillman
+editor: daveba
 
 ms.service: active-directory
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -41,7 +41,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 For this tutorial, we create a new Windows VM.  You can also enable MSI on an existing VM.
 
-1.	Click the **New** button found on the upper left-hand corner of the Azure portal.
+1.	Click **Create a resource** on the upper left-hand corner of the Azure portal.
 2.	Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
 3.	Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
 4.  Choose the proper **Subscription** for the virtual machine in the dropdown.

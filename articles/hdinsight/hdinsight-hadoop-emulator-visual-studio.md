@@ -4,17 +4,15 @@ description: Learn how to use the Azure Data Lake tools for Visual Studio with t
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/09/2017
+ms.topic: conceptual
+ms.date: 05/07/2018
 ms.author: larryfr
 
 ---

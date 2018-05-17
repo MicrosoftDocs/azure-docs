@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
 
 ---

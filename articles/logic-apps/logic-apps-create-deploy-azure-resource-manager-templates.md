@@ -3,7 +3,7 @@ title: Create logic apps from Azure Resource Manager templates | Microsoft Docs
 description: Create and deploy logic app workflows with Azure Resource Manager templates
 services: logic-apps
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2017
-ms.author: LADocs; mandia
+ms.author: LADocs; estfan
 ---
 
 # Create and deploy logic apps with Azure Resource Manager templates
@@ -39,46 +39,46 @@ location as the Azure resource group.
 
 ``` json
 {
-    "type": "Microsoft.Logic/workflows",
-    "apiVersion": "2016-06-01",
-    "name": "[parameters('logicAppName')]",
-    "location": "[resourceGroup().location]",
-    "tags": {
-        "displayName": "LogicApp"
-    },
-    "properties": {
-        "definition": {
-            "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-                "testURI": {
-                "type": "string",
-                "defaultValue": "[parameters('testUri')]"
-                }
-            },
-            "triggers": {
-                "Recurrence": {
-                    "type": "Recurrence",
-                    "recurrence": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    }
-                }
-            },
-            "actions": {
-                "Http": {
-                    "type": "Http",
-                    "inputs": {
-                        "method": "GET",
-                        "uri": "@parameters('testUri')"
-                    },
-                    "runAfter": {}
-                }
-            },
-            "outputs": {}
-        },
-        "parameters": {}
-    }
+   "type": "Microsoft.Logic/workflows",
+   "apiVersion": "2016-06-01",
+   "name": "[parameters('logicAppName')]",
+   "location": "[resourceGroup().location]",
+   "tags": {
+      "displayName": "LogicApp"
+   },
+   "properties": {
+      "definition": {
+         "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+            "testURI": {
+               "type": "string",
+               "defaultValue": "[parameters('testUri')]"
+            }
+         },
+         "triggers": {
+            "Recurrence": {
+               "type": "Recurrence",
+               "recurrence": {
+                  "frequency": "Hour",
+                  "interval": 1
+               }
+            }
+         },
+         "actions": {
+            "Http": {
+              "type": "Http",
+              "inputs": {
+                  "method": "GET",
+                  "uri": "@parameters('testUri')"
+              },
+              "runAfter": {}
+           }
+         },
+         "outputs": {}
+      },
+      "parameters": {}
+   }
 }
 ``` 
 

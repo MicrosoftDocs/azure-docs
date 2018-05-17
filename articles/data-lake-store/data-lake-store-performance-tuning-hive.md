@@ -11,8 +11,6 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 
@@ -43,9 +41,9 @@ Here are the most important settings to tune for improved ADLS performance:
 
 **hive.tez.container.size** - The container size determines how much memory is available for each task.  This is the main input for controlling the concurrency in Hive.  
 
-**tez.grouping.min-size** – This parameter allows you to set the minimum size of each mapper.  If the number of mappers that Tez chooses is smaller than the value of this parameter, then Tez will use the value set here.  
+**tez.grouping.min-size** – This parameter allows you to set the minimum size of each mapper.  If the number of mappers that Tez chooses is smaller than the value of this parameter, then Tez will use the value set here.
 
-**tez.grouping.max-size** – The parameter allows you to set the maximum size of each mapper.  If the number of mappers that Tez chooses is larger than the value of this parameter, then Tez will use the value set here.  
+**tez.grouping.max-size** – The parameter allows you to set the maximum size of each mapper.  If the number of mappers that Tez chooses is larger than the value of this parameter, then Tez will use the value set here.
 
 **hive.exec.reducer.bytes.per.reducer** – This parameter sets the size of each reducer.  By default, each reducer is 256MB.  
 
@@ -65,27 +63,28 @@ The key to improving performance using ADLS is to increase the concurrency as mu
 
 ## Example Calculation
 
-Let’s say you have an 8 node D14 cluster.  
+Let's say you have an 8 node D14 cluster.  
 
 	Total YARN memory = nodes * YARN memory per node
 	Total YARN memory = 8 nodes * 96GB = 768GB
 	# of YARN containers = 768GB / 3072MB = 256
 
 ## Limitations
+
 **ADLS throttling** 
 
-UIf you hit the limits of bandwidth provided by ADLS, you would start to see task failures. This could be identified by observing throttling errors in task logs.  You can decrease the parallelism by increasing Tez container size.  If you need more concurrency for your job, please contact us.   
+UIf you hit the limits of bandwidth provided by ADLS, you would start to see task failures. This could be identified by observing throttling errors in task logs.  You can decrease the parallelism by increasing Tez container size.  If you need more concurrency for your job, please contact us.
 
-To check if you are getting throttled, you need to enable the debug logging on the client side. Here’s how you can do that:
+To check if you are getting throttled, you need to enable the debug logging on the client side. Here's how you can do that:
 
 1. Put the following property in the log4j properties in Hive config. This can be done from Ambari view: log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 Restart all the nodes/service for the config to take effect.
 
-2. If you are getting throttled, you’ll see the HTTP 429 error code in the hive log file. The hive log file is in /tmp/&lt;user&gt;/hive.log
+2. If you are getting throttled, you'll see the HTTP 429 error code in the hive log file. The hive log file is in /tmp/&lt;user&gt;/hive.log
 
 ## Further information on Hive tuning
 
 Here are a few blogs that will help tune your Hive queries:
-* [Optimize Hive queries for Hadoop in HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
+* [Optimize Hive queries for Hadoop in HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
 * [Troubleshooting Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 * [Ignite talk on optimize Hive on HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Service Fabric reliable service with C#
-description: Create, deploy, and debug a Reliable Service application built on Azure Service Fabric, with Visual Studio.
+description: Create, deploy, and debug a Reliable Services application built on Azure Service Fabric, with Visual Studio.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,121 +13,128 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 03/14/2018
 ms.author: ryanwi
 ---
 
-# Create your first C# Service Fabric stateful reliable services application
+# Create your first C# Service Fabric stateful Reliable Services application
 
-Learn how to deploy your first Service Fabric application for .NET on Windows in just a few minutes. When you're finished, you'll have a local cluster running with a reliable service application.
+Learn how to deploy your first Azure Service Fabric application for .NET on Windows in just a few minutes. When you're finished, you'll have a local cluster that's running with a Reliable Services application.
 
 ## Prerequisites
 
-Before you get started, make sure that you have [set up your development environment](service-fabric-get-started.md). This includes installing the Service Fabric SDK and Visual Studio 2017 or 2015.
+Before you get started, make sure that you've [set up your development environment](service-fabric-get-started.md). This process includes installing the Service Fabric SDK and Visual Studio 2017 or 2015.
 
 ## Create the application
 
-Launch Visual Studio as an **administrator**.
+1. Start Visual Studio as an administrator.
 
-Create a project with `CTRL`+`SHIFT`+`N`
+2. Create a project by selecting Ctrl+Shift+N.
 
-In the **New Project** dialog, choose **Cloud > Service Fabric Application**.
+3. In the **New Project** dialog box, select **Cloud** > **Service Fabric Application**.
 
-Name the application **MyApplication** and press **OK**.
+4. Name the application **MyApplication**. Then select **OK**.
 
-   
-![New project dialog in Visual Studio][1]
+   ![New project dialog box in Visual Studio][1]
 
-You can create any type of Service Fabric application from the next dialog. For this Quickstart, choose **Stateful Service**.
+5. You can create any type of Service Fabric application from the next dialog box. For this quickstart, choose **.Net Core 2.0** > **Stateful Service**.
 
-Name the service **MyStatefulService** and press **OK**.
+6. Name the service **MyStatefulService**. Then select **OK**.
 
-![New service dialog in Visual Studio][2]
+    ![New service dialog box in Visual Studio][2]
 
+    Visual Studio creates the application project and the stateful service project. Then it displays them in Solution Explorer.
 
-Visual Studio creates the application project and the stateful service project and displays them in Solution Explorer.
+    ![Solution Explorer following creation of an application with stateful service][3]
 
-![Solution Explorer following creation of application with stateful service][3]
+    The application project (**MyApplication**) does not have any code. Instead, it references a set of service projects. It also has three other types of content:
 
-The application project (**MyApplication**) does not contain any code directly. Instead, it references a set of service projects. In addition, it contains three other types of content:
+    * **Publish profiles**  
+    Profiles for deploying to different environments.
 
-* **Publish profiles**  
-Profiles for deploying to different environments.
+    * **Scripts**  
+    PowerShell scripts for deploying or upgrading your application.
 
-* **Scripts**  
-PowerShell script for deploying/upgrading your application.
-
-* **Application definition**  
-Includes the ApplicationManifest.xml file under *ApplicationPackageRoot* which describes your application's composition. Associated application parameter files are under *ApplicationParameters*, which can be used to specify environment-specific parameters. Visual Studio selects an application parameter file that's specified in the associated publish profile during deployment to a specific environment.
+    * **Application definition**  
+Includes the ApplicationManifest.xml file under *ApplicationPackageRoot*, which describes your application's composition. Associated application parameter files are under *ApplicationParameters*, which can be used to specify environment-specific parameters. Visual Studio selects an application parameter file that's specified in the associated publish profile.
     
 For an overview of the contents of the service project, see [Getting started with Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## Deploy and debug the application
 
-Now that you have an application, run it.
+Now that you have an application, run, deploy, and debug it by taking the following steps.
 
-In Visual Studio, press `F5` to deploy the application for debugging.
+1. In Visual Studio, select F5 to deploy the application for debugging.
 
->[!NOTE]
->The first time you run and deploy the application locally, Visual Studio creates a local cluster for debugging. This may take some time. The cluster creation status is displayed in the Visual Studio output window.
+    >[!NOTE]
+    >The first time you run and deploy the application locally, Visual Studio creates a local cluster for debugging. This might take some time. The cluster creation status is displayed in the Visual Studio output window.
 
-When the cluster is ready, you get a notification from the local cluster system tray manager application included with the SDK.
+    When the cluster is ready, you get a notification from the local cluster system tray manager application that's included with the SDK.
+    
+    ![Local cluster system tray notification][4]
+
+    After the application starts, Visual Studio automatically brings up the Diagnostics Event Viewer, where you can see trace output from your services.
+    
+    ![Diagnostic events viewer][5]
+
+    >[!NOTE]
+    >Events should automatically start tracking in the Diagnostic Events Viewer. If you need to manually configure the Diagnostic Events Viewer, first open the `ServiceEventSource.cs` file, which is located in the project **MyStatefulService**. Copy the value of the `EventSource` attribute at the top of the `ServiceEventSource` class. In the following example, the event source is called `"MyCompany-MyApplication-MyStatefulService"`, which might be different in your situation.
+>
+    >![Locating Service Event Source Name][service-event-source-name]
+
+
+2. Next, open the **ETW Providers** dialog box. Then select the gear icon that's located on the **Diagnostics Events** tab. Paste the name of the event source that you copied into the **ETW Providers** input box. Then select the **Apply** button. This automatically starts tracing events.
+
+    ![Setting Diagnostics Event source name][setting-event-source-name]
+
+    You should now see events appear in the Diagnostics Events window.
+
+    The stateful service template shows a counter value that's incrementing in the `RunAsync` method of **MyStatefulService.cs**.
+
+3. Expand one of the events to see more details, including the node where the code is running. In this case, it is **\_Node\_0,** though it might differ on your machine.
    
-![Local cluster system tray notification][4]
+    ![Diagnostic events viewer detail][6]
 
-Once the application starts, Visual Studio automatically brings up the **Diagnostics Event Viewer**, where you can see trace output from your services.
-   
-![Diagnostic events viewer][5]
+4. The local cluster contains five nodes that are hosted on a single machine. In a production environment, each node is hosted on a distinct physical or virtual machine. To simulate the loss of a machine while you're exercising the Visual Studio debugger, take down one of the nodes on the local cluster.
 
-The stateful service template we used simply shows a counter value incrementing in the `RunAsync` method of **MyStatefulService.cs**.
+5. In the **Solution Explorer** window, open **MyStatefulService.cs**. 
 
-Expand one of the events to see more details, including the node where the code is running. In this case, it is \_Node\_0, though it may differ on your machine.
-   
-![Diagnostic events viewer detail][6]
+6. Find the `RunAsync` method, and then set a breakpoint on the first line of the method.
 
-The local cluster contains five nodes hosted on a single machine. In a production environment, each node is hosted on a distinct physical or virtual machine. To simulate the loss of a machine while exercising the Visual Studio debugger at the same time, let's take down one of the nodes on the local cluster.
+    ![Breakpoint in stateful service RunAsync method][7]
 
-In the **Solution Explorer** window, open **MyStatefulService.cs**. 
+7. Start the Service Fabric Explorer tool by right-clicking the **Local Cluster Manager** system tray application and then selecting **Manage Local Cluster**.
 
-Find the `RunAsync` method and set a breakpoint on the first line of the method.
+    ![Start Service Fabric Explorer from the local cluster manager][systray-launch-sfx]
 
-![Breakpoint in stateful service RunAsync method][7]
+    [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) offers a visual representation of a cluster. It includes the set of applications that is deployed to it and the set of physical nodes that make it up.
 
-Launch the **Service Fabric Explorer** tool by right-clicking on the **Local Cluster Manager** system tray application and choose **Manage Local Cluster**.
+8. In the left pane, expand **Cluster** > **Nodes**, and find the node where your code is running. Then, to simulate a machine restarting, select **Actions** > **Deactivate (Restart)**.
 
-![Launch Service Fabric Explorer from the Local Cluster Manager][systray-launch-sfx]
+    ![Stop a node in Service Fabric Explorer][sfx-stop-node]
 
-[**Service Fabric Explorer**](service-fabric-visualizing-your-cluster.md) offers a visual representation of a cluster. It includes the set of applications deployed to it and the set of physical nodes that make it up.
+    Momentarily, you should see your breakpoint hit in Visual Studio as the computation you were doing on one node seamlessly fails over to another.
 
-In the left pane, expand **Cluster > Nodes** and find the node where your code is running.
+9. Next, return to the Diagnostic Events Viewer and observe the messages. The counter has continued incrementing, even though the events are actually coming from a different node.
 
-Click **Actions > Deactivate (Restart)** to simulate a machine restarting.
+    ![Diagnostic events viewer after failover][diagnostic-events-viewer-detail-post-failover]
 
-![Stop a node in Service Fabric Explorer][sfx-stop-node]
-
-Momentarily, you should see your breakpoint hit in Visual Studio as the computation you were doing on one node seamlessly fails over to another.
-
-
-Next, return to the Diagnostic Events Viewer and observe the messages. The counter has continued incrementing, even though the events are actually coming from a different node.
-
-![Diagnostic events viewer after failover][diagnostic-events-viewer-detail-post-failover]
-
-## Cleaning up the local cluster (optional)
+## Clean up the local cluster (optional)
 
 Remember, this local cluster is real. Stopping the debugger removes your application instance and unregisters the application type. However, the cluster continues to run in the background. When you're ready to stop the local cluster, there are a couple options.
 
 ### Keep application and trace data
 
-Shut down the cluster by right-clicking on the **Local Cluster Manager** system tray application and then choose **Stop Local Cluster**.
+Shut down the cluster by right-clicking the **Local Cluster Manager** system tray application and then selecting **Stop Local Cluster**.
 
 ### Delete the cluster and all data
 
-Remove the cluster by right-clicking on the **Local Cluster Manager** system tray application and then choose **Remove Local Cluster**. 
+Remove the cluster by right-clicking the **Local Cluster Manager** system tray application. Then choose **Remove Local Cluster**. 
 
-If you choose this option, Visual Studio will redeploy the cluster the next time your run the application. Choose this option if you don't intend to use the local cluster for some time or if you need to reclaim resources.
+If you choose this option, Visual Studio redeploys the cluster the next time you run the application. Choose this option if you don't intend to use the local cluster for a while or if you need to reclaim resources.
 
 ## Next steps
-Read more about [reliable services](service-fabric-reliable-services-introduction.md).
+Read more about [Reliable Services](service-fabric-reliable-services-introduction.md).
 <!-- Image References -->
 
 [1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog.png
@@ -143,3 +150,9 @@ Read more about [reliable services](service-fabric-reliable-services-introductio
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png
+[setting-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/setting-event-source-name.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png
+[setting-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/setting-event-source-name.png

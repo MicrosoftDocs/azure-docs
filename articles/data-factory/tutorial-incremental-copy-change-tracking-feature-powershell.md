@@ -4,15 +4,15 @@ description: 'In this tutorial, you create an Azure Data Factory pipeline that c
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 ---
 # Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information 
@@ -441,7 +441,7 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 ### Monitor the full copy pipeline
 
 1. Log in to [Azure portal](https://portal.azure.com).
-2. Click **More services**, search with the keyword `data factories`, and select **Data factories**. 
+2. Click **All services**, search with the keyword `data factories`, and select **Data factories**. 
 
     ![Data factories menu](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
 3. Search for **your data factory** in the list of data factories, and select it to launch the Data factory page. 

@@ -3,7 +3,7 @@
 To navigate to your APIM instance, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. Select ![arrow](./media/api-management-navigate-to-instance/arrow.png).
+2. On the top-left of the screen, select **All services**.  
 3. Type "api" in the search box.
 4. Click **API Management services**.
 

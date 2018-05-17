@@ -1,4 +1,4 @@
-In the Cloud Shell, create an App Service plan in the resource group with the [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
+In the Cloud Shell, create an App Service plan in the resource group with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 

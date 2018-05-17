@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # How to view and manage charts of data about your application
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 The Dashboard section of the UI allows customers to create customized charts to maximize their time by providing the exact information they want instead of searching for it in the analytics section. A dashboard shows the trends of your application and the Active User Counts for the different versions of your application during a given time (hour/day/week/month/customized). The trends shown are based on the last 7 days.
 
 ### See also

@@ -67,7 +67,7 @@ Set the CORS policy for **Allowed origins** to **'*'** (allow all).
    ![Permit requests from Logic App Designer to your custom API](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
 For more information, see 
-[Build a Node.js RESTful API](../app-service/app-service-web-tutorial-rest-api.md).
+[Host a RESTful API with CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 ## Call your custom API from logic app workflows
 

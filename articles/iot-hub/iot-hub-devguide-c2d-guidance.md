@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ms.author: elioda
 
 ---
@@ -23,6 +23,8 @@ IoT Hub provides three options for device apps to expose functionality to a back
 * [Direct methods][lnk-methods] for communications that require immediate confirmation of the result. Direct methods are often used for interactive control of devices such as turning on a fan.
 * [Twin's desired properties][lnk-twins] for long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes.
 * [Cloud-to-device messages][lnk-c2d] for one-way notifications to the device app.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Here is a detailed comparison of the various cloud-to-device communication options.
 

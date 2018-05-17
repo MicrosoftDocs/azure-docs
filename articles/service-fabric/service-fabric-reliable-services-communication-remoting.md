@@ -11,7 +11,7 @@ editor: BharatNarasimman
 ms.assetid: abfaf430-fea0-4974-afba-cfc9f9f2354b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
@@ -57,7 +57,7 @@ class MyService : StatelessService, IMyService
 
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] { new ServiceInstanceListener(context =>            this.CreateServiceRemotingListener(context)) };
+        return new[] { new ServiceInstanceListener(context => this.CreateServiceRemotingListener(context)) };
     }
 }
 ```
@@ -144,7 +144,7 @@ Here are the steps to follow.
   </Resources>
   ```
 
-2. Use [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Default Service Endpoint Resource name used is "ServiceEndpointV2" and must be defined in Service Manifest.
+2. Use [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet). Default Service Endpoint Resource name used is "ServiceEndpointV2" and must be defined in Service Manifest.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()

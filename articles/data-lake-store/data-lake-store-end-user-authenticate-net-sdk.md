@@ -9,9 +9,7 @@ editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
 
@@ -60,7 +58,7 @@ In this article, you learn about how to use the .NET SDK to do end-user authenti
    4. Close the **NuGet Package Manager**.
 
 6. Open **Program.cs**
-7. Replease the using statements with the following lines:
+7. Replace the using statements with the following lines:
 
     ```csharp
     using System;

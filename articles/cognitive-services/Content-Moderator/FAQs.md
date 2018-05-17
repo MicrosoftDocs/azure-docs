@@ -4,9 +4,8 @@ description: Get answers to frequently asked questions about Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: sajagtap

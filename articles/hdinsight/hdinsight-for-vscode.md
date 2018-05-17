@@ -13,8 +13,6 @@ ms.assetid:
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
 ---
@@ -28,7 +26,7 @@ Learn how to use the Azure HDInsight Tools for Visual Studio Code (VS Code) to c
 
 The following items are required for completing the steps in this article:
 
-- A HDInsight cluster.  To create a cluster, see [Get started with HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- A HDInsight cluster. To create a cluster, see [Get started with HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono is only required for Linux and macOS.
 
@@ -66,9 +64,9 @@ Create a workspace in VS Code before you can connect to Azure.
 
 4. Open **XXXX_hdi_settings.json** from **EXPLORER**, or right-click the script editor to select **Set Configuration**. You can configure login entry, default cluster, and job submission parameters as shown in the sample in the file. You also can leave the remaining parameters empty.
 
-## Connect to Azure
+## Connect to HDInsight Cluster
 
-Before you can submit scripts to HDInsight clusters from VS Code, you need connect to your Azure account.
+Before you can submit scripts to HDInsight clusters from VS Code, you need to either connect to your Azure account, or link a cluster (using Ambari username/password or domain joined account).
 
 **To connect to Azure**
 
@@ -100,6 +98,26 @@ Before you can submit scripts to HDInsight clusters from VS Code, you need conne
     - Submit interactive PySpark queries
     - Submit PySpark batch scripts
     - Set configurations
+
+<a id="linkcluster"></a>**To link a cluster**
+
+You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com).
+1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a cluster**.
+
+   ![link cluster command](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. Enter HDInsight cluster URL -> input Username -> input Password -> select cluster type -> it shows success info if verification passed.
+   
+   ![link cluster dialog](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > The linked username and password are used if the cluster both logged in Azure subscription and Linked a cluster. 
+   
+3. You can see a Linked cluster by using command **List cluster**. Now you can submit a script to this linked cluster.
+
+   ![linked cluster](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. You also can unlink a cluster by inputting **HDInsight: Unlink a cluster** from command palette.
 
 ## List HDInsight clusters
 
@@ -257,6 +275,51 @@ HDInsight Tools for VS Code also enables you to submit interactive PySpark queri
 
 After you submit a Python job, submission logs appear in the **OUTPUT** window in VS Code. The **Spark UI URL** and **Yarn UI URL** are shown as well. You can open the URL in a web browser to track the job status.
 
+>[!NOTE]
+>PySpark3 is not supported anymore in Livy 0.4 (which is HDI spark 2.2 cluster). Only “PySpark” is supported for python. It is known issue that submit to spark 2.2 fail with python3.
+   
+## Livy configuration
+Livy configuration is supported, it could be set at the project settings in work space folder. More details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
+
++ The project settings:
+
+    ![Livy configuration](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
++ The supported Livy configurations:   
+
+    **POST /batches**   
+    Request Body
+
+    | name | description | type | 
+    | :- | :- | :- | 
+    | file | File containing the application to execute | path (required) | 
+    | proxyUser | User to impersonate when running the job | string | 
+    | className | Application Java/Spark main class | string |
+    | args | Command line arguments for the application | list of strings | 
+    | jars | jars to be used in this session | List of string | 
+    | pyFiles | Python files to be used in this session | List of string |
+    | files | files to be used in this session | List of string |
+    | driverMemory | Amount of memory to use for the driver process | string |
+    | driverCores | Number of cores to use for the driver process | int |
+    | executorMemory | Amount of memory to use per executor process | string |
+    | executorCores | Number of cores to use for each executor | int |
+    | numExecutors | Number of executors to launch for this session | int |
+    | archives | Archives to be used in this session | List of string |
+    | queue | The name of the YARN queue to which submitted | string |
+    | name | The name of this session | string |
+    | conf | Spark configuration properties | Map of key=val |
+
+    Response Body   
+    The created Batch object.
+
+    | name | description | type | 
+    | :- | :- | :- | 
+    | id | The session id | int | 
+    | appId | The application id of this session | 	String |
+    | appInfo | The detailed application info | Map of key=val |
+    | log | The log lines | list of strings |
+    | state | 	The batch state | string |
+
 
 ## Additional features
 
@@ -294,7 +357,6 @@ HDInsight for VS Code supports the following features:
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building realtime streaming applications](spark/apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and running applications

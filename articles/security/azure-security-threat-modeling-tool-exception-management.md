@@ -73,7 +73,7 @@ Disable debugging information in the service. This can be accomplished by removi
 
 ### Example
 To control the status code returned by the API, `HttpResponseException` can be used as shown below: 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -87,7 +87,7 @@ public Product GetProduct(int id)
 
 ### Example
 For further control on the exception response, the `HttpResponseMessage` class can be used as shown below: 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -107,7 +107,7 @@ To catch unhandled exceptions that are not of the type `HttpResponseException`, 
 
 ### Example
 Here is a filter that converts `NotImplementedException` exceptions into HTTP status code `501, Not Implemented`: 
-```C#
+```csharp
 namespace ProductStore.Filters
 {
     using System;
@@ -135,7 +135,7 @@ There are several ways to register a Web API exception filter:
 
 ### Example
 To apply the filter to a specific action, add the filter as an attribute to the action: 
-```C#
+```csharp
 public class ProductsController : ApiController
 {
     [NotImplExceptionFilter]
@@ -148,7 +148,7 @@ public class ProductsController : ApiController
 ### Example
 To apply the filter to all of the actions on a `controller`, add the filter as an attribute to the `controller` class: 
 
-```C#
+```csharp
 [NotImplExceptionFilter]
 public class ProductsController : ApiController
 {
@@ -158,14 +158,14 @@ public class ProductsController : ApiController
 
 ### Example
 To apply the filter globally to all Web API controllers, add an instance of the filter to the `GlobalConfiguration.Configuration.Filters` collection. Exception filters in this collection apply to any Web API controller action. 
-```C#
+```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### Example
 For model validation, the model state can be passed to CreateErrorResponse method as shown below: 
-```C#
+```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
     if (!ModelState.IsValid)
@@ -223,7 +223,7 @@ Check the links in the references section for additional details about exception
 | **Steps** | Application should fail safely. Any method that returns a Boolean value, based on which certain decision is made, should have exception block carefully created. There are lot of logical errors due to which security issues creep in, when the exception block is written carelessly.|
 
 ### Example
-```C#
+```csharp
         public static bool ValidateDomain(string pathToValidate, Uri currentUrl)
         {
             try

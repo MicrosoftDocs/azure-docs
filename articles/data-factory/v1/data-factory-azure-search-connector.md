@@ -4,8 +4,8 @@ description: 'Learn about how to push data to Azure Search Index by using Azure 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 
 robots: noindex

@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/08/2017
+ms.date: 12/12/2017
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, cc996988-fb4f-47
 ---
 
 # Create a function that integrates with Azure Logic Apps
@@ -50,7 +50,7 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Click the **New** button found on the upper left-hand corner of the Azure portal.
+2. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 3. Click **AI + Analytics** > **Text Analytics API**. Then, use the settings as specified in the table, accept the terms, and check **Pin to dashboard**.
 
@@ -68,8 +68,6 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
 5. In the left navigation column, click **Keys**, and then copy the value of **Key 1** and save it. You use this key to connect the logic app to your Cognitive Services API. 
  
     ![Keys](media/functions-twitter-email/keys.png)
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## Create the function app
 
@@ -285,5 +283,5 @@ Advance to the next tutorial to learn how to create a serverless API for your fu
 > [!div class="nextstepaction"] 
 > [Create a serverless API using Azure Functions](functions-create-serverless-api.md)
 
-To learn more about Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).
+To learn more about Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 

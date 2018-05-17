@@ -4,15 +4,15 @@ description: Learn how to copy data from PostgreSQL to supported sink data store
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -57,7 +57,7 @@ The following properties are supported for PostgreSQL linked service:
 | database | Name of the PostgreSQL database. |Yes |
 | schema | Name of the schema in the database. The schema name is case-sensitive. |No |
 | username | Specify user name to connect to the PostgreSQL database. |Yes |
-| password | Specify password for the user account you specified for the username. Mark this field as a SecureString. |Yes |
+| password | Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**

@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
@@ -23,7 +23,7 @@ ASP.NET Core is a new open-source and cross-platform framework for building mode
 
 This article is an in-depth guide to hosting ASP.NET Core services in Service Fabric Reliable Services using the **Microsoft.ServiceFabric.AspNetCore.*** set of NuGet packages.
 
-For an introductory tutorial on ASP.NET Core in Service Fabric and instructions on getting your development environment set up, see [Building a web front-end for your application using ASP.NET Core](service-fabric-add-a-web-frontend.md).
+For an introductory tutorial on ASP.NET Core in Service Fabric and instructions on getting your development environment set up, see [Create a .NET application](service-fabric-tutorial-create-dotnet-app.md).
 
 The rest of this article assumes you are already familiar with ASP.NET Core. If not, we recommend reading through the [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 

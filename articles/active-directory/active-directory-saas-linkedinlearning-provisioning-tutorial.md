@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuring LinkedIn Learning for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure LinkedIn Learning for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to LinkedIn Learning.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
 ---
 
-# Tutorial: Configuring LinkedIn Learning for Automatic User Provisioning
+# Tutorial: Configure LinkedIn Learning for automatic user provisioning
 
 
 The objective of this tutorial is to show you the steps you need to perform in LinkedIn Learning and Azure AD to automatically provision and de-provision user accounts from Azure AD to LinkedIn Learning. 
@@ -123,8 +123,9 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
 16) Click **Save**. 
 
-This will start the initial synchronization of any users and/or groups assigned to LinkedIn Learning in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your LinkedIn Learning app.
+This will start the initial synchronization of any users and/or groups assigned to LinkedIn Learning in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your LinkedIn Learning app.
 
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 ## Additional Resources
 
