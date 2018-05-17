@@ -102,9 +102,9 @@ Learn more about the software demonstrated in this document.
 [azure-cloud-shell]: ../cloud-shell/overview.md
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [create-aks-cluster]: ./kubernetes-walkthrough.md
-[helm-cli-install]: ./kubernetes-helm#install-helm-cli
+[helm-cli-install]: ./kubernetes-helm.md#install-helm-cli
 [ingress-aks-cluster]: ./ingress.md
-[outbound-connections]: ../load-balancer/load-balancer-outbound-connections#scenarios
+[outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#scenarios
 
 <!-- LINKS - external -->
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
