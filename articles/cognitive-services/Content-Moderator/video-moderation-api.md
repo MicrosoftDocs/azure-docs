@@ -356,7 +356,7 @@ After the Content Moderation job is completed, analyze the JSON response. It con
 
 - Video information summary
 - **Shots** as "**fragments**"
-- **Key frames** as "**events**" with a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores (between 0 and 1).
+- **Key frames** as "**events**" with a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores
 - **start**, **duration**, **totalDuration**, and **timestamp** are in "ticks". Divide by **timescale** to get the number in seconds.
  
 > [!NOTE]
