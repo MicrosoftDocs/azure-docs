@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy | Microsoft Docs
-description: Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy.
+title: Troubleshoot Kerberos constrained delegation configurations for Application Proxy | Microsoft Docs
+description: Troubleshoot Kerberos Constrained Delegation configurations for Application Proxy
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,71 +18,67 @@ ms.reviewer: harshja
 
 ---
 
-# Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy
+# Troubleshoot Kerberos constrained delegation configurations for Azure Active Directory Application Proxy
 
-The methods available for achieving SSO to published applications can somewhat vary from one application to another. One of the options that Azure Application Proxy offers by default, is Kerberos Constrained Delegation (KCD). You can configure a connector to perform constrained Kerberos authentication to backend applications, on behalf of users.
+The methods available for achieving SSO to published applications can vary from one application to another. One option that Azure AD Application Proxy offers by default is Kerberos constrained delegation. You can configure a connector to perform constrained Kerberos authentication to back-end applications, on behalf of users.
 
-The actual procedure for enabling KCD is relatively straightforward and typically requires no more than a general understanding of the various components and authentication flow that facilitates SSO. Finding good sources of information to help troubleshoot scenarios where KCD SSO doesn’t function as expected, can be sparse.
+The procedure for enabling Kerberos constrained delegation is straightforward. It usually requires no more than a general understanding of the various components and authentication flow that facilitate SSO. But sometimes, Kerberos constrained delegation SSO doesn’t function as expected. You need good sources of information to troubleshoot these scenarios.
 
-As such, this article attempts to provide a single point of reference that should help troubleshoot and self-remediate some of the most common issues seen. At the same time, offer additional guidance for diagnosing the more complex and troubled of implementation.
+This article provides a single point of reference that helps troubleshoot and self-remediate some of the most common issues. It also provides guidance for diagnosing more complex implementation problems.
 
 This article makes the following assumptions:
 
--   The deployment of Azure Application Proxy per [documentation](manage-apps/application-proxy-enable.md) and general access to non KCD applications is working as expected.
+-   Deployment of Azure AD Application Proxy per [Get started with Application Proxy](manage-apps/application-proxy-enable.md) and general access to non-Kerberos constrained delegation applications work as expected.
 
--   The published target application is based on IIS and Microsoft’s implementation of Kerberos.
+-   The published target application is based on Microsoft Internet Information Services (IIS) and Microsoft’s implementation of Kerberos.
 
--   The server and application hosts reside in a single Active Directory domain. Detailed information on cross domain and forest scenarios can be found in the [KCD whitepaper](https://aka.ms/KCDPaper).
+-   The server and application hosts reside in a single Azure Active Directory domain. For detailed information on cross-domain and forest scenarios, see the [Kerberos constrained delegation whitepaper](https://aka.ms/KCDPaper).
 
--   The subject application is published in an Azure tenant with pre-authentication enabled, and users are expected to authenticate to Azure via forms-based authentication. Rich client authentication scenarios are not covered by this article, but be added at some point in the future.
+-   The subject application is published in an Azure tenant with pre-authentication enabled. Users are expected to authenticate to Azure via forms-based authentication. Rich client authentication scenarios aren't covered by this article. They might be added at some point in the future.
 
 ## Prerequisites
 
-Azure Application Proxy can be deployed into many types of infrastructures or environments and the architectures no doubt vary from organization to organization. One of the most common causes of KCD-related issues are not the environments themselves, but rather simple mis-configurations, or general oversight.
+Azure AD Application Proxy can be deployed into many types of infrastructures or environments. The architectures will vary from organization to organization. The most common causes of Kerberos constrained delegation-related issues aren't the environments. Simple misconfigurations or general oversight cause most issues.
 
-For this reason, it is always best to start by making sure you have met all the pre-requisites laid out in [Using KCD SSO with the Application Proxy article](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) before starting troubleshooting.
+For this reason, it's best to make sure you've met all the prerequisites in [Using Kerberos constrained delegation SSO with the Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) before you start troubleshooting. Note the section on configuring Kerberos constrained delegation on 2012R2. This process employs a different approach to configuring KCD on previous versions of Windows. Also, be mindful of these considerations:
 
-Particularly the section on configuring KCD on 2012R2, as this employs a fundamentally different approach to configuring KCD on previous versions of Windows, but also while being mindful of several other considerations:
+-   It's not uncommon for a domain member server to open a secure channel dialog with a specific domain controller. Then the server might move to another dialog at any given time. So connector hosts shouldn't be restricted to communication with only specific local site DCs.
 
--   It is not uncommon for a domain member server to open a secure channel dialog with a specific domain controller. Then move to another dialog at any given time, so connector hosts should not be restricted to being able to communicate with only specific local site DCs.
+-   As in the preceding point, cross-domain scenarios rely on referrals that direct a connector host to DCs that might reside outside of the local network perimeter. In this scenario, it's equally important to also allow traffic onward to DCs that represent other respective domains. If not, delegation fails.
 
--   Similar to the preceding point, cross domain scenarios rely on referrals that direct a connector host to DCs that may reside outside of the local network perimeter. In this scenario, it is equally important to make sure you are also allowing traffic onwards to DCs that represent other respective domains, or else delegation fail.
+-   Where possible, avoid placing any active IPS or IDS devices between connector hosts and DCs. These devices are sometimes overintrusive and interfere with core RPC traffic.
 
--   Where possible, you should avoid placing any active IPS/IDS devices between connector hosts and DCs, as these are sometimes over intrusive and interfere with core RPC traffic
+Test delegation in simple scenarios. The more variables you introduce, the more you might have to contend with. To save time, limit your testing to a single connector. Add additional connectors after the issue has been resolved.
 
-You should test delegation in the simplest scenarios. The more variables you introduce, the more you may have to contend with. For example, limiting your testing to a single connector can save valuable time, and additional connectors can be added after the issues has been resolved.
+Some environmental factors might also contribute to an issue. To avoid these factors, minimize architecture as much as possible during testing. For example, misconfigured internal firewall ACLs are common. If possible, allow all traffic from a connector straight through to the DCs and back-end application.
 
-Some environmental factors may also be contributing to an issue. During testing, minimize the architecture to a bare minimum to avoid these environmental factors. For example, misconfigured internal firewall ACLs are not uncommon, so if possible have all traffic from a connector allowed straight through to the DCs and backend application. 
+The best place to position connectors is as close as possible to their targets. A firewall that sits inline while testing adds unnecessary complexity and can prolong your investigations.
 
-Actually the absolute best place to position connectors is as close to their targets as can be. Having a firewall sat inline whilst testing simply adds unnecessary complexity, and could just prolong your investigations.
-
-So, what constitutes a KCD problem anyway? There are several classic indications of KCD SSO failing and the first signs of an issue usually manifest themselves in the browser.
+What represents a KCD problem? There are several common indications that KCD SSO is failing. The first signs of an issue usually appear in the browser.
 
    ![Incorrect KCD configuration error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
    ![Authorization failed due to missing permissions](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
-all which bear the same symptom of failing to perform SSO, and consequently denying the user access to the application.
+Both of these show the same symptom: failure to perform SSO. User access to the application is denied.
 
 ## Troubleshooting
 
-How you troubleshoot depends on the issue and observed symptoms. Before going any further, explore the following links, as they contain useful information you may not yet have come across:
+How you troubleshoot depends on the issue and the symptoms you observe. Before going any farther, explore the following articles. They contain useful troubleshooting information:
 
 -   [Troubleshoot Application Proxy problems and error messages](active-directory-application-proxy-troubleshoot.md)
 
 -   [Kerberos errors and symptoms](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [Working with SSO when on-premises and cloud identities are not identical](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
+-   [Working with SSO when on-premises and cloud identities aren't identical](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
-If you’ve got this far, then the main issue definitely exists. Start by separating the flow into three distinct stages that you can troubleshoot.
+If you’ve got this far, then the main issue definitely exists. To start, separate the flow into three distinct stages that you can troubleshoot.
 
-**Client pre-authentication** - The external user authenticating to Azure via a browser.
+**Client preauthentication**. The external user authenticating to Azure via a browser. The ability to preauthenticate to Azure is necessary for KCD SSO to function. Test and address this if there are any issues. The preauthentication stage isn't related to KCD or the published application. It's easy to correct any discrepancies by sanity checking that the subject account exists in Azure. Also check that it's not disabled or blocked. The error response in the browser is usually descriptive enough to explain the cause. If you're uncertain, check other Microsoft troubleshooting articles to verify.
 
-Being able to pre-authenticate to Azure is imperative for KCD SSO to function. You should test and address this  if there are any issues. The pre-authentication stage has no relation to KCD or the published application. It should be fairly easy to correct any discrepancies by sanity checking the subject account exists in Azure, and that it is not disabled/blocked. The error response in the browser is usually descriptive enough to understand the cause. You can also check our other Troubleshoot docs to verify if you aren’t sure.
+**Delegation service**. The Azure Proxy connector that obtains a Kerberos service ticket from a Kerberos Key Distribution Center (KCD) on behalf of users.
 
-**Delegation service** - The Azure Proxy connector obtaining a Kerberos service ticket from a KDC (Kerberos Distribution Center), on behalf of users.
-
-The external communications between the client and the Azure front end should have no bearing on KCD whatsoever, other than ensuring that it works. This is so the Azure Proxy service can be provided with a valid user ID that is used to obtain a Kerberos ticket. Without this, KCD is not possible and would fail.
+The external communications between the client and the Azure front end have no bearing on KCD, other than ensuring that it works. This is so the Azure Proxy service can be provided with a valid user ID that is used to obtain a Kerberos ticket. Without this, KCD is not possible and would fail.
 
 As mentioned previously, the browser error messages usually provide some good clues on why things are failing. Make sure to note down the activity ID and timestamp in the response as this allows you to correlate the behavior to actual events in the Azure Proxy event log.
 
