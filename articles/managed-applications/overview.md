@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 04/13/2018
 ms.author: tomfitz

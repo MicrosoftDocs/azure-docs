@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/6/2018
+ms.date: 5/4/2018
 ms.author: raiye
 
 ---
@@ -39,6 +39,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **May 4, 2018**
+The April Guest OS has released.
+
 ###### **April 6, 2018**
 The March Guest OS has released.
 
@@ -66,14 +69,6 @@ September Guest OS has released. For the Windows Server 2016 September release, 
 ###### **September 14, 2017**
 September Guest OS rollout is starting September 14 and has a projected release of October 9.
 
-###### **August 24, 2017**
-August Guest OS has released.
-
-###### **August 3, 2017**
-July Guest OS has released.
-
-###### **July 19, 2017**
-July Guest OS rollout is starting July 19 and has a projected release of August 8.
 
 
 ## Releases
@@ -90,8 +85,9 @@ July Guest OS rollout is starting July 19 and has a projected release of August 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.18_201804-01 |May 4, 2018 |Post 5.20 |TBD |
 | WA-GUEST-OS-5.17_201803-01 |April 6, 2018 |Post 5.19 |TBD |
-| WA-GUEST-OS-5.16_201802-01 |March 12, 2018 |Post 5.18 |TBD |
+|~~WA-GUEST-OS-5.16_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
 |~~WA-GUEST-OS-5.15_201801-01~~ |January 4, 2018 |April 6, 2018 |TBD |
 |~~WA-GUEST-OS-5.14_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |December 14, 2017 |January 4, 2018|TBD |
@@ -102,8 +98,7 @@ July Guest OS rollout is starting July 19 and has a projected release of August 
 |~~WA-GUEST-OS-5.8_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
-|~~WA-GUEST-OS-5.5_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
-|~~WA-GUEST-OS-5.4_201612-01~~ |January 10, 2017 |June 5, 2017|TBD |
+
 
 ## Family 4 releases
 **Windows Server 2012 R2**
@@ -117,8 +112,9 @@ July Guest OS rollout is starting July 19 and has a projected release of August 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.53_201804-01 |May 4, 2018 |Post 4.55 |TBD |
 | WA-GUEST-OS-4.52_201803-01 |April 6, 2018 |Post 4.54 |TBD |
-| WA-GUEST-OS-4.51_201802-01 |March 12, 2018 |Post 4.53 |TBD |
+|~~WA-GUEST-OS-4.51_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
 |~~WA-GUEST-OS-4.50_201801-01~~ |January 4, 2018 |April 6, 2018 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |December 14, 2017 |January 4, 2018 |TBD |
@@ -129,8 +125,7 @@ July Guest OS rollout is starting July 19 and has a projected release of August 
 |~~WA-GUEST-OS-4.43_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
-|~~WA-GUEST-OS-4.40_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
-|~~WA-GUEST-OS-4.39_201612-01~~ |January 10, 2017 |June 5, 2017 |TBD |
+
 
 ## Family 3 releases
 **Windows Server 2012**
@@ -144,8 +139,9 @@ July Guest OS rollout is starting July 19 and has a projected release of August 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.60_201804-01 |May 4, 2018 |Post 3.62 |TBD |
 | WA-GUEST-OS-3.59_201803-01 |April 6, 2018 |Post 3.61 |TBD |
-| WA-GUEST-OS-3.58_201802-01 |March 19, 2018 |Post 3.60 |TBD |
+|~~WA-GUEST-OS-3.58_201802-01~~ |March 19, 2018 |May 4, 2018 |TBD |
 |~~WA-GUEST-OS-3.57_201801-01~~ |January 29, 2018 |April 6, 2018 |TBD |
 |~~WA-GUEST-OS-3.56_201712-01~~ |January 4, 2018 |March 19, 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |December 14, 2017 |January 29, 2018 |TBD |
@@ -156,8 +152,7 @@ July Guest OS rollout is starting July 19 and has a projected release of August 
 |~~WA-GUEST-OS-3.50_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
-|~~WA-GUEST-OS-3.47_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
-|~~WA-GUEST-OS-3.46_201612-01~~ |January 10, 2017 |June 5, 2017 |TBD |
+
 
 ## Family 2 releases
 **Windows Server 2008 R2 SP1**
@@ -171,8 +166,9 @@ July Guest OS rollout is starting July 19 and has a projected release of August 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.73_201804-01 |May 4, 2018 |Post 2.75 |TBD |
 | WA-GUEST-OS-2.72_201803-01 |April 6, 2018 |Post 2.74 |TBD |
-| WA-GUEST-OS-2.71_201802-01 |March 12, 2018 |Post 2.73 |TBD |
+|~~WA-GUEST-OS-2.71_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
 |~~WA-GUEST-OS-2.70_201801-01~~ |January 29, 2018 |April 6, 2018 |TBD |
 |~~WA-GUEST-OS-2.69_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |December 14, 2017 |January 29, 2018 |TBD |
@@ -184,8 +180,6 @@ July Guest OS rollout is starting July 19 and has a projected release of August 
 |~~WA-GUEST-OS-2.62_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
-|~~WA-GUEST-OS-2.59_201701-01~~ |January 10, 2017 |June 5, 2017 |TBD |
-|~~WA-GUEST-OS-2.58_201612-01~~ |January 10, 2017 |May 9, 2017|TBD |
 
 
 ## MSRC patch updates
@@ -244,7 +238,7 @@ If you manually update your Guest OS, see the [Guest OS retirement policy][retir
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].
 
 [Guest OS Update RSS Feed]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
@@ -262,4 +256,4 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/library/security/ms17-010.aspx

@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Role-based Access Control for StorSimple | Microsoft Docs
 description: Describes how to use Azure Role-based Access Control (RBAC) in the context of StorSimple.
 services: storsimple
@@ -42,7 +42,7 @@ In the following example, we start with the built-in role **Reader** that allows
 
 2. Log in to Azure.
 
-    `Login-AzureRMAccount`
+    `Connect-AzureRmAccount`
 
 3. Export the Reader role as a JSON template on your computer.
 
@@ -105,12 +105,12 @@ This role should now appear in the list of roles in the **Access control** blade
 
 ![View RBAC roles](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-For more information, go to [Create a custom RBAC role using PowerShell](../role-based-access-control/role-assignments-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
+For more information, go to [Custom roles](../role-based-access-control/custom-roles.md).
 
 ### Sample output for custom role creation via the PowerShell
 
 ```
-PS C:\WINDOWS\system32> Login-AzureRMAccount
+PS C:\WINDOWS\system32> Connect-AzureRmAccount
 
 Environment           : AzureCloud
 Account               : john.doe@contoso.com

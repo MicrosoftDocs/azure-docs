@@ -1,5 +1,5 @@
 ---
-title: Create an Azure CDN profile and endpoint | Microsoft Docs
+title: Quickstart - Create an Azure CDN profile and endpoint | Microsoft Docs
 description: This quickstart shows how to enable Azure CDN by creating a new CDN profile and endpoint.
 services: cdn
 documentationcenter: ''
@@ -66,8 +66,10 @@ After you've created a CDN profile, you can use it to create an endpoint.
     
    ![CDN endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   Because it takes time for the registration to propagate, the endpoint isn't immediately available for use. 
-
+   Because it takes time for the registration to propagate, the endpoint isn't immediately available for use: 
+   - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
+   - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
+   - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
 
 ## Clean up resources
 In the preceding steps, you created a CDN profile and an endpoint in a resource group. Save these resources if you want to go to [Next steps](#next-steps) and learn how to add a custom domain to your endpoint. However, if you don't expect to use these resources in the future, you can delete them by deleting the resource group, thus avoiding additional charges:
@@ -82,6 +84,6 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 To learn about adding a custom domain to your CDN endpoint, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Add a custom domain](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
 
 

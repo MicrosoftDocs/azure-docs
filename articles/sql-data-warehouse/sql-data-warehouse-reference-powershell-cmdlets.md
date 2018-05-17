@@ -1,4 +1,4 @@
----
+﻿---
 title: PowerShell cmdlets for Azure SQL Data Warehouse
 description: Find the top PowerShell cmdlets for Azure SQL Data Warehouse including how to pause and resume a database.
 services: sql-data-warehouse
@@ -25,7 +25,7 @@ Many SQL Data Warehouse administration tasks can be managed using either Azure P
 2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
    
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     Get-AzureRmSubscription
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```

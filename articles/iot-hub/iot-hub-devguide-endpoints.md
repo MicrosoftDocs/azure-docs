@@ -85,7 +85,7 @@ IoT Hub only supports writing data to Azure Storage containers as blobs in the [
 * The batch reaches a certain size.
 * Or a certain amount of time has elapsed.
 
-IoT Hub will does write an empty blob if there is no data to write.
+IoT Hub will write to an empty blob if there is no data to write.
 
 IoT Hub defaults to the following file naming convention:
 

@@ -107,7 +107,7 @@ For more information, see [Set up SharePoint Online and Exchange Online for Azur
 
 ### License requirements for using conditional access
 
-Using conditional access requires a Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
+Using conditional access requires a Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
 
 ## Next steps
@@ -120,3 +120,5 @@ Using conditional access requires a Azure AD Premium license. To find the right 
 - If you want to get some experience with configuring conditional access policies, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+
+- If you would like a step-by-step deployment plan with recommended policies, see the [conditional access deployment plan](http://aka.ms/conditionalaccessdeploymentplan)

@@ -8,10 +8,10 @@ editor: ''
 ms.assetid:
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 5/15/2018
 ms.author: rithorn
 ---
 
@@ -19,9 +19,11 @@ ms.author: rithorn
 # Manage your resources with management groups 
 Management groups are containers that help you manage access, policy, and compliance across multiple subscriptions. You can change, delete, and manage these containers to have hierarchies that can be used with [Azure Policy](../azure-policy/azure-policy-introduction.md) and [Azure Role Based Access Controls (RBAC)](../role-based-access-control/overview.md). To learn more about management groups, see [Organize your resources with Azure management groups ](management-groups-overview.md).
 
-The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) or you can use [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) to manage your management groups.
+The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) or you can use [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) to manage your management groups.
 
 To make changes to a management group, you must have an Owner or Contributor role on the management group. To see what permissions you have, select the management group and then select **IAM**. To learn more about RBAC Roles, see [Manage access and permissions with RBAC](../role-based-access-control/overview.md).
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## Change the name of a management group 
 You can change the name of the management group by using the portal, PowerShell, or Azure CLI.
@@ -101,9 +103,9 @@ You can view any management group you have a direct or inherited RBAC role on.
 ### View in the portal
 1. Log into the [Azure portal](https://portal.azure.com)
 2. Select **All services** > **Management groups** 
-3. The Management Group hierarchy page loads where all groups are displayed that you have access to. 
+3. The Management Group hierarchy page loads where you can explore all the management groups and subscriptions you have access to. Selecting the group name takes you down a level in the hierarchy. The navigation works the same as a file explorer does. 
     ![Main](media/management-groups/main.png)
-4. Select an individual management group for the details  
+4. To see the details of the management group, select the **(details)** link next to the title of the management group. If this link isn't available, you don't have permissions to view that management group.  
 
 ### View in PowerShell
 You use the Get-AzureRmManagementGroup command to retrieve all groups.  
@@ -229,4 +231,4 @@ To Learn more about management groups, see:
 - [Create management groups to organize Azure resources](management-groups-create.md)
 - [Install the Azure Powershell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [Install the Azure CLI Extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Install the Azure CLI Extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)

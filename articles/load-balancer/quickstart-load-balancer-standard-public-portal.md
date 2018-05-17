@@ -1,24 +1,26 @@
 ---
-title: Create a Standard Load Balancer - Azure portal | Microsoft Docs
-description: Learn how to create a Standard load balancer by using the Azure portal.
+title: Quickstart:Create a Standard Load Balancer - Azure portal | Microsoft Docs
+description: This quickstart shows how to create a Standard load balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD 
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
+ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/18
 ms.author: kumud
+ms.custom: mvc
 ---
 
-# Create a Standard Load Balancer to load balance VMs using the Azure portal
+# Quickstart: Create a Standard Load Balancer to load balance VMs using the Azure portal
 
 Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. You can use the Azure portal to create a load balancer to load balance virtual machines (VMs). This quickstart shows you how to load balance VMs using a Standard Load Balancer.
 
@@ -123,7 +125,7 @@ In this section, you  configure load balancer settings for a backend address poo
 
 ### Create a backend address pool
 
-To distribute traffic to the VMs, a back-end address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to inlcude *VM1* and *VM2*.
+To distribute traffic to the VMs, a backend address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to inlcude *VM1* and *VM2*.
 
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then click **Add**.
@@ -156,7 +158,7 @@ To allow the load balancer to monitor the status of your app, you use a health p
 
 ### Create a load balancer rule
 
-A load balancer rule is used to define how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
+A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
 
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Load balancing rules**, then click **Add**.
@@ -184,4 +186,7 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 ## Next steps
 
-Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
+In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

@@ -8,6 +8,7 @@ manager: mtillman
 editor: daveba
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,7 +18,7 @@ ms.author: daveba
 ---
 
 
-# Use a Linux VM Managed Service Identity to access Azure Storage via access key
+# Tutorial: Use a Linux VM Managed Service Identity to access Azure Storage via access key
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -115,7 +116,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     The CURL request and response for the access token is below:
     
     ```bash
-    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true    
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true
     ```
     
     > [!NOTE]

@@ -1,4 +1,4 @@
----
+﻿---
 title: Route Azure Blob storage events to a custom web endpoint - Powershell | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob storage events. 
 services: storage,event-grid 
@@ -17,7 +17,7 @@ Azure Event Grid is an eventing service for the cloud. In this article, you use 
 Typically, you send events to an endpoint that responds to the event, such as a webhook or Azure Function. To simplify the example shown in this article, events are sent to a URL that merely collects the messages. You create this URL by using a third-party tool from [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **Hookbin** is not intended for high throughput usage. The use of this tool is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool.
+> **Hookbin** is not intended for high throughput usage. The use of this tool is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool. Also, keep in mind that **Hookbin** gets [special treatment](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint) by Azure Event Grid. To facilitate testing, Event Grid sends events there without requiring a correct response to subscription validation requests (which would happen [otherwise](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)).
 
 When you complete the steps described in this article, you see that the event data has been sent to an endpoint.
 
@@ -27,10 +27,10 @@ This article requires that you are running the latest version of Azure PowerShel
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions to authenticate.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions to authenticate.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 > [!NOTE]

@@ -3,7 +3,7 @@ title: Azure virtual machine security best practices
 description: This article provides a variety of security best practices to be used in virtual machines located in Azure.
 services: security
 documentationcenter: na
-author: YuriDio
+author: barclayn
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
+ms.date: 04/26/2018
+ms.author: barclayn
 
 ---
 # Best practices for Azure VM security
@@ -52,7 +52,7 @@ When you enable Resource Manager policies and RBAC to control VM access, you hel
 
 - [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Can manage VMs, but not the virtual network or storage account to which they are connected.
 - [Classic Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Can manage VMs created by using the classic deployment model, but not the virtual network or storage account to which the VMs are connected.
-- [Security Manager](../role-based-access-control/built-in-roles.md#security-manager): Can manage security components, security policies, and VMs.
+- [Security Admin](../role-based-access-control/built-in-roles.md#security-admin): Can manage security components and security policies.
 - [DevTest Labs User](../role-based-access-control/built-in-roles.md#devtest-labs-user): Can view everything and connect, start, restart, and shut down VMs.
 
 Don't share accounts and passwords between administrators, and don't reuse passwords across multiple user accounts or services, particularly passwords for social media or other non-administrative activities. Ideally, you should use [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) templates to set up your VMs securely. By using this approach, you can strengthen your deployment choices and enforce security settings throughout the deployment.

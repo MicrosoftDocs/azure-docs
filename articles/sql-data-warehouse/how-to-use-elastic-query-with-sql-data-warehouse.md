@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.component: implement
 ms.date: 04/11/2018
 ms.author: elbutter
-ms.reviewer: jrj
+ms.reviewer: igorstan
 ---
 
 # Best practices for using Elastic Query in Azure SQL Database to access data in Azure SQL Data Warehouse

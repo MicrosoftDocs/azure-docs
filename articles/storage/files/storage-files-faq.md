@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions for Azure Files | Microsoft Docs
+title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Find answers to frequently asked questions about Azure Files.
 services: storage
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 12/04/2017
 ms.author: renash
 ---
 
-# Frequently asked questions about Azure Files
+# Frequently asked questions (FAQ) about Azure Files
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (also known as Common Internet File System, or CIFS). You can mount Azure file shares concurrently on cloud or on-premises deployments of Windows, Linux, and macOS. You also can cache Azure file shares on Windows Server machines by using Azure File Sync (preview) for fast access close to where the data is used.
 
 This article answers common questions about Azure Files features and functionality, including the use of Azure File Sync with Azure Files. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -229,7 +229,7 @@ This article answers common questions about Azure Files features and functionali
 ## Backup
 * <a id="backup-share"></a>
 **How do I back up my Azure file share?**  
-    You can use periodic [share snapshots](storage-snapshots-files.md) for protection against accidental deletions. You also can use AzCopy, Robocopy, or a third-party backup tool that can back up a mounted file share. 
+    You can use periodic [share snapshots](storage-snapshots-files.md) for protection against accidental deletions. You also can use AzCopy, Robocopy, or a third-party backup tool that can back up a mounted file share. Azure Backup offers backup of Azure Files. Learn more about [back up Azure file shares by Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
 
 ## Share snapshots
 ### Share snapshots: General
@@ -254,7 +254,7 @@ This article answers common questions about Azure Files features and functionali
     Yes. Azure Files can retain a maximum of 200 share snapshots. Share snapshots do not count toward the share quota, so there is no per-share limit on the total space that's used by all the share snapshots. Storage account limits still apply. After 200 share snapshots, you must delete older snapshots to create new share snapshots.
 * <a id="snapshot-cost"></a>
 **How much does share snapshot cost?**  
-    Standard transaction and standard storage cost will apply to snapshot. Snapshots are incremental in nature. The base snapshot is the share itself. All the subsequent snapshots are incremental and will only store the diff from the previous snapshot. This means that the delta changes that will be seen in the bill will be minimal if your workload churn is minimal. See [Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/files/) for Standard Azure Files pricing information. Today the way to look at size consumed by share snapshot is by comparing the billed capacity with used capacity. We are working on tooling to improve the reporting.
+    Standard transaction and standard storage cost will apply to snapshot. Snapshots are incremental in nature. The base snapshot is the share itself. All the subsequent snapshots are incremental and will only store the diff from the previous snapshot. This means that the delta changes that will be seen in the bill will be minimal if your workload churn is minimal. See [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for Standard Azure Files pricing information. Today the way to look at size consumed by share snapshot is by comparing the billed capacity with used capacity. We are working on tooling to improve the reporting.
 
 
 ### Create share snapshots
