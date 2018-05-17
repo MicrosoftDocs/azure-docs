@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 
 ---
@@ -21,17 +21,18 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Use Visual Studio to author and deploy Azure Resource Manager [templates](azure-stack-arm-templates.md) in Azure Stack. You can use the steps described in this article to install Visual Studio either from [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are connected through [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). These steps perform a new installation of Visual Studio 2015 Community Edition. Read more about [coexistence](https://msdn.microsoft.com/library/ms246609.aspx) between other Visual Studio versions.
+Use Visual Studio to author and deploy Azure Resource Manager [templates](azure-stack-arm-templates.md) in Azure Stack. You can use the steps described in this article to install Visual Studio either from [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are connected through [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). These steps in this article are for a new installation of Visual Studio 2015 Community Edition. Read more about [coexistence](https://msdn.microsoft.com/library/ms246609.aspx) with other Visual Studio versions.
 
 ## Install Visual Studio
-1. Download and run the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).             
-2. Search for **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**, click **Add**, and **Install**.
 
-    ![Screenshot of WebPI install steps](./media/azure-stack-install-visual-studio/image1.png) 
+1. Download and run the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).
+2. Search for **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**, select **Add**, and then select **Install**.
 
-3. Uninstall the **Microsoft Azure PowerShell** that is installed as part of the Azure SDK.
+    ![Screen capture of WebPI install steps](./media/azure-stack-install-visual-studio/image1.png)
 
-    ![Screenshot of add/remove programs interface for Azure PowerShell](./media/azure-stack-install-visual-studio/image2.png) 
+3. Uninstall the **Microsoft Azure PowerShell** that's installed as part of the Azure SDK.
+
+    ![Screen capture of add/remove programs interface for Azure PowerShell](./media/azure-stack-install-visual-studio/image2.png)
 
 4. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)
 
@@ -43,11 +44,11 @@ Use Visual Studio to author and deploy Azure Resource Manager [templates](azure-
 
 2. From the **View** menu, select **Cloud Explorer**.
 
-3. In the new pane, select **Add Account** and sign in with your Azure Active Directory credentials.  
-    ![Screenshot of Cloud Explorer once logged in and connected to Azure Stack](./media/azure-stack-install-visual-studio/image6.png)
+3. In the new pane, select **Add Account** and sign in with your Azure Active Directory credentials.
+    ![Screen capture of Cloud Explorer after sign in and connected to Azure Stack](./media/azure-stack-install-visual-studio/image6.png)
 
-Once logged in, you can [deploy templates](azure-stack-deploy-template-visual-studio.md) or browse available resource types and resource groups to create your own templates.  
+Once logged in, you can [deploy templates](azure-stack-deploy-template-visual-studio.md) or browse available resource types and resource groups to create your own templates.
 
-## Next Steps
+## Next steps
 
- - [Develop templates for Azure Stack](azure-stack-develop-templates.md)
+* [Develop templates for Azure Stack](azure-stack-develop-templates.md)

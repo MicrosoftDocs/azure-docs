@@ -36,11 +36,7 @@ python LogDownloader.py -a AppId -l d:\data -s 2018-01-01 -e 2018-01-07 -o 2 --c
 
 The script creates a single file, as long as the Custom Decision Service has been run with the same setting throughout the specified date range. The file is gzipped, which is required for the data analysis and visualization tools described next. See the [LogDownloader reference](custom-decision-service-log-downloader-reference.md) for a detailed syntax.
 
-The script may create several files if the Custom Decision Service settings have been changed during the specified date range. Use this command to merge two or more log files:
-
-```cmd
-command to be specified
-```
+The script may create several files if the Custom Decision Service settings have been changed during the specified date range.
 
 >[!TIP]
 >Logged data may be very large for a high-volume application. We recommend an end-to-end practice run with a small date range. Use `--dry_run` option to find out which files you'd be downloading, and their sizes, without actually downloading them.
