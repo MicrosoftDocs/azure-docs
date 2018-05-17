@@ -39,7 +39,7 @@ Azure Availability Zone achieves HA by placing a set of VMs into 2+ data centers
 ## 2. Network Routing
 By default, Azure basic load balancer is used for incoming CF API/apps requests, forwarding them to the Gorouters. CF components like Diego Brain, MySQL, ERT can also use the load balancer to balance the traffic for HA. In addition, Azure provides a set of fully managed load balancing solutions. If you are looking for TLS termination ("SSL offload") or per HTTP/HTTPS request application layer processing, consider Application Gateway. For high availability and scalability load balancing on layer 4, consider standard load balancer.
 ### Azure Application Gateway *
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) offers various layer 7 load balancing capabilities, including SSL offloading, end to end SSL, Web Application Firewall, cookie-based session affinity and more. It is supported in [Open Source Cloud Foundry]( https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction). For PCF, check the  [notes](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) for POC test.
+[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) offers various layer 7 load balancing capabilities, including SSL offloading, end to end SSL, Web Application Firewall, cookie-based session affinity and more. You can [configure Application Gateway in Open Source Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gatewayn). For PCF, check the  [notes](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) for POC test.
 
 ### Azure Standard Load Balancer *
 Azure Load Balancer is a Layer 4 load balancer. It is used to distribute the traffic among instances of services in a load-balanced set. The standard version provides [advanced features](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) on top of the basic version. For example 1. The backend pool max limit is raised from 100 to 1000 VMs.  2. The endpoints now support multiple availability sets instead of single availability set.  3. Additional features like HA ports, richer monitoring data, etc. If you are moving to Azure Availability Zone, standard load balancer is required. For a new deployment, we recommend you to start with Azure Standard Load Balancer. 
@@ -52,7 +52,7 @@ By default, UAA is used for Cloud Foundry authentication. As an advanced option,
 Cloud Foundry offers great extensibility to use Azure blobstore or Azure MySQL/PostgreSQL services for application runtime system storage.
 ### Azure Blobstore for Cloud Foundry Cloud Controller blobstore
 The Cloud Controller blobstore is a critical data store for buildpacks, droplets, packages, and resource pools. By default, NFS server is used for Cloud Controller blobstore. 
-Now operators can use Azure Blob Storage for Cloud Controller blobstore instead, enjoying greater availability and scalability. Check out the [Cloud Foundry documentation](https://docs.cloudfoundry.org/deploying/common/cc-blobstore-config.html) for background, and [options in Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-0/customizing/azure.html).
+To avoid single point of failure, use Azure Blob Storage as external store. Check out the [Cloud Foundry documentation](https://docs.cloudfoundry.org/deploying/common/cc-blobstore-config.html) for background, and [options in Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-0/customizing/azure.html).
 
 ### MySQL/PostgreSQL as Cloud Foundry Elastic Run Time Database *
 CF Elastic Runtime requires two major system databases:
@@ -60,15 +60,16 @@ CF Elastic Runtime requires two major system databases:
 The Cloud Controller database.  Cloud Controller provides REST API endpoints for clients to access the system. CCDB stores tables for orgs, spaces, services, user roles, and more for Cloud controller.
 #### UAADB 
 The database for User Account and Authentication. It stores the user authentication related data, for example encrypted user names and passwords.
-By default, a local system database (MySQL) can be used. Now customer can leverage Azure managed MySQL or PostgreSQL services for scale. 
-Here is instruction on [enabling Azure MySQL/PostgreSQL for CCDB, UAADB and other system databases with Open Source Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/configure-cf-external-databases-using-azure-mysql-postgres-service).
+
+By default, a local system database (MySQL) can be used. For HA and to scale, leverage Azure managed MySQL or PostgreSQL services for. 
+Here is instruction of [enabling Azure MySQL/PostgreSQL for CCDB, UAADB and other system databases with Open Source Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/configure-cf-external-databases-using-azure-mysql-postgres-service).
 
 ## 5. Open Service Broker
-Azure service broker offers consistent interface to manage application’s access to Azure services. The new [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure) project provides a single and simple way to deliver services to applications running within cloud native platforms across Cloud Foundry, OpenShift, and Kubernetes. See the [Azure Open Service Broker for PCF tile](https://network.pivotal.io/products/azure-open-service-broker-pcf/) for deployment instructions.
+Azure service broker offers consistent interface to manage application’s access to Azure services. The new [Open Service Broker for Azure project](https://github.com/Azure/open-service-broker-azure) provides a single and simple way to deliver services to applications across Cloud Foundry, OpenShift, and Kubernetes. See the [Azure Open Service Broker for PCF tile](https://network.pivotal.io/products/azure-open-service-broker-pcf/) for deployment instructions on PCF.
 
 ## 6. Metrics and Logging
 The Azure Log Analytics Nozzle is a Cloud Foundry component, that forwards metrics from the [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) to [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). With the Nozzle, you can collect, view, and analyze your CF system health and performance metrics across multiple deployments.
-Click [here](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) to learn how to deploy the Azure Log Analytics Nozzle to your CF environment, and then access the data from the Azure Log Analytics OMS console. 
+Click [here](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) to learn how to deploy the Azure Log Analytics Nozzle to both Open Source and Pivotal Cloud Foundry environment, and then access the data from the Azure Log Analytics OMS console. 
 > [!NOTE]
 > From PCF 2.0, BOSH health metrics for VMs are forwarded to the Loggregator Firehose by default, and are integrated into Azure Log Analytics OMS console.
 
@@ -77,7 +78,7 @@ Click [here](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozz
 #### B-Series: *
 While F and D VM series were commonly recommended for Pivotal Cloud Foundry production environment, the new “burstable” [B-series](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/) brings new options. The B-series burstable VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. It is $0.012/hour (B1) compared to $0.05/hour (F1), see the full list of [VM sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general) and [prices](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for details. 
 #### Managed Standard Disk: 
-Premium disks were recommended for reliable performance in production.  With [managed disk](https://azure.microsoft.com/services/managed-disks/), standard storage can also deliver similar reliability, with different performance. For workload that is not performance-sensitive, like dev/Test or non-critical environment, managed standard disks offer an alternative option with lower cost.  
+Premium disks were recommended for reliable performance in production.  With [Managed Disk](https://azure.microsoft.com/services/managed-disks/), standard storage can also deliver similar reliability, with different performance. For workload that is not performance-sensitive, like dev/Test or non-critical environment, managed standard disks offer an alternative option with lower cost.  
 ### Cost saving in General 
 #### Significant VM Cost Saving with Reserved Instances: 
 Today all CF VMs are billed using “on-demand” pricing, even though the environments typically stay up indefinitely. Now you can reserve VM capacity on a 1 or 3-year term, and gain discounts of 45-65%. Discounts are applied in the billing system, with no changes to your environment. For details, see [how reserved instances works](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
@@ -89,6 +90,6 @@ Taking advantage of Azure’s first party service will lower the long-term admin
 Pivotal has launched a [Small Footprint ERT](https://docs.pivotal.io/pivotalcf/2-0/customizing/small-footprint.html) for PCF customers, the components are co-located into just 4 VMs, running up to 2500 application instances. The trial version is now available through [Azure Market place](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
 ## Next Steps
-Azure integration features are first available with [OSS Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/), before it is available on Pivotal Cloud Foundry. Features marked with * are still not available through PCF. Cloud Foundry integration with Azure Stack is not covered in this document either.
+Azure integration features are first available with [Open Source Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/), before it is available on Pivotal Cloud Foundry. Features marked with * are still not available through PCF. Cloud Foundry integration with Azure Stack is not covered in this document either.
 For PCF support on the features marked with *, or Cloud Foundry integration with Azure Stack, contact your Pivotal and Microsoft account manager for latest status. 
 
