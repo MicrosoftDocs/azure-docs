@@ -14,7 +14,7 @@ ms.topic: language-reference
 ---
 # Create Indexer (Azure Search Service REST api-version=2017-11-11-Preview)
 
-This API reference is a preview-specific version of the documentation, covering cognitive search enhancements to indexing.
+This API reference is a preview-specific version of the documentation, adding [cognitive search](cognitive-search-concept-intro.md) elements to the Create Indexer API.
 
 As with the [generally available](https://docs.microsoft.com/rest/api/searchservice/create-indexer) version, you can create a new indexer within an Azure Search service using an HTTP POST request. 
 
@@ -57,16 +57,11 @@ For data-platform-specific guidance on creating indexers, start with [Indexers o
 ```
 ### Data source and target index
 
-An indexer, [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), and [index](https://docs.microsoft.com/rest/api/searchservice/create-index) are a triad in how they work together, but each one also exists independently in Azure Search to flex with your application architecture. For example, using the same data source in multiple indexers, or using the same indexer write to multiple indexes, and so forth. Having said that, if neither the data source nor index exists when you create the indexer, both resources are created alongside the indexer when the request is submitted.
+An [indexer](search-indexer-overview.md), [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), and [index](https://docs.microsoft.com/rest/api/searchservice/create-index) are a triad during execution, but architecturally, each exists independently, able to flex with data ingestion strategy. Examples include using the same data source wiht multiple indexers, or the same indexer writing multiple indexes, and so forth.
 
-The data source you provide determines how the indexer crawls the source, the type of content and supported operations (such as image analysis and cognitive search behaviors over blobs), and how source data is serialized and ingested internally. Data sources can be any of the following Azure data sources:
+Source data platforms have characteritics that can be exploited by the indexer. As such, the data source you pass to the indexer determines the availability of certain properties and parameters, such content type filtering in Azure blobs or query timeout for Azure SQL Database. 
 
-+ [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-+ [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-+ [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-+ [Azure Table Storage](search-howto-indexing-azure-tables.md)
-
-Any of these data sources can be used in [cognitive search](cognitive-search-concept-intro.md). It's [indexer parameters](#parameters) and [output field mappings](#field-mappings) with a [skillset](ref-create-skillset.md) that invoke cognitive search enrichments.
+An index schema defines the fields collection containing searchable, filterable, retrievable, and other attributions that determine how the field is used. During indexing, the indexer crawls the data source, optionally cracks documents and extracts information, serializes it to JSON, and indexes it based on the schema defined for your index.
  
 <a name="indexer-schedule"></a>
 
@@ -81,11 +76,11 @@ An indexer can optionally specify a schedule. Without a schedule, the indexer is
 
 ### Configuration parameters 
 
-An indexer can optionally take configuration parameters that modify behavior. Configuration parameters are comma-delimited on the indexer request. 
+An indexer can optionally take configuration parameters that modify runtime behaviors. Configuration parameters are comma-delimited on the indexer request. 
 
 ```json
     {
-      "name" : "my-blob-indexer-for-congitive-search",
+      "name" : "my-blob-indexer-for-cognitive-search",
       ... other indexer properties
       "parameters" : { "configuration" : { "maxFailedItems" : "15", "imageAction" : "generateNormalizedImages", "dataToExtract" : "contentAndMetadata" } }
     }
@@ -101,7 +96,7 @@ An indexer can optionally take configuration parameters that modify behavior. Co
 
 #### Blob configuration parameters
 
-Several parameters are exclusive to a particular indexer, such as Azure blob indexing. The **Applies to** column identifies how the parameter is used.
+Several parameters are exclusive to a particular indexer, such as [Azure blob indexing](search-howto-indexing-azure-blob-storage.md). The **Applies to** column identifies how the parameter is used.
 
 | Parameter | Applies to               |	Type and allowed values	| Usage  |
 |-----------|--------------------------|----------------------------|--------|
