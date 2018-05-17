@@ -79,7 +79,7 @@ For more information, see [Get started with Log Analytics](https://docs.microsof
     * **Resource Group Location**: Select the location of the resource group.
     * **OMS_Workspace_Name**: Enter a workspace name, if the workspace does not exist, the template will create a new one.
     * **OMS_Workspace_Region**: Select the location for the workspace.
-    * **OMS_Workspace_Pricing_Tier**: Select the OMS workspace SKU. See the [pricing guidance](https://azure.microsoft.com/en-us/pricing/details/log-analytics/) for reference.
+    * **OMS_Workspace_Pricing_Tier**: Select the OMS workspace SKU. See the [pricing guidance](https://azure.microsoft.com/pricing/details/log-analytics/) for reference.
     * **Legal terms**: Click Legal terms, then click “Create” to accept the legal term.
 - After all parameters are specified, click “Create” to deploy the template. When the deployment is completed, the status will show up at the notification tab.
 
