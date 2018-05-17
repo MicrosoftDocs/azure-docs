@@ -7,7 +7,7 @@ services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 05/17/2018
 ms.author: alkohli
 
 ---
@@ -105,8 +105,15 @@ For additional samples, go to [Samples for journal files](#samples-for-journal-f
 
 Perform the following steps to create an import job in the Azure portal.
 1. Log on to https://portal.azure.com/.
-2. Go to **More services > Storage > Import/export jobs**. Click **Create Import/export Job**.
-3. In **Basics**:
+2. Go to **All services > Storage > Import/export jobs**. 
+
+    ![Go to Import/export](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+
+3. Click **Create Import/export Job**.
+
+    ![Click Import/export job](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+
+4. In **Basics**:
 
     - Select **Import into Azure**.
     - Enter a descriptive name for the import job. Use this name to track your jobs while they are in progress and once they are completed.
@@ -115,6 +122,7 @@ Perform the following steps to create an import job in the Azure portal.
     - Select a subscription.
     - Select a resource group. 
 
+        ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 3. In **Job details**:
     
@@ -122,12 +130,16 @@ Perform the following steps to create an import job in the Azure portal.
     - Select the storage account that the data will be imported into. 
     - The drop-off location is automatically populated based on the region of the storage account selected.
    
-   ![Create import job - Step 3](./media/storage-import-export-service/import-job-03.png)
+       ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+
 4. In **Return shipping info**:
 
     - Select the carrier from the drop-down list.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. 
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
+
+       ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+
    
 5. In the **Summary**:
 
