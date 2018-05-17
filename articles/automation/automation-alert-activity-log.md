@@ -33,23 +33,23 @@ Alerts allow you to define a condition to monitor for and an action to take when
 
 1. Click **+ Add criteria**. Select **Metrics** for the **Signal type**, and choose **Total Jobs** from the table.
 
-   Signals can be configured for Metrics which are performance counters for a resource, log search queries, or activity logs. Log search queries are only available for certain resources like Log Analytics.
+   Signals can be configured for Metrics, which are performance counters for a resource, log search queries, or activity logs. Log search queries are only available for certain resources like Log Analytics.
 
 1. The **Configure signal logic** page is where you define the logic that triggers the alert. Under the historical graph you are presented with two dimensions, **Runbook Name** and **Status**. Dimensions are different properties for a metric that can be used to filter results. For **Runbook Name**, select the runbook you want to alert on or leave blank to alert on all runbooks. For **Status**, select a status from the drop-down you want to monitor for.
 
-   If you want to alert on a status or runbook that is not shown in the dropdown, click the **\+** next to the dimension. This opens a dialog that allows you to enter in a custom value, which has not emitted for that dimension recently. If you enter a value that doesn't exist for a property your alert will not be trigged.
+   If you want to alert on a status or runbook that is not shown in the dropdown, click the **\+** next to the dimension. This opens a dialog that allows you to enter in a custom value, which has not emitted for that dimension recently. If you enter a value that doesn't exist for a property your alert will not be triggered.
 
-1. Under **Alert logic** define the condition and threshold for your alert. A preview of your condition defined is shown underneath.
+1. Under **Alert logic**, define the condition and threshold for your alert. A preview of your condition defined is shown underneath.
 
-1. Under **Evaluated based on** select the timespan for the query and how often you want that query ran. For example, if you choose **Over the last 5 minutes** for **Period** and **Every 1 Minute** for **Frequency**. The alert looks for the number of runbooks that met your criteria over the past 5 minutes. This query runs continues to run every minute, once the alert crtieria you defined is no longer found in a 5 minute window, the alert resolves itself. When finished, click **Done**.
+1. Under **Evaluated based on** select the timespan for the query and how often you want that query ran. For example, if you choose **Over the last 5 minutes** for **Period** and **Every 1 Minute** for **Frequency**. The alert looks for the number of runbooks that met your criteria over the past 5 minutes. This query runs continues to run every minute, once the alert criteria you defined is no longer found in a 5-minute window, the alert resolves itself. When finished, click **Done**.
 
    ![Select a resource for the alert](./media/automation-alert-activity-log/configure-signal-logic.png)
 
 ### Define alert details
 
-Under **2. Define alert details**, give the alert a friendly name and description. Set the **Severity** to match your alert condition. There are 5 severities ranging from 0 to 5. The alerts are treated the same independant of the severity, you can match the severity to match your business logic.
+Under **2. Define alert details**, give the alert a friendly name and description. Set the **Severity** to match your alert condition. There are five severities ranging from 0 to 5. The alerts are treated the same independent of the severity, you can match the severity to match your business logic.
 
-At the bottom of the section is a button that allows you to enable the rule upon completion. By default rules are enabled at creation.  If you select No, you can create the alert and it is created in a **Disabled** state. From the **Rules** page in Azure Monitor you can select it and click **Enable** to enable the alert when you are ready.
+At the bottom of the section is a button that allows you to enable the rule upon completion. By default rules are enabled at creation. If you select No, you can create the alert and it is created in a **Disabled** state. From the **Rules** page in Azure Monitor, you can select it and click **Enable** to enable the alert when you are ready.
 
 ### Define the action to take
 
@@ -76,7 +76,7 @@ When the alert criteria is met, the action group runs the action defined. In thi
 
 ![Email alert](./media/automation-alert-activity-log/alert-email.png)
 
-Once the metric is no longer breached outside of the threshold defined, the alert is deactivated and the action group runs the action defined. If an email action type is selected, a resolution email is sent stating it has been resolved.
+Once the metric is no longer outside of the threshold defined, the alert is deactivated and the action group runs the action defined. If an email action type is selected, a resolution email is sent stating it has been resolved.
 
 ## Next steps
 
