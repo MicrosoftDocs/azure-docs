@@ -34,7 +34,7 @@ Do not:
 
 ## Definitions
 
-- *Answer* refers to a category of results returned in a response. For example, a response from the Bing Web Search API may include answers in the categories of webpage results, image, video, visual, and news.   
+- *Answer* refers to a category of results returned in a response. For example, a response from the Bing Web Search API can include answers in the categories of webpage results, image, video, visual, and news.   
 - *Response* means any and all answers and associated data received in response to a single call to a Search API.
 - *Result* refers to an item of information in an answer. For example, the set of data connected with a single news article is a result in a news answer.
 - *Search APIs* means, collectively, the Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, and Web Search APIs. 
