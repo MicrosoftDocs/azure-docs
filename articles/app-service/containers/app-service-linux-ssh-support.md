@@ -20,7 +20,7 @@ ms.author: wesmc
 ---
 # SSH support for Azure App Service on Linux
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) is commonly used execute administrative commands remotely from a command-line terminal. App Service on Linux provides SSH support into the app container with each of the built-in Docker images used for the Runtime Stack of new web apps. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) is commonly used to execute administrative commands remotely from a command-line terminal. App Service on Linux provides SSH support into the app container with each of the built-in Docker images used for the Runtime Stack of new web apps. 
 
 ![Runtime Stacks](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
@@ -106,7 +106,7 @@ The Dockerfile uses the [`ENTRYPOINT` instruction](https://docs.docker.com/engin
 
 Using TCP tunneling you can create a network connection between your development machine and Web App for Containers over an authenticated WebSocket connection. It enables you to open an SSH session with your container running in App Service from the client of your choice.
 
-To get started, you need to intall [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). To see how it works without installing Azure CLI, open [Azure Cloud Shell](../../cloud-shell/overview.md). 
+To get started, you need to install [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). To see how it works without installing Azure CLI, open [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
 Add the latest App Service extension by running [az extension add](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
 
@@ -122,7 +122,9 @@ az extension update -–name webapp
 
 Open a remote connection to your app using the [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) command. Specify _\<group\_name>_ and \_<app\_name>_ for your app, and replace \<port> with a local port number.
 
+```azurecli-interactive
 az webapp remote-connection create --resource-group <group_name> -n <app_name> -p <port> &
+```
 
 > [!TIP]
 > `&` at the end of the command is just for convenience if you are using Cloud Shell. It runs the process in the background so that you can run the next command in the same shell.
@@ -135,7 +137,7 @@ SSH is available { username: root, password: Docker! }
 Start your favorite client and connect to port 21382
 ```
 
-Open an SSH session with your container with the client of your choice, using the local port. The following example uses the defualt [ssh](https://ss64.com/bash/ssh.html) command:
+Open an SSH session with your container with the client of your choice, using the local port. The following example uses the default [ssh](https://ss64.com/bash/ssh.html) command:
 
 ```azurecli-interactive
 ssh root@127.0.0.1 -p <port>
