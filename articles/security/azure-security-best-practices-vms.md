@@ -121,6 +121,6 @@ Resource abuse can be a problem when VM processes consume more resources than th
 
 By analyzing [Azure diagnostic log files](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), you can monitor your VM resources and identify potential issues that might compromise performance and availability. The Azure Diagnostics Extension provides monitoring and diagnostics capabilities on Windows-based VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md).
 
-You can also use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) to gain visibility into your resource???s health.
+You can also use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) to gain visibility into your resources' health.
 
 Organizations that don't monitor VM performance are unable to determine whether certain changes in performance patterns are normal or abnormal. If the VM is consuming more resources than normal, such an anomaly could indicate a potential attack from an external resource or a compromised process running in the VM.
