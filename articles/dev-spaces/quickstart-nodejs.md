@@ -26,6 +26,9 @@ You're now ready to create a Kubernetes-based development environment in Azure.
 ## Install the Azure CLI
 Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
+> [!IMPORTANT]
+> If you already have the Azure CLI installed, make sure you are using version 2.0.32 or higher.
+
 [!INCLUDE[](includes/sign-into-azure.md)]
 
 [!INCLUDE[](includes/use-dev-spaces.md)]
@@ -160,4 +163,4 @@ In this configuration, the container is configured to start *nodemon*. When serv
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-nodejs.md)
+> [Working with multiple containers and team development](get-started-nodejs.md#call-a-service-running-in-a-separate-container)

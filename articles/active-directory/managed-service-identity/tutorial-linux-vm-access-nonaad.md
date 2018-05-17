@@ -17,7 +17,7 @@ ms.date: 11/20/2017
 ms.author: daveba
 ---
 
-# Use a Linux VM Managed Service Identity (MSI) to access Azure Key Vault 
+# Tutorial: Use a Linux VM Managed Service Identity (MSI) to access Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
