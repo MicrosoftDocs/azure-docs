@@ -54,6 +54,9 @@ If this is your first time accessing the dashboard it will launch a default view
 
 While you can keep the default view if you like it, you can also add, and delete from the dashboard to best fit the needs of your team.
 
+> [!NOTE]
+> All users with access to the Application Insights resource share the same Application dashboard experience. Changes made by one user will modify the view for all users.
+
 To navigate back to the overview experience just select:
 
 ![Overview Button](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
