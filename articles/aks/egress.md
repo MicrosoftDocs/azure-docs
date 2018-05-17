@@ -32,9 +32,18 @@ To prevent random IP addresses from being used, create a static IP and ensure th
 Create a static public IP address for the Kubernetes service in the resource group that was auto-created during cluster deployment. For information on the different AKS resource groups and how to identify the auto created resource group, see the [AKS FAQ][aks-faq-resource-group].
 
 ```console
-az network public-ip create --resource-group C_myResourceGRoup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
+$ az network public-ip create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static --query publicIp.ipAddress -o table
+
+Result
+-------------
+23.101.128.81
 ```
+
 ## Deploy a Service with the static IP
+
+The followign YAML file deploys a load balanced service that is configured to use the static IP address. Update the IP address to match your environment. An application is also run that returns the IP for demonstraiton purposes.
+
+Create a file named `ip-demo.yaml` and copy in the following YAML.
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -42,7 +51,7 @@ kind: Deployment
 metadata:
   name: aks-egress
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: aks-egress
@@ -53,7 +62,7 @@ spec:
     spec:
       containers:
       - name: aks-egress
-        image: ritazh/sample-mypublicip-demo
+        image: sevendollar/public-ip
         ports:
         - containerPort: 80
 ---
@@ -64,7 +73,7 @@ metadata:
   labels:
     app: aks-egress
 spec:
-  loadBalancerIP: <YOUR STATIC PUBLIC IP>
+  loadBalancerIP: 23.101.128.81
   type: LoadBalancer
   ports:
   - port: 80
@@ -75,16 +84,32 @@ spec:
     app: aks-egress
 ```
 
-Creating this service configures a new frontend IP on the Azure Load Balancer. If you do not have any other IPs configured, then all egress traffic should now use this address. When multiple addresses are configured on the Azure Load Balancer, egress uses the first IP on that load balancer.
-
-To verify the public ip used, let's look at the logs from one of the running pods:
+Create the service and deployment with the `kubectl apply` command.
 
 ```console
+$ kubectl apply -f ip-demo.yaml
 
-kubectl logs http-svc-677684d487-fxhnd
-Thu Apr 19 22:17:06 UTC 2018 - retrieving current public ip address every 120 seconds
-Thu Apr 19 22:17:06 UTC 2018 - public ip: <YOUR STATIC PUBLIC IP>
-Thu Apr 19 22:19:06 UTC 2018 - public ip: <YOUR STATIC PUBLIC IP>
+deployment "aks-egress" created
+service "aks-egress" created
+```
+
+Creating this service configures a new frontend IP on the Azure Load Balancer. If you do not have any other IPs configured, then all egress traffic should now use this address. When multiple addresses are configured on the Azure Load Balancer, egress uses the first IP on that load balancer.
+
+To verify the public ip used, let's look at the logs from one of the running pods. Get the pod name with the `kubeclt get pods` command.
+
+```console
+$ kubectl get pods -l app=aks-egress
+
+NAME                          READY     STATUS    RESTARTS   AGE
+aks-egress-6dcf96595b-6lf5l   1/1       Running   0          6m
+```
+
+Pull the logs from the pod to revel the pods IP address.
+
+```console
+$ kubectl logs http-svc-677684d487-fxhnd
+
+23.101.128.81
 ```
 
 To avoid maintaining multiple public IP addresses on the Azure Load Balancer, consider using an ingress controller. Ingress-controllers provide benefits such as load balancing, SSL/TLS termination, support for URI rewrites, and upstream SSL/TLS encryption. For more information about ingress-controllers in AKS, see the [Configure NGINX ingress controller in an AKS cluster][ingress-aks-cluster] guide.
