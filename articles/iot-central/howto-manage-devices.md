@@ -72,7 +72,7 @@ To bulk-register devices in your application:
 
 1. Choose **New** and select **Bulk Import**.
 
-    ![Bulk Import Action](./media/howto-manage-devices/BulkImport1.png)
+    [![Bulk Import Action](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightswitch)
 
 1. Select the CSV file that has the list of Device IDs to be imported.
 
@@ -80,7 +80,7 @@ To bulk-register devices in your application:
 
 1. Once the import completes, a success message is shown on the device grid.
 
-    ![Bulk Import Success](./media/howto-manage-devices/BulkImport3.png)
+    [![Bulk Import Success](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightswitch)
 
 If the device import operation fails, there will be an error shown on the Device grid. A log file capturing all the errors is generated and can be downloaded by clicking the error message.
 
