@@ -1,5 +1,6 @@
 ---
 title: Microsoft Translator Text API V2.0 Reference | Microsoft Docs
+titleSuffix: Cognitive Services
 description: Reference documentation for the V2.0 Microsoft Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
@@ -14,7 +15,7 @@ ms.author: v-jansko
 
 # Translator Text API v2.0
 
-> [!NOTE]
+> [!IMPORTANT]
 > This version of the Translator Text API has been deprecated. [View documentation for v3 of the Translator Text API](v3-0-reference.md).
 
 Microsoft Translator V2 Text API can be seamlessly integrated into your applications, websites, tools, or other solutions to provide multi-language user experiences. Leveraging industry standards, it can be used on any hardware platform and with any operating system to perform language translation and other language-related operations such as text language detection or text to speech. Click Here for more information about the Microsoft Translator API.
@@ -133,8 +134,8 @@ Elements within the `TranslateArrayRequest` are:
 	- `State`: User state to help correlate request and response. The same contents will be returned in the response.
 	- `Uri`: Filter results by this URI. Default: `all`.
 	- `User`: Filter results by this user. Default: `all`.
-* `texts`: Required. An array containing the texts for translation. All strings must be of the same language. The total of all texts to be translated must not exceed 10000 characters. The maximum number of array elements is 2000.</li>
-* `to`: Required. A string representing the language code to translate the text into.</li>
+* `texts`: Required. An array containing the texts for translation. All strings must be of the same language. The total of all texts to be translated must not exceed 10000 characters. The maximum number of array elements is 2000.
+* `to`: Required. A string representing the language code to translate the text into.
 
 Optional elements can be omitted. Elements which are direct children of TranslateArrayRequest must be listed in alphabetical order.
 
@@ -322,7 +323,7 @@ Response Content Type: application/xml
 |text|(empty)	|Required. A string containing a sentence or sentences of the specified language to be spoken for the wave stream. The size of the text to speak must not exceed 2000 characters.|query|string|
 |language|(empty)	|Required. A string representing the supported language code to speak the text in. The code must be present in the list of codes returned from the method  `GetLanguagesForSpeak`.|query|string|
 |format|(empty)|Optional. A string specifying the content-type ID. Currently,  `audio/wav` and `audio/mp3` are available. The default value is `audio/wav`.|query|string|
-|options|(empty)	|<ul><li>Optional. A string specifying properties of the synthesized speech:<li>`MaxQuality` and `MinSize` are available to specify the quality of the audio signals. With `MaxQuality`, you can get voices with the highest quality, and with `MinSize`, you can get the voices with the smallest size. Default is  `MinSize`.</li><li>`female` and `male` are available to specify the desired gender of the voice. Default is `female`. Use the vertical bar `|` to include multiple options. For example  `MaxQuality|Male`.</li></li>	|query|string|
+|options|(empty)	|<ul><li>Optional. A string specifying properties of the synthesized speech:<li>`MaxQuality` and `MinSize` are available to specify the quality of the audio signals. With `MaxQuality`, you can get voices with the highest quality, and with `MinSize`, you can get the voices with the smallest size. Default is  `MinSize`.</li><li>`female` and `male` are available to specify the desired gender of the voice. Default is `female`. Use the vertical bar `|` to include multiple options. For example  `MaxQuality|Male`.</li></li></ul>	|query|string|
 |Authorization|(empty)|Required if the `appid` field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(empty)	|Required if the `appid` field or `Authorization` header is not specified.|header|string|
 
@@ -591,7 +592,7 @@ The `TranslateOptions` object contains the values listed below. They are all opt
 * `Category`: A string containing the category (domain) of the translation. Defaults to "general".
 * `ContentType`: The only supported, and the default, option is "text/plain".
 * `IncludeMultipleMTAlternatives`: boolean flag to determine whether more than one alternatives should be returned from the MT engine. Valid values are true and false (case-sensitive). Default is false and includes only 1 alternative. Setting the flag to true allows for generating artificial alternatives in translation, fully integrated with the collaborative translations framework (CTF). The feature allows for returning alternatives for sentences that have no alternatives in CTF, by adding artificial alternatives from the n-best list of the decoder.
-	- Ratings The ratings are applied as follows: 1) The best automatic translation has a rating of 5. 2) The alternatives from CTF reflect the authority of the reviewer, from -10 to +10. 3) The automatically generated (n-best) translation alternatives have a rating of 0, and have a match degree of 100.</li>
+	- Ratings The ratings are applied as follows: 1) The best automatic translation has a rating of 5. 2) The alternatives from CTF reflect the authority of the reviewer, from -10 to +10. 3) The automatically generated (n-best) translation alternatives have a rating of 0, and have a match degree of 100.
 	- Number of Alternatives The number of returned alternatives is up to maxTranslations, but may be less.
 	- Language pairs This functionality is not available for translations between Simplified and Traditional Chinese, both directions. It is available for all other Microsoft Translator supported language pairs.
 * `State`: User state to help correlate request and response. The same contents will be returned in the response.
@@ -693,21 +694,21 @@ The format of the request body is as follows.
 
 `GetTranslationsArrayRequest` includes the following elements:
 
-* `AppId`: Required. If Authorization header is used, leave the appid field empty else include a string containing `"Bearer" + " " + "access_token"`.</li>
-* `From`: Required. A string representing the language code of the translation text.</li>
-* `MaxTranslations`: Required. An integer representing the maximum number of translations to return.</li>
+* `AppId`: Required. If Authorization header is used, leave the appid field empty else include a string containing `"Bearer" + " " + "access_token"`.
+* `From`: Required. A string representing the language code of the translation text.
+* `MaxTranslations`: Required. An integer representing the maximum number of translations to return.
 * `Options`: Optional. An Options object which contains the values listed below. They are all optional and default to the most common settings. Specified elements must be listed in alphabetical order.
-	- Category`: A string containing the category (domain) of the translation. Defaults to general.</li>
-	- `ContentType`: The only supported, and the default, option is text/plain.</li>
+	- Category`: A string containing the category (domain) of the translation. Defaults to general.
+	- `ContentType`: The only supported, and the default, option is text/plain.
 	- `IncludeMultipleMTAlternatives`: boolean flag to determine whether more than one alternatives should be returned from the MT engine. Valid values are true and false (case-sensitive). Default is false and includes only 1 alternative. Setting the flag to true allows for generating artificial alternatives in translation, fully integrated with the collaborative translations framework (CTF). The feature allows for returning alternatives for sentences that have no alternatives in CTF, by adding artificial alternatives from the n-best list of the decoder.
-		- Ratings The ratings are applied as follows: 1) The best automatic translation has a rating of 5. 2) The alternatives from CTF reflect the authority of the reviewer, from -10 to +10. 3) The automatically generated (n-best) translation alternatives have a rating of 0, and have a match degree of 100.</li>
-		- Number of Alternatives The number of returned alternatives is up to maxTranslations, but may be less.</li>
-		- Language pairs This functionality is not available for translations between Simplified and Traditional Chinese, both directions. It is available for all other Microsoft Translator supported language pairs.</li></li></li>
-* `State`: User state to help correlate request and response. The same contents will be returned in the response.</li>
-* `Uri`: Filter results by this URI. If no value is set, the default is all.</li>
-* `User`: Filter results by this user. If no value is set, the default is all.</li>
-* `Texts`: Required. An array containing the texts for translation. All strings must be of the same language. The total of all texts to be translated must not exceed 10000 characters. The maximum number of array elements is 10.</li>
-* `To`: Required. A string representing the language code to translate the text into.</li>
+		- Ratings The ratings are applied as follows: 1) The best automatic translation has a rating of 5. 2) The alternatives from CTF reflect the authority of the reviewer, from -10 to +10. 3) The automatically generated (n-best) translation alternatives have a rating of 0, and have a match degree of 100.
+		- Number of Alternatives The number of returned alternatives is up to maxTranslations, but may be less.
+		- Language pairs This functionality is not available for translations between Simplified and Traditional Chinese, both directions. It is available for all other Microsoft Translator supported language pairs.
+* `State`: User state to help correlate request and response. The same contents will be returned in the response.
+* `Uri`: Filter results by this URI. If no value is set, the default is all.
+* `User`: Filter results by this user. If no value is set, the default is all.
+* `Texts`: Required. An array containing the texts for translation. All strings must be of the same language. The total of all texts to be translated must not exceed 10000 characters. The maximum number of array elements is 10.
+* `To`: Required. A string representing the language code to translate the text into.
 
 Optional elements can be omitted. Elements which are direct children of `GetTranslationsArrayRequest` must be listed in alphabetical order.
 
