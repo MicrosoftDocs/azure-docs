@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -144,10 +144,10 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-8. Close the RDP session with *myVM1*
-9. Repeat steps 1 to 8 to install IIS on *myVM2*.
+7. Close the RDP session with *myVM1*
+8. Repeat steps 1 to 7 to install IIS on *myVM2*.
 
 ## Create load balancer resources
 
