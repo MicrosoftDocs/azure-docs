@@ -31,6 +31,8 @@ The Twilio bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Twil
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## Example
 
 See the language-specific example:

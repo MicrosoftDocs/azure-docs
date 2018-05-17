@@ -112,24 +112,23 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 ## Make a request from *webfrontend* to *mywebapi*
 Let's now write code in `webfrontend` that makes a request to `mywebapi`. Switch to the Visual Studio window that has the `webfrontend` project. In the `HomeController.cs` file *replace* the code for the About method with the following code:
 
-    ```csharp
-        public async Task<IActionResult> About()
-        {
-            ViewData["Message"] = "Hello from webfrontend";
-            
-            // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
-            // headers in the incoming request to any outgoing requests
-            using (var client = new HeaderPropagatingHttpClient(this.Request))
-            {
-                // Call *mywebapi*, and display its response in the page
-                var response = await client.GetAsync("http://mywebapi/api/values/1");
-                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-            }
-        
-            return View();
-        }
+   ```csharp
+   public async Task<IActionResult> About()
+   {
+      ViewData["Message"] = "Hello from webfrontend";
 
-    ```
+      // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
+      // headers in the incoming request to any outgoing requests
+      using (var client = new HeaderPropagatingHttpClient(this.Request))
+      {
+          // Call *mywebapi*, and display its response in the page
+          var response = await client.GetAsync("http://mywebapi/api/values/1");
+          ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
+      }
+
+      return View();
+   }
+   ```
 
 Note how Kubernetes' DNS service discovery is employed to refer to the service as `http://mywebapi`. **Code in your development environment is running the same way it will run in production**.
 
