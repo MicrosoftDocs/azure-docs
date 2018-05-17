@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 To follow this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
 
-If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-suite-remote-monitoring-deploy.md) tutorial.
+If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 ## Choose the devices to display
 
@@ -111,7 +111,7 @@ This tutorial showed you how to use the **Dashboard** page to filter and monitor
 
 Now that you have learned how to monitor your devices, the suggested next steps are to learn how to:
 
-* [Detect issues using threshold-based rules](./iot-suite-remote-monitoring-automate.md).
+* [Detect issues using threshold-based rules](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 * [Manage and configure your devices](./iot-suite-remote-monitoring-manage.md).
 * [Troubleshoot and remediate device issues](./iot-suite-remote-monitoring-maintain.md).
 * [Test your solution with simulated devices](iot-suite-remote-monitoring-test.md).

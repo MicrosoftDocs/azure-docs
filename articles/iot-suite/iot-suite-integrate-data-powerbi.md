@@ -103,7 +103,7 @@ In this article, you learned about how to visualize remote monitoring data using
 
 For more information about customizing the remote monitoring solution, see:
 
-* [Customizing the Remote Monitoring Solution UI](iot-suite-remote-monitoring-customize.md)
+* [Customizing the Remote Monitoring Solution UI](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)
 * [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 

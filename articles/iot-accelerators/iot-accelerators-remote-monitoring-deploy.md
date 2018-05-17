@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Deploy the remote monitoring solution accelerator
 
-This tutorial shows you how to provision the remote monitoring solution accelerator. You deploy the solution from azureiotsuite.com. You can also deploy the solution using the CLI, to learn about this option see [Deploy a solution accelerator from the command line](iot-suite-remote-monitoring-deploy-cli.md).
+This tutorial shows you how to provision the remote monitoring solution accelerator. You deploy the solution from azureiotsuite.com. You can also deploy the solution using the CLI, to learn about this option see [Deploy a solution accelerator from the command line](iot-accelerators-remote-monitoring-deploy-cli.md).
 
 In this tutorial, you learn how to:
 
@@ -39,7 +39,7 @@ Before you deploy the solution accelerator to your Azure subscription, you must 
 
 1. Click **Try Now** on the **Remote Monitoring** tile.
 
-    ![Choose remote monitoring](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
+    ![Choose remote monitoring](./media/iot-accelerators-remote-monitoring-deploy/remotemonitoring.png)
 
 1. On the **Create Remote Monitoring solution** page, enter a **Solution name** for your remote monitoring solution accelerator.
 
@@ -53,7 +53,7 @@ Before you deploy the solution accelerator to your Azure subscription, you must 
 
 1. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run:
 
-    ![Remote Monitoring solution details](media/iot-suite-remote-monitoring-deploy/createform.png)
+    ![Remote Monitoring solution details](./media/iot-accelerators-remote-monitoring-deploy/createform.png)
 
 For troubleshooting information, see [What to do when a deployment fails](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) in the GitHub repository.
 
@@ -63,14 +63,14 @@ When the provisioning process is complete, you can sign in to your remote monito
 
 1. On the **Provisioned solutions** page, choose your new remote monitoring solution:
 
-    ![Choose new solution](media/iot-suite-remote-monitoring-deploy/choosenew.png)
+    ![Choose new solution](./media/iot-accelerators-remote-monitoring-deploy/choosenew.png)
 
 1. You can view information about your remote monitoring solution in the panel that appears. Choose **Solution dashboard** to connect to your remote monitoring solution.
 
     > [!NOTE]
     > You can delete your remote monitoring solution from this panel when you are finished with it.
 
-    ![Solution panel](media/iot-suite-remote-monitoring-deploy/solutionpanel.png)
+    ![Solution panel](./media/iot-accelerators-remote-monitoring-deploy/solutionpanel.png)
 
 1. The remote monitoring solution dashboard displays in your browser.
 
@@ -83,6 +83,6 @@ In this tutorial, you learned how to:
 > * Deploy the solution accelerator
 > * Sign in to the solution accelerator
 
-Now that you have deployed the remote monitoring solution, the next step is to [explore the capabilities of the solution dashboard](./iot-suite-remote-monitoring-explore.md).
+Now that you have deployed the remote monitoring solution, the next step is to [explore the capabilities of the solution dashboard](./../iot-suite/iot-suite-remote-monitoring-explore.md).
 
 <!-- Next tutorials in the sequence -->

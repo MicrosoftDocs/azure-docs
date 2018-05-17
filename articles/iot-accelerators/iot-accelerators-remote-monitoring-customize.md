@@ -26,7 +26,7 @@ To make changes to the UI, you can run a copy of it locally. The local copy conn
 
 The following steps outline the process to set up a local environment for UI development:
 
-1. Deploy a **basic** instance of the solution accelerator using the **pcs** CLI. Make a note of the name of your deployment and the credentials you provided for the virtual machine. For more information, see [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md).
+1. Deploy a **basic** instance of the solution accelerator using the **pcs** CLI. Make a note of the name of your deployment and the credentials you provided for the virtual machine. For more information, see [Deploy using the CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
 1. Use the Azure portal or the [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  to enable SSH access to the virtual machine that hosts the microservices in your solution. For example:
 
@@ -129,7 +129,7 @@ Because the panels manage their own layout and sizing, you can easily modify the
 </PageContent>
 ```
 
-![Change panel layout](media/iot-suite-remote-monitoring-customize/layout.png)
+![Change panel layout](./media/iot-accelerators-remote-monitoring-customize/layout.png)
 
 > [!NOTE]
 > The map is not configured in the local deployment.
@@ -201,7 +201,7 @@ You can also add multiple instances of the same panel, or multiple versions if y
 
 You can then view different telemetry in each panel:
 
-![Multiple telemetry panels](media/iot-suite-remote-monitoring-customize/multiple-telemetry.png)
+![Multiple telemetry panels](./media/iot-accelerators-remote-monitoring-customize/multiple-telemetry.png)
 
 > [!NOTE]
 > The map is not configured in the local deployment.
@@ -271,7 +271,7 @@ You have now replaced the original **Alarms** panel with a copy called **CustAla
 
 The following screenshot shows the new version of the **Alarms** panel:
 
-![Alarms panel updated](media/iot-suite-remote-monitoring-customize/reorder-columns.png)
+![Alarms panel updated](./media/iot-accelerators-remote-monitoring-customize/reorder-columns.png)
 
 ## Customize the telemetry chart
 
@@ -298,7 +298,7 @@ The telemetry chart on the **Dashboard** page is defined by the files in the `sr
 
 The telemetry chart now shows the five minutes of telemetry data:
 
-![Telemetry chart showing one day](media/iot-suite-remote-monitoring-customize/telemetry-period.png)
+![Telemetry chart showing one day](./media/iot-accelerators-remote-monitoring-customize/telemetry-period.png)
 
 ## Add a new KPI
 
@@ -433,7 +433,7 @@ You have now finished the changes in the `src/components/pages/dashboard/dashboa
 
 The **Dashboard** page now displays the new KPI value:
 
-![Warning KPI](media/iot-suite-remote-monitoring-customize/new-kpi.png)
+![Warning KPI](./media/iot-accelerators-remote-monitoring-customize/new-kpi.png)
 
 ## Customize the map
 
@@ -458,7 +458,7 @@ To further modify the presentation and visualizations layer in the Remote Monito
 
 In this article, you learned about the resources available to help you customize the web UI in the Remote Monitoring solution accelerator.
 
-For more conceptual information about the Remote Monitoring solution accelerator, see [Remote Monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
+For more conceptual information about the Remote Monitoring solution accelerator, see [Remote Monitoring architecture](../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md)
 
-For more information about customizing the Remote Monitoring solution, see [Customize and redeploy a microservice](iot-suite-microservices-example.md)
+For more information about customizing the Remote Monitoring solution, see [Customize and redeploy a microservice](../iot-suite/iot-suite-microservices-example.md)
 <!-- Next tutorials in the sequence -->
