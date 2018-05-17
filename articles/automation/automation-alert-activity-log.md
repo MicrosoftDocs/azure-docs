@@ -1,15 +1,15 @@
 ---
-title: Monitor Azure Automation runbooks with activity logs
+title: Monitor Azure Automation runbooks with activity logs alerts
 description: This article walks you through monitoring Azure Automation runbooks with the activity log
 services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.topic: article
 manager: carmonm
 ---
-# Monitoring runbooks with Azure Activity logs
+# Monitoring runbooks with Azure Activity log alerts
 
 In this article, you learn how to create alerts based on the completion status of runbooks.
 
@@ -19,37 +19,60 @@ Log in to Azure at https://portal.azure.com
 
 ## Create alert
 
-In the Azure portal, select **Monitor**. On the Monitor page, select **Alerts** and click **+ New Alert Rule**.
+Alerts allow you to define a condition to monitor for and an action to take when that condition is met.
 
-Under **1. Define alert condition**, click **+  Select target**. Under **Filter by resource type**, select **Automation Account**. Choose your Automation Account and click **Done**.
+### Define the alert condition
 
-![Select a resource for the alert](./media/automation-alert-activity-log/select-resource.png)
+1. In the Azure portal, navigate to **All services** and select **Monitor**. On the Monitor page, select **Alerts** and click **+ New Alert Rule**.
 
-Click **+ Add criteria**. Select **Metrics** for the **Signal type**, and choose **Total Jobs** from the table.
+1. Under **1. Define alert condition**, click **+  Select target**. Choose your subscription, and under **Filter by resource type**, select **Automation Accounts**. Choose your Automation Account and click **Done**.
 
-On the **Configure signal logic** page, two dimensions are displayed **Runbook Name** and **Status**. For **Runbook Name**, select the runbook you want to alert on, for **Status** choose the status you want to alert on. The drop downs for the dimensions are based off of recent activity. If you want to alert on a status or runbook that is not shown in the dropdown, click the **+** next to the dimension. This opens a dialog that allows you to enter in a custom value, which has not emitted for that dimension.
+   ![Select a resource for the alert](./media/automation-alert-activity-log/select-resource.png)
 
-![Select a resource for the alert](./media/automation-alert-activity-log/configure-signal-logic.png)
+### Configure alert criteria
 
-Under **2. Define alert details**, give the alert a friendly name and description. Set the **Severity** to match your alert condition.
+1. Click **+ Add criteria**. Select **Metrics** for the **Signal type**, and choose **Total Jobs** from the table.
 
-Under **3. Define action group**, click **+ New action group**. An action group is a group of actions that you can use across multiple alerts. These can include but are not limited to, email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md)
+   Signals can be configured for Metrics which are performance counters for a resource, log search queries, or activity logs. Log search queries are only available for certain resources like Log Analytics.
 
-In the **Action group name** box, give it a friendly name and short name. The short name is used in place of a full action group name when notifications are sent using this group.
+1. The **Configure signal logic** page is where you define the logic that triggers the alert. Under the historical graph you are presented with two dimensions, **Runbook Name** and **Status**. Dimensions are different properties for a metric that can be used to filter results. For **Runbook Name**, select the runbook you want to alert on or leave blank to alert on all runbooks. For **Status**, select a status from the drop-down you want to monitor for.
 
-Under **Actions**, the action a friendly name like **Email Notifications** under **ACTION TYPE** select **Email/SMS/Push/Voice**. Under **DETAILS**, select **Edit details**.
+   If you want to alert on a status or runbook that is not shown in the dropdown, click the **\+** next to the dimension. This opens a dialog that allows you to enter in a custom value, which has not emitted for that dimension recently. If you enter a value that doesn't exist for a property your alert will not be trigged.
 
-On the **Email/SMS/Push/Voice** page, give it a name. Check the **Email** checkbox and enter in a valid email address to be used.
+1. Under **Alert logic** define the condition and threshold for your alert. A preview of your condition defined is shown underneath.
 
-![Configure email action group](./media/automation-alert-activity-log/add-action-group.png)
+1. Under **Evaluated based on** select the timespan for the query and how often you want that query ran. For example, if you choose **Over the last 5 minutes** for **Period** and **Every 1 Minute** for **Frequency**. The alert looks for the number of runbooks that met your criteria over the past 5 minutes. This query runs continues to run every minute, once the alert crtieria you defined is no longer found in a 5 minute window, the alert resolves itself. When finished, click **Done**.
 
-Click **OK** on the **Email/SMS/Push/Voice** page to close it and click **OK** to close the **Add action group** page.
+   ![Select a resource for the alert](./media/automation-alert-activity-log/configure-signal-logic.png)
 
-You can customize the subject of the email sent by clicking **Email subject** under **Customize Actions** on the **Create rule** page. When complete, click **Create alert rule**. This creates the rule that alerts you when a runbook completed with a certain status.
+### Define alert details
+
+Under **2. Define alert details**, give the alert a friendly name and description. Set the **Severity** to match your alert condition. There are 5 severities ranging from 0 to 5. The alerts are treated the same independant of the severity, you can match the severity to match your business logic.
+
+At the bottom of the section is a button that allows you to enable the rule upon completion. By default rules are enabled at creation.  If you select No, you can create the alert and it is created in a **Disabled** state. From the **Rules** page in Azure Monitor you can select it and click **Enable** to enable the alert when you are ready.
+
+### Define the action to take
+
+1. Under **3. Define action group**, click **+ New action group**. An action group is a group of actions that you can use across multiple alerts. These can include but are not limited to, email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md)
+
+1. In the **Action group name** box, give it a friendly name and short name. The short name is used in place of a full action group name when notifications are sent using this group.
+
+1. In the **Actions** section under **ACTION TYPE**, select **Email/SMS/Push/Voice**.
+
+1. On the **Email/SMS/Push/Voice** page, give it a name. Check the **Email** checkbox and enter in a valid email address to be used.
+
+   ![Configure email action group](./media/automation-alert-activity-log/add-action-group.png)
+
+1. Click **OK** on the **Email/SMS/Push/Voice** page to close it and click **OK** to close the **Add action group** page. The Name specified in this page is saved as the **ACTION NAME**.
+
+1. When complete, click **Save**. This creates the rule that alerts you when a runbook completed with a certain status.
+
+> [!NOTE]
+> When adding an email address to an Action Group, a notification email is sent stating the address has been added to an Action Group.
 
 ## Understanding the alert
 
-When the alert criteria is met, the action group runs the action defined. In this articles example, an email is sent. The following image is an example of an email you receive after the alert is triggered:
+When the alert criteria is met, the action group runs the action defined. In this article's example, an email is sent. The following image is an example of an email you receive after the alert is triggered:
 
 ![Email alert](./media/automation-alert-activity-log/alert-email.png)
 
