@@ -7,13 +7,13 @@ services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/17/2018
 ms.author: alkohli
 
 ---
 # Use the Azure Import/Export service to import data to Azure Blob Storage
 
-This article provides step-by-step instructions on how to use the Azure Import/Export service to securely transfer large amounts of data to Azure Blob storage. To import data into Azure Blobs, the service requires you to ship encrypted disk drives containing your data to an Azure datacenter.  
+This article provides step-by-step instructions on how to use the Azure Import/Export service to securely import large amounts of data to Azure Blob storage. To import data into Azure Blobs, the service requires you to ship encrypted disk drives containing your data to an Azure datacenter.  
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Perform the following steps to prepare the drives.
 
 1.	Connect your disk drives to the Windows system via SATA connectors.
 1.  Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
-2.  Enable BitLocker encryption on the NTFS volume. If using a Windows Server system, use the instructions on [How to enable BitLocker on Windows Server 2012 R2](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+2.  Enable BitLocker encryption on the NTFS volume. If using a Windows Server system, use the instructions in [How to enable BitLocker on Windows Server 2012 R2](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 3.  Copy data to encrypted volume. Use drag and drop or Robocopy or any such copy tool.
 4.	Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
     
@@ -44,13 +44,14 @@ Perform the following steps to prepare the drives.
 5.  To get the BitLocker key of the drive, run the following command:
     
     ` manage-bde -protectors -get <DriveLetter>: `
-6.	To prepare the disk, run the following command. **Depending on the data size, this may take several hours to days.** A journal file is created in the same where you ran the tool. Two other files are also created - an *.xml* file (folder where you run the tool) and a *drive-manifest.xml* file (folder where data resides).
+6.	To prepare the disk, run the following command. **Depending on the data size, this may take several hours to days.** 
 
     ```
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
     ```
+    A journal file is created in the same folder where you ran the tool. Two other files are also created - an *.xml* file (folder where you run the tool) and a *drive-manifest.xml* file (folder where data resides).
     
-    The parameters are described in the following table:
+    The parameters used are described in the following table:
 
     |Option  |Description  |
     |---------|---------|
@@ -67,6 +68,7 @@ Perform the following steps to prepare the drives.
 ## Step 2: Create an import job
 
 Perform the following steps to create an import job in the Azure portal.
+
 1. Log on to https://portal.azure.com/.
 2. Go to **All services > Storage > Import/export jobs**. 
     
@@ -122,7 +124,7 @@ Perform the following steps to create an import job in the Azure portal.
 
 ## Next steps
 
-* [Set up the WAImportExport tool](storage-import-export-tool-how-to.md)
+* [View the job and drive status](storage-import-export-view-job-status.md)
 * [Transfer data with AzCopy command-line utility](storage-use-azcopy.md)
 * [Azure Import Export REST API sample](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 
