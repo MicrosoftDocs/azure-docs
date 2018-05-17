@@ -45,6 +45,22 @@ Advanced networking provides the following benefits:
 > [!IMPORTANT]
 > Each node in an AKS cluster configured for Advanced networking can host a maximum of **30 pods**. Each VNet provisioned for use with the Azure CNI plugin is limited to **4096 IP addresses** (/20).
 
+## Advanced networking prerequisites
+
+* The VNet for the AKS cluster must allow outbound internet access, which is currently required for Kubernetes bootstrap
+* Do not create more than one AKS cluster in the same Subnet
+* Advanced networking for AKS does not support VNets that use Azure Private DNS Zones
+* AKS clusters may not use `172.30.0.0/16` or `172.31.0.0/16` for the Kubernetes service address range
+* The service principal used for the AKS cluster must have `Owner` permissions to the resource group containing the existing VNet
+
+## Plan IP addressing for your cluster
+
+Clusters configured with Advanced networking require additional planning. The size of your VNet and its subnet must accommodate both the number of pods you plan to run as well as the number of VMs for the cluster.
+
+IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the VNet. Each node is configured with a primary IP, which is the IP of the node and 30 additional IP addresses pre-configured by Azure CNI that are assigned to pods scheduled to the node. When you scale out your cluster, each node is similarly configured with IP addresses from the subnet.
+
+As mentioned previously, each VNet provisioned for use with the Azure CNI plugin is limited to **4096 IP addresses** (/20). Each node in a cluster configured for Advanced networking can host a maximum of **30 pods**.
+
 ## Configure advanced networking
 
 When you [create an AKS cluster](kubernetes-walkthrough-portal.md) in the Azure portal, the following parameters are configurable for advanced networking:
@@ -62,14 +78,6 @@ When you [create an AKS cluster](kubernetes-walkthrough-portal.md) in the Azure 
 The following screenshot from the Azure portal shows an example of configuring these settings during AKS cluster creation:
 
 ![Advanced networking configuration in the Azure portal][portal-01-networking-advanced]
-
-## Plan IP addressing for your cluster
-
-Clusters configured with Advanced networking require additional planning. The size of your VNet and its subnet must accommodate the number of pods you plan to run simultaneously in the cluster, as well as your scaling requirements.
-
-IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the VNet. Each node is configured with a primary IP, which is the IP of the node itself, and 30 additional IP addresses pre-configured by Azure CNI that are assigned to pods scheduled to the node. When you scale out your cluster, each node is similarly configured with IP addresses from the subnet.
-
-As mentioned previously, each VNet provisioned for use with the Azure CNI plugin is limited to **4096 IP addresses** (/20). Each node in a cluster configured for Advanced networking can host a maximum of **30 pods**.
 
 ## Frequently asked questions
 
@@ -89,7 +97,7 @@ The following questions and answers apply to the **Advanced** networking configu
 
 * *Is the maximum number of pods deployable to a node configurable?*
 
-  By default, each node can host a maximum of 30 pods. You can currently change the maximum value only by modifying the `maxPods` property when deploying a cluster with a Resource Manager template.
+  By default, each node can host a maximum of 30 pods. You can change the maximum value only by modifying the `maxPods` property when deploying a cluster with a Resource Manager template.
 
 * *How do I configure additional properties for the subnet that I created during AKS cluster creation? For example, service endpoints.*
 
