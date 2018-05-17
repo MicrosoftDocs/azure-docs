@@ -38,7 +38,7 @@ The HTTP bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Http](
 
 The HTTP trigger lets you invoke a function with an HTTP request. You can use an HTTP trigger to build serverless APIs and respond to webhooks. 
 
-By default, an HTTP trigger responds to the request with an HTTP 200 OK status code and an empty body. To modify the response, configure an [HTTP output binding](#http-output-binding).
+By default, an HTTP trigger returns HTTP 200 OK with an empty body in Functions 1.x, or HTTP 204 No Content with an empty body in Functions 2.x. To modify the response, configure an [HTTP output binding](#http-output-binding).
 
 ## Trigger - example
 
@@ -123,7 +123,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 You can bind to a custom object instead of `HttpRequestMessage`. This object is created from the body of the request, parsed as JSON. Similarly, a type can be passed to the HTTP response output binding and returned as the response body, along with a 200 status code.
-
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
@@ -219,7 +218,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -467,13 +466,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -544,11 +543,11 @@ The [host.json](functions-host-json.md) file contains settings that control HTTP
 
 ## Output
 
-Use the HTTP output binding to respond to the HTTP request sender. This binding requires an HTTP trigger and allows you to customize the response associated with the trigger's request. If an HTTP output binding is not provided, an HTTP trigger returns HTTP 200 OK with an empty body. 
+Use the HTTP output binding to respond to the HTTP request sender. This binding requires an HTTP trigger and allows you to customize the response associated with the trigger's request. If an HTTP output binding is not provided, an HTTP trigger returns HTTP 200 OK with an empty body in Functions 1.x, or HTTP 204 No Content with an empty body in Functions 2.x.
 
 ## Output - configuration
 
-For C# class libraries, there are no output-specific binding configuration properties. To send an HTTP response, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`.
+For C# class libraries, there are no output-specific binding configuration properties. 
 
 For other languages, an HTTP output binding is defined as a JSON object in the `bindings` array of function.json, as shown in the following example:
 
@@ -570,7 +569,9 @@ The following table explains the binding configuration properties that you set i
 
 ## Output - usage
 
-You can use the output parameter to respond to the HTTP or webhook caller. You can also use the language-standard response patterns. For example responses, see the [trigger example](#trigger---example) and the [webhook example](#trigger---webhook-example).
+To send an HTTP response, use the language-standard response patterns. In C# or C# script, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`.
+
+For example responses, see the [trigger example](#trigger---example) and the [webhook example](#trigger---webhook-example).
 
 ## Next steps
 
