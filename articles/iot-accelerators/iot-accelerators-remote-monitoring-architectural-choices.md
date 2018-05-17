@@ -30,7 +30,7 @@ The architecture we recommend for IoT applications are cloud native, microservic
 
 This section details the technology choices made in RM for each of the core subsystems.
 
-![Core Diagram](media/iot-suite-remote-monitoring-architectural-choices/subsystem.png) 
+![Core Diagram](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png) 
 
 ### Cloud Gateway
 The Azure IoT Hub is used as the RM Cloud Gateway.  The IoT Hub offers secure, bi-directional communication with devices. You can learn more about IoT Hub [here](https://azure.microsoft.com/services/iot-hub/). For IoT Device Connectivity, the .NET Core and Java IoT Hub SDKs are used.  The SDKs offer wrappers around the IoT Hub REST API and handle scenarios such as retry, 
