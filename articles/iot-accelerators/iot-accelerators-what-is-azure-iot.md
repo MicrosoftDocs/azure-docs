@@ -22,10 +22,10 @@ ms.author: dobett
 
 ## Next steps
 
-Now that you have learned about the typical IoT Architecture, explore the different implementation options using Microsoft Azure IoT products in [Microsoft Azure IoT options](iot-suite-options.md).
+Now that you have learned about the typical IoT Architecture, explore the different implementation options using Microsoft Azure IoT products in [Microsoft Azure IoT options](../iot-suite/iot-suite-options.md).
 
 To find out more about the individual Azure IoT services, see:
 
-* [What are the IoT solution accelerators?](iot-suite-what-are-solution-accelerators.md)
+* [What are the IoT solution accelerators?](iot-accelerators-what-are-solution-accelerators.md)
 * [What is Azure IoT Central?](https://docs.microsoft.com/microsoft-iot-central/overview-iot-central)
 * [What is Azure IoT Hub?](../iot-hub/iot-hub-what-is-iot-hub.md)
