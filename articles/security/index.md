@@ -300,19 +300,6 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/manage-personal-data-azure">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
-                        <div class="cardText">
-                            <p style="font-size: 1.12rem;">GDPR</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <li style="list-style: none;">
         <a href="/azure/security/blueprints/fedramp">
             <div class="cardSize">
                 <div class="cardPadding">

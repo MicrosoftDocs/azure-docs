@@ -21405,7 +21405,53 @@
             "source_path": "articles/active-directory/active-directory-b2b-what-is-azure-ad-b2b.md",
             "redirect_url": "/azure/active-directory/b2b/what-is-b2b",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/manage-personal-data-azure.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/how-to-discover-classify-personal-data-azure.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-azure.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-azure-security-center.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-network-security.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-identity-access-controls.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-at-rest.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-in-transit-encryption.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protection-personal-data-azure-reporting-tools.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
         }
+
 
     ]
 }
