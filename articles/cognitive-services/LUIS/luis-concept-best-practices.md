@@ -30,7 +30,7 @@ First, consider whether your system is using too many intents. Intents that are 
 
 If you cannot use fewer intents, divide your intents into multiple LUIS apps, and group related intents. This approach is a best practice if you're using multiple apps for your system. For example, let's say you're developing an office assistant that has over 500 intents. If 100 intents relate to scheduling meetings, 100 are about reminders, 100 are about getting information about colleagues, and 100 are for sending email, you can group intents so that each group is in a single app, then create a top-level group with each intent. Base the utterance to LUIS twice, first to the top-level app, then based on the results, to the group-level app. 
 
-Another method is to do some preprocessing on the utterance, such as matching on [regular expressions](#where-is-the-pattern-feature-that-provides-regular-expression-matching), to determine which LUIS app or set of apps receives the utterance.
+Another method is to do some preprocessing on the utterance, such as matching on regular expressions, to determine which LUIS app or set of apps receives the utterance.
 
 To improve responsiveness, ordinarily a system is designed to reduce the number of REST API calls. Instead, consider sending the utterance to multiple LUIS apps simultaneously and asynchronously, then pick the intent with the highest score. 
 
@@ -47,6 +47,9 @@ In order to select the correct type of entity to add to your application, you ne
 Review endpoint utterances on a regular basis to find common usage where an entity can be identified as a regular expression or found with an exact text match. 
 
 As part of the review, consider adding a phrase list to add a signal to LUIS for words or phrases that are significant to your domain but are not exact matches, and for which LUIS doesn't have a high confidence. 
+
+## Entities for names
+See [Extracting names](luis-concept-data-extraction.md#extracting-names) for more information.
 
 ### If you need more than the maximum number of entities
 You might need to use hierarchical and composite entities. Hierarchical entities reflect the relationship between entities that share characteristics or are members of a category. The child entities are all members of their parent's category. For example, a hierarchical entity named PlaneTicketClass might have the child entities EconomyClass and FirstClass. The hierarchy spans only one level of depth. 

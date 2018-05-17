@@ -40,6 +40,8 @@ If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` typ
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## Example
 
 See the language-specific example for an Event Grid trigger:
