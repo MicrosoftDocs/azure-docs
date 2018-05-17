@@ -17,7 +17,7 @@
 > * [Node.js on Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
 > * [C on Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
-In this tutorial, you implement a **Chiller** device that sends the following telemetry to the remote monitoring [solution accelerator](../articles/iot-suite/iot-suite-what-are-solution-accelerators.md):
+In this tutorial, you implement a **Chiller** device that sends the following telemetry to the remote monitoring [solution accelerator](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md):
 
 * Temperature
 * Pressure
@@ -39,7 +39,7 @@ Before you write any code for your device, deploy your remote monitoring solutio
 
 ### Deploy your remote monitoring solution accelerator
 
-The **Chiller** device you create in this tutorial sends data to an instance of the [remote monitoring](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) solution accelerator. If you haven't already provisioned the remote monitoring solution accelerator in your Azure account, see [Deploy the remote monitoring solution accelerator](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
+The **Chiller** device you create in this tutorial sends data to an instance of the [remote monitoring](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) solution accelerator. If you haven't already provisioned the remote monitoring solution accelerator in your Azure account, see [Deploy the remote monitoring solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 When the deployment process for the remote monitoring solution finishes, click **Launch** to open the solution dashboard in your browser.
 

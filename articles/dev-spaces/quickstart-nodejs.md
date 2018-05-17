@@ -160,4 +160,4 @@ In this configuration, the container is configured to start *nodemon*. When serv
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-nodejs.md)
+> [Working with multiple containers and team development](get-started-nodejs.md#call-a-service-running-in-a-separate-container)
