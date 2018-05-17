@@ -74,8 +74,8 @@ To deploy from Maven, add the following plugin definition inside the `<build>` e
         <artifactId>azure-webapp-maven-plugin</artifactId> 
         <version>1.1.0</version>
         <configuration> 
-          <resourceGroup>YOUR-RESOURCE-GROUP</resourceGroup> 
-          <appName>YOUR-WEB-APP</appName> 
+          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
+          <appName>YOUR_WEB_APP</appName> 
           <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
           <deploymentType>ftp</deploymentType> 
           <resources> 
@@ -99,8 +99,8 @@ Update the following placeholders in the plugin configuration:
 
 | Placeholder &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Description |
 | ----------- | ----------- |
-| `YOUR-RESOURCE-GROUP` | Name for the new resource group in which to create your web app. By putting all the resources for an app in a group, you can manage them together. For example, deleting the resource group would delete all resources associated with the app. Update this value with a unique new resource group name, for example, *TestResources*. You will use this resource group name to clean up all Azure resources in a later section. |
-| `YOUR-WEB-APP` | The app name will be part the host name for the web app when deployed to Azure (YOUR-WEB-APP.azurewebsites.net). Update this value with a unique name for the new Azure web app, which will host your Java app, for example *contoso*. |
+| `YOUR_RESOURCE_GROUP` | Name for the new resource group in which to create your web app. By putting all the resources for an app in a group, you can manage them together. For example, deleting the resource group would delete all resources associated with the app. Update this value with a unique new resource group name, for example, *TestResources*. You will use this resource group name to clean up all Azure resources in a later section. |
+| `YOUR_WEB_APP` | The app name will be part the host name for the web app when deployed to Azure (YOUR_WEB_APP.azurewebsites.net). Update this value with a unique name for the new Azure web app, which will host your Java app, for example *contoso*. |
 
 The `linuxRuntime` element of the configuration controls what built-in Linux image is used with your application.
 
