@@ -80,8 +80,6 @@ items:
       href: unique-keys.md
     - name: Serverless database
       href: serverless-computing-database.md
-    - name: BulkExecutor overview
-      href: bulk-executor-overview.md
     - name: Security
       href: database-security.md
       items:
