@@ -173,7 +173,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "ht
 $x509.Thumbprint
 ```
 
-After you've run these commands, you can see the application in Azure AD. When searching, make sure you select "Applications my company owns" instead of "Applications my company uses" in the search dialog. To learn more about Azure AD Application Objects and ServicePrincipal Objects, see [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
+After you've run these commands, you can see the application in Azure AD. When searching the app registrations, make sure you select **My apps** instead of "All apps" in the search dialog. 
 
 ### Add code to your web app to use the certificate
 
@@ -243,7 +243,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetA
 
 ### Add a certificate to your web app through the Azure portal
 
-Adding a Certificate to your Web App is a simple two-step process. First, go to the Azure portal and navigate to your Web App. On the Settings for your Web App, click on the entry for "SSL settings". When it opens,  upload the Certificate that you created in the preceding example, KVWebApp.pfx, make sure that you remember the password for the pfx.
+Adding a Certificate to your Web App is a simple two-step process. First, go to the Azure portal and navigate to your Web App. On the Settings for your Web App, click on the entry for **SSL settings**. When it opens,  upload the Certificate that you created in the preceding example, KVWebApp.pfx, make sure that you remember the password for the pfx.
 
 ![Adding a Certificate to a Web App in the Azure portal][2]
 
