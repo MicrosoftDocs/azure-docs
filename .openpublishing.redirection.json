@@ -21146,14 +21146,11 @@
             "redirect_document_id": false
         },
         {
-<<<<<<< HEAD
-=======
             "source_path": "articles/dev-spaces/index.md",
             "redirect_url": "/azure/dev-spaces/azure-dev-spaces",
             "redirect_document_id": false
         },
         {
->>>>>>> suite-solution-accelerators
             "source_path": "articles/active-directory/active-directory-application-proxy-enable.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-enable",
             "redirect_document_id": false
