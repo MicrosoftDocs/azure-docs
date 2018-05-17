@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 To follow this tutorial, you need:
 
 >[!div class="checklist"]
-> * [Deploy the remote monitoring preconfigured solution locally](../iot-solutions/iot-solutions-remote-monitoring-deploy-local.md)
+> * [Deploy the remote monitoring preconfigured solution locally](../iot-accelerators/iot-accelerators-remote-monitoring-deploy-local.md)
 > * [A Docker account](https://hub.docker.com/)
 > * [Postman](https://www.getpostman.com/) - Needed to view the API response
 

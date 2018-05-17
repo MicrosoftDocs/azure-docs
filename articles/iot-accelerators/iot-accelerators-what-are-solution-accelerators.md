@@ -97,7 +97,7 @@ When you deploy a solution accelerator, the provisioning process configures a nu
 * [Azure Stream Analytics](../stream-analytics/index.yml). The predictive maintenance preconfigured solution uses this service to process incoming telemetry, perform aggregation, and detect events. This preconfigured solution also uses stream analytics to process informational messages that contain data such as metadata or command responses from devices.
 * [Azure Web Apps](../app-service/index.yml) to host the custom application code in the preconfigured solutions.
 
-For an overview of the architecture of a typical IoT solution, see [Microsoft Azure and the Internet of Things (IoT)](iot-solutions-what-is-azure-iot.md).
+For an overview of the architecture of a typical IoT solution, see [Microsoft Azure and the Internet of Things (IoT)](iot-accelerators-what-is-azure-iot.md).
 
 ## What's new in solution accelerators?
 
