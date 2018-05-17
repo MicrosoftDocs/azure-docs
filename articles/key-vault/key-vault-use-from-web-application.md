@@ -247,7 +247,7 @@ Adding a Certificate to your Web App is a simple two-step process. First, go to 
 
 ![Adding a Certificate to a Web App in the Azure portal][2]
 
-The last thing that you need to do is to add an Application Setting to your Web App that has the name WEBSITE\_LOAD\_CERTIFICATES and a value of *. This will make sure that all Certificates are loaded. If you wanted to load only the Certificates that you've uploaded, then you can enter a comma-separated list of their thumbprints. To learn more about adding a Certificate to a Web App, see [Using Certificates in Azure Websites Applications](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
+The last thing that you need to do is to add an Application Setting to your Web App that has the name WEBSITE\_LOAD\_CERTIFICATES and a value of *. This will make sure that all Certificates are loaded. If you wanted to load only the Certificates that you've uploaded, then you can enter a comma-separated list of their thumbprints.
 
 
 ## Clean up resources
