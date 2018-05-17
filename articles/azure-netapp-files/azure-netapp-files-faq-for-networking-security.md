@@ -161,7 +161,7 @@ VPN tunnels across the ExpressRoute circuit is not supported.
 No. Storage encryption at rest is not currently supported by the service but is intended to be available by General Availability.  
 
 <!-- --> <!-- --> <!-- -->
-### <a name="faq_security_04"></a>*5. Can I configure the network security group rules to control access to the Azure NetApp Files service mount target?*
+### <a name="faq_security_04"></a>*4. Can I configure the network security group rules to control access to the Azure NetApp Files service mount target?*
 
 Yes. You can modify the network security group rules to control access to the Azure NetApp Files service mount target. The following network ports must be open:
 - Port 111 (TCP and UDP)
