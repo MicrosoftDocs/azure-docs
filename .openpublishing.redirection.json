@@ -21262,7 +21262,7 @@
         },
         {
             "source_path": "articles/iot-suite/index.md",
-            "redirect_url": "/azure/iot-solutions",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
