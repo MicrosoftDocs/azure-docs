@@ -22,8 +22,8 @@ ms.author: b-juche
 
  
 
+![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
 
-![Restore snapshot to new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 
 

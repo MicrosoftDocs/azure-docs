@@ -18,6 +18,11 @@ ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files
 
+
+![Restore snapshot to new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
+
+
+
 In this article:
 
 - [View, update, or delete NFS volumes](#view_update_delete_volumes)
