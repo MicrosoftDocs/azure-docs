@@ -1,6 +1,6 @@
 ---
-title: LUIS for non-NLP developers - Azure | Microsoft Docs
-description: Understand LUIS terminology and actions for developers that are new to natural language processing.
+title: Introduction to LUIS - Azure | Microsoft Docs
+description: Learn high-level design and implementation concepts for those new to natural language processing.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -11,7 +11,7 @@ ms.date: 05/15/2018
 ms.author: v-geberr
 ---
 
-# LUIS apps for people new to natural language processing
+# Introduction to LUIS
 LUIS is a REST-based API that predicts user intention of text (500 characters max). The typical consumer of a LUIS app is a conversation-style application such as chat bot or virtual reality game.
 
 In the following example, the chat bot passes each textual interaction of the user to LUIS, one interaction at a time. 
@@ -48,7 +48,7 @@ This teaches LUIS how utterances are constructed, specifically what words, word 
 > ![NOTE]
 > * The LUIS authoring API documentation uses the word label when meaning utterance. 
 
-An utterance is made up of words, spaces, and punctuation. Depending on the culture (spoken language) of the app, there can be a smaller unit (called a token) than a word. See [Tokenization](luis-supported-languages.md#tokenization) for more information.
+An utterance is made up of words, spaces, and punctuation. Depending on the culture (spoken language) of the app, there can be a smaller unit (called a token) than a word. For more information, see [tokenization](luis-supported-languages.md#tokenization) .
 
 ## An entity is a piece of data inside an utterance
 After the intents with example utterances are created, the next step of building the model is to define the data you want pulled out of the utterance. Data is categorized by an **Entity**. 
@@ -61,7 +61,7 @@ The following table shows example utterances with the **Contact type** entity ma
 
 |Contact type entity marked with bold characters|
 |--|
-|I would like an HR rep or his manager to **call** me.| 
+|I would like an HR rep or a manager to **call** me.| 
 |I want to be **called** by my HR rep.|
 |What HR rep **calls** me?|
 |**Text** me the email address of my HR rep.|
@@ -98,7 +98,7 @@ A second method is to create a [Phrase list](add-features.md). A phrase list is 
 If intents are still not getting a high prediction score, consider added [patterns](luis-how-to-model-intent-pattern.md) to your app. This allows you to define common utterance word choice and phrase composition that follows a pattern. Entities and ignorable text are configured using regular expressions.
 
 ## Querying at the endpoint
-Once the model is published, it is available from an HTTPS URL. You can send an utterance to the endpoint URL and receive a prediction. The endpoint URL is shown at the bottom of the Publish page in the [LUIS][LUIS] website. The API documentation also has a test console on each page for each region. 
+Once the model is published, it is available from an endpoint URL. You can send an utterance to the endpoint URL and receive a prediction. The endpoint URL is shown at the bottom of the Publish page in the [LUIS][LUIS] website. The API documentation also has a test console on each page for each region. 
 
 The following JSON object is a LUIS response: 
 
@@ -146,7 +146,7 @@ The following JSON object is a LUIS response:
 ## Using the APIs
 The APIs are divided between the authoring APIs and the endpoint APIs. 
 
-The authoring APIs do not have a limit for usage but you must use the correct key, found on your User page in the [LUIS][LUIS] website. 
+The [authoring](https://aka.ms/luis-authoring-apis) APIs do not have a limit for usage but you must use the correct key, found on your User page in the [LUIS][LUIS] website. 
 
 The authoring API URL looks like: 
 
@@ -154,7 +154,7 @@ The authoring API URL looks like:
 https://<region>.api.cognitive.microsoft.com/luis/api/v2.0/apps/<appId>/versions/<versionId>/
 ```
 
-The endpoint APIs have a limit for usage. While you are beginning with LUIS, use your authoring key for endpoint queries, up to 1000 queries. After that, you will either get a 403 - out of quota for the month or you can create a subscription key and associate it with your LUIS app on the Publish page of the [LUIS][LUIS] website. 
+The [endpoint](https://aka.ms/luis-endpoint-apis) APIs have a limit for usage. While you are beginning with LUIS, use your authoring key for endpoint queries, up to 1000 queries. After that, you will either get a 403 - out of quota for the month or you can create a subscription key and associate it with your LUIS app on the Publish page of the [LUIS][LUIS] website. 
 
 The endpoint API URL looks like: 
 
@@ -162,6 +162,12 @@ The endpoint API URL looks like:
 https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<authoringKey>&verbose=true&timezoneOffset=0&q=
 ```
 
-The URLs like the same but the authoring API has an additional route of **api** after "/luis/". Both sets of APIs call the key the same thing, **Ocp-Apim-Subscription-Key**. It is important to understand that the value of the key needs to change based on whether you are accessing the authoring or endpoint API. 
+The authoring and endpoint URLs look the same but the authoring API has an additional route of **api** after "/luis/". Both sets of APIs call the key the same thing, **Ocp-Apim-Subscription-Key**. It is important to understand that the value of the key needs to change based on whether you are accessing the authoring or endpoint API. 
+
+## Next steps
+
+* Learn [concepts](luis-concept-keys.md) about authoring and endpoint keys.
+* Learn concepts about [intents](luis-concept-intent.md), [entities](luis-concept-entity-types.md), [utterances](luis-concept-utterance.md), and [roles](luis-concept-roles.md).  
+* Learn [best practices](luis-concept-best-practices.md). 
 
 [LUIS]: luis-reference-regions.md#luis-website
