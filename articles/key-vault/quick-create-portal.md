@@ -6,14 +6,14 @@ author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 
-ms.assetid: 
+ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/24/2018
+ms.date: 05/10/2018
 ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -55,7 +55,7 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 ## Add a secret to Key Vault
 
-To add a secret to the vault, you just need to take a couple of additional steps. In this case we add a password that could be used by an application. The password is called **ExamoplePassword** and we store the value of **Pa$$w0rd** in it.
+To add a secret to the vault, you just need to take a couple of additional steps. In this case we add a password that could be used by an application. The password is called **ExamplePassword** and we store the value of **Pa$$w0rd** in it.
 
 1. On the Key Vault properties page select **Secrets**.
 2. Click on **Generate/Import**.
@@ -84,4 +84,4 @@ When no longer needed, delete the resource group and this deletes the Key Vault 
 In this quickstart, you have created a Key Vault and stored a secret. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
 
 > [!div class="nextstepaction"]
-> To learn how to read a secret from Key Vault using a web application using managed service identities continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md)
+> To learn how to read a secret from Key Vault from a web application using managed service identities, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md).

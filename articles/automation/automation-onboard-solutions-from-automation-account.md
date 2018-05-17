@@ -6,7 +6,7 @@ ms.service: automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ---
@@ -41,7 +41,13 @@ Select **Update management** under **UPDATE MANAGEMENT**. The Log analytics work
 
 Each solution uses a Scope Configuration within the workspace to target the computers that get the solution. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. To access the Scope Configurations, in your Automation account under **RELATED RESOURCES**, select **Workspace**. Then in the workspace under **WORKSPACE DATA SOURCES**, select **Scope Configurations**.
 
-The two Scope Configurations created by default **MicrosoftDefaultScopeConfig-ChangeTracking** and **MicrosoftDefaultScopeConfig-Updates**.
+If the selected workspace does not have the Update Management or Change Tracking solutions yet, The following scope configurations are created:
+
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+If the the selected workspace already has the solution. The solution is not re-deployed, and the scope configuration is not added to it.
 
 ## Saved searches
 

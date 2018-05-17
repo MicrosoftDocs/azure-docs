@@ -32,7 +32,7 @@ You can file support requests for Azure Active Directory (Azure AD) B2C on the A
    * **Issue type** is **Technical**.
    * Choose the appropriate **Subscription**.
    * **Service** is **Active Directory**.
-   * Choose the appropriate **Support plan**. If you don't have one, you can sign up for one [here](https://azure.microsoft.com/en-us/support/plans/).
+   * Choose the appropriate **Support plan**. If you don't have one, you can sign up for one [here](https://azure.microsoft.com/support/plans/).
      
      ![Support - Basics](./media/active-directory-b2c-support/support-basics.png)
 6. In the **Problem** blade, use these details and click **Next**.

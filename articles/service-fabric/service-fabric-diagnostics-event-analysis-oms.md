@@ -10,11 +10,11 @@ editor: ''
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
-ms.author: dekapur; srrengar
+ms.author: srrengar
 
 ---
 
@@ -34,7 +34,7 @@ After data is received by Log Analytics, Azure has several *Management Solutions
 
 ## Access the Service Fabric Analytics solution
 
-1. Go to the resource group in which you created the Service Fabric Analytics solution. Select the resource**ServiceFabric\<nameOfOMSWorkspace\>** and go to its overview page.
+1. Go to the resource group in which you created the Service Fabric Analytics solution. Select the resource **ServiceFabric\<nameOfOMSWorkspace\>** and go to its overview page.
 
 2. In the overview page, click the link near the top to go to the OMS portal
 
@@ -66,13 +66,14 @@ Once here you will see all the system events that have been collected. For refer
     
     ![OMS Query Operational Channel](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
 
-Alternatively you can click the magnifying glass on the left and use the Kusto query language to find what you're looking for. For example, to find all events related to actions taken on nodes by the cluster, you can use the following query. The event IDs used below are found in the [operational channel events reference](service-fabric-diagnostics-event-generation-operational.md)
+Alternatively you can click the magnifying glass on the left and use the Kusto query language to find what you're looking for. For example, to find all actions taken on nodes in the cluster, you can use the following query. The event IDs used below are found in the [operational channel events reference](service-fabric-diagnostics-event-generation-operational.md)
 
 ```kusto
 ServiceFabricOperationalEvent
-| where EventId < 29627 and EventId > 29619 
+| where EventId < 25627 and EventId > 25619 
 ```
-You can query on many more fields such as the specific nodes (Computer) the system service (TaskName) and more
+
+You can query on many more fields such as the specific nodes (Computer) the system service (TaskName).
 
 ### View Service Fabric Reliable Service and Actor events
 

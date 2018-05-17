@@ -7,7 +7,7 @@ author: rolyon
 manager: mtillman
 
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -25,10 +25,8 @@ Any time someone makes changes to role definitions or role assignments within yo
 
 Here are the RBAC-related operations that are logged in Activity Log:
 
-- Get role definition
 - Create or update custom role definition
 - Delete custom role definition
-- Get role assignment
 - Create role assignment
 - Delete role assignment
 
@@ -94,6 +92,47 @@ This command lists the activity logs for the Authorization resource provider sin
 ```azurecli
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
+
+## Azure Log Analytics
+
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) is another tool you can use to collect and analyze role-based access control changes for all your Azure resources. Log Analytics has the following benefits:
+
+- Write complex queries and logic
+- Integrate with alerts, Power BI, and other tools
+- Save data for longer retention periods
+- Cross-reference with other logs such as security, virtual machine, and custom
+
+Here are the basic steps to get started:
+
+1. [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
+
+1. [Configure the Activity Log Analytics solution](../log-analytics/log-analytics-activity.md#configuration) for your workspace.
+
+1. [View the activity logs](../log-analytics/log-analytics-activity.md#using-the-solution). A quick way to navigate to the Activity Log Analytics Overview page is to click the **Log Analytics** option.
+
+   ![Log Analytics option in portal](./media/change-history-report/azure-log-analytics-option.png)
+
+1. Optionally use the [Log Search](../log-analytics/log-analytics-log-search.md) page or the [Advanced Analytics portal](https://docs.loganalytics.io/docs/Learn) to query and view the logs. For more information about these two options, see [Log Search page or the Advanced Analytics portal](../log-analytics/log-analytics-log-search-portals.md).
+
+Here's a query that returns new role assignments organized by target resource provider:
+
+```
+AzureActivity
+| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
+| parse ResourceId with * "/providers/" TargetResourceAuthProvider "/" *
+| summarize count(), makeset(Caller) by TargetResourceAuthProvider
+```
+
+Here's a query that returns role assignment changes displayed in a chart:
+
+```
+AzureActivity
+| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments"
+| summarize count() by bin(TimeGenerated, 1d), OperationName
+| render timechart
+```
+
+![Activity logs using the Advanced Analytics portal - screenshot](./media/change-history-report/azure-log-analytics.png)
 
 ## Next steps
 * [View events in activity log](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)

@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -44,7 +44,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 when you fail over from on-premises to Azure.
 
 1. On the [Azure portal](https://portal.azure.com) menu, select **New** > **Storage** > **Storage account**.
-2. On **Create storage account**, enter a name for the account. For these tutorials, use the name **contosovmsacct1910171607**. The name must be unique within Azure and be between 3 and 24
+2. On **Create storage account**, enter a name for the account. For these tutorials, we're using **contosovmsacct1910171607**. The name you select must be unique within Azure and be between 3 and 24
    characters, with numbers and lowercase letters only.
 3. In **Deployment model**, select **Resource Manager**.
 4. In **Account kind**, select **General purpose**. In **Performance**, select **Standard**. Don't select blob storage.
@@ -60,7 +60,7 @@ when you fail over from on-premises to Azure.
 ## Create a vault
 
 1. In the Azure portal, select **Create a resource** > **Monitoring + Management** > **Backup and Site Recovery**.
-2. In **Name**, enter a friendly name to identify the vault. For this tutorial, use **ContosoVMVault**.
+2. In **Name**, enter a friendly name to identify the vault. For this set of tutorials we're using **ContosoVMVault**.
 3. In **Resource group**, select the existing resource group named **contosoRG**.
 4. In **Location**, enter the Azure region **West Europe** that is used in this set of tutorials.
 5. To quickly access the vault from the dashboard, select **Pin to dashboard** > **Create**.

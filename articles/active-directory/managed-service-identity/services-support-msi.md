@@ -7,6 +7,7 @@ ms.author: daveba
 ms.date: 03/28/2018
 ms.topic: reference
 ms.service: active-directory
+ms.component: msi
 manager: mtillman
 ---
 
@@ -31,7 +32,7 @@ The following services support Azure AD authentication, and have been tested wit
 
 | Service | Resource ID | Status | Date | Assign access |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com | Available | September 2017 | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
+| Azure Resource Manager | https://management.azure.com/ | Available | September 2017 | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
 | Azure Key Vault | https://vault.azure.net | Available | September 2017 | |
 | Azure Data Lake | https://datalake.azure.net | Available | September 2017 | |
 | Azure SQL | https://database.windows.net | Available | October 2017 | |

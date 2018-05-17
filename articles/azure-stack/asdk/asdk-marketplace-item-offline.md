@@ -11,10 +11,10 @@ ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 04/20/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -81,7 +81,7 @@ Use this option if you have deployed Azure Stack in a disconnected scenario or i
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Connect-AzureRmAccount `
+      Add-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```
@@ -109,7 +109,7 @@ Use this option if you have deployed Azure Stack in a disconnected scenario or i
       -ADFS `
       -EnvironmentName "AzureStackAdmin" 
 
-      Connect-AzureRmAccount `
+      Add-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```
