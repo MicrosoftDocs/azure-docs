@@ -26,27 +26,23 @@ This article answers networking and security questions you might have about Azur
 3. [What is the available network bandwidth and capability for the ExpressRoute circuit used by the Azure NetApp Files service?](#faq_network_03)
 4. [Can I request more bandwidth?](#faq_network_04)
 5. [Are there any SLAs or guarantees of network performance or availability?](#faq_network_05)
-6. [Can I connect a VNet I have already created for the Azure NetApp Files service?](#faq_network_06)
+6. [Can I connect a VNet I have already created to the Azure NetApp Files service?](#faq_network_06)
 7. [Can I connect to the Azure NetApp Files service from my on-site network using a dedicated ExpressRoute connection?](#faq_network_07)
 8. [Can I connect to the VNet you created for me to my on-site network using Site to Site VPN ExpressRoute?](#faq_network_08)
 9. [Can a network route from the service leak or be propagated into my on-site network or other VNets in my Azure subscription?](#faq_network_09)
 10. [What Autonomous System Number (ASN) are you using in your storage network?](#faq_network_10)
 11. [Are there risks of the service using an IP address that collides with other IP addresses I use in Azure or in my on-site network?](#faq_network_11)
-12. [Where is the ExpressRoute circuit resource? I don’t see it in the msft.nfs.rg resource group.](#faq_network_12)
+12. [Where is the ExpressRoute circuit resource? I don’t see it my resource group.](#faq_network_12)
 13. [What are the costs associated with the Azure ExpressRoute circuit and the Azure VNet gateway?](#faq_network_13)
 14. [Can I request a specific IP address range for the storage network?](#faq_network_14)
 
 **Security FAQ**
-1. [Why do I need to grant IAM access (Network Contributor role) to Microsoft for the Azure resource group that is being used for the service?](#faq_security_01)
-2. [What permissions does the Network Contributor role grant Microsoft?](#faq_security_02)
-3. [Can Microsoft access other network resources outside the msft.nfs.rg resource group?](#faq_security_03)
-4. [Can Microsoft access non-network resources deployed into the msft.nfs.rg resource group?](#faq_security_04)
-5. [Does the NFS data path go over the Internet?](#faq_security_05)
-6. [Can the network traffic between the Azure VM and the storage be encrypted?](#faq_security_06)
-7. [Can the storage be encrypted at rest?](#faq_security_07)
-8. [Can I configure the network security group rules to control access to the Azure NetApp Files service mount target?](#faq_security_08)
-9. [Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?](#faq_security_09)
-10. [Can I use Windows OpenSSH client with the Azure NetApp Files Service?](#faq_security_10)
+1. [Does the NFS data path go over the Internet?](#faq_security_01)
+2. [Can the network traffic between the Azure VM and the storage be encrypted?](#faq_security_02)
+3. [Can the storage be encrypted at rest?](#faq_security_03)
+4. [Can I configure the network security group rules to control access to the Azure NetApp Files service mount target?](#faq_security_04)
+5. [Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?](#faq_security_05)
+6. [Can I use Windows OpenSSH client with the Azure NetApp Files Service?](#faq_security_06)
 
 ## Networking FAQ
 <!-- --> <!-- --> <!-- -->
@@ -63,7 +59,7 @@ No. The NFS data path does not go over the Internet. The Azure NetApp Files serv
 <!-- --> <!-- --> <!-- -->
 ### <a name="faq_network_03"></a>*3. What is the available network bandwidth and capability for the ExpressRoute circuit used by the Azure NetApp Files service?*
 
-The service uses 2Gbps Standard ExpressRoute circuits. The Azure Virtual Network Gateways used for the Azure NetApp Files service are the High Performance (2Gbps) SKU gateways.
+The service uses 10Gbps Standard ExpressRoute circuits. The Azure Virtual Network Gateways that are used for the Azure NetApp Files service are the Ultra Performance (9Gbps) SKU gateways. 
 
 <!-- --> <!-- --> <!-- -->
 ### <a name="faq_network_04"></a>*4. Can I request more bandwidth?*
@@ -84,9 +80,11 @@ There are no guarantees of network performance implied or explicitly made by Mic
  
 
 <!-- --> <!-- --> <!-- -->
-### <a name="faq_network_06"></a>*6. Can I connect a VNet I have already created for the Azure NetApp Files service?*
+### <a name="faq_network_06"></a>*6. Can I connect a VNet I have already created to the Azure NetApp Files service?*
 
-You will be able to connect VNets that you have created during the Public Preview and General Availability phases of the program.
+You will be able to connect VNets that you have created to the service. 
+
+However, when you use a pre-existing VNet, the VNet must have an available /28 block of IP addresses for the Gateway Subnet that ExpressRoute uses. If your VNet does not have an available /28 block of IP addresses, you will be instructed to add a /28 address space to the VNet and create a Gateway Subnet from that address space.
 
 
 <!-- --> <!-- --> <!-- -->
@@ -117,11 +115,11 @@ The service uses a private ASN number: 64521.
 <!-- --> <!-- --> <!-- -->
 ### <a name="faq_network_11"></a>*11. Are there risks of the service using an IP address that collides with other IP addresses I use in Azure or in my on-site network?*
 
-No. Microsoft creates the VNet on your behalf, so there is no risk of IP collision with the VNet connected to the service. 
+No. By your providing the VNet configuration during the onboarding process, NetApp ensures that the storage network does not collide with an address space that the VNet uses to connect to the service. The route to the storage network is not propagated outside the virtual network that is connected to the service.
 
 
 <!-- --> <!-- --> <!-- -->
-### <a name="faq_network_12"></a>*12. Where is the ExpressRoute circuit resource? I don’t see it in the msft.nfs.rg resource group.*
+### <a name="faq_network_12"></a>*12. Where is the ExpressRoute circuit resource? I don’t see it my resource group.*
 
 The ExpressRoute circuit is created under a Microsoft subscription, and the VNet in your subscription is connected to the circuit via an ExpressRoute authorization key.
 
@@ -136,47 +134,19 @@ The VNet gateway pricing model is rated on a per-hour basis, regardless of wheth
 <!-- --> <!-- --> <!-- -->
 ### <a name="faq_network_14"></a>*14. Can I request a specific IP address range for the storage network?*
 
-For special situations, you can request a specific IP address range (CIDR) to be used by the storage network. If the network is already in use by the service, you will need to request an alternate storage CIDR.  
-	
-During the Public Preview and General Availability phases of the service, you will be able to select an IP address range to be used by the Azure NetApp Files Service.
+For special situations, you can request a specific IP address range (CIDR) to be used by the storage network. 
 
 
 <!-- --> <!-- --> <!-- -->
 ## Security FAQ
 
 <!-- --> <!-- --> <!-- -->
-### <a name="faq_security_01"></a>*1. Why do I need to grant IAM access (Network Contributor role) to Microsoft for the Azure resource group that is being used for the service?*  
-
-By granting IAM access (Network Contributor role) to Microsoft, Microsoft can make sure that the Azure VNet and the ExpressRoute circuit are configured correctly. 
-
-
-<!-- --> <!-- --> <!-- -->
-### <a name="faq_security_02"></a>*2. What permissions does the Network Contributor role grant Microsoft?*
-
-The Network Contributor role can manage all network resources on the msft.nfs.rg resource group.
-
-For a detailed list of permissions, see the [Azure Built-in RBAC roles documentation](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#network-contributor). 
-
-
-<!-- --> <!-- --> <!-- -->
-### <a name="faq_security_03"></a>*3. Can Microsoft access other network resources outside the msft.nfs.rg resource group?*
-
-No. The IAM access granted to Microsoft is only for the msft.nfs.rg resource group.
-
-
-<!-- --> <!-- --> <!-- -->
-### <a name="faq_security_04"></a>*4. Can Microsoft access non-network resources deployed into the msft.nfs.rg resource group?*
-
-Microsoft can view the resources in the msft.nfs.rg resource group but cannot deploy, modify, or delete resources that are not network resources.
-
-
-<!-- --> <!-- --> <!-- -->
-### <a name="faq_security_05"></a>*5. Does the NFS data path go over the Internet?*
+### <a name="faq_security_01"></a>*1. Does the NFS data path go over the Internet?*
 
 No. The NFS data path does not go over the Internet. The Azure NetApp Files service uses a network exchange service (Equinix Cloud Exchange) that has dedicated private network connectivity to Azure.
 
 <!-- --> <!-- --> <!-- -->
-### <a name="faq_security_06"></a>*6. Can the network traffic between the Azure VM and the storage be encrypted?*
+### <a name="faq_security_02"></a>*2. Can the network traffic between the Azure VM and the storage be encrypted?*
 
 Currently, the NFS service only supports NFSv3, so the network traffic is not encrypted.
 
@@ -186,12 +156,12 @@ VPN tunnels across the ExpressRoute circuit is not supported.
 
 
 <!-- --> <!-- --> <!-- -->
-### <a name="faq_security_07"></a>*7. Can the storage be encrypted at rest?*
+### <a name="faq_security_03"></a>*3. Can the storage be encrypted at rest?*
 
-No. Storage encryption at rest is not currently supported by the service, but is intended to be available by General Availability.  
+No. Storage encryption at rest is not currently supported by the service but is intended to be available by General Availability.  
 
 <!-- --> <!-- --> <!-- -->
-### <a name="faq_security_08"></a>*8. Can I configure the network security group rules to control access to the Azure NetApp Files service mount target?*
+### <a name="faq_security_04"></a>*5. Can I configure the network security group rules to control access to the Azure NetApp Files service mount target?*
 
 Yes. You can modify the network security group rules to control access to the Azure NetApp Files service mount target. The following network ports must be open:
 - Port 111 (TCP and UDP)
@@ -199,13 +169,13 @@ Yes. You can modify the network security group rules to control access to the Az
 
 
 <!-- --> <!-- --> <!-- -->
-### <a name="faq_security_09"></a>*9. Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?*
+### <a name="faq_security_05"></a>*5. Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?*
 
 Yes. You can configure up to five rules in a single NFS export policy.
 
 <!-- --> <!-- --> <!-- -->
 
-### <a name="faq_security_10"></a>*10. Can I use Windows OpenSSH client with the Azure NetApp Files Service?*
+### <a name="faq_security_06"></a>*6. Can I use Windows OpenSSH client with the Azure NetApp Files Service?*
 
 Yes. All clients that support the NFSv3 standard are supported. 
 	
