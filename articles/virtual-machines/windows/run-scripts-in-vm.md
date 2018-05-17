@@ -9,13 +9,13 @@ ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
 ---
-# Run scripts in your VM
+# Run scripts in your Windows VM
 
 To automate tasks or troubleshoot issues, you may need to run commands in a VM. The following article gives a brief overview of the features that are available to run scripts and commands within your VMs.
 
 ## Custom Script Extension
 
-The [Custom Script Extension](extensions-customscript.md) is primarily used for post deployment configuration and software installation.
+The [Custom Script Extension](../extensions/custom-script-windows.md) is primarily used for post deployment configuration and software installation.
 
 * Download and run scripts in Azure virtual machines.
 * Can be run using Azure Resource Manager templates, Azure CLI, REST API, PowerShell, or Azure portal.
@@ -62,7 +62,7 @@ The [Serial console](serial-console.md) provides direct access to a VM, similar 
 
 Learn more about the different features that are available to run scripts and commands within your VMs.
 
-* [Custom Script Extension](extensions-customscript.md)
+* [Custom Script Extension](../extensions/custom-script-windows.md)
 * [Run Command](run-command.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
 * [Serial console](serial-console.md)

@@ -193,7 +193,7 @@
       href: run-scripts-in-vm.md
       items:
         - name: Custom Script Extension
-          href: extensions-customscript.md
+          href: ../extensions/custom-script-windows.md
         - name: Run Command
           href: run-command.md
     - name: Change temp drive letter
