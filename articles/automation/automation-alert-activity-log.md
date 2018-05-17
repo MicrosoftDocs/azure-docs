@@ -21,9 +21,9 @@ Log in to Azure at https://portal.azure.com
 
 Alerts allow you to define a condition to monitor for and an action to take when that condition is met.
 
-### Define the alert condition
+In the Azure portal, navigate to **All services** and select **Monitor**. On the Monitor page, select **Alerts** and click **+ New Alert Rule**.
 
-1. In the Azure portal, navigate to **All services** and select **Monitor**. On the Monitor page, select **Alerts** and click **+ New Alert Rule**.
+### Define the alert condition
 
 1. Under **1. Define alert condition**, click **+  Select target**. Choose your subscription, and under **Filter by resource type**, select **Automation Accounts**. Choose your Automation Account and click **Done**.
 
