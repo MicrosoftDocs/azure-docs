@@ -47,9 +47,9 @@ Alerts allow you to define a condition to monitor for and an action to take when
 
 ### Define alert details
 
-Under **2. Define alert details**, give the alert a friendly name and description. Set the **Severity** to match your alert condition. There are five severities ranging from 0 to 5. The alerts are treated the same independent of the severity, you can match the severity to match your business logic.
+1. Under **2. Define alert details**, give the alert a friendly name and description. Set the **Severity** to match your alert condition. There are five severities ranging from 0 to 5. The alerts are treated the same independent of the severity, you can match the severity to match your business logic.
 
-At the bottom of the section is a button that allows you to enable the rule upon completion. By default rules are enabled at creation. If you select No, you can create the alert and it is created in a **Disabled** state. From the **Rules** page in Azure Monitor, you can select it and click **Enable** to enable the alert when you are ready.
+1. At the bottom of the section is a button that allows you to enable the rule upon completion. By default rules are enabled at creation. If you select No, you can create the alert and it is created in a **Disabled** state. From the **Rules** page in Azure Monitor, you can select it and click **Enable** to enable the alert when you are ready.
 
 ### Define the action to take
 
@@ -70,7 +70,7 @@ At the bottom of the section is a button that allows you to enable the rule upon
 > [!NOTE]
 > When adding an email address to an Action Group, a notification email is sent stating the address has been added to an Action Group.
 
-## Understanding the alert
+## Notification
 
 When the alert criteria is met, the action group runs the action defined. In this article's example, an email is sent. The following image is an example of an email you receive after the alert is triggered:
 
