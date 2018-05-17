@@ -3,17 +3,17 @@ title: Silent install Azure AD App Proxy connector | Microsoft Docs
 description: Covers how to perform an unattended installation of Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: barbkess
+manager: mtillman
 
-ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: kgremban
+ms.date: 05/17/2018
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
@@ -29,7 +29,7 @@ This capability is useful when you want to:
 * Integrate the connector installation and registration as part of another procedure.
 * Create a standard server image that contains the connector bits but is not registered.
 
-For the [Application Proxy connector](application-proxy-understand-connectors.md) to work, it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box, but you can use PowerShell to automate this process instead.
+For the [Application Proxy connector](application-proxy-connectors.md) to work, it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box, but you can use PowerShell to automate this process instead.
 
 There are two steps for an unattended installation. First, install the connector. Second, register the connector with Azure AD. 
 
@@ -175,8 +175,8 @@ There are two methods you can use to register the connector:
    `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
 ## Next steps 
-* [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
-* [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
-* [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
+* [Publish applications using your own domain name](application-proxy-configure-custom-domain.md)
+* [Enable single-sign on](application-proxy-single-sign-on-with-kcd.md)
+* [Troubleshoot issues you're having with Application Proxy](../active-directory-application-proxy-troubleshoot.md)
 
 
