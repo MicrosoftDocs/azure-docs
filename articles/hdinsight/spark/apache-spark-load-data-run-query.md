@@ -51,7 +51,7 @@ Applications can create dataframes from an existing Resilient Distributed Datase
 
     ![Status of interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status of interactive Spark SQL query")
 
-3. Run the following code to create a dataframe and a temporary table (**hvac**) by running the following code. The code doesn't extract all the columns available in the CSV file. 
+3. Run the following code to create a dataframe and a temporary table (**hvac**) by running the following code. 
 
     ```PySpark
     # Create an RDD from sample data
