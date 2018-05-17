@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines-windows
+ author: cynthn
+ ms.service: virtual-machines-windows
+ ms.topic: include
+ ms.date: 05/17/2018
+ ms.author: cynthn
+ ms.custom: include file
+
+---
 
 Each endpoint has a *public port* and a *private port*:
 

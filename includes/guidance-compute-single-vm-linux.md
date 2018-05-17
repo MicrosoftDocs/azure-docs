@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines-linux
+ author: iainfoulds
+ ms.service: virtual-machines-linux
+ ms.topic: include
+ ms.date: 05/17/2018
+ ms.author: iainfou
+ ms.custom: include file
+
+---
+
 This article outlines a set of proven practices for running a Linux virtual machine (VM) on Azure, paying attention to scalability, availability, manageability, and security. Azure supports running various popular Linux distributions, including CentOS, Debian, Red Hat Enterprise, Ubuntu, and FreeBSD. For more information, see [Azure and Linux][azure-linux].
 
 > [!NOTE]
