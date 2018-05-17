@@ -43,11 +43,11 @@ The following Linux distributions are currently supported during the preview of 
 | --- | --- |
 | CentOS | CentOS 6.9 and CentOS 7.4 |
 | RedHat Enterprise Linux | RHEL 7 | 
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 and Ubuntu Server 17.10 |
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, and Ubuntu Server 17.10 |
 
 The following Azure regions are currently supported during the preview of this feature:
 
-- All public Azure regions
+- All global Azure regions
 
 >[!IMPORTANT]
 > To use this preview feature, only deploy a supported Linux distro and in a supported Azure region. The feature is not supported in Azure Government or sovereign clouds.
