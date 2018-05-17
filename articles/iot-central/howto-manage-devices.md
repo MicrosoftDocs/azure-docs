@@ -68,11 +68,11 @@ To bulk-register devices in your application:
 
 1. Choose **Explorer** on the left navigation menu.
 
-1. Choose the device template for which you want to bulk create the devices.
+1. On the left panel, choose the device template for which you want to bulk create the devices.
 
 1. Choose **New** and select **Bulk Import**.
 
-    ![Bulk Import Action](./media/howto-manage-devices/BulkImport1.png) 
+    ![Bulk Import Action](./media/howto-manage-devices/BulkImport1.png)
 
 1. Select the CSV file that has the list of Device IDs to be imported.
 
