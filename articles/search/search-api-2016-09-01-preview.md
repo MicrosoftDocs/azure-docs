@@ -12,11 +12,14 @@ ms.author: nateko
 
 ---
 # Azure Search Service REST API: Version 2016-09-01-Preview
-This article is the reference documentation for `api-version=2016-09-01-Preview`. This preview extends the current generally available version, [api-version=2016-09-01](https://docs.microsoft.com/rest/api/searchservice), by providing the following experimental features:
+This article lists preview features `api-version=2016-09-01-Preview`. This preview extends the previous generally available version, [api-version=2016-09-01](https://docs.microsoft.com/rest/api/searchservice), by providing the following experimental features:
 
-* [`moreLikeThis` query parameter](search-more-like-this.md) to find documents that are relevant to a specific document.
+* [`moreLikeThis` query parameter](search-more-like-this.md) to find documents that are relevant to a specific document. This feature has been in earlier previews. If you're calling this API with an earlier api-version, you can continue to use that version.
 
-Please ensure to target the preview API version `api-version=2016-09-01-Preview` to try these experimental features. The following example illustrates how the preview api version is specified in making a more-like-this query.
+
+## How to call a preview API
+
+The following example illustrates how the preview api version is specified in making a more-like-this query.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?moreLikeThis=a1&api-version=2016-09-01-Preview
 

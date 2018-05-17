@@ -23,7 +23,7 @@ you might want to parse it into 2 documents, each containing "id", "datePublishe
 In this article you will learn how to parse CSV blobs with an Azure Search blob indexer. 
 
 > [!IMPORTANT]
-> This functionality is currently in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments. 
+> This functionality is currently in preview APIs. For more information, see [REST api-version=2017-11-11-Preview](search-api-2017-11-11.md). Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments. 
 > 
 > 
 
@@ -60,7 +60,7 @@ Putting this all together, here are the complete payload examples.
 
 Datasource: 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -73,7 +73,7 @@ Datasource:
 
 Indexer:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
