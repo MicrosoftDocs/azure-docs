@@ -47,11 +47,11 @@ Advanced networking provides the following benefits:
 
 ## Advanced networking prerequisites
 
-* The VNet for the AKS cluster must allow outbound internet access, which is currently required for Kubernetes bootstrap
-* Do not create more than one AKS cluster in the same Subnet
-* Advanced networking for AKS does not support VNets that use Azure Private DNS Zones
-* AKS clusters may not use `172.30.0.0/16` or `172.31.0.0/16` for the Kubernetes service address range
-* The service principal used for the AKS cluster must have `Owner` permissions to the resource group containing the existing VNet
+* The VNet for the AKS cluster must allow outbound internet connectivity.
+* Do not create more than one AKS cluster in the same Subnet.
+* Advanced networking for AKS does not support VNets that use Azure Private DNS Zones.
+* AKS clusters may not use `172.30.0.0/16` or `172.31.0.0/16` for the Kubernetes service address range.
+* The service principal used for the AKS cluster must have `Owner` permissions to the resource group containing the existing VNet.
 
 ## Plan IP addressing for your cluster
 
