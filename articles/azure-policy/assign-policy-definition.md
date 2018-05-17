@@ -43,7 +43,7 @@ In this quickstart, you create a policy assignment and assign the *Audit Virtual
    - Apply tag and its value
    - Require SQL Server version 12.0
 
-    For a complete list of all the available built-in polices, see [Policy templates](json-samples.md).
+    For a complete list of all the available built-in polices, see [Policy samples](json-samples.md).
 
 7. Search through the policy definitions list to find the *Audit VMs that do not use managed disks* definition. Click on that policy and click **Select**.
 

@@ -19,14 +19,17 @@
     href: create-manage-policy.md
 - name: Samples
   items:
-  - name: Policy templates
+  - name: Azure Policy samples
     href: json-samples.md
+  - name: Resource manager templates
 - name: Concepts
   items:
   - name: Azure Policy definition structure
     href: policy-definition.md
-  - name: Understanding Policy Effects
+  - name: Understanding Policy effects
     href: policy-effects.md
+  - name: Gathering compliance data
+    href: policy-compliance.md
 - name: How-to guides
   items:
   - name: Programmatically create policies

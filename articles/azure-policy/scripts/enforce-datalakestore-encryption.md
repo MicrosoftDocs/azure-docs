@@ -87,4 +87,4 @@ az policy assignment delete --name "Data Lake Store encryption" --resource-group
 
 ## Next steps
 
-- Additional Azure Policy template samples are at [Templates for Azure Policy](../json-samples.md).
+- Review more examples at [Azure Policy samples](../json-samples.md).

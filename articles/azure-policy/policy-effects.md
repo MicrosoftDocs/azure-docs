@@ -249,8 +249,8 @@ related resources to match and the template deployment to execute.
 - **ExistenceCondition** (optional) If not specified, any related resource of **type** will satisfy the effect and will not trigger the audit. Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually. If any matching related resource evaluates to true, the effect will be satisfied and will not trigger the audit. Can use [field()] to check equivalence with values in the **if** condition. As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 - **Deployment** [required] This property should contain the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API.
 
-> [!NOTE]
-> All functions inside the **Deployment** property are evaluated as components of the template, not the policy. The exception is the **parameters** property that passes values from the policy to the template. The **value** in this section under a template parameter name is used to perform this value passing (see _fullDbName_ in the DeployIfNotExists example).
+  > [!NOTE]
+  > All functions inside the **Deployment** property are evaluated as components of the template, not the policy. The exception is the **parameters** property that passes values from the policy to the template. The **value** in this section under a template parameter name is used to perform this value passing (see _fullDbName_ in the DeployIfNotExists example).
 
 ### DeployIfNotExists Example
 
@@ -305,5 +305,4 @@ Example: Evaluates SQL Server databases to determine if transparentDataEncryptio
 
 Now that you have a deeper understanding of policy definition effects, review the policy samples:
 
-> [!div class="nextstepaction"]
-> [Policy samples](json-samples.md)
+- Review more examples at [Azure Policy samples](json-samples.md).
