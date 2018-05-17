@@ -50,7 +50,7 @@ Before you can complete the steps in this tutorial, you must first create a CDN 
 
 In addition, you must associate an Azure CDN custom domain on your CDN endpoint. For more information, see [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
 
-## [Option 1 (default): Enable the HTTPS feature with a CDN-managed certificate](#tab/enable-the-https-feature-with-a-cdn-managed-certificate)
+## [Option 1 (default): Enable the HTTPS feature with a CDN-managed certificate](#tab/option-1-default-enable-the-https-feature-with-a-cdn-managed-certificate)
 
 With this option, the custom HTTPS feature can be turned on with just a few clicks. Azure CDN completely handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately. If the custom domain is already mapped to the CDN endpoint, no further action is required. Azure CDN will process the steps and complete your request automatically. However, if your custom domain is mapped elsewhere, you must use email to validate your domain ownership.
 
@@ -78,7 +78,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 6. Proceed to [Validate the domain](#validate-the-domain).
 
-## [Option 2: Enable the HTTPS feature with your own certificate](#tab/enable-the-https-feature-with-your-own-certificate)
+## [Option 2: Enable the HTTPS feature with your own certificate](#tab/option-2-enable-the-https-feature-with-your-own-certificate)
 
 > [!IMPORTANT]
 > This feature is available only with **Azure CDN Standard from Microsoft** profiles. 
