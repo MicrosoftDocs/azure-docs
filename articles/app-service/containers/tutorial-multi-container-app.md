@@ -29,8 +29,7 @@ In this tutorial, you'll learn how to:
 > * Deploy a multi-container app to Azure
 > * Add application settings
 > * Use persistent storage for your containers
-> * Create an Azure Database for MySQL
-> * Use a custom WordPress image with MySQL SSL and Redis settings
+> * Connect to Azure Database for MySQL
 > * Troubleshoot errors
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
@@ -39,7 +38,7 @@ In this tutorial, you'll learn how to:
 
 To complete this tutorial, you need:
 
-* Install [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 or later).
 * Experience with [Docker Compose](https://docs.docker.com/compose/) or [Kubernetes](https://kubernetes.io/).
 
 ## Create a deployment user
@@ -61,9 +60,51 @@ You create this deployment user only once; you can use it for all your Azure dep
 >
 >
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
+## Create a resource group
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
+[!INCLUDE [resource group intro text](resource-group.md)]
+
+In the local command-prompt, create a resource group with the [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *South Central SUS* location. To see all supported locations for App Service on Linux in **Standard** tier, run the [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) command.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location "South Central SUS"
+```
+
+You generally create your resource group and the resources in a region near you. 
+
+When the command finishes, a JSON output shows you the resource group properties.
+
+## Create an Azure App Service plan
+
+In the local command-prompt, create an App Service plan in the resource group with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
+
+<!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
+
+The following example creates an App Service plan named `myAppServicePlan` in the **Standard** pricing tier (`--sku S1`) and in a Linux container (`--is-linux`).
+
+```azurecli-interactive
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
+```
+
+When the App Service plan has been created, the Azure CLI shows information similar to the following example:
+
+```json
+{ 
+  "adminSiteName": null,
+  "appServicePlanName": "myAppServicePlan",
+  "geoRegion": "South Central SUS",
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
+  "kind": "linux",
+  "location": "South Central SUS",
+  "maximumNumberOfWorkers": 1,
+  "name": "myAppServicePlan",
+  < JSON data removed for brevity. >
+  "targetWorkerSizeId": 0,
+  "type": "Microsoft.Web/serverfarms",
+  "workerTierName": null
+} 
+```
 
 ## Docker Compose configuration options
 
@@ -95,41 +136,11 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 ### Docker Compose with WordPress and MySQL containers
 
-Copy and paste the YAML below, locally to a file named `compose-wordpress.yml`.
+Copy and paste the following YAML locally to a file named `compose-wordpress.yml`.
 
-The Docker Compose file is reproduced in the following code:
+[!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
-```yaml
-version: '3.3'
-
-services:
-   db:
-     image: mysql:5.7
-     volumes:
-       - db_data:/var/lib/mysql
-     restart: always
-     environment:
-       MYSQL_ROOT_PASSWORD: somewordpress
-       MYSQL_DATABASE: wordpress
-       MYSQL_USER: wordpress
-       MYSQL_PASSWORD: wordpress
-
-   wordpress:
-     depends_on:
-       - db
-     image: wordpress:latest
-     ports:
-       - "8000:80"
-     restart: always
-     environment:
-       WORDPRESS_DB_HOST: db:3306
-       WORDPRESS_DB_USER: wordpress
-       WORDPRESS_DB_PASSWORD: wordpress
-volumes:
-    db_data:
-```
-
-## Create a multi-container app (Docker Compose)
+## Create a Docker Compose app
 
 In your local command-prompt terminal, create a multi-container [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name.
 
@@ -156,24 +167,24 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 
 ### Browse to the app
 
-Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app may take a few minutes to load. If you receive an error, allow a few more minutes then refresh the browser. If you're having trouble and would like to troubleshoot, you review the [container logs](#find-docker-container-logs).
+Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app may take a few minutes to load. If you receive an error, allow a few more minutes then refresh the browser. If you're having trouble and would like to troubleshoot, review [container logs](#find-docker-container-logs).
 
 ![Sample multi-container app on Web App for Containers][1]
 
 **Congratulations**, you've created a multi-container app in Web App for Containers. Next you'll configure your app to use Azure Database for MySQL. Don't install WordPress at this time.
 
-> [!IMPORTANT]
-> It's not recommended to use database containers in a production environment. Next you'll configure an Azure Database for MySQL to use with WordPress.
->
+## Connect to production database
 
-## Create an Azure Database for MySQL server
+It's not recommended to use database containers in a production environment. The local containers are not scalable. Instead, you will use Azure Database for MySQL which can be scaled. This will ensure your app is production-ready.
 
-Create a server in Azure Database for MySQL (Preview) with the [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) command.
+### Create an Azure Database for MySQL server
+
+Create an Azure Database for MySQL server with the [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) command.
 
 In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique.
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "West Europe" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
+az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central SUS" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
@@ -267,21 +278,21 @@ When the app setting has been created, the Azure CLI shows information similar t
 
 ### Use a custom image for MySQL SSL and other configurations
 
-SSL is used by Azure Database for MySQL by default, however WordPress requires additional configuration to use SSL with Azure Database for MySQL. These changes and others have already been made for you in the [custom image](https://github.com/msangapu/wordpress). In practice, you would add desired changes to your own image.
+By default, SSL is used by Azure Database for MySQL, however WordPress requires additional configuration to use SSL with Azure Database for MySQL. The WordPress 'official image' doesn't provide the additional configuration, but a [custom image](https://github.com/msangapu/wordpress) has been prepared fo your convenience. In practice, you would add desired changes to your own image.
 
-The custom image is based on the 'official image' of [WordPress from Docker Hub](https://hub.docker.com/_/wordpress/).
+The custom image is based on the 'official image' of [WordPress from Docker Hub](https://hub.docker.com/_/wordpress/). The following changes have been made in this custom image for Azure Database for MySQL:
 
-The following changes have been made in this custom image:
-
-* [Adds PHP extension for Redis v4.0.2.](https://github.com/msangapu/wordpress/blob/0903507e9b506e7962f3c0d84f8382979eb2e530/Dockerfile#L35)
-* [Adds unzip needed for file extraction.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L71)
 * [Adds Baltimore Cyber Trust Root Certificate file for SSL to MySQL.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L61)
 * [Uses App Setting for MySQL SSL Certificate Authority certificate in WordPress wp-config.php.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L163)
 * [Adds WordPress define for MYSQL_CLIENT_FLAGS needed for MySQL SSL.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L164)
+
+In addition, the following changes have been made for Redis (to be used in a later section):
+* [Adds PHP extension for Redis v4.0.2.](https://github.com/msangapu/wordpress/blob/0903507e9b506e7962f3c0d84f8382979eb2e530/Dockerfile#L35)
+* [Adds unzip needed for file extraction.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L71)
 * [Adds Redis Object Cache 1.3.8 WordPress plugin.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L74)
 * [Uses App Seting for Redis host name in WordPress wp-config.php.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L162)
 
-To use the custom image, change the `image: wordpress` to use `image: msangapu/wordpress`. You no longer need the database container. Remove the  `db`, `environment`, `depends_on`, and `volumes` section from the configuration file. Your file should look like the following code:
+To use the custom image, you will update your compose-wordpress.yml file. Change the `image: wordpress` to use `image: msangapu/wordpress`. You no longer need the database container. Remove the  `db`, `environment`, `depends_on`, and `volumes` section from the configuration file. Your file should look like the following code:
 
 ```yaml
 version: '3.3'
@@ -296,7 +307,7 @@ services:
 
 ### Update app with new configuration
 
-In your local command-prompt terminal, reconfigure your multi-container [web app](app-service-linux-intro.md) with the [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) command. Don't forget to replace _\<app_name>_ with a unique app name.
+In your local command-prompt terminal, reconfigure your multi-container [web app](app-service-linux-intro.md) with the [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) command. Don't forget to replace _\<app_name>_ with the name of the web app you created earlier.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -315,11 +326,13 @@ When the app has been reconfigured, the Azure CLI shows information similar to t
 
 ### Browse to the app
 
-Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app is now using **Azure Database for MySQL**.
+Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app is now using Azure Database for MySQL.
+
+![Sample multi-container app on Web App for Containers][1]
 
 ## Add persistent storage
 
-Your multi-container is now running in Web App for Containers. The data will be erased on restart because the files aren't persisted. In this section, you'll add persistent storage to your WordPress container.
+Your multi-container is now running in Web App for Containers. However, if you install WordPress now and restart your app later, you'll find that your WordPress installation is gone. This is because your Docker Compose configuration currently points to a storage location inside your container. The files installed into your container do not persist beyond app restart. In this section, you'll add persistent storage to your WordPress container.
 
 ### Configure environment variables
 
@@ -351,7 +364,7 @@ When the app setting has been created, the Azure CLI shows information similar t
 
 Open *compose-wordpress.yml* again.
 
-The `volumes` option maps the file system to a directory within the container. `${WEBAPP_STORAGE_HOME}` is an environment variable in App Service that is mapped to persistent storage for your app. Make the following modifications to the file:
+The `volumes` option maps the file system to a directory within the container. `${WEBAPP_STORAGE_HOME}` is an environment variable in App Service that is mapped to persistent storage for your app. You need to use this environment variable in the volumes option so that the WordPress files are actually installed into persistent storage instead of the container. Make the following modifications to the file:
 
 In the `wordpress` section, add a `volumes` option as shown in the following code:
 
@@ -399,8 +412,6 @@ After your command runs, it shows output similar to the following example:
 ]
 ```
 
-<!-- restart the app here, add az command -->
-
 ### Browse to the app
 
 Browse to the deployed app at (`http://<app_name>.azurewebsites.net`).
@@ -409,27 +420,22 @@ The WordPress container is now using Azure Database for MySQL and persistent sto
 
 ## Add Redis container
 
+ The WordPress 'official image' does not include the dependencies for Redis. These dependencies and additional configuration needed to use Redis with WordPress have been prepared for you in this [custom image](https://github.com/msangapu/wordpress). In practice, you would add desired changes to your own image.
+
+The custom image is based on the 'official image' of [WordPress from Docker Hub](https://hub.docker.com/_/wordpress/). The following changes have been made in this custom image for Redis:
+
+* [Adds PHP extension for Redis v4.0.2.](https://github.com/msangapu/wordpress/blob/0903507e9b506e7962f3c0d84f8382979eb2e530/Dockerfile#L35)
+* [Adds unzip needed for file extraction.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L71)
+* [Adds Redis Object Cache 1.3.8 WordPress plugin.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L74)
+* [Uses App Seting for Redis host name in WordPress wp-config.php.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L162)
+
 Add the redis container to the bottom of the configuration file so it looks like the following example:
 
-```yaml
-version: '3.3'
-
-services:
-   wordpress:
-     image: msangapu/wordpress
-     volumes:
-      - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
-     ports:
-       - "8000:80"
-     restart: always
-   redis:
-     image: redis:3-alpine
-     restart: always
-```
+[!code-yml[Main](../../../azure-app-service-multi-container/compose-wordpress.yml)]
 
 ### Configure environment variables
 
-To use Redis, you'll enable this setting within App Service. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the local command-prompt terminal. App settings are case-sensitive and space-separated.
+To use Redis, you'll enable this setting, `WP_REDIS_HOST`, within App Service. This is a *required setting* for WordPress to communicate with the Redis host. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the local command-prompt terminal. App settings are case-sensitive and space-separated.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WP_REDIS_HOST="redis"
@@ -490,7 +496,7 @@ In the plugins page, find **Redis Object Cache** and click **Activate**.
 
 ![Activate Redis][3]
 
-Click on **settings**.
+Click on **Settings**.
 
 ![Click on Settings][4]
 
@@ -498,13 +504,15 @@ Click the **Enable Object Cache** button.
 
 ![Click the 'Enable Object Cache' button][5]
 
+WordPress connects to the Redis server. The connection **status** appears on the same page.
+
 ![WordPress connects to the Redis server. The connection **status** appears on the same page.][6]
 
 **Congratulations**, you've connected WordPress to Redis. The production-ready app is now using **Azure Database for MySQL, persistent storage, and Redis**. You can now scale out your App Service Plan to multiple instances.
 
 ## Use a Kubernetes configuration (optional)
 
-In this section, you'll learn how to use a Kubernetes configuration to deploy multiple containers. Make sure you have a [resource group](#create-a-resource-group), an [App Service plan](#create-an-azure-app-service-plan). Since the majority of the steps are similar to that of the compose section, the configuration file has been combined for you.
+In this section, you'll learn how to use a Kubernetes configuration to deploy multiple containers. Make sure you follow earlier steps in to create a [resource group](#create-a-resource-group) and an [App Service plan](#create-an-azure-app-service-plan). Since the majority of the steps are similar to that of the compose section, the configuration file has been combined for you.
 
 ### Supported Kubernetes options for multi-container
 
@@ -524,33 +532,7 @@ In this section, you'll learn how to use a Kubernetes configuration to deploy mu
 
 Save the following YAML to a file called *kubernetes-wordpress.yml*.
 
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: wordpress
-  labels:
-    name: wordpress
-spec:
-  containers:
-
-   - image: redis:3-alpine
-     name: redis
-
-   - image: msangapu/wordpress
-     name: wordpress
-     ports:
-     - containerPort: 80
-       name: wordpress
-     volumeMounts:
-      - name: appservice-storage
-        mountPath: /var/www/html
-        subPath: /site/wwwroot
-  volumes:
-    - name: appservice-storage
-      hostConfig:
-        path: ${WEBAPP_STORAGE_HOME}
-```
+[!code-yml[Main](../../../azure-app-service-multi-container/kubernetes-wordpress.yml)]
 
 ### Create an Azure Database for MySQL server
 
@@ -559,7 +541,7 @@ Create a server in Azure Database for MySQL (Preview) with the [`az mysql server
 In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique.
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "West Europe" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
+az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
@@ -704,7 +686,7 @@ The app is now running multiple containers in Web App for Containers.
 
 **Congratulations**, you've created a multi-container app in Web App for Containers.
 
-To configure Redis, follow the steps in [Add Redis container](#add-redis-container).
+To use Redis, follow the steps in [Connect WordPress to Redis](#connect-wordpress-to-redis).
 
 ## Find Docker Container logs
 
@@ -735,8 +717,7 @@ In this tutorial, you learned how to:
 > * Deploy a multi-container app to Azure
 > * Add application settings
 > * Use persistent storage for your containers
-> * Create an Azure Database for MySQL
-> * Use a custom WordPress image with MySQL SSL and Redis settings
+> * Connect to Azure Database for MySQL
 > * Troubleshoot errors
 
 ## Next steps
