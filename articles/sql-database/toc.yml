@@ -105,7 +105,7 @@
     - name: Overview
       href: sql-database-security-overview.md
     - name: Advanced Threat Protection
-      href: sql-advanced-protection.md
+      href: sql-advanced-threat-protection.md
     - name: Data discovery & classification
       href: sql-database-data-discovery-and-classification.md
     - name: Vulnerability assessment
