@@ -22,7 +22,7 @@ ms.reviewer: brenduns
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-These release notes describe the improvements and fixes in Azure App Service on Azure Stack Update 1 and any known issues. Known issues are divided into issues directly related to the deployment, update process, and issues with the build     (post-installation).
+These release notes describe the improvements and fixes in Azure App Service on Azure Stack Update 1 and any known issues. Known issues are divided into issues directly related to the deployment, update process, and issues with the build (post-installation).
 
 > [!IMPORTANT]
 > Apply the 1802 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service.
@@ -36,7 +36,7 @@ The App Service on Azure Stack Update 1 build number is **69.0.13698.9**
 ### Prerequisites
 
 > [!IMPORTANT]
-> New deployments of Azure App Service on Azure Stack now require a [three-subject wildcard certificate](azure-stack-app-service-before-you-get-started.md#get-certificates) due to improvements in the way in which SSO for Kudu is now handled in Azure App Service. The new subject is ** *.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
+> New deployments of Azure App Service on Azure Stack now require a [three-subject wildcard certificate](azure-stack-app-service-before-you-get-started.md#get-certificates) due to improvements in the way in which SSO for Kudu is now handled in Azure App Service. The new subject is **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
 >
 >
 
