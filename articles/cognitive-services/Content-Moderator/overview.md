@@ -13,7 +13,7 @@ ms.author: sajagtap
 
 # What is Content Moderator?
 
-Content moderation is the process of monitoring for possible offensive, undesirable, and risky content. The moderated content might include images, text, and videos.
+Content moderation is the process of monitoring for possible offensive, undesirable, and risky content. The moderated content can be images, text, and videos.
 
 ## Where it is used
 
