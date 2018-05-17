@@ -37,7 +37,7 @@ The following is an example deployment created in **myblockchain** resource grou
 
 ![Example deployment](media/blockchain-workbench-deploy/example-deployment.png)
 
-The cost of Blockchain Workbench is an aggregate of the cost of the underlying Azure services. Pricing information for Azure services can be calculated using the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
+The cost of Blockchain Workbench is an aggregate of the cost of the underlying Azure services. Pricing information for Azure services can be calculated using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 Azure Blockchain Workbench requires several prerequisites prior to the deployment. The prerequisites include Azure AD configuration and application registrations.
 
