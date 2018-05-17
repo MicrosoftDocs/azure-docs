@@ -7,7 +7,7 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/16/2018
+ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -254,14 +254,18 @@ Update management reaches across multiple services to provide its service. The f
 |Solution     |Log Analytics Contributor         | Solution|
 |Virtual Machine     | Virtual Machine Contributor        | Virtual Machine        |
 
-## Configure RBAC for your Automation account using Azure portal
+## Configure RBAC for your Automation account
+
+The following section shows you how to configure RBAC on your Automation Account through the [portal](#configure-rbac-using-the-azure-portal) and [PowerShell](#configure-rbac-using-powershell)
+
+### Configure RBAC using the Azure portal
 
 1. Log in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the Automation Accounts page.
 2. Click on the **Access control (IAM)** control at the top left corner. This opens the **Access control (IAM)** page where you can add new users, groups, and applications to manage your Automation account and view existing roles that can be configured for the Automation account.
 
    ![Access button](media/automation-role-based-access-control/automation-01-access-button.png)
 
-### Add a new user and assign a role
+#### Add a new user and assign a role
 
 1. From the **Access control (IAM)** page, click **+ Add** to open the **Add permissions** page where you can add a user, group, or application, and assign a role to them.
 
@@ -283,7 +287,7 @@ Update management reaches across multiple services to provide its service. The f
    > [!NOTE]
    > Role-based access control can only be set at the Automation account scope and not at any resource below the Automation account.
 
-### Remove a user
+#### Remove a user
 
 You can remove the access permission for a user who is not managing the Automation account, or who no longer works for the organization. Following are the steps to remove a user:
 
@@ -293,23 +297,7 @@ You can remove the access permission for a user who is not managing the Automati
 
    ![Remove users](media/automation-role-based-access-control/automation-08-remove-users.png)
 
-## Role assigned user
-
-When a user assigned to a role logs in to Azure and selects their Automation account, they can now see the owner’s account listed in the list of **Directories**. In order to view the Automation account that they have been added to, they must switch the default directory to the owner’s default directory.
-
-### User experience for Automation operator role
-
-When a user, who is assigned to the Automation Operator role views the Automation account they are assigned to, they can only view the list of runbooks, runbook jobs, and schedules created in the Automation account but can’t view their definition. They can start, stop, suspend, resume, or schedule the runbook job. The user does not have access to other Automation resources such as configurations, hybrid worker groups, or DSC nodes.
-
-![No access to resources](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
-
-The user has access to view and to create schedules, but does not have access to any other asset type.
-
-This user also doesn’t have access to view the webhooks associated with a runbook
-
-![No access to webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)
-
-## Configure RBAC for your Automation account using Azure PowerShell
+### Configure RBAC using PowerShell
 
 Role-based access can also be configured to an Automation account using the following [Azure PowerShell cmdlets](../role-based-access-control/role-assignments-powershell.md):
 
@@ -321,7 +309,7 @@ Get-AzureRmRoleDefinition -Name 'Automation Operator'
 
 The following is the example output:
 
-```azurepowershell-interactive
+```azurepowershell
 Name             : Automation Operator
 Id               : d3881f73-407a-4167-8283-e981cbba0404
 IsCustom         : False
@@ -382,6 +370,49 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 ```
 
 In the preceding examples, replace **sign in Id**, **subscription Id**, **resource group name**, and **Automation account name** with your account details. Choose **yes** when prompted to confirm before continuing to remove user role assignment.
+
+### User experience for Automation operator role - Automation Account
+
+When a user, who is assigned to the Automation Operator role on the Automation Account scope views the Automation account they are assigned to, they can only view the list of runbooks, runbook jobs, and schedules created in the Automation account but can’t view their definition. They can start, stop, suspend, resume, or schedule the runbook job. The user does not have access to other Automation resources such as configurations, hybrid worker groups, or DSC nodes.
+
+![No access to resources](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
+
+## Configure RBAC for Runbooks
+
+Azure Automation allows for you to assign RBAC to specific runbooks. To do this run the following script to add a user to a specific runbook. The following script can be ran by an Automation Account Admin or Tenant Admin.
+
+```azurepowershell-interactive
+$rgName = "<Resource Group Name>" # Resource Group name for the Automation Account
+$automationAccountName ="<Automation Account Name>" # Name of the Automation Account
+$rbName = "<Name of Runbook>" # Name of the runbook
+$userId = "<User ObjectId>" # Azure Active Directory (AAD) user's ObjectId from the directory
+
+# Gets the Automation Account resource
+$aa = Get-AzureRmResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts" -ResourceName $automationAccountName
+
+# Get the Runbook resource
+$rb = Get-AzureRmResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts/runbooks" -ResourceName "$automationAccountName/$rbName"
+
+# The Automation Job Operator role only needs to be ran once per user.
+New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Operator" -Scope $aa.ResourceId
+
+# Adds the user to the Automation Runbook Operator role to the Runbook scope
+New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
+```
+
+Once ran, have the user log in to the Azure portal and view **All Resources** in the list they see the Runbook they were added as a **Automation Runbook Operator** for.
+
+![Runbook RBAC in the portal](./media/automation-role-based-access-control/runbook-rbac.png)
+
+### User experience for Automation operator role - Runbook
+
+When a user, who is assigned to the Automation Operator role on the Runbook scope views a Runbook they are assigned to, they can only start the runbook and view the runbook jobs.
+
+![No access to resources](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
+
+The user has access to view and to create schedules, but does not have access to any other asset type.
+
+![No access to webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)
 
 ## Next steps
 
