@@ -71,7 +71,10 @@
       Controller0Events   :
       Controller1Events   :
       
+      ````
+      
       It may take up to 11 hours to apply all the updates, including the Windows Updates.
+
 8. After all the updates are successfully installed, run the following cmdlet to confirm that the software updates were applied correctly:
    
      `Get-HcsSystem`

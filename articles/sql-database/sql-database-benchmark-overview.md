@@ -1,25 +1,22 @@
-﻿---
-title: Azure SQL Database benchmark overview
+---
+title: Azure SQL Database DTU benchmark overview
 description: This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database.
 services: sql-database
-documentationcenter: na
-author: CarlRabeler
+author: jan-eng
 manager: jhubbard
-editor: monicar
-
-ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
 ms.service: sql-database
-ms.devlang: na
+ms.custom: DBs & servers
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 06/21/2016
-ms.author: carlrab
+ms.date: 04/01/2018
+ms.author: janeng
 
 ---
-# Azure SQL Database benchmark overview
+# Azure SQL Database DTU benchmark overview
 ## Overview
-Microsoft Azure SQL Database offers three [service tiers](sql-database-service-tiers.md) with multiple performance levels. Each performance level provides an increasing set of resources, or ‘power’, designed to deliver increasingly higher throughput.
+In the DTU-based purchasing model, Microsoft Azure SQL Database offers three [service tiers](sql-database-service-tiers-dtu.md) with multiple performance levels. Each performance level provides an increasing set of resources, or ‘power’, designed to deliver increasingly higher throughput.
+
+> [!IMPORTANT]
+> Azure SQL Database also now supports a vCore-based purchasing model (preview). For information, see [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
 It is important to be able to quantify how the increasing power of each performance level translates into increased database performance. To do this Microsoft has developed the Azure SQL Database Benchmark (ASDB). The benchmark exercises a mix of basic operations found in all OLTP workloads. We measure the throughput achieved for databases running in each performance level.
 
@@ -38,7 +35,7 @@ ASDB measures the performance of a mix of basic database operations which occur 
 ## Schema
 The schema is designed to have enough variety and complexity to support a broad range of operations. The benchmark runs against a database comprised of six tables. The tables fall into three categories: fixed-size, scaling, and growing. There are two fixed-size tables; three scaling tables; and one growing table. Fixed-size tables have a constant number of rows. Scaling tables have a cardinality that is proportional to database performance, but doesn’t change during the benchmark. The growing table is sized like a scaling table on initial load, but then the cardinality changes in the course of running the benchmark as rows are inserted and deleted.
 
-The schema includes a mix of data types, including integer, numeric, character, and date/time. The schema includes primary and secondary keys, but not any foreign keys – that is, there are no referential integrity constraints between tables.
+The schema includes a mix of data types, including integer, numeric, character, and date/time. The schema includes primary and secondary keys, but not any foreign keys - that is, there are no referential integrity constraints between tables.
 
 A data generation program generates the data for the initial database. Integer and numeric data is generated with various strategies. In some cases, values are distributed randomly over a range. In other cases, a set of values is randomly permuted to ensure that a specific distribution is maintained. Text fields are generated from a weighted list of words to produce realistic looking data.
 
@@ -102,7 +99,7 @@ The table below shows the number of users actually sustained for each service ti
 | Standard (S2) |50 |7.1 GB |
 | Premium (P1) |100 |14 GB |
 | Premium (P2) |200 |28 GB |
-| Premium (P6/P3) |800 |114 GB |
+| Premium (P6) |800 |114 GB |
 
 ## Measurement duration
 A valid benchmark run requires a steady-state measurement duration of at least one hour.
@@ -125,6 +122,8 @@ The Azure SQL Database Benchmark measures the relative performance of Azure SQL 
 ## Resources
 [Introduction to SQL Database](sql-database-technical-overview.md)
 
-[Service tiers and performance levels](sql-database-service-tiers.md)
+[DTU-based service tiers and performance levels](sql-database-service-tiers-dtu.md)
+
+[vCore-based service tiers and performance levels](sql-database-service-tiers-vcore.md)
 
 [Performance guidance for single databases](sql-database-performance-guidance.md)

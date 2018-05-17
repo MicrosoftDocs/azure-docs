@@ -1,21 +1,14 @@
-﻿---
-title: Azure Automation DSC Continuous Deployment with Chocolatey | Microsoft Docs
+---
+title: Azure Automation DSC Continuous Deployment with Chocolatey
 description: DevOps continuous deployment using Azure Automation DSC and Chocolatey package manager.  Example with full JSON ARM template and PowerShell source.
 services: automation
-documentationcenter: ''
-author: sebastus
-manager: stevenka
-editor: ''
-
-ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: na
-ms.date: 10/29/2016
-ms.author: golive
-
+ms.component: dsc
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: conceptual
+manager: carmonm
 ---
 # Usage Example: Continuous deployment to Virtual Machines using Automation DSC and Chocolatey
 In a DevOps world there are many tools to assist with various points in the Continuous Integration pipeline.  Azure Automation Desired State Configuration (DSC) is a welcome new addition to the options that DevOps teams can employ.  This article demonstrates setting up Continuous Deployment (CD) for a Windows computer.  You can easily extend the technique to include as many Windows computers as necessary in the role (a web site, for example), and from there to additional roles as well.
@@ -39,7 +32,7 @@ Azure Automation is a managed service in Microsoft Azure that allows you to auto
 
 A DSC Resource is a module of code that has specific capabilities, such as managing networking, Active Directory, or SQL Server.  The Chocolatey DSC Resource knows how to access a NuGet Server (among others), download packages, install packages, and so on.  There are many other DSC Resources in the [PowerShell Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).  These modules are installed into your Azure Automation DSC Pull Server (by you) so they can be used by your configurations.
 
-Resource Manager templates provide a declarative way of generating your infrastructure - things like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on.  Here’s an [article](../resource-manager-deployment-model.md) that compares the Resource Manager deployment model (declarative) with the Azure Service Management (ASM, or classic) deployment model (imperative), and discusses the core resource providers, compute, storage and network.
+Resource Manager templates provide a declarative way of generating your infrastructure - things like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on.  Here’s an [article](../azure-resource-manager/resource-manager-deployment-model.md) that compares the Resource Manager deployment model (declarative) with the Azure Service Management (ASM, or classic) deployment model (imperative), and discusses the core resource providers, compute, storage and network.
 
 One key feature of an Resource Manager template is its ability to install a VM extension into the VM as it’s provisioned.  A VM extension has specific capabilities such as running a custom script, installing anti-virus software, or running a DSC configuration script.  There are many other types of VM extensions.
 
@@ -53,7 +46,7 @@ Presumably you’re already doing the bit at the top, or most of it.  Creating t
 If you’re not starting with an ARM template, that’s also OK.  There are PowerShell cmdlets designed to help you register your VMs with the pull server and all of the rest. For more details, see this article: [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## Step 1: Setting up the pull server and automation account
-At an authenticated (Add-AzureRmAccount) PowerShell command line:  (can take a few minutes while the pull server is set up)
+At an authenticated (Connect-AzureRmAccount) PowerShell command line:  (can take a few minutes while the pull server is set up)
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 

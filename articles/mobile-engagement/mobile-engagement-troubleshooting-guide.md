@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Mobile Engagement Troubleshooting Guides
 description: Troubleshooting Guide for Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 31134a29-a513-4e5e-b626-f6cf6fe04769
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Azure Mobile Engagement - Troubleshooting Guide
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 ## Introduction
 The following troubleshooting guide will help you understand root causes of some commonly seen issues and will enable you to troubleshoot on your own. 
 

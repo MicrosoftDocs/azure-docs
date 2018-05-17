@@ -4,7 +4,7 @@ description: Latest updates and procedures for iOS SDK for Azure Mobile Engageme
 services: mobile-engagement
 documentationcenter: mobile
 author: MehrdadMzfr
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 2566eeb6-be82-4d83-aaf6-ebdcb8841189
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # SDK Content
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This document lists and describes the content of the SDK archive.
 
 ## Engagement SDK

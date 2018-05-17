@@ -1,10 +1,10 @@
 ---
-title: How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI) | Microsoft Docs
+title: Manage Azure Redis Cache using Azure CLI | Microsoft Docs
 description: Learn how to install the Azure CLI on any platform, how to use it to connect to your Azure account, and how to create and manage a Redis cache from the Azure CLI.
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: wesmc
 
 ---
 # How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)
@@ -26,12 +26,17 @@ ms.author: sdanie
 
 The Azure CLI is a great way to manage your Azure infrastructure from any platform. This article shows you how to create and manage your Azure Redis Cache instances using the Azure CLI.
 
+> [!NOTE]
+> This article applies to a previous version of Azure CLI. For the latest Azure CLI 2.0 sample scripts, see [Azure CLI Redis cache samples](cli-samples.md).
+> 
+> 
+
 ## Prerequisites
 To create and manage Azure Redis Cache instances using Azure CLI, you must complete the following steps.
 
 * You must have an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a few moments.
-* [Install the Azure CLI](../xplat-cli-install.md).
-* Connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account, and log in from the Azure CLI using the `azure login` command. To understand the differences and choose, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
+* [Install the Azure CLI](../cli-install-nodejs.md).
+* Connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account, and log in from the Azure CLI using the `azure login` command. To understand the differences and choose, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](/cli/azure/authenticate-azure-cli).
 * Before running any of the following commands, switch the Azure CLI into Resource Manager mode by running the `azure config mode arm` command. For more information, see [Use the Azure CLI to manage Azure resources and resource groups](../xplat-cli-azure-resource-manager.md).
 
 ## Redis Cache properties

@@ -4,7 +4,7 @@ description: Learn how to use Azure Mobile Engagement with Analytics and Push No
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 54fe9113-e239-4ed7-9fd1-a502d7ac7f47
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Get Started with Azure Mobile Engagement for Cordova/Phonegap
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users for a mobile application developed with Cordova.
@@ -38,7 +42,7 @@ This tutorial requires the following:
 * [Mobile Engagement Cordova Plugin](https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-engagement)
 
 > [!NOTE]
-> You can find the source code and the ReadMe for the Cordova plugin on [Github](https://github.com/Azure/azure-mobile-engagement-cordova)
+> You can find the source code and the ReadMe for the Cordova plugin on [GitHub](https://github.com/Azure/azure-mobile-engagement-cordova)
 > 
 > 
 

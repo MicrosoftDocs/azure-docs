@@ -1,4 +1,4 @@
-﻿---
+---
 title: Bridge iOS WebView with native Mobile Engagement iOS SDK
 description: Describes how to create a bridge between WebView running Javascript and the native Mobile Engagement iOS SDK
 services: mobile-engagement
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Bridge iOS WebView with native Mobile Engagement iOS SDK
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 > [!div class="op_single_selector"]
 > * [Android Bridge](mobile-engagement-bridge-webview-native-android.md)
 > * [iOS Bridge](mobile-engagement-bridge-webview-native-ios.md)

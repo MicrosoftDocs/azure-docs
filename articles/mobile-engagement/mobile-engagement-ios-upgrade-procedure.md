@@ -13,11 +13,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
 
 ---
 # Upgrade procedures
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 If you already have integrated an older version of Engagement into your application, you have to consider the following points when upgrading the SDK.
 
 For each new version of the SDK you must first replace (remove and re-import in xcode) the EngagementSDK and EngagementReach folders.
@@ -86,12 +90,15 @@ by :
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-### If you already have your own UNUserNotificationCenterDelegate implementation
-The SDK also has its own implementation of the UNUserNotificationCenterDelegate protocol. It is used by the SDK to monitor the life cycle of Engagement notifications on devices running on iOS 10 or greater. If the SDK detects your delegate it will not use its own implementation because there can be only one UNUserNotificationCenter delegate per application. This means that you will have to add the Engagement logic to your own delegate.
+### Resolve UNUserNotificationCenter delegate conflicts
+
+*If neither your application or one of your third party libraries implements a `UNUserNotificationCenterDelegate` then you can skip this part.*
+
+A `UNUserNotificationCenter` delegate is used by the SDK to monitor the life cycle of Engagement notifications on devices running on iOS 10 or greater. The SDK has its own implementation of the `UNUserNotificationCenterDelegate` protocol but there can be only one `UNUserNotificationCenter` delegate per application. Any other delegate added to the `UNUserNotificationCenter` object will conflict with the Engagement one. If the SDK detects your or any other third party's delegate then it will not use its own implementation to give you a chance to resolve the conflicts. You will have to add the Engagement logic to your own delegate in order to resolve the conflicts.
 
 There are two ways to achieve this.
 
-Simply by forwarding your delegate calls to the SDK:
+Proposal 1, simply by forwarding your delegate calls to the SDK:
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -118,7 +125,7 @@ Simply by forwarding your delegate calls to the SDK:
     }
     @end
 
-Or by inheriting from the `AEUserNotificationHandler` class
+Or proposal 2, by inheriting from the `AEUserNotificationHandler` class
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -146,8 +153,16 @@ Or by inheriting from the `AEUserNotificationHandler` class
 
 > [!NOTE]
 > You can determine whether a notification comes from Engagement or not by passing its `userInfo` dictionary to the Agent `isEngagementPushPayload:` class method.
-> 
-> 
+
+Make sure that the `UNUserNotificationCenter` object's delegate is set to your delegate within either the `application:willFinishLaunchingWithOptions:` or the `application:didFinishLaunchingWithOptions:` method of your application delegate.
+For instance, if you implemented the above proposal 1:
+
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+		// Any other code
+  
+		[UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        return YES;
+      }
 
 ## From 2.0.0 to 3.0.0
 Dropped support for iOS 4.X. Starting from this version the deployment target of your application must be at least iOS 6.

@@ -1,10 +1,10 @@
-﻿---
+---
 title: Define your Mobile Engagement strategy | Microsoft Docs
 description: Learn how to onboard and optimize your Mobile Engagement with analytics and push notifications.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Define your Mobile Engagement strategy
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 *You wrote your app for a reason: to have your users use it!*
 
 We believe you certainly put a great deal of effort in trying to make it a great app that users will love. You also probably invested a sizeable amount of marketing budget to acquire users. But after the initial exhilarating peak of users, you might see them slowly stop using your app. *This is what Azure Mobile Engagement all about!*: getting them to stick around and allow you to incrementally improve your app through test and learn.

@@ -4,7 +4,7 @@ description: Learn about the contents of the Windows Phone Silverlight SDK for A
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 4820d010-2bdd-4b17-88b0-9583bf0b95fb
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Windows Phone Silverlight SDK content
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This document lists and describes the content deployed by the SDK in your application.
 
 ## The `/Resources` folder

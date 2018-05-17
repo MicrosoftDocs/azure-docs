@@ -1,10 +1,10 @@
-﻿---
+---
 title: Windows Phone Silverlight Engagement SDK Integration
 description: How to Integrate Azure Mobile Engagement with Windows Phone Silverlight Apps
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 447fea8d-f4e3-4ad4-8ec0-8e3cf1ad3ab0
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Windows Phone Silverlight Engagement SDK Integration
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
@@ -69,7 +73,7 @@ If you want to specify it at runtime instead, you can call the following method 
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(engagementConfiguration);
 
-The connection string for your application is displayed on the Azure Classic Portal.
+The connection string for your application is displayed on the Azure Portal.
 
 ### Engagement initialization
 When you create a new project, a `App.xaml.cs` file is generated. This class inherits from `Application` and contains many important methods. It will also be used to initialize the Engagement SDK.

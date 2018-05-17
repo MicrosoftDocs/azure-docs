@@ -3,8 +3,8 @@ title: Configure Load Balancer TCP idle timeout | Microsoft Docs
 description: Configure Load Balancer TCP idle timeout
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 
 ms.assetid: 4625c6a8-5725-47ce-81db-4fa3bd055891
 ms.service: load-balancer
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
-ms.author: sewhee
+ms.date: 09/25/2017
+ms.author: kumud
 ---
 
 # Configure TCP idle timeout settings for Azure Load Balancer
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 In its default configuration, Azure Load Balancer has an idle timeout setting of 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your cloud service.
 

@@ -4,7 +4,7 @@ description: Latest iOS SDK - How to Use the Engagement API on iOS
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # How to Use the Engagement API on iOS
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This document is an add-on to the document How to Integrate Engagement on iOS: it provides in depth details about how to use the Engagement API to report your application statistics.
 
 Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your custom `UIViewController` objects inherit from the corresponding `EngagementViewController` class.

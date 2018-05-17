@@ -4,7 +4,7 @@ description: Learn about the contents of the Windows Universal Apps SDK for Azur
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 8fa1b701-1c2b-4aec-940c-06c974ef5405
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Windows Universal Apps SDK content
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This document lists and describes the content deployed by the SDK in your application.
 
 ## The `/Resources` folder

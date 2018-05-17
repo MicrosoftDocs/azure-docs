@@ -4,7 +4,7 @@ description: Learn how to manage your account profile and test devices using Azu
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 22832678-3959-4b8c-9fb2-f2ff5974e5d1
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # How to manage your account profile and test devices
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This article describes the **Home** page of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. 
 
 To get to the **my account** page, click on your account on the top of the page.

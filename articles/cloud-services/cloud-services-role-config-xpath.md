@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 
 ---
@@ -163,5 +163,5 @@ Learn more about the [ServiceConfiguration.cscfg](cloud-services-model-and-packa
 
 Create a [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) package.
 
-Enable [remote desktop](cloud-services-role-enable-remote-desktop.md) for a role.
+Enable [remote desktop](cloud-services-role-enable-remote-desktop-new-portal.md) for a role.
 

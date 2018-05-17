@@ -1,4 +1,4 @@
-﻿---
+---
 title: Advanced Configuration for Windows Universal Apps Engagement SDK
 description: Advanced Configuration options for Azure Mobile Engagement with Windows Universal Apps
 services: mobile-engagement
@@ -18,6 +18,10 @@ ms.author: piyushjo;ricksal
 
 ---
 # Advanced Configuration for Windows Universal Apps Engagement SDK
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 > [!div class="op_single_selector"]
 > * [Universal Windows](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)

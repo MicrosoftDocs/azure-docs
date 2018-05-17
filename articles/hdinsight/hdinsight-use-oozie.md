@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Hadoop Oozie in HDInsight | Microsoft Docs
 description: Use Hadoop Oozie in HDInsight, a big data service. Learn how to define an Oozie workflow, and submit an Oozie job.
 services: hdinsight
@@ -10,12 +10,12 @@ editor: cgronlun
 
 ms.assetid: 870098f0-f416-4491-9719-78994bf4a369
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.date: 07/25/2016
+ms.topic: conceptual
+ms.date: 05/25/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
 # Use Oozie with Hadoop to define and run a workflow in HDInsight
@@ -25,7 +25,7 @@ Learn how to use Apache Oozie to define a workflow and run the workflow on HDIns
 
 Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack, and it supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. It can also be used to schedule jobs that are specific to a system, like Java programs or shell scripts.
 
-The workflow you will implement by following the instructions in this tutorial contains two actions:
+The workflow you implement by following the instructions in this tutorial contains two actions:
 
 ![Workflow diagram][img-workflow-diagram]
 
@@ -54,16 +54,16 @@ The workflow you will implement by following the instructions in this tutorial c
 > 
 
 ### Prerequisites
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have the following item:
 
 * **A workstation with Azure PowerShell**. 
   
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
   
-    To execute Windows PowerShell scripts, you must run as an administrator and set the execution policy to *RemoteSigned*. For more information, see [Run Windows PowerShell scripts][powershell-script].
 
 ## Define Oozie workflow and the related HiveQL script
-Oozie workflows definitions are written in hPDL (a XML Process Definition Language). The default workflow file name is *workflow.xml*. The following is the workflow file you will use in this tutorial.
+Oozie workflows definitions are written in hPDL (a XML Process Definition Language). The default workflow file name is *workflow.xml*. The following is the workflow file you use in this tutorial.
 
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
@@ -122,13 +122,13 @@ Oozie workflows definitions are written in hPDL (a XML Process Definition Langua
 
 There are two actions defined in the workflow. The start-to action is *RunHiveScript*. If the action runs successfully, the next action is *RunSqoopExport*.
 
-The RunHiveScript has several variables. You will pass the values when you submit the Oozie job from your workstation by using Azure PowerShell.
+The RunHiveScript has several variables. You pass the values when you submit the Oozie job from your workstation by using Azure PowerShell.
 
 <table border = "1">
 <tr><th>Workflow variables</th><th>Description</th></tr>
 <tr><td>${jobTracker}</td><td>Specifies the URL of the Hadoop job tracker. Use <strong>jobtrackerhost:9010</strong> in HDInsight version 3.0 and 2.1.</td></tr>
-<tr><td>${nameNode}</td><td>Specifies the URL of the Hadoop name node. Use the default file system address, for example, <i>wasbs://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Specifies the queue name that the job will be submitted to. Use the <strong>default</strong>.</td></tr>
+<tr><td>${nameNode}</td><td>Specifies the URL of the Hadoop name node. Use the default file system address, for example, <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
+<tr><td>${queueName}</td><td>Specifies the queue name that the job is submitted to. Use the <strong>default</strong>.</td></tr>
 </table>
 
 <table border = "1">
@@ -141,7 +141,7 @@ The RunHiveScript has several variables. You will pass the values when you submi
 <table border = "1">
 <tr><th>Sqoop action variable</th><th>Description</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>Specifies the Azure SQL database connection string.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Specifies the Azure SQL database table where the data will be exported to.</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>Specifies the Azure SQL database table where the data is exported to.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Specifies the output folder for the Hive INSERT OVERWRITE statement. This is the same folder for the Sqoop export (export-dir).</td></tr>
 </table>
 
@@ -165,7 +165,7 @@ There are three variables used in the script:
 
 The workflow definition file (workflow.xml in this tutorial) passes these values to this HiveQL script at run time.
 
-Both the workflow file and the HiveQL file are stored in a blob container.  The PowerShell script you will use later in this tutorial will copy both files to the default Storage account. 
+Both the workflow file and the HiveQL file are stored in a blob container.  The PowerShell script you use later in this tutorial copies both files to the default Storage account. 
 
 ## Submit Oozie jobs using PowerShell
 Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. You can use the **Invoke-RestMethod** cmdlet to invoke Oozie web services. The Oozie web services API is a HTTP REST JSON API. For more information about the Oozie web services API, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight version 2.1).
@@ -184,9 +184,9 @@ The PowerShell script in this section performs the following steps:
    
     Both files are stored in a public Blob container.
    
-   * Copy the HiveQL script (useoozie.hql) to Azure Storage (wasbs:///tutorials/useoozie/useoozie.hql).
-   * Copy workflow.xml to wasbs:///tutorials/useoozie/workflow.xml.
-   * Copy the data file (/example/data/sample.log) to wasbs:///tutorials/useoozie/data/sample.log.
+   * Copy the HiveQL script (useoozie.hql) to Azure Storage (wasb:///tutorials/useoozie/useoozie.hql).
+   * Copy workflow.xml to wasb:///tutorials/useoozie/workflow.xml.
+   * Copy the data file (/example/data/sample.log) to wasb:///tutorials/useoozie/data/sample.log.
 6. Submit an Oozie job.
    
     To examine the OOzie job results, use Visual Studio or other tools to connect to the Azure SQL Database.
@@ -239,7 +239,7 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
         Select-AzureRmSubscription -SubscriptionId $subscriptionID
     }
     #endregion
@@ -441,7 +441,7 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
 
     #region - submit Oozie job
 
-    $storageUri="wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
+    $storageUri="wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
 
     $oozieJobName = $namePrefix + "OozieJob"
 
@@ -575,7 +575,7 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
 
 **To re-run the tutorial**
 
-To re-run the workflow, you must delete the following:
+To re-run the workflow, you must delete the following items:
 
 * The Hive script output file
 * The data in the log4jLogsCount table
@@ -629,30 +629,30 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 
 
-[azure-data-factory-pig-hive]: ../data-factory/data-factory-data-transformation-activities.md
+[azure-data-factory-pig-hive]: ../data-factory/transform-data.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
@@ -660,9 +660,9 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 [powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

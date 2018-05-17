@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Mobile Engagement implementation for Media App
 description: Media app scenario to implement Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 48201cc8-4e04-485c-a8dc-d6406d23f3ed
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Implement Mobile Engagement with Media App
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 ## Overview
 John is a mobile project manager for a big media company. He recently launched a new app that has a very high download count. He has hit his goals for download but, still his Return On Investment(ROI) per user does not meet his requirements. 
 

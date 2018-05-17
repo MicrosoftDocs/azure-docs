@@ -4,7 +4,7 @@ description: Latest updates and procedures for Android SDK for Azure Mobile Enga
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: a7d719ec-67b3-4be3-9d7f-0b61a57fe978
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # How to Integrate ADM with Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 > [!IMPORTANT]
 > You must follow the integration procedure described in the How to Integrate Engagement on Android document before following this guide.
 > 

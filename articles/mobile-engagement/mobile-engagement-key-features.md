@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Mobile Engagement - Key features
 description: Describes the key features of Azure Mobile Engagement
 services: mobile-engagement
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Azure Mobile Engagement - Key features
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This article gives a high level overview about the key features of the Mobile Engagement platform. 
 
 ## **General**

@@ -1,14 +1,27 @@
-1. Navigate back to Failover Cluster Manager.  Expand **Roles** and then highlight your Availability Group.  On the **Resources** tab, right-click the listener name and click Properties.
-2. Click the **Dependencies** tab. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies.  Click **OK**.
-3. Right-click the listener name and click **Bring Online**.
-4. Once the listener is online, from the **Resources** tab, right-click the availability group and click **Properties**.
+1. In Failover Cluster Manager, expand **Roles**, and then highlight your availability group.  
+
+2. On the **Resources** tab, right-click the listener name, and then click **Properties**.
+
+3. Click the **Dependencies** tab. If multiple resources are listed, verify that the IP addresses have OR, not AND, dependencies.  
+
+4. Click **OK**.
+
+5. Right-click the listener name, and then click **Bring Online**.
+
+6. After the listener is online, on the **Resources** tab, right-click the availability group, and then click **Properties**.
    
-    ![Configure the Availability Group Resource](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
-5. Create a dependency on the listener name resource (not the IP address resources name). Click **OK**.
+    ![Configure the availability group resource](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
+
+7. Create a dependency on the listener name resource (not the IP address resources name), and then click **OK**.
    
-    ![Add Dependency on the Listener Name](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
-6. Launch **SQL Server Management Studio** and connect to the primary replica.
-7. Navigate to **AlwaysOn High Availability** | **Availability Groups** | **<AvailabilityGroupName>** | **Availability Group Listeners**. 
-8. You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
-9. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (in this tutorial, 1433 was the default), then click **OK**.
+    ![Add dependency on the listener name](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
+
+8. Start SQL Server Management Studio, and then connect to the primary replica.
+
+9. Go to **AlwaysOn High Availability** > **Availability Groups** > **\<AvailabilityGroupName\>** > **Availability Group Listeners**.  
+    The listener name that you created in Failover Cluster Manager should be displayed.
+
+10. Right-click the listener name, and then click **Properties**.
+
+11. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort that you used earlier (in this tutorial, 1433 was the default), and then click **OK**.
 

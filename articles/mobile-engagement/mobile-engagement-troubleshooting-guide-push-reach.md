@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Mobile Engagement Troubleshooting Guide - Push/Reach
 description: Troubleshooting user interaction and notification issues in Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 3f1886b7-1fdd-47f4-b6b0-d79f158d5ef3
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Troubleshooting guide for Push and Reach issues
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 The following are possible issues you may encounter with how Azure Mobile Engagement sends information to your users.
 
 ## Push failures

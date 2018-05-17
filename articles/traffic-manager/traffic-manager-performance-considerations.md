@@ -3,8 +3,8 @@ title: Performance considerations for Azure Traffic Manager | Microsoft Docs
 description: Understand performance on Traffic Manager and how to test performance of your website when using Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 
 ms.assetid: 3ba5dfa1-2922-43f1-9a23-d06969c4a516
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
-ms.author: sewhee
+ms.date: 03/16/2017
+ms.author: kumud
 ---
 
 # Performance considerations for Traffic Manager
@@ -23,7 +23,7 @@ This page explains performance considerations using Traffic Manager. Consider th
 
 You have instances of your website in the WestUS and EastAsia regions. One of the instances is failing the health check for the traffic manager probe. Application traffic is directed to the healthy region. This failover is expected but performance can be a problem based on the latency of the traffic now traveling to a distant region.
 
-## How Traffic Manager works
+## Performance considerations for Traffic Manager
 
 The only performance impact that Traffic Manager can have on your website is the initial DNS lookup. A DNS request for the name of your Traffic Manager profile is handled by the Microsoft DNS root server that hosts the trafficmanager.net zone. Traffic Manager populates, and regularly updates, the Microsoft's DNS root servers based on the Traffic Manager policy and the probe results. So even during the initial DNS lookup, no DNS queries are sent to Traffic Manager.
 

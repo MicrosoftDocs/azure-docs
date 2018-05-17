@@ -1,10 +1,10 @@
-﻿---
+---
 title: Windows Phone Silverlight Reach SDK Integration
 description: How to Integrate Azure Mobile Engagement Reach with Windows Phone Silverlight Apps
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: d3516a6b-db9f-4cdb-a475-4148edf81af1
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Windows Phone Silverlight Reach SDK Integration
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 You must follow the integration procedure described in the [Windows Phone Silverlight Engagement SDK Integration](mobile-engagement-windows-phone-integrate-engagement.md) before following this guide.
 
 ## Embed the Engagement Reach SDK into your Windows Phone Silverlight project

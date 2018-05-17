@@ -1,23 +1,25 @@
 ---
-title: Job preparation and cleanup in Batch | Microsoft Docs
+title: Create tasks to prepare jobs and complete jobs on compute nodes - Azure Batch | Microsoft Docs
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 services: batch
 documentationcenter: .net
-author: mmacy
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 09/16/2016
-ms.author: marsma
+ms.date: 02/27/2017
+ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
-# Run job preparation and completion tasks on Azure Batch compute nodes
+# Run job preparation and job release tasks on Batch compute nodes
+
  An Azure Batch job often requires some form of setup before its tasks are executed, and post-job maintenance when its tasks are completed. You might need to download common task input data to your compute nodes, or upload task output data to Azure Storage after the job completes. You can use **job preparation** and **job release** tasks to perform these operations.
 
 ## What are job preparation and release tasks?
@@ -94,7 +96,7 @@ myJob.JobPreparationTask =
 
 // Assign the job release task to the job
 myJob.JobReleaseTask =
-    new JobPreparationTask { CommandLine = jobReleaseCmdLine };
+    new JobReleaseTask { CommandLine = jobReleaseCmdLine };
 
 await myJob.CommitAsync();
 ```
@@ -106,7 +108,7 @@ As mentioned earlier, the release task is executed when a job is terminated or d
 // Job Release Task on any node that executed job tasks. Note that the
 // Job Release Task is also executed when a job is deleted, thus you
 // need not call Terminate if you typically delete jobs after task completion.
-await myBatchClient.JobOperations.TerminateJobAsy("JobPrepReleaseSampleJob");
+await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## Code sample on GitHub

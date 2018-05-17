@@ -4,7 +4,7 @@ description: Learn how to use Azure Mobile Engagement with analytics and push no
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 48103867-7f64-4646-b019-42bd797d38e2
@@ -18,10 +18,17 @@ ms.author: piyushjo;ricksal
 
 ---
 # Get started with Azure Mobile Engagement for Windows Universal Apps
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of a Windows Universal application.
 This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. You create a blank Windows Universal App that collects basic app usage data and receives push notifications using Windows Notification Service (WNS).
+
+> [!NOTE]
+> The Azure Mobile Engagement service will be retired March 2018 and is currently only available to existing customers. For more information, see [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/).
 
 ## Prerequisites
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]

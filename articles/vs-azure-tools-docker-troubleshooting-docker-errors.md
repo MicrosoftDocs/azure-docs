@@ -1,9 +1,9 @@
 ---
-title: Troubleshooting Docker Client Errors on Windows Using Visual Studio | Microsoft Docs
-description: Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker on Windows by using Visual Studio.
+title: Troubleshooting Docker client errors on Windows by using Visual Studio | Microsoft Docs
+description: Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker on Windows by using Visual Studio 2017.
 services: azure-container-service
 documentationcenter: na
-author: mlearned
+author: devinb
 manager: douge
 editor: ''
 
@@ -13,128 +13,40 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 06/08/2016
-ms.author: allclark
+ms.date: 10/13/2017
+ms.author: devinb
 
 ---
-# Troubleshooting Visual Studio Docker Development
-When working with Visual Studio Tools for Docker Preview, you may encounter some problems due to the preview nature.
-The following are some common issues and resolutions.
 
-## Unable to validate volume mapping
-Volume mapping is required to share the source code and binaries of your application with the app folder in the container.  Specific volume mappings are 
-contained within the docker-compose.dev.debug.yml and docker-compose.dev.release.yml files. As files are changed on your host machine, the containers 
-reflect these changes in a similar folder structure.
+# Troubleshoot Visual Studio 2017 development with Docker
 
-To enable volume mapping, open **Settings...** from the Docker For Windows "moby" tray icon and then select the **Shared Drives** tab.  Ensure that the drive letter 
-which hosts your project as well as the drive letter where %USERPROFILE% resides are shared by checking them, and then clicking **Apply**.
+When you're working with Visual Studio Tools for Docker, you may encounter issues while building or debugging your application. Below are some common troubleshooting steps.
 
-To test if volume mapping is functioning, once the drive(s) have been shared, either Rebuild and F5 from within Visual Studio or try the following from a command prompt:
+## Volume sharing is not enabled. Enable volume sharing in the Docker CE for Windows settings  (Linux containers only)
 
-*In a Windows command prompt*
+To resolve this issue:
 
-*[Note: This assumes your Users folder is located on the "C" drive and that it has been shared.  Update as necessary if you have shared a different drive]*
+1. Right-click **Docker for Windows** in the notification area, and then select **Settings**.
+1. Select **Shared Drives** and share the system drive along with the drive where the project resides.
 
-```
-docker run -it -v /c/Users/Public:/wormhole busybox
-```
+> [!NOTE]
+> If files appear shared, you may still need to click the "Reset credentials..." link at the bottom of the dialog in order to re-enable volume sharing.
 
-*In the Linux container*
+![shared drives](./media/vs-azure-tools-docker-troubleshooting-docker-errors/shareddrives.png)
 
-```
-/ # ls
-```
+## Unable to start debugging
 
-You should see a directory listing from the Users/Public folder.
-If no files are displayed, and your /c/Users/Public folder isn't empty, volume mapping is not configured properly. 
+One reason could be related to having stale debugging components in your user profile folder. Execute the following commands to remove these folders so that the latest debugging components are downloaded on the next debug session.
 
-```
-bin       etc       proc      sys       usr       wormhole
-dev       home      root      tmp       var
-```
+- del %userprofile%\vsdbg
+- del %userprofile%\onecoremsvsmon
 
-Change into the wormhole directory to see the contents of the `/c/Users/Public` directory:
+## Errors specific to networking when debugging your application
 
-```
-/ # cd wormhole/
-/wormhole # ls
-AccountPictures  Downloads        Music            Videos
-Desktop          Host             NuGet.Config     desktop.ini
-Documents        Libraries        Pictures
-/wormhole #
-```
+Try executing the script downloadable from [Cleanup Container Host Networking](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-server-container-tools/CleanupContainerHostNetworking),
+which will refresh the network-related components on your host machine.
 
-**Note:** *When working with Linux VMs, the container file system is case sensitive.*
 
-## Build : "PrepareForBuild" task failed unexpectedly.
-Microsoft.DotNet.Docker.CommandLine.ClientException: An error occurred trying to connect:
+## Microsoft/DockerTools GitHub repo
 
-Verify the default docker host is running. Open a command prompt and execute:
-
-```
-docker info
-```
-
-If this returns an error then attempt to start the **Docker For Windows** desktop app.  If the desktop app is running then the **moby**
-icon in the tray should be visible. Right click on the tray icon and open **Settings**.  Click on the **Reset** tab and then **Restart Docker..**.
-
-## Manually upgrading from version 0.31 to 0.40
-1. Backup the project
-2. Delete the following files in the project:
-   
-    ```
-      Dockerfile
-      Dockerfile.debug
-      DockerTask.ps1
-      docker-compose-yml
-      docker-compose.debug.yml
-      .dockerignore
-      Properties\Docker.props
-      Properties\Docker.targets
-    ```
-3. Close the Solution and remove the following lines from the .xproj file:
-   
-    ```
-      <DockerToolsMinVersion>0.xx</DockerToolsMinVersion>
-      <Import Project="Properties\Docker.props" />
-      <Import Project="Properties\Docker.targets" />
-    ```
-4. Reopen the Solution
-5. Remove the following lines from the Properties\launchSettings.json file:
-   
-    ```
-      "Docker": {
-        "executablePath": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-        "commandLineArgs": "-ExecutionPolicy RemoteSigned .\\DockerTask.ps1 -Run -Environment $(Configuration) -Machine '$(DockerMachineName)'"
-      }
-    ```
-6. Remove the following files related to Docker from project.json in the publishOptions:
-   
-    ```
-    "publishOptions": {
-      "include": [
-        ...
-        "docker-compose.yml",
-        "docker-compose.debug.yml",
-        "Dockerfile.debug",
-        "Dockerfile",
-        ".dockerignore"
-      ]
-    },
-    ```
-7. Uninstall the previous version and install Docker Tools 0.40, and then **Add->Docker Support** again from the context menu for your ASP.Net Core Web or Console Application. This will add the new required Docker artifacts back to your project. 
-
-## An error dialog occurs when attempting to **Add->Docker Support** or Debug (F5) an ASP.NET Core Application in a container
-We have occasionally seen after uninstalling and installing extensions, Visual Studio's MEF (Managed Extensibility Framework) cache can become corrupt. When this occurs it can cause various error dialogs when adding Docker Support and/or attempting to run or Debug (F5) your ASP.NET Core Application. As a temporary workaround, execute the following steps to delete and regenerate the MEF cache.
-
-1. Close all instances of Visual Studio
-2. Open %USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\
-3. Delete the following folders
-     ```
-       ComponentModelCache
-       Extensions
-       MEFCacheBackup
-    ```
-4. Open Visual Studio
-5. Attempt the scenario again 
-
+For any other issues you encounter, see  [Microsoft/DockerTools](https://github.com/microsoft/dockertools/issues) issues.

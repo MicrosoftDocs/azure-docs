@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Active Directory hybrid identity design considerations- next steps| Microsoft Docs
 description: A synopsis and next steps after you have read the Hybrid Identity design considerations guide
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 02d48768-ea9e-4bfe-ae54-b54c4bd0a789
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/08/2016
+ms.date: 07/18/2017
 ms.author: billmath
 
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Hardware for StorSimple 10 GbE interfaces | Microsoft Docs
 description: Describes the supported small form-factor pluggable (SFP) transceivers, cables, and switches for the 10 GbE network interfaces on your StorSimple device.
 services: storsimple

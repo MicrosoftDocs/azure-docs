@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
-ms.author: jolevy
+ms.author: timlt
 
 ---
 # Managing Azure Cloud Services using Azure Automation
@@ -41,4 +41,3 @@ Now that you've learned the basics of Azure Automation and how it can be used to
 * [Azure Automation Overview](../automation/automation-intro.md)
 * [My first runbook](../automation/automation-first-runbook-graphical.md)
 * [Azure Automation learning map](https://azure.microsoft.com/documentation/learning-paths/automation/)
-

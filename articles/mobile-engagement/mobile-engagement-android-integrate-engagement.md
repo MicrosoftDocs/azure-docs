@@ -4,7 +4,7 @@ description: Latest updates and procedures for Android SDK for Azure Mobile Enga
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: a5487793-1a12-4f6c-a1cf-587c5a671e6b
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # How to Integrate Engagement on Android
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)

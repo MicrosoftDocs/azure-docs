@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Mobile Engagement User Interface - Reach Content
 description: Learn how to manage the unique content of the different types of push notification campaigns in Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # How to manage the unique content of the different types of push notification campaigns
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 You can use the Content section of a new reach campaign to modify the content of your Announcements, Polls, Data Pushes, and Tiles (Windows Phone only). The content setting of Push campaigns is specific to the type of campaign. 
 
 ### Content types:

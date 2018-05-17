@@ -1,4 +1,3 @@
-
 ---
 title: 'Service Fabric cluster security: client roles | Microsoft Docs'
 description: This article describes the two client roles and the permissions provided to the roles.
@@ -11,10 +10,10 @@ editor: ''
 ms.assetid: 7bc808d9-3609-46a1-ac12-b4f53bff98dd
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2016
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---

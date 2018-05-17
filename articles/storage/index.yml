@@ -1,0 +1,125 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Storage Documentation
+metadata:
+  title: Azure Storage Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Azure Storage is a Microsoft-managed cloud service that provides storage that is highly available, secure, durable, scalable, and redundant. Azure Storage consists of Blob storage, File Storage, and Queue storage.
+  services: storage
+  author: tamram
+  manager: jeconnoc
+  ms.service: storage
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 12/08/2017
+  ms.author: tamram
+abstract:
+  description: Microsoft Azure Storage is a Microsoft-managed cloud service that provides storage that is highly available, secure, durable, scalable, and redundant. Azure Storage consists of Blob storage, File Storage, and Queue storage.  Learn how to leverage Azure Storage in your applications with our quickstarts and tutorials.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Learn to work with Azure Storage by exploring these quickstarts.
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/portal.svg
+          text: Portal
+      - image:
+          src: media/index/logo_powershell.svg
+          text: Powershell
+      - image:
+          src: media/index/cli.svg
+          text: Azure CLI
+      - image:
+          src: media/index/logo_net.svg
+      - image:
+          src: media/index/logo_java.svg
+      - image:
+          src: media/index/logo_python.svg
+      - image:
+          src: media/index/logo_nodejs.svg
+    rows:
+      - title: Create storage account
+        values:
+        - href: /azure/storage/common/storage-quickstart-create-account?tabs=portal
+        - href: /azure/storage/common/storage-quickstart-create-account?tabs=powershell
+        - href: /azure/storage/common/storage-quickstart-create-account?tabs=azure-cli
+        - href: 
+        - href: 
+        - href: 
+        - href: 
+      - title: Blob quickstarts
+        values:
+        - href: /azure/storage/blobs/storage-quickstart-blobs-portal
+        - href: /azure/storage/blobs/storage-quickstart-blobs-powershell
+        - href: /azure/storage/blobs/storage-quickstart-blobs-cli
+        - href: /azure/storage/blobs/storage-quickstart-blobs-dotnet
+        - href: /azure/storage/blobs/storage-quickstart-blobs-java
+        - href: /azure/storage/blobs/storage-quickstart-blobs-python
+        - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
+- title: Step-by-step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to upload and process image data in the cloud.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/storage/blobs/storage-upload-process-images">Upload and retrieve image data in the cloud</a>
+    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Trigger Azure Functions to process blobs</a>
+    - html: <a href="/azure/storage/blobs/storage-secure-access-application">Secure application data</a>
+    - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitor and troubleshoot storage</a>
+  - type: paragraph
+    text: Learn how to design your application for high availability in Azure Storage.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Make your application data highly available</a>
+    - html: <a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simulate a failure in accessing read-access redundant storage</a>
+  - type: paragraph
+    text: Learn how to search unstructured data in Azure Storage.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/storage/blobs/storage-unstructured-search">Search unstructured data in cloud storage</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Find scripts for common management tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: .NET &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet">Blobs</a> | <a     href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet">Files</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet">Queues</a>
+    - html: Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blobs</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">Files</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">Queues</a>
+    - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
+    - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
+- title: Free Pluralsight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Developing with .NET on Azure 
+      href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
+    - title: Developing with Node.js on Azure
+      href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Azure CLI</a></p>
+    - title: Languages
+      html: <p><a href="/java/api/">Java</a></p><p><a href="http://azure.github.io/azure-storage-node">Node​.js</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/storageservices">Blobs, Queues, Tables, and Files</a></p><p><a href="/rest/api/storagerp">Resource provider</a></p><p><a href="/rest/api/storageimportexport">Import/export</a></p>

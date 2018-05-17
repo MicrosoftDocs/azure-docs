@@ -1,4 +1,4 @@
-﻿---
+---
 title: DMZ Example – Build a DMZ to protect applications with a Firewall and NSGs | Microsoft Docs
 description: Build a DMZ with a Firewall and Network Security Groups (NSG)
 services: virtual-network

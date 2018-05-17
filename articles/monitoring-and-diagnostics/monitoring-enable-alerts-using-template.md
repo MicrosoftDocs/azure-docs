@@ -1,8 +1,8 @@
-﻿---
-title: Create a metric alert with a Resource Manager template | Microsoft Docs
-description: Learn how to use a Resource Manager template to create a metric alert to receive notifications by email or webhook.
+---
+title: Create a classic metric alert in Azure with a Resource Manager template | Microsoft Docs
+description: Learn how to use a Resource Manager template to create a classic metric alert to receive notifications by email or webhook.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,21 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 4/27/2018
 ms.author: johnkem
 
 ---
-# Create a metric alert with a Resource Manager template
-This article shows how you can use an [Azure Resource Manager template](../resource-group-authoring-templates.md) to configure Azure metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
+# Create a classic metric alert with a Resource Manager template
+This article shows how you can use an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to configure Azure metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
+
+> [!NOTE]
+> 
+> This article describes creating **classic metric alerts** using Resource Manager templates. If you are looking for creating [newer metric alerts](monitoring-near-real-time-metric-alerts.md) using templates, [this article](monitoring-create-metric-alerts-with-templates.md) provides the details.
+>
+
 
 The basic steps are as follows:
 
 1. Create a template as a JSON file that describes how to create the alert.
-2. [Deploy the template using any deployment method](../resource-group-template-deploy.md).
+2. [Deploy the template using any deployment method](../azure-resource-manager/resource-group-template-deploy.md).
 
 Below we describe how to create a Resource Manager template first for an alert alone, then for an alert during the creation of another resource.
 
-## Resource Manager template for a metric alert
+## Resource Manager template for a classic metric alert
 To create an alert using a Resource Manager template, you create a resource of type `Microsoft.Insights/alertRules` and fill in all related properties. Below is a template that creates an alert rule.
 
 ```json
@@ -105,9 +111,9 @@ To create an alert using a Resource Manager template, you create a resource of t
         },
         "windowSize": {
             "type": "string",
-            "defaultValue": "00:05:00",
+            "defaultValue": "PT5M",
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between 00:05:00 and 24:00:00. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
             }
         },
         "sendToServiceOwners": {
@@ -140,7 +146,7 @@ To create an alert using a Resource Manager template, you create a resource of t
             "type": "Microsoft.Insights/alertRules",
             "name": "[parameters('alertName')]",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[parameters('alertName')]",
                 "description": "[parameters('alertDescription')]",
@@ -150,9 +156,9 @@ To create an alert using a Resource Manager template, you create a resource of t
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                         "resourceUri": "[parameters('resourceId')]",
-                        "metricName": "[parameters('metricName')]",
-                        "operator": "[parameters('operator')]"
+                        "metricName": "[parameters('metricName')]"
                     },
+                    "operator": "[parameters('operator')]",
                     "threshold": "[parameters('threshold')]",
                     "windowSize": "[parameters('windowSize')]",
                     "timeAggregation": "[parameters('aggregation')]"
@@ -177,7 +183,7 @@ To create an alert using a Resource Manager template, you create a resource of t
 
 An explanation of the schema and properties for an alert rule [is available here](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## Resource Manager template for a resource with an alert
+## Resource Manager template for a resource with a classic metric alert
 An alert on a Resource Manager template is most often useful when creating an alert while creating a resource. For example, you may want to ensure that a “CPU % > 80” rule is set up every time you deploy a Virtual Machine. To do this, you add the alert rule as a resource in the resource array for your VM template and add a dependency using the `dependsOn` property to the VM resource ID. Here’s a full example that creates a Windows VM and adds an alert that notifies subscription admins when the CPU utilization goes above 80%.
 
 ```json
@@ -237,7 +243,7 @@ An alert on a Resource Manager template is most often useful when creating an al
         "metricName": "Percentage CPU",
         "operator": "GreaterThan",
         "threshold": "80",
-        "windowSize": "00:10:00",
+        "windowSize": "PT5M",
         "aggregation": "Average",
         "customEmails": "",
         "sendToServiceOwners": true,
@@ -362,7 +368,7 @@ An alert on a Resource Manager template is most often useful when creating an al
                 "[variables('vmID')]"
             ],
             "location": "[variables('location')]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[variables('alertName')]",
                 "description": "variables('alertDescription')",
@@ -372,9 +378,9 @@ An alert on a Resource Manager template is most often useful when creating an al
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                         "resourceUri": "[variables('vmID')]",
-                        "metricName": "[variables('metricName')]",
-                        "operator": "[variables('operator')]"
+                        "metricName": "[variables('metricName')]"
                     },
+                    "operator": "[variables('operator')]",
                     "threshold": "[variables('threshold')]",
                     "windowSize": "[variables('windowSize')]",
                     "timeAggregation": "[variables('aggregation')]"

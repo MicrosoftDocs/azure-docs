@@ -4,7 +4,7 @@ description: Service Request Information required by Support team for troublesho
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 28d49915-d0c2-4fac-b07a-b3e9b6b8528a
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Service Request (SR) Information
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 Provide the following information when you open a service request for any Mobile Engagement service:
 
 ## IDs: Applicable identifiers related to your issue:

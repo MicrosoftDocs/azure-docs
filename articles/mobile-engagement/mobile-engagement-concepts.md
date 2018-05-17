@@ -1,10 +1,10 @@
-﻿---
+---
 title: Mobile Engagement concepts | Microsoft Docs
 description: Azure Mobile Engagement concepts
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 8d19abd1-0a6c-4772-9fa5-5e99980ac5da
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Azure Mobile Engagement concepts
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 Mobile Engagement defines a few concepts common to all supported platforms. This article briefly describes those concepts.
 
 This article is a good start if you are new to Mobile Engagement. Also make sure to read the documentation specific to the platform you are using, as it will refine the concepts described in this article with more details and examples as well as possible limitations.

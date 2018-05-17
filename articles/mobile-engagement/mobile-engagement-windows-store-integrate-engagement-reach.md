@@ -4,7 +4,7 @@ description: How to Integrate Azure Mobile Engagement Reach with Windows Univers
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: a31ca1d6-856f-4aec-898a-07969ae5f7ec
@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Windows Universal Apps Reach SDK Integration
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 You must follow the integration procedure described in the [Windows Universal Engagement SDK Integration](mobile-engagement-windows-store-integrate-engagement.md) before following this guide.
 
 ## Embed the Engagement Reach SDK into your Windows Universal project

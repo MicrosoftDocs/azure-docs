@@ -3,8 +3,8 @@ title: Manage Azure Data Lake Analytics using Azure SDK for Node.js | Microsoft 
 description: Learn how to manage Data Lake Analytics accounts, data sources, jobs and users using Azure SDK for Node.js
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: kfile
 editor: cgronlun
 
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
-ms.author: edmaca
+ms.date: 12/05/2016
+ms.author: saveenr
 
 ---
 # Manage Azure Data Lake Analytics using Azure SDK for Node.js
@@ -31,8 +31,8 @@ Right now it supports:
 
 ## Features
 * Account management: create, get, list, update, and delete.
-* Job management: submit, get, list, cancel.
-* Catalog management: get, list, create (secrets), update (secrets), delete (secrets).
+* Job management: submit, get, list, and cancel.
+* Catalog management: get and list.
 
 ## How to Install
 ```bash

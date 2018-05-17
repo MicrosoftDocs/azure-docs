@@ -1,38 +1,63 @@
+<!--
+Used in:
+sql-database-performance-guidance.md 
+sql-database-single-database-resources.md 
+-->
+
 ### Basic service tier
-|  |  |
-| --- | --- |
-| Max DTUs |5 |
-| Max Database Size (GB) |2 |
+| **Performance level** | **Basic** |
+| :--- | --: |
+| Max DTUs | 5 |
+| Included storage (GB) | 2 |
+| Max storage choices (GB) | 2 |
 | Max in-memory OLTP storage (GB) |N/A |
-| Max concurrent workers |30 |
-| Max concurrent logins |30 |
-| Max concurrent sessions |300 |
-| Point-in-time-restore |Any point last 7 days |
-| Disaster recovery |Active Geo-Replication |
+| Max concurrent workers (requests) | 30 |
+| Max concurrent logins | 30 |
+| Max concurrent sessions | 300 |
+|||
 
 ### Standard service tier
-|  |  |
-| --- |:---:|
-| **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3** | |
-| Max DTUs |&nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp; 20 &nbsp;&nbsp;&nbsp;&nbsp; 50 &nbsp;&nbsp; 100 |
-| Max Database Size (GB) |250 |
-| Max in-memory OLTP storage (GB) |N/A |
-| Max concurrent workers |60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
-| Max concurrent logins |60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
-| Max concurrent sessions |600 &nbsp; 900 &nbsp; 1200 &nbsp; 2400 |
-| Point-in-time-restore |Any point last 35 days |
-| Disaster recovery |Active Geo-Replication |
+| **Performance level** | **S0** | **S1** | **S2** | **S3** |
+| :--- |---:| ---:|---:|---:|---:|
+| Max DTUs** | 10 | 20 | 50 | 100 |
+| Included storage (GB) | 250 | 250 | 250 | 250 |
+| Max storage choices (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
+| Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |
+| Max concurrent workers (requests)| 60 | 90 | 120 | 200 |
+| Max concurrent logins | 60 | 90 | 120 | 200 |
+| Max concurrent sessions |600 | 900 | 1200 | 2400 |
+||||||
 
-### Premium service tier
-|  |  |
-| --- |:---:|
-| **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15** | |
-| Max DTUs |125 &nbsp;&nbsp; 250 &nbsp;&nbsp; 500 &nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; 1750 &nbsp;&nbsp; 4000 |
-| Max Database Size (GB) |500 &nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp; 1000 |
-| Max in-memory OLTP storage (GB) |&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 32 |
-| Max concurrent workers |&nbsp; 200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp; 2400 &nbsp;&nbsp; 6400 |
-| Max concurrent logins |&nbsp; 200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp; 2400 &nbsp;&nbsp; 6400 |
-| Max concurrent sessions |2400 &nbsp;4800 &nbsp; 9600 &nbsp;19200 &nbsp;32000 &nbsp;32000 |
-| Point-in-time-restore |Any point last 35 days |
-| Disaster recovery |Active Geo-Replication |
+### Standard service tier (continued)
+| **Performance level** | **S4** | **S6** | **S7** | **S9** | **S12** |
+| :--- |---:| ---:|---:|---:|---:|---:|
+| Max DTUs** | 200 | 400 | 800 | 1600 | 3000 |
+| Included storage (GB) | 250 | 250 | 250 | 250 | 250 |
+| Max storage choices (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
+| Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |N/A |
+| Max concurrent workers (requests)| 400 | 800 | 1600 | 3200 |6000 |
+| Max concurrent logins | 400 | 800 | 1600 | 3200 |6000 |
+| Max concurrent sessions |4800 | 9600 | 19200 | 30000 |30000 |
+|||||||
+
+### Premium service tier 
+| **Performance level** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
+| :--- |---:|---:|---:|---:|---:|---:|
+| Max DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
+| Included storage (GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
+| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
+| Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
+| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Max concurrent logins | 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+|||||||
+
+
+> [!IMPORTANT]
+> \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+>
+>\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> 
+>\*\* Max DTUs per database starting at 200 DTUs and higher in Standard are in preview.
+>
 
