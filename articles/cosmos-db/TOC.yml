@@ -467,10 +467,14 @@ items:
       href: regional-failover.md
     - name: Diagnostic logging
       href: logging.md
+    - name: BulkExecutor overview
+      href: bulk-executor-overview.md
     - name: Cost-effective reads and writes
       href: key-value-store-cost.md
     - name: Expire data automatically
       href: time-to-live.md
+    - name: Manage using PowerShell
+      href: manage-account-with-powershell.md
     - name: Manage using Storage Explorer
       href: storage-explorer.md
   - name: Resources
