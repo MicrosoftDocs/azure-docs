@@ -141,7 +141,7 @@ Create virtual machines in different zones (zone 1, zone 2, and zone 3) for the 
 2. On the **Overview** page, click **Connect** to RDP into the VM.
 3. Log into the VM with username *azureuser*.
 4. On the server desktop, navigate to **Windows Administrative Tools**>**Windows PowerShell**.
-5. In the PowerShell Window, run the following commands to install the IIS server, remove the  default.htm file, add a new with default.htm file that displays the name of the VM:
+5. In the PowerShell Window, run the following commands to install the IIS server, remove the  default iisstart.htm file, and then add a new iisstart.htm file that displays the name of the VM:
    ```azurepowershell-interactive
     
     # install IIS server role
