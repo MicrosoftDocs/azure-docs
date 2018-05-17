@@ -46,9 +46,9 @@ With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in cont
 
     To learn more about the DNS Service in Service Fabric, see [DNS Service in Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice).
 
-### Known limitations with the Service Fabric DNS Service
+### Known limitations with the debugging containers in Service Fabric
 
-Below is a list of known issues with the DNS Service in Service Fabric and possible resolutions:
+Below is a list of known limitations with debugging containers in Service Fabric and possible resolutions:
 
 1. Using localhost for ClusterFQDNorIP will not support DNS resolution in containers.
     * Resolution: Set up the local cluster using machine name (see above)
@@ -56,13 +56,14 @@ Below is a list of known issues with the DNS Service in Service Fabric and possi
     * Resolution: Disable UDP checksum offload for IPv4 on the Virtual Machines NIC
     * Please note this will degrade networking performance on the machine.
     * https://github.com/Azure/service-fabric-issues/issues/1061
-1. Resolving services in same application using service name does not work on Windows10, if the application was deployed using Docker Compose
+1. Resolving services in same application using DNS service name does not work on Windows10, if the application was deployed using Docker Compose
     * Resolution: Use servicename.applicationname to resolve service endpoints
     * https://github.com/Azure/service-fabric-issues/issues/1062
-1. If using IP-address for ClusterFQDNorIP, changing primary IP on the host will break functionality.
+1. If using IP-address for ClusterFQDNorIP, changing primary IP on the host will break DNS functionality.
     * Resolution: Recreate the cluster using the new primary IP on the host or use machine name. This is by design.
-1. If the FQDN machine name the cluster was created with is not resolvable on the network, DNS will fail.
+1. If the FQDN the cluster was created with is not resolvable on the network, DNS will fail.
     * Resolution: Recreate the local cluster using the primary IP of the host. This is by design.
+1. When debugging a container, docker logs will only be available in the Visual Studio output window, not through Service Fabric APIs, including Service Fabric Explorer
 
 ## Debug a .NET application running in docker containers on Service Fabric
 
