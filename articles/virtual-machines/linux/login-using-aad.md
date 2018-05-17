@@ -167,7 +167,7 @@ If you successfully complete the authentication step in a web browser, you may b
 
 ## Preview feedback
 
-Provide feedback on this preview feature on the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
 ## Next steps
 
