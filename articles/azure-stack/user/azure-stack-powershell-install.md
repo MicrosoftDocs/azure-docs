@@ -31,7 +31,7 @@ This article gives detailed instructions for installing PowerShell. However, if 
 
 PowerShell commands for Azure Stack are installed through the PowerShell gallery. To register the PSGallery repository, open an elevated PowerShell session from the development kit or from a Windows-based external client if you are connected through VPN and run the following command:
 
-```powershell
+```PowerShell  
 Set-PSRepository `
   -Name "PSGallery" `
   -InstallationPolicy Trusted
@@ -43,7 +43,7 @@ Before installing the required version, make sure that you uninstall any existin
 
 * To uninstall the existing PowerShell modules, sign in to the development kit, or to the Windows-based external client if you are planning to establish a VPN connection. Close all the active PowerShell sessions and run the following command:
 
-   ```powershell
+   ```PowerShell  
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
@@ -55,7 +55,7 @@ The following sections describe the steps required to install PowerShell for Azu
 
 Azure Stack compatible AzureRM modules are installed through API version profiles. Azure Stack requires the **2017-03-09-profile** API version profile, which is available by installing the AzureRM.Bootstrapper module. To learn about API version profiles and the cmdlets provided by them, refer to the [manage API version profiles](azure-stack-version-profiles-powershell.md). In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. Run the following PowerShell script to install these modules on your development workstation:
 
-  ```powershell
+  ```PowerShell  
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
   Install-Module `
     -Name AzureRm.BootStrapper
@@ -71,7 +71,7 @@ Azure Stack compatible AzureRM modules are installed through API version profile
 
 To confirm the installation, run the following command:
 
-  ```powershell
+  ```PowerShell  
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
@@ -82,27 +82,27 @@ To confirm the installation, run the following command:
 
 In a disconnected or partially connected scenario, you must first download the PowerShell modules to a machine that has internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
 
-1. Sign in to a computer where you have internet connectivity and use the following script to download the AzureRM, and AzureStack packages onto your local computer:
+1. Sign in to a computer where you have internet connectivity and use the following script to download the AzureRM, and AzureStack packages onto your local computer:  
 
-   ```powershell
-   $Path = "<Path that is used to save the packages>"
+    ```PowerShell  
+    $Path = "<Path that is used to save the packages>"
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureRM `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.2.11
+    Save-Package `
+      -ProviderName NuGet `
+      -Source https://www.powershellgallery.com/api/v2 `
+      -Name AzureRM `
+      -Path $Path `
+      -Force `
+      -RequiredVersion 1.2.11
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureStack `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.2.11
-   ```
+    Save-Package `
+      -ProviderName NuGet `
+      -Source https://www.powershellgallery.com/api/v2 `
+      -Name AzureStack `
+      -Path $Path `
+      -Force `
+      -RequiredVersion 1.2.11
+    ```
 
 2. Copy the downloaded packages over to a USB device.
 
@@ -110,22 +110,22 @@ In a disconnected or partially connected scenario, you must first download the P
 
 4. Now you must register this location as the default repository and install the AzureRM and AzureStack modules from this repository:
 
-   ```powershell
-   $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
-   $RepoName = "MyNuGetSource"
+    ```PowerShell  
+    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
+    $RepoName = "MyNuGetSource"
 
-   Register-PSRepository `
-     -Name $RepoName `
-     -SourceLocation $SourceLocation `
-     -InstallationPolicy Trusted
+    Register-PSRepository `
+      -Name $RepoName `
+      -SourceLocation $SourceLocation `
+      -InstallationPolicy Trusted
 
-   ```powershell
-   Install-Module AzureRM `
-     -Repository $RepoName
+    ```PowerShell  
+    Install-Module AzureRM `
+      -Repository $RepoName
 
-   Install-Module AzureStack `
-     -Repository $RepoName
-   ```
+    Install-Module AzureStack `
+      -Repository $RepoName
+    ```
 
 ## Next steps
 
