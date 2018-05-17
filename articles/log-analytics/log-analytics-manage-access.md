@@ -120,11 +120,13 @@ Members of the *Log Analytics Reader* role can:
 
 
 Members of the *Log Analytics Contributor* role can:
-- Read all monitoring data 
-- Creating and configuring Automation accounts
-- Adding and removing management solutions.  In order to successfully perform these two actions, this permission needs to be granted at the resource group or subscription level.  
-- Reading storage account keys 
-- Configure collection of logs from Azure Storage
+- Read all monitoring data  
+- Creating and configuring Automation accounts  
+- Adding and removing management solutions    
+    >[!NOTE] In order to successfully perform these two actions, this permission needs to be granted at the resource group or subscription level.  
+
+- Reading storage account keys   
+- Configure collection of logs from Azure Storage  
 - Edit monitoring settings for Azure resources, including
   - Adding the VM extension to VMs
   - Configuring Azure diagnostics on all Azure resources
