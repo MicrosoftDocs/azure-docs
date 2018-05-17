@@ -1,5 +1,5 @@
 ---
-title: Upgrade the primary nodetype VMs of an Azure Service Fabric cluster | Microsoft Docs
+title: Upgrade an Azure Service Fabric cluster VMs SKU or OS | Microsoft Docs
 description: Learn how to upgrade the virtual machines in a Service Fabric cluster's primary nodetype.
 services: service-fabric
 documentationcenter: .net
@@ -13,69 +13,45 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
-ms.author: ryanwi;aljo
+ms.date: 05/10/2018
+ms.author: ryanwi
 
 ---
-# Upgrade the primary nodetype VMs of a Service Fabric cluster
-A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Clusters can contain potentially thousands of nodes. After creating a Service Fabric cluster, you can scale the cluster horizontally (change the number of nodes) or vertically (change the resources of the nodes).  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
-
-### Scaling up and down, or vertical scaling 
-Changes the resources (CPU, memory, or storage) of nodes in the cluster.
-- Advantages: Software and application architecture stays the same.
-- Disadvantages: Finite scale, since there is a limit to how much you can increase resources on individual nodes. Downtime, because you will need to take physical or virtual machines offline in order to add or remove resources.
-
-## Scaling an Azure cluster up or down
-Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately.  Scaling a node type up or down involves changing the SKU of the virtual machine instances in the scale set. 
+# Upgrade the primary node type VMs of a Service Fabric cluster
+This article describes how to upgrade the primary node type virtual machines of a Service Fabric cluster running in Azure.  A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Virtual machine scale sets are an Azure compute resource that you use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs.  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
 
 > [!WARNING]
 > We recommend that you do not change the VM SKU of a scale set/node type unless it is running at [Silver durability or greater](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
 >
 
-When scaling an Azure cluster, keep the following guideline in mind:
-- If scaling down a primary node type, you should never scale it down more than what the [reliability tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) allows.
+## Upgrade the size and operating system of the primary node type VMs
+To start, deploy a cluster with two node types.  The primary node type VMs are size Standard D2_V2 and running Windows Server 2012 R2 Datacenter.  After the upgrade, the primary node type VMs are size Standard D4_V2 and running Windows Server 2016 Datacenter with Containers.
 
-The process of scaling a node type up or down is different depending on whether it is a non-primary or primary node type.
-
-### Scaling the primary node type
-We recommend that you do not change the VM SKU of the primary node type. If you need more cluster capacity, we recommend adding more instances. 
-
-If that not possible, you can create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the virtual machine scale set Model definition to reflect the new SKU. If your cluster has only one node type, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
-
-## Scaling
-1)	Deploy a two node type SF cluster, with a primary node type with D2V2 SKU.
-2)	Deploy a stateful sample to it.
-3)	Add a new VMSS with a different SKU (D4v2) was added to cluster, but with the same NodeType name as the primary node type
-4)	 VM instances from the old primary node type was disabled with intent to remove node. (This will cause  the system services and seed nodes to be moved to the new VMSS.)
-5)	move public IP from the LB old VMSS to the new one
-6)	The cluster and the app should stay healthy.
-
-Results:
--	VM instances from the old primary node type was disabled with intent to remove node.
--	Deallocated VM instances from old VMSS to move public IP from the LB old VMSS to the new one
--	Successfully move public IP from the LB old VMSS to the new one
--	During the process of moving public IP from old LB to new, the cluster was not reachable for time for which LB is detached from old VMSS and is not attached to new VMSS.
--	After public IP move is completed the cluster endpoint was reachable.
+1. Deploy the initial cluster with two node types and two scale sets using these sample [template](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) and [parameters](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) files.  Both node types are size Standard D2_V2 and running Windows Server 2012 R2 Datacenter.  Wait for the cluster to complete the baseline upgrade.  You can consider skipping this deployment and 
+2. Optional- deploy a stateful sample to the cluster.
+3. After deciding to upgrade the primary node type VMs, deploy a new scale set into the primary node type and a new load balancer using these sample [template](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) and [parameters](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) files.  The new scale set VMs are size Standard D4_V2 and running Windows Server 2016 Datacenter with Containers.
+4. Check the cluster health and verify all the nodes are healthy.
+5. Disable the nodes in the original primary node type with the intent to remove node. You can disable all at once and they will be operations are queued. Wait until all nodes are disabled, which may take some time.  As the nodes in the original node type are disabled, the the system services and seed nodes move to the new scale set.
+6. Remove the original primary node type scale set.
+7. Remove the load balancer associated with the old primary node type scale set. The cluster is now unreachable.  
+8. Store DNS settings of the public IP address associated with the old primary node type scale set in a variable and remove that public IP address.
+9. Replace the DNS settings of the public IP address associated with the new primary node type scale set with DNS settings of the deleted public IP address.  The cluster is now reachable again.
+10. Remove the node state of the nodes from the cluster.  If the durability level of the old scale set was silver or gold, this step is done by the system automatically.
+11. If you deployed the stateful application in a previous step, verify that the application is functional.
 
 ```powershell
-# Variables.
-$groupname = "ryanwiupgradetestgroup"
-$clusterloc="southcentralus"  
-$subscriptionID="0754ecc2-d80d-426a-902c-b83f4cfbdc95"
-
 # sign in to your Azure account and select your subscription
 Login-AzureRmAccount -SubscriptionId $subscriptionID 
 
 # Create a new resource group for your deployment and give it a name and a location.
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\template_2NodeTypes.parameters.json" -TemplateFile "C:\temp\cluster\template_2NodeTypes.json" -Verbose
+# Deploy the two node type cluster.
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.parameters.json" `
+    -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.json" -Verbose
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\template_3NodeTypes.parameters.json" -TemplateFile "C:\temp\cluster\template_3NodeTypes.json" -Verbose
-
-
-$ClusterName= "ryanwiupgradetest.southcentralus.cloudapp.azure.com:19000"
-$certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
+# Connect to the cluster and check the cluster health.
+$ClusterName= "sfupgradetest.southcentralus.cloudapp.azure.com:19000"
 $thumb="F361720F4BD5449F6F083DDE99DC51A86985B25B"
 
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
@@ -86,35 +62,84 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreLocation CurrentUser `
     -StoreName My 
 
-# Disable VM instances from old primary node type
-Disable-ServiceFabricNode -NodeName _NTvm1_4 -Intent RemoveNode 
+Get-ServiceFabricClusterHealth
 
-# Create new public IP for old primary vmss
-$newPublicIP = New-AzureRmPublicIpAddress -Name "LBIP-testcluster8252711300318-new" -ResourceGroupName $groupname -AllocationMethod Dynamic -Location ‘South Central US’
+# Deploy a new scale set into the primary node type.  Create a new load balancer and public IP address for the new scale set.
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.parameters.json" `
+    -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.json" -Verbose
 
-# Load the load balancer resource related to old primary VMSS into a variable
-$vm1lb = Get-AzureRmLoadBalancer -Name "LB-ryanwiupgradetest-NTvm1" -ResourceGroupName $groupname
+# Check the cluster health again. All 15 nodes should be healthy.
+Get-ServiceFabricClusterHealth
 
-# Update the load balancer related to old primary VMSS with newly created Public IP
-Set-AzureRmLoadBalancerFrontendIpConfig -Name LoadBalancerIPConfig -LoadBalancer $vm1lb -PublicIpAddress $newPublicIP 
+# Disable the nodes in the original scale set.
+$nodeNames = @("_NTvm1_0","_NTvm1_1","_NTvm1_2","_NTvm1_3","_NTvm1_4")
 
-# Save the load balancer configuration by using Set-AzureLoadBalancer.
-Set-AzureRmLoadBalancer -LoadBalancer $vm1lb 
+Write-Host "Disabling nodes..."
+foreach($name in $nodeNames){
+    Disable-ServiceFabricNode -NodeName $name -Intent RemoveNode -Force
+}
 
-# Get Public IP of primary node type 
-$primaryPublicIP = Get-AzureRmPublicIpAddress -Name "LBIP-ryanwiupgradetest-0" -ResourceGroupName $groupname
+Write-Host "Checking node status..."
+foreach($name in $nodeNames){
+ 
+    $state = Get-ServiceFabricNode -NodeName $name 
 
-# Load load balancer resource related to new VMSS into a variable
-$vm3lb = Get-AzureRmLoadBalancer -Name "LB-ryanwiupgradetest-NTvm3" -ResourceGroupName $resourceGroupName 
+    $loopTimeout = 50
 
+    do{
+        Start-Sleep 5
+        $loopTimeout -= 1
+        $state = Get-ServiceFabricNode -NodeName $name
+        Write-Host "$name state: " $state.NodeDeactivationInfo.Status
+    }
 
-# Update the load balancer related to new VMSS with Public IP of old primary VMSS
-Set-AzureRmLoadBalancerFrontendIpConfig -Name LoadBalancerIPConfig -LoadBalancer $vm3lb -PublicIpAddress $oldPublicIP 
+    while (($state.NodeDeactivationInfo.Status -ne "Completed") -and ($loopTimeout -ne 0))
+    
 
+    if ($state.NodeStatus -ne [System.Fabric.Query.NodeStatus]::Disabled)
+    {
+        Write-Error "$name node deactivation failed with state" $state.NodeStatus
+        exit
+    }
+}
 
-# Save the load balancer configuration by using Set-AzureLoadBalancer.
-Set-AzureRmLoadBalancer -LoadBalancer $vm3lb 
+# Remove the scale set
+$scaleSetName="NTvm1"
+Remove-AzureRmVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
+Write-Host "Removed scale set $scaleSetName"
 
+$lbname="LB-sfupgradetest-NTvm1"
+$oldPublicIpName="PublicIP-LB-FE-0"
+$newPublicIpName="PublicIP-LB-FE-2"
+
+# Store DNS settings of public IP address related to old Primary NodeType into variable 
+$oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname
+
+$primaryDNSName = $oldprimaryPublicIP.DnsSettings.DomainNameLabel
+
+$primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
+
+# Remove Load Balancer related to old Primary NodeType. This will cause a brief period of downtime for the cluster
+Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
+
+# Remove the old public IP
+Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
+
+# Replace DNS settings of Public IP address related to new Primary Node Type with DNS settings of Public IP address related to old Primary Node Type
+$PublicIP = Get-AzureRmPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
+$PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
+$PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
+Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
+
+# Check the cluster health
+Get-ServiceFabricClusterHealth
+
+# Remove node state for the deleted nodes.
+foreach($name in $nodeNames){
+    # Remove the node from the cluster
+    Remove-ServiceFabricNodeState -NodeName $name -TimeoutSec 300 -Force
+    Write-Host "Removed node state for node $name"
+}
 ```
 
 ## Next steps
