@@ -31,12 +31,12 @@ These release notes describe the improvements and fixes in Azure App Service on 
 
 ## Build reference
 
-The App Service on Azure Stack Update 2 build number is **72.0.13698.6**
+The App Service on Azure Stack Update 2 build number is **72.0.13698.610**
 
 ### Prerequisites
 
 > [!IMPORTANT]
-> New deployments of Azure App Service on Azure Stack now require a [three-subject wildcard certificate](azure-stack-app-service-before-you-get-started.md#get-certificates) due to improvements in the way in which SSO for Kudu is now handled in Azure App Service. The new subject is ** *.sso.appservice.<region>.<domainname>.<extension>**
+> New deployments of Azure App Service on Azure Stack now require a [three-subject wildcard certificate](azure-stack-app-service-before-you-get-started.md#get-certificates) due to improvements in the way in which SSO for Kudu is now handled in Azure App Service. The new subject is ** *.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
 >
 >
 
@@ -74,22 +74,10 @@ Azure App Service on Azure Stack Update 2 includes the following improvements an
   - System credential rotation
   - Connection string rotation
 
-
-
-#### Fixes
-
-### Known issues with the deployment process
-
-- There are no known issues with deployment of Azure App Service on Azure Stack Update 2.
-
-### Known issues with the update process
-
-- There are no known issues for the update of Azure App Service on Azure Stack Update 2.
-
 ### Known issues (post-installation)
 
 - Workers are unable to reach file server when App Service is deployed in an existing virtual network and the file server is only available on the private network.
- 
+
 If you chose to deploy into an existing virtual network and an internal IP address to connect to your file server, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server. To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
  * Source: Any
  * Source port range: *
