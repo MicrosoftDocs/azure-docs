@@ -70,7 +70,7 @@ You can use the configuration file to:
 - Map data from real OPC UA servers that you connect to the solution.
 
 For more information about mapping and aggregating the data to meet your specific requirements, see [How to configure the Connected Factory solution accelerator
-](iot-solutions-connected-factory-configure.md).
+](iot-accelerators-connected-factory-configure.md).
 
 ## Deploy the changes
 
@@ -89,14 +89,14 @@ Learn more about the Connected Factory solution accelerator by reading the follo
 * [FAQ][lnk-faq]
 
 
-[img-oee-kpi]: ./media/iot-solutions-connected-factory-customize/oeenadkpi.png
-[img-manufactured-items]: ./media/iot-solutions-connected-factory-customize/manufactured.png
-[img-tsi]: ./media/iot-solutions-connected-factory-customize/tsi.png
-[img-select-server]: ./media/iot-solutions-connected-factory-customize/selectserver.png
-[img-published]: ./media/iot-solutions-connected-factory-customize/published.png
+[img-oee-kpi]: ./media/iot-accelerators-connected-factory-customize/oeenadkpi.png
+[img-manufactured-items]: ./media/iot-accelerators-connected-factory-customize/manufactured.png
+[img-tsi]: ./media/iot-accelerators-connected-factory-customize/tsi.png
+[img-select-server]: ./media/iot-accelerators-connected-factory-customize/selectserver.png
+[img-published]: ./media/iot-accelerators-connected-factory-customize/published.png
 
 
-[lnk-rm-walkthrough]:iot-solutions-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]:iot-solutions-connected-factory-gateway-deployment.md
+[lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
+[lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
 [lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md
 [lnk-faq]: ../iot-suite/iot-suite-v1-faq.md

@@ -2,14 +2,14 @@
 # [IoT solution accelerators documentation](index.md)
 
 # Overview
-## [IoT architecture concepts](iot-solutions-what-is-azure-iot.md)
+## [IoT architecture concepts](iot-accelerators-what-is-azure-iot.md)
 ## [Compare Azure IoT options](../iot-suite/iot-suite-options.md)
-## [Solution accelerators overview](iot-solutions-what-are-solution-accelerators.md)
+## [Solution accelerators overview](iot-accelerators-what-are-solution-accelerators.md)
 
 # Get started
 ## Remote Monitoring
-### [Deploy the solution accelerator](iot-solutions-remote-monitoring-deploy.md)
-### [Operate the solution accelerator](iot-solutions-remote-monitoring-explore.md)
+### [Deploy the solution accelerator](iot-accelerators-remote-monitoring-deploy.md)
+### [Operate the solution accelerator](../iot-suite/iot-suite-remote-monitoring-explore.md)
 
 ## Remote Monitoring (previous version)
 ### [What are the solution accelerators?](../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md)
@@ -47,9 +47,9 @@
 ### [Predictive Maintenance solution accelerator walkthrough](../iot-suite/iot-suite-predictive-walkthrough.md)
 
 ## Connected Factory
-### [What is Connected Factory?](iot-solutions-connected-factory-features.md)
-### [Connected Factory solution overview](iot-solutions-connected-factory-overview.md)
-### [Connected Factory solution walkthrough](iot-solutions-connected-factory-sample-walkthrough.md)
+### [What is Connected Factory?](iot-accelerators-connected-factory-features.md)
+### [Connected Factory solution overview](iot-accelerators-connected-factory-overview.md)
+### [Connected Factory solution walkthrough](iot-accelerators-connected-factory-sample-walkthrough.md)
 
 ## Device Simulation
 ### [Deploy Device Simulation](iot-solutions-device-simulation-deploy.md)
@@ -81,14 +81,14 @@
 #### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Concepts
-#### [Remote Monitoring implementation details](iot-solutions-remote-monitoring-sample-walkthrough.md)
-#### [Remote Monitoring architectural choices](iot-solutions-remote-monitoring-architectural-choices.md)
+#### [Remote Monitoring implementation details](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+#### [Remote Monitoring architectural choices](iot-accelerators-remote-monitoring-architectural-choices.md)
 
 ## Connected Factory
-### [Deploy a gateway for Connected Factory](iot-solutions-connected-factory-gateway-deployment.md)
-### [Customize Connected Factory](iot-solutions-connected-factory-customize.md)
+### [Deploy a gateway for Connected Factory](iot-accelerators-connected-factory-gateway-deployment.md)
+### [Customize Connected Factory](iot-accelerators-connected-factory-customize.md)
 ### [Use the OPC publisher for Connected Factory](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
-### [Configure Connected Factory](iot-solutions-connected-factory-configure.md)
+### [Configure Connected Factory](iot-accelerators-connected-factory-configure.md)
 ## [Permissions on azureiotsuite.com](../iot-suite/iot-suite-permissions.md)
 
 # Reference

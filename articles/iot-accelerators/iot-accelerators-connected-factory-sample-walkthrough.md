@@ -123,7 +123,7 @@ The web app deployed as part of the solution accelerator comprises of an integra
 
 ## Telemetry data flow
 
-![Telemetry data flow](./media/iot-solutions-connected-factory-sample-walkthrough/telemetry_dataflow.png)
+![Telemetry data flow](./media/iot-accelerators-connected-factory-sample-walkthrough/telemetry_dataflow.png)
 
 ### Flow steps
 
@@ -175,7 +175,7 @@ The web app deployed as part of the solution accelerator comprises of an integra
 
 ## Browsing data flow
 
-![Browsing data flow](./media/iot-solutions-connected-factory-sample-walkthrough/browsing_dataflow.png)
+![Browsing data flow](./media/iot-accelerators-connected-factory-sample-walkthrough/browsing_dataflow.png)
 
 ### Flow steps
 
@@ -229,12 +229,12 @@ The web app deployed as part of the solution accelerator comprises of an integra
 You can continue getting started with IoT solution accelerators by reading the following articles:
 
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
-* [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-solutions-connected-factory-gateway-deployment.md)
+* [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC Publisher reference implementation](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
-[connected-factory-logical]:media/iot-solutions-connected-factory-sample-walkthrough/cf-logical-architecture.png
+[connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png
 
-[lnk-preconfigured-solutions]:iot-solutions-what-are-solution-accelerators.md
+[lnk-preconfigured-solutions]:iot-accelerators-what-are-solution-accelerators.md
 [lnk-customize]: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
