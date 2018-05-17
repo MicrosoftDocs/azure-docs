@@ -27,10 +27,10 @@ There are a few key differences between policy and role-based access control (RB
 
 Azure Policy has permissions represented as operations in two different Resource Providers:
 
-- [Microsoft.Authorization](../role-based-access-control/resource-provider-operations#microsoftauthorization)
-- [Microsoft.PolicyInsight](../role-based-access-control/resource-provider-operations#microsoftpolicyinsights)
+- [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
+- [Microsoft.PolicyInsight](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Several of the Built-in roles have various levels of permission to Azure Policy resources, such as **Security Admin** that can manage policy assignments and definitions but cannot view compliance information and **Reader** that can read details regarding policy assignments and definitions, but cannot make changes or view compliance information. To grant permission to compliance details, create a [custom role](../role-based-access-control/custom-roles).
+Several of the Built-in roles have various levels of permission to Azure Policy resources, such as **Security Admin** that can manage policy assignments and definitions but cannot view compliance information and **Reader** that can read details regarding policy assignments and definitions, but cannot make changes or view compliance information. To grant permission to view Policy compliance details, create a [custom role](../../role-based-access-control/custom-roles.md).
 
 ## Policy definition
 

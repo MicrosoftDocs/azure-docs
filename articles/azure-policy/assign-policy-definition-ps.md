@@ -4,7 +4,7 @@ description: In this quickstart, you use PowerShell to create an Azure Policy as
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/16/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -20,6 +20,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
+- If you haven't already, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool that sends HTTP requests to Azure Resource Manager-based APIs.
 - Before you start, make sure that the latest version of PowerShell is installed. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for detailed information.
 - Update your AzureRM PowerShell module to the latest version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 - Register the Policy Insights resource provider using Azure PowerShell. Registering the resource provider makes sure that your subscription works with it. To register a resource provider, you must have permission to perform the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
@@ -39,12 +40,13 @@ Run the following commands to create a new policy assignment:
 ```azurepowershell-interactive
 $rg = Get-AzureRmResourceGroup -Name '<resourceGroupName>'
 $definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
-New-AzureRmPolicyAssignment -Name 'Audit Virtual Machines without Managed Disks' -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit Virtual Machines without Managed Disks' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 The preceding commands use the following information:
 
-- **Name** - Display name for the policy assignment. In this case, you're using *Audit Virtual Machines without Managed Disks Assignment*.
+- **Name** - The actual name of the assignment.  For this example, *audit-vm-manageddisks* was used.
+- **DisplayName** - Display name for the policy assignment. In this case, you're using *Audit Virtual Machines without Managed Disks Assignment*.
 - **Definition** – The policy definition, based on which you're using to create the assignment. In this case, it is the policy definition – *Audit Virtual Machines without Managed Disks*.
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. Be sure to replace &lt;scope&gt; with the name of your resource group.
 

@@ -4,7 +4,7 @@ description: Use PowerShell to create an Azure Policy assignment to identify non
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/16/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -32,6 +32,8 @@ az provider register –-namespace 'Microsoft.PolicyInsights'
 ```
 
 For more information about registering and viewing resource providers, see [Resource Providers and Types](../azure-resource-manager/resource-manager-supported-services.md)
+
+If you haven't already, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool that sends HTTP requests to Azure Resource Manager-based APIs.
 
 ## Create a policy assignment
 

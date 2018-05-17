@@ -25,6 +25,8 @@
   items:
   - name: Azure Policy definition structure
     href: policy-definition.md
+  - name: Understanding Policy Effects
+    href: policy-effects.md
 - name: How-to guides
   items:
   - name: Programmatically create policies
