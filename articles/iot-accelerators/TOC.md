@@ -9,7 +9,7 @@
 # Get started
 ## Remote Monitoring
 ### [Deploy the solution accelerator](iot-accelerators-remote-monitoring-deploy.md)
-### [Operate the solution accelerator](../iot-suite/iot-suite-remote-monitoring-explore.md)
+### [Operate the solution accelerator](iot-accelerators-remote-monitoring-explore.md)
 
 ## Remote Monitoring (previous version)
 ### [What are the solution accelerators?](../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md)
