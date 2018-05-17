@@ -158,16 +158,15 @@ Load balancing is a mechanism designed to equally distribute connections among m
 ### HTTP-based load balancing
 Organizations that run web-based services often desire to have an HTTP-based load balancer in front of those web services. This helps ensure adequate levels of performance and high availability. Traditional, network-based load balancers rely on network and transport layer protocols. HTTP-based load balancers, on the other hand, make decisions based on characteristics of the HTTP protocol.
 
-To provide you HTTP-based load balancing for your web-based services, Azure provides you the Azure Application Gateway. Application Gateway supports:
+Azure Application Gateway provides HTTP-based load balancing for your web-based services. Application Gateway supports:
 
-* HTTP-based load balancing.
 * Cookie-based session affinity. This capability makes sure that connections established to one of the servers behind that load balancer stays intact between the client and server. This ensures stability of transactions.
 * SSL offload. When a client connects with the load balancer, that session is encrypted by using the HTTPS (SSL) protocol. However, in order to increase performance, you can use the HTTP (unencrypted) protocol to connect between the load balancer and the web server behind the load balancer. This is referred to as “SSL offload,” because the web servers behind the load balancer don’t experience the processor overhead involved with encryption. The web servers can therefore service requests more quickly.
 * URL-based content routing. This feature makes it possible for the load balancer to make decisions about where to forward connections based on the target URL. This provides a lot more flexibility than solutions that make load balancing decisions based on IP addresses.
 
 Learn more:
 
-* [Application Gateway Overview](../application-gateway/application-gateway-introduction.md)
+* [Application Gateway overview](../application-gateway/application-gateway-introduction.md)
 
 ### Network level load balancing
 In contrast to HTTP-based load balancing, network level load balancing makes decisions based on IP address and port (TCP or UDP) numbers.
@@ -181,8 +180,8 @@ You can gain the benefits of network level load balancing in Azure by using Azur
 
 Learn more:
 
-* [Internet facing load balancer between multiple Virtual Machines or services](../load-balancer/load-balancer-internet-overview.md)
-* [Internal Load Balancer Overview](../load-balancer/load-balancer-internal-overview.md)
+* [Internet-facing load balancer between multiple virtual machines or services](../load-balancer/load-balancer-internet-overview.md)
+* [Internal load balancer overview](../load-balancer/load-balancer-internal-overview.md)
 
 ### Global load balancing
 Some organizations want the highest level of availability possible. One way to reach this goal is to host applications in globally distributed datacenters. When an application is hosted in datacenters located throughout the world, it’s possible for an entire geopolitical region to become unavailable, and still have the application up and running.
@@ -244,19 +243,19 @@ Learn more:
 Azure provides capabilities to help you in this key area with early detection, monitoring, and collecting and reviewing network traffic.
 
 ### Azure Network Watcher
-Network Watcher can help you troubleshoot, and provides a whole new set of tools to assist with the identification of security issues.
+Azure Network Watcher can help you troubleshoot, and provides a whole new set of tools to assist with the identification of security issues.
 
 [Security Group View ](../network-watcher/network-watcher-security-group-view-overview.md) helps with auditing and security compliance of Virtual Machines. Use this feature to perform programmatic audits, comparing the baseline policies defined by your organization to effective rules for each of your VMs. This can help you identify any configuration drift.
 
 [Packet capture](../network-watcher/network-watcher-packet-capture-overview.md) allows you to capture network traffic to and from the virtual machine. You can collect network statistics and troubleshoot application issues, which can be invaluable in the investigation of network intrusions. You can also use this feature together with Azure Functions to start network captures in response to specific Azure alerts.
 
-For more information on Network Watcher and how to start testing some of the functionality in your labs, see [Azure network watcher monitoring overview](../network-watcher/network-watcher-monitoring-overview.md)
+For more information on Network Watcher and how to start testing some of the functionality in your labs, see [Azure network watcher monitoring overview](../network-watcher/network-watcher-monitoring-overview.md).
 
 >[!NOTE]
 For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ### Azure Security Center
-Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a large set of security solutions.
+Azure Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a large set of security solutions.
 
 Security Center helps you optimize and monitor network security by:
 
