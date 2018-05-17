@@ -44,7 +44,7 @@ When you link from the AppSource badge on your site to your listing in AppSource
 The following example shows a URL that includes the two query parameters:
 
 ``` 
-https://store.office.com/app.aspx?assetid=WA102957661&mktcmpid=refexample&mktvid=PN102957641
+https://appsource.microsoft.com/product/office/WA102957661?src=website&mktcmpid=blogpost_12
 ``` 
 
 Adding these parameters to your AppSource URL enables us to provide more information about where your customers are coming from. In the future, when you include your Store Provider ID, we can provide you counts of the number of customers who go to AppSource from your webpage.
