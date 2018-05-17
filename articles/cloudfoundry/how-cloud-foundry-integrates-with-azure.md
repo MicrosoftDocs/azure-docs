@@ -41,7 +41,8 @@ By default, Azure basic load balancer is used for incoming CF API/apps requests,
 ### Azure Application Gateway *
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) offers various layer 7 load balancing capabilities, including SSL offloading, end to end SSL, Web Application Firewall, cookie-based session affinity and more. It is supported in [Open Source Cloud Foundry]( https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction). 
 > [!NOTE]
-> There is a [known compatibility issue](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) with PCF, so you can only test in POC environment for PCF.
+> There is a [known issue] https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) with PCF using Application Gateway temporarily, you should first validate your scenario in POC environment for compability.
+
 ### Azure Standard Load Balancer *
 Azure Load Balancer is a Layer 4 load balancer. It is used to distribute the traffic among instances of services in a load-balanced set. The standard version provides [advanced features](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) on top of the basic version. For example 1. The backend pool max limit is raised from 100 to 1000 VMs.  2. The endpoints now support multiple availability sets instead of single availability set.  3. Additional features like HA ports, richer monitoring data, etc. If you are moving to Azure Availability Zone, standard load balancer is required. For a new deployment, we recommend you to start with Azure Standard Load Balancer. 
 
@@ -71,7 +72,7 @@ Azure service broker offers consistent interface to manage application’s acces
 The Azure Log Analytics Nozzle is a Cloud Foundry component, that forwards metrics from the [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) to [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). With the Nozzle, you can collect, view, and analyze your CF system health and performance metrics across multiple deployments.
 Click [here](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) to learn how to deploy the Azure Log Analytics Nozzle to your CF environment, and then access the data from the Azure Log Analytics OMS console. 
 > [!NOTE]
-> From PCF 2.0, BOSH health metrics for VMs are forwarded to the Loggregator Firehose by default, and are integrated with Azure Log Analytics OMS console.
+> From PCF 2.0, BOSH health metrics for VMs are forwarded to the Loggregator Firehose by default, and are integrated into Azure Log Analytics OMS console.
 
 ## 7. Cost Saving
 ### Cost Saving for Dev/Test Environments
