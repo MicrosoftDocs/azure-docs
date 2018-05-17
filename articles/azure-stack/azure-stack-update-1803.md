@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Stack 1803 Update | Microsoft Docs
 description: Learn about what's in the 1803 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
@@ -54,7 +54,7 @@ The Azure Stack 1803 update build number is **20180329.1**.
 ### Post-update steps
 - After the installation of 1803, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).
 
-  - [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4294441 - Operations against tenant resources fail and unexpected shares are created on the same tenant or infrastructure volume](https://support.microsoft.com/en-us/help/4294441)
 
 - After installing this update, review your firewall configuration to ensure [necessary ports](azure-stack-integrate-endpoints.md) are open. For example, this update introduces Azure Monitor which includes a change of Audit logs to Activity logs. With this change, port 13012 is now used and must also be open.  
 
@@ -116,8 +116,6 @@ The following are post-installation known issues for build  **20180323.2**.
 - It might not be possible to view compute or storage resources in the administrator portal. The cause of this issue is an error during the installation of the update that causes the update to be incorrectly reported as successful. If this issue occurs, contact Microsoft Customer Support Services for assistance.
 
 - You might see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
-
-- When you view the properties of a resource or resource group, the **Move** button is disabled. This behavior is expected. Moving resources or resource groups between resource groups or subscriptions is not currently supported.
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
@@ -242,6 +240,7 @@ The following are post-installation known issues for build  **20180323.2**.
 
 - Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > After you update to Azure Stack 1803, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1711, first apply version 1712, then 1802, and then update to 1803.      
