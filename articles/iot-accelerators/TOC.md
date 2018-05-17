@@ -2,14 +2,14 @@
 # [IoT solution accelerators documentation](index.md)
 
 # Overview
-## [IoT architecture concepts](iot-solutions-what-is-azure-iot.md)
+## [IoT architecture concepts](iot-accelerators-what-is-azure-iot.md)
 ## [Compare Azure IoT options](../iot-suite/iot-suite-options.md)
-## [Solution accelerators overview](iot-solutions-what-are-solution-accelerators.md)
+## [Solution accelerators overview](iot-accelerators-what-are-solution-accelerators.md)
 
 # Get started
 ## Remote Monitoring
-### [Deploy the solution accelerator](iot-solutions-remote-monitoring-deploy.md)
-### [Operate the solution accelerator](iot-solutions-remote-monitoring-explore.md)
+### [Deploy the solution accelerator](iot-accelerators-remote-monitoring-deploy.md)
+### [Operate the solution accelerator](../iot-suite/iot-suite-remote-monitoring-explore.md)
 
 ## Remote Monitoring (previous version)
 ### [What are the solution accelerators?](../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md)
@@ -57,19 +57,19 @@
 
 # How-to guides
 ## Remote Monitoring
-### [Perform advanced monitoring](iot-solutions-remote-monitoring-monitor.md)
-### [Use rules to detect issues](iot-solutions-remote-monitoring-automate.md)
-### [Integrate SIM data](iot-solutions-remote-monitoring-telefonica-sim.md)
-### [Manage your devices](iot-solutions-remote-monitoring-manage.md)
-### [Troubleshoot device issues](iot-solutions-remote-monitoring-maintain.md)
-### [Understand the device model schema](iot-solutions-remote-monitoring-device-schema.md)
+### [Perform advanced monitoring](iot-accelerators-remote-monitoring-monitor.md)
+### [Use rules to detect issues](iot-accelerators-remote-monitoring-automate.md)
+### [Integrate SIM data](iot-accelerators-remote-monitoring-telefonica-sim.md)
+### [Manage your devices](iot-accelerators-remote-monitoring-manage.md)
+### [Troubleshoot device issues](iot-accelerators-remote-monitoring-maintain.md)
+### [Understand the device model schema](iot-accelerators-remote-monitoring-device-schema.md)
 ### [Understand the device model behavior](../iot-suite/iot-suite-remote-monitoring-device-behavior.md)
-### [Create a new simulated device](iot-solutions-remote-monitoring-test.md)
+### [Create a new simulated device](iot-accelerators-remote-monitoring-test.md)
 ### [Visualize with PowerBI](../iot-suite/iot-suite-integrate-data-powerbi.md)
-### [Customize the solution UI](iot-solutions-remote-monitoring-customize.md)
+### [Customize the solution UI](iot-accelerators-remote-monitoring-customize.md)
 ### [Customize and redeploy a microservice](../iot-suite/iot-suite-microservices-example.md)
-### [Deploy using the CLI](iot-solutions-remote-monitoring-deploy-cli.md)
-### [Deploy locally](iot-solutions-remote-monitoring-deploy-local.md)
+### [Deploy using the CLI](iot-accelerators-remote-monitoring-deploy-cli.md)
+### [Deploy locally](iot-accelerators-remote-monitoring-deploy-local.md)
 ### [Visualize data with Time Series Insights](../iot-suite/iot-suite-time-series-insights.md)
 ### [Integrate with Data Lake](../iot-suite/iot-suite-integrate-data-lake.md)
 ### Connect a physical device
@@ -81,8 +81,8 @@
 #### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Concepts
-#### [Remote Monitoring implementation details](iot-solutions-remote-monitoring-sample-walkthrough.md)
-#### [Remote Monitoring architectural choices](iot-solutions-remote-monitoring-architectural-choices.md)
+#### [Remote Monitoring implementation details](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+#### [Remote Monitoring architectural choices](iot-accelerators-remote-monitoring-architectural-choices.md)
 
 ## Connected Factory
 ### [Deploy a gateway for Connected Factory](../iot-suite/iot-suite-connected-factory-gateway-deployment.md)
