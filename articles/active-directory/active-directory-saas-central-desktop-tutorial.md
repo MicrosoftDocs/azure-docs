@@ -27,7 +27,7 @@ Integrating Central Desktop with Azure AD provides you with the following benefi
 - You can enable your users to automatically get signed in to Central Desktop with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
-For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -266,7 +266,7 @@ For more information about the access panel, see [Introduction to the access 
 ## Additional resources
 
 * [List of tutorials on how to integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

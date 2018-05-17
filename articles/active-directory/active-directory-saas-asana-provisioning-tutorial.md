@@ -99,5 +99,5 @@ For more information on how to read the Azure AD provisioning logs, see [Report 
 ## Additional resources
 
 * [Manage user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure single sign-on](active-directory-saas-asana-tutorial.md)

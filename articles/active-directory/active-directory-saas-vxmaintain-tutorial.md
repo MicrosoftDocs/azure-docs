@@ -26,7 +26,7 @@ This integration provides several important benefits. You can:
 - Enable your users to automatically sign in to vxMaintain with single sign-on (SSO) by using their Azure AD accounts.
 - Manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -195,7 +195,7 @@ For more information about the Access Panel, see [Introduction to the Access
 ## Next steps
 
 * [List of tutorials on integrating SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

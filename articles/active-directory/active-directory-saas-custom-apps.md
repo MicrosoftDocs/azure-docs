@@ -22,14 +22,14 @@ ms.custom: H1Hack27Feb2017
 # Configuring single sign-on to applications that are not in the Azure Active Directory application gallery
 This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. This feature was released from technical preview on November 18, 2015 and is included in [Azure Active Directory Premium](active-directory-whatis.md). If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
-The Azure Active Directory application gallery provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory, as described in [this article](active-directory-appssoaccess-whatis.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by following the step-by-step instructions presented in the Azure portal to enable single sign-on.
+The Azure Active Directory application gallery provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory, as described in [this article](manage-apps/what-is-single-sign-on.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by following the step-by-step instructions presented in the Azure portal to enable single sign-on.
 
 Customers with [Azure Active Directory Premium](active-directory-whatis.md) license also get these additional capabilities:
 
 * Self-service integration of any application that supports SAML 2.0 identity providers (SP-initiated or IdP-initiated)
-* Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+* Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
 * Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](active-directory-scim-provisioning.md))
-* Ability to add links to any application in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* Ability to add links to any application in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
 
 This can include not only SaaS applications that you use but have not yet been on-boarded to the Azure AD application gallery, but third-party web applications that your organization has deployed to servers you control, either in the cloud or on-premises.
 
@@ -115,18 +115,18 @@ To test, simply sign-into the Azure AD access panel at https://myapps.microsoft.
 For debugging tips, see this [article on how to debug SAML-based single sign-on to applications](active-directory-saml-debugging.md) 
 
 ## Password Single Sign-On
-Select this option to configure [password-based single sign-on](active-directory-appssoaccess-whatis.md) for a web application that has an HTML sign-in page. Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios where several users need to share a single account, such as to your organization's social media app accounts. 
+Select this option to configure [password-based single sign-on](manage-apps/what-is-single-sign-on.md) for a web application that has an HTML sign-in page. Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios where several users need to share a single account, such as to your organization's social media app accounts. 
 
 After selecting **Next**, you will be prompted to enter the URL of the application's web-based sign-in page. Note that this must be the page that includes the username and password input fields. Once entered, Azure AD starts a process to parse the sign-in page for a username input and a password input. If the process is not successful, then it guides you through an alternate process of installing a browser extension (requires Internet Explorer, Chrome, or Firefox) that will allow you to manually capture the fields.
 
-Once the sign-in page is captured, users and groups may be assigned and credential policies can be set just like regular [password SSO apps](active-directory-appssoaccess-whatis.md).
+Once the sign-in page is captured, users and groups may be assigned and credential policies can be set just like regular [password SSO apps](manage-apps/what-is-single-sign-on.md).
 
 Note: You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application. 
 
 ## Existing Single Sign-On
 Select this option to add a link to an application to your organization's Azure AD Access Panel or Office 365 portal. You can use this to add links to custom web apps that currently use Azure Active Directory Federation Services (or other federation service) instead of Azure AD for authentication. Or, you can add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels. 
 
-After selecting **Next**, you will be prompted to enter the URL of the application to link to. Once completed, users and groups may be assigned to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) for those users.
+After selecting **Next**, you will be prompted to enter the URL of the application to link to. Once completed, users and groups may be assigned to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) for those users.
 
 Note: You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application.
 
