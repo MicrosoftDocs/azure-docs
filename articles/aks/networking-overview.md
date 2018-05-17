@@ -59,7 +59,7 @@ Clusters configured with Advanced networking require additional planning. The si
 
 IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the VNet. Each node is configured with a primary IP, which is the IP of the node and 30 additional IP addresses pre-configured by Azure CNI that are assigned to pods scheduled to the node. When you scale out your cluster, each node is similarly configured with IP addresses from the subnet.
 
-The IP address plan for an AKS cluster consists of a VNet, at least one Subnet for VMs and Pods, a Kubernetes service address range.
+The IP address plan for an AKS cluster consists of a VNet, at least one Subnet for VMs and Pods, and a Kubernetes service address range.
 
 | Address range | Description |
 | --------- | ------------- |
