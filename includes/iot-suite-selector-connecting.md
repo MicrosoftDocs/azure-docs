@@ -11,11 +11,11 @@
 ---
 
 > [!div class="op_single_selector"]
-> * [C on Windows](../articles/iot-solutions/iot-solutions-connecting-devices.md)
-> * [C on Linux](../articles/iot-solutions/iot-solutions-connecting-devices-linux.md)
-> * [Node.js (generic)](../articles/iot-solutions/iot-solutions-connecting-devices-node.md)
-> * [Node.js on Raspberry Pi](../articles/iot-solutions/iot-solutions-connecting-pi-node.md)
-> * [C on Raspberry Pi](../articles/iot-solutions/iot-solutions-connecting-pi-c.md)
+> * [C on Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
+> * [C on Linux](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
+> * [Node.js (generic)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
+> * [Node.js on Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
+> * [C on Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 
 In this tutorial, you implement a **Chiller** device that sends the following telemetry to the remote monitoring [solution accelerator](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md):
 
