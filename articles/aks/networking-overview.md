@@ -64,7 +64,7 @@ The IP address plan for an AKS cluster consists of a VNet, at least one Subnet f
 | Address range | Description |
 | --------- | ------------- |
 | Virtual network |  Address range for the VNet. |
-| Subnet | Subnet set aside for Virtual Machines and Pods. Must be large enough to accommodate the max cluster size * maxPods, (e.g. 100 * 30 = 300). |
+| Subnet | Subnet set aside for Virtual Machines and Pods. Must be large enough to accommodate the max cluster size * maxPods, (e.g. 100 * 30 = 3000). |
 | Kubernetes service address range | Address range set aside for Kubernetes Services. This range should not be used by any network element on or connected to this VNet. |
 | Kubernetes DNS Service IP address | IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). |
 | Docker bridge address | IP address (in CIDR notation) used as the bridge ip address for VMs. Only needed if the default range is in-use in your VNet (172.16.0.0/16). |
