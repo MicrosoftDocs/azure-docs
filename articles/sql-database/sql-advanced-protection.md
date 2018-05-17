@@ -1,19 +1,19 @@
 ---
-title: Advanced Threat Assessment - Azure SQL Database | Microsoft Docs
+title: Advanced Threat Protection - Azure SQL Database | Microsoft Docs
 description: Learn about functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your Azure SQL database.
 services: sql-database
 author: ronitr
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 5/16/2018
+ms.date: 5/17/2018
 ms.author: ronitr
 ms.reviewer: carlrab
 ---
 
-# Advanced Threat Assessment for Azure SQL Database
+# Advanced Threat Protection for Azure SQL Database
 
-SQL Advanced Threat Protection (currently in public preview) is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities. 
+SQL Advanced Threat Protection is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities. 
 
 ## Overview
 
@@ -52,7 +52,7 @@ Select or create a storage account for saving scan results. You can also turn on
 
 ## 3. Start classifying data, tracking vulnerabilities, and investigating threat alerts
 
-Click the **Data Discovery and Classification** card to see recommended sensitive columns to classify and to classify your data with persistent sensitivity labels. Click the Vulnerability Assessment card to view and manage vulnerability scans and reports, and to track your security stature. If security alerts have been received, click the **Threat Detection** card to view details of the alerts and to see a consolidated report on all alerts in your Azure subscription via the Azure Security Center security alerts page.
+Click the **Data Discovery and Classification** card to see recommended sensitive columns to classify and to classify your data with persistent sensitivity labels. Click the **Vulnerability Assessment** card to view and manage vulnerability scans and reports, and to track your security stature. If security alerts have been received, click the **Threat Detection** card to view details of the alerts and to see a consolidated report on all alerts in your Azure subscription via the Azure Security Center security alerts page.
 
 ## 4. Manage ATP settings on your SQL server
 
@@ -74,7 +74,7 @@ Advanced Threat Protection settings for your server can also be reached from the
 
 ## Next steps 
 
-•	Learn more about [Data Discovery & Classification](sql-database-data-discovery-and-classification.md) 
-•	Learn more about [Vulnerability Assessment](sql-vulnerability-assessment.md) 
-•	Learn more about [Threat Detection](sql-database-threat-detection.md)
-•	Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Learn more about [Data Discovery & Classification](sql-database-data-discovery-and-classification.md) 
+- Learn more about [Vulnerability Assessment](sql-vulnerability-assessment.md) 
+- Learn more about [Threat Detection](sql-database-threat-detection.md)
+- Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
