@@ -25,7 +25,7 @@ Vulnerability Assessment is part of the [SQL Advanced Threat Protection](sql-adv
 > [!NOTE]
 > This document relates to Azure SQL Database only. For SQL Server (on-prem), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
 
-## <a id="subheading-1"></a>Overview
+## <a id="subheading-1"></a>What is Data Discovery and Classification?
 Data Discovery & Classification introduces a set of advanced services and new SQL capabilities, forming a new SQL Information Protection paradigm aimed at protecting the data, not just the database:
 * **Discovery & recommendations** – The classification engine scans your database and identifies columns containing potentially sensitive data. It then provides you an easy way to review and apply the appropriate classification recommendations via the Azure portal.
 * **Labeling** – Sensitivity classification labels can be persistently tagged on columns using new classification metadata attributes introduced into the SQL Engine. This metadata can then be utilized for advanced sensitivity-based auditing and protection scenarios.
@@ -83,16 +83,3 @@ An important aspect of the information protection paradigm is the ability to mon
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
 [Next Steps]: #subheading-4
-
-<!--Image references-->
-[1]: ./media/sql-data-discovery-and-classification/1_data_classification_settings_menu.png
-[2]: ./media/sql-data-discovery-and-classification/2_data_classification_overview_dashboard.png
-[3]: ./media/sql-data-discovery-and-classification/3_data_classification_export_report.png
-[4]: ./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png
-[5]: ./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png
-[6]: ./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png
-[7]: ./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png
-[8]: ./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png
-[9]: ./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png
-[10]: ./media/sql-data-discovery-and-classification/10_data_classification_save.png
-[11]: ./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png
