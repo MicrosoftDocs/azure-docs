@@ -39,7 +39,7 @@ To view an individual device:
 
 1. In the right-hand pane, you see a list of devices created from that device template. Choose an individual device to see the **Device Details** page for that device:
 
-    ![Device Details Page](./media/howto-manage-devices/image1.png)
+    [![Device Details Page](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightswitch)
 
 ## Add a device
 
