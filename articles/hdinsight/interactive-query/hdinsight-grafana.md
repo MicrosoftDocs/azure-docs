@@ -1,5 +1,5 @@
 ---
-title: 'Use Grafana on HDInsight | Microsoft Docs'
+title: 'Use Grafana on Azure HDInsight | Microsoft Docs'
 description: Learn how to access Grafana in Azure HDInsight
 services: hdinsight
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: jgao
 
 ---
