@@ -101,7 +101,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-For REST examples, see [Assets - List](https://docs.microsoft.com/en-us/rest/api/media/assets/list)
+For REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list)
 
 ## Next steps
 
