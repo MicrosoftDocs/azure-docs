@@ -34,7 +34,7 @@ Here are some of the **use cases for managed labs**:
 - Quickly provision a lab of virtual machines for hosting a hackathon. Delete the lab with a single click once you’re done. 
 
 
-## Custom labs
+## DevTest labs
 You may have scenarios where you want to manage all infrastructure and configuration yourself, within your own subscription. To do so, you can create a custom lab with Azure DevTest Labs in the Azure portal. For these labs, you do not need to create a lab account. These labs do not show up in the lab account (which exists for the managed labs).  
 
 Here are some of the **use cases for using custom labs**: 
@@ -47,7 +47,7 @@ Here are some of the **use cases for using custom labs**:
 - Offer training sessions to your customers using a lab configured with the latest version of your product. Give each customer limited number of hours for using in the lab. 
 
 
-## Managed labs vs. custom labs
+## Managed labs vs. DevTest labs
 The following table compares two types of labs that are supported by Azure Lab Services: 
 
 | Features | Managed labs | custom labs |
