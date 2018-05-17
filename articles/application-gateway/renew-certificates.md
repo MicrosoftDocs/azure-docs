@@ -17,7 +17,7 @@ At some point, you'll need to renew your certificates if you configured your app
 
 You can renew a certificate associated with a listener using either the Azure portal or Azure PowerShell:
 
-## Azure Portal
+## Azure portal
 
 To renew a listener certificate from the portal, navigate to your application gateway listeners. Click the listener that has a certificate that needs to be renewed, and then click **Renew or edit selected certificate**.
 
