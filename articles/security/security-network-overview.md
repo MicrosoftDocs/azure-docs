@@ -226,7 +226,7 @@ Azure provides you with a highly available and performant external DNS solution 
 
 Learn more:
 
-* [Azure DNS Overview](../dns/dns-overview.md)
+* [Azure DNS overview](../dns/dns-overview.md)
 
 ## Perimeter network architecture
 Many large organizations use perimeter networks to segment their networks, and create a buffer-zone between the internet and their services. The perimeter portion of the network is considered a low-security zone, and no high-value assets are placed in that network segment. You’ll typically see network security devices that have a network interface on the perimeter network segment. Another network interface is connected to a network that has virtual machines and services that accept inbound connections from the internet.
