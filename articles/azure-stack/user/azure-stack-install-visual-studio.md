@@ -49,6 +49,6 @@ Use Visual Studio to author and deploy Azure Resource Manager [templates](azure-
 
 Once logged in, you can [deploy templates](azure-stack-deploy-template-visual-studio.md) or browse available resource types and resource groups to create your own templates.
 
-## Next Steps
+## Next steps
 
 * [Develop templates for Azure Stack](azure-stack-develop-templates.md)
