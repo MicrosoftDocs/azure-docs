@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/07/2018
-ms.author: ryanwi,mikhegn
+ms.author: ryanwi
 ---
 
 # Tutorial: Deploy a .NET application in a Windows container to Azure Service Fabric
