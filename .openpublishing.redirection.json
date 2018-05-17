@@ -21570,7 +21570,7 @@
         {
             "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
             "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
-            "redirect_document_id"" true
+            "redirect_document_id": true
         }
 
     ]
