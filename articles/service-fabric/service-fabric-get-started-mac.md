@@ -120,6 +120,11 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     docker rm -f sftestcluster
     ```
 
+### Known Limitations 
+ 
+ The following are known limitations of the local cluster running in a container for Mac's: 
+ 
+ * DNS service does not run and is not supported [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
 
 ## Set up the Service Fabric CLI (sfctl) on your Mac
 
