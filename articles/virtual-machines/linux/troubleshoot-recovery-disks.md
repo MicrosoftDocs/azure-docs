@@ -187,10 +187,10 @@ az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployed
 
 ## Troubleshoot a Managed Disk VM by attaching a new OS disk
 1. Stop the effected Managed Disk Windows VM.
-2. [Create a managed disk snapshot](snapshot-copy-managed-disk.md) of the OS Disk of the Managed Disk VM.
+2. [Create a managed disk snapshot](../windows/snapshot-copy-managed-disk.md) of the OS Disk of the Managed Disk VM.
 3. [Create a managed disk from the snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Attach the managed disk as a data disk of the VM](attach-disk-ps.md).
-5. [Change the data disk from step 4 to OS disk](os-disk-swap.md).
+4. [Attach the managed disk as a data disk of the VM](../windows/attach-disk-ps.md).
+5. [Change the data disk from step 4 to OS disk](../windows/os-disk-swap.md).
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
