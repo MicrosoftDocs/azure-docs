@@ -147,8 +147,8 @@ This tutorial showed you how to:
 
 Now that you have learned how to detect issues using threshold-based rules, the suggested next steps are to learn how to:
 
-* [Manage and configure your devices](./../iot-suite/iot-suite-remote-monitoring-manage.md).
-* [Troubleshoot and remediate device issues](./../iot-suite/iot-suite-remote-monitoring-maintain.md).
-* [Test your solution with simulated devices](../iot-suite/iot-suite-remote-monitoring-test.md).
+* [Manage and configure your devices](iot-accelerators-remote-monitoring-manage.md).
+* [Troubleshoot and remediate device issues](iot-accelerators-remote-monitoring-maintain.md).
+* [Test your solution with simulated devices](iot-accelerators-remote-monitoring-test.md).
 
 <!-- Next tutorials in the sequence -->

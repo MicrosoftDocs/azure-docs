@@ -32,7 +32,7 @@ This article walks you through some of the key elements of the remote monitoring
 
 The following diagram outlines the logical components of the remote monitoring solution accelerator overlaid on the [IoT architecture](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
 
-![Logical architecture](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Logical architecture](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## Why microservices?
 
