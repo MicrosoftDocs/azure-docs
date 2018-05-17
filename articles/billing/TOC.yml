@@ -51,20 +51,12 @@
       href: billing-understand-your-azure-marketplace-charges.md
     - name: Understand free service meter mapping
       href: billing-understand-free-service-meter-mapping.md
-    - name: Reserve VM Instances Windows costs
-      href: billing-reserved-instance-windows-software-costs.md
-    - name: Understand Reserved VM Instance discount application
-      href: billing-understand-vm-reservation-charges.md
     - name: Understand spending limit
       href: billing-spending-limit.md
     - name: Set up billing alerts
       href: billing-set-up-alerts.md
     - name: Resolve past due balance
       href: billing-azure-subscription-past-due-balance.md
-    - name: Understand Reserved Instance usage for Pay-As-You-Go
-      href: billing-understand-reserved-instance-usage.md
-    - name: Understand Reserved Instance usage for Enterprise
-      href: billing-understand-reserved-instance-usage-ea.md
   - name: Manage subscriptions
     items:
     - name: Find subscription or management group
@@ -95,8 +87,6 @@
       href: billing-partner-admin-link-started.md
     - name: View billing accounts
       href: billing-view-all-accounts.md
-  - name: Manage Reserved VM Instances
-    href: billing-manage-reserved-vm-instance.md
   - name: Troubleshoot
     items:
     - name: Sign-up issues
