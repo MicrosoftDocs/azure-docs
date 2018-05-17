@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 05/17/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
