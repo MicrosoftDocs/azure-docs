@@ -427,7 +427,8 @@ Response Content Type: application/xml
 
 ### Implementation notes
 
-**DEPRECATION NOTE:** After January 31, 2018, this method will not accept new sentence submissions, and you will receive an error message. Please refer to this announcement about changes to the Collaborative Translation Functions.
+> [!IMPORTANT]
+> **DEPRECATION NOTE:** After January 31, 2018, this method will not accept new sentence submissions, and you will receive an error message. Please refer to this announcement about changes to the Collaborative Translation Functions.
 
 Adds a translation to the translation memory.
 
@@ -470,7 +471,8 @@ Response Content Type: application: xml
 
 ### Implementation notes
 
-**DEPRECATION NOTE:** After January 31, 2018, this method will not accept new sentence submissions, and you will receive an error message. Please refer to this announcement about changes to the Collaborative Translation Functions.
+> [!IMPORTANT]
+> **DEPRECATION NOTE:** After January 31, 2018, this method will not accept new sentence submissions, and you will receive an error message. Please refer to this announcement about changes to the Collaborative Translation Functions.
 
 Adds an array of translations to add translation memory. This is an array version of `AddTranslation`.
 
