@@ -39,7 +39,7 @@ Before you write any code for your device, deploy your remote monitoring solutio
 
 ### Deploy your remote monitoring solution accelerator
 
-The **Chiller** device you create in this tutorial sends data to an instance of the [remote monitoring](../articles/iot-acclerators/iot-acclerators-remote-monitoring-explore.md) solution accelerator. If you haven't already provisioned the remote monitoring solution accelerator in your Azure account, see [Deploy the remote monitoring solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
+The **Chiller** device you create in this tutorial sends data to an instance of the [remote monitoring](../articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md) solution accelerator. If you haven't already provisioned the remote monitoring solution accelerator in your Azure account, see [Deploy the remote monitoring solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 When the deployment process for the remote monitoring solution finishes, click **Launch** to open the solution dashboard in your browser.
 
@@ -56,15 +56,15 @@ To add a device to your remote monitoring solution, complete the following steps
 
 1. Choose **+ New device**, and then choose **Physical** as the **Device type**:
 
-    ![Add a physical device](media/iot-acclerators-selector-connecting/devicesprovision.png)
+    ![Add a physical device](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Enter **Physical-chiller** as the Device ID. Choose the **Symmetric Key** and **Auto generate keys** options:
 
-    ![Choose device options](media/iot-acclerators-selector-connecting/devicesoptions.png)
+    ![Choose device options](media/iot-suite-selector-connecting/devicesoptions.png)
 
 1. Choose **Apply**. Then make a note of the **Device ID**, **Primary Key**, and **Connection string primary key** values:
 
-    ![Retrieve credentials](media/iot-acclerators-selector-connecting/credentials.png)
+    ![Retrieve credentials](media/iot-suite-selector-connecting/credentials.png)
 
 You've now added a physical device to the remote monitoring solution accelerator and noted its device connection string. In the following sections, you implement the client application that uses the device connection string to connect to your solution.
 
