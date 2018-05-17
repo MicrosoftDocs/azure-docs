@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/26/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -30,7 +30,7 @@ You need to sign in as a member of the Blockchain Workbench. If there are no app
 
 ## Create new contract 
 
-To create a new contract, you need to be a member of the **AllowedInstanceRoles** role. 
+To create a new contract, you need to be a member specified as an contract **initiator**. For information defining application roles and initiators for the contract, see [workflows in the configuration overview](blockchain-workbench-configuration-overview.md#workflows). For information on assigning members to application roles, see [add a member to application](blockchain-workbench-manage-users.md#add-member-to-application).
 
 1. In Blockchain Workbench application section, select the application tile that contains the contract you want to create. A list of active contracts are displayed.
 
@@ -48,15 +48,10 @@ To create a new contract, you need to be a member of the **AllowedInstanceRoles*
 
 ## Take action on contract
 
+Depending on the state the contract is in, members can take actions to transition to the next state of the contract. Actions are defined as [transitions](blockchain-workbench-configuration-overview.md#transitions) within a [state](blockchain-workbench-configuration-overview.md#states). Members belonging to an allowed application or instance role for the transition can take the action. 
+
 1. In Blockchain Workbench application section, select the application tile that contains the contract to take the action.
-
-    ![Application list](media/blockchain-workbench-use/apps-list.png)
-
-2. Select the contract in the list.
-
-    ![Contract list](media/blockchain-workbench-use/select-contract.png)
-
-    Details about the contract are displayed in different sections. 
+2. Select the contract in the list. Details about the contract are displayed in different sections. 
 
     ![Contract details](media/blockchain-workbench-use/contract-details.png)
 
@@ -71,9 +66,14 @@ To create a new contract, you need to be a member of the **AllowedInstanceRoles*
 
 4. The details about the current state of the contract are displayed in a pane. Choose the action you want to take in the drop-down. 
 
+    ![Choose action](media/blockchain-workbench-use/choose-action.png)
+
+5. Select **Take action** to initiate the action.
+6. If parameters are required for the action, specify the values for the action.
+
     ![Take action](media/blockchain-workbench-use/take-action.png)
 
-5. Select **Execute** to take the action.
+7. Select **Take action** to execute the action.
 
 ## Next steps
 
