@@ -102,7 +102,7 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
      -Name AzureRM `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.3.0
+     -RequiredVersion 1.2.11
 
    Save-Package `
      -ProviderName NuGet `

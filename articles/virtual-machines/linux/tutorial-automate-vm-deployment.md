@@ -176,7 +176,7 @@ secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
           --query "[?attributes.enabled].id" --output tsv)
-vm_secret=$(az vm format-secret --secret "$secret")
+vm_secret=$(az vm secret format --secret "$secret")
 ```
 
 
