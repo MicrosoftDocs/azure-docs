@@ -20,7 +20,7 @@ ms.author: v-jansko
 
 Microsoft Translator V2 Text API can be seamlessly integrated into your applications, websites, tools, or other solutions to provide multi-language user experiences. Leveraging industry standards, it can be used on any hardware platform and with any operating system to perform language translation and other language-related operations such as text language detection or text to speech. Click Here for more information about the Microsoft Translator API.
 
-## Getting Started
+## Getting started
 To access the Microsoft Translator Text API you will need to [sign up for Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## Authorization
@@ -45,7 +45,7 @@ If you want to avoid getting profanity in the translation, regardless of the pre
 |Deleted	|Profane words will be removed from the output without replacement.		|彼はジャッカスです。	|He is a.	|
 
 	
-## Excluding content from Translation
+## Excluding content from translation
 When translating content with tags such as HTML (`contentType=text/html`), it is sometimes useful to exclude specific content from translation. You may use the attribute `class=notranslate` to specify content that should remain in its original language. In the following example, the content inside the first `div` element will not be translated, while the content in the second `div` element will be translated.
 
 ```HTML
@@ -55,16 +55,16 @@ When translating content with tags such as HTML (`contentType=text/html`), it is
 
 ## GET /Translate
 
-### Implementation Notes
+### Implementation notes
 Translates a text string from one language to another.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/Translate`.
 
-**Return Value:** A string representing the translated text.
+**Return value:** A string representing the translated text.
 
 If you previously used `AddTranslation` or `AddTranslationArray` to enter a translation with a rating of 5 or higher for the same source sentence, `Translate` returns only the top choice that is available to your system. The "same source sentence" means the exact same (100% matching), except for capitalization, white space, tag values, and punctuation at the end of a sentence. If no rating is stored with a rating of 5 or above then the returned result will be the automatic translation by Microsoft Translator.
 
-### Response Class (Status 200)
+### Response class (Status 200)
 
 string
 
@@ -84,7 +84,7 @@ Response Content Type: application/xml
 |Ocp-Apim-Subscription-Key|(empty)	|Required if the appid field or Authorization header is not specified.|header|string|
 
 
-### Response Messages
+### Response messages
 
 |HTTP Status Code|Reason|
 |:--|:--|
@@ -95,7 +95,7 @@ Response Content Type: application/xml
 
 ## POST /TranslateArray
 
-### Implementation Notes
+### Implementation notes
 Use the `TranslateArray` method to retrieve translations for multiple source texts.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/TranslateArray`.
@@ -141,7 +141,7 @@ Optional elements can be omitted. Elements which are direct children of Translat
 
 TranslateArray method accepts `application/xml` or `text/xml` for `Content-Type`.
 
-**Return Value:** A `TranslateArrayResponse` array. Each `TranslateArrayResponse` has the following elements:
+**Return value:** A `TranslateArrayResponse` array. Each `TranslateArrayResponse` has the following elements:
 
 * `Error`: Indicates an error if one has occurred. Otherwise set to null.
 * `OriginalSentenceLengths`: An array of integers indicating the length of each sentence in the original source text. The length of the array indicates the number of sentences.
@@ -168,7 +168,7 @@ The format of the response body is as follows.
 </ArrayOfTranslateArrayResponse>
 ```
 
-### Response Class (Status 200)
+### Response class (Status 200)
 A successful response includes an array of `TranslateArrayResponse` in format described above.
 
 string
@@ -182,7 +182,7 @@ Response Content Type: application/xml
 |Authorization|(empty))	|Required if the appid field or  Ocp-Apim-Subscription-Key header is not specified. Authorization token:  "Bearer" + " " + "access_token".|header|string|
 |Ocp-Apim-Subscription-Key|(empty)|Required if the appid field or Authorization header is not specified.|header|string|
 
-### Response Messages
+### Response messages
 
 |HTTP Status Code	|Reason|
 |:--|:--|
@@ -193,7 +193,7 @@ Response Content Type: application/xml
 
 ## POST /GetLanguageNames
 
-### Implementation Notes
+### Implementation notes
 Retrieves friendly names for the languages passed in as the parameter `languageCodes`, and localized using the passed locale language.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`.
@@ -207,9 +207,9 @@ The request body includes a string array representing the ISO 639-1 language cod
 </ArrayOfstring>
 ```
 
-**Return Value:** A string array containing languages names supported by the Translator Service, localized into the requested language.
+**Return value:** A string array containing languages names supported by the Translator Service, localized into the requested language.
 
-### Response Class (Status 200)
+### Response class (Status 200)
 A string array containing languages names supported by the Translator Service, localized into the requested language.
 
 string
@@ -225,7 +225,7 @@ Response Content Type: application/xml
 |Authorization|(empty)	|Required if the appid field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(empty)	|Required if the appid field or `Authorization` header is not specified.|header|string|
 
-### Response Messages
+### Response messages
 
 |HTTP Status Code|Reason|
 |:--|:--|
@@ -236,14 +236,14 @@ Response Content Type: application/xml
 
 ## GET /GetLanguagesForTranslate
 
-### Implementation Notes
+### Implementation notes
 Obtain a list of language codes representing languages that are supported by the Translation Service.  `Translate` and `TranslateArray` can translate between any two of these languages.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate`.
 
 **Return value:** A string array containing the language codes supported by the Translator Services.
 
-### Response Class (Status 200)
+### Response class (Status 200)
 A string array containing the language codes supported by the Translator Services.
 
 string
@@ -258,7 +258,7 @@ Response Content Type: application/xml
 |Authorization|(empty)	|Required if the `appid` field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(empty)|Required if the `appid` field or `Authorization` header is not specified.|header|string|
 
-### Response Messages
+### Response messages
 
 |HTTP Status Code|Reason|
 |:--|:--|
@@ -269,14 +269,14 @@ Response Content Type: application/xml
 
 ## GET /GetLanguagesForSpeak
 
-### Implementation Notes
+### Implementation notes
 Retrieves the languages available for speech synthesis.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForSpeak`.
 
 **Return value:** A string array containing the language codes supported for speech synthesis by the Translator Service.
 
-### Response Class (Status 200)
+### Response class (Status 200)
 A string array containing the language codes supported for speech synthesis by the Translator Service.
 
 string
@@ -291,7 +291,7 @@ Response Content Type: application/xml
 |Authorization|(empty)|Required if the `appid` field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(empty)|Required if the `appid` field or `Authorization` header is not specified.|header|string|
  
-### Response Messages
+### Response messages
 
 |HTTP Status Code|Reason|
 |:--|:--|
@@ -302,14 +302,14 @@ Response Content Type: application/xml
 
 ## GET /Speak
 
-### Implementation Notes
+### Implementation notes
 Returns a wave or mp3 stream of the passed-in text being spoken in the desired language.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/Speak`.
 
 **Return value:** A wave or mp3 stream of the passed-in text being spoken in the desired language.
 
-### Response Class (Status 200)
+### Response class (Status 200)
 
 binary
 
@@ -327,7 +327,7 @@ Response Content Type: application/xml
 |Authorization|(empty)|Required if the `appid` field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(empty)	|Required if the `appid` field or `Authorization` header is not specified.|header|string|
 
-### Response Messages
+### Response messages
 
 |HTTP Status Code|Reason|
 |:--|:--|
@@ -338,14 +338,14 @@ Response Content Type: application/xml
 
 ## GET /Detect
 
-### Implementation Notes
+### Implementation notes
 Use the `Detect` method to identify the language of a selected piece of text.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/Detect`.
 
 **Return value:** A string containing a two-character Language code for the given text. .
 
-### Response Class (Status 200)
+### Response class (Status 200)
 
 string
 
@@ -360,7 +360,7 @@ Response Content Type: application/xml
 |Authorization|(empty)|Required if the `appid` field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key	|(empty)	|Required if the `appid` field or `Authorization` header is not specified.|header|string|
 
-### Response Messages
+### Response messages
 
 |HTTP Status Code|Reason|
 |:--|:--|
@@ -372,7 +372,7 @@ Response Content Type: application/xml
 
 ## POST /DetectArray
 
-### Implementation Notes
+### Implementation notes
 Use the `DetectArray` method to identify the language of an array of string at once. Performs independent detection of each individual array element and returns a result for each row of the array.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/DetectArray`.
@@ -399,7 +399,7 @@ The format of the response body is as follows.
 </ArrayOfstring>
 ```
 
-### Response Class (Status 200)
+### Response class (Status 200)
 DetectArray was successful. Returns a string array containing a two-character Language codes for each row of the input array.
 
 string
@@ -414,7 +414,7 @@ Response Content Type: application/xml
 |Authorization|(empty)|Required if the `appid` field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(empty)|Required if the `appid` field or Authorization header is not specified.|header|string|
 
-### Response Messages
+### Response messages
 
 |HTTP Status Code|Reason|
 |:--|:--|
@@ -425,7 +425,7 @@ Response Content Type: application/xml
 
 ## GET /AddTranslation
 
-### Implementation Notes
+### Implementation notes
 
 **DEPRECATION NOTE:** After January 31, 2018, this method will not accept new sentence submissions, and you will receive an error message. Please refer to this announcement about changes to the Collaborative Translation Functions.
 
@@ -433,7 +433,7 @@ Adds a translation to the translation memory.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/AddTranslation`.
 
-### Response Class (Status 200)
+### Response class (Status 200)
 
 string
 
@@ -456,7 +456,7 @@ Response Content Type: application: xml
 |Authorization|(empty)|Required if the appid field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.	|header|string|
 |Ocp-Apim-Subscription-Key|(empty)|Required if the `appid` field or `Authorization` header is not specified.|header|string|
 
-### Response Messages
+### Response messages
 
 |HTTP Status Code|Reason|
 |:--|:--|
@@ -468,7 +468,7 @@ Response Content Type: application: xml
 
 ## POST /AddTranslationArray
 
-### Implementation Notes
+### Implementation notes
 
 **DEPRECATION NOTE:** After January 31, 2018, this method will not accept new sentence submissions, and you will receive an error message. Please refer to this announcement about changes to the Collaborative Translation Functions.
 
@@ -508,7 +508,7 @@ Elements within the AddtranslationsRequest element are:
 * `Translations`: Required. An array of translations to add to translation memory. Each translation must contain: originalText, translatedText and rating. The size of each originalText and translatedText is limited to 1000 chars. The total of all the originalText(s) and translatedText(s) must not exceed 10000 characters. The maximum number of array elements is 100.
 * `Options`: Required. A set of options, including Category, ContentType, Uri, and User. User is required. Category, ContentType and Uri are optional. Specified elements must be listed in alphabetical order.
 
-### Response Class (Status 200)
+### Response class (Status 200)
 AddTranslationArray method was successful. After January 31, 2018, sentence submissions will not be accepted. The service will respond with error code 410.
 
 string
@@ -522,7 +522,7 @@ Response Content Type: application/xml
 |Authorization|(empty)|Required if the appid field or  Ocp-Apim-Subscription-Key header is not specified. Authorization token:  "Bearer" + " " + "access_token".|header|string|
 |Ocp-Apim-Subscription-Key|(empty)|Required if the appid field or Authorization header is not specified.|header|string|
 
-### Response Messages
+### Response messages
 
 |HTTP Status Code|Reason|
 |:--|:--|
@@ -534,14 +534,14 @@ Response Content Type: application/xml
 
 ## GET /BreakSentences
 
-### Implementation Notes
+### Implementation notes
 Breaks a piece of text into sentences and returns an array containing the lengths in each sentence.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/BreakSentences`.
 
 **Return value:** An array of integers representing the lengths of the sentences. The length of the array is the number of sentences, and the values are the length of each sentence.
 
-### Response Class (Status 200)
+### Response class (Status 200)
 An array of integers representing the lengths of the sentences. The length of the array is the number of sentences, and the values are the length of each sentence.
 
 integer
@@ -558,7 +558,7 @@ Response Content Type: application/xml
 |Authorization|(empty)|Required if the appid field or  Ocp-Apim-Subscription-Key header is not specified. Authorization token:  "Bearer" + " " + "access_token".	|header|string|
 |Ocp-Apim-Subscription-Key|(empty)|Required if the appid field or Authorization header is not specified.|header|string|
 
-### Response Messages
+### Response messages
 
 |HTTP Status Code|Reason|
 |:--|:--|
@@ -569,7 +569,7 @@ Response Content Type: application/xml
 
 ## POST /GetTranslations
 
-### Implementation Notes
+### Implementation notes
 Retrieves an array of translations for a given language pair from the store and the MT engine. GetTranslations differs from Translate as it returns all available translations.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/GetTranslations`.
@@ -635,7 +635,7 @@ MatchedOriginalText: Original text that was matched for this result. Only return
 * `Count`: The number of times this translation with this rating has been selected. The value will be 0 for the automatically translated response.
 * `TranslatedText`: The translated text.
 
-### Response Class (Status 200)
+### Response class (Status 200)
 A `GetTranslationsResponse` object in the format described above.
 
 string
@@ -654,7 +654,7 @@ Response Content Type: application/xml
 |Authorization|	(empty)|Required if the `appid` field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|string|	header|
 |Ocp-Apim-Subscription-Key|(empty)	|Required if the `appid` field or `Authorization` header is not specified.|header|string|
 
-### Response Messages
+### Response messages
 
 |HTTP Status Code|Reason|
 |:--|:--|
@@ -665,7 +665,7 @@ Response Content Type: application/xml
 
 ## POST /GetTranslationsArray
 
-### Implementation Notes
+### Implementation notes
 Use the `GetTranslationsArray` method to retrieve multiple translation candidates for multiple source texts.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/GetTranslationsArray`.
@@ -756,7 +756,7 @@ Each `GetTranslationsResponse` element contains the following values:
 * `TranslatedText`: The translated text.
 
 
-### Response Class (Status 200)
+### Response class (Status 200)
 
 string
 
@@ -769,7 +769,7 @@ Response Content Type: application/xml
 |Authorization	|(empty)	|Required if the `appid` field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(empty)	|Required if the `appid` field or `Authorization` header is not specified.|header|string|
 
-### Response Messages
+### Response messages
 
 |HTTP Status Code|Reason|
 |:--|:--|
@@ -777,6 +777,11 @@ Response Content Type: application/xml
 |401	|Invalid credentials|
 |500	|Server error. If the error persists, let us know. Please provide us with the approximate date & time of the request and with the request ID included in the response header  `X-MS-Trans-Info`.|
 |503	|Service temporarily unavailable. Please retry and let us know if the error persists.|
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Migrate to v3 Translator Text API](../migrate-to-v3.md)
 
 
 
