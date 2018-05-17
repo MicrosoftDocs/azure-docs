@@ -211,7 +211,7 @@ Moving the **command to execute** property to the **protected** configuration se
 }
 ```
 
-### How do agents and extensions get updated?
+## How do agents and extensions get updated?
 
 The Agents and Extensions share the same update mechanism. Some updates do not require additional firewall rules.
 
