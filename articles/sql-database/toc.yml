@@ -104,6 +104,16 @@
     items:
     - name: Overview
       href: sql-database-security-overview.md
+    - name: Advanced Threat Protection
+      href: sql-advanced-threat-protection.md
+    - name: Data discovery & classification
+      href: sql-database-data-discovery-and-classification.md
+    - name: Vulnerability assessment
+      href: sql-vulnerability-assessment.md
+    - name: Threat detection - SQL Database
+      href: sql-database-threat-detection.md
+    - name: Threat detection - Managed Instance
+      href: sql-database-managed-instance-threat-detection.md
     - name: Firewall rules
       href: sql-database-firewall-configure.md      
     - name: Firewall virtual network rules
@@ -120,18 +130,10 @@
       href: sql-database-auditing.md
     - name: Auditing - Managed Instance
       href: sql-database-managed-instance-auditing.md
-    - name: Threat detection - SQL Database
-      href: sql-database-threat-detection.md
-    - name: Threat detection - Managed Instance
-      href: sql-database-managed-instance-threat-detection.md
     - name: Table auditing & TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Dynamic data masking
       href: sql-database-dynamic-data-masking-get-started.md
-    - name: Vulnerability assessment
-      href: sql-vulnerability-assessment.md
-    - name: Data discovery & classification
-      href: sql-database-data-discovery-and-classification.md
   - name: Business continuity
     items:
     - name: Overview

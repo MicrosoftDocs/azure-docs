@@ -110,7 +110,7 @@ client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
 var content = new MultipartFormDataContent();
 Debug.WriteLine("Uploading...");
 var videoUrl = "..."; // replace with the video url 
-var uploadRequestResult = client.PostAsync(string.Format($"{apiUrl}/{location}/Accounts/{accountId}/Videos?accessToken={accountAccessToken}&name=some_name&description=some_description&privacy=private&partition=some_partition&videoUrl={videoUrl}"), content).Result;
+var uploadRequestResult = client.PostAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos?accessToken={accountAccessToken}&name=some_name&description=some_description&privacy=private&partition=some_partition&videoUrl={videoUrl}", content).Result;
 var uploadResult = uploadRequestResult.Content.ReadAsStringAsync().Result;
 
 // get the video id from the upload result
@@ -123,7 +123,7 @@ client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
 var videoTokenRequestResult = client.GetAsync($"{apiUrl}/auth/{location}/Accounts/{accountId}/Videos/{videoId}/AccessToken?allowEdit=true").Result;
 var videoAccessToken = videoTokenRequestResult.Content.ReadAsStringAsync().Result.Replace("\"", "");
 
-client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key"); //workaround
+client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
 
 // wait for the video index to finish
 while (true)
@@ -135,14 +135,14 @@ while (true)
 
   var processingState = JsonConvert.DeserializeObject<dynamic>(videoGetIndexResult)["state"];
 
-  Debug.WriteLine();
+  Debug.WriteLine("");
   Debug.WriteLine("State:");
   Debug.WriteLine(processingState);
 
   // job is finished
   if (processingState != "Uploaded" && processingState != "Processing")
   {
-      Debug.WriteLine();
+      Debug.WriteLine("");
       Debug.WriteLine("Full JSON:");
       Debug.WriteLine(videoGetIndexResult);
       break;
@@ -152,7 +152,7 @@ while (true)
 // search for the video
 var searchRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/Search?accessToken={accountAccessToken}&id={videoId}").Result;
 var searchResult = searchRequestResult.Content.ReadAsStringAsync().Result;
-Debug.WriteLine();
+Debug.WriteLine("");
 Debug.WriteLine("Search:");
 Debug.WriteLine(searchResult);
 
@@ -165,7 +165,7 @@ Debug.WriteLine(insightsWidgetLink);
 // get player widget url
 var playerWidgetRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/{videoId}/PlayerWidget?accessToken={videoAccessToken}").Result;
 var playerWidgetLink = playerWidgetRequestResult.Headers.Location;
-Debug.WriteLine();
+Debug.WriteLine("");
 Debug.WriteLine("Player Widget url:");
 Debug.WriteLine(playerWidgetLink);
 

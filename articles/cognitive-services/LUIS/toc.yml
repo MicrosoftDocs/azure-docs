@@ -69,6 +69,8 @@
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
+  - name: Developing a LUIS app
+    href: luis-concept-intro-to-luis.md
   - name: Authoring and endpoint keys
     href: luis-concept-keys.md
   - name: Author App
