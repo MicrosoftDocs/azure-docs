@@ -99,7 +99,7 @@ All NSGs contain a set of default rules. The default rules cannot be deleted, bu
 
 When you associate an NSG to a NIC, the network access rules in the NSG are applied only to that NIC. If an NSG is applied to a single NIC on a multi-NIC VM, it does not affect traffic to the other NICs. You can associate different NSGs to a NIC (or VM, depending on the deployment model) and the subnet that a NIC or VM is bound to. Priority is given based on the direction of traffic.
 
-Be sure to [plan](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md#planning) your NSGs when you plan your VMs and VNet.
+Be sure to [plan](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) your NSGs when you plan your VMs and VNet.
 
 This table lists the methods that you can use to create a network security group.
 
