@@ -261,6 +261,12 @@ featureFlags:
                                                             Terraform
                                                         </a>
                                                     </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/chef">
+                                                            <img src="chef/media/chef.png" alt="">
+                                                            Chef
+                                                        </a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
