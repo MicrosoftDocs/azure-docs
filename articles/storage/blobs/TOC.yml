@@ -212,7 +212,7 @@
       href: ../common/storage-import-export-tool-repairing-an-import-job-v1
     - name: Repair export job
       href: ../common/storage-import-export-tool-repairing-an-export-job-v1  
-  - name: FAQ: Import/Export
+  - name: FAQ
     href: ../common/storage-import-export-service-faq
   - name: REST API
     href: https://docs.microsoft.com/rest/api/storageimportexport/jobs  
