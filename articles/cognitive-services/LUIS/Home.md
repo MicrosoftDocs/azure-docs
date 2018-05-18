@@ -105,7 +105,7 @@ An example [utterance][add-example-utterances] is text input from the user that 
 After your application is published and receives real user utterances, LUIS provides several methods to improve prediction accuracy: [active learning](#active-learning), [phrase lists](#phrase-lists), and [patterns](#patterns).
 
 ### Active learning
-In the [active learning](label-suggested-utterances.md) process, LUIS selects utterances it received at the endpoint it is relatively unsure for your review. You can accept or correct their intent and entities, retrain, and republish. LUIS learns quickly with this iterative process, taking the minimum amount of your time and effort. 
+In the [active learning](label-suggested-utterances.md) process, LUIS selects utterances it received at the endpoint it is relatively unsure for your review. You can accept or correct the intents and entities, retrain, and republish. LUIS learns quickly with this iterative process, taking the minimum amount of your time and effort. 
 
 ### Phrase lists 
 LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate words or phrases that are important to your model domain or words that are considered outliers or exceptions to your model domain. LUIS uses these lists to add additional significance to those words and phrases that would otherwise not be found in the model.
