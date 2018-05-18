@@ -25,7 +25,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
    - **Name**: Enter a name for the Jenkins deployment.
    - **User name**: Enter a name for the admin user of the Jenkins virtual machine.
-   - **Authentication type**: We recommend an SSH public key for authentication. If you select this option, copy in an SSH public key to be used for logging in to the Jenkins virtual machine.
+   - **Authentication type**: We recommend an SSH public key for authentication. If you select this option, paste in an SSH public key to be used for logging in to the Jenkins virtual machine.
    - **Subscription**: Select an Azure subscription.
    - **Resource group**: Create a resource group or select an existing one.
    - **Location**: Select a location for the Jenkins server.
@@ -36,9 +36,9 @@ For more information on Azure Container Instances, see [About Azure Container In
 
    - **Size**: Select the appropriate sizing option for your Jenkins virtual machine.
    - **VM disk type**: Specify either **HDD** (hard-disk drive) or **SSD** (solid-state drive) for the Jenkins server.
-   - **Virtual network**: (Optional) Select the arrow to modify the default settings.
+   - **Virtual network**: Select the arrow if you want to modify the default settings.
    - **Subnets**: Select the arrow, verify the information, and select **OK**.
-   - **Public IP address**: Selecting the arrow to give the public IP address a custom name, configure the SKU, and set the assignment method.
+   - **Public IP address**: Select the arrow to give the public IP address a custom name, configure the SKU, and set the assignment method.
    - **Domain name label**: Specify a value to create a fully qualified URL to the Jenkins virtual machine.
    - **Jenkins release type**: Select the desired release type from the options: **LTS**, **Weekly build**, or **Azure Verified**.
 
@@ -50,7 +50,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
    ![Cloud integration settings for Jenkins portal deployment](./media/container-instances-jenkins/jenkins-portal-03.png)
 
-6. When you're done with the integration settings, select **OK**, and then **OK** again on the validation summary. Select **Create** on the **Terms of use** summary. The Jenkins server takes a few minutes to deploy.
+6. When you're done with the integration settings, select **OK**, and then select **OK** again on the validation summary. Select **Create** on the **Terms of use** summary. The Jenkins server takes a few minutes to deploy.
 
 ## Configure Jenkins
 
@@ -78,7 +78,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
    !["Customize Jenkins" screen with "Install suggested plugins" selected](./media/container-instances-jenkins/jenkins-portal-06.png)
 
-7. Create a new admin user account. This account is used for logging in to and working with your Jenkins instance.
+7. Create an admin user account. This account is used for logging in to and working with your Jenkins instance.
 
    !["Create First Admin User" screen, with credentials filled in](./media/container-instances-jenkins/jenkins-portal-07.png)
 
@@ -90,7 +90,7 @@ Jenkins is now configured and ready to build and deploy code. For this example, 
 
 When you're using a container image as a Jenkins build target, you need to specify an image that includes all tooling necessary for a successful build. To specify the image:
 
-1. Select **Manage Jenkins** > **Configure System** and scroll down to the **Cloud** section. For this example, update the Docker image value to `microsoft/java-on-azure-jenkins-slave`.
+1. Select **Manage Jenkins** > **Configure System** and scroll down to the **Cloud** section. For this example, update the Docker image value to **microsoft/java-on-azure-jenkins-slave**.
 
    When you're done, click **Save** to return to the Jenkins dashboard.
 
@@ -104,7 +104,7 @@ When you're using a container image as a Jenkins build target, you need to speci
 
    !["General" tab with configuration details](./media/container-instances-jenkins/jenkins-job-01.png)
 
-4. Under **Source Code Management**, select `Git` and enter `https://github.com/spring-projects/spring-petclinic.git` for the repository URL. This GitHub repo contains the sample application code.
+4. Under **Source Code Management**, select **Git** and enter **https://github.com/spring-projects/spring-petclinic.git** for the repository URL. This GitHub repo contains the sample application code.
 
    !["Source Code Management" tab with source code information](./media/container-instances-jenkins/jenkins-job-02.png)
 
@@ -118,7 +118,7 @@ When you're using a container image as a Jenkins build target, you need to speci
 
 To test the build job and observe Azure Container Instances as the build platform, manually start a build.
 
-1. Select **Build Now** to start a build job. It takes a few minutes for the job to start. You should see status similar to the following image:
+1. Select **Build Now** to start a build job. It takes a few minutes for the job to start. You should see a status that's similar to the following image:
 
    !["Build History" information with job status](./media/container-instances-jenkins/jenkins-job-status.png)
 
