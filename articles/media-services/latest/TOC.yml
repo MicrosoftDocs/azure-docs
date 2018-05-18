@@ -49,6 +49,8 @@
       href: job-input-from-http-how-to.md
     - name: From a local file
       href: job-input-from-local-file-how-to.md    
+  - name: Customize encoder presets - .NET Core
+    href: customize-encoder-presets-how-to.md
 - name: Reference
   items:
   - name: Azure CLI 2.0
