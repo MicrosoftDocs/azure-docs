@@ -33,7 +33,7 @@ Old metrics are designed in a flat schema. The design results in zero metric val
 
 ## Understand new metrics managed by Azure Monitor
 
-For new storage metrics, Azure Storage emits the metric data to Azure Monitor backend. Azure Monitor provides a unified monitoring experience, including data from the portal as well as data ingestion. For more details, you can refer to this [article](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+For new storage metrics, Azure Storage emits the metric data to the Azure Monitor back end. Azure Monitor provides a unified monitoring experience, including data from the portal as well as data ingestion. For more details, you can refer to this [article](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 New metrics provide capacity metrics and transaction metrics on Blob, Table, File, Queue, and premium storage.
 
