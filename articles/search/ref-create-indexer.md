@@ -14,12 +14,10 @@ ms.topic: language-reference
 ---
 # Create Indexer (Azure Search Service REST api-version=2017-11-11-Preview)
 
-This API reference is a preview-specific version of the documentation, adding [cognitive search](cognitive-search-concept-intro.md) elements to the Create Indexer API.
-
-As with the [generally available](https://docs.microsoft.com/rest/api/searchservice/create-indexer) version, you can create a new indexer within an Azure Search service using an HTTP POST request. 
+This API reference is a preview-specific version of the documentation, adding [cognitive search](cognitive-search-concept-intro.md) elements to the Create Indexer API. As with the [generally available](https://docs.microsoft.com/rest/api/searchservice/create-indexer) version, you can create a new indexer within an Azure Search service using an HTTP POST request. 
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=[api-version]  
+POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json  
     api-key: [admin key]  
 ```  
@@ -30,7 +28,7 @@ Alternatively, you can use PUT and specify the data source name on the URI. If t
 ```http
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]  
 ```  
-The **api-version** is required. The current generally available version is `2017-11-11`, but you need the preview version for cognitive search.  See [API versions in Azure Search](search-api-versions.md) for details.
+The **api-version** is required. The current generally available version is `api-version=2017-11-11`, but you need the preview version for cognitive search: `api-version=2017-11-11-Preview`.  See [API versions in Azure Search](search-api-versions.md) for details.
 
 For data-platform-specific guidance on creating indexers, start with [Indexers overview](search-indexer-overview.md), which includes the complete list of [related articles](search-indexer-overview.md#next-steps).
 
@@ -38,9 +36,22 @@ For data-platform-specific guidance on creating indexers, start with [Indexers o
 >  The maximum number of indexers allowed varies by pricing tier. The free service allows up to 3 indexers. Standard service allows 50 indexers. Standard High Definition services do not support indexers at all. See [Service Limits](search-limits-quotas-capacity.md) for details.    
 
 ## Request  
- The body of the request contains an indexer definition, which specifies the data source and the target index for indexing, as well as optional [indexer schedule](#indexer-schedule) and [indexer parameters](#indexer-parameters).  
 
- The syntax for structuring the request payload is as follows. A sample request is provided later in this topic.  
+A [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), [index](https://docs.microsoft.com/rest/api/searchservice/create-index), and [skillset](ref-create-skillset.md) are part of an [indexer](search-indexer-overview.md) definition, but each is an independent component and thus able to flex with your data ingestion strategy. For example, you could use the same data source with multiple indexers, or the same index with multiple indexers, or multiple indexers writing to a single index.
+
+ The body of the request contains an indexer definition, with the following parts.
+
++ [dataSourceName](#dataSourceName)
++ [targetIndexName](#targetIndexName)
++ [skillsetName](#skillset)
++ [schedule](#indexer-schedule)
++ [parameters](#indexer-parameters)
++ [fieldMappings](#field-mappings)
++ [outputFieldMappings](#output-fieldmappings)
+
+## Request syntax
+
+Syntax for structuring the request payload is as follows. A sample request is provided later in this topic.  
 
 ```json
 {   
@@ -48,6 +59,7 @@ For data-platform-specific guidance on creating indexers, start with [Indexers o
     "description" : "Optional. Anything you want, or null",  
     "dataSourceName" : "Required. The name of an existing data source",  
     "targetIndexName" : "Required. The name of an existing index",  
+    "skillsetName" : "Required for cognitive search enrichment",
     "schedule" : { Optional, but immediately runs once if unspecified. See Indexing Schedule below. },  
     "parameters" : { Optional. See Indexing Parameters below. },  
     "fieldMappings" : { Optional. See fieldMappings below. },
@@ -55,13 +67,23 @@ For data-platform-specific guidance on creating indexers, start with [Indexers o
     "disabled" : Optional boolean value indicating whether the indexer is disabled. False by default.
 }  
 ```
-### "dataSourceName" and "targetIndexName"
+<a name="dataSourceName"></a>
 
-An [index](https://docs.microsoft.com/rest/api/searchservice/create-index) and [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) are part of an [indexer](search-indexer-overview.md) definition, but each is an independent component and thus able to flex with your data ingestion strategy. For example, you could use the same data source with multiple indexers, or the same index with multiple indexers, or multiple indexers writing to a single index.
+### "dataSourceName"
 
 A data source definition often includes properties that an indexer can use to exploit source platform characteristics. As such, the data source you pass to the indexer determines the availability of certain properties and parameters, such content type filtering in Azure blobs or query timeout for Azure SQL Database. 
 
+<a name="targetIndexName"></a>
+
+### "targetIndexName"
+
 An index schema defines the fields collection containing searchable, filterable, retrievable, and other attributions that determine how the field is used. During indexing, the indexer crawls the data source, optionally cracks documents and extracts information, serializes the results to JSON, and indexes the payload based on the schema defined for your index.
+
+<a name="skillset></a>
+
+### "skillsetName"
+
+[Cognitive search (preview)](cognitive-search-concept-intro.md) refers to natural language and image processing capabilities in Azure Search, applied during data ingestion to extract entities, key phrases, language, information from images, and so forth. Transformations applied to content is through *skills*, which you combine into a single [*skillset*](ref-create-skillset.md), one per indexer. As with data sources and indexes, a skillset is an independent component that you attach to an indexer. You can repurpose a skillset with other indexers, but each indexer can only use one skillset at a time.
  
 <a name="indexer-schedule"></a>
 
@@ -82,7 +104,7 @@ An indexer can optionally take configuration parameters that modify runtime beha
     {
       "name" : "my-blob-indexer-for-cognitive-search",
       ... other indexer properties
-      "parameters" : { "configuration" : { "maxFailedItems" : "15", "imageAction" : "generateNormalizedImages", "dataToExtract" : "contentAndMetadata" } }
+      "parameters" : { "maxFailedItems" : "15", "batchSize" : "100", "configuration" : { "parsingMode" : "json", "indexedFileNameExtensions" : ".json, .jpg, .png", "imageAction" : "generateNormalizedImages", "dataToExtract" : "contentAndMetadata" } }
     }
 ```
 
@@ -103,26 +125,24 @@ Several parameters are exclusive to a particular indexer, such as [Azure blob in
 | `"parsingMode"` | String<br/>`"text"`<br/>`"delimitedText"`<br/>`"json"`<br/>`"jsonArray"`  | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set to `text` to improve indexing performance on plain text files in blob storage. <br/>For [CSV blobs](search-howto-index-csv-blobs.md), set to `delimitedText` when blobs are plain CSV files. <br/>For [JSON blobs](search-howto-index-json-blobs.md), set to `json` to extract structured content or to `jsonArray` (preview) to extract individual elements of an array as separate documents in Azure Search. |
 | `"excludedFileNameExtensions"` | String<br/>Ccomma-delimited list | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), ignore any file types in the list. For example, you could exclude ".png, .png, .mp4" to skip over those files during indexing. | 
 | `"indexedFileNameExtensions"` | String<br/>comma-delimited list | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), selects blobs if the file extension is in the list. For example, you could focus indexing on specific application files ".docx, .pptx, .msg" to specifically include those file types. | 
-| `"failOnUnsupportedContentType"` | true (default) <br/>false | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set to `false` if you want to continue indexing when an unsupported content type is encountered, and you don't know all the content types (file extensions) in advance. |
-| `"failOnUnprocessableDocument"` | true (default) <br/>false | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set to `false` if you want to continue indexing if a document fails indexing. |
-| `"indexStorageMetadataOnlyForOversizedDocuments"` | true (default) <br/>false | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set this property to `true` to still index storage metadata for blob content that is too large to process.  Oversized blobs are treated as errors by default. For limits on blob size, see [Service Limits](search-limits-quotas-capacity.md). |
+| `"failOnUnsupportedContentType"` | true <br/>false (default) | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set to `false` if you want to continue indexing when an unsupported content type is encountered, and you don't know all the content types (file extensions) in advance. |
+| `"failOnUnprocessableDocument"` | true <br/>false (default)| For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set to `false` if you want to continue indexing if a document fails indexing. |
+| `"indexStorageMetadataOnlyForOversizedDocuments"` | true <br/>false (default)| For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set this property to `true` to still index storage metadata for blob content that is too large to process.  Oversized blobs are treated as errors by default. For limits on blob size, see [Service Limits](search-limits-quotas-capacity.md). |
 | `"delimitedTextHeaders"` | String<br/>comma-delimited list| For [CSV blobs (preview)](search-howto-index-csv-blobs.md), specifies a comma-delimited list of column headers, useful for mapping source fields to destination fields in an index. |
 | `"delimitedTextDelimiter"` | String<br/>user-defined | For [CSV blobs (preview)](search-howto-index-csv-blobs.md), specifies the end-of-line delimiter for CSV files where each line starts a new document (for example, `"|"`).  |
 | `"firstLineContainsHeaders"` | true (default) <br/>false | For [CSV blobs (preview)](search-howto-index-csv-blobs.md), indicates that the first (non-blank) line of each blob contains headers.|
 | `"documentRoot"`  | String<br/>user-defined | For [JSON arrays (preview)](search-howto-index-json-blobs.md#nested-json-arrays), given a structured or semi-structured document, you can specify a path to the array using this property. |
-| `"dataToExtract"` | String<br/>`"storageMetadata"`<br/>`"allMetadata"`<br/>`"contentAndMetadata"`| For [Azure blobs](search-howto-indexing-azure-blob-storage.md):<br/>Set to `"storageMetadata"` to index just the [standard blob properties and user-specified metadata](../storage/blobs/storage-properties-metadata.md). <br/>Set to `"allMetadata"` to extract metadata provided by the Azure blob storage subsystem and the [content-type specific metadata](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (for example, metadata unique to just .png files) are indexed. <br/>Set to `"contentAndMetadata"` (default) to extract all metadata and textual content from each blob. <br/><br/>For [image-analysis in cognitive search (preview)](cognitive-search-concept-image-scenarios.md), when `"imageAction"` is set to `"generateNormalizedImages"`, the `"dataToExtract"` setting tells the indexer which data to extract from image content. Applies to embedded image content in a .PDF or other application, or image files such as .jpg and .png, in Azure blobs.  |
+| `"dataToExtract"` | String<br/>`"storageMetadata"`<br/>`"allMetadata"`<br/>`"contentAndMetadata"` (default) | For [Azure blobs](search-howto-indexing-azure-blob-storage.md):<br/>Set to `"storageMetadata"` to index just the [standard blob properties and user-specified metadata](../storage/blobs/storage-properties-metadata.md). <br/>Set to `"allMetadata"` to extract metadata provided by the Azure blob storage subsystem and the [content-type specific metadata](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (for example, metadata unique to just .png files) are indexed. <br/>Set to `"contentAndMetadata"` to extract all metadata and textual content from each blob. <br/><br/>For [image-analysis in cognitive search (preview)](cognitive-search-concept-image-scenarios.md), when `"imageAction"` is set to `"generateNormalizedImages"`, the `"dataToExtract"` setting tells the indexer which data to extract from image content. Applies to embedded image content in a .PDF or other application, or image files such as .jpg and .png, in Azure blobs.  |
 | `"imageAction"` |  String<br/>`"none"`<br/>`"generateNormalizedImages"` | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set to`"none"` to ignore embedded images or image files in the data set. This is the default. <br/><br/>For [image-analysis in cognitive search](cognitive-search-concept-image-scenarios.md), set to`"generateNormalizedImages"`  to extract text from images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. During image analysis, the indexer creates an array of normalized images as part of document cracking, and embeds the generated information into the content field. This action requires that `"dataToExtract"` be set to `"contentAndMetadata"`. A normalized image refers to additional processing resulting in uniform image output, sized and rotated to promote consistent rendering when you include images in visual search results (for example, same-size photographs in a graph control as seen in the [JFK demo](https://github.com/Microsoft/AzureSearch_JFK_Files)). This information is generated for each image when you use |
 
 
-#### Database configuration parameters
+#### Other configuration parameters
 
-The following parameters are specific to Azure Cosmos DB or Azure SQL Database.
+The following parameters are specific to Azure SQL Database.
 
 | Parameter | Type and allowed values	| Usage  |
 |-----------|---------------------------|--------|
-| `"assumeOrderByHighWaterMarkColumn"` | true (default) <br/>false | For [Cosmos DB](search-howto-index-cosmosdb.md), explicitly tells Azure Search to order results by a timestamp (`_ts` column) when the Cosmos DB query also includes an ORDER BY on the same field. |
-| `"disableOrderByHighWaterMarkColumn"` | true <br/>false (default) | For [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), if you have a specific need for turning off the high-water mark that allows the indexer to keep track of its progress, you can set this parameter to do so. If indexing is interrupted for any reason, a full re-index is required. |
-| `"queryTimeout"` | String<br/>"00:00:00"| for [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), set this parameter to increase the timeout beyond the 5-minute default. Value is articulated in hours, minutes, and seconds. |
+| `"queryTimeout"` | String<br/>"hh:mm:ss"<br/>"00:05:00"| For [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), set this parameter to increase the timeout beyond the 5-minute default.|
 
 <a name="field-mappings"></a>
 
@@ -152,7 +172,9 @@ Both source and target field names are case-insensitive.
 
 To learn about scenarios where field mappings are useful, see [Search Indexer Field Mappings](https://docs.microsoft.com/azure/search/search-indexer-field-mappings).
 
-#### "outputFieldMappings"
+<a name="output-fieldmappings"></a>
+
+### "outputFieldMappings"
 
 In [cognitive search](cognitive-search-concept-intro.md) scenarios in which a skillset is bound to an indexer, you must add `outputFieldMappings` to associate any output of an enrichment step that provides content to a searchable field in the index.
 
@@ -176,13 +198,13 @@ In [cognitive search](cognitive-search-concept-intro.md) scenarios in which a sk
 
 <a name="FieldMappingFunctions"></a>
 
-#### Field mapping functions
+### Field mapping functions
 
 Field mappings can also be used to transform source field values using *field mapping functions*. For example, an arbitrary string value can be base64-encoded so it can be used to populate a document key field.
 
 To learn more about when and how to use field mapping functions, see [Field Mapping Functions](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions).
 
-### Request body examples  
+## Request body examples  
  The following example creates an indexer that copies data from the table referenced by the `ordersds` data source to the `orders` index on a schedule that starts on Jan 1, 2015 UTC and runs hourly. Each indexer invocation will be successful if no more than 5 items fail to be indexed in each batch, and no more than 10 items fail to be indexed in total.  
 
 ```json
@@ -191,7 +213,7 @@ To learn more about when and how to use field mapping functions, see [Field Mapp
     "description" : "a cool indexer",  
     "dataSourceName" : "ordersds",  
     "targetIndexName" : "orders",  
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-01-01T00:00:00Z" },  
+    "schedule" : { "interval" : "PT1H", "startTime" : "2018-01-01T00:00:00Z" },  
     "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 5 }  
 }
 ```
@@ -201,6 +223,7 @@ To learn more about when and how to use field mapping functions, see [Field Mapp
 
 ## See also
 
++ [Indexer overview](search-indexer-overview.md)
 + [Cognitive search overview](cognitive-search-concept-intro.md)
 + [Quickstart: Try cognitive search](cognitive-search-quickstart-blob.md)
 + [How to map fields](cognitive-search-output-field-mapping.md)
