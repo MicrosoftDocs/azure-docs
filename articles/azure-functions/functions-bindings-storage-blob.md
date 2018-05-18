@@ -774,7 +774,7 @@ In C# and C# script, you can bind to the following types to write blobs:
 * `CloudPageBlob`<sup>2</sup>
 * `CloudAppendBlob`<sup>2</sup>
 
-<sup>1</sup> Requires "in" binding `direction` in *function.json* or `FileAccess.Read` in a C# class library.
+<sup>1</sup> Requires "in" binding `direction` in *function.json* or `FileAccess.Read` in a C# class library. However, you can use the container object that the runtime provides to do write operations, such as uploading blobs to the container.
 
 <sup>2</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
 

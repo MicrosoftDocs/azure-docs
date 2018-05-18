@@ -8346,6 +8346,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-networks-nsg.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-vnet-plan-design-arm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/ddos-protection-manage-portal.md",
             "redirect_url": "/azure/virtual-network/manage-ddos-protection",
             "redirect_document_id": false
@@ -21348,6 +21353,56 @@
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-test.md",
             "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-test",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-configure.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-customize.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-customize",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-features.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-features",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-gateway-deployment.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-gateway-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-overview.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-sample-walkthrough.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-sample-walkthrough",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connecting-devices-linux.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connecting-devices-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connecting-devices-node.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connecting-devices-node",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connecting-devices.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connecting-devices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-remote-monitoring-device-behavior.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior",
             "redirect_document_id": false
         },
         {
