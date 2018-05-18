@@ -1,12 +1,13 @@
-﻿---
+---
 title: Onboarding machines for management by Azure Automation DSC
 description: How to setup machines for management with Azure Automation DSC
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Onboarding machines for management by Azure Automation DSC
@@ -57,6 +58,7 @@ $AutomationAccountName = ""
 $AutomationAccountResourceGroup = ""
 
 # fill in the name of a Node Configuration in Azure Automation DSC, for this VM to conform to
+# NOTE: DSC Node Configuration names are case sensitive in the portal.
 $NodeConfigName = ""
 
 # get Azure Automation DSC registration info
@@ -106,6 +108,9 @@ $VM = Set-AzureVMExtension `
 
 $VM | Update-AzureVM
 ```
+
+> [!NOTE]
+> Dsc Node Configuration names are case sensitive in the portal. If the case is mismatched the node will not show up under DSC Nodes.
 
 ## Azure virtual machines
 
@@ -200,6 +205,9 @@ To generically onboard any machine to Azure Automation DSC, a [DSC metaconfigura
 1. Open the PowerShell ISE as an administrator in a machine in your local environment. The machine must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed.
 2. Copy the following script locally. This script contains a PowerShell DSC configuration for creating metaconfigurations, and a command to kick off the metaconfiguration creation.
 
+> [!NOTE]
+> Dsc Node Configuration names are case sensitive in the portal. If the case is mismatched the node will not show up under DSC Nodes.
+
     ```powershell
     # The DSC configuration that will generate metaconfigurations
     [DscLocalConfigurationManager()]
@@ -291,6 +299,7 @@ To generically onboard any machine to Azure Automation DSC, a [DSC metaconfigura
     }
 
     # Create the metaconfigurations
+    # NOTE: DSC Node Configuration names are case sensitive in the portal.
     # TODO: edit the below as needed for your use case
     $Params = @{
         RegistrationUrl = '<fill me in>';

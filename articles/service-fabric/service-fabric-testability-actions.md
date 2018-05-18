@@ -5,16 +5,16 @@ services: service-fabric
 documentationcenter: .net
 author: motanv
 manager: timlt
-editor: toddabel
+editor: heeldin
 
 ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
-ms.author: motanv;heeldin
+ms.author: motanv
 
 ---
 # Testability actions

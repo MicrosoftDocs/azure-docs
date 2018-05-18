@@ -3,18 +3,16 @@ title: The Azure AD Privileged Identity Management security wizard
 description: The first time you use the Azure Active Directory Privileged Identity Management extension, you will be presented with a security wizard. This article describes the steps for using the wizard.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: a53a3719-8cc7-4fc7-8164-aafca192871b
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 02/27/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ---
 # Using the security wizard in Azure AD Privileged Identity Management 

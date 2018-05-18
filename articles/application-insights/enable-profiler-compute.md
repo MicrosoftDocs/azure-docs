@@ -3,7 +3,7 @@ title: Enable Application Insights Profiler for applications that are hosted on 
 description: Learn how to set up Application Insights Profiler on an application running on Azure Cloud Services.
 services: application-insights
 documentationcenter: ''
-author: ramach-msft
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: ramach
+ms.author: ramach; mbullwin
 
 ---
 

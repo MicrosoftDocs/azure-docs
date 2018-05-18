@@ -27,6 +27,10 @@
     href: tutorial-bing-news-search-single-page-app.md
   - name: Single-page web app (source code)
     href: tutorial-bing-news-search-single-page-app-source.md
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search
 - name: How-to guides
   items:
   - name: Use and display requirements
@@ -39,6 +43,10 @@
     href: resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7
     href: bing-news-upgrade-guide-v5-to-v7.md
+  - name: Work with Visual Studio
+    items:
+    - name: Use the Bing News Search Connected Service
+      href: vs-bing-news-search-connected-service.md
 - name: Reference
   items:
   - name: Bing News Search API v7
@@ -75,8 +83,9 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
   - name: Try it!
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
-  - name: News Search endpoints
+  - name: Bing News Search endpoints
     href: endpoint-news.md
   - name: Supported countries and markets
     href: supported-countries-markets.md
-
+  - name: Analytics for Bing News Search API
+    href: bing-news-stats.md

@@ -81,6 +81,14 @@ You can add additional storage capacity during and after the creation of the ser
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
 
+### Reaching the store limit
+
+The server is marked read-only when the amount of free storage reaches less than 5 GB or 5% of provisioned storage, whichever is less. For example, if you have provisioned 100 GB of storage, and the actual utilization goes over 95 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 250 MB.  
+
+When the server is set to read-only, all existing sessions are disconnected and uncommitted transactions are rolled back. Any subsequent write operations and transaction commits fail. All subsequent read queries will work uninterrupted.  
+
+You can either increase the amount of provisioned storage to your server or start a new session in read-write mode and drop data to reclaim free storage. Running `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` sets the current session to read write mode. In order to avoid data corruption, do not perform any write operations when the server is still in read-only status.
+
 ## Backup
 
 The service automatically takes backups of your server. The minimum retention period for backups is seven days. You can set a retention period of up to 35 days. The retention can be adjusted at any point during the lifetime of the server. You can choose between locally redundant and geo-redundant backups. Geo-redundant backups also are stored in the [geo-paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) of the region where your server is created. This redundancy provides a level of protection in the event of a disaster. You also gain the ability to restore your server to any other Azure region in which the service is available with geo-redundant backups. It's not possible to change between the two backup storage options after the server is created.

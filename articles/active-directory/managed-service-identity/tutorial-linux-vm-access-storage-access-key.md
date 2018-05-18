@@ -8,6 +8,7 @@ manager: mtillman
 editor: daveba
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,7 +18,7 @@ ms.author: daveba
 ---
 
 
-# Use a Linux VM Managed Service Identity to access Azure Storage via access key
+# Tutorial: Use a Linux VM Managed Service Identity to access Azure Storage via access key
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

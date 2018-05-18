@@ -7,6 +7,7 @@ author: daveba
 manager: mtillman
 editor: daveba
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,7 +17,7 @@ ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# Use a user assigned identity on a Linux VM, to access Azure Resource Manager
+# Tutorial: Use a user assigned identity on a Linux VM, to access Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 

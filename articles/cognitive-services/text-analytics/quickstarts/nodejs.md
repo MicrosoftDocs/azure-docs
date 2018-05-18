@@ -358,7 +358,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 <a name="Entities"></a>
 
-## Idenfity linked entities
+## Identify linked entities
 
 The Entity Linking API identifies well-known entities in a text document, using the [Entity Linking method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
 

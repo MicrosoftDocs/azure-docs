@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/18/2018
 ms.author: douglasl
 
 ---
@@ -66,10 +66,7 @@ If you don't have an Azure Automation account, create one by following the instr
 
 ### Import Data Factory modules
 
-1. Select **Modules** in the **SHARED RESOURCES** section on the left menu, and verify whether you have **AzureRM.Profile** and **AzureRM.DataFactoryV2** in the list of modules. If they're not in the list, select **Browse gallery** on the toolbar, and continue with the following steps.
-
-    > [!IMPORTANT]
-    > At the present time, you can only use **AzureRM.DataFactoryV2 0.5.2** and **AzureRM.Profile 4.5.0** modules.
+1. Select **Modules** in the **SHARED RESOURCES** section on the left menu, and verify whether you have **AzureRM.Profile** and **AzureRM.DataFactoryV2** in the list of modules.
 
     ![Verify the required modules](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 

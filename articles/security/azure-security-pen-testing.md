@@ -4,7 +4,7 @@ description: The article provides an overview of the penetration testing (pentes
 services: security
 documentationcenter: na
 author: terrylan
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc

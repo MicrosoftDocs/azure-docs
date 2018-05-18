@@ -7,6 +7,7 @@ author: daveba
 manager: mtillman
 editor: daveba
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,7 +16,7 @@ ms.date: 04/10/2018
 ms.author: arluca
 ---
 
-# Use a Windows VM MSI to access Azure Cosmos DB
+# Tutorial: Use a Windows VM MSI to access Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

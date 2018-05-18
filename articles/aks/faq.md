@@ -1,33 +1,31 @@
 ---
-title: Frequently asked questions for Azure Container Service
-description: Provides answers to some of the common questions about Azure Container Service.
+title: Frequently asked questions for Azure Kubernetes Service
+description: Provides answers to some of the common questions about Azure Kubernetes Service.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 2/14/2018
+ms.date: 05/09/2018
 ms.author: nepeters
 ---
 
-# Frequently asked questions about Azure Container Service (AKS)
+# Frequently asked questions about Azure Kubernetes Service (AKS)
 
-This article addresses frequent questions about Azure Container Service (AKS).
+This article addresses frequent questions about Azure Kubernetes Service (AKS).
 
 > [!IMPORTANT]
-> Azure Container Service (AKS) is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> Azure Kubernetes Service (AKS) is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 >
 
-## Which Azure regions provide the Azure Container Service (AKS) today?
+## Which Azure regions provide the Azure Kubernetes Service (AKS) today?
 
 - Canada Central
 - Canada East
 - Central US
 - East US
-- South East Asia
 - West Europe
-- West US 2
 
 ## When will additional regions be added?
 
@@ -59,7 +57,7 @@ No, RBAC is currently not supported in AKS but will be available soon.
 
 ## Can I deploy AKS into my existing virtual network?
 
-No, this is not yet available but will be available soon.
+Yes, this is supported through the [advanced networking feature](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## Is Azure Key Vault integrated with AKS?
 
@@ -67,7 +65,7 @@ No, it is not but this integration is planned. In the meantime, try out the foll
 
 ## Can I run Windows Server containers on AKS?
 
-No, AKS does not currently provide Windows Server-based agent nodes, so you cannot run Windows Server containers. If you need to run Windows Server containers on Kubernetes in Azure, please see the [documentation for acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+To run Windows Server containers, you need to run Windows Server-based nodes. Windows Server-based nodes are currently in [private preview](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/). If you need to run Windows Server containers on Kubernetes in Azure outside of the preview, please see the [documentation for acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## Why are two resource groups created with AKS?
 

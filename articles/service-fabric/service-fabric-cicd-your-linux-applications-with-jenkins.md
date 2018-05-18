@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
@@ -173,8 +173,8 @@ You can set up Jenkins either inside or outside of a Service Fabric cluster. The
   When you run `docker info` in the terminal, the output should show that the Docker service is running.
 
 ### Steps
-1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:v10`. This image comes with Service Fabric Jenkins plugin pre-installed.
-2. Run the container image: `docker run -itd -p 8080:8080 rapatchi/jenkins:v10`
+1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:latest`. This image comes with Service Fabric Jenkins plugin pre-installed.
+2. Run the container image: `docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
 3. Get the ID of the container image instance. You can list all the Docker containers with the command `docker ps –a`
 4. Sign in to the Jenkins portal with the following steps:
 

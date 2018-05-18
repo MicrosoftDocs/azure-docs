@@ -76,15 +76,15 @@ BingAPIs-Market: en-US
                 "height" : 341
             }
         },
-        "description" : "Sailing World's College Rankings, presented by Zim...",
+        "description" : "Sailing College Rankings, presented by Zim...",
         "provider" : [{
             "_type" : "Organization",
-            "name" : "gocrimson.com"
+            "name" : "contoso.com"
         }],
         "datePublished" : "2017-04-14T15:28:00"
     },
     {
-        "name" : "Reunion at Narrabeen Lakes Sailing Club, celebrates 50 years...",
+        "name" : "Reunion at Fabrikam Lakes Sailing Club, celebrates 50 years...",
         "url" : "http:\/\/www.bing.com\/cr?IG=CCE2F06CA750455891F...",
         "image" : {
             "thumbnail" : {
@@ -93,15 +93,15 @@ BingAPIs-Market: en-US
                 "height" : 366
             }
         },
-        "description" : "The reunion on April 29, at Narrabeen Lakes Sailing...",
+        "description" : "The reunion on April 29, at Fabrikam Lakes Sailing...",
         "provider" : [{
             "_type" : "Organization",
-            "name" : "The Telegraph"
+            "name" : "Contoso"
         }],
         "datePublished" : "2017-04-14T13:08:00"
     },
     {
-        "name" : "Restronguet Sailing Club to host Mirror Dinghy Sailing World...",
+        "name" : "Sailing Club to host Dinghy Sailing World...",
         "url" : "http:\/\/www.bing.com\/cr?IG=CCE2F06CA750455891FE99...",
         "image" : {
             "thumbnail" : {
@@ -110,16 +110,16 @@ BingAPIs-Market: en-US
                 "height" : 300
             }
         },
-        "description" : "The Cornish sailing club that trained Olympian Ben...",
+        "description" : "The sailing club that trained Olympian Ben...",
         "provider" : [{
             "_type" : "Organization",
-            "name" : "Cornish Guardian"
+            "name" : "Contoso"
         }],
         "datePublished" : "2017-04-04T11:02:00",
         "category" : "Sports"
     },
     {
-        "name" : "A 24-Carat Nesting Dinghy",
+        "name" : "A 24-Carat Dinghy",
         "url" : "http:\/\/www.bing.com\/cr?IG=CCE2F06CA750455891F...",
         "image" : {
             "thumbnail" : {
@@ -131,7 +131,7 @@ BingAPIs-Market: en-US
         "description" : "“Hard dinghies are for purists, the kind of people who...",
         "provider" : [{
             "_type" : "Organization",
-            "name" : "yachtworld.com"
+            "name" : "contoso.com"
         }],
         "datePublished" : "2017-04-03T12:14:00",
         "category" : "Politics"

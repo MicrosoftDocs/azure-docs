@@ -29,12 +29,18 @@
     href: tutorial-image-post.md
   - name: Bing image upload for insights (source code)
     href: tutorial-image-post-source.md
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search
 - name: How-to guides
   items:
   - name: Use and display results
     href: UseAndDisplayRequirements.md
   - name: Get image insights
     href: image-insights.md
+  - name: Get .gif images
+    href: gif-images.md
   - name: Get trending images
     href: trending-images.md
   - name: Page through images
@@ -81,7 +87,9 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
-  - name: Image Search endpoints      
+  - name: Bing Image Search endpoints      
     href: image-search-endpoint.md
   - name: Supported countries and markets
     href: supported-countries-markets.md
+  - name: Analytics for Bing Image Search API
+    href: bing-image-stats.md

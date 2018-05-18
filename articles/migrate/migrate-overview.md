@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 03/27/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -43,7 +43,7 @@ An assessment helps you identify the Azure suitability of on-premises VMs, get r
 
 **Property** | **Details**
 --- | ---
-**Target location** | The Azure location to which you want to migrate.<br/><br/>Azure Migrate currently supports 30 regions including Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, Germany Central, Germany Northeast, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, West Europe, West India, West US, and West US2. By default, the target location is set to West US 2.
+**Target location** | The Azure location to which you want to migrate.<br/><br/>Azure Migrate currently supports 30 regions including Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, Germany Central, Germany Northeast, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, US Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, West Europe, West India, West US, and West US2. By default, the target location is set to West US 2.
 **Storage redundancy** | The type of [storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) that the Azure VMs will use after migration. Locally Redundant Storage (LRS) is the default. Note that Azure Migrate only supports managed disks-based assessments and managed disks only support LRS, hence the property currently only has the LRS option.
 **Sizing Criterion** | The criterion to be used by Azure Migrate to right-size VMs for Azure. You can do sizing either based on *performance history* of the on-premises VMs or size the VMs *as on-premises* for Azure without considering the performance history. The default value is performance-based sizing.
 **Pricing plans** | For cost calculations, an assessment considers whether you have software assurance, and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). It also considers [Azure Offers](https://azure.microsoft.com/support/legal/offer-details/) that you might be enrolled to, and allows you to specify any subscription-specific discounts (%), that you may get on top of the offer.
@@ -75,7 +75,7 @@ The table summarizes the ports needed for Azure Migrate communications.
 |Component          |To communicate with     |Port required  |Reason   |
 |-------------------|------------------------|---------------|---------|
 |Collector          |Azure Migrate service   |TCP 443        |The collector connects to the service over SSL port 443|
-|Collector          |vCenter Server          |Default 9443   | By default the collector connects to the vCenter Server on port 9443. If the server listens on a different port, it should be configured as an outgoing port on the collector VM. |
+|Collector          |vCenter Server          |Default 443   | By default the collector connects to the vCenter Server on port 443. If the server listens on a different port, it should be configured as an outgoing port on the collector VM. |
 |On-premises VM     | Log Analytics Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |The MMA agent uses TCP 443 to connect to Log Analytics. You only need this port if you're using the dependency visualization feature, and are installing the Microsoft Monitoring Agent (MMA). |
 
 

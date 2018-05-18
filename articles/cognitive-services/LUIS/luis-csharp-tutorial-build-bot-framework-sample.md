@@ -17,8 +17,7 @@ Build a chat bot with integrated language understanding.
 
 ## Prerequisite
 
-> [!div class="checklist"]
-> * [HomeAutomation LUIS app](luis-get-started-create-app.md). The intents from this LUIS app map to the bot's dialog handlers. 
+* [HomeAutomation LUIS app](luis-get-started-create-app.md). The intents from this LUIS app map to the bot's dialog handlers. 
 
 ## LUIS HomeAutomation Intents
 
@@ -147,6 +146,9 @@ In the Azure portal, click on **Test in Web Chat** to test the bot. Type message
 
 ## Download the bot to debug
 If your bot isn't working, download the project to your local machine and continue [debugging](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 
+
+## Learn more about Bot Framework
+Learn more about [Bot Framework](https://dev.botframework.com/) and the [3.x](https://github.com/Microsoft/BotBuilder) and [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDKs.
 
 ## Next steps
 
