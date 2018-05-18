@@ -70,7 +70,7 @@ In the local command-prompt, create a resource group with the [`az group create`
 az group create --name myResourceGroup --location "South Central US"
 ```
 
-You generally create your resource group and the resources in a region near you. 
+You generally create your resource group and the resources in a region near you.
 
 When the command finishes, a JSON output shows you the resource group properties.
 
@@ -89,7 +89,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 When the App Service plan has been created, the Azure CLI shows information similar to the following example:
 
 ```json
-{ 
+{
   "adminSiteName": null,
   "appServicePlanName": "myAppServicePlan",
   "geoRegion": "South Central US",
@@ -103,7 +103,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
-} 
+}
 ```
 
 ## Docker Compose configuration options
@@ -287,6 +287,7 @@ The custom image is based on the 'official image' of [WordPress from Docker Hub]
 * [Adds WordPress define for MYSQL_CLIENT_FLAGS needed for MySQL SSL.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L164)
 
 The following changes have been made for Redis (to be used in a later section):
+
 * [Adds PHP extension for Redis v4.0.2.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/Dockerfile#L35)
 * [Adds unzip needed for file extraction.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L71)
 * [Adds Redis Object Cache 1.3.8 WordPress plugin.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
