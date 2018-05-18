@@ -20,7 +20,7 @@ ms.author: Evgeny.Ternovsky;mbullwin
 
 Application Insights is a data store where personal data is likely to be found. This article discusses where in Application Insights this data is typically found, as well as the capabilities available to you to handle this data.
 
-[!INCLUDE gdpr-dsr-and-stp-note]
+[!INCLUDE [GDPR Include File Text](azure-docs-pr\includes\gdpr-dsr-and-stp-note.md)]
 
 ## Strategy for personal data handling
 
