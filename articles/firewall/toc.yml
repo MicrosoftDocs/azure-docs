@@ -7,21 +7,21 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: 
-    href: 
+  - name: Create a firewall
+    href: quick-create-powershell.md
 
 - name: Tutorials
   items:
-  - name: 
-    href: 
+  - name: Tutorial 1
+    href: tutorial-firewall-powershell.md
 - name: Samples
   items:
   - name: Azure PowerShell
-    href: 
+    href: sample-powershell.md
 - name: Concepts
   items:
-  - name: Restrict web traffic - Portal
-    href: create-waf-portal.md
+  - name: 
+    href: 
 - name: Reference
   items:
   - name: Azure CLI
