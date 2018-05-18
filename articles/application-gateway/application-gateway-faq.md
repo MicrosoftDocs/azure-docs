@@ -81,6 +81,10 @@ No, Application Gateway does not support static public IP addresses, but it does
 
 Only one public IP address is supported on an Application Gateway.
 
+**Q. How big should I make my subnet for Application Gateway?**
+
+Application Gateway consumes 1 private IP address per instance, plus another Private IP if a Private Frontend IP Configuration is configured.  For example, if Application Gateway is set to 3 instances and no private frontend IP, a /29 subnet size or greater will be needed; as Application Gateway would use 3 IP addresses.  If I have 3 instances and an IP address for the Private frontend IP configuration, then a /28 subnet size or greater will be needed as 4 IP addresses would be required.
+
 **Q. Does Application Gateway support x-forwarded-for headers?**
 
 Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
