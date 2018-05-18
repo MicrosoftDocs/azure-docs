@@ -52,8 +52,8 @@
 ### [Connected Factory solution walkthrough](iot-accelerators-connected-factory-sample-walkthrough.md)
 
 ## Device Simulation
-### [Deploy Device Simulation](../iot-suite/iot-suite-device-simulation-deploy.md)
-### [Explore Device Simulation](../iot-suite/iot-suite-device-simulation-explore.md)
+### [Deploy Device Simulation](iot-accelerators-device-simulation-deploy.md)
+### [Explore Device Simulation](iot-accelerators-device-simulation-explore.md)
 
 # How-to guides
 ## Remote Monitoring
@@ -65,19 +65,19 @@
 ### [Understand the device model schema](iot-accelerators-remote-monitoring-device-schema.md)
 ### [Understand the device model behavior](iot-accelerators-remote-monitoring-device-behavior.md)
 ### [Create a new simulated device](iot-accelerators-remote-monitoring-test.md)
-### [Visualize with PowerBI](../iot-suite/iot-suite-integrate-data-powerbi.md)
+### [Visualize with PowerBI](iot-accelerators-integrate-data-powerbi.md)
 ### [Customize the solution UI](iot-accelerators-remote-monitoring-customize.md)
-### [Customize and redeploy a microservice](../iot-suite/iot-suite-microservices-example.md)
+### [Customize and redeploy a microservice](iot-accelerators-microservices-example.md)
 ### [Deploy using the CLI](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [Deploy locally](iot-accelerators-remote-monitoring-deploy-local.md)
 ### [Visualize data with Time Series Insights](../iot-suite/iot-suite-time-series-insights.md)
-### [Integrate with Data Lake](../iot-suite/iot-suite-integrate-data-lake.md)
+### [Integrate with Data Lake](iot-accelerators-integrate-data-lake.md)
 ### Connect a physical device
 #### [C on Windows](iot-accelerators-connecting-devices.md)
 #### [C on Linux](iot-accelerators-connecting-devices-linux.md)
 #### [Node.js (generic)](iot-accelerators-connecting-devices-node.md)
-#### [Node.js on Raspberry Pi](../iot-suite/iot-suite-connecting-pi-node.md)
-#### [C on Raspberry Pi](../iot-suite/iot-suite-connecting-pi-c.md)
+#### [Node.js on Raspberry Pi](iot-accelerators-connecting-pi-node.md)
+#### [C on Raspberry Pi](iot-accelerators-connecting-pi-c.md)
 #### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Concepts
@@ -118,8 +118,8 @@
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-## [FAQ](../iot-suite/iot-suite-faq.md)
-## [Remote Monitoring FAQ](../iot-suite/iot-suite-faq-rm-v2.md)
-## [Connected Factory FAQ](../iot-suite/iot-suite-faq-cf.md)
+## [FAQ](iot-accelerators-faq.md)
+## [Remote Monitoring FAQ](iot-accelerators-faq-rm-v2.md)
+## [Connected Factory FAQ](iot-accelerators-faq-cf.md)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [IoT solution accelerators learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

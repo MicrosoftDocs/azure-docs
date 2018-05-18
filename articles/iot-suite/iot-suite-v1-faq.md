@@ -20,7 +20,7 @@ ms.author: corywink
 ---
 # Frequently asked questions for IoT Suite
 
-See also, the connected factory specific [FAQ](iot-suite-faq-cf.md).
+See also, the connected factory specific [FAQ](../iot-accelerators/iot-accelerators-faq-cf.md).
 
 ### Where can I find the source code for the preconfigured solutions?
 
