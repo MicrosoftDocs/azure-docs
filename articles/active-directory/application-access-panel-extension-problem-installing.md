@@ -121,4 +121,4 @@ Open a support ticket with the following information, if it is available:
 -   Fiddler traces
 
 ## Next steps
-[What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
