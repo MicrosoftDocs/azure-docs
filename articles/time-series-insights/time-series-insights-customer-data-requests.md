@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Customer data request features​
+title: Customer data request features​ in Azure Time Series Insights
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/17/2018
@@ -18,21 +18,25 @@ To view, export, and delete personal data that may be subject to a data subject 
 
 ## Identifying customer data
 
-Azure Time Series Insights considers personal data to be data associated with administrators and users of Time Series Insights. Time Series Insights stores the AAD object-ID of users with access to the environment. The Azure portal displays user email addresses, but these email addresses are not stored within Time Series Insights, they are dynamically looked up using the AAD object-ID and Azure Active Directory.
+Azure Time Series Insights considers personal data to be data associated with administrators and users of Time Series Insights. Time Series Insights stores the Azure Active Directory object-ID of users with access to the environment. The Azure portal displays user email addresses, but these email addresses are not stored within Time Series Insights, they are dynamically looked up using the Azure Active Directory object-ID in Azure Active Directory.
 
 ## Deleting customer data
 
-A tenant administrator can delete customer data using the Azure portal. For more information, see [To delete a user from an Azure tenant](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#to-delete-a-user-from-an-azure-tenant). However, before you do that, you should remove the user's access policies from the Time Series Insights environment within the Azure portal. For more information, see [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
+A tenant administrator can delete customer data using the Azure portal.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+
+However, before you delete customer data through the portal, you should remove the user's access policies from the Time Series Insights environment within the Azure portal. For more information, see [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
 
 You can also perform delete operations on access policies using the REST API. For more information, see [Access Policies - Delete](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/delete).
 
 Time Series Insights is integrated with the Policy blade in the Azure portal. Both Time Series Insights and the Policy blade enable you to view, export, and delete user data stored within the service. Any delete action taken within the Policy blade of the Azure portal results in the deletion of user data within Time Series Insights. For example, if a user has a saved personal query, that query is permanently deleted from the Time Series Insights explorer. If the user has a saved shared query, the query persists, but the user information is permanently deleted. The following note contains instructions on how to accomplish these tasks.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
-
 ## Exporting customer data
 
-Similarly to deleting data, a tenant administrator can view and export data stored in Time Series Insights from the Policy blade in the Azure portal. For more information, see [To export a user’s info from an Azure tenant](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#to-export-a-users-info-from-an-azure-tenant).
+Similarly to deleting data, a tenant administrator can view and export data stored in Time Series Insights from the Policy blade in the Azure portal.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 If you are a tenant administrator, you can view data access policies within the Time Series Insights environment in the Azure portal. For more information, see [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
 
