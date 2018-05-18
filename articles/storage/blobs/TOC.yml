@@ -197,47 +197,47 @@
   - name: Review requirements
     href: ../common/storage-import-export-requirements.md
   - name: Import data to blobs
-    href: ../common/storage-import-export-data-to-blobs
+    href: ../common/storage-import-export-data-to-blobs.md
   - name: Import data to files
-    href: ../common/storage-import-export-data-to-files
+    href: ../common/storage-import-export-data-to-files.md
   - name: Export data from blobs
-    href: ../common/storage-import-export-data-from-blobs      
+    href: ../common/storage-import-export-data-from-blobs.md      
   - name: How-to
     items:
     - name: View drive status
-      href: ../common/storage-import-export-view-drive-status
+      href: ../common/storage-import-export-view-drive-status.md
     - name: Review job status
-      href: ../common/storage-import-export-tool-reviewing-job-status-v1
+      href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
     - name: Repair import job
-      href: ../common/storage-import-export-tool-repairing-an-import-job-v1
+      href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
     - name: Repair export job
-      href: ../common/storage-import-export-tool-repairing-an-export-job-v1  
+      href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md  
   - name: FAQ
-    href: ../common/storage-import-export-service-faq
+    href: ../common/storage-import-export-service-faq.md
   - name: REST API
     href: https://docs.microsoft.com/rest/api/storageimportexport/jobs  
   - name: Contact Support
-    href: ../common/storage-import-export-contact-microsoft-support   
+    href: ../common/storage-import-export-contact-microsoft-support.md   
   - name: Archive
     items:
     - name: Create import job
-      href: ../common/storage-import-export-creating-an-import-job
+      href: ../common/storage-import-export-creating-an-import-job.md
     - name: Create export job
-      href: ../common/storage-import-export-creating-an-import-job
+      href: ../common/storage-import-export-creating-an-import-job.md
     - name: Get job state
-      href: ../common/storage-import-export-retrieving-state-info-for-a-job
+      href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
     - name: Create export job
-      href: ../common/storage-import-export-creating-an-import-job
+      href: ../common/storage-import-export-creating-an-import-job.md
     - name: Enumerate jobs
-      href: ../common/storage-import-export-enumerating-jobs
+      href: ../common/storage-import-export-enumerating-jobs.md
     - name: Cancel & delete job
-      href: ../common/ storage-import-export-cancelling-and-deleting-jobs
+      href: ../common/ storage-import-export-cancelling-and-deleting-jobs.md
     - name: Back up drive manifest
-      href: ../common/storage-import-export-backing-up-drive-manifests
+      href: ../common/storage-import-export-backing-up-drive-manifests.md
     - name: Enumerate jobs
-      href: ../common/storage-import-export-enumerating-jobs
+      href: ../common/storage-import-export-enumerating-jobs.md
     - name: Diagnostics & error recovery
-      href: ../common/storage-import-export-diagnostics-and-error-recovery
+      href: ../common/storage-import-export-diagnostics-and-error-recovery.md
     - name: Commands for import jobs
       href: ../common/storage-import-export-tool-quick-reference-v1.md
     - name: Service manifest file
