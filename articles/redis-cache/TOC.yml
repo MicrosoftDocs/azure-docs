@@ -48,6 +48,8 @@
       href: cache-how-to-premium-vnet.md
     - name: Distribute your cache with clustering
       href: cache-how-to-premium-clustering.md
+    - name: Migrate from Managed Cache Service
+      href: cache-migrate-to-redis.md
   - name: Automate
     items:
     - name: Deploy and manage using Azure Powershell

@@ -68,7 +68,7 @@ In Visual Studio, click **File** > **New** > **Project**.
 
 Under **Visual C#**, click **Windows Classic Desktop** and then click **Console App** and **OK** to create a new console application.
 
-## Configure the cache client
+## Configure the cache clients
 
 In Visual Studio, click **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
 
@@ -180,6 +180,63 @@ Cache items can be stored and retrieved by using the `StringSet` and `StringGet`
 Redis stores most data as Redis strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
 
 In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+
+![Console app partially complete](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png)
+
+
+## Work with .NET objects in the cache
+
+Azure Redis Cache can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized. This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
+
+One simple way to serialize objects is to use the `JsonConvert` serialization methods in [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) and serialize to and from JSON. 
+
+In Visual Studio, click **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
+
+```powershell
+Install-Package Newtonsoft.Json
+```
+
+Add the following `using` statement to the top of *Program.cs*:
+
+```charp
+using Newtonsoft.Json;
+```
+
+Add the following `Employee` class definition to *Program.cs*:
+
+```csharp
+        class Employee
+        {
+            public string Id { get; set; }
+            public string Name { get; set; }
+            public int Age { get; set; }
+
+            public Employee(string EmployeeId, string Name, int Age)
+            {
+                this.Id = EmployeeId;
+                this.Name = Name;
+                this.Age = Age;
+            }
+        }
+```
+
+In *Program.cs* At the bottom of `Main()` procedure, and before the call to `Dispose()`, add the following lines of code to cache and retrieve a serialized .NET object:
+
+```csharp
+            // Store .NET object to cache
+            Employee e007 = new Employee("007", "Wes McSwain", 100);
+            Console.WriteLine("Cache response from storing Employee .NET object : " + 
+                cache.StringSet("e007", JsonConvert.SerializeObject(e007)));
+
+            // Retrieve .NET object from cache
+            Employee e007FromCache = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e007"));
+            Console.WriteLine("Deserialized Employee .NET object :\n");
+            Console.WriteLine("\tEmployee.Name : " + e007FromCache.Name);
+            Console.WriteLine("\tEmployee.Id   : " + e007FromCache.Id);
+            Console.WriteLine("\tEmployee.Age  : " + e007FromCache.Age + "\n");
+```
+
+Press **Ctrl+F5** to build and run the console app to test serialization of .NET objects.
 
 ![Console app completed](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
 
