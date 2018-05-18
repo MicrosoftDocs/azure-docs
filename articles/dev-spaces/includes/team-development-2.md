@@ -21,7 +21,7 @@ manager: "douge"
 Name         Space     Chart              Ports   Updated     Access Points
 -----------  --------  -----------------  ------  ----------  -------------
 mywebapi     scott     mywebapi-0.1.0     80/TCP  15s ago     http://localhost:61466
-webfrontend  default  webfrontend-0.1.0  80/TCP  5h ago      http://scott-webfrontend-contosodev.1234abcdef.westeurope.aksapp.io
+webfrontend  default  webfrontend-0.1.0  80/TCP  5h ago      http://scott-webfrontend-contosodev.1234abcdef.eastus.aksapp.io
 ```
 
 ![](../media/common/space-routing.png)
