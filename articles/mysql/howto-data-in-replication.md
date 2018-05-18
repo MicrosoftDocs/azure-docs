@@ -29,7 +29,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
 
 2. Create same user accounts and corresponding privileges
 
-   Since user accounts are not replicated from the primary server to replica server, you need to manually create all accounts and corresponding privileges on this newly created MySQL server.
+   User accounts are not replicated from the primary server to the replica server. You need to manually create all accounts and corresponding privileges on this newly created Azure Database for MySQL server.
 
 ## Configure the primary server
 
@@ -61,7 +61,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
 
    *Replication with SSL*
 
-   Creating a user with “require SSL” ensures that the user’s connections to the server must always use SSL.
+   “Require SSL” ensures that a user’s connections to the server always uses SSL.
 
    ```sql
    CREATE USER 'syncuser'@'%.companya.com' IDENTIFIED BY 'yourpassword';
@@ -83,7 +83,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
 
    Type in the username into the “Login Name” field. 
 
-   ![Syncuser](./media/howto-data-in-replication/syncuser.png)
+   ![Sync user](./media/howto-data-in-replication/syncuser.png)
  
    Click on the “Administrative Roles” panel and then select “Replication Slave” from the list of “Global Privileges”. Then click on “Apply” to create the user account.
 
@@ -92,7 +92,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
 
 4. Set the primary server to read-only mode
 
-   Before starting to dump out the database, the server needs to be locked. Evaluate the impact to your business and schedule the maintenance window in an off-peak time if required.
+   Before starting to dump out the database, the server needs to be locked. Evaluate the impact to your business and schedule the maintenance window in an off-peak time if necessary.
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
@@ -106,7 +106,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
    ```sql
    show master status;
    ```
-   The results should be like following. Please note the binary file name as it will be used in later steps.
+   The results should be like following. Make sure to note the binary file name as it will be used in later steps.
 
    ![Master Status Results](./media/howto-data-in-replication/masterstatus.png)
  
@@ -127,7 +127,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
 
 3. Restore dump file to new server
 
-   Restore the dump file to the server created in the Azure Database for MySQL service. Refer to [Dump & Restore](concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, please upload it to virtual machine on Azure within the same region as your replica server, and then restore it into the MySQL server from the virtual machine.
+   Restore the dump file to the server created in the Azure Database for MySQL service. Refer to [Dump & Restore](concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL server from the virtual machine.
 
 ## Link primary and replica servers to start Data-in Replication
 
@@ -135,7 +135,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
 
    All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](reference-data-in-stored-procedures.md). The stored procedures can be run in the MySQL shell or MySQL Workbench. 
 
-   To link two servers and start replication, you need to logon to your target replica server in the Azure DB for MySQL service and set the external instance as the primary server by using the `mysql.az_replication_change_primary` stored procedure on the Azure DB for MySQL server.
+   To link two servers and start replication, login to the target replica server in the Azure DB for MySQL service and set the external instance as the primary server. This is done by using the `mysql.az_replication_change_primary` stored procedure on the Azure DB for MySQL server.
 
    ```sql
    CALL mysql.az_replication_change_primary('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
@@ -147,7 +147,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
    - master_log_file: binary log file name from running `show master status`
    - master_log_pos: binary log position from running `show master status`
    - master_ssl_ca: CA certificate’s context. If not using SSL, pass in empty string.
-       - It is recommended to pass this parameter in as a variable. Please see example below for more information. 
+       - It is recommended to pass this parameter in as a variable. See example below for more information. 
 
    **Examples**
 
@@ -176,7 +176,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
 
 2. Start replication
 
-   Call stored procedure `mysql.az_replication_start` to initiate replication.
+   Call the `mysql.az_replication_start` stored procedure to initiate replication.
 
    ```sql
    CALL mysql.az_replication_start;

@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 05/18/2018
 ---
 
-# Replicate data from multiple cloud or on-premises databases to Azure Database for MySQL
+# Replicate data into Azure Database for MySQL
 
 Data-in Replication allows you to synchronize data from a MySQL server that is running locally on-premises or in other hosted cloud locations into an Azure Database for MySQL server.
 
 ## When to use Data-in Replication
-Data-in Replication is useful in cases where data needs to be kept up-to-date across multiple Azure Database for MySQL servers or on-premises MySQL servers. The main scenarios to consider are:
+Data-in Replication can be used in cases where data needs to be kept up-to-date across Azure Database for MySQL or on-premises MySQL servers. The main scenarios to consider are:
 
-- **Hybrid Data Synchronization:** With Data-in Replication, you can keep data synchronized between your on-premises servers and Azure Database for MySQL. This synchronization is useful for creating hybrid applications. This capability is appealing when you have an existing local database server but want to move the data to a region closer to end users. It is also appealing when you consider migrating on-premises databases to the cloud and would like to host the application tiers in Azure as well.
-- **Multi-Cloud Synchronization:** For complex cloud solutions, use Data-in Replication, to synchronize data between different cloud providers, ISV, or MySQL servers hosted in virtual machines into Azure Database for MySQL.
+- **Hybrid Data Synchronization:** With Data-in Replication, you can keep data synchronized between your on-premises servers and Azure Database for MySQL. This synchronization is useful for creating hybrid applications. This capability is appealing when you have an existing local database server, but want to move the data to a region closer to end users.
+- **Multi-Cloud Synchronization:** For complex cloud solutions, use Data-in Replication to synchronize data between Azure Database for MySQL and different cloud providers, ISVs, or MySQL servers hosted in virtual machines.
 
 ## Limitations and considerations
 
@@ -35,4 +35,4 @@ The mysql system database on the primary server is not replicated. This includes
 - Global transaction identifiers (GTID) are not supported.
 
 ## Next steps
-- Learn how to [set up data-in replication]()
+- Learn how to [set up data-in replication](howto-data-in-replication.md)
