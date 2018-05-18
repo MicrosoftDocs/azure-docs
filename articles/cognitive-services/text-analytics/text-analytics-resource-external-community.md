@@ -38,7 +38,7 @@ ms.author: heidist
 
 ## Next steps
 
-Are you looking for information about a feature or use-case that we don't cover? Consider requesting or voting for it on [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
+Are you looking for information about a feature or use-case that we don't cover? Consider requesting or voting for it on [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
 ## See also
 
