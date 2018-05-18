@@ -16,7 +16,7 @@ ms.author: billmath
 ---
 
 # Troubleshoot object synchronization with Azure AD Connect sync
-This document provides steps for how to troubleshoot issues with object synchronization using the troubleshooting task.
+This document provides steps for how to troubleshoot issues with object synchronization using the troubleshooting task. To see how troubleshooting in Azure AD Connect works, [please watch this short video](https://aka.ms/AADCTSVideo).
 
 ## Troubleshooting task
 For Azure Active Directory (AAD) Connect deployment with version 1.1.749.0 or higher, use the troubleshooting task in the wizard to troubleshoot object synchronization issues. For earlier versions, please troubleshoot manually as described [here](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
