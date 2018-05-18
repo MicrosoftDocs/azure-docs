@@ -172,7 +172,13 @@
       "url": "https://github.com/Microsoft/tsiclient",
       "branch": "tutorial",
       "branch_mapping": {}
-    }
+    },
+    {
+      "path_to_root": "media-services-v3-dotnet-core-tutorials",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials",
+      "branch": "master",
+      "branch_mapping": {}
+    }    
   ],
   "branch_target_mapping": {
     "live": [
