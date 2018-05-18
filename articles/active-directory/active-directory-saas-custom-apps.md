@@ -51,7 +51,7 @@ Adding an application this way provides a similar experience to the one availabl
   
 ![](./media/active-directory-saas-custom-apps/customapp3.png)
 
-## SAML based sign-on
+## SAML-based single sign-on
 Select this option to configure SAML-based authentication for the application. This requires that the application support SAML 2.0. You should collect information on how to use the SAML capabilities of the application before continuing. Complete the following sections to configure single sign-on between the application and Azure AD.
 
 ### Enter basic SAML configuration
@@ -159,7 +159,7 @@ For more information, see [How to debug SAML-based single sign-on to application
 
 
 
-## Password Single Sign-On
+## Password single sign-on
 Select this option to configure [password-based single sign-on](manage-apps/what-is-single-sign-on.md) for a web application that has an HTML sign-in page. Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios where several users need to share a single account, such as to your organization's social media app accounts. 
 
 After selecting **Next**, you will be prompted to enter the URL of the application's web-based sign-in page. Note that this must be the page that includes the username and password input fields. Once entered, Azure AD starts a process to parse the sign-in page for a username input and a password input. If the process is not successful, then it guides you through an alternate process of installing a browser extension (requires Internet Explorer, Chrome, or Firefox) that will allow you to manually capture the fields.
@@ -170,7 +170,7 @@ Once the sign-in page is captured, users and groups may be assigned and credenti
 > You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application. 
 >
 
-## Existing Single Sign-On
+## Existing single sign-on
 Select this option to add a link to an application to your organization's Azure AD Access Panel or Office 365 portal. You can use this to add links to custom web apps that currently use Azure Active Directory Federation Services (or other federation service) instead of Azure AD for authentication. Or, you can add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels. 
 
 After selecting **Next**, you will be prompted to enter the URL of the application to link to. Once completed, users and groups may be assigned to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) for those users.
