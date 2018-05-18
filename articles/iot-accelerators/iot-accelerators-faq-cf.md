@@ -20,7 +20,7 @@ ms.author: dobett
 ---
 # Frequently asked questions for Connected Factory solution accelerator
 
-See also, the general [FAQ](iot-suite-faq.md) for IoT solution accelerators.
+See also, the general [FAQ](iot-accelerators-faq.md) for IoT solution accelerators.
 
 ### Where can I find the source code for the solution accelerator?
 
@@ -155,7 +155,7 @@ If you don't have a Bing Maps API for Enterprise plan, deploy the Connected Fact
 
 You can get a free *Internal Transactions Level 1 Bing Maps for Enterprise* plan. However, you can only add two of these plans to an Azure subscription. If you don't have a Bing Maps API for Enterprise account, create one in the Azure portal by clicking **+ Create a resource**. Then search for **Bing Maps API for Enterprise** and follow the prompts to create it.
 
-![Bing key](media/iot-suite-faq-cf/bing.png)
+![Bing key](./media/iot-accelerators-faq-cf/bing.png)
 
 ### How to obtain your Bing Maps API for Enterprise QueryKey
 
@@ -183,7 +183,7 @@ To change the static image shown io the home page of the dashboard, replace the 
 
 To send telemetry data from non OPC UA devices to Connected Factory:
 
-1. [Configure a new station in the Connected Factory topology](../iot-accelerators/iot-accelerators-connected-factory-configure.md) in the `ContosoTopologyDescription.json` file.
+1. [Configure a new station in the Connected Factory topology](iot-accelerators-connected-factory-configure.md) in the `ContosoTopologyDescription.json` file.
 
 1. Ingest the telemetry data in Connected Factory compatible JSON format:
 
@@ -209,6 +209,6 @@ To send telemetry data from non OPC UA devices to Connected Factory:
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Predictive Maintenance solution accelerator overview](iot-suite-predictive-overview.md)
-* [Connected Factory solution accelerator overview](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
-* [IoT security from the ground up](securing-iot-ground-up.md)
+* [Predictive Maintenance solution accelerator overview](../iot-suite/iot-suite-predictive-overview.md)
+* [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
+* [IoT security from the ground up](../iot-suite/securing-iot-ground-up.md)

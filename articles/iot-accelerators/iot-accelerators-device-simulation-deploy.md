@@ -37,11 +37,11 @@ Before you deploy the solution to your Azure subscription, you must choose some 
 
 1. Sign in to [azureiotsuite.com](https://www.azureiotsuite.com) using your Azure account credentials, and click **+** to create a new solution:
 
-    ![Create a new solution](media/iot-suite-device-simulation-deploy/createnewsolution.png)
+    ![Create a new solution](./media/iot-accelerators-device-simulation-deploy/createnewsolution.png)
 
 1. Click **Select** on the **Device Simulation** tile:
 
-    ![Choose Device Simulation](media/iot-suite-device-simulation-deploy/select.png)
+    ![Choose Device Simulation](./media/iot-accelerators-device-simulation-deploy/select.png)
 
 1. On the **Create Device Simulation solution** page, enter a **Solution name** for your Device Simulation solution.
 
@@ -51,7 +51,7 @@ Before you deploy the solution to your Azure subscription, you must choose some 
 
 1. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run:
 
-    ![Device Simulation solution details](media/iot-suite-device-simulation-deploy/createsolution.png)
+    ![Device Simulation solution details](./media/iot-accelerators-device-simulation-deploy/createsolution.png)
 
 ## Sign in to the solution
 
@@ -59,14 +59,14 @@ When the provisioning process is complete, you can sign in to your Device Simula
 
 1. On the **Provisioned solutions** page, click **Launch** under your new Device Simulation solution:
 
-    ![Choose new solution](media/iot-suite-device-simulation-deploy/newsolution.png)
+    ![Choose new solution](./media/iot-accelerators-device-simulation-deploy/newsolution.png)
 
 1. You can view information about your Device Simulation solution in the panel that appears. Choose **Solution dashboard** to connect to your Device Simulation solution.
 
     > [!NOTE]
     > You can delete your Device Simulation solution from this panel when you are finished with it.
 
-    ![Solution panel](media/iot-suite-device-simulation-deploy/properties.png)
+    ![Solution panel](./media/iot-accelerators-device-simulation-deploy/properties.png)
 
 1. The Device Simulation solution dashboard displays in your browser.
 
@@ -79,6 +79,6 @@ In this tutorial, you learned how to:
 > * Deploy the solution
 > * Sign in to the solution
 
-Now that you have deployed the Device Simulation solution, the next step is to [explore the capabilities of the Device Simulation solution](./iot-suite-device-simulation-explore.md).
+Now that you have deployed the Device Simulation solution, the next step is to [explore the capabilities of the Device Simulation solution](iot-accelerators-device-simulation-explore.md).
 
 <!-- Next tutorials in the sequence -->
