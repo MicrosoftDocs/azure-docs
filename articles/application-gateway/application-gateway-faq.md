@@ -153,7 +153,7 @@ This scenario can be done using NSGs on Application Gateway subnet. The followin
 
 * Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](application-gateway-diagnostics.md).
 
-* Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](../virtual-network/virtual-networks-nsg.md).
+* Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](../virtual-network/security-overview.md).
 
 * Block all other incoming traffic with a Deny all rule.
 
