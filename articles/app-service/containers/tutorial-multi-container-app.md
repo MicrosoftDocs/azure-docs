@@ -56,7 +56,7 @@ You should get a JSON output, with the password shown as `null`. If you get a `'
 You create this deployment user only once; you can use it for all your Azure deployments.
 
 > [!NOTE]
-> Record the user name and password. You need them to deploy the web app later.
+> Record the user name and password. You use them to deploy the web app later.
 >
 >
 
@@ -108,7 +108,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
 
 ## Docker Compose configuration options
 
-For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you need to modify it in order to run it in Web App for Containers. Alternatively, you can use a [Kubernetes configuration](#use-a-kubernetes-configuration-optional). The configuration files can be found at [Azure Samples](https://raw.githubusercontent.com/Azure-Samples/multi-container/master/).
+For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it include Azure Database for MySQL, persistent storage and Redis. Alternatively, you can use a [Kubernetes configuration](#use-a-kubernetes-configuration-optional). The configuration files can be found at [Azure Samples](https://raw.githubusercontent.com/Azure-Samples/multi-container/master/).
 
 The following lists show supported and unsupported Docker Compose configuration options in Web App for Containers:
 
@@ -175,7 +175,7 @@ Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app m
 
 ## Connect to production database
 
-It's not recommended to use database containers in a production environment. The local containers are not scalable. Instead, you will use Azure Database for MySQL which can be scaled. This will ensure your app is production-ready.
+It's not recommended to use database containers in a production environment. The local containers aren't scalable. Instead, you'll use Azure Database for MySQL which can be scaled.
 
 ### Create an Azure Database for MySQL server
 
@@ -236,7 +236,7 @@ When the database has been created, the Azure CLI shows information similar to t
 
 ### Configure database variables in WordPress
 
-To connect the WordPress app to this new MySQL server, you need to configure a few WordPress-specific environment variables, including the SSL CA path defined by `MYSQL_SSL_CA`. The [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) from [DigiCert](http://www.digicert.com/) is provided in the [custom image](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) below.
+To connect the WordPress app to this new MySQL server, you'll configure a few WordPress-specific environment variables, including the SSL CA path defined by `MYSQL_SSL_CA`. The [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) from [DigiCert](http://www.digicert.com/) is provided in the [custom image](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) below.
 
 To make these changes, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the local command-prompt terminal. App settings are case-sensitive and space-separated.
 
@@ -278,7 +278,7 @@ When the app setting has been created, the Azure CLI shows information similar t
 
 ### Use a custom image for MySQL SSL and other configurations
 
-By default, SSL is used by Azure Database for MySQL, however WordPress requires additional configuration to use SSL with Azure Database for MySQL. The WordPress 'official image' doesn't provide the additional configuration, but a [custom image](https://github.com/msangapu/wordpress) has been prepared fo your convenience. In practice, you would add desired changes to your own image.
+By default, SSL is used by Azure Database for MySQL. WordPress requires additional configuration to use SSL with MySQL. The WordPress 'official image' doesn't provide the additional configuration, but a [custom image](https://github.com/msangapu/wordpress) has been prepared fo your convenience. In practice, you would add desired changes to your own image.
 
 The custom image is based on the 'official image' of [WordPress from Docker Hub](https://hub.docker.com/_/wordpress/). The following changes have been made in this custom image for Azure Database for MySQL:
 
@@ -286,13 +286,13 @@ The custom image is based on the 'official image' of [WordPress from Docker Hub]
 * [Uses App Setting for MySQL SSL Certificate Authority certificate in WordPress wp-config.php.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L163)
 * [Adds WordPress define for MYSQL_CLIENT_FLAGS needed for MySQL SSL.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L164)
 
-In addition, the following changes have been made for Redis (to be used in a later section):
+The following changes have been made for Redis (to be used in a later section):
 * [Adds PHP extension for Redis v4.0.2.](https://github.com/msangapu/wordpress/blob/0903507e9b506e7962f3c0d84f8382979eb2e530/Dockerfile#L35)
 * [Adds unzip needed for file extraction.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L71)
 * [Adds Redis Object Cache 1.3.8 WordPress plugin.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L74)
 * [Uses App Seting for Redis host name in WordPress wp-config.php.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L162)
 
-To use the custom image, you will update your compose-wordpress.yml file. Change the `image: wordpress` to use `image: msangapu/wordpress`. You no longer need the database container. Remove the  `db`, `environment`, `depends_on`, and `volumes` section from the configuration file. Your file should look like the following code:
+To use the custom image, you'll update your compose-wordpress.yml file. Change the `image: wordpress` to use `image: msangapu/wordpress`. You no longer need the database container. Remove the  `db`, `environment`, `depends_on`, and `volumes` section from the configuration file. Your file should look like the following code:
 
 ```yaml
 version: '3.3'
@@ -332,7 +332,7 @@ Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app i
 
 ## Add persistent storage
 
-Your multi-container is now running in Web App for Containers. However, if you install WordPress now and restart your app later, you'll find that your WordPress installation is gone. This is because your Docker Compose configuration currently points to a storage location inside your container. The files installed into your container do not persist beyond app restart. In this section, you'll add persistent storage to your WordPress container.
+Your multi-container is now running in Web App for Containers. However, if you install WordPress now and restart your app later, you'll find that your WordPress installation is gone. This is because your Docker Compose configuration currently points to a storage location inside your container. The files installed into your container don't persist beyond app restart. In this section, you'll add persistent storage to your WordPress container.
 
 ### Configure environment variables
 
@@ -364,7 +364,7 @@ When the app setting has been created, the Azure CLI shows information similar t
 
 Open *compose-wordpress.yml* again.
 
-The `volumes` option maps the file system to a directory within the container. `${WEBAPP_STORAGE_HOME}` is an environment variable in App Service that is mapped to persistent storage for your app. You need to use this environment variable in the volumes option so that the WordPress files are actually installed into persistent storage instead of the container. Make the following modifications to the file:
+The `volumes` option maps the file system to a directory within the container. `${WEBAPP_STORAGE_HOME}` is an environment variable in App Service that is mapped to persistent storage for your app. You'll use this environment variable in the volumes option so that the WordPress files are installed into persistent storage instead of the container. Make the following modifications to the file:
 
 In the `wordpress` section, add a `volumes` option as shown in the following code:
 
@@ -595,7 +595,7 @@ When the database has been created, the Azure CLI shows information similar to t
 
 ### Configure database variables in WordPress
 
-To connect the WordPress app to this new MySQL server, you need to configure a few WordPress-specific environment variables. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the local command-prompt terminal. App settings are case-sensitive and space-separated.
+To connect the WordPress app to this new MySQL server, you'll configure a few WordPress-specific environment variables. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the local command-prompt terminal. App settings are case-sensitive and space-separated.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
