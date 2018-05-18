@@ -84,7 +84,7 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
     Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls "<ReplyURLs>"
     ```
 
-For more information, see p[SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports](./develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
+For more information, see [SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
 
 
 ### Review or customize the claims issued in the SAML token**
@@ -151,7 +151,7 @@ From the single sign-on page, click on **Test SAML settings ** under the Domain 
 2.	If you see any error in your company sign-in page, copy the error and go back to Azure AD testing single sign-on content pane. Paste the error into the box and click on **Get resolution steps**. If the error is on the application’s page, you need to contact the application vendor and share your configuration on Azure AD to validate the values. 
 3.	Based on the error, Azure AD provides specific steps on how to resolve the issue.
 
-For more information, see [How to debug SAML-based single sign-on to applications in Azure Active Directory](./develop/active-directory-saml-debugging/?WT.mc_id=DMC_AAD_?WT.mc_id=UI_AAD_Configure_NonGalleryApps)
+For more information, see [How to debug SAML-based single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-debugging/?WT.mc_id=DMC_AAD_?WT.mc_id=UI_AAD_Configure_NonGalleryApps)
 
 
 
