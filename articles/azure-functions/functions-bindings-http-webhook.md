@@ -34,6 +34,8 @@ The HTTP bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Http](
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## Trigger
 
 The HTTP trigger lets you invoke a function with an HTTP request. You can use an HTTP trigger to build serverless APIs and respond to webhooks. 
