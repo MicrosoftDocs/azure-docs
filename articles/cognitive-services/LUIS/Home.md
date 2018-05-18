@@ -46,9 +46,10 @@ After the model is designed, trained, and published, it is ready to receive and 
 
 ![LUIS recognizes user intent](./media/luis-overview/luis-overview-process.png)
 
-## Key LUIS concepts
+<a href="#Key-LUIS-concepts">
+## A LUIS model includes
 
-* **Intents** An [intent][add-intents] represents actions the user wants to perform. The intent is a purpose or goal expressed in a user's input, such as booking a flight, paying a bill, or finding a news article. You define and name intents that correspond to these actions. A travel app may define an intent named "BookFlight." 
+* **Intents** An [intent][add-intents], short for _intention_, is a purpose or goal expressed in a user's input, such as booking a flight, paying a bill, or finding a news article. You create an intent for each action. A travel app may define an intent named "BookFlight." 
 * **Utterances** An [utterance][add-example-utterances] is text input from the user that your app needs to understand. It may be a sentence, like "Book a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight." Utterances aren't always well-formed, and there can be many utterance variations for a particular intent. 
 * **Entities** An [entity][add-entities] represents detailed information that is relevant in the utterance. For example, in the utterance "Book a ticket to Paris", "Paris" is a location. By recognizing and labeling the entities that are mentioned in the user’s utterance, LUIS helps you choose the specific action to take to answer a user's request. 
 
@@ -58,10 +59,12 @@ After the model is designed, trained, and published, it is ready to receive and 
 |StoreHoursAndLocation|"When does your store __open__?"|open|
 |ScheduleMeeting|"Schedule a meeting at __1pm__ with __Bob__ in Distribution"|1pm, Bob|
 
-## Accessing LUIS
+## Developing the LUIS model
 
 LUIS has two ways to build a model: the [Authoring REST-based APIs][authoring-apis] and the [LUIS][LUIS] website. Both methods give you and your collaborators control of your LUIS model definition. You can use either the [LUIS][LUIS] website or the Authoring APIs or a combination of both to build your model. This management includes models, versions, collaborators, external APIs, testing, and training. 
 
+<a href= "#Accessing-LUIS">
+## Accessing the LUIS model
 Once your model is built and published, you pass the utterance to LUIS and receive the JSON object results with the [Endpoint REST-based APIs][endpoint-apis].
 
 > [!NOTE]
