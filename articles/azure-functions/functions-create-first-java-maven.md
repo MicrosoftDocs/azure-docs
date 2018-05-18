@@ -42,7 +42,7 @@ To develop functions app with Java, you must have the following installed:
 
 The Azure Functions Core Tools provide a local development environment for writing, running, and debugging Azure Functions from the terminal or command prompt. 
 
-You must [install version 2 of the Core Tools](functions-run-local.md#v2) on your local computer before you can continue.
+Install [version 2 of the Core Tools](functions-run-local.md#v2) on your local computer before continuing.
 
 ## Generate a new Functions project
 
@@ -177,7 +177,7 @@ Hello AzureFunctions!
 
 ## Next steps
 
-You have created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
+You've created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
 
 - Review the  [Java Functions developer guide](functions-reference-java.md) for more information on developing Java functions.
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
