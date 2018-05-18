@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure end-to-end SSL with Azure Application Gateway
 description: This article describes how to configure end-to-end SSL with Azure Application Gateway by using PowerShell
 services: application-gateway
@@ -24,7 +24,7 @@ Azure Application Gateway supports end-to-end encryption of traffic. Application
 Application Gateway supports defining custom SSL options. It also supports disabling the following protocol versions: **TLSv1.0**, **TLSv1.1**, and **TLSv1.2**, as well defining which cipher suites to use and the order of preference. To learn more about configurable SSL options, see the [SSL policy overview](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
-> SSL 2.0 and SSL 3.0 are disabled by default and cannot be enabled. They are considered unsecure and cannot be used with Application Gateway.
+> SSL 2.0 and SSL 3.0 are disabled by default and cannot be enabled. They are considered insecure and cannot be used with Application Gateway.
 
 ![scenario image][scenario]
 
