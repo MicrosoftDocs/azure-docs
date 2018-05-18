@@ -28,14 +28,18 @@ This article explains how to work with Azure Blob storage bindings in Azure Func
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+> [!NOTE]
+> Use the Event Grid trigger instead of the Blob storage trigger for blob-only storage accounts, for high scale, or to avoid cold-start delays. For more information, see the [Trigger](#trigger) section. 
+
 ## Packages
 
 The Blob storage bindings are provided in the [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub repository.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-> [!NOTE]
-> Use the Event Grid trigger instead of the Blob storage trigger for blob-only storage accounts, for high scale, or to avoid cold-start delays. For more information, see the following **Trigger** section. 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## Trigger
 
