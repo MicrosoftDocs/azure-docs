@@ -16,7 +16,7 @@ ms.date: 04/10/2018
 ms.author: arluca
 ---
 
-# Use a Windows VM MSI to access Azure Cosmos DB
+# Tutorial: Use a Windows VM MSI to access Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

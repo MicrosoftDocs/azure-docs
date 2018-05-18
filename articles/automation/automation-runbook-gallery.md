@@ -86,6 +86,9 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 10. You receive an initial notification that the module is being deployed and another notification when it has completed.
 11. After the module is imported, you can see the available activities, and you can use its resources in your runbooks and Desired State Configuration.
 
+> [!NOTE]
+> Modules that only support PowerShell core are not supported in Azure Automation and are unable to be imported in the Azure portal, or deployed directly from the PowerShell Gallery.
+
 ## Requesting a runbook or module
 You can send requests to [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
