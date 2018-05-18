@@ -106,7 +106,7 @@ Next, create a graph container by using the using the [CreateDocumentCollectionA
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
     UriFactory.CreateDatabaseUri("graphdb"), 
     new DocumentCollection { Id = "graphcollz" }, 
-    new RequestOptions { OfferThroughput = 1000 }); 
+    new RequestOptions { OfferThroughput = 400 }); 
 ``` 
 
 ## <a id="serializing"></a>Serialize vertices and edges to .NET objects
@@ -164,13 +164,13 @@ foreach (KeyValuePair<string, string> gremlinQuery in gremlinQueries)
 
 ## Add vertices and edges
 
-Let's look at the Gremlin statements shown in the preceding section more detail. First we some vertices using Gremlin's `addV` method. For example, the following snippet creates a "Thomas Andersen" vertex of type "Person", with properties for first name, last name, and age.
+Let's look at more details about the Gremlin statements shown in the preceding section. First we add some vertices using Gremlin's `addV` method. For example, the following snippet creates a "Thomas Andersen" vertex of type "person", with properties for first name, and age.
 
 ```cs
 // Create a vertex
 IDocumentQuery<Vertex> createVertexQuery = client.CreateGremlinQuery<Vertex>(
     graphCollection, 
-    "g.addV('person').property('firstName', 'Thomas')");
+    "g.addV('person').property('firstName', 'Thomas').property('age', 44)");
 
 while (createVertexQuery.HasMoreResults)
 {

@@ -3,7 +3,7 @@ title: SSH into Azure Kubernetes Service (AKS) cluster nodes
 description: Create an SSH connection with an Azure Kubernetes Service (AKS) cluster nodes
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # SSH into Azure Kubernetes Service (AKS) cluster nodes
 
-Occasionally, you may need to access an Azure Kubernetes Service (AKS) node for maintenance, log collection, or other troubleshooting operations. Azure Kubernetes Service (AKS) nodes are not exposed to the internet. Use the steps detailed in this document to create an SSH connection with an AKS node.
+Occasionally, you may need to access an Azure Kubernetes Service (AKS) node for maintenance, log collection, or other troubleshooting operations. AKS nodes are not exposed to the internet. Use the steps detailed in this document to create an SSH connection with an AKS node.
 
 ## Reset SSH keys
 
@@ -28,7 +28,7 @@ Select **Reset SSH public key**, enter the AKS cluster username, which is **azue
 
 ![AKS portal VM with reset password button](media/aks-ssh/reset-password-2.png)
 
-Once the SSH key has been reset, you can create an SSH connecting using the corresponding private key.
+Once the SSH key has been reset, you can create an SSH connection using the corresponding private key.
 
 ## Get AKS node address
 

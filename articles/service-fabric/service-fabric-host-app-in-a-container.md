@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/07/2018
-ms.author: ryanwi,mikhegn
+ms.author: ryanwi
 ---
 
 # Tutorial: Deploy a .NET application in a Windows container to Azure Service Fabric
@@ -176,12 +176,13 @@ $vnet = Get-AzureRmVirtualNetwork `
 
 Write-Host "Get the subnet in the virtual network:"
 
+# Get the subnet, assume the first subnet contains the Service Fabric cluster.
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet | Select-Object -first 1
+
 $subnetName = $subnet.Name
 $subnetID = $subnet.Id
 $addressPrefix = $subnet.AddressPrefix
 
-# Get the subnet, assume the first subnet contains the Service Fabric cluster.
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet | Select-Object -first 1
 Write-Host "Subnet name: " $subnetName " Address prefix: " $addressPrefix " ID: " $subnetID
 
 # Assign a Virtual Service endpoint 'Microsoft.Sql' to the subnet.

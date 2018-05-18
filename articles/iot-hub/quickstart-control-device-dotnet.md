@@ -63,13 +63,15 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyDotnetDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDotnetDevice
     ```
+
+    If you choose a different name for your device, update the device name in the sample applications before you run them.
 
 1. Run the following command to get the _device connection string_ for the device you just registered:
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
     ```
 
     Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.

@@ -14,7 +14,7 @@ manager: mtillman
 ms.reviewer: richagi
 
 ---
-#  Integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD
+# Integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD
 
 This article provides details for integrating your Remote Desktop Gateway infrastructure with Azure Multi-Factor Authentication (MFA) using the Network Policy Server (NPS) extension for Microsoft Azure. 
 
@@ -142,8 +142,8 @@ If you want to use your own certificates, you need to associate the public key o
 To use the script, provide the extension with your Azure AD Admin credentials and the Azure AD tenant ID that you copied earlier. Run the script on each NPS server where you installed the NPS extension. Then do the following:
 
 1. Open an administrative Windows PowerShell prompt.
-2. At the PowerShell prompt, type **cd ‘c:\Program Files\Microsoft\AzureMfa\Config’**, and press **ENTER**.
-3. Type _.\AzureMfsNpsExtnConfigSetup.ps1_, and press **ENTER**. The script checks to see if the Azure Active Directory PowerShell module is installed. If not installed, the script installs the module for you.
+2. At the PowerShell prompt, type `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`, and press **ENTER**.
+3. Type `.\AzureMfsNpsExtnConfigSetup.ps1`, and press **ENTER**. The script checks to see if the Azure Active Directory PowerShell module is installed. If not installed, the script installs the module for you.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   

@@ -3,21 +3,23 @@ title: Azure Active Directory code samples | Microsoft Docs
 description: Provides an index of available Azure Active Directory (V2 endpoint) code samples, organized by scenario.
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2018
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-
 ---
+
 # Azure Active Directory code samples (V2 endpoint)
 
 You can use Microsoft Azure Active Directory (Azure AD) to:

@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/08/2016
+ms.date: 05/10/2016
 ms.author: sethm
 
 ---
@@ -17,10 +17,10 @@ Azure Service Bus employs multiple message brokers to process messages and multi
 
 For information about Service Bus internals, see the [Service Bus architecture][Service Bus architecture] article.
 
-The following considerations apply:
-
-- Partitioning is available at entity creation for all queues and topics in Premium messaging, but it is not enabled by default. You must explicitly enable partitioning in the entity options in the Azure portal. 
-- It is not possible to change the partitioning option on an existing queue or topic; you can only set the option when you create the entity.
+> [!NOTE]
+> Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces will work as expected.
+ 
+It is not possible to change the partitioning option on any existing queue or topic; you can only set the option when you create the entity.
 
 ## How it works
 
@@ -40,9 +40,7 @@ In the Standard messaging tier, you can create Service Bus queues and topics in 
 
 ### Premium
 
-In a Premium tier namespace, you can create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). With partitioning enabled by default, Service Bus creates two partitions per entity. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
-
-For more information about partitioning in the Premium messaging tier, see [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md). 
+In a Premium tier namespace, partitioning is not supported. However, you can create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). You can see the size of your queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
 
 ### Create a partitioned entity
 
@@ -56,7 +54,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Alternatively, you can create a partitioned queue or topic in the [Azure portal][Azure portal] or in Visual Studio. When you create a queue or topic in the portal, the **Enable partitioning** option in the queue or topic **Create** dialog box is checked by default. You can only disable this option in a Standard tier entity; in the Premium tier partitioning is always enabled. In Visual Studio, click the **Enable Partitioning** checkbox in the **New Queue** or **New Topic** dialog box.
+Alternatively, you can create a partitioned queue or topic in the [Azure portal][Azure portal]. When you create a queue or topic in the portal, the **Enable partitioning** option in the queue or topic **Create** dialog box is checked by default. You can only disable this option in a Standard tier entity; in the Premium tier partitioning is not supported, and the checkbox has no effect. 
 
 ## Use of partition keys
 When a message is enqueued into a partitioned queue or topic, Service Bus checks for the presence of a partition key. If it finds one, it selects the fragment based on that key. If it does not find a partition key, it selects the fragment based on an internal algorithm.

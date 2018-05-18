@@ -19,11 +19,11 @@ ms.author: jomolesk
 
 ---
 
-# Azure Security and Compliance Blueprint - Web Application for FedRAMP
+# Azure Security and Compliance Blueprint: Web Application for FedRAMP
 
 ## Overview
 
-The [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov) is a U.S. government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. This Azure Security and Compliance Blueprint Automation provides guidance for the deployment of a FedRAMP-compliant infrastructure as a service (IaaS) environment suitable for a simple Internet-facing web application. This solution automates deployment and configuration of Azure resources for a common reference architecture, demonstrating ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own solutions on Azure. The solution implements a subset of controls from the FedRAMP High baseline, based on NIST SP 800-53. For more information about FedRAMP High requirements and this solution, please see [FedRAMP High Requirements - High-Level Overview](fedramp-controls-overview.md).
+The [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov) is a U.S. government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. This Azure Security and Compliance Blueprint Automation provides guidance for the deployment of a FedRAMP-compliant infrastructure as a service (IaaS) environment suitable for a simple Internet-facing web application. This solution automates deployment and configuration of Azure resources for a common reference architecture, demonstrating ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own solutions on Azure. The solution implements a subset of controls from the FedRAMP High baseline, based on NIST SP 800-53. For more information about FedRAMP requirements and this solution, see the [compliance documentation](#compliance-documentation).
 > [!NOTE]
 > This solution deploys to Azure Government.
 
@@ -176,7 +176,7 @@ The data flow diagram for this reference architecture is available for [download
 
 The [Azure Security and Compliance Blueprint - FedRAMP High Customer Responsibility Matrix](https://aka.ms/blueprinthighcrm) lists all security controls required by the FedRAMP High baseline. The matrix denotes whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
 
-The [Azure Security and Compliance Blueprint - FedRAMP IaaS WebApp High Control Implementation Matrix](https://aka.ms/blueprintwacim) lists all security controls required by the FedRAMP High baseline. The matrix provides information on which controls are covered by the IaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
+The [Azure Security and Compliance Blueprint - FedRAMP IaaS Web Application High Control Implementation Matrix](https://aka.ms/blueprintwacim) lists all security controls required by the FedRAMP High baseline. The matrix provides information on which controls are covered by the IaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
 
 ## Deploy the solution
 

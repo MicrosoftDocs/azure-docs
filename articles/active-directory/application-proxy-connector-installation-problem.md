@@ -67,4 +67,4 @@ Connect to <https://login.microsoftonline.com> and use the same credentials. Mak
 Select your user account, then “Directory Role” in the resulting menu. Verify that the selected role is “Global administrator”. If you are unable to access any of the pages along these steps, you are not a global administrator.
 
 ## Next steps
-[Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)
+[Understand Azure AD Application Proxy connectors](manage-apps/application-proxy-connectors.md)

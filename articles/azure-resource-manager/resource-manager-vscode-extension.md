@@ -12,7 +12,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 09/06/2017
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.author: tomfitz
 ---
 

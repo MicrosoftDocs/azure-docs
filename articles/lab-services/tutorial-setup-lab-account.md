@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.author: spelluru
 
 ---
@@ -34,7 +34,7 @@ The following steps illustrate how to use the Azure portal to create a lab accou
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. From the main menu on the left side, select **Create a resource**.
 3. Search for **Lab Services** in the Azure Marketplace, and select **Lab Services** in the drop-down list. 
-4. Select **Lab Sercices (Preview)** in the flitered list of services. 
+4. Select **Lab Services (Preview)** in the filtered list of services. 
 1. In the **Create a lab account** window, select **Create**.
 2. In the **Lab account** window, do the following actions: 
     1. For **Lab account name**, enter a name. 

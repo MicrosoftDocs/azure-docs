@@ -46,10 +46,16 @@ Besides Web Apps in App Service, Azure offers other services that can be used fo
 Create your first web app.
 
 > [!div class="nextstepaction"]
-> [ASP.NET](app-service-web-get-started-dotnet.md)
+> [ASP.NET Core](app-service-web-get-started-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [ASP.NET](app-service-web-get-started-dotnet-framework.md)
 
 > [!div class="nextstepaction"]
 > [PHP](app-service-web-get-started-php.md)
+
+> [!div class="nextstepaction"]
+> [Ruby (on Linux)](containers/quickstart-ruby.md)
 
 > [!div class="nextstepaction"]
 > [Node.js](app-service-web-get-started-nodejs.md)

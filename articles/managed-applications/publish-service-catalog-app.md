@@ -7,9 +7,9 @@ manager: timlt
 
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 11/02/2017
+ms.date: 05/15/2018
 ms.author: tomfitz
 ---
 # Publish a managed application for internal consumption
@@ -51,7 +51,7 @@ Add the following JSON to your file. It defines the parameters for creating a st
         }
     },
     "variables": {
-        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString('storage'))]"
+        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -134,7 +134,7 @@ Add the following JSON to the file.
 }
 ```
 
-Save the createUIDefinition.json file.
+Save the createUiDefinition.json file.
 
 ## Package the files
 
@@ -148,8 +148,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 
@@ -169,7 +168,9 @@ The next step is to select a user group or application for managing the resource
 
 You need the object ID of the user group to use for managing the resources. 
 
-![Get group ID](./media/publish-service-catalog-app/get-group-id.png)
+```powershell
+$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+```
 
 ### Get the role definition ID
 
@@ -199,21 +200,49 @@ New-AzureRmManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "<group-id>:$ownerID" `
+  -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
-## Create the managed application by using the portal
+## Create the managed application
+
+You can deploy the managed application through the portal, PowerShell, or Azure CLI.
+
+### PowerShell
+
+First, let's use PowerShell to deploy the managed application.
+
+```powershell
+# Create resource group
+New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
+
+# Get ID of managed application definition
+$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
+
+# Create the managed application
+New-AzureRmManagedApplication `
+  -Name storageApp `
+  -Location westcentralus `
+  -Kind ServiceCatalog `
+  -ResourceGroupName applicationGroup `
+  -ManagedApplicationDefinitionId $appid `
+  -ManagedResourceGroupName "InfrastructureGroup" `
+  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
+```
+
+Your managed application and managed infrastructure now exist in the subscription.
+
+### Portal
 
 Now, let's use the portal to deploy the managed application. You see the user interface you created in the package.
 
-1. Go to the Azure portal. Select **+ New** and search for **service catalog**.
+1. Go to the Azure portal. Select **+ Create a resource** and search for **service catalog**.
 
-   ![Search service catalog](./media/publish-service-catalog-app/select-new.png)
+   ![Search service catalog](./media/publish-service-catalog-app/create-new.png)
 
 1. Select **Service Catalog Managed Application**.
 
-   ![Select service catalog](./media/publish-service-catalog-app/select-service-catalog.png)
+   ![Select service catalog](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
 1. Select **Create**.
 
@@ -225,15 +254,15 @@ Now, let's use the portal to deploy the managed application. You see the user in
 
 1. Provide basic information that is required for the managed application. Specify the subscription and a new resource group to contain the managed application. Select **West Central US** for location. When done, select **OK**.
 
-   ![Provide managed application parameters](./media/publish-service-catalog-app/provide-basics.png)
+   ![Provide managed application parameters](./media/publish-service-catalog-app/add-basics.png)
 
 1. Provide values that are specific to the resources in the managed application. When done, select **OK**.
 
-   ![Provide resource parameters](./media/publish-service-catalog-app/provide-resource-values.png)
+   ![Provide resource parameters](./media/publish-service-catalog-app/add-storage-settings.png)
 
 1. The template validates the values you provided. If validation succeeds, select **OK** to start the deployment.
 
-   ![Validate managed application](./media/publish-service-catalog-app/validate.png)
+   ![Validate managed application](./media/publish-service-catalog-app/view-summary.png)
 
 After the deployment finishes, the managed application exists in a resource group named applicationGroup. The storage account exists in a resource group named applicationGroup plus a hashed string value.
 

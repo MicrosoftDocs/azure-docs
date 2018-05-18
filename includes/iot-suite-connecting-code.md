@@ -136,7 +136,8 @@ Now add code that implements the behavior defined in the model.
       }
       ThreadAPI_Sleep(5000);
 
-      chiller->Firmware = _strdup(chiller->new_firmware_version);
+    #pragma warning(suppress : 4996)
+      chiller->Firmware = strdup(chiller->new_firmware_version);
       chiller->FirmwareUpdateStatus = "waiting";
       /* Send reported properties to IoT Hub */
       if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
@@ -183,8 +184,10 @@ Now add code that implements the behavior defined in the model.
       }
       else
       {
-        chiller->new_firmware_version = _strdup(Firmware);
-        chiller->new_firmware_URI = _strdup(FirmwareUri);
+    #pragma warning(suppress : 4996)
+        chiller->new_firmware_version = strdup(Firmware);
+    #pragma warning(suppress : 4996)
+        chiller->new_firmware_URI = strdup(FirmwareUri);
         THREAD_HANDLE thread_apply;
         THREADAPI_RESULT t_result = ThreadAPI_Create(&thread_apply, do_firmware_update, chiller);
         if (t_result == THREADAPI_OK)

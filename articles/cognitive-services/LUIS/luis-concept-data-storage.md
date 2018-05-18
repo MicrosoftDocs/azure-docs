@@ -29,9 +29,9 @@ If you delete an account, all apps are deleted, along with their example utteran
 Deleting account is available from the **Settings** page. Select your account name in the top right navigation bar to get to the **Settings** page.
 
 ## Data inactivity as an expired subscription
-For the purposes of data retention and deletion, a LUIS app that has been inactive may at _Microsoft’s discretion_ be treated as an expired subscription. An app is considered as an expired subscription when it has been inactive for 90 days and when it: 
+For the purposes of data retention and deletion, an inactive LUIS app may at _Microsoft’s discretion_ be treated as an expired subscription. An app is considered inactive if it meets the following criteria for the last 90 days: 
 
-* Has had **no** calls are made to it.
+* Has had **no** calls made to it.
 * Has not been modified.
 * Does not have a current key assigned to it.
 * Has not had a user sign in to it.

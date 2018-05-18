@@ -10,7 +10,7 @@ editor: tysonn
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016

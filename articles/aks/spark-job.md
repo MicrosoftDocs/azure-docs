@@ -3,7 +3,7 @@ title: Run an Apache Spark job with Azure Kubernetes Service (AKS)
 description: Use Azure Kubernetes Service (AKS) to run an Apache Spark job
 services: container-service
 author: lenadroid
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

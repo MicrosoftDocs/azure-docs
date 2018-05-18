@@ -161,4 +161,4 @@ Once you complete Self-service application configuration, users can navigate to 
 These approvals support single approval workflows only, meaning that if you specify multiple approvers, any single approver may approver access to the application.
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
