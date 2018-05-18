@@ -92,7 +92,7 @@ The data store, including backups are in the `data` directory. The remaining dir
 are mostly static. The sync of the static directories should exclude the `data` directory and the
 sync of the `data` directory should only include the `backups` subdirectory.
 
-## Sync with `robocopy` (Windows)
+## Sync with [robocopy](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy) (Windows)
 
 `robocopy_` is an advanced copy tool that can do file system tree synchronization and WAN traffic shaping for large transfers between Windows machines.
 
@@ -102,15 +102,15 @@ This example assumes the cold CycleCloud's `C:\Program Files` is mounted as `Z:`
 
 1. Synchronize the static content:
 
-      robocopy "C:\Program Files\CycleCloud" Z:\CycleCloud /COPYALL /SL /PURGE /XD data logs /XF license.dat /E
+    robocopy "C:\Program Files\CycleCloud" Z:\CycleCloud /COPYALL /SL /PURGE /XD data logs /XF license.dat /E
 
 2. Synchronize the backups of the dynamic data store content:
 
-      robocopy "C:\Program Files\CycleCloud\data\backups" Z:\CycleCloud\data\backups /COPYAL /SL /PURGE /E
+    robocopy "C:\Program Files\CycleCloud\data\backups" Z:\CycleCloud\data\backups /COPYAL /SL /PURGE /E
 
 These two commands can be combined in to a single batch script.
 
-## Sync with `rsync` (Linux)
+## Sync with [rsync](https://rsync.samba.org/) (Linux)
 
 The rsync_ installation should be configured to allow passwordless rsyncs to occur between the active instance and the cold instance. We recommend using ssh_ to accomplish this, as well as running this process as root so file permissions and ownership are easily maintained across the boxes.
 
