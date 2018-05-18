@@ -43,6 +43,6 @@ Here’s a timeline of when to expect this change to happen:
 
 If you’re an admin, you can find more info about these updates based on product.
 
-- **Office 365**. Get more details about the updates to [Office 365 Message Center]https://portal.office.com/adminportal/home#/MessageCenter?id=MC133397&MCLinkSource=DigestMail). You must sign in using your admin authentication to access this site.
+- **Office 365**. Get more details about the updates to [Office 365 Message Center](https://portal.office.com/adminportal/home#/MessageCenter?id=MC133397&MCLinkSource=DigestMail). You must sign in using your admin authentication to access this site.
 
 - **Other online services**. Get more details about the updates by reading this [blog post](https://cloudblogs.microsoft.com/enterprisemobility/2018/04/04/upcoming-improvements-to-the-azure-ad-sign-in-experience/).
