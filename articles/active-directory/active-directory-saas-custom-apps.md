@@ -65,7 +65,9 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
   ![Litware domain and URLs](./media/active-directory-saas-custom-apps/customapp4.png)
 
 - **Sign On URL (SP-initiated only)** – Where the user goes to sign-in to this application. If the application is configured to perform service provider-initiated single sign-on, then when a user navigates to this URL, the service provider will do the necessary redirection to Azure AD to authenticate and log on the user in. If this field is populated, then Azure AD will use this URL to launch the application from Office 365 and the Azure AD Access Panel. If this field is omitted, then Azure AD will instead perform identity provider -initiated sign-on when the app is launched from Office 365, the Azure AD Access Panel, or from the Azure AD single sign-on URL (copyable from the Dashboard tab).
-- **Identifier** - should uniquely identify the application for which single sign-on is being configured. You can find this value as the Issuer element in the AuthRequest (SAML request) sent by the application. This value also appears as the **Entity ID** in any SAML metadata provided by the application. Check the application’s SAML documentation for details on what its Entity ID or Audience value is. Below is an example of how the Identifier or Issuer appears in the SAML request sent by the application to Azure AD:
+- **Identifier** - should uniquely identify the application for which single sign-on is being configured. You can find this value as the Issuer element in the AuthRequest (SAML request) sent by the application. This value also appears as the **Entity ID** in any SAML metadata provided by the application. Check the application’s SAML documentation for details on what its Entity ID or Audience value is. 
+
+    The following is an example of how the Identifier or Issuer appears in the SAML request sent by the application to Azure AD:
 
     ```
     <samlp:AuthnRequest
@@ -114,7 +116,7 @@ When you create a Gallery or a Non-Gallery application, Azure AD will create an 
 
 From Azure AD, you can download the certificate in Base64 or Raw format. In addition, you can get the certificate by downloading the application metadata XML file or by using the App federation metadata URL.
 
-    ![Certificate](./media/active-directory-saas-custom-apps/certificate.png)
+  ![Certificate](./media/active-directory-saas-custom-apps/certificate.png)
 
 Verify the certificate has:
 
@@ -141,13 +143,14 @@ To assign a user or group to your application, click the **Assign Users** button
 
 Assigning a user will allow Azure AD to issue a token for the user. It also causes a tile for this application to appear in the user's Access Panel. An application tile will also appear in the Office 365 application launcher if the user is using Office 365. 
 
-You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application. 
-
+> [!NOTE] 
+> You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application. 
+>
 ### Test the SAML application
 
 Before testing the SAML application, you must have set up  the application with Azure AD, and assigned users or groups to the application.
 
-    ![](./media/active-directory-saas-custom-apps/testing.png)
+  ![Testing](./media/active-directory-saas-custom-apps/testing.png)
 
 From the single sign-on page, click on **Test SAML settings** under the Domain and URLs section. This opens a content pane with instructions on how to test the application.
 
@@ -166,14 +169,18 @@ After selecting **Next**, you will be prompted to enter the URL of the applicati
 
 Once the sign-in page is captured, users and groups may be assigned and credential policies can be set just like regular [password SSO apps](manage-apps/what-is-single-sign-on.md).
 
-Note: You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application. 
+> [!NOTE] 
+> You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application. 
+>
 
 ## Existing Single Sign-On
 Select this option to add a link to an application to your organization's Azure AD Access Panel or Office 365 portal. You can use this to add links to custom web apps that currently use Azure Active Directory Federation Services (or other federation service) instead of Azure AD for authentication. Or, you can add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels. 
 
 After selecting **Next**, you will be prompted to enter the URL of the application to link to. Once completed, users and groups may be assigned to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) for those users.
 
-Note: You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application.
+> [!NOTE] 
+> You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application. 
+>
 
 ## Related Articles
 
