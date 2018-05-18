@@ -26,7 +26,7 @@ ms.author: muralikk
 
  To delete a job, call the [Delete Job](/rest/api/storageimportexport/jobs#Jobs_Delete) operation before the job has shipped (that is, while the job is in the `Creating` state). You can also delete a job when it is in the `Completed` state. After a job is deleted, its information and status are no longer accessible via the REST API or the Azure portal.
 
-[!INCLUDE [storage-import-export-gdpr-include.md](storage-import-export-gdpr-include.md)]
+[!INCLUDE [storage-import-export-security-compliance.md](../../../includes/storage-import-export-security-compliance.md)]
 
 ## Next steps
 
