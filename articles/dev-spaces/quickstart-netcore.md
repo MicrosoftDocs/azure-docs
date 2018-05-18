@@ -123,4 +123,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-netcore.md)
+> [Working with multiple containers and team development](get-started-netcore.md#call-a-service-running-in-a-separate-container)
