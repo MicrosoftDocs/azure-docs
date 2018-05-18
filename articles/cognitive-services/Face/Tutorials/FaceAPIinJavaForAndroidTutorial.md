@@ -212,6 +212,11 @@ The most straightforward way to detect faces is by calling the [Face – Detect]
                                 true,         // returnFaceId
                                 false,        // returnFaceLandmarks
                                 null           // returnFaceAttributes: a string like "age, gender"
+				/* If you want value of FaceAttributes, try adding 4th argument like below.
+	                        new FaceServiceClient.FaceAttributeType[] {
+					FaceServiceClient.FaceAttributeType.Age,
+					FaceServiceClient.FaceAttributeType.Gender }
+				*/				
                         );
                         if (result == null)
                         {
