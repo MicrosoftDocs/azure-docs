@@ -48,5 +48,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage web traffic with an application gateway using Azure PowerShell](./tutorial-manage-web-traffic-powershell.md)
+> [Overview](overview.md)
 

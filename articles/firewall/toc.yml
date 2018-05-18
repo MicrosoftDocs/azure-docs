@@ -20,8 +20,8 @@
     href: sample-powershell.md
 - name: Concepts
   items:
-  - name: 
-    href: 
+  - name: Placeholder
+    href: overview.md
 - name: Reference
   items:
   - name: Azure CLI
