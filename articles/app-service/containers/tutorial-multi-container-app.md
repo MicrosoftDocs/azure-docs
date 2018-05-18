@@ -64,10 +64,10 @@ You create this deployment user only once; you can use it for all your Azure dep
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-In the local command-prompt, create a resource group with the [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *South Central SUS* location. To see all supported locations for App Service on Linux in **Standard** tier, run the [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) command.
+In the local command-prompt, create a resource group with the [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *South Central US* location. To see all supported locations for App Service on Linux in **Standard** tier, run the [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) command.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location "South Central SUS"
+az group create --name myResourceGroup --location "South Central US"
 ```
 
 You generally create your resource group and the resources in a region near you. 
@@ -92,11 +92,11 @@ When the App Service plan has been created, the Azure CLI shows information simi
 { 
   "adminSiteName": null,
   "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "South Central SUS",
+  "geoRegion": "South Central US",
   "hostingEnvironmentProfile": null,
   "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
   "kind": "linux",
-  "location": "South Central SUS",
+  "location": "South Central US",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
   < JSON data removed for brevity. >
