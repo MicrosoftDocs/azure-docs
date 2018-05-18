@@ -54,7 +54,7 @@ If you need basic network level access control (based on IP address and the TCP 
 
 Learn more:
 
-* [Network Security Groups](../virtual-network/virtual-networks-nsg.md)
+* [Network Security Groups](../virtual-network/security-overview.md)
 
 ### Route control and forced tunneling
 The ability to control routing behavior on your virtual networks is critical. If routing is configured incorrectly, applications and services hosted on your virtual machine might connect to unauthorized devices, including systems owned and operated by potential attackers.
