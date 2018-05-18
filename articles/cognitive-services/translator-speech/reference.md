@@ -22,7 +22,7 @@ With Microsoft Translator Speech API, client applications stream speech audio to
 Microsoft Translator Speech API leverages the WebSocket protocol to provide a full-duplex communication channel between the client and the server. An application will require these steps to use the service:
 
 ## 1. Getting started
-To access the Microsoft Translator Text API you will need to [sign up for Microsoft Azure](../translator-text-how-to-signup.md).
+To access the Microsoft Translator Text API you will need to [sign up for Microsoft Azure](../translator-speech-how-to-signup.md).
 
 ## 2. Authentication
 
@@ -35,7 +35,7 @@ Use the subscription key to authenticate. Microsoft Translator Speech API suppor
 Treat your subscription key and the access token as secrets that should be hidden from view.
 
 ## 3. Query languages
-**Query the Languages resource for the current set of supported languages.** The [languages resource](languages.md) exposes the set of languages and voices available for speech recognition, for text translation and for text-to-speech. Each language or voice is given an identifier which Microsoft Translator Speech API uses to identify the same language or voice.
+**Query the Languages resource for the current set of supported languages.** The [languages resource](languages-reference.md) exposes the set of languages and voices available for speech recognition, for text translation and for text-to-speech. Each language or voice is given an identifier which Microsoft Translator Speech API uses to identify the same language or voice.
 
 ## 4. Stream audio
 **Open a connection and begin streaming audio to the service.** The service URL is `wss://dev.microsofttranslator.com/speech/translate`. Parameters and audio formats expected by the service are described below, in the `/speech/translate` operation. One of the parameters is used to pass the access token from Step 2 above.
