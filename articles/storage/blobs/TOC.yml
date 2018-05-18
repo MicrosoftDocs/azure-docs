@@ -239,7 +239,7 @@
       - name: Diagnostics & error recovery
         href: ../common/storage-import-export-diagnostics-and-error-recovery.md
       - name: Commands for import jobs
-      href: ../common/storage-import-export-tool-quick-reference-v1.md
+        href: ../common/storage-import-export-tool-quick-reference-v1.md
       - name: Service manifest file
         href: ../common/storage-import-export-file-format-manifest.md
       - name: Service metadata and properties file 
