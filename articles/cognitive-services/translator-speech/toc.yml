@@ -29,11 +29,10 @@
   - name: Sign-up for Translator Speech API
     href: translator-speech-how-to-signup.md
 - name: Reference
+  href: reference.md
   items: 
-  - name: Translator Speech API reference
-    href: reference.md
-    - name: Languages
-      href: languages-reference.md
+  - name: Languages
+    href: languages-reference.md
 - name: Resources
   items:
   - name: FAQ
