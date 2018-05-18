@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -54,7 +54,7 @@ If you were to modify the above policy and set W=0 (no weekly backups), the cade
 
 > [!NOTE]
 1. The LTR copies are created by Azure storage service so the copy process has no performance impact on the existing database.
-2. The policy applies to the future backup. E.g. if the specified WeekOfYear is in the past when the policy is configured, the first LTR backup will be created next year. 
+2. The policy applies to the future backups. E.g. if the specified WeekOfYear is in the past when the policy is configured, the first LTR backup will be created next year. 
 3. To restore a database from the LTR storage, you can select a specific backup based on its timestamp.   The database can be restored to any existing server under the same subscription as the original database. 
 > 
 
