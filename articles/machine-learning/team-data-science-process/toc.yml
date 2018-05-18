@@ -56,6 +56,9 @@
     - name: Biomedical entity recognition
       href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
       maintainContext: true
+    - name: Skin cancer image classification
+      href: isic-image-classification.md
+      maintainContext: true
   - name: Spark with PySpark and Scala
     href: walkthroughs-spark.md
     items:
@@ -294,4 +297,4 @@
       href: http://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-
+      

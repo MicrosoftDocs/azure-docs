@@ -21406,6 +21406,56 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-suite/iot-suite-connecting-pi-c.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connecting-pi-c",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connecting-pi-node.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connecting-pi-node",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-device-simulation-deploy.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-device-simulation-explore.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-explore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-faq-cf.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-faq-cf",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-faq-rm-v2.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-faq-rm-v2",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-faq.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-integrate-data-lake.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-integrate-data-lake",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-integrate-data-powerbi.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-integrate-data-powerbi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-microservices-example.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-microservices-example",
+            "redirect_document_id": false
+          },
+          {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
             "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-javascriptspa",
             "redirect_document_id": false
@@ -21618,9 +21668,18 @@
         {
             "source_path": "articles/security/protection-personal-data-azure-reporting-tools.md",
             "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/bing-visual-search/upload-images.md",
             "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/csharp",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
+            "redirect_document_id": true
         }
+
     ]
 }

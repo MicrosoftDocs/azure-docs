@@ -3,7 +3,7 @@ title: Enable automatic tuning for Azure SQL Database | Microsoft Docs
 description: You can enable automatic tuning on your Azure SQL Database easily.
 services: sql-database
 author: danimir 
-manager: drasumic
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
