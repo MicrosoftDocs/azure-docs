@@ -171,4 +171,4 @@ Now you know what a preconfigured solution is, you can get started by deploying 
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+[lnk-getstarted-factory]:../iot-accelerators/iot-accelerators-connected-factory-overview.md

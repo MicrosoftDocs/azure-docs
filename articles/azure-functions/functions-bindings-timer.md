@@ -34,6 +34,8 @@ The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](http:/
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## Example
 
 See the language-specific example:

@@ -29,6 +29,10 @@ The Table storage bindings are provided in the [Microsoft.Azure.WebJobs](http://
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
 ## Input
 
 Use the Azure Table storage input binding to read a table in an Azure Storage account.
