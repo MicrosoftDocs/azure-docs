@@ -252,8 +252,8 @@ Defines the scaling mechanism.
 Defines a mechanism for increasing the instance count of a partition. This is for stateless services only.
 |Attribute|Value|
 |---|---|
-|name|InstanceCountScalingMechanism|
 |maxOccurs|1|
+|name|InstanceCountScalingMechanism|
 |minOccurs|0|
 
 ##### XML source
@@ -288,8 +288,8 @@ Defines a mechanism for increasing the instance count of a partition. This is fo
 Defines a mechanism for adding or removing named partitions.
 |Attribute|Value|
 |---|---|
-|name|AddRemoveIncrementalNamedPartitionScalingMechanism|
 |maxOccurs|1|
+|name|AddRemoveIncrementalNamedPartitionScalingMechanism|
 |minOccurs|0|
 
 ##### XML source
@@ -398,8 +398,8 @@ Defines the scaling trigger.
 Defines a scaling mechanism based on the average load of replicas of a partition.
 |Attribute|Value|
 |---|---|
-|name|AveragePartitionLoadScalingTrigger|
 |maxOccurs|1|
+|name|AveragePartitionLoadScalingTrigger|
 |minOccurs|0|
 
 ##### XML source
@@ -439,8 +439,8 @@ Defines a scaling mechanism based on the average load of replicas of a partition
 Defines a scaling mechanism based on the average load of partitions of a service.
 |Attribute|Value|
 |---|---|
-|name|AverageServiceLoadScalingTrigger|
 |maxOccurs|1|
+|name|AverageServiceLoadScalingTrigger|
 |minOccurs|0|
 
 ##### XML source

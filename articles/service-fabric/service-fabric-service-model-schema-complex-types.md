@@ -60,9 +60,9 @@ ms.author: ryanwi
 Name of the application to be created.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Name|
 |use|required|
-|type|xs:string|
 
 ### Content element details
 
@@ -128,19 +128,19 @@ Describes the policy for evaluating health events reported on various applicatio
 Specifies whether to treat warning health reports as errors during health evaluation. Default: false.
 |Attribute|Value|
 |---|---|
-|name|ConsiderWarningAsError|
-|use|optional|
-|default|false|
 |type|xs:string|
+|name|ConsiderWarningAsError|
+|default|false|
+|use|optional|
 
 #### MaxPercentUnhealthyDeployedApplications
 Specifies the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error. This is calculated by dividing the number of unhealthy deployed applications over the number of nodes that the applications are currently deployed on in the cluster. The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage: 0.
 |Attribute|Value|
 |---|---|
-|name|MaxPercentUnhealthyDeployedApplications|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|MaxPercentUnhealthyDeployedApplications|
+|default|0|
+|use|optional|
 
 ### Content element details
 
@@ -148,17 +148,17 @@ Specifies the maximum tolerated percentage of deployed applications that can be 
 Specifies the default service type health policy, which will replace the default health policy for all service types in the application.
 |Attribute|Value|
 |---|---|
+|type|[ServiceTypeHealthPolicyType](#servicetypehealthpolicytype-complextype)|
 |name|DefaultServiceTypeHealthPolicy|
 |minOccurs|0|
-|type|[ServiceTypeHealthPolicyType](#servicetypehealthpolicytype-complextype)|
 
 #### ServiceTypeHealthPolicy
 Describes the policy for evaluating health events reported on services, partitions and replicas of a particular service type.
 |Attribute|Value|
 |---|---|
+|maxOccurs|unbounded|
 |name|ServiceTypeHealthPolicy|
 |minOccurs|0|
-|maxOccurs|unbounded|
 ## ApplicationInstanceType complexType
 Describes an instance of a Microsoft Azure Service Fabric application.
 
@@ -205,9 +205,9 @@ Describes an instance of a Microsoft Azure Service Fabric application.
 The version of the ApplicationInstance document.
 |Attribute|Value|
 |---|---|
+|type|xs:int|
 |name|Version|
 |use|required|
-|type|xs:int|
 
 ### Content element details
 
@@ -219,20 +219,20 @@ The version of the ApplicationInstance document.
 #### ServicePackageRef
 |Attribute|Value|
 |---|---|
-|name|ServicePackageRef|
 |maxOccurs|unbounded|
+|name|ServicePackageRef|
 
 #### ServiceTemplates
 |Attribute|Value|
 |---|---|
-|name|ServiceTemplates|
 |type|[ServiceTemplatesType](#servicetemplatestype-complextype)|
+|name|ServiceTemplates|
 
 #### DefaultServices
 |Attribute|Value|
 |---|---|
-|name|DefaultServices|
 |type|[DefaultServicesType](#defaultservicestype-complextype)|
+|name|DefaultServices|
 ## ApplicationManifestType complexType
 Declaratively describes the application type and version. One or more service manifests of the constituent services are referenced to compose an application type. Configuration settings of the constituent services can be overridden using parameterized application settings. Default services, service templates, principals, policies, diagnostics set-up, and certificates can also declared at the application level.
 
@@ -346,9 +346,9 @@ Declaratively describes the application type and version. One or more service ma
 Text describing this application.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Description|
 |minOccurs|0|
-|type|xs:string|
 
 #### Parameters
 Declares the parameters that are used in this application manifest. The value of these parameters can be supplied when the application is instantiated and can be used to override application or service configuration settings.
@@ -361,44 +361,44 @@ Declares the parameters that are used in this application manifest. The value of
 Imports a service manifest created by the service developer. A service manifest must be imported for each constituent service in the application. Configuration overrides and policies can be declared for the service manifest.
 |Attribute|Value|
 |---|---|
-|name|ServiceManifestImport|
 |maxOccurs|unbounded|
+|name|ServiceManifestImport|
 
 #### ServiceTemplates
 Declares the set of permitted service types that can be created dynamically inside the application instance. Default configuration values, such as replication factor, are specified and used as a template for creating service instances.
 |Attribute|Value|
 |---|---|
+|type|[ServiceTemplatesType](#servicetemplatestype-complextype)|
 |name|ServiceTemplates|
 |minOccurs|0|
-|type|[ServiceTemplatesType](#servicetemplatestype-complextype)|
 
 #### DefaultServices
 |Attribute|Value|
 |---|---|
+|type|[DefaultServicesType](#defaultservicestype-complextype)|
 |name|DefaultServices|
 |minOccurs|0|
-|type|[DefaultServicesType](#defaultservicestype-complextype)|
 
 #### Principals
 |Attribute|Value|
 |---|---|
+|type|[SecurityPrincipalsType](#securityprincipalstype-complextype)|
 |name|Principals|
 |minOccurs|0|
-|type|[SecurityPrincipalsType](#securityprincipalstype-complextype)|
 
 #### Policies
 |Attribute|Value|
 |---|---|
+|type|[ApplicationPoliciesType](#applicationpoliciestype-complextype)|
 |name|Policies|
 |minOccurs|0|
-|type|[ApplicationPoliciesType](#applicationpoliciestype-complextype)|
 
 #### Diagnostics
 |Attribute|Value|
 |---|---|
+|type|[DiagnosticsType](#diagnosticstype-complextype)|
 |name|Diagnostics|
 |minOccurs|0|
-|type|[DiagnosticsType](#diagnosticstype-complextype)|
 
 #### Certificates
 Declares certificates used to secure endpoints or encrypt secrets within the application manifest or a cluster manifest.
@@ -454,24 +454,24 @@ ApplicationPackage represents the versioned Application information required by 
 Type identifier for this application.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|ApplicationTypeName|
 |use|required|
-|type|xs:string|
 
 #### ContentChecksum
 Checksum value of this ApplicationPackage content
 |Attribute|Value|
 |---|---|
-|name|ContentChecksum|
 |type|xs:string|
+|name|ContentChecksum|
 
 ### Content element details
 
 #### DigestedEnvironment
 |Attribute|Value|
 |---|---|
-|name|DigestedEnvironment|
 |type|[EnvironmentType](#environmenttype-complextype)|
+|name|DigestedEnvironment|
 
 #### DigestedCertificates
 |Attribute|Value|
@@ -553,9 +553,9 @@ Specify a default user account for all service code packages that don’t have a s
 #### HealthPolicy
 |Attribute|Value|
 |---|---|
+|type|[ApplicationHealthPolicyType](#applicationhealthpolicytype-complextype)|
 |name|HealthPolicy|
 |minOccurs|0|
-|type|[ApplicationHealthPolicyType](#applicationhealthpolicytype-complextype)|
 
 #### SecurityAccessPolicies
 List of security policies applied to resources at the application level.
@@ -630,24 +630,24 @@ Describes an Azure blob store destination for diagnostics data. Works only in Az
 #### RoleName
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|RoleName|
 |use|required|
-|type|xs:string|
 
 #### NodeTypeRef
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|NodeTypeRef|
 |use|required|
-|type|xs:string|
 
 #### SeedNodeCount
 |Attribute|Value|
 |---|---|
-|name|SeedNodeCount|
-|use|optional|
-|default|0|
 |type|xs:int|
+|name|SeedNodeCount|
+|default|0|
+|use|optional|
 
 ## AzureStoreBaseType complexType
 Describes a diagnostic store in an Azure storage account.
@@ -680,17 +680,17 @@ Describes a diagnostic store in an Azure storage account.
 #### ConnectionStringIsEncrypted
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|ConnectionStringIsEncrypted|
 |use|required|
-|type|xs:string|
 
 ### Content element details
 
 #### None
 |Attribute|Value|
 |---|---|
-|minOccurs|0|
 |ref|Parameters|
+|minOccurs|0|
 ## BlackbirdRoleType complexType
 |Attribute|Value|
 |---|---|
@@ -713,31 +713,31 @@ Describes a diagnostic store in an Azure storage account.
 #### EnvironmentName
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|EnvironmentName|
 |use|required|
-|type|xs:string|
 
 #### RoleName
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|RoleName|
 |use|required|
-|type|xs:string|
 
 #### NodeTypeRef
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|NodeTypeRef|
 |use|required|
-|type|xs:string|
 
 #### IsSeedNode
 |Attribute|Value|
 |---|---|
-|name|IsSeedNode|
-|use|optional|
-|default|0|
 |type|xs:boolean|
+|name|IsSeedNode|
+|default|0|
+|use|optional|
 
 ## CertificatesType complexType
 |Attribute|Value|
@@ -780,33 +780,33 @@ Describes a diagnostic store in an Azure storage account.
 The certificate used to secure the intra cluster communication.
 |Attribute|Value|
 |---|---|
+|type|[FabricCertificateType](#fabriccertificatetype-complextype)|
 |name|ClusterCertificate|
 |minOccurs|0|
-|type|[FabricCertificateType](#fabriccertificatetype-complextype)|
 
 #### ServerCertificate
 The certificate used to secure the intra cluster communication.
 |Attribute|Value|
 |---|---|
+|type|[FabricCertificateType](#fabriccertificatetype-complextype)|
 |name|ServerCertificate|
 |minOccurs|0|
-|type|[FabricCertificateType](#fabriccertificatetype-complextype)|
 
 #### ClientCertificate
 The default admin role client certificate used to secure client server communication.
 |Attribute|Value|
 |---|---|
+|type|[FabricCertificateType](#fabriccertificatetype-complextype)|
 |name|ClientCertificate|
 |minOccurs|0|
-|type|[FabricCertificateType](#fabriccertificatetype-complextype)|
 
 #### UserRoleClientCertificate
 The default user role client certificate used to secure client server communication.
 |Attribute|Value|
 |---|---|
+|type|[FabricCertificateType](#fabriccertificatetype-complextype)|
 |name|UserRoleClientCertificate|
 |minOccurs|0|
-|type|[FabricCertificateType](#fabriccertificatetype-complextype)|
 ## ClusterManifestType complexType
 Describes a Microsoft Azure Service Fabric Cluster.
 
@@ -1040,9 +1040,9 @@ Description for the Cluster Manifest.
 #### FabricSettings
 |Attribute|Value|
 |---|---|
+|type|[SettingsOverridesType](#settingsoverridestype-complextype)|
 |name|FabricSettings|
 |minOccurs|0|
-|type|[SettingsOverridesType](#settingsoverridestype-complextype)|
 
 #### Certificates
 |Attribute|Value|
@@ -1094,9 +1094,9 @@ Describes a code package that supports a defined service type. When a service is
 Indicates if the contents of this code package are shared by other code packages. If true, on an upgrade of this code package, all code packages will be restarted. This attribute is currently not supported and it's value will be ignored.
 |Attribute|Value|
 |---|---|
+|type|xs:boolean|
 |name|IsShared|
 |default|false|
-|type|xs:boolean|
 
 ### Content element details
 
@@ -1110,17 +1110,17 @@ A privileged entry point that runs with the same credentials as Service Fabric (
 #### EntryPoint
 |Attribute|Value|
 |---|---|
+|type|[EntryPointDescriptionType](#entrypointdescriptiontype-complextype)|
 |name|EntryPoint|
 |minOccurs|1|
-|type|[EntryPointDescriptionType](#entrypointdescriptiontype-complextype)|
 
 #### EnvironmentVariables
 |Attribute|Value|
 |---|---|
-|name|EnvironmentVariables|
-|minOccurs|0|
-|maxOccurs|1|
 |type|[EnvironmentVariablesType](#environmentvariablestype-complextype)|
+|name|EnvironmentVariables|
+|maxOccurs|1|
+|minOccurs|0|
 ## ConfigOverrideType complexType
 Describes the configuration overrides for a particular config package in the imported service manifest.
 
@@ -1166,9 +1166,9 @@ The name of the configuration package in the service manifest which contains the
 #### Settings
 |Attribute|Value|
 |---|---|
+|type|[SettingsOverridesType](#settingsoverridestype-complextype)|
 |name|Settings|
 |minOccurs|0|
-|type|[SettingsOverridesType](#settingsoverridestype-complextype)|
 ## ConfigPackageType complexType
 Declares a folder, named by the Name attribute, that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.
 
@@ -1252,65 +1252,65 @@ Specifies information about an X509 certificate which is to be exposed to the co
 The store name for the X509 certificate.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|X509StoreName|
 |default|My|
-|type|xs:string|
 
 #### X509FindValue
 The thumbprint of the X509 certificate.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|X509FindValue|
 |use|optional|
-|type|xs:string|
 
 #### DataPackageRef
 The name of data package that has the certificate files.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|DataPackageRef|
 |use|optional|
-|type|xs:string|
 
 #### DataPackageVersion
 The version of data package that has the certificate files.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|DataPackageVersion|
 |use|optional|
-|type|xs:string|
 
 #### RelativePath
 The relative path to the certificate file inside data package.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|RelativePath|
 |use|optional|
-|type|xs:string|
 
 #### Password
 Password/Private key for the certificate.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Password|
 |use|optional|
-|type|xs:string|
 
 #### IsPasswordEncrypted
 If true, the value of password is encrypted.
 |Attribute|Value|
 |---|---|
+|type|xs:boolean|
 |name|IsPasswordEncrypted|
 |default|false|
-|type|xs:boolean|
 
 #### Name
 Identifier for the specific certificate information. This name is used to set the environment variable in the container.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Name|
 |use|required|
-|type|xs:string|
 
 ## ContainerHealthConfigType complexType
 Specifies docker HEALTHCHECK integration options for the container.
@@ -1358,10 +1358,10 @@ Specifies docker HEALTHCHECK integration options for the container.
             
 |Attribute|Value|
 |---|---|
-|name|IncludeDockerHealthStatusInSystemHealthReport|
-|use|optional|
-|default|true|
 |type|xs:boolean|
+|name|IncludeDockerHealthStatusInSystemHealthReport|
+|default|true|
+|use|optional|
 
 #### RestartContainerOnUnhealthyDockerHealthStatus
 
@@ -1371,10 +1371,10 @@ Specifies docker HEALTHCHECK integration options for the container.
             
 |Attribute|Value|
 |---|---|
-|name|RestartContainerOnUnhealthyDockerHealthStatus|
-|use|optional|
-|default|false|
 |type|xs:boolean|
+|name|RestartContainerOnUnhealthyDockerHealthStatus|
+|default|false|
+|use|optional|
 
 ## ContainerHostEntryPointType complexType
 |Attribute|Value|
@@ -1402,32 +1402,32 @@ Specifies docker HEALTHCHECK integration options for the container.
 #### ImageName
 |Attribute|Value|
 |---|---|
-|name|ImageName|
 |type|xs:string|
+|name|ImageName|
 
 #### Commands
 |Attribute|Value|
 |---|---|
-|name|Commands|
-|minOccurs|0|
-|maxOccurs|1|
 |type|xs:string|
+|name|Commands|
+|maxOccurs|1|
+|minOccurs|0|
 
 #### EntryPoint
 |Attribute|Value|
 |---|---|
-|name|EntryPoint|
-|minOccurs|0|
-|maxOccurs|1|
 |type|xs:string|
+|name|EntryPoint|
+|maxOccurs|1|
+|minOccurs|0|
 
 #### FromSource
 |Attribute|Value|
 |---|---|
-|name|FromSource|
-|minOccurs|0|
-|maxOccurs|1|
 |type|xs:string|
+|name|FromSource|
+|maxOccurs|1|
+|minOccurs|0|
 ## ContainerHostPoliciesType complexType
 |Attribute|Value|
 |---|---|
@@ -1527,34 +1527,34 @@ Specifies docker HEALTHCHECK integration options for the container.
 Isolation mode for container. Valid values are default, process or hyperv (only supported for windows containers).
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Isolation|
 |use|optional|
-|type|xs:string|
 
 #### Hostname
 Specify Hostname for container.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Hostname|
 |use|optional|
-|type|xs:string|
 
 #### ContainersRetentionCount
 Number of containers to leave behind when container repeatedly dies. By default this is set to 0 so no containers will be left behind.
 |Attribute|Value|
 |---|---|
-|name|ContainersRetentionCount|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|ContainersRetentionCount|
+|default|0|
+|use|optional|
 
 #### RunInteractive
 Run container with interactive flag enabled. Valid values are true/false. false by default.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|RunInteractive|
 |use|optional|
-|type|xs:string|
 
 ### Content element details
 
@@ -1562,82 +1562,82 @@ Run container with interactive flag enabled. Valid values are true/false. false 
 Credentials for container image repository to pull images from.
 |Attribute|Value|
 |---|---|
-|name|RepositoryCredentials|
-|minOccurs|0|
-|maxOccurs|1|
 |type|[RepositoryCredentialsType](#repositorycredentialstype-complextype)|
+|name|RepositoryCredentials|
+|maxOccurs|1|
+|minOccurs|0|
 
 #### HealthConfig
 Specifies docker HEALTHCHECK integration options for the container.
 |Attribute|Value|
 |---|---|
-|name|HealthConfig|
-|minOccurs|0|
-|maxOccurs|1|
 |type|[ContainerHealthConfigType](#containerhealthconfigtype-complextype)|
+|name|HealthConfig|
+|maxOccurs|1|
+|minOccurs|0|
 
 #### PortBinding
 Specifies which endpoint resource to bind container exposed port.
 |Attribute|Value|
 |---|---|
-|name|PortBinding|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|[PortBindingType](#portbindingtype-complextype)|
+|name|PortBinding|
+|maxOccurs|unbounded|
+|minOccurs|0|
 
 #### CertificateRef
 Specifies information for a certificate which will be exposed to the container.
 |Attribute|Value|
 |---|---|
-|name|CertificateRef|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|[ContainerCertificateType](#containercertificatetype-complextype)|
+|name|CertificateRef|
+|maxOccurs|unbounded|
+|minOccurs|0|
 
 #### LogConfig
 Specifies the logging driver for a container.
 |Attribute|Value|
 |---|---|
-|name|LogConfig|
-|minOccurs|0|
-|maxOccurs|1|
 |type|[ContainerLoggingDriverType](#containerloggingdrivertype-complextype)|
+|name|LogConfig|
+|maxOccurs|1|
+|minOccurs|0|
 
 #### NetworkConfig
 Specifies the network configuration for a container.
 |Attribute|Value|
 |---|---|
-|name|NetworkConfig|
-|minOccurs|0|
-|maxOccurs|1|
 |type|[ContainerNetworkConfigType](#containernetworkconfigtype-complextype)|
+|name|NetworkConfig|
+|maxOccurs|1|
+|minOccurs|0|
 
 #### Volume
 Specifies the volume to be bound to container.
 |Attribute|Value|
 |---|---|
-|name|Volume|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|[ContainerVolumeType](#containervolumetype-complextype)|
+|name|Volume|
+|maxOccurs|unbounded|
+|minOccurs|0|
 
 #### SecurityOption
 Specifies securityoptions for the container.
 |Attribute|Value|
 |---|---|
-|name|SecurityOption|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|[SecurityOptionsType](#securityoptionstype-complextype)|
+|name|SecurityOption|
+|maxOccurs|unbounded|
+|minOccurs|0|
 
 #### ImageOverrides
 Image names corresponding to OS build number to be launched.
 |Attribute|Value|
 |---|---|
-|name|ImageOverrides|
-|minOccurs|0|
-|maxOccurs|1|
 |type|[ImageOverridesType](#imageoverridestype-complextype)|
+|name|ImageOverrides|
+|maxOccurs|1|
+|minOccurs|0|
 ## ContainerLoggingDriverType complexType
 |Attribute|Value|
 |---|---|
@@ -1679,10 +1679,10 @@ Image names corresponding to OS build number to be launched.
 Driver options to be passed to driver.
 |Attribute|Value|
 |---|---|
-|name|DriverOption|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|[DriverOptionType](#driveroptiontype-complextype)|
+|name|DriverOption|
+|maxOccurs|unbounded|
+|minOccurs|0|
 ## ContainerNetworkConfigType complexType
 |Attribute|Value|
 |---|---|
@@ -1707,9 +1707,9 @@ Driver options to be passed to driver.
 NetworkType. Currently only supported type is "Open".
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|NetworkType|
 |use|required|
-|type|xs:string|
 
 ## ContainerVolumeType complexType
 |Attribute|Value|
@@ -1775,9 +1775,9 @@ NetworkType. Currently only supported type is "Open".
 #### IsReadOnly
 |Attribute|Value|
 |---|---|
+|type|xs:boolean|
 |name|IsReadOnly|
 |default|false|
-|type|xs:boolean|
 
 ### Content element details
 
@@ -1785,10 +1785,10 @@ NetworkType. Currently only supported type is "Open".
 Driver options to be passed to driver.
 |Attribute|Value|
 |---|---|
-|name|DriverOption|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|[DriverOptionType](#driveroptiontype-complextype)|
+|name|DriverOption|
+|maxOccurs|unbounded|
+|minOccurs|0|
 ## DataPackageType complexType
 Declares a folder, named by the Name attribute, which contains static data files. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
 
@@ -1930,9 +1930,9 @@ Specifies information on debugger to attach when activating codepackage
 #### EntryPointType
 |Attribute|Value|
 |---|---|
+|default|Main|
 |name|EntryPointType|
 |use|optional|
-|default|Main|
 
 #### CodePackageLinkFolder
 |Attribute|Value|
@@ -1975,28 +1975,28 @@ Specifies information on debugger to attach when activating codepackage
 Overidden entrypoint for containers so debugger can be launched..
 |Attribute|Value|
 |---|---|
-|name|ContainerEntryPoint|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|xs:string|
+|name|ContainerEntryPoint|
+|maxOccurs|unbounded|
+|minOccurs|0|
 
 #### ContainerMountedVolume
 Volumes to be mounted inside container.
 |Attribute|Value|
 |---|---|
-|name|ContainerMountedVolume|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|xs:string|
+|name|ContainerMountedVolume|
+|maxOccurs|unbounded|
+|minOccurs|0|
 
 #### ContainerEnvironmentBlock
 EnvironmentBlock for containers.
 |Attribute|Value|
 |---|---|
-|name|ContainerEnvironmentBlock|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|xs:string|
+|name|ContainerEnvironmentBlock|
+|maxOccurs|unbounded|
+|minOccurs|0|
 ## DefaultServicesType complexType
 Declares service instances that are automatically created whenever an application is instantiated against this application type.
 
@@ -2207,9 +2207,9 @@ Specifies ETW trace collection. ETW traces are collected for the providers that 
 Specifies the collection of the contents of a particular folder on the local node.
 |Attribute|Value|
 |---|---|
+|maxOccurs|unbounded|
 |name|FolderSource|
 |minOccurs|0|
-|maxOccurs|unbounded|
 ## DllHostEntryPointType complexType
 Unsupported, do not use. DLL hosting support (assembly entry point) is provided through the FWP.exe process. Service Fabric starts the Fabric Worker Process (FWP.exe) and loads the assembly as part of the activation process.
 
@@ -2252,23 +2252,23 @@ Unsupported, do not use. DLL hosting support (assembly entry point) is provided 
 Unsupported, do not use. Defines the isolation policy for the Unmanaged DLLs and Managed Assemblies loaded in the DllHost. 
 |Attribute|Value|
 |---|---|
+|default|DedicatedProcess|
 |name|IsolationPolicy|
 |use|optional|
-|default|DedicatedProcess|
 
 ### Content element details
 
 #### UnmanagedDll
 |Attribute|Value|
 |---|---|
-|name|UnmanagedDll|
 |type|[UnmanagedDllType](#unmanageddlltype-complextype)|
+|name|UnmanagedDll|
 
 #### ManagedAssembly
 |Attribute|Value|
 |---|---|
-|name|ManagedAssembly|
 |type|[ManagedAssemblyType](#managedassemblytype-complextype)|
+|name|ManagedAssembly|
 ## DriverOptionType complexType
 |Attribute|Value|
 |---|---|
@@ -2290,24 +2290,24 @@ Unsupported, do not use. Defines the isolation policy for the Unmanaged DLLs and
 #### Name
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Name|
 |use|required|
-|type|xs:string|
 
 #### Value
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Value|
 |use|required|
-|type|xs:string|
 
 #### IsEncrypted
 |Attribute|Value|
 |---|---|
-|name|IsEncrypted|
-|use|optional|
-|default|false|
 |type|xs:string|
+|name|IsEncrypted|
+|default|false|
+|use|optional|
 
 ## EndpointBindingPolicyType complexType
 |Attribute|Value|
@@ -2392,9 +2392,9 @@ Specifies information about an X509 certificate used to secure an endpoint.
 The store name for the X509 certificate.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|X509StoreName|
 |default|My|
-|type|xs:string|
 
 #### X509FindValue
 The thumbprint of the X509 certificate.
@@ -2406,9 +2406,9 @@ The thumbprint of the X509 certificate.
 #### Name
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Name|
 |use|optional|
-|type|xs:string|
 
 ## EndpointOverrideType complexType
 |Attribute|Value|
@@ -2471,24 +2471,24 @@ The name of the endpoint.
 The port will be overridden in the Service Manifest
 |Attribute|Value|
 |---|---|
-|name|Port|
 |type|xs:string|
+|name|Port|
 
 #### Protocol
 The protocol for the endpoint. HTTPS endpoints must also have an EndpointCertificate and an EndpointBindingPolicy declared in the application manifest. The protocol cannot be changed later in an application upgrade. 
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Protocol|
 |use|optional|
-|type|xs:string|
 
 #### Type
 The type of the endpoint.  Input endpoints are used to expose the port to the outside, internal endpoints are used for intra-application communication.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Type|
 |use|optional|
-|type|xs:string|
 
 #### UriScheme
 The URI scheme.  For example, "http", "https", or "ftp".
@@ -2605,17 +2605,17 @@ The name of the endpoint.
 The protocol for the endpoint. HTTPS endpoints must also have an EndpointCertificate and an EndpointBindingPolicy declared in the application manifest. The protocol cannot be changed later in an application upgrade. 
 |Attribute|Value|
 |---|---|
+|default|tcp|
 |name|Protocol|
 |use|optional|
-|default|tcp|
 
 #### Type
 The type of the endpoint.  Input endpoints are used to expose the port to the outside, internal endpoints are used for intra-application communication.
 |Attribute|Value|
 |---|---|
+|default|Internal|
 |name|Type|
 |use|optional|
-|default|Internal|
 
 #### CodePackageRef
 The name of code Package that will use this endpoint.
@@ -2704,14 +2704,14 @@ The executable specified by EntryPoint is typically the long-running service hos
 #### DllHost
 |Attribute|Value|
 |---|---|
-|name|DllHost|
 |type|[DllHostEntryPointType](#dllhostentrypointtype-complextype)|
+|name|DllHost|
 
 #### ContainerHost
 |Attribute|Value|
 |---|---|
-|name|ContainerHost|
 |type|[ContainerHostEntryPointType](#containerhostentrypointtype-complextype)|
+|name|ContainerHost|
 ## EnvironmentOverridesType complexType
 |Attribute|Value|
 |---|---|
@@ -2753,10 +2753,10 @@ The executable specified by EntryPoint is typically the long-running service hos
 Environment variable.
 |Attribute|Value|
 |---|---|
-|name|EnvironmentVariable|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|[EnvironmentVariableType](#environmentvariabletype-complextype)|
+|name|EnvironmentVariable|
+|maxOccurs|unbounded|
+|minOccurs|0|
 ## EnvironmentType complexType
 |Attribute|Value|
 |---|---|
@@ -2781,20 +2781,20 @@ Environment variable.
 #### Principals
 |Attribute|Value|
 |---|---|
-|name|Principals|
 |type|[SecurityPrincipalsType](#securityprincipalstype-complextype)|
+|name|Principals|
 
 #### Policies
 |Attribute|Value|
 |---|---|
-|name|Policies|
 |type|[ApplicationPoliciesType](#applicationpoliciestype-complextype)|
+|name|Policies|
 
 #### Diagnostics
 |Attribute|Value|
 |---|---|
-|name|Diagnostics|
 |type|[DiagnosticsType](#diagnosticstype-complextype)|
+|name|Diagnostics|
 ## EnvironmentVariableType complexType
 |Attribute|Value|
 |---|---|
@@ -2826,9 +2826,9 @@ Environment variable.
 Name of environment variable.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Name|
 |use|required|
-|type|xs:string|
 
 #### Value
 |Attribute|Value|
@@ -2861,10 +2861,10 @@ Name of environment variable.
 Environment variable.
 |Attribute|Value|
 |---|---|
-|name|EnvironmentVariable|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|[EnvironmentVariableType](#environmentvariabletype-complextype)|
+|name|EnvironmentVariable|
+|maxOccurs|unbounded|
+|minOccurs|0|
 ## ExeHostEntryPointType complexType
 |Attribute|Value|
 |---|---|
@@ -2924,9 +2924,9 @@ Environment variable.
 True if the executable is external to the application package. Program existence check in the application package is skipped.
 |Attribute|Value|
 |---|---|
+|type|xs:boolean|
 |name|IsExternalExecutable|
 |default|false|
-|type|xs:boolean|
 
 ### Content element details
 
@@ -2934,22 +2934,22 @@ True if the executable is external to the application package. Program existence
 The executable name.  For example, "MySetup.bat" or "MyServiceHost.exe".
 |Attribute|Value|
 |---|---|
-|name|Program|
 |type|xs:string|
+|name|Program|
 
 #### Arguments
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Arguments|
 |minOccurs|0|
-|type|xs:string|
 
 #### WorkingFolder
 |Attribute|Value|
 |---|---|
+|default|Work|
 |name|WorkingFolder|
 |minOccurs|0|
-|default|Work|
 
 #### ConsoleRedirection
 |Attribute|Value|
@@ -2996,9 +2996,9 @@ Describes extensions that can be applied to other elements.
 #### Extension
 |Attribute|Value|
 |---|---|
+|maxOccurs|unbounded|
 |name|Extension|
 |minOccurs|0|
-|maxOccurs|unbounded|
 ## FabricCertificateType complexType
 This specifies the certificate information.
 
@@ -3051,16 +3051,16 @@ This specifies the certificate information.
 The store name for the X509 certificate.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|X509StoreName|
 |default|My|
-|type|xs:string|
 
 #### X509FindType
 This is Used only when credential is X509. This specifies how to find the certificate whether by the name or the thumbprint 
 |Attribute|Value|
 |---|---|
-|name|X509FindType|
 |default|FindByThumbprint|
+|name|X509FindType|
 
 #### X509FindValue
 This is Used only when credential is X509. This is the actual name or thumbprint of the certificate.
@@ -3073,16 +3073,16 @@ This is Used only when credential is X509. This is the actual name or thumbprint
 This is used only when credential is X509. This is the actual name or thumbprint of the certificate.
 |Attribute|Value|
 |---|---|
+|default||
 |name|X509FindValueSecondary|
 |use|optional|
-|default||
 
 #### Name
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Name|
 |use|optional|
-|type|xs:string|
 
 ## FabricEndpointsType complexType
 |Attribute|Value|
@@ -3133,111 +3133,111 @@ This is used only when credential is X509. This is the actual name or thumbprint
 #### ClientConnectionEndpoint
 |Attribute|Value|
 |---|---|
-|name|ClientConnectionEndpoint|
 |type|[InputEndpointType](#inputendpointtype-complextype)|
+|name|ClientConnectionEndpoint|
 
 #### LeaseDriverEndpoint
 |Attribute|Value|
 |---|---|
-|name|LeaseDriverEndpoint|
 |type|[InternalEndpointType](#internalendpointtype-complextype)|
+|name|LeaseDriverEndpoint|
 
 #### ClusterConnectionEndpoint
 |Attribute|Value|
 |---|---|
-|name|ClusterConnectionEndpoint|
 |type|[InternalEndpointType](#internalendpointtype-complextype)|
+|name|ClusterConnectionEndpoint|
 
 #### HttpGatewayEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InputEndpointType](#inputendpointtype-complextype)|
 |name|HttpGatewayEndpoint|
 |minOccurs|0|
-|type|[InputEndpointType](#inputendpointtype-complextype)|
 
 #### HttpApplicationGatewayEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InputEndpointType](#inputendpointtype-complextype)|
 |name|HttpApplicationGatewayEndpoint|
 |minOccurs|0|
-|type|[InputEndpointType](#inputendpointtype-complextype)|
 
 #### ServiceConnectionEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
 |name|ServiceConnectionEndpoint|
 |minOccurs|0|
-|type|[InternalEndpointType](#internalendpointtype-complextype)|
 
 #### ClusterManagerReplicatorEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
 |name|ClusterManagerReplicatorEndpoint|
 |minOccurs|0|
-|type|[InternalEndpointType](#internalendpointtype-complextype)|
 
 #### RepairManagerReplicatorEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
 |name|RepairManagerReplicatorEndpoint|
 |minOccurs|0|
-|type|[InternalEndpointType](#internalendpointtype-complextype)|
 
 #### NamingReplicatorEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
 |name|NamingReplicatorEndpoint|
 |minOccurs|0|
-|type|[InternalEndpointType](#internalendpointtype-complextype)|
 
 #### FailoverManagerReplicatorEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
 |name|FailoverManagerReplicatorEndpoint|
 |minOccurs|0|
-|type|[InternalEndpointType](#internalendpointtype-complextype)|
 
 #### ImageStoreServiceReplicatorEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
 |name|ImageStoreServiceReplicatorEndpoint|
 |minOccurs|0|
-|type|[InternalEndpointType](#internalendpointtype-complextype)|
 
 #### UpgradeServiceReplicatorEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
 |name|UpgradeServiceReplicatorEndpoint|
 |minOccurs|0|
-|type|[InternalEndpointType](#internalendpointtype-complextype)|
 
 #### FaultAnalysisServiceReplicatorEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
 |name|FaultAnalysisServiceReplicatorEndpoint|
 |minOccurs|0|
-|type|[InternalEndpointType](#internalendpointtype-complextype)|
 
 #### BackupRestoreServiceReplicatorEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
 |name|BackupRestoreServiceReplicatorEndpoint|
 |minOccurs|0|
-|type|[InternalEndpointType](#internalendpointtype-complextype)|
 
 #### UpgradeOrchestrationServiceReplicatorEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
 |name|UpgradeOrchestrationServiceReplicatorEndpoint|
 |minOccurs|0|
-|type|[InternalEndpointType](#internalendpointtype-complextype)|
 
 #### DefaultReplicatorEndpoint
 |Attribute|Value|
 |---|---|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
 |name|DefaultReplicatorEndpoint|
 |minOccurs|0|
-|type|[InternalEndpointType](#internalendpointtype-complextype)|
 
 #### ApplicationEndpoints
 |Attribute|Value|
@@ -3385,33 +3385,33 @@ Describes a Microsoft Azure Service Fabric Node.
 The name of the node instance.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|NodeName|
 |use|required|
-|type|xs:string|
 
 #### IPAddressOrFQDN
 The IP address or the FQDN of the machine on which to place this node.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|IPAddressOrFQDN|
 |use|required|
-|type|xs:string|
 
 #### IsSeedNode
 A flag indicating whether or not this node is a seed node.
 |Attribute|Value|
 |---|---|
+|type|xs:boolean|
 |name|IsSeedNode|
 |default|false|
-|type|xs:boolean|
 
 #### NodeTypeRef
 Name of the nodetype defined in the NodeTypes section. 
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|NodeTypeRef|
 |use|required|
-|type|xs:string|
 
 #### FaultDomain
 
@@ -3419,9 +3419,9 @@ Name of the nodetype defined in the NodeTypes section.
         
 |Attribute|Value|
 |---|---|
+|type|xs:anyURI|
 |name|FaultDomain|
 |use|optional|
-|type|xs:anyURI|
 
 #### UpgradeDomain
 
@@ -3429,9 +3429,9 @@ Name of the nodetype defined in the NodeTypes section.
         
 |Attribute|Value|
 |---|---|
+|type|xs:anyURI|
 |name|UpgradeDomain|
 |use|optional|
-|type|xs:anyURI|
 
 ## FileStoreETWType complexType
 Describes a file store destination for ETW events. Works only in on-premise environment.
@@ -3498,23 +3498,23 @@ Describes a file store destination for diagnostics data. Works only in a standal
 Specifies the type of account.
 |Attribute|Value|
 |---|---|
-|name|AccountType|
 |type|xs:string|
+|name|AccountType|
 
 #### PasswordEncrypted
 Specifies if password is encrypted or plain text.
 |Attribute|Value|
 |---|---|
-|name|PasswordEncrypted|
 |type|xs:string|
+|name|PasswordEncrypted|
 
 ### Content element details
 
 #### None
 |Attribute|Value|
 |---|---|
-|minOccurs|0|
 |ref|Parameters|
+|minOccurs|0|
 ## ImageOverridesType complexType
 |Attribute|Value|
 |---|---|
@@ -3541,10 +3541,10 @@ Specifies if password is encrypted or plain text.
 Container images to be deployed.
 |Attribute|Value|
 |---|---|
-|name|Image|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|[ImageType](#imagetype-complextype)|
+|name|Image|
+|maxOccurs|unbounded|
+|minOccurs|0|
 ## ImageType complexType
 |Attribute|Value|
 |---|---|
@@ -3574,17 +3574,17 @@ Container images to be deployed.
 Name of container image.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Name|
 |use|required|
-|type|xs:string|
 
 #### Os
 Build version of the Os. for ex: 1809 for RS1
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Os|
 |use|optional|
-|type|xs:string|
 
 ## InfrastructureInformationType complexType
 Contains the infrastructure information for this Microsoft Azure Service Fabric cluster.
@@ -3690,58 +3690,58 @@ Describes a Infrastructure information needed.
 The name of the node instance.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|NodeName|
 |use|required|
-|type|xs:string|
 
 #### IPAddressOrFQDN
 The IP address or the FQDN of the machine on which to place this node.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|IPAddressOrFQDN|
 |use|required|
-|type|xs:string|
 
 #### RoleOrTierName
 Name of the role which links to node type ref which is defined in the NodeTypes section.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|RoleOrTierName|
 |use|required|
-|type|xs:string|
 
 #### NodeTypeRef
 Name of the node type which is defined in the NodeTypes section.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|NodeTypeRef|
 |use|required|
-|type|xs:string|
 
 #### IsSeedNode
 Indicates whether the node is a seed node.
 |Attribute|Value|
 |---|---|
-|name|IsSeedNode|
-|use|optional|
-|default|false|
 |type|xs:boolean|
+|name|IsSeedNode|
+|default|false|
+|use|optional|
 
 #### FaultDomain
  The fault domain of this node. 
 |Attribute|Value|
 |---|---|
+|type|xs:anyURI|
 |name|FaultDomain|
 |use|optional|
-|type|xs:anyURI|
 
 #### UpgradeDomain
 The upgrade domain of this node. 
 |Attribute|Value|
 |---|---|
+|type|xs:anyURI|
 |name|UpgradeDomain|
 |use|optional|
-|type|xs:anyURI|
 
 ### Content element details
 
@@ -3749,17 +3749,17 @@ The upgrade domain of this node.
 Describe the endpoints associated with this node type
 |Attribute|Value|
 |---|---|
+|type|[FabricEndpointsType](#fabricendpointstype-complextype)|
 |name|Endpoints|
 |minOccurs|0|
-|type|[FabricEndpointsType](#fabricendpointstype-complextype)|
 
 #### Certificates
 Describe the certificates associated with this node type
 |Attribute|Value|
 |---|---|
+|type|[CertificatesType](#certificatestype-complextype)|
 |name|Certificates|
 |minOccurs|0|
-|type|[CertificatesType](#certificatestype-complextype)|
 ## InputEndpointType complexType
 |Attribute|Value|
 |---|---|
@@ -3788,16 +3788,16 @@ Describe the certificates associated with this node type
 #### Port
 |Attribute|Value|
 |---|---|
+|type|xs:positiveInteger|
 |name|Port|
 |use|required|
-|type|xs:positiveInteger|
 
 #### Protocol
 |Attribute|Value|
 |---|---|
+|default|tcp|
 |name|Protocol|
 |use|optional|
-|default|tcp|
 
 ## InternalEndpointType complexType
 |Attribute|Value|
@@ -3827,16 +3827,16 @@ Describe the certificates associated with this node type
 #### Port
 |Attribute|Value|
 |---|---|
+|type|xs:positiveInteger|
 |name|Port|
 |use|required|
-|type|xs:positiveInteger|
 
 #### Protocol
 |Attribute|Value|
 |---|---|
+|default|tcp|
 |name|Protocol|
 |use|optional|
-|default|tcp|
 
 ## KeyValuePairType complexType
 |Attribute|Value|
@@ -3949,28 +3949,28 @@ A unique identifier for the metric within the cluster from the Cluster Resource 
 The default amount of load that this stateless service creates for this metric.
 |Attribute|Value|
 |---|---|
-|name|DefaultLoad|
-|use|optional|
-|default|0|
 |type|xs:long|
+|name|DefaultLoad|
+|default|0|
+|use|optional|
 
 #### PrimaryDefaultLoad
 The default amount of load that this service will exert for this metric when it's a primary replica.
 |Attribute|Value|
 |---|---|
-|name|PrimaryDefaultLoad|
-|use|optional|
-|default|0|
 |type|xs:long|
+|name|PrimaryDefaultLoad|
+|default|0|
+|use|optional|
 
 #### SecondaryDefaultLoad
 The default amount of load that this service will exert for this metric when it's a secondary replica.
 |Attribute|Value|
 |---|---|
-|name|SecondaryDefaultLoad|
-|use|optional|
-|default|0|
 |type|xs:long|
+|name|SecondaryDefaultLoad|
+|default|0|
+|use|optional|
 
 #### Weight
 Determines the metric weight relative to the other metrics that are configured for this service. During runtime, if two metrics end up in conflict, the Cluster Resource Manager prefers the metric with the higher weight. Zero disables load balancing for this metric.
@@ -4030,8 +4030,8 @@ Describes a store destination within the node for diagnostic data.
 #### None
 |Attribute|Value|
 |---|---|
-|minOccurs|0|
 |ref|Parameters|
+|minOccurs|0|
 ## LogicalDirectoryType complexType
 Describes a LogicalDirectoryType.
 
@@ -4074,24 +4074,24 @@ Describes a LogicalDirectoryType.
 The name of the LogicalDirectory.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|LogicalDirectoryName|
 |use|required|
-|type|xs:string|
 
 #### MappedTo
 The path of the LogicalDirectory.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|MappedTo|
 |use|required|
-|type|xs:string|
 
 #### Context
 |Attribute|Value|
 |---|---|
+|default|application|
 |name|Context|
 |use|optional|
-|default|application|
 
 ## ManagedAssemblyType complexType
 Unsupported, do not use. The name of managed assembly (for example, Queue.dll), to host.
@@ -4135,23 +4135,23 @@ Unsupported, do not use. The name of managed assembly (for example, Queue.dll), 
 #### RoleName
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|RoleName|
 |use|required|
-|type|xs:string|
 
 #### NodeTypeRef
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|NodeTypeRef|
 |use|required|
-|type|xs:string|
 
 #### RoleNodeCount
 |Attribute|Value|
 |---|---|
+|type|xs:int|
 |name|RoleNodeCount|
 |use|required|
-|type|xs:int|
 
 ## PaaSVoteType complexType
 |Attribute|Value|
@@ -4186,9 +4186,9 @@ Unsupported, do not use. The name of managed assembly (for example, Queue.dll), 
 #### Port
 |Attribute|Value|
 |---|---|
+|type|xs:int|
 |name|Port|
 |use|required|
-|type|xs:int|
 
 ## PackageSharingPolicyType complexType
 Indicates if a code, config or data package should be shared.
@@ -4240,8 +4240,8 @@ The name of the code, config, or data package to be shared. Must match the name 
 #### Scope
 |Attribute|Value|
 |---|---|
-|name|Scope|
 |default|None|
+|name|Scope|
 
 ## ParameterType complexType
 |Attribute|Value|
@@ -4268,8 +4268,8 @@ The name of the code, config, or data package to be shared. Must match the name 
 If true, the value of this parameter is encrypted
 |Attribute|Value|
 |---|---|
-|name|IsEncrypted|
 |type|xs:string|
+|name|IsEncrypted|
 
 ## ParametersType complexType
 |Attribute|Value|
@@ -4292,10 +4292,10 @@ If true, the value of this parameter is encrypted
 #### Parameter
 |Attribute|Value|
 |---|---|
-|name|Parameter|
-|minOccurs|1|
-|maxOccurs|unbounded|
 |type|[ParameterType](#parametertype-complextype)|
+|name|Parameter|
+|maxOccurs|unbounded|
+|minOccurs|1|
 ## PortBindingType complexType
 |Attribute|Value|
 |---|---|
@@ -4327,9 +4327,9 @@ If true, the value of this parameter is encrypted
 Container port number.
 |Attribute|Value|
 |---|---|
+|type|xs:int|
 |name|ContainerPort|
 |use|required|
-|type|xs:int|
 
 #### EndpointRef
 |Attribute|Value|
@@ -4368,9 +4368,9 @@ Container port number.
 Specifies if password is encrypted or plain text.
 |Attribute|Value|
 |---|---|
+|type|xs:boolean|
 |name|PasswordEncrypted|
 |use|optional|
-|type|xs:boolean|
 
 #### Email
 |Attribute|Value|
@@ -4449,73 +4449,73 @@ Specifies if password is encrypted or plain text.
 Memory limits in MB. Must be a positive integer.
 |Attribute|Value|
 |---|---|
-|name|MemoryInMB|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|MemoryInMB|
+|default|0|
+|use|optional|
 
 #### MemorySwapInMB
 Total memory (memory + swap) limits in MB.
 |Attribute|Value|
 |---|---|
-|name|MemorySwapInMB|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|MemorySwapInMB|
+|default|0|
+|use|optional|
 
 #### MemoryReservationInMB
 Memory soft limits in MB. Must be a positive integer.
 |Attribute|Value|
 |---|---|
-|name|MemoryReservationInMB|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|MemoryReservationInMB|
+|default|0|
+|use|optional|
 
 #### CpuShares
 Relative CPU weight. Must be a positive integer.
 |Attribute|Value|
 |---|---|
-|name|CpuShares|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|CpuShares|
+|default|0|
+|use|optional|
 
 #### CpuPercent
 Usable percentage of available CPUs (windows only). Must be a positive integer.
 |Attribute|Value|
 |---|---|
-|name|CpuPercent|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|CpuPercent|
+|default|0|
+|use|optional|
 
 #### MaximumIOps
 Maximum IO rate in terms of IOps. Must be a positive integer.
 |Attribute|Value|
 |---|---|
-|name|MaximumIOps|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|MaximumIOps|
+|default|0|
+|use|optional|
 
 #### MaximumIOBandwidth
 Maximum IO bandwidth. Must be a positive integer.
 |Attribute|Value|
 |---|---|
-|name|MaximumIOBandwidth|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|MaximumIOBandwidth|
+|default|0|
+|use|optional|
 
 #### BlockIOWeight
 Relative block IO weight. Must be a positive integer between 10 and 1000.
 |Attribute|Value|
 |---|---|
-|name|BlockIOWeight|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|BlockIOWeight|
+|default|0|
+|use|optional|
 
 ## ResourceOverridesType complexType
 Describes the resource overrides for endpoints in servicemanifest resources.
@@ -4663,9 +4663,9 @@ The user account that the service code package will run as.  The user account mu
 Setup is the SetupEntryPoint declared in the service manifest, the privileged entry point that runs before any other entry point.  Main is the EntryPoint declared in the service manifest, typically the long-running service host. All is all entry points.
 |Attribute|Value|
 |---|---|
+|default|Main|
 |name|EntryPointType|
 |use|optional|
-|default|Main|
 
 ## ScalingPolicyType complexType
 A scaling policy description consisting of a trigger and a mechanism for scaling. 
@@ -4770,16 +4770,16 @@ The user or group being assigned access rights to a resource, must be declared i
 The rights to grant, default is Read.
 |Attribute|Value|
 |---|---|
-|name|GrantRights|
 |default|Read|
+|name|GrantRights|
 
 #### ResourceType
 The type of resource, defined in the service manifest, either Endpoint or Certificate.
 |Attribute|Value|
 |---|---|
+|default|Endpoint|
 |name|ResourceType|
 |use|optional|
-|default|Endpoint|
 
 ## SecurityOptionsType complexType
 |Attribute|Value|
@@ -5019,26 +5019,26 @@ Declares a set of users as security principals, which can be referenced in polic
 #### StatefulServiceType
 |Attribute|Value|
 |---|---|
-|name|StatefulServiceType|
 |type|[StatefulServiceTypeType](#statefulservicetypetype-complextype)|
+|name|StatefulServiceType|
 
 #### StatelessServiceType
 |Attribute|Value|
 |---|---|
-|name|StatelessServiceType|
 |type|[StatelessServiceTypeType](#statelessservicetypetype-complextype)|
+|name|StatelessServiceType|
 
 #### StatefulServiceGroupType
 |Attribute|Value|
 |---|---|
-|name|StatefulServiceGroupType|
 |type|[StatefulServiceGroupTypeType](#statefulservicegrouptypetype-complextype)|
+|name|StatefulServiceGroupType|
 
 #### StatelessServiceGroupType
 |Attribute|Value|
 |---|---|
-|name|StatelessServiceGroupType|
 |type|[StatelessServiceGroupTypeType](#statelessservicegrouptypetype-complextype)|
+|name|StatelessServiceGroupType|
 ## ServiceDiagnosticsType complexType
 Describes the diagnostic settings for the components of this service manifest.
 
@@ -5249,9 +5249,9 @@ User defined type identifier for a service group, For example, "ActorQueueSGType
 Specifies whether the service group instance is created by the implicit factory. If false (default), one of the code packages must register the service group factory
 |Attribute|Value|
 |---|---|
+|type|xs:boolean|
 |name|UseImplicitFactory|
 |use|optional|
-|type|xs:boolean|
 
 ### Content element details
 
@@ -5266,23 +5266,23 @@ Load metrics reported by this service.
 Constraints for the placement of services that are part of this package.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|PlacementConstraints|
 |minOccurs|0|
-|type|xs:string|
 
 #### ServiceGroupMembers
 Member types of this service group type.
 |Attribute|Value|
 |---|---|
+|maxOccurs|1|
 |name|ServiceGroupMembers|
 |minOccurs|0|
-|maxOccurs|1|
 
 #### None
 |Attribute|Value|
 |---|---|
-|minOccurs|0|
 |ref|Extensions|
+|minOccurs|0|
 ## ServiceManifestImportPoliciesType complexType
 Describes policies (end-point binding, package sharing, run-as, and security access) to be applied on the imported service manifest.
 
@@ -5331,56 +5331,56 @@ Describes policies (end-point binding, package sharing, run-as, and security acc
 #### RunAsPolicy
 |Attribute|Value|
 |---|---|
+|type|[RunAsPolicyType](#runaspolicytype-complextype)|
 |name|RunAsPolicy|
 |minOccurs|0|
-|type|[RunAsPolicyType](#runaspolicytype-complextype)|
 
 #### SecurityAccessPolicy
 |Attribute|Value|
 |---|---|
+|type|[SecurityAccessPolicyType](#securityaccesspolicytype-complextype)|
 |name|SecurityAccessPolicy|
 |minOccurs|0|
-|type|[SecurityAccessPolicyType](#securityaccesspolicytype-complextype)|
 
 #### PackageSharingPolicy
 |Attribute|Value|
 |---|---|
+|type|[PackageSharingPolicyType](#packagesharingpolicytype-complextype)|
 |name|PackageSharingPolicy|
 |minOccurs|0|
-|type|[PackageSharingPolicyType](#packagesharingpolicytype-complextype)|
 
 #### EndpointBindingPolicy
 Specifies a certificate that should be returned to a client for an HTTPS endpoint.
 |Attribute|Value|
 |---|---|
+|type|[EndpointBindingPolicyType](#endpointbindingpolicytype-complextype)|
 |name|EndpointBindingPolicy|
 |minOccurs|0|
-|type|[EndpointBindingPolicyType](#endpointbindingpolicytype-complextype)|
 
 #### ServicePackageResourceGovernancePolicy
 Defines the resource governance policy that is applied at the level of the entire service package.
 |Attribute|Value|
 |---|---|
-|name|ServicePackageResourceGovernancePolicy|
-|minOccurs|0|
-|maxOccurs|1|
 |type|[ServicePackageResourceGovernancePolicyType](#servicepackageresourcegovernancepolicytype-complextype)|
+|name|ServicePackageResourceGovernancePolicy|
+|maxOccurs|1|
+|minOccurs|0|
 
 #### ResourceGovernancePolicy
 Specifies resource limits for codepackage.
 |Attribute|Value|
 |---|---|
+|type|[ResourceGovernancePolicyType](#resourcegovernancepolicytype-complextype)|
 |name|ResourceGovernancePolicy|
 |minOccurs|0|
-|type|[ResourceGovernancePolicyType](#resourcegovernancepolicytype-complextype)|
 
 #### ContainerHostPolicies
 Specifies policies for activating container hosts.
 |Attribute|Value|
 |---|---|
+|type|[ContainerHostPoliciesType](#containerhostpoliciestype-complextype)|
 |name|ContainerHostPolicies|
 |minOccurs|0|
-|type|[ContainerHostPoliciesType](#containerhostpoliciestype-complextype)|
 ## ServiceManifestRefType complexType
 Imports the service manifest by reference. Currently the service manifest file (ServiceManifest.xml) must be present in the build package.
 
@@ -5448,10 +5448,10 @@ Declaratively describes the service type and version. It lists the independently
 The identifier of this service manifest, an un-structured string.
 |Attribute|Value|
 |---|---|
-|name|ManifestId|
-|use|optional|
-|type|xs:string|
 |default||
+|name|ManifestId|
+|type|xs:string|
+|use|optional|
 
 ### Content element details
 
@@ -5459,53 +5459,53 @@ The identifier of this service manifest, an un-structured string.
 Text describing this service.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Description|
 |minOccurs|0|
-|type|xs:string|
 
 #### ServiceTypes
 Defines what service types are supported by a CodePackage in this manifest. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. Service types are declared at the manifest level and not the code package level.
 |Attribute|Value|
 |---|---|
-|name|ServiceTypes|
 |type|[ServiceAndServiceGroupTypesType](#serviceandservicegrouptypestype-complextype)|
+|name|ServiceTypes|
 
 #### CodePackage
 |Attribute|Value|
 |---|---|
+|type|[CodePackageType](#codepackagetype-complextype)|
 |name|CodePackage|
 |maxOccurs|unbounded|
-|type|[CodePackageType](#codepackagetype-complextype)|
 
 #### ConfigPackage
 |Attribute|Value|
 |---|---|
-|name|ConfigPackage|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|[ConfigPackageType](#configpackagetype-complextype)|
+|name|ConfigPackage|
+|maxOccurs|unbounded|
+|minOccurs|0|
 
 #### DataPackage
 |Attribute|Value|
 |---|---|
-|name|DataPackage|
-|minOccurs|0|
-|maxOccurs|unbounded|
 |type|[DataPackageType](#datapackagetype-complextype)|
+|name|DataPackage|
+|maxOccurs|unbounded|
+|minOccurs|0|
 
 #### Resources
 |Attribute|Value|
 |---|---|
+|type|[ResourcesType](#resourcestype-complextype)|
 |name|Resources|
 |minOccurs|0|
-|type|[ResourcesType](#resourcestype-complextype)|
 
 #### Diagnostics
 |Attribute|Value|
 |---|---|
+|type|[ServiceDiagnosticsType](#servicediagnosticstype-complextype)|
 |name|Diagnostics|
 |minOccurs|0|
-|type|[ServiceDiagnosticsType](#servicediagnosticstype-complextype)|
 ## ServicePackageResourceGovernancePolicyType complexType
 |Attribute|Value|
 |---|---|
@@ -5535,19 +5535,19 @@ Defines what service types are supported by a CodePackage in this manifest. When
 CPU limit in number of logical cores. Must be a positive integer.
 |Attribute|Value|
 |---|---|
-|name|CpuCores|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|CpuCores|
+|default|0|
+|use|optional|
 
 #### MemoryInMB
 Memory limits in MB. Must be a positive integer.
 |Attribute|Value|
 |---|---|
-|name|MemoryInMB|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|MemoryInMB|
+|default|0|
+|use|optional|
 
 ## ServicePackageType complexType
 ServicePackage represents a versioned unit of deployment and activation. The version of the ServicePackage is determined based on the manifest version and the version of the overrides.
@@ -5673,47 +5673,47 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
 #### Name
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Name|
 |use|required|
-|type|xs:string|
 
 #### ManifestVersion
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|ManifestVersion|
 |use|required|
-|type|xs:string|
 
 #### ManifestChecksum
 Checksum value of the ServiceManifest file
 |Attribute|Value|
 |---|---|
-|name|ManifestChecksum|
 |type|xs:string|
+|name|ManifestChecksum|
 
 #### ContentChecksum
 Checksum value of this ServicePackage content
 |Attribute|Value|
 |---|---|
-|name|ContentChecksum|
 |type|xs:string|
+|name|ContentChecksum|
 
 ### Content element details
 
 #### Description
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|Description|
 |minOccurs|0|
-|type|xs:string|
 
 #### ServicePackageResourceGovernancePolicy
 |Attribute|Value|
 |---|---|
-|name|ServicePackageResourceGovernancePolicy|
-|minOccurs|0|
-|maxOccurs|1|
 |type|[ServicePackageResourceGovernancePolicyType](#servicepackageresourcegovernancepolicytype-complextype)|
+|name|ServicePackageResourceGovernancePolicy|
+|maxOccurs|1|
+|minOccurs|0|
 
 #### DigestedServiceTypes
 |Attribute|Value|
@@ -5723,22 +5723,22 @@ Checksum value of this ServicePackage content
 #### DigestedCodePackage
 |Attribute|Value|
 |---|---|
-|name|DigestedCodePackage|
 |maxOccurs|unbounded|
+|name|DigestedCodePackage|
 
 #### DigestedConfigPackage
 |Attribute|Value|
 |---|---|
+|maxOccurs|unbounded|
 |name|DigestedConfigPackage|
 |minOccurs|0|
-|maxOccurs|unbounded|
 
 #### DigestedDataPackage
 |Attribute|Value|
 |---|---|
+|maxOccurs|unbounded|
 |name|DigestedDataPackage|
 |minOccurs|0|
-|maxOccurs|unbounded|
 
 #### DigestedResources
 |Attribute|Value|
@@ -5749,8 +5749,8 @@ Checksum value of this ServicePackage content
 #### Diagnostics
 |Attribute|Value|
 |---|---|
-|name|Diagnostics|
 |type|[ServiceDiagnosticsType](#servicediagnosticstype-complextype)|
+|name|Diagnostics|
 ## ServiceTemplatesType complexType
 |Attribute|Value|
 |---|---|
@@ -5775,26 +5775,26 @@ Checksum value of this ServicePackage content
 #### StatelessService
 |Attribute|Value|
 |---|---|
-|name|StatelessService|
 |type|[StatelessServiceType](#statelessservicetype-complextype)|
+|name|StatelessService|
 
 #### StatefulService
 |Attribute|Value|
 |---|---|
-|name|StatefulService|
 |type|[StatefulServiceType](#statefulservicetype-complextype)|
+|name|StatefulService|
 
 #### StatelessServiceGroup
 |Attribute|Value|
 |---|---|
-|name|StatelessServiceGroup|
 |type|[StatelessServiceGroupType](#statelessservicegrouptype-complextype)|
+|name|StatelessServiceGroup|
 
 #### StatefulServiceGroup
 |Attribute|Value|
 |---|---|
-|name|StatefulServiceGroup|
 |type|[StatefulServiceGroupType](#statefulservicegrouptype-complextype)|
+|name|StatefulServiceGroup|
 ## ServiceType complexType
 Base type that defines a Microsoft Azure Service Fabric service.
 
@@ -5970,9 +5970,9 @@ Load metrics reported by this service, used for resource balancing services.
 Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service’s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|PlacementConstraints|
 |minOccurs|0|
-|type|xs:string|
 
 #### ServiceCorrelations
 Defines affinity relationships between services.
@@ -6025,9 +6025,9 @@ Defines Properties for the Persistence and Eviction policies.
 #### Property
 |Attribute|Value|
 |---|---|
+|maxOccurs|unbounded|
 |name|Property|
 |minOccurs|0|
-|maxOccurs|unbounded|
 ## ServiceTypeHealthPolicyType complexType
 |Attribute|Value|
 |---|---|
@@ -6062,28 +6062,28 @@ Defines Properties for the Persistence and Eviction policies.
 Specifies the maximum tolerated percentage of unhealthy services before the application is considered unhealthy. Default percentage: 0.
 |Attribute|Value|
 |---|---|
-|name|MaxPercentUnhealthyServices|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|MaxPercentUnhealthyServices|
+|default|0|
+|use|optional|
 
 #### MaxPercentUnhealthyPartitionsPerService
 Specifies the maximum tolerated percentage of unhealthy partitions before a service is considered unhealthy. Default percentage: 0.
 |Attribute|Value|
 |---|---|
-|name|MaxPercentUnhealthyPartitionsPerService|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|MaxPercentUnhealthyPartitionsPerService|
+|default|0|
+|use|optional|
 
 #### MaxPercentUnhealthyReplicasPerPartition
 Specifies the maximum tolerated percentage of unhealthy replicas before a partition is considered unhealthy. Default percentage: 0.
 |Attribute|Value|
 |---|---|
-|name|MaxPercentUnhealthyReplicasPerPartition|
-|use|optional|
-|default|0|
 |type|xs:string|
+|name|MaxPercentUnhealthyReplicasPerPartition|
+|default|0|
+|use|optional|
 
 ## ServiceTypeType complexType
 Base type that describes a stateful or a stateless ServiceType.
@@ -6193,9 +6193,9 @@ Load metrics reported by this service.
 Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service's requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|PlacementConstraints|
 |minOccurs|0|
-|type|xs:string|
 
 #### ServicePlacementPolicies
 Declares placement policies for a service.  Useful when the cluster spans geographic distances or and/or geopolitical regions.
@@ -6207,8 +6207,8 @@ Declares placement policies for a service.  Useful when the cluster spans geogra
 #### None
 |Attribute|Value|
 |---|---|
-|minOccurs|0|
 |ref|Extensions|
+|minOccurs|0|
 ## ServiceTypesType complexType
 |Attribute|Value|
 |---|---|
@@ -6240,15 +6240,15 @@ Declares placement policies for a service.  Useful when the cluster spans geogra
 Describes a stateful ServiceType.
 |Attribute|Value|
 |---|---|
-|name|StatefulServiceType|
 |type|[StatefulServiceTypeType](#statefulservicetypetype-complextype)|
+|name|StatefulServiceType|
 
 #### StatelessServiceType
 Describes a stateless ServiceType.
 |Attribute|Value|
 |---|---|
-|name|StatelessServiceType|
 |type|[StatelessServiceTypeType](#statelessservicetypetype-complextype)|
+|name|StatelessServiceType|
 ## SettingsOverridesType complexType
 Declares configuration settings in a service manifest to be overridden. It consists of one or more sections of key-value pairs. Parameter values can be encrypted using the Invoke-ServiceFabricEncryptSecret cmdlet.
 
@@ -6309,8 +6309,8 @@ Declares configuration settings in a service manifest to be overridden. It consi
 A section in the Settings.xml file to override.
 |Attribute|Value|
 |---|---|
-|name|Section|
 |maxOccurs|unbounded|
+|name|Section|
 ## SettingsType complexType
 Describes user defined settings for a ServiceComponent or an Application. It consists of one or more sections of key-value pairs.
 
@@ -6363,9 +6363,9 @@ Describes user defined settings for a ServiceComponent or an Application. It con
 A user defined named section.
 |Attribute|Value|
 |---|---|
+|maxOccurs|unbounded|
 |name|Section|
 |minOccurs|0|
-|maxOccurs|unbounded|
 ## StatefulServiceGroupType complexType
 Defines a stateful service group.
 
@@ -6632,16 +6632,16 @@ Describes a stateless service type.
 #### CurrentInstallation
 |Attribute|Value|
 |---|---|
+|type|[WindowsFabricDeploymentInformation](#windowsfabricdeploymentinformation-complextype)|
 |name|CurrentInstallation|
 |minOccurs|0|
-|type|[WindowsFabricDeploymentInformation](#windowsfabricdeploymentinformation-complextype)|
 
 #### TargetInstallation
 |Attribute|Value|
 |---|---|
+|type|[WindowsFabricDeploymentInformation](#windowsfabricdeploymentinformation-complextype)|
 |name|TargetInstallation|
 |minOccurs|1|
-|type|[WindowsFabricDeploymentInformation](#windowsfabricdeploymentinformation-complextype)|
 ## UnmanagedDllType complexType
 Unsupported, do not use. The name of unmanaged assembly (for example, Queue.dll), to host.
 
@@ -6737,90 +6737,90 @@ Unsupported, do not use. The name of unmanaged assembly (for example, Queue.dll)
 This is the target instance of the node.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|InstanceId|
 |use|optional|
-|type|xs:string|
 
 #### MSILocation
 This is the full path to the MSI location.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|MSILocation|
 |use|optional|
-|type|xs:string|
 
 #### ClusterManifestLocation
 This is the full path to the Cluster Manifest Location.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|ClusterManifestLocation|
 |use|optional|
-|type|xs:string|
 
 #### InfrastructureManifestLocation
 This location of the infrastructure manifest that is internally generated.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|InfrastructureManifestLocation|
 |use|optional|
-|type|xs:string|
 
 #### TargetVersion
 This is the Target Version of the deployment.
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|TargetVersion|
 |use|optional|
-|type|xs:string|
 
 #### NodeName
 This is the name of the Node to which the Fabric Upgrade is to happe
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|NodeName|
 |use|optional|
-|type|xs:string|
 
 #### RemoveNodeState
 A flag indicating if RemoveNodeState Api should be called after removing node configuration.
 |Attribute|Value|
 |---|---|
-|name|RemoveNodeState|
-|use|optional|
-|default|false|
 |type|xs:boolean|
+|name|RemoveNodeState|
+|default|false|
+|use|optional|
 
 #### UpgradeEntryPointExe
 Name of the exe used by the installer service to upgrade 
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|UpgradeEntryPointExe|
 |use|optional|
-|type|xs:string|
 
 #### UpgradeEntryPointExeParameters
 Parameters to the Setup Entry point exe
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|UpgradeEntryPointExeParameters|
 |use|optional|
-|type|xs:string|
 
 #### UndoUpgradeEntryPointExe
 Name of the exe used by the installer service to undo the upgrade
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|UndoUpgradeEntryPointExe|
 |use|optional|
-|type|xs:string|
 
 #### UndoUpgradeEntryPointExeParameters
 Parameters to the Setup Entry point exe
 |Attribute|Value|
 |---|---|
+|type|xs:string|
 |name|UndoUpgradeEntryPointExeParameters|
 |use|optional|
-|type|xs:string|
 
 ## WindowsInfrastructureType complexType
 |Attribute|Value|
