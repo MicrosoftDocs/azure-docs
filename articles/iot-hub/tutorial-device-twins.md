@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-#Customer intent: As a developer, I want to be able to synchronize state information between my devices and my IoT hub.
+#Customer intent: As a developer, I want to be able to configure my devices from the cloud and receive status and compliance data from my devices.
 ---
 
-# Tutorial: Manage the state of a device from a back-end service
+# Tutorial: Configure your devices from a back-end service
 
-As well as sending telemetry to your IoT hub, a device may report status such as its current firmware or network configuration. You may also need to configure a device from a back-end application. For example, setting a target temperature or other operational parameters.
+As well as receiving telemetry from your devices, you may need to configure your devices from your back-end service. When you send a desired configuration to your devices, you may also want to receive status and compliance updates from those devices. For example, you might set a target operational temperature range for a device or collect firmware version information from your devices.
 
-To synchronize state information between a device and an IoT hub, you use _device twins_. A device twin is a JSON document, associated with a specific device, and stored in your IoT hub's device identity registry. A device twin contains _desired properties_, _reported properties_, and _tags_. A desired property is set by a back-end application and read by a device. A reported property is set by a device and read by a back-end application. A tag is set by a back-end application and is never sent to a device. This tutorial shows you how to use desired and reported properties to synchronize state information.
+To synchronize state information between a device and an IoT hub, you use _device twins_. A [device twin](iot-hub-devguide-device-twins.md) is a JSON document, associated with a specific device, and stored by IoT Hub in the cloud where you can [query](iot-hub-devguide-query-language.md) them. A device twin contains _desired properties_, _reported properties_, and _tags_. A desired property is set by a back-end application and read by a device. A reported property is set by a device and read by a back-end application. A tag is set by a back-end application and is never sent to a device. You use tags to organize your devices. This tutorial shows you how to use desired and reported properties to synchronize state information.
 
 In this tutorial, you perform the following tasks:
 
@@ -54,11 +54,11 @@ Download the sample Node.js project from https://github.com/Azure-Samples/azure-
 
 To complete this tutorial, you need an IoT hub with a device added to the device identity registry.
 
-If you don't already have an IoT hub set up in your subscription, you can set one up with following CLI script. This script uses the name **tutorial-iot-hub** for the IoT hub, you should replace this name with your own unique name when you run it. The script creates the resource group and hub in the **West US** region, you can change the region to one closer to you:
+If you don't already have an IoT hub set up in your subscription, you can set one up with following CLI script. This script uses the name **tutorial-iot-hub** for the IoT hub, you should replace this name with your own unique name when you run it. The script creates the resource group and hub in the **Central US** region, you can change the region to one closer to you:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
-location=westus
+location=centralus
 
 # Install the IoT extension if it's not already installed:
 az extension add --name azure-cli-iot-ext
