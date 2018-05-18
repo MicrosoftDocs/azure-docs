@@ -1,24 +1,20 @@
 ---
-title: Add the Bing Search connector logic apps | Microsoft Docs
-description: Overview of the Bing Search connector with REST API parameters
-services: ''
-suite: ''
-documentationcenter: ''
+# required metadata
+title: Connect to Bing Search - Azure Logic Apps | Microsoft Docs
+description: Search for items with Bing Search REST APIs and Azure Logic Apps
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: a7f530e8-1573-4612-8899-c9c84aa2de6d
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: cfowler
+ms.author: estfan
 ms.date: 11/07/2016
-ms.author: estfan; ladocs
+ms.topic: article
+ms.service: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the Bing Search connector
 Connect to Bing Search to search news, search videos, and more. With Bing Search, you can: 
 

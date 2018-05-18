@@ -1,25 +1,21 @@
 ---
-title: Set up event monitoring with Azure Event Hubs for Azure Logic Apps | Microsoft Docs
-description: Monitor data streams to receive events and send events with your logic apps by using Azure Event Hubs
-services: logic-apps
-keywords: data stream, event monitor, event hubs
+# required metadata
+title: Connect to Azure Event Hubs - Azure Logic Apps | Microsoft Docs
+description: Manage and monitor events with Azure Event Hubs and Azure Logic Apps 
 author: ecfan
-manager: anneta
-editor: ''
-documentationcenter: ''
-tags: connectors
-
-ms.assetid: 
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: cfowler
+ms.author: estfan
 ms.date: 02/06/2018
-ms.author: estfan; LADocs
+ms.topic: article
+ms.service: logic-apps
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
 
-# Monitor, receive, and send events with the Event Hubs connector
+# Monitor, receive, and send events with Azure Event Hubs and Azure Logic Apps 
 
 To set up an event monitor so that your logic app can detect events, receive events, 
 and send events, connect to an [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) 
@@ -37,12 +33,7 @@ Before you can use the Event Hubs connector, you must have these items:
 
 ## Connect to Azure Event Hubs
 
-Before your logic app can access any service, 
-you have to create a [*connection*](./connectors-overview.md) 
-between your logic app and the service, if you haven't already. 
-This connection authorizes your logic app to access data. 
-For your logic app to access your Event Hub, 
-check your permissions and get the connection string for your Event Hubs namespace.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)] 
 
 1.  Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
