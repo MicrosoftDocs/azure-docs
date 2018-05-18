@@ -36,9 +36,9 @@ The agent for Linux and Windows communicates outbound with the Log Analytics ser
 
 If you are monitoring the computer with System Center 2016 - Operations Manager or Operations Manager 2012 R2, it can be multi-homed with the Log Analytics service to collect data and forward to the service and still be monitored by [Operations Manager](log-analytics-om-agents.md). Linux computers monitored by an Operations Manager management group integrated with Log Analytics do not receive configuration for data sources and forward collected data through the management group. The Windows agent can report up to four workspaces, while the Linux agent only supports reporting to a single workspace.  
 
-The agent for Linux and Windows isn't only for connecting to Log Analytics, it also supports Azure Automation to host the Hybrid Runbook worker role and management solutions such as Change Tracking and Update Management.  For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../automation/automation-offering-get-started.md#automation-architecture-overview).  
+The agent for Linux and Windows isn't only for connecting to Log Analytics, it also supports Azure Automation to host the Hybrid Runbook worker role and management solutions such as Change Tracking and Update Management.  For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).  
 
-## Supported versions of Windows
+## Supported Windows operating systems
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
 * Windows Server 2008 Service Pack 1 (SP1) or later
@@ -47,7 +47,7 @@ The following versions of the Windows operating system are officially supported 
 > [!NOTE]
 > The agent for Windows only supports Transport Layer Security (TLS) 1.0 and 1.1.  
 
-## Supported versions of Linux
+## Supported Linux operating systems
 The following Linux distributions are officially supported.  However, the Linux agent might also run on other distributions not listed.  Unless otherwise noted, all minor releases are supported for each major version listed.  
 
 * Amazon Linux 2012.09 to 2015.09 (x86/x64)
