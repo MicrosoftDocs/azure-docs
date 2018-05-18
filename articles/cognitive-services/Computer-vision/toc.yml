@@ -34,10 +34,18 @@
       href: QuickStarts/java-print-text.md
     - name: Extract handwritten text
       href: QuickStarts/java-hand-text.md
-#  - name: JavaScript
-#    items:
-#    - name: Summary
-#      href: QuickStarts/JavaScript.md
+  - name: JavaScript
+    items:
+    - name: Summary
+      href: QuickStarts/JavaScript.md
+    - name: Analyze an image
+      href: QuickStarts/javascript-analyze.md
+    - name: Generate a thumbnail
+      href: QuickStarts/javascript-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/javascript-print-text.md
+    - name: Extract handwritten text
+      href: QuickStarts/javascript-hand-text.md
 #  - name: PHP
 #    items:
 #    - name: Summary
@@ -56,8 +64,6 @@
     items:
     - name: cURL
       href: QuickStarts/curl.md
-    - name: JavaScript
-      href: QuickStarts/JavaScript.md
     - name: PHP
       href: QuickStarts/PHP.md
     - name: Python
