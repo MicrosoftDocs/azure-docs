@@ -1,8 +1,6 @@
-## GDPR compliance
+## Security compliance
 
-[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform) is a European Union (EU) data protection and privacy law. The GDPR laws relate to how personal information is used, collected, and stored. These rules are imposed on companies, government agencies, and other organizations that operate in the EU and collect and analyze data that is tied to EU residents.
-
-The Azure Import/Export service is GDPR-compliant. Personal information is relevant to the service (via the portal and API) during import and export operations. Data used during these processes include:
+Personal information is relevant to the import/export service (via the portal and API) during import and export operations. Data used during these processes include:
 
 - Contact name
 - Phone number
@@ -16,12 +14,18 @@ The Azure Import/Export service is GDPR-compliant. Personal information is relev
 - Carrier account number
 - Shipping tracking number
 
-> [!IMPORTANT]
-> By default, personal identifiable information is purged on all completed jobs.
+When an import/export job is created, users provide contact information and a shipping address. Personal information is stored in up to two different locations: in the job and optionally in the portal settings. Personal information is only stored in portal settings if you check the checkbox labeled, **Save carrier and return address as default** on the *Return shipping info* export blade.
 
-When an Import/Export job is created, the users provide contact information and a shipping address. Personal information is saved in the job and deleted with the job. Users can delete jobs manually and completed jobs are automatically deleted after 90 days. 
+Personal contact information may be deleted in the following ways:
 
-Jobs can be deleted via the REST API or  via the Azure portal. To delete the job in the Azure portal, go to your Import/Export job, and click *Delete* from the command bar. For more information on Import/Export job deletion via REST API, go to [Delete an Import/Export job](storage-import-export-cancelling-and-deleting-jobs.md).
+- Data saved with the job is deleted with the job. Users can delete jobs manually and completed jobs are automatically deleted after 90 days.
 
+- Contact information saved in the portal settings may be removed by deleting the portal settings. You can delete portal settings by following these steps:
+  - Log in in to the [Azure portal](https://portal.azure.com)
+  - Click on the cog icon for the *Settings* blade
+  - Click *Export all settings* (to save your current settings to a `.json` file)
+  - Click *Delete all settings and private dashboards* to delete all settings including saved contact information
+
+Individual import/export jobs can be deleted via the REST API or the Azure portal. To delete the job in the Azure portal, go to your import/export job, and click *Delete* from the command bar. For details on how to delete an import/export job via REST API, refer to [Delete an import/export job](storage-import-export-cancelling-and-deleting-jobs.md).
 
 For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter)
