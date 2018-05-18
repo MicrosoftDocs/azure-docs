@@ -71,7 +71,12 @@ Login-AzureRmStorageSync –SubscriptionId $subID -ResourceGroupName $rg -Tenant
 
 
 # Step 2: The "Storage Sync Service"
-![AFS management object hierarchy, "Storage Sync Service" highlighted](media/storage-sync-files-powershell-guide/SSS.png) | The deployment of Azure File Sync starts with placing a "Storage Sync Service" resource into a Resource Group of your selected subscription. We recommend provisioning as few of these as needed. You will create a permanent trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.
+<table>
+    <tr>
+        <td>![AFS management object hierarchy, "Storage Sync Service" highlighted](media/storage-sync-files-powershell-guide/SSS.png)</td>
+        <td>The deployment of Azure File Sync starts with placing a "Storage Sync Service" resource into a Resource Group of your selected subscription. We recommend provisioning as few of these as needed. You will create a permanent trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.</td>
+    </tr>
+</table>
 
 ```PowerShell
 # create the storage sync service resource.
@@ -86,7 +91,12 @@ New-AzureRmStorageSyncService -StorageSyncServiceName $service_name
 
 
 # Step 3: Register the server
-![AFS management object hierarchy, "Registered Server" highlighted](media/storage-sync-files-powershell-guide/RS.png) | The registration of a server with the Azure File Sync agent installed is the creation of a trust-relationship between your server and the storage sync service deployed in the previous step. The following command creates a new AFS object called a “Registered Server”. This object will later be used when defining server endpoints for your sync group. A server can only be registered to one storage sync service. This server will only be able to sync with other servers and Azure File Shares associated with the same storage sync service.
+<table>
+    <tr>
+        <td>![AFS management object hierarchy, "Registered Server" highlighted](media/storage-sync-files-powershell-guide/RS.png)</td>
+        <td>The registration of a server with the Azure File Sync agent installed is the creation of a trust-relationship between your server and the storage sync service deployed in the previous step. The following command creates a new AFS object called a “Registered Server”. This object will later be used when defining server endpoints for your sync group. A server can only be registered to one storage sync service. This server will only be able to sync with other servers and Azure File Shares associated with the same storage sync service.</td>
+    </tr>
+</table>
 
 ```PowerShell
 Register-AzureRmStorageSyncServer -StorageSyncServiceName $service_name
@@ -98,7 +108,12 @@ Register-AzureRmStorageSyncServer -StorageSyncServiceName $service_name
 
 
 # Step 4: The "Sync Group"
-![AFS management object hierarchy, "Sync Group" highlighted](media/storage-sync-files-powershell-guide/SG.png) | A "Sync Group" contains the sync topology of a given set of files. A Sync Group can sync data to and from a folder or at the maximum an entire volume. Create as many sync groups as you have sets of files that need to sync with different servers or require different cloud tiering policies.
+<table>
+    <tr>
+        <td>![AFS management object hierarchy, "Sync Group" highlighted](media/storage-sync-files-powershell-guide/SG.png</td>
+        <td>A "Sync Group" contains the sync topology of a given set of files. A Sync Group can sync data to and from a folder or at the maximum an entire volume. Create as many sync groups as you have sets of files that need to sync with different servers or require different cloud tiering policies.</td>
+    </tr>
+</table>
 
 ```PowerShell
 <# 
@@ -112,8 +127,13 @@ New-AzureRmStorageSyncGroup -SyncGroupName $syncgroup_name -StorageSyncService $
 
 
 # Step 5: Creating "Cloud- and Server- Endpoints"
-![AFS management object hierarchy, "Cloud and Server Endpoints" highlighted](media/storage-sync-files-powershell-guide/EP.png) | By defining endpoints in a Sync Group, one can effectively define a topology of locations that sync with each other. From a sync perspective, it does not matter if location contains files or not when it is added as an endpoint. If more than one endpoint contains files, the namespaces will merge, potentially crating conflict files for those directory and file names that already exist on another endpoint. So it is recommended to define a location with source files and empty locations on the other endpoints. Subsequent changes or additions to files will sync from each endpoint in all directions.
-
+<table>
+    <tr>
+        <td>![AFS management object hierarchy, "Cloud and Server Endpoints" highlighted](media/storage-sync-files-powershell-guide/EP.png)</td>
+        <td>By defining endpoints in a Sync Group, one can effectively define a topology of locations that sync with each other. From a sync perspective, it does not matter if location contains files or not when it is added as an endpoint. If more than one endpoint contains files, the namespaces will merge, potentially crating conflict files for those directory and file names that already exist on another endpoint. So it is recommended to define a location with source files and empty locations on the other endpoints. Subsequent changes or additions to files will sync from each endpoint in all directions.</td>
+    </tr>
+</table>
+ 
 ## Cloud Endpoint
 - A cloud endpoint is a pointer to an Azure file share. All server endpoints will sync with a cloud endpoint, making the cloud endpoint the hub. In this release of Azure File Sync only a single cloud endpoint can be added to a sync group.
 - The Storage Account for the file share must be located in an Azure region with the AFS service deployed.
