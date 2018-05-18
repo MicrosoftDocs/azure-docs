@@ -31,7 +31,9 @@
 - name: Reference
   items: 
   - name: Translator Speech API reference
-    href: https://aka.ms/translator-speech-api
+    href: reference.md
+    - name: Languages
+      href: languages-reference.md
 - name: Resources
   items:
   - name: FAQ
