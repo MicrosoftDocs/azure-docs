@@ -70,8 +70,11 @@ Device writeback should now be working properly. Be aware that it can take up to
 
 1. Launch Active Directory Administrative Center.
 2. Expand RegisteredDevices, within the Domain that is being federated.
+
    ![Active Directory Admin Center Registered Devices](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
+
 3. Current registered devices will be listed there.
+
    ![Active Directory Admin Center Registered Devices List](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
 
 ## Enable conditional access
