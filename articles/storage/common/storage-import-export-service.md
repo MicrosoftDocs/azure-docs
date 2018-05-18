@@ -581,6 +581,9 @@ If using [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BF
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
+
 ## Next steps
 
 * [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md)
