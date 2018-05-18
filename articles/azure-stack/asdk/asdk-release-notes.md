@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -55,7 +55,7 @@ The following are now available, but don't require Azure Stack update 1804.
 
    For installation details, follow the [instructions](.\.\azure-stack-powershell-install.md) or the [help](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) content for Azure Stack Module 1.3.0. 
 
-- **Initial release of Azure Stack API Rest Reference**. The API reference for all Azure Stack Admin Resource Provider is now published
+- **Initial release of Azure Stack API Rest Reference**. The [API reference for all Azure Stack Admin resource providers](https://docs.microsoft.com/rest/api/azure-stack/) is now published. 
 
 ### Known issues
  
