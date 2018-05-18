@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2018
+ms.date: 05/18/2018
 ms.author: terrylan
 
 ---
@@ -21,11 +21,6 @@ ms.author: terrylan
 Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls. Recommendations apply to Azure resource types: virtual machines (VMs) and computers, web apps and App Service environments, networking, SQL, and Identity and Access.
 
 This article addresses recommendations that apply to machines and applications.
-
-> [!NOTE]
-> Monitoring App Service is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
->
->
 
 ## Monitoring security health
 You can monitor the security state of your resources on the **Security Center – Overview** dashboard. The **Resources** section provides the number of issues identified and the security state for each resource type.
@@ -138,11 +133,17 @@ To see a more prescriptive explanation about this recommendation, click **Update
 ![Update OS version][16]
 
 ### App services (Preview)
-Under **App services**, you find a list of your web applications and App service environments and the health summary based on the assessment Security Center performed.
+
+> [!NOTE]
+> Monitoring App Service is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
+>
+>
+
+Under **App services**, you find a list of your App service environments and the health summary based on the assessment Security Center performed.
 
 ![App services][17]
 
-There are two types of icons represented in this list:
+There are four types of icons represented in this list:
 
 ![App services environment][18] App services environment.
 
@@ -152,7 +153,7 @@ There are two types of icons represented in this list:
 
   - **Recommendations**:  based on assessments performed by Security Center that failed.
   - **Passed assessments**: list of assessments performed by Security Center that passed.
-  - **Unavailable assessments**: list of assessments that failed to run due to an error or the resource is under a subscription running on the Free tier and is not assessed
+  - **Unavailable assessments**: list of assessments that failed to run due to an error or the recommendation is not relevant for the specific App service
 
   Under **Recommendations** is a list of the recommendations for the selected web application and severity of each recommendation.
 
@@ -198,12 +199,20 @@ Use the tables below as a reference to help you understand the available Compute
 | Configure IP restrictions for App Services | Recommends that you define a list of IP addresses that are allowed to access your application.  Use of IP restrictions protects a web application from common attacks. |
 | Do not allow all ('*') resources to access your application | Recommends that you do not set WEBSITE_LOAD_CERTIFICATES parameter to ‘*’. Setting the parameter to ‘*’ means that all certificates will be loaded to your web applications personal certificate store.  This can lead to abuse of the principle of least privilege as it is unlikely that the site needs access to all certificates at runtime. |
 | Remote debugging should be turned off for App Service | Recommends that you turn off debugging for App service if you no longer need to use it. Remote debugging requires inbound ports to be opened on an App Service. |
-| CORS should not allow every resource access to your application | Recommends that you allow only required domains to interact with your web application. Cross origin resource sharing (CORS) should not allow all domains to access your web application. |
+| CORS should not allow every resource to access your application | Recommends that you allow only required domains to interact with your web application. Cross origin resource sharing (CORS) should not allow all domains to access your web application. |
 | Use the latest supported .NET Framework for App Service | Recommends that you use the latest .NET Framework version for the latest security classes. Using older classes and types can make your application vulnerable. |
 | Use the latest supported Java version for App Service | Recommends that you use the latest Java version for the latest security classes. Using older classes and types can make your application vulnerable. |
 | Use the latest supported PHP version for App Service | Recommends that you use the latest PHP version for the latest security classes. Using older classes and types can make your application vulnerable. |
 | [Add a web application firewall](security-center-add-web-application-firewall.md) |Recommends that you deploy a web application firewall (WAF) for web endpoints. A WAF recommendation is shown for any public facing IP (either Instance Level IP or Load Balanced IP) that has an associated network security group with open inbound web ports (80,443).</br></br>Security Center recommends that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on App Service Environment. An App Service Environment (ASE) is a [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps. To learn more about ASE, see the [App Service Environment Documentation](../app-service/environment/intro.md).</br></br>You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. |
 | [Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection) |To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation completes the necessary setup changes. |
+| Use the latest supported Node.js version for App Service | Recommends that you use the latest Node.js version for the latest security classes. Using older classes and types can make your application vulnerable. |
+| CORS should not allow every resource to access your Function App | Recommends that you allow only required domains to interact with your web application. Cross origin resource sharing (CORS) should not allow all domains to access your function application. |
+| Use custom domains for Function App | Recommends that you use custom domains to protect a function app from common attacks such as phishing and other DNS-related attacks. |
+| Configure IP restrictions for Function App | Recommends that you define a list of IP addresses that are allowed to access your application. Use of IP restrictions protects a function app from common attacks. |
+| Function App should only be accessible over HTTPS | Recommends that you limit access of Function apps over HTTPS only. |
+| Remote debugging should be turned off for Function App | Recommends that you turn off debugging for Function App if you no longer need to use it. Remote debugging requires inbound ports to be opened on a Function App. |
+| Web Sockets should be disabled for Function App | Recommends that you carefully review the use of Web Sockets within Function Apps. The Web Sockets protocol is vulnerable to different types of security threats. |
+
 
 ## Next steps
 To learn more about recommendations that apply to other Azure resource types, see the following:
