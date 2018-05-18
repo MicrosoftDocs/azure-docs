@@ -16,11 +16,12 @@
 # Samples
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=key-vault)
 # Concepts
+## [What is Key Vault?](key-vault-whatis.md)
 ## [Security worlds](key-vault-ovw-security-worlds.md)
 ## [Soft-delete](key-vault-ovw-soft-delete.md)
 ## [Storage account keys](key-vault-ovw-storage-keys.md)
 ## [Throttling](key-vault-ovw-throttling.md)
-## [What is Key Vault?](key-vault-whatis.md)
+
 
 # How-to guides
 ## Manage
