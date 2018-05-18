@@ -4,9 +4,8 @@ description: Develop basic Windows applications that use the Microsoft Speech Re
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: zhouwang

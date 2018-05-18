@@ -159,7 +159,7 @@ Notice the following properties:
 
 - The **type** property is set to **SqlServerStoredProcedure**. 
 - The **storedProcedureName** in type properties is set to **sp_sample** (name of the stored procedure).
-- The **storedProcedureParameters** section contains one parameter named **DataTime**. Name and casing of the parameter in JSON must match the name and casing of the parameter in the stored procedure definition. If you need pass null for a parameter, use the syntax: `"param1": null` (all lowercase).
+- The **storedProcedureParameters** section contains one parameter named **DateTime**. Name and casing of the parameter in JSON must match the name and casing of the parameter in the stored procedure definition. If you need pass null for a parameter, use the syntax: `"param1": null` (all lowercase).
  
 1. Click **... More** on the command bar and click **New pipeline**.
 2. Copy/paste the following JSON snippet:   

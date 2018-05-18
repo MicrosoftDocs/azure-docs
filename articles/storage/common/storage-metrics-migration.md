@@ -114,7 +114,7 @@ A: If you have created classic alert rules based on legacy storage metrics, you 
 
 * Will new metric data stored in the same storage account by default?
 
-A: No. If you need to archive the metric data to storage account, you can use [Diagnostic Setting in Azure Monitor](https://azure.microsoft.com/blog/azure-monitor-multiple-diagnostic-settings/)
+A: No. If you need to archive the metric data to storage account, you can use [Azure Monitor Diagnostic Setting API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate)
 
 ## Next steps
 

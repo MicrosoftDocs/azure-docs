@@ -3,7 +3,7 @@ title: Azure Security Center security policies integration with Azure Policy | M
 description: This document helps you to configure Azure Security Center security policies integration with Azure Policy.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 

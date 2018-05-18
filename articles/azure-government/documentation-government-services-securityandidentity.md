@@ -21,7 +21,7 @@ ms.author: zsk0646
 ## Key Vault
 Key Vault is generally available in Azure Government.
 
-For details on this service and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.md).
+For details on this service and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.yml).
 
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Key Vault:
@@ -68,7 +68,7 @@ The following features have known limitations in Azure Government:
    - Enterprise State Roaming for Windows 10 devices is not available  
    
 ## Azure Multi-Factor Authentication
-For details on this service and how to use it, see the [Azure Multi-Factor Authentication Documentation](../multi-factor-authentication/multi-factor-authentication.md). 
+For details on this service and how to use it, see the [Azure Multi-Factor Authentication Documentation](../active-directory/authentication/multi-factor-authentication.md). 
 
 ## Next Steps
 For supplemental information and updates, subscribe to the

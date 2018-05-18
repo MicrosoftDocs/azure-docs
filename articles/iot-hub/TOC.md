@@ -1,7 +1,8 @@
-# [IoT Hub Documentation](index.md)
+# [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
+# [IoT Hub Documentation](index.yml)
 
 # Overview
-## [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
+## [What is Azure IoT Hub?](about-iot-hub.md)
 
 # Quickstarts
 ## [Send telemetry (Node.js)](quickstart-send-telemetry-node.md)
@@ -16,12 +17,8 @@
 # Tutorials
 
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
-## [6. Troubleshooting](tutorial-troubleshooting.md)
-## Routing messages
-### [.NET](iot-hub-csharp-csharp-process-d2c.md)
-### [Java](iot-hub-java-java-process-d2c.md)
-### [Node.js](iot-hub-node-node-process-d2c.md)
-### [Python](iot-hub-python-python-process-d2c.md)
+## [Routing messages](tutorial-routing.md)
+## [Troubleshooting](tutorial-troubleshooting.md)
 ## Send cloud-to-device messages
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
 ### [Java](iot-hub-java-java-c2d.md)
@@ -53,7 +50,6 @@
 ### [Python back end/Python device](iot-hub-python-python-firmware-update.md)
 
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
-# Samples
 
 # Concepts
 ## [Overview of device management](iot-hub-device-management-overview.md)
@@ -88,6 +84,13 @@
 ### [MQTT support](iot-hub-mqtt-support.md)
 ### [Glossary](iot-hub-devguide-glossary.md)
 
+## Set up your device
+### [Simulate a device on your PC](iot-hub-get-started-simulated.md)
+#### [.NET](iot-hub-csharp-csharp-getstarted.md)
+#### [Java](iot-hub-java-java-getstarted.md)
+#### [Node.js](iot-hub-node-node-getstarted.md)
+#### [Python](iot-hub-python-getstarted.md)
+#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 ## [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
 ### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
@@ -102,20 +105,6 @@
 ### [Get started on X.509 CA certificate security](iot-hub-security-x509-get-started.md)
 #### [Create certificates - PowerShell](iot-hub-security-x509-create-certificates.md)
 
-# How-to guides
-## Use real devices
-### [Get started](iot-hub-get-started.md)
-### [Use an online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
-### [Use a physical device](iot-hub-get-started-physical.md)
-#### [Raspberry Pi with Python](iot-hub-raspberry-pi-kit-python-get-started.md)
-#### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
-#### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
-#### [MXChip IoT DevKit with Arduino](iot-hub-arduino-iot-devkit-az3166-get-started.md)
-#### [Intel Edison with Node.js](iot-hub-intel-edison-kit-node-get-started.md)
-#### [Intel Edison with C](iot-hub-intel-edison-kit-c-get-started.md)
-#### [Adafruit Feather HUZZAH ESP8266 with Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
-#### [Sparkfun ESP8266 Thing Dev with Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
-#### [Adafruit Feather M0 with Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 ### Extended IoT scenarios
 #### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -156,6 +145,7 @@
 #### [Manage device identities](iot-hub-devguide-identity-registry.md)
 #### [Control access to IoT Hub](iot-hub-devguide-security.md)
 #### [Understand device twins](iot-hub-devguide-device-twins.md)
+#### [Understand module twins](iot-hub-devguide-module-twins.md)
 #### [Invoke direct methods on a device](iot-hub-devguide-direct-methods.md)
 #### [Schedule jobs on multiple devices](iot-hub-devguide-jobs.md)
 #### [IoT Hub endpoints](iot-hub-devguide-endpoints.md)
@@ -178,6 +168,7 @@
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
+#### [iOS](iot-hub-ios-swift-c2d.md)
 ### Upload files from devices
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -189,6 +180,9 @@
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java back end/Java device](iot-hub-java-java-twin-getstarted.md)
 #### [Python back end/Python device](iot-hub-python-twin-getstarted.md)
+### Get started with module twins
+#### [Portal back end/.NET device](iot-hub-portal-csharp-module-twin-getstarted.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-module-twin-getstarted.md)
 ### Use direct methods
 #### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
@@ -247,11 +241,26 @@
 ## [Monitor with diagnostics](iot-hub-monitor-resource-health.md)
 ### [Migrate to diagnostics settings](iot-hub-migrate-to-diagnostics-settings.md)
 ### [Operations monitoring](iot-hub-operations-monitoring.md)
+## Use real devices
+### [Get started](iot-hub-get-started.md)
+### [Use an online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
+### [Use a physical device](iot-hub-get-started-physical.md)
+#### [Raspberry Pi with Python](iot-hub-raspberry-pi-kit-python-get-started.md)
+#### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
+#### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
+#### [MXChip IoT DevKit with Arduino](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+#### [Intel Edison with Node.js](iot-hub-intel-edison-kit-node-get-started.md)
+#### [Intel Edison with C](iot-hub-intel-edison-kit-c-get-started.md)
+#### [Adafruit Feather HUZZAH ESP8266 with Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Sparkfun ESP8266 Thing Dev with Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Adafruit Feather M0 with Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 ## [Upgrade an IoT hub](iot-hub-upgrade.md)
 ## [Usage metrics](iot-hub-metrics.md)
 ## [Configure IP filtering](iot-hub-ip-filtering.md)
+## [Configure devices at scale](iot-hub-auto-device-config.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
@@ -267,9 +276,24 @@
 ## [REST (Device Messaging)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
 ## [REST (Jobs)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
+# Related
+## Solutions 
+### [IoT solution accelerators](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Platform Services 
+### [IoT Hub](/azure/iot-hub) 
+### [IoT Hub Device Provisioning Service](/azure/iot-dps)
+### [IoT Service SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Maps](/azure/azure-maps) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [IoT Device SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
+
 # Resources
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
+## [Customer data requests](iot-hub-customer-data-requests.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
@@ -282,4 +306,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Technical case studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)
-

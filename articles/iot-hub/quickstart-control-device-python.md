@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-ms.date: 04/04/2018
+ms.date: 04/30/2018
 ms.author: dobett
 
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
@@ -49,7 +49,7 @@ python --version
 python3 --version
 ```
 
-If you haven't already done so, download the sample Python project from https://github.com/Azure-Samples/iot-hub-quickstarts-python/archive/master.zip and extract the ZIP archive.
+If you haven't already done so, download the sample Python project from https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip and extract the ZIP archive.
 
 ## Create an IoT hub
 
@@ -67,8 +67,10 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyPythonDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
+
+    If you choose a different name for your device, update the device name in the sample applications before you run them.
 
 1. Run the following command to get the _device connection string_ for the device you just registered:
 
@@ -90,7 +92,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgement back to your hub after it executes the direct method.
 
-1. In a terminal window, navigate to the root folder of the sample Python project. Then navigate to the **simulated-device-2** folder.
+1. In a terminal window, navigate to the root folder of the sample Python project. Then navigate to the **Quickstarts\simulated-device-2** folder.
 
 1. Open the **SimulatedDevice.py** file in a text editor of your choice.
 
@@ -116,7 +118,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgements. An IoT Hub back-end application typically runs in the cloud.
 
-1. In another terminal window, navigate to the root folder of the sample Python project. Then navigate to the **back-end-application** folder.
+1. In another terminal window, navigate to the root folder of the sample Python project. Then navigate to the **Quickstarts\back-end-application** folder.
 
 1. Open the **BackEndApplication.py** file in a text editor of your choice.
 
@@ -125,7 +127,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 1. In the terminal window, run the following commands to install the required libraries for the simulated device application:
 
     ```cmd/sh
-    pip install azure-iothub-service-client
+    pip install azure-iothub-service-client future
     ```
 
 1. In the terminal window, run the following commands to run the back-end application:

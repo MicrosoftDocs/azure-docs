@@ -17,7 +17,7 @@ Azure SQL Database can emit metrics and diagnostics logs for easier monitoring. 
 
 * **Azure Storage**: Used for archiving vast amounts of telemetry for a small price.
 * **Azure Event Hubs**: Used for integrating SQL Database telemetry with your custom monitoring solution or hot pipelines.
-* **Azure Log Analytics**: Used for an out-of-the-box monitoring solution with reporting, alerting, and mitigating capabilities.
+* **Azure Log Analytics**: Used for an out-of-the-box monitoring solution with reporting, alerting, and mitigating capabilities. This is a feature of the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -47,6 +47,7 @@ You can provision a new Azure resource or select an existing resource. After sel
 - [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset): Contains information about timeouts that happened on a database.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): Contains information about blocking events that happened on a database.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Contains Intelligent Insights. [Learn more about Intelligent Insights](sql-database-intelligent-insights.md).
+- **Audit** / **SQLSecurityAuditEvents**: Currently unavailable.
 
 If you select Event Hubs or a storage account, you can specify a retention policy. This policy deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. For more information, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/). 
 

@@ -3,7 +3,7 @@ title: Walkthroughs executing the Team Data Science Process on Azure  | Microsof
 description: How to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Walkthroughs executing the Team Data Science Process

@@ -54,7 +54,7 @@ The [account](#active-directory-account) created for reading and writing to AD D
 
 | Permission | Used for |
 | --- | --- |
-| <li>Replicate Directory Changes</li><li>Replicate Directory Changes All |Password sync |
+| <li>Replicate Directory Changes</li><li>Replicate Directory Changes All |Password hash sync |
 | Read/Write all properties User |Import and Exchange hybrid |
 | Read/Write all properties iNetOrgPerson |Import and Exchange hybrid |
 | Read/Write all properties Group |Import and Exchange hybrid |
@@ -83,7 +83,7 @@ Which permissions you require depends on the optional features you enable. If yo
 | Feature | Permissions |
 | --- | --- |
 | msDS-ConsistencyGuid feature |Write permissions to the msDS-ConsistencyGuid attribute documented in [Design Concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
-| Password sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
+| Password hash sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
 | Exchange hybrid deployment |Write permissions to the attributes documented in [Exchange hybrid writeback](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
 | Password writeback |Write permissions to the attributes documented in [Getting started with password management](../authentication/howto-sspr-writeback.md) for users. |

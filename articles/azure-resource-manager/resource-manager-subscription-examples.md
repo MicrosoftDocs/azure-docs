@@ -18,27 +18,27 @@ ms.author: rodend;karlku;tomfitz
 
 ---
 # Examples of implementing Azure enterprise scaffold
-This topic provides examples of how an enterprise can implement the recommendations for an [Azure enterprise scaffold](resource-manager-subscription-governance.md). It uses a fictional company named Contoso to illustrate best practices for common scenarios.
+This article provides examples of how an enterprise can implement the recommendations for an [Azure enterprise scaffold](resource-manager-subscription-governance.md). It uses a fictional company named Contoso to illustrate best practices for common scenarios.
 
 ## Background
-Contoso is a worldwide company that provides supply chain solutions for customers in everything from a "Software as a Service" model to a packaged model deployed on-premises.  They develop software across the globe with significant development centers in India, the United States, and Canada.
+Contoso is a worldwide company that provides supply chain solutions for customers. They provide everything from a Software as a Service model to a packaged model deployed on-premises.  They develop software across the globe with significant development centers in India, the United States, and Canada.
 
 The ISV portion of the company is divided into several independent business units that manage products in a significant business. Each business unit has its own developers, product managers, and architects.
 
 The Enterprise Technology Services (ETS) business unit provides centralized IT capability, and manages several data centers where business units host their applications. Along with managing the data centers, the ETS organization provides and manages centralized collaboration (such as email and websites) and network/telephony services. They also manage customer-facing workloads for smaller business units who don't have operational staff.
 
-The following personas are used in this topic:
+The following personas are used in this article:
 
 * Dave is the ETS Azure administrator.
 * Alice is Contoso's Director of Development in the supply chain business unit.
 
-Contoso needs to build a line-of-business app and a customer-facing app. It has decided to run the apps on Azure. Dave reads the [prescriptive subscription governance](resource-manager-subscription-governance.md) topic, and  is now ready to implement the recommendations.
+Contoso needs to build a line-of-business app and a customer-facing app. It has decided to run the apps on Azure. Dave reads the [prescriptive subscription governance](resource-manager-subscription-governance.md) article, and  is now ready to implement the recommendations.
 
 ## Scenario 1: line-of-business application
-Contoso is building a source code management system (BitBucket) to be used by developers across the world.  The application uses Infrastructure as a Service (IaaS) for hosting, and consists of web servers and a database server. Developers access servers in their development environments, but they don't need access to the servers in Azure. Contoso ETS wishes to allow the application owner and team to manage the application. The application is only available while on Contoso's corporate network. Dave needs to set up the subscription for this application. The subscription will also host other developer-related software in the future.  
+Contoso is building a source code management system (BitBucket) to be used by developers across the world.  The application uses Infrastructure as a Service (IaaS) for hosting, and consists of web servers and a database server. Developers access servers in their development environments, but they don't need access to the servers in Azure. Contoso ETS wants to allow the application owner and team to manage the application. The application is only available while on Contoso's corporate network. Dave needs to set up the subscription for this application. The subscription will also host other developer-related software in the future.  
 
 ### Naming standards & resource groups
-Dave creates a subscription to support developer tools that are common across all the business units. He needs to create meaningful names for the subscription and resource groups (for the application and the networks). He creates the following subscription and resource groups:
+Dave creates a subscription to support developer tools that are common across all the business units. Dave needs to create meaningful names for the subscription and resource groups (for the application and the networks). He creates the following subscription and resource groups:
 
 | Item | Name | Description |
 | --- | --- | --- |
@@ -54,7 +54,7 @@ Dave assigns the following roles for the subscription:
 | Role | Assigned to | Description |
 | --- | --- | --- |
 | [Owner](../role-based-access-control/built-in-roles.md#owner) |Managed ID from Contoso's AD |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited |
-| [Security Manager](../role-based-access-control/built-in-roles.md#security-manager) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources |
+| [Security Reader](../role-based-access-control/built-in-roles.md#security-reader) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources |
 | [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks |
 | *Custom role* |Application owner |Dave creates a role that grants the ability to modify resources within the resource group. For more information, see [Custom Roles in Azure RBAC](../role-based-access-control/custom-roles.md) |
 
@@ -87,7 +87,7 @@ He adds the following [tags](resource-group-using-tags.md) to the resource group
 | BusinessUnit |**ETS** (the business unit associated with the subscription) |
 
 ### Core network
-The Contoso ETS information security and risk management team reviews Dave's proposed plan to move the application to Azure. They want to ensure that the application is not exposed to the internet.  Dave also has developer apps that in the future will be moved to Azure. These apps require public interfaces.  To meet these requirements, he provides both internal and external virtual networks, and a network security group to restrict access.
+The Contoso ETS information security and risk management team reviews Dave's proposed plan to move the application to Azure. They want to ensure that the application isn't exposed to the internet.  Dave also has developer apps that in the future will be moved to Azure. These apps require public interfaces.  To meet these requirements, he provides both internal and external virtual networks, and a network security group to restrict access.
 
 He creates the following resources:
 
@@ -112,7 +112,7 @@ Dave has nothing to automate for this application. Although he created an Azure 
 ### Azure Security Center
 Contoso IT service management needs to quickly identify and handle threats. They also want to understand what problems may exist.  
 
-To fulfill these requirements, Dave enables the [Azure Security Center](../security-center/security-center-intro.md), and provides access to the Security Manager role.
+To fulfill these requirements, Dave enables the [Azure Security Center](../security-center/security-center-intro.md), and provides access to the Security Reader role.
 
 ## Scenario 2: customer-facing app
 The business leadership in the supply chain business unit has identified various opportunities to increase engagement with Contoso's customers by using a loyalty card. Alice's team must create this application and decides that Azure increases their ability to meet the business need. Alice works with Dave from ETS to configure two subscriptions for developing and operating this application.
@@ -134,7 +134,7 @@ For the **development subscription**, they create the following policy:
 | --- | --- | --- |
 | location |audit |Audit the creation of the resources in any region |
 
-They do not limit the type of sku a user can create in development, and they do not require tags for any resource groups or resources.
+They don't limit the type of sku a user can create in development, and they don't require tags for any resource groups or resources.
 
 For the **production subscription**, they create the following policies:
 
@@ -145,7 +145,7 @@ For the **production subscription**, they create the following policies:
 | tags |deny |Require department tag |
 | tags |append |Append tag to each resource group that indicates production environment |
 
-They do not limit the type of sku a user can create in production.
+They don't limit the type of sku a user can create in production.
 
 ### Resource tags
 Dave understands that he needs to have specific information to identify the correct business groups for billing and ownership. He defines resource tags for resource groups and resources.

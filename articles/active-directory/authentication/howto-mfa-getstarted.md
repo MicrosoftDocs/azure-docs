@@ -1,20 +1,17 @@
 ---
 title: Get started Azure MFA in the cloud | Microsoft Docs
 description: This is the Microsoft Azure Multi-Factor authentication page that describes how to get started with Azure MFA in the cloud.
+
 services: multi-factor-authentication
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 06/24/2017
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-
-ms.assetid: 6b2e6549-1a26-4666-9c4a-cbe5d64c4e66
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 06/24/2017
-ms.author: joflore
 
 ---
 # Getting started with Azure Multi-Factor Authentication in the cloud
@@ -38,7 +35,7 @@ If you don't have one of these three licenses, or you don't have enough licenses
 
 ## Turn on two-step verification for users
 
-Use one of the procedures listed in [How to require two-step verification for a user or group](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) to start using Azure MFA. You can choose to enforce two-step verification for all sign-ins, or you can create conditional access policies to require two-step verification only when it matters to you.
+Use one of the procedures listed in [How to require two-step verification for a user or group](howto-mfa-userstates.md) to start using Azure MFA. You can choose to enforce two-step verification for all sign-ins, or you can create conditional access policies to require two-step verification only when it matters to you.
 
 ## Next Steps
 Now that you have set up Azure Multi-Factor Authentication in the cloud, you can configure and set up your deployment. See [Configuring Azure Multi-Factor Authentication](howto-mfa-mfasettings.md) for more details.

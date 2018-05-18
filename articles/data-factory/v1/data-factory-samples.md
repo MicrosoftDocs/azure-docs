@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Azure Data Factory - Samples
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [PowerShell samples in Data Factory version 2](../samples-powershell.md) and [code samples in the Azure Code Samples gallery](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory).
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [PowerShell samples in Data Factory version 2](../samples-powershell.md) and [code samples in the Azure Code Samples gallery](https://azure.microsoft.com/resources/samples/?service=data-factory).
 
 
 ## Samples on GitHub

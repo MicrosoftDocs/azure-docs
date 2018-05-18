@@ -129,7 +129,7 @@ Learn how to add data visualizations and interactive reports to applications wit
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/en-us/rest/api/power-bi-embedded/">Azure Resource Manager REST API reference</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/power-bi-embedded/">Azure Resource Manager REST API reference</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt147898.aspx">REST API reference</a></p>
                     </div>
                 </div>

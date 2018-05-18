@@ -1,4 +1,4 @@
----
+﻿---
 title: Frequently asked questions for Azure Application Gateway
 description: This page provides answers to frequently asked questions about Azure Application Gateway
 services: application-gateway
@@ -51,7 +51,7 @@ Backend pools can be composed of NICs, virtual machine scale sets, public IPs, i
 
 **Q. What regions is the service available in?**
 
-Application Gateway is available in all regions of global Azure. It is also available in [Azure China](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)
+Application Gateway is available in all regions of global Azure. It is also available in [Azure China](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 **Q. Is this a dedicated deployment for my subscription or is it shared across customers?**
 
@@ -176,6 +176,11 @@ No, but Application Gateway has a throughput metric that can be used to alert yo
 **Q. Does manual scale up/down cause downtime?**
 
 There is no downtime, instances are distributed across upgrade domains and fault domains.
+
+**Q. Does application gateway support connection draining?**
+
+Yes. You can configure connection draining to change members within a backend pool without disruption. This will allow existing connections to continue to be sent to their previous destination until either that connection is closed or a configurable timeout expires. Note that connection draining only waits for current in-flight connections to complete. Application Gateway is not aware of application session state.
+
 
 **Q. Can I change instance size from medium to large without disruption?**
 
@@ -327,4 +332,4 @@ The most common reason is access to the backend is being blocked by an NSG or cu
 
 ## Next Steps
 
-To learn more about Application Gateway visit [Introduction to Application Gateway](application-gateway-introduction.md).
+To learn more about Application Gateway visit [What is Azure Application Gateway?](overview.md)

@@ -1,7 +1,7 @@
 ---
 title: Simulated device behavior in remote monitoring solution - Azure | Microsoft Docs
 description: This article describes how to use JavaScript to define the behavior of a simulated device in the remote monitoring solution.
-services: ''
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Implement the device model behavior
 
-The article [Understand the device model schema](iot-suite-remote-monitoring-device-schema.md) described the schema that defines a simulated device model. That article referred to two types of JavaScript file that implement the behavior of a simulated device:
+The article [Understand the device model schema](../iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md) described the schema that defines a simulated device model. That article referred to two types of JavaScript file that implement the behavior of a simulated device:
 
 - **State** JavaScript files that run at fixed intervals to update the internal state of the device.
 - **Method** JavaScript files that run when the solution invokes a method on the device.
@@ -30,7 +30,7 @@ In this article, you learn how to:
 
 ## State behavior
 
-The [Simulation](iot-suite-remote-monitoring-device-schema.md#simulation) section of the device model schema defines the internal state of a simulated device:
+The [Simulation](../iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) section of the device model schema defines the internal state of a simulated device:
 
 - `InitialState` defines initial values for all the properties of the device state object.
 - `Script` identifies a JavaScript file that runs on a schedule to update the device state.
@@ -49,10 +49,10 @@ The following example shows the definition of the device state object for a simu
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:05",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -62,7 +62,7 @@ The state of the simulated device, as defined in the `InitialState` section, is 
 The following shows the outline of a typical `main` function:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   // Use the previous device state to
   // generate the new device state
@@ -104,7 +104,7 @@ function restoreState(previousState) {
   }
 }
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   restoreState(previousState);
 
@@ -129,7 +129,7 @@ function vary(avg, percentage, min, max) {
 }
 
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     restoreState(previousState);
 
@@ -156,7 +156,7 @@ You can view the complete [chiller-01-state.js](https://github.com/Azure/device-
 
 ## Method behavior
 
-The [CloudToDeviceMethods](iot-suite-remote-monitoring-device-schema.md#cloudtodevicemethods) section of the device model schema defines the methods a simulated device responds to.
+The [CloudToDeviceMethods](../iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#cloudtodevicemethods) section of the device model schema defines the methods a simulated device responds to.
 
 The following example shows the list of methods supported by a simulated chiller device:
 
@@ -188,7 +188,7 @@ The state of the simulated device, as defined in the `InitialState` section of t
 The following shows the outline of a typical `main` function:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
 }
 ```
@@ -201,15 +201,18 @@ The `context` parameter has the following properties:
 
 The `state` parameter contains the state of the device as maintained by the device simulation service.
 
-There are two global functions you can use to help implement the behavior of the method:
+The `properties` parameter contains the properties of the device that are writtem as reported properties to the IoT Hub device twin.
+
+There are three global functions you can use to help implement the behavior of the method:
 
 - `updateState` to update the state held by the simulation service.
+- `updateProperty` to update a single device property.
 - `sleep` to pause execution to simulate a long-running task.
 
 The following example shows an abbreviated version of the **IncreasePressure-method.js** script used by the simulated chiller devices:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     log("Starting 'Increase Pressure' method simulation (5 seconds)");
 
@@ -247,7 +250,7 @@ It's not possible to attach a debugger to the Javascript interpreter used by the
 
 If there is a syntax error the interpreter fails, and writes a `Jint.Runtime.JavaScriptException` entry to the service log.
 
-The [Create a simulated device](iot-suite-remote-monitoring-test.md) article shows you how to run the device simulation service locally. Running the service locally makes it easier to debug your simulated devices before you deploy them to the cloud.
+The [Create a simulated device](../iot-accelerators/iot-accelerators-remote-monitoring-test.md) article shows you how to run the device simulation service locally. Running the service locally makes it easier to debug your simulated devices before you deploy them to the cloud.
 
 ## Next steps
 
@@ -259,7 +262,7 @@ This article described how to define the behavior of your own custom simulated d
 > * Define how a simulated device reponds to a method call from the remote monitoring solution
 > * Debug your scripts
 
-Now you have learned how to specify the behavior of a simulated device, the suggested next step is to learn how to [Create a simulated device](iot-suite-remote-monitoring-test.md).
+Now you have learned how to specify the behavior of a simulated device, the suggested next step is to learn how to [Create a simulated device](../iot-accelerators/iot-accelerators-remote-monitoring-test.md).
 
 For more developer information about the remote monitoring solution, see:
 

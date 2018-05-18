@@ -77,5 +77,5 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
 
 ## Next steps
 
-- [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+- [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 - [Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md)

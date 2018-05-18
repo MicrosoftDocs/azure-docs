@@ -1,4 +1,4 @@
----
+﻿---
 title: SQL Data Warehouse data integration partners | Microsoft Docs
 description: Lists of third-party partners with data integration solutions that support Azure SQL Data Warehouse.
 services: sql-data-warehouse
@@ -69,14 +69,14 @@ To learn more about other partners, see [Business Intelligence partners][bi_part
 [snaplogic_website]:https://www.snaplogic.com/solutions/microsoft-cortana-analytics-integration/
 
 <!--Marketplace Links -->
-[alteryx_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/alteryx/alteryx-designer/
+[alteryx_marketplace]:https://azure.microsoft.com/marketplace/partners/alteryx/alteryx-designer/
 [attunity_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/attunity-cloudbeam/cloudbeam-dw-byol/ 
 [bryte_systems_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/bryte/bryteflow-cdc-free-trial/ 
-[informatica_Cloud_Services_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/informatica-cloud/informatica-cloud/
-[informatica_PowerCenter_std_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/informatica/informatica-powercenter-standard-10-0pc-std-10-0-windows/
-[informatica_PowerCenter_adv_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/informatica/informatica-powercenter-advanced-10-0pc-adv-10-0-ubuntu/ 
+[informatica_Cloud_Services_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica-cloud/informatica-cloud/
+[informatica_PowerCenter_std_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-standard-10-0pc-std-10-0-windows/
+[informatica_PowerCenter_adv_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-advanced-10-0pc-adv-10-0-ubuntu/ 
 <!--[redgate_marketplace]:-->
-[snaplogic_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/ 
+[snaplogic_marketplace]:https://azure.microsoft.com/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/ 
 
 <!--Quickstart_links-->
 [attunity_quickstart]:http://www.attunity.com/sites/default/files/product_resource/quick_start_guide_attunity_cloudbeam_for_microsoft_azure.pdf

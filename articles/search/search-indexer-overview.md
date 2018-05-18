@@ -3,7 +3,7 @@ title: Indexers in Azure Search | Microsoft Docs
 description: Crawl Azure SQL database, Azure Cosmos DB, or Azure storage to extract searchable data and populate an Azure Search index.
 author: HeidiSteen
 manager: cgronlun
-
+services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual

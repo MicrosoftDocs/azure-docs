@@ -3,7 +3,7 @@ title: Deploy a Docker container cluster - Azure CLI
 description: Deploy a Kubernetes, DC/OS, or Docker Swarm solution in Azure Container Service by using Azure CLI 2.0
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
@@ -43,7 +43,7 @@ az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
 
 
 ### Create a resource group
-We recommend that you create a resource group for every cluster. Specify an Azure region in which Azure Container Service is [available](https://azure.microsoft.com/en-us/regions/services/). For example:
+We recommend that you create a resource group for every cluster. Specify an Azure region in which Azure Container Service is [available](https://azure.microsoft.com/regions/services/). For example:
 
 ```azurecli
 az group create -n acsrg1 -l "westus"

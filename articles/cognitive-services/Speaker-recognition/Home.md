@@ -4,9 +4,8 @@ description: Use advanced algorithms for speaker verification and speaker identi
 services: cognitive-services
 author: dwlin
 manager: zhang
-
 ms.service: cognitive-services
-ms.technology: speaker-recognition
+ms.component: speaker-recognition
 ms.topic: article
 ms.date: 03/20/2016
 ms.author: dwlin

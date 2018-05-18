@@ -87,7 +87,7 @@ Azure Active Directory B2C provides functionality to allow users to update their
 
 ## Access a protected web API resource
 
-Click **Call API** to make a request to the Azure AD B2C protected resource https://fabrikamb2chello.azurewebsites.net/hello. 
+Click **Call API** to make a request to the Azure AD B2C protected resource. 
 
 ![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 

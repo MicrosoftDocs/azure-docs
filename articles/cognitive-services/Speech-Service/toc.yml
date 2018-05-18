@@ -1,0 +1,93 @@
+- name: Speech Service API Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Speech service?
+    href: overview.md
+    expanded: true
+- name: Quickstarts
+  items:
+  - name: Prepare to use Speech service # OK
+    href: get-started.md
+  - name: Recognize speech in C# # OK
+    href: quickstart-csharp-windows.md
+  - name: Recognize speech in C++ for Windows # OK
+    href: cpp-windows.md
+  - name: Recognize speech in C++ for Linux # OK
+    href: cpp-linux.md
+- name: How-to guides
+  items:
+    - name: Recognize speech # OK
+      href: how-to-speech-to-text.md
+    - name: Customize speech models # OK
+      href: how-to-customize-speech-models.md
+    - name: Synthesize speech # OK
+      href: how-to-text-to-speech.md
+    - name: Customize voice fonts # OK
+      href: how-to-customize-voice-font.md
+    - name: Translate speech # OK
+      href: how-to-translate-speech.md
+    - name: Prepare transcripts #OK
+      href: prepare-transcription.md
+    - name: Get the Speech Devices SDK
+      href: get-speech-devices-sdk.md
+    - name: Customize device wake word # OK
+      href: speech-devices-sdk-create-kws.md
+- name: Samples # OK
+  items:
+  - name: Download samples
+    href: samples.md
+  - name: Speech Recognition
+    href: speech-to-text-sample.md
+  - name: Intent Recognition
+    href: intent.md
+  - name: Translation
+    href: translation.md
+- name: Concepts
+  items:
+  - name: Speech to Text # OK
+    href: speech-to-text.md
+  - name: Text to Speech # OK
+    href: text-to-speech.md
+  - name: Speech Translation # OK
+    href: speech-translation.md
+  - name: Speech SDK # OK
+    href: speech-sdk.md
+  - name: Speech Devices SDK # OK
+    href: speech-devices-sdk.md
+- name: Reference
+  items:
+  - name: Supported languages # OK
+    href: supported-languages.md
+  - name: REST APIs # OK
+    href: rest-apis.md
+#  - name: WebSockets protocols # OK
+#    href: websockets.md
+  - name: Speech SDK API # OK
+    href: speech-sdk-reference.md
+  - name: Speech synthesis markup # OK
+    href: speech-synthesis-markup.md
+- name: Resources
+  items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/912208-speech-service
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Privacy & cookies
+    href: https://privacy.microsoft.com/privacystatement
+  - name: Troubleshooting
+    href: troubleshooting.md
+  - name: Shipping your application
+    href: ship-application.md
+  - name: Release notes
+    href: releasenotes.md
+  - name: Speech SDK License
+    href: license.md
+  - name: Speech Devices SDK License
+    href: speech-devices-sdk-license.md
+  - name: Third party notices
+    href: third-party-notices.md

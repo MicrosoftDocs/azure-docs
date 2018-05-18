@@ -25,12 +25,12 @@ There are code samples available for various programming languages and platforms
 * More information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).
 
 ## Tools 
-You can leverage open source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/downloads/) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  You can also use the Azure Management Portal, PowerShell, and REST APIs help you gain additional productivity.
+You can leverage open-source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/downloads/) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  You can also use the Azure Management Portal, PowerShell, and REST APIs help you gain additional productivity.
 
 ## Resource limitations
 Azure SQL Database manages the resources available to a database using two different mechanisms: Resources Governance and Enforcement of Limits.
 
-* More information: [Azure SQL Database resource limits](sql-database-service-tiers.md).
+* More information: [Azure SQL Database DTU-based resource model limits](sql-database-dtu-resource-limits.md) and [Azure SQL Database vCore-based resource model limits (preview)](sql-database-vcore-resource-limits.md).
 
 ## Security
 Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.

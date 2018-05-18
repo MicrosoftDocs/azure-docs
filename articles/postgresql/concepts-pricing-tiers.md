@@ -41,7 +41,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Central US |  | X |
+| Central US | X |  |
 | East US | X | X |
 | East US 2 | X | X |
 | North Central US | X |  |
@@ -52,14 +52,16 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Canada East | X | X |
 | Brazil South | X | X |
 | North Europe | X | X |
-| West Europe | X | X |
+| West Europe |  | X |
 | UK West |  | X |
 | UK South |  | X |
 | East Asia | X |  |
 | Southeast Asia | X | X |
 | Australia East |  | X |
+| Australia Southeast |  | X |
 | Central India | X |  |
 | West India | X |  |
+| South India |  | X |
 | Japan East | X | X |
 | Japan West | X | X |
 | Korea South |  | X |
@@ -80,6 +82,14 @@ The storage you provision is the amount of storage capacity available to your Az
 You can add additional storage capacity during and after the creation of the server. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
+
+### Reaching the store limit
+
+The server is marked read-only when the amount of free storage reaches less than 5 GB or 5% of provisioned storage, whichever is less. For example, if you have provisioned 100 GB of storage, and the actual utilization goes over 95 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 250 MB.  
+
+When the server is set to read-only, all existing sessions are disconnected and uncommitted transactions are rolled back. Any subsequent write operations and transaction commits fail. All subsequent read queries will work uninterrupted.  
+
+You can either increase the amount of provisioned storage to your server or start a new session in read-write mode and drop data to reclaim free storage. Running `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` sets the current session to read write mode. In order to avoid data corruption, do not perform any write operations when the server is still in read-only status.
 
 ## Backup
 

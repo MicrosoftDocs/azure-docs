@@ -3,7 +3,7 @@ title: Usage analysis with Azure Application Insights | Microsoft docs
 description: Understand your users and what they do with your app.
 services: application-insights
 documentationcenter: ''
-author: botatoes
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights

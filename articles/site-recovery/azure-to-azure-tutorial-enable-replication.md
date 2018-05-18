@@ -1,16 +1,16 @@
 ---
-title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery (Preview)
+title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery
 description: Learn how to set up disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: mvc
 ---
-# Set up disaster recovery for Azure VMs to a secondary Azure region (Preview)
+# Set up disaster recovery for Azure VMs to a secondary Azure region
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
@@ -22,6 +22,7 @@ This tutorial shows you how to set up disaster recovery to a secondary Azure reg
 > * Set up outbound access for VMs
 > * Enable replication for a VM
 
+Azure to Azure replication is currently in preview.
 ## Prerequisites
 
 To complete this tutorial:
@@ -129,7 +130,7 @@ Learn more on [Azure RBAC built-in roles](../role-based-access-control/built-in-
 ### Select the source
 
 1. In Recovery Services vaults, click the vault name > **+Replicate**.
-2. In **Source**, select **Azure - PREVIEW**.
+2. In **Source**, select **Azure**.
 3. In **Source location**, select the source Azure region where your VMs are currently running.
 4. Select the **Azure virtual machine deployment model** for VMs: **Resource Manager** or
    **Classic**.
@@ -160,7 +161,8 @@ your requirements.
 
 - **Target resource group**: The resource group in the target region that holds Azure VMs after
   failover. By default, Site Recovery creates a new resource group in the target region with an
-  "asr" suffix.
+  "asr" suffix. resource group location of the target resource group can be any region except the 
+region where your source virtual machines are hosted. 
 
 - **Target virtual network**: The network in the target region that VMs are located after failover.
   By default, Site Recovery creates a new virtual network (and subnets) in the target region with
