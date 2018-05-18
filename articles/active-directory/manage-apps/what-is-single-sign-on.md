@@ -95,7 +95,7 @@ Ready to get started? To deploy single sign-on between Azure AD and SaaS applica
 ### Using the Azure AD application gallery
 The [Azure Active Directory Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/) provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory.
 
-![Azure online app gallery](media/active-directory-appssoaccess-whatis/onlineappgallery.png)
+![Azure online app gallery](media/what-is-single-sign-on/onlineappgallery.png)
 
 Here are some tips for finding apps by what capabilities they support:
 
