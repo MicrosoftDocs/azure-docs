@@ -3,7 +3,7 @@ title: Using databases provided by the SQL Adapter RP on Azure Stack | Microsoft
 description: How to create and manage SQL databases provisioned using the SQL Adapter Resource Provider
 services: azure-stack
 documentationCenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -12,19 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
-
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.reviewer: jeffgo
 ---
 # Create SQL databases
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
 Self-service databases are provided through the user portal experience. A user needs a subscription that has an offer, which contains the database service.
 
 1. Sign in to the [Azure Stack](azure-stack-poc.md) user portal (service admins can also use the admin portal).
 
-2. Click **+ New** &gt;**Data + Storage"** &gt; **SQL Server Database (preview)** &gt; **Add**.
+2. Click **+ New** &gt;**Data + Storage"** &gt; **SQL Server Database** &gt; **Add**.
 
 3. Fill in the form with database details, including a **Database Name**, **Maximum Size**, and change the other parameters as necessary. You are asked to pick a SKU for your database. As hosting servers are added, they're assigned a SKU. Databases are created in that pool of hosting servers that make up the SKU.
 
@@ -44,18 +41,15 @@ Self-service databases are provided through the user portal experience. A user n
 
     ![Retrieve the connection string](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
-## Delete SQL databases
-From the portal,
-
->[!NOTE]
->
->When a SQL AlwaysOn database is deleted from the RP, it is successfully deleted from primary and AlwaysOn availability Group but by Design SQL AG places the database in restoring state in every replica and does not drop the database unless triggered. If a database is not dropped, the secondary replicas goes to Not synchronizing state. Re-adding a new database to the AG with the same via RP still works. See
-![Removing a secondary database](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/remove-a-secondary-database-from-an-availability-group-sql-server)
-
-## Manage database credentials
-You can update database credentials (login settings).
+## Delete SQL AlwaysOn databases
+When a SQL AlwaysOn database is deleted from the resource provider, it is successfully deleted from primary and AlwaysOn availability Group, but by Design, SQL AG places the database in restoring state in every replica and does not drop the database unless triggered. If a database is not dropped, the secondary replicas goes to Not synchronizing state. Re-adding a new database to the AG with the same via RP still works.
 
 ## Verify SQL AlwaysOn databases
 AlwaysOn databases should show as synchronized and available on all instances and in the Availability group. After failover, the database should seamlessly connect. You can use SQL Server Management Studio to verify that a database is synchronizing:
 
 ![Verify AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+
+
+## Next steps
+
+[Maintain the SQL Server resource provider](azure-stack-sql-resource-provider-maintain.md)

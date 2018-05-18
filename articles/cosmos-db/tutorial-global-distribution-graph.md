@@ -5,7 +5,7 @@ services: cosmos-db
 keywords: global distribution, graph, gremlin
 documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70

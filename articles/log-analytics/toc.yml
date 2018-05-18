@@ -37,8 +37,6 @@
         href: log-analytics-log-search-faq.md
   - name: Log Analytics FAQ
     href: log-analytics-faq.md
-  - name: Data consumption
-    href: log-analytics-usage.md
   - name: Data security
     href: log-analytics-data-security.md
   - name: Manage access
@@ -63,6 +61,10 @@
       items:
       - name: Windows agents
         href: log-analytics-agent-windows.md
+      - name: VM Extension for Windows
+        href: ../virtual-machines/windows/extensions-oms.md
+      - name: VM Extension for Linux
+        href: ../virtual-machines/linux/extensions-oms.md
       - name: Azure resources
         href: log-analytics-azure-storage.md
       - name: Azure PaaS resources
@@ -146,7 +148,7 @@
       - name: REST API
         href: log-analytics-api-alerts.md
       - name: Resource Manager template
-        href: ../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md
+        href: ../monitoring/monitoring-solutions-resources-searches-alerts.md
     - name: Webhook action sample
       href: log-analytics-alerts-webhooks.md
     - name: Alert Management solution
@@ -156,7 +158,11 @@
     - name: Agent management
       href: log-analytics-agent-manage.md
     - name: Manage workspace cost
-      href: log-analytics-manage-cost-storage.md
+      items:
+      - name: Data volume and retention
+        href: log-analytics-manage-cost-storage.md
+      - name: Monitor usage
+        href: log-analytics-usage.md
     - name: Delete a workspace
       href: log-analytics-manage-del-workspace.md
   - name: Troubleshoot
@@ -170,7 +176,7 @@
     - name: Solutions overview
       href: log-analytics-add-solutions.md
     - name: Target solutions
-      href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
+      href: ../monitoring/monitoring-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
     - name: Azure activity logs
       items:
       - name: Analytics
@@ -226,6 +232,8 @@
         href: log-analytics-network-performance-monitor-service-endpoint.md
       - name: ExpressRoute
         href: log-analytics-network-performance-monitor-expressroute.md
+      - name: Pricing
+        href: log-analytics-network-performance-monitor-pricing-faq.md
     - name: Office 365
       href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
     - name: SCOM Health Check
@@ -238,13 +246,13 @@
       - name: Service Fabric with Azure Resource Manager
         href: log-analytics-service-fabric-azure-resource-manager.md
     - name: Service Map
-      href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
+      href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
     - name: SQL Health Check
       href: log-analytics-sql-assessment.md
     - name: Surface Hub
       href: log-analytics-surface-hubs.md
     - name: Update Management
-      href: ../operations-management-suite/oms-solution-update-management.md
+      href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
     - name: VMware
       href: log-analytics-vmware.md
     - name: Windows Analytics

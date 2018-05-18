@@ -6,6 +6,7 @@
 ## [What is Resource Health?](resource-health-overview.md)
 # How To
 ## [Configure alerts for service health events](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
+### [View service health notifications by using the Azure portal](../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ## [Configure notifications using a webhook](service-health-alert-webhook-guide.md)
 ### [Configure with ServiceNow](service-health-alert-webhook-servicenow.md)
 ### [Configure with PagerDuty](service-health-alert-webhook-pagerduty.md)

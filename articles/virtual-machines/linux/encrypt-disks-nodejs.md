@@ -4,7 +4,7 @@ description: How to encrypt disks on a Linux VM using the Azure CLI 1.0 and the 
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

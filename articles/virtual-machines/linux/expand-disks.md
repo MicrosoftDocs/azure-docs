@@ -3,7 +3,7 @@ title: Expand virtual hard disks on a Linux VM in Azure | Microsoft Docs
 description: Learn how to expand virtual hard disks on a Linux VM with the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
-ms.author: iainfou
+ms.author: rogarana
 ---
 
 # How to expand virtual hard disks on a Linux VM with the Azure CLI

@@ -4,7 +4,7 @@ services: cloud-services
 description: Investigate performance issues in cloud services with the Visual Studio profiler
 documentationcenter: ''
 author: mikejo
-manager: ghogen
+manager: douge
 editor: ''
 tags: ''
 

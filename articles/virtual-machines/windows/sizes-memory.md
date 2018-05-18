@@ -4,9 +4,10 @@ description: Lists the different memory optimized sizes available for Windows vi
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
+keywords: VM isolation,isolated VM,isolation,isolated
 
 ms.assetid: 
 ms.service: virtual-machines-windows

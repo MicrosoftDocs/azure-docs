@@ -2,16 +2,16 @@
 title: Computer Vision API Python quickstart | Microsoft Docs
 description: Get information and code samples to help you quickly get started using Python and the Computer Vision API in Microsoft Cognitive Services.
 services: cognitive-services
-author: KellyDF
-manager: corncar
+author: easyj2j
+
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
-ms.date: 02/02/2018
-ms.author: kefre
+ms.date: 5/07/2018
+ms.author: v-johnma
 ---
 
-# Computer Vision API Python quickstart
+# Use the Computer Vision API with Python
 
 This article provides information and code samples to help you quickly get started using the Microsoft Cognitive Services Computer Vision API with Python. Use the API to accomplish the following tasks:
 * [Analyze an image](#AnalyzeImage).
@@ -20,18 +20,19 @@ This article provides information and code samples to help you quickly get start
 * [Detect and extract printed text from an image](#OCR).
 * [Detect and extract handwritten text from an image](#RecognizeText).
 
-To use the Computer Vision API, you need a subscription key. To get a free subscription key, see [Obtain subscription keys](https://docs.microsoft.com/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
-
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button: 
 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+## Prerequisites
+
+To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## Analyze an image
 <a name="AnalyzeImage"> </a>
 
-You can use the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) to extract visual features based on image content. Either upload an image or specify an image URL, and then select which features to return:
+You can use the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) to extract visual features based on image content. Either upload an image or specify an image URL, and then select which features to return:
 * A detailed list of tags related to the image content.
 * A description of image content as a complete sentence.
 * The coordinates, gender, and age of any faces that are in the image.
@@ -246,7 +247,7 @@ _ = plt.axis("off")
 ## <a name="GetThumbnail"></a>Get a thumbnail
 
 
-Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image to the height and width that you want based on the image's region of interest (ROI). The aspect ratio that you set for the thumbnail can be different from the aspect ratio of the input image.
+Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) to crop an image to the height and width that you want based on the image's region of interest (ROI). The aspect ratio that you set for the thumbnail can be different from the aspect ratio of the input image.
 
 To generate a thumbnail for an image, first set `image_url` to point to the image location:
 
@@ -289,7 +290,7 @@ thumbnail
 ## <a name="OCR"></a>Use OCR to detext text in an image
 
 
-Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image, and then extract recognized characters into a machine-usable character stream.
+Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) to detect text in an image, and then extract recognized characters into a machine-usable character stream.
 
 To illustrate the OCR API, set `image_url` to point to the text to be recognized:
 

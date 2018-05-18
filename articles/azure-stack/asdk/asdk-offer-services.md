@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -109,14 +109,24 @@ Offers can be:
 > Changes to the offer are not immediately visible to users. To see the changes, users might have to logout and login again to the [user portal](https://portal.local.azurestack.external) to see the new offer.
 
 To set the new offer to public: 
+   - Version 1803 and later: 
+     1. On the dashboard menu, click **Offers** and then click the offer you created.
 
-1. On the dashboard menu, click **Offers** and then click the offer you created.
+     2. Click **Accessibility State**, and then click **Public**.
 
-2. Click **Change State**, and then click **Public**.
+        ![Change state](media/asdk-offer-services/change-state.png)
 
-   ![Public state](media/asdk-offer-services/set-public.png)
+     3. The offer will now be available in the Azure Stack user portal.
 
-3. The offer will now be available in the Azure Stack user portal.
+
+   - Prior to version 1803:  
+     1. On the dashboard menu, click **Offers** and then click the offer you created.
+
+     2. Click **Change State**, and then click **Public**.
+
+        ![Public state](media/asdk-offer-services/set-public.png)
+
+     3. The offer will now be available in the Azure Stack user portal.
 
 ## Next steps
 

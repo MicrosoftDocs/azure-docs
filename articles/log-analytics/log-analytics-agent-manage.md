@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
+ms.date: 03/30/2018
 ms.author: magoedte
 ---
 
@@ -65,6 +65,34 @@ $mma.ReloadConfiguration()
 >[!NOTE]
 >If you've used the command line or script previously to install or configure the agent, `EnableAzureOperationalInsights` was replaced by `AddCloudWorkspace` and `RemoveCloudWorkspace`.
 >
+
+### Linux agent
+The following steps demonstrate how to reconfigure the Linux agent if you decide to register it with a different workspace or want to remove a workspace from its configuration.  
+
+1.  To verify it is registered to a workspace, run the following command.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    It should return a status similar to the following example - 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+    It is important that the status also shows the agent is running, otherwise the following steps to reconfigure the agent will not complete successfully.  
+
+2. If it is already registered with a workspace, remove the registered workspace by running the following command.  Otherwise if it is not registered, proceed to the next step.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
+    
+3. To register with a different workspace, run the command `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]` 
+4. To verify your changes took affect, run the command.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    It should return a status similar to the following example - 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+The agent service does not need to be restarted in order for the changes to take effect.
 
 ## Update proxy settings 
 To configure the agent to communicate to the service through a proxy server or [OMS Gateway](log-analytics-oms-gateway.md) after deployment, use one of the following methods to complete this task.

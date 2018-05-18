@@ -1,13 +1,12 @@
 ---
-title: API Migrate guide from v1 to v2 | Microsoft Docs 
+title: API Migrate guide from v1 to v2 | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to migration to the latest API set.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
@@ -160,19 +159,7 @@ The actions property is no longer valid. It should be an empty
 V1 allowed labeled utterances to include spaces at the beginning or end of the word or phrase. Removed the spaces. 
 
 ## Common reasons for HTTP response status codes
-The following table lists some of the most common HTTP response status codes for the [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs:
-
-|Code|API|Explanation|
-|:--|--|--|
-|400|Authoring, Endpoint|request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
-|400|Authoring, Endpoint|request's body is incorrect meaning the JSON is missing, malformed, or too large|
-|401|Authoring|used endpoint subscription key, instead of authoring key|
-|401|Authoring, Endpoint|invalid, malformed, or empty key|
-|401|Authoring, Endpoint| key doesn't match region|
-|401|Authoring|you are not the owner or collaborator|
-|401|Authoring|invalid order of API calls|
-|403|Authoring, Endpoint|total monthly key quota limit exceeded|
-|429|Authoring, Endpoint|Rate limit is exceeded (requests/second)|
+See [LUIS API response codes](luis-reference-response-codes.md).
 
 ## Next steps
 

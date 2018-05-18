@@ -4,8 +4,7 @@ description: This quickstart shows how to use the Azure Cosmos DB Graph API to c
 services: cosmos-db
 documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
-editor: ''
+manager: kfile
 
 ms.assetid: dfce0de9-a326-401c-9940-406ac0414461
 ms.service: cosmos-db
@@ -40,24 +39,7 @@ Before you can create a graph database, you need to create a Gremlin (Graph) dat
 
 ## Add a graph
 
-You can now use the Data Explorer tool in the Azure portal to create a graph database. 
-
-1. Click **Data Explorer** > **New Graph**.
-
-    The **Add Graph** area is displayed on the far right, you may need to scroll right to see it.
-
-    ![The Azure portal Data Explorer, Add Graph page](./media/create-graph-php/azure-cosmosdb-data-explorer-graph.png)
-
-2. In the **Add graph** page, enter the settings for the new graph.
-
-    Setting|Suggested value|Description
-    ---|---|---
-    Database ID|sample-database|Enter *sample-database* as the name for the new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    Graph ID|sample-graph|Enter *sample-graph* as the name for your new collection. Graph names have the same character requirements as database IDs.
-    Storage Capacity|Fixed (10 GB)|Leave the default value of **Fixed (10 GB)**. This value is the storage capacity of the database.
-    Throughput|400 RUs|Change the throughput to 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.
-
-3. Once the form is filled out, click **OK**.
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -83,7 +65,7 @@ Now let's switch to working with code. Let's clone a Graph API app from GitHub, 
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `connect.php` file in the C:\git-samples\azure-cosmos-db-graph-php-getting-started\ folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the connect.php file in the C:\git-samples\azure-cosmos-db-graph-php-getting-started\ folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
 
 * The Gremlin `connection` is initialized in the beginning of the `connect.php` file using the `$db` object.
 
@@ -120,7 +102,7 @@ Now go back to the Azure portal to get your connection information and copy it i
     ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-php/keys.png)
 2. Open the `connect.php` file and in line 8 paste the URI value over `your_server_address`.
 
-    The connection object initialization should now look similar to this:
+    The connection object initialization should now look similar to the following code:
 
     ```php
     $db = new Connection([
@@ -134,13 +116,13 @@ Now go back to the Azure portal to get your connection information and copy it i
     ]);
     ```
 
-3. If your graph database account was created on or after December 20th, 2017, change `graphs.azure.com` in the host name to `gremlin.cosmosdb.azure.com`.
+3. If your graph database account was created on or after December 20, 2017, change `graphs.azure.com` in the host name to `gremlin.cosmosdb.azure.com`.
 
-4. Change `username` parameter in the Connection object with your database and graph name. If you used the recommended values of `sample-database` and `sample-graph`, it should look like this:
+4. Change `username` parameter in the Connection object with your database and graph name. If you used the recommended values of `sample-database` and `sample-graph`, it should look like the following code:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
-    This is how the entire Connection object should look like at this moment:
+    The entire Connection object should look like the following code snippet at this time:
 
     ```php
     $db = new Connection([
@@ -156,7 +138,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
 5. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `your_primary_key` in the password parameter.
 
-    The Connection object initialization should now look like this:
+    The Connection object initialization should now look like the following code:
 
     ```php
     $db = new Connection([
@@ -226,7 +208,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
     tech | java | 
 
     > [!NOTE]
-    > In this quickstart we create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
+    > In this quickstart you create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
 
 6. Click **OK**. You may need to expand your screen to see **OK** on the bottom of the screen.
 
@@ -248,7 +230,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
     As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and click **Apply Filter** to display all the results again.
 
-12. Now we can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then click the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
+12. Now you can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then click the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
 
    ![Change the target of a vertex in a graph](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
@@ -260,7 +242,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
    ![Two vertices connected in Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   That completes the resource creation part of this tutorial.You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
+   That completes the resource creation part of this quickstart. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
 
 ## Review SLAs in the Azure portal
 

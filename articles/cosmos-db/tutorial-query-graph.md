@@ -4,7 +4,7 @@ description: Learn to query graph data in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: ''
 
@@ -83,4 +83,4 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to distribute your data globally.
 
 > [!div class="nextstepaction"]
-> [Distribute your data globally](tutorial-global-distribution-sql-api.md)
+> [Distribute your data globally](tutorial-global-distribution-graph.md)

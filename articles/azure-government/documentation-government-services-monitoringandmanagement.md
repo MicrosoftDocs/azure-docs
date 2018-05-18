@@ -4,8 +4,8 @@ description: This provides a comparison of features and guidance on developing a
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: ryansoc
-manager: zakramer
+author: gsacavdm
+manager: pathuff
 
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
@@ -13,15 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 4/25/2017
-ms.author: magoedte; ryansoc
+ms.date: 05/01/2018
+ms.author: gsacavdm
 
 ---
 # Azure Government Monitoring + Management
 This article outlines the monitoring and management services variations and considerations for the Azure Government environment.
 
+## Advisor
+Advisor is in public preview in Azure Government.
+
+For more information, see [Advisor public documentation](../advisor/advisor-overview.md).
+
+### Variations
+The following Advisor recommendations are not currently available in Azure Government:
+
+* Security
+  * Security recommendations from Security Center 
+* Cost 
+  * Optimize virtual machine spend by resizing or shutting down underutilized instances 
+  * Eliminate unprovisioned ExpressRoute circuits 
+* Performance 
+  * Improve App Service performance and reliability 
+  * Improve Redis Cache performance and reliability 
+
 ## Automation
 Automation is generally available in Azure Government.
+
 For more information, see [Automation public documentation](../automation/automation-intro.md).
 
 ## Backup
@@ -96,8 +114,7 @@ For more information on using PowerShell, see [public documentation](https://doc
 Diagnostic Logs are generally available in Azure Government with no differences from commercial Azure.
 
 #### Metrics
-Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported only via the REST API. The Azure Government portal is not able show charts that include multi-dimensional metrics. 
-
+Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported only via the REST API. The ability to [show multi-dimensional metrics](../monitoring-and-diagnostics/monitoring-metric-charts.md) is in preview in the Azure Government portal. 
 
 #### Metric Alerts
 The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  A second generation of alerts is available only in commercial Azure.  

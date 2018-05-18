@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.topic: article
 ms.custom: scale out apps
 ms.workload: "On Demand"
-ms.date: 05/27/2016
+ms.date: 04/01/2018
 ms.author: sstein
 
 ---

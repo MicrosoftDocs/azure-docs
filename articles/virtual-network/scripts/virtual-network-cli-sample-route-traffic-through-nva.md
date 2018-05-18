@@ -11,7 +11,7 @@ tags:
 ms.assetid:
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 03/20/2018
@@ -19,7 +19,7 @@ ms.author: jdial
 
 ---
 
-# Route traffic through a network virtual appliance
+# Route traffic through a network virtual appliance script sample
 
 This script sample creates a virtual network with front-end and back-end subnets. It also creates a VM with IP forwarding enabled to route traffic between the two subnets. After running the script you can deploy network software, such as a firewall application, to the VM.
 

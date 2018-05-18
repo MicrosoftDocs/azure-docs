@@ -4,7 +4,7 @@ description: Learn to detach a data disk from an Azure virtual machine created u
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX

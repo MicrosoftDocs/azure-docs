@@ -4,7 +4,7 @@ description: Learn all about the Azure CosmosDB Graph API including release date
 services: cosmos-db
 documentationcenter: .net
 author: luisbosquez
-manager: jhubbard
+manager: kfile
 
 ms.assetid: 
 ms.service: cosmos-db

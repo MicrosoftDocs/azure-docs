@@ -122,7 +122,7 @@ When combined with [the most current Azure AD B2C pricing available](https://azu
 The following code shows examples of sending output to JSON, a name value list, and XML:
 ```powershell
 # to output to JSON use following line in the PowerShell sample
-$myReport.Content | Out-File -FilePath b2cUserJourneySummaryEvents.json -Force
+$myReport.Content | Out-File -FilePath name-your-file.json -Force
 
 # to output the content to a name value list
 ($myReport.Content | ConvertFrom-Json).value | Out-File -FilePath name-your-file.txt -Force

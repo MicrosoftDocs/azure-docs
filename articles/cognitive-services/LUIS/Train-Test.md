@@ -4,12 +4,11 @@ description: Use Language Understanding (LUIS) to continuously work on your appl
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
-ms.author: v-geberr;
+ms.date: 05/07/2018
+ms.author: v-geberr
 ---
 
 # Test your LUIS app
@@ -55,11 +54,18 @@ You inspect details of the test result in the **Inspect** panel.
 
 1. If the top scoring intent is incorrect, select the **Edit** button.
 
-    ![Edit intent](./media/luis-how-to-train-test/intent-edit.png)
-
 2.  In the drop-down list, select the correct intent for the utterance.
 
     ![Select correct intent](./media/luis-how-to-train-test/intent-select.png)
+
+## View sentiment results
+
+If **Sentiment analysis** is configured on the **[Publish](publishapp.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance. 
+
+![Image of Test pane with sentiment analysis](./media/luis-how-to-train-test/sentiment.png)
+
+## Correct matched pattern's intent
+If you are using [Patterns](luis-concept-patterns.md) and the utterance matched a pattern, but the wrong intent was predicted, select the **Edit** link by the pattern, then select the correct intent.
 
 ## Compare with published version
 You can test the active version of your app with the published [endpoint](luis-glossary.md#endpoint) version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
@@ -72,16 +78,22 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 ![Published JSON response](./media/luis-how-to-train-test/inspect-panel-compare-json.png)
 
 <!--Service name is 'Bing Spell Check v7 API' in the portal-->
-## View Bing Spell Check corrections in test panel
-You can view the spelling corrections provided by [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API in the JSON view of the **Published** panel. 
+## Additional settings in test panel
+
+### LUIS endpoint
+If you have several LUIS endpoints, use the **Additional Settings** link on the Test's Published pane to change the endpoint used for testing. If you are not sure which endpoint to use, select the default **Starter_Key**. 
+
+![Test panel with Additional Settings link highlighted](./media/luis-how-to-train-test/interactive-with-spell-check-service-key.png)
+
+
+### View Bing Spell Check corrections in test panel
+You can view the spelling corrections provided by [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API in the JSON view of the **Published** panel of the Test pane. 
 
 To use this feature, you must have published the app, and have a Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
 
-Use the following to use the Bing Spell Check v7 service key. 
+Use the following to use the Bing Spell Check v7 service key in the Test pane. 
 
 1. In the test panel, on the **Published** pane, select **Additional Settings**.
-
-    ![Additional Settings link](./media/luis-how-to-train-test/interactive-with-spell-check-additional-settings.png)
 
 2. In the pop-up dialog, enter your **Bing Spell Check** service key. 
     ![Enter Bing Spell Check service key](./media/luis-how-to-train-test/interactive-with-spell-check-service-key.png)

@@ -8,7 +8,7 @@ manager: "craigg"
 ms.service: "sql-database"
 ms.custom: "scale out apps"
 ms.topic: "article"
-ms.date: "11/17/2017"
+ms.date: 04/01/2018
 ms.author: "billgib"
 ---
 # The Wingtip Tickets SaaS application

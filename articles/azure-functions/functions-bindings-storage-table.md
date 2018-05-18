@@ -29,6 +29,10 @@ The Table storage bindings are provided in the [Microsoft.Azure.WebJobs](http://
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
 ## Input
 
 Use the Azure Table storage input binding to read a table in an Azure Storage account.
@@ -384,6 +388,9 @@ The Table storage input binding supports the following scenarios:
 ## Output
 
 Use an Azure Table storage output binding to write entities to a table in an Azure Storage account.
+
+> [!NOTE]
+> This output binding does not support updating existing entities. Use the `TableOperation.Replace` operation [from the Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) to update an existing entity.   
 
 ## Output - example
 

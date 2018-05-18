@@ -1,6 +1,6 @@
 ---
-title: Reacting to Azure Blob Storage events | Microsoft Docs
-description: Use Azure Event Grid to subscribe to Blob Storage events. 
+title: Reacting to Azure Blob storage events | Microsoft Docs
+description: Use Azure Event Grid to subscribe to Blob storage events. 
 services: storage,event-grid 
 keywords: 
 author: cbrooksmsft
@@ -10,17 +10,17 @@ ms.topic: article
 ms.service: storage
 ---
 
-# Reacting to Blob Storage events
+# Reacting to Blob storage events
 
 Azure Storage events allow applications to react to the creation and deletion of blobs using modern serverless architectures. It does so without the need for complicated code or expensive and inefficient polling services.  Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), or even to your own custom http listener, and you only pay for what you use. 
 
-Common Blob Storage event scenarios include image or video processing, search indexing, or any file-oriented workflow.  Asynchronous file uploads are a great fit for events.  When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
+Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow.  Asynchronous file uploads are a great fit for events.  When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
 Availability for Storage events is tied to Event Grid [availability](../../event-grid/overview.md) and will become available in other regions as Event Grid does. Take a look at [Route Blob storage events to a custom web endpoint - CLI](storage-blob-event-quickstart.md) or [Route Blob storage events to a custom web endpoint - PowerShell](storage-blob-event-quickstart-powershell.md) for a quick example. 
 
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
-## Blob Storage accounts
+## Blob storage accounts
 Blob storage events are available in [Blob storage accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) and in [General Purpose v2 storage accounts](../common/storage-account-options.md#general-purpose-v2). **General Purpose v2 (GPv2)** are storage accounts that support all features for all storage services, including Blobs, Files, Queues, and Tables. A **Blob storage account** is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts. 
 
 ## Available Blob storage events
@@ -88,7 +88,7 @@ Blob event subscriptions can be filtered based on the event type and by the cont
 
 The subject of Blob storage events uses the format:
 
-```json
+```
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
@@ -96,19 +96,19 @@ To match all events for a storage account, you can leave the subject filters emp
 
 To match events from blobs created in a set of containers sharing a prefix, use a `subjectBeginsWith` filter like:
 
-```json
+```
 /blobServices/default/containers/containerprefix
 ```
 
 To match events from blobs created in specific container, use a `subjectBeginsWith` filter like:
 
-```json
+```
 /blobServices/default/containers/containername/
 ```
 
 To match events from blobs created in specific container sharing a blob name prefix, use a `subjectBeginsWith` filter like:
 
-```json
+```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 

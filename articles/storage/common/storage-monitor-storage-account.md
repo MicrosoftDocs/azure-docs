@@ -25,8 +25,6 @@ ms.author: tamram
 > There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics and Billing](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Azure Files currently supports Storage Analytics metrics, but does not yet support logging.
->
-> Storage accounts with a replication type of Zone-redundant storage (ZRS) support metrics and logging. The previous ZRS accounts which have been renamed ZRS Classic, do not support metrics or logging. For more information on ZRS, see [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage). 
 > 
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >

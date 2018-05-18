@@ -8,7 +8,7 @@ author: tmullaney
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 04/01/2018
 ms.author: thmullan
 ---
 # Multi-tenant applications with elastic database tools and row-level security

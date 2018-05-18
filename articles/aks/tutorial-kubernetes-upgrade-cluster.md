@@ -3,18 +3,18 @@ title: Kubernetes on Azure tutorial - update cluster
 description: Kubernetes on Azure tutorial - update cluster
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/22/2018
+ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Tutorial: Upgrade Kubernetes in Azure Container Service (AKS)
+# Tutorial: Upgrade Kubernetes in Azure Kubernetes Service (AKS)
 
-An Azure Container Service (AKS) cluster can be upgraded using the Azure CLI. During the upgrade process, Kubernetes nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.
+An Azure Kubernetes Service (AKS) cluster can be upgraded using the Azure CLI. During the upgrade process, Kubernetes nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.
 
 In this tutorial, part eight of eight, a Kubernetes cluster is upgraded. Tasks that you complete include:
 
@@ -38,7 +38,7 @@ Before upgrading a cluster, use the `az aks get-upgrades` command to check which
 az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-Here you can see that the current node version is `1.7.9` and the available upgrade versions under the upgrades column.
+In this example, the current node version is `1.7.9` and the available upgrade versions under the upgrades column.
 
 ```
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
@@ -112,7 +112,7 @@ Output:
 
 ## Validate upgrade
 
-You can now confirm the upgrade was successful with the `az aks show` command.
+Confirm that the upgrade was successful with the `az aks show` command.
 
 ```azurecli
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table

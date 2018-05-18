@@ -4,7 +4,7 @@ description: Learn all about the Azure Cosmos DB Table API including release dat
 services: cosmos-db
 documentationcenter: java
 author: yarong
-manager: jhubbard
+manager: kfile
 editor: ''
 
 ms.assetid: 

@@ -70,7 +70,7 @@ The following ports are required for Azure AD Domain Services to service and mai
 **Port 443 (Synchronization with Azure AD)**
 * It is used to synchronize your Azure AD directory with your managed domain.
 * It is mandatory to allow access to this port in your NSG. Without access to this port, your managed domain is not in sync with your Azure AD directory. Users may not be able to sign in as changes to their passwords are not synchronized to your managed domain.
-* You can restrict inbound access to this port to IP addresses belonging to the Azure IP address range.
+* You can restrict inbound access to this port to IP addresses belonging to the Azure IP address range. Note that the Azure IP address range is a different range than the PowerShell range shown in the rule below.
 
 **Port 5986 (PowerShell remoting)**
 * It is used to perform management tasks using PowerShell remoting on your managed domain.
@@ -93,7 +93,7 @@ AAD Domain Services needs outbound access to various other Azure services in ord
 
 
 ## Network Security Groups
-A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
+A [Network Security Group (NSG)](../virtual-network/security-overview.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
 
 ### Sample NSG for virtual networks with Azure AD Domain Services
 The following table illustrates a sample NSG you can configure for a virtual network with an Azure AD Domain Services managed domain. This rule allows inbound traffic over the required ports to ensure your managed domain stays patched, updated and can be monitored by Microsoft. The default 'DenyAll' rule applies to all other inbound traffic from the internet.
@@ -139,5 +139,5 @@ You can connect a Resource Manager-based virtual network to the Azure classic vi
 ## Related Content
 * [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Configure a VNet-to-VNet connection for the classic deployment model](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* [Azure Network Security Groups](../virtual-network/virtual-networks-nsg.md)
+* [Azure Network Security Groups](../virtual-network/security-overview.md)
 * [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 04/24/2018
 ms.author: jeedes
 
 ---
@@ -78,8 +78,6 @@ In this section, you configure and test Azure AD single sign-on with Mimecast Pe
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Mimecast Personal Portal is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Mimecast Personal Portal needs to be established.
 
-In Mimecast Personal Portal, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
 To configure and test Azure AD single sign-on with Mimecast Personal Portal, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
@@ -125,6 +123,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| South Africa    | `https://za-api.mimecast.com/sso/<accountcode>`|
 	| Australia       | `https://au-api.mimecast.com/sso/<accountcode>`|
 	| Offshore        | `https://jer-api.mimecast.com/sso/<accountcode>`|
+
+	c. In the **Reply URL** textbox, type a URL: 
+
+	| Region  |  Value | 
+	| --------------- | --------------- | 
+	| Europe          | `https://eu-api.mimecast.com/login/saml`|
+	| United States   | `https://us-api.mimecast.com/login/saml`|
+	| South Africa    | `https://za-api.mimecast.com/login/saml`|
+	| Australia       | `https://au-api.mimecast.com/login/saml`|
+	| Offshore        | `https://jer-api.mimecast.com/login/saml`|
     
 	> [!NOTE] 
 	> The Identifier value is not real. Update the value with the actual Identifier. Contact [Mimecast Personal Portal Client support team](http://www.mimecast.com/customer-success/technical-support/) to get the value. 
@@ -176,10 +184,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     h. Select **Allow Single Sign On**.
    
     i. Click **Save**.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Create an Azure AD test user
 

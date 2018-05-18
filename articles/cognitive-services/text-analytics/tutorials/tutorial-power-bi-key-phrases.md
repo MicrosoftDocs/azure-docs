@@ -4,9 +4,8 @@ description: Learn how to use Text Analytics to extract key phrases from text st
 services: cognitive-services
 author: luiscabrer
 manager: cgronlun
-
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
 ms.date: 3/07/2018
 ms.author: luisca

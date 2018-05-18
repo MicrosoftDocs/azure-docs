@@ -4,7 +4,7 @@ description: Using Emulator Express to run and debug a cloud service on a local 
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: 73108f98-a552-4817-b7a1-551367b71906

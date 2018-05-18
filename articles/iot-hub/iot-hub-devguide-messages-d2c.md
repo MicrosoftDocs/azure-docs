@@ -29,7 +29,7 @@ Device-to-cloud messaging with IoT Hub has the following characteristics:
 * Device-to-cloud messages are durable and retained in an IoT hub's default **messages/events** endpoint for up to seven days.
 * Device-to-cloud messages can be at most 256 KB, and can be grouped in batches to optimize sends. Batches can be at most 256 KB.
 * As explained in the [Control access to IoT Hub][lnk-devguide-security] section, IoT Hub enables per-device authentication and access control.
-* IoT Hub allows you to create up to 10 custom endpoints. Messages are delivered to the endpoints based on routes configured on your IoT hub. For more information, see [Routing rules](#routing-rules).
+* IoT Hub allows you to create up to 10 custom endpoints. Messages are delivered to the endpoints based on routes configured on your IoT hub. For more information, see [Routing rules](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
 * IoT Hub enables millions of simultaneously connected devices (see [Quotas and throttling][lnk-quotas]).
 * IoT Hub does not allow arbitrary partitioning. Device-to-cloud messages are partitioned based on their originating **deviceId**.
 

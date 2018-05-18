@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure Redis Cache with Azure PowerShell | Microsoft Docs
 description: Learn how to perform administrative tasks for Azure Redis Cache using Azure PowerShell.
 services: redis-cache
@@ -38,7 +38,7 @@ If you have already installed Azure PowerShell, you must have Azure PowerShell v
 
 First, you must log in to Azure with this command.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Specify the email address of your Azure account and its password in the Microsoft Azure sign-in dialog.
 
@@ -63,18 +63,18 @@ For example, to get help for the `New-AzureRmRedisCache` cmdlet, type:
     Get-Help New-AzureRmRedisCache -Detailed
 
 ### How to connect to other clouds
-By default the Azure environment is `AzureCloud`, which represents the global Azure cloud instance. To connect to a different instance, use the `Add-AzureRmAccount` command with the `-Environment` or -`EnvironmentName` command line switch with the desired environment or environment name.
+By default the Azure environment is `AzureCloud`, which represents the global Azure cloud instance. To connect to a different instance, use the `Connect-AzureRmAccount` command with the `-Environment` or -`EnvironmentName` command line switch with the desired environment or environment name.
 
 To see the list of available environments, run the `Get-AzureRmEnvironment` cmdlet.
 
 ### To connect to the Azure Government Cloud
 To connect to the Azure Government Cloud, use one of the following commands.
 
-    Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+    Connect-AzureRmAccount -EnvironmentName AzureUSGovernment
 
 or
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
 
 To create a cache in the Azure Government Cloud, use one of the following locations.
 
@@ -86,11 +86,11 @@ For more information about the Azure Government Cloud, see [Microsoft Azure Gove
 ### To connect to the Azure China Cloud
 To connect to the Azure China Cloud, use one of the following commands.
 
-    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 or
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
 To create a cache in the Azure China Cloud, use one of the following locations.
 
@@ -102,12 +102,12 @@ For more information about the Azure China Cloud, see [AzureChinaCloud for Azure
 ### To connect to Microsoft Azure Germany
 To connect to Microsoft Azure Germany, use one of the following commands.
 
-    Add-AzureRMAccount -EnvironmentName AzureGermanCloud
+    Connect-AzureRmAccount -EnvironmentName AzureGermanCloud
 
 
 or
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
 
 To create a cache in Microsoft Azure Germany, use one of the following locations.
 

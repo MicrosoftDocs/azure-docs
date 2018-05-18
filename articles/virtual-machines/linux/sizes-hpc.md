@@ -4,7 +4,7 @@ description: Lists the different sizes available for Linux high performance comp
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 

@@ -11,7 +11,7 @@ ms.service: sql-database
 ms.custom: overview-samples, mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.date: 06/23/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 ---
 

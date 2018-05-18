@@ -3,7 +3,7 @@ title: Get started with Azure IoT Hub device twins (Python) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT SDKs for Python to implement the simulated device app and a service app that adds the tags and runs the IoT Hub query.
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2017
-ms.author: v-masebo
+ms.author: kgremban
 
 ---
 # Get started with device twins (Python)
@@ -239,7 +239,7 @@ In this section, you create a Python console app that connects to your hub as yo
 1. Run the device app
    
     ```cmd/sh
-    python ReportConnectivity.js
+    python ReportConnectivity.py
     ```
    
     You should see confirmation the device twins were updated.
@@ -249,7 +249,7 @@ In this section, you create a Python console app that connects to your hub as yo
 6. Now that the device reported its connectivity information, it should appear in both queries. Go back and run the queries again:
    
     ```cmd/sh
-    python AddTagsAndQuery.js
+    python AddTagsAndQuery.py
     ```
    
     This time your **{Device Id}** should appear in both query results.

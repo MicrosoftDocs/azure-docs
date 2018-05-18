@@ -27,11 +27,11 @@ ms.author: robb
 
 ## Overview
 > [!NOTE]
-> This article describes how to create older metric alerts. Azure Monitor now supports [newer, better metric alerts](monitoring-near-real-time-metric-alerts.md). These alerts can monitor multiple metrics and allow for alerting on dimensional metrics. CLI support for newer metric alerts is coming soon.
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer, better metric alerts](monitoring-near-real-time-metric-alerts.md). These alerts can monitor multiple metrics and allow for alerting on dimensional metrics. CLI support for newer metric alerts is coming soon.
 >
 >
 
-This article shows you how to set up Azure metric alerts using the cross-platform Command Line Interface (CLI).
+This article shows you how to set up Azure classic metric alerts using the cross-platform Command Line Interface (CLI).
 
 > [!NOTE]
 > Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands below still contain the "insights".
@@ -43,14 +43,14 @@ You can receive an alert based on monitoring metrics for, or events on, your Azu
 * **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
 * **Activity log events** - An alert can trigger on *every* event, or, only when a certain event occurs. To learn more about activity log alerts [click here](monitoring-activity-log-alerts.md)
 
-You can configure a metric alert to do the following when it triggers:
+You can configure a classic metric alert to do the following when it triggers:
 
 * send email notifications to the service administrator and co-administrators
 * send email to additional emails that you specify.
 * call a webhook
 * start execution of an Azure runbook (only from the Azure portal at this time)
 
-You can configure and get information about metric alert rules using
+You can configure and get information about classic metric alert rules using
 
 * [Azure portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -110,7 +110,7 @@ You can always receive help for commands by typing a command and putting -help a
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-5. To create webhook or send email when a metric alert fires, first create the email and/or webhooks. Then create the rule immediately afterwards. You cannot associate webhook or emails with already created rules using the CLI.
+5. To create webhook or send email when a classic metric alert fires, first create the email and/or webhooks. Then create the rule immediately afterwards. You cannot associate webhook or emails with already created rules using the CLI.
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com

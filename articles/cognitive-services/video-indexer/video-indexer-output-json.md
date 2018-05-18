@@ -12,7 +12,12 @@ ms.date: 03/05/2018
 ms.author: juliako
 
 ---
-# Examine the Video Indexer output
+# Examine the Video Indexer output produced by v1 API
+
+> [!Note]
+> The Video Indexer v1 API is going to be deprecated on August 1, 2018. You should start using the Video Indexer v2 API. 
+> 
+> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://aka.ms/viapi). 
 
 When you call the **Get Breakdowns** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights including (transcript, OCRs, people). The details include keywords (topics), faces, blocks. Each block includes time ranges, transcript lines, OCR lines, sentiments, faces, and block thumbnails.
 
@@ -65,6 +70,17 @@ topics|May contain one or more [topics](#topics)
 sentiments|May contain one or more [sentiments](#sentiments)
 audioEffects| May contain one or more [audioEffects](#audioEffects)
 brands| May contain zero or more [brands](#brands)
+Statistics|For more information, see [Statistics](#Statistics)
+
+### Statistics
+
+|Name|Description|
+|---|---|
+|CorrespondenceCount|Number of correspondences in the video.|
+|WordCount|The number of words per speaker.|
+|SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
+|SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
+|SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the 3rd decimal point.|
 
 ## breakdowns
 

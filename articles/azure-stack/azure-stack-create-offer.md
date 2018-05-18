@@ -13,13 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2018
+ms.date: 03/27/2018
 ms.author: brenduns
 
 ---
 # Create an offer in Azure Stack
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 [Offers](azure-stack-key-features.md) are groups of one or more plans that providers present to users to purchase or subscribe to. This document shows you how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
 
@@ -32,21 +30,30 @@ ms.author: brenduns
 3. Click **Base plans** to open the **Plan** pane, select the plans you want to include in the offer, and then click **Select**. Click **Create** to create the offer.
 
    ![](media/azure-stack-create-offer/image02.png)
-4. Click **All Resources**, search for your new offer, click on the new offer, click **Change State**, and then click **Public**.
+4. After creating the offer, you can change its state. Offers must be made *public* for users to get the full view when they subscribe. Offers can be:
+   - **Public**: Visible to users.
+   - **Private**: Only visible to cloud administrators. Useful while drafting the plan or offer, or if the cloud administrator wants to [create each subscription for users](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+   - **Decommissioned**: Closed to new subscribers. The cloud administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
 
-   ![](media/azure-stack-create-offer/image03.png)
+   > [!TIP]  
+   > Changes to the offer are not immediately visible to the user. To see the changes, users might have to logout and login again to the user portal to see the new offer. 
 
-Offers must be made public for users to get the full view when subscribing. Offers can be:
+   To change the state of the offer: 
 
-* **Public**: Visible to users.
-* **Private**: Only visible to the cloud administrators. Useful while drafting the plan or offer, or if the cloud administrator wants to [create each subscription for users](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-* **Decommissioned**: Closed to new subscribers. The cloud administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
+   - **Version 1803 and later**:  
+     On the Overview blade for the offer, click **Accessibility state**, select the state you want to use, like *Public*, and then click **save**. 
+ 
+     ![Select Accessibility state](media/azure-stack-create-offer/change-state.png) 
 
-Changes to the offer are not immediately visible to the user. To see the changes, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
+     Alternately, after you access an offer you can goto **Offer settings**, and then select **Accessibility state** to change the state. 
 
-> [!NOTE]
->You can also create default offers, plans, and quotas by using PowerShell as explained in the [Azure Stack Service Administrator readme](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
->
+   - **Prior to version 1803**:  
+     Click **All Resources**, search for your new offer, click on the new offer, click **Change State**, and then click **Public**.
+
+  
+   > [!NOTE] 
+   > You can also use PowerShell to create default offers, plans, and quotas. For more information, see [Azure Stack Service Administrator readme](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
+   >
 
 
 ### Next steps

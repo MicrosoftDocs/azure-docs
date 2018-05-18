@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 04/09/2018
 ms.author: mabrigg
 
 ---

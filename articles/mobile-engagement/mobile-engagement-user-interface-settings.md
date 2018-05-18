@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # How to manage the global settings of your application
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 The **Settings** menu options available for an application vary, depending on the platform of the application and the permissions you have been granted for the application. Settings include the following: Details, Projects, Native Push, Push Speed, Tag (app info), and Commercial Pressure. The Tag (app info) menu option of the Settings section can be managed by your application (using the SDK) or by your backend (using the Device API). 
 
 > [!NOTE]

@@ -1,13 +1,12 @@
 ---
-title: Add LUIS data to Application Insights using C# | Microsoft Docs 
+title: Add LUIS data to Application Insights using C# | Microsoft Docs
 titleSuffix: Azure
 description: Build a bot integrated with a LUIS application and Application Insights using C#.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: v-geberr
@@ -228,6 +227,10 @@ Application Insights gives you the power to query the data with the [Kusto](http
 
 
 Learn more about the [Kusto query language](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) or [export the data to PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+
+
+## Learn more about Bot Framework
+Learn more about [Bot Framework](https://dev.botframework.com/).
 
 ## Next steps
 

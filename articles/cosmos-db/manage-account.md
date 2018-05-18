@@ -5,7 +5,7 @@ keywords: Azure Portal, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: ''
 author: kirillg
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: 00fc172f-f86c-44ca-8336-11998dcab45c

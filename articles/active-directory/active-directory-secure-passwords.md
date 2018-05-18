@@ -81,4 +81,4 @@ For information about password reset in Azure Active Directory, see the topic [A
 
 * [How to update your own password](active-directory-passwords-update-your-own-password.md)
 * [The fundamentals of Azure identity management](fundamentals-identity.md)
-* [Report on password reset activity](active-directory-passwords-reporting.md)
+* [Report on password reset activity](authentication/howto-sspr-reporting.md)
