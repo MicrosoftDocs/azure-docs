@@ -55,11 +55,11 @@ The three server-side encryption models offer different key management character
 
 You can protect Windows and Linux virtual machines by using [Azure disk encryption](azure-security-disk-encryption.md), which uses [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) technology and Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) to protect both operating system disks and data disks with full volume encryption.
 
-Encryption keys and secrets are safeguarded in your [Key Vault subscription](../key-vault/key-vault-whatis.md). By using the Azure Backup service, you can back up and restore encrypted virtual machines (VMs) that use Key Encryption Key (KEK) configuration.
+Encryption keys and secrets are safeguarded in your [Azure Key Vault subscription](../key-vault/key-vault-whatis.md). By using the Azure Backup service, you can back up and restore encrypted virtual machines (VMs) that use Key Encryption Key (KEK) configuration.
 
 ### Azure Storage Service Encryption
 
-Data at rest in both Azure Blob storage and Azure Files shares can be encrypted in both server-side and client-side scenarios.
+Data at rest in Azure Blob storage and Azure file shares can be encrypted in both server-side and client-side scenarios.
 
 [Azure Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md) can automatically encrypt data before it is stored, and it automatically decrypts the data when you retrieve it. The process is completely transparent to users. Storage Service Encryption uses 256-bit [Advanced Encryption Standard (AES) encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), which is one of the strongest block ciphers available. AES handles encryption, decryption, and key management transparently.
 
