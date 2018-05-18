@@ -26,7 +26,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
   - name: Resource Manager templates
-    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance
+    href: container-instances-samples-rm.md
 - name: Concepts
   items:
   - name: Quotas and regional limits

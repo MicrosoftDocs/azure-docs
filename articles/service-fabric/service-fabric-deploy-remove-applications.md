@@ -179,7 +179,7 @@ Run the [Register-ServiceFabricApplicationType](/powershell/module/servicefabric
 When a package was previously copied to the image store, the register operation specifies the relative path in the image store.
 
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
