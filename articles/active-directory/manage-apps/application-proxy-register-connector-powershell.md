@@ -61,7 +61,7 @@ There are two methods you can use to register the connector:
 ### Register the connector using a token created offline
 1. Create an offline token using the AuthenticationContext class using the values in this code snippet or PowerShell cmdlets below:
 
-**Using C#:**
+    **Using C#:**
 
         using System;
         using System.Diagnostics;
@@ -116,7 +116,7 @@ There are two methods you can use to register the connector:
             tenantID = authResult.TenantId;
         }
 
-**Using PowerShell:**
+    **Using PowerShell:**
 
         # Locate AzureAD PowerShell Module
         # Change Name of Module to AzureAD after what you have installed
