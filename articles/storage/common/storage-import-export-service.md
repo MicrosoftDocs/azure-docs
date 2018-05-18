@@ -62,7 +62,7 @@ Follow the below steps if the data on the disk is to be imported into Azure Stor
    ![Create import job - Step 3](./media/storage-import-export-service/import-job-03.png)
 4. In Return shipping info section, select the carrier from the drop-down list and enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. Provide a complete and valid contact name, phone, email, street address, city, zip, state/proviince and country/region.
    
-5. In the Summary section, Azure DataCenter shipping address is provided to be used for shipping disks to Azure DC. Ensure that the job name and the full address are mentioned on the shipping label. 
+5. In the Summary section, Azure DataCenter shipping address is provided to be used for shipping disks to Azure DC. Copy the address exactly. Ensure that the job name and the full address are mentioned on the shipping label. Clearly mark it as Microsoft Azure Import/Export Service.
 
 6. Click OK on the Summary Page to complete Import job creation.
 
