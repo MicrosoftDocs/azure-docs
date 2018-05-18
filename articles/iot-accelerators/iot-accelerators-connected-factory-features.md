@@ -22,7 +22,7 @@ ms.author: dobett
 
 Connected Factory is an implementation of Microsoft's Azure Industrial IoT reference architecture, packaged as on open-source solution. You can use it as a starting point for a commercial product. You can deploy a pre-built version of the Connected Factory solution into your Azure subscription from [Azure IoT Suite](https://www.azureiotsuite.com/#solutions/types/CF).
 
-![Connected Factory solution dashboard](media/iot-suite-connected-factory-features/dashboard.png)
+![Connected Factory solution dashboard](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
 Connected Factory includes the following features:
 
@@ -52,7 +52,7 @@ Connected Factory includes the following features:
 
 ## Rules and alerts
 
-[Configure threshold-based rules for alerts](iot-suite-connected-factory-configure.md).
+[Configure threshold-based rules for alerts](iot-accelerators-connected-factory-configure.md).
 
 ## End-to-end security
 
@@ -61,12 +61,12 @@ Connected Factory includes the following features:
 
 ## Customizability
 
-- [Customize](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) the solution to meet specific business requirements.
+- [Customize](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) the solution to meet specific business requirements.
 - Full solution source-code available on GitHub. See the [Connected Factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory) repository.
 
 ## Next steps
 
 Learn more about the Connected Factory preconfigured solution by reading the following articles:
 
-* [Connected Factory preconfigured solution walkthrough](iot-suite-connected-factory-sample-walkthrough.md)
-* [Deploy a gateway for Connected Factory]( iot-suite-connected-factory-gateway-deployment.md)
+* [Connected Factory preconfigured solution walkthrough](iot-accelerators-connected-factory-sample-walkthrough.md)
+* [Deploy a gateway for Connected Factory]( iot-accelerators-connected-factory-gateway-deployment.md)

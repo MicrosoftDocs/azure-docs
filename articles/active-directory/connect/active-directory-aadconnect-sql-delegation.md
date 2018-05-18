@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.author: billmath
 ---
 
@@ -38,7 +38,7 @@ To provision the database out of band and install Azure AD Connect with database
 
 
 1.	Have the SQL Administrator create the ADSync database with a case insensitive collation sequence **(Latin1_General_CI_AS)**.  The database must be named **ADSync**.  The recovery model, compatibility level, and containment type are updated to the correct values when Azure AD Connect is installed.  However the collation sequence must be set correctly by the SQL administrator otherwise Azure AD Connect will block the installation.  To recover the SA must delete and recreate the database.</br>
-![Collation](media/active-directory-aadconnect-sql-delegation/sql1.png)
+![Collation](media/active-directory-aadconnect-sql-delegation/sql4.png)
 2.	Grant the Azure AD Connect administrator and the domain service account the following permissions:
     - SQL Login 
     - **database owner(dbo)** rights.  </br>

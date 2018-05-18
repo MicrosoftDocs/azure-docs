@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need a deployed instance of Azure IoT Device Simulation in your Azure subscription.
 
-If you haven't deployed Device Simulation yet, you should complete the [Deploy Azure IoT Device Simulation](iot-suite-device-simulation-deploy.md) tutorial.
+If you haven't deployed Device Simulation yet, you should complete the [Deploy Azure IoT Device Simulation](iot-accelerators-device-simulation-deploy.md) tutorial.
 
 ## Configuring Device Simulation
 
@@ -41,7 +41,7 @@ You can configure and run Device Simulation completely from within the dashboard
 
 You can use Device Simulation with a pre-provisioned IoT hub or with any other IoT hub:
 
-![Target IoT Hub](media/iot-suite-device-simulation-explore/targethub.png)
+![Target IoT Hub](./media/iot-accelerators-device-simulation-explore/targethub.png)
 
 > [!NOTE]
 > The option to use a pre-provisioned IoT Hub is only available if you chose to create a new IoT Hub when you deployed Device Simulation. If you don't have an IoT hub, you can always create a new one from the [Azure portal](https://portal.azure.com).
@@ -53,13 +53,13 @@ To target a specific IoT hub, provide the **iothubowner** connection string. You
 1. Copy either the primary or secondary key.
 1. Paste this value into the text box under Target IoT Hub.
 
-![Target IoT hub](media/iot-suite-device-simulation-explore/connectionstring.png)
+![Target IoT hub](./media/iot-accelerators-device-simulation-explore/connectionstring.png)
 
 ### Device model
 
 The device model enables you to choose the type of device to simulate. You can choose one of the pre-configured device models or define a list of sensors for a custom device model:
 
-![Device model](media/iot-suite-device-simulation-explore/devicemodel.png)
+![Device model](./media/iot-accelerators-device-simulation-explore/devicemodel.png)
 
 #### Pre-Configured device models
 
@@ -88,7 +88,7 @@ Custom device models enable you to model sensors that more closely represent you
 
 When you select the custom device model type, you can add new sensors by clicking **+Add sensor**.
 
-![Add sensors](media/iot-suite-device-simulation-explore/customsensors.png)
+![Add sensors](./media/iot-accelerators-device-simulation-explore/customsensors.png)
 
 Custom sensors have the following properties:
 
@@ -104,13 +104,13 @@ Custom sensors have the following properties:
 
 Device Simulation currently enables you to simulate up to 20,000 devices.
 
-![Number of devices](media/iot-suite-device-simulation-explore/numberofdevices.png)
+![Number of devices](./media/iot-accelerators-device-simulation-explore/numberofdevices.png)
 
 ### Telemetry frequency
 
 Telemetry frequency enables you to specify how often your simulated devices should send data to the IoT hub. You can send data as frequently as every 10 seconds or as infrequently every as 99 hours, 59 minutes, and 59 seconds.
 
-![Telemetry frequency](media/iot-suite-device-simulation-explore/frequency.png)
+![Telemetry frequency](./media/iot-accelerators-device-simulation-explore/frequency.png)
 
 > [!NOTE]
 > If you are using an IoT hub other than the pre-provisioned IoT hub, then you should consider message limits for your target IoT hub. For example, if you have 1,000 simulated devices sending telemetry every 10 seconds to an S1 hub you reach the telemetry limit for the hub in just over an hour.
@@ -119,19 +119,19 @@ Telemetry frequency enables you to specify how often your simulated devices shou
 
 You can choose to run your simulation for a specific length of time or to run until you explicitly stop it. When you choose a specific length of time, you can choose any duration from 10 minutes up to 99 hours, 59 minutes, and 59 seconds.
 
-![Simulation duration](media/iot-suite-device-simulation-explore/duration.png)
+![Simulation duration](./media/iot-accelerators-device-simulation-explore/duration.png)
 
 ### Start and stop the simulation
 
 When you have added all the necessary configuration data to the form, the **Start Simulation** button is enabled. To start the simulation, click this button.
 
-![Start simulation](media/iot-suite-device-simulation-explore/start.png)
+![Start simulation](./media/iot-accelerators-device-simulation-explore/start.png)
 
 If you specified a specific duration for your simulation, then it stops automatically when the time has been reached. You can always stop the simulation early by clicking **Stop Simulation.**
 
 If you chose to run your simulation indefinitely, then it runs until you click **Stop Simulation**. You can close your browser and come back to the Device Simulation page to stop your simulation at any time.
 
-![Stop simulation](media/iot-suite-device-simulation-explore/stop.png)
+![Stop simulation](./media/iot-accelerators-device-simulation-explore/stop.png)
 
 > [!NOTE]
 > Only one simulation can be run at a time. You must stop the currently running simulation before you start a new simulation.
