@@ -23,7 +23,7 @@ ms.service: iot-hub
 # As a developer, I want to know what tools I can use to verify connectivity between my IoT devices and my IoT hub.
 ---
 
-# Tutorial: Use a simulated device to test connectivity with your hub
+# Tutorial: Use a simulated device to test connectivity with your IoT hub
 
 In this tutorial, you use Azure IoT Hub portal tools and Azure CLI commands to test device connectivity. This tutorial also uses a simple device simulator that you run on your desktop machine.
 
@@ -82,15 +82,13 @@ To retrieve the connection string for **MyTestDevice**, click on it in the list 
 
 To simulate **MyTestDevice** sending telemetry to your IoT hub, run the Node.js simulated device application you downloaded previously.
 
-In a terminal window on your development machine, navigate to the root folder of the sample Node.js project you downloaded. Then navigate to the **simulated-device** folder.
+In a terminal window on your development machine, navigate to the root folder of the sample Node.js project you downloaded. Then navigate to the **Tutorials\ConnectivityTests\simulated-device** folder.
 
-Open the **SimulatedDevice-1.js** file in a text editor of your choice. Replace the value of the `connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice-1.js** file.
-
-In the terminal window, run the following commands to install the required libraries and run the simulated device application:
+In the terminal window, run the following commands to install the required libraries and run the simulated device application. Use the device connectin string you made a note of when you added the device in the portal.
 
 ```cmd/sh
 npm install
-node SimulatedDevice-1.js
+node SimulatedDevice-1.js "{your device connection string}"
 ```
 
 The terminal window displays information as it tries to connect to your hub:
@@ -120,7 +118,7 @@ In the terminal window on your development machine, run the simulated device app
 
 ```cmd/sh
 npm install
-node SimulatedDevice-1.js
+node SimulatedDevice-1.js "{your device connection string}"
 ```
 
 This time you see an authentication error when the application tries to connect:
@@ -141,15 +139,13 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 Make a note of the full text of the generated SAS token. A SAS token looks like the following: `'SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307'`
 
-In a terminal window on your development machine, navigate to the root folder of the sample Node.js project you downloaded. Then navigate to the **simulated-device** folder.
-
-Open the **SimulatedDevice-2.js** file in a text editor of your choice. Replace the value of the `test_token` variable with the value of the SAS token you generated using the CLI command. Then save your changes to **SimulatedDevice-2.js** file.
+In a terminal window on your development machine, navigate to the root folder of the sample Node.js project you downloaded. Then navigate to the **Tutorials\ConnectivityTests\simulated-device** folder.
 
 In the terminal window, run the following commands to install the required libraries and run the simulated device application:
 
 ```cmd/sh
 npm install
-node SimulatedDevice-2.js
+node SimulatedDevice-2.js "{Your SAS token}"
 ```
 
 The terminal window displays information as it tries to connect to your hub using the SAS token:
@@ -184,39 +180,37 @@ First, retrieve the current connection string for your simulated device using th
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-To run a simulated device that sends messages, navigate to the **simulated-device** folder in the code you downloaded.
-
-Open the **SimulatedDevice-3.js** file in a text editor of your choice. Replace the value of the `connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice-3.js** file.
+To run a simulated device that sends messages, navigate to the **Tutorials\ConnectivityTests\simulated-device** folder in the code you downloaded.
 
 In the terminal window, run the following commands to install the required libraries and run the simulated device application:
 
 ```cmd/sh
 npm install
-node SimulatedDevice-3.js
+node SimulatedDevice-3.js "{your device connection string}"
 ```
 
 The terminal window displays information as it sends telemetry to your hub:
 
 ![Simulated device sending messages](media/tutorial-connectivity/sim-3-sending.png)
 
-You can use **Metrics (preview)** in the portal to verify that the telemetry messages are reaching your IoT hub:
+You can use **Metrics** in the portal to verify that the telemetry messages are reaching your IoT hub:
 
 ![Navigate to IoT Hub metrics](media/tutorial-connectivity/metrics-portal.png)
 
-Set the time range to **Last 30 minutes**, select your IoT hub in the **Resource** drop-down, and select **Telemetry messages sent** as the metric. The chart shows the aggregate count of messages sent by the simulated device:
+Select your IoT hub in the **Resource** drop-down, select **Telemetry messages sent** as the metric, and set the time range to **Past hour**. The chart shows the aggregate count of messages sent by the simulated device:
 
 ![Show IoT Hub metrics](media/tutorial-connectivity/metrics-active.png)
 
-It takes a few minutes for the metrics to become available after you start the simulated device. You can also click **Refresh** on the chart to update the display.
+It takes a few minutes for the metrics to become available after you start the simulated device.
 
 ## Check cloud-to-device connectivity
 
 This section shows how you can make a test direct method call to a device to check cloud-to-device connectivity. You run a simulated device on your development machine to listen for direct method calls from your hub.
 
-In a terminal window, use the following command to run the simulated device application. You updated the connection string in the sample code in the previous section of this tutorial:
+In a terminal window, use the following command to run the simulated device application:
 
 ```cmd/sh
-node SimulatedDevice-3.js
+node SimulatedDevice-3.js "{your device connection string}"
 ```
 
 Use a CLI command to call a direct method on the device:
@@ -239,10 +233,10 @@ Devices use twins to synchronize state between the device and the hub. In this s
 
 The simulated device you use in this section sends reported properties to the hub whenever it starts up, and prints desired properties to the console whenever it receives them.
 
-In a terminal window, use the following command to run the simulated device application. You updated the connection string in the sample code in the previous section of this tutorial:
+In a terminal window, use the following command to run the simulated device application:
 
 ```cmd/sh
-node SimulatedDevice-3.js
+node SimulatedDevice-3.js "{your device connection string}"
 ```
 
 To verify that the hub received the reported properties from the device, use the following CLI command:

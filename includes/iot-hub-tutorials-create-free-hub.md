@@ -16,23 +16,28 @@ To create an IoT Hub using the Azure portal:
 
 1. Select **Create a resource** > **Internet of Things** > **IoT Hub**.
 
-    ![Select to install IoT Hub](media/iot-hub-quickstarts-create-hub/selectiothub.png)
+    ![Select to install IoT Hub](media/iot-hub-tutorials-create-free-hub/selectiothub.png)
 
-1. To create your free-tier IoT hub, use the values in the following table:
+1. To create your free-tier IoT hub, use the values in the following tables:
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | The following screenshot uses the name **tutorials-iot-hub**. You must choose your own unique name when you create your hub. |
-    | Pricing and scale tier | F1 Free. You can only have one free tier hub in a subscription. |
-    | IoT Hub units | 1 |
-    | Device-to-cloud partitions | 2 partitions |
     | Subscription | Select your Azure subscription in the drop-down. |
     | Resource group | Create new. This tutorial uses the name **tutorials-iot-hub-rg**. |
-    | Location | This tutorial uses **West US**. You can choose the location closest to you. |
-    | Pin to dashboard | Yes |
+    | Region | This tutorial uses **West US**. You can choose the region closest to you. |
+    | Name | The following screenshot uses the name **tutorials-iot-hub**. You must choose your own unique name when you create your hub. |
 
-    ![Hub settings](media/iot-hub-tutorials-create-free-hub/hubdefinition.png)
+    ![Hub settings 1](media/iot-hub-tutorials-create-free-hub/hubdefinition-1.png)
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Pricing and scale tier | F1 Free. You can only have one free tier hub in a subscription. |
+    | IoT Hub units | 1 |
+
+    ![Hub settings 2](media/iot-hub-tutorials-create-free-hub/hubdefinition-2.png)
 
 1. Click **Create**. It can take several minutes for the hub to be created.
+
+    ![Hub settings 3](media/iot-hub-tutorials-create-free-hub/hubdefinition-3.png)
 
 1. Make a note of the IoT hub name you chose. You use this value later in the tutorial.
