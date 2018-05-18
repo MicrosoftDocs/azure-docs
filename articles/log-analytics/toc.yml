@@ -156,7 +156,7 @@
   - name: Manage
     items:
     - name: Personal data handling
-      href: og-analytics-personal-data-mgmt.md
+      href: log-analytics-personal-data-mgmt.md
     - name: Agent management
       href: log-analytics-agent-manage.md
     - name: Manage workspace cost
