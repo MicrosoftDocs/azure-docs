@@ -27,13 +27,13 @@ Log Analytics is a data store where personal data is likely to be found. This ar
 
 While it will be up to you and your company to ultimately determine the strategy with which you will handle your private data (if at all), the following are some possible approaches. They are listed in order of preference from a technical point of view from most to least preferable:
 
-* Where possible, stop collection of, obfuscate, anonymize, or otherwise adjust the data being collected to exclude it from being considered "private". Note that this is _by far_ the preferred approach, saving you the need to create a very costly and impactful data handling strategy.
+* Where possible, stop collection of, obfuscate, anonymize, or otherwise adjust the data being collected to exclude it from being considered "private". This is _by far_ the preferred approach, saving you the need to create a very costly and impactful data handling strategy.
 * Where not possible, attempt to normalize the data to reduce the impact on the data platform and performance. For example, instead of logging an explicit User ID, create a lookup data that will correlate the username and their details to an internal ID that can then be logged elsewhere. That way, should one of your users ask you to delete their personal information, it is possible that only deleting the row in the lookup table corresponding to the user will be sufficient. 
 * Finally, if private data must be collected, build a process around the purge API path and the existing query API path to meet any obligations you may have around exporting and deleting any private data associated with a user. 
 
 ## Where to look for private data in Log Analytics?
 
-Log Analytics is a completely flexible store, which while prescribing a schema to your data, allows you to override every field with custom values. Additionally, any custom schema can be ingested. As such, it is impossible to say exactly where Private data will be found in your specific workspace. The following locations, however, are good starting points in your inventory:
+Log Analytics is a flexible store, which while prescribing a schema to your data, allows you to override every field with custom values. Additionally, any custom schema can be ingested. As such, it is impossible to say exactly where Private data will be found in your specific workspace. The following locations, however, are good starting points in your inventory:
 
 * *IP addresses*: Log Analytics collects a variety of IP information across many different tables. For example, the following query shows all tables where IPv4 addresses have been collected over the last 24 hours:
     ```
@@ -58,7 +58,7 @@ As mentioned in the [strategy for personal data handling](#strategy-for-personal
 
 ### View and export
 
-For both view and export data requests, the [Query API](https://dev.loganalytics.io/) should be used. Logic to convert the shape of the data to an appropriate one to deliver to your users will be up to you to implement. [Azure Functions](https://azure.microsoft.com/services/functions/) make a great place to host such logic.
+For both view and export data requests, the [Query API](https://dev.loganalytics.io/) should be used. Logic to convert the shape of the data to an appropriate one to deliver to your users will be up to you to implement. [Azure Functions](https://azure.microsoft.com/services/functions/) makes a great place to host such logic.
 
 ### Delete
 
@@ -67,9 +67,9 @@ For both view and export data requests, the [Query API](https://dev.loganalytics
 
 We have made available as part of a privacy handling story a "purge" API path. This path should be used sparingly due to the risk associated with doing so, the potential performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handle private data.
 
-Purge is a highly privileged operation that no app or user in Azure (including even the resource owner) will have permissions to execute without explicitly being granted a role in ARM. This role is _Data Purger_ and should be very sparsely delegated due to the potential for data loss. 
+Purge is a highly privileged operation that no app or user in Azure (including even the resource owner) will have permissions to execute without explicitly being granted a role in Azure Resource Manager. This role is _Data Purger_ and should be cautiously delegated due to the potential for data loss. 
 
-Once the ARM role has been assigned, two new API paths are available: 
+Once the Azure Resource Manager role has been assigned, two new API paths are available: 
 
 * [POST purge] (https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - takes an object specifying parameters of data to delete and returns a reference GUID 
 * GET purge status - the POST purge call will return an 'x-ms-status-location' header that will include a URL that you can call to determine the status of your purge API. For example:
