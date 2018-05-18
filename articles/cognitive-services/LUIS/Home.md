@@ -33,7 +33,9 @@ what does "label" mean?
 -->
 
 # What is Language Understanding (LUIS)?
-Language Understanding (LUIS) is a REST-based service that allows your application to understand what a person wants in their own words. LUIS provides machine learning to transform natural language text from users of your client applications to a JSON format a programming language processes to fulfill your user's requests. The client application sends user text to LUIS. LUIS applies machine learning specific to your subject area and returns relevant, detailed information about the text. Your client application can then take appropriate action.
+Language Understanding (LUIS) is a REST-based service that applies custom machine-learning to a user's natural language text to predict overall meaning and pull out relevant, detailed information. 
+
+Your client application sends user text of what a person wants in their own words to LUIS in an HTTP request. LUIS applies your learned model to the natural language and returns a JSON format response. Your client application uses the JSON response to fulfill the user's requests. 
 
 --Conceptual image of user in text conversation with chat bot--
 
