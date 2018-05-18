@@ -25,12 +25,12 @@ sections:
       columns: 2
       items:
         - href: /azure/media-services/latest/
-          html: <p>Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
+          html: <p>Learn how to encode, stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
           image:
             src: media/index/media-services-v3.png
           title: Azure Media Services v3 (preview)
         - href: /azure/media-services/previous/
-          html: <p>Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services v2.</p>
+          html: <p>Learn how to encode, stream on-demand, and broadcast live videos with Media Services v2.</p>
           image:
             src: media/index/media-services-v2.png
           title: Azure Media Services v2 (GA)
