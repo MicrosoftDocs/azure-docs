@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: tomfitz
 
