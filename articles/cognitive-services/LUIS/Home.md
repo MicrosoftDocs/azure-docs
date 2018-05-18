@@ -11,9 +11,20 @@ ms.date: 05/07/2017
 ms.author: v-geberr
 ---
 
-# About Language Understanding (LUIS)
 
-Language Understanding (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build client applications that converse using natural language text. The client application sends user text to LUIS. LUIS applies natural language processing and returns relevant, detailed information about the text. 
+Points of confusion:
+
+What client application is : conversational application such as chat bot, VR app, cortana app
+What LUIS application is: trained and published domain-specific model
+What client does: sending 500 chars to LUIS and acting on response from LUIS
+what LUIS does: receive text, apply pre-prediction changes (spelling, timezoneoffset), apply prediction model to text, respond with overall prediction and any extracted detailed data
+
+what LUIS had to know before the client passes information: trained domain model with examples
+
+
+# What is Language Understanding (LUIS)
+
+Language Understanding (LUIS) is a REST API that allows your application to understand what a person wants in their own words. LUIS provides machine learning to transform natural language text from users of your client applications to a format a programming language uses to fulfill your user's requests. The client application sends user text to LUIS. LUIS applies machine learning specific to your needs and returns relevant, detailed information about the text. 
 
 Several Microsoft technologies work with LUIS:
 
@@ -27,11 +38,11 @@ Several Microsoft technologies work with LUIS:
 
 A LUIS app is a domain-specific language model designed by you and tailored to your needs. You can start with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
 
-A model starts with a list of general user intentions such as "Book Flight" or "Contact Help Desk." Once the intentions are identified, you supply example phrases called utterances for the intents. Then you label the utterances with any specific details you want LUIS to pull out of the utterance.
+A model starts with a list of general user intentions such as "Book Flight" or "Contact Help Desk." You provide example phrases, called _utterances_ for the intents. Then mark words or phrases in utterance you want LUIS to return.
 
 [Prebuilt domain models][prebuilt-domains] include all these pieces for you and are a great way to start using LUIS quickly.
 
-After the model is designed, trained, and published, it is ready to receive and process utterances. The LUIS app receives the utterance as an HTTP request and responds with extracted user intentions. Your client application sends the utterance and receives LUIS's evaluation as a JSON object. Your client app can then take appropriate action.
+After the model is designed, trained, and published, it is ready to receive and process utterances. Your client application sends the utterance to LUIS via the HTTPS endpoint query. Your LUIS app receives the utterance, applies the machine-learned model, and responds with the user's overall intention and any extracted data as a JSON object. Your client application can then take appropriate action.
 
 ![LUIS recognizes user intent](./media/luis-overview/luis-overview-process.png)
 
