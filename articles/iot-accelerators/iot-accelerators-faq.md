@@ -20,7 +20,7 @@ ms.author: dobett
 ---
 # Frequently asked questions for IoT solution accelerators
 
-See also, the [Connected Factory-specific FAQ](iot-suite-faq-cf.md) and the [remote monitoring-specific FAQ](iot-suite-faq-rm-v2.md) .
+See also, the [Connected Factory-specific FAQ](iot-accelerators-faq-cf.md) and the [remote monitoring-specific FAQ](iot-accelerators-faq-rm-v2.md) .
 
 ### Where can I find the source code for the solution accelerators?
 
@@ -89,7 +89,7 @@ See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](http://b
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Explore the capabilities of the remote monitoring solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-explore.md)
-* [Predictive Maintenance solution accelerator overview](iot-suite-predictive-overview.md)
-* [Connected Factory solution accelerator overview](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
-* [IoT security from the ground up](securing-iot-ground-up.md)
+* [Explore the capabilities of the remote monitoring solution accelerator](iot-accelerators-remote-monitoring-explore.md)
+* [Predictive Maintenance solution accelerator overview](../iot-suite/iot-suite-predictive-overview.md)
+* [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
+* [IoT security from the ground up](../iot-suite/securing-iot-ground-up.md)

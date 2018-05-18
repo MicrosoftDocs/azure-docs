@@ -21,11 +21,11 @@ In this how-to, you will use an Azure Stream Analytics job to stream data from t
 
 To complete this how-to, you will need the following:
 
-* [Deploy the remote monitoring preconfigured solution](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
+* [Deploy the remote monitoring preconfigured solution](iot-accelerators-remote-monitoring-deploy.md).
   * The Remote Monitoring solution will deploy the IoT hub and Azure Stream Analytics job used in this article into your Azure subscription.
-* [Deploy an Azure Data Lake Store](/data-lake-store/data-lake-store-get-started-portal.md)
+* [Deploy an Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
   * Your Data Lake Store should be deployed to the same region as your Remote Monitoring solution.
-  * [Create a folder](/data-lake-store/data-lake-store-get-started-portal.md#createfolder) named "streaming" in your account.
+  * [Create a folder](../data-lake-store/data-lake-store-get-started-portal.md#createfolder) named "streaming" in your account.
 
 ## Create a consumer group
 
@@ -38,7 +38,7 @@ Create a dedicated consumer group in the IoT hub of your Remote Monitoring solut
 
 1. In the Azure portal, click the **Cloud Shell** button.
 
-    ![Portal Launch Icon](media/iot-suite-integrate-data-lake/portal-launch-icon.png)
+    ![Portal Launch Icon](./media/iot-accelerators-integrate-data-lake/portal-launch-icon.png)
 
 1. Execute this command to create a new consumer group:
 
@@ -55,7 +55,7 @@ Create an Azure Stream Analytics job to stream the data from your IoT hub to you
 
 1. Click **Create a resource**, select Internet of Things from the Marketplace, and click **Stream Analytics job**.
 
-    ![New Stream Analytics Job](media/iot-suite-integrate-data-lake/new-stream-analytics-job.png)
+    ![New Stream Analytics Job](./media/iot-accelerators-integrate-data-lake/new-stream-analytics-job.png)
 
 1. Enter a job name and select the appropriate Subscription and Resource group.
 
@@ -65,7 +65,7 @@ Create an Azure Stream Analytics job to stream the data from your IoT hub to you
 
 1. Click **Create**.
 
-    ![Create Stream Analytics Job](media/iot-suite-integrate-data-lake/create-stream-analytics-job.png)
+    ![Create Stream Analytics Job](./media/iot-accelerators-integrate-data-lake/create-stream-analytics-job.png)
 
 ## Configure the Stream Analytics job
 
@@ -73,27 +73,27 @@ Create an Azure Stream Analytics job to stream the data from your IoT hub to you
 
 1. On the Overview page, click **Inputs**.
 
-    ![Overview Page](media/iot-suite-integrate-data-lake/stream-analytics-overview.png)
+    ![Overview Page](./media/iot-accelerators-integrate-data-lake/stream-analytics-overview.png)
 
 1. Click **Add stream input** and select **IoT Hub** from the drop-down.
 
-    ![Add Input](media/iot-suite-integrate-data-lake/stream-analytics-add-input.png)
+    ![Add Input](./media/iot-accelerators-integrate-data-lake/stream-analytics-add-input.png)
 
 1. On the New input tab, enter an Input alias of **IoTHub**.
 
 1. From the Consumer group drop-down, select the consumer group you created earlier. Here we are using **streamanalyticsjob**.
 
-    ![Select Input](media/iot-suite-integrate-data-lake/stream-analytics-new-input.png)
+    ![Select Input](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-input.png)
 
 1. Click **Save**.
 
 1. On the Overview page, click **Outputs**.
 
-    ![Add Data Lake Store](media/iot-suite-integrate-data-lake/stream-analytics-overview-2.png)
+    ![Add Data Lake Store](./media/iot-accelerators-integrate-data-lake/stream-analytics-overview-2.png)
 
 1. Click **Add** and select **Data Lake Store** from the drop-down.
 
-    ![Add Output](media/iot-suite-integrate-data-lake/stream-analytics-output.png)
+    ![Add Output](./media/iot-accelerators-integrate-data-lake/stream-analytics-output.png)
 
 1. On the New output tab, enter an Output alias of **DataLakeStore**.
 
@@ -101,13 +101,13 @@ Create an Azure Stream Analytics job to stream the data from your IoT hub to you
 
 1. In the Date format field, enter **/streaming/{date}/{time}**. Leave the default Date format of YYYY/MM/DD and Time format of HH.
 
-    ![Provide Folder Structure](media/iot-suite-integrate-data-lake/stream-analytics-new-output.png)
+    ![Provide Folder Structure](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 
 1. Click **Authorize**.
 
     You will have to authorize with Data Lake Store to give the Stream analytics job write access to the file system.
 
-    ![Authorize Stream Analytics to Data Lake Store](media/iot-suite-integrate-data-lake/stream-analytics-out-authorize.png)
+    ![Authorize Stream Analytics to Data Lake Store](./media/iot-accelerators-integrate-data-lake/stream-analytics-out-authorize.png)
 
     You will see a popup and once the popup closes Authorize button will be greyed out after authorization is complete.
 
@@ -122,7 +122,7 @@ Azure Stream Analytics uses a SQL-like query language to specify an input source
 
 1. On the Overview tab, click **Edit query**.
 
-    ![Edit Query](media/iot-suite-integrate-data-lake/stream-analytics-edit-query.png)
+    ![Edit Query](./media/iot-accelerators-integrate-data-lake/stream-analytics-edit-query.png)
 
 1. In the Query editor, replace the [YourOutputAlias] and [YourInputAlias] placeholders with the values you defined previously.
 
@@ -135,7 +135,7 @@ Azure Stream Analytics uses a SQL-like query language to specify an input source
         IoTHub
     ```
 
-    ![Stream Analytics Query](media/iot-suite-integrate-data-lake/stream-analytics-query.png)
+    ![Stream Analytics Query](./media/iot-accelerators-integrate-data-lake/stream-analytics-query.png)
 
 1. Click **Save**.
 1. Click **Yes** to accept the changes.
@@ -144,7 +144,7 @@ Azure Stream Analytics uses a SQL-like query language to specify an input source
 
 1. On the Overview tab, click **Start**.
 
-    ![Start Stream Analytics Job](media/iot-suite-integrate-data-lake/stream-analytics-start.png)
+    ![Start Stream Analytics Job](./media/iot-accelerators-integrate-data-lake/stream-analytics-start.png)
 
 1. On the Start job tab, click **Custom**.
 
@@ -152,11 +152,11 @@ Azure Stream Analytics uses a SQL-like query language to specify an input source
 
 1. Click **Start**.
 
-    ![Pick Custom Date](media/iot-suite-integrate-data-lake/stream-analytics-start-custom.png)
+    ![Pick Custom Date](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 
     Wait until job goes into running state, if you see errors it could be from your query, make sure to verify that the syntax is correct.
 
-    ![Job running](media/iot-suite-integrate-data-lake/stream-analytics-running.png)
+    ![Job running](./media/iot-accelerators-integrate-data-lake/stream-analytics-running.png)
 
     The streaming job will begin to read data from your IoT Hub and store the data in your Data Lake Store. It may take a few minutes for the data to begin to appear in your Data Lake Store.
 
@@ -168,11 +168,11 @@ Azure Stream Analytics uses a SQL-like query language to specify an input source
 
 1. In the Data explorer, drill down to the **/streaming** folder. You will see folders created with YYYY/MM/DD/HH format.
 
-    ![Explore Streaming Data](media/iot-suite-integrate-data-lake/data-lake-store-data-explorer.png)
+    ![Explore Streaming Data](./media/iot-accelerators-integrate-data-lake/data-lake-store-data-explorer.png)
 
     You will see json files with one file per hour.
 
-    ![Explore Streaming Data](media/iot-suite-integrate-data-lake/data-lake-store-file-preview.png)
+    ![Explore Streaming Data](./media/iot-accelerators-integrate-data-lake/data-lake-store-file-preview.png)
 
 ## Next Steps
 
