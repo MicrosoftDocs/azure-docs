@@ -582,7 +582,7 @@ DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
 
-[!INCLUDE [storage-import-export-security-compliance.md](../../../includes/storage-import-export-security-compliance.md)]
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## Next steps
 
