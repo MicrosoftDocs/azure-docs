@@ -51,7 +51,7 @@ See the language-specific example:
 
 ### Trigger - C# example
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request.
+The following example shows a [C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request. Notice that the return value is used for the output binding, but no return value attribute is required.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -82,16 +82,29 @@ public static async Task<HttpResponseMessage> Run(
 
 The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
-Here's the binding data in the *function.json* file:
+Here's the *function.json* file:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
-```
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}```
 
 The [configuration](#trigger---configuration) section explains these properties.
 
@@ -123,6 +136,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 You can bind to a custom object instead of `HttpRequestMessage`. This object is created from the body of the request, parsed as JSON. Similarly, a type can be passed to the HTTP response output binding and returned as the response body, along with a 200 status code.
+
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
@@ -141,15 +155,25 @@ public class CustomObject {
 
 The following example shows a trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
-Here's the binding data in the *function.json* file:
+Here's the *function.json* file:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 The [configuration](#trigger---configuration) section explains these properties.
@@ -197,15 +221,25 @@ You need a `project.json` file that uses NuGet to reference the `FSharp.Interop.
 
 The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
-Here's the binding data in the *function.json* file:
+Here's the *function.json* file:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 The [configuration](#trigger---configuration) section explains these properties.
@@ -257,15 +291,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 The following example shows a webhook trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs GitHub issue comments.
 
-Here's the binding data in the *function.json* file:
+Here's the *function.json* file:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 The [configuration](#trigger---configuration) section explains these properties.
@@ -297,15 +341,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 The following example shows a webhook trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function logs GitHub issue comments.
 
-Here's the binding data in the *function.json* file:
+Here's the *function.json* file:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 The [configuration](#trigger---configuration) section explains these properties.
@@ -341,11 +395,21 @@ Here's the binding data in the *function.json* file:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 The [configuration](#trigger---configuration) section explains these properties.
@@ -380,7 +444,6 @@ For a complete example, see [Trigger - C# example](#trigger---c-example).
 ## Trigger - configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `HttpTrigger` attribute.
-
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
@@ -547,19 +610,7 @@ Use the HTTP output binding to respond to the HTTP request sender. This binding 
 
 ## Output - configuration
 
-For C# class libraries, there are no output-specific binding configuration properties. 
-
-For other languages, an HTTP output binding is defined as a JSON object in the `bindings` array of function.json, as shown in the following example:
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-The following table explains the binding configuration properties that you set in the *function.json* file.
+The following table explains the binding configuration properties that you set in the *function.json* file. For C# class libraries there are no attribute properties that correspond to these *function.json* properties. 
 
 |Property  |Description  |
 |---------|---------|
@@ -569,11 +620,10 @@ The following table explains the binding configuration properties that you set i
 
 ## Output - usage
 
-To send an HTTP response, use the language-standard response patterns. In C# or C# script, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`.
+To send an HTTP response, use the language-standard response patterns. In C# or C# script, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`. In C#, no return value attribute is required.
 
 For example responses, see the [trigger example](#trigger---example) and the [webhook example](#trigger---webhook-example).
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+[Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
