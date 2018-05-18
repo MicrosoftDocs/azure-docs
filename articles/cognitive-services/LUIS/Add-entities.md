@@ -249,7 +249,7 @@ LUIS does not allow you to change the type of the entity because it doesn't know
 See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 ## Search utterances
-You can [search and filter](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances#search-in-utterances) utterances. 
+You can search and filter utterances with the magnifying glass icon on the toolbar. 
 
 ## Train your app after changing model with entities
 After you add, edit, or remove entities, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 

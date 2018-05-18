@@ -6,7 +6,7 @@ author: banisadr
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
+ms.topic: overview
 ms.date: 04/27/2018
 ms.author: babanisa
 ---
