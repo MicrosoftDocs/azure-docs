@@ -367,14 +367,7 @@ Open *compose-wordpress.yml* again.
 
 The `volumes` option maps the file system to a directory within the container. `${WEBAPP_STORAGE_HOME}` is an environment variable in App Service that is mapped to persistent storage for your app. You'll use this environment variable in the volumes option so that the WordPress files are installed into persistent storage instead of the container. Make the following modifications to the file:
 
-In the `wordpress` section, add a `volumes` option as shown in the following code:
-
-```yaml
-    volumes:
-      - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
-```
-
-After you're finished, save your changes. Your configuration should look like the following code:
+In the `wordpress` section, add a `volumes` option so it looks like the following code:
 
 ```yaml
 version: '3.3'
