@@ -1,18 +1,18 @@
 # Using Synchronization for Disaster Recovery
 
-The synchronization approach relies on Azure CycleCloud's internal database backup feature to pass snapshots of the data store from your currently active instance to a cold instance in a safe and reliable manner. It requires that you maintain a live machine with a powered-down (cold) CycleCloud instance that matches your active (hot) CycleCloud instance. This method has the advantage of being very fast to bring up in a disaster recovery scenario, thanks to the frequent synchronizations and the already-on hardware.
+The synchronization approach relies on Azure CycleCloud's internal database backup feature to pass snapshots of the data store from the currently active instance to a cold instance in a safe and reliable manner. It requires that you maintain a live machine with a powered-down (cold) CycleCloud instance that matches the active (hot) CycleCloud instance. This method has the advantage of being very fast to bring up in a disaster recovery scenario, thanks to the frequent synchronizations and the already-on hardware.
 
-When your currently active instance fails, you:
+When the active instance fails:
 
-* Restore the cold instance from the latest sync
-* Turn on the cold CycleCloud instance
-* Switch your DNS records to point to this now-running instance.
+1. Restore the cold instance from the latest sync
+2. Turn on the cold CycleCloud instance
+3. Switch DNS records to point to this now-running instance
 
-## Creating Your CycleCloud Data Store Backup Policy
+## Create a CycleCloud Data Store Backup Policy
 
-Your active instance must be set to backup the data store to local disk periodically. By default, CycleCloud is set to do backups at intervals that are friendly to the synchronization approach for disaster recovery.
+The active instance must be set to backup the data store to local disk periodically. By default, CycleCloud is set to do backups at intervals that are friendly to the synchronization approach for disaster recovery.
 
-If you would like to change the default policy, click on the Admin menu and select **Browse Data**. From the list of data store types on the left side of the page, select **Application** then **Backup Plan**. Select the one plan in the top half of the table view, then select the corresponding entry in the lower half of the table. Click the **Edit** button to adjust the policy.
+To change the default policy, click on the Admin menu and select **Browse Data**. From the list of data store types on the left side of the page, select **Application** then **Backup Plan**. Select the one plan in the top half of the table view, then select the corresponding entry in the lower half of the table. Click the **Edit** button to adjust the policy.
 
 A plan consists of the following attributes:
 
@@ -26,13 +26,13 @@ A plan consists of the following attributes:
 
 ## The Schedule
 
-The Schedule attribute of a backup plan controls how often to take backups. It supports a rolling schedule of frequent, recent backups and less frequent, older backups. The schedule is a set of non-overlapping intervals of increasing length. For example, a simple "keep backups every hour for a day, and daily after that, for a week" would produce 24 backups in the first day, and 6 more spaced out through the remaining 6 days. The syntax for expressing this is a comma-separated list of durations, followed by the total duration. Whitespace is not significant. For example:
+The Schedule attribute of a backup plan controls how often to take backups. It supports a rolling schedule of frequent, recent backups and less frequent, older backups. The schedule is a set of non-overlapping intervals of increasing length. For example, a simple "keep backups every hour for a day, and daily after that, for a week" would produce 24 backups in the first day, and 6 more spaced out through the remaining 6 days. The syntax for expressing this is a comma-separated list of durations, followed by the total duration:
 
 	 1h,1d/7d
 
 In the example above, backups will be taken at a rate of one per hour for one full day. When the 25th is taken, the oldest backup will be preserved as the first daily backup. Subsequent hourly backups will be deleted until another day elapses, at which time the oldest backup becomes the second daily backup and the day-old backup becomes the first daily backup. This will continue for 4 more days, and will create 30 backups. When the oldest backup is over a week old, it will be removed. Note that the backups are not labeled as "hourly" or "daily" on disk - they are simply tagged with the date and time they were taken.
 
-The schedule can be a more complicated pattern than the above. The only requirement is that each successive interval be a multiple of the previous. For example:
+The schedule can be a more complicated pattern than the above. The only requirement is that each successive interval be a multiple of the previous:
 
 	 5m,15m,1h,2h,4h,8h,1d/7d
 
@@ -41,19 +41,19 @@ This would keep 5-minute backups for 15 minutes, 15-minute backups for rest of t
 The schedule can be changed at any time, and CycleCloud will attempt to preserve as many existing backups as it can by reusing them for the new schedule. It will delete backups as necessary to match the desired number of samples and distributions over time. It only deletes backups if there are too many in an interval, not too few, so in no case will changing the schedule wipe all the backups and start over.
 
 
-# Creating Your Cold DR Instance
+# Create a Cold DR Instance
 
-A mirror installation of your CycleCloud instance is required on your cold instance. The cold instance should be installed in the same local path and have the same file-level permissions and ownership. The cold instance should be set to not start on boot if the server on which it is being staged happens to restart. The cold instance will also require the [HTCondor binaries](http://research.cs.wisc.edu/condor/download/) be installed the same as on your currently active instance if you're using CycleCloud to manage HTCondor pools, or the appropriate [Grid Engine](http://gridengine.org/blog/2011/11/23/what-now/) binaries if you're managing xGE pools.
+A mirror installation of the CycleCloud instance is required on the cold instance. The cold instance should be installed in the same local path and have the same file-level permissions and ownership. The cold instance should be set to not start on boot if the server on which it is being staged happens to restart. The cold instance will also require the [HTCondor binaries](http://research.cs.wisc.edu/condor/download/) be installed the same as on the currently active instance if you're using CycleCloud to manage HTCondor pools, or the appropriate [Grid Engine](http://gridengine.org/blog/2011/11/23/what-now/) binaries if you're managing xGE pools.
 
-On Linux you can use `rsync_` to create the initial, mirror copy of your currently active instance. For example, if the currently active instance is in `/opt/cycle_server` on *MachineA* and you want to use *MachineB* for disaster recovery, you could do the initial synchronization of *MachineA* -> *MachineB* with:
+On Linux you can use `rsync_` to create the initial, mirror copy of the currently active instance. For example, if the currently active instance is in `/opt/cycle_server` on *MachineA* and you want to use *MachineB* for disaster recovery, you could do the initial synchronization of *MachineA* -> *MachineB* with:
 
 	 rsync -avz -e ssh remoteuser@MachineB:/opt/cycle_server /opt/cycle_server/
 
-You will also need to configure *MachineB*'s `/etc/init.d/cycle_server` file and set CycleCloud to not start in any run level on reboot. You can copy the active instance's `/etc/init.d/cycle_server` file to your cold instance in much the same way you copied CycleCloud:
+You will also need to configure *MachineB*'s `/etc/init.d/cycle_server` file and set CycleCloud to not start in any run level on reboot. You can copy the active instance's `/etc/init.d/cycle_server` file to the cold instance in much the same way you copied CycleCloud:
 
 	rsync -avz -e ssh remoteuser@MachineB:/etc/init.d/cycle_server /etc/init.d/
 
-On Windows you should do a fresh install of CycleCloud using the same CycleCloud installation package that was used to deploy CycleCloud on your active instance. Once installed, stop CycleCloud with `c:\Program Files\CycleCloud\cycle_server.cmd stop` and set the two CycleCloud-related services to not run on boot.
+On Windows you should do a fresh install of CycleCloud using the same CycleCloud installation package that was used to deploy CycleCloud on the active instance. Once installed, stop CycleCloud with `c:\Program Files\CycleCloud\cycle_server.cmd stop` and set the two CycleCloud-related services to not run on boot.
 
 ![Azure CycleCloud and CycleCloudDB Services](~/images/cs_services.png)
 
@@ -96,7 +96,7 @@ sync of the `data` directory should only include the `backups` subdirectory.
 
 `robocopy_` is an advanced copy tool that can do file system tree synchronization and WAN traffic shaping for large transfers between Windows machines.
 
-The first robocopy_ call will synchronize the mostly static portions of CycleCloud. This includes any plugins that might have been installed and any customer configurations that may have been applied to your CycleCloud instance. A second robocopy_ call is necessary to synchronize the dynamic portion of CycleCloud, the data store, using the periodic backups. You can create a simple script that takes care of this via a Scheduled Task.
+The first robocopy_ call will synchronize the mostly static portions of CycleCloud. This includes any plugins that might have been installed and any customer configurations that may have been applied to the CycleCloud instance. A second robocopy_ call is necessary to synchronize the dynamic portion of CycleCloud, the data store, using the periodic backups. You can create a simple script that takes care of this via a Scheduled Task.
 
 This example assumes the cold CycleCloud's `C:\Program Files` is mounted as `Z:`.
 
@@ -112,9 +112,9 @@ These two commands can be combined in to a single batch script.
 
 ## Sync with `rsync` (Linux)
 
-Your rsync_ installation should be configured to allow passwordless rsyncs to occur between the active instance and the cold instance. We recommend using ssh_ to accomplish this, as well as running this process as root so file permissions and ownership are easily maintained across the boxes.
+The rsync_ installation should be configured to allow passwordless rsyncs to occur between the active instance and the cold instance. We recommend using ssh_ to accomplish this, as well as running this process as root so file permissions and ownership are easily maintained across the boxes.
 
-Generate a pair of ssh keys for your active instance to use during the rsync_ process to ensure rsync_ doesn't require a password to communicate with the cold instance from your active instance:
+Generate a pair of ssh keys for the active instance to use during the rsync_ process to ensure rsync_ doesn't require a password to communicate with the cold instance from the active instance:
 
   	% ssh-keygen -t rsa -b 2048 -f /root/cron/dr-rsync-key
   	Generating public/private rsa key pair.
@@ -147,13 +147,13 @@ Or at least allow the execution of remote commands via ssh as root with:
 
 	 PermitRootLogin forced-commands-only
 
-From your active instance, you can test that the rsync_ command works with:
+From the active instance, you can test that the rsync_ command works with:
 
     rsync -avz --dry-run -e "ssh -i /root/cron/dr-rsync-key" /opt/cycle_server/ root@remotehost:/opt/cycle_server
 
 This will do a dry run of an rsync. The rsync_ command should connect and compare the files.
 
-The first rsync_ call will synchronize the mostly static portions of CycleCloud. This includes any plugins that might have been installed and any customer configurations that may have been applied to your CycleCloud instance. A second rsync_ call is necessary to synchronize the dynamic portion of CycleCloud using the periodic backups. We can create a simple script that takes care of this via a cron_ job:
+The first rsync_ call will synchronize the mostly static portions of CycleCloud. This includes any plugins that might have been installed and any customer configurations that may have been applied to the CycleCloud instance. A second rsync_ call is necessary to synchronize the dynamic portion of CycleCloud using the periodic backups. We can create a simple script that takes care of this via a cron_ job:
 
   	rsync -avz --delete -e "ssh -i /root/cron/dr-rsync-key" \
   		--exclude 'data/' \
@@ -213,9 +213,9 @@ The suggested frequency for this sync is in the 30-60 minute range:
 
 	 0,30 * * * * /root/cron/dr_sync
 
-# Failing Over to Your Cold DR Instance
+# Failing Over to a Cold DR Instance
 
-If the primary CycleCloud instance fails, start your DR instance. The first step
+If the primary CycleCloud instance fails, start the DR instance. The first step
 is to restore the database from the backups you have synced. CycleCloud provides a restore utility
 to make this process easier:
 
@@ -237,4 +237,4 @@ have the most recent backup, you can run the restore utility:
        Restarted.
 
 The restore utility will restart CycleCloud and when it finishes booting, you will be able to begin
-using your DR instance.
+using the DR instance.
