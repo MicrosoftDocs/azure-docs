@@ -23,6 +23,16 @@ Key Vault is generally available in Azure Government.
 
 For details on this service and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.yml).
 
+### Variations
+
+The URLs for accessing Key Vault in Azure Government are different:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| Key Vault | \*.vault.usgovcloudapi.net |\*.vault.azure.net|
+| Service Principal ID| 7e7c393b-45d0-48b1-a35e-2905ddf8183c | cfa8b339-82a2-471a-a3c9-0fc0be7a4093 |
+| Service Principal Name | Azure Key Vault | Azure Key Vault |
+
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Key Vault:
 
