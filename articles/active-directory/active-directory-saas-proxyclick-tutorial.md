@@ -149,7 +149,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Select **SAML Request Method** as **HTTP Redirect**.
 
-	d. In the **Issuer** textbox, paste the value of **SAML Entity ID** value which you have copied from Azure portal.
+	d. In the **Issuer** textbox, paste the value of **SAML Entity ID** value, which you have copied from Azure portal.
 
 	e. In the **SAML 2.0 Endpoint URL** textbox, paste the value of **SAML Single Sign-On Service URL** copied from Azure portal.
 
@@ -197,7 +197,7 @@ To enable Azure AD users to log in to Proxyclick, they must be provisioned into 
 
 1. Log in to your Proxyclick company site as an administrator.
 
-2. Click **Colleauges** from the top navigation bar.
+2. Click **Colleagues** from the top navigation bar.
 
     ![Add Employee](./media/active-directory-saas-proxyclick-tutorial/user1.png)
 
@@ -213,7 +213,7 @@ To enable Azure AD users to log in to Proxyclick, they must be provisioned into 
 
 	b. In the **First Name** textbox, type the first name of user like Britta.
 
-	c. In the **Last Name** textbox, type the first name of user like Britta.
+	c. In the **Last Name** textbox, type the last name of user like Simon.
 
 	d. Click **Add User**.
 
