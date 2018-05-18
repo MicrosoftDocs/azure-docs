@@ -1,13 +1,13 @@
-﻿---
+---
 title: Validate Azure Automation account configuration
-description: This article describes how to confirm the configuration of your Automation account is setup correctly.  
+description: This article describes how to confirm the configuration of your Automation account is setup correctly.
 services: automation
 ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 
