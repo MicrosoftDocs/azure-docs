@@ -14,7 +14,7 @@ Azure Time Series Insights is a managed cloud service with storage, analytics, a
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
-To view, export, and delete personal data that may be subject to a data subject request, an Azure Time Series Insights tenant administrator can use the Azure portal and REST APIs. Using the Azure  portal to service data subject requests, provides a less complex method to perform these operations that most users prefer.
+To view, export, and delete personal data that may be subject to a data subject request, an Azure Time Series Insights tenant administrator can use either the Azure portal or the REST APIs. Using the Azure  portal to service data subject requests, provides a less complex method to perform these operations that most users prefer.
 
 ## Identifying customer data
 
@@ -22,7 +22,7 @@ Azure Time Series Insights considers personal data to be data associated with ad
 
 ## Deleting customer data
 
-To perform delete operations, Microsoft recommends using the Policy blade in the Azure portal. However, before you do that, you should remove the user's access policies from the Time Series Insights environment within the Azure portal. For more information, see [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
+A tenant administrator can delete customer data using the Azure portal. For more information, see [To delete a user from an Azure tenant](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#to-delete-a-user-from-an-azure-tenant). However, before you do that, you should remove the user's access policies from the Time Series Insights environment within the Azure portal. For more information, see [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
 
 You can also perform delete operations on access policies using the REST API. For more information, see [Access Policies - Delete](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/delete).
 
@@ -32,7 +32,7 @@ Time Series Insights is integrated with the Policy blade in the Azure portal. Bo
 
 ## Exporting customer data
 
-Similarly to deleting data, a tenant administrator can view and export data stored in Time Series Insights from the Policy blade of the Azure portal.
+Similarly to deleting data, a tenant administrator can view and export data stored in Time Series Insights from the Policy blade in the Azure portal. For more information, see [To export a user’s info from an Azure tenant](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#to-export-a-users-info-from-an-azure-tenant).
 
 If you are a tenant administrator, you can view data access policies within the Time Series Insights environment in the Azure portal. For more information, see [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
 
