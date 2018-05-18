@@ -1,5 +1,5 @@
 ---
-title: Replicate data from multi-cloud or on-prem databases to Azure Database for MySQL.
+title: Replicate data into Azure Database for MySQL.
 description: This article describes data-in replication for Azure Database for MySQL.
 services: mysql
 author: ajlam
@@ -32,7 +32,7 @@ The mysql system database on the primary server is not replicated. This includes
 - Primary server should use the MySQL InnoDB engine.
 
 ### Other
-- Global transaction identifiers (GTID) are not supported
+- Global transaction identifiers (GTID) are not supported.
 
 ## Next steps
 - Learn how to [set up data-in replication]()
