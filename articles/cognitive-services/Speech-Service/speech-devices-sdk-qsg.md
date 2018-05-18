@@ -1,3 +1,16 @@
+---
+title: Get started with the Speech Devices SDK | Microsoft Docs
+description: Prerequisites and instructions for getting started with the Speech Devices SDK.
+services: cognitive-services
+author: v-jerkin
+manager: noellelacharite
+
+ms.service: cognitive-services
+ms.technology: speech
+ms.topic: article
+ms.date: 05/18/2018
+ms.author: v-jerkin
+---
 # Get started with the Speech Devices SDK
 
 This article describes how to configure your development PC and your Speech device development kit for developing speech-enabled devices using the Speech Devices SDK. You will then build and deploy a sample application to the device. 
@@ -25,11 +38,9 @@ Before starting development with the Speech Devices SDK, gather the information 
 
 * Obtain a Speech service [subscription key](get-started.md). You can obtain a 30-day free trial, or obtain a key from your Azure dashboard.
 
-* If you wish to use the Speech service's intent recognition, subscribe to the [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) and [obtain a subscription key](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription). 
+* If you wish to use the Speech service's intent recognition, subscribe to the [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) and [obtain a subscription key](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription). 
 
-    You may [create a simple LUIS model](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) or use the sample LUIS model, `LUIS-example.json`, available from the Speech Devices SDK [download site](https://shares.datatransfer.microsoft.com/).
-   
-    Upload your model's JSON file to the [LUIS portal](https://www.lui.ai/applications) by clicking **Import new app** and choosing the JSON file.
+    You may [create a simple LUIS model](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) or use the sample LUIS model, `LUIS-example.json`, available from the Speech Devices SDK [download site](https://shares.datatransfer.microsoft.com/). Upload your model's JSON file to the [LUIS portal](https://www.lui.ai/applications) by clicking **Import new app** and choosing the JSON file.
 
 ## Set up the development kit
 
@@ -62,9 +73,9 @@ Before starting development with the Speech Devices SDK, gather the information 
     exit
     ```
 
-> [!TIP]
-> Mute your PC's microphone and speaker. This way, you can be sure you are working with the development kit's microphones, and you won't accidentally trigger the device with audio from the PC.
-
+    > [!TIP]
+    > Mute your PC's microphone and speaker. This way, you can be sure you are working with the development kit's microphones, and you won't accidentally trigger the device with audio from the PC.
+    
 1.	Launch Vysor on your computer.
 
     ![Vysor](media/speech-devices-sdk/qsg-3.png)
