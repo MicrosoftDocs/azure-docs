@@ -174,17 +174,16 @@ When a client application has finished streaming audio and has received the last
 |X-CorrelationId|(empty)	|A client-generated identifier used to correlate multiple channels in a conversation. Multiple speech translation sessions can be created to enable conversations between users. In such scenario, all speech translation sessions use the same correlation ID to tie the channels together. This facilitates tracing and diagnostics. The identifier should conform to: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Instead of using a header, this value can be passed with query parameter `X-CorrelationId`. If both header and query paramter are set, then the query parameter is ignored.|header|string|
 |X-ClientVersion|(empty)	|Identifies the version of the client application. Example: "2.1.0.123".<br/>Instead of using a header, this value can be passed with query parameter `X-ClientVersion`. If both header and query paramter are set, then the query parameter is ignored.|header|string|
 |X-OsPlatform|(empty)	|Identifies the name and version of the operating system the client application is running on. Examples: "Android 5.0", "iOs 8.1.3", "Windows 8.1".<br/>Instead of using a header, this value can be passed with query parameter `X-OsPlatform`. If both header and query paramter are set, then the query parameter is ignored.|header|string|
-|X-RequestId|(empty)|A value identifying the request for troubleshooting purposes.|header|string|
 
 ### Response Messages
 
-|HTTP Status Code|Reason|
-|:--|:--|
-|101	|WebSocket upgrade.|
-|400	|Bad request. Check input parameters to ensure they are valid. The response object includes a more detailed description of the error.|
-|401	|Unauthorized. Ensure that credentials are set, that they are valid and that your Azure Data Market subscription is in good standing with an available balance.|
-|500	|An error occured. If the error persists, please report it with client trace identifier (X-ClientTraceId) or request identifier (X-RequestId).|
-|503	|Server temporarily unavailable. Please retry the request. If the error persists, please report it with client trace identifier (X-ClientTraceId) or request identifier (X-RequestId).|
+|HTTP Status Code|Reason|Response Model|Headers|
+|:--|:--|:--|:--|
+|101	|WebSocket upgrade.|Model Example Value <br/> Object {}|X-RequestId<br/>A value identifying the request for troubleshooting purposes.<br/>string|
+|400	|Bad request. Check input parameters to ensure they are valid. The response object includes a more detailed description of the error.|||
+|401	|Unauthorized. Ensure that credentials are set, that they are valid and that your Azure Data Market subscription is in good standing with an available balance.|||
+|500	|An error occured. If the error persists, please report it with client trace identifier (X-ClientTraceId) or request identifier (X-RequestId).|||
+|503	|Server temporarily unavailable. Please retry the request. If the error persists, please report it with client trace identifier (X-ClientTraceId) or request identifier (X-RequestId).|||
 
 	
 
