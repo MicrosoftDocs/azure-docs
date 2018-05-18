@@ -46,7 +46,7 @@ After the model is designed, trained, and published, it is ready to receive and 
 
 ![LUIS recognizes user intent](./media/luis-overview/luis-overview-process.png)
 
-<a href="#Key-LUIS-concepts">
+<a href="Key-LUIS-concepts">
 ## A LUIS model includes
 
 * **Intents** An [intent][add-intents], short for _intention_, is a purpose or goal expressed in a user's input, such as booking a flight, paying a bill, or finding a news article. You create an intent for each action. A travel app may define an intent named "BookFlight." 
@@ -63,7 +63,7 @@ After the model is designed, trained, and published, it is ready to receive and 
 
 LUIS has two ways to build a model: the [Authoring REST-based APIs][authoring-apis] and the [LUIS][LUIS] website. Both methods give you and your collaborators control of your LUIS model definition. You can use either the [LUIS][LUIS] website or the Authoring APIs or a combination of both to build your model. This management includes models, versions, collaborators, external APIs, testing, and training. 
 
-<a href= "#Accessing-LUIS">
+<a href= "Accessing-LUIS">
 ## Accessing the LUIS model
 Once your model is built and published, you pass the utterance to LUIS and receive the JSON object results with the [Endpoint REST-based APIs][endpoint-apis].
 
