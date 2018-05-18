@@ -49,8 +49,8 @@ The Speech service now provides two 24-KHz voices:
 
 Locale | Language   | Gender | Service name mapping
 -------|------------|--------|------------
-en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
-en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
+en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
+en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
 The following are the REST endpoints for the unified Speech service Text to Speech API. Use the endpoint that matches your subscription region.
 

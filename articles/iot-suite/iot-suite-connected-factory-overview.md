@@ -20,7 +20,7 @@ ms.author: dobett
 ---
 # Get started with the Connected Factory solution accelerator
 
-Azure IoT IoT solution accelerators [solution accelerators][lnk-preconfigured-solutions] combine multiple Azure IoT services to deliver end-to-end solutions that implement common IoT business scenarios. The *Connected Factory* solution accelerator connects to and monitors your industrial devices. You can use the solution to analyze the stream of data from your devices and to drive operational productivity and profitability.
+Azure [IoT solution accelerators][lnk-preconfigured-solutions] combine multiple Azure IoT services to deliver end-to-end solutions that implement common IoT business scenarios. The *Connected Factory* solution accelerator connects to and monitors your industrial devices. You can use the solution to analyze the stream of data from your devices and to drive operational productivity and profitability.
 
 This tutorial shows you how to provision the Connected Factory solution accelerator. It also walks you through the basic features of the solution accelerator. You can access many of these features from the solution *dashboard* that deploys as part of the solution accelerator:
 
@@ -290,7 +290,7 @@ Now that you’ve deployed a working solution accelerator, you can continue gett
 [cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/cf-filter-funnel.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
+[lnk-preconfigured-solutions]:../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory

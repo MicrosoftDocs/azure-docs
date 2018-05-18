@@ -43,7 +43,7 @@ sections:
         - href:
         - href: cpp-linux
         - href:
-      - title: Device SDK (Android)
+      - title: Devices SDK (Android)
         values:
         - href:
         - href:
@@ -58,7 +58,7 @@ sections:
     - title: Examples
       html: <ul><li><a href="speech-to-text-sample.md">Speech Recognition</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
     - title: API Reference
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API (Device SDK)</a></li></ul>
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API (Devices SDK)</a></li></ul>
 
 - title: Speech-to-Text
   items:
@@ -169,7 +169,7 @@ sections:
         - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
         - href: https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
 
-- title: SDK's in Consideration
+- title: SDKs in Consideration
   items:
   - type: table
     style: dataMatrix

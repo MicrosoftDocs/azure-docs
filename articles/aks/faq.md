@@ -57,7 +57,7 @@ No, RBAC is currently not supported in AKS but will be available soon.
 
 ## Can I deploy AKS into my existing virtual network?
 
-No, this is not yet available but will be available soon.
+Yes, this is supported through the [advanced networking feature](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## Is Azure Key Vault integrated with AKS?
 
@@ -65,7 +65,7 @@ No, it is not but this integration is planned. In the meantime, try out the foll
 
 ## Can I run Windows Server containers on AKS?
 
-No, AKS does not currently provide Windows Server-based agent nodes, so you cannot run Windows Server containers. If you need to run Windows Server containers on Kubernetes in Azure, please see the [documentation for acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+To run Windows Server containers, you need to run Windows Server-based nodes. Windows Server-based nodes are currently in [private preview](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/). If you need to run Windows Server containers on Kubernetes in Azure outside of the preview, please see the [documentation for acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## Why are two resource groups created with AKS?
 

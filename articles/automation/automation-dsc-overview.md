@@ -8,7 +8,7 @@ ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 
