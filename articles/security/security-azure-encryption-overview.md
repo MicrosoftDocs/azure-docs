@@ -167,7 +167,7 @@ To learn more about point-to-site VPN connections to Azure virtual networks, see
 
 [Configure a point-to-site connection to a virtual network by using certification authentication: Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
 
-[Configure a point-to-site connection to a virtual network by using certificate authentication: PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
+[Configure a point-to-site connection to a virtual network by using certificate authentication: PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### Site-to-site VPNs 
 
