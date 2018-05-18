@@ -108,7 +108,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
 
 ## Docker Compose configuration options
 
-For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it include Azure Database for MySQL, persistent storage and Redis. Alternatively, you can use a [Kubernetes configuration](#use-a-kubernetes-configuration-optional). The configuration files can be found at [Azure Samples](https://raw.githubusercontent.com/Azure-Samples/multi-container/master/).
+For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it include Azure Database for MySQL, persistent storage, and Redis. Alternatively, you can use a [Kubernetes configuration](#use-a-kubernetes-configuration-optional). The configuration files can be found at [Azure Samples](https://raw.githubusercontent.com/Azure-Samples/multi-container/master/).
 
 The following lists show supported and unsupported Docker Compose configuration options in Web App for Containers:
 
@@ -184,7 +184,7 @@ Create an Azure Database for MySQL server with the [`az mysql server create`](/c
 In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique.
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central SUS" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
+az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
@@ -278,28 +278,28 @@ When the app setting has been created, the Azure CLI shows information similar t
 
 ### Use a custom image for MySQL SSL and other configurations
 
-By default, SSL is used by Azure Database for MySQL. WordPress requires additional configuration to use SSL with MySQL. The WordPress 'official image' doesn't provide the additional configuration, but a [custom image](https://github.com/msangapu/wordpress) has been prepared fo your convenience. In practice, you would add desired changes to your own image.
+By default, SSL is used by Azure Database for MySQL. WordPress requires additional configuration to use SSL with MySQL. The WordPress 'official image' doesn't provide the additional configuration, but a [custom image](https://hub.docker.com/r/microsoft/multicontainerwordpress/builds/) has been prepared fo your convenience. In practice, you would add desired changes to your own image.
 
 The custom image is based on the 'official image' of [WordPress from Docker Hub](https://hub.docker.com/_/wordpress/). The following changes have been made in this custom image for Azure Database for MySQL:
 
-* [Adds Baltimore Cyber Trust Root Certificate file for SSL to MySQL.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L61)
-* [Uses App Setting for MySQL SSL Certificate Authority certificate in WordPress wp-config.php.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L163)
-* [Adds WordPress define for MYSQL_CLIENT_FLAGS needed for MySQL SSL.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L164)
+* [Adds Baltimore Cyber Trust Root Certificate file for SSL to MySQL.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L61)
+* [Uses App Setting for MySQL SSL Certificate Authority certificate in WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L163)
+* [Adds WordPress define for MYSQL_CLIENT_FLAGS needed for MySQL SSL.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L164)
 
 The following changes have been made for Redis (to be used in a later section):
-* [Adds PHP extension for Redis v4.0.2.](https://github.com/msangapu/wordpress/blob/0903507e9b506e7962f3c0d84f8382979eb2e530/Dockerfile#L35)
-* [Adds unzip needed for file extraction.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L71)
-* [Adds Redis Object Cache 1.3.8 WordPress plugin.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L74)
-* [Uses App Seting for Redis host name in WordPress wp-config.php.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L162)
+* [Adds PHP extension for Redis v4.0.2.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/Dockerfile#L35)
+* [Adds unzip needed for file extraction.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L71)
+* [Adds Redis Object Cache 1.3.8 WordPress plugin.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
+* [Uses App Seting for Redis host name in WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-To use the custom image, you'll update your compose-wordpress.yml file. Change the `image: wordpress` to use `image: msangapu/wordpress`. You no longer need the database container. Remove the  `db`, `environment`, `depends_on`, and `volumes` section from the configuration file. Your file should look like the following code:
+To use the custom image, you'll update your compose-wordpress.yml file. Change the `image: wordpress` to use `image: microsoft/multicontainerwordpress`. You no longer need the database container. Remove the  `db`, `environment`, `depends_on`, and `volumes` section from the configuration file. Your file should look like the following code:
 
 ```yaml
 version: '3.3'
 
 services:
    wordpress:
-     image: msangapu/wordpress
+     image: microsoft/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
@@ -380,7 +380,7 @@ version: '3.3'
 
 services:
    wordpress:
-     image: msangapu/wordpress
+     image: microsoft/multicontainerwordpress
      volumes:
       - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
      ports:
@@ -420,14 +420,14 @@ The WordPress container is now using Azure Database for MySQL and persistent sto
 
 ## Add Redis container
 
- The WordPress 'official image' does not include the dependencies for Redis. These dependencies and additional configuration needed to use Redis with WordPress have been prepared for you in this [custom image](https://github.com/msangapu/wordpress). In practice, you would add desired changes to your own image.
+ The WordPress 'official image' does not include the dependencies for Redis. These dependencies and additional configuration needed to use Redis with WordPress have been prepared for you in this [custom image](https://github.com/Azure-Samples/multicontainerwordpress). In practice, you would add desired changes to your own image.
 
 The custom image is based on the 'official image' of [WordPress from Docker Hub](https://hub.docker.com/_/wordpress/). The following changes have been made in this custom image for Redis:
 
-* [Adds PHP extension for Redis v4.0.2.](https://github.com/msangapu/wordpress/blob/0903507e9b506e7962f3c0d84f8382979eb2e530/Dockerfile#L35)
-* [Adds unzip needed for file extraction.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L71)
-* [Adds Redis Object Cache 1.3.8 WordPress plugin.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L74)
-* [Uses App Seting for Redis host name in WordPress wp-config.php.](https://github.com/msangapu/wordpress/blob/1c15a8c87b3c4800c5844c1ab9da88831e0d4b78/docker-entrypoint.sh#L162)
+* [Adds PHP extension for Redis v4.0.2.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/Dockerfile#L35)
+* [Adds unzip needed for file extraction.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L71)
+* [Adds Redis Object Cache 1.3.8 WordPress plugin.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
+* [Uses App Seting for Redis host name in WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
 Add the redis container to the bottom of the configuration file so it looks like the following example:
 
