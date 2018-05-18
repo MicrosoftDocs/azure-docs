@@ -45,7 +45,7 @@ This task can also be done in bulk mode (refer to Telefónica IoT Connectivity P
 
 ![Telefónica Update](./media/iot-accelerators-remote-monitoring-telefonica-sim/telefonica_site.png)
 
-To connect your device to the Remote Monitoring, you can follow these tutorials using [C](../iot-suite/iot-suite-connecting-devices-linux.md) or [Node](../iot-suite/iot-suite-connecting-devices-node.md). 
+To connect your device to the Remote Monitoring, you can follow these tutorials using [C](iot-accelerators-connecting-devices-linux.md) or [Node](iot-accelerators-connecting-devices-node.md). 
 
 ## View device telemetry and SIM Properties
 
