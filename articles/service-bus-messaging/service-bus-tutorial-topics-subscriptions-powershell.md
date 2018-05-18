@@ -46,15 +46,15 @@ This tutorial requires that you run the latest version of Azure PowerShell. If y
 
 ## Log in to Azure
 
-Once PowerShell is installed, open Cloud Shell and issue the following commands: 
+Issue the following commands to log on to Azure. These steps are not necessary if you're running PowerShell commands in Cloud Shell: 
 
-1. If you are using Azure PowerShell locally, install the Service Bus PowerShell module, if you haven't already. This step is not necessary if you're running these commands in Cloud Shell:
+1. Install the Service Bus PowerShell module:
 
    ```azurepowershell-interactive
    Install-Module AzureRM.ServiceBus
    ```
 
-2. Run the following command to log in to Azure. This step is also not necessary if running commands in Cloud Shell:
+2. Run the following command to log in to Azure:
 
    ```azurepowershell-interactive
    Login-AzureRmAccount
@@ -62,7 +62,7 @@ Once PowerShell is installed, open Cloud Shell and issue the following commands:
 
 4. Set the current subscription context, or see the currently active subscription:
 
-   ```azurepowershell
+   ```azurepowershell-interactive
    Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
    Get-AzureRmContext
    ```
@@ -71,7 +71,7 @@ Once PowerShell is installed, open Cloud Shell and issue the following commands:
 
 After logging in to Azure, issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
-```azurepowershell
+```azurepowershell-interactive
 # Create a resource group 
 New-AzureRmResourceGroup –Name my-resourcegroup –Location westus2
 
@@ -85,7 +85,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName na
 Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
-After the `Get-AzureRmServiceBusKey` cmdlet runs, copy and paste the connection string and the queue name you selected to a temporary location such as Notepad. You will need it in the next step.
+After the `Get-AzureRmServiceBusKey` cmdlet runs, copy and paste the connection string and the queue name you selected to a temporary location, such as Notepad. You will need it in the next step.
 
 ## Send and receive messages
 
@@ -99,13 +99,13 @@ To run the code, do the following:
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Open a Windows PowerShell prompt with Administrator privileges.
+2. Open a PowerShell prompt.
 
-3. Navigate to the sample folder `\azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
+3. Navigate to the sample folder `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
-4. If you have not done so already, obtain the connection string using the following PowerShell cmdlet. Be sure to replace `<resource_group_name>` and `<namespace_name>` with your specific values: 
+4. If you have not done so already, obtain the connection string using the following PowerShell cmdlet. Be sure to replace `my-resourcegroup` and `namespace-name` with your specific values: 
 
-   ```azurepowershell
+   ```azurepowershell-interactive
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 5.	At the PowerShell prompt, type the following command:
@@ -127,7 +127,7 @@ To run the code, do the following:
 
 Run the following command to remove the resource group, namespace, and all related resources:
 
-```powershell
+```powershell-interactive
 Remove-AzureRmResourceGroup -Name my-resourcegroup
 ```
 
