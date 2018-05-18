@@ -460,5 +460,5 @@ In this article, you learned about the resources available to help you customize
 
 For more conceptual information about the Remote Monitoring solution accelerator, see [Remote Monitoring architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-For more information about customizing the Remote Monitoring solution, see [Customize and redeploy a microservice](../iot-suite/iot-suite-microservices-example.md)
+For more information about customizing the Remote Monitoring solution, see [Customize and redeploy a microservice](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

@@ -84,7 +84,7 @@ The definition of the device state has two elements:
 * `InitialState` defines initial values for all the properties of the device state object.
 * `Script` identifies a JavaScript file that runs on a schedule to update the device state. You can use this script file to randomize the telemetry values sent by the device.
 
-To learn more about the JavaScript file that updates the device state object, see [Understand the device model behavior](../iot-suite/iot-suite-remote-monitoring-device-behavior.md).
+To learn more about the JavaScript file that updates the device state object, see [Understand the device model behavior](iot-accelerators-remote-monitoring-device-behavior.md).
 
 The following example shows the definition of the device state object for a simulated chiller device:
 
@@ -206,7 +206,7 @@ A simulated device can respond to cloud-to-device methods called from the remote
 
 The simulated device sends the list of methods it supports to the remote monitoring solution.
 
-To learn more about the JavaScript file that implements the behavior of the device, see [Understand the device model behavior](../iot-suite/iot-suite-remote-monitoring-device-behavior.md).
+To learn more about the JavaScript file that implements the behavior of the device, see [Understand the device model behavior](iot-accelerators-remote-monitoring-device-behavior.md).
 
 The following example specifies three supported methods and the JavaScript files that implement those methods:
 
@@ -240,7 +240,7 @@ This article described how to create your own custom simulated device model. Thi
 > * Specify the telemetry the simulated device sends
 > * Specify the cloud-to-device methods the device responds to
 
-Now you have learned about the JSON schema, the suggested next step is to learn how to [implement the behavior of your simulated device](../iot-suite/iot-suite-remote-monitoring-device-behavior.md).
+Now you have learned about the JSON schema, the suggested next step is to learn how to [implement the behavior of your simulated device](iot-accelerators-remote-monitoring-device-behavior.md).
 
 For more developer information about the remote monitoring solution, see:
 

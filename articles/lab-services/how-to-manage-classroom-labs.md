@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: spelluru
 
 ---
@@ -43,9 +43,9 @@ This article describes how to create and configure a classroom lab, view all cla
     ![Usage policy](./media/how-to-manage-classroom-labs/usage-policy-settings.png)
 
 ## Set up the template
-A template in a lab is from which all users’ virtual machines are created. Set up the template virtual machine so that it is configured with exactly what you want to provide to the lab users. You can provide a name and description of the template that the lab users see, and set the visibility to “Public” to make instances of the template VM available to your lab users.  
+A template in a lab is a base virtual machine image from which all users’ virtual machines are created. Set up the template virtual machine so that it is configured with exactly what you want to provide to the lab users. You can provide a name and description of the template that the lab users see. Set the visibility of the template to public to make instances of the template VM available to your lab users.  
 
-## Set template title and description
+### Set template title and description
 1. In the **Template** section, select **Edit** (pencil icon) for the template. 
 2. In the **User view** window, Enter a **title** for the template.
 3. Enter **description** for the template.
@@ -54,7 +54,7 @@ A template in a lab is from which all users’ virtual machines are created. Set
     ![Classroom lab description](./media/how-to-manage-classroom-labs/lab-description.png)
 
 ### Make instances of the template public 
-Once you set the visibility of a template to **Public**, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process are the same as the maximum number of users allowed into the lab, which you can set in the usage policy of the lab. All virtual machines have the same configuration as the template.  
+Once you set the visibility of a template to **Public**, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process is same as the maximum number of users allowed into the lab, which you can set in the usage policy of the lab. All virtual machines have the same configuration as the template.  
 
 1. Select **Visibility** in the **Template** section. 
 2. In the **Availability** page, select **Public**.
