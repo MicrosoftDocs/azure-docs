@@ -83,7 +83,7 @@ An index schema defines the fields collection containing searchable, filterable,
 
 ### "skillsetName"
 
-[Cognitive search (preview)](cognitive-search-concept-intro.md) refers to natural language and image processing capabilities in Azure Search, applied during data ingestion to extract entities, key phrases, language, information from images, and so forth. Transformations applied to content is through *skills*, which you combine into a single [*skillset*](ref-create-skillset.md), one per indexer. As with data sources and indexes, a skillset is an independent component that you attach to an indexer. You can repurpose a skillset with other indexers, but each indexer can only use one skillset at a time.
+[Cognitive search (preview)](cognitive-search-concept-intro.md) refers to natural language and image processing capabilities in Azure Search, applied during data ingestion to extract entities, key phrases, language, information from images, and so forth. Transformations applied to content are through *skills*, which you combine into a single [*skillset*](ref-create-skillset.md), one per indexer. As with data sources and indexes, a skillset is an independent component that you attach to an indexer. You can repurpose a skillset with other indexers, but each indexer can only use one skillset at a time.
  
 <a name="indexer-schedule"></a>
 
