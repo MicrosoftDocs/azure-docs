@@ -104,7 +104,8 @@ Here's the *function.json* file:
             "direction": "out"
         }
     ]
-}```
+}
+```
 
 The [configuration](#trigger---configuration) section explains these properties.
 
