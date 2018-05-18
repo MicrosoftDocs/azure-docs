@@ -7,7 +7,7 @@
     expanded: true
 - name: Quickstarts
   items:
-  - name: Prepare to use Speech service # OK
+  - name: Try the Speech service for free # OK
     href: get-started.md
   - name: Recognize speech in C# # OK
     href: quickstart-csharp-windows.md
