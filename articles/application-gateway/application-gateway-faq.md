@@ -1,4 +1,4 @@
-﻿---
+---
 title: Frequently asked questions for Azure Application Gateway
 description: This page provides answers to frequently asked questions about Azure Application Gateway
 services: application-gateway
