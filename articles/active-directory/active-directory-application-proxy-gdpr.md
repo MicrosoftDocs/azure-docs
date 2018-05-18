@@ -79,5 +79,5 @@ To turn off connector logs, you need to adjust `C:\Program Files\Microsoft AAD A
 
 ## Next steps
 
-For an overview of the Azure AD application proxy, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+For an overview of the Azure AD application proxy, see [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
 

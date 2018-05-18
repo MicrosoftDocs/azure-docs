@@ -1,7 +1,7 @@
 ﻿---
-title: Configure the Connected factory topology | Microsoft Docs
-description: How to configure the topology of a Connected factory preconfigured solution.
-services: ''
+title: Configure the Connected Factory topology | Microsoft Docs
+description: How to configure the topology of a Connected Factory solution accelerator.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
@@ -18,11 +18,11 @@ ms.author: dobett
 
 ---
 
-# Configure the Connected factory preconfigured solution
+# Configure the Connected Factory solution accelerator
 
-The Connected factory preconfigured solution shows a simulated dashboard for a fictional company Contoso. This company has factories in numerous global locations globally.
+The Connected Factory solution accelerator shows a simulated dashboard for a fictional company Contoso. This company has factories in numerous global locations globally.
 
-This article uses Contoso as an example to describe how to configure the topology of a Connected factory solution.
+This article uses Contoso as an example to describe how to configure the topology of a Connected Factory solution.
 
 ## Simulated factories configuration
 
@@ -32,19 +32,19 @@ Each Contoso factory has production lines that consist of three stations each. E
 * Test station
 * Packaging station
 
-These OPC UA servers have OPC UA nodes and [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) sends the values of these nodes to Connected factory. This includes:
+These OPC UA servers have OPC UA nodes and [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) sends the values of these nodes to Connected Factory. This includes:
 
 * Current operational status such as current power consumption.
 * Production information such as the number of products produced.
 
-You can use the dashboard to drill into the Contoso factory topology from a global view down to a station level view. The Connected factory dashboard enables:
+You can use the dashboard to drill into the Contoso factory topology from a global view down to a station level view. The Connected Factory dashboard enables:
 
 * The visualization of OEE and KPI figures for each layer in the topology.
 * The visualization of current values of OPC UA nodes in the stations.
 * The aggregation of the OEE and KPI figures from the station level to the global level.
 * The visualization of alerts and actions to perform if values reach specific thresholds.
 
-## Connected factory topology
+## Connected Factory topology
 
 The topology of factories, production lines, and stations is hierarchical:
 
@@ -64,7 +64,7 @@ Every node in the topology has a common set of properties that define:
 
 ## Topology configuration file
 
-To configure the properties listed in the previous section, the Connected factory solution uses a configuration file called [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
+To configure the properties listed in the previous section, the Connected Factory solution uses a configuration file called [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
 
 You can find this file in the solution source code in the `WebApp/Contoso/Topology` folder.
 
@@ -191,7 +191,7 @@ The `<factory_configuration>` and `<production_line_configuration>` items have a
   * **CallOpcMethod**: the node information and parameters of the OPC UA method to call in the format "NodeId of parent node, NodeId of method to call, URI of the OPC UA server."
   * **OpenWebPage**: the URL to show in the browser window.
 
-`<opc_node_description>` contains information about OPC UA nodes in a station (OPC UA server). Nodes that represent no existing OPC UA nodes, but are used as storage in the computation logic of Connected factory are also valid. It has the following properties:
+`<opc_node_description>` contains information about OPC UA nodes in a station (OPC UA server). Nodes that represent no existing OPC UA nodes, but are used as storage in the computation logic of Connected Factory are also valid. It has the following properties:
 
 * **NodeId** (type string)
 
@@ -257,7 +257,7 @@ The `<factory_configuration>` and `<production_line_configuration>` items have a
 
   Defines the set of actions, which can be taken as response to a maximum alert.
 
-At the station level, you also see **Simulation** objects. These objects are only used to configure the Connected factory simulation and should not be used to configure a real topology.
+At the station level, you also see **Simulation** objects. These objects are only used to configure the Connected Factory simulation and should not be used to configure a real topology.
 
 ## How the configuration data is used at runtime
 
@@ -265,7 +265,7 @@ All the properties used in the configuration file can be grouped into different 
 
 ### Visual appearance
 
-Properties in this category define the visual appearance of the Connected factory dashboard. Examples include:
+Properties in this category define the visual appearance of the Connected Factory dashboard. Examples include:
 
 * Name
 * Description
@@ -280,18 +280,18 @@ The WebApp maintains an internal data dictionary containing information of all t
 
 ### OEE/KPI computation
 
-The OEE/KPI figures for the Connected factory simulation are parameterized by:
+The OEE/KPI figures for the Connected Factory simulation are parameterized by:
 
 * The OPC UA node values to be included in the calculation.
 * How the figure is computed from the telemetry values.
 
-Connected factory uses the OEE formulas as published by the http://oeeindustrystandard.oeefoundation.org.
+Connected Factory uses the OEE formulas as published by the http://oeeindustrystandard.oeefoundation.org.
 
 OPC UA node objects in stations enable tagging for usage in OEE/KPI calculation. The **Relevance** property indicates for which OEE/KPI figure the OPC UA node value should be used. The **OpCode** property defines how the value is included in the computation.
 
 ### Alert handling
 
-Connected factory supports a simple minimum/maximum threshold-based alert generation mechanism. There are a number of predefined actions you can configure in response to those alerts. The following properties control this mechanism:
+Connected Factory supports a simple minimum/maximum threshold-based alert generation mechanism. There are a number of predefined actions you can configure in response to those alerts. The following properties control this mechanism:
 
 * Maximum
 * Minimum
@@ -300,7 +300,7 @@ Connected factory supports a simple minimum/maximum threshold-based alert genera
 
 ## Correlating to telemetry data
 
-For certain operations, such as visualizing the last value or creating Time Series Insight queries, the WebApp needs an addressing scheme for the ingested telemetry data. The telemetry sent to Connected factory also needs to be stored in internal data structures. The two properties enabling these operations are at station (OPC UA server) and OPC UA node level:
+For certain operations, such as visualizing the last value or creating Time Series Insight queries, the WebApp needs an addressing scheme for the ingested telemetry data. The telemetry sent to Connected Factory also needs to be stored in internal data structures. The two properties enabling these operations are at station (OPC UA server) and OPC UA node level:
 
 * **OpcUri**
 
@@ -310,13 +310,13 @@ For certain operations, such as visualizing the last value or creating Time Seri
 
   Identifies the node value in the OPC UA server. The format of the property must be as specified in the OPC UA specification. In the ingested messages, this property is sent as **NodeId**.
 
-Check [this](https://github.com/Azure/iot-edge-opc-publisher) GitHub page for more information on how the telemetry data is ingested to Connected factory using the OPC Publisher.
+Check [this](https://github.com/Azure/iot-edge-opc-publisher) GitHub page for more information on how the telemetry data is ingested to Connected Factory using the OPC Publisher.
 
 ## Example: How KPI1 is calculated
 
 The configuration in the `ContosoTopologyDescription.json` file controls how OEE/KPI figures are calculated. The following example shows how properties in this file control the computation of KPI1.
 
-In Connected factory KPI1 is used to measure the number of successfully manufactured products in the last hour. Each station (OPC UA server) in the Connected factory simulation provides an OPC UA node (`NodeId: "ns=2;i=385"`), which provides the telemetry to compute this KPI.
+In Connected Factory KPI1 is used to measure the number of successfully manufactured products in the last hour. Each station (OPC UA server) in the Connected Factory simulation provides an OPC UA node (`NodeId: "ns=2;i=385"`), which provides the telemetry to compute this KPI.
 
 The configuration for this OPC UA node looks like the following snippet:
 
@@ -337,10 +337,10 @@ This configuration enables querying of the telemetry values of this node using T
 * The average of all values.
 * The sum of all values for all unique **OpcUri** (**ApplicationUri**), **NodeId** pairs in a given timespan.
 
-One characteristic of the **NumberOfManufactureredProducts** node value is that it only increases. To calculate the number of products manufactured in the timespan, Connected factory uses the **OpCode** **SubMaxMin**. The calculation retrieves the minimum value at the start of the timespan and the maximum value at the end of the timespan.
+One characteristic of the **NumberOfManufactureredProducts** node value is that it only increases. To calculate the number of products manufactured in the timespan, Connected Factory uses the **OpCode** **SubMaxMin**. The calculation retrieves the minimum value at the start of the timespan and the maximum value at the end of the timespan.
 
 The **OpCode** in the configuration configures the computation logic to calculate the result of the difference of maximum and minimum value. Those results are then accumulated bottom up to the root (global) level and shown in the dashboard.
 
 ## Next steps
 
-A suggested next step is to learn how to [Deploy a gateway on Windows or Linux for the connected factory preconfigured solution](iot-suite-connected-factory-gateway-deployment.md).
+A suggested next step is to learn how to [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-suite-connected-factory-gateway-deployment.md).

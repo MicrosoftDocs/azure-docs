@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
+featureFlags: clicktale
 
 ---
 # Quickstart: Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal

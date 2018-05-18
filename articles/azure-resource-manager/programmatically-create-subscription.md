@@ -46,7 +46,7 @@ After you're added to an Azure EA enrollment as an Account Owner, Azure uses the
 - You have one or more EA or EA Dev/Test subscriptions, meaning that you've gone through manual sign-up at least once
 - You're logged into the Account Owner's *home directory*, which is the directory that subscriptions are created in by default
 
-If the above two conditions are met, an `enrollmentAccount` resource is returned and you can start creating subscriptions under that account. All subscriptions created under the account are billed towards the EA enrollment that the account is in.
+If the above three conditions are met, an `enrollmentAccount` resource is returned and you can start creating subscriptions under that account. All subscriptions created under the account are billed towards the EA enrollment that the account is in.
 
 # [REST](#tab/rest)
 

@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 **Utterances** are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different inputs for each intent. Active learning, or the process of continuing to train on new utterances, is essential to machine-learned intelligence that LUIS provides.
 
-Collect phrases that you think users will say, and include utterances that mean the same thing but are constructed differently. 
+Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement. 
 
 ## How to choose varied utterances
 When you first get started by [adding example utterances][add-example-utterances] to your LUIS model, here are some principles to keep in mind.
@@ -38,7 +38,7 @@ When can I have a computer?
 The core term here, "computer", is not varied. They could say desktop computer, laptop, workstation, or even just machine. LUIS intelligently infers synonyms from context, but when you create utterances for training, it's still better to vary them.
 
 ## Example utterances in each intent
-Each intent needs to have example utterances. If you have an intent but do not have any example utterances in that intent, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS will not be able to give accurate predictions. 
+Each intent needs to have example utterances. If you have an intent that does not have any example utterances, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS will not accurately predict the intent. 
 
 ## Training utterances
 Training is non-deterministic: the utterance prediction could vary slightly across versions or apps.

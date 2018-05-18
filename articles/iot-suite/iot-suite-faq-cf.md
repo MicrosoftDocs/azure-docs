@@ -1,7 +1,7 @@
 ---
-title: Connected factory solution FAQ - Azure | Microsoft Docs
-description: Frequently asked questions for IoT Suite connected factory
-services: ''
+title: Connected Factory solution FAQ - Azure | Microsoft Docs
+description: Frequently asked questions for the Connected Factory solution accelerator
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts
@@ -18,15 +18,15 @@ ms.date: 12/12/2017
 ms.author: dobett
 
 ---
-# Frequently asked questions for IoT Suite connected factory preconfigured solution
+# Frequently asked questions for Connected Factory solution accelerator
 
-See also, the general [FAQ](iot-suite-faq.md) for IoT Suite.
+See also, the general [FAQ](iot-suite-faq.md) for IoT solution accelerators.
 
-### Where can I find the source code for the preconfigured solution?
+### Where can I find the source code for the solution accelerator?
 
 The source code is stored in the following GitHub repository:
 
-* [Connected factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory)
+* [Connected Factory solution accelerator](https://github.com/Azure/azure-iot-connected-factory)
 
 ### What is OPC UA?
 
@@ -37,7 +37,7 @@ OPC Unified Architecture (UA), released in 2008, is a platform-independent, serv
 * Technology
 * Processes
 
-### Why did Microsoft choose OPC UA for the connected factory preconfigured solution?
+### Why did Microsoft choose OPC UA for the Connected Factory solution accelerator?
 
 Microsoft chose OPC UA because it is an open, non-proprietary, platform independent, industry-recognized, and proven standard. It is a requirement for Industrie 4.0 (RAMI4.0) reference architecture solutions ensuring interoperability between a broad set of manufacturing processes and equipment. Microsoft sees demand from its customers to build Industrie 4.0 solutions. Support for OPC UA helps lower the barrier for customers to achieve their goals and provides immediate business value to them.
 
@@ -97,7 +97,7 @@ If you deployed your solution with the `build.ps1` script in the [repository](ht
 
 You can also find the connection string using the Azure portal. In the IoT Hub resource in the resource group of your deployment, locate the connection string settings.
 
-### Which IoT Hub devices does the Connected factory simulation use?
+### Which IoT Hub devices does the Connected Factory simulation use?
 
 The simulation self registers the following devices:
 
@@ -141,15 +141,15 @@ Inspect the data sent by one of the publisher devices:
 
 If you see no data sent to IoT Hub, then there is an issue with the simulation. As a first analysis step you should analyze the log files of the simulation components. See [How can I get log data from the simulation components?](#how-can-i-get-log-data-from-the-simulation-components) Next, try to stop and start the simulation and if there's still no data sent, update the simulation completely. See [How do I update the simulation in the VM?](#how-do-i-update-the-simulation-in-the-vm)
 
-### How do I enable an interactive map in my Connected factory solution?
+### How do I enable an interactive map in my Connected Factory solution?
 
-To enable an interactive map in your Connected factory solution, you must have an existing Bing Maps API for Enterprise plan.
+To enable an interactive map in your Connected Factory solution, you must have an existing Bing Maps API for Enterprise plan.
 
-When deploying from [www.azureiotsuite.com](http://www.azureiotsuite.com), the deployment process verifies that your subscription has an enabled Bing Maps API for Enterprise plan and automatically deploys an interactive map into Connected factory. If this is not the case, you can still enable an interactive map in your deployment as follows:
+When deploying from [www.azureiotsuite.com](http://www.azureiotsuite.com), the deployment process verifies that your subscription has an enabled Bing Maps API for Enterprise plan and automatically deploys an interactive map into Connected Factory. If this is not the case, you can still enable an interactive map in your deployment as follows:
 
-When you deploy using the `build.ps1` script in the Connected factory GitHub repository and you have a Bing Maps API for Enterprise plan, set the environment variable `$env:MapApiQueryKey` in the build window to the query key of your plan. The interactive map is then enabled automatically.
+When you deploy using the `build.ps1` script in the Connected Factory GitHub repository and you have a Bing Maps API for Enterprise plan, set the environment variable `$env:MapApiQueryKey` in the build window to the query key of your plan. The interactive map is then enabled automatically.
 
-If you don't have a Bing Maps API for Enterprise plan, deploy the Connected factory solution from [www.azureiotsuite.com](http://www.azureiotsuite.com) or using the `build.ps1` script. Then add a Bing Maps API for Enterprise plan to your subscription as explained in [How do I create a Bing Maps API for Enterprise account?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Look up the query key of this account as explained in [How to obtain your Bing Maps API for Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) and save this key. Navigate to the Azure portal and access the App Service resource in your Connected factory deployment. Navigate to **Application settings**, where you find a section **App settings**. Set the **MapApiQueryKey** to the query key you obtained. Save the settings and then navigate to **Overview** and restart the App Service.
+If you don't have a Bing Maps API for Enterprise plan, deploy the Connected Factory solution from [www.azureiotsuite.com](http://www.azureiotsuite.com) or using the `build.ps1` script. Then add a Bing Maps API for Enterprise plan to your subscription as explained in [How do I create a Bing Maps API for Enterprise account?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Look up the query key of this account as explained in [How to obtain your Bing Maps API for Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) and save this key. Navigate to the Azure portal and access the App Service resource in your Connected Factory deployment. Navigate to **Application settings**, where you find a section **App settings**. Set the **MapApiQueryKey** to the query key you obtained. Save the settings and then navigate to **Overview** and restart the App Service.
 
 ### How do I create a Bing Maps API for Enterprise account
 
@@ -159,7 +159,7 @@ You can get a free *Internal Transactions Level 1 Bing Maps for Enterprise* plan
 
 ### How to obtain your Bing Maps API for Enterprise QueryKey
 
-Once you have created your Bing Maps API for Enterprise plan, add a Bing Maps for Enterprise resource to the resource group of your Connected factory solution in the Azure portal.
+Once you have created your Bing Maps API for Enterprise plan, add a Bing Maps for Enterprise resource to the resource group of your Connected Factory solution in the Azure portal.
 
 1. In the Azure portal, navigate to the resource group that contains your Bing Maps API for Enterprise plan.
 
@@ -179,13 +179,13 @@ To enable the interactive map while you are debugging locally, set the value of 
 
 To change the static image shown io the home page of the dashboard, replace the image `WebApp\Content\img\world.jpg`. Then rebuild and redeploy the WebApp.
 
-### How do I use non OPC UA devices with Connected factory?
+### How do I use non OPC UA devices with Connected Factory?
 
-To send telemetry data from non OPC UA devices to Connected factory:
+To send telemetry data from non OPC UA devices to Connected Factory:
 
-1. [Configure a new station in the Connected factory topology](iot-suite-connected-factory-configure.md) in the `ContosoTopologyDescription.json` file.
+1. [Configure a new station in the Connected Factory topology](iot-suite-connected-factory-configure.md) in the `ContosoTopologyDescription.json` file.
 
-1. Ingest the telemetry data in Connected factory compatible JSON format:
+1. Ingest the telemetry data in Connected Factory compatible JSON format:
 
     ```json
     [
@@ -203,12 +203,12 @@ To send telemetry data from non OPC UA devices to Connected factory:
 
 1. The format of `<timestamp>` is: `2017-12-08T19:24:51.886753Z`
 
-1. Restart the Connected factory App Service.
+1. Restart the Connected Factory App Service.
 
 ### Next steps
 
-You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Predictive maintenance preconfigured solution overview](iot-suite-predictive-overview.md)
-* [Connected factory preconfigured solution overview](iot-suite-connected-factory-overview.md)
+* [Predictive Maintenance solution accelerator overview](iot-suite-predictive-overview.md)
+* [Connected Factory solution accelerator overview](iot-suite-connected-factory-overview.md)
 * [IoT security from the ground up](securing-iot-ground-up.md)

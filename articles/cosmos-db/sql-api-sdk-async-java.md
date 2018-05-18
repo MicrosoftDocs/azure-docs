@@ -28,8 +28,8 @@ ms.author: sngun
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynchronous operations with support of the [Netty library](http://netty.io/). The pre-existing [SQL API Java SDK](sql-api-sdk-java.md) does not support asynchronous operations. 
 
@@ -56,11 +56,11 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 * Added back-pressure support in query.
 * Added support for partition key range id in query.
 * Fix to allow larger continuation token in request header (bugfix github #24).
-* netty dependency upgraded to 4.1.22.Final to ensure JVM shuts down after main thread finishes.
+* Netty dependency upgraded to 4.1.22.Final to ensure JVM shuts down after main thread finishes.
 * Fix to avoid passing session token when reading master resources.
 * Added more examples.
 * Added more benchmarking scenarios.
-* Fixed Java header files for proper javadoc generation.
+* Fixed Java header files for proper java doc generation.
 
 ### <a name="1.0.0"/>1.0.0
 * GA SDK with end-to-end support for non-blocking IO using the [Netty library](http://netty.io/) in gateway mode. 
@@ -68,7 +68,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 ## Release and retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
-New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
+New features and functionality and optimizations are only added to the current SDK. So it's recommended that you always upgrade to the latest SDK version as early as possible.
 
 Any request to Cosmos DB using a retired SDK will be rejected by the service.
 

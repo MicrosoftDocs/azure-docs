@@ -15,6 +15,11 @@ ms.author: nolachar
 ---
 # What is Video Indexer? (preview)
 
+> [!Note]
+> The Video Indexer v1 API is going to be deprecated on August 1, 2018. You should start using the Video Indexer v2 API. 
+> 
+> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://aka.ms/viapi). 
+
 Video Indexer is a cloud application built using Azure Media Analytics, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service), and Azure Search. It enables you to extract the following insights from your videos using artificial intelligence technologies:
 
 - **Audio Transcription**: Video Indexer has speech-to-text functionality, which enables customers to get a transcript of the spoken words. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Portuguese (Brazilian), Japanese, and Russian (with many more to come in the future). 

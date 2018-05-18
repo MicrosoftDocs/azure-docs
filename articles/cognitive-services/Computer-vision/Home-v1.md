@@ -15,7 +15,7 @@ ms.author: kefre
 # What is Computer Vision API Version 1.0?
 
 > [!IMPORTANT]
-> A new version of Computer Vision API if now available, see:
+> A new version of Computer Vision API is now available, see:
 >- [Overview](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
 >- [Computer Vision API Version 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 

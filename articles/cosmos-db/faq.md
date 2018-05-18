@@ -187,7 +187,7 @@ In addition to the common MongoDB error codes, the MongoDB API has its own speci
 
 | Error               | Code  | Description  | Solution  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput of the collection from the Azure portal or retrying again. |
+| TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput  assigned to a container or a set of containers from the Azure portal or retrying again. |
 | ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has exceeded the client's memory allotment. | Reduce the scope of the operation through more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## Develop with the Table API
@@ -383,7 +383,7 @@ The Table API provides the same query functionality as Azure Table storage. Azur
 ### When should I change TableThroughput for the Table API?
 You should change TableThroughput when either of the following conditions applies:
 * You're performing an extract, transform, and load (ETL) of data, or you want to upload a lot of data in short amount of time. 
-* You need more throughput from the container at the back end. For example, you see that the used throughput is more than the provisioned throughput, and you are getting throttled. For more information, see [Set throughput for Azure Cosmos DB containers](set-throughput.md).
+* You need more throughput from the container or from a set of containers at the back end. For example, you see that the used throughput is more than the provisioned throughput, and you are getting throttled. For more information, see [Set throughput for Azure Cosmos DB containers](set-throughput.md).
 
 ### Can I scale up or scale down the throughput of my Table API table? 
 Yes, you can use the Azure Cosmos DB portal’s scale pane to scale the throughput. For more information, see [Set throughput](set-throughput.md).
@@ -398,7 +398,7 @@ None. There is no change in price for existing Azure Table storage customers.
 The price depends on the allocated TableThroughput. 
 
 ### How do I handle any throttling on the tables in Table API offering? 
-If the request rate exceeds the capacity of the provisioned throughput for the underlying container, you get an error, and the SDK retries the call by applying the retry policy.
+If the request rate exceeds the capacity of the provisioned throughput for the underlying container or a set of containers, you get an error, and the SDK retries the call by applying the retry policy.
 
 ### Why do I need to choose a throughput apart from PartitionKey and RowKey to take advantage of the Table API offering of Azure Cosmos DB?
 Azure Cosmos DB sets a default throughput for your container if you do not provide one in the app.config file or via the portal. 

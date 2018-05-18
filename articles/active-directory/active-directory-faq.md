@@ -190,7 +190,7 @@ For more information, see:
 
 **A:** Azure AD Application Proxy provides you with easy and secure access to on-premises web applications that you choose. You can access these applications in the same way that you access your software as a service (SaaS) apps in Azure AD. There is no need for a VPN or to change your network infrastructure.  
 
-For more information, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+For more information, see [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
 
 - - -
 **Q: How do I require multi-factor authentication for users who access a particular application?**

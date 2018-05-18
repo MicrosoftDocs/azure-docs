@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/01/2018
 ms.author: vinagara
 
 ---
@@ -159,9 +159,6 @@ Following is a sample payload for a standard webhook *without custom Json option
     }
 }
 ```
-
-> [!NOTE]
-> Log alerts for Application Insights, is currently in public preview - the functionality and user experience is subject to change.
 
 #### Log Alert with custom JSON Payload
 For example, to create a custom payload that includes just the alert name and the search results, you could use the following: 
