@@ -12,11 +12,11 @@ ms.author: ronmat
 ms.reviewer: carlrab
 
 ---
-# SQL Database Threat Detection
+# Azure SQL Database Threat Detection
 
-SQL Threat Detection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+Azure SQL Database Threat Detection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-Vulnerability Assessment is part of the [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) offering, which is a unified package for advanced SQL security capabilities. Vulnerability Assessment can be accessed and managed via the central SQL ATP portal.
+Threat Detection is part of the [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) offering, which is a unified package for advanced SQL security capabilities. Threat Detection can be accessed and managed via the central SQL ATP portal.
 
 ## What is Threat Detection?
 
@@ -26,14 +26,13 @@ For a full investigation experience, it is recommended to enable [SQL Database A
 
 ## Set up threat detection for your database in the Azure portal
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Navigate to the configuration page of the SQL Database you want to protect. In security settings, select **Auditing & Threat Detection**. 
-3. In the **Auditing & Threat Detection** configuration page:
+2. Navigate to the configuration page of the Azure SQL Database server you want to protect. In the security settings, select **Advanced Threat Protection**.
+3. On the **Advanced Threat Protection** configuration page:
 
-   - Enable Advanced Threat Protection on the server
+   - Enable Advanced Threat Protection on the server.
    - In **Threat Detection Settings**, in the **Send alerts to** textg box, provide the list of emails to receive security alerts upon detection of anomalous database activities.
-
   
-    ![Set up threat detection](./media/sql-database-threat-detection/set_up_threat_detection.png)
+   ![Set up threat detection](./media/sql-database-threat-detection/set_up_threat_detection.png)
 
 ## Set up threat detection using PowerShell
 
@@ -79,7 +78,7 @@ Threat Detection for Azure SQL Database detects anomalous activities indicating 
 
 ## Next steps
 
-* Learn more about [SQL Advanced Threat Detection](sql-advanced-threat-protection.md). 
+* Learn more about [SQL Advanced Threat Protection](sql-advanced-threat-protection.md). 
 * Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)
 * Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * For more information on pricing, see the [SQL Database Pricing page](https://azure.microsoft.com/pricing/details/sql-database/)  

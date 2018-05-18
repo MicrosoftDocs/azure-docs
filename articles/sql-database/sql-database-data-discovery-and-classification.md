@@ -8,7 +8,7 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/18/2018
 ms.author: giladm
 ms.reviewer: carlrab
 
@@ -20,7 +20,7 @@ Discovering and classifying your most sensitive data (business, financial, healt
 * Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 * Controlling access to and hardening the security of databases containing highly sensitive data.
 
-Vulnerability Assessment is part of the [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) offering, which is a unified package for advanced SQL security capabilities. Vulnerability Assessment can be accessed and managed via the central SQL ATP portal.
+Data Discovery & Classification is part of the [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) offering, which is a unified package for advanced SQL security capabilities. Data Discovery & Classification can be accessed and managed via the central SQL ATP portal.
 
 > [!NOTE]
 > This document relates to Azure SQL Database only. For SQL Server (on-prem), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
