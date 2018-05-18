@@ -86,7 +86,7 @@ The first pillar of the scaffold is naming standards. Well-designed naming stand
 > The preceding tips help you implement a consistent naming convention.
 
 ## Policies and auditing
-The second pillar of the scaffold involves creating [Azure Resource Manager policies](resource-manager-policy.md) and [auditing the activity log](resource-group-audit.md). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
+The second pillar of the scaffold involves creating [Azure policies](../azure-policy/azure-policy-introduction.md) and [auditing the activity log](resource-group-audit.md). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
 
 * Policy is a default **allow** system. You control actions by defining and assigning policies to resources that deny or audit actions on resources.
 * Policies are described by policy definitions in a policy definition language (if-then conditions).
@@ -132,7 +132,7 @@ Azure Resource Manager policies are a powerful tool in the Azure toolkit. They e
 > 
 
 ### Audit - what happened?
-To view how your environment is functioning, you need to audit user activity. Most resource types within Azure create diagnostic logs that you can analyze through a log tool or in Azure Operations Management Suite. You can gather activity logs across multiple subscriptions to provide a departmental or enterprise view. Audit records are both an important diagnostic tool and a crucial mechanism to trigger events in the Azure environment.
+To view how your environment is functioning, you need to audit user activity. Most resource types within Azure create diagnostic logs that you can analyze through a log tool or in Azure Log Analytics. You can gather activity logs across multiple subscriptions to provide a departmental or enterprise view. Audit records are both an important diagnostic tool and a crucial mechanism to trigger events in the Azure environment.
 
 Activity logs from Resource Manager deployments enable you to determine the **operations** that took place and who performed them. Activity logs can be collected and aggregated using tools like Log Analytics.
 
@@ -165,7 +165,7 @@ For more examples of tags, see [Recommended naming conventions for Azure resourc
 ## Resource group
 Resource Manager enables you to put resources into meaningful groups for management, billing, or natural affinity. As mentioned earlier, Azure has two deployment models. In the earlier Classic model, the basic unit of management was the subscription. It was difficult to break down resources within a subscription, which led to the creation of large numbers of subscriptions. With the Resource Manager model, we saw the introduction of resource groups. Resource groups are containers of resources that have a common lifecycle or share an attribute such as "all SQL servers" or "Application A".
 
-Resource groups cannot be contained within each other and resources can only belong to one resource group. You can apply certain actions on all resources in a resource group. For example, deleting a resource group removes all resources within the resource group. Typically, you place an entire application or related system in the same resource group. For example, a three tier application called Contoso Web Application would contain the web server, application server and SQL server in the same resource group.
+Resource groups cannot be contained within each other and resources can only belong to one resource group. You can apply certain actions on all resources in a resource group. For example, deleting a resource group removes all resources within the resource group. Typically, you place an entire application or related system in the same resource group. For example, a three-tier application called Contoso Web Application would contain the web server, application server and SQL server in the same resource group.
 
 > [!TIP]
 > How you organize your resource groups may vary from "Traditional IT" workloads to "Agile IT" workloads:

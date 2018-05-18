@@ -3,8 +3,8 @@ title: Quota types in Azure Stack | Microsoft Docs
 description: Review the different quota types available for services and resources in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid: 
@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/23/2017
-ms.author: erikje
+ms.date: 05/08/2018
+ms.author: brenduns
+ms.reviewer: xiaofmao
 
 ---
 # Quota types in Azure Stack
@@ -26,21 +27,23 @@ ms.author: erikje
 ## Compute quota types
 | **Type** | **Default value** | **Description** |
 | --- | --- | --- |
-| Max number of virtual machines |50 | The maximum number of virtual machines that a subscription can create in this location. |
-| Max number of virtual machine cores |100 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
-| Max number of availability sets |10 | The maximum number of availability sets that can be created in this location. |
-| Max number of virtual machine scale sets |100 | The maximum number of virtual machine scale sets that can be created in this location. |
+| Max number of virtual machines | 20 | The maximum number of virtual machines that a subscription can create in this location. |
+| Max number of virtual machine cores | 50 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
+| Max number of availability sets | 10 | The maximum number of availability sets that can be created in this location. |
+| Max number of virtual machine scale sets | 20 | The maximum number of virtual machine scale sets that can be created in this location. |
 
-> [!NOTE]
-> Compute quotas are not enforced in this technical preview.
-> 
-> 
+
 
 ## Storage quota types
 | **Item** | **Default value** | **Description** |
 | --- | --- | --- |
 | Maximum capacity (GB) |500 |Total storage capacity that can be consumed by a subscription in this location. |
 | Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
+
+> [!NOTE]  
+> It can take up to two hours before a storage quota is enforced. 
+> 
+
 
 ## Network quota types
 | **Item** | **Default value** | **Description** |

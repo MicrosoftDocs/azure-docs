@@ -1,10 +1,10 @@
----
+﻿---
 title: Azure Operational Security | Microsoft Docs
 description: Learn about Microsoft Operations Management Suite (OMS), its services, and how it works.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article 
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
 
 ---

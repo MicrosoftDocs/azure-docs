@@ -9,14 +9,14 @@ manager: anneta
 ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
-ms.topic: article
-ms.date: 08/16/2017
+ms.topic: tutorial
+ms.date: 11/30/2017
 ms.author: LADocs; estfan
 ---
 
 # Monitor virtual machine changes with Azure Event Grid and Logic Apps
 
-You can start an automated [logic app workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
+You can start an automated [logic app workflow](../logic-apps/logic-apps-overview.md) 
 when specific events happen in Azure resources or third-party resources. 
 These resources can publish those events to an [Azure event grid](../event-grid/overview.md). 
 In turn, the event grid pushes those events to subscribers that have queues, 
@@ -70,7 +70,7 @@ monitors the resource group for your virtual machine.
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 2. From the upper left corner of the main Azure menu, 
-choose **New** > **Enterprise Integration** > **Logic App**.
+choose **Create a resource** > **Enterprise Integration** > **Logic App**.
 
    ![Create logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
@@ -105,7 +105,7 @@ so you can build your logic app from scratch.
    ![Choose logic app template](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
    The Logic Apps Designer now shows you [*connectors*](../connectors/apis-list.md) 
-   and [*triggers*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+   and [*triggers*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
    that you can use to start your logic app, and also actions that you can 
    add after a trigger to perform tasks. A trigger is an event that creates 
    a logic app instance and starts your logic app workflow. 
@@ -125,7 +125,7 @@ with your Azure credentials.
    > If you're signed in with a personal Microsoft account, 
    > such as @outlook.com or @hotmail.com, 
    > the Event Grid trigger might not appear correctly. 
-   > As a workaround, choose [Connect with Service Principal](/azure-resource-manager/resource-group-create-service-principal-portal.md), 
+   > As a workaround, choose [Connect with Service Principal](../azure-resource-manager/resource-group-create-service-principal-portal.md), 
    > or authenticate as a member of the Azure Active Directory 
    > that's associated with your Azure subscription, for example, 
    > *user-name*@emailoutlook.onmicrosoft.com.
@@ -213,7 +213,7 @@ automatically resolves as shown:
 
 ## Send email when your virtual machine changes
 
-Now add an [*action*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 so that you get an email when the specified condition is true.
 
 1. In the condition's **If true** box, choose **Add an action**.
@@ -313,6 +313,14 @@ grid and emails you when those events happen.
 You also learned how easily you can create workflows 
 that automate processes and integrate systems and cloud services.
 
+You can monitor other configuration changes with 
+event grids and logic apps, for example:
+
+* A virtual machine gets role-based access control (RBAC) rights.
+* Changes are made to a network security group (NSG) on a network interface (NIC).
+* Disks for a virtual machine are added or removed.
+* A public IP address is assigned to a virtual machine NIC.
+
 ## Clean up resources
 
 This tutorial uses resources and performs actions that incur 
@@ -321,27 +329,21 @@ So when you're done with the tutorial and testing,
 make sure that you disable or delete any resources 
 where you don't want to incur charges.
 
-You can stop your logic app from running and sending email 
-without deleting the app. On your logic app menu, 
-choose **Overview**. On the toolbar, choose **Disable**.
+* To stop running your logic app without deleting your work, 
+disable your app. On your logic app menu, choose **Overview**. 
+On the toolbar, choose **Disable**.
 
-![Turn off your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
+  ![Turn off your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
 
-## FAQ
+  > [!TIP]
+  > If you don't see the logic app menu, 
+  > try returning to the Azure dashboard, 
+  > and reopen your logic app.
 
-**Q**: What other virtual machine monitoring tasks can I perform with event grids and logic apps? </br>
-**A**: You can monitor other configuration changes, for example:
-
-* A virtual machine gets role-based access control (RBAC) rights.
-* Changes are made to a network security group (NSG) on a network interface (NIC).
-* Disks for a virtual machine are added or removed.
-* A public IP address is assigned to a virtual machine NIC.
+* To permanently delete your logic app, on the logic app menu, 
+choose **Overview**. On the toolbar, choose **Delete**. 
+Confirm that you want to delete your logic app, then choose **Delete**.
 
 ## Next steps
 
-* [Event Grid Overview](../event-grid/overview.md)
-* [Event Grid Concepts](../event-grid/concepts.md)
-* [Quickstart: Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
-* [Event Grid event schema](../event-grid/event-schema.md)
-* [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)
-* [Create logic app workflows with predefined templates](../logic-apps/logic-apps-use-logic-app-templates.md)
+* [Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)

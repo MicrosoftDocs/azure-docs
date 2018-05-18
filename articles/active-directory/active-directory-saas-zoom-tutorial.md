@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 12/28/2017
 ms.author: jeedes
 
 ---
@@ -108,44 +108,75 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.zoom.us`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.zoom.us`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `<companyname>.zoom.us`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Zoom Client support team](https://support.zoom.us/hc) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Zoom Client support team](https://support.zoom.us/hc) to get these values.
+
+4. The Zoom application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
+
+	![Configure Single Sign-On](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
+
+5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
+	
+	| Attribute Name | Attribute Value | Namespace Value |
+	| ------------------- | -----------|--------- |    
+	| Email address | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail`|
+    | First name | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`|
+    | Last name | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname `|
+    | Phone number | user.telephonenumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
+    | Department | user.department | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`|
+
+	a. Click **Add attribute** to open the **Add Attribute** dialog.
+
+	![Configure Single Sign-On](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_04.png)
+
+	![Configure Single Sign-On](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_05.png)
+
+    b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. From the **Value** list, type the attribute value shown for that row.
+
+    d. In the **Namespace** textbox, type the namespace value shown for that row.
+	
+	e. Click **Ok**. 
  
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+	![The Certificate download link](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png)
 
-5. Click **Save** button.
+7. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-6. On the **Zoom Configuration** section, click **Configure Zoom** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **Zoom Configuration** section, click **Configure Zoom** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Zoom Configuration](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png) 
+	![Zoom Configuration](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png)
 
-7. In a different web browser window, log in to your Zoom company site as an administrator.
+9. In a different web browser window, log in to your Zoom company site as an administrator.
 
-8. Click the **Single Sign-On** tab.
+10. Click the **Single Sign-On** tab.
    
     ![Single sign-on tab](./media/active-directory-saas-zoom-tutorial/IC784700.png "Single sign-on")
 
-9. Click the **Security Control** tab, and then go to the **Single Sign-On** settings.
+11. Click the **Security Control** tab, and then go to the **Single Sign-On** settings.
 
-10. In the Single Sign-On section, perform the following steps:
+12. In the Single Sign-On section, perform the following steps:
    
     ![Single sign-on section](./media/active-directory-saas-zoom-tutorial/IC784701.png "Single sign-on")
    
-    a. In the **Sign-in page URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+    a. In the **Sign-in page URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
    
-    b. In the **Sign-out page URL** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
+    b. In the **Sign-out page URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
      
     c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity provider certificate** textbox.
 
-    d. In the **Issuer** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal. 
+    d. In the **Issuer** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal. 
 
     e. Click **Save**.
+
+    > [!NOTE] 
+	> For more information, visit the zoom documentation [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -250,8 +281,6 @@ When you click the Zoom tile in the Access Panel, you should get automatically s
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

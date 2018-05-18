@@ -4,7 +4,7 @@ description: Learn about Azure solutions for running high performance computing 
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.date: 08/17/2017
+ms.date: 05/11/2018
 ms.author: danlep
 ---
 

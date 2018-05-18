@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: b11c6315-c79d-4f34-9610-bd17070ab7c7
 ms.service: active-directory
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 
 
-4. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
+4. On the **SAML Signing Certificate** section, locate the **Thumbprint** - This will be added to your LearnUpon SAML Settings.
 
 	![Configure Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_certificate.png) 
 

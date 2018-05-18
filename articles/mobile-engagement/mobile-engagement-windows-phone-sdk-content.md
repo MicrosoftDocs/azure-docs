@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Windows Phone Silverlight SDK content
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This document lists and describes the content deployed by the SDK in your application.
 
 ## The `/Resources` folder

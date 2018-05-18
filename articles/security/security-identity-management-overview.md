@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 11/21/2017
 ms.author: terrylan
 
 ---
@@ -54,17 +54,17 @@ Learn more:
 
 * [Overview of Single Sign-On](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [What is application access and single sign-on with Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
-* [Integrate Azure Active Directory single sign-on with SaaS apps](../active-directory/active-directory-sso-integrate-saas-apps.md)
+* [Integrate Azure Active Directory single sign-on with SaaS apps](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## Reverse proxy
 Azure AD Application Proxy lets you publish on-premises applications, such as [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), and [IIS](http://www.iis.net/)-based apps inside your private network and provides secure access to users outside your network. Application Proxy provides remote access and single sign-on (SSO) for many types of on-premises web applications with the thousands of SaaS applications that Azure AD supports. Employees can log in to your apps from home on their own devices and authenticate through this cloud-based proxy.
 
 Learn more:
 
-* [Enabling Azure AD Application Proxy](../active-directory/active-directory-application-proxy-enable.md)
+* [Enabling Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-enable.md)
 * [Publish applications using Azure AD Application Proxy](../active-directory/active-directory-application-proxy-publish.md)
-* [Single-sign-on with Application Proxy](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Working with conditional access](../active-directory/active-directory-application-proxy-conditional-access.md)
+* [Single-sign-on with Application Proxy](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Working with conditional access](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## Multi-factor authentication
 Azure Multi-factor authentication (MFA) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options—phone call, text message, or mobile app notification or verification code and third party OAuth tokens.
@@ -72,13 +72,13 @@ Azure Multi-factor authentication (MFA) is a method of authentication that requi
 Learn more:
 
 * [Multi-factor authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
-* [How Azure Multi-Factor Authentication works](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+* [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
+* [How Azure Multi-Factor Authentication works](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## Security monitoring, alerts, and machine learning-based reports
 Security monitoring and alerts and machine learning-based reports that identify inconsistent access patterns can help you protect your business. You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
-In the Azure classic portal, reports are categorized in the following ways:
+In the Azure portal, reports are categorized in the following ways:
 
 * Anomaly reports – contain sign in events that we found to be anomalous. Our goal is to make you aware of such activity and enable you to be able to make a determination about whether an event is suspicious.
 * Integrated Application reports – provide insights into how cloud applications are being used in your organization. Azure Active Directory offers integration with thousands of cloud applications.

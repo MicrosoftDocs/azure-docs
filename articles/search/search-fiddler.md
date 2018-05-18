@@ -1,61 +1,85 @@
 ---
-title: How to use Fiddler to evaluate and test Azure Search REST APIs | Microsoft Docs
-description: Use Fiddler for a code-free approach to verifying Azure Search availability and trying out the REST APIs.
-services: search
-documentationcenter: ''
+title: Explore REST APIs in Fiddler or Postman (Azure Search REST) | Microsoft Docs
+description: How to use Fiddler or Postman to issue HTTP requests and REST API calls to Azure Search.
 author: HeidiSteen
-manager: mblythe
-editor: ''
-
-ms.assetid: 790e5779-c6a3-4a07-9d1e-d6739e6b87d2
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.topic: quickstart
+ms.date: 04/20/2018
 ms.author: heidist
 ---
 
-# Use Fiddler to evaluate and test Azure Search REST APIs
-> [!div class="op_single_selector"]
->
-> * [Overview](search-query-overview.md)
-> * [Search Explorer](search-explorer.md)
-> * [Fiddler](search-fiddler.md)
-> * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
->
->
+# Explore Azure Search REST APIs using Fiddler or Postman
 
-This article explains how to use Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests to and view responses using the Azure Search REST API, without having to write any code. Azure Search is fully-managed, hosted cloud search service on Microsoft Azure, easily programmable through .NET and REST APIs. The Azure Search service REST APIs are documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+One of the easiest ways to explore the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice) is using Fiddler or Postman to formulate HTTP requests and inspect the responses. With the right tools and these instructions, you can send requests and view responses before writing any code.
 
-In the following steps, you'll create an index, upload documents, query the index, and then query the system for service information.
+> [!div class="checklist"]
+> * Download a web api test tool
+> * Get the api-key and endpoint for your search service
+> * Configure request headers
+> * Create an index
+> * Load an index
+> * Search an index
 
-To complete these steps, you will need an Azure Search service and `api-key`. See [Create an Azure Search service in the portal](search-create-service-portal.md) for instructions on how to get started.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin and then [sign up for Azure Search](search-create-service-portal.md).
 
-## Create an index
-1. Start Fiddler. On the **File** menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task.
-2. On the **Composer** tab, you'll formulate a request that looks like the following screen shot.
+## Download and install tools
 
-      ![][1]
-3. Select **PUT**.
-4. Enter a URL that specifies the service URL, request attributes, and the api-version. A few pointers to keep in mind:
+The following tools are widely used in web development, but if you are familiar with another tool, the instructions in this article should still apply.
 
-   * Use HTTPS as the prefix.
-   * Request attribute is "/indexes/hotels". This tells Search to create an index named 'hotels'.
-   * Api-version is lowercase, specified as "?api-version=2016-09-01". API versions are important because Azure Search deploys updates regularly. On rare occasions, a service update may introduce a breaking change to the API. For this reason, Azure Search requires an api-version on each request so that you are in full control over which one is used.
++ [Postman desktop app](https://www.getpostman.com/)
++ [Telerik Fiddler](http://www.telerik.com/fiddler)
 
-     The full URL should look similar to the following example.
+## Get the api-key and endpoint
 
-             https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01
-5. Specify the request header, replacing the host and api-key with values that are valid for your service.
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
-         User-Agent: Fiddler
-         host: my-app.search.windows.net
+1. In the Azure portal, open the search service page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
+2. Get the endpoint at **Overview** > **Essentials** > **Url**. An example endpoint might look like `https://my-service-name.search.windows.net`.
+3. Get the api-key in **Settings** > **Keys**. There are two admin keys for redundancy in case you want to roll over keys. Admin keys grant the write permissions on your service, necessary for creating and loading indexes. You can use either the primary or secondary key for write operations.
+
+## Configure request headers
+
+Each tool persists request header information for the session, which means you only have to enter the URL endpoint, api-version, api-key, and content-type once.
+
+The full URL should look similar to the following example, only yours should have a valid replacement for the **`my-app`** placeholder name: `https://my-app.search.windows.net/indexes/hotels?api-version=2017-11-11`
+
+Service URL composition includes the following elements:
+
++ HTTPS prefix.
++ Service URL, obtained from the portal.
++ Resource, an operation that creates an object on your service. In this step, it is an index named hotels.
++ api-version, a required lowercase string specified as "?api-version=2017-11-11" for the current version. [API versions](search-api-versions.md) are updated regularly. Including the api-version on each request gives you full control over which one is used.  
+
+Request header composition includes two elements, content type and the api-key described in the previous section:
+
          content-type: application/json
-         api-key: 1111222233334444
-6. In Request Body, paste in the fields that make up the index definition.
+         api-key: <placeholder>
+
+### Fiddler
+
+Formulate a request that looks like the following screen shot. Choose **PUT** as the verb. Fiddler adds `User-Agent=Fiddler`. You can paste the two additional request headers on new lines below it. Include the content type and api-key for your service, using the admin access key for your service.
+
+![Fiddler request header][1]
+
+> [!Tip]
+> You can turn off web traffic to hide extraneous HTTP activity unrelated to the tasks you are performing. In Fiddler, go to the **File** menu and turn off **Capture Traffic**. 
+
+### Postman
+
+Formulate a request that looks like the following screen shot. Choose **PUT** as the verb. 
+
+![Postman request header][6]
+
+## Create the index
+
+The body of the request contains the index definition. Adding the request body completes the request that produces your index.
+
+Besides the index name, the most important component in the request is the fields collection. The fields collection defines the index schema. On each field, specify its type. String fields are used in full text search, so you might want to cast numeric data as strings if you need that content to be searchable.
+
+Attributes on the field determine allowed action. The REST APIs allow many actions by default. For example, all strings are searchable, retrievable, filterable, and facetable by default. Often, you only have to set attributes when you need to turn a behavior off. For more information about attributes, see [Create Index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
           {
          "name": "hotels",  
@@ -73,28 +97,33 @@ To complete these steps, you will need an Azure Search service and `api-key`. Se
            {"name": "location", "type": "Edm.GeographyPoint"}
           ]
          }
-7. Click **Execute**.
 
-In a few seconds, you should see an HTTP 201 response in the session list, indicating the index was created successfully.
+
+When you submit this request, you should get an HTTP 201 response, indicating the index was created successfully. You can verify this action in the portal, but note that the portal page has refresh intervals so it could take a minute or two to catch up.
 
 If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the api-key (either an invalid key or a syntax problem with how the api-key is specified).
 
+### Fiddler
+
+Copy the index definition to the request body, similar to the following screen shot, and then click **Execute** on the top right to send the completed request.
+
+![Fiddler request body][7]
+
+### Postman
+
+Copy the index definition to the request body, similar to the following screen shot, and then click **Send** on the top right to send the completed request.
+
+![Postman request body][8]
+
 ## Load documents
-On the **Composer** tab, your request to post documents will look like the following. The body of the request contains the search data for 4 hotels.
 
-   ![][2]
+Creating the index and populating the index are separate steps. In Azure Search, the index contains all searchable data, which you can provide as JSON documents. To review the API for this operation, see [Add, update, or delete documents (REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-1. Select **POST**.
-2. Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs/index?api-version=2016-09-01". The full URL should look similar to the following example.
++ Change the verb to **POST** for this step.
++ Change the endpoint to include `/docs/index`. The full URL should look like `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
++ Keep the request headers as-is. 
 
-         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
-3. Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
-
-         User-Agent: Fiddler
-         host: my-app.search.windows.net
-         content-type: application/json
-         api-key: 1111222233334444
-4. The Request Body contains four documents to be added to the hotels index.
+The Request Body contains four documents to be added to the hotels index.
 
          {
          "value": [
@@ -156,67 +185,83 @@ On the **Composer** tab, your request to post documents will look like the follo
            }
           ]
          }
-5. Click **Execute**.
 
-In a few seconds, you should see an HTTP 200 response in the session list. This indicates the documents were created successfully. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request.
+In a few seconds, you should see an HTTP 200 response in the session list. This indicates the documents were created successfully. 
+
+If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request: verify you changed the endpoint to include `/docs/index`.
+
+> [!Tip]
+> For selected data sources, you can choose the alternative *indexer* approach which simplifies and reduces the amount of code required for indexing. For more information, see [Indexer operations](https://docs.microsoft.com/rest/api/searchservice/indexer-operations).
+
+### Fiddler
+
+Change the verb to **POST**. Change the URL to include `/docs/index`. Copy the documents into the request body, similar to the following screen shot, and then execute the request.
+
+![Fiddler request payload][9]
+
+### Postman
+
+Change the verb to **POST**. Change the URL to include `/docs/index`. Copy the documents into the request body, similar to the following screen shot, and then execute the request.
+
+![Postman request payload][10]
 
 ## Query the index
-Now that an index and documents are loaded, you can issue queries against them.  On the **Composer** tab, a **GET** command that queries your service will look similar to the following screen shot.
+Now that an index and documents are loaded, you can issue queries against them. For more information about this API, see [Search Documents (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents)  
 
-   ![][3]
++ Change the verb to **GET** for this step.
++ Change the endpoint to include query parameters, including search strings. A query URL might look like `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ Keep the request headers as-is
 
-1. Select **GET**.
-2. Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs?", followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
+This query searches on the term "motel" and returns a count of the documents in the search results. The request and response should look similar to the following screen shot for Postman after you click **Send**. The status code should be 200.
 
-         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2016-09-01
+ ![Postman query response][11]
 
-   This query searches on the term “motel” and retrieves facet categories for ratings.
-3. Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
+### Tips for running our sample queries in Fiddler
 
-         User-Agent: Fiddler
-         host: my-app.search.windows.net
-         content-type: application/json
-         api-key: 1111222233334444
+The following example query is from the [Search Index operation (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) article. Many of the example queries in this article include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler.
 
-The response code should be 200, and the response output should look similar to the following screen shot.
+**Before spaces are replaced (in lastRenovationDate desc):**
 
-   ![][4]
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
-The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler.
+**After spaces are replaced with + (in lastRenovationDate+desc):**
 
-**Before spaces are replaced:**
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
+## Query index properties
+You can also query system information to get document counts and storage consumption: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
-**After spaces are replaced with +:**
+In Postman, your request should look similar to the following, and the response includes a document count and space used in bytes.
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
+ ![Postman system query][12]
 
-## Query the system
-You can also query the system to get document counts and storage consumption. On the **Composer** tab, your request will look similar to the following, and the response will return a count for the number of documents and space used.
+Notice that the api-version syntax differs. For this request, use `?` to append the api-version. The ? separates the URL path from the query string, while & separates each 'name=value' pair in the query string. For this query, api-version is the first and only item in the query string.
 
- ![][5]
+For more information about this API, see [Get Index Statistics (REST)](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics).
 
-1. Select **GET**.
-2. Enter a URL that includes your service URL, followed by "/indexes/hotels/stats?api-version=2016-09-01":
 
-         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01
-3. Specify the request header, replacing the host and api-key with values that are valid for your service.
+### Tips for viewing index statistic in Fiddler
 
-         User-Agent: Fiddler
-         host: my-app.search.windows.net
-         content-type: application/json
-         api-key: 1111222233334444
-4. Leave the request body empty.
-5. Click **Execute**. You should see an HTTP 200 status code in the session list. Select the entry posted for your command.
-6. Click the **Inspectors** tab, click the **Headers** tab, and then select the JSON format. You should see the document count and storage size (in KB).
+In Fiddler, click the **Inspectors** tab, click the **Headers** tab, and then select the JSON format. You should see the document count and storage size (in KB).
 
 ## Next steps
-See [Manage your Search service on Azure](search-manage.md) for a no-code approach to managing and using Azure Search.
+
+REST clients are invaluable for impromptu exploration, but now that you know how the REST APIs work, you can move forward with code. For your next steps, see the following links:
+
++ [Create an index (REST)](search-create-index-rest-api.md)
++ [Import data (REST)](search-import-data-rest-api.md)
++ [Search an index (REST)](search-query-rest-api.md)
 
 <!--Image References-->
-[1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png
+[1]: ./media/search-fiddler/fiddler-url.png
 [2]: ./media/search-fiddler/AzureSearch_Fiddler2_PostDocs.png
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
+[6]: ./media/search-fiddler/postman-url.png
+[7]: ./media/search-fiddler/fiddler-request.png
+[8]: ./media/search-fiddler/postman-request.png
+[9]: ./media/search-fiddler/fiddler-docs.png
+[10]: ./media/search-fiddler/postman-docs.png
+[11]: ./media/search-fiddler/postman-query.png
+[12]: ./media/search-fiddler/postman-system-query.png

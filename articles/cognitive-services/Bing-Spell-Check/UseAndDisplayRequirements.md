@@ -4,14 +4,11 @@ description: Use data from the Bing Spell Check APIs to improve search results f
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-spell-check
+ms.component: bing-spell-check
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/15/2018
 ms.author: scottwhi
 ---
-
-# Bing Search API Use and Display Requirements
 
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integrate Azure Active Directory with vxMaintain | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with vxMaintain | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and vxMaintain.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/26/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Integrate Azure Active Directory with vxMaintain
+# Tutorial: Azure Active Directory integration with vxMaintain
 
 In this tutorial, you learn how to integrate vxMaintain with Azure Active Directory (Azure AD).
 

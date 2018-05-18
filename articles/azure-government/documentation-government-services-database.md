@@ -19,7 +19,7 @@ ms.author: zsk0646
 ---
 # Azure Government Databases
 ## SQL Database
-For more information, see the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database documentation](../sql-database/index.yml) for additional guidance on metadata visibility configuration, and protection best practices.
+For more information, see the<a href="https://msdn.microsoft.com/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database documentation](../sql-database/index.yml) for additional guidance on metadata visibility configuration, and protection best practices.
 
 ### Variations
 SQL V12 Database is generally available in Azure Government.
@@ -36,6 +36,12 @@ The following information identifies the Azure Government boundary for Azure SQL
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
 | All data stored and processed in Microsoft Azure SQL can contain Azure Government-regulated data. Use database tools for data transfer of Azure Government-regulated data. |Azure SQL metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields: Database name, Subscription name, Resource groups, Server name, Server admin login, Deployment names, Resource names, Resource tags |
+
+## SQL Data Warehouse
+For details on this service and how to use it, see [Azure SQL Data Warehouse documentation](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+
+## SQL Server Stretch Database
+For details on this service and how to use it, see [Azure SQL Server Stretch Database documentation](../sql-server-stretch-database/index.md)
 
 ## Azure Cosmos DB
 For details on this service and how to use it, see [Azure Cosmos DB documentation](../cosmos-db/index.yml).

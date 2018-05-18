@@ -4,7 +4,7 @@ description: Learn how device management can help you to get control over the de
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -71,7 +71,7 @@ The goal of Azure AD joined devices is to simplify:
 
 
 These goals are accomplished by providing your users with a self-service experience for getting work-owned devices under the control of Azure AD.  
-**Azure AD Join** is intended for organizations that are cloud-first / cloud-only. These are typically small- and medium-sized businesses that do not have an on-premises Windows Server Active Directory infrastructure. 
+**Azure AD Join** is intended for organizations that desire to be cloud-first or cloud-only. There is no restriction on the size or type of organizations that can deploy Azure AD Join. Azure AD Join works well even in an hybrid environment and can enable access to on-premise apps and resources.
 
 Implementing Azure AD joined devices provides you with the following benefits:
 
@@ -79,11 +79,14 @@ Implementing Azure AD joined devices provides you with the following benefits:
 
 - **Enterprise compliant roaming** of user settings across joined devices. Users don’t need to connect a Microsoft account (for example, Hotmail) to see settings across devices.
 
-- **Access to Windows Store for Business** using AD account. Your users can choose from an inventory of applications pre-selected by the organization.
+- **Access to Windows Store for Business** using an Azure AD account. Your users can choose from an inventory of applications pre-selected by the organization.
 
 - **Windows Hello** support for secure and convenient access to work resources.
 
 - **Restriction of access** to apps from only devices that meet compliance policy.
+
+- **Seamless access to on-premise resources** when the device has line of sight to the on-premises domain controller.
+
 
 While Azure AD join is primarily intended for organizations that do not have an on-premises Windows Server Active Directory infrastructure, you can certainly also use it in scenarios where:
 
@@ -133,12 +136,31 @@ With device management in Azure AD, you can:
 
 As a rule of a thumb, you should use:
 
-- Azure AD registered devices for personal devices
+- Azure AD registered devices:
 
-- Azure AD joined devices for devices that are not joined to an on-premises AD 
+    - For personal devices 
+
+    - To manually register devices with Azure AD
+
+- Azure AD joined devices: 
+
+    - For devices that are owned by your organization
+
+    - For devices that are **not** joined to an on-premises AD
+
+    - To manually register devices with Azure AD
+
+    - To change the local state of a device
 
 - Hybrid Azure AD joined devices for devices that are joined to an on-premises AD     
 
+    - For devices that are owned by your organization
+
+    - For devices that are joined to an on-premises AD
+
+    - To automatically register devices with Azure AD
+
+    - To change the local state of a device
 
 
 

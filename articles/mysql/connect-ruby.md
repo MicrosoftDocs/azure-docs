@@ -1,16 +1,16 @@
 ---
-title: 'Connect to Azure Database for MySQL using Ruby | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL using Ruby'
 description: This quickstart provides several Ruby code samples you can use to connect and query data from Azure Database for MySQL.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 09/22/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use Ruby to connect and query data
@@ -51,11 +51,10 @@ Install Ruby, Gem, and the MySQL2 library on your own computer.
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have creased (such as **myserver4demo**).
-3. Click the server name **myserver4demo**.
-4. Select the server's **Properties** page, and then make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for MySQL - Server Admin Login](./media/connect-ruby/1_server-properties-name-login.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name, and if necessary reset the password.
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
+3. Click the server name.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for MySQL server name](./media/connect-ruby/1_server-overview-name-login.png)
 
 ## Run Ruby code 
 1. Paste the Ruby code from the sections below into text files, and then save the files into a project folder with file extension .rb (such as `C:\rubymysql\createtable.rb` or `/home/username/rubymysql/createtable.rb`).
@@ -74,9 +73,9 @@ require 'mysql2'
 
 begin
 	# Initialize connection variables.
-	host = String('myserver4demo.mysql.database.azure.com')
+	host = String('mydemoserver.mysql.database.azure.com')
 	database = String('quickstartdb')
-    username = String('myadmin@myserver4demo')
+    username = String('myadmin@mydemoserver')
 	password = String('yourpassword')
 
 	# Initialize connection object.
@@ -120,9 +119,9 @@ require 'mysql2'
 
 begin
 	# Initialize connection variables.
-	host = String('myserver4demo.mysql.database.azure.com')
+	host = String('mydemoserver.mysql.database.azure.com')
 	database = String('quickstartdb')
-    username = String('myadmin@myserver4demo')
+    username = String('myadmin@mydemoserver')
 	password = String('yourpassword')
 
 	# Initialize connection object.
@@ -159,9 +158,9 @@ require 'mysql2'
 
 begin
 	# Initialize connection variables.
-	host = String('myserver4demo.mysql.database.azure.com')
+	host = String('mydemoserver.mysql.database.azure.com')
 	database = String('quickstartdb')
-    username = String('myadmin@myserver4demo')
+    username = String('myadmin@mydemoserver')
 	password = String('yourpassword')
 
 	# Initialize connection object.
@@ -196,9 +195,9 @@ require 'mysql2'
 
 begin
 	# Initialize connection variables.
-	host = String('myserver4demo.mysql.database.azure.com')
+	host = String('mydemoserver.mysql.database.azure.com')
 	database = String('quickstartdb')
-    username = String('myadmin@myserver4demo')
+    username = String('myadmin@mydemoserver')
 	password = String('yourpassword')
 
 	# Initialize connection object.

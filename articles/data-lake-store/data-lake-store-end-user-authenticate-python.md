@@ -9,10 +9,8 @@ editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 01/09/2018
 ms.author: nitinme
 
 ---
@@ -45,7 +43,7 @@ Both these options are discussed in this article. For service-to-service authent
 To work with Data Lake Store using Python, you need to install three modules.
 
 * The `azure-mgmt-resource` module, which includes Azure modules for Active Directory, etc.
-* The `azure-mgmt-datalake-store` module, which includes the Azure Data Lake Store account management operations. For more information on this module, see [Azure Data Lake Store Management module reference](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* The `azure-mgmt-datalake-store` module, which includes the Azure Data Lake Store account management operations. For more information on this module, see [Azure Data Lake Store Management module reference](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
 * The `azure-datalake-store` module, which includes the Azure Data Lake Store filesystem operations. For more information on this module, see [Azure Data Lake Store Filesystem module reference](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Use the following commands to install the modules.
@@ -91,23 +89,23 @@ pip install azure-datalake-store
 Use the following snippet to authenticate with Azure AD for account management operations on a Data Lake Store account. The following snippet can be used to authenticate your application using multi-factor authentication. Provide the values below for  an existing Azure AD **native** application.
 
 	authority_host_url = "https://login.microsoftonline.com"
-	tenant = "FILL-IN-HERE"
-	authority_url = authority_host_url + '/' + tenant
-	client_id = 'FILL-IN-HERE'
-	redirect = 'urn:ietf:wg:oauth:2.0:oob'
-	RESOURCE = 'https://management.core.windows.net/'
-	
-	context = adal.AuthenticationContext(authority_url)
-	code = context.acquire_user_code(RESOURCE, client_id)
-	print(code['message'])
-	mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
-	credentials = AADTokenCredentials(mgmt_token, client_id)
+    tenant = "FILL-IN-HERE"
+    authority_url = authority_host_url + '/' + tenant
+    client_id = 'FILL-IN-HERE'
+    redirect = 'urn:ietf:wg:oauth:2.0:oob'
+    RESOURCE = 'https://management.core.windows.net/'
+    
+    context = adal.AuthenticationContext(authority_url)
+    code = context.acquire_user_code(RESOURCE, client_id)
+    print(code['message'])
+    mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
+    armCreds = AADTokenCredentials(mgmt_token, client_id, resource = RESOURCE)
 
 ### For filesystem operations
 
 Use this to authenticate with Azure AD for filesystem operations on a Data Lake Store account. The following snippet can be used to authenticate your application using multi-factor authentication. Provide the values below for  an existing Azure AD **native** application.
 
-	token = lib.auth(tenant_id='FILL-IN-HERE')
+	adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
 ## End-user authentication without multi-factor authentication
 

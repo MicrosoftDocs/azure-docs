@@ -1,6 +1,6 @@
 ---
-title: Create a PHP web app in a Linux container in Azure | Microsoft Docs
-description: Deploy your first PHP Hello World in Azure App Service Web Apps in minutes.
+title: Create a PHP web app and deploy to App Service on Linux | Microsoft Docs
+description: Deploy your first PHP Hello World in App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -17,22 +17,26 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
-# Create a PHP web app in a Linux container in Azure
+# Create a PHP web app in App Service on Linux
 
-[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure Web App for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the PHP code to the web app.
+> [!NOTE]
+> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create a PHP web app in Azure](../app-service-web-get-started-php.md).
+>
 
-![Sample app running in Azure]](media/quickstart-php/hello-world-in-browser.png)
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux. You create the web app with built-in image using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the PHP code to the web app.
 
-You can follow the steps below using a Mac, Windows, or Linux machine. 
+![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
+
+You can follow the steps in this article using a Mac, Windows, or Linux machine.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
 To complete this quickstart:
 
-* [Install Git](https://git-scm.com/)
-* [Install PHP](https://php.net)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
+* <a href="https://php.net" target="_blank">Install PHP</a>
 
 ## Download the sample
 
@@ -63,23 +67,23 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
-Browse to the site to see your newly created web app. Replace _&lt;app name>_ with a unique app name.
+Browse to the site to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
-![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
+Here is what your new web app should look like:
 
-You’ve created an empty new web app in a Linux container, with git deployment enabled.
+![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -116,15 +120,15 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-The PHP sample code is running in an Azure App Service web app.
+The PHP sample code is running in a web app with built-in image.
 
 ![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
 
-**Congratulations!** You've deployed your first PHP app to App Service.
+**Congratulations!** You've deployed your first PHP app to App Service on Linux.
 
 ## Update locally and redeploy the code
 
-Using a local text editor, open the `index.php` file within the PHP app, and make a small change to the text within the string next to `echo`:
+In the local directory, open the `index.php` file within the PHP app, and make a small change to the text within the string next to `echo`:
 
 ```php
 echo "Hello Azure!";

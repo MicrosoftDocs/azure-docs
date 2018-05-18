@@ -4,16 +4,14 @@ description: Information on the various ways that you can delete an HDInsight cl
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 55f7838b-9786-47ff-96db-1b64437bd0bb
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 03/22/2018
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -31,7 +29,7 @@ HDInsight cluster billing starts once a cluster is created and stops when the cl
    
     ![portal search](./media/hdinsight-delete-cluster/navbar.png)
 
-2. Once the blade opens for the cluster, select the **Delete** icon. When prompted, select **Yes** to delete the cluster.
+2. From the cluster settings, select the **Delete** icon. When prompted, select **Yes** to delete the cluster.
    
     ![delete icon](./media/hdinsight-delete-cluster/deletecluster.png)
 
@@ -52,4 +50,4 @@ From a prompt, use the following to delete the cluster:
 Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
 > [!NOTE]
-> Azure CLI 2.0 does not support deleting HDInsight clusters at this time (July 31, 2017).
+> Azure CLI 2.0 does not support deleting HDInsight clusters at this time (October 23, 2017).

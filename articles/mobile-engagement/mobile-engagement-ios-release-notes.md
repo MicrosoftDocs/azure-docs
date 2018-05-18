@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Azure Mobile Engagement iOS SDK release notes
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 
 ## 4.1.0 (07/17/2017)
 * Fixed badges cleared in background.

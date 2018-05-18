@@ -3,7 +3,7 @@ title: Separating telemetry from development, test, and release in Azure Applica
 description: Direct telemetry to different resources for development, test, and production stamps.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Separating telemetry from Development, Test, and Production

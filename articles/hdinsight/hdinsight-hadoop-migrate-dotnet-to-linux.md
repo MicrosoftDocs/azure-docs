@@ -12,10 +12,8 @@ ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: 'dotnet'
-ms.topic: article
-ms.tgt_pltfrm: 'na'
-ms.workload: big-data
-ms.date: 07/12/2017
+ms.topic: conceptual
+ms.date: 02/27/2018
 ms.author: larryfr
 
 ---
@@ -25,12 +23,12 @@ Linux-based HDInsight clusters use [Mono (https://mono-project.com)](https://mon
 
 ## Mono compatibility with .NET
 
-Mono version 4.2.1 is included with HDInsight version 3.5. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md). To install a specific version of Mono, see the [Install or update Mono](hdinsight-hadoop-install-mono.md) document.
+Mono version 4.2.1 is included with HDInsight version 3.6. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md). To install a specific version of Mono, see the [Install or update Mono](hdinsight-hadoop-install-mono.md) document.
 
-For detailed information on compatibility between Mono and .NET, see the [Mono compatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) document.
+For more information on compatibility between Mono and .NET, see the [Mono compatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) document.
 
 > [!IMPORTANT]
-> The SCP.NET framework is compatible with Mono. For more information on using SCP.NET with Mono, see [Use Visual Studio to develop C# topologies for Apache Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+> The SCP.NET framework is compatible with Mono. For more information on using SCP.NET with Mono, see [Use Visual Studio to develop C# topologies for Apache Storm on HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## Automated portability analysis
 
@@ -51,7 +49,7 @@ The [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemN
     ![Portability analyzer results dialog](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
 > [!IMPORTANT]
-> The analyzer cannot catch every problem with your solution. For example, a file path of `c:\temp\file.txt` is considered OK because Mono runs on Windows and the path is valid in that context. However, the path is not valid on a Linux platform.
+> The analyzer cannot catch every problem with your solution. For example, a file path of `c:\temp\file.txt` is considered OK if Mono is running on Windows. The same path is not valid on a Linux platform.
 
 ## Manual portability analysis
 
@@ -71,8 +69,8 @@ For more information on accessing logs, see the following documents:
 
 ## Next steps
 
-* [Use C# with MapReduce on HDInsight](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Use C# with MapReduce on HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Use C# user defined functions with Hive and Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Use C# user-defined functions with Hive and Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Develop C# topologies for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Develop C# topologies for Storm on HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)

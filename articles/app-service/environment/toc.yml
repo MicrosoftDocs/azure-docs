@@ -30,12 +30,18 @@
     href: app-service-app-service-environment-geo-distributed-scale.md
   - name: ASEv1
     href: app-service-app-service-environment-intro.md
+  - name: Diagnostics
+    href: ../app-service-diagnostics.md
 - name: How-To guides
   items:
   - name: Use an ASE
     href: using-an-ase.md
+  - name: Integrate with Application Gateway
+    href: integrate-with-application-gateway.md
   - name: Create ASE from a template
     href: create-from-template.md
+  - name: Forced tunnel configuration
+    href: forced-tunnel-support.md
 - name: Reference
   items:
   - name: Management addresses

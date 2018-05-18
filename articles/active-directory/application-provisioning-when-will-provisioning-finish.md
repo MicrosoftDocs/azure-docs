@@ -4,7 +4,7 @@ description: How to find out why provisioning to your application may be taking 
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

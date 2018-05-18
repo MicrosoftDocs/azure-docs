@@ -3,8 +3,8 @@ title: Identity synchronization and duplicate attribute resiliency | Microsoft D
 description: New behavior of how to handle objects with UPN or ProxyAddress conflicts during directory sync using Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 01/15/2018
 ms.author: markvi
 
 ---
