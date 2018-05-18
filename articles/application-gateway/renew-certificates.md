@@ -15,7 +15,7 @@ ms.author: victorh
 
 At some point, you'll need to renew your certificates if you configured your application gateway for SSL encryption.
 
-You can renew a certificate associated with a listener using either the Azure portal, Azure PowerShell of Azure CLI:
+You can renew a certificate associated with a listener using either the Azure portal, Azure PowerShell, or Azure CLI:
 
 ## Azure portal
 
