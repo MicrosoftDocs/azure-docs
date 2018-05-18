@@ -1,4 +1,4 @@
-﻿---
+---
 title: Face API Java for Android tutorial | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: Create a simple Android app that uses the Cognitive Services Face API to detect and frame human faces in an image.
