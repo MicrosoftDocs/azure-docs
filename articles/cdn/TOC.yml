@@ -28,6 +28,8 @@
   items:
   - name: How caching works
     href: cdn-how-caching-works.md
+  - name: China content delivery
+    href: cdn-china-delivery.md    
 - name: How-to guides
   items:
   - name: Integrate

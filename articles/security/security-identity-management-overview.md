@@ -53,7 +53,7 @@ Not only do users not have to manage multiple sets of usernames and passwords, y
 Learn more:
 
 * [Overview of single sign-on](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [What is application access and single sign-on with Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Integrate Azure Active Directory single sign-on with SaaS apps](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## Reverse proxy
