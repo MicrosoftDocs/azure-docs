@@ -1,5 +1,5 @@
 ---
-title: Computer Vision API Python quickstart | Microsoft Docs
+title: Computer Vision Python quickstart summary | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: In these quickstarts, you analyze an image, create a thumbnail, and extract printed and handwritten text using Computer Vision with Python in Cognitive Services.
 services: cognitive-services

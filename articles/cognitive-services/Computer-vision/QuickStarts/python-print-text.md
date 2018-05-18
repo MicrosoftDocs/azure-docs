@@ -1,5 +1,5 @@
 ---
-title: Computer Vision API Python quickstart | Microsoft Docs
+title: Computer Vision Python quickstart OCR | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: In this quickstart, you extract printed text from an image using Computer Vision with Python in Cognitive Services.
 services: cognitive-services

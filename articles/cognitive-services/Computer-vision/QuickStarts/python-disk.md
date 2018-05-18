@@ -1,5 +1,5 @@
 ---
-title: Computer Vision API Python quickstart | Microsoft Docs
+title: Computer Vision Python quickstart analyze image on disk | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: In this quickstart, you analyze an image from disk using Computer Vision with Python in Cognitive Services.
 services: cognitive-services
@@ -158,6 +158,7 @@ A successful response is returned in JSON, for example:
     "format": "Jpeg"
   }
 }
+```
 
 ## Next steps
 
