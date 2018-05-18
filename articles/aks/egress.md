@@ -52,9 +52,7 @@ spec:
   loadBalancerIP: 23.101.128.81
   type: LoadBalancer
   ports:
-  - port: 80
-  selector:
-    app: aks-egress
+  - port: 8080
 ```
 
 Create the service and deployment with the `kubectl apply` command.
@@ -67,26 +65,31 @@ service "aks-egress" created
 
 Creating this service configures a new frontend IP on the Azure Load Balancer. If you do not have any other IPs configured, then **all** egress traffic should now use this address. When multiple addresses are configured on the Azure Load Balancer, egress uses the first IP on that load balancer.
 
-To verify the public ip used, start a pod and
+# Verify egress address
 
+To verify that the public IP address is being used, use a service such as `checkip.dyndns.org`.
+
+Start and attach to a pod.
 
 ```console
 $ kubectl run -it --rm aks-ip --image=debian
 ```
 
-From inside the container, install curl.
+If needed, install curl in the container instance.
 
 ```console
 $ apt-get update && apt-get install curl -y
 ```
 
-Use a publically available endpoint such as `checkip.dyndns.org` to return the egress IP address. You should see that the IP address matches the static IP address attached to the Azure load balancer.
+Curl `checkip.dyndns.org`, which returns the egress IP address. You should see that the IP address matches the static IP address attached to the Azure load balancer.
 
 ```console
 $ curl -s checkip.dyndns.org
 
 <html><head><title>Current IP Check</title></head><body>Current IP Address: 23.101.128.81</body></html>
 ```
+
+## Ingress controller
 
 To avoid maintaining multiple public IP addresses on the Azure Load Balancer, consider using an ingress controller. Ingress-controllers provide benefits such as load balancing, SSL/TLS termination, support for URI rewrites, and upstream SSL/TLS encryption. For more information about ingress-controllers in AKS, see the [Configure NGINX ingress controller in an AKS cluster][ingress-aks-cluster] guide.
 
