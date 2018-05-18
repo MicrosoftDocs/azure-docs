@@ -55,17 +55,17 @@ For data-platform-specific guidance on creating indexers, start with [Indexers o
     "disabled" : Optional boolean value indicating whether the indexer is disabled. False by default.
 }  
 ```
-### Data source and target index
+### "dataSourceName" and "targetIndexName"
 
-An [indexer](search-indexer-overview.md), [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), and [index](https://docs.microsoft.com/rest/api/searchservice/create-index) are a triad during execution, but architecturally, each exists independently, able to flex with data ingestion strategy. Examples include using the same data source wiht multiple indexers, or the same indexer writing multiple indexes, and so forth.
+An [index](https://docs.microsoft.com/rest/api/searchservice/create-index) and [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) are part of an [indexer](search-indexer-overview.md) definition, but each is an independent component and thus able to flex with your data ingestion strategy. For example, you could use the same data source with multiple indexers, or the same index with multiple indexers, or multiple indexers writing to a single index.
 
-Source data platforms have characteritics that can be exploited by the indexer. As such, the data source you pass to the indexer determines the availability of certain properties and parameters, such content type filtering in Azure blobs or query timeout for Azure SQL Database. 
+A data source definition often includes properties that an indexer can use to exploit source platform characteristics. As such, the data source you pass to the indexer determines the availability of certain properties and parameters, such content type filtering in Azure blobs or query timeout for Azure SQL Database. 
 
-An index schema defines the fields collection containing searchable, filterable, retrievable, and other attributions that determine how the field is used. During indexing, the indexer crawls the data source, optionally cracks documents and extracts information, serializes it to JSON, and indexes it based on the schema defined for your index.
+An index schema defines the fields collection containing searchable, filterable, retrievable, and other attributions that determine how the field is used. During indexing, the indexer crawls the data source, optionally cracks documents and extracts information, serializes the results to JSON, and indexes the payload based on the schema defined for your index.
  
 <a name="indexer-schedule"></a>
 
-### Schedule  
+### "schedule"  
 An indexer can optionally specify a schedule. Without a schedule, the indexer is runs immediately when you send the request: connecting to, crawling, and indexing the data source. For some scenarios including long-running indexing jobs, schedules are used to [extend the processing window](https://docs.microsoft.com/azure/search/search-howto-reindex#scale-out-indexing) beyond the 24-hour maximum. If a schedule is present, the indexer runs periodically as per schedule. The scheduler is built in; you cannot use an external scheduler.A  **Schedule** has the following attributes: 
 
 -   **interval**: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is five minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `"P[nD][T[nH][nM]]".` Examples:  `PT15M` for every 15 minutes, `PT2H` for every 2 hours.  
@@ -74,7 +74,7 @@ An indexer can optionally specify a schedule. Without a schedule, the indexer is
 
 <a name="indexer-parameters"></a>
 
-### Configuration parameters 
+### "parameters"
 
 An indexer can optionally take configuration parameters that modify runtime behaviors. Configuration parameters are comma-delimited on the indexer request. 
 
@@ -92,48 +92,46 @@ An indexer can optionally take configuration parameters that modify runtime beha
 |-----------|------------|--------------------------|--------|
 | `"batchSize"` | Integer<br/>Default is source-specific (1000 for Azure SQL Database and Azure Cosmos DB, 10 for Azure Blob Storage) | Specifies the number of items that are read from the data source and indexed as a single batch in order to improve performance. |
 | `"maxFailedItems"` | Integer<br/>Default is 0 | Number of errors to tolerate before an indexer run is considered a failure. You can retrieve information about failed items using [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).  |
-| `"maxFailedItemsPerBatch"` | Integer<br/>Default is 0 | Number of errors to tolerat in each batch before an indexer run is considered a failure. |
+| `"maxFailedItemsPerBatch"` | Integer<br/>Default is 0 | Number of errors to tolerate in each batch before an indexer run is considered a failure. |
 
 #### Blob configuration parameters
 
-Several parameters are exclusive to a particular indexer, such as [Azure blob indexing](search-howto-indexing-azure-blob-storage.md). The **Applies to** column identifies how the parameter is used.
+Several parameters are exclusive to a particular indexer, such as [Azure blob indexing](search-howto-indexing-azure-blob-storage.md).
 
-| Parameter | Applies to               |	Type and allowed values	| Usage  |
-|-----------|--------------------------|----------------------------|--------|
-| `"parsingMode"` | [Azure blobs](search-howto-indexing-azure-blob-storage.md)<br/><br/>[CSV](search-howto-index-csv-blobs.md)<br/><br/>[JSON](search-howto-index-json-blobs.md) | String<br/>`"text"`<br/>`"delimitedText"`<br/>`"json"`<br/>`"jsonArray"`  | Set to `text` to improve indexing performance on plain text files in blob storage. <br/><br/>Set to `delimitedText` when blobs are plain CSV files. <br/><br/>Set to `json` to extract structured content from JSON blobs in Azure Blob storage. <br/>Set to `jsonArray` to extract individual elements of an array as separate documents in Azure Search. |
-| `"excludedFileNameExtensions"` | [Azure blobs](search-howto-indexing-azure-blob-storage.md) | String<br/>Comma-delimited list | Controls which blobs are ignored based on a comma-delimited list of file extensions. For example, you could exclude ".png, .png, .mp4" to skip those files. | 
-| `"indexedFileNameExtensions"` | [Azure blobs](search-howto-indexing-azure-blob-storage.md) | String<br/>Comma-delimited list | Controls which blobs are indexed based on a comma-delimited list of file extensions. For example, you could enable indexing for specific application files ".docx, .pptx, .msg" to specifically include those file types. | 
-| `"failOnUnsupportedContentType"` | [Azure blobs](search-howto-indexing-azure-blob-storage.md) | true (default) <br/>false | Set to `false` if you want to continue indexing when an unsupported content type is encountered, and you don't know all the content types (file extensions) in advance. |
-| `"failOnUnprocessableDocument"` | [Azure blobs](search-howto-indexing-azure-blob-storage.md) | true (default) <br/>false | Set to `false` if you want to continue indexing if a document fails indexing. |
-| `"indexStorageMetadataOnlyForOversizedDocuments"` | [Azure blobs](search-howto-indexing-azure-blob-storage.md) | true (default) <br/>false | Azure Search limits the size of blobs, as documented in [Service Limits](search-limits-quotas-capacity.md). Oversized blobs are treated as errors by default. Set this property to `true` to still index storage metadata for blob content that is too large to process.  |
-| `"delimitedTextHeaders"` | [CSV](search-howto-index-csv-blobs.md) | String<br/>Comma-delimited list| Specifies a comma-delimited list of column headers, useful for mapping source fields to destination fields in an index. CSV blobs are a preview feature.|
-| `"delimitedTextDelimiter"` | [CSV](search-howto-index-csv-blobs.md) | String<br/>user-defined | Specifies the end-of-line delimiter for CSV files where each line starts a new document (for example, `"|"`). CSV blobs are a preview feature. |
-| `"firstLineContainsHeaders"` | [CSV](search-howto-index-csv-blobs.md) | true (default) <br/>false | Indicates that the first (non-blank) line of each blob contains headers. CSV blobs are a preview feature. |
-| `"documentRoot"` | [JSON](search-howto-index-json-blobs.md#nested-json-arrays) | String<br/>User-defined | Given a nested JSON array, you can specify a path to the array using this property. JSON arrays are a preview feature. |
-| `"imageAction"` | [Azure blobs](search-howto-indexing-azure-blob-storage.md)<br/><br/>[image-analysis](cognitive-search-concept-image-scenarios.md) | String<br/>`"none"`<br/>`"generateNormalizedImages"` | Tells the indexer to extract text from images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. <br/><br/>Set to`"none"` to ignore embedded images or image files in the data set. This is the default. <br/><br/>Set to`"generateNormalizedImages"` to create an array of normalized images as part of document cracking, and embed the information as part of the content field. This setting applies to Azure blob data sources when `"dataToExtract"` is set to `"contentAndMetadata"`. Normalized images are subject to additional processing resulting in uniform image output, sized and rotated to promote consistent rendering when you include images in visual search results (for example, same-size photographs in a graph control as seen in the [JFK demo](https://github.com/Microsoft/AzureSearch_JFK_Files)). |
-| `"dataToExtract"` | [Azure blobs](search-howto-indexing-azure-blob-storage.md)<br/><br/>[image-analysis](cognitive-search-concept-image-scenarios.md) | String<br/>`"storageMetadata"`<br/>`"allMetadata"`<br/>`"contentAndMetadata"`   | Tells the indexer which data to extract from image content. Applies to embedded image content in a .PDF or other application, or image files such as .jpg and .png, in Azure blobs. <br/><br/>Set to `"storageMetadata"` to index just the [standard blob properties and user-specified metadata](../storage/blobs/storage-properties-metadata.md). <br/><br/>Set to `"allMetadata"` to extract metadata provided by the Azure blob storage subsystem and the [content-type specific metadata](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (for example, metadata unique to just .png files) are indexed. <br/><br/>Set to `"contentAndMetadata"` to extract all metadata and textual content from each blob. This is the default value. Requires that you have also set `"imageAction"` to `"generateNormalizedImages"`. |
+| Parameter | Type and allowed values	| Usage  |
+|-----------|---------------------------|--------|
+| `"parsingMode"` | String<br/>`"text"`<br/>`"delimitedText"`<br/>`"json"`<br/>`"jsonArray"`  | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set to `text` to improve indexing performance on plain text files in blob storage. <br/>For [CSV blobs](search-howto-index-csv-blobs.md), set to `delimitedText` when blobs are plain CSV files. <br/>For [JSON blobs](search-howto-index-json-blobs.md), set to `json` to extract structured content or to `jsonArray` (preview) to extract individual elements of an array as separate documents in Azure Search. |
+| `"excludedFileNameExtensions"` | String<br/>Ccomma-delimited list | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), ignore any file types in the list. For example, you could exclude ".png, .png, .mp4" to skip over those files during indexing. | 
+| `"indexedFileNameExtensions"` | String<br/>comma-delimited list | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), selects blobs if the file extension is in the list. For example, you could focus indexing on specific application files ".docx, .pptx, .msg" to specifically include those file types. | 
+| `"failOnUnsupportedContentType"` | true (default) <br/>false | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set to `false` if you want to continue indexing when an unsupported content type is encountered, and you don't know all the content types (file extensions) in advance. |
+| `"failOnUnprocessableDocument"` | true (default) <br/>false | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set to `false` if you want to continue indexing if a document fails indexing. |
+| `"indexStorageMetadataOnlyForOversizedDocuments"` | true (default) <br/>false | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set this property to `true` to still index storage metadata for blob content that is too large to process.  Oversized blobs are treated as errors by default. For limits on blob size, see [Service Limits](search-limits-quotas-capacity.md). |
+| `"delimitedTextHeaders"` | String<br/>comma-delimited list| For [CSV blobs (preview)](search-howto-index-csv-blobs.md), specifies a comma-delimited list of column headers, useful for mapping source fields to destination fields in an index. |
+| `"delimitedTextDelimiter"` | String<br/>user-defined | For [CSV blobs (preview)](search-howto-index-csv-blobs.md), specifies the end-of-line delimiter for CSV files where each line starts a new document (for example, `"|"`).  |
+| `"firstLineContainsHeaders"` | true (default) <br/>false | For [CSV blobs (preview)](search-howto-index-csv-blobs.md), indicates that the first (non-blank) line of each blob contains headers.|
+| `"documentRoot"`  | String<br/>user-defined | For [JSON arrays (preview)](search-howto-index-json-blobs.md#nested-json-arrays), given a structured or semi-structured document, you can specify a path to the array using this property. |
+| `"dataToExtract"` | String<br/>`"storageMetadata"`<br/>`"allMetadata"`<br/>`"contentAndMetadata"`| For [Azure blobs](search-howto-indexing-azure-blob-storage.md):<br/>Set to `"storageMetadata"` to index just the [standard blob properties and user-specified metadata](../storage/blobs/storage-properties-metadata.md). <br/>Set to `"allMetadata"` to extract metadata provided by the Azure blob storage subsystem and the [content-type specific metadata](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (for example, metadata unique to just .png files) are indexed. <br/>Set to `"contentAndMetadata"` (default) to extract all metadata and textual content from each blob. <br/><br/>For [image-analysis in cognitive search (preview)](cognitive-search-concept-image-scenarios.md), when `"imageAction"` is set to `"generateNormalizedImages"`, the `"dataToExtract"` setting tells the indexer which data to extract from image content. Applies to embedded image content in a .PDF or other application, or image files such as .jpg and .png, in Azure blobs.  |
+| `"imageAction"` |  String<br/>`"none"`<br/>`"generateNormalizedImages"` | For [Azure blobs](search-howto-indexing-azure-blob-storage.md), set to`"none"` to ignore embedded images or image files in the data set. This is the default. <br/><br/>For [image-analysis in cognitive search](cognitive-search-concept-image-scenarios.md), set to`"generateNormalizedImages"`  to extract text from images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. During image analysis, the indexer creates an array of normalized images as part of document cracking, and embeds the generated information into the content field. This action requires that `"dataToExtract"` be set to `"contentAndMetadata"`. A normalized image refers to additional processing resulting in uniform image output, sized and rotated to promote consistent rendering when you include images in visual search results (for example, same-size photographs in a graph control as seen in the [JFK demo](https://github.com/Microsoft/AzureSearch_JFK_Files)). This information is generated for each image when you use |
 
 
 #### Database configuration parameters
 
 The following parameters are specific to Azure Cosmos DB or Azure SQL Database.
 
-| Parameter | Applies to   |	Type and allowed values	| Usage  |
-|-----------|--------------------------|----------------------------|--------|
-| `"assumeOrderByHighWaterMarkColumn"` | [Cosmos DB](search-howto-index-cosmosdb.md) | true (default) <br/>false | Explicitly tells Azure Search to order results by a timestamp (`_ts` column) when the Cosmos DB query also includes an ORDER BY on the same field. |
-| `"disableOrderByHighWaterMarkColumn"` | [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |  true <br/>false (default) | If you have a specific need for turning off the high-water mark that allows the indexer to keep track of its progress, you can set this parameter to do so. If indexing is interrupted for any reason, a full re-index is required. |
-| `"queryTimeout"` | [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) | String<br/>"00:00:00"| Set this parameter to increase the timeout beyond the 5-minute default. Value is articulated in hours, minutes, and seconds. |
+| Parameter | Type and allowed values	| Usage  |
+|-----------|---------------------------|--------|
+| `"assumeOrderByHighWaterMarkColumn"` | true (default) <br/>false | For [Cosmos DB](search-howto-index-cosmosdb.md), explicitly tells Azure Search to order results by a timestamp (`_ts` column) when the Cosmos DB query also includes an ORDER BY on the same field. |
+| `"disableOrderByHighWaterMarkColumn"` | true <br/>false (default) | For [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), if you have a specific need for turning off the high-water mark that allows the indexer to keep track of its progress, you can set this parameter to do so. If indexing is interrupted for any reason, a full re-index is required. |
+| `"queryTimeout"` | String<br/>"00:00:00"| for [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), set this parameter to increase the timeout beyond the 5-minute default. Value is articulated in hours, minutes, and seconds. |
 
 <a name="field-mappings"></a>
 
-### Field mappings
+### "fieldMappings"
 
 Indexer definitions contain field associations for mapping a source field to a destination field in an Azure Search index. There are two types of associations depending on whether the content transfer follows a direct or enriched path:
 
 + **fieldMappings** are optional, applied when source-destination field names do not match, or when you want to specify a function.
 + **outputFieldMappings** are required if you are building [an enrichment pipeline](cognitive-search-concept-intro.md). In an enrichment pipeline, the output field is a construct defined during the enrichment process. For example, the output field might be a compound structure built during enrichment from two separate fields in the source document. 
-
-#### fieldMappings parameter
 
 In the following example, consider a source table with a field `_id`. Azure Search doesn't allow a field name starting with an underscore, so the field must be renamed. This can be done using the `fieldMappings` property of the indexer as follows:
 
@@ -154,9 +152,9 @@ Both source and target field names are case-insensitive.
 
 To learn about scenarios where field mappings are useful, see [Search Indexer Field Mappings](https://docs.microsoft.com/azure/search/search-indexer-field-mappings).
 
-#### outputFieldMappings parameter
+#### "outputFieldMappings"
 
-In cognitive search scenarios in which a skillset is bound to an indexer, you must add `outputFieldMappings` to associate any output of an enrichment step that provides content to a searchable field in the index.
+In [cognitive search](cognitive-search-concept-intro.md) scenarios in which a skillset is bound to an indexer, you must add `outputFieldMappings` to associate any output of an enrichment step that provides content to a searchable field in the index.
 
 ```json
   "outputFieldMappings" : [
