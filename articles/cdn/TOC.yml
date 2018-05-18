@@ -13,7 +13,7 @@
 - name: Tutorials
   items:
   - name: Add Azure CDN to a web app
-    href: app-service-web-tutorial-content-delivery-network.md    
+    href: cdn-add-to-web-app.md    
   - name: Add a custom domain
     href: cdn-map-content-to-custom-domain.md    
   - name: Configure HTTPS on a custom domain
@@ -28,6 +28,8 @@
   items:
   - name: How caching works
     href: cdn-how-caching-works.md
+  - name: China content delivery
+    href: cdn-china-delivery.md    
 - name: How-to guides
   items:
   - name: Integrate

@@ -6,7 +6,7 @@ keywords:
 author: tfitzmac
 ms.author: tomfitz
 ms.date: 03/20/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: event-grid
 ---
 # Create and route custom events with Azure CLI and Event Grid
