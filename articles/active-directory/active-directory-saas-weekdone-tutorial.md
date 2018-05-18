@@ -106,7 +106,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_url1.png)
 
-    a. In the **Identifier** textbox, type the URL: `https://weekdone.com/a//metadata`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://weekdone.com/a/<tenant>/metadata`
+
+	> [!NOTE]
+	> The metadata file from weekdone can be retrieved with using the same URL.
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://weekdone.com/a/<tenantname>`
 
