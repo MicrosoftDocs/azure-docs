@@ -40,7 +40,7 @@ To complete this tutorial, make sure you have installed:
 
 ## Service Bus topics and subscriptions
 
-Each [subscription to a topic](service-bus-messaging-overview.md#topics) can receive a copy of each message. Topic "tail" and subscription "head" are fully protocol and semantically compatible with Service Bus queues. Topics support a vast array of selection rules with filter conditions, and optional actions to set or modify message properties. Each time a rule matches, it produces a message. To learn more about rules, filters, and actions, follow this [link](topic-filters.md).
+Each [subscription to a topic](service-bus-messaging-overview.md#topics) can receive a copy of each message. Topics are fully protocol and semantically compatible with Service Bus queues. Service Bus topics support a wide array of selection rules with filter conditions, with optional actions that set or modify message properties. Each time a rule matches, it produces a message. To learn more about rules, filters, and actions, follow this [link](topic-filters.md).
 
 ## Log on to the Azure portal
 
@@ -94,32 +94,30 @@ After the namespace and topic/subscriptions are provisioned, and you have the ne
 
 To run the code, do the following:
 
-1. In a Windows command prompt or PowerShell prompt, clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
+1. In a command prompt or PowerShell prompt, clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
 
    ```shell
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Open a command prompt with Administrator privileges.
+2. Navigate to the sample folder `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
 
-3. Navigate to the sample folder `\azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
+3. Obtain the connection string you copied to Notepad in the [Obtain the management credentials](#obtain-the-management-credentials) section of this tutorial. You also need the name of the topic you created in the previous section.
 
-4. Obtain the connection string you copied to Notepad in the [Obtain the management credentials](#obtain-the-management-credentials) section of this tutorial. You also need the name of the topic you created in the previous section.
-
-5. At the command prompt, type the following command:
+4. At the command prompt, type the following command:
 
    ```shell
    dotnet build
    ```
 
-6. Navigate to the `\BasicSendReceiveTutorialwithFilters\bin\Debug\netcoreapp2.0` folder.
+5. Navigate to the `BasicSendReceiveTutorialwithFilters\bin\Debug\netcoreapp2.0` folder.
 
-7. Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myTopicName` with the name of the topic you created:
+6. Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myTopicName` with the name of the topic you created:
 
    ```shell
    dotnet BasicSendReceiveTutorialwithFilters.dll -ConnectionString "myConnectionString" -TopicName "myTopicName"
    ``` 
-8. Follow the instructions in the console to select filter creation first. Part of creating filters is to remove the default filters. Note that when you use PowerShell or CLI you don't need to remove the default filter. If you do this in code, you must remove them. The console commands 1 and 3 help you manage the filters on the subscriptions you created before:
+7. Follow the instructions in the console to select filter creation first. Part of creating filters is to remove the default filters. When you use PowerShell or CLI you don't need to remove the default filter, but if you do this in code, you must remove them. The console commands 1 and 3 help you manage the filters on the subscriptions you previously created:
 
    - Execute 1: to remove the default filters.
    - Execute 2: to add your own filters.
@@ -127,11 +125,11 @@ To run the code, do the following:
 
     ![Showing output of 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
 
-9. After filter creation, you can send messages. Press 4 and observe 10 messages being sent to the topic:
+8. After filter creation, you can send messages. Press 4 and observe 10 messages being sent to the topic:
 
     ![Send output](./media/service-bus-tutorial-topics-subscriptions-portal/send-output.png)
 
-10. Press 5 and observe the messages being received. If you did not get 10 messages back, press "m" to display the menu, then press 5 again.
+9. Press 5 and observe the messages being received. If you did not get 10 messages back, press "m" to display the menu, then press 5 again.
 
     ![Receive output](./media/service-bus-tutorial-topics-subscriptions-portal/receive-output.png)
 

@@ -45,7 +45,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Service Bus topics and subscriptions
 
-Each [subscription to a topic](service-bus-messaging-overview.md#topics) can receive a copy of each message. Topic "tail" and subscription "head" are fully protocol and semantically compatible with Service Bus queues. Topics support a vast array of selection rules with filter conditions, and optional actions to set or modify message properties. Each time a rule matches, it produces a message. To learn more about rules, filters, and actions, follow this [link](topic-filters.md).
+Each [subscription to a topic](service-bus-messaging-overview.md#topics) can receive a copy of each message. Topics are fully protocol and semantically compatible with Service Bus queues. Service Bus topics support a wide array of selection rules with filter conditions, with optional actions that set or modify message properties. Each time a rule matches, it produces a message. To learn more about rules, filters, and actions, follow this [link](topic-filters.md).
 
 ## Log in to Azure
 
