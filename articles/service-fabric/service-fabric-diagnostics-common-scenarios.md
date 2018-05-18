@@ -64,8 +64,8 @@ The solutions in this article will use the following tools. We recommend you hav
 4. Enter the following query. These event IDs are found in the [Node events reference](service-fabric-diagnostics-event-generation-operational.md#application-events)
 
     ```kusto
-        ServiceFabricOperationalEvent
-        | where EventId >= 25623 or EventId <= 25626
+    ServiceFabricOperationalEvent
+    | where EventId >= 25623 or EventId <= 25626
     ```
 
 5. Click "New Alert Rule" at the top and now anytime an event arrives based on this query, you will receive an alert in your chosen method of communication.
@@ -77,8 +77,8 @@ The solutions in this article will use the following tools. We recommend you hav
 1. On the same Log Search window as before enter the following query for upgrade rollbacks. These event IDs are found under [Application events reference](service-fabric-diagnostics-event-generation-operational.md#application-events)
 
     ```kusto
-        ServiceFabricOperationalEvent
-        | where EventId == 29623 or EventId == 29624
+    ServiceFabricOperationalEvent
+    | where EventId == 29623 or EventId == 29624
     ```
 
 2. Click "New Alert Rule" at the top and now anytime an event arrives based on this query, you will receive an alert.
@@ -118,7 +118,7 @@ The solutions in this article will use the following tools. We recommend you hav
 4. This will allow you to see how your infrastructure is handling your workloads, and set relevant alerts based on resource utilization. For example – you may want to set an alert if the total Processor utilization goes above 90% or below 5%. The counter name you would use for this is “% Processor Time.” You could do this by creating an alert rule for the following query:
 
     ```kusto
-        Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" | where CounterValue >= 90 or CounterValue <= 5.
+    Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" | where CounterValue >= 90 or CounterValue <= 5.
     ```
 
 ## How do I track performance of my Reliable Services and Actors?
