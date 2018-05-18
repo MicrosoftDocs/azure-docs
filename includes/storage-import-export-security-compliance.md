@@ -1,4 +1,19 @@
-## Security compliance
+---
+title: include file
+description: include file
+services: azure-policy
+author: craigshoemaker
+ 
+ms.service: azure-policy
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: cshoe
+ms.custom: include file
+---
+
+## Deleting personal information
+
+[!INCLUDE [gdpr-intro-sentence.md](gdpr-intro-sentence.md)]
 
 Personal information is relevant to the import/export service (via the portal and API) during import and export operations. Data used during these processes include:
 
