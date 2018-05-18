@@ -46,7 +46,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 4. For service principal integration, select **Auto(MSI)** to have [Azure Managed Service Identity][managed-service-identity] automatically create an authentication identity for the Jenkins instance. Select **Manual** to provide your own service principal credentials.
 
-5. Cloud agents configure a cloud-based platform for Jenkins build jobs. For the sake of this article, select **ACI**. With the ACI cloud agent, each Jenkins build job is run in Azure Container Instance.
+5. Cloud agents configure a cloud-based platform for Jenkins build jobs. For the sake of this article, select **ACI**. With the ACI cloud agent, each Jenkins build job is run in a container instance.
 
    ![Cloud integration settings for Jenkins portal deployment](./media/container-instances-jenkins/jenkins-portal-03.png)
 
@@ -92,7 +92,7 @@ When you're using a container image as a Jenkins build target, you need to speci
 
 1. Select **Manage Jenkins** > **Configure System** and scroll down to the **Cloud** section. For this example, update the Docker image value to **microsoft/java-on-azure-jenkins-slave**.
 
-   When you're done, click **Save** to return to the Jenkins dashboard.
+   When you're done, select **Save** to return to the Jenkins dashboard.
 
    ![Jenkins cloud configuration](./media/container-instances-jenkins/jenkins-aci-image.png)
 
