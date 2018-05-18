@@ -222,7 +222,7 @@ The following information can be helpful when you work with parameters:
    }
    ```
 
-* Use **Securestring** for all passwords and secrets. If you pass sensitive data in a JSON object, use the **secureObject** type. Template parameters with securestring or secureObject types cannot be read after resource deployment. 
+* Use **securestring** for all passwords and secrets. If you pass sensitive data in a JSON object, use the **secureObject** type. Template parameters with securestring or secureObject types cannot be read after resource deployment. 
    
    ```json
    "parameters": {
