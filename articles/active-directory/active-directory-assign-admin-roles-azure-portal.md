@@ -50,7 +50,7 @@ The following administrator roles are available:
 
 * **Exchange Service Administrator**: Users with this role have global permissions within Microsoft Exchange Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Global Administrator / Company Administrator**: Users with this role have access to all administrative features in Azure Active Directory, as well as services that federate to Azure Active Directory like Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
+* **Global Administrator / Company Administrator / Tenant Administrator**: Users with this role have access to all administrative features in Azure Active Directory, as well as services that federate to Azure Active Directory like Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
 
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).
