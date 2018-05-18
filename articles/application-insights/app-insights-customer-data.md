@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights Handling Personal Data | Microsoft Docs
-description: Guidance on handling personal data in Azure Application Insights
+title: Guidance for personal data stored in Azure Application Insights | Microsoft Docs
+description: This article describes how to manage personal data stored in Azure Application Insights and the methods to identify and remove it.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -65,7 +65,8 @@ For both view and export data requests, the [Query API](https://dev.applicationi
 > [!WARNING]
 > Deletes in Application Insights are destructive and non-reversible! Please use extreme caution in their execution.
 
-To help manage delete requests, a "purge" API path has been created. This path should be used sparingly due to the risks associated with doing so. These risks include, potential performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Application Insights data. See the "Strategy for personal data handling" section above for alternative approaches to handle private data.
+We have made available as part of a privacy handling story a "purge" API path. This path should be used sparingly due to the risk associated with doing so, the potential performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your 
+Application Insights data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section above for alternative approaches to handle private data.
 
 Purge is a highly privileged operation that no app or user in Azure (including even the resource owner) will have permissions to execute without explicitly being granted a role in Azure Resource Manager. This role is _Data Purger_ and should be carefully delegated due to the potential for data loss.
 
@@ -78,3 +79,6 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
    ```
 
 While the vast majority of purge operations may complete much quicker than the SLA, due to their heavy impact on the data platform used by Application Insights, the formal SLA for the completion of purge operations is set at 30 days.
+
+## Next steps
+To learn more about how data is collected, processed, and secured, see [Application Insights data security](app-insights-data-retention-privacy).
