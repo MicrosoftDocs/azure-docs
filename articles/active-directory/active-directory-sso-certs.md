@@ -55,6 +55,15 @@ The screenshots use Salesforce for the sake of example, but these steps can appl
 
 7.	To learn how to upload the certificate to your particular SaaS application, click the **View application configuration tutorial** link.
 
+## Certificate expiration notification email
+
+Azure AD will send an email notification 60, 30, and 7 days before SAML certificate expires. To specify the email address for where to send the notification:
+
+- On the Azure Active Directory application Single sign-on page, go to the Notification Email field.
+- Enter the email address that should receive the certificate expiration notification email. By default, this field uses the email address of the admin who added the application.
+
+You will receive the notification email from aadnotification@microsoft.com. To avoid the email going to your spam location, be sure to add this email to your contacts. 
+
 ## Renew a certificate that will soon expire
 The following renewal steps should result in no significant downtime for your users. The screenshots in this section feature Salesforce as an example, but these steps can apply to any federated SaaS app.
 
