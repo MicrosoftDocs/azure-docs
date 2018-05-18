@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure the Connected Factory topology | Microsoft Docs
 description: How to configure the topology of a Connected Factory solution accelerator.
 services: iot-suite
@@ -343,4 +343,4 @@ The **OpCode** in the configuration configures the computation logic to calculat
 
 ## Next steps
 
-A suggested next step is to learn how to [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-suite-connected-factory-gateway-deployment.md).
+A suggested next step is to learn how to [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-accelerators-connected-factory-gateway-deployment.md).

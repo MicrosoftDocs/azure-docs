@@ -91,5 +91,5 @@ You can also explore some of the other features and capabilities of the IoT solu
 
 * [Explore the capabilities of the remote monitoring solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-explore.md)
 * [Predictive Maintenance solution accelerator overview](iot-suite-predictive-overview.md)
-* [Connected Factory solution accelerator overview](iot-suite-connected-factory-overview.md)
+* [Connected Factory solution accelerator overview](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [IoT security from the ground up](securing-iot-ground-up.md)
