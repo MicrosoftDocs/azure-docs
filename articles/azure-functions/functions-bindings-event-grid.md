@@ -57,11 +57,11 @@ using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace FunctionApp13
+namespace Company.Function
 {
-    public static class Function1
+    public static class EventGridTriggerCSharp
     {
-        [FunctionName("Function1")]
+        [FunctionName("EventGridTriggerCSharp")]
         public static void Run([EventGridTrigger]JObject eventGridEvent, TraceWriter log)
         {
             log.Info(eventGridEvent.ToString(Formatting.Indented));
@@ -78,12 +78,12 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Azure.WebJobs.Host;
 
-namespace FunctionApp14
+namespace Company.Function
 {
-    public static class Function1
+    public static class EventGridTriggerCSharp
     {
-        [FunctionName("Function1")]
-        public static void Run([EventGridTrigger]EventGridEvent eventGridEvent, TraceWriter log)
+        [FunctionName("EventGridTest")]
+        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, TraceWriter log)
         {
             log.Info(eventGridEvent.Data.ToString());
         }
@@ -137,7 +137,7 @@ public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
     log.Info("C# Event Grid function processed a request.");
     log.Info($"Subject: {eventGridEvent.Subject}");
     log.Info($"Time: {eventGridEvent.EventTime}");
-    log.Info(eventGridEvent.Data.ToString());
+    log.Info($"Data: {eventGridEvent.Data.ToString()}");
 }
 ```
 
