@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy your Connected Factory gateway - Azure | Microsoft Docs
 description: How to deploy a gateway on either Windows or Linux to enable connectivity to the Connected Factory solution accelerator.
 services: iot-suite
@@ -52,7 +52,7 @@ Install [Docker for Windows](https://www.docker.com/docker-windows) on your Wi
 
 During Docker for Windows setup, select a drive on your host machine to share with Docker. The following screenshot shows sharing the **D** drive on your Windows system to allow access to the host drive from inside a docker container:
 
-![Install Docker for Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
+![Install Docker for Windows](./media/iot-accelerators-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
 > You can also perform this step after installing docker from the **Settings** dialog. Right-click on the **Docker** icon in the Windows system tray and choose **Settings**. If major Windows updates have been deployed to the system, such as the Windows Fall Creators update, unshare the drives and share them again to refresh the access rights.
@@ -75,7 +75,7 @@ Before you install the OPC components, complete the following steps to prepare y
 
 1. To complete the gateway deployment, you need the **iothubowner** connection string of the IoT Hub in your Connected Factory deployment. In the [Azure portal](http://portal.azure.com/), navigate to your IoT Hub in the resource group created when you deployed the Connected Factory solution. Click **Shared access policies** to access the **iothubowner** connection string:
 
-    ![Find the IoT Hub connection string](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
+    ![Find the IoT Hub connection string](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 
     Copy the **Connection string-primary key** value.
 
@@ -160,7 +160,7 @@ To add your own OPC UA servers to the Connected Factory solution accelerator:
     1. As part of the connection setup, a trust relationship between the Connected Factory portal (OPC UA client) and the OPC UA server you are trying to connect is established. In the Connected Factory dashboard you get a **Certificate of the server you want to connect cannot be verified** warning. When you see a certificate warning, click **Proceed**.
     1. More difficult to setup is the certificate configuration of the OPC UA server you are trying to connect to. For PC based OPC UA servers, you may just get a warning dialog in the dashboard that you can acknowledge. For embedded OPC UA server systems, consult the documentation of your OPC UA server to look up how this task is done. To complete this task, you may need the certificate of the Connected Factory portal's OPC UA client. An Administrator can download this certificate on the **Connect your own OPC UA server** page:
 
-        ![Solution portal](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+        ![Solution portal](./media/iot-accelerators-connected-factory-gateway-deployment/image4.png)
 
 1. Browse the OPC UA nodes tree of your OPC UA server, right-click the OPC nodes you want to send values to Connected Factory, and select **publish**.
 

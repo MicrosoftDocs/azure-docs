@@ -46,8 +46,6 @@ Download code from GitHub by navigating to https://github.com/Azure/dev-spaces a
 
 [!INCLUDE[](includes/azds-prep.md)]
 
-[!INCLUDE[](includes/ensure-env-created.md)]
-
 [!INCLUDE[](includes/build-run-k8s-cli.md)]
 
 ### Update a content file

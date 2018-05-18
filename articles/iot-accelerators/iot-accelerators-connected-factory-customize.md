@@ -20,7 +20,7 @@ ms.author: dobett
 ---
 # Customize how the Connected Factory solution displays data from your OPC UA servers
 
-The Connected Factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution. For more information about OPC UA, see the [Connected Factory FAQ](iot-suite-faq-cf.md).
+The Connected Factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution. For more information about OPC UA, see the [Connected Factory FAQ](../iot-suite/iot-suite-faq-cf.md).
 
 Examples of aggregated data in the solution include the Overall Equipment Efficiency (OEE) and Key Performance Indicators (KPIs) that you can view in the dashboard at the factory, line, and station levels. The following screenshot shows the OEE and KPI values for the **Assembly** station, on **Production line 1**, in the **Munich** factory:
 
@@ -70,7 +70,7 @@ You can use the configuration file to:
 - Map data from real OPC UA servers that you connect to the solution.
 
 For more information about mapping and aggregating the data to meet your specific requirements, see [How to configure the Connected Factory solution accelerator
-](iot-suite-connected-factory-configure.md).
+](iot-accelerators-connected-factory-configure.md).
 
 ## Deploy the changes
 
@@ -85,20 +85,18 @@ Learn more about the Connected Factory solution accelerator by reading the follo
 * [Connected Factory solution accelerator walkthrough][lnk-rm-walkthrough]
 * [Deploy a gateway for Connected Factory][lnk-connect-cf]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
-* [Connected Factory FAQ](iot-suite-faq-cf.md)
+* [Connected Factory FAQ](../iot-suite/iot-suite-faq-cf.md)
 * [FAQ][lnk-faq]
 
 
-[img-oee-kpi]: ./media/iot-suite-connected-factory-customize/oeenadkpi.png
-[img-manufactured-items]: ./media/iot-suite-connected-factory-customize/manufactured.png
-[img-tsi]: ./media/iot-suite-connected-factory-customize/tsi.png
-[img-select-server]: ./media/iot-suite-connected-factory-customize/selectserver.png
-[img-published]: ./media/iot-suite-connected-factory-customize/published.png
-[img-munich]: ./media/iot-suite-connected-factory-customize/munich.png
-[img-server-uris]: ./media/iot-suite-connected-factory-customize/serveruris.png
-[lnk-kpi]: ./media/iot-suite-connected-factory-customize/kpidisplay.png
+[img-oee-kpi]: ./media/iot-accelerators-connected-factory-customize/oeenadkpi.png
+[img-manufactured-items]: ./media/iot-accelerators-connected-factory-customize/manufactured.png
+[img-tsi]: ./media/iot-accelerators-connected-factory-customize/tsi.png
+[img-select-server]: ./media/iot-accelerators-connected-factory-customize/selectserver.png
+[img-published]: ./media/iot-accelerators-connected-factory-customize/published.png
 
-[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
-[lnk-permissions]: iot-suite-v1-permissions.md
-[lnk-faq]: iot-suite-v1-faq.md
+
+[lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
+[lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
+[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md
+[lnk-faq]: ../iot-suite/iot-suite-v1-faq.md
