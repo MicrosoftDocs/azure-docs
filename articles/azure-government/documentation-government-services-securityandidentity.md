@@ -29,8 +29,8 @@ The URLs for accessing Key Vault in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
-| Key Vault | \*.vault.usgovcloudapi.net |\*.vault.azure.net|
-| Service Principal ID| 7e7c393b-45d0-48b1-a35e-2905ddf8183c | cfa8b339-82a2-471a-a3c9-0fc0be7a4093 |
+| Key Vault | \*.vault.azure.net | \*.vault.usgovcloudapi.net |
+| Service Principal ID| cfa8b339-82a2-471a-a3c9-0fc0be7a4093 | 7e7c393b-45d0-48b1-a35e-2905ddf8183c | 
 | Service Principal Name | Azure Key Vault | Azure Key Vault |
 
 ### Data Considerations
