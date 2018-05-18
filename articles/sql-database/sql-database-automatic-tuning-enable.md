@@ -19,7 +19,7 @@ Azure SQL Database is an automatically managed data service that constantly moni
 On the server level you can choose to inherit automatic tuning configuration from "Azure Defaults" or not to inherit the configuration. Azure defaults are FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
 
 ### Azure portal
-To enable automatic tuning on Azure SQL Database server, navigate to the server in Azure portal and then select **Automatic tuning** in the menu. Select the automatic tuning options you want to enable and select **Apply**.
+To enable automatic tuning on Azure SQL Database **server**, navigate to the server in Azure portal and then select **Automatic tuning** in the menu. Select the automatic tuning options you want to enable and select **Apply**.
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
@@ -42,11 +42,13 @@ The Azure SQL Database enables you to individually specify the automatic tuning 
 
 ### Azure portal
 
-To enable automatic tuning on a single database, navigate to the database in the Azure portal and then and select **Automatic tuning**. You can configure a single database to inherit the settings from the server by selecting the option or you can specify the configuration for a database individually.
+To enable automatic tuning on a **single database**, navigate to the database in the Azure portal and then and select **Automatic tuning**. You can configure a single database to inherit the settings from the server by selecting the option or you can specify the configuration for a database individually.
 
 ![Database](./media/sql-database-automatic-tuning-enable/database.png)
 
 Once you have selected appropriate configuration, click **Apply**.
+
+Please note that DROP_INDEX option at this time is incompatible with applications using partition switching and index hints and should not be turned on in these cases.
 
 ### Rest API
 [Click here to read more about how to enable automatic tuning on a single database via REST API](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)
