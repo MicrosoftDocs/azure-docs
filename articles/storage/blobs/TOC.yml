@@ -220,32 +220,32 @@
       href: ../common/storage-import-export-contact-microsoft-support.md   
     - name: Archive
       items:
-    - name: Create import job
-      href: ../common/storage-import-export-creating-an-import-job.md
-    - name: Create export job
-      href: ../common/storage-import-export-creating-an-import-job.md
-    - name: Get job state
-      href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
-    - name: Create export job
-      href: ../common/storage-import-export-creating-an-import-job.md
-    - name: Enumerate jobs
-      href: ../common/storage-import-export-enumerating-jobs.md
-    - name: Cancel & delete job
-      href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
-    - name: Back up drive manifest
-      href: ../common/storage-import-export-backing-up-drive-manifests.md
-    - name: Enumerate jobs
-      href: ../common/storage-import-export-enumerating-jobs.md
-    - name: Diagnostics & error recovery
-      href: ../common/storage-import-export-diagnostics-and-error-recovery.md
-    - name: Commands for import jobs
+      - name: Create import job
+        href: ../common/storage-import-export-creating-an-import-job.md
+      - name: Create export job
+        href: ../common/storage-import-export-creating-an-import-job.md
+      - name: Get job state
+        href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
+      - name: Create export job
+        href: ../common/storage-import-export-creating-an-import-job.md
+      - name: Enumerate jobs
+        href: ../common/storage-import-export-enumerating-jobs.md
+      - name: Cancel & delete job
+        href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
+      - name: Back up drive manifest
+        href: ../common/storage-import-export-backing-up-drive-manifests.md
+      - name: Enumerate jobs
+        href: ../common/storage-import-export-enumerating-jobs.md
+      - name: Diagnostics & error recovery
+        href: ../common/storage-import-export-diagnostics-and-error-recovery.md
+      - name: Commands for import jobs
       href: ../common/storage-import-export-tool-quick-reference-v1.md
-    - name: Service manifest file
-      href: ../common/storage-import-export-file-format-manifest.md
-    - name: Service metadata and properties file 
-      href: ../common/storage-import-export-file-format-metadata-and-properties.md
-    - name: Service log file 
-      href: ../common/storage-import-export-file-format-log.md
+      - name: Service manifest file
+        href: ../common/storage-import-export-file-format-manifest.md
+      - name: Service metadata and properties file 
+        href: ../common/storage-import-export-file-format-metadata-and-properties.md
+      - name: Service log file 
+        href: ../common/storage-import-export-file-format-log.md
 - name: How to
   items:
   - name: Create a storage account
