@@ -32,8 +32,8 @@ The following documentation provides information about the various device option
     On clicking Next, an **Overview** page is displayed, which details the operations that can be performed.
     ![Overview](./media/active-directory-aadconnect-device-options/deviceoverview.png)
 
->[!NOTE]
-> The new Configure device options is available only in version 1.1.819.0 and newer.
+    >[!NOTE]
+    > The new Configure device options is available only in version 1.1.819.0 and newer.
 
 2.	After providing the credentials for Azure AD, you can chose the operation to be performed on the Device options page.
     ![Device operations](./media/active-directory-aadconnect-device-options/deviceoptionsselection.png)
