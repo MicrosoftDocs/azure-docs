@@ -616,7 +616,7 @@ The following table explains the binding configuration properties that you set i
 |---------|---------|
 | **type** |Must be set to `http`. |
 | **direction** | Must be set to `out`. |
-|**name** | The variable name used in function code for the response. |
+|**name** | The variable name used in function code for the response, or `$return` to use the return value. |
 
 ## Output - usage
 
