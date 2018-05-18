@@ -12,7 +12,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/01/2018
+ms.date: 05/17/2018
 ms.author: janeng
 ---
 
