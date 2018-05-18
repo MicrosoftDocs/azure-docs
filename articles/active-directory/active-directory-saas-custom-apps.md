@@ -67,6 +67,7 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
 - **Sign On URL (SP-initiated only)** – Where the user goes to sign-in to this application. If the application is configured to perform service provider-initiated single sign-on, then when a user navigates to this URL, the service provider will do the necessary redirection to Azure AD to authenticate and log on the user in. If this field is populated, then Azure AD will use this URL to launch the application from Office 365 and the Azure AD Access Panel. If this field is omitted, then Azure AD will instead perform identity provider -initiated sign-on when the app is launched from Office 365, the Azure AD Access Panel, or from the Azure AD single sign-on URL (copyable from the Dashboard tab).
 - **Identifier** - should uniquely identify the application for which single sign-on is being configured. You can find this value as the Issuer element in the AuthRequest (SAML request) sent by the application. This value also appears as the **Entity ID** in any SAML metadata provided by the application. Check the application’s SAML documentation for details on what its Entity ID or Audience value is. Below is an example of how the Identifier or Issuer appears in the SAML request sent by the application to Azure AD:
 
+    ```
     <samlp:AuthnRequest
     xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
     ID="id6c1c178c166d486687be4aaf5e482730"
@@ -74,8 +75,11 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
     xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
     <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
     </samlp:AuthnRequest>
+    ```
 
-- **Reply URL** - The reply URL is where the application expects to receive the SAML token. This is also referred to as the Assertion Consumer Service (ACS) URL. Check the application’s SAML documentation for details on what its SAML token reply URL or ACS URL is. To configure multiple replyURLs you can use the following PowerShell script.
+- **Reply URL** - The reply URL is where the application expects to receive the SAML token. This is also referred to as the Assertion Consumer Service (ACS) URL. Check the application’s SAML documentation for details on what its SAML token reply URL or ACS URL is. 
+
+    To configure multiple replyURLs you can use the following PowerShell script.
 
     ```PowerShell
     $sp = Get-AzureADServicePrincipal -SearchString "<Exact App  name>"
@@ -87,7 +91,7 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
 For more information, see [SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
 
 
-### Review or customize the claims issued in the SAML token**
+### Review or customize the claims issued in the SAML token
 
 When a user authenticates to the application, Azure AD will issue a SAML token to the app that contains information (or claims) about the user that uniquely identifies them. By default this includes the user's username, email address, first name, and last name. 
 
@@ -110,7 +114,7 @@ When you create a Gallery or a Non-Gallery application, Azure AD will create an 
 
 From Azure AD, you can download the certificate in Base64 or Raw format. In addition, you can get the certificate by downloading the application metadata XML file or by using the App federation metadata URL.
 
-    ![Certificate](certificate.png)
+    ![Certificate](./media/active-directory-saas-custom-apps/certificate.png)
 
 Verify the certificate has:
 
@@ -143,9 +147,9 @@ You can upload a tile logo for the application using the **Upload Logo** button 
 
 Before testing the SAML application, you must have set up  the application with Azure AD, and assigned users or groups to the application.
 
-    ![](testing.png)
+    ![](./media/active-directory-saas-custom-apps/testing.png)
 
-From the single sign-on page, click on **Test SAML settings ** under the Domain and URLs section. This opens a content pane with instructions on how to test the application.
+From the single sign-on page, click on **Test SAML settings** under the Domain and URLs section. This opens a content pane with instructions on how to test the application.
 
 1. Sign in to the application. If the application is configured as service provider-initiated single sign-on, you are redirected to the single sign-on URL where you can initiate the sign-in. If the application is configured as identity provider-initiated single sign-on, then you are signed-in to the application.
 2.	If you see any error in your company sign-in page, copy the error and go back to Azure AD testing single sign-on content pane. Paste the error into the box and click on **Get resolution steps**. If the error is on the application’s page, you need to contact the application vendor and share your configuration on Azure AD to validate the values. 
