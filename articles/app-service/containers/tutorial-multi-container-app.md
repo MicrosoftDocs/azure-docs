@@ -62,7 +62,7 @@ You create this deployment user only once; you can use it for all your Azure dep
 
 ## Create a resource group
 
-[!INCLUDE [resource group intro text](resource-group.md)]
+[!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
 In the local command-prompt, create a resource group with the [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *South Central SUS* location. To see all supported locations for App Service on Linux in **Standard** tier, run the [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) command.
 
