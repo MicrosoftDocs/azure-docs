@@ -94,7 +94,11 @@ You can set the Azure SQL Database to implement recommendations automatically. A
     ![Advisor settings](./media/sql-database-advisor-portal/settings.png)
 2. Select actions to automate:
    
-    ![Recommended Indexes](./media/sql-database-advisor-portal/automation.png)
+    ![Recommended Indexes](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Please note that **DROP_INDEX** option at this time is incompatible with applications using partition switching and index hints and should not be turned on in these cases.
+>
 
 ### Manually run the recommended T-SQL script
 Select any recommendation and then click **View script**. Run this script against your database to manually apply the recommendation.
