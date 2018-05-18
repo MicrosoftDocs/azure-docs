@@ -4,7 +4,7 @@ description: Learn how you can use the Execute Pipeline Activity to invoke one D
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
 
 ---
@@ -102,8 +102,6 @@ This scenario has two pipelines:
         "name": "MyExecutePipelineActivity"
       }
     ],
-    "datasets": [],
-    "linkedServices": [],
     "parameters": {
       "masterSourceBlobContainer": {
         "type": "String"
@@ -149,55 +147,6 @@ This scenario has two pipelines:
         ]
       }
     ],
-    "datasets": [
-      {
-        "name": "SourceBlobDataset",
-        "properties": {
-          "type": "AzureBlob",
-          "typeProperties": {
-            "folderPath": {
-              "value": "@pipeline().parameters.sourceBlobContainer",
-              "type": "Expression"
-            },
-            "fileName": "salesforce.txt"
-          },
-          "linkedServiceName": {
-            "referenceName": "BlobStorageLinkedService",
-            "type": "LinkedServiceReference"
-          }
-        }
-      },
-      {
-        "name": "sinkBlobDataset",
-        "properties": {
-          "type": "AzureBlob",
-          "typeProperties": {
-            "folderPath": {
-              "value": "@pipeline().parameters.sinkBlobContainer",
-              "type": "Expression"
-            }
-          },
-          "linkedServiceName": {
-            "referenceName": "BlobStorageLinkedService",
-            "type": "LinkedServiceReference"
-          }
-        }
-      }
-    ],
-    "linkedServices": [
-      {
-        "name": "BlobStorageLinkedService",
-        "properties": {
-          "type": "AzureStorage",
-          "typeProperties": {
-            "connectionString": {
-              "value": "DefaultEndpointsProtocol=https;AccountName=*****"
-              "type": "SecureString"
-            }
-          }
-        }
-      }
-    ],
     "parameters": {
       "sourceBlobContainer": {
         "type": "String"
@@ -209,6 +158,64 @@ This scenario has two pipelines:
   }
 }
 
+```
+
+**Linked service**
+
+```json
+{
+    "name": "BlobStorageLinkedService",
+    "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": {
+        "value": "DefaultEndpointsProtocol=https;AccountName=*****",
+        "type": "SecureString"
+      }
+    }
+  }
+}
+```
+
+**Source dataset**
+```json
+{
+    "name": "SourceBlobDataset",
+    "properties": {
+    "type": "AzureBlob",
+    "typeProperties": {
+      "folderPath": {
+        "value": "@pipeline().parameters.sourceBlobContainer",
+        "type": "Expression"
+      },
+      "fileName": "salesforce.txt"
+    },
+    "linkedServiceName": {
+      "referenceName": "BlobStorageLinkedService",
+      "type": "LinkedServiceReference"
+    }
+  }
+}
+```
+
+**Sink dataset**
+```json
+{
+    "name": "sinkBlobDataset",
+    "properties": {
+    "type": "AzureBlob",
+    "typeProperties": {
+      "folderPath": {
+        "value": "@pipeline().parameters.sinkBlobContainer",
+        "type": "Expression"
+      }
+    },
+    "linkedServiceName": {
+      "referenceName": "BlobStorageLinkedService",
+      "type": "LinkedServiceReference"
+    }
+  }
+}
 ```
 
 ### Running the pipeline

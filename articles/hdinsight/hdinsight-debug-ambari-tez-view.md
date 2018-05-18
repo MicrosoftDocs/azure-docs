@@ -11,10 +11,8 @@ ms.assetid: 9c39ea56-670b-4699-aba0-0f64c261e411
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/12/2017
+ms.topic: conceptual
+ms.date: 02/27/2018
 ms.author: larryfr
 
 ---
@@ -27,7 +25,7 @@ The Ambari Web UI for HDInsight contains a Tez view that can be used to understa
 
 ## Prerequisites
 
-* A Linux-based HDInsight cluster. For steps on creating a cluster, see [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+* A Linux-based HDInsight cluster. For steps on creating a cluster, see [Get started using Linux-based HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * A modern web browser that supports HTML5.
 
 ## Understanding Tez
@@ -103,7 +101,7 @@ Use the following steps to run a Hive query that uses Tez:
 
 ## Next Steps
 
-Now that you have learned how to use the Tez view, learn more about [Using Hive on HDInsight](hdinsight-use-hive.md).
+Now that you have learned how to use the Tez view, learn more about [Using Hive on HDInsight](hadoop/hdinsight-use-hive.md).
 
 For more detailed technical information on Tez, see the [Tez page at Hortonworks](http://hortonworks.com/hadoop/tez/).
 

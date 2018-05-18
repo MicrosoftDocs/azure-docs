@@ -23,6 +23,8 @@ ms.author: elioda
 ## Introduction
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a device app that sends device-to-cloud messages.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
@@ -72,7 +74,7 @@ In this section, you'll modify the device app you created in [Get started with I
     The call to `CompleteAsync()` notifies IoT Hub that the message has been successfully processed. The message can be safely removed from the device queue. If something happened that prevented the device app from completing the processing of the message, IoT Hub delivers it again. It is then important that message processing logic in the device app is *idempotent*, so that receiving the same message multiple times produces the same result. An application can also temporarily abandon a message, which results in IoT hub retaining the message in the queue for future consumption. Or, the application can reject a message, which permanently removes the message from the queue. For more information about the cloud-to-device message lifecycle, see the [IoT Hub developer guide][IoT Hub developer guide - C2D].
    
    > [!NOTE]
-   > When using HTTP instead of MQTT or AMQP as a transport, the `ReceiveAsync` method returns immediately. The supported pattern for cloud-to-device messages with HTTP is intermittently connected devices that check for messages infrequently (less than every 25 minutes). Issuing more HTTP receives results in IoT Hub throttling the requests. For more information about the differences between MQTT, AMQP and HTTP support, and IoT Hub throttling, see the [IoT Hub developer guide][IoT Hub developer guide - C2D].
+   > When using HTTPS instead of MQTT or AMQP as a transport, the `ReceiveAsync` method returns immediately. The supported pattern for cloud-to-device messages with HTTPS is intermittently connected devices that check for messages infrequently (less than every 25 minutes). Issuing more HTTPS receives results in IoT Hub throttling the requests. For more information about the differences between MQTT, AMQP and HTTPS support, and IoT Hub throttling, see the [IoT Hub developer guide][IoT Hub developer guide - C2D].
    > 
    > 
 2. Add the following method in the **Main** method, right before the `Console.ReadLine()` line:
@@ -171,7 +173,7 @@ In this section, you modify the **SendCloudToDevice** app to request feedback, a
 ## Next steps
 In this tutorial, you learned how to send and receive cloud-to-device messages. 
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite].
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator].
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 
@@ -190,5 +192,5 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [IoT Hub developer guide]: iot-hub-devguide.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure IoT Suite]: https://docs.microsoft.com/en-us/azure/iot-suite/
+[Azure IoT Remote Monitoring solution accelerator]: https://docs.microsoft.com/azure/iot-suite/
 [Azure IoT device SDKs]: iot-hub-devguide-sdks.md

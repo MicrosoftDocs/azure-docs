@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 Following are some important definitions to know before you read this guide. In [SAP HANA (large instances) overview and architecture on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) we introduced two different classes of HANA Large Instance units with:
 
 - S72, S72m, S144, S144m, S192, and S192m, which we refer to as the 'Type I class' of SKUs.
-- S384, S384m, S384xm, S576, S768, and S960, which we refer to as the 'Type II class' of SKUs.
+- S384, S384m, S384xm, S576m, S768m, and S960m, which we refer to as the 'Type II class' of SKUs.
 
 The class specifier is going to be used throughout the HANA Large Instance documentation to eventually refer to different capabilities and requirements based on HANA Large Instance SKUs.
 
@@ -171,7 +171,7 @@ SAP Support Notes applicable to implementing SAP HANA on SLES 12:
 - [SAP Support Note #171356 – SAP Software on Linux:  General Information](https://launchpad.support.sap.com/#/notes/1984787).
 - [SAP Support Note #1391070 – Linux UUID Solutions](https://launchpad.support.sap.com/#/notes/1391070).
 
-[Red Hat Enterprise Linux for SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) is another offer for running SAP HANA on HANA Large Instances. Releases of RHEL 6.7 and 7.2 are available. 
+[Red Hat Enterprise Linux for SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) is another offer for running SAP HANA on HANA Large Instances. Releases of RHEL 6.7 and 7.2 are available. Please note in opposite to native Azure VMs where only RHEL 7.2 and more recent releases are supported, HANA Large Instances do support RHEL 6.7 as well. However we recommend using a RHEL 7.x release.
 
 Additional and useful SAP on Red Hat related links:
 - [SAP HANA on Red Hat Linux Site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).

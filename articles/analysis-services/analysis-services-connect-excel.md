@@ -1,26 +1,18 @@
 ---
 title: Connect to Azure Analysis Services with Excel | Microsoft Docs
 description: Learn how to connect to an Azure Analysis Services server by using Excel.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: 
+manager: kfile
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 08/15/2017
+ms.topic: conceptual
+ms.date: 05/16/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Connect with Excel
 
-Once you've created a server in Azure, and deployed a tabular model to it, you're ready to connect and begin exploring data.
+Once you've created a server, and deployed a tabular model to it, clients can connect and begin exploring data.
 
 
 ## Connect in Excel
@@ -31,7 +23,10 @@ Connecting to a server in Excel is supported by using Get Data in Excel 2016. Co
 
 1. In Excel 2016, on the **Data** ribbon, click **Get External Data** > **From Other Sources** > **From Analysis Services**.
 
-2. In the Data Connection Wizard, in **Server name**, enter the server name including protocol and URI. Then, in **Logon credentials**, select **Use the following User Name and Password**, and then type the organizational user name, for example nancy@adventureworks.com, and password.
+2. In the Data Connection Wizard, in **Server name**, enter the server name including protocol and URI. For example, asazure://westcentralus.asazure.windows.net/advworks. Then, in **Logon credentials**, select **Use the following User Name and Password**, and then type the organizational user name, for example nancy@adventureworks.com, and password.
+
+    > [!IMPORTANT]
+    > If you log in with a Microsoft Account, Live ID, Yahoo, Gmail, etc., or you are required to sign in with multi-factor authentication, leave the password field blank. You are prompted for a password after clicking Next.
 
     ![Connect from Excel logon](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 

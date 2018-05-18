@@ -4,16 +4,16 @@ description: Learn how to use a specific version of Mono with HDInsight cluster.
 services: hdinsight
 documentationCenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 
 ms.service: hdinsight
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 04/10/2018
 ms.author: larryfr
 ms.custom: hdinsightactive
 
@@ -53,17 +53,18 @@ While following the script action document, use the following URI:
 
     https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash
 
+To specify the Mono version that is installed, use the version number in the __Parameters__ field. For example, enter `5.4` to install Mono 5.4.
+
 > [!NOTE]
 > When configuring HDInsight with this script, mark the script as __Persisted__. This setting allows HDInsight to apply the script to worker nodes added through scaling operations.
-
 
 ## Next steps
 
 You have learned how to upgrade or install a specific version of Mono on HDInsight. For more information on using .NET applications with Mono on HDInsight, see the following documents:
 
-* [Use .NET for streaming MapReduce on HDInsight](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [Use .NET with Hive and Pig on HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [Develop C# solutions with Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Use .NET for streaming MapReduce on HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Use .NET with Hive and Pig on HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Develop C# solutions with Storm on HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
 * [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 
 For more information on using script actions, see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)

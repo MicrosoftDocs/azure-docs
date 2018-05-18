@@ -11,11 +11,9 @@ tags: azure-portal
 ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
 
 ---
@@ -69,7 +67,7 @@ This section provides instructions on how to use the sample script while creatin
 
 1. Start creating a cluster by using the steps in [Create Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md), but do not complete creation.
 
-2. On the **Optional Configuration** blade, select **Script Actions**, and provide the following information:
+2. In the **Optional Configuration** section, select **Script Actions**, and provide the following information:
 
    * **NAME**: Enter a friendly name for the script action.
 
@@ -83,7 +81,7 @@ This section provides instructions on how to use the sample script while creatin
 
    * **PARAMETERS**: Leave this field blank
 
-3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
+3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** section to save the optional configuration information.
 
 4. Continue creating the cluster as described in [Create Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -157,7 +155,7 @@ Once the cluster has been created, use the following steps to run the SimpleShor
     hdfs dfs -text /example/output/shortestpaths/*
     ```
 
-    The output should appear similar to the following text:
+    The output appears similar to the following text:
 
         0    1.0
         4    5.0

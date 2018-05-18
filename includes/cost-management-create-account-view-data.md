@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: cost-management
+ author: bandersmsft
+ ms.service: cost-management
+ ms.topic: include
+ ms.date: 04/26/2018
+ ms.author: banders
+ manager: dougeby
+ ms.custom: include file
+---
+
 ## View cost data
 
 Azure Cost Management by Cloudyn provides you access to all of your cloud resource data. From the dashboard reports you can find both standard and custom reports in a tabbed view. The following are examples of a popular dashboard and a report that show you cost data right away.
@@ -31,3 +44,5 @@ The following image shows the costs for Azure resources that Contoso incurred. T
 Right-click a resource type and select **Cost Entities** to view cost entities and the services that have consumed the resource. The VM and Workers services in DevOps consumed $486.60 and $435.71 in this example. The total for both is $922.
 
 ![cost entities and services](./media/cost-management-create-account-view-data/actual-cost-05.png)
+
+To watch a tutorial video about viewing your cloud billing data, see [Analyzing your cloud billing data with Azure Cost Management by Cloudyn](https://youtu.be/G0pvI3iLH-Y).

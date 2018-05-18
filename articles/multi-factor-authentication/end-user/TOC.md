@@ -12,4 +12,5 @@
 ## Use the Microsoft Authenticator app
 ### [Get started with the app](microsoft-authenticator-app-how-to.md)
 ### [Sign in with your phone](microsoft-authenticator-app-phone-signin-faq.md)
+### [Backup and recover account credentials](microsoft-authenticator-app-backup-and-recovery.md)
 ### [FAQs](microsoft-authenticator-app-faq.md)

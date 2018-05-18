@@ -1,26 +1,21 @@
 ---
-title: Introduction to Azure Container Service for Kubernetes | Microsoft Docs
+title: Introduction to Azure Container Service for Kubernetes
 description: Azure Container Service for Kubernetes makes it simple to deploy and manage container-based applications on Azure.
 services: container-service
-documentationcenter: ''
 author: gabrtv
-manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Kubernetes, Docker, Containers, Microservices, Azure
+manager: jeconnoc
 
-ms.assetid:
 ms.service: container-service
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-
 ---
+
 # Introduction to Azure Container Service for Kubernetes
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 Azure Container Service for Kubernetes makes it simple to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
 
 By using Azure Container Service, you can take advantage of the enterprise-grade features of Azure, while still maintaining application portability through Kubernetes and the Docker image format.

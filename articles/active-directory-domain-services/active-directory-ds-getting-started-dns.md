@@ -4,7 +4,7 @@ description: Getting started with Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
@@ -44,4 +44,4 @@ To update the DNS server setting for the virtual network in which you have enabl
 >
 
 ## Next step
-[Task 5: enable password synchronization to Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
+[Task 5: enable password hash synchronization to Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)

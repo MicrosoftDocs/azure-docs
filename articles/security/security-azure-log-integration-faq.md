@@ -13,13 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
 
 ---
 # Azure Log Integration FAQ
-This article answers frequently asked questions (FAQ) about Azure Log Integration. 
+
+This article answers frequently asked questions (FAQ) about Azure Log Integration.
+
+>[!IMPORTANT]
+>The preferred method for integrating Azure logs is by using your SIEM vendor’s Azure Monitor connector and following these [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn’t provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
 
 Azure Log Integration is a Windows operating system service that you can use to integrate raw logs from your Azure resources into your on-premises security information and event management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud. You can then aggregate, correlate, analyze, and alert for security events associated with your applications.
 
@@ -31,7 +35,7 @@ Yes. There is no charge for the Azure Log Integration software.
 It is currently available in Azure Commercial and Azure Government and is not available in China or Germany.
 
 ## How can I see the storage accounts from which Azure Log Integration is pulling Azure VM logs?
-Run the command **azlog source list**.
+Run the command **AzLog source list**.
 
 ## How can I tell which subscription the Azure Log Integration logs are from?
 
@@ -44,7 +48,7 @@ Azure Active Directory audit logs include the tenant ID as part of the name.
 Diagnostic logs that are read from an event hub do not include the subscription ID as part of the name. Instead, they include the friendly name specified as part of the creation of the event hub source. 
 
 ## How can I update the proxy configuration?
-If your proxy setting does not allow Azure storage access directly, open the **AZLOG.EXE.CONFIG** file in **c:\Program Files\Microsoft Azure Log Integration**. Update the file to include the **defaultProxy** section with the proxy address of your organization. After the update is done, stop and start the service by using the commands **net stop azlog** and **net start azlog**.
+If your proxy setting does not allow Azure storage access directly, open the **AZLOG.EXE.CONFIG** file in **c:\Program Files\Microsoft Azure Log Integration**. Update the file to include the **defaultProxy** section with the proxy address of your organization. After the update is done, stop and start the service by using the commands **net stop AzLog** and **net start AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -71,7 +75,7 @@ The event XML has the following metadata, including the subscription ID:
 ![Event XML][1]
 
 ## Error messages
-### When I run the command **azlog createazureid**, why do I get the following error?
+### When I run the command ```AzLog createazureid```, why do I get the following error?
 Error:
 
   *Failed to create AAD Application - Tenant 72f988bf-86f1-41af-91ab-2d7cd011db37 - Reason = 'Forbidden' - Message = 'Insufficient privileges to complete the operation.'*

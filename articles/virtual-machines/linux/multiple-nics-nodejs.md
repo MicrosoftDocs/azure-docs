@@ -4,7 +4,7 @@ description: Learn how to create a Linux VM with multiple NICs attached to it us
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid:
@@ -18,7 +18,7 @@ ms.author: iainfou
 
 ---
 # Create a Linux virtual machine with multiple NICs using the Azure CLI 1.0
-You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario is to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own Bash scripts, read more about [deploying multi-NIC VMs](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly.
+You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario is to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly.
 
 > [!WARNING]
 > You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM with the Azure CLI 1.0. You can [add NICs to an existing VM with the Azure CLI 2.0](multiple-nics.md). You can also [create a VM based on the original virtual disk(s)](copy-vm.md) and create multiple NICs as you deploy the VM.
@@ -82,7 +82,7 @@ azure network vnet subnet create \
 ```
 
 ## Create and configure multiple NICs
-You can read more details about [deploying multiple NICs using the Azure CLI](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md), including scripting the process of looping through to create all the NICs.
+You can read more details about [deploying multiple NICs using the Azure CLI](../../virtual-machines/linux/multiple-nics.md), including scripting the process of looping through to create all the NICs.
 
 The following example creates two NICs, named *myNic1* and *myNic2*, with one NIC connecting to each subnet:
 
@@ -140,6 +140,8 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
+When you add multiple NICs to a Linux VM, you need to create routing rules. These rules allow the VM to send and receive traffic that belongs to a specific NIC. Otherwise, traffic that belongs to eth1, for example, cannot be processed correctly by the defined default route. To correct this routing issue, see [Configure guest OS for multiple NICs](multiple-nics.md#configure-guest-os-for-multiple-nics).
+
 ## Create multiple NICs using Resource Manager templates
 Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
 
@@ -158,7 +160,9 @@ You can also use a `copyIndex()` to then append a number to a resource name, whi
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/template-samples.md).
+
+When you add multiple NICs to a Linux VM, you need to create routing rules. These rules allow the VM to send and receive traffic that belongs to a specific NIC. Otherwise, traffic that belongs to eth1, for example, cannot be processed correctly by the defined default route. To correct this routing issue, see [Configure guest OS for multiple NICs](multiple-nics.md#configure-guest-os-for-multiple-nics).
 
 ## Next steps
 Make sure to review [Linux VM sizes](sizes.md) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. 

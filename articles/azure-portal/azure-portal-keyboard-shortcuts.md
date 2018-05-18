@@ -8,9 +8,9 @@ manager: lwelicki
 editor: ''
 
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/24/2017
@@ -24,7 +24,7 @@ This article shows the keyboard shortcuts that work throughout the Azure portal.
 |To do this |Press |
 | --- | --- |
 |Create a new resource|G+N|
-|Open the 'More services' pane|G+B|
+|Open the 'All services' pane|G+B|
 |Search resources|G+/| 
 |Search resource menu items|CTRL+/ |
 |Move the selected left pane item up |ALT+Shift+Up Arrow|

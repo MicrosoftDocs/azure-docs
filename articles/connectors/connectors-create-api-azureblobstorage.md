@@ -3,7 +3,7 @@ title: Add the Azure blob storage Connector in your Logic Apps | Microsoft Docs
 description: Get started and configure the Azure blob storage connector in a logic app
 services: ''
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/02/2017
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Use the Azure blob storage connector in a logic app
@@ -28,9 +28,7 @@ With Azure blob storage, you:
 
 This topic shows you how to use the blob storage connector in a logic app.
 
-To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
-
-To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-overview.md) and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Connect to Azure blob storage
 Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to a storage account, you first create a blob storage *connection*. To create a connection, enter the credentials you normally use to access the service you are connecting to. So with Azure storage, enter the credentials to your storage account to create the connection. 
@@ -39,7 +37,7 @@ Before your logic app can access any service, you first create a *connection* to
 > [!INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
 
 ## Use a trigger
-This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) provides an example.
+This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) provides an example.
 
 ## Use an action
 An action is an operation carried out by the workflow defined in a logic app.
@@ -71,5 +69,5 @@ An action is an operation carried out by the workflow defined in a logic app.
 View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/azureblobconnector/). 
 
 ## Next steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 

@@ -1,10 +1,10 @@
 ---
-title: What is Microsoft Power BI Embedded? | Microsoft Docs
+title: About Azure Power BI Embedded | Microsoft Docs
 description: Power BI Embedded is intended to simplify how ISVs and developers use Power BI capabilities, helping them quickly add stunning visuals, reports and dashboards into their apps.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
-manager: erikre
+author: markingmyname
+manager: kfile
 editor: ''
 tags: ''
 
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
-ms.author: asaxton
+ms.date: 01/04/2018
+ms.author: maghan
 ---
 
-# What is Power BI Embedded
+# About Power BI Embedded
 
 Power BI Embedded is intended to simplify how ISVs and developers use Power BI capabilities. Power BI Embedded simplifies Power BI capabilities by helping you quickly add stunning visuals, reports, and dashboards into your apps. Similar to apps built on Microsoft Azure use services like Machine Learning and IoT. By enabling easy-to-navigate data exploration in their apps, ISVs allow their customers to make quick, informed decisions in context.
 

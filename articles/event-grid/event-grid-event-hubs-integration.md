@@ -6,8 +6,8 @@ author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 09/14/2017
+ms.topic: tutorial
+ms.date: 05/04/2018
 ms.author: tomfitz
 ---
 # Stream big data into a data warehouse
@@ -70,7 +70,7 @@ To complete this tutorial, you must have:
 
 ## Deploy the infrastructure
 
-To simplify this article, you deploy the required infrastructure with a Resource Manager template. To see the resources that are deployed, view the [template](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json).
+To simplify this article, you deploy the required infrastructure with a Resource Manager template. To see the resources that are deployed, view the [template](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Use one of the [supported regions](overview.md) for the resource group location.
 
 For Azure CLI, use:
 
@@ -88,7 +88,7 @@ For PowerShell, use:
 ```powershell
 New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName tf08202storage -functionAppName <app-name>
+New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
 Provide a password value when prompted.
@@ -114,67 +114,45 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 1. Open the [EventHubsCaptureEventGridDemo sample project](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) in Visual Studio 2017 (15.3.2 or greater).
 
-2. In Solution Explorer, right-click **FunctionDWDumper**, and select **Publish**.
+1. In Solution Explorer, right-click **FunctionEGDWDumper**, and select **Publish**.
 
    ![Publish function app](media/event-grid-event-hubs-integration/publish-function-app.png)
 
-3. Select **Azure Function App** and **Select Existing**. Select **OK**.
+1. Select **Azure Function App** and **Select Existing**. Select **Publish**.
 
    ![Target function app](media/event-grid-event-hubs-integration/pick-target.png)
 
-4. Select the function app that you deployed through the template. Select **OK**.
+1. Select the function app that you deployed through the template. Select **OK**.
 
    ![Select function app](media/event-grid-event-hubs-integration/select-function-app.png)
 
-5. When Visual Studio has configured the profile, select **Publish**.
+1. When Visual Studio has configured the profile, select **Publish**.
 
    ![Select publish](media/event-grid-event-hubs-integration/select-publish.png)
 
-6. After publishing the function, go to the [Azure portal](https://portal.azure.com/). Select your resource group and function app.
-
-   ![View function app](media/event-grid-event-hubs-integration/view-function-app.png)
-
-7. Select the function.
-
-   ![Select function](media/event-grid-event-hubs-integration/select-function.png)
-
-8. Get the URL for the function. You need this URL when creating the event subscription.
-
-   ![Get function URL](media/event-grid-event-hubs-integration/get-function-url.png)
-
-9. Copy the value.
-
-   ![Copy URL](media/event-grid-event-hubs-integration/copy-url.png)
+After publishing the function, you're ready to subscribe to the event.
 
 ## Subscribe to the event
 
-You can use either Azure CLI or the portal to subscribe to the event. This article shows both approaches.
+1. Go to the [Azure portal](https://portal.azure.com/). Select your resource group and function app.
 
-### Portal
+   ![View function app](media/event-grid-event-hubs-integration/view-function-app.png)
 
-1. From the Event Hubs namespace, select **Event Grid** on the left.
+1. Select the function.
 
-   ![Select Event Grid](media/event-grid-event-hubs-integration/select-event-grid.png)
+   ![Select function](media/event-grid-event-hubs-integration/select-function.png)
 
-2. Add an event subscription.
+1. Select **Add Event Grid subscription**.
 
-   ![Add event subscription](media/event-grid-event-hubs-integration/add-event-subscription.png)
+   ![Add subscription](media/event-grid-event-hubs-integration/add-event-grid-subscription.png)
 
-3. Provide values for the event subscription. Use the Azure Functions URL that you copied. Select **Create**.
+9. Give the event grid subscription a name. Use **Event Hubs Namespaces** as the event type. Provide values to select your instance of the Event Hubs namespace. Leave the subscriber endpoint as the provided value. Select **Create**.
 
-   ![Provide subscription values](media/event-grid-event-hubs-integration/provide-values.png)
-
-### Azure CLI
-
-To subscribe to the event, run the following command:
-
-```azurecli-interactive
-az eventgrid resource event-subscription create -g rgDataMigrationSample --provider-namespace Microsoft.EventHub --resource-type namespaces --resource-name <your-EventHubs-namespace> --name captureEventSub --endpoint <your-function-endpoint>
-```
+   ![Create subscription](media/event-grid-event-hubs-integration/set-subscription-values.png)
 
 ## Run the app to generate data
 
-You have finished setting up your event hub, SQL data warehouse, Azure function app, and event subscription. The solution is ready to migrate data from the event hub to the data warehouse. Before running an application that generates data for event hub, you need to configure a few values.
+You've finished setting up your event hub, SQL data warehouse, Azure function app, and event subscription. The solution is ready to migrate data from the event hub to the data warehouse. Before running an application that generates data for event hub, you need to configure a few values.
 
 1. In the portal, select your event hub namespace. Select **Connection Strings**.
 
@@ -184,16 +162,16 @@ You have finished setting up your event hub, SQL data warehouse, Azure function 
 
    ![Select key](media/event-grid-event-hubs-integration/show-root-key.png)
 
-3. Copy **Connection string - Primary Key**
+3. Copy **Connection string - primary Key**
 
    ![Copy key](media/event-grid-event-hubs-integration/copy-key.png)
 
 4. Go back to your Visual Studio project. In the WindTurbineDataGenerator project, open **program.cs**.
 
-5. Replace the two constant values. Use the copied value for **EventHubConnectionString**. Use the event hub name for **EventHubName**.
+5. Replace the two constant values. Use the copied value for **EventHubConnectionString**. Use **hubdatamigration** the event hub name.
 
    ```cs
-   private const string EventHubConnectionString = "Endpoint=sb://tfdatamigratens.servicebus.windows.net/...";
+   private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
    private const string EventHubName = "hubdatamigration";
    ```
 

@@ -3,7 +3,7 @@ title: Configure web apps in Azure App Service
 description: How to configure a web app in Azure App Services
 services: app-service\web
 documentationcenter: ''
-author: rmcmurray
+author: cephalin
 manager: erikre
 editor: ''
 
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: robmcm
+ms.author: cephalin
 
 ---
 # Configure web apps in Azure App Service
+
 This topic explains how to configure a web app using the [Azure Portal].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Application settings
 1. In the [Azure Portal], open the blade for the web app.
-2. Click **All Settings**.
-3. Click **Application Settings**.
+3. Click **Application settings**.
 
 ![Application Settings][configure01]
 
@@ -44,6 +44,8 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 <a name="platform"></a>
 **Platform**. Selects whether your web app runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard mode. Free and Shared modes always run in a 32-bit environment.
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 **Web Sockets**. Set **ON** to enable the WebSocket protocol; for example, if your web app uses [ASP.NET SignalR] or [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
@@ -57,7 +59,7 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 **Remote Debugging**. Enables remote debugging. When enabled, you can use the remote debugger in Visual Studio to connect directly to your web app. Remote debugging will remain enabled for 48 hours. 
 
 ### App settings
-This section contains name/value pairs that you web app will load on start up. 
+This section contains name/value pairs that your web app will load on start up. 
 
 * For .NET apps, these settings are injected into your .NET configuration `AppSettings` at runtime, overriding existing settings. 
 * PHP, Python, Java and Node applications can access these settings as environment variables at runtime. For each app setting, two environment variables are created; one with the name specified by the app setting entry, and another with a prefix of APPSETTING_. Both contain the same value.
@@ -118,18 +120,18 @@ To view the log files, you must create FTP credentials, as follows:
 
 ![Set deployment credentials][configure03]
 
-The full FTP user name is “app\username” where *app* is the name of your web app. The username is listed in the web app blade, under **Essentials**.  
+The full FTP user name is “app\username” where *app* is the name of your web app. The username is listed in the web app blade, under **Essentials**.
 
 ![FTP deployment credentials][configure02]
 
 ## Other configuration tasks
 ### SSL
-In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for a web app]. 
+In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for a web app](app-service-web-tutorial-custom-ssl.md). 
 
 To view your uploaded certificates, click **All Settings** > **Custom domains and SSL**.
 
 ### Domain names
-Add custom domain names for your web app. For more information, see [Configure a custom domain name for a web app in Azure App Service].
+Add custom domain names for your web app. For more information, see [Configure a custom domain name for a web app in Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 To view your domain names, click **All Settings** > **Custom domains and SSL**.
 

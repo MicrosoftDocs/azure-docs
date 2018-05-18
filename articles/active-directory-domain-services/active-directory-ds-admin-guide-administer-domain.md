@@ -4,7 +4,7 @@ description: Administer Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: d4fdbc75-3e6b-4e20-8494-5dcc3bf2220a

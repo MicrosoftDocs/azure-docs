@@ -185,7 +185,7 @@ SideIndicator            : <=
 
 ## Next steps
 
-If settings have been changed, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that are in question.
+If settings have been changed, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that are in question.
 
 
 

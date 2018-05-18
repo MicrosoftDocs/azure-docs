@@ -1,4 +1,4 @@
----
+﻿---
 title: Analyze Twitter data with Hadoop in HDInsight - Azure | Microsoft Docs
 description: Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word.
 services: hdinsight
@@ -9,10 +9,8 @@ editor: cgronlun
 
 ms.assetid: 78e4ea33-9714-424d-ac07-3d60ecaebf2e
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
@@ -39,7 +37,7 @@ Before you begin this tutorial, you must have the following:
     Before running Windows PowerShell scripts, make sure you are connected to your Azure subscription by using the following cmdlet:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
@@ -94,7 +92,7 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 8. Click **Test OAuth** in the upper-right corner of the page.
 9. Write down **consumer key**, **Consumer secret**, **Access token**, and **Access token secret**. You will need the values later in the tutorial.
 
-In this tutorial, you will use Windows PowerShell to make the web service call. For a .NET C# sample, see [Analyze real-time Twitter sentiment with HBase in HDInsight][hdinsight-hbase-twitter-sentiment]. The other popular tool to make web service calls is [*Curl*][curl]. Curl can be downloaded from [here][curl-download].
+In this tutorial, you use Windows PowerShell to make the web service call. The other popular tool to make web service calls is [*Curl*][curl]. Curl can be downloaded from [here][curl-download].
 
 > [!NOTE]
 > When you use the curl command in Windows, use double quotes instead of single quotes for the option values.
@@ -123,7 +121,7 @@ In this tutorial, you will use Windows PowerShell to make the web service call. 
 
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     #endregion
 
     #region - Create a block blob object for writing tweets into Blob storage
@@ -397,7 +395,7 @@ The HiveQL script will perform the following:
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
 
     Select-AzureRmSubscription -SubscriptionId $subscriptionID
@@ -544,7 +542,6 @@ After the analysis results have been placed in Azure Blob storage, you can expor
 In this tutorial we have seen how to transform an unstructured JSON dataset into a structured Hive table to query, explore, and analyze data from Twitter by using HDInsight on Azure. To learn more, see:
 
 * [Get started with HDInsight][hdinsight-get-started]
-* [Analyze real-time Twitter sentiment with HBase in HDInsight][hdinsight-hbase-twitter-sentiment]
 * [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]
 * [Connect Excel to HDInsight with Power Query][hdinsight-power-query]
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-hive-odbc]
@@ -563,11 +560,10 @@ In this tutorial we have seen how to transform an unstructured JSON dataset into
 [powershell-script]: http://technet.microsoft.com/library/ee176961.aspx
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]:hdinsight-hadoop-use-blob-storage.md#access-blobs-using-azure-powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
-[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
-[hdinsight-hive-odbc]: hdinsight-connect-excel-hive-odbc-driver.md
-[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
+[hdinsight-power-query]:hadoop/apache-hadoop-connect-excel-power-query.md
+[hdinsight-hive-odbc]:hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md

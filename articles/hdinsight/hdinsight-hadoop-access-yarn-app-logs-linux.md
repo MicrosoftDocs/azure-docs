@@ -5,17 +5,15 @@ services: hdinsight
 documentationcenter: ''
 tags: azure-portal
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 03/22/2018
 ms.author: larryfr
 
 ---
@@ -28,7 +26,7 @@ Learn how to access the logs for YARN (Yet Another Resource Negotiator) applicat
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 
-The [YARN Timeline Server](http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) provides generic information on completed applications and framework-specific application information through two different interfaces. Specifically:
+The [YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) provides generic information on completed applications and framework-specific application information through two different interfaces. Specifically:
 
 * Storage and retrieval of generic application information on HDInsight clusters has been enabled with version 3.1.1.374 or higher.
 * The framework-specific application information component of the Timeline Server is not currently available on HDInsight clusters.

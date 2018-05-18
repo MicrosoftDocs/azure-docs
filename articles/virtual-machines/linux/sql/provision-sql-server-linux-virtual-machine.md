@@ -5,7 +5,7 @@ services: virtual-machines-linux
 author: rothja 
 ms.author: jroth 
 manager: jhubbard
-ms.date: 10/02/2017
+ms.date: 05/11/2018
 ms.topic: article
 tags: azure-service-management
 ms.devlang: na
@@ -20,15 +20,26 @@ ms.technology: database-engine
 > * [Linux](provision-sql-server-linux-virtual-machine.md)
 > * [Windows](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
 
-Azure provides Linux virtual machine images that have SQL Server 2017 installed. This topic provides a short walkthrough on how to use the Azure portal to create a Linux SQL Server virtual machine.
+In this quick start tutorial, you use the Azure portal to create a Linux virtual machine with SQL Server 2017 installed.
 
-## Create a Linux VM with SQL Server installed
+In this tutorial, you will:
 
-Open the [Azure portal](https://portal.azure.com/).
+* [Create a Linux SQL VM from the gallery](#create)
+* [Connect to the new VM with ssh](#connect)
+* [Change the SA password](#password)
+* [Configure for remote connections](#remote)
 
-1. Click **New** on the left.
+## Prerequisites
 
-1. In the **New** window, click **Compute**.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+
+## <a id="create"></a> Create a Linux VM with SQL Server installed
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. In the left pane, click **Create a resource**.
+
+1. In the **Create a resource** pane, click **Compute**.
 
 1. Click **See all** next to the **Featured** heading.
 
@@ -40,7 +51,7 @@ Open the [Azure portal](https://portal.azure.com/).
 
     ![Search filter for SQL Server 2017 VM images](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
-1. Select a SQL Server 2017 Linux image from the search results. This tutorial uses **Free SQL Server License: SQL Server 2017 Developer on Red Hat Enterprise Linux 7**.
+1. Select a SQL Server 2017 Linux image from the search results. This tutorial uses **Free SQL Server License: SQL Server 2017 Developer on Red Hat Enterprise Linux 7.4**.
 
    > [!TIP]
    > The Developer edition enables you to test or develop with the features of the Enterprise edition but no SQL Server licensing costs. You only pay for the cost of running the Linux VM.
@@ -56,7 +67,7 @@ Open the [Azure portal](https://portal.azure.com/).
 
 1. Click **OK**.
 
-1. In the **Size** window, choose a machine size. To see other sizes, select **View all**. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+1. In the **Size** window, choose a machine size. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
     ![Choose a VM size](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
@@ -65,49 +76,20 @@ Open the [Azure portal](https://portal.azure.com/).
 
 1. Click **Select**.
 
-1. In the **Settings** window, you can make changes to the settings or keep the default settings.
+1. In the **Settings** window, select the **SSH (22)** port in the **Select public inbound ports** list. This is necessary in this quickstart to connect and complete the SQL Server configuration. If you want to remotely connect to SQL Server, also select **MS SQL (1433)** to open port 1433 for connections over the Internet.
 
-1. Click **OK**.
+   ![Inbound ports](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
-1. On the **Summary** page, click **OK** to create the VM.
+1. You can make changes to other settings or keep the default settings. Then click **OK**.
 
-> [!NOTE]
-> The Azure VM pre-configures the firewall to open the SQL Server port 1433 for remote connections. But to remotely connect, you also need to add a network security group rule as described in the next section.
-
-## <a id="remote"></a> Configure for remote connections
-
-To be able to remotely connect to SQL Server on an Azure VM, you must configure an inbound rule on the network security group. The rule allows traffic on the port on which SQL Server listens (default of 1433). The following steps show how to use the Azure portal for this step. 
-
-1. In the portal, select **Virtual machines**, and then select your SQL Server VM.
-
-1. In the list of properties, select **Network interfaces**.
-
-1. Then select the Network Interface for your VM.
-
-    ![Network interfaces](./media/provision-sql-server-linux-virtual-machine/networkinterfaces.png)
-
-1. Click the Network security group link.
-
-    ![Network security group](./media/provision-sql-server-linux-virtual-machine/networksecuritygroup.png)
-
-1. In the properties of the Network Security Group, select **Inbound security rules**.
-
-1. Click the **+Add** button.
-
-1. Provide a Name of `SQLServerRemoteConnections`.
-
-1. In the **Service** list, select **MS SQL**.
-
-    ![MS SQL security group rule](./media/provision-sql-server-linux-virtual-machine/sqlnsgrule.png)
-
-1. Click **OK** to save the rule for your VM.
+1. On the **Summary** page, click **Purchase** to create the VM.
 
 ## <a id="connect"></a> Connect to the Linux VM
 
 If you already use a BASH shell, connect to the Azure VM using the **ssh** command. In the following command, replace the VM user name and IP address to connect to your Linux VM.
 
 ```bash
-ssh -l AzureAdmin 100.55.555.555
+ssh azureadmin@40.55.55.555
 ```
 
 You can find the IP address of your VM in the Azure portal.
@@ -126,7 +108,7 @@ If you are running on Windows and do not have a BASH shell, you can install an S
 
 For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal#ssh-to-the-vm).
 
-## Change the SA password
+## <a id="password"></a> Change the SA password
 
 The new virtual machine installs SQL Server with a random SA password. You must reset this password before you can connect to SQL Server with the SA login.
 
@@ -159,10 +141,44 @@ Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#pack
    source ~/.bashrc
    ```
 
+## <a id="remote"></a> Configure for remote connections
+
+If you need to remotely connect to SQL Server on the Azure VM, you must configure an inbound rule on the network security group. The rule allows traffic on the port on which SQL Server listens (default of 1433). The following steps show how to use the Azure portal for this step.
+
+> [!TIP]
+> If you selected the inbound port **MS SQL (1433)** in the settings during provisioning, these changes have been made for you. You can go to the next section on how to configure the firewall.
+
+1. In the portal, select **Virtual machines**, and then select your SQL Server VM.
+
+1. In the list of properties, select **Networking**.
+
+1. In the **Networking** window, click the **Add** button under **Inbound Port Rules**.
+
+   ![Inbound port rules](./media/provision-sql-server-linux-virtual-machine/networking.png)
+
+1. In the **Service** list, select **MS SQL**.
+
+    ![MS SQL security group rule](./media/provision-sql-server-linux-virtual-machine/sqlnsgrule.png)
+
+1. Click **OK** to save the rule for your VM.
+
+### Open the firewall on RHEL
+
+This tutorial directed you to create a Red Hat Enterprise Linux (RHEL) VM. If you want to connect remotely to RHEL VMs, you also have to open up port 1433 on the Linux firewall.
+
+1. [Connect](#connect) to your RHEL VM.
+
+1. In the BASH shell, run the following commands:
+
+   ```bash
+   sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
+   sudo firewall-cmd --reload
+   ```
+
 ## Next steps
 
 Now that you have a SQL Server 2017 virtual machine in Azure, you can connect locally with **sqlcmd** to run Transact-SQL queries.
 
-If you configured the Azure VM for remote SQL Server connections, you should also be able to connect remotely. For an example of how to connect remotely to SQL Server on Linux from Windows, see [Use SSMS on Windows to connect to SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-ssms).
+If you configured the Azure VM for remote SQL Server connections, you should also be able to connect remotely. For an example of how to connect remotely to SQL Server on Linux from Windows, see [Use SSMS on Windows to connect to SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-ssms). To connect with Visual Studio Code, see [Use Visual Studio Code to create and run Transact-SQL scripts for SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode)
 
 For more general information about SQL Server on Linux, see the [Overview of SQL Server 2017 on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview). For more information about using SQL Server 2017 Linux virtual machines, see [Overview of SQL Server 2017 virtual machines on Azure](sql-server-linux-virtual-machines-overview.md).

@@ -1,9 +1,9 @@
-﻿---
+---
 title: Resources, roles and access control in Azure Application Insights | Microsoft Docs
 description: Owners, contributors and readers of your organization's insights.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Resources, roles, and access control in Application Insights
-You can control who has read and update access to your data in Azure [Application Insights][start], by using [Role-based access control in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+You can control who has read and update access to your data in Azure [Application Insights][start], by using [Role-based access control in Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Assign access to users in the **resource group or subscription** to which your application resource belongs - not in the resource itself. Assign the **Application Insights component contributor** role. This ensures uniform control of access to web tests and alerts along with your application resource. [Learn more](#access).
@@ -39,7 +39,7 @@ First, some definitions:
 
     ![Choose Browse, Resource groups, then choose a group](./media/app-insights-resources-roles-access-control/11-group.png)
 
-* [**Subscription**](https://manage.windowsazure.com) - To use Application Insights or other Azure resources, you sign in to an Azure subscription. Every resource group belongs to one Azure subscription, where you choose your price package and, if it's an organization subscription, choose the members and their access permissions.
+* [**Subscription**](https://portal.azure.com) - To use Application Insights or other Azure resources, you sign in to an Azure subscription. Every resource group belongs to one Azure subscription, where you choose your price package and, if it's an organization subscription, choose the members and their access permissions.
 * [**Microsoft account**][account] - The username and password that you use to sign in to Microsoft Azure subscriptions, XBox Live, Outlook.com, and other Microsoft services.
 
 ## <a name="access"></a> Control access in the resource group
@@ -88,7 +88,7 @@ If the user you want isn't in the directory, you can invite anyone with a Micros
 
 ## Related content
 
-* [Role based access control in Azure](../active-directory/role-based-access-control-configure.md)
+* [Role based access control in Azure](../role-based-access-control/role-assignments-portal.md)
 
 <!--Link references-->
 

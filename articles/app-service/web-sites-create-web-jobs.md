@@ -3,7 +3,7 @@ title: Run Background tasks with WebJobs in Azure App Service
 description: Learn how to use WebJobs to run background tasks in Azure App Service web apps, API apps, or mobile apps.
 services: app-service
 documentationcenter: ''
-author: ggailey777
+author: tdykstra
 manager: erikre
 editor: jimbe
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
-ms.author: glenga
+ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 ---
 
 # Run Background tasks with WebJobs in Azure App Service
@@ -40,7 +40,7 @@ The following table describes the differences between *continuous* and *triggere
 | Supports remote debugging. | Doesn't support remote debugging.|
 
 > [!NOTE]
-> A web app can time out after 20 minutes of inactivity. Only requests to the scm (deployment) site or to the web app's pages in the portal reset the timer. Requests to the actual site don't reset the timer. If your app runs continuous or scheduled WebJobs, enable **Always On** to ensure that the WebJobs run reliably. This feature is available only in the Basic, Standard, and Premium [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/).
+> A web app can time out after 20 minutes of inactivity. Only requests to the scm (deployment) site or to the web app's pages in the portal reset the timer. Requests to the actual site don't reset the timer. If your app runs continuous or scheduled WebJobs, enable **Always On** to ensure that the WebJobs run reliably. This feature is available only in the Basic, Standard, and Premium [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## <a name="acceptablefiles"></a>Supported file types for scripts or programs
 
@@ -80,7 +80,7 @@ when making changes in one don't forget the other two.
    | **Name** | myContinuousWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_". |
    | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
    | **Type** | Continuous | The [WebJob types](#webjob-types) are described earlier in this article. |
-   | **Scale** | Multi instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or just one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/). |
+   | **Scale** | Multi instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or just one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 4. Click **OK**.
 
@@ -167,15 +167,7 @@ when making changes in one don't forget the other two.
 
 ## CRON expressions
 
-A [CRON expression](https://en.wikipedia.org/wiki/Cron) is composed of six fields: `{second} {minute} {hour} {day} {month} {day of the week}`.  Here are some examples:
-
-* Every 15 minutes: `0 */15 * * * *`
-* Every hour (that is, whenever the count of minutes is 0): `0 0 * * * *` 
-* Every hour from 9 AM to 5 PM: `0 0 9-17 * * *` 
-* At 9:30 AM every day: `0 30 9 * * *`
-* At 9:30 AM every weekday: `0 30 9 * * 1-5`
-
-You can enter the CRON expression in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
+You can enter a [CRON expression](../azure-functions/functions-bindings-timer.md#cron-expressions) in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
 
 ```json
 {

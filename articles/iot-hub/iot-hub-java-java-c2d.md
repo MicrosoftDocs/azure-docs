@@ -22,6 +22,8 @@ ms.author: dobett
 
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
@@ -74,7 +76,7 @@ In this section, you modify the simulated device app you created in [Get started
     ```
 
     > [!NOTE]
-    > If you use HTTP instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTP support, and IoT Hub throttling, see the [IoT Hub developer guide][IoT Hub developer guide - C2D].
+    > If you use HTTPS instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTPS support, and IoT Hub throttling, see the [IoT Hub developer guide][IoT Hub developer guide - C2D].
 
 4. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
 
@@ -193,7 +195,7 @@ You are now ready to run the applications.
 
 In this tutorial, you learned how to send and receive cloud-to-device messages. 
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite].
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator].
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 
@@ -205,10 +207,10 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [Get started with IoT Hub]: iot-hub-java-java-getstarted.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IoT Hub developer guide]: iot-hub-devguide.md
-[Azure IoT Developer Center]: http://www.azure.com/develop/iot
+[Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
-[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[Azure IoT Remote Monitoring solution accelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

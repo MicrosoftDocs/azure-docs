@@ -3,8 +3,8 @@ title: Process Azure blob data with advanced analytics | Microsoft Docs
 description: Process Data in Azure Blob storage.
 services: machine-learning,storage
 documentationcenter: ''
-author: bradsev
-manager: jhubbard
+author: deguhath
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: d8a59078-91d3-4440-b85c-430363c3f4d1
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: fashah;garye;bradsev
+ms.date: 11/13/2017
+ms.author: deguhath
 
 ---
 # <a name="heading"></a>Process Azure blob data with advanced analytics

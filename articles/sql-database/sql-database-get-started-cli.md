@@ -3,19 +3,13 @@ title: 'Azure CLI: Create a SQL database | Microsoft Docs'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases using the Azure CLI. 
 keywords: sql database tutorial, create a sql database
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/17/2017
+ms.date: 03/23/2018
 ms.author: carlrab
 ---
 
@@ -27,11 +21,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Define variables
 
-Define variables for use in the scripts in this quick start.
+Define variables for use in the scripts in this quickstart.
 
 ```azurecli-interactive
 # The data center and resource name for your resources
@@ -51,14 +45,14 @@ export databasename = mySampleDatabase
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
+Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](/cli/azure/group#az_group_create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
 
 ```azurecli-interactive
 az group create --name $resourcegroupname --location $location
 ```
 ## Create a logical server
 
-Create an [Azure SQL Database logical server](sql-database-features.md) using the [az sql server create](/cli/azure/sql/server#create) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create an [Azure SQL Database logical server](sql-database-features.md) using the [az sql server create](/cli/azure/sql/server#az_sql_server_create) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```azurecli-interactive
 az sql server create --name $servername --resource-group $resourcegroupname --location $location \
@@ -67,7 +61,7 @@ az sql server create --name $servername --resource-group $resourcegroupname --lo
 
 ## Configure a server firewall rule
 
-Create an [Azure SQL Database server-level firewall rule](sql-database-firewall-configure.md) using the [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.  
+Create an [Azure SQL Database server-level firewall rule](sql-database-firewall-configure.md) using the [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.  
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
@@ -80,7 +74,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 ## Create a database in the server with sample data
 
-Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server using the [az sql db create](/cli/azure/sql/db#create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (other quick starts in this collection build upon the values in this quick start).
+Create a database with an [S0 performance level](sql-database-service-tiers-dtu.md) in the server using the [az sql db create](/cli/azure/sql/db#az_sql_db_create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (other quickstarts in this collection build upon the values in this quickstart).
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \
@@ -89,10 +83,10 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 
 ## Clean up resources
 
-Other quick starts in this collection build upon this quick start. 
+Other quickstarts in this collection build upon this quickstart. 
 
 > [!TIP]
-> If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
+> If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
 >
 
 ```azurecli-interactive
@@ -101,14 +95,9 @@ az group delete --name $resourcegroupname
 
 ## Next steps
 
-Now that you have a database, you can connect and query using your favorite tools. Learn more by choosing your tool below:
+- Now that you have a database, you can [connect and query](sql-database-connect-query.md) using one of your favorite tools or languages. 
+- To learn how to design your first database, create tables, and insert data, see one of these tutorials:
+ - [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md)
+  - [Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md)
 
-- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Visual Studio Code](sql-database-connect-query-vscode.md)
-- [.NET](sql-database-connect-query-dotnet.md)
-- [PHP](sql-database-connect-query-php.md)
-- [Node.js](sql-database-connect-query-nodejs.md)
-- [Java](sql-database-connect-query-java.md)
-- [Python](sql-database-connect-query-python.md)
-- [Ruby](sql-database-connect-query-ruby.md)
 

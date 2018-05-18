@@ -36,7 +36,7 @@ To automate your ASE creation:
 
 2. After your ILB ASE is created, an SSL certificate that matches your ILB ASE domain is uploaded.
 
-3. The uploaded SSL certificate is assigned to the ILB ASE as its "default" SSL certificate.  This certificate is used for SSL traffic to apps on the ILB ASE when they use the common root domain that's assigned to the ASE (for example, https://someapp.mycustomrootcomain.com).
+3. The uploaded SSL certificate is assigned to the ILB ASE as its "default" SSL certificate.  This certificate is used for SSL traffic to apps on the ILB ASE when they use the common root domain that's assigned to the ASE (for example, https://someapp.mycustomrootdomain.com).
 
 
 ## Create the ASE
@@ -44,16 +44,18 @@ A Resource Manager template that creates an ASE and its associated parameters fi
 
 If you want to make an ILB ASE, use these Resource Manager template [examples][quickstartilbasecreate]. They cater to that use case. Most of the parameters in the *azuredeploy.parameters.json* file are common to the creation of ILB ASEs and External ASEs. The following list calls out parameters of special note, or that are unique, when you create an ILB ASE:
 
-* *interalLoadBalancingMode*: In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB-allocated virtual network internal address. If this property is set to 2, only the FTP service-related ports (both control and data channels) are bound to an ILB address. The HTTP/HTTPS traffic remains on the public VIP.
+* *internalLoadBalancingMode*: In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB-allocated virtual network internal address. If this property is set to 2, only the FTP service-related ports (both control and data channels) are bound to an ILB address. The HTTP/HTTPS traffic remains on the public VIP.
 * *dnsSuffix*: This parameter defines the default root domain that's assigned to the ASE. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. Because an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain. Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network. For example, Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to be resolvable and accessible only within Contoso's virtual network. 
 * *ipSslAddressCount*: This parameter automatically defaults to a value of 0 in the *azuredeploy.json* file because ILB ASEs only have a single ILB address. There are no explicit IP-SSL addresses for an ILB ASE. Hence, the IP-SSL address pool for an ILB ASE must be set to zero. Otherwise, a provisioning error occurs. 
 
 After the *azuredeploy.parameters.json* file is filled in, create the ASE by using the PowerShell code snippet. Change the file paths to match the Resource Manager template-file locations on your machine. Remember to supply your own values for the Resource Manager deployment name and the resource group name:
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 It takes about an hour for the ASE to be created. Then the ASE shows up in the portal in the list of ASEs for the subscription that triggered the deployment.
 
@@ -78,17 +80,19 @@ Use the following PowerShell code snippet to:
 
 This PowerShell code for base64 encoding was adapted from the [PowerShell scripts blog][examplebase64encoding]:
 
-        $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```powershell
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-        $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-        $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-        $fileName = "exportedcert.pfx"
-        Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
-        $fileContentBytes = get-content -encoding byte $fileName
-        $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-        $fileContentEncoded | set-content ($fileName + ".b64")
+$fileContentBytes = get-content -encoding byte $fileName
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$fileContentEncoded | set-content ($fileName + ".b64")
+```
 
 After the SSL certificate is successfully generated and converted to a base64-encoded string, use the example Resource Manager template [Configure the default SSL certificate][quickstartconfiguressl] on GitHub. 
 
@@ -103,37 +107,41 @@ The parameters in the *azuredeploy.parameters.json* file are listed here:
 
 An abbreviated example of *azuredeploy.parameters.json* is shown here:
 
-    {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-              "appServiceEnvironmentName": {
-                   "value": "yourASENameHere"
-              },
-              "existingAseLocation": {
-                   "value": "East US 2"
-              },
-              "pfxBlobString": {
-                   "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
-              },
-              "password": {
-                   "value": "PASSWORDGOESHERE"
-              },
-              "certificateThumbprint": {
-                   "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
-              },
-              "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
-              }
-         }
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceEnvironmentName": {
+      "value": "yourASENameHere"
+    },
+    "existingAseLocation": {
+      "value": "East US 2"
+    },
+    "pfxBlobString": {
+      "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
+    },
+    "password": {
+      "value": "PASSWORDGOESHERE"
+    },
+    "certificateThumbprint": {
+      "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
+    },
+    "certificateName": {
+      "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
     }
+  }
+}
+```
 
 After the *azuredeploy.parameters.json* file is filled in, configure the default SSL certificate by using the PowerShell code snippet. Change the file paths to match where the Resource Manager template files are located on your machine. Remember to supply your own values for the Resource Manager deployment name and the resource group name:
 
-     $templatePath="PATH\azuredeploy.json"
-     $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 It takes roughly 40 minutes per ASE front end to apply the change. For example, for a default-sized ASE that uses two front ends, the template takes around one hour and 20 minutes to complete. While the template is running, the ASE can't scale.  
 
@@ -146,7 +154,7 @@ App Service Environment has two versions: ASEv1 and ASEv2. The preceding informa
 
 In ASEv1, you manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based SSL. Before you can scale out your App Service plan, you must scale out the worker pool that you want to host it.
 
-ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each core allocated. That includes cores that are used for front ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
+ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU allocated. That includes vCPUs that are used for front ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
 
 To create an ASEv1 by using a Resource Manager template, see [Create an ILB ASE v1 with a Resource Manager template][ILBASEv1Template].
 

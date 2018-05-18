@@ -1,18 +1,21 @@
----
+﻿---
 title: Emotion API C# tutorial | Microsoft Docs
-description: Explore a basic Windows app that uses the Cognitive Services Emotion API to recognize the emotions expressed by faces in an image. 
+description: Explore a basic Windows app that uses the Cognitive Services Emotion API to recognize the emotions expressed by faces in an image.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
-
+author: anrothMSFT
+manager: corncar
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: anroth
 ---
 
 # Emotion API in C&#35; Tutorial
+
+> [!IMPORTANT]
+> Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
+videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
 
 Explore a basic Windows application that uses Emotion API to recognize the emotions expressed by the faces in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Emotion API and WPF (Windows Presentation Foundation), a part of .NET Framework.
 
@@ -21,7 +24,7 @@ Explore a basic Windows application that uses Emotion API to recognize the emoti
 The below example has been developed for the .NET Framework using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).  
 
 #### Subscribe to Emotion API and get a subscription key  
-Before creating the example, you must subscribe to Emotion API which is part of the Microsoft Cognitive Services. See [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Both the primary and secondary key can be used in this tutorial. Make sure to follow best practices for keeping your API key secret and secure.  
+Before creating the example, you must subscribe to Emotion API which is part of the Microsoft Cognitive Services. See [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary key can be used in this tutorial. Make sure to follow best practices for keeping your API key secret and secure.  
 
 #### Get the client library and example  
 You may download the Emotion API client library via [SDK](https://www.github.com/microsoft/cognitive-emotion-windows). The downloaded zip file needs to be extracted to a folder of your choice, many users choose the Visual Studio 2015 folder.
@@ -47,7 +50,7 @@ You may download the Emotion API client library via [SDK](https://www.github.com
   
   ![Emotion Functionality Interface](../Images/EmotionKey.png)
 
-3.	Under "**Select Scenario**" click to use either of the two scenarios, “**Detect emotion using a stream**” or “**Detect emotion using a URL**”, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Emotion API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/).
+3.	Under "**Select Scenario**" click to use either of the two scenarios, “**Detect emotion using a stream**” or “**Detect emotion using a URL**”, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Emotion API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 4.	There are example images to be used with this example application. You can find these images on [the Face API Github repo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) under the **Data** folder. Please note the use of these images is licensed under Fair Use agreement meaning they are OK to use for testing this example, but not for republishing.
 
 ## <a name="Review">Review and Learn</a>

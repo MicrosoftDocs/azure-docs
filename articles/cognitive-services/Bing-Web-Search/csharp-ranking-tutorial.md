@@ -4,13 +4,12 @@ description: Shows how to use the Bing RankingResponse answer to display search 
 services: cognitive-services
 author: bradumbaugh
 manager: bking
-
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/08/2017
-ms.author: brumba
+ms.author: brumbaug
 ---
 
 # Build a console app search client in C#
@@ -26,9 +25,8 @@ This tutorial shows how to:
 
 To follow along with the tutorial, you need:
 
-1. Visual Studio. If you don't have it, [download and install the free Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
-
-2. A subscription key for the Bing Web Search API. If you don't have one, [sign up for a free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+- Visual Studio. If you don't have it, [download and install the free Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
+- A subscription key for the Bing Web Search API. If you don't have one, [sign up for a free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
 ## Create a new Console App project
 
@@ -105,7 +103,7 @@ static void RunQueryAndDisplayResults(string userQuery)
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<YOUR_SUBSCRIPTION_KEY_GOES_HERE>");
         var queryString = HttpUtility.ParseQueryString(string.Empty);
         queryString["q"] = userQuery;
-        var query = "https://api.cognitive.microsoft.com/bing/v5.0/search?" + queryString;
+        var query = "https://api.cognitive.microsoft.com/bing/v7.0/search?" + queryString;
 
         // Run the query
         HttpResponseMessage httpResponseMessage = client.GetAsync(query).Result;
@@ -151,7 +149,7 @@ Before showing how to display the results in ranked order, take a look at a samp
         "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=70BE289346...",
         "totalEstimatedMatches" : 982000,
         "value" : [{
-            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.0",
+            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.0",
             "name" : "Contoso Sailing Club - Seattle",
             "url" : "https:\/\/www.bing.com\/cr?IG=70BE289346ED4594874FE...",
             "displayUrl" : "https:\/\/contososailingsea...",
@@ -159,7 +157,7 @@ Before showing how to display the results in ranked order, take a look at a samp
             "dateLastCrawled" : "2017-04-07T02:25:00"
         },
         {
-            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.6",
+            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/7\/#WebPages.6",
             "name" : "Contoso Sailing Lessons - Official Site",
             "url" : "http:\/\/www.bing.com\/cr?IG=70BE289346ED4594874FE...",
             "displayUrl" : "https:\/\/www.constososailinglessonsseat...",
@@ -173,7 +171,7 @@ Before showing how to display the results in ranked order, take a look at a samp
         "someResultsRemoved" : true
     },
     "relatedSearches" : {
-        "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#RelatedSearches",
+        "id" : "https:\/\/api.cognitive.microsoft.com\/api\/7\/#RelatedSearches",
         "value" : [{
             "text" : "sailing lessons",
             "displayText" : "sailing lessons",
@@ -190,14 +188,14 @@ Before showing how to display the results in ranked order, take a look at a samp
                 "answerType" : "WebPages",
                 "resultIndex" : 0,
                 "value" : {
-                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.0"
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.0"
                 }
             },
             {
                 "answerType" : "WebPages",
                 "resultIndex" : 1,
                 "value" : {
-                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.1"
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.1"
                 }
             }
 
@@ -209,7 +207,7 @@ Before showing how to display the results in ranked order, take a look at a samp
             "items" : [{
                 "answerType" : "RelatedSearches",
                 "value" : {
-                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#RelatedSearches"
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#RelatedSearches"
                 }
             }]
         }
@@ -217,7 +215,7 @@ Before showing how to display the results in ranked order, take a look at a samp
 }
 ```
 
-The `rankingResponse` JSON object ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#rankingresponse)) describes the appropriate display order for search results. It includes one or more of the following, prioritized groups: 
+The `rankingResponse` JSON object ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) describes the appropriate display order for search results. It includes one or more of the following, prioritized groups: 
 
 - `pole`: The search results to get the the most visible treatment (for example, displayed above the mainline and sidebar).
 - `mainline`: The search results to display in the mainline.
@@ -325,6 +323,6 @@ WebPage:
 ...
 ```
 
-## Next Steps
+## Next steps
 
 Read more about [using ranking to display results](rank-results.md).

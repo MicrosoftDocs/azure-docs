@@ -2,7 +2,7 @@
 title: Create and share dashboards of Azure Log Analytics data | Microsoft Docs
 description: This tutorial helps you understand how Log Analytics dashboards can visualize all of your saved log searches, giving you a single lens to view your environment.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
 editor: ''
@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
-
+ms.custom: mvc
 ---
+
 # Create and share dashboards of Log Analytics data
 
 Log Analytics dashboards can visualize all of your saved log searches, giving you the ability to find, correlate, and share IT operational data in the organization.  This tutorial covers creating a log search that will be used to support a shared dashboard that will be accessed by your IT operations support team.  You learn how to:
@@ -43,7 +44,7 @@ This action creates a new, empty, private dashboard and puts you into customizat
 
 When you create a dashboard, it is private by default, which means you are the only person who can see it. To make it visible to others, use the **Share** button that appears alongside the other dashboard commands.<br> ![Share a new dashboard in Azure portal](media/log-analytics-tutorial-dashboards/log-analytics-share-dashboard.png) 
 
-You are asked to choose a subscription and resource group for your dashboard to be published to. For convenience, the portal's publishing experience guides you towards a pattern where you place dashboards in a resource group called **dashboards**.  Verify the subscription selected and then click **Publish**.  Access to the information displayed in the dashboard is controlled with [Azure Resource Based Access Control](../active-directory/role-based-access-control-configure.md).   
+You are asked to choose a subscription and resource group for your dashboard to be published to. For convenience, the portal's publishing experience guides you towards a pattern where you place dashboards in a resource group called **dashboards**.  Verify the subscription selected and then click **Publish**.  Access to the information displayed in the dashboard is controlled with [Azure Resource Based Access Control](../role-based-access-control/role-assignments-portal.md).   
 
 ## Visualize a log search
 

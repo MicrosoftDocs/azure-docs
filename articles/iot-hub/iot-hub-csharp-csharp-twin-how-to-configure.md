@@ -196,7 +196,7 @@ In this section, you create a .NET console app that connects to your hub as **my
             InitTelemetry();
 
             Console.WriteLine("Wait for desired telemetry...");
-            Client.SetDesiredPropertyUpdateCallback(OnDesiredPropertyChanged, null).Wait();
+            Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
             Console.ReadKey();
         }
         catch (AggregateException ex)

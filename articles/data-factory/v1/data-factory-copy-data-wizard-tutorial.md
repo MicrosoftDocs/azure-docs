@@ -3,9 +3,9 @@ title: 'Tutorial: Create a pipeline using Copy Wizard | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using the Copy Wizard supported by Data Factory
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: craigg
+
 
 ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
-ms.author: spelluru
+ms.date: 01/22/2018
+ms.author: jingwang
 
 robots: noindex
 ---
@@ -29,6 +29,10 @@ robots: noindex
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md). 
+
+
 This tutorial shows you how to use the **Copy Wizard** to copy data from an Azure blob storage to an Azure SQL database. 
 
 The Azure Data Factory **Copy Wizard** allows you to quickly create a data pipeline that copies data from a supported source data store to a supported destination data store. Therefore, we recommend that you use the wizard as a first step to create a sample pipeline for your data movement scenario. For a list of data stores supported as sources and as destinations, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
@@ -42,7 +46,7 @@ Complete prerequisites listed in the [Tutorial Overview](data-factory-copy-data-
 In this step, you use the Azure portal to create an Azure data factory named **ADFTutorialDataFactory**.
 
 1. Log in to [Azure portal](https://portal.azure.com).
-2. Click **+ NEW** from the top-left corner, click **Data + analytics**, and click **Data Factory**. 
+2. Click **Create a resource** from the top-left corner, click **Data + analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. In the **New data factory** blade:
