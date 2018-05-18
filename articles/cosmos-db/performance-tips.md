@@ -43,7 +43,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
    2. Direct Mode
 
-      Currenlty, Direct is supported on Windows platform only. Direct mode supports connectivity through TCP and HTTPS protocols. 
+      Currently, Direct is supported on Windows platform only. Direct mode supports connectivity through TCP and HTTPS protocols. 
       
 <a id="use-tcp"></a>
 2. **Connection policy: Use the TCP protocol**
