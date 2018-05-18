@@ -19,6 +19,8 @@ ms.author: wesmc
 ---
 # Quickstart: Create a chat room with SignalR Service
 
+Microsoft Azure SignalR Service is currently in [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Azure SignalR Service is an Azure service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 
 This article shows you how to get started with the Azure SignalR Service. In this quickstart, you will create a chat application using an ASP.NET Core MVC Web App web app. This app will make a connection with your Azure SignalR Service resource to enable real-time content updates. You will host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients. 
@@ -81,7 +83,7 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
 
 1. Add a reference to the `Microsoft.Azure.SignalR` NuGet package by executing the following command:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10007
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview1-10009
 
 2. Execute the following command to restore packages for your project.
 
@@ -92,7 +94,7 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
     This command must be executed in the same directory as the *.csproj* file.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString Endpoint=<Your endpoint>;AccessKey=<Your access key>;    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager will only be used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the chat web app to Azure. Once the web app is deployed to Azure, you will use an application setting instead of storing the connection string with Secret Manager.

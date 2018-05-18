@@ -12,21 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: spelluru
 
 ---
 # Manage lab accounts in Azure Lab Services (formerly Azure DevTest Labs)
 This article describes how to create a lab account, view all lab accounts, or delete a lab account.
 
-## Prerequisites
-Azure Lab Services is currently in a gated preview. To create a lab account, [sign up for the preview](https://aka.ms/azlabspreviewsignup).
-
 ## Create a lab account
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. From the main menu on the left side, select **Create a resource** (at the top of the list), point to **Developer tools**, and click **Lab Services (preview)**.
-1. In the **Create a lab account** window, select **Create**.
-2. In the **Lab account** window, do the following actions: 
+2. From the main menu on the left side, select **Create a resource**.
+3. Search for **Lab Services** in the Azure Marketplace, and select **Lab Services** in the drop-down list. 
+4. Select **Lab Sercices (Preview)** in the flitered list of services. 
+5. In the **Create a lab account** window, select **Create**.
+7. In the **Lab account** window, do the following actions: 
     1. For **Lab account name**, enter a name. 
     2. Select the **Azure subscription** in which you want to create the lab account.
     3. For **Resource group**, select **Create new**, and enter a name for the resource group.

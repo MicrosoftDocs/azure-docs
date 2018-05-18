@@ -79,6 +79,8 @@ A device must be registered with your IoT hub before it can connect. In this qui
    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
    ```
 
+    If you choose a different name for your device, update the device name in the sample applications before you run them.
+
 1. Run the following command to get the _device connection string_ for the device you just registered:
 
    ```azurecli-interactive

@@ -39,9 +39,9 @@ Visit [Azure AD](../active-directory/add-users-azure-active-directory.md) docume
 
 ## Manage Blockchain Workbench administrators
 
-Once users have been added to the directory, the next step is to choose which users are Blockchain Workbench administrators. Users in the **Administrators** group are associated with the **Administrator application role** in Blockchain Workbench. Administrators can add or remove users, assign users to specific scenarios, and create new applications.
+Once users have been added to the directory, the next step is to choose which users are Blockchain Workbench administrators. Users in the **Administrator** group are associated with the **Administrator application role** in Blockchain Workbench. Administrators can add or remove users, assign users to specific scenarios, and create new applications.
 
-To add users to the **Administrators** group in the Azure AD directory:
+To add users to the **Administrator** group in the Azure AD directory:
 
 1.  Sign in to the [Azure portal](https://portal.azure.com).
 2.  Verify you are in the Azure AD tenant associated to Blockchain Workbench by selecting your account in the top right corner.
@@ -64,20 +64,18 @@ To add users to the **Administrators** group in the Azure AD directory:
 
 Use the Blockchain Workbench application to manage users and organizations that are part of your consortium. You can add or remove users to applications and roles.
 
-[Open the Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) in your browser and sign in as an administrator.
+1. [Open the Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) in your browser and sign in as an administrator.
 
-![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
+    ![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
 
-### Managing members in applications
+    Members are added to each application. Members can have one or more application roles to initiate contracts or take actions.
 
-Members are added to each application. Members can have one or more application roles to initiate contracts or take actions.
+2. To manage members for an application, select an application tile in the **Applications** pane.
 
-To add members to an application, select an application tile in the **Applications** pane.
+    The number of members associated to the selected application is reflected in the members tile.
 
-![Select application](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
+    ![Select application](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
 
-> [!NOTE]
-> The number of members associated to the selected application is reflected in the members tile.
 
 #### Add member to application
 
@@ -112,4 +110,7 @@ To add members to an application, select an application tile in the **Applicatio
 
 ## Next steps
 
-[Create a blockchain application in Azure Blockchain Workbench](blockchain-workbench-create-app.md)
+In this how-to article, you have learned how to manage users for Azure Blockchain Workbench. To learn how to create a blockchain application, continue to the next how-to article.
+
+> [!div class="nextstepaction"]
+> [Create a blockchain application in Azure Blockchain Workbench](blockchain-workbench-create-app.md)

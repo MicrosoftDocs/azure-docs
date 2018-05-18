@@ -19,7 +19,7 @@ An operator may want to further extend the out of the box data visualization pro
 
 To complete this how-to, you will need the following:
 
-* [Deploy the Remote Monitoring preconfigured solution](/iot-suite/iot-suite-remote-monitoring-deploy)
+* [Deploy the Remote Monitoring preconfigured solution](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 ## Create a consumer group
 

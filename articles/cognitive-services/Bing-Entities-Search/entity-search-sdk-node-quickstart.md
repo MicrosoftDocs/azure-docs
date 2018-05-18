@@ -48,7 +48,9 @@ The code prints `result.value` items to the console without parsing any text.  T
 - _type: 'Thing'
 - _type: 'ImageObject'
 
+<!-- Removing until we can replace with a sanitized version.
 ![Entity results](media/entity-search-sdk-node-quickstart-results.png)
+-->
 
 ## Next steps
 

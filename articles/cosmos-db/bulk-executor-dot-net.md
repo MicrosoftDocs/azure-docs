@@ -16,7 +16,7 @@ ms.author: ramkris
 
 # Using BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB
 
-This tutorial provides instructions on using the Azure Cosmos DB’s BulkExecutor .NET library to import and update documents to Azure Cosmos DB collections. This tutorial will walk you through a sample .NET application which bulk imports randomly generated documents into an Azure Cosmos DB collection. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
+This tutorial provides instructions on using the Azure Cosmos DB’s BulkExecutor .NET library to import and update documents to Azure Cosmos DB collections. To learn about BulkExecutor library and how it helps you leverage massive throughput and storage, see [BulkExecutor Library overview](bulk-executor-overview.md) article. This tutorial will walk you through a sample .NET application which bulk imports randomly generated documents into an Azure Cosmos DB collection. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
 
 ## Prerequisites
 

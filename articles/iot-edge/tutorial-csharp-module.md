@@ -124,7 +124,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
     try {
         temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
     } catch(ArgumentOutOfRangeException e) {
-        Console.WriteLine("Proerty TemperatureThreshold not exist");
+        Console.WriteLine("Property TemperatureThreshold not exist");
     }
 
     // Attach callback for Twin desired properties updates

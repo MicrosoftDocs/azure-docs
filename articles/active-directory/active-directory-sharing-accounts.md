@@ -53,7 +53,7 @@ Azure AD features that enable account sharing include:
 * Custom Password apps
 * [App usage dashboard/reports](active-directory-passwords-get-insights.md)
 * End-user access portals
-* [App proxy](active-directory-application-proxy-get-started.md)
+* [App proxy](manage-apps/application-proxy.md)
 * [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Sharing an account

@@ -417,13 +417,14 @@ text_classifier.fit(df_train)
             text_callable_list=None, text_cols=['text'], text_regex_list=None,
             weight_col=None)
 
-### Examine and set the parameters of the different pipeline steps
 
-Although the fitting of a scikit-learn model, preprocessing is being done prior to fitting using a pipeline of preprocessor and featurizer (transformation) steps. Hence, the reference to a "pipeline" for training. During evaluation, the full pipeline, including preprocessing and scikit-learn model prediction, is applied to a testing data set.
+During training, you must have both text and label columns. While, only the text column is needed for predictions. 
+
+### Examine and set the parameters of the different pipeline steps
+    
+Typically, you set the parameters before you fit a model. 
 
 ***Example shown with text_word_ngrams*** 
-
-Typically, you set the parameters before you fit a model. 
 
 The following code samples show you how to train the model using the default pipeline and model parameters. 
 

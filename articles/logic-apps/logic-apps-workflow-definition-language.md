@@ -3,7 +3,7 @@ title: Workflow Definition Language schema - Azure Logic Apps | Microsoft Docs
 description: Write custom workflow definitions for Azure Logic Apps with the Workflow Definition Language
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: 
 documentationcenter: 
 
@@ -266,10 +266,13 @@ property or a value in an array.
 
 Some expressions get their values from runtime actions 
 that might not yet exist when a logic app starts to run. 
-To reference or work with these values in expressions, you can use *functions*. 
+To reference or work with these values in expressions, you can use 
+[*functions*](../logic-apps/workflow-definition-language-functions-reference.md). 
 For example, you can use math functions for calculations, such as the 
 [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function, 
-which returns the sum from integers or floats. 
+which returns the sum from integers or floats. For detailed information about each function, 
+see the [alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
+Or, continue learning about functions and their general purpose.
 
 Here are just a couple example tasks that you can perform with functions: 
 

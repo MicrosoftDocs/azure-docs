@@ -12,14 +12,15 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to only use intents and no entities in the app. 
 ---
 
-# Quickstart: Create app with intents
-In this quickstart, you create an app that demonstrates how to use intents to determine the user's intention based on the utterance they submit to the app.
+# Quickstart: Create app to determine user's intention
+In this quickstart, create an app that demonstrates how to use **intents** to determine the user's _intention_ based on the utterance (text) they submit to the app. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
-This simple app has two intentions. The first intent's purpose is to identify when a user wants store information such as hours, and location. The second intent's purpose is to identify every other type of utterance. 
-
-Once the type of utterance is identified, LUIS is done. The calling application or chat bot then takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+This app is the simplest type of LUIS app because it doesn't extract data from the utterances. It only determines an utterance's intention.
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
+## Purpose of the app
+This app has two intents. The first intent, **"GetStoreInfo"**, identifies when a user wants store information such as hours, and location. The second intent, **"None"**, identifies every other type of utterance. 
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log in to the region where you need the LUIS endpoints published.
@@ -116,7 +117,11 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about intents](luis-concept-intent.md)
+> [Learn how to add a simple entity to your app](luis-quickstart-primary-and-secondary-data.md)
+
+Add the **number** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
+
+Add the **datetimeV2** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract dates, times, and datetime ranges.
 
 
 <!--References-->

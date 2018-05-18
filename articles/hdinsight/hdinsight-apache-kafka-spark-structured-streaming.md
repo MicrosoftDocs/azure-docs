@@ -11,7 +11,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: larryfr
 #Customer intent: As a developer, I want to learn how to use Spark Structured Streaming with Kafka on HDInsight.
 ---
@@ -144,8 +144,8 @@ To create an Azure Virtual Network, and then create the Kafka and Spark clusters
     | Subscription | Your Azure subscription |
     | Resource group | The resource group that contains the resources. |
     | Location | The Azure region that the resources are created in. |
-    | Spark Cluster Name | The name of the Spark cluster. |
-    | Kafka Cluster Name | The name of the Kafka cluster. |
+    | Spark Cluster Name | The name of the Spark cluster. The first six characters must be different than the Kafka cluster name. |
+    | Kafka Cluster Name | The name of the Kafka cluster. The first six characters must be different than the Spark cluster name. |
     | Cluster Login User Name | The admin user name for the clusters. |
     | Cluster Login Password | The admin user password for the clusters. |
     | SSH User Name | The SSH user to create for the clusters. |

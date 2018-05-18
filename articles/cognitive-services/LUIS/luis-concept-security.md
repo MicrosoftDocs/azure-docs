@@ -50,7 +50,9 @@ A private app's endpoint is only available to the following:
 Other authoring or endpoint keys have **no** access.
 
 ### Public app endpoint access
-Configure the app as **public** on the **Settings** page of the app. Once an app is configured as public, any valid LUIS authoring key or LUIS endpoint key can query your app, as long as the key has not used the entire endpoint quota.
+Configure the app as **public** on the **Settings** page of the app. Once an app is configured as public, _any_ valid LUIS authoring key or LUIS endpoint key can query your app, as long as the key has not used the entire endpoint quota.
+
+A user who is not an owner or collaborator, can only access a public app if given the app ID. LUIS doesn't have a public _market_ or other way to search for a public app.  
 
 ## Securing the endpoint 
 You can control who can see your LUIS endpoint key by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (such as [AAD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authentication and authorization are verified, pass the call on to LUIS. While this strategy doesn’t prevent man-in-the-middle attacks, it obfuscates your endpoint from your users, allows you to track access, and allows you to add endpoint response logging (such as [Application Insights](https://azure.microsoft.com/services/application-insights/)).  

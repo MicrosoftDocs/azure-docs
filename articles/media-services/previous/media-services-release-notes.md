@@ -42,6 +42,10 @@ These release notes for Azure Media Services summarize changes from previous rel
 ## <a id="rest_version_history"/>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
 
+## May 2018 
+
+Starting May 12, 2018, live channels will no longer support the RTP/MPEG-2 transport stream ingest protocol. Please migrate from RTP/MPEG-2 to RTMP or fragmented MP4 (Smooth Streaming) ingest protocols.
+
 ## October 2017 release
 > [!IMPORTANT] 
 > Media Services is deprecating support for Azure Access Control Service authentication keys. On June 22, 2018, you can no longer authenticate with the Media Services back end via code by using Access Control Service keys. You must update your code to use Azure Active Directory (Azure AD) per [Azure AD-based authentication](media-services-use-aad-auth-to-access-ams-api.md). Watch for warnings about this change in the Azure portal.

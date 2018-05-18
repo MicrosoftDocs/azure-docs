@@ -7,10 +7,13 @@
   - name: About Time Series Insights
     href: time-series-insights-overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Explore Time Series Insights
     href: time-series-quickstart.md
+- name: Tutorials
+  items:
+  - name: Explore TSI JavaScript client library
+    href: tutorial-explore-js-client-lib.md
 - name: Concepts
   items:
   - name: Plan your environment

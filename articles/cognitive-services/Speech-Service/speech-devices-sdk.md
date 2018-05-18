@@ -32,7 +32,7 @@ Complete, end-to-end system reference designs. More coming soon!
 
 ## Next steps
 
-To get started, get a [free Azure account](https://azure.microsoft.com/free/) and sign up for the Speech Devices SDK.
+To get started, get a [free Azure account](https://azure.microsoft.com/free/ai/) and sign up for the Speech Devices SDK.
 
 > [!div class="nextstepaction"]
 > [Sign up for the Speech Devices SDK](get-speech-devices-sdk.md)

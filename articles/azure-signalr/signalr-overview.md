@@ -18,6 +18,8 @@ ms.author: wesmc
 
 # What is Azure SignalR Service
 
+Microsoft Azure SignalR Service is currently in [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 The Azure SignalR Service is an Azure service based on [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction). ASP.NET Core SignalR is an [open source library](https://github.com/aspnet/signalr) that simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the web server to push content updates to connected clients. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates.
 
 This article provides an overview of the Azure SignalR Service. If you want to get started, start with the [ASP.NET Core quickstart](signalr-quickstart-dotnet-core.md).
@@ -35,7 +37,7 @@ Internally, SignalR is an abstraction over a number of techniques used for build
 
 ## Developing SignalR apps
 
-Currently, there are two versions of SignalR you can use with your web applications: SignalR for ASP.NET, and ASP.NET Core SignalR, which is the newest version. The Azure SignalR Service, also called *SignalR Service*, is an Azure-managed service built on ASP.NET Core SignalR. 
+Currently, there are two versions of SignalR you can use with your web applications: SignalR for ASP.NET, and ASP.NET Core SignalR, which is the newest version. The Azure SignalR Service is an Azure-managed service built on ASP.NET Core SignalR. 
 
 ASP.NET Core SignalR is a rewrite of the previous version. As a result, ASP.NET Core SignalR is not backward compatible with the earlier SignalR version. The APIs and behaviors are different. The ASP.NET Core SignalR SDK is .NET Standard so you can still use it with the .NET Framework. However, you must use the new APIs instead of old ones. If you're using SignalR and want to move to ASP.NET Core SignalR, or Azure SignalR Service, you'll need to change your code to handle differences in the APIs.
 

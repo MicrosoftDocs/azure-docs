@@ -21,12 +21,12 @@
       - name: Managed Service Identity
         tocHref: /azure/active-directory/managed-service-identity/
         topicHref: /azure/active-directory/managed-service-identity/
-  - name: Active Directory B2C
-    tocHref: /azure/active-directory-b2c/
-    topicHref: /azure/active-directory-b2c/
-  - name: Active Directory Domain Services
-    tocHref: /azure/active-directory-domain-services/
-    topicHref: /azure/active-directory-domain-services/
+      - name: B2C
+        tocHref: /azure/active-directory-b2c/
+        topicHref: /azure/active-directory-b2c/
+      - name: Domain Services
+        tocHref: /azure/active-directory-domain-services/
+        topicHref: /azure/active-directory-domain-services/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -119,6 +119,9 @@
   - name: Biztalk Services
     tocHref: /azure/biztalk-services/
     topicHref: /azure/biztalk-services/
+  - name: Blockchain Workbench
+    tocHref: /azure/blockchain-workbench/
+    topicHref: /azure/blockchain-workbench/
   - name: Cache
     tocHref: /azure/cache/
     topicHref: /azure/cache/
@@ -234,6 +237,9 @@
     - name: Web Language Model
       tocHref: /azure/cognitive-services/web-language-model/
       topicHref: /azure/cognitive-services/web-language-model/home    
+    - name: Personality Chat
+      tocHref: /azure/cognitive-services/project-personality-chat/
+      topicHref: /azure/cognitive-services/project-personality-chat/overview    
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -330,9 +336,12 @@
     - name: IoT Hub Device Provisioning Service
       tocHref: /azure/iot-dps/
       topicHref: /azure/iot-dps/
-    - name: IoT Suite
+    - name: IoT solution accelerators
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/   
+    - name: IoT Central
+      tocHref: /azure/iot-central/
+      topicHref: /azure/iot-central/         
     - name: Maps
       tocHref: /azure/azure-maps/
       topicHref: /azure/azure-maps/

@@ -185,4 +185,6 @@ See [Entity best practices](luis-concept-best-practices.md#entities) to learn mo
 
 ## Next steps
 
+Learn concepts about good [utterances](luis-concept-utterance.md). 
+
 See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.

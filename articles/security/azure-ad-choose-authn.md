@@ -163,7 +163,7 @@ Use or enable Password Hash Sync no matter which authentication method you choos
 
 3. **Identity Protection:** One of the best ways to protect users in the cloud is Azure AD Identity Protection. Microsoft continually scans the Internet for user and password lists, bad actors sell and make available on the dark web. Azure AD can use this information to verify if any of the usernames and passwords in your organization are compromised. It is therefore critical to enable Password Hash Sync regardless of what authentication method you use, whether that is federated or pass-through authentication. Leaked credentials are presented as a report and can be used to block or force a user to change their password when they try to sign in with a leaked password.
 
-Lastly, according to [Gartner](https://info.microsoft.com/landingIAMGartnerreportregistration.html), Microsoft has the most full-featured set of Identity and Access Management functions. Microsoft fends off seven trillion cyber events per day while providing sign-on to authorized users to thousands of SaaS applications like Office 365 from virtually any device. 
+Lastly, according to [Gartner](https://info.microsoft.com/landingIAMGartnerreportregistration.html), Microsoft has the most full-featured set of Identity and Access Management functions. Microsoft handles [450 billion authentication requests](https://www.microsoft.com/en-us/security/intelligence-report) every month to provide access to thousands of SaaS applications like Office 365 from virtually any device. 
 
 ## Conclusion
 
@@ -175,4 +175,4 @@ In today’s world, threats are present 24 hours a day and come from everywhere.
 
 [Get started](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) with Azure AD and deploy the right authentication solution for your organization.
 
-If you are considering migrating from federated to cloud authentication, learn more [about the changing the sign in method](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). To help you plan and implement the migration, you can use [these project plans to assist you](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/tree/master/Authentication).
+If you are considering migrating from federated to cloud authentication, learn more [about the changing the sign in method](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). To help you plan and implement the migration, you can use [these project plans to assist you](http://aka.ms/deploymentplans).

@@ -23,9 +23,9 @@ ms.author: wolfma
 > [!NOTE]
 > For all samples below, we assume the following top-level declarations are in place:
 >
-> [!code-csharp[](code/speech_recognition_samples.cs#toplevel)]
+> [!code-csharp[](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#toplevel)]
 >
-> [!code-cpp[](code/speech_recognition_samples.cpp#toplevel)]
+> [!code-cpp[](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#toplevel)]
 >
 > - - -
 
@@ -33,9 +33,9 @@ ms.author: wolfma
 
 The code snippet below shows how to recognize speech input from the microphone in the default language (`en-US`).
 
-[!code-csharp[Speech Recognition Using Microphone](code/speech_recognition_samples.cs#recognitionWithMicrophone)]
+[!code-csharp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionWithMicrophone)]
 
-[!code-cpp[Speech Recognition Using Microphone](code/speech_recognition_samples.cpp#SpeechRecognitionWithMicrophone)]
+[!code-cpp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechRecognitionWithMicrophone)]
 
 - - -
 
@@ -47,9 +47,9 @@ The audio format needs to be WAV / PCM with a single channel (mono) and 16 KHz s
 
 [!include[Sample Audio](includes/sample-audio.md)]
 
-[!code-csharp[Speech Recognition From a File](code/speech_recognition_samples.cs?name=recognitionFromFile)]
+[!code-csharp[Speech Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs?name=recognitionFromFile)]
 
-[!code-cpp[Speech Recognition From a File](code/speech_recognition_samples.cpp?name=SpeechRecognitionWithFile)]
+[!code-cpp[Speech Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp?name=SpeechRecognitionWithFile)]
 
 - - -
 
@@ -59,17 +59,17 @@ The [Custom Speech Service (CRIS)](https://www.cris.ai/) allows to customize Mic
 The snippet below shows how to recognize speech from a microphone using your CRIS model;
 fill in your CRIS subscription key and your own deployment ID before running it.
 
-[!code-csharp[Speech Recognition Using a Customized Model](code/speech_recognition_samples.cs#recognitionCustomized)]
+[!code-csharp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionCustomized)]
 
-[!code-cpp[Speech Recognition Using a Customized Model](code/speech_recognition_samples.cpp#SpeechRecognitionUsingCustomizedModel)]
+[!code-cpp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechRecognitionUsingCustomizedModel)]
 
 - - -
 
 ## Continuous Speech Recognition
 
-[!code-csharp[Continuous Speech Recognition](code/speech_recognition_samples.cs#recognitionContinuous)]
+[!code-csharp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionContinuous)]
 
-[!code-cpp[Continuous Speech Recognition](code/speech_recognition_samples.cpp#SpeechContinuousRecognitionUsingEvents)]
+[!code-cpp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechContinuousRecognitionUsingEvents)]
 
 - - -
 

@@ -6,6 +6,7 @@
 # Get started
 ## [Azure portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
@@ -13,12 +14,14 @@
 
 ## Manage Data Lake Analytics
 ### [Azure portal](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
-### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### Command line
+#### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+#### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+### SDKs
+#### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+#### [Python](data-lake-analytics-manage-use-python-sdk.md)
+#### [Java](data-lake-analytics-manage-use-java-sdk.md)
+#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Policies](data-lake-analytics-policies.md)
 ### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
 ### [Adjust quota limits](data-lake-analytics-quota-limits.md)
@@ -36,6 +39,7 @@
 #### [Programmability guide](data-lake-analytics-u-sql-programmability-guide.md)
 
 ### Visual Studio
+#### [Install](data-lake-analytics-data-lake-tools-install.md)
 #### [Browse and view jobs](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Debug custom C# code](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Troubleshoot recurring jobs](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

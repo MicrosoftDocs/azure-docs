@@ -6,8 +6,8 @@ author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 04/25/2018
+ms.topic: conceptual
+ms.date: 05/04/2018
 ms.author: tomfitz
 ---
 
@@ -35,6 +35,14 @@ Use Azure Functions for serverless response to events.
 | [Automate resizing uploaded images using Event Grid](resize-images-on-storage-blob-upload-event.md) | Users upload images through web app to storage account. When a storage blob is created, Event Grid sends an event to the function app, which resizes the uploaded image. |
 | [Stream big data into a data warehouse](event-grid-event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
 | [Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |
+
+## Hybrid Connections
+
+Use Azure Relay Hybrid Connections to send events to applications that are within an enterprise network and don't have a publicly accessible endpoint.
+
+|Title  |Description  |
+|---------|---------|
+| [Send events hybrid connection](custom-event-to-hybrid-connection.md) | Sends a custom event to an existing hybrid connection for processing by a listener application. |
 
 ## Logic Apps
 

@@ -20,7 +20,7 @@ The Speech Devices SDK is in restricted preview and requires you to be enrolled 
 
 To get access to the Speech Devices SDK, follow these steps:
 
-1. Go to the Microsoft Speech Devices SDK [sign-up form](https://go.microsoft.com/fwlink/?linkid=872620).
+1. Go to the Microsoft Speech Devices SDK [sign-up form](https://aka.ms/sdsdk-signup).
 1. Read the [license agreement](speech-devices-sdk-license.md).
 1. If you agree to the terms of this license agreement, select "I agree."
 1. Answer the questions in the form.

@@ -15,9 +15,9 @@ ms.author: wolfma
 
 # Shipping an application
 
-Observe the [Speech SDK license](license.md), as well as the [third party software notices](third-party-notices.md) when distributing the Cognitive Services Speech SDK. Also, review the [Microsoft Privacy Statement](https://aka.ms/csspech/privacy).
+Observe the [Speech SDK license](license.md), as well as the [third party software notices](third-party-notices.md) when distributing the Cognitive Services Speech SDK. Also, review the [Microsoft Privacy Statement](https://aka.ms/csspeech/privacy).
 
-Depending on the platform, you are distributing you application on, different files are required for your application.
+Depending on the platform you are distributing your application on, different files are required for your application.
 
 ## Windows
 

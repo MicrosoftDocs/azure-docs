@@ -36,7 +36,7 @@ TimeRange is the time range in the original video. AdjustedTimeRange is the time
 
 Blocks are meant to make it easier to go through the data. For example, block might be broken down based on when speakers change or there is a long pause.
 
-## Next stepsd
+## Next steps
 
 For information about how to get started, see [How to sign up and upload your first video](video-indexer-get-started.md).
 

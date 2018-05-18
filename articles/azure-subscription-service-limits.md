@@ -24,7 +24,7 @@ This document lists some of the most common Microsoft Azure limits, which are al
 Please visit [Azure Pricing Overview](https://azure.microsoft.com/pricing/) to learn more about Azure pricing. There, you can estimate your costs using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) or by visiting the pricing details page for a service (for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). For tips to help manage your costs, see [Prevent unexpected costs with Azure billing and cost management](billing/billing-getting-started.md).
 
 > [!NOTE]
-> If you want to raise the limit or quota above the **Default Limit**, [open an online customer support request at no charge](azure-supportability/resource-manager-core-quotas-request.md). The limits can't be raised above the **Maximum Limit** value shown in the following tables. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits.
+> If you want to raise the limit or quota above the **Default Limit**, [open an online customer support request at no charge](azure-resource-manager/resource-manager-quota-errors.md). The limits can't be raised above the **Maximum Limit** value shown in the following tables. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits.
 >
 > [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](billing/billing-upgrade-azure-subscription.md) and  [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
 >
@@ -50,6 +50,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
+* [Azure Maps](#azure-maps-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -277,6 +278,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Azure Event Grid limits
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
+
+### Azure Maps limits
+[!INCLUDE [maps-limits](../includes/maps-limits.md)]
 
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

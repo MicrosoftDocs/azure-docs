@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/03/2018
+ms.date: 05/07/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
 
@@ -22,24 +22,31 @@ ms.reviewer: dhanyahk
 
 The [Azure Active Directory (Azure AD) reporting APIs](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
 
-The reporting API uses [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) to authorize access to the web APIs. 
+The reporting API uses [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) to authorize access to the web APIs.
+
+To prepare your access to the reporting API, you need to:
+
+1. Assign roles
+2. Register an application
+3. Grant permissions
+4. Gather configuration settings
+
+
+
+## Assign roles
 
 To get access to the reporting data through the API, you need to have one of the following roles assigned:
 
 - Security Reader
+
 - Security Admin
+
 - Global Admin
 
 
-To prepare your access to the reporting API, you must:
 
-1. Register an application 
-2. Grant permissions 
-3. Gather configuration settings 
 
-For questions, issues or feedback, [file a support ticket](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
-
-## Register an Azure Active Directory application
+## Register an application
 
 You need to register an app even if you're accessing the reporting API using a script. This gives you an **Application ID**, which is required for an authorization call and it enables your code to receive tokens.
 
@@ -142,11 +149,12 @@ The following section lists the steps for both APIs. If you don't want to access
 
 
 ## Gather configuration settings 
+
 This section shows you how to get the following settings from your directory:
 
-* Domain name
-* Client ID
-* Client secret
+- Domain name
+- Client ID
+- Client secret
 
 You need these values when configuring calls to the reporting API. 
 
@@ -216,6 +224,10 @@ To get your application's client secret, you need to create a new key and save i
 
 
 ## Next Steps
-* Would you like to access the data from the Azure AD reporting API in a programmatic manner? Check out [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md).
-* If you would like to find out more about Azure Active Directory reporting, see the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
+
+- [Get data using the Azure Active Directory reporting API with certificates](active-directory-reporting-api-with-certificates.md).
+
+- [Get a first impression of the reporting APIs](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+
+- [Create your own solution](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

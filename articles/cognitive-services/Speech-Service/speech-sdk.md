@@ -29,7 +29,7 @@ The table lists the currently supported programming languages and operating syst
 
 ## Get the Windows SDK
 
-The Windows version of the Speech SDK includes 32-bit and 64-bit C/C++ client libraries as well as managed (.NET) libraries for use with C#. The SDK can be installed in Visual Studio using NuGet; simply search for "Cognitive Services Speech SDK."
+The Windows version of the Speech SDK includes 32-bit and 64-bit C/C++ client libraries as well as managed (.NET) libraries for use with C#. The SDK can be installed in Visual Studio using NuGet; simply search for `Microsoft.CognitiveServices.Speech`.
 
 ## Get the Linux SDK
 
