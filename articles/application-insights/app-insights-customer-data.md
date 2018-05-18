@@ -54,7 +54,7 @@ Application Insights is a completely flexible store, which while prescribing a s
 
 It is __strongly__ recommended, when possible, to restructure your data collection policy to disable the collection of private data, obfuscating or anonymizing it, or otherwise modifying it to remove it from being considered "private." Handling the data after it has been collected, will result in costs to you and your team to define and automate a strategy, build an interface for your customers to interact with their data through, and ongoing maintenance costs. Further, it is computationally costly for Application Insights, and a large volume of concurrent query or purge API calls have the potential to negatively impact all other interaction with Application Insights functionality. That said, there are indeed some valid scenarios where private data must be collected. For these cases, data should be handled as described in this section.
 
-[!INCLUDE gdpr-intro-sentence.md]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ### View and export
 
