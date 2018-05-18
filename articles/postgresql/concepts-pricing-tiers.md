@@ -19,7 +19,7 @@ You can create an Azure Database for PostgreSQL server in one of three different
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Memory per vCore | Baseline | 2x Basic | 2x General Purpose |
+| Memory per vCore | 2 GB | 5 GB | 10 GB |
 | Storage size | 5 GB to 1 TB | 5 GB to 2 TB | 5 GB to 2 TB |
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |
@@ -35,7 +35,7 @@ To choose a pricing tier, use the following table as a starting point.
 After you create a server, the number of vCores can be changed up or down (within the same pricing tier) within seconds. You also can independently adjust the amount of storage up and the backup retention period up or down with no application downtime. You can't change the pricing tier or the backup storage type after a server is created. For more information, see the [Scale resources](#scale-resources) section.
 
 
-## Compute generations, vCores, and memory
+## Compute generations and vCores
 
 Compute resources are provided as vCores, which represent the logical CPU of the underlying hardware. Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors. Gen 4 and Gen 5 are available in the following regions ("X" denotes available). 
 
@@ -65,8 +65,6 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Japan East | X | X |
 | Japan West | X | X |
 | Korea South |  | X |
-
-Depending on the pricing tier, each vCore is provisioned with a specific amount of memory. For capacity planning, you can use these as general guidelines: Basic - 2 GB per vCore, General Purpose - 5 GB per vCore, and Memory Optimized - 10 GB per vCore. When you increase or decrease the number of vCores for your server, the memory increases or decreases proportionally.
 
 ## Storage
 
