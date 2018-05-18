@@ -93,23 +93,21 @@ Configuring SQL Always On instances requires additional steps and involves at le
 > [!NOTE]
 > The SQL adapter RP _only_ supports SQL 2016 SP1 Enterprise or later instances for Always On, as it requires new SQL features such as automatic seeding. In addition to the preceding common list of requirements:
 
-* You must set up the SQL servers. Specifically, you must enable [Automatic Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) on each availability group for each instance of SQL Server.
+Specifically, you must enable [Automatic Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) on each availability group for each instance of SQL Server:
 
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>]
-    MODIFY REPLICA ON 'InstanceName'
-    WITH (SEEDING_MODE = AUTOMATIC)
-GO
-```
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON 'InstanceName'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  ```
 
-On secondary instances
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
-GO
+On secondary instances use these SQL commands:
 
-```
-
-
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
 
 To add SQL Always On hosting servers, follow these steps:
 
