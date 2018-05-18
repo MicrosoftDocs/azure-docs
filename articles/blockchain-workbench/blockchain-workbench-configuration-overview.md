@@ -910,5 +910,5 @@ The following configuration file is for the asset transfer sample:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [Azure Blockchain Workbench REST API reference](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
 

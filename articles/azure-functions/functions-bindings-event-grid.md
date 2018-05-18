@@ -40,6 +40,8 @@ If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` typ
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## Example
 
 See the language-specific example for an Event Grid trigger:
@@ -523,7 +525,7 @@ module.exports = function (context, req) {
     // If the request is for subscription validation, send back the validation code.
     if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
         context.log('Validate request received');
-        context.res = { status: 200, body: messages[0].data.validationCode }
+        context.res = { status: 200, body: JSON.stringify({validationResponse: messages[0].data.validationCode}) }
     }
     else {
         // The request is not for subscription validation, so it's for one or more events.

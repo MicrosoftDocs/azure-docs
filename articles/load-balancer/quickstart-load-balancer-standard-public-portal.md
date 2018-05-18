@@ -186,4 +186,7 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 ## Next steps
 
-Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
+In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

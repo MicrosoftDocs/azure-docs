@@ -183,7 +183,7 @@ To change the static image shown io the home page of the dashboard, replace the 
 
 To send telemetry data from non OPC UA devices to Connected Factory:
 
-1. [Configure a new station in the Connected Factory topology](iot-suite-connected-factory-configure.md) in the `ContosoTopologyDescription.json` file.
+1. [Configure a new station in the Connected Factory topology](../iot-accelerators/iot-accelerators-connected-factory-configure.md) in the `ContosoTopologyDescription.json` file.
 
 1. Ingest the telemetry data in Connected Factory compatible JSON format:
 
@@ -210,5 +210,5 @@ To send telemetry data from non OPC UA devices to Connected Factory:
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
 * [Predictive Maintenance solution accelerator overview](iot-suite-predictive-overview.md)
-* [Connected Factory solution accelerator overview](iot-suite-connected-factory-overview.md)
+* [Connected Factory solution accelerator overview](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [IoT security from the ground up](securing-iot-ground-up.md)
