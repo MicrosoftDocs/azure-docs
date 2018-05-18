@@ -13,7 +13,7 @@ ms.author: v-geberr
 
 # About Language Understanding (LUIS)
 
-Language Understanding (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it. A client application that converses with the user can pass user input to a LUIS app and receive relevant, detailed information back.
+Language Understanding (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build client applications that converse using natural language text. The client application sends user text to LUIS. LUIS applies natural language processing and returns relevant, detailed information about the text. 
 
 Several Microsoft technologies work with LUIS:
 
