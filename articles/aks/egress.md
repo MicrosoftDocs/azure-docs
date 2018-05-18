@@ -35,7 +35,7 @@ Result
 23.101.128.81
 ```
 
-## Deploy a Service with the static IP
+## Create a service with the static IP
 
 Now that you have an IP address, create a Kubernetes service with the type `LoadBalancer` and assign the IP address to the service.
 
