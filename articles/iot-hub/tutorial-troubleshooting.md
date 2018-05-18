@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Troubleshoot device connectivity to IoT Hub tutorial
-description: Use IoT Hub tools to troubleshoot device connectivity issues to your IoT hub.
+description: Use IoT Hub tools to troubleshoot, during development, device connectivity issues to your IoT hub.
 services: iot-hub
 # keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: dominicbetts
@@ -20,12 +20,12 @@ ms.service: iot-hub
 # ms.reviewer:
 # manager: MSFT-alias-manager-or-PM-counterpart
 
-# As a developer or IT Pro, I want to know what tools I can use to troubleshoot connectivity issues between my IoT devices and my IoT hub.
+# As a developer, I want to know what tools I can use to verify connectivity between my IoT devices and my IoT hub.
 ---
 
-# Tutorial: Troubleshoot device connectivity
+# Tutorial: Test device connectivity during development
 
-In this tutorial, you use Azure IoT Hub portal tools and Azure CLI commands to troubleshoot device connectivity issues. This tutorial also uses a simple device simulator that you run on your desktop machine.
+In this tutorial, you use Azure IoT Hub portal tools and Azure CLI commands to test device connectivity. This tutorial also uses a simple device simulator that you run on your desktop machine.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
