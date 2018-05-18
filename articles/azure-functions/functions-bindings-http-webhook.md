@@ -51,7 +51,7 @@ See the language-specific example:
 
 ### Trigger - C# example
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request. Notice that the return value is used for the output binding, but no return value attribute is required.
+The following example shows a [C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request. Notice that the return value is used for the output binding, but a return value attribute isn't required.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -620,7 +620,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Output - usage
 
-To send an HTTP response, use the language-standard response patterns. In C# or C# script, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`. In C#, no return value attribute is required.
+To send an HTTP response, use the language-standard response patterns. In C# or C# script, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`. In C#, a return value attribute isn't required.
 
 For example responses, see the [trigger example](#trigger---example) and the [webhook example](#trigger---webhook-example).
 
