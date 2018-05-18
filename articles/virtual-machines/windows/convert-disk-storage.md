@@ -42,8 +42,8 @@ $rgName = 'yourResourceGroup'
 # Name of the your virtual machine
 $vmName = 'yourVM'
 
-# Choose between Standard_LRS and Premium_LRS based on your scenario
-$storageType = 'Premium_LRS'
+# Choose between StandardLRS and PremiumLRS based on your scenario
+$storageType = 'PremiumLRS'
 
 # Premium capable size
 # Required only if converting storage from standard to premium
@@ -84,8 +84,8 @@ For your dev/test workload, you may want to have mixture of standard and premium
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk
 $rgName = 'yourResourceGroupName'
-# Choose between Standard_LRS and Premium_LRS based on your scenario
-$storageType = 'Premium_LRS'
+# Choose between StandardLRS and PremiumLRS based on your scenario
+$storageType = 'PremiumLRS'
 # Premium capable size 
 $size = 'Standard_DS2_v2'
 
