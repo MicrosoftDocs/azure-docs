@@ -19,7 +19,7 @@ ms.custom: it-pro;
 
 # Understand Azure Active Directory administrator roles and Azure RBAC roles
 
-If you are new to Azure, you may find it challenging to understand all the different roles in Azure. This article will help explain the following roles and when you would use each:
+If you are new to Azure, you may find it challenging to understand all the different roles in Azure. This article helps explain the following roles and when you would use each:
 - Classic subscription administrator roles
 - Azure Active Directory (Azure AD) administrator roles
 - Azure role-based access control (RBAC) roles
@@ -37,8 +37,8 @@ Account administrator, Service administrator, and Co-administrator are the three
 | Classic subscription administrator | Limit | Permissions | Notes |
 | --- | --- | --- | --- |
 | Account administrator | 1 per Azure account | <ul><li>Access the [Azure Account Center](https://account.azure.com/Subscriptions)</li><li>Manage all subscriptions in an account</li><li>Create new subscriptions</li><li>Cancel subscriptions</li><li>Change the billing for a subscription</li><li>Change the Service administrator</li></ul> | Conceptually, the billing owner of the subscription.|
-| Service administrator | 1 per Azure subscription | <ul><li>Manage services in the [Azure portal](https://portal.azure.com)</li><li>Assign users to the Co-administrator role</li></ul> | By default, for a new subscription, the Account administrator is also the Service administrator.<br>The Service administrator has the equivalent access of user who is assigned the Owner role at the subscription scope. |
-| Co-administrator | 200 per subscription | <ul><li>Same access privileges as the Service administrator, but can’t change the association of subscriptions to Azure directories</li><li>Assign users to the Co-administrator role, but cannot change the Service administrator</li></ul> | The Co-administrator  has the equivalent access of user who is assigned the Owner role at the subscription scope. |
+| Service administrator | 1 per Azure subscription | <ul><li>Manage services in the [Azure portal](https://portal.azure.com)</li><li>Assign users to the Co-administrator role</li></ul> | By default, for a new subscription, the Account administrator is also the Service administrator.<br>The Service administrator has the equivalent access of a user who is assigned the Owner role at the subscription scope. |
+| Co-administrator | 200 per subscription | <ul><li>Same access privileges as the Service administrator, but can’t change the association of subscriptions to Azure directories</li><li>Assign users to the Co-administrator role, but cannot change the Service administrator</li></ul> | The Co-administrator has the equivalent access of a user who is assigned the Owner role at the subscription scope. |
 
 In the Azure portal, you can see who is assigned to the Account administrator and Service administrator by viewing the properties of your subscription.
 
@@ -69,13 +69,13 @@ Azure AD administrator roles are used to manage Azure AD resources in a director
 
 For a list of all the Azure AD administrator roles, see [Assigning administrator roles in Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
-In the Azure portal, you can assign the Azure AD administrator roles in the **Azure Active Directory** pane.
+In the Azure portal, you can assign the Azure AD administrator roles in the **Azure Active Directory** blade.
 
 ![Azure AD administrator roles in the Azure portal](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
 ## Azure RBAC roles
 
-Azure RBAC includes over 60 built-in roles that control permissions to manage Azure resources such as compute and storage. There are four fundamental RBAC roles. The first three apply to all resource types:
+Azure RBAC is a system that provides fine-grained access management to Azure resources. Azure RBAC includes over 60 built-in roles that control permissions to manage Azure resources such as compute and storage. There are four fundamental RBAC roles. The first three apply to all resource types:
 
 | Azure RBAC role | Permissions | Notes |
 | --- | --- | --- |
@@ -86,15 +86,15 @@ Azure RBAC includes over 60 built-in roles that control permissions to manage Az
 
 The rest of the built-in roles allow management of specific Azure resources. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows the user to create and manage virtual machines. For a list of all the built-in roles, see [Built-in roles](built-in-roles.md).
 
-In the Azure portal, role assignment using RBAC appears in the **Access control (IAM)** pane. This pane can found throughout the portal, such as subscriptions, resource groups, and various resources.
+Only the Azure portal and the Azure Resource Manager APIs support RBAC. Users, groups, and applications that are assigned RBAC roles cannot use the [Azure classic deployment model APIs](../azure-resource-manager/resource-manager-deployment-model.md).
 
-![Access control (IAM) pane in the Azure portal](./media/rbac-and-directory-admin-roles/access-control.png)
+In the Azure portal, role assignment using RBAC appears in the **Access control (IAM)** blade. This blade can found throughout the portal, such as subscriptions, resource groups, and various resources.
+
+![Access control (IAM) blade in the Azure portal](./media/rbac-and-directory-admin-roles/access-control.png)
 
 When you click the **Roles** option, you will see the list of built-in and custom roles.
 
 ![Built-in roles in the Azure portal](./media/rbac-and-directory-admin-roles/built-in-roles.png)
-
-For a tour of role-based access control in the portal, see Quickstart: Tour of role-based access control in the Azure portal.
 
 ## Differences between Azure AD administrator roles and Azure RBAC roles
 
@@ -126,20 +126,20 @@ Roles in Azure are always evolving, but here is a list of roles and their corres
 | Co-administrator | X |  |  |
 | [Global administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) |  | X |  |
 | [Billing administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#billing-administrator) |  | X |  |
-| Compliance administrator |  | X |  |
+| [Compliance administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md) |  | X |  |
 | [Conditional Access administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#conditional-access-administrator) |  | X |  |
-| Exchange administrator |  | X |  |
-| Guest inviter |  | X |  |
+| [Exchange administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md) |  | X |  |
+| [Guest inviter](../active-directory/active-directory-assign-admin-roles-azure-portal.md) |  | X |  |
 | [Password administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#password-administrator--helpdesk-administrator) |  | X |  |
 | [Information Protection administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#information-protection-administrator) |  | X |  |
-| Intune Service administrator |  | X |  |
-| Skype for Business administrator |  | X |  |
-| Privileged role administrator |  | X |  |
+| [Intune Service administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md) |  | X |  |
+| [Skype for Business administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md) |  | X |  |
+| [Privileged role administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md) |  | X |  |
 | [Reports reader](../active-directory/active-directory-assign-admin-roles-azure-portal.md#reports-reader) |  | X |  |
 | [Security administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#security-administrator) |  | X |  |
 | [Security reader](../active-directory/active-directory-assign-admin-roles-azure-portal.md#security-reader) |  | X |  |
 | [Service administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#service-administrator) |  | X |  |
-| SharePoint administrator |  | X |  |
+| [SharePoint administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md) |  | X |  |
 | [User administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#user-account-administrator) |  | X |  |
 | [Owner](built-in-roles.md#owner) |  |  | X |
 | [Contributor](built-in-roles.md#contributor) |  |  | X |
