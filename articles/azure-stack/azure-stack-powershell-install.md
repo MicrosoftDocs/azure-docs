@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 5/17/2018
+ms.date: 5/18/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ---
@@ -72,7 +72,7 @@ Use-AzureRmProfile -Profile 2017-03-09-profile -Force
 # Install Module Version 1.3.0 if Azure Stack is running 1804 at a minimum 
 Install-Module -Name AzureStack -RequiredVersion 1.3.0 
 
-# Install Module Version 1.2.11 if Azure Stack is running a lower version then 1804 
+# Install Module Version 1.2.11 if Azure Stack is running a lower version than 1804 
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 
   ```
 
