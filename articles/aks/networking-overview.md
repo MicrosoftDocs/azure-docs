@@ -50,7 +50,7 @@ Advanced networking provides the following benefits:
 * The VNet for the AKS cluster must allow outbound internet connectivity.
 * Do not create more than one AKS cluster in the same Subnet.
 * Advanced networking for AKS does not support VNets that use Azure Private DNS Zones.
-* AKS clusters may not use `172.30.0.0/16` or `172.31.0.0/16` for the Kubernetes service address range.
+* AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, or `172.31.0.0/16` for the Kubernetes service address range.
 * The service principal used for the AKS cluster must have `Owner` permissions to the resource group containing the existing VNet.
 
 ## Plan IP addressing for your cluster
@@ -64,10 +64,10 @@ The IP address plan for an AKS cluster consists of a VNet, at least one Subnet f
 | Address range | Description |
 | --------- | ------------- |
 | Virtual network |  Address range for the VNet. |
-| Subnet | Subnet set aside for Virtual Machines and Pods. Must be large enough to accommodate the max cluster size * maxPods, (e.g. 100 * 30 = 3000). |
-| Kubernetes service address range | Address range set aside for Kubernetes Services. This range should not be used by any network element on or connected to this VNet. |
+| Subnet | Subnet used by Virtual Machines and Pods. Must be large enough to accommodate the VMs and Pod count. To calculate your minimum subnet size: (Number of VMs) + (Number of VMs * Pods per VM). For a 50 node cluster: (50) + (50 * 30) = 1,550, your Subnet would need to be a /21 or larger. |
+| Kubernetes service address range | Address range set aside for Kubernetes Services. This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. |
 | Kubernetes DNS Service IP address | IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). |
-| Docker bridge address | IP address (in CIDR notation) used as the bridge ip address for VMs. Only needed if the default range is in-use in your VNet (172.16.0.0/16). |
+| Docker bridge address | IP address (in CIDR notation) used as the bridge ip address for VMs. Only needed if the default range is in-use in the VNet (172.16.0.1/16). |
 
 As mentioned previously, each VNet provisioned for use with the Azure CNI plugin is limited to **4096 configured IP addresses**. Each node in a cluster configured for Advanced networking can host a maximum of **30 pods**.
 
