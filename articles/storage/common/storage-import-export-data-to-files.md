@@ -189,7 +189,7 @@ An import example is shown below.
 
 ## Next steps
 
-* Learn to [Set up the WAImportExport tool V2](storage-import-export-tool-how-to.md)
-* [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
-* [Azure Import Export REST API sample](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [View the job and drive status](storage-import-export-view-job-status.md)
+* [Review Import/Export requirements](storage-import-export-requirements.md)
+
 

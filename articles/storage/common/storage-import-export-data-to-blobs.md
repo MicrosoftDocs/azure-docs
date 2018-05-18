@@ -128,6 +128,6 @@ Perform the following steps to create an import job in the Azure portal.
 ## Next steps
 
 * [View the job and drive status](storage-import-export-view-job-status.md)
-* [Transfer data with AzCopy command-line utility](storage-use-azcopy.md)
-* [Azure Import Export REST API sample](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Review Import/Export requirements](storage-import-export-requirements.md)
+
 
