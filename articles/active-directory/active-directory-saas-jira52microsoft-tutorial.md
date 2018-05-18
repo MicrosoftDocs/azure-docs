@@ -7,7 +7,7 @@ author: jeevansd
 manager: femila
 ms.reviewer: joflore
 
-ms.assetid: 4b663047-7f88-443b-97bd-54224b232815
+ms.assetid: d0c00408-f9b8-4a79-bccc-c346a7331845
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
