@@ -18,7 +18,7 @@ ms.author: terrylan
 
 ---
 # Protecting your machines and applications in Azure Security Center
-Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls. Recommendations apply to Azure resource types: virtual machines (VMs) and computers, web apps and App Service environments, networking, SQL, and Identity and Access.
+Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls. Recommendations apply to Azure resource types: virtual machines (VMs) and computers, applications, networking, SQL, and Identity and Access.
 
 This article addresses recommendations that apply to machines and applications.
 
@@ -38,7 +38,7 @@ Under **Compute**, there are four tabs:
 - **Overview**: monitoring and recommendations identified by Security Center.
 - **VMs and computers**: list of your VMs, computers, and current security state of each.
 - **Cloud Services**: list of your web and worker roles monitored by Security Center.
-- **App services (Preview)**: list of your web applications and App service environments and current security state of each.
+- **App services (Preview)**: list of your App service environments and current security state of each.
 To continue, select **Compute & apps** under **Resources** or the Security Center main menu.
 
 ![Compute][2]
