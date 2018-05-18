@@ -1,3 +1,16 @@
+---
+title: include file
+description: include file
+services: virtual-machines
+author: jpconnock
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jeconnoc
+ms.custom: include file
+
+---
+
 # Frequently asked questions about classic to Azure Resource Manager migration
 
 ## Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
