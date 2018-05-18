@@ -35,14 +35,14 @@ Here’s a timeline of when to expect this change to happen:
 
 | Timeframe | Change |
 |-----------|--------|
-| Early-May | You’ll start to see a notification banner on your existing sign-in page. From here you can learn about, and prepare for, the changes. |
+| Early-May | You’ll start to see a notification banner on your existing sign-in page. From here you can learn about and prepare for the changes. |
 | Mid-May   | The notification banner changes to include a link to preview the updated UI. When in the preview, you can still use a link to switch back to the existing experience. |
 | Mid-June  | The updated sign-in UI is available, and everyone defaults to the new UI experience. |
 
 ## Related info
 
-If you’re an admin, you can find more info about these updates, based on product.
+If you’re an admin, you can find more info about these updates based on product.
 
-- **Office 365**. Get more details about the updates to [Office 365](https://portal.office.com/adminportal/home). You must sign in using your admin authentication to access this site.
+- **Office 365**. Get more details about the updates to [Office 365 Message Center]https://portal.office.com/adminportal/home#/MessageCenter?id=MC133397&MCLinkSource=DigestMail). You must sign in using your admin authentication to access this site.
 
 - **Other online services**. Get more details about the updates by reading this [blog post](https://cloudblogs.microsoft.com/enterprisemobility/2018/04/04/upcoming-improvements-to-the-azure-ad-sign-in-experience/).
