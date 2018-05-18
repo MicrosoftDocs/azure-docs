@@ -39,7 +39,7 @@ To view an individual device:
 
 1. In the right-hand pane, you see a list of devices created from that device template. Choose an individual device to see the **Device Details** page for that device:
 
-    [![Device Details Page](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightswitch)
+    [![Device Details Page](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
 
 ## Add a device
 
@@ -72,7 +72,7 @@ To bulk-register devices in your application:
 
 1. Choose **New** and select **Bulk Import**.
 
-    [![Bulk Import Action](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightswitch)
+    [![Bulk Import Action](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
 1. Select the CSV file that has the list of Device IDs to be imported.
 
@@ -80,7 +80,7 @@ To bulk-register devices in your application:
 
 1. Once the import completes, a success message is shown on the device grid.
 
-    [![Bulk Import Success](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightswitch)
+    [![Bulk Import Success](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
 If the device import operation fails, there will be an error shown on the Device grid. A log file capturing all the errors is generated and can be downloaded by clicking the error message.
 

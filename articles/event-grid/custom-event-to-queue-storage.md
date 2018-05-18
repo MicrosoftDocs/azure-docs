@@ -6,7 +6,7 @@ keywords:
 author: tfitzmac
 ms.author: tomfitz
 ms.date: 05/09/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: event-grid
 ---
 # Route custom events to Azure Queue storage with Azure CLI and Event Grid

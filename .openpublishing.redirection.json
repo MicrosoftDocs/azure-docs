@@ -8346,6 +8346,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-networks-nsg.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-vnet-plan-design-arm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/ddos-protection-manage-portal.md",
             "redirect_url": "/azure/virtual-network/manage-ddos-protection",
             "redirect_document_id": false
@@ -21306,6 +21311,151 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-remote-monitoring-device-schema.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-remote-monitoring-explore.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-remote-monitoring-maintain.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-maintain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-remote-monitoring-manage.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-remote-monitoring-monitor.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-sample-walkthrough",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-remote-monitoring-telefonica-sim.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-telefonica-sim",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-remote-monitoring-test.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-test",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-configure.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-customize.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-customize",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-features.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-features",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-gateway-deployment.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-gateway-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-overview.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-sample-walkthrough.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-sample-walkthrough",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connecting-devices-linux.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connecting-devices-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connecting-devices-node.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connecting-devices-node",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connecting-devices.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connecting-devices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-remote-monitoring-device-behavior.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connecting-pi-c.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connecting-pi-c",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connecting-pi-node.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-connecting-pi-node",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-device-simulation-deploy.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-device-simulation-explore.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-explore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-faq-cf.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-faq-cf",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-faq-rm-v2.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-faq-rm-v2",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-faq.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-integrate-data-lake.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-integrate-data-lake",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-integrate-data-powerbi.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-integrate-data-powerbi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-microservices-example.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-microservices-example",
+            "redirect_document_id": false
+          },
+          {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
             "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-javascriptspa",
             "redirect_document_id": false
@@ -21474,6 +21624,51 @@
             "source_path": "articles/active-directory/active-directory-b2b-what-is-azure-ad-b2b.md",
             "redirect_url": "/azure/active-directory/b2b/what-is-b2b",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/manage-personal-data-azure.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/how-to-discover-classify-personal-data-azure.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-azure.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-azure-security-center.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-network-security.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-identity-access-controls.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-at-rest.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protect-personal-data-in-transit-encryption.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/protection-personal-data-azure-reporting-tools.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/cognitive-services/bing-visual-search/upload-images.md",
