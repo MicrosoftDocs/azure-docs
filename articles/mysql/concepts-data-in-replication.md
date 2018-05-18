@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 5/18/2018
+ms.date: 05/18/2018
 ---
 
 # Replicate data from multiple cloud or on-premises databases to Azure Database for MySQL

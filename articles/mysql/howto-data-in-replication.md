@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 5/18/2018
+ms.date: 05/18/2018
 ---
 
 # How to configure Azure Database for MySQL Data-in Replication
