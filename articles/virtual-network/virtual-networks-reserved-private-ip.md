@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2016
+ms.date: 05/18/2018
 ms.author: genli
 
 ---
@@ -92,7 +92,7 @@ To remove the static internal IP added to the VM in the script above, run the fo
     | Update-AzureVM
 
 ## How to add a static internal IP to an existing VM
-To add a static internal IP to the VM created using the script above, runt he following command:
+To add a static internal IP to the VM created using the script above, run the following command:
 
     Get-AzureVM -ServiceName TestService000 -Name TestVM `
     | Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `
