@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/18/2018
 ms.author: jeffgilb
 
 ---
@@ -117,11 +117,13 @@ To add SQL Always On hosting servers, follow these steps:
 
 	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
-3. Check this box to enable support for SQL Always On Availability Group instances.
+3. Fill the form with the connection details of your SQL Server instance, being sure to use the FQDN address of the Always On Listener (and optional port number). Provide the account information for the account you configured with system admin privileges.
+
+4. Check this box to enable support for SQL Always On Availability Group instances.
 
 	![Hosting Servers](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-4. Add the SQL Always On instance to a SKU. 
+5. Add the SQL Always On instance to a SKU. 
 
 > [!IMPORTANT]
 > You cannot mix standalone servers with Always On instances in the same SKU. Attempting to mix types after adding the first hosting server results in an error.
