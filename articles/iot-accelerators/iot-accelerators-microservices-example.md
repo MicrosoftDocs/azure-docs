@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 To follow this tutorial, you need:
 
 >[!div class="checklist"]
-> * [Deploy the remote monitoring preconfigured solution locally](../iot-accelerators/iot-accelerators-remote-monitoring-deploy-local.md)
+> * [Deploy the remote monitoring preconfigured solution locally](iot-accelerators-remote-monitoring-deploy-local.md)
 > * [A Docker account](https://hub.docker.com/)
 > * [Postman](https://www.getpostman.com/) - Needed to view the API response
 
@@ -46,7 +46,7 @@ In this part, you call the default IoT hub manager microservice API. The API ret
 2. Locate where you downloaded Postman and open it.
 3. In Postman, enter the following in the GET: http://localhost:8080/iothubmanager/v1/status.
 4. View the return and you should see, "Status": "OK:Alive and Well".
-![Alive and Well Postman Message](media/iot-suite-microservices-example/postman-alive-well.png)
+![Alive and Well Postman Message](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
 ## Change the status and build the image
 
@@ -83,7 +83,7 @@ Now change the status message of the Iot Hub Manager microservice to "New Edits 
 
 The repository should be "azureiotpcs/iothub-manager-dotnet".
 
-![Successful docker image](media/iot-suite-microservices-example/successful-docker-image.png)
+![Successful docker image](./media/iot-accelerators-microservices-example/successful-docker-image.png)
 
 ## Tag and push the image
 Before you can push your new docker image to a docker hub, Docker expects your images to be tagged. If you run into issues here, refer to our [Troubleshooting](#Troubleshoot) section.
@@ -108,7 +108,7 @@ Before you can push your new docker image to a docker hub, Docker expects your i
 
 4. Open your internet browser and go to your [docker hub](https://hub.docker.com/) and sign in.
 5. You should now see your newly pushed docker image on your docker hub.
-![Docker image in docker hub](media/iot-suite-microservices-example/docker-image-in-docker-hub.png)
+![Docker image in docker hub](./media/iot-accelerators-microservices-example/docker-image-in-docker-hub.png)
 
 ## Update your Remote Monitoring solution
 You now need to update your local docker-compose.yml to pull your new docker image from your docker hub. If you run into issues here, refer to our [Troubleshooting](#Troubleshoot) section.
@@ -141,7 +141,7 @@ Finish up by redeploying a local instance of the Remote Monitoring solution and 
 3. Locate where you downloaded Postman and open it.
 4. In Postman, enter the following request in the GET: http://localhost:8080/iothubmanager/v1/status. You should now see, "Status": "OK: New Edits Made Here!".
 
-![New Edits Made Here postman message](media/iot-suite-microservices-example/new-postman-message.png)
+![New Edits Made Here postman message](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
 ## <a name="Troubleshoot"></a>Troubleshoot
 
@@ -188,7 +188,7 @@ In this tutorial, you saw how to:
 > * Pull the new docker image
 > * Visualize the changes 
 
-The next thing to try is [customizing the device simulator microservice in the Remote Monitoring solution](../iot-accelerators/iot-accelerators-remote-monitoring-test.md)
+The next thing to try is [customizing the device simulator microservice in the Remote Monitoring solution](iot-accelerators-remote-monitoring-test.md)
 
 For more developer information about the Remote Monitoring solution, see:
 

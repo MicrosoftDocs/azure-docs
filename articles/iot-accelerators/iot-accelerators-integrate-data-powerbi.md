@@ -31,30 +31,30 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
 
 2. On the left-hand panel, click Resource groups
 
-    ![Side Panel Nav](media/iot-suite-remote-monitoring-powerbi/side_panel.png)
+    ![Side Panel Nav](./media/iot-accelerators-integrate-data-powerbi/side_panel.png)
 
 3. Navigate to the Resource Group of which your Iot Solution is running on and click to be taken to that Resource Group's Overview page. 
 
 4. On that overview page click the item, which has type "Azure Cosmos DB Account", you will then be taken to the overview page of the Cosmos DB stream for that IoT Solution.
 
-    ![Resource Group](media/iot-suite-remote-monitoring-powerbi/resource_groups.png)
+    ![Resource Group](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
 5. On the panel to the left, click the "Keys" section and take note of the following values to be used in PowerBi:
 
     - URI
     - Primary Key
 
-    ![keys](media/iot-suite-remote-monitoring-powerbi/keys.png)
+    ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
 ## Setting up the Stream in Power BI
   
 1. Open up the Power BI desktop app and click "Get Data" from the top left corner. 
 
-    ![Get Data](media/iot-suite-remote-monitoring-powerbi/get_data.png)
+    ![Get Data](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
 2. When asked to enter data, choose to Search for "Azure Cosmos DB" and select this connector. This connector essentially pulls data straight from the cosmos database of your Azure IoT Solution
   
-    ![Cosmos DB](media/iot-suite-remote-monitoring-powerbi/cosmos_db.png)
+    ![Cosmos DB](./media/iot-accelerators-integrate-data-powerbi/cosmos_db.png)
   
 3. Enter the information, which you have recorded above:
 
@@ -63,11 +63,11 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
 
 4. Select all the tables to be imported into Power BI. This action will kick off the loading of the data. The longer your solution has been running, the longer it can take for the data to load (up to a few hours). 
 
-    ![Import Tables](media/iot-suite-remote-monitoring-powerbi/import_tables.png)
+    ![Import Tables](./media/iot-accelerators-integrate-data-powerbi/import_tables.png)
 
 5. Once the data has finished loading, click "Edit Queries" on the top row of Power BI and expand all the tables by clicking the arrows in the yellow bar for each table. This will essentially expand to show all the columns. You will notice how data for things such as humidity, speed time, etc. are not of the correct type.
 
-    ![New Column](media/iot-suite-remote-monitoring-powerbi/new_column.png)
+    ![New Column](./media/iot-accelerators-integrate-data-powerbi/new_column.png)
   
     For example, the data coming into Power BI was changed into UNIX time when it came in through the connector. To adjust for this conversion, going forward you can create a new column and use this equation to get it into date time format: 
 
@@ -75,7 +75,7 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
     #datetime(1970, 1, 1, 0, 0, 0) + #duration(0, 0, 0, [Document.device.msg.received]/1000)
     ```
 
-    ![Updated Table](media/iot-suite-remote-monitoring-powerbi/updated_table.png)
+    ![Updated Table](./media/iot-accelerators-integrate-data-powerbi/updated_table.png)
   
     Document.device.msg.received is just one of the columns with UNIX formatting and can be substituted with others that need conversion. 
   
@@ -89,7 +89,7 @@ Once the stream has been connected, you are ready to create your personalized da
 * Devices with their status and severity. (top left)
 * Devices with rules in place, and if there are any alarms going off for them (bottom left)
 
-![PowerBi Visualization](media/iot-suite-remote-monitoring-powerbi/visual_data.png)
+![PowerBi Visualization](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
 
 ## Publishing the dashboard and refreshing the data
 
@@ -103,7 +103,7 @@ In this article, you learned about how to visualize remote monitoring data using
 
 For more information about customizing the remote monitoring solution, see:
 
-* [Customizing the Remote Monitoring Solution UI](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)
+* [Customizing the Remote Monitoring Solution UI](iot-accelerators-remote-monitoring-customize.md)
 * [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 

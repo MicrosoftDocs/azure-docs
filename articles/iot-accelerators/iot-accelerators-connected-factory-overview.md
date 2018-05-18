@@ -47,7 +47,7 @@ To complete this tutorial, you need an active Azure subscription.
 4. Click the tile to see the details of your solution in the right-hand pane.
 
 > [!NOTE]
-> If you encounter issues deploying the solution accelerator, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [Connected Factory FAQ](iot-suite-faq-cf.md). If the issues persist, create a service ticket on the [portal][lnk-portal].
+> If you encounter issues deploying the solution accelerator, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [Connected Factory FAQ](iot-accelerators-faq-cf.md). If the issues persist, create a service ticket on the [portal][lnk-portal].
 
 Are there details you'd expect to see that aren't listed for your solution? Make feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
@@ -75,7 +75,7 @@ The solution dashboard enables you to manage the deployed solution. It is a hier
 
 The dashboard displays the following information:
 
-* A **Factory locations** panel that shows the status, location, and current production configuration in the solution. When you first run the solution, there are a number of simulated devices. The production line simulation is composed of three real OPC UA servers per production line that perform simulated tasks and share data. For more information about OPC UA, see the [Connected Factory FAQ](iot-suite-faq-cf.md).
+* A **Factory locations** panel that shows the status, location, and current production configuration in the solution. When you first run the solution, there are a number of simulated devices. The production line simulation is composed of three real OPC UA servers per production line that perform simulated tasks and share data. For more information about OPC UA, see the [Connected Factory FAQ](iot-accelerators-faq-cf.md).
 * A **map** that displays the location of each device connected to the solution. The solution can use the Bing Maps API to plot information on the map. If your subscription is enabled for Bing Maps Enterprise API, then this feature is used automatically. If not, see the [FAQ][lnk-faq] to learn how to make the map dynamic.
 * An **Alarms** panel that displays alarms generated when a telemetry or OEE/KPI value exceeds a specific threshold.
 * An **Overall Equipment Efficiency** panel that shows the OEE values for the whole enterprise, or the factory/production line/station you are viewing. This value is aggregated from the station view to the enterprise level. The OEE figure and its constituent elements can be further analyzed.
@@ -267,34 +267,34 @@ Now that you’ve deployed a working solution accelerator, you can continue gett
 * [Connect your device to the Connected Factory solution accelerator][lnk-connect-cf]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
 
-[img-cf-home]:media/iot-suite-connected-factory-overview/cf-dashboard.png
-[img-launch-solution]: media/iot-suite-connected-factory-overview/launch-cf.png
-[cf-img-menu]: media/iot-suite-connected-factory-overview/cf-dashboard-menu.png
-[cf-img-factories]:media/iot-suite-connected-factory-overview/cf-dashboard-factory.png
-[cf-img-map]:media/iot-suite-connected-factory-overview/cf-dashboard-map.png
-[cf-img-alerts]:media/iot-suite-connected-factory-overview/cf-dashboard-alerts.png
-[cf-img-oee]:media/iot-suite-connected-factory-overview/cf-dashboard-oee.png
-[cf-img-kpi]:media/iot-suite-connected-factory-overview/cf-dashboard-kpi.png
-[cf-img-tsi-visualization]:media/iot-suite-connected-factory-overview/cf-dashboard-tsi.png
-[cf-img-tsi-explorer]:media/iot-suite-connected-factory-overview/tsi-explorer.png
-[cf-img-server-browser]: media/iot-suite-connected-factory-overview/cf-dashboard-browser.png
-[cf-img-server-choice]: media/iot-suite-connected-factory-overview/cf-select-server.png
-[cf-img-server-tree]:media/iot-suite-connected-factory-overview/cf-server-tree.png
-[cf-img-publish-node]:media/iot-suite-connected-factory-overview/cf-publish-node1.png
-[cf-img-publish-success]:media/iot-suite-connected-factory-overview/cf-publish-success.png
-[cf-img-call-command]:media/iot-suite-connected-factory-overview/cf-command-and-control-call.png
-[cf-img-call-context]:media/iot-suite-connected-factory-overview/cf-command-and-control-call-button.png
-[cf-img-call-success]:media/iot-suite-connected-factory-overview/cf-command-and-control-succeed.png
-[img-cf-portal]:media/iot-suite-connected-factory-overview/cf-resource-group.png
-[cf-img-alert-filter]:media/iot-suite-connected-factory-overview/cf-filter.png
-[cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/cf-filter-funnel.png
+[img-cf-home]:media/iot-accelerators-connected-factory-overview/cf-dashboard.png
+[img-launch-solution]: media/iot-accelerators-connected-factory-overview/launch-cf.png
+[cf-img-menu]: media/iot-accelerators-connected-factory-overview/cf-dashboard-menu.png
+[cf-img-factories]:media/iot-accelerators-connected-factory-overview/cf-dashboard-factory.png
+[cf-img-map]:media/iot-accelerators-connected-factory-overview/cf-dashboard-map.png
+[cf-img-alerts]:media/iot-accelerators-connected-factory-overview/cf-dashboard-alerts.png
+[cf-img-oee]:media/iot-accelerators-connected-factory-overview/cf-dashboard-oee.png
+[cf-img-kpi]:media/iot-accelerators-connected-factory-overview/cf-dashboard-kpi.png
+[cf-img-tsi-visualization]:media/iot-accelerators-connected-factory-overview/cf-dashboard-tsi.png
+[cf-img-tsi-explorer]:media/iot-accelerators-connected-factory-overview/tsi-explorer.png
+[cf-img-server-browser]: media/iot-accelerators-connected-factory-overview/cf-dashboard-browser.png
+[cf-img-server-choice]: media/iot-accelerators-connected-factory-overview/cf-select-server.png
+[cf-img-server-tree]:media/iot-accelerators-connected-factory-overview/cf-server-tree.png
+[cf-img-publish-node]:media/iot-accelerators-connected-factory-overview/cf-publish-node1.png
+[cf-img-publish-success]:media/iot-accelerators-connected-factory-overview/cf-publish-success.png
+[cf-img-call-command]:media/iot-accelerators-connected-factory-overview/cf-command-and-control-call.png
+[cf-img-call-context]:media/iot-accelerators-connected-factory-overview/cf-command-and-control-call-button.png
+[cf-img-call-success]:media/iot-accelerators-connected-factory-overview/cf-command-and-control-succeed.png
+[img-cf-portal]:media/iot-accelerators-connected-factory-overview/cf-resource-group.png
+[cf-img-alert-filter]:media/iot-accelerators-connected-factory-overview/cf-filter.png
+[cf-img-alert-filter-funnel]:media/iot-accelerators-connected-factory-overview/cf-filter-funnel.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-preconfigured-solutions]:../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
+[lnk-preconfigured-solutions]:iot-accelerators-what-are-solution-accelerators.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
-[lnk-permissions]: iot-suite-v1-permissions.md
-[lnk-faq]: iot-suite-v1-faq.md
+[lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
+[lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
+[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md
+[lnk-faq]: ../iot-suite/iot-suite-v1-faq.md
