@@ -79,7 +79,7 @@ A data source definition often includes properties that an indexer can use to ex
 
 An index schema defines the fields collection containing searchable, filterable, retrievable, and other attributions that determine how the field is used. During indexing, the indexer crawls the data source, optionally cracks documents and extracts information, serializes the results to JSON, and indexes the payload based on the schema defined for your index.
 
-<a name="skillset></a>
+<a name="skillset"></a>
 
 ### "skillsetName"
 
@@ -204,8 +204,8 @@ Field mappings can also be used to transform source field values using *field ma
 
 To learn more about when and how to use field mapping functions, see [Field Mapping Functions](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions).
 
-## Request body examples  
- The following example creates an indexer that copies data from the table referenced by the `ordersds` data source to the `orders` index on a schedule that starts on Jan 1, 2015 UTC and runs hourly. Each indexer invocation will be successful if no more than 5 items fail to be indexed in each batch, and no more than 10 items fail to be indexed in total.  
+## Request examples  
+ The first example creates an indexer that copies data from the table referenced by the `ordersds` data source to the `orders` index on a schedule that starts on Jan 1, 2015 UTC and runs hourly. Each indexer invocation will be successful if no more than 5 items fail to be indexed in each batch, and no more than 10 items fail to be indexed in total.  
 
 ```json
 {
@@ -215,6 +215,39 @@ To learn more about when and how to use field mapping functions, see [Field Mapp
     "targetIndexName" : "orders",  
     "schedule" : { "interval" : "PT1H", "startTime" : "2018-01-01T00:00:00Z" },  
     "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 5 }  
+}
+```
+
+The second example demonstrates a cognitive search operation, indicated by the reference to a skillset and [outputFieldMappings](#output-fieldmappings). [Skillsets](ref-create-skillset.md) are high-level resources, defined separately. This example is an abbreviation of the indexer definition in the [cognitive search tutorial](cognitive-search-tutorial-bloblmd).
+
+```json
+{
+  "name":"demoindexer",	
+  "dataSourceName" : "demodata",
+  "targetIndexName" : "demoindex",
+  "skillsetName" : "demoskillset",
+  "fieldMappings" : [
+    {
+        "sourceFieldName" : "content",
+        "targetFieldName" : "content"
+    }
+   ],
+  "outputFieldMappings" : 
+  [
+    {
+        "sourceFieldName" : "/document/organizations", 
+        "targetFieldName" : "organizations"
+    },
+  ],
+  "parameters":
+  {
+  	"maxFailedItems":-1,
+  	"configuration": 
+    {
+    "dataToExtract": "contentAndMetadata",
+    "imageAction": "generateNormalizedImages"
+    }
+  }
 }
 ```
 
