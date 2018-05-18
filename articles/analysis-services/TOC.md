@@ -1,6 +1,7 @@
 # [Analysis Services Documentation](index.md)
 
 # Overview
+
 ## [What is Analysis Services?](analysis-services-overview.md)
 
 # Quickstarts
@@ -10,11 +11,13 @@
 ## [Configure server firewall - Portal](analysis-services-qs-firewall.md)
 
 # Tutorials
+
 ## [1 - Add a sample model from the portal](analysis-services-create-sample-model.md) 
 ## [2 - Configure server administrator and user roles](tutorials/analysis-services-tutorial-roles.md)
 ## [3 - Connect with Power BI Desktop](tutorials/analysis-services-tutorial-pbid.md)
 
 # Concepts
+
 ## [Authentication and user permissions](analysis-services-manage-users.md)
 ## [Automation with service principals](analysis-services-service-principal.md)
 ## [Client libraries](analysis-services-data-providers.md)
@@ -71,6 +74,7 @@
 ### [Create an .odc file](analysis-services-odc.md)
 
 # Reference
+
 ## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
@@ -78,6 +82,7 @@
 ## [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Resources
+
 ## [Samples](analysis-services-samples.md)
 ## [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
