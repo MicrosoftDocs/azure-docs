@@ -300,6 +300,6 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to use Azure Content Delivery Network.
 
 > [!div class="nextstepaction"]
-> [Add a Content Delivery Network (CDN) to an Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+> [Add a Content Delivery Network (CDN) to an Azure App Service](../cdn/cdn-add-to-web-app.md)
 
 For more information, see [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md).

@@ -2,16 +2,16 @@
 title: Azure Marketplace Documentation | Microsoft Docs
 description: Learn about Azure Marketplace.
 services: marketplace
-author: czeumault
-manager: carolz
+author: ellacroi
+manager: mbaldwin
 layout: LandingPage
 ms.assetid: 
 ms.service: marketplace
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 04/14/2017
-ms.author: carolz
+ms.date: 05/10/2018
+ms.author: ellacroi
 ---
 # Azure Marketplace Documentation
 

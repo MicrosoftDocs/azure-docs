@@ -7,7 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 05/16/2018
 ms.author: sujayt
 
 ---
@@ -26,7 +26,7 @@ This article summarizes supported configurations and components for Azure Site R
 --- | ---
 **Azure portal** | Supported
 **Classic portal** | Not supported
-**PowerShell** | [Preview](azure-to-azure-powershell.md)
+**PowerShell** | [Azure to Azure replication with PowerShell](azure-to-azure-powershell.md)
 **REST API** | Not currently supported
 **CLI** | Not currently supported
 

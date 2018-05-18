@@ -103,4 +103,4 @@ sections:
     - title: Languages
       html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">Azure IoT SDKs for .Net,C,Java,Node.js, Python</a></p>
     - title: REST
-      html: <p><a href="/rest/api/iothub">IoT Hub</a></p><p><a href="/rest/api/iot-dps">IoT Hub Device Provisioning Service</a></p><p><a href="/rest/api/location-based-services-management/">Maps management</a></p><p><a href="/rest/api/location-based-services/">Maps functional</a></p><p><a href="/rest/api/time-series-insights-management/">Time Series Insights management</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>
+      html: <p><a href="/rest/api/iothub">IoT Hub</a></p><p><a href="/rest/api/iot-dps">IoT Hub Device Provisioning Service</a></p><p><a href="/rest/api/maps-management/">Maps management</a></p><p><a href="/rest/api/maps/">Maps functional</a></p><p><a href="/rest/api/time-series-insights-management/">Time Series Insights management</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>

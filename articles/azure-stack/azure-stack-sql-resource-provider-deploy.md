@@ -71,6 +71,8 @@ You can specify these parameters in the command line. If you do not, or if any p
 | **Uninstall** | Removes the resource provider and all associated resources (see the following notes). | No |
 | **DebugMode** | Prevents automatic cleanup on failure. | No |
 
+>[!NOTE]
+> SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is created.
 
 
 ## Deploy the SQL resource provider using a custom script

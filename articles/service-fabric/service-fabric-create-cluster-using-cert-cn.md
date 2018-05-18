@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: ryanwi;aljo
+ms.author: ryanwi
 
 ---
 # Deploy a Service Fabric cluster that uses certificate common name instead of thumbprint

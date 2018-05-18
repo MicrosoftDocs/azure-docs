@@ -30,7 +30,7 @@ The scenario in this article assumes that you have:
 
 - [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure) configured. 
 
-- An [Application Proxy connector](active-directory-application-proxy-enable.md) installed. 
+- An [Application Proxy connector](manage-apps/application-proxy-enable.md) installed. 
 
  
 
@@ -53,7 +53,7 @@ To publish Tableau, you need to publish an application in the Azure Portal.
 
 For:
 
-- Detailed instructions of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
+- Detailed instructions of steps 1-8, see [Publish applications using Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md). 
 - Information about how to find Tableau values for the App Proxy fields, please see the Tableau documentation.  
 
 **To publish your app**: 

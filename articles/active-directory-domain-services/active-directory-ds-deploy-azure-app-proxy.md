@@ -94,7 +94,7 @@ You have set up the Azure AD Application Proxy and integrated it with your Azure
 
 * **Migrate your applications to Azure virtual machines:** You can lift-and-shift your applications from on-premises servers to Azure virtual machines joined to your managed domain. Doing so helps you get rid of the infrastructure costs of running servers on-premises.
 
-* **Publish applications using Azure AD Application Proxy:** Publish applications running on your Azure virtual machines using the Azure AD Application Proxy. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/application-proxy-publish-azure-portal.md)
+* **Publish applications using Azure AD Application Proxy:** Publish applications running on your Azure virtual machines using the Azure AD Application Proxy. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 
 
 ## Deployment note - Publish IWA (Integrated Windows Authentication) applications using Azure AD Application Proxy

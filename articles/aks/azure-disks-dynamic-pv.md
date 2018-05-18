@@ -57,10 +57,10 @@ spec:
       storage: 5Gi
 ```
 
-Create the persistent volume claim with the [kubectl create][kubectl-create] command.
+Create the persistent volume claim with the [kubectl apply][kubectl-apply] command.
 
 ```azurecli-interactive
-kubectl create -f azure-premimum.yaml
+kubectl apply -f azure-premimum.yaml
 ```
 
 ## Using the persistent volume
@@ -87,10 +87,10 @@ spec:
         claimName: azure-managed-disk
 ```
 
-Create the pod with the [kubectl create][kubectl-create] command.
+Create the pod with the [kubectl apply][kubectl-apply] command.
 
 ```azurecli-interactive
-kubectl create -f azure-pvc-disk.yaml
+kubectl apply -f azure-pvc-disk.yaml
 ```
 
 You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`.
@@ -104,7 +104,7 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
