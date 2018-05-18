@@ -25,7 +25,7 @@ Application Insights is a data store where personal data is likely to be found. 
 ## Strategy for personal data handling
 
 While it will be up to you and your company to ultimately determine the strategy with which you will handle your private data (if at all), the following are some possible approaches. They are listed in order of preference from a technical point of view from most to least preferable:
-* Where possible, stop collection of, obfuscate, anonymize, or otherwise adjust the data being collected to exclude it from being considered "private." This method, is the preferred approach, saving you the need to create a costly and impactful data handling strategy.
+* Where possible, stop collection of, obfuscate, anonymize, or otherwise adjust the data being collected to exclude it from being considered _private_. This method, is the preferred approach, saving you the need to create a costly and impactful data handling strategy.
 * Where not possible, attempt to normalize the data to reduce the impact on the data platform and performance. For example, instead of logging an explicit User ID, create a lookup to data that will correlate the username and their details to an internal ID that can then be logged elsewhere. That way, if one of your users ask you to delete their personal information, it is possible that only deleting the row in the lookup table corresponding to the user will be sufficient. 
 * Finally, if private data must be collected, build a process around the purge API path and the existing query API path to meet any obligations you may have around exporting and deleting any private data associated with a user.
 
