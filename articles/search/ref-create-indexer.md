@@ -71,13 +71,13 @@ Syntax for structuring the request payload is as follows. A sample request is pr
 
 ### "dataSourceName"
 
-A data source definition often includes properties that an indexer can use to exploit source platform characteristics. As such, the data source you pass to the indexer determines the availability of certain properties and parameters, such content type filtering in Azure blobs or query timeout for Azure SQL Database. 
+A [data source definition](https://docs.microsoft.com/rest/api/searchservice/create-data-source) often includes properties that an indexer can use to exploit source platform characteristics. As such, the data source you pass to the indexer determines the availability of certain properties and parameters, such content type filtering in Azure blobs or query timeout for Azure SQL Database. 
 
 <a name="targetIndexName"></a>
 
 ### "targetIndexName"
 
-An index schema defines the fields collection containing searchable, filterable, retrievable, and other attributions that determine how the field is used. During indexing, the indexer crawls the data source, optionally cracks documents and extracts information, serializes the results to JSON, and indexes the payload based on the schema defined for your index.
+An [index schema](https://docs.microsoft.com/rest/api/searchservice/create-index) defines the fields collection containing searchable, filterable, retrievable, and other attributions that determine how the field is used. During indexing, the indexer crawls the data source, optionally cracks documents and extracts information, serializes the results to JSON, and indexes the payload based on the schema defined for your index.
 
 <a name="skillset"></a>
 
@@ -88,7 +88,7 @@ An index schema defines the fields collection containing searchable, filterable,
 <a name="indexer-schedule"></a>
 
 ### "schedule"  
-An indexer can optionally specify a schedule. Without a schedule, the indexer runs immediately when you send the request: connecting to, crawling, and indexing the data source. For some scenarios including long-running indexing jobs, schedules are used to [extend the processing window](https://docs.microsoft.com/azure/search/search-howto-reindex#scale-out-indexing) beyond the 24-hour maximum. If a schedule is present, the indexer runs periodically as per schedule. The scheduler is built in; you cannot use an external scheduler.A  **Schedule** has the following attributes: 
+An indexer can optionally specify a schedule. Without a schedule, the indexer runs immediately when you send the request: connecting to, crawling, and indexing the data source. For some scenarios including long-running indexing jobs, schedules are used to [extend the processing window](search-howto-reindex.md#scale-out-indexing) beyond the 24-hour maximum. If a schedule is present, the indexer runs periodically as per schedule. The scheduler is built in; you cannot use an external scheduler.A  **Schedule** has the following attributes: 
 
 -   **interval**: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is five minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `"P[nD][T[nH][nM]]".` Examples:  `PT15M` for every 15 minutes, `PT2H` for every 2 hours.  
 
@@ -218,7 +218,7 @@ To learn more about when and how to use field mapping functions, see [Field Mapp
 }
 ```
 
-The second example demonstrates a cognitive search operation, indicated by the reference to a skillset and [outputFieldMappings](#output-fieldmappings). [Skillsets](ref-create-skillset.md) are high-level resources, defined separately. This example is an abbreviation of the indexer definition in the [cognitive search tutorial](cognitive-search-tutorial-bloblmd).
+The second example demonstrates a cognitive search operation, indicated by the reference to a skillset and [outputFieldMappings](#output-fieldmappings). [Skillsets](ref-create-skillset.md) are high-level resources, defined separately. This example is an abbreviation of the indexer definition in the [cognitive search tutorial](cognitive-search-tutorial-blob.md).
 
 ```json
 {
