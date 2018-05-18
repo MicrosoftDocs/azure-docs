@@ -36,7 +36,7 @@ The first module contains commands needed to deploy and manage Azure File Sync a
 > [!Note]
 > This tutorial assumes that you run the following PowerShell commands locally on a server with the Azure File Sync agent installed.
 
-
+ 
 # Step 1: Preparing the PowerShell context
 
 ```PowerShell
@@ -69,12 +69,15 @@ Login-AzureRmStorageSync –SubscriptionId $subID -ResourceGroupName $rg -Tenant
 
 ```
 
-
+ 
 # Step 2: The "Storage Sync Service"
 <table>
     <tr>
         <td>![AFS management object hierarchy, "Storage Sync Service" highlighted](media/storage-sync-files-powershell-guide/SSS.png)</td>
-        <td>The deployment of Azure File Sync starts with placing a "Storage Sync Service" resource into a Resource Group of your selected subscription. We recommend provisioning as few of these as needed. You will create a permanent trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.</td>
+        <td>The deployment of Azure File Sync starts with placing a "Storage Sync Service" resource into a Resource Group of your selected subscription. We recommend provisioning as few of these as needed. You will create a permanent trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.
+        > [!Note]
+        > The storage sync service inherited access permissions from the subscription and resource group it has been deployed into. We recommend that you carefully check who has access to it. Entities with write access can start syncing new sets of files from servers registered to this storage sync service and cause data to flow to Azure storage that is accessible to them.
+        </td>
     </tr>
 </table>
 
@@ -86,10 +89,7 @@ New-AzureRmStorageSyncService -StorageSyncServiceName $service_name
 
 ```
 
-> [!Note]
-> The storage sync service inherited access permissions from the subscription and resource group it has been deployed into. We recommend that you carefully check who has access to it. Entities with write access can start syncing new sets of files from servers registered to this storage sync service and cause data to flow to Azure storage that is accessible to them.
-
-
+ 
 # Step 3: Register the server
 <table>
     <tr>
@@ -106,11 +106,11 @@ Register-AzureRmStorageSyncServer -StorageSyncServiceName $service_name
 > [!Note]
 > This command registers the local server with the specified storage sync service. A lasting trust relationship is created in which authentication and authorization is maintained automatically. An admin's Azure credentials are used to register the server, however subsequently the server creates and uses it's own identity that is valid as long as the server stays registered and the current Shared Access Signature token (Storage SAS) is valid. A new SAS token cannot be issued to the server once the server is unregistered, thus removing the server's ability to access Azure storage, stopping any sync.
 
-
+ 
 # Step 4: The "Sync Group"
 <table>
     <tr>
-        <td>![AFS management object hierarchy, "Sync Group" highlighted](media/storage-sync-files-powershell-guide/SG.png</td>
+        <td>![AFS management object hierarchy, "Sync Group" highlighted](media/storage-sync-files-powershell-guide/SG.png)</td>
         <td>A "Sync Group" contains the sync topology of a given set of files. A Sync Group can sync data to and from a folder or at the maximum an entire volume. Create as many sync groups as you have sets of files that need to sync with different servers or require different cloud tiering policies.</td>
     </tr>
 </table>
@@ -125,7 +125,7 @@ New-AzureRmStorageSyncGroup -SyncGroupName $syncgroup_name -StorageSyncService $
 
 ```
 
-
+ 
 # Step 5: Creating "Cloud- and Server- Endpoints"
 <table>
     <tr>
