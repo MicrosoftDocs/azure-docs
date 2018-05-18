@@ -114,7 +114,7 @@ You can:
 Here's an example you can run from the PowerShell prompt. Be sure to change the account information and passwords as needed:
 
 
-```
+```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
@@ -211,6 +211,10 @@ You can specify these parameters in the command line. If you do not, or if any p
     - Database capacity
     - Automatic backup
     - Reserve high-performance servers for individual departments
+
+
+  > [!IMPORTANT]
+  > You cannot mix standalone servers with Always On instances in the same SKU. Attempting to mix types after adding the first hosting server results in an error.
  
 
 The SKU name should reflect the properties so that tenants can place their databases appropriately. All hosting servers in a SKU should have the same capabilities.

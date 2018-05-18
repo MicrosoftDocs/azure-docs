@@ -81,7 +81,7 @@ There are two parts to this scenario:
 
 - To enable import of a downloaded marketplace item, the [PowerShell environment for the Azure Stack operator](azure-stack-powershell-configure-admin.md) must be configured.  
 
-- You must have a storage account in Azure Stack that has a publicly accessible container (which is a storage blob). You use the container as temporary storage for the marketplace items gallery files. If you are not familiar with storage accounts and containers, see [Work with blobs - Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) in the Azure documentation.
+- You must have a [storage account](azure-stack-manage-storage-accounts.md) in Azure Stack that has a publicly accessible container (which is a storage blob). You use the container as temporary storage for the marketplace items gallery files. If you are not familiar with storage accounts and containers, see [Work with blobs - Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) in the Azure documentation.
 
 - The marketplace syndication tool is downloaded during the first procedure. 
 
