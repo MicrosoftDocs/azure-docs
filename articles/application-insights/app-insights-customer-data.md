@@ -25,13 +25,13 @@ Application Insights is a data store where personal data is likely to be found. 
 ## Strategy for personal data handling
 
 While it will be up to you and your company to ultimately determine the strategy with which you will handle your private data (if at all), the following are some possible approaches. They are listed in order of preference from a technical point of view from most to least preferable:
-* Where possible, stop collection of, obfuscate, anonymize, or otherwise adjust the data being collected to exclude it from being considered "private." This is _by far_ the preferred approach, saving you the need to create a costly and impactful data handling strategy.
+* Where possible, stop collection of, obfuscate, anonymize, or otherwise adjust the data being collected to exclude it from being considered "private." This method, is the preferred approach, saving you the need to create a costly and impactful data handling strategy.
 * Where not possible, attempt to normalize the data to reduce the impact on the data platform and performance. For example, instead of logging an explicit User ID, create a lookup to data that will correlate the username and their details to an internal ID that can then be logged elsewhere. That way, if one of your users ask you to delete their personal information, it is possible that only deleting the row in the lookup table corresponding to the user will be sufficient. 
 * Finally, if private data must be collected, build a process around the purge API path and the existing query API path to meet any obligations you may have around exporting and deleting any private data associated with a user.
 
 ## Where to look for private data in Application Insights?
 
-Application Insights is a completely flexible store, which while prescribing a schema to your data, allows you to override every field with custom values. As such, it is impossible to say exactly where private data will be found in your specific application. The following locations, however, are good starting points in your inventory:
+Application Insights is a completely flexible store, which while prescribing a schema to your data, allows you to override every field with custom values. As such, it's impossible to say exactly where private data will be found in your specific application. The following locations, however, are good starting points in your inventory:
 
 * *IP addresses*: While Application Insights will by default obfuscate all IP address fields to "0.0.0.0", it is a fairly common pattern to override this value with the actual user IP to maintain session information. The Analytics query below can be used to find any table that contains values in the IP address column other than "0.0.0.0" over the last 24 hours:
     ```
@@ -39,8 +39,8 @@ Application Insights is a completely flexible store, which while prescribing a s
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *User IDs*: while by default, Application Insights will use randomly generated IDs for user and session tracking, it is common to see these fields overridden to store an ID more relevant to the application (for example, usernames, AAD GUIDs, etc.). These IDs are often considered to be in-scope as personal data, and therefore, should be handled appropriately. Our recommendation is always to attempt to obfuscate or anonymize these IDs. Fields where these are commonly found include session_Id, user_Id, user_AuthenticatedId, user_AccountId, as well as customDimensions.
-* *Custom data*: Application Insights allows you to append a set of custom dimensions to any data type. This can be *any* data. Use the following query to identify any custom dimensions collected over the last 24 hours:
+* *User IDs*: By default, Application Insights will use randomly generated IDs for user and session tracking. However, it is common to see these fields overridden to store an ID more relevant to the application. For example: usernames, AAD GUIDs, etc. These IDs are often considered to be in-scope as personal data, and therefore, should be handled appropriately. Our recommendation is always to attempt to obfuscate or anonymize these IDs. Fields where these values are commonly found include session_Id, user_Id, user_AuthenticatedId, user_AccountId, as well as customDimensions.
+* *Custom data*: Application Insights allows you to append a set of custom dimensions to any data type. These dimensions can be *any* data. Use the following query to identify any custom dimensions collected over the last 24 hours:
     ```
     search * 
     | where isnotempty(customDimensions)
@@ -48,7 +48,7 @@ Application Insights is a completely flexible store, which while prescribing a s
     | project $table, timestamp, name, customDimensions 
     ```
 * *In-memory and in-transit data*: Application Insights will track exceptions, requests, dependency calls, and traces. Private data can often be collected at the code and HTTP call level. Review the exceptions, requests, dependencies, and traces tables to identify any such data. Use [telemetry initializers](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) where possible to obfuscate this data.
-* *Snapshot Debugger captures*: The [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) feature in Application Insights allows you to collect debug snapshots whenever an exception is caught on the production instance of your application. This snapshot will expose the full stack trace leading to the exceptions as well as the values for local variables at every step in the stack. This feature, unfortunately, today does not allow for selective deletion of specific snap points or programmatic access to data within the snapshot. Therefore, if the default snapshot retention rate does not satisfy your compliance requirements, it is recommended that the feature be turned off.
+* *Snapshot Debugger captures*: The [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) feature in Application Insights allows you to collect debug snapshots whenever an exception is caught on the production instance of your application. Snapshots will expose the full stack trace leading to the exceptions as well as the values for local variables at every step in the stack. Unfortunately, this feature does not allow for selective deletion of snap points, or programmatic access to data within the snapshot. Therefore, if the default snapshot retention rate does not satisfy your compliance requirements, the recommendation is to turn off the feature.
 
 ## How to export and delete private data
 
@@ -65,9 +65,9 @@ For both view and export data requests, the [Query API](https://dev.applicationi
 > [!WARNING]
 > Deletes in Application Insights are destructive and non-reversible! Please use extreme caution in their execution.
 
-To help facilitate delete requests, we have created a "purge" API path. This path should be used sparingly due to the risk associated with doing so, the potential performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Application Insights data. See the "Strategy for personal data handling" section above for alternative approaches to handle private data.
+To help manage delete requests, a "purge" API path has been created. This path should be used sparingly due to the risks associated with doing so. These risks include, potential performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Application Insights data. See the "Strategy for personal data handling" section above for alternative approaches to handle private data.
 
-Purge is a highly privileged operation that no app or user in Azure (including even the resource owner) will have permissions to execute without explicitly being granted a role in Azure Resource Manager. This role is _Data Purger_ and should be carefully delegated due to the potential for data loss. 
+Purge is a highly privileged operation that no app or user in Azure (including even the resource owner) will have permissions to execute without explicitly being granted a role in Azure Resource Manager. This role is _Data Purger_ and should be carefully delegated due to the potential for data loss.
 
 Once the Azure Resource Manager role has been assigned, two new API paths are available, full developer documentation and call shape linked:
 
@@ -77,4 +77,4 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
 
-While we expect the vast majority of purge operations to complete much quicker than our SLA, due to their heavy impact on the data platform used by Application Insights, the formal SLA for the completion of purge operations is set at 30 days.
+While the vast majority of purge operations may complete much quicker than the SLA, due to their heavy impact on the data platform used by Application Insights, the formal SLA for the completion of purge operations is set at 30 days.
