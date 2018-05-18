@@ -63,7 +63,7 @@ To get *resource groups that have a specific tag*, use:
 To get *resources that have a specific tag*, use:
 
 ```powershell
-(Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
+(Get-AzureRmResource -Tag @{ Dept="Finance" }).Name
 ```
 
 To get *resources that have a specific tag name*, use:
@@ -131,6 +131,7 @@ if ($group.Tags -ne $null) {
                     $resourcetags.Add($key, $group.Tags[$key])
                 }
             }
+            
             Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
     }
