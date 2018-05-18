@@ -40,7 +40,7 @@ This article describes changes that were introduced in Azure Media Services (AMS
   * LiveEvents support DynaMux and DynaEnc 
 
 ## Changes from v2
-
+* In v3, all of the encoding bit rates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, not 128000. 
 * No AssetFiles, AccessPolicies, IngestManifests
 * Many Entities renamed
 
