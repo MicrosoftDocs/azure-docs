@@ -47,15 +47,11 @@ In the app gallery, you can add an unlisted app by selecting the **Non-gallery a
 
   ![](./media/active-directory-saas-custom-apps/customapp2.png)
 
-Adding an application this way provides a similar experience to the one available for pre-integrated applications. To start, select **Configure Single Sign-On** or click on **Single sign-on** from the application’s left-hand navigation menu. The next screen presents the following three options for configuring single sign-on, which are described in the following sections.
+Adding an application this way provides a similar experience to the one available for pre-integrated applications. To start, select **Configure Single Sign-On** or click on **Single sign-on** from the application’s left-hand navigation menu. The next screen presents the options for configuring single sign-on. The options are described in the next sections of this article.
+  
+![](./media/active-directory-saas-custom-apps/customapp3.png)
 
-- SAML based sign-on
-- Password single sign-on
-- Existing single sign-on
-
-  ![](./media/active-directory-saas-custom-apps/customapp3.png)
-
-## SAML based Sign-On
+## SAML based sign-on
 Select this option to configure SAML-based authentication for the application. This requires that the application support SAML 2.0. You should collect information on how to use the SAML capabilities of the application before continuing. Complete the following sections to configure single sign-on between the application and Azure AD.
 
 ### Enter basic SAML configuration
@@ -145,7 +141,8 @@ Assigning a user will allow Azure AD to issue a token for the user. It also caus
 
 > [!NOTE] 
 > You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application. 
->
+
+
 ### Test the SAML application
 
 Before testing the SAML application, you must have set up  the application with Azure AD, and assigned users or groups to the application.
