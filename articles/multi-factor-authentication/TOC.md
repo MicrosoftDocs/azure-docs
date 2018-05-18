@@ -13,6 +13,7 @@
 
 ## [Define authentication methods](../active-directory/authentication/tutorial-authentication-methods.md)
 ## [Enable password writeback](../active-directory/authentication/tutorial-enable-writeback.md)
+## [Enable Windows 10 password reset](../active-directory/authentication/tutorial-sspr-windows.md)
 
 # Concepts
 
@@ -24,14 +25,17 @@
 ### [Password reset policies](../active-directory/authentication/concept-sspr-policy.md)
 ### [What license do I need](../active-directory/authentication/concept-sspr-licensing.md)
 ### [Password writeback](../active-directory/authentication/concept-sspr-writeback.md)
+### [SSPR Troubleshooting](../active-directory/authentication/active-directory-passwords-troubleshoot.md)
+### [SSPR FAQ](../active-directory/authentication/active-directory-passwords-faq.md)
 
 ## Multi-Factor Authentication
 ### [How MFA works](../active-directory/authentication/concept-mfa-howitworks.md)
 ### [What version is right](../active-directory/authentication/concept-mfa-whichversion.md)
 ### [License your users](../active-directory/authentication/concept-mfa-licensing.md)
 ### [Create an Auth Provider](../active-directory/authentication/concept-mfa-authprovider.md)
-## [Security guidance](../active-directory/authentication/multi-factor-authentication-security-best-practices.md)
+### [Security guidance](../active-directory/authentication/multi-factor-authentication-security-best-practices.md)
 ## [MFA for Office 365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
+### [MFA FAQ](../active-directory/authentication/multi-factor-authentication-faq.md)
 
 # How-to Guides
 
@@ -39,7 +43,6 @@
 ### [SSPR Deployment guide](../active-directory/authentication/howto-sspr-deployment.md)
 ### [SSPR Data requirements](../active-directory/authentication/howto-sspr-authenticationdata.md)
 ### [Password writeback](../active-directory/authentication/howto-sspr-writeback.md)
-### [SSPR and Windows 10](../active-directory/authentication/tutorial-sspr-windows.md)
 
 ## Cloud-based MFA
 ### [Deploy cloud-based MFA](../active-directory/authentication/howto-mfa-getstarted.md)
@@ -75,6 +78,12 @@
 ### RADIUS Integration
 #### [Remote Desktop Gateway](../active-directory/authentication/howto-mfaserver-nps-rdg.md)
 #### [Advanced VPN Configurations](../active-directory/authentication/howto-mfaserver-nps-vpn.md)
+#### [NPS extension errors](../active-directory/authentication/howto-mfa-nps-extension-errors.md)
+
+## Certificate-based authentication
+### [Get started with certificate auth](../active-directory/active-directory-certificate-based-authentication-get-started.md)
+#### [CBA on Android Devices](../active-directory/active-directory-certificate-based-authentication-android.md)
+#### [CBA on iOS Devices](../active-directory/active-directory-certificate-based-authentication-ios.md)
 
 ## Develop
 
@@ -88,17 +97,10 @@
 
 ## SSPR
 ### [Passwords overview](../active-directory/authentication/active-directory-passwords-overview.md)
-### [Troubleshoot](../active-directory/authentication/active-directory-passwords-troubleshoot.md)
-### [FAQ](../active-directory/authentication/active-directory-passwords-faq.md)
 
 ## MFA
 ### [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
 ### [MFA user guide](./end-user/multi-factor-authentication-end-user.md)
-
-## Troubleshoot
-### [FAQ](../active-directory/authentication/multi-factor-authentication-faq.md)
-### [NPS extension errors](../active-directory/authentication/howto-mfa-nps-extension-errors.md)
-### [Ask a question](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)

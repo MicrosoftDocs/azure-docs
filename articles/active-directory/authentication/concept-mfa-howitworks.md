@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 05/17/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,30 +15,36 @@ ms.reviewer: richagi
 
 ---
 # How Azure Multi-Factor Authentication works
-The security of two-step verification lies in its layered approach. Compromising multiple authentication factors presents a significant challenge for attackers. Even if an attacker manages to learn the user's password, it is useless without also having possession of the trusted device. 
 
-![Proofup](./media/concept-mfa-howitworks/howitworks.png)
+The security of two-step verification lies in its layered approach. Compromising multiple authentication factors presents a significant challenge for attackers. Even if an attacker manages to learn the user's password, it is useless without also having possession of the additional authentication method. It works by requiring two or more of the following authentication methods:
 
-Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process.  It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy verification options.
+* Something you know (typically a password)
+* Something you have (a trusted device that is not easily duplicated, like a phone)
+* Something you are (biometrics)
 
+<center>![Conceptual authentication methods image](./media/concept-mfa-howitworks/methods.png)</center>
 
-## Methods available for two-step verification
-When a user signs in, an additional verification is sent to the user.  The following are a list of methods that can be used for this second verification.
+Azure Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use [authentication methods](concept-authentication-methods.md).
 
-| Verification Method | Description |
-| --- | --- |
-| Phone call |A call is placed to a user’s registered phone. The user enters a PIN if necessary then presses the # key. |
-| Text message |A text message is sent to a user’s mobile phone with a six-digit code. The user enters this code on the sign-in page. |
-| Mobile app notification |A verification request is sent to a user’s smart phone. The user enters a PIN if necessary then selects **Verify** on the mobile app. |
-| Mobile app verification code |The mobile app, which is running on a user’s smart phone, displays a verification code that changes every 30 seconds. The user finds the most recent code and enters it on the sign-in page. |
-| Third-party OATH tokens | Azure Multi-Factor Authentication Server can be configured to accept third-party verification methods. |
+## Authentication methods
 
-Azure Multi-Factor Authentication provides selectable verification methods for both cloud and server. You can choose which methods are available for your users: phone call, text, app notification, or app codes. For more information, see [selectable verification methods](howto-mfa-mfasettings.md#selectable-verification-methods).
+All users require a password, which is their first factor of authentication in most cases, in addition your organization can allow users to use a text message, a phone call, or an app on their phone to provide a second factor authentication method. Organizations can choose to pre-populate some data for your users like their office phone number or require them to register and confirm their methods as part of your rollout.
+
+![Set up additional security verification](./media/concept-mfa-howitworks/additional-security-verification.png)
+
+## How to deploy
+
+Multi-Factor Authentication can be purchased and deployed in three primary ways:
+
+**Multi-Factor Authentication for Office 365** - A subset of Azure Multi-Factor Authentication capabilities are available as a part of your [Office 365 subscription](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba
+).
+**Azure MFA Server** - If your organization wants to manage the associated infrastructure elements and has deployed AD FS in your on-premsies environment this way may be an option.
+**Azure MFA Service (Cloud)** - **This option is the recommended path for new deployments**. Azure MFA in the cloud requires no on-premises infrastructure and can be used with your federated or cloud-only users.
 
 ## Next steps
 
-- Read about the different [versions and consumption methods for Azure Multi-Factor Authentication](concept-mfa-licensing.md)
+- Find details about [licensing your users](concept-mfa-licensing.md)
 
-- Choose whether to deploy Azure MFA [in the cloud or on-premises](concept-mfa-whichversion.md)
+- Get details about [which version to deploy](concept-mfa-whichversion.md)
 
-- Read answers for [Frequently asked questions](multi-factor-authentication-faq.md)
+- Find answers to [Frequently asked questions](multi-factor-authentication-faq.md)
