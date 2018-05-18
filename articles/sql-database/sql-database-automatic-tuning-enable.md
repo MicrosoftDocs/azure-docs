@@ -21,9 +21,11 @@ On the server level you can choose to inherit automatic tuning configuration fro
 ### Azure portal
 To enable automatic tuning on Azure SQL Database server, navigate to the server in Azure portal and then select **Automatic tuning** in the menu. Select the automatic tuning options you want to enable and select **Apply**.
 
-Please note that DROP_INDEX option at this time is incompatible with applications using partition switching and index hints and should not be turned on in these cases.
-
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Please note that **DROP_INDEX** option at this time is incompatible with applications using partition switching and index hints and should not be turned on in these cases.
+>
 
 Automatic tuning options on server are applied to all databases on the server. By default, all databases inherit the configuration from their parent server, but this can be overridden and specified for each database individually.
 
