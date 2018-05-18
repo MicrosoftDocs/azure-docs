@@ -24,8 +24,8 @@ This article documents the ServiceFabricServiceModel.xsd schema file installed w
 ## Namespace bindings
 |Prefix|Namespace URI|
 |---|---|
-|xs|http://www.w3.org/2001/XMLSchema|
 |None|http://schemas.microsoft.com/2011/01/fabric|
+|xs|http://www.w3.org/2001/XMLSchema|
 
 ## Elements 
 [293 elements](service-fabric-service-model-schema-elements.md)
@@ -65,7 +65,8 @@ class Element(object):
         self.TypeAttributes=[]
         self.ContentElements=[]
         self.XmlSource=""      
-        self.Id=""  
+        self.IsGlobal=False
+        self.DefinedIn=None  
 
 class ComplexType(object):
     def __init__(self):
@@ -128,7 +129,7 @@ for type in filter(lambda x: x.attrib.get('name','') != '', types):
     t.Name = type.attrib.get('name','')    
 
     # Get element documentation
-    doc=None
+    
     doc = type.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
     if len(doc):
         t.Documentation = doc[0].text
@@ -146,7 +147,7 @@ for type in filter(lambda x: x.attrib.get('name','') != '', types):
         a.Name = attr.attrib.get('name')
         a.Attributes = dict(attr.attrib)
         a.XmlSource = etree.tostring(attr, encoding='unicode',pretty_print=True)
-        attrdoc=None
+        
         attrdoc = attr.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
         if len(attrdoc):
             a.Documentation = attrdoc[0].text
@@ -167,7 +168,7 @@ for type in filter(lambda x: x.attrib.get('name','') != '', types):
         c.Name = contentEl.attrib.get('name')       
     
         # Get element documentation
-        doc=None
+        
         doc = contentEl.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
         if len(doc):
             c.Documentation = doc[0].text
@@ -194,7 +195,7 @@ for elem in filter(lambda x: x.attrib.get('name','') != '', elements):
     el.Name = elem.attrib.get('name','')
         
     # Get element documentation
-    doc=None
+    
     doc = elem.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
     if len(doc):
         el.Documentation = doc[0].text
@@ -216,7 +217,7 @@ for elem in filter(lambda x: x.attrib.get('name','') != '', elements):
             a.Name = attr.attrib.get('name')
             a.Attributes = dict(attr.attrib)
             a.XmlSource = etree.tostring(attr, encoding='unicode',pretty_print=True)
-            attrdoc=None
+            
             attrdoc = attr.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
             if len(attrdoc):
                 a.Documentation = attrdoc[0].text
@@ -237,7 +238,7 @@ for elem in filter(lambda x: x.attrib.get('name','') != '', elements):
             c.Name = contentEl.attrib.get('name')       
     
             # Get element documentation
-            doc=None
+            
             doc = contentEl.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
             if len(doc):
                 c.Documentation = doc[0].text
@@ -266,7 +267,7 @@ for simpleType in filter(lambda x: x.attrib.get('name','') != '', simpleTypes):
     st.Name = simpleType.attrib.get('name','')
 
     # Get simple type documentation
-    doc=None
+    
     doc = simpleType.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
     if len(doc):
         st.Documentation = doc[0].text
@@ -285,7 +286,7 @@ for elemGroup in filter(lambda x: x.attrib.get('name','') != '', elemGroups):
     eg.Name = elemGroup.attrib.get('name','')    
 
     # Get element documentation
-    doc=None
+    
     doc = elemGroup.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
     if len(doc):
         eg.Documentation = doc[0].text
@@ -306,7 +307,7 @@ for attrGroup in filter(lambda x: x.attrib.get('name','') != '', attrGroups):
     ag.Name = attrGroup.attrib.get('name','')    
 
     # Get element documentation
-    doc=None
+    
     doc = attrGroup.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
     if len(doc):
         ag.Documentation = doc[0].text
@@ -324,7 +325,7 @@ for attrGroup in filter(lambda x: x.attrib.get('name','') != '', attrGroups):
         a.Name = attr.attrib.get('name')
         a.Attributes = dict(attr.attrib)
         a.XmlSource = etree.tostring(attr, encoding='unicode')
-        attrdoc=None
+        
         attrdoc = attr.xpath("xs:annotation/xs:documentation", namespaces=NSMAP)
         if len(attrdoc):
             a.Documentation = attrdoc[0].text
@@ -333,7 +334,8 @@ for attrGroup in filter(lambda x: x.attrib.get('name','') != '', attrGroups):
     namedAttributeGroups.append(ag)
 
 
-
+print("Number of elements: %i" % len(namedElements))
+print("Number of complexTypes: %i" % len(namedComplexTypes))
 
 
 # 

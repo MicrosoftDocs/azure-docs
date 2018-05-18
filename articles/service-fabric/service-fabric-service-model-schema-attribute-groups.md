@@ -49,8 +49,8 @@ User name or Service Account Name (i.e., MyMachine\JohnDoe or John.Doe@departmen
 |Attribute|Value|
 |---|---|
 |name|AccountName|
-|use|optional|
 |type|xs:string|
+|use|optional|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AccountName" type="xs:string" use="optional">
@@ -66,8 +66,8 @@ Password for the user account.
 |Attribute|Value|
 |---|---|
 |name|Password|
-|use|optional|
 |type|xs:string|
+|use|optional|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Password" type="xs:string" use="optional">
@@ -112,8 +112,8 @@ Fully qualified name of the application.
 |Attribute|Value|
 |---|---|
 |name|NameUri|
-|use|required|
 |type|FabricUri|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NameUri" type="FabricUri" use="required">
@@ -129,8 +129,8 @@ Id of this application.
 |Attribute|Value|
 |---|---|
 |name|ApplicationId|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationId" type="xs:string" use="required">
@@ -233,8 +233,8 @@ The identifier of this application manifest, an un-structured string.
 |Attribute|Value|
 |---|---|
 |name|ManifestId|
-|default||
 |use|optional|
+|default||
 |type|xs:string|
 ##### XML source
 ```xml
@@ -275,8 +275,8 @@ Identifies configuration overrides for a service package.
 |Attribute|Value|
 |---|---|
 |name|ServicePackageName|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackageName" type="xs:string" use="required"/>
@@ -288,8 +288,8 @@ ID of the rollout in which changes were made to the overrides element.
 |Attribute|Value|
 |---|---|
 |name|RolloutVersion|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RolloutVersion" type="xs:string" use="required">
@@ -330,8 +330,8 @@ ID of the rollout in which changes were made to the overrides element.
 |Attribute|Value|
 |---|---|
 |name|ConnectionString|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConnectionString" type="xs:string" use="required">
@@ -545,8 +545,8 @@ The new value of the setting.
 |Attribute|Value|
 |---|---|
 |name|Value|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Value" type="xs:string" use="required">
@@ -587,8 +587,8 @@ The new value of the setting.
 |Attribute|Value|
 |---|---|
 |name|Path|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Path" type="xs:string" use="required">
@@ -626,8 +626,8 @@ Path to the folder, relative to the application log directory.
 |Attribute|Value|
 |---|---|
 |name|RelativeFolderPath|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RelativeFolderPath" type="xs:string" use="required">
@@ -778,8 +778,8 @@ Attribute group for versioning sections in ApplicationInstance and ServicePackag
 |Attribute|Value|
 |---|---|
 |name|RolloutVersion|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RolloutVersion" type="xs:string" use="required"/>
