@@ -29,6 +29,8 @@ Clone a GitHub repository that contains the full .NET Core sample to your machin
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials.git
  ```
+ 
+You can find the code discussed in this topic in [this file](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/EncodeCustomTransform/MediaV3ConsoleApp/Program.cs).
 
 ## Create a transform with a custom preset 
 
