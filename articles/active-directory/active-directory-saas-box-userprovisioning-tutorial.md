@@ -40,7 +40,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 The **Box > Users and Groups** tab in the Azure portal allows you to specify which users and groups should be granted access to Box. Assignment of a user or group causes the following things to occur:
 
 * Azure AD permits the assigned user (either by direct assignment or group membership) to authenticate to Box. If a user is not assigned, then Azure AD does not permit them to sign in to Box and returns an error on the Azure AD sign-in page.
-* An app tile for Box is added to the user's [application launcher](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+* An app tile for Box is added to the user's [application launcher](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 * If automatic provisioning is enabled, then the assigned users and/or groups are added to the provisioning queue to be automatically provisioned.
   
   * If only user objects were configured to be provisioned, then all directly assigned users are placed in the provisioning queue, and all users that are members of any assigned groups are placed in the provisioning queue. 
@@ -117,5 +117,5 @@ In your Box tenant, synchronized users are listed under **Managed Users** in the
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure Single Sign-on](active-directory-saas-box-tutorial.md)
