@@ -16,17 +16,17 @@ ms.reviewer: richagi
 ---
 # Which version of Azure MFA is right for my organization?
 
-Before you can decide where and how to deploy Multi-Factor Authentication (MFA) you need to answer three basic questions.
+Before you can decide where and how to deploy Multi-Factor Authentication (MFA), you need to answer three basic questions.
 
 * [What am I trying to secure](#what-am-i-trying-to-secure)
 * [Where are the users located](#where-are-the-users-located)
 * [What features do I need?](#what-features-do-i-need)
 
-Each of the following sections provides details to help you answer the preceeding questions.
+Each of the following sections provides details to help you answer the preceding questions.
 
 ## What am I trying to secure?
 
-To determine the correct two-step verification solution, first we must answer the question of what are you trying to secure with a second method of authentication.  Is it an application that is in Azure?  Or a remote access system?  By determining what we are trying to secure, we can answer the question of where Multi-Factor Authentication needs to be enabled.
+To determine the correct two-step verification solution, first you must answer the question of what are you trying to secure with an additional factor of authentication. Is it an application that is in Azure? Or a remote access system? By determining what you are trying to secure, you can answer the question of where Multi-Factor Authentication needs to be enabled.
 
 | What are you trying to secure | MFA in the cloud | MFA Server |
 | --- |:---:|:---:|
@@ -38,7 +38,7 @@ To determine the correct two-step verification solution, first we must answer th
 
 ## Where are the users located
 
-Next, looking at where our users are located helps to determine the correct solution to use, whether in the cloud or on-premises using the MFA Server.
+Next, determine where your organization's users are located helps to determine the correct solution to use, whether in the cloud or on-premises using the MFA Server.
 
 | User Location | MFA in the cloud | MFA Server |
 | --- |:---:|:---:|

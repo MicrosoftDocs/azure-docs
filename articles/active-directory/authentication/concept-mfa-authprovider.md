@@ -18,19 +18,19 @@ ms.reviewer: richagi
 
 Two-step verification is available by default for global administrators who have Azure Active Directory, and Office 365 users. However, if you wish to take advantage of [advanced features](howto-mfa-mfasettings.md) then you should purchase the full version of Azure Multi-Factor Authentication (MFA).
 
-An Azure Multi-Factor Auth Provider is used to take advantage of features provided by the full version of Azure MFA. It is for users who **do not have licenses through Azure MFA, Azure AD Premium, or bundles that include Azure AD Premium or Azure MFA**.  Azure MFA and Azure AD Premium include the full version of Azure MFA by default. If you have licenses that cover the users in your organization, then you do not need an Azure Multi-Factor Auth Provider. You should create an Azure Multi-Factor Authentication Provider only if you also need to provide two-step verification for some users that don't have licenses.
+An Azure Multi-Factor Auth Provider is used to take advantage of features provided by the full version of Azure MFA. It is for users who **do not have licenses through Azure MFA, Azure AD Premium, or bundles that include Azure AD Premium or Azure MFA**. Azure MFA and Azure AD Premium include the full version of Azure MFA by default. If you have licenses that cover the users in your organization, then you do not need an Azure Multi-Factor Auth Provider. Create an Azure Multi-Factor Authentication Provider only if you also need to provide two-step verification for some users that don't have licenses.
 
-## Cavieats realated to the Azure MFA SDK
+## Caveats related to the Azure MFA SDK
 
-An Azure Multi-Factor Auth provider is required to download the SDK. Note the SDK has been depricated and is no longer supported for new customers and will only continue to work until November 14, 2018. After that time, calls to the SDK will fail.
+An Azure Multi-Factor Auth provider is required to download the SDK. Note the SDK has been deprecated and is no longer supported for new customers and will only continue to work until November 14, 2018. After that time, calls to the SDK will fail.
 
-To download the SDK, create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or other bundled licenses.  If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, be sure to create the Provider with the **Per Enabled User** model. Then, link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or other bundled licenses. This configuration ensures that you are only billed if you have more unique users performing two-step verification than the number of licenses you own.
+To download the SDK, create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or other bundled licenses. If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, be sure to create the Provider with the **Per Enabled User** model. Then, link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or other bundled licenses. This configuration ensures that you are only billed if you have more unique users performing two-step verification than the number of licenses you own.
 
 ## What is an MFA Provider?
 
-If you don't have licenses for Azure Multi-Factor Authentication, you can create an auth provider to require two-step verification for your users.
+If you don't have licenses for Azure Multi-Factor Authentication, you can create an Auth provider to require two-step verification for your users.
 
-There are two types of auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if you have a number of users authenticating only occasionally. The per-user option calculates the number of individuals in your tenant who perform two-step verification in a month. This option is best if you have some users with licenses but need to extend MFA to more users beyond your licensing limits.
+There are two types of Auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if you have a number of users authenticating only occasionally. The per-user option calculates the number of individuals in your tenant who perform two-step verification in a month. This option is best if you have some users with licenses but need to extend MFA to more users beyond your licensing limits.
 
 ## Create an MFA Provider
 
@@ -59,7 +59,7 @@ You cannot change the usage model (per enabled user or per authentication) after
 
 If the current Multi-Factor Auth Provider is associated with an Azure AD directory (also known as an Azure AD tenant), you can safely delete the MFA provider and create one that is linked to the same Azure AD tenant. Alternatively, if you purchased enough MFA, Azure AD Premium, or other bundled licenses to cover all users that are enabled for MFA, you can delete the MFA provider altogether.
 
-If your MFA provider is not linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options are not transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the new MFA Provider. Reactivating the MFA Servers to link them to the new MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications will stop working for all users until they reactivate the mobile app.
+If your MFA provider is not linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options are not transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the new MFA Provider. Reactivating the MFA Servers to link them to the new MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications stop working for all users until they reactivate the mobile app.
 
 ## Next steps
 
