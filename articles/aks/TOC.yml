@@ -63,7 +63,7 @@
       href: internal-lb.md
     - name: Ingress and TLS
       href: ingress.md
-    - name: Whitelist Egress Traffic
+    - name: Whitelist egress traffic
       href: egress.md
     - name: HTTP application routing
       href: http-application-routing.md
