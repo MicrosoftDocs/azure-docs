@@ -26,6 +26,6 @@ Personal contact information may be deleted in the following ways:
   - Click *Export all settings* (to save your current settings to a `.json` file)
   - Click *Delete all settings and private dashboards* to delete all settings including saved contact information
 
-Individual import/export jobs can be deleted via the REST API or the Azure portal. To delete the job in the Azure portal, go to your import/export job, and click *Delete* from the command bar. For details on how to delete an import/export job via REST API, refer to [Delete an import/export job](storage-import-export-cancelling-and-deleting-jobs.md).
+Individual import/export jobs can be deleted via the REST API or the Azure portal. To delete the job in the Azure portal, go to your import/export job, and click *Delete* from the command bar. For details on how to delete an import/export job via REST API, refer to [Delete an import/export job](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
 For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter)
