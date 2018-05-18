@@ -19,17 +19,17 @@ ms.author: fryu
 
 # Azure Storage metrics migration
 
-Aligned with the strategy of unifying the monitor experience in Azure, Azure Storage integrates metrics to the Azure Monitor platform. In the future, the service of the former metrics will end with an early notification based on Azure policy. If you rely on former storage metrics, you need to migrate prior to the service end date in order to maintain your metric information.
+Aligned with the strategy of unifying the monitor experience in Azure, Azure Storage integrates metrics to the Azure Monitor platform. In the future, the service of the old metrics will end with an early notification based on Azure policy. If you rely on old storage metrics, you need to migrate prior to the service end date in order to maintain your metric information.
 
 This article shows you how to migrate from the old metrics to the new metrics.
 
-## Understand former metrics that are managed by Azure Storage
+## Understand old metrics that are managed by Azure Storage
 
 Azure Storage collects old metric values, and aggregates and stores them in $Metric tables within the same storage account. You can use the Azure portal to set up a monitoring chart. You can also use the Azure Storage SDKs to read the data from $Metric tables that are based on the schema. For more information, see [Storage Analytics](./storage-analytics.md).
 
-Former metrics provide capacity metrics only on Azure Blob storage. Former metrics provide transaction metrics on Blob storage, Table storage, Azure Files, and Queue storage. 
+Old metrics provide capacity metrics only on Azure Blob storage. Old metrics provide transaction metrics on Blob storage, Table storage, Azure Files, and Queue storage. 
 
-Former metrics are designed in a flat schema. The design results in zero metric value when you don't have the traffic patterns triggering the metric. For example, the **ServerTimeoutError** value is set to 0 in $Metric tables even when you don't receive any server timeout errors from the live traffic to a storage account.
+Old metrics are designed in a flat schema. The design results in zero metric value when you don't have the traffic patterns triggering the metric. For example, the **ServerTimeoutError** value is set to 0 in $Metric tables even when you don't receive any server timeout errors from the live traffic to a storage account.
 
 ## Understand new metrics managed by Azure Monitor
 
@@ -51,7 +51,7 @@ If you read metric data programmatically, you need to adopt the new metric schem
 | **ObjectCount**        | **BlobCount** with the dimension **BlobType** equal to **BlockBlob** or **PageBlob** |
 | **ContainerCount**      | **ContainerCount** |
 
-The following metrics are new offerings that the former metrics don't support:
+The following metrics are new offerings that the old metrics don't support:
 * **TableCapacity**
 * **TableCount**
 * **TableEntityCount**
@@ -110,7 +110,7 @@ The following metrics are new offerings that the former metrics don't support:
 
 ### How should I migrate existing alert rules?
 
-If you have created classic alert rules based on former storage metrics, you need to create new alert rules based on the new metric schema.
+If you have created classic alert rules based on old storage metrics, you need to create new alert rules based on the new metric schema.
 
 ### Is new metric data stored in the same storage account by default?
 
