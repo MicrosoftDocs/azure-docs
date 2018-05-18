@@ -30,7 +30,7 @@ For a full investigation experience, it is recommended to enable [SQL Database A
 3. On the **Advanced Threat Protection** configuration page:
 
    - Enable Advanced Threat Protection on the server.
-   - In **Threat Detection Settings**, in the **Send alerts to** textg box, provide the list of emails to receive security alerts upon detection of anomalous database activities.
+   - In **Threat Detection Settings**, in the **Send alerts to** text box, provide the list of emails to receive security alerts upon detection of anomalous database activities.
   
    ![Set up threat detection](./media/sql-database-threat-detection/set_up_threat_detection.png)
 
