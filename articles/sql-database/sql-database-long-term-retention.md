@@ -51,8 +51,12 @@ W=12 weeks (84 days), M=12 months (365 days), Y=10 years (3650 days), WeekOfYear
 
  
 If you were to modify the above policy and set W=0 (no weekly backups), the cadence of backup copies would change as shown in the above table by the highlighted dates. The storage amount needed to keep these backups would reduce accordingly. 
-Note: The LTR copies are created by Azure storage service so the copy process has no performance impact on the existing database.
-To restore a database from the LTR storage, you can select a specific backup based on its timestamp.   The database can be restored to any existing server under the same subscription as the original database. 
+
+> [!NOTE]
+1. The LTR copies are created by Azure storage service so the copy process has no performance impact on the existing database.
+2. The policy applies to the future backup. E.g. if the specified WeekOfYear is in the past when the policy is configured, the first LTR backup will be created next year. 
+2. To restore a database from the LTR storage, you can select a specific backup based on its timestamp.   The database can be restored to any existing server under the same subscription as the original database. 
+> 
 
 ## Configure long-term backup retention
 
