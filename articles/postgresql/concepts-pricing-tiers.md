@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/18/2018
 ---
 
 # Azure Database for PostgreSQL pricing tiers
@@ -66,7 +66,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Japan West | X | X |
 | Korea South |  | X |
 
-Depending on the pricing tier, each vCore is provisioned with a specific amount of memory. When you increase or decrease the number of vCores for your server, the memory increases or decreases proportionally. The General Purpose tier provides double the amount of memory per vCore compared to the Basic tier. The Memory Optimized tier provides double the amount of memory compared to the General Purpose tier.
+Depending on the pricing tier, each vCore is provisioned with a specific amount of memory. For capacity planning, you can use these as general guidelines: Basic - 2 GB per vCore, General Purpose - 5 GB per vCore, and Memory Optimized - 10 GB per vCore. When you increase or decrease the number of vCores for your server, the memory increases or decreases proportionally.
 
 ## Storage
 
