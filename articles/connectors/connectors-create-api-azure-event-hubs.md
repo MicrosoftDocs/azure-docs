@@ -45,7 +45,7 @@ To start your logic app with an Azure Event Hubs trigger, you need a
 For your logic app to access your Event Hub, 
 check your permissions and get the connection string for your Event Hubs namespace.
 
-1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
+1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>. 
 
 2. Go to your Event Hubs *namespace*, not a specific Event Hub. 
 On the namespace page, under **Settings**, choose **Shared access policies**. 
@@ -55,17 +55,20 @@ Under **Claims**, check that you have **Manage** permissions for that namespace.
 
 3. If you want to later manually enter your connection information, 
 get the connection string for your Event Hubs namespace. 
-Choose **RootManageSharedAccessKey**. Next to your primary key connection string, 
-choose the copy button. Save the connection string for later use.
 
-   ![Copy Event Hubs namespace connection string](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
+   1. Under **Policy**, choose **RootManageSharedAccessKey**. 
 
-   > [!TIP]
-   > To confirm whether your connection string is 
-   > associated with your Event Hubs namespace or with a specific event hub, 
-   > check the connection string for the `EntityPath` parameter. 
-   > If you find this parameter, the connection string is for a specific 
-   > Event Hub "entity", and is not the correct string to use with your logic app.
+   2. Find your primary key's connection string. Choose the copy button, 
+   and save the connection string for later use.
+
+      ![Copy Event Hubs namespace connection string](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
+
+      > [!TIP]
+      > To confirm whether your connection string is associated with 
+      > your Event Hubs namespace or with a specific event hub, 
+      > make sure the connection string doesn't have the `EntityPath` parameter. 
+      > If you find this parameter, the connection string is for a specific 
+      > Event Hub "entity" and is not the correct string to use with your logic app.
 
 <a name="add-trigger"></a>
 
@@ -140,7 +143,6 @@ for the found event.
 
 In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 is a step in your workflow that follows a trigger or another action. 
-
 For this example, the logic app starts with an Event Hubs trigger 
 that checks for new events in your Event Hub. 
 
@@ -160,7 +162,7 @@ From the actions list, select the action you want.
 
    For this example, select this action: **Event Hubs - Send event**
 
-   ![Select "Event Hubs - Send event"](./media/connectors-create-api-azure-event-hubs/select-event-hubs-send-event-action.png)
+   ![Select "Event Hubs - Send event"](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
 
 4. If you're prompted for connection details, 
 [create your Event Hub connection now](#create-connection). 
@@ -192,7 +194,7 @@ provide these details:
    | Property | Required | Value | Description | 
    |----------|----------|-------|-------------|
    | Connection Name | Yes | <*connection-name*> | The name to create for your connection |
-   | Event Hubs Namespace | Yes | <*event-hubs-namespace*> | Select the Event Hubs namespace you want to use | 
+   | Event Hubs Namespace | Yes | <*event-hubs-namespace*> | Select the Event Hubs namespace you want to use. | 
    |||||  
 
    For example:
@@ -203,7 +205,8 @@ provide these details:
    choose **Manually enter connection information**. 
    Learn [how to find your connection string](#permissions-connection-string).
 
-2. Now select the Event Hubs policy to use, and choose **Create**.
+2. Select the Event Hubs policy to use, 
+if not already selected. Choose **Create**.
 
    ![Create Event Hub connection, part 2](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
 
