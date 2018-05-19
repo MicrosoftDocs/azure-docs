@@ -31,7 +31,7 @@ ms.custom: mvc
 
 This quickstart shows you how to get started using Microsoft Azure Redis Cache with .NET. Microsoft Azure Redis Cache is based on the popular open source Redis Cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure.
 
-In this quickstart, you will use the [StackExchange.Redis][StackExchange.Redis] client with C\# code in a console app. You will create a cache, configure a .NET cache client app, and add and update objects in the cache. 
+In this quickstart, you will use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C\# code in a console app. You will create a cache, configure a .NET cache client app, and add and update objects in the cache. 
 
 ![Console app completed](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
 
@@ -184,6 +184,8 @@ Cache items can be stored and retrieved by using the `StringSet` and `StringGet`
 
 Redis stores most data as Redis strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
 
+Press **Ctrl+F5** to build and run the console app.
+
 In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
 ![Console app partial](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png)
@@ -225,7 +227,7 @@ Add the following `Employee` class definition to *Program.cs*:
         }
 ```
 
-In *Program.cs* At the bottom of `Main()` procedure, and before the call to `Dispose()`, add the following lines of code to cache and retrieve a serialized .NET object:
+At the bottom of `Main()` procedure in *Program.cs*, and before the call to `Dispose()`, add the following lines of code to cache and retrieve a serialized .NET object:
 
 ```csharp
             // Store .NET object to cache
@@ -275,7 +277,7 @@ After a few moments, the resource group and all of its contained resources are d
 In this quickstart, you learned how to use Azure Redis Cache from a .NET application. Continue to the next quickstart to use Redis Cache with an ASP.NET web app.
 
 > [!div class="nextstepaction"]
-> [Create a simple ASP.NET web app that uses an Azure Redis Cache.](./cache-web-app-howto.md)
+> [Create a ASP.NET web app that uses an Azure Redis Cache.](./cache-web-app-howto.md)
 
 
 <!-- INTRA-TOPIC LINKS -->
