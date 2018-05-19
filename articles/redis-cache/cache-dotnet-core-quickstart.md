@@ -331,7 +331,7 @@ After a few moments, the resource group and all of its contained resources are d
 
 ## Next steps
 
-In this quickstart, you learned how to use Azure Redis Cache from a .NET application. Continue to the next quickstart to use Redis Cache with an ASP.NET web app.
+In this quickstart, you learned how to use Azure Redis Cache from a .NET Core application. Continue to the next quickstart to use Redis Cache with an ASP.NET web app.
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app that uses an Azure Redis Cache.](./cache-web-app-howto.md)
