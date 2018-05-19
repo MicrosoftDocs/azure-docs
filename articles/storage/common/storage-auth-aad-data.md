@@ -1,6 +1,6 @@
 ---
-title: Authenticate with Azure AD from your storage applications (Preview) | Microsoft Docs
-description: Authenticate with Azure AD from your storage applications (Preview).  
+title: Use Azure AD with storage applications (Preview) | Microsoft Docs
+description: Use Azure AD with storage applications (Preview).  
 services: storage
 author: tamram
 manager: jeconnoc
@@ -11,7 +11,7 @@ ms.date: 05/18/2018
 ms.author: tamram
 ---
 
-# Authenticate with Azure AD from your storage applications (Preview)
+# Use Azure AD with storage applications (Preview)
 
 
 

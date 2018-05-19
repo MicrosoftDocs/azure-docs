@@ -85,7 +85,7 @@
     items:
     - name: Storage account overview
       href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Authentication
+    - name: Authorization
       href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
       - name: Authenticate with Azure AD
@@ -95,9 +95,9 @@
             href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Authenticate with Azure AD from your storage applications
             href: ../common/storage-auth-aad-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Authenticate with Shared Key
+      - name: Authorize with Shared Key
         href: /rest/api/storageservices/authenticate-with-shared-key
-      - name: Authenticate with SAS
+      - name: Authorize with SAS
         href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Anonymous access to blobs
         href: storage-manage-access-to-resources.md
