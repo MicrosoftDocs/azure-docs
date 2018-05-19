@@ -22,38 +22,35 @@ In a Service Fabric cluster running in Azure, each cluster node type that you de
 
 To find an IP address and port that you can use to remotely connect to a specific instance, complete the following steps.
 
-1. Find the virtual IP address for the node type by getting the inbound NAT rules for Remote Desktop Protocol (RDP).
+1. Get the inbound NAT rules for Remote Desktop Protocol (RDP).
 
-    First, get the inbound NAT rules values that were defined as part of the resource definition for `Microsoft.Network/loadBalancers`.
+    Typically, each node type defined in your cluster has its own virtual IP address and a dedicated load balancer. By default, the load balancer for a node type is named with the following format: *LB-&ltcluster-name&gt-&ltnode-type&gt*; for example *LB-mycluster-FrontEnd*. 
     
-    In the Azure portal, on the load balancer page, select **Settings** > **Inbound NAT rules**. This gives you the IP address and port that you can use to remotely connect to the first scale set instance. 
-    
+    On the load balancer page in Azure portal, select **Settings** > **Inbound NAT rules**. The following screenshot shows the inbuound NAT rules for a node type named FrontEnd. 
+
     ![Load balancer][LBBlade]
+
+    For each node, the IP address appears in the **DESTINATION** column, the **TARGET** column gives the scale set instance, and the **SERVICE** column provides the port number. For remote connection, ports are allocated to each node in ascending order beginning with port 3389.
+
+    You can also find the Inbound NAT rules in the `Microsoft.Network/loadBalancers` section of the ARM template for your cluster.
     
-    In the following figure, the IP address and port are **104.42.106.156** and **3389**.
-    
+2. To confirm the inbound port to target port mapping for a node, click its rule and look at the **Target port** value. The following screenshot shows the inbound NAT rule for the **FrontEnd (Instance 1)** in the previous step. Notice that, although the (inbound) port number is 3390, the target port is mapped to port 3389, the port for the RDP service.  
+
     ![NAT rules][NATRules]
 
-2. Find the port that you can use to remotely connect to the specific scale set instance or node.
+    By default, for Windows clusters, the target port is port 3389, which maps to the RDP service on the target node. For Linux clusters, the target port is port 22, which maps to the Secure Shell (SSH) service.
 
-    Scale set instances map to nodes. Use the scale set information to determine the exact port to use.
-    
-    Ports are allocated in an ascending order that matches the scale set instance. For the earlier example of the FrontEnd node type, the following table lists the ports for each of the five node instances. Apply the same mapping to your scale set instance.
-    
-    | **Virtual machine scale set instance** | **Port** |
-    | --- | --- |
-    | FrontEnd_0 |3389 |
-    | FrontEnd_1 |3390 |
-    | FrontEnd_2 |3391 |
-    | FrontEnd_3 |3392 |
-    | FrontEnd_4 |3393 |
-    | FrontEnd_5 |3394 |
+3. Remotely connect to the specific node (scale set instance). You can use the user name and password that you set when you created the cluster or any other credentials you have configured. 
 
-3. Remotely connect to the specific scale set instance.
-
-    The following figure demonstrates using Remote Desktop Connection to connect to the FrontEnd_1 scale set instance:
+    The following screenshot shows using Remote Desktop Connection to connect to the **FrontEnd (Instance 1)** node in a Windows cluster:
     
     ![Remote Desktop Connection][RDP]
+
+    For Linux nodes you can connect with SSH:
+
+    ``` bash
+    ssh <user name>@<IP address> -p <port number>
+    ```
 
 
 For next steps, read the following articles:
