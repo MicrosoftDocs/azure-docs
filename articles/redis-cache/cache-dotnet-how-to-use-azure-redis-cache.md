@@ -31,7 +31,7 @@ ms.custom: mvc
 
 This quickstart shows you how to get started using Microsoft Azure Redis Cache with .NET. Microsoft Azure Redis Cache is based on the popular open source Redis Cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure.
 
-In this quickstart, you will use the [StackExchange.Redis][StackExchange.Redis] client with C\# code in a console app. You will create and configure a cache, configuring a .NET cache client, and add and update objects in the cache. 
+In this quickstart, you will use the [StackExchange.Redis][StackExchange.Redis] client with C\# code in a console app. You will create a cache, configure a .NET cache client app, and add and update objects in the cache. 
 
 ![Console app completed](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
 
@@ -39,8 +39,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* Visual Studio
-* The StackExchange.Redis client requires .NET Framework 4 or higher.
+* [Visual Studio](https://www.visualstudio.com/downloads/)
+* The StackExchange.Redis client requires [.NET Framework 4 or higher](https://www.microsoft.com/net/download/dotnet-framework-runtime).
 
 ## Create a cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -66,9 +66,14 @@ Replace `<access-key>` with the primary key for your cache.
 
 In Visual Studio, click **File** > **New** > **Project**.
 
-Under **Visual C#**, click **Windows Classic Desktop** and then click **Console App** and **OK** to create a new console application.
+Under **Visual C#**, click **Windows Classic Desktop** and then click **Console App**, and **OK** to create a new console application.
 
-## Configure the cache clients
+
+<a name="configure-the-cache-clients"></a>
+
+## Configure the cache client
+
+In this section you will configure the console application to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client for .NET.
 
 In Visual Studio, click **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
 
@@ -81,7 +86,7 @@ Once the installation is completed, the *StackExchange.Redis* cache client is av
 
 ## Connect to the cache
 
-In Visual Studio, open your *App.config* file and update it to with the `appSettings` `file` attribute that references the *CacheSecrets.config* file.
+In Visual Studio, open your *App.config* file and update it to include an `appSettings` `file` attribute that references the *CacheSecrets.config* file.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -95,7 +100,7 @@ In Visual Studio, open your *App.config* file and update it to with the `appSett
 </configuration>
 ```
 
-In Solution Explorer, right click *References* and click **Add a reference**. Add a reference to the *System.Configuration* assembly.
+In Solution Explorer, right-click **References** and click **Add a reference**. Add a reference to the **System.Configuration** assembly.
 
 Add the following `using` statements to *Program.cs*:
 
@@ -104,7 +109,7 @@ using StackExchange.Redis;
 using System.Configuration;
 ```
 
-The connection to the Azure Redis Cache is managed by the `ConnectionMultiplexer` class. This class should be shared and reused throughout your client application. You should not create a new connection for each operation. 
+The connection to the Azure Redis Cache is managed by the `ConnectionMultiplexer` class. This class should be shared and reused throughout your client application. Do not create a new connection for each operation. 
 
 Never store credentials in source code. To keep this sample simple, I’m only using an external secrets config file. A better approach would be to use [Azure Key Vault with certificates](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios).
 
@@ -181,14 +186,14 @@ Redis stores most data as Redis strings, but these strings can contain many type
 
 In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-![Console app partially complete](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png)
+![Console app partial](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png)
 
 
 ## Work with .NET objects in the cache
 
 Azure Redis Cache can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized. This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
 
-One simple way to serialize objects is to use the `JsonConvert` serialization methods in [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) and serialize to and from JSON. 
+One simple way to serialize objects is to use the `JsonConvert` serialization methods in [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) and serialize to and from JSON. In this section, you will add a .NET object to the cache.
 
 In Visual Studio, click **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
 
@@ -253,13 +258,13 @@ Otherwise, if you are finished with the quickstart sample application, you can d
 
 Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this topic used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
 
 ![Delete](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
 You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
 
-After a few moments the resource group and all of its contained resources are deleted.
+After a few moments, the resource group and all of its contained resources are deleted.
 
 
 
@@ -267,7 +272,7 @@ After a few moments the resource group and all of its contained resources are de
 
 ## Next steps
 
-In this quickstart you learned how to use Azure Redis Cache from a .NET application. Continue to the next quickstart to use Redis Cache with an ASP.NET web app.
+In this quickstart, you learned how to use Azure Redis Cache from a .NET application. Continue to the next quickstart to use Redis Cache with an ASP.NET web app.
 
 > [!div class="nextstepaction"]
 > [Create a simple ASP.NET web app that uses an Azure Redis Cache.](./cache-web-app-howto.md)
@@ -293,70 +298,5 @@ In this quickstart you learned how to use Azure Redis Cache from a .NET applicat
 
 
 <!-- IMAGES -->
-
-
-[StackExchangeNuget]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-stackexchange-redis.png
-
-[NuGetMenu]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-nuget-menu.png
-
-[CacheProperties]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png
-
-[ManageKeys]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
-
-[SessionStateNuGet]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-session-state-provider.png
-
-[BrowseCaches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-browse-caches.png
-
-[Caches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png
-
-
-
-
-
-
-
-<!-- LINKS -->
-[http://redis.io/clients]: http://redis.io/clients
-[Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
-[How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
-[Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
-[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
-[Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
-[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Output Cache Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
-[Team Blog]: http://blogs.msdn.com/b/windowsazure/
-[Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
-[Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
-[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
-
-[StackExchange.Redis configuration model]: https://stackexchange.github.io/StackExchange.Redis/Configuration
-
-[Work with .NET objects in the cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
-
-
-[NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
-[Azure portal]: https://portal.azure.com/
-
-[Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
-[Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
-
-[Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
-[Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Using Resource groups to manage your Azure resources]: ../azure-resource-manager/resource-group-overview.md
-
-[StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
-[StackExchange.Redis cache client documentation]: http://github.com/StackExchange/StackExchange.Redis#documentation
-
-[Redis]: http://redis.io/documentation
-[Redis data types]: http://redis.io/topics/data-types
-[a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
-
-[How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 

@@ -321,13 +321,13 @@ Otherwise, if you are finished with the quickstart sample application, you can d
 
 Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this topic used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
 
 ![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
 
-After a few moments the resource group and all of its contained resources are deleted.
+After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 
