@@ -46,15 +46,15 @@ To assign a built-in role granting access to all containers or queues in the sto
 1. In the [Azure portal](https://azure.portal.com/), navigate to your storage account.
 2. Select your storage account, then select **Access Control (IAM)** to display access control settings for the account. Click the **Add** button to add a new role.
 
-    ![Screen shot showing storage access control settings](media/storage-authentication-aad-rbac/portal-access-control.png)
+    ![Screen shot showing storage access control settings](media/storage-auth-aad-rbac/portal-access-control.png)
 
 3. In the **Add permissions** window, select the role that you want to assign to a user, group, or service principal. Then search to locate the user, group, or service principal to whom you want to assign that role. For example, the following image shows the **Storage Blob Data Reader (Preview)** role assigned to a user.
 
-    ![Screen shot showing how to assign an RBAC role](media/storage-authentication-aad-rbac/add-rbac-role.png)
+    ![Screen shot showing how to assign an RBAC role](media/storage-auth-aad-rbac/add-rbac-role.png)
 
 4. Click **Save**. The user, group, or service principal that you added appears listed under the role that you selected. For example, the following image shows that the users added now have read permissions to all blob data in the storage account.
 
-    ![Screen shot showing list of users assigned to a role](media/storage-authentication-aad-rbac/account-scoped-role.png)
+    ![Screen shot showing list of users assigned to a role](media/storage-auth-aad-rbac/account-scoped-role.png)
 
 ### Assign a role scoped to a container or queue in the Azure portal
 
@@ -67,7 +67,7 @@ The steps for assigning a built-in role scoped to a container or to a queue are 
 5. In the **Add permissions** window, select the role that you want to assign to a user, group, or service principal. Then search to locate the user, group, or service principal to whom you want to assign that role.
 6. Click **Save**. The user, group, or service principal that you added appears listed under the role that you selected. For example, the following image shows that the user added now has read permissions to data in the container named *sample-container*.
 
-    ![Screen shot showing list of users assigned to a role](media/storage-authentication-aad-rbac/container-scoped-role.png)
+    ![Screen shot showing list of users assigned to a role](media/storage-auth-aad-rbac/container-scoped-role.png)
 
 ## Next Steps
 
