@@ -73,9 +73,10 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
 
 * [POST purge] (https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - takes an object specifying parameters of data to delete and returns a reference GUID 
 * GET purge status - the POST purge call will return an 'x-ms-status-location' header that will include a URL that you can call to determine the status of your purge API. For example:
-   ```
-   x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
-   ```
+
+    ```
+    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
+    ```
 
 While we expect the vast majority of purge operations to complete much quicker than our SLA, due to their heavy impact on the data platform used by Log Analytics, the formal SLA for the completion of purge operations is set at 30 days. 
 
