@@ -29,7 +29,7 @@ ms.custom: mvc
 > 
 > 
 
-This quickstart shows you how to get started using Microsoft Azure Redis Cache with .NET. Microsoft Azure Redis Cache is based on the popular open source Redis Cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure.
+This quickstart shows you how to get started using Microsoft Azure Redis Cache with .NET. Microsoft Azure Redis Cache is based on the popular open-source Redis Cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure.
 
 In this quickstart, you will use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C\# code in a console app. You will create a cache, configure a .NET cache client app, and add and update objects in the cache. 
 
@@ -73,7 +73,7 @@ Under **Visual C#**, click **Windows Classic Desktop** and then click **Console 
 
 ## Configure the cache client
 
-In this section you will configure the console application to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client for .NET.
+In this section, you will configure the console application to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client for .NET.
 
 In Visual Studio, click **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
 
