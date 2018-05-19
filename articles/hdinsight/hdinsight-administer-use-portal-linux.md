@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 05/18/2018
 ms.author: jgao
 
 ---
@@ -124,7 +124,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
    * **Default data source**: The default cluster file system.
    * **Worker nodes size**: The selected VM size of the worker nodes.
    * **Head node size**: The selected VM size of the head nodes.
-   * **Virtual network**: The name of the Virtual Network and subnet to which the cluster is deployed, if one was selected at deployment time.
+   * **Virtual network**: The name of the Virtual Network which the cluster is deployed, if one was selected at deployment time.
 
 ## Delete clusters
 Deleting a cluster does not delete the default storage account nor any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores. We recommend using a new default Blob container when you re-create the cluster.
