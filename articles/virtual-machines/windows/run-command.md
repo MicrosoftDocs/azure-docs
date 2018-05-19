@@ -78,3 +78,4 @@ Run command is available for users with the VM Contributor or higher permissions
 
 ## Next steps
 
+See, [Run scripts in your Windows VM](run-scripts-in-vm.md) to learn about other ways to run scripts and commands remotely in your VM.

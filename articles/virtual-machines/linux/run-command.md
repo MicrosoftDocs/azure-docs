@@ -34,7 +34,15 @@ The following are a list of restrictions that are present when using run command
 * You cannot cancel a running script
 * The maximum time a script can run is 90 minutes, after which it will time out
 
-## Run a command
+## Azure CLI
+
+The following is an example using the [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) command to run a shell script on an Azure Linux VM.
+
+```azurecli-interactive
+az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y nginx"
+```
+
+## Azure portal
 
 Navigate to a VM in [Azure](https://portal.azure.com) and select **Run command** under **OPERATIONS**. You are presented with a list of the available commands to run on the VM.
 
@@ -49,7 +57,7 @@ Once the command is chosen, click **Run** to run the script. The script runs and
 
 ![Run command script output](./media/run-command/run-command-script-output.png)
 
-## Commands
+## Available Commands
 
 This table shows the list of commands available for Linux VMs. The **RunShellScript** command can be used to run any custom script you want.
 
@@ -58,16 +66,10 @@ This table shows the list of commands available for Linux VMs. The **RunShellScr
 |**RunShellScript**|Executes a Linux shell script.|
 |**ifconfig**| Get the configuration of all network interfaces.|
 
-## Azure CLI
-
-The following is an example using the [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) command to run a shell script on an Azure Linux VM.
-
-```azurecli-interactive
-az vm run-command invoke -g MyResourceGroup -n MyVm --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y nginx"
-```
-
 ## Limiting access to run command
 
 Run command is available for users with the VM Contributor or higher permissions. In order to limit the access to this feature remove the VM Contributor or higher role from the user's roles.
 
 ## Next steps
+
+See, [Run scripts in your Linux VM](run-scripts-in-vm.md) to learn about other ways to run scripts and commands remotely in your VM.
