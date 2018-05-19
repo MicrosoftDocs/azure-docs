@@ -1,6 +1,6 @@
 ---
-title: Manage access rights to storage data with RBAC (Preview) | Microsoft Docs
-description: Manage access rights to storage data with RBAC (Preview).  
+title: Authenticate with Azure AD from your storage applications (Preview) | Microsoft Docs
+description: Authenticate with Azure AD from your storage applications (Preview).  
 services: storage
 author: tamram
 manager: jeconnoc
@@ -11,5 +11,8 @@ ms.date: 05/18/2018
 ms.author: tamram
 ---
 
-# Manage access rights to storage data with RBAC (Preview)
+# Authenticate with Azure AD from your storage applications (Preview)
 
+
+
+## Authenticate 

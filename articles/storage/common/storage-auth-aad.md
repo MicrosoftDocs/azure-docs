@@ -1,6 +1,6 @@
 ---
-title: Authenticating requests to Azure Storage using Azure Active Directory (Preview) | Microsoft Docs
-description: Authenticating requests to Azure Storage using Azure Active Directory (Preview).  
+title: Authenticating access to Azure Storage using Azure Active Directory (Preview) | Microsoft Docs
+description: Authenticating access to Azure Storage using Azure Active Directory (Preview).  
 services: storage
 author: tamram
 manager: jeconnoc
@@ -30,7 +30,7 @@ Keep in mind the following points about the preview:
 
 If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authentication or SAS tokens in your applications. 
 
-## Overview of Azure AD integration
+## Overview of Azure AD integration for storage
 
 
 

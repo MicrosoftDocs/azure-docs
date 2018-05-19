@@ -39,6 +39,8 @@ Assign an RBAC role to a user, group, or application service principal to grant 
 |    Scoped to storage account    |    Write access to all containers and blobs in the storage account    |    Read access to all containers and blobs in the storage account    |    Write access to all queues in the storage account    |    Read access to all queues in the storage account    |
 |    Scoped to container/queue    |    Write access to the specified container and its blobs              |    Read access to the specified container and its blobs              |    Write access to the specified queue                  |    Read access to the specified queue                  |
 
+For details on the permissions required to call Azure Storage operations, see [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).
+
 ### Assign a role scoped to the storage account in the Azure portal
 
 To assign a built-in role granting access to all containers or queues in the storage account in the Azure portal:
@@ -76,6 +78,6 @@ The steps for assigning a built-in role scoped to a container or to a queue are 
     - [Manage role-based access control (RBAC) with Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
     - [Manage role-based access control (RBAC) with Azure CLI](../../role-based-access-control/role-assignments-cli.md)
     - [Manage role-based access control (RBAC) with the REST API](../../role-based-access-control/role-assignments-rest.md)
-
+- To learn how to authenticate access to containers and queues from within your storage applications, see [Authenticate with Azure AD from your storage applications](storage-auth-aad-data.md).
 
 
