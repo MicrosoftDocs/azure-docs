@@ -23,16 +23,16 @@ There are currently five effects that are supported in a policy definition:
 - Audit
 - AuditIfNotExists
 - Deny
-- DenyIfNotExists
+- DeployIfNotExists
 
 ## Order of Evaluation
 
-When a request to create or update a resource through Azure Resource Manager is made, Policy will
-process several of the effects prior to handing the request to the appropriate Resource Provider.
+When a request to create or update a resource through Azure Resource Manager is made, Policy
+processes several of the effects prior to handing the request to the appropriate Resource Provider.
 Doing so prevents unnecessary processing by a Resource Provider when a resource does not meet the
-designed governance controls of Policy. Policy creates a list of all policy definitions,
-either as a policy assignment or as an initiative assignment, that applies by scope (minus exclusions)
-to the resource and prepares to evaluate the resource against each policy definition.
+designed governance controls of Policy. Policy creates a list of all policy definitions assigned,
+by a policy or initiative assignment, that apply by scope (minus exclusions) to the resource and
+prepares to evaluate the resource against each definition.
 
 - **Append** is evaluated first. Since append could alter the request, a change made by append may prevent an audit or deny effect from triggering.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired resource is prevented.
@@ -50,13 +50,13 @@ resource.
 
 ### Append Evaluation
 
-As mentioned, append will evaluate prior to the request getting processed by a Resource Provider during
-the creation or updating of a resource. Append will add field(s) to the resource when the **if**
+As mentioned, append evaluates prior to the request getting processed by a Resource Provider during
+the creation or updating of a resource. Append adds field(s) to the resource when the **if**
 condition of the policy rule is met. If the append effect would override a value in the original request
-with a different value, then it will act as a deny effect and reject the request.
+with a different value, then it acts as a deny effect and reject the request.
 
-When a policy definition using the append effect is run as part of an evaluation cycle, it will not
-make changes to resources that already exist. Instead, it will act as an audit effect based on the
+When a policy definition using the append effect is run as part of an evaluation cycle, it does not
+make changes to resources that already exist. Instead, it acts as an audit effect based on the
 **field/value** pairs in the **details** array.
 
 ### Append Properties
@@ -114,15 +114,15 @@ Example 3: Single **field/value** pair using an [alias](policy-definition.md#ali
 ## Deny
 
 Deny is used to prevent a resource request that doesn't match desired standards through a policy
-definition and will fail the request.
+definition and fails the request.
 
 ### Deny Evaluation
 
-When creating or updating a resource, deny will prevent the request prior to being sent to the
-Resource Provider. The request will be returned as a 403 (Forbidden). In the portal, the Forbidden
+When creating or updating a resource, deny prevents the request prior to being sent to the
+Resource Provider. The request is returned as a 403 (Forbidden). In the portal, the Forbidden
 can be viewed as a status on the deployment that was prevented due to the policy assignment.
 
-During an evaluation cycle, policy definitions with a deny effect that match resources will be
+During an evaluation cycle, policy definitions with a deny effect that match resources are
 marked as non-compliant, but no action is performed on that resource.
 
 ### Deny Properties
@@ -149,7 +149,7 @@ but it does not stop the request.
 
 The audit effect is the last to run during the creation or update of a resource prior to the resource
 is sent to the Resource Provider. Audit works the same for a resource request and an evaluation cycle,
-and will execute a `Microsoft.Authorization/policies/audit/action` operation to the Activity Log. In
+and executes a `Microsoft.Authorization/policies/audit/action` operation to the Activity Log. In
 both cases, the resource is marked as non-compliant.
 
 ### Audit Properties
@@ -186,11 +186,11 @@ that is marked as non-compliant.
 The **details** property of the AuditIfNotExists effects has all the subproperties that define the
 related resources to match.
 
-- **Type** [required] Specifies the type of the related resource to match. Will start by trying to fetch a resource underneath the **if** condition resource, then will query within the same resource group as the **if** condition resource.
-- **Name** (optional) Specifies the exact name of the resource to match and will cause the policy to fetch one specific resource instead of all resources of the specified type.
+- **Type** [required] Specifies the type of the related resource to match. Starts by trying to fetch a resource underneath the **if** condition resource, then queries within the same resource group as the **if** condition resource.
+- **Name** (optional) Specifies the exact name of the resource to match and causes the policy to fetch one specific resource instead of all resources of the specified type.
 - **ResourceGroupName** (optional) Allows the matching of the related resource to come from a different resource group. Does not apply if **type** is a resource that would be underneath the **if** condition resource. Default is the **if** condition resource's resource group.
 - **ExistenceScope** (optional) Allowed values are _Subscription_ and _ResourceGroup_. Sets the scope of where to fetch the related resource to match from. Does not apply if **type** is a resource that would be underneath the **if** condition resource. For _ResourceGroup_, would limit to the **if** condition resource's resource group or the resource group specified in **ResourceGroupName**. For _Subscription_, queries the entire subscription for the related resource. Default is _ResourceGroup_.
-- **ExistenceCondition** (optional) If not specified, any related resource of **type** will satisfy the effect and will not trigger the audit. Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually. If any matching related resource evaluates to true, the effect will be satisfied and will not trigger the audit. Can use [field()] to check equivalence with values in the **if** condition. As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
+- **ExistenceCondition** (optional) If not specified, any related resource of **type** satisfies the effect and does not trigger the audit. Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually. If any matching related resource evaluates to true, the effect is satisfied and does not trigger the audit. Can use [field()] to check equivalence with values in the **if** condition. As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 
 ### AuditIfNotExists Example
 
@@ -224,7 +224,7 @@ Example: Evaluates Virtual Machines to determine if the Antimalware extension ex
 
 ## DeployIfNotExists
 
-Similar to AuditIfNotExists, DeployIfNotExists will execute a template deployment when the condition
+Similar to AuditIfNotExists, DeployIfNotExists executes a template deployment when the condition
 is met.
 
 ### DeployIfNotExists Evaluation
@@ -234,7 +234,7 @@ and has returned a success status code. The effect is triggered if there are no 
 if the resources defined by **ExistenceCondition** do not evaluate to true. When the effect is triggered,
 a template deployment is executed.
 
-During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources will be
+During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources are
 marked as non-compliant, but no action is performed on that resource.
 
 ### DeployIfNotExists Properties
@@ -242,11 +242,11 @@ marked as non-compliant, but no action is performed on that resource.
 The **details** property of the DeployIfNotExists effects has all the subproperties that define the
 related resources to match and the template deployment to execute.
 
-- **Type** [required] Specifies the type of the related resource to match. Will start by trying to fetch a resource underneath the **if** condition resource, then will query within the same resource group as the **if** condition resource.
-- **Name** (optional) Specifies the exact name of the resource to match and will cause the policy to fetch one specific resource instead of all resources of the specified type.
-- **ResourceGroupName** (optional) Allows the matching of the related resource to come from a different resource group. Does not apply if **type** is a resource that would be underneath the **if** condition resource. Default is the **if** condition resource's resource group. If a template deployment is executed, it will be in the resource group of this value.
+- **Type** [required] Specifies the type of the related resource to match. Starts by trying to fetch a resource underneath the **if** condition resource, then queries within the same resource group as the **if** condition resource.
+- **Name** (optional) Specifies the exact name of the resource to match and causes the policy to fetch one specific resource instead of all resources of the specified type.
+- **ResourceGroupName** (optional) Allows the matching of the related resource to come from a different resource group. Does not apply if **type** is a resource that would be underneath the **if** condition resource. Default is the **if** condition resource's resource group. If a template deployment is executed, it is deployed in the resource group of this value.
 - **ExistenceScope** (optional) Allowed values are _Subscription_ and _ResourceGroup_. Sets the scope of where to fetch the related resource to match from. Does not apply if **type** is a resource that would be underneath the **if** condition resource. For _ResourceGroup_, would limit to the **if** condition resource's resource group or the resource group specified in **ResourceGroupName**. For _Subscription_, queries the entire subscription for the related resource. Default is _ResourceGroup_.
-- **ExistenceCondition** (optional) If not specified, any related resource of **type** will satisfy the effect and will not trigger the audit. Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually. If any matching related resource evaluates to true, the effect will be satisfied and will not trigger the audit. Can use [field()] to check equivalence with values in the **if** condition. As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
+- **ExistenceCondition** (optional) If not specified, any related resource of **type** satisfies the effect and does not trigger the audit. Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually. If any matching related resource evaluates to true, the effect is satisfied and does not trigger the audit. Can use [field()] to check equivalence with values in the **if** condition. As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 - **Deployment** [required] This property should contain the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API.
 
   > [!NOTE]

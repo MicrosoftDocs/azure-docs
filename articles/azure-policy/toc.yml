@@ -21,8 +21,6 @@
   items:
   - name: Azure Policy samples
     href: json-samples.md
-  - name: Resource manager templates
-    href: policy-rmtemplates.md
 - name: Concepts
   items:
   - name: Azure Policy definition structure
