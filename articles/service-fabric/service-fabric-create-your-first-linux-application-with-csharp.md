@@ -39,8 +39,8 @@ Service Fabric provides scaffolding tools which help you create Service Fabric a
 
    Ubuntu
    ```bash
-   sudo apt-get install npm
-   sudo apt install nodejs-legacy
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+   sudo apt-get install -y nodejs 
    ```
 
    Red Hat Enterprise Linux 7.4 (Service Fabric preview support)

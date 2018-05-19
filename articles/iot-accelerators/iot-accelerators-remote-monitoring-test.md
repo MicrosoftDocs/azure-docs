@@ -697,7 +697,7 @@ This tutorial, showed you how to:
 > * Add a new device type to the dashboard
 > * Send custom telemetry from an existing device type
 
-Now you have learned how to customize the device simulation service. The suggested next step is to learn how to [connect a physical device to your remote monitoring solution](../iot-suite/iot-suite-connecting-devices-node.md).
+Now you have learned how to customize the device simulation service. The suggested next step is to learn how to [connect a physical device to your remote monitoring solution](iot-accelerators-connecting-devices-node.md).
 
 For more developer information about the remote monitoring solution, see:
 

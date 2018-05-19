@@ -18,7 +18,7 @@ Different languages are supported for different Speech services functions. The t
 
 ## Speech to Text
 
-The Microsoft speech recognition API supports the following languages in `conversation` modes. 
+The Microsoft speech recognition API supports the following languages. 
 
 | Code | Language | Code | Language |
 |-----|-----|-----|-----|
