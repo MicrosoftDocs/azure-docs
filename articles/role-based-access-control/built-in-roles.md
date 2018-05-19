@@ -24,7 +24,7 @@ ms.custom: it-pro
 The built-in roles are always evolving. To get the latest role definitions, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## Built-in role descriptions
-The following table provides brief descriptions of the built-in roles. Click the role name to see the list of `actions` and `notActions` for each role.
+The following table provides brief descriptions of the built-in roles. Click the role name to see the list of `actions`, `notActions`, `dataActions`, and `notDataActions` for each role.
 
 
 | Built-in role | Description |
