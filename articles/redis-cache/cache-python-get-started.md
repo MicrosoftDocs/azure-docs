@@ -36,7 +36,7 @@ This quickstart shows how to connect to an Azure Redis Cache with Python to read
 
 ![Python test completed](./media/cache-python-get-started/cache-python-completed.png)
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

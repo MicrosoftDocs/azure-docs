@@ -37,6 +37,8 @@ This quickstart shows how to create and deploy an ASP.NET web application to Azu
 
 ![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete the quickstart, you must have the following prerequisites:
@@ -44,8 +46,6 @@ To complete the quickstart, you must have the following prerequisites:
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
     * ASP.NET and web development
     * Azure Development
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create the Visual Studio project
 
