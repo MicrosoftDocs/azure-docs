@@ -42,21 +42,19 @@ $adls = "<DataLakeStoreAccountName>"
 $location = "<Location>"
 ```
 
-## Log in
+## Log in using interactive authentication
 
-Log in using a subscription id.
+Log in using a subscription id or by subscription name
 
 ```powershell
+# Using subscription id
 Connect-AzureRmAccount -SubscriptionId $subId
-```
 
-Log in using a subscription name.
-
-```
+# Using subscription name
 Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-The `Connect-AzureRmAccount` cmdlet  always prompts for credentials. You can avoid being prompted by using the following cmdlets:
+The `Connect-AzureRmAccount` cmdlet always prompts for credentials. You can avoid being prompted by using the following cmdlets:
 
 ```powershell
 # Save login session information
@@ -64,6 +62,21 @@ Save-AzureRmProfile -Path D:\profile.json
 
 # Load login session information
 Select-AzureRmProfile -Path D:\profile.json 
+```
+
+## Log in using SPIs
+
+
+```powershell
+$subname = "MySubscription" 
+$subid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
+$tenantid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
+$spi_appname = "appname" 
+$spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" 
+$spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
+
+$pscredential = New-Object System.Management.Automation.PSCredential ($spi_appid, (ConvertTo-SecureString $spi_secret -AsPlainText -Force))
+Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subname
 ```
 
 ## Manage accounts
