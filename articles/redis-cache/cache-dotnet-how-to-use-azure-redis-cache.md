@@ -243,7 +243,7 @@ At the bottom of `Main()` procedure in *Program.cs*, and before the call to `Dis
             Console.WriteLine("\tEmployee.Age  : " + e007FromCache.Age + "\n");
 ```
 
-Press **Ctrl+F5** to build and run the console app to test serialization of .NET objects.
+Press **Ctrl+F5** to build and run the console app to test serialization of .NET objects. 
 
 ![Console app completed](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
 

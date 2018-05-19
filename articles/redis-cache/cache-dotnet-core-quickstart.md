@@ -62,7 +62,8 @@ Open a new command window and execute the following command to create a new .NET
 dotnet new console -o Redistest
 ```
 
-Change to the new *Redistest* project directory.
+In your command window, change to the new *Redistest* project directory.
+
 
 
 ## Add Secret Manager to the project
@@ -80,15 +81,18 @@ Open your *Redistest.csproj* file. Add a `DotNetCliToolReference` element to inc
     <UserSecretsId>Redistest</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="StackExchange.Redis" Version="1.2.6" />
-  </ItemGroup>
-  <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
   </ItemGroup>
 </Project>
 ```
 
-Make sure to save *Redistest.csproj*, then execute the following command to restore your packages:
+Execute the following command to add the *Microsoft.Extensions.Configuration.UserSecrets* package to the project:
+
+```
+dotnet add package Microsoft.Extensions.Configuration.UserSecrets
+```
+
+Execute the following command to restore your packages:
 
 ```
 dotnet restore
@@ -98,12 +102,6 @@ In your command window, execute the following command to store a new secret name
 
 ```
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<primary-access-key>"
-```
-
-Execute the following command to add the *Microsoft.Extensions.Configuration.UserSecrets* package to the project:
-
-```
-dotnet add package Microsoft.Extensions.Configuration.UserSecrets
 ```
 
 Add the following `using` statement to *Program.cs*:
@@ -245,6 +243,8 @@ In the example below, you can see the `Message` key previously had a cached valu
 Azure Redis Cache can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized. This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
 
 One simple way to serialize objects is to use the `JsonConvert` serialization methods in [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) and serialize to and from JSON. In this section, you will add a .NET object to the cache.
+
+Execute the following command to add the *Newtonsoft.json* package to the app:
 
 ```
 dotnet add package Newtonsoft.json
