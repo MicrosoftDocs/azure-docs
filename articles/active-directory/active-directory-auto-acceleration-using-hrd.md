@@ -20,7 +20,7 @@ ms.author: barbkess
 The following document provides an introduction to configuring Azure Active Directory authentication behavior for federated users.   It covers configuration of auto-acceleration and authentication restrictions for users in federated domains.
 
 ## Home Realm Discovery
-Home Realm Discovery (HRD) is the process that allows Azure Active Directory (Azure AD) to determine, at sign-in time, where a user needs to authenticate.  When a user signs in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, they type a user name (UPN). Azure AD uses that to discover where the user needs to sign in. 
+Home Realm Discovery (HRD) is the process that allows Azure Active Directory (Azure AD) to determine where a user needs to authenticate at sign-in time.  When a user signs in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, they type a user name (UPN). Azure AD uses that to discover where the user needs to sign in. 
 
 The user might need to be taken to one of the following locations to be authenticated:
 
@@ -35,9 +35,9 @@ The user might need to be taken to one of the following locations to be authenti
 ## Auto-acceleration 
 Some organizations configure domains in their Azure Active Directory tenant to federate with another IdP, such as AD FS for user authentication.  
 
-When a user signs into an application, they are first first presented with an Azure AD sign-in page. After they have typed their UPN, if they are in a federated domain they are then taken to the  of the IdP serving that domain . Under certain circumstances, administrators might want to direct users to the sign-in page when they're signing in to specific applications. 
+When a user signs into an application, they are first presented with an Azure AD sign-in page. After they have typed their UPN, if they are in a federated domain they are then taken to the sign-in page of the IdP serving that domain. Under certain circumstances, administrators might want to direct users to the sign-in page when they're signing in to specific applications. 
 
-This means users can skip the initial Azure Active Directory page. This process is referred to as “sign-in auto-acceleration.”
+As a result users can skip the initial Azure Active Directory page. This process is referred to as “sign-in auto-acceleration.”
 
 In cases where the tenant is federated to another IdP for sign-in, auto-acceleration makes user sign-in more streamlined.  You can configure auto-acceleration for individual applications.
 
@@ -75,13 +75,12 @@ For more information about auto-acceleration using the domain hints that are sup
 Some applications do not provide a way to configure the authentication request they emit. In these cases, it’s not possible to use domain hints to control auto-acceleration. Auto-acceleration can be configured via policy to achieve the same behavior.  
 
 ## Enable direct authentication for legacy applications
-Best practice is for applications to use AAD libraries and interactive sign in to authenticate users which takes care of the federated user flows.  Sometimes legacy applications aren't written to understand federation. They don't perform home realm discovery and interact with the correct federated end-point to authenticate a user.  If you choose to, you can use HRD Policy to enable specific legacy applications which submit username/password credentials to authenticate directly with Azure Active Directory if Password Hash Sync is enabled. 
+Best practice is for applications to use AAD libraries and interactive sign-in to authenticate users. The libraries take care of the federated user flows.  Sometimes legacy applications aren't written to understand federation. They don't perform home realm discovery and interact with the correct federated endpoint to authenticate a user.  If you choose to, you can use HRD Policy to enable specific legacy applications that submit username/password credentials to authenticate directly with Azure Active Directory. Password Hash Sync must be enabled. 
 
-[!IMPORTANT]  Only enable direct authentication if you have Password Hash Sync turned on and you have evaluated whether it's okay to authenticate this application without any policies implemented by your on premises IdP. If you turn Password Hash Sync off, or Directory Synchronization with AD Connect off for any reason you should remove this policy to prevent the possibility of direct authentication using a stale password hash.
+[!IMPORTANT]  Only enable direct authentication if you have Password Hash Sync turned on and you know it's okay to authenticate this application without any policies implemented by your on-premises IdP. If you turn off Password Hash Sync, or turn off Directory Synchronization with AD Connect for any reason you should remove this policy to prevent the possibility of direct authentication using a stale password hash.
 
 ## Set HRD policy
-There are three steps to setting HRD policy on an application for federated sign-in auto-acceleration or direct cloud based applications:
-
+There are three steps to setting HRD policy on an application for federated sign-in auto-acceleration or direct cloud-based applications:
 
 1. Create an HRD policy.
 
@@ -112,7 +111,7 @@ Following is an example HRD policy definition:
 
 The policy type is "HomeRealmDiscoveryPolicy."
 
-**AccelerateToFederatedDomain** is optional. If **AccelerateToFederatedDomain** is false, the policy has no effect on auto-acceleration. If **AccelerateToFederatedDomain** is true and there is only one verified and federated domain in the tenant then users will be auto-accellerated to the federated IdP for sign in. If it is true and there is more than one verified domain in the tenant **PreferredDomain** must be specified.
+**AccelerateToFederatedDomain** is optional. If **AccelerateToFederatedDomain** is false, the policy has no effect on auto-acceleration. If **AccelerateToFederatedDomain** is true and there is only one verified and federated domain in the tenant, then users will be taken straight to the federated IdP for sign in. If it is true and there is more than one verified domain in the tenant, **PreferredDomain** must be specified.
 
 **PreferredDomain** is optional. **PreferredDomain** should indicate a domain to which to accelerate. It can be omitted if the tenant has only one federated domain.  If it is omitted, and there is more than one verified federated domain, the policy has no effect.
 
@@ -132,7 +131,7 @@ HRD policies can be created and then assigned to specific organizations and serv
 
 - If there is no domain hint, and no policy has been assigned to the service principal or the organization, the default HRD behavior is used.
 
-## Tutorial for setting HRD policy on an application by using an sign-in auto-acceleration 
+## Tutorial for setting HRD policy on an application 
 We'll use Azure AD PowerShell cmdlets to walk through a few scenarios, including:
 
 
@@ -167,7 +166,7 @@ If nothing is returned, it means you have no policies created in your tenant.
 
 In this example, you create a policy that when it is assigned to an application either: 
 - Auto-accelerates users to an AD FS sign-in screen when they are signing in to an application when there is a single domain in your tenant. 
-- Auto-accelerates users to an AD FS sign-in screen there is more then one federated domain in your tenant.
+- Auto-accelerates users to an AD FS sign-in screen there is more than one federated domain in your tenant.
 - Enables non-interactive username/password sign in directly to Azure Active Directory for federated users for the applications the policy is assigned to.
 
 #### Step 1: Create an HRD policy
@@ -177,7 +176,7 @@ The following policy auto-accelerates users to an AD FS sign-in screen when they
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
-The following policy auto-accelerates users to an AD FS sign-in screen there is more then one federated domain in your tenant. If you have more then one federated domain that authenticates users for applications, you need specify the domain to auto-accelerate.
+The following policy auto-accelerates users to an AD FS sign-in screen there is more than one federated domain in your tenant. If you have more than one federated domain that authenticates users for applications, you need specify the domain to auto-accelerate.
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, "PreferredDomain":"federated.example.edu"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
