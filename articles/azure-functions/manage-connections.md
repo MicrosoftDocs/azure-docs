@@ -17,17 +17,17 @@ ms.author: tdykstra
 
 # How to manage connections in Azure Functions
 
-Functions in a function app share resources. Among those shared resources are connections to Azure or third-party services. Connections are a limited resource, and when many functions are running concurrently it's possible to run out of available connections. 
+Functions in a function app share resources, and among those shared resources are connections &mdash; HTTP connections, database connections, and connections to Azure services such as Storage. When many functions are running concurrently it's possible to run out of available connections. This article explains how to code your functions to avoid using more connections than they actually need.
+
+## Connections limit
 
 The number of available connections is limited partly because a function app runs in the [Azure App Service sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). One of the restrictions that the sandbox imposes on your code is a [cap on the number of connections, currently 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits). When you reach this limit, the functions runtime creates a log with the following message: `Host thresholds exceeded: Connections`.
 
 Chances of exceeding the limit increase when the [scale controller adds function app instances](functions-scale.md#how-the-consumption-plan-works). Each function app instance can be invoking functions many times at once, and all of these functions use the same pool of available connections.
 
-This article explains how to code your functions so that they share connections effectively.
-
 ## Use static clients
 
-In many cases, you can avoid hitting the connection limit by reusing client instances rather than creating new ones with each function invocation. .NET clients like the `HttpClient`, `DocumentClient`, and Azure storage clients can manage connections if you use a single, static client. Creating new instances of those clients with each function invocation is an [improper instantiation antipattern](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).
+You can avoid hitting the connection limit by reusing client instances rather than creating new ones with each function invocation. .NET clients like the `HttpClient`, `DocumentClient`, and Azure Storage clients can manage connections if you use a single, static client. Creating new instances of those clients with each function invocation is an [improper instantiation antipattern](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).
 
 As a general rule, when using a service-specific client in an Azure Functions application:
 
@@ -36,8 +36,6 @@ As a general rule, when using a service-specific client in an Azure Functions ap
 - **CONSIDER** creating a single, static client in a shared helper class if different functions use the same service.
 
 ## HttpClient code example
-
-A common question about the .NET `HttpClient` is "Should I be disposing my client?" In general, you dispose objects that implement `IDisposable` when you're done using them. But when a function ends, you aren't done using your static client. You want the static client to live for the duration of your application.
 
 Here's an example of function code that creates a static `HttpClient`:
 
@@ -51,6 +49,8 @@ public static async Task Run(string input)
     // Rest of function
 }
 ```
+
+A common question about the .NET `HttpClient` is "Should I be disposing my client?" In general, you dispose objects that implement `IDisposable` when you're done using them. But when a function ends, you aren't done using your static client. You want the static client to live for the duration of your application.
 
 ## DocumentClient code example
 
