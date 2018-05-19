@@ -5,7 +5,7 @@ description: Manage and monitor events with Azure Event Hubs and Azure Logic App
 author: ecfan
 manager: cfowler
 ms.author: estfan
-ms.date: 02/06/2018
+ms.date: 05/21/2018
 ms.topic: article
 ms.service: logic-apps
 
@@ -31,8 +31,6 @@ For connector-specific technical information, see the
 <a href="https://docs.microsoft.com/connectors/eventhubs/" target="blank">Azure Event Hubs connector reference</a>.
 
 ## Prerequisites
-
-Before you can use the Event Hubs connector, you must have these items:
 
 * An [Azure Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md)
 
@@ -69,7 +67,7 @@ choose the copy button. Save the connection string for later use.
    > If you find this parameter, the connection string is for a specific 
    > Event Hub "entity", and is not the correct string to use with your logic app.
 
-<a namespace="add-trigger"></a>
+<a name="add-trigger"></a>
 
 ## Add Event Hubs trigger
 
@@ -82,15 +80,6 @@ and starts running your app's workflow.
 
 This example shows how you can start a logic app workflow
 when new events are sent to your Event Hub. 
-
-> [!NOTE]
-> All Event Hub triggers are *long-polling* triggers, 
-> which means that when a trigger fires, the trigger processes all the events
-> and then waits for 30 seconds for more events to appear in your Event Hub.
-> If no events are received in 30 seconds, the trigger run is skipped. 
-> Otherwise, the trigger continues reading events until your Event Hub is empty.
-> The next trigger poll happens based on the recurrence 
-> interval that you specify in the trigger's properties.
 
 1. In the Azure portal or Visual Studio, 
 create a blank logic app, which opens Logic Apps Designer. 
@@ -136,15 +125,24 @@ Now, when your logic app checks the selected Event Hub and finds
 a new event, the trigger runs the actions in your logic app 
 for the found event.
 
-<a namespace="add-action"></a>
+> [!NOTE]
+> All Event Hub triggers are *long-polling* triggers, 
+> which means that when a trigger fires, the trigger processes all the events
+> and then waits for 30 seconds for more events to appear in your Event Hub.
+> If no events are received in 30 seconds, the trigger run is skipped. 
+> Otherwise, the trigger continues reading events until your Event Hub is empty.
+> The next trigger poll happens based on the recurrence 
+> interval that you specify in the trigger's properties.
+
+<a name="add-action"></a>
 
 ## Add Event Hubs action
 
 In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 is a step in your workflow that follows a trigger or another action. 
-For this example, the logic app starts with the 
-**Event Hubs - When events are available in Event Hub** trigger, 
-which checks for new events in your Event Hub. 
+
+For this example, the logic app starts with an Event Hubs trigger 
+that checks for new events in your Event Hub. 
 
 1. In the Azure portal or Visual Studio, 
 open your logic app in Logic Apps Designer. 
@@ -169,15 +167,20 @@ From the actions list, select the action you want.
 Or, if your connection already exists, 
 provide the necessary information for the action.
 
-5. From the **Event Hub name** list, 
-select the Event Hub where you want to send the event. 
-Then, enter the event content and any other details.
+   | Property | Required | Description | 
+   |----------|----------|-------------|
+   | Event Hub name | Yes | Select the Event Hub where you want to send the event | 
+   | Event content | No | The content for the event you want to send | 
+   | Properties | No | The app properties and values to send | 
+   |||| 
+
+   For example: 
 
    ![Select Event Hub name and provide event content](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-6. When you're done, on the designer toolbar, choose **Save**.
+5. When you're done, on the designer toolbar, choose **Save**.
 
-<a namespace="create-connection"></a>
+<a name="create-connection"></a>
 
 ## Connect to your Event Hub
 
@@ -186,26 +189,27 @@ Then, enter the event content and any other details.
 1. When you're prompted for connection information, 
 provide these details:
 
-   | Property | Value | Description | 
-   |----------|-------|---------------|
-   | Connection Name | <*connection-name*> | The name to create for your connection |
-   | Event Hubs Namespace | <*event-hubs-namespace*> | Select the Event Hubs namespace you want to use | 
-   |||| 
-
-   Or, to manually enter the connection string, 
-   choose **Manually enter connection information**. 
-   Learn [how to find your connection string](#permissions-connection-string).
+   | Property | Required | Value | Description | 
+   |----------|----------|-------|-------------|
+   | Connection Name | Yes | <*connection-name*> | The name to create for your connection |
+   | Event Hubs Namespace | Yes | <*event-hubs-namespace*> | Select the Event Hubs namespace you want to use | 
+   |||||  
 
    For example:
 
    ![Create Event Hub connection](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
+
+   To manually enter the connection string, 
+   choose **Manually enter connection information**. 
+   Learn [how to find your connection string](#permissions-connection-string).
 
 2. Now select the Event Hubs policy to use, and choose **Create**.
 
    ![Create Event Hub connection, part 2](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
 
 3. After you create your connection, 
-continue with [Add Event Hubs trigger](#add-trigger) or [Add Event Hubs action](#add-action).
+continue with [Add Event Hubs trigger](#add-trigger) 
+or [Add Event Hubs action](#add-action).
 
 ## Connector reference
 
