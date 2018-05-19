@@ -10,6 +10,8 @@
     href: cache-web-app-howto.md
   - name: Create a .NET app
     href: cache-dotnet-how-to-use-azure-redis-cache.md
+  - name: Create a .NET Core app
+    href: cache-dotnet-core-quickstart.md
   - name: Create a Node.js app
     href: cache-nodejs-get-started.md
   - name: Create a Java app
