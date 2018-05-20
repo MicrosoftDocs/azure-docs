@@ -74,12 +74,12 @@ Login-AzureRmStorageSync –SubscriptionId $subID -ResourceGroupName $rg -Tenant
 <table>
     <tr>
         <td>![AFS management object hierarchy, "Storage Sync Service" highlighted](media/storage-sync-files-powershell-guide/SSS.png)</td>
-        <td>The deployment of Azure File Sync starts with placing a "Storage Sync Service" resource into a Resource Group of your selected subscription. We recommend provisioning as few of these as needed. You will create a permanent trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.
-        > [!Note]
-        > The storage sync service inherited access permissions from the subscription and resource group it has been deployed into. We recommend that you carefully check who has access to it. Entities with write access can start syncing new sets of files from servers registered to this storage sync service and cause data to flow to Azure storage that is accessible to them.
-        </td>
+        <td>The deployment of Azure File Sync starts with placing a "Storage Sync Service" resource into a Resource Group of your selected subscription. We recommend provisioning as few of these as needed. You will create a permanent trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.</td>
     </tr>
 </table>
+
+> [!Note]
+> The storage sync service inherited access permissions from the subscription and resource group it has been deployed into. We recommend that you carefully check who has access to it. Entities with write access can start syncing new sets of files from servers registered to this storage sync service and cause data to flow to Azure storage that is accessible to them.
 
 ```PowerShell
 # create the storage sync service resource.
