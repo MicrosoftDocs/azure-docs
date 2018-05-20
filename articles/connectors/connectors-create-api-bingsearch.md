@@ -5,7 +5,7 @@ description: Find news with Bing Search REST APIs and Azure Logic Apps
 author: ecfan
 manager: cfowler
 ms.author: estfan
-ms.date: 11/07/2016
+ms.date: 05/21/2018
 ms.topic: article
 ms.service: logic-apps
 
@@ -56,7 +56,7 @@ the Logic Apps engine creates a logic app instance
 and starts running your app's workflow.
 
 1. In the Azure portal or Visual Studio, 
-create a blank logic app, which opens Logic Apps Designer. 
+create a blank logic app, which opens Logic App Designer. 
 This example uses the Azure portal.
 
 2. In the search box, enter "Bing search" as your filter. 
@@ -64,6 +64,8 @@ From the triggers list, select the trigger you want.
 
    This example uses this trigger: 
    **Bing Search - On new news article**
+
+   ![Find Bing Search trigger](./media/connectors-create-api-bing-search/add-trigger.png)
 
 3. If you're prompted for connection details, 
 [create your Bing Search connection now](#create-connection). 
@@ -75,16 +77,16 @@ provide the necessary information for the trigger.
 
    | Property | Required | Value | Description | 
    |----------|----------|-------|-------------| 
-   | Search Query | Yes | <*search-keywords*> | Enter the search keywords you want to use. |
-   | Market | Yes | <*locale*> | Select your search locale, which is "en-US" by default. | 
-   | Safe Search | Yes | <*safe-search-level*> | Select the filter level for excluding adult content. The default is "Moderate" level. | 
-   | Count | Yes | <*results-count*> | Enter the number of results to return. The actual number returned might be less than the specified number. | 
+   | Search Query | Yes | <*search-words*> | Enter the search keywords you want to use. |
+   | Market | Yes | <*locale*> | The search locale. The default is "en-US", but you can select another value. | 
+   | Safe Search | Yes | <*search-level*> | The filter level for excluding adult content. The default is "Moderate", but you select another level. | 
+   | Count | No | <*results-count*> | Return the specified number of results. The default is 20, but you can specify another value. The actual number of returned results might be less than the specified number. | 
    | Offset | No | <*skip-value*> | The number of results to skip before returning results | 
    ||||| 
 
    For example:
 
-   ![Bing Search trigger](./media/connectors-create-api-bing-search/bing-search-trigger.png)
+   ![Set up trigger](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
 4. Select the interval and frequency for how often 
 you want the trigger to check for results.
@@ -104,10 +106,15 @@ For this example, the logic app starts with a Bing Search trigger
 that returns news articles matching the specified criteria. 
 
 1. In the Azure portal or Visual Studio, 
-open your logic app in Logic Apps Designer. 
+open your logic app in Logic App Designer. 
 This example uses the Azure portal.
 
 2. Under the trigger or action, choose **New step** > **Add an action**.
+
+   This example uses this trigger: 
+   **Bing Search - On new news article**
+
+   ![Add action](./media/connectors-create-api-bing-search/add-action.png)
 
    To add an action between existing steps, 
    move your mouse over the connecting arrow. 
@@ -120,6 +127,8 @@ From the actions list, select the action you want.
    This example uses this action: 
    **Bing Search - List news by query**
 
+   ![Find Bing Search action](./media/connectors-create-api-bing-search/bing-search-select-action.png)
+
 4. If you're prompted for connection details, 
 [create your Bing Search connection now](#create-connection). 
 Or, if your connection already exists, 
@@ -130,18 +139,18 @@ provide the necessary information for the action.
 
    | Property | Required | Value | Description | 
    |----------|----------|-------|-------------| 
-   | Search Query | Yes | <*search-expression*> | Enter an expression to use as your search query. You can select available fields from the dynamic content list, or create an expression with the expression builder. |
-   | Market | Yes | <*locale*> | Select your search locale, which is "en-US" by default. | 
-   | Safe Search | Yes | <*safe-search-level*> | Select the filter level for excluding adult content. The default is "Moderate" level. | 
-   | Count | Yes | <*results-count*> | Enter the number of results to return. The actual number returned might be less than the specified number. | 
+   | Search Query | Yes | <*search-expression*> | Enter an expression for querying the trigger results. You can select from the fields om the dynamic content list, or create an expression with the expression builder. |
+   | Market | Yes | <*locale*> | The search locale. The default is "en-US", but you can select another value. | 
+   | Safe Search | Yes | <*search-level*> | The filter level for excluding adult content. The default is "Moderate", but you select another level. | 
+   | Count | No | <*results-count*> | Return the specified number of results. The default is 20, but you can specify another value. The actual number of returned results might be less than the specified number. | 
    | Offset | No | <*skip-value*> | The number of results to skip before returning results | 
-   |||||  
+   ||||| 
 
    For example, suppose you want those results whose category 
    name includes the word "tech". 
    
    1. Click in the **Search Query** box so the dynamic content list appears. 
-   From that list, choose **Expression** so that the expression builder appears. 
+   From that list, choose **Expression** so the expression builder appears. 
 
       ![Bing Search trigger](./media/connectors-create-api-bing-search/bing-search-action.png)
 
