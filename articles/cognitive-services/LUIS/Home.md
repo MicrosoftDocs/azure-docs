@@ -37,8 +37,7 @@ Language Understanding (LUIS) is a REST-based service that applies custom machin
 
 Your client application sends user text of what a person wants in their own words to LUIS in an HTTP request. LUIS applies your learned model to the natural language and returns a JSON format response. Your client application uses the JSON response to fulfill the user's requests. 
 
---Conceptual image of user in text conversation with chat bot--
-
+![Conceptual imagery of LUIS working with Chat bot](./media/luis-overview/luis-overview-process.png)
 
 ## What is a LUIS app?
 A LUIS app is a domain-specific language model you design. You can start your app with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
