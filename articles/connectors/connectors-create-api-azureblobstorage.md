@@ -5,7 +5,7 @@ description: Create and manage blobs in Azure storage with Azure Logic Apps
 author: ecfan
 manager: cfowler
 ms.author: estfan
-ms.date: 05/02/2017
+ms.date: 05/21/2018
 ms.topic: article
 ms.service: logic-apps
 
@@ -60,7 +60,7 @@ This example shows how you can start a logic app workflow with the
 when a blob's properties gets added or updated in your storage container. 
 
 1. In the Azure portal or Visual Studio, 
-create a blank logic app, which opens Logic Apps Designer. 
+create a blank logic app, which opens Logic App Designer. 
 This example uses the Azure portal.
 
 2. In the search box, enter "azure blob" as your filter. 
@@ -103,7 +103,7 @@ For this example, the logic app starts with the
 [Recurrence trigger](../connectors/connectors-native-recurrence.md).
 
 1. In the Azure portal or Visual Studio, 
-open your logic app in Logic Apps Designer. 
+open your logic app in Logic App Designer. 
 This example uses the Azure portal.
 
 2. In the Logic App Designer, under the trigger or action, 
