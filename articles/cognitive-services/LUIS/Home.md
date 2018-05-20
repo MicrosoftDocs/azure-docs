@@ -109,16 +109,16 @@ An example [utterance][add-example-utterances] is text input from the user that 
 |"Schedule a meeting at __1pm__ with __Bob__ in Distribution"|ScheduleMeeting|1pm, Bob|
 
 ## Improve prediction accuracy
-After your application is published and receives real user utterances, LUIS provides several methods to improve prediction accuracy: [active learning](#active-learning), [phrase lists](#phrase-lists), and [patterns](#patterns).
+After your application is published and receives real user utterances, LUIS provides several methods to improve prediction accuracy: [active learning](#active-learning) of endpoint utterances, [phrase lists](#phrase-lists) for domain word inclusion, and [patterns](#patterns) to reduce the number of utterances needed.
 
 ### Active learning
-In the [active learning](label-suggested-utterances.md) process, LUIS selects utterances it received at the endpoint it is relatively unsure for your review. You can accept or correct the intents and entities, retrain, and republish. LUIS learns quickly with this iterative process, taking the minimum amount of your time and effort. 
+In the [active learning](label-suggested-utterances.md) process, LUIS selects utterances it received at the endpoint for your review. You can accept or correct the endpoint prediction, retrain, and republish. LUIS learns quickly with this iterative process, taking the minimum amount of your time and effort. 
 
 ### Phrase lists 
-LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate words or phrases that are important to your model domain or words that are considered outliers or exceptions to your model domain. LUIS uses these lists to add additional significance to those words and phrases that would otherwise not be found in the model.
+LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate important words or phrases to your model domain. LUIS uses these lists to add additional significance to those words and phrases that would otherwise not be found in the model.
 
 ### Patterns 
-Patterns allow you to simplify an intent's utterance collection into common [templates][patterns] of word choice and word order. This allows LUIS to learn quicker by needing fewer example utterances for the intents.  
+Patterns allow you to simplify an intent's utterance collection into common [templates][patterns] of word choice and word order. This allows LUIS to learn quicker by needing fewer example utterances for the intents. Patterns are a combination of regular expressions and machine-learned expressions. 
 
 ## What technologies work with LUIS?
 Several Microsoft technologies work with LUIS:
