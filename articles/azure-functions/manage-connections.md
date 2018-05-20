@@ -27,7 +27,7 @@ Chances of exceeding the limit increase when the [scale controller adds function
 
 ## Use static clients
 
-You can avoid hitting the connection limit by reusing client instances rather than creating new ones with each function invocation. .NET clients like the `HttpClient`, `DocumentClient`, and Azure Storage clients can manage connections if you use a single, static client. Creating new instances of those clients with each function invocation is an [improper instantiation antipattern](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).
+To avoid holding more connections than necessary, reuse client instances rather than creating new ones with each function invocation. .NET clients like the `HttpClient`, `DocumentClient`, and Azure Storage clients can manage connections if you use a single, static client. Creating new instances of those clients with each function invocation is an [improper instantiation antipattern](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/).
 
 As a general rule, when using a service-specific client in an Azure Functions application:
 
@@ -50,7 +50,7 @@ public static async Task Run(string input)
 }
 ```
 
-A common question about the .NET `HttpClient` is "Should I be disposing my client?" In general, you dispose objects that implement `IDisposable` when you're done using them. But when a function ends, you aren't done using your static client. You want the static client to live for the duration of your application.
+A common question about the .NET `HttpClient` is "Should I be disposing my client?" In general, you dispose objects that implement `IDisposable` when you're done using them. But you don't dispose a static client because you aren't done using it when the function ends. You want the static client to live for the duration of your application.
 
 ## DocumentClient code example
 
