@@ -24,15 +24,15 @@ To find an IP address and port that you can use to remotely connect to a specifi
 
 1. Get the inbound NAT rules for Remote Desktop Protocol (RDP).
 
-    Typically, each node type defined in your cluster has its own virtual IP address and a dedicated load balancer. By default, the load balancer for a node type is named with the following format: *LB-{cluster-name}-{node-type}*; for example *LB-mycluster-FrontEnd*. 
+    Typically, each node type defined in your cluster has its own virtual IP address and a dedicated load balancer. By default, the load balancer for a node type is named with the following format: *LB-{cluster-name}-{node-type}*; for example, *LB-mycluster-FrontEnd*. 
     
     On the page for your load balancer in Azure portal, select **Settings** > **Inbound NAT rules**. The following screenshot shows the inbound NAT rules for a node type named FrontEnd on a Windows cluster. 
 
-    ![Load balancer Inbount NAT rules](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    ![Load balancer Inbound NAT rules](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
     For each node, the IP address appears in the **DESTINATION** column, the **TARGET** column gives the scale set instance, and the **SERVICE** column provides the port number. For remote connection, ports are allocated to each node in ascending order beginning with port 3389.
 
-    You can also find the Inbound NAT rules in the `Microsoft.Network/loadBalancers` section of the ARM template for your cluster.
+    You can also find the Inbound NAT rules in the `Microsoft.Network/loadBalancers` section of the Resource Manager template for your cluster.
     
 2. To confirm the inbound port to target port mapping for a node, click its rule and look at the **Target port** value. The following screenshot shows the inbound NAT rule for the **FrontEnd (Instance 1)** node in the previous step. Notice that, although the (inbound) port number is 3390, the target port is mapped to port 3389, the port for the RDP service on the target.  
 
@@ -46,7 +46,7 @@ To find an IP address and port that you can use to remotely connect to a specifi
     
     ![Remote Desktop Connection](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp.png)
 
-    On Linux nodes you can connect with SSH (this example just uses the same IP address and port as the RDP example for brevity):
+    On Linux nodes, you can connect with SSH (this example just uses the same IP address and port as the RDP example for brevity):
 
     ``` bash
     ssh SomeUser@40.117.156.199 -p 3390
