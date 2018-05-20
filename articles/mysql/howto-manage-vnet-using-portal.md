@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/12/2018
+ms.date: 05/20/2018
 ---
 # Create and manage Azure Database for MySQL VNet service endpoints and VNet rules by using the Azure portal
 Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for MySQL server. For an overview of Azure Database for MySQL VNet service endpoints, see [Azure Database for MySQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in public preview in all supported regions for Azure Database for MySQL.

@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 4/30/2018
+ms.date: 5/20/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for MySQL
 
