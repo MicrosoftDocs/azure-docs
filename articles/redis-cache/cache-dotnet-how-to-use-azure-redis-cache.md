@@ -231,7 +231,7 @@ At the bottom of `Main()` procedure in *Program.cs*, and before the call to `Dis
 
 ```csharp
             // Store .NET object to cache
-            Employee e007 = new Employee("007", "Wes McSwain", 100);
+            Employee e007 = new Employee("007", "Davide Columbo", 100);
             Console.WriteLine("Cache response from storing Employee .NET object : " + 
                 cache.StringSet("e007", JsonConvert.SerializeObject(e007)));
 
