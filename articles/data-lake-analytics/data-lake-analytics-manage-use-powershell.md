@@ -115,12 +115,6 @@ Check the existence of a specific Data Lake Analytics account. The cmdlet return
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-Check the existence of a specific Data Lake Store account. The cmdlet returns either `$true` or `$false`.
-
-```powershell
-Test-AdlStoreAccount -Name $adls
-```
-
 ### List accounts
 
 List Data Lake Analytics accounts within the current subscription.
@@ -337,7 +331,7 @@ Get-AdlStoreChildItem -Account $adls -Path "/"
 ### Cancel a job
 
 ```powershell
-Stop-AdlJob -Account $adls -JobID $jobID
+Stop-AdlJob -Account $adla -JobID $jobID
 ```
 
 ### Wait for a job to finish
@@ -367,14 +361,15 @@ $userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
 
 New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
 ```
+## Manage files
 
-## Check for the existence of a file.
+### Check for the existence of a file.
 
 ```powershell
 Test-AdlStoreItem -Account $adls -Path "/data.csv"
 ```
 
-## Uploading and downloading
+### Uploading and downloading
 
 Upload a file.
 
@@ -420,7 +415,7 @@ Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database"
 Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database.schema"
 ```
 
-List all the assemblies in all the databases in an ADLA Account.
+### List all the assemblies in all the databases in an ADLA Account.
 
 ```powershell
 $dbs = Get-AdlCatalogItem -Account $adla -ItemType Database
@@ -538,7 +533,7 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 Resolve-AzureRmError -Last
 ```
 
-### Verify if you are running as an administrator
+### Verify if you are running as an Administrator on your Windows machine
 
 ```powershell
 function Test-Administrator  
@@ -603,7 +598,6 @@ foreach ($sub in $subs)
 ## Create a Data Lake Analytics account using a template
 
 You can also use an Azure Resource Group template using the following sample: [Create a Data Lake Analytics account using a template](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
-
 
 ## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
