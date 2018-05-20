@@ -29,11 +29,11 @@ When you register your application, you supply information about your applicatio
 
 To register your Azure Storage application, follow the steps in the [Adding an Application](../../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][../../active-directory/active-directory-integrating-applications.md]. If you register your application as a Native Application, you can specify any valid URI for the **Redirect URI**. It does not need to be a real endpoint.
 
-![Screen shot showing how to register your storage application with Azure AD](./media/storage-auth-aad-data/app-registration.png)
+![Screen shot showing how to register your storage application with Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
 After you've registered your application, you'll see the application ID (or client ID) under **Settings**:
 
-![Screen shot showing the client ID](./media/storage-auth-aad-data/app-registration-client-id.png)
+![Screen shot showing the client ID](./media/storage-auth-aad-app/app-registration-client-id.png)
 
 For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md). 
 
@@ -47,14 +47,14 @@ Next, you need to grant your application permissions to call Azure Storage APIs.
 4. In the **Required permissions** blade, click the **Add** button.
 5. Under **Select an API**, search for "Azure Storage", and select **Azure Storage** from the list of results.
 
-    ![Screen shot showing permissions for storage](media/storage-auth-aad-data/registered-app-permissions-1.png)
+    ![Screen shot showing permissions for storage](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
 6. Under **Select permissions**, check the box next to **Access Azure Storage**, and click **Select**.
 7. Click **Done**.
 
 The **Required Permissions** windows now shows that your Azure AD application has access to both Azure Active Directory and the Azure Storage. Permissions are granted to Azure AD automatically when you first register your app with Azure AD.
 
-![Screen shot showing register app permissions](media/storage-auth-aad-data/registered-app-permissions-2.png)
+![Screen shot showing register app permissions](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## .NET code example: Create a block blob
 
@@ -88,7 +88,7 @@ To get the tenant ID, follow these steps:
 2. Click **Properties**.
 3. Copy the GUID value provided for the **Directory ID**. This value is also called the tenant ID.
 
-![Screen shot showing how to copy the tenant ID](./media/storage-auth-aad-data/aad-tenant-id.png)
+![Screen shot showing how to copy the tenant ID](./media/storage-auth-aad-app/aad-tenant-id.png)
 
 ### Add references and using statements  
 
