@@ -26,7 +26,7 @@ To run the sample, do the following steps:
 
 1. Copy the following and save it to a file such as `thumbnail.html`.
 1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uriBase` value to the location where you obtained your subscription keys.
+1. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
 1. Drag-and-drop the file into your browser.
 1. Click the `Generate thumbnail` button.
 

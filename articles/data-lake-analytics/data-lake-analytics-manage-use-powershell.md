@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure Data Lake Analytics using Azure PowerShell | Microsoft Docs
 description: 'Learn how to manage Data Lake Analytics accounts, data sources, jobs, and catalog items. '
 services: data-lake-analytics
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-
 ---
+
 # Manage Azure Data Lake Analytics using Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
@@ -30,7 +30,7 @@ When creating a Data Lake Analytics account, you need to know:
 * **Resource group**: The name of the Azure resource group that contains your Data Lake Analytics account.
 * **Data Lake Analytics account name**: The account name must only contain lowercase letters and numbers.
 * **Default Data Lake Store account**: Each Data Lake Analytics account has a default Data Lake Store account. These accounts must be in the same location.
-* **Location**: The location of your Data Lake Analytics account, such as "East US 2" or other supported locations. Supported locations can be seen on our [pricing page](https://azure.microsoft.com/pricing/details/data-lake-analytics/).
+* **Location**: The location of your Data Lake Analytics account, such as "East US 2" or other supported locations. Supported locations can be seen on the [pricing page](https://azure.microsoft.com/pricing/details/data-lake-analytics/).
 
 The PowerShell snippets in this tutorial use these variables to store this information
 
@@ -42,21 +42,19 @@ $adls = "<DataLakeStoreAccountName>"
 $location = "<Location>"
 ```
 
-## Log in
+## Log in using interactive authentication
 
-Log in using a subscription id.
+Log in using a subscription ID or by subscription name
 
 ```powershell
+# Using subscription id
 Connect-AzureRmAccount -SubscriptionId $subId
-```
 
-Log in using a subscription name.
-
-```
+# Using subscription name
 Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-The `Connect-AzureRmAccount` cmdlet  always prompts for credentials. You can avoid being prompted by using the following cmdlets:
+The `Connect-AzureRmAccount` cmdlet always prompts for credentials. You can avoid being prompted by using the following cmdlets:
 
 ```powershell
 # Save login session information
@@ -64,6 +62,21 @@ Save-AzureRmProfile -Path D:\profile.json
 
 # Load login session information
 Select-AzureRmProfile -Path D:\profile.json 
+```
+
+## Log in using SPIs
+
+
+```powershell
+$subname = "MySubscription" 
+$subid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
+$tenantid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
+$spi_appname = "appname" 
+$spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" 
+$spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
+
+$pscredential = New-Object System.Management.Automation.PSCredential ($spi_appid, (ConvertTo-SecureString $spi_secret -AsPlainText -Force))
+Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subname
 ```
 
 ## Manage accounts
@@ -88,7 +101,7 @@ Once a Resource Group and Data Lake Store account is available, create a Data La
 New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
-### Get acount information
+### Get account information
 
 Get details about an account.
 
@@ -550,7 +563,7 @@ function Get-TenantIdFromSubcriptionName( [string] $subname )
 Get-TenantIdFromSubcriptionName "ADLTrainingMS"
 ```
 
-From a subscription id:
+From a subscription ID:
 
 ```powershell
 function Get-TenantIdFromSubcriptionId( [string] $subid )
@@ -565,7 +578,6 @@ Get-TenantIdFromSubcriptionId $subid
 
 From a domain address such as "contoso.com"
 
-
 ```powershell
 function Get-TenantIdFromDomain( $domain )
 {
@@ -577,7 +589,7 @@ $domain = "contoso.com"
 Get-TenantIdFromDomain $domain
 ```
 
-### List all your subscriptions and tenant ids
+### List all your subscriptions and tenant IDs
 
 ```powershell
 $subs = Get-AzureRmSubscription

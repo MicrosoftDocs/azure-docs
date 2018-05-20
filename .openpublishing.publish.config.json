@@ -126,6 +126,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-app-service-multi-container",
+      "url": "https://github.com/Azure-Samples/multicontainerwordpress",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-durable-functions",
       "url": "https://github.com/Azure/azure-functions-durable-extension",
       "branch": "master",
@@ -176,6 +182,12 @@
     {
       "path_to_root": "media-services-v3-dotnet-core-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "media-services-v3-rest-postman",
+      "url": "https://github.com/Azure-Samples/media-services-v3-rest-postman",
       "branch": "master",
       "branch_mapping": {}
     }    

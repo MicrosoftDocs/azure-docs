@@ -46,7 +46,7 @@ Leave the number of devices to provision set to **1**. Choose the **Faulty Engin
 
 ![Provision a simulated engine device](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine.png)
 
-To learn how to provision a *physical* device, see [Connect your device to the remote monitoring solution accelerator](../iot-suite/iot-suite-connecting-devices-node.md).
+To learn how to provision a *physical* device, see [Connect your device to the remote monitoring solution accelerator](iot-accelerators-connecting-devices-node.md).
 
 ## Test the simulated device
 
@@ -109,6 +109,6 @@ Now that you have learned how to manage your devices, the suggested next steps a
 
 * [Troubleshoot and remediate device issues](iot-accelerators-remote-monitoring-maintain.md).
 * [Test your solution with simulated devices](iot-accelerators-remote-monitoring-test.md).
-* [Connect your device to the remote monitoring solution accelerator](../iot-suite/iot-suite-connecting-devices-node.md).
+* [Connect your device to the remote monitoring solution accelerator](iot-accelerators-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->
