@@ -17,10 +17,11 @@ tags: connectors
 
 # Monitor, receive, and send events with Azure Event Hubs and Azure Logic Apps 
 
-To set up an event monitor so that your logic app can detect events, receive events, 
-and send events, connect to an [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) 
-from your logic app. Learn more about [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) 
-and [how pricing works for Logic Apps connectors](../logic-apps/logic-apps-pricing.md).
+This article shows how you can monitor and manage events sent to 
+[Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) 
+from inside a logic app with the Azure Event Hubs connector. 
+That way, you can create logic apps that automate tasks and workflows 
+for checking, sending, and receiving events from your Event Hub. 
 
 If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
@@ -70,9 +71,12 @@ get the connection string for your Event Hubs namespace.
       > If you find this parameter, the connection string is for a specific 
       > Event Hub "entity" and is not the correct string to use with your logic app.
 
+4. Now continue with [Add an Event Hubs trigger](#add-trigger) 
+or [Add an Event Hubs action](#add-action).
+
 <a name="add-trigger"></a>
 
-## Add Event Hubs trigger
+## Add an Event Hubs trigger
 
 In Azure Logic Apps, every logic app must start with a 
 [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), 
@@ -124,9 +128,8 @@ provide the necessary information for the trigger.
 
 4. When you're done, on the designer toolbar, choose **Save**.
 
-Now, when your logic app checks the selected Event Hub and finds 
-a new event, the trigger runs the actions in your logic app 
-for the found event.
+5. Now continue adding one or more actions to your logic app 
+for the tasks you want to perform with the trigger results.
 
 > [!NOTE]
 > All Event Hub triggers are *long-polling* triggers, 
@@ -139,7 +142,7 @@ for the found event.
 
 <a name="add-action"></a>
 
-## Add Event Hubs action
+## Add an Event Hubs action
 
 In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 is a step in your workflow that follows a trigger or another action. 

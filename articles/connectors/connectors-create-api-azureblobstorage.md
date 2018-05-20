@@ -15,9 +15,10 @@ ms.suite: integration
 tags: connectors
 ---
 
-# Create and manage blobs in Azure storage with Azure Logic Apps
+# Create and manage blobs in Azure blob storage with Azure Logic Apps
 
-This article shows how you can access and manage files stored as blobs in your Azure storage account from inside a logic app with the Azure Blob Storage connector. 
+This article shows how you can access and manage files stored as blobs in your Azure 
+storage account from inside a logic app with the Azure Blob Storage connector. 
 That way, you can create logic apps that automate tasks and workflows 
 for managing your files. For example, you can build logic apps that create, 
 get, update, and delete files in your storage account.
@@ -37,13 +38,11 @@ For connector-specific technical information, see the
 
 ## Prerequisites
 
+* An [Azure storage account and storage container](../storage/blobs/storage-quickstart-blobs-portal.md)
+
 * The logic app where you need access to your Azure blob storage account. 
 To start your logic app with an Azure Blob Storage trigger, you need a 
 [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
-
-* An [Azure storage account and storage container](../storage/blobs/storage-quickstart-blobs-portal.md)
-
-<a name="add-trigger"></a>
 
 <a name="add-trigger"></a>
 
@@ -86,10 +85,13 @@ provide the necessary information for the trigger.
 
       ![Select folder](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
-   3. Set the interval and frequency for how often 
+   3. Select the interval and frequency for how often 
    you want the trigger to check the folder for changes.
 
 4. When you're done, on the designer toolbar, choose **Save**.
+
+5. Now continue adding one or more actions to your logic app 
+for the tasks you want to perform with the trigger results.
 
 <a name="add-action"></a>
 

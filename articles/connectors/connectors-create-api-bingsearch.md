@@ -1,7 +1,7 @@
 ---
 # required metadata
 title: Connect to Bing Search - Azure Logic Apps | Microsoft Docs
-description: Search for items with Bing Search REST APIs and Azure Logic Apps
+description: Find news with Bing Search REST APIs and Azure Logic Apps
 author: ecfan
 manager: cfowler
 ms.author: estfan
@@ -15,17 +15,159 @@ ms.suite: integration
 tags: connectors
 ---
 
-# Get started with the Bing Search connector
-Connect to Bing Search to search news, search videos, and more. With Bing Search, you can: 
+# Find news with Bing Search and Azure Logic Apps 
 
-* Build your business flow based on the data you get from your search. 
-* Use actions to search images, search the news, and more. These actions get a response, and then make the output available for other actions. For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.
+This article shows how you can find news, videos, and other items through 
+Bing Search from inside a logic app with the Bing Search connector. 
+That way, you can create logic apps that automate tasks and workflows 
+for processing search results and make those items available for other actions. 
 
-You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+For example, you can find news items based on search criteria, 
+and have Twitter post those items as tweets in your Twitter feed.
 
-## Connector-specific details
+If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+If you're new to logic apps, review 
+[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+For connector-specific technical information, see the 
+<a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">Bing Search connector reference</a>.
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/bingsearch/).
+## Prerequisites
 
-## More connectors
-Go back to the [APIs list](apis-list.md).
+* A [Cognitive Services account](../cognitive-services/cognitive-services-apis-create-account.md)
+
+* A [Bing Search API key](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api), 
+which provides access from your logic app to the Bing Search APIs 
+
+* The logic app where you want to access your Event Hub. 
+To start your logic app with a Bing Search trigger, you need a 
+[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+
+<a name="add-trigger"></a>
+
+## Add a Bing Search trigger
+
+In Azure Logic Apps, every logic app must start with a 
+[trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), 
+which fires when a specific event happens or when a 
+specific condition is met. Each time the trigger fires, 
+the Logic Apps engine creates a logic app instance 
+and starts running your app's workflow.
+
+1. In the Azure portal or Visual Studio, 
+create a blank logic app, which opens Logic Apps Designer. 
+This example uses the Azure portal.
+
+2. In the search box, enter "Bing search" as your filter. 
+From the triggers list, select the trigger you want. 
+
+   This example uses this trigger: 
+   **Bing Search - On new news article**
+
+3. If you're prompted for connection details, 
+[create your Event Hub connection now](#create-connection). 
+Or, if your connection already exists, 
+provide the necessary information for the trigger.
+
+   For this example, provide criteria for returning 
+   matching news articles from Bing Search.
+
+   | Property | Required | Value | Description | 
+   |----------|----------|-------|-------------| 
+   | Search Query | Yes | <*search-keywords*> | Enter the search keywords you want to use. |
+   | Market | Yes | <*locale*> | Select your search locale, which is "en-US" by default. | 
+   | Safe Search | Yes | <*safe-search-level*> | Select the filter level for excluding adult content. The default is "Moderate" level. | 
+   | Count | Yes | <*results-quantity*> | Enter the number of results to return. The actual number returned might be less than the specified number. | 
+   | Offset | No | <*skip-value*> | The number of results to skip before returning results | 
+   |||||  
+
+4. Select the interval and frequency for how often 
+you want the trigger to check for results.
+
+5. When you're done, on the designer toolbar, choose **Save**. 
+
+6. Now continue adding one or more actions to your logic app 
+for the tasks you want to perform with the trigger results.
+
+<a name="add-action"></a>
+
+## Add a Bing Search action
+
+In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
+is a step in your workflow that follows a trigger or another action. 
+For this example, the logic app starts with a Bing Search trigger 
+that returns news articles matching the specified criteria. 
+
+1. In the Azure portal or Visual Studio, 
+open your logic app in Logic Apps Designer. 
+This example uses the Azure portal.
+
+2. Under the trigger or action, choose **New step** > **Add an action**.
+
+   To add an action between existing steps, 
+   move your mouse over the connecting arrow. 
+   Choose the plus sign (**+**) that appears, 
+   and then choose **Add an action**.
+
+3. In the search box, enter "Bing search" as your filter.
+From the actions list, select the action you want.
+
+   This example uses this action: 
+   **Bing Search - List news by query**
+
+4. If you're prompted for connection details, 
+[create your Azure Blob Storage connection now](#create-connection). 
+Or, if your connection already exists, 
+provide the necessary information for the action. 
+
+   For this example, provide the criteria for 
+   returning results from the trigger's results.
+
+   | Property | Required | Value | Description | 
+   |----------|----------|-------|-------------| 
+   | Search Query | Yes | <*search-expression*> | Enter an expression to use as your search query. You can select available fields from the dynamic content list, or create an expression in the expression builder. |
+   | Market | Yes | <*locale*> | Select your search locale, which is "en-US" by default. | 
+   | Safe Search | Yes | <*safe-search-level*> | Select the filter level for excluding adult content. The default is "Moderate" level. | 
+   | Count | Yes | <*results-quantity*> | Enter the number of results to return. The actual number returned might be less than the specified number. | 
+   | Offset | No | <*skip-value*> | The number of results to skip before returning results | 
+   |||||  
+
+5. When you're done, on the designer toolbar, choose **Save**.
+
+<a name="create-connection"></a>
+
+## Connect to Bing Search
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)] 
+
+1. When you're prompted for connection information, 
+provide these details:
+
+   | Property | Required | Value | Description | 
+   |----------|----------|-------|-------------| 
+   | Connection Name | Yes | <*connection-name*> | The name to create for your connection |
+   | API Version | Yes | <*API-version*> | By default, the Bing Search API version is set to the current version. You can select an earlier version as necessary. | 
+   | API Key | Yes | <*API-key*> | The Bing Search API key that you got earlier. If you don't have a key, get your [API key now](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   |||||  
+
+   For example:
+
+   ![Create connection](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
+
+2. When you're done, choose **Create**.
+
+## Connector reference
+
+For technical details, such as triggers, actions, and limits, 
+as described by the connector's Swagger file, 
+see the [connector's reference page](/connectors/bingsearch/). 
+
+## Get support
+
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+
+## Next steps
+
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
