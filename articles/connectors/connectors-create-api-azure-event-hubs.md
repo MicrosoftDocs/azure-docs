@@ -101,7 +101,7 @@ From the triggers list, select the trigger you want.
    ![Select trigger](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
 3. If you're prompted for connection details, 
-[create your Event Hub connection now](#create-connection). 
+[create your Event Hubs connection now](#create-connection). 
 Or, if your connection already exists, 
 provide the necessary information for the trigger.
 
@@ -168,7 +168,7 @@ From the actions list, select the action you want.
    ![Select "Event Hubs - Send event"](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
 
 4. If you're prompted for connection details, 
-[create your Event Hub connection now](#create-connection). 
+[create your Event Hubs connection now](#create-connection). 
 Or, if your connection already exists, 
 provide the necessary information for the action.
 

@@ -66,7 +66,7 @@ From the triggers list, select the trigger you want.
    **Bing Search - On new news article**
 
 3. If you're prompted for connection details, 
-[create your Event Hub connection now](#create-connection). 
+[create your Bing Search connection now](#create-connection). 
 Or, if your connection already exists, 
 provide the necessary information for the trigger.
 
@@ -78,9 +78,13 @@ provide the necessary information for the trigger.
    | Search Query | Yes | <*search-keywords*> | Enter the search keywords you want to use. |
    | Market | Yes | <*locale*> | Select your search locale, which is "en-US" by default. | 
    | Safe Search | Yes | <*safe-search-level*> | Select the filter level for excluding adult content. The default is "Moderate" level. | 
-   | Count | Yes | <*results-quantity*> | Enter the number of results to return. The actual number returned might be less than the specified number. | 
+   | Count | Yes | <*results-count*> | Enter the number of results to return. The actual number returned might be less than the specified number. | 
    | Offset | No | <*skip-value*> | The number of results to skip before returning results | 
-   |||||  
+   ||||| 
+
+   For example:
+
+   ![Bing Search trigger](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
 4. Select the interval and frequency for how often 
 you want the trigger to check for results.
@@ -117,21 +121,53 @@ From the actions list, select the action you want.
    **Bing Search - List news by query**
 
 4. If you're prompted for connection details, 
-[create your Azure Blob Storage connection now](#create-connection). 
+[create your Bing Search connection now](#create-connection). 
 Or, if your connection already exists, 
 provide the necessary information for the action. 
 
    For this example, provide the criteria for 
-   returning results from the trigger's results.
+   returning a subset of the trigger's results.
 
    | Property | Required | Value | Description | 
    |----------|----------|-------|-------------| 
-   | Search Query | Yes | <*search-expression*> | Enter an expression to use as your search query. You can select available fields from the dynamic content list, or create an expression in the expression builder. |
+   | Search Query | Yes | <*search-expression*> | Enter an expression to use as your search query. You can select available fields from the dynamic content list, or create an expression with the expression builder. |
    | Market | Yes | <*locale*> | Select your search locale, which is "en-US" by default. | 
    | Safe Search | Yes | <*safe-search-level*> | Select the filter level for excluding adult content. The default is "Moderate" level. | 
-   | Count | Yes | <*results-quantity*> | Enter the number of results to return. The actual number returned might be less than the specified number. | 
+   | Count | Yes | <*results-count*> | Enter the number of results to return. The actual number returned might be less than the specified number. | 
    | Offset | No | <*skip-value*> | The number of results to skip before returning results | 
    |||||  
+
+   For example, suppose you want those results whose category 
+   name includes the word "tech". 
+   
+   1. Click in the **Search Query** box so the dynamic content list appears. 
+   From that list, choose **Expression** so that the expression builder appears. 
+
+      ![Bing Search trigger](./media/connectors-create-api-bing-search/bing-search-action.png)
+
+      Now you can start creating your expression.
+
+   2. From the functions list, select the **contains()** function, 
+   which then appears in the expression box. Click **Dynamic content** 
+   so that the field list reappears, but make sure your cursor stays 
+   inside the parentheses.
+
+      ![Select function](./media/connectors-create-api-bing-search/expression-select-function.png)
+
+   3. From the field list, select **Category**, which converts to a parameter. 
+   Add a comma after the first parameter, and after the comma, add the word `'tech'`. 
+
+      ![Select function](./media/connectors-create-api-bing-search/expression-select-field.png)
+   
+   4. When you're done, choose **OK**.
+
+      The expression now appears in the **Search Query** box in this format:
+
+      ![Select function](./media/connectors-create-api-bing-search/resolved-expression.png)
+
+      In code view, this expression appears in this format:
+
+      `"@{contains(triggerBody()?['category'],'tech')}"`
 
 5. When you're done, on the designer toolbar, choose **Save**.
 
