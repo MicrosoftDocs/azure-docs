@@ -41,32 +41,31 @@ Your client application sends user text of what a person wants in their own word
 
 
 ## What is a LUIS app?
-A LUIS app is a domain-specific language model designed by you and tailored to your needs. You can start with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
+A LUIS app is a domain-specific language model you design. You can start your app with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
 
-A model starts with a list of general user intentions, called _intents_, such as "Book Flight" or "Contact Help Desk." You provide user's example phrases, called _utterances_ for the intents. Then mark significant words or phrases in the utterance, called _entities_, you want LUIS to return.
+A model begins with a list of general user intentions, called _intents_, such as "Book Flight" or "Contact Help Desk." You provide user's example phrases, called _utterances_ for the intents. Then mark significant words or phrases in the utterance, called _entities_.
 
 [Prebuilt domain models][prebuilt-domains] include all these pieces for you and are a great way to start using LUIS quickly.
 
 <a name="Accessing-LUIS"></a>
 
-## What does a LUIS endpoint query return?
 Once your model is built and published, your client application sends utterances to the LUIS [endpoint API][endpoint-apis] and receives the prediction results as JSON responses.
 
 Example of JSON endpoint response:
 
 ```JSON
 {
-  "query": "I want to be called by my HR rep.",
+  "query": "I want to call my HR rep.",
   "topScoringIntent": {
     "intent": "HRContact",
     "score": 0.921233
   },
   "entities": [
     {
-      "entity": "called",
+      "entity": "call",
       "type": "Contact Type",
-      "startIndex": 13,
-      "endIndex": 18,
+      "startIndex": 10,
+      "endIndex": 13,
       "score": 0.7615982
     }
   ]
