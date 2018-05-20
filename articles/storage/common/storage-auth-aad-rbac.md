@@ -13,9 +13,9 @@ ms.author: tamram
 
 # Manage access rights to storage data with RBAC (Preview)
 
-Azure AD authenticates access to secured resources through role-based access control (RBAC). Using RBAC, you can assign roles to a security principal. A security principal can be a user, group, or application service principal. 
+Azure AD authorizes access to secured resources through role-based access control (RBAC). Using RBAC, you can assign roles to a security principal. A security principal can be a user, group, or application service principal. 
 
-Azure Storage defines RBAC roles that encompass a set of permissions for a container or queue. When the RBAC role is assigned to a security principal, that security principal is granted access to that resource. You can assign access rights for storage resources using the Azure portal, Azure command-line tools, and Azure Management APIs. 
+Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used for access to blobs or queues. When the RBAC role is assigned to a security principal, that security principal is granted access to that resource. You can assign access rights for storage resources using the Azure portal, Azure command-line tools, and Azure Management APIs. 
 
 For more information on RBAC, see [Get started with Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
@@ -34,12 +34,12 @@ You can also define custom roles for use with Blob storage and Azure Queues. For
 
 ## Assign a role to a security principal
 
-Assign an RBAC role to a user, group, or application service principal to grant permissions to containers or queues in your storage account. You can scope the role assignment to the storage account, or to a specific container or queue. The following table summarizes the access rights granted by a role, depending on scope: 
+Assign an RBAC role to a user, group, or application service principal to grant permissions to containers or queues in your storage account. You can scope the role assignment to the storage account, or to a specific container or queue. The following table summarizes the access rights granted by the built-in roles, depending on scope: 
 
 |                                 |    Blob Data Contributor                                              |    Blob Data Reader                                                  |    Queue Data Contributor                               |    Queue Data Reader                                   |
 |---------------------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------|--------------------------------------------------------|
-|    Scoped to storage account    |    Write access to all containers and blobs in the storage account    |    Read access to all containers and blobs in the storage account    |    Write access to all queues in the storage account    |    Read access to all queues in the storage account    |
-|    Scoped to container/queue    |    Write access to the specified container and its blobs              |    Read access to the specified container and its blobs              |    Write access to the specified queue                  |    Read access to the specified queue                  |
+|    Scoped to storage account    |    Read/write access to all containers and blobs in the storage account    |    Read access to all containers and blobs in the storage account    |    Read/write access to all queues in the storage account    |    Read access to all queues in the storage account    |
+|    Scoped to container/queue    |    Read/write access to the specified container and its blobs              |    Read access to the specified container and its blobs              |    Read/write access to the specified queue                  |    Read access to the specified queue                  |
 
 For details on the permissions required to call Azure Storage operations, see [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).
 
