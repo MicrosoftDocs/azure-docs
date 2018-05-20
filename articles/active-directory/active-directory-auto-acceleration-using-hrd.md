@@ -77,7 +77,8 @@ Some applications do not provide a way to configure the authentication request t
 ## Enable direct authentication for legacy applications
 Best practice is for applications to use AAD libraries and interactive sign-in to authenticate users. The libraries take care of the federated user flows.  Sometimes legacy applications aren't written to understand federation. They don't perform home realm discovery and interact with the correct federated endpoint to authenticate a user.  If you choose to, you can use HRD Policy to enable specific legacy applications that submit username/password credentials to authenticate directly with Azure Active Directory. Password Hash Sync must be enabled. 
 
-[!IMPORTANT]  Only enable direct authentication if you have Password Hash Sync turned on and you know it's okay to authenticate this application without any policies implemented by your on-premises IdP. If you turn off Password Hash Sync, or turn off Directory Synchronization with AD Connect for any reason you should remove this policy to prevent the possibility of direct authentication using a stale password hash.
+> [!IMPORTANT]
+> Only enable direct authentication if you have Password Hash Sync turned on and you know it's okay to authenticate this application without any policies implemented by your on-premises IdP. If you turn off Password Hash Sync, or turn off Directory Synchronization with AD Connect for any reason, you should remove this policy to prevent the possibility of direct authentication using a stale password hash.
 
 ## Set HRD policy
 There are three steps to setting HRD policy on an application for federated sign-in auto-acceleration or direct cloud-based applications:
