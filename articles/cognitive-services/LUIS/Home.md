@@ -51,7 +51,9 @@ A model begins with a list of general user intentions, called _intents_, such as
 
 Once your model is built and published, your client application sends utterances to the LUIS [endpoint API][endpoint-apis] and receives the prediction results as JSON responses.
 
-Example of JSON endpoint response:
+### Example of JSON endpoint response
+
+The JSONe endpoint response, at a minimum contains the query utterance, and the top scoring intent. 
 
 ```JSON
 {
@@ -74,27 +76,31 @@ Example of JSON endpoint response:
 
 <a name="Key-LUIS-concepts"></a>
 
-## What does a LUIS model include?
+## What is a LUIS model?
 A LUIS model includes:
 
 * **[intents](#intents)**: categories of user intentions (intended action or result)
 * **[entities](#entities)**: specific types of data in utterances such as number, email, or name
-* **[example utterances](#example-utterances)**: example text a user may enter in your client application
+* **[example utterances](#example-utterances)**: example text a user enters in your client application
+
+A client application but be anything but typically it has a conversational interaction between a user and the software such as a chat bot, virtual reality game, or a digital personal assistant such as Cortana. 
 
 ### Intents 
-An [intent][add-intents], short for _intention_, is a purpose or goal expressed in a user's input, such as booking a flight, paying a bill, or finding a news article. You create an intent for each action. A travel app may define an intent named "BookFlight." Your client application can use the top scoring intent to trigger an action. For example, when "BookFlight" intent is returned from LUIS, your client application could trigger an API call to an external service for booking a plane ticket.
+An [intent][add-intents], short for _intention_, is a purpose or goal expressed in a user's utterance, such as booking a flight, paying a bill, or finding a news article. You create an intent for each action. A travel app may define an intent named "BookFlight." Your client application can use the top scoring intent to trigger an action. For example, when "BookFlight" intent is returned from LUIS, your client application could trigger an API call to an external service for booking a plane ticket.
 
 ### Entities
-An [entity][add-entities] represents detailed information that is relevant in the utterance. For example, in the utterance "Book a ticket to Paris", "Paris" is a location. After LUIS returns the entities found in the user’s utterance, your client application can use the list of entities as parameters to a triggered action. For example, booking a flight requires entities like the travel destination, date, and airline.
+An [entity][add-entities] represents detailed information found within the utterance that is relevant to the user's request. For example, in the utterance "Book a ticket to Paris",  a single ticket is requested, and "Paris" is a location. Two entities are found "a ticket" indicating a single ticket and "Paris" indicating the destination. 
+
+After LUIS returns the entities found in the user’s utterance, your client application can use the list of entities as parameters to a triggered action. For example, booking a flight requires entities like the travel destination, date, and airline.
 
 LUIS provides several ways to identify and categorize entities.
 
 * **Prebuilt Entities** LUIS has many prebuilt domain models including intents, utterances, and [prebuilt entities][prebuilt-entities]. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
 
-* **Custom Entities** LUIS gives you several ways to identify your own custom [entities][entity-concept] including simple entities, composite entities, list entities, regular expression entities, hierarchical entities, and key phrase entities.
+* **Custom Entities** LUIS gives you several ways to identify your own custom [entities][entity-concept] including machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
 
 ### Example utterances
-An example [utterance][add-example-utterances] is text input from the user that your app needs to understand. It may be a sentence, like "Book a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight." Utterances aren't always well-formed, and there can be many utterance variations for a particular intent. Add example utterances to each intent and mark the entities of the utterance.
+An example [utterance][add-example-utterances] is text input from the user that your app needs to understand. It may be a sentence, like "Book a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight." Utterances aren't always well-formed, and there can be many utterance variations for a particular intent. Add 10 to 20 example utterances to each intent and mark entities in every utterance.
 
 |Example user utterance|Intent|Entities|
 |-----------|-----------|-----------|
