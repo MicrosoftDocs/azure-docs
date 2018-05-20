@@ -140,7 +140,7 @@ provide the necessary information for the action.
 5. When you're done, on the designer toolbar, choose **Save**.
 To test your logic app, make sure that the selected folder contains a blob.
 
-In this example, we get the contents for a blob. To view the contents, 
+This example only gets the contents for a blob. To view the contents, 
 add another action that creates a file with the blob by using another connector. 
 For example, add a OneDrive action that creates a file based on the blob contents.
 

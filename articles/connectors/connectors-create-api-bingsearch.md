@@ -161,18 +161,18 @@ provide the necessary information for the action.
    so that the field list reappears, but make sure your cursor stays 
    inside the parentheses.
 
-      ![Select function](./media/connectors-create-api-bing-search/expression-select-function.png)
+      ![Select a function](./media/connectors-create-api-bing-search/expression-select-function.png)
 
    3. From the field list, select **Category**, which converts to a parameter. 
-   Add a comma after the first parameter, and after the comma, add the word `'tech'`. 
+   Add a comma after the first parameter, and after the comma, add this word: `'tech'` 
 
-      ![Select function](./media/connectors-create-api-bing-search/expression-select-field.png)
+      ![Select a field](./media/connectors-create-api-bing-search/expression-select-field.png)
    
    4. When you're done, choose **OK**.
 
       The expression now appears in the **Search Query** box in this format:
 
-      ![Select function](./media/connectors-create-api-bing-search/resolved-expression.png)
+      ![Finished expression](./media/connectors-create-api-bing-search/resolved-expression.png)
 
       In code view, this expression appears in this format:
 
