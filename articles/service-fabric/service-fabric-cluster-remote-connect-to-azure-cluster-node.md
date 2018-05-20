@@ -26,7 +26,7 @@ To find an IP address and port that you can use to remotely connect to a specifi
 
     Typically, each node type defined in your cluster has its own virtual IP address and a dedicated load balancer. By default, the load balancer for a node type is named with the following format: *LB-{cluster-name}-{node-type}*; for example, *LB-mycluster-FrontEnd*. 
     
-    On the page for your load balancer in Azure portal, select **Settings** > **Inbound NAT rules**. The following screenshot shows the inbound NAT rules for a node type named FrontEnd on a Windows cluster. 
+    On the page for your load balancer in Azure portal, select **Settings** > **Inbound NAT rules**. The following screenshot shows the inbound NAT rules for a node type named FrontEnd. 
 
     ![Load balancer Inbound NAT rules](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
@@ -46,7 +46,7 @@ To find an IP address and port that you can use to remotely connect to a specifi
     
     ![Remote Desktop Connection](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp.png)
 
-    On Linux nodes, you can connect with SSH (this example just uses the same IP address and port as the RDP example for brevity):
+    On Linux nodes, you can connect with SSH (the following example reuses the same IP address and port for brevity):
 
     ``` bash
     ssh SomeUser@40.117.156.199 -p 3390
