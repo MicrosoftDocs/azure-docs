@@ -7,13 +7,13 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/23/2018
 ms.author: nepeters
 ---
 
 # Whitelist egress traffic from Azure Kubernetes Service (AKS)
 
-By default, the egress address from an Azure Kubernetes Service (AKS) cluster is randomly. This configuration is not ideal when needing to whitelist an IP address for accessing external services. This document details how to create and maintain a statically assigned egress IP address in an AKS cluster.
+By default, the egress address from an Azure Kubernetes Service (AKS) cluster is randomly assigned. This configuration is not ideal when needing to whitelist an IP address for accessing external services. This document details how to create and maintain a statically assigned egress IP address in an AKS cluster.
 
 ## Egress overview
 
@@ -25,7 +25,7 @@ Once a Kubernetes service of type `LoadBalancer` is created, agent nodes are add
 
 To prevent random IP addresses from being used, create a static IP address and ensure the load balancer uses this address.
 
-Use the [az network public-ip create][public-ip-create] command to create a static public IP address. The IP address needs to be created in the same resource group as the AKS nodes. For information on the different AKS resource groups, and how to identify the node resource group, see the [AKS FAQ][aks-faq-resource-group].
+Use the [az network public-ip create][public-ip-create] command to create a static public IP address. Create the IP address in the same resource group as the AKS nodes. For information on the different AKS resource groups, and how to identify the node resource group, see the [AKS FAQ][aks-faq-resource-group].
 
 ```console
 $ az network public-ip create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static --query publicIp.ipAddress -o table
