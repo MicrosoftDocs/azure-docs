@@ -27,12 +27,12 @@ The example in this article uses two Scala notebooks: one for streaming events f
 
 ## Prerequisites
 
-* An Azure subscription. If you do not have one, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* An Event Hubs instance. If you do not have one, [create one](event-hubs-create.md)
-* An [Azure Databricks](https://azure.microsoft.com/services/databricks/) instance. If you do not have one, [create one](../azure-databricks/quickstart-create-databricks-workspace-portal.md)
-* [Create a library using maven coordinate](https://docs.databricks.com/user-guide/libraries.html#upload-a-maven-package-or-spark-package): `com.microsoft.azure:azure‐eventhubs‐spark_2.11:2.3.1`
+* An Azure subscription. If you do not have one, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Event Hubs instance. If you do not have one, [create one](event-hubs-create.md).
+* An [Azure Databricks](https://azure.microsoft.com/services/databricks/) instance. If you do not have one, [create one](../azure-databricks/quickstart-create-databricks-workspace-portal.md).
+* [Create a library using maven coordinates](https://docs.databricks.com/user-guide/libraries.html#upload-a-maven-package-or-spark-package): `com.microsoft.azure:azure‐eventhubs‐spark_2.11:2.3.1`.
 
-Stream events from your Event Hub using the following code:
+Stream events from your event hub using the following code:
 
 ```scala
 import org.apache.spark.eventhubs._
