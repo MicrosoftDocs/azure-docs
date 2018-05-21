@@ -30,7 +30,7 @@ Feature characteristics include:
     cleared.  When a legal hold is set, blobs can be created and read, but not modified or deleted. Each legal hold is associated with a user-defined alphanumeric tag that is used as an identifier string such as a case ID.
 
 -   **Blob tier independence**: WORM policies are independent of the Azure blob
-    storage tier and will apply to all the tiers, hot, cool and archive. Users
+    storage tier and will apply to all the tiers, hot, cool, and archive. Users
     can move data from one tier to another while keeping the data in an
     immutable state
 
@@ -50,49 +50,54 @@ Feature characteristics include:
 When a time-based retention policy or legal hold is applied on a container, the following operations will be disallowed for existing blobs and new blobs added to the container. When the retention interval expires, and there are no legal holds set on the container, the delete operations will be enabled. However, if only a legal hold is applied and there is no time-based retention policy on a container, all of the following blob operations will be allowed when all the legal holds are cleared. 
 **Operation         Resource Type                       Description**
 Delete Container    Container                           Deletes the container and any blobs it contains
-Put Blob            Block, Append and page blobs        Replace an existing blob within a container
-Set Blob Metadata   Block, Append and Page blobs        Sets user-defined metadata of an existing blob
-Delete Blob         Block, Append and Page blobs        Marks a blob for deletion
-Undelete Blob       Block, Append and Page blobs        Restores the contents and metadata of soft deleted blob and/or all associated soft deleted snapshots
+Put Blob            Block, Append, and page blobs        Replace an existing blob within a container
+Set Blob Metadata   Block, Append, and Page blobs        Sets user-defined metadata of an existing blob
+Delete Blob         Block, Append, and Page blobs        Marks a blob for deletion
+Undelete Blob       Block, Append, and Page blobs        Restores the contents and metadata of soft deleted blob and/or all associated soft deleted snapshots
 Put Block           Block blobs                         Creates a new block to be committed as part of a block blob. **Only the first Put block operations for file creation are allowed**
 Put Block list      Block blobs                         Commits a blob by specifying the set of block IDs that comprise the block blob. **Only the first Put Block List operation for file creation is allowed**  
 Put Page            Page blobs                          Writes a range of pages into a page blob
 Append Block        Append blobs                        Writes a block of data to the end of an append blob.
 
 ## Note
-1. The feature is only available in GPv2 and blob storage accounts. Note that The policy administration is only available through the rSRP/Azure Resource Manager interfaces and so the storage account must be ARM enabled. 
-2. Ecah container contains an audit trail showing up to 5 time-based retention commands for locked time-based retention policies and up to 10 legal hold commands. This log is retained for the life time of the container However, the complete log of all the commands can be found  in the Azure activity log. Please refer Azure Activity log documentation (Roy: enter link: https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) for more details
+1. The feature is only available in GPv2 and blob storage accounts. Note that the policy administration is only available through the rSRP/Azure Resource Manager interfaces and so the storage account must be Azure Resource Manager enabled. 
+2. Each container contains an audit trail showing up to 5 time-based retention commands for locked time-based retention policies and up to 10 legal hold commands. This log is retained for the lifetime of the container. However, the complete log of all the commands can be found  in the Azure activity log. Refer to the [Azure Activity log documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) for more details
 3. Page blobs and Append blobs need to be created outside of a protected container, then copied in.
 
 ### Getting Started
 **Azure portal**
- Step 1: Create a container to store the blobs that need to be kept in the immutable state. Click on Access Polcy in the Container settings and then click on **+ Add Policy** under **Immutable Blob Storage** policy as illustrated below.
+
+Step 1: Create a container to store the blobs that need to be kept in the immutable state. Click on Access Policy in the Container settings and then click on **+ Add Policy** under **Immutable Blob Storage** policy as illustrated below.
  
 ![Container Access](../media/storage-immutable-blob-storage/portal-image-1.jpg)
 
 ![Container Access](../media/storage-immutable-blob-storage/portal-image-2.jpg)
 
- Step 2: To enable time-based retention, choose Time-Based Retention from the drop-down menu. Enter the desired retention interval in days (minimum is 1 day)
+Step 2: To enable time-based retention, choose Time-Based Retention from the drop-down menu. Enter the desired retention interval in days (minimum is one day)
 
-![Time based retention](../media/storage-immutable-blob-storage/portal-image-3-time-based retention.jpg)
+![Time-based retention](../media/storage-immutable-blob-storage/portal-image-3-time-based retention.jpg)
 
- As you can see above, the state of the policy will initially be unlocked. This will allow you to test the deature with a smaller retention interval, and make changes to the policy before locking it.
- Locking is essential for SEC 17a-4 etc. regulatory compliance.
- Step 3: Lock the policy by right clicking on the ..., and the following menu will appear:-
+As you can see above, the state of the policy will initially be unlocked. This will allow you to test the feature with a smaller retention interval, and make changes to the policy before locking it.
+ 
+Locking is essential for SEC 17a-4 etc. regulatory compliance.
+ Step 3: Lock the policy by right-clicking on the ..., and the following menu will appear:-
 
 ![Lock policy](../media/storage-immutable-blob-storage/portal-image-4-lock-policy.jpg>)
 
-  Click on Lock Policy and the policy state will now show as locked. Once locked, the policy can longer be deleted and only extensions of the retention interval will be allowed.
- Step 4: To enable legal holds, clikc on + Add Policy and  choose Legal hold from the drop down menu
+Click on Lock Policy and the policy state will now show as locked. Once locked, the policy can longer be deleted and only extensions of the retention interval will be allowed.
+ 
+Step 4: To enable legal holds, click on + Add Policy and  choose Legal hold from the drop-down menu
 
 ![Hold selection](../media/storage-immutable-blob-storage/portal-image-legal-hold-selection-7.jpg)
 
- Create a legal hold with 1 or more tags
+ Create a legal hold with one or more tags
+
  ![Hold tags](../media/storage-immutable-blob-storage/portal-image-set-legal-hold-tags.jpg)
 
  **CLI**
- Install the CLI extension  (Roy:  please add link, text to display is extension(https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) the extension with `az extension add -n storage-preview`
-If You alteady have this extension installed, then to enable the Immutable Blob Storage feature, use the command  the extension and just  `az extension update -n storage-preview`
+ Install the CLI [extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) with `az extension add -n storage-preview`
+
+If you already have this extension installed, then to enable the Immutable Blob Storage feature, use the command  the extension and just  `az extension update -n storage-preview`
 The feature is included in the following command groups (run “-h” on them to see the commands):
 `az storage container immutability-policy`  and `az storage container legal-hold ` 
 
