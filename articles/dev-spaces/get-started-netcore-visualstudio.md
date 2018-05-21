@@ -112,24 +112,23 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 ## Make a request from *webfrontend* to *mywebapi*
 Let's now write code in `webfrontend` that makes a request to `mywebapi`. Switch to the Visual Studio window that has the `webfrontend` project. In the `HomeController.cs` file *replace* the code for the About method with the following code:
 
-    ```csharp
-        public async Task<IActionResult> About()
-        {
-            ViewData["Message"] = "Hello from webfrontend";
-            
-            // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
-            // headers in the incoming request to any outgoing requests
-            using (var client = new HeaderPropagatingHttpClient(this.Request))
-            {
-                // Call *mywebapi*, and display its response in the page
-                var response = await client.GetAsync("http://mywebapi/api/values/1");
-                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-            }
-        
-            return View();
-        }
+   ```csharp
+   public async Task<IActionResult> About()
+   {
+      ViewData["Message"] = "Hello from webfrontend";
 
-    ```
+      // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
+      // headers in the incoming request to any outgoing requests
+      using (var client = new HeaderPropagatingHttpClient(this.Request))
+      {
+          // Call *mywebapi*, and display its response in the page
+          var response = await client.GetAsync("http://mywebapi/api/values/1");
+          ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
+      }
+
+      return View();
+   }
+   ```
 
 Note how Kubernetes' DNS service discovery is employed to refer to the service as `http://mywebapi`. **Code in your development environment is running the same way it will run in production**.
 
@@ -225,9 +224,9 @@ Here is a diagram that will help you understand how the different spaces work. T
 This built-in capability of Azure Dev Spaces enables you to test code end-to-end in a shared environment without requiring each developer to re-create the full stack of services in their space. This routing requires propagation headers to be forwarded in your app code, as illustrated in the previous step of this guide.
 
 ### Test code running in the `scott` space
-To test your new version of `mywebapi` in conjunction with `webfrontend`, open your browser to the public access point URL for `webfrontend` (for example, https://webfrontend-teamenv.123456abcdef.westeurope.aksapp.io) and go to the About page. You should see the original message "Hello from webfrontend and Hello from mywebapi".
+To test your new version of `mywebapi` in conjunction with `webfrontend`, open your browser to the public access point URL for `webfrontend` (for example, http://webfrontend-teamenv.123456abcdef.eastus.aksapp.io) and go to the About page. You should see the original message "Hello from webfrontend and Hello from mywebapi".
 
-Now, add the "scott-" part to the URL so it reads something like https://scott-webfrontend-teamenv.123456abcdef.westeurope.aksapp.io and refresh the browser. The breakpoint you set in your `mywebapi` project should get hit. Click F5 to proceed and in your browser you should now see the new message "Hello from webfrontend and mywebapi now says something new." This is because the path to your updated code in `mywebapi` is running in the `scott` space.
+Now, add the "scott.s." part to the URL so it reads something like http://scott.s.webfrontend-teamenv.123456abcdef.eastus.aksapp.io and refresh the browser. The breakpoint you set in your `mywebapi` project should get hit. Click F5 to proceed and in your browser you should now see the new message "Hello from webfrontend and mywebapi now says something new." This is because the path to your updated code in `mywebapi` is running in the `scott` space.
 
 [!INCLUDE[](includes/well-done.md)]
 

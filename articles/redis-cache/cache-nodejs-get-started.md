@@ -20,6 +20,7 @@ ms.author: wesmc
 # How to use Azure Redis Cache with Node.js
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+> * [.NET Core](cache-dotnet-core-quickstart.md)
 > * [ASP.NET](cache-web-app-howto.md)
 > * [Node.js](cache-nodejs-get-started.md)
 > * [Java](cache-java-get-started.md)

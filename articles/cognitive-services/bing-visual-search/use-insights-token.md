@@ -83,74 +83,37 @@ using System.Text;
 using System.Net;
 using System.IO;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Threading;
 
-namespace BingSearchApisQuickstart
+namespace VisualSearchInsightsToken
 {
 
     class Program
     {
-        // **********************************************
-        // *** Update and verify the following values. ***
-        // **********************************************
-
         // Replace the accessKey string value with your valid subscription key.
-        const string accessKey = "<YOUR-SUBSCRIPTION-KEY-GOES-HERE>";
+        const string accessKey = "<yoursubscriptionkeygoeshere>";
 
-        // Verify the endpoint URI. At this writing, only one endpoint is used for Bing
-        // search APIs. In the future, regional endpoints may be available. If you
-        // encounter unexpected authorization errors, double-check this value against
-        // the endpoint for your Bing search instance in your Azure dashboard.
         const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
 
         // Update with an insights token from an image object that the /images/search API endpoint returns.
-        static string insightsToken = "<YOUR-INSIGHTS-TOKEN-GOES-HERE>";
+        static string insightsToken = @"ccid_tmaGQ2eU*mid_D12339146CFEDF3D409CC7A66D2C98D0D71904D4*simid_608022145667564759*thid_OIP.tmaGQ2eUI1yq3yll!_jn9kwHaFZ";
 
-        // Boundary strings for form data in body of POST.
-        const string CRLF = "\r\n";
         static string BoundaryTemplate = "batch_{0}";
-        static string StartBoundaryTemplate = "--{0}";
-        static string EndBoundaryTemplate = "--{0}--";
 
-        const string CONTENT_TYPE_HEADER_PARAMS = "multipart/form-data; boundary={0}";
-        const string POST_BODY_HEADERS = "Content-Disposition: form-data; name=\"knowledgeRequest\"" + CRLF + CRLF;
-
-
-        // Used to return image search results including relevant headers
-        struct SearchResult
+        static void Main(string[] args)
         {
-            public String jsonResult;
-            public Dictionary<String, String> relevantHeaders;
-        }
+            try { 
+                Console.WriteLine("Getting image insights using insights token: " + insightsToken);
 
-        static void Main()
-        {
-            try
-            {
-                Console.OutputEncoding = System.Text.Encoding.UTF8;
+                var knowledgeRequest = "{\"imageInfo\" : {\"imageInsightsToken\" : \"" + insightsToken + "\"}}";
+                var boundary = string.Format(BoundaryTemplate, Guid.NewGuid());
 
-                if (accessKey.Length == 32)
-                {
-                    Console.WriteLine("Getting image insights for token: " + insightsToken);
+                var json = BingVisualSearch(knowledgeRequest, boundary, uriBase, accessKey);
 
-                    // Set up POST body.
-                    var boundary = string.Format(BoundaryTemplate, Guid.NewGuid());
-                    var requestBody = BuildPostBody(boundary, insightsToken);
-                    var contentTypeHdrValue = string.Format(CONTENT_TYPE_HEADER_PARAMS, boundary);
-
-                    SearchResult result = BingImageSearch(requestBody, contentTypeHdrValue);
-
-                    Console.WriteLine("\nRelevant HTTP Headers:\n");
-                    foreach (var header in result.relevantHeaders)
-                        Console.WriteLine(header.Key + ": " + header.Value);
-
-                    Console.WriteLine("\nJSON Response:\n");
-                    Console.WriteLine(JsonPrettyPrint(result.jsonResult));
-                }
-                else
-                {
-                    Console.WriteLine("Invalid Bing Search API subscription key!");
-                    Console.WriteLine("Please paste yours into the source code.");
-                }
+                Console.WriteLine("\nJSON Response:\n");
+                Console.WriteLine(JsonPrettyPrint(json));
 
                 Console.Write("\nPress Enter to exit ");
                 Console.ReadLine();
@@ -159,66 +122,41 @@ namespace BingSearchApisQuickstart
             {
                 Console.WriteLine(e.Message);
             }
+
         }
 
 
         /// <summary>
-        /// Build body of POST request.
+        /// Calls the Bing visual search endpoint and returns the JSON response with insights.
         /// </summary>
-        static string BuildPostBody(string boundary, string insightsToken)
+        static string BingVisualSearch(string knowledgeRequest, string boundary, string uri, string subscriptionKey)
         {
-            var startBoundary = string.Format(StartBoundaryTemplate, boundary);
-            var endBoundary = string.Format(EndBoundaryTemplate, boundary);
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, uri);
+            requestMessage.Headers.Add("Ocp-Apim-Subscription-Key", accessKey);
 
-            var requestBody = startBoundary + CRLF;
-            requestBody += POST_BODY_HEADERS;
+            var content = new MultipartFormDataContent(boundary);
+            content.Add(new StringContent(knowledgeRequest, Encoding.UTF8, "application/json"), "knowledgeRequest");
+            requestMessage.Content = content;
 
-            requestBody += "{\"imageInfo\":{\"imageInsightsToken\":\"" + insightsToken + "\"}}" + CRLF + CRLF;
+            var httpClient = new HttpClient();
 
-            requestBody += endBoundary + CRLF;
+            Task<HttpResponseMessage> httpRequest = httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseContentRead, CancellationToken.None);
+            HttpResponseMessage httpResponse = httpRequest.Result;
+            HttpStatusCode statusCode = httpResponse.StatusCode;
+            HttpContent responseContent = httpResponse.Content;
 
-            return requestBody;
-        }
+            string json = null;
 
-
-        /// <summary>
-        /// Calls the Bing visual search endpoint and returns the results as a SearchResult.
-        /// </summary>
-        static SearchResult BingImageSearch(string requestBody, string contentTypeValue)
-        {
-            WebRequest request = HttpWebRequest.Create(uriBase);
-            request.ContentType = contentTypeValue;
-            request.ContentLength = requestBody.Length;
-            request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-            request.Method = "POST";
-
-            using (Stream requestStream = request.GetRequestStream())
+            if (responseContent != null)
             {
-                StreamWriter writer = new StreamWriter(requestStream);
-                writer.Write(requestBody);
-                writer.Close();
+                Task<String> stringContentsTask = responseContent.ReadAsStringAsync();
+                json = stringContentsTask.Result;
             }
 
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
-            string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-            // Create result object for return
-            var searchResult = new SearchResult()
-            {
-                jsonResult = json,
-                relevantHeaders = new Dictionary<String, String>()
-            };
-
-            // Extract Bing HTTP headers
-            foreach (String header in response.Headers)
-            {
-                if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-                    searchResult.relevantHeaders[header] = response.Headers[header];
-            }
-
-            return searchResult;
+            return json;
         }
+
 
         /// <summary>
         /// Formats the given JSON string by adding line breaks and indents.
