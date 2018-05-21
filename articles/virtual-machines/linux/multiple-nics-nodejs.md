@@ -101,7 +101,7 @@ azure network nic create \
     --subnet-name mySubnetBackEnd
 ```
 
-Typically you also create a [Network Security Group](../../virtual-network/virtual-networks-nsg.md) or [load balancer](../../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. The following example creates a Network Security Group named *myNetworkSecurityGroup*:
+Typically you also create a [network security group](../../virtual-network/security-overview.md) or [load balancer](../../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. The following example creates a Network Security Group named *myNetworkSecurityGroup*:
 
 ```azurecli
 azure network nsg create \
