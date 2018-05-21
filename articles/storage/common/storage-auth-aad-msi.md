@@ -12,3 +12,4 @@ ms.author: tamram
 ---
 
 # Authenticate with Azure AD from an Azure VM Managed Service Identity (Preview)
+
