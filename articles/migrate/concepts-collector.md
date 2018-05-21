@@ -4,7 +4,7 @@ description: Provides an overview of the Collector appliance and how to configur
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/21/2018
 ms.author: ruturajd
 services: azure-migrate
 ---
@@ -183,17 +183,27 @@ We also recommend the following steps to secure your appliance
 
 You can upgrade the Collector to the latest version without downloading the OVA once again.
 
-1. Download the latest [upgrade package](https://aka.ms/migrate/col/latestupgrade).
+1. Download the latest [upgrade package](https://aka.ms/migrate/col/latestupgrade) (version 1.0.9.10).
 2. To ensure that the downloaded hotfix is secure, open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
 
 	```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-	(example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+	(example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
 3. Copy the zip file to the Azure Migrate collector virtual machine (collector appliance).
 4. Right-click on the zip file and select Extract All.
 5. Right-click on Setup.ps1 and select Run with PowerShell and follow the instructions on screen to install the update.
 
 ### List of updates
+
+#### Upgrade to version 1.0.9.10
+
+For Upgrade to version 1.0.9.10 download [package](https://aka.ms/migrate/col/upgrade_9_10)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | b55a30ee660c87179a8d1cb53b883bc4
+SHA1 | 8f530de1ca01b4e6ab24d564d82127a2da6ac1cc
+SHA256 | 516c409cf27a2939c1f67cc604967ecaaf287c513f8342cb8db581a58e203f85
 
 #### Upgrade to version 1.0.9.7
 
@@ -204,16 +214,6 @@ For Upgrade to version 1.0.9.7 download [package](https://aka.ms/migrate/col/upg
 MD5 | 01ccd6bc0281f63f2a672952a2a25363
 SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
 SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-#### Upgrade to version 1.0.9.5
-
-For Upgrade to version 1.0.9.5 download [package](https://aka.ms/migrate/col/upgrade_9_5)
-
-**Algorithm** | **Hash value**
---- | ---
-MD5 | d969ebf3bdacc3952df0310d8891ffdf
-SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
-SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## Next steps
 
