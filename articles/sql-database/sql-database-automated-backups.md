@@ -49,7 +49,7 @@ Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cro
 
 For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
-## How long do you keep my backups?
+## How long are backups kept?
 Each SQL Database backup has a default retention period that is based on the service tier of the database, and differs between the  [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md). You can update the backup retention period for a database. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
 
 ### PITR Retention for DTU-based service tiers
@@ -86,7 +86,8 @@ Because of the default PITR retention included with DTU-based service tiers, you
 
 The following examples illustrate how to change the PITR to the maximum retention that is GDPR compliant.
 
-[!IMPORTANT] The below APIs are only supported by the DTU-based service tiers. If you are using a vCore-based service tier (preview) the PITR retention is fixed to 7 days and cannot be changed.
+> [!IMPORTANT]
+> The below APIs are only supported by the DTU-based service tiers. If you are using a vCore-based service tier (preview) the PITR retention is fixed to 7 days and cannot be changed.
 
 ## Set backup retention period to 28 days using REST API
 **Sample Request**
@@ -118,7 +119,8 @@ See [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backups)
 ```powershell
 Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
-[!IMPORTANT] This APIs is included in PowerShell vxxx.x.x or newer. 
+> [!IMPORTANT]
+> This APIs is included in Azure PowerShell starting from version vxxx.x.x. 
 
 ## Next steps
 
