@@ -1,18 +1,18 @@
 ---
 title: Azure Internet of Things (IoT) Introduction 
 description: Overview Azure IoT and related services and technologies.
-services: iot-hub
+services: iot-fundamentals
 documentationcenter: ''
 author: BryanLa
 manager: timlt
 editor: bryanla
 
-ms.service: iot
+ms.service: iot-fundamentals
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 05/18/2018
 ms.author: bryanla; v-clay
 layout: LandingPage
 ---

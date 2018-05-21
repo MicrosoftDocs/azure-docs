@@ -21022,7 +21022,7 @@
         },
         {
             "source_path": "articles/virtual-machines/workloads/oracle/index.md",
-            "redirect_url": "/azure/guides/operations/azure-operations-guide/oracle-considerations",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-considerations",
             "redirect_document_id": false
         },
         {
@@ -21719,6 +21719,12 @@
             "source_path": "articles/cognitive-services/bing-visual-search/upload-images.md",
             "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/csharp",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
+            "redirect_document_id": true
         }
+
     ]
 }
