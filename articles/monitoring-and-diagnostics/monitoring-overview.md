@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitoring Azure applications and resources | Microsoft Docs
 description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
 author: rboucher
@@ -58,7 +58,7 @@ Core monitoring provides fundamental, required monitoring across Azure resources
 
 Metrics are available that provide performance statistics for different resources and even the operating system inside a virtual machine. You can view this data with one of the explorers in the Azure portal and create alerts based on these metrics. Azure Monitor provides the fastest metrics pipeline (5 minute down to 1 minute), so you should use it for time critical alerts and notifications.
 
-You can also send these metrics and logs Azure Log Analytics for trending and detailed analysis, or create additional alert rules to proactively notify you of critical issues as a result of that analysis.  
+You can also send these metrics and logs to Azure Log Analytics for trending and detailed analysis, or create additional alert rules to proactively notify you of critical issues as a result of that analysis.  
 
 > [!NOTE]
 > Sending multi-dimensional metrics to Log Analytics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
@@ -159,6 +159,6 @@ After a reported outage, you use Service Map to perform forensics to identify th
 ## Next steps
 Learn more about:
 
-* [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) to get started with core monitoring metrics and alerts.
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/) to get started with core monitoring metrics and alerts.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you're trying to diagnose problems in your App Service web app.
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) for analyzing collected monitoring data and logs.

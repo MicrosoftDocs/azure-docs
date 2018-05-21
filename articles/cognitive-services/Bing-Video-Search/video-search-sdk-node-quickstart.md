@@ -16,6 +16,9 @@ ms.author: v-gedod
 
 The Bing Video Search SDK contains the functionality of the REST API for video queries and parsing results. 
 
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending. 
+
 ## Application dependencies
 
 To set up a console application using the Bing Video Search SDK, run `npm install azure-cognitiveservices-videosearch` in your development environment.
@@ -40,10 +43,13 @@ client.videosOperations.search('Interstellar Trailer').then((result) => {
 });
 
 ```
+
+<!-- Remove until the response can be replace with a sanitized version.
 The code prints `result.value` items to the console without parsing any text. The results will be:
 - _type: 'VideoObjectElementType'
 
 ![Video results](media/video-search-sdk-node-results.png)
+-->
 
 ## Next steps
 

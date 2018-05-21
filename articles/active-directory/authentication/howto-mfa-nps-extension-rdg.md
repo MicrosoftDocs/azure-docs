@@ -1,28 +1,24 @@
 ---
 title: Remote Desktop Gateway integration with Azure MFA NPS extension | Microsoft Docs
-description: This article discusses integrating your Remote Desktop Gateway infrastructure with Azure MFA using the Network Policy Server (NPS) extension for Microsoft Azure.
-services: active-directory
-keywords: Azure MFA, integrate Remote Desktop Gateway, Azure Active Directory, Network Policy Server extension
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
+description: Integrate your Remote Desktop Gateway infrastructure with Azure MFA using the Network Policy Server extension for Microsoft Azure
 
-ms.assetid: 
+services: multi-factor-authentication
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 08/15/2017
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
+
 ---
-#  Integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD
+# Integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD
 
 This article provides details for integrating your Remote Desktop Gateway infrastructure with Azure Multi-Factor Authentication (MFA) using the Network Policy Server (NPS) extension for Microsoft Azure. 
 
-The Network Policy Server (NPS) extension for Azure allows customers to safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication using Azure’s cloud-based [Multi-Factor Authentication (MFA)](../../multi-factor-authentication/multi-factor-authentication.md). This solution provides two-step verification for adding a second layer of security to user sign-ins and transactions.
+The Network Policy Server (NPS) extension for Azure allows customers to safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication using Azure’s cloud-based [Multi-Factor Authentication (MFA)](multi-factor-authentication.md). This solution provides two-step verification for adding a second layer of security to user sign-ins and transactions.
 
 This article provides step-by-step instructions for integrating the NPS infrastructure with Azure MFA using the NPS extension for Azure. This enables secure verification for users attempting to log on to a Remote Desktop Gateway. 
 
@@ -35,7 +31,7 @@ Typically, organizations use NPS (RADIUS) to simplify and centralize the managem
 
 Organizations can also integrate NPS with Azure MFA to enhance security and provide a high level of compliance. This helps ensure that users establish two-step verification to log on to the Remote Desktop Gateway. For users to be granted access, they must provide their username/password combination along with information that the user has in their control. This information must be trusted and not easily duplicated, such as a cell phone number, landline number, application on a mobile device, and so on.
 
-Prior to the availability of the NPS extension for Azure, customers who wished to implement two-step verification for integrated NPS and Azure MFA environments had to configure and maintain a separate MFA Server in the on-premises environment as documented in [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](../../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md).
+Prior to the availability of the NPS extension for Azure, customers who wished to implement two-step verification for integrated NPS and Azure MFA environments had to configure and maintain a separate MFA Server in the on-premises environment as documented in [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md).
 
 The availability of the NPS extension for Azure now gives organizations the choice to deploy either an on-premises based MFA solution or a cloud-based MFA solution to secure RADIUS client authentication.
 
@@ -146,8 +142,8 @@ If you want to use your own certificates, you need to associate the public key o
 To use the script, provide the extension with your Azure AD Admin credentials and the Azure AD tenant ID that you copied earlier. Run the script on each NPS server where you installed the NPS extension. Then do the following:
 
 1. Open an administrative Windows PowerShell prompt.
-2. At the PowerShell prompt, type **cd ‘c:\Program Files\Microsoft\AzureMfa\Config’**, and press **ENTER**.
-3. Type _.\AzureMfsNpsExtnConfigSetup.ps1_, and press **ENTER**. The script checks to see if the Azure Active Directory PowerShell module is installed. If not installed, the script installs the module for you.
+2. At the PowerShell prompt, type `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`, and press **ENTER**.
+3. Type `.\AzureMfsNpsExtnConfigSetup.ps1`, and press **ENTER**. The script checks to see if the Azure Active Directory PowerShell module is installed. If not installed, the script installs the module for you.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
@@ -373,6 +369,6 @@ The image below from Microsoft Message Analyzer shows network traffic filtered o
 ## Next steps
 [How to get Azure Multi-Factor Authentication](concept-mfa-licensing.md)
 
-[Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](../../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md)
+[Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)
 
 [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md)

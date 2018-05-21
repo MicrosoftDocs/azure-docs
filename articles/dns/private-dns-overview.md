@@ -4,7 +4,7 @@ description: Overview of private DNS hosting service on Microsoft Azure.
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jennoc
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 
@@ -51,7 +51,7 @@ Azure DNS provides a reliable, secure DNS service to manage and resolve domain n
 
 ## Limitations
 * 1 Registration virtual network per Private Zone
-* Upto 10 Resolution virtual networks per Private Zone
+* Up to 10 Resolution virtual networks per Private Zone
 * A given virtual network can only be linked to one Private Zone as a Registration virtual network
 * A given virtual network can be linked to up to 10 Private Zones as a Resolution virtual network
 * If a Registration virtual network is specified, the DNS records for the VMs from that virtual network that are registered to the Private Zone will not be viewable or retrievable from the Powershell/CLI/APIs, but the VM records are indeed registered and will resolve successfully

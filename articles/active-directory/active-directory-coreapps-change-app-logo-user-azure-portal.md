@@ -3,18 +3,18 @@ title: Change the name or logo of an enterprise app in Azure Active Directory | 
 description: How to change the name or logo for a custom enterprise app in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
 
-ms.assetid: d01303ce-e6cb-4f3b-a4d6-ec29dfd68146
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
 ---

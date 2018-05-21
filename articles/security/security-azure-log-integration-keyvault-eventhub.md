@@ -1,4 +1,4 @@
-﻿---
+---
 title: Integrate logs from Azure Key Vault by using Event Hubs | Microsoft Docs
 description: Tutorial that provides the necessary steps to make Key Vault logs available to a SIEM by using Azure Log Integration
 services: security
@@ -12,7 +12,6 @@ ms.topic: article
 ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-
 ---
 # Azure Log Integration tutorial: Process Azure Key Vault events by using Event Hubs
 
@@ -86,7 +85,7 @@ You should see something like this:</br>
 
 4. After successful authentication, you're logged in and you see the information in the following screenshot. Take note of the subscription ID and subscription name, because you'll need them to complete later steps.
 
-   ![PowerShell window](./media/security-azure-log-integration-keyvault-eventhub/Connect-AzureRmAccount.png)
+   ![PowerShell window](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 5. Create variables to store values that will be used later. Enter each of the following PowerShell lines. You might need to adjust the values to match your environment.
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name might be different. You can see it as part of the output of the previous command.)
     - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this variable to be any location of your choosing.)

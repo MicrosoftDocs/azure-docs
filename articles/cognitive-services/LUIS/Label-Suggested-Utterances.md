@@ -15,7 +15,11 @@ ms.author: v-geberr
 
 The breakthrough feature of LUIS is active learning. Once your LUIS has endpoint queries, LUIS uses active learning to improve the quality of the results. In the active learning process, LUIS examines all the endpoint utterances, and selects utterances that it is unsure of. If you label these utterances, train, and publish, then LUIS identifies utterances more accurately. 
 
+## Where are the utterances from?
 Endpoint utterances are taken from end-user queries on the application’s HTTP endpoint. If your app is not published or has not received hits yet, you do not have any utterances to review. If no endpoint hits are received aligned with a specific intent or entity, you do not have utterances to review that contain them. 
+
+## Which utterance is LUIS unsure of?
+LUIS adds utterances to the review list when the top firing intent has a low score or the top two intents' scores are too close. 
 
 ## Filter utterances
 1. Open your app (for example, TravelAgent) by selecting its name on **My Apps** page, then select **Build** in the top bar.

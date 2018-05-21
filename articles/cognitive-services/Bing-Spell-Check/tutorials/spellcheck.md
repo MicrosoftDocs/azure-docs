@@ -24,7 +24,7 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-To follow along with the tutorial, you need a subscription key for the Bing Spell Check API. If you don't have one, [sign up for a free trial](https://azure.microsoft.com/en-us/try/cognitive-services/?api=spellcheck-api).
+To follow along with the tutorial, you need a subscription key for the Bing Spell Check API. If you don't have one, [sign up for a free trial](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
 ## Create a new Web page
 

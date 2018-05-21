@@ -33,6 +33,8 @@ The Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## Trigger
 
 The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for changes across partitions. The change feed publishes inserts and updates, not deletions. The trigger is invoked for every insert or update made in the collection being monitored. 
@@ -774,7 +776,7 @@ By default, when you write to the output parameter in your function, a document 
 
 | Binding | Reference |
 |---|---|
-| CosmosDB | [CosmosDB Error Codes](https://docs.microsoft.com/en-us/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [CosmosDB Error Codes](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## Next steps
 

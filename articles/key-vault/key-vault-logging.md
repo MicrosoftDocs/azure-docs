@@ -232,32 +232,32 @@ The following table lists the operationName and corresponding REST API command.
 | operationName | REST API Command |
 | --- | --- |
 | Authentication |Via Azure Active Directory endpoint |
-| VaultGet |[Get information about a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx) |
-| VaultPut |[Create or update a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx) |
-| VaultDelete |[Delete a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx) |
+| VaultGet |[Get information about a key vault](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
+| VaultPut |[Create or update a key vault](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
+| VaultDelete |[Delete a key vault](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
 | VaultPatch |[Update a key vault](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| VaultList |[List all key vaults in a resource group](https://msdn.microsoft.com/en-us/library/azure/mt620027.aspx) |
-| KeyCreate |[Create a key](https://msdn.microsoft.com/en-us/library/azure/dn903634.aspx) |
-| KeyGet |[Get information about a key](https://msdn.microsoft.com/en-us/library/azure/dn878080.aspx) |
-| KeyImport |[Import a key into a vault](https://msdn.microsoft.com/en-us/library/azure/dn903626.aspx) |
-| KeyBackup |[Backup a key](https://msdn.microsoft.com/en-us/library/azure/dn878058.aspx). |
-| KeyDelete |[Delete a key](https://msdn.microsoft.com/en-us/library/azure/dn903611.aspx) |
-| KeyRestore |[Restore a key](https://msdn.microsoft.com/en-us/library/azure/dn878106.aspx) |
-| KeySign |[Sign with a key](https://msdn.microsoft.com/en-us/library/azure/dn878096.aspx) |
-| KeyVerify |[Verify with a key](https://msdn.microsoft.com/en-us/library/azure/dn878082.aspx) |
-| KeyWrap |[Wrap a key](https://msdn.microsoft.com/en-us/library/azure/dn878066.aspx) |
-| KeyUnwrap |[Unwrap a key](https://msdn.microsoft.com/en-us/library/azure/dn878079.aspx) |
-| KeyEncrypt |[Encrypt with a key](https://msdn.microsoft.com/en-us/library/azure/dn878060.aspx) |
-| KeyDecrypt |[Decrypt with a key](https://msdn.microsoft.com/en-us/library/azure/dn878097.aspx) |
-| KeyUpdate |[Update a key](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
-| KeyList |[List the keys in a vault](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
-| KeyListVersions |[List the versions of a key](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
-| SecretSet |[Create a secret](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
-| SecretGet |[Get secret](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
-| SecretUpdate |[Update a secret](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
-| SecretDelete |[Delete a secret](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
-| SecretList |[List secrets in a vault](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
-| SecretListVersions |[List versions of a secret](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
+| VaultList |[List all key vaults in a resource group](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
+| KeyCreate |[Create a key](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
+| KeyGet |[Get information about a key](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
+| KeyImport |[Import a key into a vault](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
+| KeyBackup |[Backup a key](https://msdn.microsoft.com/library/azure/dn878058.aspx). |
+| KeyDelete |[Delete a key](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| KeyRestore |[Restore a key](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
+| KeySign |[Sign with a key](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| KeyVerify |[Verify with a key](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
+| KeyWrap |[Wrap a key](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
+| KeyUnwrap |[Unwrap a key](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
+| KeyEncrypt |[Encrypt with a key](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
+| KeyDecrypt |[Decrypt with a key](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
+| KeyUpdate |[Update a key](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
+| KeyList |[List the keys in a vault](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
+| KeyListVersions |[List the versions of a key](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
+| SecretSet |[Create a secret](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
+| SecretGet |[Get secret](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
+| SecretUpdate |[Update a secret](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
+| SecretDelete |[Delete a secret](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
+| SecretList |[List secrets in a vault](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
+| SecretListVersions |[List versions of a secret](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
 ## <a id="loganalytics"></a>Use Log Analytics
 

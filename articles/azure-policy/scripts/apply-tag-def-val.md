@@ -3,7 +3,7 @@ title: Azure Policy json sample - Apply tag and its default value | Microsoft Do
 description: This json sample policy appends a specified tag name and value, if that tag is not provided.
 services: azure-policy
 documentationcenter:
-author: bandersmsft
+author: DCtheGeek
 manager: carmonm
 editor:
 ms.assetid:
@@ -13,7 +13,7 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload:
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
 ---
 

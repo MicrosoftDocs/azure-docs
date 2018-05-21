@@ -4,7 +4,7 @@ description: Manage Azure Search, a hosted cloud search service on Microsoft Azu
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
-
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017

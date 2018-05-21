@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use Azure CLI 2.0 and the IoT extension to manage device provisioning services | Microsoft Docs
 description: Learn how to use Azure CLI 2.0 and the IoT extension to manage device provisioning services
 services: iot-dps 
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # How to use Azure CLI 2.0 and the IoT extension to manage device provisioning services
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI 2.0 is available on Windows, Linux, and MacOS. Azure CLI 2.0 enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box.
+[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI 2.0 is available on Windows, Linux, and MacOS. Azure CLI 2.0 enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box.
 
 The IoT extension enriches Azure CLI 2.0 with features such as device management and full IoT Edge capability.
 
@@ -31,7 +31,7 @@ In this tutorial, you first complete the steps to setup Azure CLI 2.0 and the Io
 
 ### Step 2 - Install Azure CLI 2.0
 
-Follow the [installation instruction](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) to setup Azure CLI 2.0 in your environment. At a minimum, your Azure CLI 2.0 version must be 2.0.24 or above. Use `az –version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
+Follow the [installation instruction](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to setup Azure CLI 2.0 in your environment. At a minimum, your Azure CLI 2.0 version must be 2.0.24 or above. Use `az –version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
 
 ### Step 3 - Install IoT extension
 

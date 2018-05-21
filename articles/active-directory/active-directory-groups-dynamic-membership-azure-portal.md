@@ -8,15 +8,13 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm:
-ms.devlang:
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 05/17/2018
 ms.author: curtand
-ms.reviewer: piotrci
+ms.reviewer: krbain
 
 ms.custom: H1Hack27Feb2017;it-pro
 
@@ -279,7 +277,7 @@ You can also create a rule that selects device objects for membership in a group
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
  domainName | any string value | (device.domainName -eq "contoso.com")
- enrollmentProfileName | Apple Device Enrollment Profile name | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Apple Device Enrollment Profile or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
  organizationalUnit | any string value matching the name of the organizational unit set by an on-premises Active Directory | (device.organizationalUnit -eq "US PCs")
