@@ -28,7 +28,7 @@ The articles below are good starting points for those who simply want a brief ex
 | Article Guide |  |
 |:---:| --- |
 | An introduction to the application management problems that Azure AD solves |[Managing Applications with Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
-| An overview of the various features in Azure AD related to enabling single sign-on, defining who has access to apps, and how users launch apps |[Application Access and Single Sign-on in Azure Active Directory](active-directory-appssoaccess-whatis.md) |
+| An overview of the various features in Azure AD related to enabling single sign-on, defining who has access to apps, and how users launch apps |[Application Access and Single Sign-on in Azure Active Directory](manage-apps/what-is-single-sign-on.md) |
 | A look at the different steps involved when integrating apps into your Azure AD |[Integrating Azure Active Directory with Applications](manage-apps/plan-an-application-integration.md)<br /><br />[Enabling Single Sign-On to SaaS Apps](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Managing Access to Apps](active-directory-managing-access-to-apps.md) |
 | A technical explanation of how apps are represented in Azure AD |[How and Why Applications are Added to Azure AD](active-directory-how-applications-are-added.md) |
 
@@ -49,8 +49,8 @@ Single sign-on allows users to access a variety of apps and services using only 
 
 | Article Guide |  |
 |:---:| --- |
-| An introduction to federation and other types of sign-on |[Single Sign-On with Azure AD](active-directory-appssoaccess-whatis.md) |
-| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](active-directory-saas-tutorial-list.md)<br /><br />[How to Add Your App to the Azure AD App Gallery](active-directory-app-gallery-listing.md) |
+| An introduction to federation and other types of sign-on |[Single Sign-On with Azure AD](manage-apps/what-is-single-sign-on.md) |
+| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](active-directory-saas-tutorial-list.md)<br /><br />[How to Add Your App to the Azure AD App Gallery](active-directory-app-gallery-listing.md) |
 | More than 150 app tutorials on how to configure single sign-on for apps such as [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), and many more |[List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | How to manually set up and customize your single sign-on configuration |[How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md) |
 | Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
@@ -63,7 +63,7 @@ To enable single sign-on to applications that don't support federation, Azure AD
 
 | Article Guide |  |
 |:---:| --- |
-| An introduction to how password-based SSO works and a brief technical overview |[Password-Based Single Sign-On with Azure AD](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
+| An introduction to how password-based SSO works and a brief technical overview |[Password-Based Single Sign-On with Azure AD](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | A summary of the scenarios related to account sharing and how these problems are solved by Azure AD |[Sharing accounts with Azure AD](active-directory-sharing-accounts.md) |
 | Automatically change the password for certain apps at a regular interval |[Automated Password Rollover (preview)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Deployment and troubleshooting guides for the Internet Explorer version of the Azure AD password management extension |[How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)<br /><br />[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
@@ -180,11 +180,11 @@ The Azure AD Access Panel is where end-users can launch their apps and access th
 
 | Article Guide |  |
 |:---:| --- |
-| A comparison of the different options available for deploying single sign-on apps to users |[Deploying Azure AD Integrated Applications to Users](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
+| A comparison of the different options available for deploying single sign-on apps to users |[Deploying Azure AD Integrated Applications to Users](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
 | An overview of the Access Panel and its mobile equivalent MyApps |[Introduction to Access Panel and MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | How to access Azure AD apps from the Office 365 website |[Using the Office 365 App Launcher](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | How to access Azure AD apps from the Intune Managed Browser mobile app |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
-| How to access Azure AD apps using deep links to initiate single sign-on |[Getting Direct Sign-On Links to Your Apps](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
+| How to access Azure AD apps using deep links to initiate single sign-on |[Getting Direct Sign-On Links to Your Apps](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Access Panel is available for [all editions of Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
