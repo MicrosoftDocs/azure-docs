@@ -17,14 +17,13 @@ ms.author: juliako
 
 # Tutorial: Upload, encode, and stream videos with REST
 
-This tutorial shows you how to upload, encode, and stream video files with Azure Media Services using REST. You would want to stream your content in Apple's HLS, MPEG DASH, or CMAF formats so it can be played on a wide variety of browsers and devices. Your video needs to be encoded and packaged appropriately before you can stream it.
+This tutorial shows you how to upload, encode and stream video files with Azure Media Services. You would want to stream your content in Apple's HLS, MPEG DASH, or CMAF formats so it can be played on a wide variety of browsers and devices. Your video needs to be encoded and packaged appropriately before you can stream it.
 
 ![Play the video](./media/stream-files-tutorial-with-api/final-video.png)
 
 This tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Launch Azure Cloud Shell
 > * Create a Media Services account
 > * Access the Media Services API
 > * Download Postman files
@@ -97,7 +96,7 @@ In this section we send requests that are relevant to encoding and creating URLs
 6. List paths of the streaming locator
 
 > [!Note]
->  This tutorial assumes you are creating all resources with unique names.
+>  This tutorial assumes you are creating all resources with unique names.  
 
 ### Get Azure AD Token 
 
@@ -111,7 +110,7 @@ In this section we send requests that are relevant to encoding and creating URLs
     https://login.microsoftonline.com/:tenantId/oauth2/token
     ```
 
-4. The response comes back with the token and sets the "AccessToken" environment variable to the token value. To see the code that sets "AccessToken" , click on the **Test** tab. 
+4. The response comes back with the token and sets the "AccessToken" environment variable to the token value. To see the code that sets "AccessToken" , click on the **Tests** tab. 
 
     ![Get AAD token](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
@@ -138,7 +137,7 @@ When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transf
 You can use a built-in EncoderNamedPreset or use custom presets. 
 
 > [!Note]
-> When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms), you should first check if one already exists using the **Get** method. This tutorial assumes you are creating a tranform with a unique name.
+> When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms), you should first check if one already exists using the **Get** method. This tutorial assumes you are creating the transform with a unique name.
 
 1. In the left window of the Postman, select "Encoding and Analysis".
 2. Then, select "Create Transform".
@@ -166,20 +165,22 @@ In this example, the job's input is based on an HTTPS URL ("https://nimbuscdn-ni
     https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
     ```
 
-To see the progress of the job, use Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
+The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend to use Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
 ### Create a streaming locator
 
-After the encode is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
+After the encoding job is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
 
 The process of creating a **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear or non-encrypted content, so the predefined clear streaming policy, **PredefinedStreamingPolicy.ClearStreamingOnly**, is used.
+When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy (**PredefinedStreamingPolicy.ClearStreamingOnly**) is used.
 
 > [!IMPORTANT]
-> When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
+> When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. 
+
+Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
 
 1. In the left window of the Postman, select "Streaming Policies".
 2. Then, select "Create a Streaming Policy".
@@ -198,7 +199,7 @@ When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/str
 Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs
 
 1. In the left window of the Postman, select "Streaming Policies".
-2. Then, select "Create a Streaming Policy".
+2. Then, select "List Paths".
 3. Press **Send**.
 
     The following **POST** operation is sent.
@@ -239,7 +240,7 @@ Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/stream
 
 #### Build the streaming URLs
 
-In this section, lets build an HLS streaming URL. URLs consist of the following values:
+In this section, let's build an HLS streaming URL. URLs consist of the following values:
 
 1. The protocol over which data is sent. In this case "https".
 
@@ -265,11 +266,11 @@ To test the stream, this article uses Azure Media Player.
 
 Azure Media Player can be used for testing but should not be used in a production environment. 
 
-### Clean up resources in your Media Services account
+## Clean up resources in your Media Services account
 
 Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  
 
-To delete a resource, select "Delete " under whichever resource you want to delete.
+To delete a resource, select "Delete ..." operation under whichever resource you want to delete.
 
 ## Clean up resources
 
@@ -280,7 +281,7 @@ In the **CloudShell**, execute the following command:
 ```azurecli-interactive
 az group delete --name amsResourceGroup
 ```
-n
+
 ## Next steps
 
 Now that you know how to upload, encode, and stream your video, see the following article: 
