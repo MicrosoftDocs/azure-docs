@@ -50,7 +50,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
 5. After the application is added, go to the **Properties** page and copy the object ID.
 
-<!-- ![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png) Note: Image is missing. -->
+   <!-- ![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png) Note: Image is missing. -->
 
 6. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window and take the following steps:
 
@@ -164,7 +164,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
 ## Update an existing role
 
-To update an existing role, perform following steps:
+To update an existing role, perform the following steps:
 
 1. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
@@ -198,7 +198,7 @@ To update an existing role, perform following steps:
 
    c. Update the value of a role by updating the role description, role value, or role display name as needed.
 
-   d. After you have updated all the required roles, select **Run Query**.
+   d. After you update all the required roles, select **Run Query**.
 		
 ## Delete an existing role
 
