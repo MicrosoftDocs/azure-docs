@@ -65,7 +65,7 @@ Azure SQL Database identifies **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST
 
 Automatic tuning options can be independently enabled or disabled per database, or they can be configured on logical servers and applied on every database that inherits settings from the server. Logical servers can inherit Azure defaults for Automatic tuning settings. Azure defaults at this time are set to FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
 
-Configuring Automatic tuning options on a server and inheriting settings for databases belonging to this server is a recommended method for configuring automatic tuning as it simplifies management of automatic tuning options for a large number of databases.
+Configuring Automatic tuning options on a server and inheriting settings for databases belonging to the parent server is a recommended method for configuring automatic tuning as it simplifies management of automatic tuning options for a large number of databases.
 
 ## Next steps
 
