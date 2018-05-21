@@ -19,7 +19,7 @@ ms.reviewer: justini
 
 ---
 
-# Azure Stack 1804 update
+# Azure Stack 1805 update
 
 *Applies to: Azure Stack integrated systems*
 
@@ -54,11 +54,11 @@ This update includes the following improvements for Azure Stack.
 ## Before you begin    
 
 ### Prerequisites
-- Install the Azure Stack [1804 Update](azure-stack-update-1804.md) before you apply the Azure Stack 1804 update.    
+- Install the Azure Stack [1804 Update](azure-stack-update-1804.md) before you apply the Azure Stack 1805 update.    
 
 
 ### Known issues with the update process   
-- During installation of the 1805 update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after the update to 1804 completes.   
+- During installation of the 1805 update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after the update to 1805 completes.   
  
 - <!-- TBD - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
  
