@@ -23,9 +23,17 @@ Once a Kubernetes service of type `LoadBalancer` is created, agent nodes are add
 
 ## Create a static public IP
 
-To prevent random IP addresses from being used, create a static IP address and ensure the load balancer uses this address.
+To prevent random IP addresses from being used, create a static IP address and ensure the load balancer uses this address. The IP address needs to be created in the AKS node resource group.
 
-Use the [az network public-ip create][public-ip-create] command to create a static public IP address. Create the IP address in the same resource group as the AKS nodes. For information on the different AKS resource groups, and how to identify the node resource group, see the [AKS FAQ][aks-faq-resource-group].
+Get the resource group name with the [az resource show][az-resource-show] command. Update the resource group name and cluster name to match your environment.
+
+```
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
+
+MC_myAKSCluster007_myAKSCluster007_eastus
+```
+
+Next, use the [az network public-ip create][public-ip-create] command to create a static public IP address. Update the resource group name to match the name gatherred in the last step.
 
 ```console
 $ az network public-ip create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static --query publicIp.ipAddress -o table
@@ -102,6 +110,7 @@ Learn more about the software demonstrated in this document.
 - [Azure Load Balancer Outbound Connections][outbound-connections]
 
 <!-- LINKS - internal -->
+[az-resource-show]: /cli/azure/resource#az-resource-show
 [azure-cli-install]: /cli/azure/install-azure-cli
 [azure-cloud-shell]: ../cloud-shell/overview.md
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
