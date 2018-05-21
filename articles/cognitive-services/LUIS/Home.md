@@ -90,13 +90,13 @@ An example [utterance][add-example-utterances] is text input from the user that 
 After your application is published and receives real user utterances, LUIS provides several methods to improve prediction accuracy: [active learning](#active-learning) of endpoint utterances, [phrase lists](#phrase-lists) for domain word inclusion, and [patterns](#patterns) to reduce the number of utterances needed.
 
 ### Active learning
-In the [active learning](label-suggested-utterances.md) process, LUIS selects utterances it received at the endpoint for your review. You can accept or correct the endpoint prediction, retrain, and republish. LUIS learns quickly with this iterative process, taking the minimum amount of your time and effort. 
+In the [active learning](label-suggested-utterances.md) process, LUIS allows you to adapt your app to real-world utterances by selecting utterances it received at the endpoint for your review. You can accept or correct the endpoint prediction, retrain, and republish. LUIS learns quickly with this iterative process, taking the minimum amount of your time and effort. 
 
 ### Phrase lists 
 LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate important words or phrases to your model domain. LUIS uses these lists to add additional significance to those words and phrases that would otherwise not be found in the model.
 
 ### Patterns 
-Patterns allow you to simplify an intent's utterance collection into common [templates][patterns] of word choice and word order. This allows LUIS to learn quicker by needing fewer example utterances for the intents. Patterns are a combination of regular expressions and machine-learned expressions. 
+Patterns allow you to simplify an intent's utterance collection into common [templates][patterns] of word choice and word order. This allows LUIS to learn quicker by needing fewer example utterances for the intents. Patterns are a hybrid system of regular expressions and machine-learned expressions. 
 
 ## Using LUIS
 You can build your LUIS app from the [www.luis.ai](http://www.luis.ai) website or your can build your app programmatically with the [authoring](https://aka.ms/luis-authoring-apis) APIs. Access your published LUIS app by the query [endpoint](https://aka.ms/luis-endpoint-apis). 
