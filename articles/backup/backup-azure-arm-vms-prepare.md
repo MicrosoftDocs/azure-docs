@@ -173,6 +173,8 @@ For the Backup extension to work, the Azure [VM agent](../virtual-machines/exten
 
 The following information is provided for situations where you are *not* using a VM created from the Azure Marketplace. For example, you migrated a VM from an on-premises datacenter. In such a case, the VM agent needs to be installed in order to protect the virtual machine.
 
+**Note**: After installing the VM agent, you must also use Azure PowerShell to update the ProvisionGuestAgent property so Azure knows the VM has the agent installed. 
+
 If you have problems backing up the Azure VM, use the following table to check that the Azure VM agent is correctly installed on the virtual machine. The table provides additional information about the VM agent for Windows and Linux VMs.
 
 | **Operation** | **Windows** | **Linux** |
