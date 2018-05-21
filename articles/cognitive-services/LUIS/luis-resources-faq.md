@@ -191,6 +191,7 @@ Videos:
 * [Azure Friday At Build 2018: Cognitive Services - Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Build 2018 AI Show - What’s New with Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
 * [Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projects: 
 * [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on Github
