@@ -1,5 +1,5 @@
 ---
-title: Run scripts in a Windows VM
+title: Run scripts in an Azure Windows VM
 description: This topic describes how to run scripts within a Windows virtual machine
 services: automation
 ms.service: automation
