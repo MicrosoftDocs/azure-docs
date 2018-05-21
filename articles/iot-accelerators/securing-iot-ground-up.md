@@ -27,9 +27,9 @@ To learn more about securing your IoT solution, see:
 * [IoT Security Architecture][lnk-security-architecture]
 * [Secure your IoT deployment][lnk-security-deployment]
 
-[lnk-security-best-practices]: iot-security-best-practices.md
-[lnk-security-architecture]: iot-security-architecture.md
-[lnk-security-deployment]: iot-suite-security-deployment.md
+[lnk-security-best-practices]:iot-security-best-practices.md
+[lnk-security-architecture]:iot-security-architecture.md
+[lnk-security-deployment]:iot-accelerators-security-deployment.md
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
@@ -38,6 +38,6 @@ You can also explore some of the other features and capabilities of the IoT solu
 
 You can read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-security] in the IoT Hub developer guide.
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-faq]:../iot-accelerators/iot-accelerators-faq.md
+[lnk-predictive-overview]:iot-accelerators-predictive-overview.md
+[lnk-faq]:iot-accelerators-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md

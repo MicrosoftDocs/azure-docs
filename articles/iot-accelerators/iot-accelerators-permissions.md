@@ -93,18 +93,18 @@ If you're certain you have an Azure subscription, validate the tenant mapping fo
 ## Next steps
 To continue learning about IoT solution accelerators, see how you can [customize a solution accelerator][lnk-customize].
 
-[img-flowchart]: media/iot-suite-permissions/flowchart.png
+[img-flowchart]: media/iot-accelerators-permissions/flowchart.png
 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
+[lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles-azure-portal.md
 [lnk-portal]: https://portal.azure.com/
-[lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
+[lnk-create-edit-users]: ../active-directory/active-directory-users-profile-azure-portal.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-customize]: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md

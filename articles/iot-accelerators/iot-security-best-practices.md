@@ -33,9 +33,9 @@ You can also explore some of the other features and capabilities of the IoT solu
 
 You can read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-security] in the IoT Hub developer guide.
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-faq]:../iot-accelerators/iot-accelerators-faq.md
+[lnk-predictive-overview]:iot-accelerators-predictive-overview.md
+[lnk-faq]:iot-accelerators-faq.md
 
-[lnk-security-architecture]: iot-security-architecture.md
-[lnk-security-deployment]: iot-suite-security-deployment.md
+[lnk-security-architecture]:iot-security-architecture.md
+[lnk-security-deployment]:iot-accelerators-security-deployment.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md

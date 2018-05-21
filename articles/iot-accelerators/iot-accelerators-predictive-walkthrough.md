@@ -73,12 +73,12 @@ You can also explore some of the other features and capabilities of the IoT solu
 * [Frequently asked questions for IoT solution accelerators][lnk-faq]
 * [IoT security from the ground up][lnk-security-groundup]
 
-[img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
+[img-architecture]: media/iot-accelerators-predictive-walkthrough/architecture.png
 
-[lnk-remote-monitoring]: iot-suite-v1-remote-monitoring-sample-walkthrough.md
+[lnk-remote-monitoring]: ../iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
-[lnk-faq]: iot-suite-v1-faq.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-customize]: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: ../iot-suite/iot-suite-v1-faq.md
+[lnk-security-groundup]:securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
