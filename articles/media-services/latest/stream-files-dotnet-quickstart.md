@@ -44,11 +44,11 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 The sample performs the following actions:
 
-1. Creates new Transform (first, checks if the specified Transform exists). 
-2. Creates an output Asset that is used as the Job's output.
-3. Creates a Job's input that is based on an HTTPS URL.
-4. Submits an encoding Job using the input and output that was created earlier.
-5. Checks Job status.
+1. Creates a new Transform (first, checks if the specified Transform exists). 
+2. Creates an output Asset that is used as the encoding Job's output.
+3. Creates the Job's input that is based on an HTTPS URL.
+4. Submits the encoding Job using the input and output that was created earlier.
+5. Checks the Job's status.
 6. Creates a StreamingLocator.
 7. Builds streaming URLs.
 
