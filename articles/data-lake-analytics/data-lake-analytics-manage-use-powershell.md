@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure Data Lake Analytics using Azure PowerShell | Microsoft Docs
 description: 'Learn how to manage Data Lake Analytics accounts, data sources, jobs, and catalog items. '
 services: data-lake-analytics
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-
 ---
+
 # Manage Azure Data Lake Analytics using Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
@@ -30,7 +30,7 @@ When creating a Data Lake Analytics account, you need to know:
 * **Resource group**: The name of the Azure resource group that contains your Data Lake Analytics account.
 * **Data Lake Analytics account name**: The account name must only contain lowercase letters and numbers.
 * **Default Data Lake Store account**: Each Data Lake Analytics account has a default Data Lake Store account. These accounts must be in the same location.
-* **Location**: The location of your Data Lake Analytics account, such as "East US 2" or other supported locations. Supported locations can be seen on our [pricing page](https://azure.microsoft.com/pricing/details/data-lake-analytics/).
+* **Location**: The location of your Data Lake Analytics account, such as "East US 2" or other supported locations. Supported locations can be seen on the [pricing page](https://azure.microsoft.com/pricing/details/data-lake-analytics/).
 
 The PowerShell snippets in this tutorial use these variables to store this information
 
@@ -42,21 +42,19 @@ $adls = "<DataLakeStoreAccountName>"
 $location = "<Location>"
 ```
 
-## Log in
+## Log in using interactive authentication
 
-Log in using a subscription id.
+Log in using a subscription ID or by subscription name
 
 ```powershell
+# Using subscription id
 Connect-AzureRmAccount -SubscriptionId $subId
-```
 
-Log in using a subscription name.
-
-```
+# Using subscription name
 Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-The `Connect-AzureRmAccount` cmdlet  always prompts for credentials. You can avoid being prompted by using the following cmdlets:
+The `Connect-AzureRmAccount` cmdlet always prompts for credentials. You can avoid being prompted by using the following cmdlets:
 
 ```powershell
 # Save login session information
@@ -64,6 +62,21 @@ Save-AzureRmProfile -Path D:\profile.json
 
 # Load login session information
 Select-AzureRmProfile -Path D:\profile.json 
+```
+
+## Log in using SPIs
+
+
+```powershell
+$subname = "MySubscription" 
+$subid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
+$tenantid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
+$spi_appname = "appname" 
+$spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" 
+$spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
+
+$pscredential = New-Object System.Management.Automation.PSCredential ($spi_appid, (ConvertTo-SecureString $spi_secret -AsPlainText -Force))
+Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subname
 ```
 
 ## Manage accounts
@@ -88,7 +101,7 @@ Once a Resource Group and Data Lake Store account is available, create a Data La
 New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
-### Get acount information
+### Get account information
 
 Get details about an account.
 
@@ -100,12 +113,6 @@ Check the existence of a specific Data Lake Analytics account. The cmdlet return
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
-```
-
-Check the existence of a specific Data Lake Store account. The cmdlet returns either `$true` or `$false`.
-
-```powershell
-Test-AdlStoreAccount -Name $adls
 ```
 
 ### List accounts
@@ -324,7 +331,7 @@ Get-AdlStoreChildItem -Account $adls -Path "/"
 ### Cancel a job
 
 ```powershell
-Stop-AdlJob -Account $adls -JobID $jobID
+Stop-AdlJob -Account $adla -JobID $jobID
 ```
 
 ### Wait for a job to finish
@@ -354,14 +361,15 @@ $userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
 
 New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
 ```
+## Manage files
 
-## Check for the existence of a file.
+### Check for the existence of a file.
 
 ```powershell
 Test-AdlStoreItem -Account $adls -Path "/data.csv"
 ```
 
-## Uploading and downloading
+### Uploading and downloading
 
 Upload a file.
 
@@ -407,7 +415,7 @@ Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database"
 Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database.schema"
 ```
 
-List all the assemblies in all the databases in an ADLA Account.
+### List all the assemblies in all the databases in an ADLA Account.
 
 ```powershell
 $dbs = Get-AdlCatalogItem -Account $adla -ItemType Database
@@ -525,7 +533,7 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 Resolve-AzureRmError -Last
 ```
 
-### Verify if you are running as an administrator
+### Verify if you are running as an Administrator on your Windows machine
 
 ```powershell
 function Test-Administrator  
@@ -550,7 +558,7 @@ function Get-TenantIdFromSubcriptionName( [string] $subname )
 Get-TenantIdFromSubcriptionName "ADLTrainingMS"
 ```
 
-From a subscription id:
+From a subscription ID:
 
 ```powershell
 function Get-TenantIdFromSubcriptionId( [string] $subid )
@@ -565,7 +573,6 @@ Get-TenantIdFromSubcriptionId $subid
 
 From a domain address such as "contoso.com"
 
-
 ```powershell
 function Get-TenantIdFromDomain( $domain )
 {
@@ -577,7 +584,7 @@ $domain = "contoso.com"
 Get-TenantIdFromDomain $domain
 ```
 
-### List all your subscriptions and tenant ids
+### List all your subscriptions and tenant IDs
 
 ```powershell
 $subs = Get-AzureRmSubscription
@@ -591,7 +598,6 @@ foreach ($sub in $subs)
 ## Create a Data Lake Analytics account using a template
 
 You can also use an Azure Resource Group template using the following sample: [Create a Data Lake Analytics account using a template](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
-
 
 ## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
