@@ -1,6 +1,6 @@
 ---
-title: How to use Azure Redis Cache with Node.js | Microsoft Docs
-description: Get started with Azure Redis Cache using Node.js and node_redis.
+title: Quickstart to learn how to use Azure Redis Cache with Node.js | Microsoft Docs
+description: In this quickstart you will learn how to use Azure Redis Cache with Node.js and node_redis.
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -10,14 +10,16 @@ editor: v-lincan
 ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
 ms.service: cache
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 05/21/2018
 ms.author: wesmc
-
+ms.custom: mvc
+#Customer intent: As a Node.js developer, new to Azure Redis Cache, I want to create a new Node.js app that uses Redis Cache.
 ---
-# How to use Azure Redis Cache with Node.js
+# Quickstart: How to use Azure Redis Cache with Node.js
+
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [.NET Core](cache-dotnet-core-quickstart.md)
@@ -32,6 +34,13 @@ Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed b
 
 This topic shows you how to get started with Azure Redis Cache using Node.js. 
 
+You can use any code editor to complete the steps in this quickstart. However, [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
+
+![Cache app completed](./media/cache-nodejs-get-started/cache-app-complete.png)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
 ## Prerequisites
 Install [node_redis](https://github.com/mranney/node_redis):
 
@@ -39,45 +48,76 @@ Install [node_redis](https://github.com/mranney/node_redis):
 
 This tutorial uses [node_redis](https://github.com/mranney/node_redis). For examples of using other Node.js clients, see the individual documentation for the Node.js clients listed at [Node.js Redis clients](http://redis.io/clients#nodejs).
 
-## Create a Redis cache on Azure
+
+## Create a cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## Retrieve the host name and access keys
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
+
+
+Add environment variables for your **HOST NAME** and **Primary** access key. You will use these variables from your code instead of including the sensitive information directly in your code.
+
+```
+set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
+set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
 
 ## Connect to the cache securely using SSL
-The latest builds of [node_redis](https://github.com/mranney/node_redis) provide support for connecting to Azure Redis Cache using SSL. The following example shows how to connect to Azure Redis Cache using the SSL endpoint of 6380. Replace `<name>` with the name of your cache and `<key>` with either your primary or secondary key as described in the previous [Retrieve the host name and access keys](#retrieve-the-host-name-and-access-keys) section.
+The latest builds of [node_redis](https://github.com/mranney/node_redis) provide support for connecting to Azure Redis Cache using SSL. The following example shows how to connect to Azure Redis Cache using the SSL endpoint of 6380. 
 
-     var redis = require("redis");
+```js
+var redis = require("redis");
 
-      // Add your cache name and access key.
-    var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
-
-> [!NOTE]
-> The non-SSL port is disabled for new Azure Redis Cache instances. If you are using a different client that doesn't support SSL, see [How to enable the non-SSL port](cache-configure.md#access-ports).
-> 
-> 
+// Add your cache name and access key.
+var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
+    {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
+```
 
 ## Add something to the cache and retrieve it
 The following example shows you how to connect to an Azure Redis Cache instance, and store and retrieve an item from the cache. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [http://redis.js.org/](http://redis.js.org/).
 
-     var redis = require("redis");
+```js
+var redis = require("redis");
+var bluebird = require("bluebird");
 
-      // Add your cache name and access key.
-    var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
+bluebird.promisifyAll(redis.RedisClient.prototype);
+bluebird.promisifyAll(redis.Multi.prototype);
 
-    client.set("key1", "value", function(err, reply) {
-            console.log(reply);
+// Connect to the Redis cache over the SSL port using the key.
+var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, 
+        {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
+
+console.log("\nCache command: PING");
+client.pingAsync().then(function(reply) {
+    console.log("Cache response : " + reply);
+
+    console.log("\nCache command: GET Message");
+    client.getAsync("Message").then(function(reply) {
+        console.log("Cache response : " + reply);
+
+        console.log("\nCache command: SET Message");
+        client.setAsync("Message", "Hello! The cache is working from Node.js!").then(function(reply) {
+            console.log("Cache response : " + reply);
+
+            console.log("\nCache command: GET Message");
+            client.getAsync("Message").then(function(reply) {
+                console.log("Cache response : " + reply);
+
+                console.log("\nCache command: CLIENT LIST");
+                client.clientAsync("LIST").then(function(reply) {
+                    console.log("Cache response : " + reply);
+                });
+                
+            });            
+            
         });
+        
+    });
+    
+});
+```
 
-    client.get("key1",  function(err, reply) {
-            console.log(reply);
-        });
-
-Output:
-
-    OK
-    value
+![Cache app completed](./media/cache-nodejs-get-started/cache-app-complete.png)
 
 
 ## Next steps
