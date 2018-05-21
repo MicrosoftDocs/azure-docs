@@ -72,10 +72,24 @@
       href: map-events.md   
 - name: Reference
   items:
-  - name: Services API - REST
-    href: https://docs.microsoft.com/rest/api/maps/
-  - name: Map Control API - Javascript
-    href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
+  - name: REST
+    items:
+    - name: Render service
+      href: https://docs.microsoft.com/en-us/rest/api/maps/renderservice
+    - name: Route service
+      href: https://docs.microsoft.com/en-us/rest/api/maps/routeservice
+    - name: Search service
+      href: https://docs.microsoft.com/en-us/rest/api/maps/searchservice
+    - name: Timezone service
+      href: https://docs.microsoft.com/en-us/rest/api/maps/timezoneservice
+    - name: Traffic service
+      href: https://docs.microsoft.com/en-us/rest/api/maps/trafficservice
+    - name: Maps account management
+      href: https://docs.microsoft.com/en-us/rest/api/maps-management
+  - name: Javascript
+    items:
+    - name: Map control
+      href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
 - name: Related
   items:
   - name: Solutions
