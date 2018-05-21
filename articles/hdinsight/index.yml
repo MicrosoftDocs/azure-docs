@@ -57,7 +57,7 @@ sections:
       text: Storm
       href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux 
     - image: 
-        src: media/index/r-server_r.svg
+        src: media/index/ml-server_r.svg
       text: R Server
       href: /azure/hdinsight/r-server/r-server-get-started      
 - title: Step-by-Step Tutorials
