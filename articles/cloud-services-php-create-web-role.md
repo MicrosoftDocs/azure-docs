@@ -26,7 +26,7 @@ Azure provides three compute models for running applications: Azure App Service,
 For more information about these options, see [Compute hosting options provided by Azure](cloud-services/cloud-services-choose-me.md).
 
 ## Download the Azure SDK for PHP
-The [Azure SDK for PHP] consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+The [Azure SDK for PHP](php-download-sdk.md) consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Create a Cloud Services project
 The first step in creating a PHP web or worker role is to create an Azure Service project. an Azure Service project serves as a logical container for web and worker roles, and it contains the project's [service definition (.csdef)] and [service configuration (.cscfg)] files.
@@ -199,9 +199,8 @@ To stop the emulators, execute this command:
 To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Next steps
-For more information, see the [PHP Developer Center](/develop/php/).
+For more information, see the [PHP Developer Center](https://azure.microsoft.com/en-us/develop/php/).
 
-[Azure SDK for PHP]: /develop/php/common-tasks/download-php-sdk/
 [install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [service definition (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [service configuration (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
