@@ -17,7 +17,7 @@ ms.date: 04/09/2018
 ms.author: skwan
 
 ---
-# Use a Linux VM MSI to access Azure Cosmos DB 
+# Tutorial: Use a Linux VM MSI to access Azure Cosmos DB 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
