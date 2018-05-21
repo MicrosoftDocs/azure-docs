@@ -102,6 +102,8 @@
     href: tutorial-restrict-web-traffic-powershell.md
   - name: SSL termination using Azure PowerShell
     href: tutorial-ssl-powershell.md
+  - name: Renew certificates
+    href: renew-certificates.md
   - name: Host multiple sites using Azure PowerShell
     href: tutorial-multiple-sites-powershell.md
   - name: Route web traffic using Azure PowerShell

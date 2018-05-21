@@ -1,5 +1,6 @@
 ---
 title: Microsoft Translator Text API Translate Method | Microsoft Docs
+titleSuffix: Cognitive Services
 description: Use the Microsoft Translator Text API Translate method.
 services: cognitive-services
 author: Jann-Skotdal
@@ -318,7 +319,7 @@ This example shows how to translate the same input to several languages in one r
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Latn&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 ---
