@@ -63,7 +63,7 @@ The sample performs the following actions:
 
 1. Creates a new Transform (first, checks if the specified Transform exists). 
 2. Creates an output Asset that is used as the encoding Job's output.
-3. Creates an input Asset that is based on the uploaded file. The Asset is used as the Job's input. 
+3. Create an input Asset and uploads the specified local video file into it. The Asset is used as the Job's input. 
 4. Submits the encoding Job using the input and output that was created earlier.
 5. Checks the Job's status.
 6. Creates a StreamingLocator.
