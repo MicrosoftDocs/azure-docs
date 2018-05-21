@@ -271,7 +271,7 @@ You can use Azure Data Lake Storage-related commands to:
  - Preview the Azure Data Lake Storage file. [Preview the storage file](#preview-the-storage-file). 
  - Upload the file directly to Azure Data Lake Storage in VS Code. [Upload file or folder](#upload-file-or-folder).
  - Download the file directly from Azure Data Lake Storage in VS Code. [Download file](#download-file).
- - Create EXTRACT Script for Azure Data Lake Storage file. [Create EXTRACT script](#create-extract-script).
+ - Create EXTRACT Script for Azure Data Lake Storage file. [Create extract script](#create-extract-script).
 
 ### List the storage path 
 
