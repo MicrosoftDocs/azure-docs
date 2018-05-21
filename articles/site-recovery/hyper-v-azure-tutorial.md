@@ -44,7 +44,7 @@ Before you start, it's helpful to [review the architecture](concepts-hyper-v-to-
 
 When you're planning a large deployment, you should make sure you complete [deployment planning for Hyper-V replication](hyper-v-deployment-planner-overview.md). For the purposes of this tutorial, In **Have you completed deployment planning?**, select **I will do it later** in the dropdown list.
 
-![Deployment planning](./media/hyper-v-azure-tutorial/deployment-plan.png)
+![Deployment planning](./media/hyper-v-azure-tutorial/deployment-planning.png)
 
 ## Set up the source environment
 
