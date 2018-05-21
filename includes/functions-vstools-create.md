@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+services: functions
+author: ggailey777
+ms.service: functions
+ms.topic: include
+ms.date: 05/22/2018
+ms.author: glenga
+ms.custom: include file
+---
+
 The Azure Functions project template in Visual Studio creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources.
 
 1. In Visual Studio, select **New** > **Project** from the **File** menu.
