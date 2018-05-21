@@ -34,7 +34,7 @@ Azure Lab Services supports the following key capabilities/features:
 - **Integration into your workflows and tools**. Azure Lab Services allows you to integrate the labs into your organization’s website and management systems. You can automatically provision environments from within your continuous integration/continuous deployment (CI/CD) tools. (currently available in DevTest Labs only)
 
 ## Scenarios
-Here are some of the scenarios that Azure Lab Services supports: 
+Here is the main scenario that classroom labs of Azure Lab Services supports: 
 
 ### Set up a resizable computer lab in the cloud for your classroom  
 

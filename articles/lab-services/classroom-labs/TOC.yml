@@ -1,5 +1,5 @@
-- name: Classroom Labs Documentation
-  href: ../index.yml
+- name: Lab Services Documentation
+  href: /azure/lab-services
 - name: Overview
   items:
   - name: About classroom labs
