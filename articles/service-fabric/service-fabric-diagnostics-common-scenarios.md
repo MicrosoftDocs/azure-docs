@@ -34,10 +34,13 @@ The solutions in this article will use the following tools. We recommend you hav
 ## How can I see unhandled exceptions in my application?
 
 1. Navigate to your Application Insights resource that your application is configured with.
-2. Click on *Search* in the top left.
+2. Click on *Search* in the top left. Then click filter on the next panel.
+
+    ![AI Overview](media/service-fabric-diagnostics-common-scenarios/ai-search-filter.png)
+
 3. You will see lots of types of events (traces, requests, custom events). Choose "Exception" as your filter.
 
-    ![AI Overview](media/service-fabric-diagnostics-common-scenarios/ai-overview.png)
+    ![AI Filter List](media/service-fabric-diagnostics-common-scenarios/ai-filter-list.png)
 
     By clicking an exception in the list, you can look at more details including the service context if you are using the Service Fabric Application Insights SDK.
 
@@ -85,14 +88,14 @@ The solutions in this article will use the following tools. We recommend you hav
 
 ## How do I see container metrics?
 
-1. In the same view with all the graphs, you will see some tiles for the performance of your containers. You need the OMS Agent and [Container Monitoring solution](service-fabric-diagnostics-oms-containers.md) for these tiles to populate.
+In the same view with all the graphs, you will see some tiles for the performance of your containers. You need the OMS Agent and [Container Monitoring solution](service-fabric-diagnostics-oms-containers.md) for these tiles to populate.
 
-    ![OMS Container Metrics](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
+![OMS Container Metrics](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
 
 >[!NOTE]
 >To instrument telemetry from **inside** your container you will need to add the [Application Insights nuget package for containers](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios).
 
-## How can I monitor resource consumption to see if they are near thresholds?
+## How can I monitor performance counters?
 
 1. Once you have added the OMS Agent to your cluster you need to add the specific performance counters you want to track. Navigate to the OMS Workspace’s page in the portal – from the solution’s page the workspace tab is on the left menu.
 
@@ -123,7 +126,7 @@ The solutions in this article will use the following tools. We recommend you hav
 
 ## How do I track performance of my Reliable Services and Actors?
 
-1. For tracking performance of Reliable Services or Actors in your applications, you should add the Service Fabric Actor, Actor Method, Service, and Service Method counters as well. You can add these counters in a similar fashion as the scenario above, here are examples of reliable service and actor performance counters to add in OMS
+For tracking performance of Reliable Services or Actors in your applications, you should add the Service Fabric Actor, Actor Method, Service, and Service Method counters as well. You can add these counters in a similar fashion as the scenario above, here are examples of reliable service and actor performance counters to add in OMS
 
     * `Service Fabric Service(*)\\Average milliseconds per request`
     * `Service Fabric Service Method(*)\\Invocations/Sec`
