@@ -26,10 +26,10 @@ Get started quickly with the IoT solution accelerators to build your IoT solutio
                         <ul>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators">Solution accelerators overview</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy">Deploy a solution accelerator</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-explore">Out of the box solution capabilities</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-monitor">Monitoring capabilities</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore">Out of the box solution capabilities</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Monitoring capabilities</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Rules management capabilities</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-manage">Device management capabilities</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Device management capabilities</a></li>
                         </ul>
                     </div>
                 </div>
@@ -49,9 +49,9 @@ Get started quickly with the IoT solution accelerators to build your IoT solutio
                     <div class="cardText">
                         <p>Learn how to connect your devices to a solution accelerator</p>
                         <ul>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-schema">Device model overview</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-behavior">Customize your simulated devices</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-connecting-devices-node">Connect physical devices</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema">Device model overview</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior">Customize your simulated devices</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-connecting-devices-node">Connect physical devices</a></li>
                         </ul>
                     </div>
                 </div>
@@ -91,10 +91,10 @@ Get started quickly with the IoT solution accelerators to build your IoT solutio
                 <div class="card">
                     <div class="cardText">
                         <h3>Resources</h3>
-                        <p><a href="/azure/iot-suite/iot-security-architecture">Security architecture</a></p>
-                        <p><a href="/azure/iot-suite/iot-security-best-practices">Security best practices</a></p>
-                        <p><a href="/azure/iot-suite/iot-suite-security-deployment">Secure your IoT deployment</a></p>
-                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Security from the ground up</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-architecture">Security architecture</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-best-practices">Security best practices</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-accelerators-security-deployment">Secure your IoT deployment</a></p>
+                        <p><a href="/azure/iot-accelerators/securing-iot-ground-up">Security from the ground up</a></p>
                    </div>
                 </div>
             </div>

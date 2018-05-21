@@ -168,6 +168,6 @@ To add your own OPC UA servers to the Connected Factory solution accelerator:
 
 ## Next steps
 
-To learn more about the architecture of the Connected Factory solution accelerator, see [Connected Factory solution accelerator walkthrough](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+To learn more about the architecture of the Connected Factory solution accelerator, see [Connected Factory solution accelerator walkthrough](iot-accelerators-connected-factory-sample-walkthrough.md).
 
 Learn about the [OPC Publisher reference implementation](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

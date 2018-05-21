@@ -55,11 +55,35 @@ Clone a GitHub repository that contains the .NET sample to your machine using th
 
 This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) file of the *AnalyzeVideos* project.
 
+The sample performs the following actions:
+
+1. Creates a new Transform (first, checks if the specified Transform exists). 
+2. Creates an output Asset that is used as the encoding Job's output.
+3. Create an input Asset and uploads the specified local video file into it. The Asset is used as the Job's input. 
+4. Submits the encoding Job using the input and output that was created earlier.
+5. Checks the Job's status.
+6. Creates a StreamingLocator.
+7. Builds streaming URLs.
+
 ### Start using Media Services APIs with .NET SDK
 
 To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. You first need to get a token and then create a **ClientCredential** object from the returned token. In the code you cloned at the beginning of the article, the **ArmClientCredential** object is used to get the token.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateMediaServicesClient)]
+
+### Create an input asset and upload a local file into it 
+
+The **CreateInputAsset** function creates a new input [Asset](https://docs.microsoft.com/rest/api/media/assets) and uploads the specified local video file into it. This Asset is used as the input to your encoding Job. In Media Services v3, the input to a Job can either be an Asset, or it can be content that you make available to your Media Services account via HTTPS URLs. If you want to learn how to encode from a HTTPS URL, see [this](job-input-from-http-how-to.md) article.  
+
+In Media Services v3, you use Azure Storage APIs to upload files. The following .NET snippet shows how.
+
+The following function performs these actions:
+
+* Creates an Asset 
+* Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the Asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
+* Uploads the file into the container in storage using the SAS URL
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
 
 ### Create an output asset to store the result of a job 
 
