@@ -32,11 +32,12 @@ We strongly recommend that you export and review your settings before you delete
 
     ![Screenshot that shows the portal settings export and delete](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
 
+      The following table describes these settings. 
 
       | Setting | description |
-      |---|---|
-      | **Export all settings**| Creates a .json file that contains your user settings like your dashboard theme.|
-      |**Delete all settings and private dashboards**| Deletes all links to private dashboards and other user customizations you've made to the portal dashboard.|
+      | --- | --- |
+      | **Export all settings** | Creates a .json file that contains your user settings like your dashboard theme.|
+      | **Delete all settings and private dashboards** | Deletes all links to private dashboards and other user customizations you've made to the portal dashboard. |
 
 
 
