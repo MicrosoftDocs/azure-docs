@@ -59,6 +59,16 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) file of the *UploadEncodeAndStreamFiles* project.
 
+The sample performs the following actions:
+
+1. Creates a new Transform (first, checks if the specified Transform exists). 
+2. Creates an output Asset that is used as the encoding Job's output.
+3. Creates an input Asset that is based on the uploaded file. The Asset is used as the Job's input. 
+4. Submits the encoding Job using the input and output that was created earlier.
+5. Checks the Job's status.
+6. Creates a StreamingLocator.
+7. Builds streaming URLs.
+
 ### Start using Media Services APIs with .NET SDK
 
 To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. You first need to get a token and then create a **ClientCredential** object from the returned token. In the code you cloned at the beginning of the article, the **ArmClientCredential** object is used to get the token.  
