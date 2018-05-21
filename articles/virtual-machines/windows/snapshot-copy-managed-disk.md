@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a snapshot of a VHD in Azure | Microsoft Docs
 description: Learn how to create a copy of an Azure VM to use as a back up or for troubleshooting issues.
 documentationcenter: ''
@@ -37,7 +37,7 @@ Take a snapshot of an OS or data disk VHD for backup or to troubleshoot VM issue
 
 The following steps show you how to get the VHD disk to be copied, create the snapshot configurations, and take a snapshot of the disk by using the [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
 
-Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. This article requires the AzureRM module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. This article requires the AzureRM module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 Set some parameters. 
 

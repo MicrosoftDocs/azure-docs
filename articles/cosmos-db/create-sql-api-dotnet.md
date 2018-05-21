@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
+clicktale: true
 
 ---
 # Quickstart: Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal
@@ -98,7 +99,6 @@ The following snippets are all taken from the DocumentDBRepository.cs file.
     ```csharp
     await client.CreateDocumentCollectionAsync(
         UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
         new DocumentCollection
             {
                Id = CollectionId

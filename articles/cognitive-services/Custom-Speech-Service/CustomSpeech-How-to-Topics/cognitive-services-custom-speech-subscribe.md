@@ -4,9 +4,8 @@ description: Learn how to get subscription keys for calls to the Custom Speech S
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
-
 ms.service: cognitive-services
-ms.technology: custom-speech-service
+ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper

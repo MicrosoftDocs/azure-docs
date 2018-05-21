@@ -25,7 +25,7 @@ ms.author: ellacroi
 After you've developed the technical assets for your Azure Marketplace listing, you can increase the number of users coming to your app and the growth in usage of your product by following marketing best practices. 
 
 >[!NOTE]
->To learn about the publishing process and technical requirements, read the [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide).
+>To learn about the publishing process and technical requirements, read the [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 
 ## How marketing helps
 
@@ -129,8 +129,7 @@ To maximize the impact of these activities, we encourage you to have your launch
 >[!NOTE]
 >One Commercial Partner Catalog (OCP Catalog) is a benefit of membership in the Microsoft Partner Network. 
 
-[Marketplace GTM Benefits](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
-
+![Marketplace GTM Benefits](./media/marketplace-publishers-guide/gtmmay2018.png)
 
 For support, visit [Microsoft Go To Market](https://www.microsoftgotomarket.com). There, you can find templates, web content, training, and tools to promote your business.
 

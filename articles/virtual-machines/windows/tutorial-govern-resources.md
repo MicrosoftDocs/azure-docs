@@ -1,6 +1,6 @@
----
-title: Govern Azure virtual machines with Azure PowerShell | Microsoft Docs
-description: Tutorial - Manage Azure virtual machines by applying RBAC, polices, locks and tags with Azure PowerShell
+﻿---
+title: Tutorial - Govern Azure virtual machines with Azure PowerShell | Microsoft Docs
+description: In this tutorial, you learn how to use Azure PowerShell to manage Azure virtual machines by applying RBAC, polices, locks and tags
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -11,18 +11,21 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
+ms.custom: mvc
 
+#Customer intent: As an IT administrator, I want to learn how to control and manage VM resources so that I can secure and audit resource access, and group resources for billing or management.
 ---
-# Virtual machine governance with Azure PowerShell
+
+# Tutorial: Learn about Linux virtual machine governance with Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. For local installations, you must also [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/) to create a new Azure Active Directory group.
+If you choose to install and use the PowerShell locally, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. For local installations, you must also [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/) to create a new Azure Active Directory group.
 
 ## Understand scope
 

@@ -3,7 +3,7 @@ title: Connecting Microsoft Advanced Threat Analytics to Azure Security Center |
 description: Learn how Azure Security Center integrates with Microsoft Advanced Threat Analytics.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: MBaldwin
 editor: ''
 

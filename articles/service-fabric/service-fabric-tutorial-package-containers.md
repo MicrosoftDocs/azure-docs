@@ -42,7 +42,8 @@ Service fabric provides scaffolding tools to help create applications from termi
 1. Install nodejs and NPM on your machine. Note that, Mac OSX users will have to use the package manager Homebrew
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. Install Yeoman template generator on your machine from NPM 
 

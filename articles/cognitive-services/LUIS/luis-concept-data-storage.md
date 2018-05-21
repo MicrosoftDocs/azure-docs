@@ -4,12 +4,11 @@ description: Learn how data is stored in Language Understanding (LUIS)
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/16/2018
-ms.author: v-geberr;
+ms.date: 05/08/2018
+ms.author: v-geberr
 ---
 
 # Data storage and removal
@@ -28,6 +27,14 @@ You can delete utterances from the list of user utterances that LUIS suggests in
 If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained for 60 days before the account and data are deleted permanently.
 
 Deleting account is available from the **Settings** page. Select your account name in the top right navigation bar to get to the **Settings** page.
+
+## Data inactivity as an expired subscription
+For the purposes of data retention and deletion, an inactive LUIS app may at _Microsoft’s discretion_ be treated as an expired subscription. An app is considered inactive if it meets the following criteria for the last 90 days: 
+
+* Has had **no** calls made to it.
+* Has not been modified.
+* Does not have a current key assigned to it.
+* Has not had a user sign in to it.
 
 ## Next steps
 

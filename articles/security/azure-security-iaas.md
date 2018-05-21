@@ -1,4 +1,4 @@
----
+﻿---
   title: Security best practices for IaaS workloads in Azure | Microsoft Docs
   description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
   services: security
@@ -13,7 +13,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 11/21/2017
+  ms.date: 04/26/2018
   ms.author: barclayn
 
 
@@ -51,7 +51,7 @@ In the past, your network perimeter was used to control access to corporate data
 
 One of the most beneficial steps that you can take to secure an account is to enable two-factor authentication. Two-factor authentication is a way of authenticating by using something in addition to a password. It helps mitigate the risk of access by someone who manages to get someone else’s password.
 
-[Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options--phone call, text message, or mobile app notification. Users choose the method that they prefer.
+[Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options--phone call, text message, or mobile app notification. Users choose the method that they prefer.
 
 The easiest way to use Multi-Factor Authentication is the Microsoft Authenticator mobile app that can be used on mobile devices running Windows, iOS, and Android. With the latest release of Windows 10 and the integration of on-premises Active Directory with Azure Active Directory (Azure AD), [Windows Hello for Business](../active-directory/active-directory-azureadjoin-passport-deployment.md) can be used for seamless single sign-on to Azure resources. In this case, the Windows 10 device is used as the second factor for authentication.
 
@@ -84,7 +84,7 @@ Using Azure for labs and development environments enables organizations to gain 
 
 The [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service uses [Azure Role-Based Access Control](../role-based-access-control/overview.md) (RBAC). By using RBAC, you can segregate duties within your team into roles that grant only the level of access necessary for users to do their jobs. RBAC comes with predefined roles (owner, lab user, and contributor). You can even use these roles to assign rights to external partners and greatly simplify collaboration.
 
-Because DevTest Labs uses RBAC, it's possible to create additional, [custom roles](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs not only simplifies the management of permissions, it simplifies the process of getting environments provisioned. It also helps you deal with other typical challenges of teams that are working on development and test environments. It requires some preparation, but in the long term, it will make things easier for your team.
+Because DevTest Labs uses RBAC, it's possible to create additional, [custom roles](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs not only simplifies the management of permissions, it simplifies the process of getting environments provisioned. It also helps you deal with other typical challenges of teams that are working on development and test environments. It requires some preparation, but in the long term, it will make things easier for your team.
 
 Azure DevTest Labs features include:
 
@@ -105,7 +105,7 @@ No additional cost is associated with the usage of DevTest Labs. The creation of
 
 Hosting labs or production systems in Azure means that your systems need to be accessible from the Internet. By default, a new Windows virtual machine has the RDP port accessible from the Internet, and a Linux virtual machine has the SSH port open. Taking steps to limit exposed endpoints is necessary to minimize the risk of unauthorized access.
 
-Technologies in Azure can help you limit the access to those administrative endpoints. In Azure, you can use [network security groups](../virtual-network/virtual-networks-nsg.md) (NSGs). When you use Azure Resource Manager for deployment, NSGs limit the access from all networks to just the management endpoints (RDP or SSH). When you think NSGs, think router ACLs. You can use them to tightly control the network communication between various segments of your Azure networks. This is similar to creating networks in perimeter networks or other isolated networks. They do not inspect the traffic, but they do help with network segmentation.
+Technologies in Azure can help you limit the access to those administrative endpoints. In Azure, you can use [network security groups](../virtual-network/security-overview.md) (NSGs). When you use Azure Resource Manager for deployment, NSGs limit the access from all networks to just the management endpoints (RDP or SSH). When you think NSGs, think router ACLs. You can use them to tightly control the network communication between various segments of your Azure networks. This is similar to creating networks in perimeter networks or other isolated networks. They do not inspect the traffic, but they do help with network segmentation.
 
 
 In Azure, you can configure a [site-to-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) from your on-premises network. A site-to-site VPN extends your on-premises network to the cloud. This gives you another opportunity to use NSGs, because you can also modify the NSGs to not allow access from anywhere other than the local network. You can then require that administration is done by first connecting to the Azure network via VPN.
@@ -117,7 +117,7 @@ Alternatively, you can use the [point-to-site](../vpn-gateway/vpn-gateway-howto-
 >[!NOTE]
 >You can use either VPN option to reconfigure the ACLs on the NSGs to not allow access to management endpoints from the Internet.
 
-Another option worth considering is a [Remote Desktop Gateway](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md) deployment. You can use this deployment to securely connect to Remote Desktop servers over HTTPS, while applying more detailed controls to those connections.
+Another option worth considering is a [Remote Desktop Gateway](../active-directory/authentication/howto-mfaserver-nps-rdg.md) deployment. You can use this deployment to securely connect to Remote Desktop servers over HTTPS, while applying more detailed controls to those connections.
 
 Features that you would have access to include:
 
@@ -165,7 +165,7 @@ All virtual machines in Azure IaaS should be hardened so that they expose only s
 
 Security Compliance Manager is a free tool. You can use it to quickly configure and manage your desktops, traditional datacenter, and private and public cloud by using Group Policy and System Center Configuration Manager.
 
-Security Compliance Manager provides ready-to-deploy policies and Desired Configuration Management configuration packs that are tested. These baselines are based on [Microsoft Security Guidance](https://technet.microsoft.com/en-us/library/cc184906.aspx) recommendations and industry best practices. They help you manage configuration drift, address compliance requirements, and reduce security threats.
+Security Compliance Manager provides ready-to-deploy policies and Desired Configuration Management configuration packs that are tested. These baselines are based on [Microsoft Security Guidance](https://technet.microsoft.com/library/cc184906.aspx) recommendations and industry best practices. They help you manage configuration drift, address compliance requirements, and reduce security threats.
 
 You can use Security Compliance Manager to import the current configuration of your computers by using two different methods. First, you can import Active Directory-based group policies. Second, you can import the configuration of a “golden master” reference machine by using the [LocalGPO tool](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) to back up the local group policy. You can then import the local group policy into Security Compliance Manager.
 

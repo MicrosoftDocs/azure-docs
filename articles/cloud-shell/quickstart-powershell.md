@@ -272,13 +272,13 @@ publish the public key to `authorized_keys` on the remote machine, such as `/hom
 
 ### Using a custom profile to persist GIT and SSH settings
 
-Since sessions do not persist upon sign-out, save your `$env:USERPROFILE\.ssh` directory to `CloudDrive` or create a symlink when Cloud Shell gets launched.
-Add following code snippet in your profile.ps1 to create a symlink to CloudDrive.
+Since sessions do not persist upon sign-out, save your `$env:USERPROFILE\.ssh` directory to `clouddrive` or create a symlink when Cloud Shell gets launched.
+Add following code snippet in your profile.ps1 to create a symlink to `clouddrive`.
 
 ``` PowerShell
 # Check if the .ssh directory exists
-if( -not (Test-Path $home\CloudDrive\.ssh)){
-    mkdir $home\CloudDrive\.ssh
+if( -not (Test-Path $home\clouddrive\.ssh)){
+    mkdir $home\clouddrive\.ssh
 }
 
 # .ssh path relative to this script
@@ -345,21 +345,21 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## Use Azure Files to store your data
 
-You can create a script, say `helloworld.ps1`, and save it to your `CloudDrive` to use it across shell sessions.
+You can create a script, say `helloworld.ps1`, and save it to your `clouddrive` to use it across shell sessions.
 
 ``` PowerShell
-cd C:\users\ContainerAdministrator\CloudDrive
-PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
+cd C:\users\ContainerAdministrator\clouddrive
+PS C:\users\ContainerAdministrator\clouddrive> vim .\helloworld.ps1
 # Add the content, such as 'Hello World!'
-PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
+PS C:\users\ContainerAdministrator\clouddrive> .\helloworld.ps1
 Hello World!
 ```
 
-Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file will exist under the `CloudDrive` directory that mounts your Azure Files share.
+Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file will exist under the `clouddrive` directory that mounts your Azure Files share.
 
 ## Use custom profile
 
-You can customize your PowerShell environment, by creating PowerShell profile(s) - `profile.ps1` or `Microsoft.PowerShell_profile.ps1`. Save it under the `CloudDrive` so that it can be loaded in every PowerShell session when you launch the Cloud Shell.
+You can customize your PowerShell environment, by creating PowerShell profile(s) - `profile.ps1` or `Microsoft.PowerShell_profile.ps1`. Save it under the `clouddrive` so that it can be loaded in every PowerShell session when you launch the Cloud Shell.
 
 For how to create a profile, refer to [About Profiles][profile].
 
@@ -371,7 +371,7 @@ To clone a Git repo in the Cloud Shell, you need to create a [personal access to
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-Since sessions in Cloud Shell do not persist when you sign out or the session times out, the Git config file will not exist upon the next logon. To have your Git config persist, you must save your .gitconfig to your `CloudDrive` and copy it or create a symlink when the Cloud Shell gets launched. Use the following code snippet in your profile.ps1, to create a symlink to `CloudDrive`.
+Since sessions in Cloud Shell do not persist when you sign out or the session times out, the Git config file will not exist upon the next logon. To have your Git config persist, you must save your .gitconfig to your `clouddrive` and copy it or create a symlink when the Cloud Shell gets launched. Use the following code snippet in your profile.ps1, to create a symlink to `clouddrive`.
 
  ``` PowerShell
  

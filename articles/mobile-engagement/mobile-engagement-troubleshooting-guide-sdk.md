@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Mobile Engagement Troubleshooting Guide - SDK
 description: Troubleshooting SDK integration issues in Azure Mobile Engagement
 services: mobile-engagement
@@ -114,9 +114,9 @@ The following are possible issues you may encounter with how Azure Mobile Engage
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
 [Link 7]: https://account.windowsazure.com/PreviewFeatures
 [Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
 [Link 12]: mobile-engagement-user-interface-navigation.md
 [Link 13]: mobile-engagement-user-interface-home.md
 [Link 14]: mobile-engagement-user-interface-my-account.md

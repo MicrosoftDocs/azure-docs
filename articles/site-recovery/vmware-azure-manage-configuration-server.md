@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
 description: This article describes how to manage an existing configuration server for VMware disaster recovery to Azure with Azure Site Recovery.
 services: site-recovery
@@ -108,7 +108,7 @@ You can optionally delete the configuration server by using PowerShell.
 1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) the Azure PowerShell module.
 2. Sign in to your Azure account by using this command:
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Select the vault subscription.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

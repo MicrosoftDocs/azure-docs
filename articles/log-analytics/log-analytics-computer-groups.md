@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: bwren
 
 ---
@@ -53,14 +53,6 @@ Use the following procedure to create a computer group from a log search in the 
 2. Open **Log Search** and then click **Saved Searches** at the top of the screen.
 3. Click **Add** and provide values for each property for the computer group.
 4. Select **Save this query as a computer group** and click **OK**.
-
-
-Use the following procedure to create a computer group from a log search in the OMS portal.
-
-1. Open **Log Search** and create the log search for the computer group.  
-2. Click the **Save** button at the top of the screen.
-3. Select **Yes** to **Save this query as a computer group**.
-5. Provide values for each property for the computer group. 
 
 
 

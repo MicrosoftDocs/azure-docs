@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 04/09/2018
+ms.date: 04/16/2018
 ms.topic: hero-article
 ms.service: iot-dps
 
@@ -48,7 +48,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     cd cmake
     ```
 
-6. Run the following command to create the Visual Studio solution for the provisioning client.
+6. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command to build a version of the SDK specific to your development client platform and [attestation mechanism](concepts-security.md#attestation-mechanism) (X.509 certificate). It also generates a Visual Studio solution for the simulated device. 
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON ..

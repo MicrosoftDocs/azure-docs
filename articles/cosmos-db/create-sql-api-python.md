@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 04/13/2018
 ms.author: sngun
 
 ---
@@ -23,15 +23,13 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and collection using the Azure portal. You then build and run a console app built on the [SQL Python API](sql-api-sdk-python.md).
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-* In addition:
-    * If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
-    * Python Tools for Visual Studio from [GitHub](http://microsoft.github.io/PTVS/). This tutorial uses Python Tools for VS 2015.
-    * Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/)
+* [Python 3.6](https://www.python.org/downloads/) with \<install location\>\Python36 and \<install location>\Python36\Scripts added to your PATH. 
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Python extention for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
 ## Create a database account
 
@@ -143,7 +141,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
 
-2. Open the DocumentDBGetStarted.py file.
+2. Open the C:\git-samples\azure-cosmos-db-documentdb-python-getting-startedDocumentDBGetStarted.py file in Visual Studio code. 
 
 3. Copy your **URI** value from the portal (using the copy button) and make it the value of the **endpoint** key in DocumentDBGetStarted.py. 
 
@@ -156,13 +154,38 @@ Now go back to the Azure portal to get your connection string information and co
 5. Save the DocumentDBGetStarted.py file.
     
 ## Run the app
-1. In Visual Studio, right-click on the project in **Solution Explorer**, select the current Python environment, then right click.
 
-2. Select Install Python Package, then type in **pydocumentdb**
+1. In Visual Studio Code, select **View**>**Command Palette**. 
 
-3. Run F5 to run the application. Your app displays in your browser. 
+2. At the prompt, enter  **Python: Select Interpreter** and then select the version of Python to use.
 
-You can now go back to Data Explorer and see query, modify, and work with this new data. 
+    The Footer in Visual Studio Code is updated to indicate the interpreter selected. 
+
+3. Select **View** > **Integrated Terminal** to open the Visual Studio SCode integrated terminal.
+
+4. In the integrated terminal window, ensure you're in the run the azure-cosmos-db-documentdb-python-getting-started folder. If not, run the following command to switch to the sample folder. 
+
+    ```
+    cd "C:\git-samples\azure-cosmos-db-documentdb-python-getting-started"`
+    ```
+
+5. Run the following command to install the pydocumentdb package. 
+
+    ```
+    pip3 install pydocumentdb
+    ```
+
+    If you get an error about access being denied when attempting to install pydocumentdb, you'll need to [run VS Code as an administrator](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
+
+6. Run the following command to run the sample and create and store new documents in Azure Cosmos dB.
+
+    ```
+    python DocumentDBGetStarted.py
+    ```
+
+7. To confirm the new documents were created and saved, in the Azure portal, select **Data Explorer**, expand **coll**, expand **Documents**, and then select the **server1** document. The server1 document contents match the content returned in the integrated terminal window. 
+
+    ![View the new documents in the Azure portal](./media/create-sql-api-python/azure-cosmos-db-confirm-documents.png)
 
 ## Review SLAs in the Azure portal
 

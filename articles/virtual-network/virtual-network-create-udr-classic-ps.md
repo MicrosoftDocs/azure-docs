@@ -3,7 +3,7 @@ title: Control routing in an Azure Virtual Network - PowerShell - Classic | Micr
 description: Learn how to control routing in VNets using PowerShell | Classic
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: ''
 tags: azure-service-management
@@ -23,7 +23,6 @@ ms.author: genli
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
 > * [Azure CLI](tutorial-create-route-table-cli.md)
-> * [Template](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 

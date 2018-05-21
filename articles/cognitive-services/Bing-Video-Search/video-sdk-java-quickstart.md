@@ -6,14 +6,17 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 02/18/2018
 ms.author: v-gedod
 ---
 # Bing Video Search SDK Java quickstart
 
-The Bing Video Search SDK provides the REST API functionality for video queries and parsing results. 
+The Bing Video Search SDK provides the REST API functionality for video queries and parsing results.
+
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending.  
 
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 

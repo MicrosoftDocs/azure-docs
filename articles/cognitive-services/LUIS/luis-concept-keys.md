@@ -4,12 +4,11 @@ description: Use Language Understanding (LUIS) keys to author your app and query
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Keys in LUIS
@@ -37,7 +36,7 @@ When you want to make **production endpoint queries**, create an Azure [LUIS sub
 > For convenience, many of the samples use the Authoring key since it provides a few endpoint calls in its [quota](luis-boundaries.md#key-limits).  
 
 ## Endpoint key
- When you need **production endpoint queries**, create a [LUIS key](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) in the Azure portal. Remember the name used to create the key, you will need it when you add the key to the app..
+ When you need **production endpoint queries**, create a [LUIS key](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) in the Azure portal. Remember the name used to create the key, you need it when you add the key to the app..
 
 When the LUIS subscription process is finished, [add the key](Manage-keys.md#assign-endpoint-key) to the app on the **Publish** page. 
 
@@ -56,7 +55,7 @@ The LUIS endpoint accepts two styles of query, both use the endpoint key, but in
 |[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/98998dcf-66d2-468e-840a-7c7c57549b5a<br><br> header value for `Ocp-Apim-Subscription-Key`<br><br>Change your endpoint query value for the `Ocp-Apim-Subscription-Key` from the authoring (starter) key, to the new endpoint key in order to use the LUIS endpoint key quota rate. If you create the key, and assign the key but do not change the endpoint query value for `Ocp-Apim-Subscription-Key`, you are not using your endpoint key quota.|
 
 ## API usage of Ocp-Apim-Subscription-Key
-The LUIS APIs use the header, `Ocp-Apim-Subscription-Key`. The header name does not change based on which key and set of APIs you are using. You need to set the header to the authoring key for authoring APIs. If you are using the endpoint, set the header to the endpoint key. 
+The LUIS APIs use the header, `Ocp-Apim-Subscription-Key`. The header name does not change based on which key and set of APIs you are using. Set the header to the authoring key for authoring APIs. If you are using the endpoint, set the header to the endpoint key. 
 
 You can't pass the endpoint key for authoring APIs. If you do, you get a 401 error - access denied due to invalid subscription key. 
 
@@ -66,10 +65,10 @@ See [Key Limits](luis-boundaries.md#key-limits) and [Azure Regions](luis-referen
 Publishing regions are different from authoring regions. Make sure you create an app in the authoring region corresponding to the publishing region you want.
 
 ## Key limit errors
-If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. Fix these errors by getting a LUIS [endpoint](#endpoint-key) key, [assigning](#assign-endpoint-key) the key to the app on the **Publish** page of the [LUIS][LUIS] website.
+If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. Fix these errors by getting a LUIS [endpoint](#endpoint-key) key, [assigning](Manage-keys.md#assign-endpoint-key) the key to the app on the **Publish** page of the [LUIS][LUIS] website.
 
 ## Next steps
 
-* [Add](Manage-Keys.md#assign-endpoint-key) an endpoint key.
+* Learn [concepts](Manage-Keys.md#assign-endpoint-key) about authoring and endpoint keys.
 
 [LUIS]:luis-reference-regions.md#luis-website

@@ -1,4 +1,4 @@
----
+﻿---
 title: Create Azure-SSIS integration runtime in Azure Data Factory | Microsoft Docs
 description: Learn how to create an Azure-SSIS integration runtime so that you can run SSIS package in the Azure cloud.
 services: data-factory
@@ -202,7 +202,7 @@ $SubnetName = "[your subnet name or leave it empty]"
 Add the following code the script to log in and select your Azure subscription: 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
@@ -385,7 +385,7 @@ Catch [System.Data.SqlClient.SqlException]
     } 
 }
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `

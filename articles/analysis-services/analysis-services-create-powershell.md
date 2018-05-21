@@ -15,7 +15,7 @@ ms.reviewer: minewiskan
 
 This quickstart describes using PowerShell from the command line to create an Azure Analysis Services server in an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in your Azure subscription.
 
-This task requires Azure PowerShell module version 4.0 or later. To find the version, run ` Get-Module -ListAvailable AzureRM`. To install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+This task requires Azure PowerShell module version 4.0 or later. To find the version, run ` Get-Module -ListAvailable AzureRM`. To install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 > [!NOTE]
 > Creating a server might result in a new billable service. To learn more, see [Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
@@ -35,14 +35,14 @@ Import-Module AzureRM.AnalysisServices
 
 ## Sign in to Azure
 
-Sign in to your Azure subscription by using the [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) command. Follow the on-screen directions.
+Sign in to your Azure subscription by using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) command. Follow the on-screen directions.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## Create a resource group
- 
+
 An [Azure resource group](../azure-resource-manager/resource-group-overview.md) is a logical container where Azure resources are deployed and managed as a group. When you create your server, you must specify a resource group in your subscription. If you do not already have a resource group, you can create a new one by using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. The following example creates a resource group named `myResourceGroup` in the West US region.
 
 ```powershell
@@ -67,6 +67,6 @@ Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myReso
 ```
 
 ## Next steps
-[Manage Azure Analysis Services with PowerShell](analysis-services-powershell.md)   
-[Deploy a model from SSDT](analysis-services-deploy.md)   
+[Manage Azure Analysis Services with PowerShell](analysis-services-powershell.md)
+[Deploy a model from SSDT](analysis-services-deploy.md)
 [Create a model in Azure portal](analysis-services-create-model-portal.md)

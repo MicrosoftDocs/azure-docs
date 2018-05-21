@@ -6,7 +6,7 @@ author: Christina-Kang
 manager: timlt
 
 ms.service: service-fabric
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: bikang
 ---

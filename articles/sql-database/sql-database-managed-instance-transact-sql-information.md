@@ -388,7 +388,7 @@ The following variables, functions, and views return different results:
 
 ### Exceeding storage space with small database files
 
-Each Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instnace that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation. 
+Each Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation. 
 
 For example, a Managed Instance could have one file with 1.2 TB size that uses a 4 TB disk, and 248 files with 1 GB each that are placed on 248 disks with 128 GB size. In this example, the total disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB. However, total reserved instance size for databases is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB. This illustrates that under certain circumstance, due to a very specific distribution of files, a Managed Instance might reach Azure Premium Disk storage limit where you might not expect it to. 
 

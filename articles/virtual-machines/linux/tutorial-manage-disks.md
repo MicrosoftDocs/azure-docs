@@ -1,12 +1,12 @@
 ---
-title: Manage Azure disks with the Azure CLI | Microsoft Docs
-description: Tutorial - Manage Azure disks with the Azure CLI 
+title: Tutorial - Manage Azure disks with the Azure CLI | Microsoft Docs
+description: In this tutorial, you learn how to use the Azure CLI 2.0 to create and manage Azure disks for virtual machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -17,9 +17,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
+
+#Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Linux VMs in Azure.
 ---
 
-# Manage Azure disks with the Azure CLI
+# Tutorial - Manage Azure disks with the Azure CLI 2.0
 
 Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks. You learn about:
 
@@ -32,10 +34,9 @@ Azure virtual machines use disks to store the VMs operating system, applications
 > * Resizing disks
 > * Disk snapshots
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Default Azure disks
 
@@ -105,16 +106,17 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Create a VM using the [az vm create]( /cli/azure/vm#az_vm_create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
+Create a VM using the [az vm create]( /cli/azure/vm#az_vm_create) command. The following example creates a VM named *myVM*, adds a user account named *azureuser*, and generates SSH keys if they do not exist. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroupDisk \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --data-disk-sizes-gb 128 128 \
-  --generate-ssh-keys
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --data-disk-sizes-gb 128 128
 ```
 
 ### Attach disk to existing VM
