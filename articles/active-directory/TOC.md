@@ -209,6 +209,7 @@
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
+##### [Qlik](active-directory-application-proxy-qlik.md)
 
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
