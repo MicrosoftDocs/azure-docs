@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -20,21 +20,12 @@ For more information on Kubernetes persistent volumes, including static creation
 
 ## Create storage account
 
-When dynamically creating an Azure file share as a Kubernetes volume, any storage account can be used as long as it is in the same resource group as the AKS cluster. If needed, create a storage account in the same resource group as the AKS cluster.
-
-To identify the proper resource group, use the [az group list][az-group-list] command.
-
-```azurecli-interactive
-az group list --output table
-```
-
-Look for a resource group with a name similar to `MC_clustername_clustername_locaton`.
+When dynamically creating an Azure file share as a Kubernetes volume, any storage account can be used as long as it is in the AKS **node** resource group. Get the resource group name with the [az resource show][az-resource-show] command.
 
 ```
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
+
+MC_myResourceGRoup_myAKSCluster_eastus
 ```
 
 Use the [az storage account create][az-storage-account-create] command to create the storage account.
@@ -42,7 +33,7 @@ Use the [az storage account create][az-storage-account-create] command to create
 Using this example, update `--resource-group` with the name of the resource group, and `--name` to a name of your choice.
 
 ```azurecli-interactive
-az storage account create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
+az storage account create --resource-group MC_myResourceGRoup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
 ## Create storage class
