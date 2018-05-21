@@ -18,28 +18,14 @@ ms.author: b-juche
 ---
 
 # Introduction to Azure NetApp Files
-Azure NetApp Files provide a native, first-party NFS service to enable business critical enterprise applications, databases, scalable web services, and agile development operations.  Unlike traditional storage technologies or solutions that require you to refactor your applications, stand up a large IT or storage team, or simply do not meet your enterprise standards, Azure NetApp Files provide unmatched performance, reliability, and data management with the benefits of a native, integrated cloud service.
+The Azure NetApp Files service is an enterprise-class, high-performance, metered pay-as-you-go file storage service. Azure NetApp Files supports any workload type and is highly available by default. You can select guaranteed service and performance levels and set up snapshots through the service. 
 
-[!IMPORTANT] All tasks described in this documentation require that you be whitelisted for accessing the Microsoft.NetApp Azure Resource Provider and using the Azure NetApp Files service.  For details about the whitelisting process, see the [Azure NetApp Files Public Preview survey page](#https://aka.ms/nfspublicpreview). 
+The Azure NetApp Files documentation provides instructions on creating and managing volumes by using Azure NetApp Files. 
 
-## Requirements
-You must meet a few requirements before setting up and using Azure NetApp Files.  
+[!IMPORTANT] All tasks described in this documentation require that you be whitelisted for accessing the Microsoft.NetApp Azure Resource Provider and using the Azure NetApp Files service. For details about the whitelisting process, see the [Azure NetApp Files Public Preview survey page](#https://aka.ms/nfspublicpreview). 
 
-### Skills and knowledge
-
-* Linux server administration
-* NFSv3 commands
-* Access to and knowledge of using the Azure Portal environment, including the Azure Cloud Shell
-
-### Compute resources
-You need a valid Azure subscription for using Azure NetApp Files.
-
-## Workflow overview for setting up and using Azure NetApp Files
-^^^^^^^^^ WORKFLOW DIAGRAM STALE; NEEDS UPDATING ^^^^^^^^^
-
-
-## Get started  
-1. [Access Azure NetApp Files and create a NetApp account](azure-netapp-files-create-netapp-account.md)
+**Get started** 
+1. [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
 2. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 3. [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 4. [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)

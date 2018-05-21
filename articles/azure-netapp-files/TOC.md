@@ -6,7 +6,7 @@
 ## [Understand storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)
 
 # Get started
-## [Access Azure NetApp Files and create a NetApp account](azure-netapp-files-create-netapp-account.md)
+## [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
 ## [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 ## [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 ## [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
