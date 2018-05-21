@@ -74,12 +74,12 @@ Each storefront offers specialized publishing options to help you maximize your 
 ## How to Publish on Cloud Marketplace
 
 Becoming a cloud marketplace publisher is an easy three-step process:
-1.	Determine the listing type right for your offer
+1.	Choose a publishing option for your offer
 2.	Sign up to become a cloud marketplace publisher
 3.	Complete technical and content pre-requisites required by offer and listing type
 
 
-**1.	Determine the Listing Type Right for Your Offer**
+**1.	Choose a publishing option for your offer**
 
 Each storefront supports multiple publishing options and offer types. Select an offer type that best represents your application and service details. All publishing options will give partners access to lead sharing.
 
