@@ -220,6 +220,24 @@
       href: ../common/storage-import-export-contact-microsoft-support.md   
     - name: Archive
       items:
+      - name: Prepare drives for import (v1)
+        href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
+       items:
+       - name: Set properties & metadata
+         href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+       - name: Sample - Prepare drives for import
+         href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+       - name: Quick command reference for import
+         href: ../common/storage-import-export-tool-quick-reference-v1.md
+      - name: Prepare drives for import (v2)
+        href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
+        items: 
+        - name: Set properties & metadata
+          href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+        - name: Sample - Prepare drives for import
+          href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+        - name: Quick command reference for import
+          href: ../common/storage-import-export-tool-quick-reference-v1.md
       - name: Create import job
         href: ../common/storage-import-export-creating-an-import-job.md
       - name: Create export job
