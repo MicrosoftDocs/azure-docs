@@ -54,7 +54,7 @@ Book a hotel
 Use prediction data from LUIS to determine if your intents are overlapping. Overlapping intents confuses LUIS. The result is that the top scoring intent is too close to another intent. Because LUIS does not use the exact same path through the data for training each time, an overlapping intent has a chance of being first or second in training. You want the utterance's score for each intention to be farther apart so this doesn't happen. Good distinction for intents should result in the expected top intent every time. 
  
 ## Do build the app iteratively
-Keep improving the app for your test set. Adapt the test set to reflect real user utterances. 
+Keep improving the app for your test set. Adapt the test set to reflect real user utterances. Keep a separate *blind* test set that is not used as example utterances or endpoint utterances. Use this blind test set to validate changes applied in the iterative process. 
 
 ## Do add phrase lists and patterns in later iterations
 Phrase lists allow you to define dictionaries of words related to your app domain. Seed your phrase list with a few words then use the suggest feature so LUIS knows about more words in the vocabulary. Don't add every word to the vocabulary since the phrase list isn't an exact match. 
