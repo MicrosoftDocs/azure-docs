@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/16/2018
+ms.date: 02/26/2018
 ms.author: vidarmsft
 ---
 
@@ -53,9 +53,9 @@ The StorSimple Data Manager is available in the following 7 regions:
 
 However, the StorSimple Data Manager can be used to transform data in the following regions. 
 
-![Regions available for data](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+![Regions available for data](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
 
-This set is larger because the resource deployment in any of the above regions is capable of bringing up the transformation process in the below regions. So, as long as your data resides in any one of the 26 regions, you can transform your data using this service.
+This set is larger because the resource deployment in any of the above regions is capable of bringing up the transformation process in the below regions. So, as long as your data resides in any one of the 19 regions, you can transform your data using this service.
 
 
 ## Choosing a region
@@ -77,6 +77,12 @@ This key is used by the compute resources to perform the transformation. These c
 If your Data Manager region is different from your job definition region, it is important that you understand what data/metadata resides in each of these regions. The following diagram illustrates the effect of having different regions for Data Manager and job definition.
 
 ![Service and job definition in different regions](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## GDPR Compliance
+
+[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR contains many requirements about how you collect, store, and use personal information. The GDPR rules are imposed on companies, government agencies, and other organizations that operate in EU and collect, analyze data tied to EU residents. 
+The StorSimple Data Manager is GDPR compliant. The Data Manager service does not collect personal data.
+For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
 ## Next steps
 

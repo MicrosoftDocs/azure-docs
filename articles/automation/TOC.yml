@@ -19,28 +19,32 @@
     href: automation-watchers-tutorial.md
   - name: Manage updates for your VM
     href: automation-tutorial-update-management.md
-  - name: Onboard update and change tracking
+  - name: Onboard update and change tracking by runbook
     href: automation-onboard-solutions.md
-  - name: Identify software on a VM
+  - name: Identify software in your environment
     href: automation-tutorial-installed-software.md
   - name: Troubleshoot changes on a VM
     href: automation-tutorial-troubleshoot-changes.md
 - name: How to
   items:
-    - name: Update management
+    - name: Onboarding
       items:
-      - name: Overview
-        href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+      - name: Onboard from an Azure VM
+        href: automation-onboard-solutions-from-vm.md
+      - name: Onboard from Automation account
+        href: automation-onboard-solutions-from-automation-account.md
+    - name: Update Management
+      items:
+      - name: Update Management overview
+        href: automation-update-management.md
       - name: Manage updates for multiple VMs
         href: manage-update-multi.md
-      - name: Integrate SCCM with OMS Update Management
+      - name: Integrate SCCM with Update Management
         href: oms-solution-updatemgmt-sccmintegration.md
-    - name: Change tracking
+    - name: Change Tracking
       items:
-      - name: Overview
-        href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-      - name: Track changes in your VMs
-        href: automation-vm-change-tracking.md
+      - name: Change Tracking overview
+        href: automation-change-tracking.md
     - name: Inventory
       items:
       - name: Manage a VM with inventory collection
@@ -111,16 +115,14 @@
           href: automation-pass-json-string.md
     - name: Hybrid Runbook Worker
       items:
-        - name: Deploy Hybrid Runbook Worker
+        - name: Hybrid Runbook Worker overview
           href: automation-hybrid-runbook-worker.md
-        - name: Azure Automation Windows Hybrid Runbook Worker
+        - name: Deploy Windows Hybrid Runbook Worker
           href: automation-windows-hrw-install.md
-        - name: Azure Automation Linux Hybrid Runbook Worker
+        - name: Deploy Linux Hybrid Runbook Worker
           href: automation-linux-hrw-install.md
-        - name: Run runbooks on worker
+        - name: Run runbooks on a Hybrid Runbook Worker
           href: automation-hrw-run-runbooks.md
-        - name: Remove Azure Automation Hybrid Runbook Workers
-          href: automation-remove-hrw.md
     - name: Deploy configuration management (DSC)
       items:
         - name: Desired State Configuration (DSC) overview
@@ -157,6 +159,8 @@
       items:
         - name: Runbook gallery
           href: automation-runbook-gallery.md
+        - name: Monitor runbooks with activity logs
+          href: automation-alert-activity-log.md
         - name: Start a runbook from Azure alerts
           href: automation-create-alert-triggered-runbook.md 
         - name: Create Amazon Web Service VM
@@ -175,6 +179,8 @@
           href: automation-invoke-runbook-from-omsla-alert.md
         - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
           href: automation-deploy-template-runbook.md
+        - name: Integrate Azure Automation with Event Grid and Microsoft Teams
+          href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
     - name: Monitor
       items:
         - name: Forward Azure Automation job data to Log Analytics

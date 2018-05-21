@@ -42,7 +42,7 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 To use the [Event Processor Host][EventProcessorHost], you must have an [Azure Storage account][Azure Storage account]:
 
-1. Log on to the [Azure portal][Azure portal], and click **New** at the top left of the screen.
+1. Log on to the [Azure portal][Azure portal], and click **Create a resource** at the top left of the screen.
 2. Click **Storage**, then click **Storage account**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)

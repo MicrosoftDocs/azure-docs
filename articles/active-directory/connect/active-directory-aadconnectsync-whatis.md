@@ -43,7 +43,7 @@ The sync service consists of two components, the on-premises **Azure AD Connect 
 | **Features and scenarios** | |
 | [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |Describes the *prevent accidental deletes* feature and how to configure it. |
 | [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) |Describes the built-in scheduler, which is importing, synchronizing, and exporting data. |
-| [Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) |Describes how password synchronization works, how to implement, and how to operate and troubleshoot. |
+| [Implement password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |Describes how password synchronization works, how to implement, and how to operate and troubleshoot. |
 | [Device writeback](active-directory-aadconnect-feature-device-writeback.md) |Describes how device writeback works in Azure AD Connect. |
 | [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md) |Describes how to extend the Azure AD schema with your own custom attributes. |
 | [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Describes how to put the user's Office 365 resources in the same region as the user. |

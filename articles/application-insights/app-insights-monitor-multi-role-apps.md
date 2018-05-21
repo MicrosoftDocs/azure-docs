@@ -39,7 +39,7 @@ To get a multi-component application map, you need to achieve these goals:
 
 * **Install the latest pre-release** Application Insights package in each component of the application. 
 * **Share a single Application Insights resource** for all the components of your application.
-* **Enable Multi-role Application Map** in the Previews blade.
+* **Enable Composite Application Map** in the Previews blade.
 
 Configure each component of your application using the appropriate method for its type. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md).)
 
@@ -70,9 +70,9 @@ Update or install the Application Insights packages in the project for each serv
 ![Copy the instrumentation key to the .config file](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
-### 3. Enable multi-role Application Map
+### 3. Enable Composite Application Map
 
-In the Azure portal, open the resource for your application. In the Previews blade, enable *Multi-role Application Map*.
+In the Azure portal, open the resource for your application. Under the CONFIGURE sub-heading, click Previews to open the Previews blade. In the Previews blade, enable *Composite Application Map*.
 
 ### 4. Enable Docker metrics (Optional) 
 

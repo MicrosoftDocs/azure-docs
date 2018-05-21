@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Connect a computer to an Azure virtual network using Point-to-Site and native Azure certificate authentication: PowerShell | Microsoft Docs'
 description: Connect Windows and Mac OS X clients securely to Azure virtual network using P2S and self-signed or CA issued certificates. This article uses PowerShell.
 services: vpn-gateway
@@ -67,7 +67,7 @@ In this section, you log in and declare the values used for this configuration. 
 1. Open your PowerShell console with elevated privileges, and log in to your Azure account. This cmdlet prompts you for the login credentials. After logging in, it downloads your account settings so that they are available to Azure PowerShell.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 2. Get a list of your Azure subscriptions.
 
@@ -211,6 +211,11 @@ The VPN client configuration files contain settings to configure devices to conn
 ## <a name="connect"></a>9. Connect to Azure
 
 ### To connect from a Windows VPN client
+
+>[!NOTE]
+>You must have Administrator rights on the Windows client computer from which you are connecting.
+>
+>
 
 1. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you created. It is named the same name as your virtual network. Click **Connect**. A pop-up message may appear that refers to using the certificate. Click **Continue** to use elevated privileges. 
 2. On the **Connection** status page, click **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then click **OK**.

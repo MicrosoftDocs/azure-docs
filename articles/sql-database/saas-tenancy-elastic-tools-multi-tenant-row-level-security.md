@@ -3,19 +3,13 @@ title: "Multi-tenant apps with RLS and elastic database tools | Microsoft Docs"
 description: Use elastic database tools with row-level security to build an application with a highly scalable data tier.
 metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
+manager: craigg
 author: tmullaney
-
-ms.assetid: e72d3cfe-e9be-4326-b776-9c6d96c0a18e
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
-ms.author: thmullan;torsteng
+ms.date: 04/01/2018
+ms.author: thmullan
 ---
 # Multi-tenant applications with elastic database tools and row-level security
 

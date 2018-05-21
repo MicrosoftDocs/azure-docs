@@ -117,7 +117,7 @@ Flips the boolean value of the **source**. If **source** value is "*True*", retu
 - - -
 ### Replace
 **Function:**<br> 
-ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Description:**<br>
 Replaces values within a string. It works differently depending on the parameters provided:
@@ -128,13 +128,13 @@ Replaces values within a string. It works differently depending on the parameter
 * When **oldValue** and **template** are provided:
   
   * Replaces all occurrences of the **oldValue** in the **template** with the **source** value
-* When **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue** are provided:
+* When **regexPattern**, **regexGroupName**, **replacementValue** are provided:
   
   * Replaces all values matching oldValueRegexPattern in the source string with replacementValue
-* When **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName** are provided:
+* When **regexPattern**, **regexGroupName**, **replacementPropertyName** are provided:
   
-  * If **source** has value, **source** is returned
-  * If **source** has no value, uses **oldValueRegexPattern** and **oldValueRegexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
+  * If **source** has no value, **source** is returned
+  * If **source** has a value, uses **regexPattern** and **regexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
 
 **Parameters:**<br> 
 
@@ -228,6 +228,17 @@ You need to generate a user alias by taking first 3 letters of user's first name
 * **INPUT** (givenName): "John"
 * **INPUT** (surname): "Doe"
 * **OUTPUT**:  "JohDoe"
+
+### Remove diacritics from a string and convert to lowercase
+You need to remove special characters from a string and convert uppercase characters to lowercase.
+
+**Expression:** <br>
+`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+
+**Sample input/output:** <br>
+
+* **INPUT** (givenName): "Zoë"
+* **OUTPUT**:  "zoe"
 
 ### Output date as a string in a certain format
 You want to send dates to a SaaS application in a certain format. <br>

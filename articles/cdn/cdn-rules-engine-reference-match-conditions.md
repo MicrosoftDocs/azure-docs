@@ -1,5 +1,5 @@
 ---
-title: Match conditions for the Azure CDN rules engine | Microsoft Docs
+title: Azure CDN rules engine match conditions | Microsoft Docs
 description: Reference documentation for Azure Content Delivery Network rules engine match conditions.
 services: cdn
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: rli
 
 ---
 
-# Match conditions for the Azure CDN rules engine
+# Azure CDN rules engine match conditions 
 This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) [rules engine](cdn-rules-engine.md).
 
 The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features will be performed.
@@ -524,15 +524,15 @@ Key information:
 
      For example: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder**/index.htm 
 
-     This URL points to the following Verizon CDN hostname: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/**myfolder**/index.htm
+     This URL points to the following Verizon CDN hostname: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder**/index.htm
 
 - An edge CNAME URL is rewritten to a CDN URL prior to the URL comparison.
 
     For example, both of the following URLs point to the same asset and therefore have the same URL path.
-    - CDN URL: http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    - CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
     
     - Edge CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
+    
     Additional information:
     - Custom domain: https:\//my.domain.com/path/asset.htm
     
@@ -638,21 +638,21 @@ Key information:
     The following values are available for the **Relative to** option:
      - **Root**: Indicates that the URL comparison point begins directly after the CDN hostname.
 
-       For example: http:\//wpc.0001.&lt;Domain&gt;/**800001/myorigin/myfolder/index.htm**
+       For example: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Origin**: Indicates that the URL comparison point begins after the content access point (for example, /000001 or /800001/myorigin). Because the \*.azureedge.net CNAME is created relative to the origin directory on the Verizon CDN hostname by default, Azure CDN users should use the **Origin** value. 
 
        For example: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     This URL points to the following Verizon CDN hostname: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/**myfolder/index.htm**
+     This URL points to the following Verizon CDN hostname: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
 
 - An edge CNAME URL is rewritten to a CDN URL prior to a URL comparison.
 
-   For example, both of the following URLs point to the same asset and therefore have the same URL path:
-    - CDN URL: http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    For example, both of the following URLs point to the same asset and therefore have the same URL path:
+    - CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
     - Edge CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   Additional information:
+    
+    Additional information:
     
     - URL path (relative to root): /800001/CustomerOrigin/path/asset.htm
    
@@ -660,7 +660,7 @@ Key information:
 
 - Query strings in the URL are ignored.
 - Use the **Ignore Case** option to control whether a case-sensitive comparison is performed.
-- The value specified for this match condition will be compared against the relative path of the exact request made by the client.
+- The value specified for this match condition is compared against the relative path of the exact request made by the client.
 
 - To match all requests made to a particular directory, use the [URL Path Directory](#url-path-directory) or the [URL Path Wildcard](#url-path-wildcard) match condition.
 
@@ -679,13 +679,13 @@ The **Matches**/**Does Not Match** option determines the conditions under which 
 Key information:
 - An edge CNAME URL is rewritten to a CDN URL prior to URL comparison. 
  
-   For example, both URLs point to the same asset and therefore have the same URL path.
+    For example, both URLs point to the same asset and therefore have the same URL path.
 
-     - CDN URL: http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
 
      - Edge CNAME URL: http:\//my.domain.com/path/asset.htm
-
-   Additional information:
+    
+    Additional information:
     
      - URL path: /800001/CustomerOrigin/path/asset.htm
 
@@ -713,21 +713,21 @@ Key information:
    This option can have the following values:
      - **Root**: Indicates that the URL comparison point begins directly after the CDN hostname.
 
-       For example: http:\//wpc.0001.&lt;Domain&gt;/**800001/myorigin/myfolder/index.htm**
+       For example: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Origin**: Indicates that the URL comparison point begins after the content access point (for example, /000001 or /800001/myorigin). Because the \*.azureedge.net CNAME is created relative to the origin directory on the Verizon CDN hostname by default, Azure CDN users should use the **Origin** value. 
 
        For example: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     This URL points to the following Verizon CDN hostname: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/**myfolder/index.htm**
+     This URL points to the following Verizon CDN hostname: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
 
 - An edge CNAME URL is rewritten to a CDN URL prior to URL comparison.
 
-   For example, both of the following URLs point to the same asset and therefore have the same URL path:
-     - CDN URL: http://wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    For example, both of the following URLs point to the same asset and therefore have the same URL path:
+     - CDN URL: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
      - Edge CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   Additional information:
+    
+    Additional information:
     
      - URL path (relative to root): /800001/CustomerOrigin/path/asset.htm
     
@@ -755,7 +755,7 @@ Value                   | Relative to    | Result
 /80ABCD/origin/text/*   | Root           | This pattern is matched when the requested asset meets the following criteria: <br />- It must reside on a customer origin called "origin." <br />- The relative path must start with a folder called "text." That is, the requested asset can either reside in the "text" folder or one of its recursive subfolders.
 */css/* */js/*          | Root or Origin | This pattern is matched by all CDN or edge CNAME URLs that contain a css or js folder.
 *.jpg *.gif *.png       | Root or Origin | This pattern is matched by all CDN or edge CNAME URLs ending with .jpg, .gif, or .png. An alternative way to specify this pattern is with the [URL Path Extension match condition](#url-path-extension).
-/images/* /media/*      | Origin         | This pattern is matched by CDN or edge CNAME URLs whose relative path starts with an "images" or "media" folder. <br />- CDN URL: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- Sample edge CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
+/images/* /media/*      | Origin         | This pattern is matched by CDN or edge CNAME URLs whose relative path starts with an "images" or "media" folder. <br />- CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- Sample edge CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -865,11 +865,11 @@ Key information:
 #### Sample scenarios
 The following example demonstrates how this option works in specific situations:
 
-Name      | Value |  Result
-----------|-------|--------
-User      | Joe   | This pattern is matched when the query string for a requested URL is "?user=joe."
-User      | *     | This pattern is matched when the query string for a requested URL contains a User parameter.
-Email Joe | *     | This pattern is matched when the query string for a requested URL contains an Email parameter that starts with "Joe."
+Name  | Value |  Result
+------|-------|--------
+User  | Joe   | This pattern is matched when the query string for a requested URL is "?user=joe."
+User  | *     | This pattern is matched when the query string for a requested URL contains a User parameter.
+Email | Joe\* | This pattern is matched when the query string for a requested URL contains an Email parameter that starts with "Joe."
 
 [Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -906,7 +906,7 @@ Key information:
    Value | Interpreted As 
    ------|---------------
    \\+    | +
-   \\\+   | \\+
+   \\\\+   | \\+
 
 - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
    - Complete Cache Fill

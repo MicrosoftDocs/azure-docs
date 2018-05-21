@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Troubleshooting guide for Analytics, Monitoring, Segmentation, and Dashboard issues
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 The following are possible issues you may encounter with how Azure Mobile Engagement gathers information about your applications, devices, and users.
 
 ## Missing/Delayed information

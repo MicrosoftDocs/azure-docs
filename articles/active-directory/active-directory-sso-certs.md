@@ -7,8 +7,8 @@ author: jeevansd
 manager: mtillman
 editor: ''
 
-ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -73,5 +73,5 @@ The following renewal steps should result in no significant downtime for your us
 ## Related articles
 * [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Article index for application management in Azure Active Directory](active-directory-apps-index.md)
-* [Application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Troubleshooting SAML-based single sign-on](active-directory-saml-debugging.md)

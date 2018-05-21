@@ -3,8 +3,8 @@ title: Add users for Azure Stack ADFS | Microsoft Docs
 description: Learn how to add users for ADFS deployments of Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: HeathL17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.service: azure-stack
@@ -12,8 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
 
 ---
 # Add users in the Azure Stack Development Kit

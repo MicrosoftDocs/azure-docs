@@ -4,7 +4,7 @@ description: Learn how you can use the Execute Pipeline Activity to invoke one D
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory

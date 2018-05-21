@@ -3,7 +3,7 @@ title: Import Cassandra data into Azure Cosmos DB | Microsoft Docs
 description: Learn how to use the CQL Copy command to copy Cassandra data into Azure Cosmos DB.
 services: cosmos-db
 author: govindk
-manager: jhubbard
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: eced5f6a-3f56-417a-b544-18cf000af33a

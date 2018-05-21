@@ -5,7 +5,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: v-gedod
@@ -14,7 +14,7 @@ ms.author: v-gedod
 # Video Search endpoints
 The **Video Search API**  includes three endpoints.  Endpoint 1 returns videos from the Web based on a query. Endpoint 2 returns insights about a video based on the `modules` URL parameter.  Endpoint 3 returns trending images.
 
-##Endpoints
+## Endpoints
 To get video results using the Bing API, send a `GET` request to one of the following endpoints. Use the headers and URL parameters to define further specifications.
 
 **Endpoint1:** Returns videos that are relevant to the user's search query defined by `?q=""`.
@@ -33,10 +33,10 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending
 ```
 
 For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Video Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) reference.
-##Response JSON
+## Response JSON
 The response to a videos search request includes results as JSON objects. For examples of parsing the results see the [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-video-search/tutorial-bing-video-search-single-page-app) and [source code](https://docs.microsoft.com/azure/cognitive-services/bing-video-search/tutorial-bing-video-search-single-page-app-source).
 
-##Next steps
+## Next steps
 The **Bing** APIs support search actions that return results according to their type. All search endpoints return results as JSON response objects.  All endpoints support queries that return a specific language and/or location by longitude, latitude, and search radius.
 
 For complete information about the parameters supported by each endpoint, see the reference pages for each type.

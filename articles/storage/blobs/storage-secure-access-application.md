@@ -2,18 +2,13 @@
 title: Secure access to an application's data in the cloud with Azure Storage | Microsoft Docs 
 description: Use SAS tokens, encryption and HTTPS to secure your application's data in the cloud
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: ''
+author: tamram
+manager: jeconnoc
 
 ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 03/06/2018
+ms.author: tamram
 ms.custom: mvc
 ---
 
@@ -36,7 +31,7 @@ To complete this tutorial you must have completed the previous Storage tutorial:
 
 ## Set container public access
 
-In this part of the tutorial series, SAS tokens are used for accessing the thumbnails. In this step, you set the public access of the _thumbs_ container to `off`.
+In this part of the tutorial series, SAS tokens are used for accessing the thumbnails. In this step, you set the public access of the _thumbnails_ container to `off`.
 
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -44,13 +39,13 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbs  \
+az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
 --public-access off
 ``` 
 
 ## Configure SAS tokens for thumbnails
 
-In part one of this tutorial series, the web application was showing images from a public container. In this part of the series, you use [Secure Access Signature (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) tokens to retrieve the thumbnail images. SAS tokens allow you to provide restricted access to a container or blob based on IP, protocol, time interval, or rights allowed.
+In part one of this tutorial series, the web application was showing images from a public container. In this part of the series, you use [Shared Access Signature (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) tokens to retrieve the thumbnail images. SAS tokens allow you to provide restricted access to a container or blob based on IP, protocol, time interval, or rights allowed.
 
 In this example, the source code repository uses the `sasTokens` branch, which has an updated code sample. Delete the existing GitHub deployment with the [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Next, configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) command.  
 
@@ -147,47 +142,7 @@ The following classes, properties, and methods are used in the preceding task:
 
 [Azure Storage Service Encryption (SSE)](../common/storage-service-encryption.md) helps you protect and safeguard your data. SSE encrypts data at rest, handling encryption, decryption, and key management. All data is encrypted using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
 
-In the following sample you enable encryption for blobs. Existing blobs created prior to enabling encryption are not encrypted. The `x-ms-server-encrypted` header on a request for a blob shows the encryption status of the blob.
-
-```azurecli-interactive
-az storage account update --encryption-services blob --name <storage-account-name> --resource-group myResourceGroup
-```
-
-Upload a new image to the web application now that encryption is enabled.
-
-Using `curl` with the switch `-I` to retrieve only the headers, substitute your own values for `<storage-account-name>`, `<container>`, and `<blob-name>`.  
-
-```azurecli-interactive
-sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <blob-name> \
-    --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
-
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<blob-name>?$sasToken -I
-```
-
-In the response, note the `x-ms-server-encrypted` header shows `true`. This header identifies that the data is now encrypted with SSE.
-
-```
-HTTP/1.1 200 OK
-Content-Length: 209489
-Content-Type: image/png
-Last-Modified: Mon, 11 Sep 2017 19:27:42 GMT
-Accept-Ranges: bytes
-ETag: "0x8D4F94B2BE76D45"
-Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
-x-ms-request-id: 57047db3-001e-0050-3e34-2ba769000000
-x-ms-version: 2017-04-17
-x-ms-lease-status: unlocked
-x-ms-lease-state: available
-x-ms-blob-type: BlockBlob
-x-ms-server-encrypted: true
-Date: Mon, 11 Sep 2017 19:27:46 GMT
-```
+SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). 
 
 ## Enable HTTPS only
 

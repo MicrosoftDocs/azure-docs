@@ -1,12 +1,12 @@
 ---
 title: News Search SDK Node quickstart | Microsoft Docs
 description: Set up the News Search SDK console application
-titleSuffix: Azure cognitive services News search SDK Node quickstart
+titleSuffix: Azure cognitive services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-news-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-gedod
@@ -15,6 +15,9 @@ ms.author: v-gedod
 # News Search SDK Node quickstart
 
 The Bing News Search SDK contains the functionality of the REST API for news queries and parsing results. 
+
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending. 
 
 ## Application dependencies
 
@@ -38,12 +41,17 @@ client.newsOperations.search('Winter Olympics').then((result) => {
 }).catch((err) => {
     throw err;
 });
-});
 
 ```
-The code prints `result.value` items to the console without parsing any text.
+The code prints `result.value` items to the console without parsing any text. The results, if any per category, will include:
+- _type: 'NewsArticle'
+- _type: 'WebPage'
+- _type: 'VideoObject'
+- _type: 'ImageObject'
 
+<!-- Remove until we can replace with santized version
 ![News results](media/node-sdk-quickstart-results.png)
+-->
 
 ## Next steps
 

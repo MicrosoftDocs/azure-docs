@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Cloud Shell limitations | Microsoft Docs
 description: Overview of limitations of Azure Cloud Shell
 services: azure
@@ -51,11 +51,11 @@ Cloud Shell is intended for interactive use cases. As a result, any long-running
 
 ### User permissions
 
-Permissions are set as regular users without sudo access. Any installation outside your `$Home` or `clouddrive` directory is not persisted.
+Permissions are set as regular users without sudo access. Any installation outside your `$Home` directory is not persisted.
 
 ### Editing .bashrc
 
-Take caution when editing .bashrc, doing so can cause unexpected errors with Bash in Cloud Shell.
+Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud Shell.
 
 ## PowerShell limitations
 
@@ -65,7 +65,7 @@ PowerShell in Azure Cloud Shell (Preview) could take up to 60 seconds to initial
 
 ### No $Home directory persistence
 
-Data written to `$Home` by any application (such as: git, vim, and others) does not persist across PowerShell sessions. For a workaround, [see here](troubleshooting.md#powershell-resolutions).
+Data written to `$Home` by any application (such as: git, vim, and others) does not persist across PowerShell sessions. For a workaround, [see here](troubleshooting.md#powershell-troubleshooting).
 
 ### Default file location when created from Azure drive:
 
@@ -73,7 +73,7 @@ Using PowerShell cmdlets, users can not create files under the Azure drive. When
 
 ### GUI applications are not supported
 
-If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Login-AzureRMAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Connect-AzureRmAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ## Next steps
 

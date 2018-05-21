@@ -4,8 +4,9 @@ description: Outlines design principles underlying support for Python scripts in
 keywords: python machine learning,pandas,python pandas,python scripts, execute python scripts
 services: machine-learning
 documentationcenter: ''
-author: bradsev
-manager: cgronlun
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
 
 ---
 # Execute Python machine learning scripts in Azure Machine Learning Studio

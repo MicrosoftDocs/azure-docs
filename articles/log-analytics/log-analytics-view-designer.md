@@ -25,8 +25,6 @@ For more information about View Designer, see:
 * [Tile reference](log-analytics-view-designer-tiles.md): Provides a reference guide to the settings for each of the available tiles in your custom views.
 * [Visualization part reference](log-analytics-view-designer-parts.md): Provides a reference guide to the settings for the visualization parts that are available in your custom views.
 
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), queries in all views must be written in the [new query language](https://go.microsoft.com/fwlink/?linkid=856078). Any views that were created before the workspace was upgraded are automatically converted.
 
 ## Concepts
 Views are displayed on the **Overview** page of your Log Analytics workspace in the Azure portal. The tiles in each custom view are displayed alphabetically, and the tiles for the solutions are installed the same workspace.

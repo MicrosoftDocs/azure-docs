@@ -1,32 +1,40 @@
 ---
-title: Call a Language Understanding Intelligent Services (LUIS) app using Node.js | Microsoft Docs 
-description: Learn to call a LUIS app using Node.js. 
+title: Call a Language Understanding Intelligent Services (LUIS) app using Node.js | Microsoft Docs
+description: Learn to call a LUIS app using Node.js in this quickstart.
 services: cognitive-services
-author: DeniseMak
-manager: rstand
-
+author: v-geberr
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
+ms.component: language-understanding
+ms.topic: quickstart
 ms.date: 12/13/2017
-ms.author: v-demak
+ms.author: v-geberr
+#Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Node.js. 
 ---
 
-# Call a LUIS app using Node.js
+# Quickstart: Call a LUIS endpoint using Node.js
 Pass utterances to a LUIS endpoint and get intent and entities back.
 
-## Before you begin
-You need a Cognitive Services API key to make calls to the sample LUIS app we use in this walkthrough. 
-To get an API key follow these steps: 
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
-  1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  2. Log in to the Azure portal at https://portal.azure.com. 
-  3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
-  4. Go back to the [LUIS](luis-reference-regions.md) website and log in using your Azure account. 
+## Before you begin
+You need a Cognitive Services API key to make calls to the sample LUIS app used in this walkthrough. 
+
+To get an API key, follow these steps: 
+
+1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+2. Log in to the Azure portal at https://portal.azure.com. 
+
+3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
+
+4. Go back to the [LUIS](luis-reference-regions.md) website and log in using your Azure account. 
+
+    [![](media/luis-get-started-node-get-intent/app-list.png "Screenshot of app list")](media/luis-get-started-node-get-intent/app-list.png)
 
 ## Understand what LUIS returns
 
-To understand what a LUIS app returns, you can paste the URL of a sample LUIS app into a browser window. The sample app you'll use is an IoT app that detects whether the user wants to turn on or turn off lights.
+To understand what a LUIS app returns, you can paste the URL of a sample LUIS app into a browser window. The sample app is an IoT app that detects whether the user wants to turn on or turn off lights.
 
 1. The endpoint of the sample app is in this format: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Copy the URL and substitute your subscription key for the value of the `subscription-key` field.
 2. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent and the `HomeAutomation.Room` entity with the value `bedroom`.
@@ -57,3 +65,5 @@ You can use Node.js to access the same results you saw in the browser window in 
 ## Next steps
 > [!div class="nextstepaction"]
 > [Add utterances](luis-quickstart-node-add-utterance.md)
+
+[LUIS]: luis-reference-regions.md#luis-website

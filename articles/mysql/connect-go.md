@@ -1,5 +1,5 @@
 ---
-title: 'Connect to Azure Database for MySQL using Go | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL using Go'
 description: This quickstart provides several Go code samples you can use to connect and query data from Azure Database for MySQL.
 services: mysql
 author: jasonwhowell
@@ -10,7 +10,7 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/24/2018
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use Go language to connect and query data

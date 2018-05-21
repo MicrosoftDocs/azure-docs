@@ -1,44 +1,43 @@
 ---
-title: Limitations in Azure Database for MySQL  | Microsoft Docs
-description: Describes preview limitations in Azure Database for MySQL.
+title: Limitations in Azure Database for MySQL
+description: This article describes limitations in Azure Database for MySQL, such as number of connection and storage engine options.
 services: mysql
-author: jasonh
-ms.author: kamathsun
+author: kamathsun
+ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/20/2018
 ---
 # Limitations in Azure Database for MySQL
-The Azure Database for MySQL service is in public preview. The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
+The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
 
 ## Service tier maximums
-Azure Database for MySQL has multiple service tiers to choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-pricing-tiers.md).  
+Azure Database for MySQL has multiple service tiers to choose from when creating a server. For more information, see [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md).  
 
-There is a maximum number of connections, Compute Units, and storage in each service tier during preview, as follows: 
+There is a maximum number of connections, Compute Units, and storage in each service tier, as follows: 
 
 |**Pricing Tier**| **Compute Generation**|**vCore(s)**| **Max Connections**|
 |---|---|---|---|
-|Basic| Gen 4| 1| 200|
+|Basic| Gen 4| 1| 50|
 |Basic| Gen 4| 2| 100|
 |Basic| Gen 5| 1| 50|
 |Basic| Gen 5| 2| 100|
-|General Purpose| Gen 4| 2| 200|
-|General Purpose| Gen 4| 4| 400|
-|General Purpose| Gen 4| 8| 800|
-|General Purpose| Gen 4| 16| 1600|
-|General Purpose| Gen 4| 32| 3200|
-|General Purpose| Gen 5| 2| 200|
-|General Purpose| Gen 5| 4| 400|
-|General Purpose| Gen 5| 8| 800|
-|General Purpose| Gen 5| 16| 1600|
-|General Purpose| Gen 5| 32| 3200|
+|General Purpose| Gen 4| 2| 300|
+|General Purpose| Gen 4| 4| 625|
+|General Purpose| Gen 4| 8| 1250|
+|General Purpose| Gen 4| 16| 2500|
+|General Purpose| Gen 4| 32| 5000|
+|General Purpose| Gen 5| 2| 300|
+|General Purpose| Gen 5| 4| 625|
+|General Purpose| Gen 5| 8| 1250|
+|General Purpose| Gen 5| 16| 2500|
+|General Purpose| Gen 5| 32| 5000|
 |Memory Optimized| Gen 5| 2| 600|
 |Memory Optimized| Gen 5| 4| 1250|
 |Memory Optimized| Gen 5| 8| 2500|
 |Memory Optimized| Gen 5| 16| 5000|
-|Memory Optimized| Gen 5| 32| 10000| 
 
 When too many connections are reached, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
@@ -59,7 +58,7 @@ When too many connections are reached, you may receive the following error:
 
 ### Unsupported
 - DBA role: 
-Many sever parameters and settings can inadvertently degrade server performance or negate ACID properties of the DBMS. As such, to maintain our service integrity and SLA at a product level we do not expose the DBA role to customers. The default user account, which is constructed when a new database instance is created, allows customers to perform most of DDL and DML statements in the managed database instance. 
+Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the DBMS. As such, to maintain the service integrity and SLA at a product level, this service does not expose the DBA role. The default user account, which is constructed when a new database instance is created, allows that user to perform most of DDL and DML statements in the managed database instance. 
 - SUPER privilege: 
 Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is also restricted.
 
@@ -71,7 +70,7 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 ### Unsupported
 - SELECT ... INTO OUTFILE
 
-## Preview functional limitations
+## Functional limitations
 
 ### Scale operations
 - Dynamic scaling of servers across pricing tiers is currently not supported. That is, switching between Basic, General Purpose, and Memory Optimized pricing tiers.

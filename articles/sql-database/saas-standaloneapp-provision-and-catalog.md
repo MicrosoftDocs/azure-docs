@@ -3,16 +3,10 @@ title: Multi-tenant SaaS tutorial - Azure SQL Database | Microsoft Docs
 description: "Provision and catalog new tenants using the standalone application pattern"
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: craigg
-editor: ''
-ms.assetid:
 ms.service: sql-database
 ms.custom: SaaS
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
@@ -25,8 +19,8 @@ This article has two major parts:
 * A tutorial that highlights sample PowerShell code that accomplishes the provisioning and cataloging
     * The tutorial uses the Wingtip Tickets sample SaaS application, adapted to the standalone app per tenant pattern.
 
-## Application per tenant pattern
-The standalone app per tenant pattern is one of several patterns for multi-tenant SaaS applications.  In this pattern, a standalone app is provisioned for each tenant. The application comprises application level components and a SQL database.  Each tenant app can be deployed in the vendor’s subscription.  Alternatively, Azure offers a [managed applications program](https://docs.microsoft.com/en-us/azure/managed-applications/overview) in which an app can be deployed in a tenant’s subscription and managed by the vendor on the tenant’s behalf. 
+## Standalone application per tenant pattern
+The standalone app per tenant pattern is one of several patterns for multi-tenant SaaS applications.  In this pattern, a standalone app is provisioned for each tenant. The application comprises application level components and a SQL database.  Each tenant app can be deployed in the vendor’s subscription.  Alternatively, Azure offers a [managed applications program](https://docs.microsoft.com/azure/managed-applications/overview) in which an app can be deployed in a tenant’s subscription and managed by the vendor on the tenant’s behalf. 
 
    ![app-per-tenant pattern](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -40,7 +34,7 @@ While each tenant’s app and database are fully isolated, various management an
 The tenant catalog holds a mapping between a tenant identifier and a tenant database, allowing an identifier to be resolved to a server and database name.  In the Wingtip SaaS app, the tenant identifier is computed as a hash of the tenant name, although other schemes could be used.  While standalone applications don't need the catalog to manage connections, the catalog can be used to scope other actions to a set of tenant databases. For example, Elastic Query can use the catalog to determine the set of databases across which queries are distributed for cross-tenant reporting.
 
 ## Elastic Database Client Library
-In the Wingtip sample application, the catalog is implemented by the shard management features of the [Elastic Database Client Library](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  The library enables an application to create, manage, and use a shard map that is stored in a database. In the Wingtip Tickets sample, the catalog is stored in the *tenant catalog* database.  The shard maps a tenant key to the shard (database) in which that tenant’s data is stored.  EDCL functions manage a *global shard map* stored in tables in the *tenant catalog* database and a *local shard map* stored in each shard.
+In the Wingtip sample application, the catalog is implemented by the shard management features of the [Elastic Database Client Library](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  The library enables an application to create, manage, and use a shard map that is stored in a database. In the Wingtip Tickets sample, the catalog is stored in the *tenant catalog* database.  The shard maps a tenant key to the shard (database) in which that tenant’s data is stored.  EDCL functions manage a *global shard map* stored in tables in the *tenant catalog* database and a *local shard map* stored in each shard.
 
 EDCL functions can be called from applications or PowerShell scripts to create and manage the entries in the shard map. Other EDCL functions can be used to retrieve the set of shards or connect to the correct database for given tenant key. 
     
@@ -54,7 +48,7 @@ Each tenant requires a new Azure resource group, which must be created before re
 
 In this tutorial you learn how to:
 * Provision a catalog
-* Register the tenant databases deployed earlier in the catalog
+* Register the sample tenant databases that you deployed earlier in the catalog
 * Provision an additional tenant and register it in the catalog
 
 An Azure Resource Manager template is used to deploy and configure the application, create the tenant database, and then import a bacpac file to initialize it. The import request may be queued for several minutes before it is actioned.
@@ -64,7 +58,7 @@ At the end of this tutorial, you have a set of standalone tenant applications, w
 ## Prerequisites
 To complete this tutorial, make sure the following prerequisites are completed: 
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* The three sample tenant apps are deployed. To deploy these apps in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Standalone Application pattern](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy).
+* The three sample tenant apps are deployed. To deploy these apps in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Standalone Application pattern](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy).
 
 ## Provision the catalog
 In this task, you learn how to provision the catalog used to register all the tenant databases. You will: 
@@ -143,3 +137,5 @@ In this tutorial you learned:
 > * How to deploy the Wingtip Tickets SaaS Standalone Application.
 > * About the servers and databases that make up the app.
 > * How to delete sample resources to stop related billing.
+
+You can explore how the catalog is used to support various cross-tenant scenarios using the database-per-tenant version of the [Wingtip Tickets SaaS application](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

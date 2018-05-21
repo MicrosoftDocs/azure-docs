@@ -1,14 +1,14 @@
 ---
-title: Create and manage Azure Database for MySQL server using Azure portal | Microsoft Docs
+title: Create and manage Azure Database for MySQL server using Azure portal
 description: This article describes how you can quickly create a new Azure Database for MySQL server and manage the server using the Azure Portal.
 services: mysql
-author: v-chenyh
-ms.author: nolanwu
+author: ajlam
+ms.author: andrela
 editor: jasonwhowell
 manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 02/28/2018
 ---
 
 # Create and manage Azure Database for MySQL server using Azure portal
@@ -20,7 +20,7 @@ Log in to the [Azure portal](https://portal.azure.com).
 ## Create an Azure Database for MySQL server
 Follow these steps to create an Azure Database for MySQL server named “mydemoserver.”
 
-1. Click the **New** button located in the upper left-hand corner of the Azure portal.
+1. Click the **Create a resource** button located in the upper left-hand corner of the Azure portal.
 
 2. On the New page, select **Databases**, and then on Databases page, select **Azure Database for MySQL**.
 

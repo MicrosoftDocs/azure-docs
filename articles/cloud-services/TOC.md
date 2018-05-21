@@ -1,3 +1,5 @@
+# [Cloud Services Documentation](index.md)
+
 # Overview
 ## [What is Cloud Services?](cloud-services-choose-me.md)
 ## [Cloud service config files and packaging](cloud-services-model-and-package.md)
@@ -24,7 +26,6 @@
 ### [Handle Cloud Service lifecycle events](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Use Twilio to make a phone call (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Configure start up tasks
 #### [Create startup tasks](cloud-services-startup-tasks.md)
@@ -34,6 +35,7 @@
 ### Configure Remote Desktop
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Deploy
 ### [Create and deploy a cloud service in portal](cloud-services-how-to-create-deploy-portal.md)
@@ -69,7 +71,7 @@
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
+### [Store and view diagnostic data in Azure Storage](../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=%2fazure%2fcloud-services%2ftoc.json )
 ### [Trace Cloud Service with Diagnostics](cloud-services-dotnet-diagnostics-trace-flow.md)
 
 ## Troubleshoot
@@ -90,7 +92,7 @@
 #### [Deployment FAQ](cloud-services-deployment-faq.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=cloud-services)
 ## [.csdef XML Schema](schema-csdef-file.md)
 ### [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md)
 ### [WebRole Schema](schema-csdef-webrole.md)

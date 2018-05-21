@@ -2,10 +2,11 @@
 title: Azure Stack datacenter integration - Identity
 description: Learn how to integrate Azure Stack AD FS with your datacenter AD FS
 services: azure-stack
-author: mattbriggs
+author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -55,6 +56,8 @@ Requirements:
 
 ## Setting up Graph integration
 
+Graph only supports integration with a single Active Directory forest. If multiple forests exist, only the forest specified in the configuration will be used to fetch users and groups.
+
 The following information is required as inputs for the automation parameters:
 
 
@@ -90,12 +93,14 @@ For this procedure, use a computer in your datacenter network that can communica
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   When prompted, specify the credential for the user account that you want to use for the Graph service (such as graphservice).
+   When prompted, specify the credential for the user account that you want to use for the Graph service (such as graphservice). The input for the Register-DirectoryService cmdlet must be the forest name / root domain in the forest rather than any other domain in the forest.
 
    > [!IMPORTANT]
    > Wait for the credentials pop-up (Get-Credential is not supported in the privileged endpoint) and enter the Graph Service Account credentials.
 
 #### Graph protocols and ports
+
+Graph service in Azure Stack uses the following protocols and ports to communicate with a writeable Global Catalog Server (GC) and Key Distribution Center (KDC) that can process login requests in the target Active Directory forest.
 
 Graph service in Azure Stack uses the following protocols and ports to communicate with the target Active Directory:
 
@@ -258,6 +263,9 @@ If you decide to manually run the commands, follow these steps:
 
 4. When you use Internet Explorer or the Edge browser to access Azure Stack, you must ignore token bindings. Otherwise, the sign-in attempts fail. On your AD FS instance or a farm member, run the following command:
 
+   > [!note]  
+   > This step is not applicable when using Windows Server 2012 or 2012 R2 AD FS. It is safe to skip this command and continue with the integration.
+
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
@@ -277,6 +285,9 @@ There are many scenarios that require the use of a service principal name (SPN) 
 - Resource providers in Azure Stack when deployed with AD FS
 - Various applications
 - You require a non-interactive logon
+
+> [!Important]  
+> AD FS only supports interactive logon sessions. If you require a non-interactive logon for an automated scenario, you must use a SPN.
 
 For more information about creating an SPN, see [Create service principal for AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
@@ -329,4 +340,4 @@ If any of the cmdlets fail, you can collect additional logs by using the `Get-Az
 
 ## Next steps
 
-[Register Azure Stack](azure-stack-registration.md)
+[Integrate external monitoring solutions](azure-stack-integrate-monitor.md)

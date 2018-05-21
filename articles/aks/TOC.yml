@@ -1,4 +1,4 @@
-- name: Azure Container Service (AKS)
+- name: Azure Kubernetes Service (AKS)
   href: ./index.yml
 - name: Overview
   items:
@@ -25,9 +25,7 @@
     href: tutorial-kubernetes-scale.md
   - name: 6 - Update application
     href: tutorial-kubernetes-app-update.md
-  - name: 7 - Monitor with Log Analytics
-    href: tutorial-kubernetes-monitor.md
-  - name: 8 - Upgrade cluster
+  - name: 7 - Upgrade cluster
     href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concepts
   items:
@@ -47,14 +45,26 @@
       href: delete-cluster.md
   - name: Configure data volumes
     items:
-    - name: Azure Disks
+    - name: Azure Disk - Dynamic
       href: azure-disks-dynamic-pv.md
-    - name: Azure Files
+    - name: Azure Disk - Static
+      href: azure-disk-volume.md
+    - name: Azure Files - Dynamic
       href: azure-files-dynamic-pv.md
+    - name: Azure Files - Static
+      href: azure-files-volume.md
   - name: Configure networking
     items:
+    - name: Networking overview
+      href: networking-overview.md
     - name: Static IP address
       href: static-ip.md
+    - name: Internal load balancer
+      href: internal-lb.md
+    - name: Ingress and TLS
+      href: ingress.md
+    - name: HTTP application routing
+      href: http-application-routing.md
   - name: Security and authentication
     items:
     - name: Create service principal
@@ -71,10 +81,22 @@
       href: integrate-azure.md
     - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
+    - name: Using OpenFaaS with AKS
+      href: openfaas.md
+    - name: Run Spark jobs on AKS
+      href: spark-job.md
+    - name: Using GPUs on AKS
+      href: gpu-cluster.md
   - name: Kubernetes basics
     items:
     - name: Use Kubernetes dashboard
       href: kubernetes-dashboard.md
+  - name: Troubleshoot
+    items:
+    - name: SSH node access
+      href: aks-ssh.md
+    - name: Get kubelet logs
+      href: kubelet-logs.md
 - name: Reference
   items:
   - name: Azure CLI

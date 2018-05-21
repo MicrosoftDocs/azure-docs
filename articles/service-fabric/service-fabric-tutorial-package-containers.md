@@ -1,6 +1,6 @@
 ---
 title: Package and deploy a Service Fabric containers application | Microsoft Docs
-description: Learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
+description: In this tutorial, you learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -19,7 +19,7 @@ ms.author: suhuruli
 ms.custom: mvc
 ---
 
-# Package and deploy containers as a Service Fabric application
+# Tutorial: package and deploy containers as a Service Fabric application
 
 This tutorial is part two in a series. In this tutorial, a template generator tool (Yeoman) is used to generate a Service Fabric application definition. This application can then be used to deploy containers to Service Fabric. In this tutorial you learn how to: 
 
@@ -42,7 +42,8 @@ Service fabric provides scaffolding tools to help create applications from termi
 1. Install nodejs and NPM on your machine. Note that, Mac OSX users will have to use the package manager Homebrew
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. Install Yeoman template generator on your machine from NPM 
 

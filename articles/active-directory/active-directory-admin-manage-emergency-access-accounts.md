@@ -3,7 +3,6 @@
 title: Manage emergency-access administrative accounts in Azure AD | Microsoft Docs
 description: This article describes how to use emergency access accounts to help organizations restrict privileged access within an existing Azure Active Directory environment. 
 services: active-directory 
-keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: markwahl-msft
 ms.author: billmath
 ms.date: 12/13/2017

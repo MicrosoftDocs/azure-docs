@@ -5,14 +5,14 @@ metadata:
   title: Azure Machine Learning Studio Documentation
   description: Learn how to use Azure Machine Learning Studio.
   services: machine-learning
-  author: carolz
-  manager: carolz
+  author: j-martens
+  manager: cgronlun
   ms.service: machine-learning
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/18/2018
-  ms.author: carolz
+  ms.author: jmartens
 abstract:
   description: 'Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.'
 sections:
@@ -48,10 +48,10 @@ sections:
     className: cardsFTitle
     items:
     - title: Azure Machine Learning services (preview)
-      href: /azure/machine-learning/preview/
+      href: /azure/machine-learning/service/
       image: 
         src: media/index/i_machine-learning.svg
-        href: /azure/machine-learning/preview/
+        href: /azure/machine-learning/service/
     - title: Data Science Virtual Machine
       href: /azure/machine-learning/data-science-virtual-machine/
       image: 

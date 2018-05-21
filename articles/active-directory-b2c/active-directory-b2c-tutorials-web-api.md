@@ -1,18 +1,19 @@
 ---
-title: Use Azure Active Directory B2C to protect an ASP.NET Web API tutorial
+title: Tutorial - Grant access to an ASP.NET web API from a web app using Azure Active Directory B2C | Microsoft Docs
 description: Tutorial on how to use Active Directory B2C to protect an ASP.NET web api and call it from an ASP.NET web app.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
+manager: mtillman
+editor: ''
 
-ms.author: patricka
-ms.reviewer: saraford
-ms.date: 1/23/2018
+ms.author: davidmu
+ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
-# Tutorial: Use Azure Active Directory B2C to protect an ASP.NET web API
+# Tutorial: Grant access to an ASP.NET web API from a web app using Azure Active Directory B2C
 
 This tutorial shows you how to call an Azure Active Directory (Azure AD) B2C protected web API resource from an ASP.NET web app.
 
@@ -41,7 +42,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
 
 1. Select **Azure AD B2C** from the services list in the Azure portal.
 
-2. In the B2C settings, click **Applications** and then click **+ Add**.
+2. In the B2C settings, click **Applications** and then click **Add**.
 
     To register the sample web API in your tenant, use the following settings.
     
@@ -85,11 +86,13 @@ To configure scopes for the API, add the following entries.
 | **Scope** | Hello.Read | Read access to hello |
 | **Scope** | Hello.Write | Write access to hello |
 
+Click **Save**.
+
 The published scopes can be used to grant a client app permission to the web API.
 
 ### Grant app permissions to web API
 
-To call a protected web API from an app, you need to grant your app permissions to the API. 
+To call a protected web API from an app, you need to grant your app permissions to the API. In this tutorial, use the web app created in [Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App tutorial](active-directory-b2c-tutorials-web-app.md). 
 
 1. In the Azure portal, select **Azure AD B2C** from the services list and click **Applications** to view the registered app list.
 
@@ -105,7 +108,7 @@ To call a protected web API from an app, you need to grant your app permissions 
 
 Your **My Sample Web App** is registered to call the protected **My Sample Web API**. A user [authenticates](../active-directory/develop/active-directory-dev-glossary.md#authentication) with Azure AD B2C to use the web app. The web app obtains an [authorization grant](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
 
-## Update web API code
+## Update code
 
 Now that the web API is registered and you have scopes defined, you need to configure the web API code to use your Azure AD B2C tenant. In this tutorial, you configure a sample web API. 
 
@@ -133,11 +136,11 @@ Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 
 3. Configure the URI of the API. This is the URI the web app uses to make the API request. Also, configure the requested permissions.
 
-```C#
-<add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
-<add key="api:ReadScope" value="Hello.Read" />
-<add key="api:WriteScope" value="Hello.Write" />
-```
+    ```C#
+    <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
+    <add key="api:ReadScope" value="Hello.Read" />
+    <add key="api:WriteScope" value="Hello.Write" />
+    ```
 
 ### Configure the web API
 
@@ -158,7 +161,7 @@ Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 4. Update the policy setting with the name generated when you created your sign up and sign in policy.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
+    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
     ```
 
 5. Configure the scopes setting to match what you created in the portal.
@@ -168,7 +171,7 @@ Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
     <add key="api:WriteScope" value="Hello.Write" />
     ```
 
-## Run the sample web app and web API
+## Run the sample
 
 You need to run both the **TaskWebApp** and **TaskService** projects. 
 

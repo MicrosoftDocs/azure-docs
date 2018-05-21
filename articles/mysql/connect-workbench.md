@@ -1,5 +1,5 @@
 ---
-title: 'Connect to Azure Database for MySQL from MySQL Workbench | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL from MySQL Workbench'
 description: This Quickstart provides the steps to use MySQL Workbench to connect and query data from Azure Database for MySQL.
 services: mysql
 author: jasonwhowell 
@@ -9,7 +9,7 @@ editor: seanli1988
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/22/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use MySQL Workbench to connect and query data

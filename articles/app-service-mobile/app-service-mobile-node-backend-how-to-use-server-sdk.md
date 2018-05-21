@@ -151,7 +151,7 @@ The following procedure uses a Git repository to download the quickstart
 project code:
 
 1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. For operating system-specific distributions and installation guidance, see [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Follow the steps in [Enable the App Service app repository](../app-service/app-service-deploy-local-git.md#Step3) to enable the Git repository for your back-end site. Make a note of the deployment username and password.
+2. See [Prepare your repository](../app-service/app-service-deploy-local-git.md#prepare-your-repository) to enable the Git repository for your back-end site. Make a note of the deployment username and password.
 3. In the pane for your Mobile Apps back end, make a note of the **Git clone URL** setting.
 4. Execute the `git clone` command by using the Git clone URL. Enter your password when required, as in the
    following example:

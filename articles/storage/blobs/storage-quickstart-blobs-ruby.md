@@ -1,19 +1,19 @@
 ---
-title:  Azure Quickstart - Transfer objects to/from Azure Blob storage using Ruby | Microsoft Docs 
-description: Quickly learn to transfer objects to/from Azure Blob storage using Ruby
+title: Azure Quickstart - Create a blob in object storage using Ruby | Microsoft Docs
+description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Ruby to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
 
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 01/18/2018
+ms.date: 04/09/2018
 ms.author: seguler
 ---
 
-#  Transfer objects to/from Azure Blob storage using Ruby
+# Quickstart: Upload, download, and list blobs using Ruby
+
 In this quickstart, you learn how to use Ruby to upload, download, and list block blobs in a container in Azure Blob storage. 
 
 ## Prerequisites
@@ -40,6 +40,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git
 ```
 
 This command clones the repository to your local git folder. To open the Ruby sample application, look for the storage-blobs-ruby-quickstart folder, and open the example.rb file.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## Configure your storage connection string
 In the application, you must provide your storage account name and account key to create the `BlobService` instance for your application. Open the `example.rb` file from the Solution Explorer in your IDE. Replace the **accountname** and **accountkey** values with your account name and key. 
@@ -174,6 +176,12 @@ blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
 File.delete(full_path_to_file2)    
 ```
+## Resources for developing Ruby applications with blobs
+
+See these additional resources for Ruby development with Blob storage:
+
+- View and download the [Ruby client library source code](https://github.com/Azure/azure-storage-ruby) for Azure Storage on GitHub.
+- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=ruby&term=blob) written using the Ruby client library.
 
 ## Next steps
  

@@ -1,5 +1,5 @@
 ---
-title: 'Connect to Azure Database for MySQL from Python | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL from Python'
 description: This quickstart provides several Python code samples you can use to connect and query data from Azure Database for MySQL.
 services: mysql
 author: jasonwhowell
@@ -10,7 +10,7 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/22/2017
+ms.date: 02/28/2018
 ---
 # Azure Database for MySQL: Use Python to connect and query data
 This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for MySQL. It uses SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. This topic assumes that you are familiar with developing using Python and that you are new to working with Azure Database for MySQL.
@@ -32,7 +32,7 @@ Install [Python](https://www.python.org/downloads/) and the [MySQL connector for
 1. In Linux (Ubuntu), Python is typically installed as part of the default installation.
 2. Check the Python installation by launching the bash shell. Run the command `python -V` using the uppercase V switch to see the version number.
 3. Check the PIP installation by running the `pip show pip -V` command to see the version number. 
-4. PIP may be included in some versions of Python. If PIP is not installed, you may install the [PIP] (https://pip.pypa.io/en/stable/installing/) package, by running command `sudo apt-get install python-pip`.
+4. PIP may be included in some versions of Python. If PIP is not installed, you may install the [PIP](https://pip.pypa.io/en/stable/installing/) package, by running command `sudo apt-get install python-pip`.
 5. Update PIP to the latest version, by running the `pip install -U pip` command.
 6. Install the MySQL connector for Python, and its dependencies by using the PIP command:
 

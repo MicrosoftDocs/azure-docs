@@ -4,8 +4,8 @@ description: Learn how to process or transform data by running U-SQL scripts on 
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
