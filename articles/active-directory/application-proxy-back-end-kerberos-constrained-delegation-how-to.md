@@ -42,17 +42,17 @@ Azure AD Application Proxy can be deployed into many types of infrastructures or
 
 For this reason, it's best to make sure you've met all the prerequisites in [Using Kerberos constrained delegation SSO with the Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) before you start troubleshooting. Note the section on configuring Kerberos constrained delegation on 2012R2. This process employs a different approach to configuring KCD on previous versions of Windows. Also, be mindful of these considerations:
 
--   It's not uncommon for a domain member server to open a secure channel dialog with a specific domain controller. Then the server might move to another dialog at any given time. So connector hosts shouldn't be restricted to communication with only specific local site DCs.
+-   It's not uncommon for a domain member server to open a secure channel dialog with a specific domain controller (DC). Then the server might move to another dialog at any given time. So connector hosts aren't restricted to communication with only specific local site DCs.
 
--   As in the preceding point, cross-domain scenarios rely on referrals that direct a connector host to DCs that might reside outside of the local network perimeter. In this scenario, it's equally important to also allow traffic onward to DCs that represent other respective domains. If not, delegation fails.
+-   As in the preceding point, cross-domain scenarios rely on referrals that direct a connector host to DCs that might reside outside of the local network perimeter. In this scenario, it's equally important to also send traffic onward to DCs that represent other respective domains. If not, delegation fails.
 
 -   Where possible, avoid placing any active IPS or IDS devices between connector hosts and DCs. These devices are sometimes overintrusive and interfere with core RPC traffic.
 
 Test delegation in simple scenarios. The more variables you introduce, the more you might have to contend with. To save time, limit your testing to a single connector. Add additional connectors after the issue has been resolved.
 
-Some environmental factors might also contribute to an issue. To avoid these factors, minimize architecture as much as possible during testing. For example, misconfigured internal firewall ACLs are common. If possible, allow all traffic from a connector straight through to the DCs and back-end application.
+Some environmental factors might also contribute to an issue. To avoid these factors, minimize architecture as much as possible during testing. For example, misconfigured internal firewall ACLs are common. If possible, send all traffic from a connector straight through to the DCs and back-end application.
 
-The best place to position connectors is as close as possible to their targets. A firewall that sits inline while testing adds unnecessary complexity and can prolong your investigations.
+The best place to position connectors is as close as possible to their targets. A firewall that sits inline when testing adds unnecessary complexity and can prolong your investigations.
 
 What represents a KCD problem? There are several common indications that KCD SSO is failing. The first signs of an issue usually appear in the browser.
 
@@ -74,13 +74,13 @@ How you troubleshoot depends on the issue and the symptoms you observe. Before g
 
 If you’ve got this far, then the main issue definitely exists. To start, separate the flow into three distinct stages that you can troubleshoot.
 
-**Client preauthentication**. The external user authenticating to Azure via a browser. The ability to preauthenticate to Azure is necessary for KCD SSO to function. Test and address this if there are any issues. The preauthentication stage isn't related to KCD or the published application. It's easy to correct any discrepancies by sanity checking that the subject account exists in Azure. Also check that it's not disabled or blocked. The error response in the browser is usually descriptive enough to explain the cause. If you're uncertain, check other Microsoft troubleshooting articles to verify.
+**Client pre-authentication**. The external user authenticating to Azure via a browser. The ability to pre-authenticate to Azure is necessary for KCD SSO to function. Test and address this if there are any issues. The pre-authentication stage isn't related to KCD or the published application. It's easy to correct any discrepancies by sanity checking that the subject account exists in Azure. Also check that it's not disabled or blocked. The error response in the browser is usually descriptive enough to explain the cause. If you're uncertain, check other Microsoft troubleshooting articles to verify.
 
 **Delegation service**. The Azure Proxy connector that obtains a Kerberos service ticket from a Kerberos Key Distribution Center (KCD) on behalf of users.
 
 The external communications between the client and the Azure front end have no bearing on KCD. These communications only ensure that KCD works. The Azure Proxy service is provided a valid user ID that is used to obtain a Kerberos ticket. Without this ID, KCD isn't possible and fails.
 
-As mentioned previously, the browser error messages usually provide some good clues about why things fail. Make sure to note down the activity ID and timestamp in the response. This information allows you to correlate the behavior to actual events in the Azure Proxy event log.
+As mentioned previously, the browser error messages usually provide some good clues about why things fail. Make sure to note down the activity ID and timestamp in the response. This information helps you correlate the behavior to actual events in the Azure Proxy event log.
 
    ![Incorrect KCD configuration error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
@@ -100,13 +100,13 @@ The corresponding entries seen in the event log show as events 13019 or 12027. F
 
 A network trace that captures the exchanges between the connector host and a domain KDC is the next best step to get more low-level detail on the issues. For more information, see [deep dive Troubleshoot paper](https://aka.ms/proxytshootpaper).
 
-If ticketing looks good, you see an event in the logs stating that authentication failed because the application returned a 401. This usually indicates that the target application rejected your ticket. Proceed with the following next stage:
+If ticketing looks good, you see an event in the logs stating that authentication failed because the application returned a 401. This usually indicates that the target application rejected your ticket. Proceed to the following next step:
 
 **Target application**. The consumer of the Kerberos ticket provided by the connector. At this stage, expect the connector to have sent a Kerberos service ticket to the back end. This ticket is a header in the first application request.
 
--   By using the application’s internal URL defined in the portal, validate that the application is accessible directly from the browser on the connector host. Then you can log in successfully. Details can be found on the connector **Troubleshoot** page.
+-   By using the application’s internal URL defined in the portal, validate that the application is accessible directly from the browser on the connector host. Then you can sign in successfully. Details can be found on the connector **Troubleshoot** page.
 
--   Still on the connector host, confirm that the authentication between the browser and the application is using Kerberos. Take one of the following actions:
+-   Still on the connector host, confirm that the authentication between the browser and the application uses Kerberos. Take one of the following actions:
 
 *  Run DevTools (**F12**) in Internet Explorer, or use [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) from the connector host. Go to the application by using the internal URL. Inspect the offered WWW authorization headers returned in the response from the application to make sure that either negotiate or Kerberos is present. 
 
@@ -125,9 +125,9 @@ If ticketing looks good, you see an event in the logs stating that authenticatio
 
         ![Windows authentication providers](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
-    -   With Kerberos and NTLM in place, temporarily disable preauthentication for the application in the portal. Try to access it from the Internet by using the external URL. You should be prompted to authenticate and should be able to do so with the same account used in the previous step. If not, there's a problem with the back-end application, not KCD.
+    -   With Kerberos and NTLM in place, temporarily disable pre-authentication for the application in the portal. Try to access it from the Internet by using the external URL. You're prompted to authenticate. You're able to do so with the same account used in the previous step. If not, there's a problem with the back-end application, not KCD.
 
-    -   Re-enable preauthentication in the portal. Authenticate through Azure by attempting to connect to the application via its external URL. If SSO fails, you see a forbidden error message in the browser and event 13022 in the log:
+    -   Re-enable pre-authentication in the portal. Authenticate through Azure by attempting to connect to the application via its external URL. If SSO fails, you see a forbidden error message in the browser and event 13022 in the log:
 
         *Microsoft AAD Application Proxy Connector cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error.*
 
@@ -163,15 +163,15 @@ If you leave Kernel mode enabled, it improves the performance of Kerberos operat
 
 -   As an additional check, disable **Extended** protection too. In some scenarios, **Extended** protection broke KCD when it was enabled in specific configurations. In those cases, an application was published as a subfolder of the default website. This application is configured for anonymous authentication only. All the dialogs are grayed out, which suggests child objects wouldn't inherit any active settings. But where possible, we recommend having this enabled. Test, but don’t forget to restore this value to **enabled**.
 
-These additional checks should put you on track to use your published application. You can spin up additional connectors that are also configured to delegate. For more information, read our more in-depth technical walkthrough, [The complete guide for Troubleshoot Azure AD Application Proxy](https://aka.ms/proxytshootpaper).
+These additional checks put you on track to use your published application. You can spin up additional connectors that are also configured to delegate. For more information, read our more in-depth technical walk-through, [Troubleshooting the Azure AD Application Proxy](https://aka.ms/proxytshootpaper).
 
 If you still can't make progress, Microsoft support can assist you. Create a support ticket directly within the portal. An engineer will reach out to you.
 
 ## Other scenarios
 
--   Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some third-party applications such as Tableau Server don't like this method of authenticating. They expect more conventional negotiations to take place. The first request is anonymous, allowing the application to respond with the authentication types that it supports through a 401.
+-   Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some third-party applications such as Tableau Server don't support this method of authenticating. They are designed for more conventional negotiations. The first request is anonymous, so the application can respond with the authentication types that it supports through a 401.
 
--   **Double hop authentication.** Commonly used in scenarios where an application is tiered, with a back end and front end, both requiring authentication, such as SQL Reporting Services.
+-   **Double-hop authentication.** Commonly used in scenarios where an application is tiered, with a back end and front end. Both require authentication such as SQL Reporting Services.
 
 ## Next steps
-[Configure kerberos constrained delegation (KCD) on a managed domain](../active-directory-domain-services/active-directory-ds-enable-kcd.md)
+[Configure kerberos constrained delegation on a managed domain](../active-directory-domain-services/active-directory-ds-enable-kcd.md).
