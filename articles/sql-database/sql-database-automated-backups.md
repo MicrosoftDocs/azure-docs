@@ -38,14 +38,14 @@ You can use these backups to:
 ### Backups for point-in-time restore
 SQL Database supports self-service for point-in-time restore (PITR) by automatically creating full backup, differential backups, and transaction log backups. Full database backups are created weekly, differential database backups are created every few hours, and transaction log backups are created every 5 - 10 minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by the SQL Database service as it balances the overall system workload.
 
-The PITR backups are geo-redundant and protected by [Azure Storage cross-regional replication](././storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+The PITR backups are geo-redundant and protected by [Azure Storage cross-regional replication](././storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage.md)
 
 For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### Backups for long-term retention
 SQL Database offers the option of configuring long-term retention (LTR) of full backups for up to 10 years. If LTR policy is enabled, the weekly full backups are automatically copied to a different RA-GRS storage container. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. The storage consumption depends on the selected frequency of backups and the retention period(s). You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage. 
 
-Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cross-regional replication](././storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
+Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cross-regional replication](././storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage.md).
 
 For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
