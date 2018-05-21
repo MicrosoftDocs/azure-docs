@@ -65,10 +65,10 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 
     **Debian 8.x "Jessie"**
 
-        deb http://debian-archive.trafficmanager.net/debian jessie-backports main
-        deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
-        deb http://debian-archive.trafficmanager.net/debian-azure jessie main
-        deb-src http://debian-archive.trafficmanager.net/debian-azure jessie main
+        deb http://debian-archive.trafficmanager.net/debian jessie main
+        deb http://debian-archive.trafficmanager.net/debian-security jessie/updates main
+        deb-src http://debian-archive.trafficmanager.net/debian jessie main
+        deb-src http://debian-archive.trafficmanager.net/debian-security jessie/updates main
 
 
 1. Install the Azure Linux Agent:
