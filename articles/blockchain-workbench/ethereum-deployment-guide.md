@@ -1,6 +1,19 @@
-# Ethereum Proof-of-Work Consortium solution template
+---
+title: Ethereum proof-of-work consortium solution template
+description: Use the Etherereum Proof-of-Work Consortium solution template to deploy and configure a multi-member consortium Ethereum network
+services: azure-blockchain
+keywords: 
+author: PatAltimore
+ms.author: patricka
+ms.date: 5/21/2018
+ms.topic: article
+ms.service: azure-blockchain
+ms.reviewer: zeyadr
+manager: femila
+---
+# Ethereum proof-of-work consortium solution template
 
-The  Ethereum Proof-of-Work Consortium solution template is designed to make it easier and quicker to deploy and configure a multi-member consortium Ethereum network with minimal Azure and Ethereum knowledge.
+The Ethereum Proof-of-Work Consortium solution template is designed to make it easier and quicker to deploy and configure a multi-member consortium Ethereum network with minimal Azure and Ethereum knowledge.
 
 With a handful of user inputs and a single-click deployment through the Azure portal, each member can provision their network footprint, using Microsoft Azure Compute, networking, and storage services across the globe. Each member's network footprint consists of a set of load-balanced transaction nodes with which an application or user can interact to submit transactions, a set of mining nodes to record transactions, and a VPN gateway. A subsequent connection step connects the gateways to create a fully configured multi-member blockchain network.
 
@@ -76,8 +89,7 @@ Location| The Azure region for resource group. ||NA
 
 ### Operations Management Suite
 
-The Operations Management Suite (OMS) blade allows you to configure an OMS resource for your network. OMS will collect and surface useful metrics and logs from your network, providing the ability to quickly check the network health or debug issues. The free offering of OMS will fail gracefully once
-capacity is reached.
+The Operations Management Suite (OMS) blade allows you to configure an OMS resource for your network. OMS will collect and surface useful metrics and logs from your network, providing the ability to quickly check the network health or debug issues. The free offering of OMS will fail gracefully once capacity is reached.
 
 
 Parameter Name|Description| Allowed Values|Default Values
@@ -301,7 +313,7 @@ Next, import the module:
 Finally, run the function with the appropriate input:
 
 
-- **MyGatewayResourceId: Resource path of your Gateway. This is the template deployment
+- **MyGatewayResourceId** : Resource path of your Gateway. This is the template deployment
     output parameter named `CONSORTIUM_MEMBER_GATEWAY_ID`.
 - **OtherGatewayResourceId** : Resource path of the joining member's gateway. This is
     provided by the joining member and is the template deployment output parameter of also

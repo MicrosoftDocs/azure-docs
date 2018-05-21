@@ -1,62 +1,40 @@
 # Hyperledger Fabric single member blockchain in Azure Marketplace
 
-Over the past year, we have worked diligently to develop an open blockchain ecosystem on Microsoft Azure
-for blockchain application development. Our goal has been to empower users to build blockchain solutions
-easily, with the ledger and development tools of your choice.
+Over the past year, we have worked diligently to develop an open blockchain ecosystem on Microsoft Azure for blockchain application development. Our goal has been to empower users to build blockchain solutions easily, with the ledger and development tools of your choice.
 
-Initially, we targeted dev/test topologies to deliver development and demo machines for a variety of protocols.
-We received ample positive feedback from customers to expand support to more complex topologies as they
-began working on more advanced scenarios. We have now built out support for Hyperledger Fabric Single
-Member (multi-node) network solution templates in the Azure marketplace.
+Initially, we targeted dev/test topologies to deliver development and demo machines for a variety of protocols. We received ample positive feedback from customers to expand support to more complex topologies as they began working on more advanced scenarios. We have now built out support for Hyperledger Fabric Single Member (multi-node) network solution templates in the Azure marketplace.
 
 After reading this article, you will:
 
-- Obtain working knowledge of blockchain, Hyperledger Fabric, and more complicated consortium
-    network architectures
-- Learn how to deploy and configure a single-member Hyperledger Fabric consortium network from
-    within the Azure Management Portal
+- Obtain working knowledge of blockchain, Hyperledger Fabric, and more complicated consortium network architectures
+- Learn how to deploy and configure a single-member Hyperledger Fabric consortium network from within the Azure Management Portal
 
 ## About blockchain
 
-For those that are new to the blockchain community, this is a great opportunity to learn about the technology
-in an easy and configurable manner on Azure. Blockchain is the underlying technology behind Bitcoin;
-however, it is much more than just an enabler for a virtual currency. It is a composite of existing database,
-distributed system, and cryptographic technologies that enables secure multi-party computation with
-guarantees around immutability, verifiability, auditability, and resiliency to attack. Different protocols employ
-different mechanisms to provide these attributes. [Hyperledger Fabric](https://github.com/hyperledger/fabric) is one such protocol.
+For those that are new to the blockchain community, this is a great opportunity to learn about the technology in an easy and configurable manner on Azure. Blockchain is the underlying technology behind Bitcoin; however, it is much more than just an enabler for a virtual currency. It is a composite of existing database, distributed system, and cryptographic technologies that enables secure multi-party computation with guarantees around immutability, verifiability, auditability, and resiliency to attack. Different protocols employ different mechanisms to provide these attributes. [Hyperledger Fabric](https://github.com/hyperledger/fabric) is one such protocol.
 
 ## Consortium architecture on Azure
 
-This template deploys a topology to help test and simulate production for users within a single organization
-(single member). This deployment comprises of a multi-node network in a single region, soon to be expanded
-to multiple regions.
+This template deploys a topology to help test and simulate production for users within a single organization (single member). This deployment comprises of a multi-node network in a single region, soon to be expanded to multiple regions.
 
 The network comprises of three types of nodes:
 
-1. **Member Node** : A node running the Fabric membership service that registers and manages members
-    of the network. This node can eventually be clustered for scalability and high availability, however in
-    this lab, a single member node will be used.
-2. **Orderer Nodes** : A node running the communication service implementing a delivery guarantee, such
-    as total order broadcast or atomic transactions.
-3. **Peer Nodes** : A node that commits transactions and maintains the state and a copy of the distributed
-    ledger.
+1. **Member Node** : A node running the Fabric membership service that registers and manages members of the network. This node can eventually be clustered for scalability and high availability, however in this lab, a single member node will be used.
+2. **Orderer Nodes** : A node running the communication service implementing a delivery guarantee, such as total order broadcast or atomic transactions.
+3. **Peer Nodes** : A node that commits transactions and maintains the state and a copy of the distributed ledger.
 
 ## Getting started
 
-To begin, you will need an Azure subscription that can support deploying several virtual machines and
-standard storage accounts. If you do not have an Azure subscription, you can [create a free Azure account](https://azure.microsoft.com/en-us/free/).
+To begin, you will need an Azure subscription that can support deploying several virtual machines and standard storage accounts. If you do not have an Azure subscription, you can [create a free Azure account](https://azure.microsoft.com/en-us/free/).
 
-By default, most subscription types support a small deployment topology without needing to increase quota.
-The smallest possible deployment for one member will need:
-
+By default, most subscription types support a small deployment topology without needing to increase quota. The smallest possible deployment for one member will need:
 
 - 5 virtual machines (5 cores)
 - 1 VNet
 - 1 load balancer
 - 1 public IP address
 
-Once you have a subscription, go to the [Azure portal](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/private/f086574e-217b-4868-859c-9f8c6dcd9010). Select **+**, select Blockchain, and select **Hyperledger
-Fabric Single Member Blockchain**.
+Once you have a subscription, go to the [Azure portal](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/private/f086574e-217b-4868-859c-9f8c6dcd9010). Select **+**, select Blockchain, and select **Hyperledger Fabric Single Member Blockchain**.
 
 ![Hyperledger Fabric Single Member Blockchain Marketplace template](./media/hyperledger-fabric-single-member-blockchain/marketplace-template.png)
 
@@ -88,7 +66,7 @@ Parameter Name| Description| Allowed Values|Default Value
 
 A sample deployment is shown below:
 
-![](./media/hyperledger-fabric-single-member-blockchain/HFSMB2.jpg)
+![Basics](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
 ### Network size and performance
 
@@ -119,11 +97,9 @@ Parameter Name| Description| Allowed Values|Default Value
 **Bootstrap User Name**| The initial authorized user that will be registered with the member services in the deployed network.|9 or fewer characters|admin
 **Bootstrap User Password for Fabric CA**|The administrator password used to secure the Fabric CA account imported into the Membership node.<br /><br />The password must contain the following: 1 upper case character, 1 lower case character, and 1 number.|12 or more characters|NA
 
-
 A sample deployment is shown below:
 
 ![Fabric settings](./media/hyperledger-fabric-single-member-blockchain/fabric-settings.png)
-
 
 ### Deploy
 
@@ -141,8 +117,7 @@ Once the deployment is finished, you should see an Overview screen much like the
 
 If the screen does not appear automatically (maybe because you moved around the management portal while the deployment was running), you can always find it in the Resource Groups tab in the left-side navigation bar. Just click on the Resource Group name you entered in step 1 to go to the Overview screen.
 
-This Overview screen shows you a list of all the resources that were deployed by the solution template. You can explore them at will, but from this screen you can also access the _output parameters_ generated by the
-template. These output parameters will give you useful information when connecting to your Hyperledger Fabric network.
+This Overview screen shows you a list of all the resources that were deployed by the solution template. You can explore them at will, but from this screen you can also access the _output parameters_ generated by the template. These output parameters will give you useful information when connecting to your Hyperledger Fabric network.
 
 To access the output parameters, first click on the Deployments tab in the Resource Group blade. This opens the Deployment History as shown below.
 
@@ -167,5 +142,3 @@ You can remotely connect to the virtual machines for each node via SSH with your
 ## Next steps
 
 You are now ready to focus on application and chaincode development against your Hyperledger consortium blockchain network.
-
-
