@@ -33,7 +33,7 @@ The results of a completed evaluation cycle are reflected in the `Microsoft.Poli
 Provider through `PolicyStates` and `PolicyEvents` operations. For more information about the
 options and capabilities of the Policy Insights REST API, see [Policy Insights](/rest/api/policy-insights/).
 
-Evaluation of assigned policies and initiatives happen at a few different times:
+Evaluations of assigned policies and initiatives happen at a few different times:
 
 - A policy or initiative is newly assigned to a scope. When this occurs, it can take up to 30 minutes for the assignment to be applied to the defined scope. Once it is applied, the evaluation cycle begins for resources within that scope against the newly assigned policy or initiative and depending on the effects used by the policy or initiative, resources will be marked as compliant or non-compliant. A large policy or initiative evaluated against a large scope of resources can take time, so there is no pre-defined expectation of when the evaluation cycle will complete. Once it completes, updated compliance results will be available in the portal and SDKs.
 - A policy or initiative already assigned to a scope is updated. The evaluation cycle and timing for this scenario is the same as for a new assignment to a scope.
@@ -42,7 +42,7 @@ Evaluation of assigned policies and initiatives happen at a few different times:
 
 ## Portal
 
-The Azure Portal showcases a graphical experience of visualizing and understanding the state of compliance in your environment. On the **Policy** page, the **Overview** option provides details for available scopes on the compliance of both policies and initiatives. In addition to the compliance state and count per assignment, it contains a chart showing compliance over the last 7 days. The **Compliance** page contains much of this same information (except the chart), but provide additional filtering and sorting options.
+The Azure portal showcases a graphical experience of visualizing and understanding the state of compliance in your environment. On the **Policy** page, the **Overview** option provides details for available scopes on the compliance of both policies and initiatives. In addition to the compliance state and count per assignment, it contains a chart showing compliance over the last seven days. The **Compliance** page contains much of this same information (except the chart), but provide additional filtering and sorting options.
 
 ![Policy Compliance Page](media/policy-compliance/compliance-page.png)
 
@@ -89,7 +89,7 @@ $response
 
 ### Summarize results
 
-Using the REST API, summarization can be performed by management group, subscription, resource group, resource, initiative, policy, subscription level assignment or resource group level assignment. Here is an example of summarization at the subscription level using Policy Insight's [Summarize For Subscription](/rest/api/policy-insights/policystates/summarizeforsubscription):
+Using the REST API, summarization can be performed by management group, subscription, resource group, resource, initiative, policy, subscription level assignment, or resource group level assignment. Here is an example of summarization at the subscription level using Policy Insight's [Summarize For Subscription](/rest/api/policy-insights/policystates/summarizeforsubscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
@@ -133,7 +133,7 @@ The output will summarize the subscription. In the example output below, the sum
 
 ### Query for resources
 
-Using the example from above, **value.policyAssignments.policyDefinitions.results.queryResultsUri** provided us with a sample Uri for getting all non-compliant resources for a specific policy definition. Looking at the **$filter** value, IsCompliant is equal (eq) to false, PolicyAssignmentId is specified for the policy definition, and then the PolicyDefinitionId itself. The reason for including the PolicyAssignmentId in the filter is because the PolicyDefinitionId could exist in several policy or initiative assignments with a variety of scopes. By specifying both the PolicyAssignmentId and the PolicyDefinitionId, we can be very explicit in the results we are looking for. Previously, we used **latest** for the PolicyStates (the only allowed value for **policyStatesSummaryResource** on the Summarize For Subscription operator), which automatically sets a **from** and **to** time window of the last 24-hours.
+Using the example from above, **value.policyAssignments.policyDefinitions.results.queryResultsUri** provided us with a sample Uri for getting all non-compliant resources for a specific policy definition. Looking at the **$filter** value, IsCompliant is equal (eq) to false, PolicyAssignmentId is specified for the policy definition, and then the PolicyDefinitionId itself. The reason for including the PolicyAssignmentId in the filter is because the PolicyDefinitionId could exist in several policy or initiative assignments with a variety of scopes. By specifying both the PolicyAssignmentId and the PolicyDefinitionId, we can be explicit in the results we are looking for. Previously, we used **latest** for the PolicyStates (the only allowed value for **policyStatesSummaryResource** on the Summarize For Subscription operator), which automatically sets a **from** and **to** time window of the last 24-hours.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
