@@ -21739,7 +21739,13 @@
             "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
             "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-gdpr.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-remove-personal-data",
+            "redirect_document_id": true
         }
+
 
     ]
 }
