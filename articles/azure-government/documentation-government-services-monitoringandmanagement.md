@@ -165,7 +165,7 @@ The URLs for Log Analytics are different in Azure Government:
 | portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
 | api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
 | docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
-| \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../log-analytics/log-analytics-concept-hybrid#network-firewall-requirements) |
+| \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../log-analytics/log-analytics-concept-hybrid.md#network-firewall-requirements) |
 
 The following Log Analytics features behave differently in Azure Government:
 
