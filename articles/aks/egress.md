@@ -23,7 +23,7 @@ Once a Kubernetes service of type `LoadBalancer` is created, agent nodes are add
 
 ## Create a static public IP
 
-To prevent random IP addresses from being used, create a static IP address and ensure the load balancer uses this address. The IP address needs to be created in the AKS node resource group.
+To prevent random IP addresses from being used, create a static IP address and ensure the load balancer uses this address. The IP address needs to be created in the AKS **node** resource group.
 
 Get the resource group name with the [az resource show][az-resource-show] command. Update the resource group name and cluster name to match your environment.
 
