@@ -6,7 +6,7 @@ ms.service: automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/17/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Azure Automation scenario - Automation source control integration with GitHub Enterprise

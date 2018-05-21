@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/15/2018
+ms.date: 05/11/2018
 ms.author: juliako
 ---
 
 # CLI example: Create an Azure Media Services account
 
-This script creates an Azure Media Services account.
+The Azure CLI script in this topic shows how to create an Azure Media Services account.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
@@ -49,8 +49,6 @@ This script uses the following commands. Each command in the table links to comm
 | [az ams account create](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest#az-ams-account-create) | Creates a Media Services account. |
 | [az ams account sp create](https://docs.microsoft.com/cli/azure/ams/account/sp?view=azure-cli-latest#az-ams-account-sp-create) | Creates a service principal with password and configures its access to an Azure Media Services account. 
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
-
-
 
 
 ## Next steps

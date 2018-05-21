@@ -30,6 +30,8 @@
       href: custom-script-linuxOstc.md
     - name: Windows
       href: custom-script-windows.md
+  - name: Virtual machine access
+    href: vmaccess.md
   - name: Operations Management suite
     items:
     - name: Linux

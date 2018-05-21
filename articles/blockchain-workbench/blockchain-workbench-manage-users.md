@@ -39,9 +39,9 @@ Visit [Azure AD](../active-directory/add-users-azure-active-directory.md) docume
 
 ## Manage Blockchain Workbench administrators
 
-Once users have been added to the directory, the next step is to choose which users are Blockchain Workbench administrators. Users in the **Administrators** group are associated with the **Administrator application role** in Blockchain Workbench. Administrators can add or remove users, assign users to specific scenarios, and create new applications.
+Once users have been added to the directory, the next step is to choose which users are Blockchain Workbench administrators. Users in the **Administrator** group are associated with the **Administrator application role** in Blockchain Workbench. Administrators can add or remove users, assign users to specific scenarios, and create new applications.
 
-To add users to the **Administrators** group in the Azure AD directory:
+To add users to the **Administrator** group in the Azure AD directory:
 
 1.  Sign in to the [Azure portal](https://portal.azure.com).
 2.  Verify you are in the Azure AD tenant associated to Blockchain Workbench by selecting your account in the top right corner.

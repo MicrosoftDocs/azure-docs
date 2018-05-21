@@ -24,6 +24,7 @@ ms.custom: mvc
 
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+> * [.NET Core](cache-dotnet-core-quickstart.md)
 > * [ASP.NET](cache-web-app-howto.md)
 > * [Node.js](cache-nodejs-get-started.md)
 > * [Java](cache-java-get-started.md)
@@ -36,6 +37,8 @@ This quickstart shows how to create and deploy an ASP.NET web application to Azu
 
 ![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete the quickstart, you must have the following prerequisites:
@@ -43,8 +46,6 @@ To complete the quickstart, you must have the following prerequisites:
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
     * ASP.NET and web development
     * Azure Development
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create the Visual Studio project
 
@@ -321,13 +322,13 @@ Otherwise, if you are finished with the quickstart sample application, you can d
 
 Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this topic used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
 
 ![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
 
-After a few moments the resource group and all of its contained resources are deleted.
+After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 

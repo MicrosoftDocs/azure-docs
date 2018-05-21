@@ -141,7 +141,8 @@ Accelerated Networking | No
 **Component** | **Supported**
 --- | ---
 Host NFS | Yes for VMware<br/><br/> No for physical servers
-Host SAN (ISCSI) | Yes
+Host SAN (iSCSI/FC) | Yes
+Host vSAN | Yes for VMware<br/><br/> N/A for physical servers
 Host multipath (MPIO) | Yes, tested with Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Host Virtual Volumes (VVols) | Yes for VMware<br/><br/> N/A for physical servers
 Guest/server VMDK | Yes

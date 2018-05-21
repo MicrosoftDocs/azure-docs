@@ -5,14 +5,14 @@ title: Azure IoT Fundamentals
 metadata:
   title: Azure IoT Fundamentals
   description: Azure IoT is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of Internet of Things assets. 
-  services: iot
+  services: iot-fundamentals
   author: BryanLa
   manager: timlt
-  ms.service: iot
+  ms.service: iot-fundamentals
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/20/2018
+  ms.date: 05/18/2018
   ms.author: bryanla
 
 abstract:
@@ -103,4 +103,4 @@ sections:
     - title: Languages
       html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">Azure IoT SDKs for .Net,C,Java,Node.js, Python</a></p>
     - title: REST
-      html: <p><a href="/rest/api/iothub">IoT Hub</a></p><p><a href="/rest/api/iot-dps">IoT Hub Device Provisioning Service</a></p><p><a href="/rest/api/location-based-services-management/">Maps management</a></p><p><a href="/rest/api/location-based-services/">Maps functional</a></p><p><a href="/rest/api/time-series-insights-management/">Time Series Insights management</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>
+      html: <p><a href="/rest/api/iothub">IoT Hub</a></p><p><a href="/rest/api/iot-dps">IoT Hub Device Provisioning Service</a></p><p><a href="/rest/api/maps-management/">Maps management</a></p><p><a href="/rest/api/maps/">Maps functional</a></p><p><a href="/rest/api/time-series-insights-management/">Time Series Insights management</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>

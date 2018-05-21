@@ -191,7 +191,7 @@ This issue is specific to managed VMs in which the user locks the resource group
 
 #### Solution
 
-To resolve the issue, complete the following steps to remove the restore point collection: <br>
+To resolve the issue, remove the lock from the resource group and complete the following steps to remove the restore point collection: 
  
 1. Remove the lock in the resource group in which the VM is located. 
 2. Install ARMClient by using Chocolatey: <br>
@@ -206,6 +206,4 @@ To resolve the issue, complete the following steps to remove the restore point c
 	`.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
 6. The next scheduled backup automatically creates a restore point collection and new restore points.
 
- 
-The problem will reoccur if you lock the resource group again. 
-
+Once done, you can again put back the lock on the VM resource group. 
