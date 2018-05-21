@@ -271,6 +271,7 @@ You can use Azure Data Lake Storage-related commands to:
  - Preview the Azure Data Lake Storage file. [Preview the storage file](#preview-the-storage-file). 
  - Upload the file directly to Azure Data Lake Storage in VS Code. [Upload file or folder](#upload-file-or-folder).
  - Download the file directly from Azure Data Lake Storage in VS Code. [Download file](#download-file).
+ - Create EXTRACT Script for Azure Data Lake Storage file. [Create EXTRACT script](#create-extract-script).
 
 ### List the storage path 
 
@@ -343,13 +344,32 @@ As the same time, you can monitor the [downloading status](#check-storage-tasks-
 
 As the same time, you can monitor the [downloading status](#check-storage-tasks-status).
 
+
+### Create EXTRACT script 
+You can create EXTRACT script for .csv, .tsv, .txt files by entering the commands **ADL: Create EXTRACT Script**.
+
+1. Select Ctrl+Shift+P to open the command palette.
+2. Enter **ADL: Create EXTRACT Script**.
+3. Specify the full path for an Azure storage file, press **Enter**.
+4. Select one account.
+5. Select a delimiter to extract the file. 
+
+    ![Create extract script process](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-process.png)
+
+The Extract script is generated based on your entries.
+
+![Create extract script result](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-result.png)
+
+
+Another way to create EXTRACT script is through the right-click menu on the .csv, .tsv, .txt file in blob storage and data lake storage.
+
 ### Check storage tasks' status
 The status displays on the bottom of the status bar when completed downloading and uploading.
 1. Click the bellow status bar, and then the downloading and uploading status show in **OUTPUT** panel.
 
    ![Data Lake Tools for Visual Studio Code Check Storage status](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
-## VSCode Explorer integration with Azure Data Lake
+## VSCode Explorer integration with Azure Data Lake 
 
 **Azure Integration** 
 
@@ -385,9 +405,13 @@ Navigate to **Data Lake Store**
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
- - On the file node, you can **Download**, **Preview**, **Delete**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu. 
+ - On the file node, you can **Preview**, **Download**, **Delete**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu. 
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+- On the .csv, .tsv, .txt file node, you can **Create EXTRACT Script** in the right-click context menu.
+
+    ![DataLake explorer - extract](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-extract.png)
 
 **WASB Integration**
 
