@@ -30,7 +30,7 @@ In this tutorial, you do the following actions:
 
 1. Navigate to the registration URL that you received from the professor/educator. 
 
-    ![Create a classroom lab](./media/tutorial-connect-vm-in-classroom-lab/access-labs.png)
+    ![Create a classroom lab](../media/tutorial-connect-vm-in-classroom-lab/access-labs.png)
 2. Sign in to the service using your school account to complete the registration. 
 3. Once registered, confirm that you see the virtual machines for the labs you have access to. 
 

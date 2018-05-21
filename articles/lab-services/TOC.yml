@@ -51,10 +51,10 @@
     items: 
     - name: Manage lab accounts
       href: classroom-labs/how-to-manage-lab-accounts.md
-    - name: classroom-labs/Manage classroom labs
+    - name: Manage classroom labs
       href: classroom-labs/how-to-manage-classroom-labs.md
-    - name: classroom-labs/Access classroom labs
-      href: how-to-use-classroom-lab.md
+    - name: Access classroom labs
+      href: classroom-labs/how-to-use-classroom-lab.md
   - name: DevTest labs
     items:
     - name: Create a custom lab
