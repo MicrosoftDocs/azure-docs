@@ -50,7 +50,7 @@ Each solution accelerator is a complete, end-to-end implementation that can use 
 Three solution accelerators  are available today:
 
 * [Remote Monitoring](iot-accelerators-remote-monitoring-explore.md)
-* [Predictive Maintenance](../iot-suite/iot-suite-predictive-overview.md)
+* [Predictive Maintenance](iot-accelerators-predictive-overview.md)
 * [Connected Factory](iot-accelerators-connected-factory-overview.md)
 
 The following table shows how the solutions map to specific IoT features:
@@ -58,7 +58,7 @@ The following table shows how the solutions map to specific IoT features:
 | Solution | Data ingestion | Device identity | Device management | Edge processing | Command and control | Rules and actions | Predictive analytics |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Remote Monitoring](iot-accelerators-remote-monitoring-explore.md)  |Yes |Yes |Yes |-   |Yes |Yes |-   |
-| [Predictive Maintenance](../iot-suite/iot-suite-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
+| [Predictive Maintenance](iot-accelerators-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
 | [Connected Factory](iot-accelerators-connected-factory-overview.md) |Yes |- |- |Yes |Yes |Yes |-   |
 
 * *Data ingestion*: Ingress of data at scale to the cloud.
@@ -148,7 +148,7 @@ The UI is built using the [React](https://facebook.github.io/react/) javascript 
 Now that you have an overview of the IoT solution accelerators, here are suggested next steps for each of the solution accelerators:
 
 * [Explore the Remote Monitoring solution](iot-accelerators-remote-monitoring-explore.md).
-* [Predictive Maintenance solution accelerator overview](../iot-suite/iot-suite-predictive-overview.md).
+* [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md).
 * [Get started with the Connected Factory solution accelerator](iot-accelerators-connected-factory-overview.md).
 
 For more information about IoT solution architectures, see [Microsoft Azure IoT services: Reference Architecture](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf).
