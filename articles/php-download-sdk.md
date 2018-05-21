@@ -45,12 +45,9 @@ For information about how to use the PHP Client Libraries for Azure, see [How to
 
 ### Install via Composer
 
-1. [Install Git][install-git].
+1. [Install Git][install-git]. On Windows, you will also need to add the Git executable to your PATH environment variable.
 
-> [!NOTE] On Windows, you will also need to add the Git executable to your PATH environment variable.
->
-
-1. Create a file named **composer.json** in the root of your project and add the following code to it:
+2. Create a file named **composer.json** in the root of your project and add the following code to it:
 
         {
             "require": {
@@ -58,8 +55,9 @@ For information about how to use the PHP Client Libraries for Azure, see [How to
             }
         }
 
-2. Download **[composer.phar][composer-phar]** in your project root.
-3. Open a command prompt and execute this in your project root
+3. Download **[composer.phar][composer-phar]** in your project root.
+
+4. Open a command prompt and execute this in your project root
 
         php composer.phar install
 
