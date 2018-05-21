@@ -1,19 +1,19 @@
 ---
-title: Introduction to Azure Stack storage
+title: Introduction to Azure Stack storage | Microsoft Docs
 description: Learn about Azure Stack storage
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
 
-ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/29/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
+ms.reviewer: xiaofmao
 
 ---
 # Introduction to Azure Stack storage
@@ -31,9 +31,11 @@ Azure Stack storage provides the following three services:
 * **Blob Storage**
 
     Blob storage stores unstructured object data. A blob can be any type of text or binary data, such as a document, media file, or application installer.
+
 * **Table Storage**
 
     Table storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
+
 * **Queue Storage**
 
     Queue storage provides reliable messaging for workflow processing and for communication between components of cloud services.
