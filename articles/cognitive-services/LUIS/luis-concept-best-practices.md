@@ -34,7 +34,7 @@ The following list includes best practices for LUIS apps:
 |[Add phrase lists and patterns in later iterations](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Mix the definition of intents and entities](#dont-mix-the-definition-of-intents-and-entities)|
 |[Add example utterances to None intent](#do-add-example-utterances-to-none-intent)|[Create phrase lists with all possible values](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[Leverage the suggest feature for active learning](#leverage-the-suggest-feature-for-active-learning)|[Add so many patterns](#dont-add-many-patterns)|
-|[Monitor the performance of your app](#do-monitor-the-performance-of-your-app)|[Train and publish with every single example utterance added](#dont-train-and-publish-with-every-single-example)|
+|[Monitor the performance of your app](#do-monitor-the-performance-of-your-app)|[Train and publish with every single example utterance added](#dont-train-and-publish-with-every-single-example-utterance)|
 
 ## Do define distinct intents
 Make sure the vocabulary for each intent is just for that intent and not overlapping with a different intent. For example, if you want to have an app that handle travel arrangements such as airline flights and hotels, you can choose to have these as separate intents or the same intent with entities for specific data inside the utterance.
@@ -96,22 +96,8 @@ Provide a few examples in the phrase lists but not every word. LUIS generalizes 
 ## Don't add many patterns
 Don't add too many patterns. LUIS is meant to learn quickly with fewer examples. Don't overload the system unnecessarily.
 
-## Don't train and publish with every single example
+## Don't train and publish with every single example utterance
 Add 10 or 15 utterances before training and publishing. That allows you to see the impact on prediction accuracy. A single utterance may not have a visible impact on the score. 
-
-## Security
-See [Securing the endpoint](luis-concept-security.md#securing-the-endpoint).
-
-## Set an alert to monitor endpoint quota usage
-A LUIS app operates successfully until the endpoint quota runs out. If you are concerned that your requests per month may exceed your endpoint key pricing level quota, should set up a [Total transactions threshold alert](azureibizasubscription.md#total-transactions-threshold-alert). 
-
-## Actions to plan into a cyclical maintenance schedule
-
-* [Review endpoint utterances](label-suggested-utterances.md) to improve LUIS predictions.
-* Verify that the number of utterances in the **None** intent is about 10% of all the other utterances in the app.
-* Review [endpoint quota usage](azureibizasubscription.md#viewing-summary-usage).
-* Back up application by [cloning](luis-how-to-manage-versions.md#clone-a-version) the app.
-* Review [collaborators](luis-how-to-collaborate.md) in case someone has left the company or no longer needs access to modeling the app. 
 
 ## Next steps
 
