@@ -54,18 +54,22 @@ Book a hotel
 Use prediction data from LUIS to determine if your intents are overlapping. Overlapping intents confuses LUIS. The result is that the top scoring intent is too close to another intent. Because LUIS does not use the exact same path through the data for training each time, an overlapping intent has a chance of being first or second in training. You want the utterance's score for each intention to be farther apart so this doesn't happen. Good distinction for intents should result in the expected top intent every time. 
  
 ## Do build the app iteratively
-Keep improving the app for your test set. Adapt the test set to reflect real user utterances. Keep a separate *blind* test set that is not used as example utterances or endpoint utterances. Use this blind test set to evaluate each iteration. 
+Keep a separate *blind* test set that is not used as example utterances or endpoint utterances. Keep improving the app for your test set. Adapt the test set to reflect real user utterances. Use this blind test set to evaluate each iteration. 
+
+Developers should have three sets of data. The first is the example utterances for building the model. The second is for testing the model at the endpoint. The third is the blind test data used in [batch testing](luis-how-to-batch-test.md). This last set is not used in training the application nor sent on the endpoint.  
 
 ## Do add phrase lists and patterns in later iterations
 Phrase lists allow you to define dictionaries of words related to your app domain. Seed your phrase list with a few words then use the suggest feature so LUIS knows about more words in the vocabulary. Don't add every word to the vocabulary since the phrase list isn't an exact match. 
 
 Real user utterances from the endpoint may reveal patterns of word choice and placement. The pattern feature takes this word choice and placement along with regular expressions to improve your prediction accuracy. A regular expression in the pattern allows for words and punctuation you intend to ignore while still matching the pattern. 
 
+Do not apply these practices before your app has received endpoint requests because that skews the confidence.  
+
 ## Do add example utterances to None intent
 This is the fallback intent, indicated everything outside your application. Add one example utterance to the None intent for every 10 example utterances in the rest of your LUIS app.
 
 ## Do leverage the suggest feature for active learning
-Use active learning instead of adding more example utterances to intents. 
+Use active learning on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
 
 ## Do monitor the performance of your app
 Monitor the prediction accuracy using a test set. 
