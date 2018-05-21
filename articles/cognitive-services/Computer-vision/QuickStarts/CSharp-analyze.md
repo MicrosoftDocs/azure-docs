@@ -27,7 +27,7 @@ With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/
 * The coordinates, gender, and age of any faces contained in the image.
 * The ImageType (clip art or a line drawing).
 * The dominant color, the accent color, or whether an image is black & white.
-* The category defined in this [taxonomy](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
+* The category defined in this [taxonomy](../Category-Taxonomy.md).
 * Does the image contain adult or sexually suggestive content?
 
 To run the sample, do the following steps:
