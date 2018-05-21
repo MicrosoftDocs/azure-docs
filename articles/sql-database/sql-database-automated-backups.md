@@ -96,7 +96,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 **Request Body**
 ```json
 {
-  "retentionDays": 14
+  "retentionDays": 28
 }
 ```
 **Sample Response**
@@ -108,7 +108,7 @@ Status code: 200
   "name": "default",
   "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
   "properties": {
-    "retentionDays": 14
+    "retentionDays": 28
   }
 }
 ```
