@@ -59,26 +59,26 @@ A Security Center user assigned the role of Owner, Contributor, or Account Admin
 A Security Center user cannot delete alert incidents. An [alert incident](security-center-managing-and-responding-alerts.md) is considered security data and is read only.
 
 ## Exporting personal data
-A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can export [security contact data](security-center-provide-security-contact-details.md) by performing:
+A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can export [security contact data](security-center-provide-security-contact-details.md) by:
 
-- a copy and paste from the Azure portal
-- the Azure REST API call, GET HTTP:
+- Performing a copy from the Azure portal
+- Executing the Azure REST API call, GET HTTP:
 ```HTTP
 GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
 ```
 
-A Security Center user assigned the role of Account Administrator can export the [just in time policies](security-center-just-in-time.md) containing the IP addresses by performing:
+A Security Center user assigned the role of Account Administrator can export the [just in time policies](security-center-just-in-time.md) containing the IP addresses by:
 
-- a copy from the Azure portal
-- the Azure REST API call, GET HTTP:
+- Performing a copy from the Azure portal
+- Executing the Azure REST API call, GET HTTP:
 ```HTTP
 GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
 ```
 
-An Account Administrator can export the alert details by performing:
+An Account Administrator can export the alert details by:
 
-- a copy from the Azure portal
-- the Azure REST API call, GET HTTP:
+- Performing a copy from the Azure portal
+- Executing the Azure REST API call, GET HTTP:
 ```HTTP
 GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
 ```
