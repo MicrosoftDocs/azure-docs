@@ -1,4 +1,4 @@
----
+﻿---
 layout: HubPage
 hide_bc: true
 experimental: true
@@ -244,9 +244,15 @@ featureFlags:
                                                 <h3>DevOps</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-                                                            Deploy to Azure
+                                                        <a class="barLink" href="/azure/ansible/">
+                                                            <img src="media/index/ansible.svg" alt="">
+                                                            Ansible
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/chef">
+                                                            <img src="chef/media/Chef_Regular.svg" alt="">
+                                                            Chef
                                                         </a>
                                                     </li>
                                                     <li>
@@ -262,9 +268,9 @@ featureFlags:
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/azure/chef">
-                                                            <img src="chef/media/Chef_Regular.svg" alt="">
-                                                            Chef
+                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+                                                            Visual Studio Team Services
                                                         </a>
                                                     </li>
                                                 </ul>
