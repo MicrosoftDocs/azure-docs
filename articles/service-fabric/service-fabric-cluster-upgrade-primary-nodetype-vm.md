@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/10/2018
+ms.date: 05/21/2018
 ms.author: ryanwi
 
 ---
@@ -25,17 +25,17 @@ This article describes how to upgrade the primary node type virtual machines of 
 >
 
 ## Upgrade the size and operating system of the primary node type VMs
-To start, deploy a cluster with two node types.  The primary node type VMs are size Standard D2_V2 and running Windows Server 2012 R2 Datacenter.  After the upgrade, the primary node type VMs are size Standard D4_V2 and running Windows Server 2016 Datacenter with Containers.
+To start, deploy a cluster with two node types and two scale sets (one scale set per node type).  The primary node type VMs are size Standard D2_V2 and running Windows Server 2012 R2 Datacenter.  Add another scale set to the primary node type so the primary node type now has two scale sets.  The new scale set VMs are size Standard D4_V2 and running Windows Server 2016 Datacenter with Containers.  System services and user applications are able to migrate between VMs in the two different scale sets.  Remove the older scale set from the primary node type and the services migrate to the VMs of the new scale set in the primary node type.  After the upgrade, the primary node type has on VMs are size Standard D4_V2 and running Windows Server 2016 Datacenter with Containers.
 
-1. Deploy the initial cluster with two node types and two scale sets using these sample [template](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) and [parameters](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) files.  Both node types are size Standard D2_V2 and running Windows Server 2012 R2 Datacenter.  Wait for the cluster to complete the baseline upgrade.  You can consider skipping this deployment and 
+1. Deploy the initial cluster with two node types and two scale sets using these sample [template](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) and [parameters](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) files.  Both scale sets are size Standard D2_V2 and running Windows Server 2012 R2 Datacenter.  Wait for the cluster to complete the baseline upgrade.   
 2. Optional- deploy a stateful sample to the cluster.
-3. After deciding to upgrade the primary node type VMs, deploy a new scale set into the primary node type and a new load balancer using these sample [template](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) and [parameters](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) files.  The new scale set VMs are size Standard D4_V2 and running Windows Server 2016 Datacenter with Containers.
+3. After deciding to upgrade the primary node type VMs, add a new scale set to the primary node type using these sample [template](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) and [parameters](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) files.  The new scale set VMs are size Standard D4_V2 and run Windows Server 2016 Datacenter with Containers.  A new load balancer and public IP address are also added with the new scale set.
 4. Check the cluster health and verify all the nodes are healthy.
-5. Disable the nodes in the original primary node type with the intent to remove node. You can disable all at once and they will be operations are queued. Wait until all nodes are disabled, which may take some time.  As the nodes in the original node type are disabled, the system services and seed nodes move to the new scale set.
-6. Remove the original primary node type scale set.
-7. Remove the load balancer associated with the old primary node type scale set. The cluster is now unreachable.  
+5. Disable the nodes in the old scale set of the primary node type with the intent to remove node. You can disable all at once and the operations are queued. Wait until all nodes are disabled, which may take some time.  As the older nodes in the node type are disabled, the system services and seed nodes move to the new scale set VMs.
+6. Remove the older scale set from the primary node type.
+7. Remove the load balancer associated with the old scale set. The cluster is now unreachable.  
 8. Store DNS settings of the public IP address associated with the old primary node type scale set in a variable and remove that public IP address.
-9. Replace the DNS settings of the public IP address associated with the new primary node type scale set with DNS settings of the deleted public IP address.  The cluster is now reachable again.
+9. Replace the DNS settings of the public IP address associated with the new primary node type scale set with the DNS settings of the deleted public IP address.  The cluster is now reachable again.
 10. Remove the node state of the nodes from the cluster.  If the durability level of the old scale set was silver or gold, this step is done by the system automatically.
 11. If you deployed the stateful application in a previous step, verify that the application is functional.
 
