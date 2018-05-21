@@ -34,7 +34,7 @@ To find an IP address and port that you can use to remotely connect to a specifi
 
     You can also find the Inbound NAT rules in the `Microsoft.Network/loadBalancers` section of the Resource Manager template for your cluster.
     
-2. To confirm the inbound port to target port mapping for a node, click its rule and look at the **Target port** value. The following screenshot shows the inbound NAT rule for the **FrontEnd (Instance 1)** node in the previous step. Notice that, although the (inbound) port number is 3390, the target port is mapped to port 3389, the port for the RDP service on the target.  
+2. To confirm the inbound port to target port mapping for a node, you can click its rule and look at the **Target port** value. The following screenshot shows the inbound NAT rule for the **FrontEnd (Instance 1)** node in the previous step. Notice that, although the (inbound) port number is 3390, the target port is mapped to port 3389, the port for the RDP service on the target.  
 
     ![Target port mapping](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/port-mapping.png)
 
