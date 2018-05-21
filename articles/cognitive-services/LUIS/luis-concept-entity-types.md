@@ -181,7 +181,7 @@ For the query `when is the best time to go to red rock?`, and the app has the wo
 ```
 
 ## Best practices
-See [Entity best practices](luis-concept-best-practices.md#entities) to learn more.
+Learn [best practices](luis-concept-best-practices.md).
 
 ## Next steps
 

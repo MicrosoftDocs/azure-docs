@@ -47,7 +47,7 @@ Training is non-deterministic: the utterance prediction could vary slightly acro
 After your model is trained, published, and receiving [endpoint](luis-glossary.md#endpoint) queries, [review the utterances](label-suggested-utterances.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
 
 ## Best practices
-See [Utterance best practices](luis-concept-best-practices.md#utterances) to learn more.
+Review [best practices](luis-concept-best-practices.md) to learn more.
 
 ## Next steps
 See [Add example utterances][add-example-utterances] for information on training a LUIS app to understand user utterances.
