@@ -12,7 +12,9 @@ ms.custom: include file
 
 ## Access the Media Services API
 
-To connect to Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure you .NET app, as shown in the following step.
+To connect to Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure your app.
+
+If you are developing in Visual Studio Code or Visual Studio, you would normally add these value to your App.config. If you are using Postman, you might want to create environment variables and set them to the values you got after executing the following script.  
 
 Before running the script, you can replace the `amsaccount` and `amsResourceGroup` with the names you chose when creating these resources. `amsaccount` is the name of the Azure Media Services account where to attach the service principal. <br/>The command that follows uses the `xml` option that returns an xml that you can paste in your app.config. If you omit the `xml` option, the response will be in `json`.
 
@@ -35,16 +37,11 @@ This command will produce a response similar to this:
 <add key="ArmEndpoint" value="https://management.azure.com/" />
 ```
 
-### Configure the sample app
+### Configure your .NET Core app
 
-To run the app and access the Media Services APIs, you need to specify the correct access values in App.config. 
-
-1. Open Visual Studio.
-2. Browse to the solution that you cloned.
-3. In the Solution Explorer, unfold the *EncodeAndStreamFiles* project.
-4. Set this project as the start up project.
-5. Open App.config.
-6. Replace the appSettings values with the values that you got in the previous step.
+1. Open Visual Studio Code.
+2. Browse and open the App.config file.
+3. Replace the appSettings values with the values that you got in the previous step.
 
  ```xml
  <add key="Region" value="value" />
@@ -58,5 +55,3 @@ To run the app and access the Media Services APIs, you need to specify the corre
  <add key="AadClientId" value="value" />
  <add key="ArmEndpoint" value="value" />
  ```    
- 
-7. Press Ctrl+Shift+B to build the solution.
