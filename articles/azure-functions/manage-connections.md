@@ -23,13 +23,13 @@ Functions in a function app share resources, and among those shared resources ar
 
 The number of available connections is limited partly because a function app runs in the [Azure App Service sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). One of the restrictions that the sandbox imposes on your code is a [cap on the number of connections, currently 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits). When you reach this limit, the functions runtime creates a log with the following message: `Host thresholds exceeded: Connections`.
 
-Chances of exceeding the limit increase when the [scale controller adds function app instances](functions-scale.md#how-the-consumption-plan-works). Each function app instance can be invoking functions many times at once, and all of these functions use the same pool of available connections.
+Chances of exceeding the limit increase when the [scale controller adds function app instances](functions-scale.md#how-the-consumption-plan-works). Each function app instance can be invoking functions many times at once, and all of these functions are using connections that count toward the 300 limit.
 
 ## Use static clients
 
-To avoid holding more connections than necessary, reuse client instances rather than creating new ones with each function invocation. .NET clients like the `HttpClient`, `DocumentClient`, and Azure Storage clients can manage connections if you use a single, static client. Creating new instances of those clients with each function invocation is an [improper instantiation antipattern](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/).
+To avoid holding more connections than necessary, reuse client instances rather than creating new ones with each function invocation. .NET clients like the `HttpClient`, `DocumentClient`, and Azure Storage clients can manage connections if you use a single, static client.
 
-As a general rule, when using a service-specific client in an Azure Functions application:
+Here are some guidelines to follow when using a service-specific client in an Azure Functions application:
 
 - **DO NOT** create a new client with every function invocation.
 - **DO** create a single, static client that can be used by every function invocation.
@@ -83,5 +83,7 @@ public static async Task Run(string input)
 ```
 
 ## Next steps
+
+For more information about why static clients are recommended, see [Improper instantiation antipattern](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/).
 
 For more Azure Functions performance tips, see [Optimize the performance and reliability of Azure Functions](functions-best-practices.md).
