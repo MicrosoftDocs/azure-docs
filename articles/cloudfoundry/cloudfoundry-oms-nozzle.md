@@ -4,7 +4,7 @@ description: Step-by-step guidance on deploying the Cloud Foundry loggregator No
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 

@@ -3,7 +3,7 @@ title:  Cloud Foundry on Azure
 description: Cloud Foundry on Azure
 services: multiple
 author: czeumault
-manager: carolz
+manager: jeconnoc
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
