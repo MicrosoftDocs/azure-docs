@@ -32,10 +32,6 @@ Before starting development with the Speech Devices SDK, gather the information 
 
 * Install [Android Studio](https://developer.android.com/studio/) and [Vysor](http://vysor.io/download/) on your PC.
 
-* Read Roobo's [development guide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
-
-* Download the Roobo tools to your PC. A version of the tool is provided for each development kit configuration. Choose your device at [the Roobo site](http://ddk.roobo.com/), then click the **ROOBO Tools** link at the bottom of the page.
-
 * Obtain a Speech service [subscription key](get-started.md). You can obtain a 30-day free trial, or obtain a key from your Azure dashboard.
 
 * If you wish to use the Speech service's intent recognition, subscribe to the [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) and [obtain a subscription key](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription). 
@@ -177,8 +173,10 @@ To run the Roobo tests and validate your development kit setup, build and instal
 
 1. Play around with it!
 
-## Troubleshooting FAQ
+## Troubleshooting
 
-*	**I get certificate failures when using the Speech service.**
+If you get certificate failures when using the Speech service, make sure the device has the correct date and time.
 
-    Make sure the device has the correct date and time.
+For more development information, see Roobo's [development guide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
+
+Roobo provides a tool that captures all audio to flash memory, which may help in troubleshooting audio issues. A version of the tool is provided for each development kit configuration. Choose your device at [the Roobo site](http://ddk.roobo.com/), then click the **ROOBO Tools** link at the bottom of the page.
