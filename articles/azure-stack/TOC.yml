@@ -71,8 +71,8 @@
         href: azure-stack-remediate-certs.md
     - name: Deployment resources
       items:
-      -name: About deployment networking
-       href: deployment-networking.md
+      - name: About deployment networking
+        href: deployment-networking.md
     - name: Validate Azure registration
       href: azure-stack-validate-registration.md
       items:
