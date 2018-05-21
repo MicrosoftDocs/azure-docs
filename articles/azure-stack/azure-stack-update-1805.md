@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 1805 Update | Microsoft Docs
-description: Learn about what's in the 1805 update for Azure Stack integrated systems, the known issues, and where to download the update.
+description: Learn about what's new in the 1805 update for Azure Stack integrated systems, including the known issues and where to download the update.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
