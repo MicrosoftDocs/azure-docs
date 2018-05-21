@@ -45,7 +45,7 @@ For more information, see [Point-in-time restore](sql-database-recovery-using-ba
 ### Backups for long-term retention
 SQL Database offers the option of configuring long-term retention (LTR) of full backups for up to 10 years. If LTR policy is enabled, the weekly full backups are automatically copied to a different RA-GRS storage container. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. The storage consumption depends on the selected frequency of backups and the retention period(s). You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage. 
 
-Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cross-regional replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage.md).
+Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cross-regional replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
 For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
