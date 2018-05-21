@@ -81,13 +81,14 @@ If the backup contains personal data, which is subject to General Data Protectio
 
 Because the default PITR retention for any Standard or Premium database in the DTU-based service tiers is 35 days, you must reduce it to be compliant with GDPR. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details. 
 
+> [!IMPORTANT]
+> If you migrated your database from a DTU-based service tier with the default PITR retention of 35 days, to a vCore-based service tier, the PITR retention was preserved to ensure that your application's data recovery policy is not compromized. If GDPR compliance is important for you application, you can use the same method to bring the database into compliance. 
+
 ## How to change backup retention period
-Because of the default PITR retention included with DTU-based service tiers, you may want to reduce it to meet specific compliance requirements. You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. 
+Because of the default PITR retention included with DTU-based service tiers is 35 days, you may want to reduce it to meet specific compliance requirements. You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. 
 
 The following examples illustrate how to change the PITR to the maximum retention that is GDPR compliant.
 
-> [!IMPORTANT]
-> The below APIs are only supported by the DTU-based service tiers. If you are using a vCore-based service tier (preview) the PITR retention is fixed to 7 days and cannot be changed.
 
 ## Set backup retention period to 28 days using REST API
 **Sample Request**
