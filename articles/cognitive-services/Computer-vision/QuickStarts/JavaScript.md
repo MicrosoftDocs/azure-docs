@@ -1,5 +1,5 @@
 ---
-title: Computer Vision API JavaScript quickstart | Microsoft Docs
+title: Computer Vision API JavaScript quickstart summary | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: In these quickstarts, you analyze an image, create a thumbnail, and extract printed and handwritten text using Computer Vision with JavaScript in Cognitive Services.
 services: cognitive-services
@@ -23,7 +23,7 @@ These quickstarts provide information and code samples to help you quickly get s
 
 All of these samples use jQuery 1.9.0 except `Intelligently generate a thumbnail`.
 
-The code in these samples is similar, which is expected since the majority of the work is setting up the request, and retrieving and displaying the response. The differences appear in the request parameters sent and the response received. These differences are summarized in the following table:
+The code in these samples is similar. However, they highlight different Computer Vision features along with different techniques for exchanging data with the service, as summarized in the following table:
 
 | Quickstart               | Request Parameters                          | Response          |
 | ------------------------ | ------------------------------------------- | ----------------  |
