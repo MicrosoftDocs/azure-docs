@@ -56,7 +56,8 @@ This Oracle connector support two versions of drivers:
     - Oracle 9i R1, R2 (9.0.1, 9.2)
     - Oracle 8i R3 (8.1.7)
 
-Note Oracle proxy server is not supported.
+> [!NOTE]
+> Oracle proxy server is not supported.
 
 > [!IMPORTANT]
 > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle. And note the test connection capability in Data Management Gateway Diagnostics tab does not support this driver. Alternatively, you can use the copy wizard to validate the connectivity.

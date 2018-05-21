@@ -38,7 +38,8 @@ Specifically, this Oracle connector supports the following versions of an Oracle
 - Oracle 9i R1, R2 (9.0.1, 9.2)
 - Oracle 8i R3 (8.1.7)
 
-Note Oracle proxy server is not supported.
+> [!Note]
+> Oracle proxy server is not supported.
 
 ## Prerequisites
 
