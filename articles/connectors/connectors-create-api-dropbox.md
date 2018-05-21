@@ -8,6 +8,7 @@ ms.author: estfan
 ms.date: 07/15/2016
 ms.topic: article
 ms.service: logic-apps
+services: logic-apps
 
 # optional metadata
 ms.reviewer: klam, LADocs

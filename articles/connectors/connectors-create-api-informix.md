@@ -8,6 +8,7 @@ ms.author: plarsen
 ms.date: 09/26/2016
 ms.topic: article
 ms.service: logic-apps
+services: logic-apps
 
 # optional metadata
 ms.reviewer: klam, LADocs

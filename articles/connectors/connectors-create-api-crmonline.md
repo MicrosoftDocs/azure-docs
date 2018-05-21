@@ -8,6 +8,7 @@ ms.author: matp
 ms.date: 02/10/2017
 ms.topic: article
 ms.service: logic-apps
+services: logic-apps
 
 # optional metadata
 ms.reviewer: klam, LADocs
