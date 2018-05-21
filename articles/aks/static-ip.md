@@ -20,7 +20,7 @@ In some cases, such as when the Azure Kubernetes Service (AKS) load balancer is 
 
 Create a static public IP address for the Kubernetes service. The IP address needs to be created in the AKS **node** resource group. Get the resource group name with the [az resource show][az-resource-show] command.
 
-```
+```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus

@@ -22,7 +22,7 @@ For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-
 
 Before mounting an Azure-managed disk as a Kubernetes volume, the disk must exist in the AKS **node** resource group. Get the resource group name with the [az resource show][az-resource-show] command.
 
-```
+```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
