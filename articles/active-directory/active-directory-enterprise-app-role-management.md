@@ -178,7 +178,7 @@ To update an existing role, perform the following steps:
 
    ![Graph Explorer dialog box, with the query for fetching service principals](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 	
-4. From the list of fetched service principals, get the one that you need to modify. You can also use the Ctrl+F to search the application from all the listed service principals. Search for the object ID that you copied from the **Properties** page, and use the following query to get to the service principal:
+4. From the list of fetched service principals, get the one that you need to modify. You can also use Ctrl+F to search the application from all the listed service principals. Search for the object ID that you copied from the **Properties** page, and use the following query to get to the service principal:
 	
    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
