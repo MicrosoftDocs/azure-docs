@@ -25,15 +25,15 @@ When dynamically creating an Azure file share as a Kubernetes volume, any storag
 ```
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-MC_myResourceGRoup_myAKSCluster_eastus
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Use the [az storage account create][az-storage-account-create] command to create the storage account.
 
-Using this example, update `--resource-group` with the name of the resource group, and `--name` to a name of your choice.
+Update `--resource-group` with the name of the resource group gathered in the last step, and `--name` to a name of your choice.
 
 ```azurecli-interactive
-az storage account create --resource-group MC_myResourceGRoup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
+az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
 ## Create storage class
@@ -197,6 +197,7 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az-resource-show
 [az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list

@@ -25,16 +25,16 @@ Before mounting an Azure-managed disk as a Kubernetes volume, the disk must exis
 ```
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-MC_myResourceGRoup_myAKSCluster_eastus
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Use the [az disk create][az-disk-create] command to create the Azure disk.
 
-Using this example, update `--resource-group` with the name of the resource group, and `--name` to a name of your choice.
+Update `--resource-group` with the name of the resource group gathered in the last step, and `--name` to a name of your choice.
 
 ```azurecli-interactive
 az disk create \
-  --resource-group MC_myResourceGRoup_myAKSCluster_eastus \
+  --resource-group MC_myResourceGroup_myAKSCluster_eastus \
   --name myAKSDisk  \
   --size-gb 20 \
   --query id --output tsv
@@ -95,3 +95,4 @@ Learn more about Kubernetes volumes using Azure disks.
 [az-disk-list]: /cli/azure/disk#az_disk_list
 [az-disk-create]: /cli/azure/disk#az_disk_create
 [az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az-resource-show
