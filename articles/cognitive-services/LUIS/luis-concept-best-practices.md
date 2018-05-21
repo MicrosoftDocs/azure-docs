@@ -29,12 +29,12 @@ The following list includes best practices for LUIS apps:
 |Do|Don't|
 |--|--|
 |[Define distinct intents](#do-define-distinct-intents) |[Add many example utterances to intents](#dont-add-many-example-utterances-to-intents) |
-|[Find a sweet spot between too generic and too specific for each intent](#do-find-sweet-spot-for-intents)|[Use LUIS as a training platform]()|
-|[Build your app iteratively](#do-build-the-app-iteratively)|[Add many example utterances of the same format, ignoring other formats]()|
-|[Add phrase lists and patterns in later iterations](#do-add-phrase-lists-and-patterns-in-later-iterations)|Mix the definition of intents and entities|
-|[Add example utterances to None intent](#do-add-example-utterances-to-none-intent)|Create phrase lists with all possible values|
-|[Leverage the suggest feature for active learning](#leverage-the-suggest-feature-for-active-learning)|Add so many patterns|
-|[Monitor the performance of your app](#do-monitor-the-performance-of-your-app)|Train and publish with every single example utterance added|
+|[Find a sweet spot between too generic and too specific for each intent](#do-find-sweet-spot-for-intents)|[Use LUIS as a training platform](#dont-use-luis-as-a-training-platform)|
+|[Build your app iteratively](#do-build-the-app-iteratively)|[Add many example utterances of the same format, ignoring other formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[Add phrase lists and patterns in later iterations](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Mix the definition of intents and entities](#dont-mix-the-definition-of-intents-and-entities)|
+|[Add example utterances to None intent](#do-add-example-utterances-to-none-intent)|[Create phrase lists with all possible values](#dont-create-phrase-lists-with-all-the-possible-values)|
+|[Leverage the suggest feature for active learning](#leverage-the-suggest-feature-for-active-learning)|[Add so many patterns](#dont-add-many-patterns)|
+|[Monitor the performance of your app](#do-monitor-the-performance-of-your-app)|[Train and publish with every single example utterance added](#dont-train-and-publish-with-every-single-example)|
 
 ## Do define distinct intents
 Make sure the vocabulary for each intent is just for that intent and not overlapping with a different intent. For example, if you want to have an app that handle travel arrangements such as airline flights and hotels, you can choose to have these as separate intents or the same intent with entities for specific data inside the utterance.
@@ -48,11 +48,11 @@ Book a flight
 Book a hotel
 ```
 
-"Book a flight" and "Book a hotel" use the same vocabulary of "book a ". This is overlapping so it should be the same intent with the different words of flight and hotel as entities. 
+"Book a flight" and "Book a hotel" use the same vocabulary of "book a ". This is overlapping so it should be the same intent with the different words of flight and hotel extracted entities. 
 
 ## Do find sweet spot for intents
 Use prediction data from LUIS to determine if your intents are overlapping. Overlapping intents confuses LUIS. The result is that the top scoring intent is too close to another intent. Because LUIS does not use the exact same path through the data for training each time, an overlapping intent has a chance of being first or second in training. You want the utterance's score for each intention to be farther apart so this doesn't happen. Good distinction for intents should result in the expected top intent every time. 
-
+ 
 ## Do build the app iteratively
 Keep improving the app for your test set. Adapt the test set to reflect real user utterances. 
 
@@ -99,18 +99,6 @@ Don't add too many patterns. LUIS is meant to learn quickly with fewer examples.
 ## Don't train and publish with every single example
 Add 10 or 15 utterances before training and publishing. That allows you to see the impact on prediction accuracy. A single utterance may not have a visible impact on the score. 
 
-## Intents
-Use only as many [intents](luis-concept-intent.md) as you need to perform the functions of your app. The general rule is to create an intent when this intent would trigger an action in the calling application or bot. 
-
-### Non-overlapping intents
-The intents should be specific. They should not overlap each other. If multiple intents are semantically close, consider merging them.
-
-### Don't add too many intents
-If you define too many intents, it becomes harder for LUIS to classify utterances correctly. If you define too few, they may be so general as to be overlapping. 
-
-### Negative intentions
-If you want to determine negative and positive intentions, such as "I **want** a car" and "I **don't** want a car", create two intents (one positive, and one negative) and add appropriate utterances for each.
-
 ### If you need more than the maximum number of intents
 First, consider whether your system is using too many intents. Intents that are too similar can make it more difficult for LUIS to distinguish between them. Intents should be varied enough to capture the main tasks that the user is asking for, but they don't need to capture every path your code takes. For example, BookFlight and BookHotel might be separate intents in a travel app, but BookInternationalFlight and BookDomesticFlight are too similar. If your system needs to distinguish them, use entities or other logic rather than intents.
 
@@ -122,9 +110,6 @@ To improve responsiveness, ordinarily a system is designed to reduce the number 
 
 If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. To do so, gather detailed information about your system, go to the [LUIS][LUIS] website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
 
-## None intent best practice
-It is important to add utterances to your **None** intent as you add more labels to other intents. A good ratio is 1 or 2 labels added to **None** for every 10 labels added to an intent. This ratio boosts the discriminative power of LUIS.
-
 ## Entities
 Create an [entity](luis-concept-entity-types.md) when the calling application or bot needs some parameters or data from the utterance required to execute an action. An entity is a word or phrase in the utterance that you need extracted -- perhaps as a parameter for a function.
 
@@ -133,9 +118,6 @@ In order to select the correct type of entity to add to your application, you ne
 Review endpoint utterances on a regular basis to find common usage where an entity can be identified as a regular expression or found with an exact text match. 
 
 As part of the review, consider adding a phrase list to add a signal to LUIS for words or phrases that are significant to your domain but are not exact matches, and for which LUIS doesn't have a high confidence. 
-
-## Entities for names
-See [Extracting names](luis-concept-data-extraction.md#extracting-names) for more information.
 
 ### If you need more than the maximum number of entities
 You might need to use hierarchical and composite entities. Hierarchical entities reflect the relationship between entities that share characteristics or are members of a category. The child entities are all members of their parent's category. For example, a hierarchical entity named PlaneTicketClass might have the child entities EconomyClass and FirstClass. The hierarchy spans only one level of depth. 
