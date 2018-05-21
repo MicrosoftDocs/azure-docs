@@ -3,8 +3,8 @@ title: Create Power BI Embedded capacity in the Azure portal | Microsoft Docs
 description: This article walks through how to create a Power BI Embedded capacity in Microsoft Azure.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
-manager: erikre
+author: markingmyname
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
+ms.author: maghan
 ---
 # Create Power BI Embedded capacity in the Azure portal
 
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this quickstart, you need:
 
 * **Azure subscription:** Visit [Azure Free Trial](https://azure.microsoft.com/free/) to create an account.
-* **Azure Active Directory:** Your subscription must be associated with an Azure Active Directory (AAD) tenant. And, ***you need to be signed in to Azure with an account in that tenant***. Microsoft accounts are not supported. To learn more, see Authentication and user permissions.
+* **Azure Active Directory:** Your subscription must be associated with an Azure Active Directory (AAD) tenant. And, ***you need to be signed in to Azure with an account in that tenant***. Microsoft accounts are not supported. To learn more, see [Authentication and user permissions](../analysis-services/analysis-services-manage-users.md).
 * **Power BI tenant:** At least one account in your AAD tenant must have signed up for Power BI.
 * **Resource group:** Use a resource group you already have or [create a new one](../azure-resource-manager/resource-group-overview.md).
 

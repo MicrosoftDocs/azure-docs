@@ -1,9 +1,9 @@
 ---
-title: Upgrade an Azure Container Service (AKS) cluster
-description: Upgrade an Azure Container Service (AKS) cluster
+title: Upgrade an Azure Kubernetes Service (AKS) cluster
+description: Upgrade an Azure Kubernetes Service (AKS) cluster
 services: container-service
 author: gabrtv
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -12,9 +12,9 @@ ms.author: gamonroy
 ms.custom: mvc
 ---
 
-# Upgrade an Azure Container Service (AKS) cluster
+# Upgrade an Azure Kubernetes Service (AKS) cluster
 
-Azure Container Service (AKS) makes it easy to perform common management tasks including upgrading Kubernetes clusters.
+Azure Kubernetes Service (AKS) makes it easy to perform common management tasks including upgrading Kubernetes clusters.
 
 ## Upgrade an AKS cluster
 
@@ -97,7 +97,7 @@ Output:
 }
 ```
 
-You can now confirm the upgrade was successful with the `az aks show` command.
+Confirm that the upgrade was successful with the `az aks show` command.
 
 ```azurecli-interactive
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table

@@ -3,7 +3,7 @@ title: Azure Policy json sample - Audit if extension does not exist  | Microsoft
 description: This json sample policy audits if an extension is not deployed with a virtual machine.
 services: azure-policy
 documentationcenter:
-author: bandersmsft
+author: DCtheGeek
 manager: carmonm
 editor:
 ms.assetid:
@@ -13,7 +13,7 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload:
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
 ---
 

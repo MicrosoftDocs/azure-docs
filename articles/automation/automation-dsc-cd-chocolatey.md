@@ -3,10 +3,11 @@ title: Azure Automation DSC Continuous Deployment with Chocolatey
 description: DevOps continuous deployment using Azure Automation DSC and Chocolatey package manager.  Example with full JSON ARM template and PowerShell source.
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Usage Example: Continuous deployment to Virtual Machines using Automation DSC and Chocolatey
@@ -45,7 +46,7 @@ Presumably you’re already doing the bit at the top, or most of it.  Creating t
 If you’re not starting with an ARM template, that’s also OK.  There are PowerShell cmdlets designed to help you register your VMs with the pull server and all of the rest. For more details, see this article: [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## Step 1: Setting up the pull server and automation account
-At an authenticated (Add-AzureRmAccount) PowerShell command line:  (can take a few minutes while the pull server is set up)
+At an authenticated (Connect-AzureRmAccount) PowerShell command line:  (can take a few minutes while the pull server is set up)
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 

@@ -5,7 +5,7 @@ services: cosmos-db
 keywords: global distribution
 documentationcenter: ''
 author: rafats
-manager: jhubbard
+manager: kfile
 
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db

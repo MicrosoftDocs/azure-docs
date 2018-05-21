@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: v-gedod
@@ -14,6 +14,9 @@ ms.author: v-gedod
 # Web Search SDK Python quickstart
 
 The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
+
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending. 
 
 ## Application dependencies
 If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.

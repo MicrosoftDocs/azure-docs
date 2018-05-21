@@ -82,6 +82,10 @@ If you configured your server for geographically redundant backups, a new server
 2. In the form's **Select Source** dropdown, choose **Backup**. This action loads a list of servers that have geo redundant backups enabled. Select one of these backups to be the source of your new server.
    ![Select Source: Backup and list of geo redundant backups](./media/howto-restore-server-portal/2-georestore.png)
 
+   > [!NOTE]
+   > When a server is first created it may not be immediately available for geo restore. It may take a few hours for the necessary metadata to be populated.
+   >
+
 3. Fill out the rest of the form with your preferences. You can select any **Location**. After selecting the location, you can select **Pricing Tier**. By default the parameters for the existing server you are restoring from are displayed. You can click **OK** without making any changes to inherit those settings. Or you can change **Compute Generation** (if available in the region you have chosen), number of **vCores**, **Backup Retention Period**, and **Backup Redundancy Option**. Changing **Pricing Tier** (Basic, General Purpose, or Memory Optimized) or **Storage** size during restore is not supported.
 
 >[!Note]

@@ -110,6 +110,10 @@ If you configured your server for geographically redundant backups, a new server
 
 To create a server using a geo redundant backup, use the Azure CLI `az postgres server georestore` command.
 
+> [!NOTE]
+> When a server is first created it may not be immediately available for geo restore. It may take a few hours for the necessary metadata to be populated.
+>
+
 To geo restore the server, at the Azure CLI command prompt, enter the following command:
 
 ```azurecli-interactive

@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 012/16/2018
+ms.date: 03/06/2018
 ms.author: v-masebo;dobett
 
 ---
@@ -301,4 +301,4 @@ To learn about deploying AI to edge devices with Azure IoT Edge, see [Getting st
 [lnk-transient-faults]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
 [lnk-nuget-client-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-query]: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-query-language
+[lnk-query]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language

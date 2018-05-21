@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: ''
 keywords: Azure Cosmos DB Emulator
 author: David-Noble-at-work
-manager: jhubbard
+manager: kfile
 editor: ''
 
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2018
+ms.date: 04/20/2018
 ms.author: danoble
 
 ---
@@ -476,6 +476,10 @@ To collect debugging traces, run the following commands from an administrative c
 ## Change list
 
 You can check the version number by right clicking the local emulator icon on the task bar and clicking the about menu item.
+
+### 1.22.0. Released on April 20, 2018
+
+In addition to updating Emulator services for parity with Cosmos DB cloud services, we've included improved PowerShell documentation and some miscellaneous bug fixes.
 
 ### 1.21.0.6 Released on March 27, 2018
 

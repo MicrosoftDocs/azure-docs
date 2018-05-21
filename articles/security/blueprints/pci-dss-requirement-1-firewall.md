@@ -4,7 +4,7 @@ title: Azure Payment Processing Blueprint - Firewall requirements
 description: PCI DSS Requirement 1
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
+ms.author: jomolesk
 
 ---
 
@@ -108,7 +108,7 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses [Azure Role-Based Access Control (RBAC)](/azure/active-directory/role-based-access-control-configure) to isolate user roles. RBAC enables precisely focused access management for Azure. Specific configurations exist for subscription access and Azure Key Vault access.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses [Azure Role-Based Access Control (RBAC)](/azure/role-based-access-control/role-assignments-portal) to isolate user roles. RBAC enables precisely focused access management for Azure. Specific configurations exist for subscription access and Azure Key Vault access.|
 
 
 

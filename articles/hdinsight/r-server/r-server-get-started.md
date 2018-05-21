@@ -1,14 +1,14 @@
 ---
 title: Get started with R Server on HDInsight - Azure | Microsoft Docs
 description: Learn how to create an Apache Spark on HDInsight cluster that includes R Server and submit an R script on the cluster.
-services: HDInsight
+services: hdinsight
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
-ms.service: HDInsight
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: get-started-article

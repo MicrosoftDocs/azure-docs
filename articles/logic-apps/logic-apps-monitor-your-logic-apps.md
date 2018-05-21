@@ -89,7 +89,7 @@ and any errors that happened for that step. For example:
    > All runtime details and events are encrypted within the Logic Apps service. 
    > They are decrypted only when a user requests to view that data. 
    > You can also control access to these events with 
-   > [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md).
+   > [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
 
 6. To get details about a specific trigger event, 
 go back to the **Overview** pane. Under **Trigger history**, 
@@ -279,7 +279,7 @@ choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 Each diagnostic event has details about your logic app and that event, 
 for example, the status, start time, end time, and so on. 
 To programmatically set up monitoring, tracking, and logging, 
-ou can use these details with the 
+you can use these details with the 
 [REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) 
 and the [REST API for Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
 

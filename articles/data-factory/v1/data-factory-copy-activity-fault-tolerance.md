@@ -18,6 +18,11 @@ ms.author: jingwang
 robots: noindex
 ---
 # Add fault tolerance in Copy Activity by skipping incompatible rows
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](data-factory-copy-activity-fault-tolerance.md)
+> * [Version 2 - Preview](../copy-activity-fault-tolerance.md)
+
 > [!NOTE]
 > This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [fault tolerance in copy activity of Data Factory version 2](../copy-activity-fault-tolerance.md).
 

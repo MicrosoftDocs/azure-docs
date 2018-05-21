@@ -23,6 +23,8 @@
   items:
   - name: Common questions
     href: frequently-asked-questions-genomics.md
+  - name: Troubleshooting guide
+    href: troubleshooting-guide-genomics.md    
   - name: Version release history
     href: version-release-history-genomics.md
   - name: Business continuity

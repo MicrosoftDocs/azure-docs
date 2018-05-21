@@ -3,7 +3,7 @@ title: Import and publish your first API in Azure API Management | Microsoft Doc
 description: Learn how to import and publish your first API with API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -61,7 +61,7 @@ This section shows how to import and publish an OpenAPI specification backend AP
     |Version this API?||For more information about versioning, see [Publish multiple versions of your API](api-management-get-started-publish-versions.md)|
     
     >[!NOTE]
-    > To publish the API, you must associate it with a porduct. You can do it from the **Settings page**.
+    > To publish the API, you must associate it with a product. You can do it from the **Settings page**.
     
 3. Select **Create**.
 

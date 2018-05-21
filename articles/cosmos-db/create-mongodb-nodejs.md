@@ -42,13 +42,25 @@ You should have working knowledge of Node.js. This quickstart is not intended to
 
 ## Clone the sample application
 
-Open a git terminal window, such as git bash, and `cd` to a working directory.  
+Run the following commands to clone the sample repository. This sample repository contains the default [MEAN.js](http://meanjs.org/) application.
 
-Run the following commands to clone the sample repository. This sample repository contains the default [MEAN.js](http://meanjs.org/) application. 
+1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
-```bash
-git clone https://github.com/prashanthmadi/mean
-```
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
+
+    ```bash
+    git clone https://github.com/prashanthmadi/mean
+    ```
 
 ## Run the application
 
@@ -229,10 +241,7 @@ git commit -m "configured MongoDB connection string"
 ```
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

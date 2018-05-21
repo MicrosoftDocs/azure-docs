@@ -3,7 +3,7 @@ title: Azure Policy json sample - No network peering to ER network | Microsoft D
 description: This json sample policy prohibits a network peering from being associated to a network in a specified resource group.
 services: azure-policy
 documentationcenter:
-author: bandersmsft
+author: DCtheGeek
 manager: carmonm
 editor:
 ms.assetid:
@@ -13,7 +13,7 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload:
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
 ---
 

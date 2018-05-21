@@ -10,10 +10,10 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2018
+ms.date: 05/08/2018
 ms.author: larryfr
 ---
 # Use Kafka on HDInsight from an Azure Function app

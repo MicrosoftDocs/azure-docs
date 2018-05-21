@@ -11,10 +11,8 @@ editor: cgronlun
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
 
@@ -22,7 +20,7 @@ ms.author: nitinme
 # Use multiple HDInsight clusters with an Azure Data Lake Store account
 
 Starting with HDInsight version 3.5, you can create HDInsight clusters with  Azure Data Lake Store accounts as the default filesystem.
-Data Lake Store supports unlimited storage that makes it ideal not only for hosting large amounts of data; but also for hosting multiple HDInsight clusters that share a single Data Lake Store Account. For instructionson how to create an HDInsight cluster with Data Lake Store as the storage, see [Create HDInsight clusters with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Data Lake Store supports unlimited storage that makes it ideal not only for hosting large amounts of data; but also for hosting multiple HDInsight clusters that share a single Data Lake Store Account. For instructions on how to create an HDInsight cluster with Data Lake Store as the storage, see [Create HDInsight clusters with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 This article provides recommendations to the Data Lake store administrator for setting up a single and shared Data Lake Store Account that can be used across multiple **active** HDInsight clusters. These recommendations apply to hosting multiple secure as well as non-secure Hadoop clusters on a shared Data Lake store account.
 

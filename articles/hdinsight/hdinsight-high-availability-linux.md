@@ -1,4 +1,4 @@
-﻿---
+---
 title: High availability for Hadoop - Azure HDInsight | Microsoft Docs
 description: Learn how HDInsight clusters improve reliability and availability by using an additional head node. Learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH.
 services: hdinsight
@@ -12,10 +12,8 @@ keywords: hadoop high availability
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: larryfr
 

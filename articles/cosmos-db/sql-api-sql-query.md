@@ -5,7 +5,7 @@ keywords: sql syntax,sql query, sql queries, json query language, database conce
 services: cosmos-db
 documentationcenter: ''
 author: LalithaMV
-manager: jhubbard
+manager: kfile
 editor: monicar
 
 ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e

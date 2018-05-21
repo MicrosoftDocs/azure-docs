@@ -1,16 +1,15 @@
 ---
-title: Build a LUIS app programmatically using Node.js | Microsoft Docs 
+title: Build a LUIS app programmatically using Node.js | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to build a LUIS app programmatically from preexisting data in CSV format using the LUIS Authoring API. 
+description: Learn how to build a LUIS app programmatically from preexisting data in CSV format using the LUIS Authoring API.
 services: cognitive-services
 author: DeniseMak
 manager: rstand
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Build a LUIS app programmatically using Node.js

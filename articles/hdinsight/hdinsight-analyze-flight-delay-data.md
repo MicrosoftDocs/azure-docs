@@ -9,10 +9,8 @@ editor: cgronlun
 
 ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
@@ -134,7 +132,7 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
         $acct = Get-AzureRmSubscription
     }
     catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
     Select-AzureRmSubscription -SubscriptionID $subscriptionID
 
@@ -261,6 +259,7 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
     <tr><td>Filter Period</td><td>January</td></tr>
     <tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</td></tr>
     </table>
+
 3. Click **Download**.
 4. Unzip the file to the **C:\Tutorials\FlightDelay\2013Data** folder. Each file is a CSV file and is approximately 60GB in size.
 5. Rename the file to the name of the month that it contains data for. For example, the file containing the January data would be named *January.csv*.
@@ -275,6 +274,7 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
     <tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the data to.</td></tr>
     <tr><td>$blobContainerName</td><td>The Blob container where you want to upload the data to.</td></tr>
     </table>
+    
 2. Open Azure PowerShell ISE.
 3. Paste the following script into the script pane:
 
@@ -299,7 +299,7 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
@@ -420,7 +420,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
@@ -640,7 +640,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #region - Create and validate Azure resouce group

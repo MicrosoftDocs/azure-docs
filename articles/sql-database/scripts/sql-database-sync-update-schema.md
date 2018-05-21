@@ -1,4 +1,4 @@
----
+﻿---
 title: PowerShell example - Update SQL Data Sync (Preview) sync schema | Microsoft Docs
 description: Azure PowerShell example script to update the sync schema for SQL Data Sync
 services: sql-database
@@ -29,7 +29,7 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 
 This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
-Run `Login-AzureRmAccount` to create a connection with Azure.
+Run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Examples
 

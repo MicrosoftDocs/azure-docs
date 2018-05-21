@@ -2,7 +2,7 @@
 title: Azure Monitor CLI 2.0 quick start samples. | Microsoft Docs
 description: Sample CLI 2.0 commands for Azure Monitor features. Azure Monitor is a Microsoft Azure service which allows you to send alert notifications, call web URLs based on values of configured telemetry data, and autoScale Cloud Services, Virtual Machines, and Web Apps.
 author: kamathashwin
-manager: orenr
+manager: 
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/09/2018
 ms.author: ashwink
 
 ---
@@ -85,18 +85,17 @@ az monitor activity-log list --resource-provider Microsoft.Web \
     --end-time 2016-03-16T00:00:00Z
 ```
 
-## Work with alerts
+## Work with alerts 
+[!NOTE] Only alerts (classic) is supported in CLI at this time. 
 
-You can use the information in the section to work with alerts.
-
-### Get alert rules in a resource group
+### Get alert (classic) rules in a resource group
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### Create a metric alert rule
+### Create a metric alert (classic) rule
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -106,7 +105,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### Delete an alert rule
+### Delete an alert (classic) rule
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
@@ -202,7 +201,7 @@ az monitor autoscale list --resource-group <group name>
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### Set auotoscale settings
+### Set autoscale settings
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

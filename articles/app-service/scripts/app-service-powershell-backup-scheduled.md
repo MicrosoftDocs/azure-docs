@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure PowerShell Script Sample - Create a scheduled backup for a web app | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a scheduled backup for a web app
 services: app-service\web
@@ -22,7 +22,7 @@ ms.custom: mvc
 
 This sample script creates a web app in App Service with its related resources, and then creates a scheduled backup for it. 
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure. 
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzureRmAccount` to create a connection with Azure. 
 
 ## Sample script
 

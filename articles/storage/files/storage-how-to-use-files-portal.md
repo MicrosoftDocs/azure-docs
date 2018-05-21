@@ -44,10 +44,10 @@ To create a file share:
 4. In **Name** type *myshare*.
 5. Click **OK** to create the Azure file share.
 
-## Manipulating the contents of the Azure file share
-Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can manipulate your Azure file share with the Azure portal. All requests made via the Azure portal are made with the File REST API enabling you to create, modify, and delete files and directories on clients without SMB access.
+## Work with the contents of the Azure file share
+Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can work with your Azure file share with the Azure portal. All requests made via the Azure portal are made with the File REST API enabling you to create, modify, and delete files and directories on clients without SMB access.
 
-### Create directory
+### Create a directory
 To create a new directory named *myDirectory* at the root of your Azure file share:
 
 1. On the **File Service** page, select the **myshare** file share. The page for your file share opens.

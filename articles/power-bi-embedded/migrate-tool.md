@@ -3,8 +3,8 @@ title: Use the Power BI Embedded migration tool | Microsoft Docs
 description: The Power BI Embedded migration tool can be used to copy your reports from the Power BI Workspace Collections to Power BI Embedded.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
-manager: erikre
+author: markingmyname
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
+ms.author: maghan
 ---
 # Use the Power BI Embedded migration tool
 

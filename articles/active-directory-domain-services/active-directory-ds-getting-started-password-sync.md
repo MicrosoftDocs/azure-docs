@@ -61,7 +61,7 @@ Here are the instructions you need to provide users, so they can change their pa
     ![Click on "Change password"](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
    > [!TIP]
-   > If the **Change password** option is not displayed in the Access Panel window, ensure that your organization has configured [password management in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+   > If the **Change password** option is not displayed in the Access Panel window, ensure that your organization has configured [password management in Azure AD](../active-directory/authentication/quickstart-sspr.md).
    >
    >
 4. On the **change password** page, type your existing (old) password, type a new password, and then confirm it.
@@ -74,7 +74,7 @@ A few minutes after you have changed your password, the new password is usable i
 
 ## Related Content
 * [How to update your own password](../active-directory/active-directory-passwords-update-your-own-password.md)
-* [Getting started with Password Management in Azure AD](../active-directory/active-directory-passwords-getting-started.md)
+* [Getting started with Password Management in Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Enable password hash synchronization to Azure Active Directory Domain Services for a synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administer an Azure Active Directory Domain Services-managed domain](active-directory-ds-admin-guide-administer-domain.md)
 * [Join a Windows virtual machine to an Azure Active Directory Domain Services-managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
