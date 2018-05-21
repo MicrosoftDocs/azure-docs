@@ -49,6 +49,8 @@ Consider the following points when access to the Microsoft Azure Database for My
 
 * **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure Database for MySQL Server firewall configuration to take effect.
 
+* **VNet Service Endpoints are not supported:** Service endpoints are not supported for Azure Database for MySQL. Enabling service endpoints to SQL Database will break connectivity to these services. If these are enabled in the VNet you are connecting from, you may receive the following error: *ERROR 9009 (28000): Client from Azure Virtual Networks is not allowed to access the server. Please make sure your Virtual Network is correctly configured.* Please see [this document](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md) for more details.
+
 * **The login is not authorized or an incorrect password was used:** If a login does not have permissions on the Azure Database for MySQL server or the password used is incorrect, the connection to the Azure Database for MySQL server is denied. Creating a firewall setting only provides clients with an opportunity to attempt connecting to your server; each client must provide the necessary security credentials.
 
 * **Dynamic IP address:** If you have an Internet connection with dynamic IP addressing and you are having trouble getting through the firewall, you can try one of the following solutions:
