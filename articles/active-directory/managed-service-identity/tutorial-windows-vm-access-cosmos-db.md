@@ -205,4 +205,9 @@ This CLI command returns details about the collection:
 
 ## Next steps
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md).
+In this tutorial, you learned how to create a Windows Managed Service Identity to access Cosmos DB.  To learn more about Cosmos DB see:
+
+> [!div class="nextstepaction"]
+>[Azure Cosmos DB overview](/azure/cosmos-db/introduction)
+
+
