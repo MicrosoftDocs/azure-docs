@@ -16,7 +16,7 @@ ms.author: v-jerkin
 
 The Speech service provides Text to Speech functionality through a straightforward HTTP request. You POST the text to be spoken to the appropriate endpoint, and the service returns an audio file (`.wav`) containing synthesized speech. Your application can then use this audio as it likes.
 
-The body of the POST request for Text to Speech may be plain text (ASCII or UTF8) or an [SSML](speech-synthesis-markup.md) document. Plain-text requests are spoken with a default voice. In most cases, you want to use an SSML body. The HTTP request must include an authorization, either your subscription key or a token. 
+The body of the POST request for Text to Speech may be plain text (ASCII or UTF8) or an [SSML](speech-synthesis-markup.md) document. Plain-text requests are spoken with a default voice. In most cases, you want to use an SSML body. The HTTP request must include an authorization token. 
 
 The regional Text to Speech endpoints are shown here. Use the one appropriate to your subscription.
 
@@ -66,7 +66,7 @@ Host: westus.tts.speech.microsoft.com
 X-Microsoft-OutputFormat: riff-24khz-16bit-mono-pcm
 Content-Type: application/ssml+xml
 User-Agent: Test TTS application
-Ocp-Apim-Subscription-Key: ... your subscription key
+Authorization: (authorization token)
 
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
