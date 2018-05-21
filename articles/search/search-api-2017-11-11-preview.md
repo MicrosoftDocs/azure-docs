@@ -21,9 +21,9 @@ This article describes the `api-version=2017-11-11-Preview` version of Azure Sea
 > Preview features are available for testing and experimentation with the goal of gathering feedback and are subject to change. We strongly advise against using preview APIs in production applications.
 
 
-## New in this preview
+## New in 2017-11-11-Preview
 
-+ [Cognitive search](cognitive-search-concept-intro.md), a new enrichment capability in Azure Search finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
+[Cognitive search](cognitive-search-concept-intro.md), a new enrichment capability in Azure Search finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
 
 The following two operations are introduced or modified in the preview REST API. All other REST APIs are the same whether you call the generally available or preview version (for example, .
 
@@ -35,18 +35,18 @@ All other REST APIs are the same whether you call the generally available or pre
 
 ## Other preview features
 
-Features from earlier previews are still in public preview.
+Features from earlier previews are still in public preview. If you're calling this API with an earlier api-version, you can continue to use that version or switch to `2017-11-11-Preview` with no changes to expected behavior.
 
-+ [CSV files in Azure Blob indexing](search-howto-index-csv-blobs.md), where each line in a CSV file is indexed as a separate document.
++ [CSV files in Azure Blob indexing](search-howto-index-csv-blobs.md), introduced in `api-version=2015-02-28-Preview`, remains a preview feature. This feature is part of Azure Blob indexing and is invoked through a paramater setting. Each line in a CSV file is indexed as a separate document.
 
-+ [JSON arrays in Azure Blob indexing](search-howto-index-json-blobs.md), where each element in the array is indexed as a separate document.
++ [JSON arrays in Azure Blob indexing](search-howto-index-json-blobs.md), introduced in `api-version=2015-02-28-Preview`, remains a preview feature. This feature is part of Azure Blob indexing and is invoked through a paramater setting. where each element in the array is indexed as a separate document.
 
-+ [`moreLikeThis` query parameter](search-more-like-this.md) to find documents that are relevant to a specific document. This feature has been in earlier previews. If you're calling this API with an earlier api-version, you can continue to use that version.
++ [moreLikeThis query parameter](search-more-like-this.md) finds documents that are relevant to a specific document. This feature has been in earlier previews. 
 
 
 ## How to call a preview API
 
-Older previews are still operational but become stale over time. If your code calls `api-version=2016-09-01-Preview` or `api-version=2015-02-25-Preview`, those calls are still valid. However, only the newest preview version is refreshed with improvements. 
+Older previews are still operational but become stale over time. If your code calls `api-version=2016-09-01-Preview` or `api-version=2015-02-28-Preview`, those calls are still valid. However, only the newest preview version is refreshed with improvements. 
 
 The following example syntax illustrates a call to the preview API version.
 

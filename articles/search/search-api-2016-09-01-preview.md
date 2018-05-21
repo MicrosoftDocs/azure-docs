@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: reference
-ms.date: 04/18/2018
+ms.date: 05/18/2018
 ms.author: nateko
 
 ---
