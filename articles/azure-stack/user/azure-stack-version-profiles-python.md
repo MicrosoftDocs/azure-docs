@@ -41,7 +41,7 @@ The Python SDK supports API version profiles to target different cloud platforms
 4.	Create a service principal and save its ID and secret. For instructions to create a service principal for Azure Stack, see [Provide applications access to Azure Stack](../azure-stack-create-service-principals.md). 
 5.	Make sure your service principal has contributor/owner role on your subscription. For instructions on how to assign role to service principal, see [Provide applications access to Azure Stack](../azure-stack-create-service-principals.md).
 
-## Prerequisite
+## Prerequisites
 
 In order to use Python Azure SDK with Azure Stack, you must supply the following values, and then set values with environment variables. See the instructions after the table for your operating system on setting the environmental variables. 
 
@@ -118,8 +118,6 @@ The examples are not necessarily in the order shown in the above list.
 
 6.  Set the following variables and export these environment variables into your current shell. 
 
-`Note: provide an explanation of where these variables come from?`
-
     ````bash
     export AZURE_TENANT_ID={your tenant id}
     export AZURE_CLIENT_ID={your client id}
@@ -128,8 +126,7 @@ The examples are not necessarily in the order shown in the above list.
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  Note that in order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-vm-image).
-
+7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-vm-image).
 
 8. Run the sample.
 
