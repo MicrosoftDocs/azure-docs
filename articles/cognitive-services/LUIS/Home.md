@@ -12,9 +12,9 @@ ms.author: v-geberr
 ---
 
 # What is Language Understanding (LUIS)?
-Language Understanding (LUIS) is a REST-based service that applies custom machine-learning to a user's natural language text to predict overall meaning and pull out relevant, detailed information. 
+Language Understanding (LUIS) is a cloud-based service that applies custom machine-learning to a user's conversational, natural language text to predict overall meaning and pull out relevant, detailed information. 
 
-Your client application sends user text of what a person wants in their own words to LUIS in an HTTP request. LUIS applies your learned model to the natural language and returns a JSON format response. Your client application uses the JSON response to fulfill the user's requests. 
+Your client application sends user text of what a person wants in their own words to LUIS in an HTTP request. LUIS applies your learned model to the natural language to make sense of the user input and returns a JSON format response. Your client application uses the JSON response to fulfill the user's requests. 
 
 ![Conceptual imagery of LUIS working with Chat bot](./media/luis-overview/luis-overview-process.png)
 
@@ -97,6 +97,9 @@ LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate impor
 
 ### Patterns 
 Patterns allow you to simplify an intent's utterance collection into common [templates][patterns] of word choice and word order. This allows LUIS to learn quicker by needing fewer example utterances for the intents. Patterns are a combination of regular expressions and machine-learned expressions. 
+
+## Using LUIS
+You can build your LUIS app from the [www.luis.ai](http://www.luis.ai) website or your can build your app programmatically with the [authoring](https://aka.ms/luis-authoring-apis) APIs. Access your published LUIS app by the query [endpoint](https://aka.ms/luis-endpoint-apis). 
 
 ## What technologies work with LUIS?
 Several Microsoft technologies work with LUIS:
