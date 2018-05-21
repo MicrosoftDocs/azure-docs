@@ -44,7 +44,7 @@ The Azure SQL Database enables you to individually specify the automatic tuning 
 
 ### Azure portal
 
-To enable automatic tuning on a single database, navigate to the database in Azure portal and select Automatic tuning.
+To enable automatic tuning on a **single database**, navigate to the database in Azure portal and select **Automatic tuning**.
 
 Individual automatic tuning settings can be separately configured for each database. You can manually configure an individual automatic tuning option, or specify that an option inherits its settings from the server.
 
