@@ -60,7 +60,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 
 ## Backup fails because the VM agent is unresponsive
 
-Error message: "Unable to perform the operation as the VM Agent is not responsive" <br>
+Error message: "Could not communicate with the VM agent for snapshot status" <br>
 Error code: "GuestAgentSnapshotTaskStatusError"
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
