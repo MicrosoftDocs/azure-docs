@@ -232,13 +232,13 @@ func new
 For example, to create a JavaScript HTTP trigger, run:
 
 ```
-func new --language JavaScript --template HttpTrigger --name MyHttpTrigger
+func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
 To create a queue-triggered function, run:
 
 ```
-func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
+func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
 ```
 <a name="start"></a>
 ## Run functions locally

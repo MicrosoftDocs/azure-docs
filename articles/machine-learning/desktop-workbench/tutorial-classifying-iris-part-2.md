@@ -276,7 +276,7 @@ Optionally, you can experiment with running scripts against a local Docker conta
    >[!IMPORTANT]
    >You must use this CLI window to accomplish the next steps.
 
-1. In the CLI window, log in to Azure. [Learn more about az login](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. In the CLI window, log in to Azure. [Learn more about az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
    You may already be logged in. In that case, you can skip this step.
 

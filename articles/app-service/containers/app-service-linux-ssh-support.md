@@ -28,6 +28,10 @@ App Service on Linux provides SSH support into the app container with each of th
 
 You can also use SSH with your custom Docker images by including the SSH server as part of the image and configuring it as described in this article.
 
+> [!NOTE] 
+> You can also connect to the app container directly from your local development machine using SSH, SFTP, or Visual Studio Code (for live debugging Node.js apps). For more information, see [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug).
+>
+
 ## Making a client connection
 
 To make an SSH client connection, the main site must be started.

@@ -3,7 +3,7 @@ title: What is an Azure network access control list?
 description: Learn about access control lists in Azure
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: ''
 tags: azure-service-management

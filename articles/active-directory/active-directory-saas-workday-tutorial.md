@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/04/2018
 ms.author: jeedes
 
 ---
@@ -173,19 +173,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![SAML Identity Providers](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML Identity Providers")
    
-    c. Select **Enable idp Initiated Logout**.
-   
-    d. In the Azure portal, on the **Configure sign-on** window, copy the **Sign-Out URL** value, and then paste it into the **Logout Response URL** textbox.
+    c. In the Azure portal, on the **Configure sign-on** window, copy the **Sign-Out URL** value, and then paste it into the **Logout Response URL** textbox.
 
-	e. In the Azure portal, on the **Configure sign-on** window, copy the **SAML Single Sign-On Service URL** value, and then paste it into the **IdP SSO Service URL** textbox.
+	d. In the Azure portal, on the **Configure sign-on** window, copy the **SAML Single Sign-On Service URL** value, and then paste it into the **IdP SSO Service URL** textbox.
 
-	f. In **Used for Environments** textbox, select the environment name.
+	e. In **Used for Environments** textbox, select the environment name.
 
-    g. Click **Identity Provider Public Key Certificate**, and then click **Create**. 
+    f. Click **Identity Provider Public Key Certificate**, and then click **Create**. 
 
     ![Create](./media/active-directory-saas-workday-tutorial/IC782928.png "Create")
 
-    h. Click **Create x509 Public Key**. 
+    g. Click **Create x509 Public Key**. 
 
     ![Create](./media/active-directory-saas-workday-tutorial/IC782929.png "Create")
 

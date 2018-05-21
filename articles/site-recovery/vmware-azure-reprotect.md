@@ -36,6 +36,8 @@ If you used a template to create your virtual machines, ensure that each virtual
 
     ![Ports for failover and failback](./media/vmware-azure-reprotect/failover-failback.png)
 
+- You can read all the pre-requisites on ports and URL whitelisting [here](vmware-azure-deploy-configuration-server.md#prerequisites)
+
 ## Deploy a process server in Azure
 
 You might need a process server in Azure before you fail back to your on-premises site:
@@ -73,7 +75,7 @@ After you've created a master target server, do the following:
     - The default retention volume for Windows is the R volume.
     - The default retention volume for Linux is /mnt/retention.
 - You need to add a new drive if you're using an existing process server/configuration server machine or a scale or a process server/master target server machine. The new drive should meet the preceding requirements. If the retention drive is not present, it doesn't appear in the selection drop-down list on the portal. After you add a drive to the on-premises master target, it takes up to 15 minutes for the drive to appear in the selection on the portal. You can also refresh the configuration server if the drive does not appear after 15 minutes.
-- Install VMware tools on the master target server. Without the VMware tools, the datastores on the master target's ESXi host cannot be detected.
+- Install VMware tools or open-vm-tools on the master target server. Without the tools, the datastores on the master target's ESXi host cannot be detected.
 - Set the `disk.EnableUUID=true` setting in the configuration parameters of the master target virtual machine in VMware. If this row does not exist, add it. This setting is required to provide a consistent UUID to the virtual machine disk (VMDK) so that it mounts correctly.
 - The ESX host on which the master target is created should have at least one VMFS datastore attached to it. If there is none, the **Datastore** input on the reprotect page will be empty, and you can't proceed.
 - The master target server cannot have snapshots on the disks. If there are snapshots, reprotection and failback fail.

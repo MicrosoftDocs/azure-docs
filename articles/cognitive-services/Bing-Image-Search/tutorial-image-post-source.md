@@ -4,9 +4,8 @@ description: Source code for console application that uses the Bing Image Search
 services: cognitive-services
 author: mikedodaro
 manager: rosh
-
 ms.service: cognitive-services
-ms.technology: bing-image-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: v-gedod

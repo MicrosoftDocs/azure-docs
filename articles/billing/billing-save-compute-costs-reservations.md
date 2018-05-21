@@ -3,17 +3,17 @@ title: Save money by pre-paying for Azure virtual machines - Azure | Microsoft D
 description: Learn about Azure Reserved Virtual Machine Instance to save on your virtual machines costs. 
 services: 'billing'
 documentationcenter: ''
-author: vikramdesai01
-manager: vikramdesai01
+author: yashesvi
+manager: yashesvi
 editor: ''
 
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
-ms.author: vikdesai
+ms.author: yashar
 ---
 # Save money on virtual machines with Reserved Virtual Machine Instances 
 Reserved Virtual Machine Instances allow you to pre-pay for one-year or three-years of compute capacity to get a discount on the virtual machines you use. It significantly reduces your virtual machine costs—up to 72 percent on pay-as-you-go prices–with one-year or three-year upfront commitment. Reserved Virtual Machine Instances is a billing discount and does not affect the runtime state of virtual machines.
@@ -31,6 +31,7 @@ Azure customers with these subscriptions types can purchase a Reserved Virtual M
 -	Enterprise agreement subscription offer type (MS-AZR-0017P).
 -	[Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription offer type (MS-AZR-003P).
 You must be in the role “Owner” on the subscription to buy a Reserved Instance. For purchasing reservations in an enterprise enrollment, the enterprise administrator must enable reservation purchases in the EA portal, by default the setting is enabled.
+-	Cloud Solution Provider (CSP) partners can use Azure Management Portal or [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) to purchase reservations.
 
 ## How is a Reserved Virtual Machine Instances purchase billed?
 The reservation purchase is charged to the payment method tied to the subscription. 
@@ -66,5 +67,7 @@ To learn more about Reserved Virtual Machine Instances, see the following articl
 - [Understand Reserved Instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand Reserved Instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reserved Instances](billing-reserved-instance-windows-software-costs.md)
+- [Reserved Instances in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
 
+## Need help? Contact support
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

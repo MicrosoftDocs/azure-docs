@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure security features that help with identity management | Microsoft Docs
 description: " This article provides an overview of the core Azure security features that help with identity management. Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation such as multi-factor authentication and conditional access policies. "
 services: security
@@ -61,10 +61,10 @@ Azure AD Application Proxy lets you publish on-premises applications, such as [S
 
 Learn more:
 
-* [Enabling Azure AD Application Proxy](../active-directory/active-directory-application-proxy-enable.md)
+* [Enabling Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-enable.md)
 * [Publish applications using Azure AD Application Proxy](../active-directory/active-directory-application-proxy-publish.md)
-* [Single-sign-on with Application Proxy](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Working with conditional access](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
+* [Single-sign-on with Application Proxy](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Working with conditional access](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## Multi-factor authentication
 Azure Multi-factor authentication (MFA) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options—phone call, text message, or mobile app notification or verification code and third party OAuth tokens.
@@ -72,8 +72,8 @@ Azure Multi-factor authentication (MFA) is a method of authentication that requi
 Learn more:
 
 * [Multi-factor authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
-* [How Azure Multi-Factor Authentication works](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+* [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
+* [How Azure Multi-Factor Authentication works](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## Security monitoring, alerts, and machine learning-based reports
 Security monitoring and alerts and machine learning-based reports that identify inconsistent access patterns can help you protect your business. You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.

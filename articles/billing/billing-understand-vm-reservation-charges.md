@@ -3,23 +3,23 @@ title: Understand Azure Reserved Virtual Machine Instances discount application 
 description: Learn how Azure Reserved VM Instance discount is applied to running VMs. 
 services: 'billing'
 documentationcenter: ''
-author: vikramdesai01
-manager: vikdesai
+author: yashesvi
+manager: yashar
 editor: ''
 
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
-ms.author: vikdesai
+ms.author: yashar
 ---
 # Understand how the Reserved Virtual Machine Instance discount is applied
 After you buy a Reserved VM Instance, the reservation discount is automatically applied to virtual machines matching the attributes and quantity of the reservation. A reservation covers the infrastructure costs of your virtual machines. The following table illustrates the costs for your virtual machine after you purchase a reservation. In all cases, you are charged for storage and networking at the normal rates.
 
 | Virtual Machine Type  | Charges with reservation |    
-|-----------------------|--------------------------------------------| 
+|-----------------------|--------------------------------------------|
 |Linux VMs without additional software | Reservation covers your VM infrastructure costs.|
 |Linux VMs with software charges (For example, Red Hat) | Reservation covers the infrastructure costs. You are charged for additional software.|
 |Windows VMs without additional software |Reservation covers the infrastructure costs. You are charged for Windows software.|
@@ -49,7 +49,9 @@ To learn more about Reserved Virtual Machine Instances, see the following articl
 - [Save money on virtual machines with Reserved Virtual Machine Instances](billing-save-compute-costs-reservations.md)
 - [Understand Reserved Instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand Reserved Instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [Understand Reserved Instance usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
 - [Windows software costs not included with Reserved Instances](billing-reserved-instance-windows-software-costs.md)
+
 
 ## Need help? Contact support
 

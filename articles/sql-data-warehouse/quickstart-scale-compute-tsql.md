@@ -21,9 +21,6 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Before you begin
 
 Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
-
-This assumes you have completed [Quickstart: create and Connect - portal](create-data-warehouse-portal.md). After completing the Create and Connect quickstart you know how to connect to :
- created a data warehouse named **mySampleDataWarehouse**, created a firewall rule that allows our client to access the server, installed.
  
 ## Create a data warehouse
 
@@ -42,7 +39,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
    | Server type | Database engine | This value is required |
    | Server name | The fully qualified server name | Here's an example: **mynewserver-20171113.database.windows.net**. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
-   | Login | The server admin account | This is the account that you specified when you created the server. |
+   | Login | The server admin account | The account that you specified when you created the server. |
    | Password | The password for your server admin account | This is the password that you specified when you created the server. |
 
     ![connect to server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -88,11 +85,42 @@ To change data warehouse units:
 1. Right-click **master** and select **New Query**.
 2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL statement to modify the service objective. Run the following query to change the service objective to DW300. 
 
-```Sql
-ALTER DATABASE mySampleDataWarehouse
-MODIFY (SERVICE_OBJECTIVE = 'DW300')
-;
-```
+    ```Sql
+    ALTER DATABASE mySampleDataWarehouse
+    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    ;
+    ```
+
+## Monitor scale change request
+To see the progress of the previous change request, you can use the `WAITFORDELAY` T-SQL syntax to poll the sys.dm_operation_status dynamic management view (DMV).
+
+To poll for the service object change status:
+
+1. Right-click **master** and select **New Query**.
+2. Run the following query to poll the sys.dm_operation_status DMV.
+
+    ```sql
+    WHILE 
+    (
+        SELECT TOP 1 state_desc
+        FROM sys.dm_operation_status
+        WHERE 
+            1=1
+            AND resource_type_desc = 'Database'
+            AND major_resource_id = 'MySampleDataWarehouse'
+            AND operation = 'ALTER DATABASE'
+        ORDER BY
+            start_time DESC
+    ) = 'IN_PROGRESS'
+    BEGIN
+        RAISERROR('Scale operation in progress',0,0) WITH NOWAIT;
+        WAITFOR DELAY '00:00:05';
+    END
+    PRINT 'Complete';
+    ```
+3. The resulting output shows a log of the polling of the status.
+
+    ![Operation status](media/quickstart-scale-compute-tsql/polling-output.png)
 
 ## Check data warehouse state
 
@@ -100,7 +128,7 @@ When a data warehouse is paused, you can't connect to it with T-SQL. To see the 
 
 ## Check operation status
 
-To return information about various management operations on your SQL Data Warehouse, run the following query on the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) DMV. For example, it returns the operation and the  state of the operation, which will either be IN_PROGRESS or COMPLETED.
+To return information about various management operations on your SQL Data Warehouse, run the following query on the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) DMV. For example, it returns the operation and the  state of the operation, which is IN_PROGRESS or COMPLETED.
 
 ```sql
 SELECT *
@@ -109,12 +137,12 @@ FROM
 WHERE
 	resource_type_desc = 'Database'
 AND 
-	major_resource_id = 'MySQLDW'
+	major_resource_id = 'MySampleDataWarehouse'
 ```
 
 
 ## Next steps
-You have now learned how to scale compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
+You've now learned how to scale compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
 >[Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)

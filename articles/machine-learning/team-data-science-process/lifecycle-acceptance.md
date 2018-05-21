@@ -3,7 +3,7 @@ title: Customer acceptance stage of the Team Data Science Process lifecycle - Az
 description: The goals, tasks, and deliverables for the customer acceptance stage of your data-science projects
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Customer acceptance

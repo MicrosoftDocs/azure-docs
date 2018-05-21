@@ -6,11 +6,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/17/2018
+ms.date: 04/26/2018
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: 
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ---
 
 

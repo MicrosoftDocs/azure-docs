@@ -1,7 +1,7 @@
 ---
 title: Device simulation in remote monitoring solution - Azure | Microsoft Docs
-description: This tutorial shows you how to use the device simulator with the remote monitoring preconfigured solution.
-services: ''
+description: This tutorial shows you how to use the device simulator with the remote monitoring solution accelerator.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -16,7 +16,11 @@ ms.workload: NA
 
 # Create a new simulated device
 
-This tutorial shows you how to customize the device simulator microservice in the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
+This tutorial shows you how to customize the device simulator microservice in the remote monitoring solution accelerator. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
+
+The following video presents an overview of the options for customizing the device simulator microservice:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 In the first scenario, Contoso wants to test a new smart lightbulb device. To perform the tests, you create a new simulated device with the following characteristics:
 
@@ -64,7 +68,7 @@ The following table shows the initial status of the device:
 
 In the second scenario, you add a new telemetry type to Contoso's existing **Chiller** device.
 
-This tutorial shows you how to use the device simulator with the remote monitoring preconfigured solution:
+This tutorial shows you how to use the device simulator with the remote monitoring solution accelerator:
 
 In this tutorial, you learn how to:
 
@@ -82,7 +86,7 @@ The following video shows a walkthrough of connecting simulated and real devices
 
 To follow this tutorial, you need:
 
-* A deployed instance of the remote monitoring solution in your Azure subscription. If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
+* A deployed instance of the remote monitoring solution in your Azure subscription. If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 * Visual Studio 2017. If you don't have Visual Studio 2017 installed, you can download the free [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edition.
 
@@ -217,7 +221,7 @@ In this tutorial, you work with the **device-simulation** and **storage-adapter*
 1. To clone the .NET version of the **storage-adapter** repository, run the following command:
 
     ```cmd
-    git clone https://github.com/Azure/storage-adapter.git
+    git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
     The device simulation service uses the storage adapter service to connect to the Cosmos DB service in Azure. The remote monitoring solution stores the simulated device configuration data in a Cosmos DB database.
@@ -250,7 +254,11 @@ The easiest way to create a new device type in the device simulation service is 
 
 1. In the **Environment variables** section, edit the value of the **PCS\_IOTHUB\_CONNSTRING** variable to be the IoT Hub connection string you noted previously. Then save your changes.
 
-1. In Solution Explorer, right-click the **device-simulation** solution and choose **Set StartUp Projects**. Choose **Single startup project** and select **SimulationAgent**. Then click **OK**.
+1. In Solution Explorer, right-click the **WebService** project, choose **Properties**, and then choose **Debug**.
+
+1. In the **Environment variables** section, edit the value of the **PCS\_IOTHUB\_CONNSTRING** variable to be the IoT Hub connection string you noted previously. Then save your changes.
+
+1. In Solution Explorer, right-click the **device-simulation** solution and choose **Set StartUp Projects**. Choose **Single startup project** and select **WebService**. Then click **OK**.
 
 1. Each device type has a JSON model file and associated scripts in the **Services/data/devicemodels** folder. In Solution Explorer, copy the **Chiller** files to create the **Lightbulb** files as shown in the following table:
 
@@ -285,11 +293,13 @@ The **lightbulb-01.json** file defines the characteristics of the type, such as 
         "temperature_unit": "F",
         "status": "on"
       },
-      "Script": {
-        "Type": "javascript",
-        "Path": "lightbulb-01-state.js",
-        "Interval": "00:00:20"
-      }
+      "Interval": "00:00:20",
+      "Scripts": [
+        {
+          "Type": "javascript",
+          "Path": "lightbulb-01-state.js"
+        }
+      ]
     },
     ```
 
@@ -460,7 +470,7 @@ To limit the number of simulated devices that connect to the solution during tes
 
 You are now ready to test your new simulated lightbulb type by running the device simulation project locally.
 
-1. In Solution Explorer, right-click **SimulationAgent**, choose **Debug** and then choose **Start new instance**.
+1. In Solution Explorer, right-click **WebService**, choose **Debug** and then choose **Start new instance**.
 
 1. To check that the two simulated devices are connected to your IoT Hub, open the Azure portal in your browser.
 
@@ -470,7 +480,7 @@ You are now ready to test your new simulated lightbulb type by running the devic
 
     ![Number of connected devices](media/iot-suite-remote-monitoring-test/connecteddevices.png)
 
-1. In your browser, navigate to the **Dashboard** for your remote monitoring solution. In the telemetry panel on the **Dashboard**, select **temperature**. The temperature for your two simulated devices displays on the chart:
+1. In your browser, navigate to the **Dashboard** for your remote monitoring solution. In the telemetry panel on the **Dashboard**, select **temperature**. The temperature for all your simulated devices displays on the chart:
 
     ![Temperature telemetry](media/iot-suite-remote-monitoring-test/telemetry.png)
 

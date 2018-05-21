@@ -3,21 +3,23 @@ title: Azure AD v2.0 .NET AngularJS single page app getting started | Microsoft 
 description: How to build an Angular JS Single Page app that signs in users with both personal Microsoft accounts and work or school accounts.
 services: active-directory
 documentationcenter: ''
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: 6a341781-278f-461b-92ca-7572a06e6852
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-
 ---
+
 # Add sign-in to an AngularJS single page app - .NET
 In this article we'll add sign in with Microsoft powered accounts to an AngularJS app using the Azure Active Directory v2.0 endpoint.  The v2.0 endpoint enables you to perform a single integration in your app and authenticate users with both personal and work/school accounts.
 

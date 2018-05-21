@@ -48,7 +48,6 @@ These tutorials are a level deeper than the Quickstarts. In the tutorials, you b
 ### Create a console app
 
 - [Node.js](mongodb-samples.md) 
-- [.NET](tutorial-develop-mongodb.md)
 
 ### Create a web app
 

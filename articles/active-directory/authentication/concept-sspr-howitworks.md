@@ -1,22 +1,17 @@
 ---
 title: Self-service password reset how it works - Azure Active Directory
 description: Azure AD self-service password reset deep dive
+
 services: active-directory
-keywords: 
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 01/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
-ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro;seohack1
 
 ---
 # Self-service password reset in Azure AD deep dive
@@ -46,7 +41,7 @@ Read through the following steps to learn about the logic behind the password re
        * If the user challenge is not configured, then the user is advised to contact their administrator to reset their password.
      * If the policy requires two challenges, then it ensures that the user has the appropriate data defined for at least two of the challenges enabled by the administrator policy.
        * If the user challenge is not configured, then the user is advised to contact their administrator to reset their password.
-   * Checks to see if the user’s password is managed on-premises (federated or password hash synchronized).
+   * Checks to see if the user’s password is managed on-premises (federated, pass-through authentication, or password hash synchronized).
      * If writeback is deployed and the user’s password is managed on-premises, then the user is allowed to proceed to authenticate and reset their password.
      * If writeback is not deployed and the user’s password is managed on-premises, then the user is asked to contact their administrator to reset their password.
 4. If it's determined that the user is able to successfully reset their password, then the user is guided through the reset process.
@@ -204,7 +199,7 @@ Example: There are four administrators in an environment. Administrator A resets
 
 ## On-premises integration
 
-If you install, configure, and enable Azure AD Connect, you have the following additional options for on-premises integrations. If these options are grayed out, then writeback has not been properly configured. For more information, see [Configuring password writeback](../active-directory-passwords-writeback.md#configure-password-writeback).
+If you install, configure, and enable Azure AD Connect, you have the following additional options for on-premises integrations. If these options are grayed out, then writeback has not been properly configured. For more information, see [Configuring password writeback](howto-sspr-writeback.md#configure-password-writeback).
 
 ![Writeback][Writeback]
 
@@ -214,15 +209,15 @@ This page provides you a quick status of the on-premises writeback client one of
 * Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
 * Unfortunately, we can’t check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) to be able to check your connection status.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
-* Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](../active-directory-passwords-writeback.md#configure-password-writeback) to restore the connection.
+* Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](howto-sspr-writeback.md#configure-password-writeback) to restore the connection.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. This may be due to temporary issues on our end. If the problem persists, [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
 
 ### Write back passwords to your on-premises directory
 
 This control determines whether password writeback is enabled for this directory. If writeback is on, it indicates the status of the on-premises writeback service. This is useful if you want to temporarily disable password writeback without having to reconfigure Azure AD Connect.
 
-* If the switch is set to **Yes**, then writeback is enabled, and federated and password hash synchronized users are able to reset their passwords.
-* If the switch is set to **No**, then writeback is disabled, and federated and password hash synchronized users are not able to reset their passwords.
+* If the switch is set to **Yes**, then writeback is enabled, and federated, pass-through authentication, or password hash synchronized users are able to reset their passwords.
+* If the switch is set to **No**, then writeback is disabled, and federated, pass-through authentication, or password hash synchronized users are not able to reset their passwords.
 
 ### Allow users to unlock accounts without resetting their password
 
@@ -254,7 +249,7 @@ The following articles provide additional information regarding password reset t
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
 * [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](../active-directory-passwords-writeback.md)
+* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
 * [How do I report on activity in SSPR?](howto-sspr-reporting.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)

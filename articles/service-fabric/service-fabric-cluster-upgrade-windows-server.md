@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
@@ -118,7 +118,7 @@ Modify your cluster configuration to set the following property to *false* befor
 
         "fabricClusterAutoupgradeEnabled": false,
 
-For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade PowerShell command](https://msdn.microsoft.com/en-us/library/mt788302.aspx). Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
+For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade PowerShell command](https://msdn.microsoft.com/library/mt788302.aspx). Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
 
 ```powershell
 
