@@ -42,6 +42,16 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
+The sample performs the following actions:
+
+1. Creates new Transform (first, checks if the specified Transform exists). 
+2. Creates an output Asset that is used as the Job's output.
+3. Creates a Job's input that is based on an HTTPS URL.
+4. Submits an encoding Job using the input and output that was created earlier.
+5. Checks Job status.
+6. Creates a StreamingLocator.
+7. Builds streaming URLs.
+
 For explanations about what each function in the sample does, examine the code and look at the comments in [this source file](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 ## Log in to Azure
