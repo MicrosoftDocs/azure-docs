@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 5/20/2018
+ms.date: 5/21/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for MySQL
 
@@ -136,6 +136,6 @@ To allow communication from your circuit to Azure Database for MySQL, you must c
 
 [rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
 
-[vpn-gateway-indexmd-608y]: ../vpn-gateway/index.md
+[vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
