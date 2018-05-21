@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/17/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
 ---
 
@@ -48,8 +48,8 @@ ms.author: ryanwi
 User name or Service Account Name (i.e., MyMachine\JohnDoe or John.Doe@department.contoso.com).
 |Attribute|Value|
 |---|---|
-|name|AccountName|
 |type|xs:string|
+|name|AccountName|
 |use|optional|
 ##### XML source
 ```xml
@@ -65,8 +65,8 @@ User name or Service Account Name (i.e., MyMachine\JohnDoe or John.Doe@departmen
 Password for the user account.
 |Attribute|Value|
 |---|---|
-|name|Password|
 |type|xs:string|
+|name|Password|
 |use|optional|
 ##### XML source
 ```xml
@@ -111,8 +111,8 @@ Attribute group for application instance.
 Fully qualified name of the application.
 |Attribute|Value|
 |---|---|
-|name|NameUri|
 |type|FabricUri|
+|name|NameUri|
 |use|required|
 ##### XML source
 ```xml
@@ -128,8 +128,8 @@ Fully qualified name of the application.
 Id of this application.
 |Attribute|Value|
 |---|---|
-|name|ApplicationId|
 |type|xs:string|
+|name|ApplicationId|
 |use|required|
 ##### XML source
 ```xml
@@ -232,10 +232,10 @@ The version of this application type, an un-structured string.
 The identifier of this application manifest, an un-structured string.
 |Attribute|Value|
 |---|---|
-|name|ManifestId|
-|use|optional|
 |default||
+|name|ManifestId|
 |type|xs:string|
+|use|optional|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ManifestId" use="optional" default="" type="xs:string">
@@ -274,8 +274,8 @@ Identifies configuration overrides for a service package.
 #### ServicePackageName
 |Attribute|Value|
 |---|---|
-|name|ServicePackageName|
 |type|xs:string|
+|name|ServicePackageName|
 |use|required|
 ##### XML source
 ```xml
@@ -287,8 +287,8 @@ Identifies configuration overrides for a service package.
 ID of the rollout in which changes were made to the overrides element.
 |Attribute|Value|
 |---|---|
-|name|RolloutVersion|
 |type|xs:string|
+|name|RolloutVersion|
 |use|required|
 ##### XML source
 ```xml
@@ -329,8 +329,8 @@ ID of the rollout in which changes were made to the overrides element.
         
 |Attribute|Value|
 |---|---|
-|name|ConnectionString|
 |type|xs:string|
+|name|ConnectionString|
 |use|required|
 ##### XML source
 ```xml
@@ -368,8 +368,8 @@ ID of the rollout in which changes were made to the overrides element.
 The name of the container in Azure blob storage where data is uploaded.
 |Attribute|Value|
 |---|---|
-|name|ContainerName|
 |type|xs:string|
+|name|ContainerName|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerName" type="xs:string">
@@ -403,8 +403,8 @@ The name of the container in Azure blob storage where data is uploaded.
 Number of days after which old data is deleted from this location.
 |Attribute|Value|
 |---|---|
-|name|DataDeletionAgeInDays|
 |type|xs:string|
+|name|DataDeletionAgeInDays|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DataDeletionAgeInDays" type="xs:string">
@@ -438,8 +438,8 @@ Number of days after which old data is deleted from this location.
 Whether or not data transfer to this destination is enabled. By default, it is not enabled.
 |Attribute|Value|
 |---|---|
-|name|IsEnabled|
 |type|xs:string|
+|name|IsEnabled|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="IsEnabled" type="xs:string">
@@ -473,8 +473,8 @@ Whether or not data transfer to this destination is enabled. By default, it is n
 Level at which ETW events should be filtered. All events at the same or lower level than the specified level are included.
 |Attribute|Value|
 |---|---|
-|name|LevelFilter|
 |type|xs:string|
+|name|LevelFilter|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LevelFilter" type="xs:string">
@@ -544,8 +544,8 @@ The name of the setting to override.
 The new value of the setting.
 |Attribute|Value|
 |---|---|
-|name|Value|
 |type|xs:string|
+|name|Value|
 |use|required|
 ##### XML source
 ```xml
@@ -586,8 +586,8 @@ The new value of the setting.
         
 |Attribute|Value|
 |---|---|
-|name|Path|
 |type|xs:string|
+|name|Path|
 |use|required|
 ##### XML source
 ```xml
@@ -625,8 +625,8 @@ The new value of the setting.
 Path to the folder, relative to the application log directory.
 |Attribute|Value|
 |---|---|
-|name|RelativeFolderPath|
 |type|xs:string|
+|name|RelativeFolderPath|
 |use|required|
 ##### XML source
 ```xml
@@ -742,8 +742,8 @@ The version of the service manifest being referenced. The version must match the
 Interval in minutes at which data is uploaded to this destination.
 |Attribute|Value|
 |---|---|
-|name|UploadIntervalInMinutes|
 |type|xs:string|
+|name|UploadIntervalInMinutes|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UploadIntervalInMinutes" type="xs:string">
@@ -777,8 +777,8 @@ Attribute group for versioning sections in ApplicationInstance and ServicePackag
 #### RolloutVersion
 |Attribute|Value|
 |---|---|
-|name|RolloutVersion|
 |type|xs:string|
+|name|RolloutVersion|
 |use|required|
 ##### XML source
 ```xml

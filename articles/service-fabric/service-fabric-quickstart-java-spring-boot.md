@@ -74,7 +74,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
     ![Yeoman Entries](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
 
-3. In the `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/` folder, create a file called `entryPoint.sh`. Add the following to the `entryPoint.sh` file. 
+3. In the `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` folder, create a file called `entryPoint.sh`. Add the following to the `entryPoint.sh` file. 
 
     ```bash
     #!/bin/bash
@@ -240,7 +240,7 @@ To scale the web front-end service, do the following:
 
     ```bash 
     # Connect to your local cluster
-    sfctl cluster select --endpoint http://localhost:19080
+    sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
 
     # Run Bash command to scale instance count for your service
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 
