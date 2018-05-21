@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 05/21/2018
 ms.author: maquaran
 
 ---
@@ -41,6 +41,10 @@ ms.author: maquaran
 ## Release notes
 
 ### Stable builds
+
+### <a name="1.3.3"/>1.3.3
+* Added more logging.
+* Fixed a DocumentClient leak when calling the pending work estimation multiple times.
 
 ### <a name="1.3.2"/>1.3.2
 * Fixes in the pending work estimation.
@@ -104,6 +108,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.3.3](#1.3.3) |May 08, 2018 |--- |
 | [1.3.2](#1.3.2) |April 18, 2018 |--- |
 | [1.3.1](#1.3.1) |March 13, 2018 |--- |
 | [1.2.0](#1.2.0) |October 31, 2017 |--- |
