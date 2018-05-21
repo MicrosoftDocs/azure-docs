@@ -49,7 +49,7 @@ Once the different user intents are identified, provide examples of text (called
 
 This teaches LUIS how utterances are constructed, specifically what words, word order, and utterance length. This isn't meant to be a hard limit of all examples but rather a short list of utterances, as a guideline. LUIS learns from the examples. Giving too many examples may incorrectly teach LUIS by reinforcing information derived from the example utterances that you didn't want LUIS to learn. 
 
-> ![NOTE]
+> [!NOTE]
 > * The LUIS authoring API documentation uses the word label when meaning utterance. 
 
 An utterance is made up of words, spaces, and punctuation. Depending on the culture (spoken language) of the app, there can be a smaller unit (called a token) than a word. For more information, see [tokenization](luis-supported-languages.md#tokenization) .

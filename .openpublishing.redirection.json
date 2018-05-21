@@ -9082,7 +9082,7 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-connecting-devices-mbed.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
@@ -9207,77 +9207,77 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-overview.md",
-            "redirect_url": "/azure/iot-suite/iot-suite-options",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-options",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-get-started.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-logic-apps-tutorial.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-dynamic-telemetry.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-custom-rule.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-device-info.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-getstarted-preconfigured-solutions.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-c-get-started-simulator.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-c-get-started-basic.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-c-get-started-advanced.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-node-get-started-simulator.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-node-get-started-basic.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-node-get-started-advanced.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-simulator.md",
-            "redirect_url": "/azure/iot-suite",
+            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
@@ -18062,7 +18062,7 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md",
-            "redirect_url": "azure/iot-suite/iot-suite-what-are-solution-accelerators",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators",
             "redirect_document_id": false
         },
         {
@@ -21022,7 +21022,7 @@
         },
         {
             "source_path": "articles/virtual-machines/workloads/oracle/index.md",
-            "redirect_url": "/azure/guides/operations/azure-operations-guide/oracle-considerations",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-considerations",
             "redirect_document_id": false
         },
         {
@@ -21454,6 +21454,51 @@
             "source_path": "articles/iot-suite/iot-suite-microservices-example.md",
             "redirect_url": "/azure/iot-accelerators/iot-accelerators-microservices-example",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-security-architecture.md",
+            "redirect_url": "/azure/iot-accelerators/iot-security-architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-security-best-practices.md",
+            "redirect_url": "/azure/iot-accelerators/iot-security-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-options.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-options",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-permissions.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-permissions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-predictive-overview.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-predictive-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-predictive-walkthrough.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-predictive-walkthrough",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-security-deployment.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-security-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-time-series-insights.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-time-series-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/securing-iot-ground-up.md",
+            "redirect_url": "/azure/iot-accelerators/securing-iot-ground-up",
+            "redirect_document_id": false
           },
           {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
@@ -21674,6 +21719,12 @@
             "source_path": "articles/cognitive-services/bing-visual-search/upload-images.md",
             "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/csharp",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
+            "redirect_document_id": true
         }
+
     ]
 }
