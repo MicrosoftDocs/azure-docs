@@ -90,5 +90,5 @@ A lab user does the following tasks:
 ## Next steps
 Get started with setting up a lab using Azure Lab Services:
 
-- [Set up a classroom lab](tutorial-setup-classroom-lab.md)
+- [Set up a classroom lab](classroom-labs/tutorial-setup-classroom-lab.md)
 - [Set up a custom lab](tutorial-create-custom-lab.md)
