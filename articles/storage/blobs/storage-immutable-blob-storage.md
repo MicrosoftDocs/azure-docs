@@ -67,19 +67,28 @@ Append Block        Append blobs                        Writes a block of data t
 ### Getting Started
 **Azure portal**
  Step 1: Create a container to store the blobs that need to be kept in the immutable state. Click on Access Polcy in the Container settings and then click on **+ Add Policy** under **Immutable Blob Storage** policy as illustrated below.
-  <Roy: Insert the file portal-image-1.jpg>
-  <Roy: Insert the file portal-image-2.jpg>
+ 
+![Container Access](../media/storage-immutable-blob-storage/portal-image-1.jpg)
+
+![Container Access](../media/storage-immutable-blob-storage/portal-image-2.jpg)
+
  Step 2: To enable time-based retention, choose Time-Based Retention from the drop-down menu. Enter the desired retention interval in days (minimum is 1 day)
- <Roy: Insert the file portal-image-3-time-based retention.jpg>
+
+![Time based retention](../media/storage-immutable-blob-storage/portal-image-3-time-based retention.jpg)
+
  As you can see above, the state of the policy will initially be unlocked. This will allow you to test the deature with a smaller retention interval, and make changes to the policy before locking it.
  Locking is essential for SEC 17a-4 etc. regulatory compliance.
  Step 3: Lock the policy by right clicking on the ..., and the following menu will appear:-
-  <Roy: Insert the file  portal-image-4-lock-policy.jpg> 
+
+![Lock policy](../media/storage-immutable-blob-storage/portal-image-4-lock-policy.jpg>)
+
   Click on Lock Policy and the policy state will now show as locked. Once locked, the policy can longer be deleted and only extensions of the retention interval will be allowed.
  Step 4: To enable legal holds, clikc on + Add Policy and  choose Legal hold from the drop down menu
- <Roy: Insert the file portal-image-legal-hold-selection.jpg >
+
+![Hold selection](../media/storage-immutable-blob-storage/portal-image-legal-hold-selection-7.jpg)
+
  Create a legal hold with 1 or more tags
- <Roy: Insert the file portal-image-set-legal-hold-tags.jpg>
+ ![Hold tags](../media/storage-immutable-blob-storage/portal-image-set-legal-hold-tags.jpg)
 
  **CLI**
  Install the CLI extension  (Roy:  please add link, text to display is extension(https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) the extension with `az extension add -n storage-preview`
@@ -113,9 +122,9 @@ The following restrictions apply during public preview:
 ### Client Libraries and Tools 
 
 The Immutable Blob Storage feature is supported in the following client libraries:-
-.net <Roy: enter link https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview>
-node.js <Roy: add link https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/>
-Python <Roy: add link https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/storageManagement2>
+[.net](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
+[node.js](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
+[Python](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/storageManagement2)
 
 ### Powershell 
 
