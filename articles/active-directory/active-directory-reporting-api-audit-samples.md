@@ -87,35 +87,6 @@ Once you finish editing the script, run it and verify that the expected data fro
 
 The script returns output from the audit report in JSON format. It also creates an `audit.json` file with the same output. You can experiment by modifying the script to return data from other reports, and comment out the output formats that you do not need.
 
-## Bash script
-    #!/bin/bash
-
-    # Author: Ken Hoff (kenhoff@microsoft.com)
-    # Date: 2015.08.20
-    # NOTE: This script requires jq (https://stedolan.github.io/jq/)
-
-    CLIENT_ID="your-application-client-id-here"         # Should be a ~35 character string insert your info here
-    CLIENT_SECRET="your-application-client-secret-here" # Should be a ~44 character string insert your info here
-    LOGIN_URL="https://login.microsoftonline.com"
-    TENANT_DOMAIN="your-directory-name-here.onmicrosoft.com"    # For example, contoso.onmicrosoft.com
-
-    TOKEN_INFO=$(curl -s --data-urlencode "grant_type=client_credentials" --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" "$LOGIN_URL/$TENANT_DOMAIN/oauth2/token?api-version=1.0")
-
-    TOKEN_TYPE=$(echo $TOKEN_INFO | ./jq-win64.exe -r '.token_type')
-    ACCESS_TOKEN=$(echo $TOKEN_INFO | ./jq-win64.exe -r '.access_token')
-
-    # get yesterday's date
-
-    YESTERDAY=$(date --date='1 day ago' +'%Y-%m-%d')
-
-    URL="https://graph.windows.net/$TENANT_DOMAIN/activities/audit?api-version=beta&$filter=activityDate%20gt%20$YESTERDAY"
-
-
-    REPORT=$(curl -s --header "Authorization: $TOKEN_TYPE $ACCESS_TOKEN" $URL)
-
-    echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
-
-
 
 
 
