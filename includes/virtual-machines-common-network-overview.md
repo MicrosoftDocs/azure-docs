@@ -91,7 +91,7 @@ This table lists the methods that you can use to create a VNet and subnets.
 
 ## Network security groups
 
-A [network security group (NSG)](../articles/virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. In addition, traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
+A [network security group (NSG)](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. In addition, traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
 
 NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. Each rule has properties of protocol, source and destination port ranges, address prefixes, direction of traffic, priority, and access type. 
 
@@ -99,7 +99,7 @@ All NSGs contain a set of default rules. The default rules cannot be deleted, bu
 
 When you associate an NSG to a NIC, the network access rules in the NSG are applied only to that NIC. If an NSG is applied to a single NIC on a multi-NIC VM, it does not affect traffic to the other NICs. You can associate different NSGs to a NIC (or VM, depending on the deployment model) and the subnet that a NIC or VM is bound to. Priority is given based on the direction of traffic.
 
-Be sure to [plan](../articles/virtual-network/virtual-networks-nsg.md#planning) your NSGs when you plan your VMs and VNet.
+Be sure to [plan](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) your NSGs when you plan your VMs and VNet.
 
 This table lists the methods that you can use to create a network security group.
 

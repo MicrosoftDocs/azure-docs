@@ -27,7 +27,7 @@ By integrating Azure AD with Box, you get the following benefits:
 - You can enable your users to get signed in automatically to Box (single sign-on, or SSO) with their Azure AD accounts.
 - You can manage your accounts in one central location, the Azure portal.
 
-To learn about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+To learn about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -193,7 +193,7 @@ When you select the **Box** tile in the Access Panel, you open the sign-in page 
 ## Additional resources
 
 * [List of tutorials about integrating SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure user provisioning](active-directory-saas-box-userprovisioning-tutorial.md)
 
 

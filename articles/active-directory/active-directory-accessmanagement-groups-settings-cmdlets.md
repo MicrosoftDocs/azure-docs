@@ -69,7 +69,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
 4. Then update the usage guideline value:
   
   ```
-  $setting["UsageGuidelinesUrl"] = "<https://guideline.com>"
+  $setting["UsageGuidelinesUrl"] = "https://guideline.com"
   ```  
 5. Finally, apply the settings:
   
@@ -138,7 +138,7 @@ These steps read settings at directory level, which apply to all Office groups i
   GuestUsageGuidelinesUrl
   GroupCreationAllowedGroupId
   AllowToAddGuests              True
-  UsageGuidelinesUrl            <https://guideline.com>
+  UsageGuidelinesUrl            https://guideline.com
   ClassificationList
   EnableGroupCreation           True
   ```

@@ -12,9 +12,13 @@
 - name: Tutorials
   items:
   - name: Upload, encode, and stream
-    href: stream-files-tutorial-with-api.md
+    items:
+    - name: With .NET
+      href: stream-files-tutorial-with-api.md
   - name: Analyze your video
-    href: analyze-videos-tutorial-with-api.md
+    items:
+    - name: With .NET
+      href: analyze-videos-tutorial-with-api.md
 - name: Samples
   items:
   - name: Azure code samples
@@ -49,14 +53,24 @@
       href: job-input-from-http-how-to.md
     - name: From a local file
       href: job-input-from-local-file-how-to.md    
+  - name: Customize encoder presets
+    items:
+    - name: With .NET Core
+      href: customize-encoder-presets-how-to.md
 - name: Reference
   items:
   - name: Azure CLI 2.0
-    href: https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest
+    href: https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest
   - name: REST
     href: https://go.microsoft.com/fwlink/p/?linkid=873030
+  - name: .NET
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet
+  - name: Java
+    href: https://docs.microsoft.com/java/api/overview/azure/mediaservices
+  - name: Python
+    href: https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python
   - name: Event schemas
-    href: media-services-event-schemas.md    
+    href: media-services-event-schemas.md
 - name: Resources
   items:
   - name: Azure Roadmap
