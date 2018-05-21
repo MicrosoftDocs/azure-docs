@@ -4,6 +4,7 @@
 ## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
 ## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md)
+## [Residency and data considerations](active-directory-data-storage-eu.md)
 ## [FAQs](active-directory-faq.md)
 ## [What's New](whats-new.md)
 
@@ -224,7 +225,7 @@
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
-#### [SSO access](active-directory-appssoaccess-whatis.md)
+#### [SSO access](manage-apps/what-is-single-sign-on.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
 #### [Tenant restrictions](active-directory-tenant-restrictions.md)
 #### [Use SCIM provision users](active-directory-scim-provisioning.md)
