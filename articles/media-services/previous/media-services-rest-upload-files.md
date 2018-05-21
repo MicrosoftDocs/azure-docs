@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/10/2018
 ms.author: juliako
 
 ---
@@ -84,11 +84,11 @@ For steps on how to set up Postman for this tutorial, see [Configure Postman](me
 	```
 4. On the left of the **Postman** window, click on **1. Get AAD Auth token** -> **Get Azure AD Token for Service Principal**.
 
-    The URL portion is filled with the **AzureADSTSEndpoint** environment variable (the value of which you set earlier in this tutorial).
-    
-5. Press **Send**.
+    The URL portion is filled with the **AzureADSTSEndpoint** environment variable (earlier in the tutorial, you set the values of [environment variables](#configure-the-environment) that support the [collection](#configure-the-collection)).
 
     ![Upload a file](./media/media-services-rest-upload-files/postment-get-token.png)
+
+5. Press **Send**.
 
     You can see the response that contains "access_token". The "test" script takes this value and sets the **AccessToken** environment variable (as described above). If you examine your environment variables, you will see that this variable now contains the access token (bearer token) value that is used in the rest of the operations. 
 

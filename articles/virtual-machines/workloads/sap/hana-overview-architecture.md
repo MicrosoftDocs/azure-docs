@@ -302,6 +302,8 @@ This list assembles requirements for running SAP HANA on Azure (Larger Instances
 
 For the support matrix of the different SAP HANA versions with the different Linux versions, see [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
+For the compatibility matrix of the operating system and HLI firmware/driver versions, refer [OS Upgrade for HLI](os-upgrade-hana-large-instance.md).
+
 
 **Database**
 

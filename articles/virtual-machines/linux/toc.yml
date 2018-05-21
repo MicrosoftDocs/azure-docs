@@ -51,6 +51,8 @@
     href: tutorial-mean-stack.md
   - name: 16 - Secure web server with SSL
     href: tutorial-secure-web-server.md
+  - name: Deploy a Packer image and apps to a scale set
+    href: https://docs.microsoft.com/learn/deploy-custom-vmss-app/index
 - name: Samples
   items:
   - name: Azure CLI
@@ -109,15 +111,7 @@
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: How to enable write accelerator
-      href: how-to-enable-write-accelerator.md
-    - name: Troubleshoot attached VHDs
-      items:
-      - name: Storage resource deletion errors
-        href: storage-resource-deletion-errors.md  
-      - name: Unexpected reboots of VMs with attached VHDs  
-        href: unexpected-reboots-attached-vhds.md            
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md 
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -194,7 +188,12 @@
     - name: Tag a VM
       href: tag.md
     - name: Run scripts on a VM
-      href: extensions-customscript.md
+      href: run-scripts-in-vm.md
+      items:
+        - name: Custom Script Extension
+          href: ../extensions/custom-script-linux.md
+        - name: Run Command
+          href: run-command.md
     - name: Use Remote Desktop
       href: use-remote-desktop.md
     - name: Join VM to Azure Active Directory
@@ -391,6 +390,8 @@
       href: mount-azure-file-storage-on-linux-using-smb.md
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
+    - name: Enable write accelerator
+      href: how-to-enable-write-accelerator.md
     - name: Optimize performance
       href: optimization.md
       items:
@@ -498,6 +499,12 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
+    - name: Attached VHDs
+      items:
+      - name: Storage resource deletion errors
+        href: storage-resource-deletion-errors.md  
+      - name: Unexpected reboots of VMs with attached VHDs  
+        href: unexpected-reboots-attached-vhds.md
 - name: Reference
   items:
   - name: Azure CLI

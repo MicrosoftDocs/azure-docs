@@ -6,7 +6,7 @@ author: banisadr
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: babanisa
 ---
@@ -92,6 +92,10 @@ To set the input schema on a custom topic to CloudEvents, use the following para
 To create an event grid topic, use:
 
 ```azurecli
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create \
   --name <topic_name> \
   -l westcentralus \
@@ -109,7 +113,7 @@ To create an event subscription, use:
 
 ```azurecli
 az eventgrid event-subscription create \
-  --name <event_subscription_name> \  
+  --name <event_subscription_name> \
   --topic-name <topic_name> \
   -g gridResourceGroup \
   --endpoint <endpoint_URL> \

@@ -82,7 +82,7 @@ This process is different than [using secure configurations without the extensio
 
 ## Next steps
 
-- Get an [introduction to Azure DSC extension handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Examine the [Azure Resource Manager template for the DSC extension](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Get an [introduction to Azure DSC extension handler](dsc-overview.md).
+- Examine the [Azure Resource Manager template for the DSC extension](dsc-template.md).
 - For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview).
 - For more functionality that you can manage by using PowerShell DSC, and for more DSC resources, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

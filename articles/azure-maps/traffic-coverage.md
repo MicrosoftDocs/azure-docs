@@ -97,4 +97,4 @@ However, Maps does not have the same level of information and accuracy for all r
 |United States     |✓         |✓        |
 |+Puerto Rico     |✓         |✓         |
 
-For more information about Azure Maps traffic data, see the [Traffic](https://docs.microsoft.com/rest/api/azure-maps/traffic) reference pages.
+For more information about Azure Maps traffic data, see the [Traffic](https://docs.microsoft.com/rest/api/maps/traffic) reference pages.

@@ -422,6 +422,6 @@ or configuration.module is specified"
 ## Next steps
 
 - Learn about [using virtual machine scale sets with the Azure DSC extension](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
-- Find more details about [DSC's secure credential management](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Get an [introduction to the Azure DSC extension handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Find more details about [DSC's secure credential management](dsc-credentials.md).
+- Get an [introduction to the Azure DSC extension handler](dsc-overview.md).
 - For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview).

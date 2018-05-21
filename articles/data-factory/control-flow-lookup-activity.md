@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/10/2018
 ms.author: shlo
 
 ---
@@ -28,11 +28,9 @@ Lookup activity can read and return the content of a configuration file, a confi
 
 ## Supported capabilities
 
-The following data sources are currently supported for lookup:
+The following data sources are supported for lookup. The maximum number of rows can be returned by Lookup activity is **5000**, and up to **2MB** in size. And currently the max duration for Lookup activity before timeout is one hour.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
-
-The maximum number of rows returned by Lookup activity is **5000**, and up to **2MB** in size.
 
 ## Syntax
 
@@ -61,10 +59,11 @@ dataset | Provides the dataset reference for the lookup. Get details from the "D
 source | Contains dataset-specific source properties, the same as the copy activity source. Get details from the "Copy activity properties" section in each corresponding connector article. | Key/value pair | Yes
 firstRowOnly | Indicates whether to return only the first row or all rows. | Boolean | No. Default is `true`.
 
-Note the following points:
+**Note the following points:**
 
 1. Source column with ByteArray type is not supported.
 2. Structure is not supported in dataset definition. For text format files specifically, you can use the header row to provide the column name.
+3. If your lookup source is a JSON file(s), the `jsonPathDefinition` setting for re-shaping the JSON object is not supported, the entire objects will be retrieved.
 
 ## Use the lookup activity result in a subsequent activity
 

@@ -13,20 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2017
+ms.date: 05/07/2018
 ms.author: mabrigg
 
 ---
-# Create a virtual machine by retrieving the password stored in a Key Vault
+# Create a virtual machine using a secure password stored in Azure Stack Key Vault
 
-When you need to pass a secure value such as a password during deployment, you can store that value as a secret in an Azure Stack key vault and reference it in the Azure Resource Manager templates. You do not need to manually enter the secret each time you deploy the resources, you can also specify which users or service principals can access the secret. 
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-In this article, we walk you through the steps required to deploy a Windows virtual machine in Azure Stack by retrieving the password that is stored in a Key Vault. Therefore the password is never put in plain text in the template parameter file. You can use these steps either from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
+This article steps through deploying a Windows Server virtual machine using a password stored in Azure Stack Key Vault. Using a key vault password is more secure than passing a plain text password.
+
+## Overview
+
+You can store values such as a password as a secret in an Azure Stack key vault. After you create a secret, you can reference it in Azure Resource Manager templates. Using secrets with Resource Manager provides the following benefits:
+
+* You don’t have to manually enter secret each time you deploy a resource.
+* You can specify which users or service principals can access a secret.
 
 ## Prerequisites
- 
-* You must subscribe to an offer that includes the Key Vault service.  
-* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
+
+* You must subscribe to an offer that includes the Key Vault service.
+* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
 * [Configure the Azure Stack user's PowerShell environment.](azure-stack-powershell-configure-user.md)
 
 The following steps describe the process required to create a virtual machine by retrieving the password stored in a Key Vault:
@@ -34,6 +41,9 @@ The following steps describe the process required to create a virtual machine by
 1. Create a Key Vault secret.
 2. Update the azuredeploy.parameters.json file.
 3. Deploy the template.
+
+>[NOTE]
+>You can use these steps from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
 
 ## Create a Key Vault secret
 
@@ -71,7 +81,7 @@ Modify the `azuredeploy.parameters.json` file according to your environment valu
 
 ## Update the azuredeploy.parameters.json file
 
-Update the azuredeploy.parameters.json file with the KeyVault URI, secretName, adminUsername of the virtual machine values as per your environment. The following JSON file shows an example of the template parameters file: 
+Update the azuredeploy.parameters.json file with the KeyVault URI, secretName, adminUsername of the virtual machine values as per your environment. The following JSON file shows an example of the template parameters file:
 
 ```json
 {
@@ -111,13 +121,13 @@ New-AzureRmResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+
 When the template is deployed successfully, it results in the following output:
 
 ![Deployment output](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
-
 ## Next steps
+
 [Deploy a sample app with Key Vault](azure-stack-kv-sample-app.md)
 
 [Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-

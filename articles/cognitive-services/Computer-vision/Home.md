@@ -28,7 +28,7 @@ The cloud-based Computer Vision API provides developers with access to advanced 
 * [Recognize domain-specific content](#domain-specific-content)
 * [Generate descriptions of the content](#generating-descriptions)
 * [Use optical character recognition to identify printed text found in images](#optical-character-recognition-ocr)
-* [Recognize handwritten text](#recognize-text)
+* [Recognize text](#recognize-text)
 * [Distinguish color schemes](#perceiving-color-schemes)
 * [Flag adult content](#flagging-adult-content)
 * [Crop photos to be used as thumbnails](#generating-thumbnails)

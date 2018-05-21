@@ -91,7 +91,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
 
     ```csharp
     private const string ModuleConnectionString = "<Your module connection string>“;
-    private static DeviceClient Client = null;
+    private static ModuleClient Client = null;
     ```
 
     Add the following method **OnDesiredPropertyChanged** to the **Program** class:
@@ -120,7 +120,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
 
         try
         {
-            Client = DeviceClient.CreateFromConnectionString(ModuleConnectionString, transport);
+            Client = ModuleClient.CreateFromConnectionString(ModuleConnectionString, transport);
             Client.SetConnectionStatusChangesHandler(ConnectionStatusChangeHandler);
             Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
 

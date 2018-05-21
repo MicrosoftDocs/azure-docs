@@ -84,6 +84,10 @@ With your MXChip IoT DevKit connected to your computer:
 
 ![Example test procedure](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
+> [!NOTE]
+> You can see raw data of device twin in Azure portal:
+> IoT Hub -\> IoT devices -\> *\<your device\>* -\> Device Twin.
+
 ## Next steps
 
 You have learned how to:
