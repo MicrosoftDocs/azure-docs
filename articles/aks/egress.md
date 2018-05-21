@@ -30,13 +30,13 @@ Get the resource group name with the [az resource show][az-resource-show] comman
 ```
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-MC_myResourceGRoup_myAKSCluster_eastus
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Next, use the [az network public-ip create][public-ip-create] command to create a static public IP address. Update the resource group name to match the name gatherred in the last step.
 
 ```console
-$ az network public-ip create --resource-group MC_myResourceGRoup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static --query publicIp.ipAddress -o table
+$ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static --query publicIp.ipAddress -o table
 
 Result
 -------------
