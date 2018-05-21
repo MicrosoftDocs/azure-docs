@@ -38,7 +38,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
    ```
 2. Sign in to the Azure portal.  
 
-3. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**. Fill out the Storage account job page with **Name** set to "myasastorageaccount", **Location** set to "West US 2", **Resource group** set to "MyRG" (host the storage account in the same resource group as the Streaming job for increased performance). The remaining settings can be left to their default values.  
+3. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**. Fill out the Storage account job page with **Name** set to "asaquickstartstorage", **Location** set to "West US 2", **Resource group** set to "asaquickstart-resourcegroup" (host the storage account in the same resource group as the Streaming job for increased performance). The remaining settings can be left to their default values.  
 
    ![Create storage account](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
@@ -64,9 +64,9 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
    |**Setting**  |**Suggested value**  |**Description**  |
    |---------|---------|---------|
-   |Job name   |  myJob   |   Enter a name to identify your Stream Analytics job. Stream Analytics job name can contain alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long. |
+   |Job name   |  myasajob   |   Enter a name to identify your Stream Analytics job. Stream Analytics job name can contain alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long. |
    |Subscription  | \<Your subscription\> |  Select the Azure subscription that you want to use for this job. |
-   |Resource group   |   myResourceGroup  |   Select **Create New** and enter a new resource-group name for your account. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Select **Create New** and enter a new resource-group name for your account. |
    |Location  |  \<Select the region that is closest to your users\> | Select geographic location where you can host your Stream Analytics job. Use the location that's closest to your users for better performance and to reduce the data transfer cost. |
    |Streaming units  | 1  |   Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, refer to [understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) article.   |
    |Hosting environment  |  Cloud  |   Stream Analytics jobs can be deployed to cloud or edge. Cloud allows you to deploy to Azure Cloud, and Edge allows you to deploy to an IoT edge device. |
