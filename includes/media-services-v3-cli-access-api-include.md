@@ -12,9 +12,9 @@ ms.custom: include file
 
 ## Access the Media Services API
 
-To connect to Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure your app.
+To connect to Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You should use the returned values to configure your app.
 
-If you are developing in Visual Studio Code or Visual Studio, you would normally add these value to your App.config. If you are using Postman, you might want to create environment variables and set them to the values you got after executing the following script.  
+If you are developing in Visual Studio Code or Visual Studio, you would normally add these values to your App.config. If you are using Postman, you might want to create environment variables and set them to the values you got after executing the following script.  
 
 Before running the script, you can replace the `amsaccount` and `amsResourceGroup` with the names you chose when creating these resources. `amsaccount` is the name of the Azure Media Services account where to attach the service principal. <br/>The command that follows uses the `xml` option that returns an xml that you can paste in your app.config. If you omit the `xml` option, the response will be in `json`.
 
@@ -41,7 +41,7 @@ This command will produce a response similar to this:
 
 1. Open Visual Studio Code.
 2. Browse and open the App.config file.
-3. Replace the appSettings values with the values that you got in the previous step.
+3. Replace the appSettings values with the values you got in the previous step.
 
  ```xml
  <add key="Region" value="value" />
