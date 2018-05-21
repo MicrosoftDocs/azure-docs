@@ -63,6 +63,7 @@ The following section provides you with a complete overview of all possible erro
 |50053|Account is locked because user tried to sign in too many times with an incorrect user ID or password.|
 |50054|Old password is used for authentication.|
 |50055|Invalid password, entered expired password.|
+|50056|Invalid or null password/Password does not exist in store for this user|
 |50057|User account is disabled.|
 |50058|No information about user's identity is found among provided credentials or User was not found in tenant or A silent sign-in request was sent but no user is signed in or Service was unable to authenticate the user.|
 |50072|Users' needs to enroll for second factor authentication (interactive)|
