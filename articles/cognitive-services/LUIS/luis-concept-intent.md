@@ -68,4 +68,4 @@ The **None** intent is a required intent and can't be deleted or renamed.
 
 * Learn more about [entities](luis-concept-entity-types.md), which are important words relevant to intents
 * Learn how to [add and manage intents](Add-intents.md) in your LUIS app.
-* Review intent [best practices](luis-concept-best-practices.md#intents)
+* Review intent [best practices](luis-concept-best-practices.md)
