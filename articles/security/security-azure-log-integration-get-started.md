@@ -212,7 +212,7 @@ Another support option is the [Azure Log Integration MSDN forum](https://social.
 
 The Azure Activity Log is a subscription log that provides insight into subscription-level events that have occurred in Azure. This includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. The Azure Security Center Alerts are also included in this Log.
 > [!NOTE]
-> Before you attempt the steps in this article, you must review the [Get started](security-azure-log-integration-get-started) article and complete the steps there.
+> Before you attempt the steps in this article, you must review the [Get started](security-azure-log-integration-get-started.md) article and complete the steps there.
 
 ### Steps to integrate Azure Activity logs
 
