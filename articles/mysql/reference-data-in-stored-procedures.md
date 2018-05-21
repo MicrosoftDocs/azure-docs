@@ -1,6 +1,6 @@
 ---
 title: Azure Database for MySQL Data-in Replication Stored Procedures
-description: This topic introduces all stored procedures used for Data-in Replication.
+description: This article introduces all stored procedures used for Data-in Replication.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -13,9 +13,9 @@ ms.date: 05/18/2018
 
 # Azure Database for MySQL Data-in Replication Stored Procedures
 
-Data-in Replication allows you to synchronize the data from a MySQL server that is running locally on-premises or in other hosted cloud locations into an Azure Database for MySQL server.
+Data-in Replication allows you to synchronize data from a MySQL server running on-premises, in virtual machines, or database services hosted by other cloud providers into the Azure Database for MySQL service.
 
-Users should use the below stored procedures to set up or remove Data-in Replication between the primary and replica:
+The following stored procedures are used to set up or remove Data-in Replication between a primary and replica.
 
 |**Stored Procedure Name**|**Input Parameters**|**Output Parameters**|**Usage Note**|
 |-----|-----|-----|-----|

@@ -1,6 +1,6 @@
 ---
-title: Configure data-in replication from multi-cloud or on-prem databases to Azure Database for MySQL.
-description: This article describes how to set up data-in replication for Azure Database for MySQL.
+title: Configure Data-in Replication to replicate data into Azure Database for MySQL.
+description: This article describes how to set up Data-in Replication for Azure Database for MySQL.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -13,9 +13,9 @@ ms.date: 05/18/2018
 
 # How to configure Azure Database for MySQL Data-in Replication
 
-In this article, you will learn how to set up Azure Database for MySQL Data-in replication by configuring primary and replica servers and link them for synchronization.
+In this article, you will learn how to set up Data-in Replication in the Azure Database for MySQL service by configuring primary and replica servers.
 
-This article assumes that you have at least some prior experience with MySQL Server and Database.
+This article assumes that you have at least some prior experience with MySQL servers and databases.
 
 ## Create a MySQL server to be used as replica
 
@@ -29,7 +29,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
 
 2. Create same user accounts and corresponding privileges
 
-   User accounts are not replicated from the primary server to the replica server. You need to manually create all accounts and corresponding privileges on this newly created Azure Database for MySQL server.
+   User accounts are not replicated from the primary server to the replica server. If you plan on providing users with access to the replica server, you need to manually create all accounts and corresponding privileges on this newly created Azure Database for MySQL server.
 
 ## Configure the primary server
 
@@ -47,7 +47,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
 
 2. Primary server settings
 
-   MySQL Data-in Replication requires parameter `lower_case_table_names` to be consistent between the primary and replica servers. This parameter is 1 by default in Azure Database for MySQL. 
+   Data-in Replication requires parameter `lower_case_table_names` to be consistent between the primary and replica servers. This parameter is 1 by default in Azure Database for MySQL. 
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -55,44 +55,48 @@ This article assumes that you have at least some prior experience with MySQL Ser
 
 3. Create a new account and set up permission
 
-   Create a replication user account based on whether you plan on replicating with SSL. Creating a user can be done through SQL commands or a tool like MySQL Workbench.
+   Create a user account on the primary server that is configured with replication privileges. This can be done through SQL commands or a tool like MySQL Workbench. Consider whether you plan on replicating with SSL as this will need to be specified when creating the user. Refer to the MySQL documentation to understand how to [add user accounts](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) on your primary server. 
+
+   In the commands below, the new user account created is able to access the primary from any host (using the syntax "@'%'"). If you require that the user can only access the primary server from within the same domain, use "@'%.companya.com'" instead. See the MySQL documentation to learn more about [specifying account names](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 
    **SQL Command**
 
    *Replication with SSL*
 
-   “Require SSL” ensures that a user’s connections to the server always uses SSL.
+   To require SSL for all user connections, use the following command to create a user: 
 
    ```sql
-   CREATE USER 'syncuser'@'%.companya.com' IDENTIFIED BY 'yourpassword';
+   CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
    GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
    ```
 
    *Replication without SSL*
 
+   If SSL is not required for all connections, use the following command to create a user:
+
    ```sql
-   CREATE USER 'syncuser'@'%.companya.com' IDENTIFIED BY 'yourpassword';
+   CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
    GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
    ```
 
    **MySQL Workbench**
 
-   To create the replication user account in MySQL Workbench, open the Users and Privileges panel from the “Management” panel. Then click on “Add Account". 
+   To create the replication user account in MySQL Workbench, open the **Users and Privileges** panel from the **Management”** panel. Then click on **Add Account**. 
  
    ![Users and Privileges](./media/howto-data-in-replication/users_privileges.png)
 
-   Type in the username into the “Login Name” field. 
+   Type in the username into the **Login Name** field. 
 
    ![Sync user](./media/howto-data-in-replication/syncuser.png)
  
-   Click on the “Administrative Roles” panel and then select “Replication Slave” from the list of “Global Privileges”. Then click on “Apply” to create the user account.
+   Click on the **Administrative Roles** panel and then select **Replication Slave** from the list of **Global Privileges**. Then click on **Apply** to create the user account.
 
    ![Replication Slave](./media/howto-data-in-replication/replicationslave.png)
 
 
 4. Set the primary server to read-only mode
 
-   Before starting to dump out the database, the server needs to be locked. Evaluate the impact to your business and schedule the maintenance window in an off-peak time if necessary.
+   Before starting to dump out the database, the server needs to be placed in read-only mode. While in read-only mode, the primary will be unable to process any write transactions. Evaluate the impact to your business and schedule the read-only window in an off-peak time if necessary.
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
@@ -101,7 +105,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
 
 5. Get binary log file name and offset
 
-   Run the [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) command to ascertain the current binary log file name and offset.
+   Run the [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) command to determine the current binary log file name and offset.
 	
    ```sql
    show master status;
@@ -114,11 +118,11 @@ This article assumes that you have at least some prior experience with MySQL Ser
 
 1. Dump all databases from primary server
 
-   You can use mysqldump to dump databases from your primary – the existing server. For details, refer to [Dump & Restore](concepts-migrate-dump-restore.md). It is unnecessary to dump MySQL library and test library.
+   You can use mysqldump to dump databases from your primary. For details, refer to [Dump & Restore](concepts-migrate-dump-restore.md). It is unnecessary to dump MySQL library and test library.
 
 2. Set primary server to read/write mode
 
-   Once the database has been dumped, change the primary MySQL server setting back to read/write mode.
+   Once the database has been dumped, change the primary MySQL server back to read/write mode.
 
    ```sql
    SET GLOBAL read_only = OFF;
@@ -147,7 +151,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
    - master_log_file: binary log file name from running `show master status`
    - master_log_pos: binary log position from running `show master status`
    - master_ssl_ca: CA certificate’s context. If not using SSL, pass in empty string.
-       - It is recommended to pass this parameter in as a variable. See example below for more information. 
+       - It is recommended to pass this parameter in as a variable. See the following examples for more information.
 
    **Examples**
 
@@ -161,14 +165,14 @@ This article assumes that you have at least some prior experience with MySQL Ser
    -----END CERTIFICATE-----'
    ```
 
-   Replication with SSL is set up between a primary server called “companya.com” and a replica server hosted in Azure Database for MySQL. This stored procedure is run on the replica. 
+   Replication with SSL is set up between a primary server hosted in the domain “companya.com” and a replica server hosted in Azure Database for MySQL. This stored procedure is run on the replica. 
 
    ```sql
    CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
    ```
    *Replication without SSL*
 
-   Replication without SSL is set up between a primary server called “companya.com” and a replica server hosted in Azure Database for MySQL. This stored procedure is run on the replica.
+   Replication without SSL is set up between a primary server hosted in the domain “companya.com” and a replica server hosted in Azure Database for MySQL. This stored procedure is run on the replica.
 
    ```sql
    CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
@@ -190,7 +194,7 @@ This article assumes that you have at least some prior experience with MySQL Ser
    show slave status;
    ```
 
-   If the state of `Slave_IO_Running` and `Slave_SQL_Running` are "yes" and the value of `Seconds_Behind_Master` is “0”, replication is working well.
+   If the state of `Slave_IO_Running` and `Slave_SQL_Running` are "yes" and the value of `Seconds_Behind_Master` is “0”, replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value is not "0", it means that the replica is processing updates. 
 
 ## Other stored procedures
 
