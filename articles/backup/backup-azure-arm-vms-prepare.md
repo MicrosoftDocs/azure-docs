@@ -171,7 +171,7 @@ If you have problems registering the virtual machine, see the following informat
 ## Install the VM agent on the virtual machine
 For the Backup extension to work, the Azure [VM agent](../virtual-machines/extensions/agent-windows.md) must be installed on the Azure virtual machine. If your VM was created from the Azure Marketplace, the VM agent is already present on the virtual machine. 
 
-The following information is provided for situations where you are *not* using a VM created from the Azure Marketplace. For example, you migrated a VM from an on-premises datacenter. In such a case, the VM agent needs to be installed in order to protect the virtual machine.
+The following information is provided for situations where you are *not* using a VM created from the Azure Marketplace. **For example, you migrated a VM from an on-premises datacenter. In such a case, the VM agent needs to be installed in order to protect the virtual machine.**
 
 **Note**: After installing the VM agent, you must also use Azure PowerShell to update the ProvisionGuestAgent property so Azure knows the VM has the agent installed. 
 
