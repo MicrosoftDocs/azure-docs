@@ -16,25 +16,17 @@ ms.author: v-geberr
 # Quickstart: Use regular expression entity
 In this quickstart, you create an app that demonstrates how to extract consistently formatted data from an utterance using the **Regular Expression** entity.
 
-This simple app has two [intents](luis-concept-intent.md) and one regular expression [entity](luis-concept-entity-types.md). Its purpose is to pull out Knowledge Base (KB) article numbers from an utterance. 
-
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
-## App intents
-The intents are categories of what the user wants. This app has two intents: FindArticle and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
-
-## Regular expression entity is a regular expression match
-The purpose of an entity is to find and categorize parts of the text in the utterance. 
-A [regular expression](luis-concept-entity-types.md) entity allows for a regular expression match of words or phrases in the utterance. It is not machine-learned.   
-
-For this Knowledge Base app, LUIS extracts the KB document number in such as way that a standard order can be created and filled. LUIS allows utterances to have variations, abbreviations, and slang. 
+## Purpose of the regular expression entity
+The purpose of an entity is to get important data from the utterance. The app's use of the regular expression entity is to pull out Knowledge Base (KB) article numbers from an utterance. It is not machine-learned. 
 
 Simple example utterances from users include:
 
 ```
 When was KB123456 published?
 Who authored KB112211?
-KB224466 is about published in French?
+KB224466 is published in French?
 ```
 
 Abbreviated or slang versions of utterances include:
@@ -45,10 +37,7 @@ kb123456 date?
 Kb123456 title?
 ```
  
-The regular expression entity to match is `kb[0-9]{6,}`. This regular expression matches the characters `kb` literally but ignores case and culture variants. It matches digits 0-9, which can have between 6 and an unlimited number of digits. This doesn't match any number without `kb` or with a space between `kb` and the digits. And it doesn't match when there are fewer than six digits. The point is that the regular expression is a work in progress. When you review endpoint utterances or query logs, you notice variations in the usage of the KB number. 
-
-## What LUIS does
-When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+The regular expression entity to match is `kb[0-9]{6,}`. This regular expression matches the characters `kb` literally but ignores case and culture variants. It matches digits 0-9, which can have between 6 and an unlimited number of digits. This doesn't match any number without `kb` or with a space between `kb` and the digits. And it doesn't match when there are fewer than six digits. 
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.

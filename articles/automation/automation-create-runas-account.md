@@ -1,13 +1,13 @@
-﻿---
+---
 title: Create Azure Automation Run As accounts
-description: This article describes how to update your Automation account and create Run As accounts with PowerShell, or from the portal.  
+description: This article describes how to update your Automation account and create Run As accounts with PowerShell, or from the portal.
 services: automation
 ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 
