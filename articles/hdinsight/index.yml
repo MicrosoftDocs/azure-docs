@@ -58,7 +58,7 @@ sections:
       href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux 
     - image: 
         src: media/index/ml-server_r.svg
-      text: R Server
+      text: ML Services
       href: /azure/hdinsight/r-server/r-server-get-started      
 - title: Step-by-Step Tutorials
   items:
@@ -73,7 +73,7 @@ sections:
     - html: HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Create HBase clusters in a VNET</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Use Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Connect to Spark</a>
     - html: Interactive Query &#58; <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">Connect with Power BI using Direct Query</a>
     - html: Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Create Storm topology in Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Deploy Storm topologies on HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Write from Storm to Data Lake Store</a>
-    - html: R Server &#58; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Use R Tools for Visual Studio</a>
+    - html: ML Services &#58; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Use R Tools for Visual Studio</a>
 - title: Reference
   items:
   - type: list
