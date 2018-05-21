@@ -112,9 +112,9 @@ An indexer can optionally take configuration parameters that modify runtime beha
 
 | Parameter | Type and allowed values	| Usage  |
 |-----------|------------|--------------------------|--------|
-| **`"batchSize"`** | Integer<br/>Default is source-specific (1000 for Azure SQL Database and Azure Cosmos DB, 10 for Azure Blob Storage) | Specifies the number of items that are read from the data source and indexed as a single batch in order to improve performance. |
-| **`"maxFailedItems"`** | Integer<br/>Default is 0 | Number of errors to tolerate before an indexer run is considered a failure. Set to -1 if you don’t want any errors to stop the indexing process. You can retrieve information about failed items using [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).  |
-| **`"maxFailedItemsPerBatch"`** | Integer<br/>Default is 0 | Number of errors to tolerate in each batch before an indexer run is considered a failure. Set to -1 if you don’t want any errors to stop the indexing process. |
+| `"batchSize"` | Integer<br/>Default is source-specific (1000 for Azure SQL Database and Azure Cosmos DB, 10 for Azure Blob Storage) | Specifies the number of items that are read from the data source and indexed as a single batch in order to improve performance. |
+| `"maxFailedItems"` | Integer<br/>Default is 0 | Number of errors to tolerate before an indexer run is considered a failure. Set to -1 if you don’t want any errors to stop the indexing process. You can retrieve information about failed items using [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).  |
+| `"maxFailedItemsPerBatch"` | Integer<br/>Default is 0 | Number of errors to tolerate in each batch before an indexer run is considered a failure. Set to -1 if you don’t want any errors to stop the indexing process. |
 
 #### Blob configuration parameters
 
@@ -142,7 +142,7 @@ The following parameters are specific to Azure SQL Database.
 
 | Parameter | Type and allowed values	| Usage       |
 |-----------|---------------------------|-------------|
-| **`"queryTimeout"`** | String<br/>"hh:mm:ss"<br/>"00:05:00"   | For [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), set this parameter to increase the timeout beyond the 5-minute default.|
+|`"queryTimeout"` | String<br/>"hh:mm:ss"<br/>"00:05:00"   | For [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), set this parameter to increase the timeout beyond the 5-minute default.|
 
 <a name="field-mappings"></a>
 
