@@ -40,7 +40,7 @@ This tutorial shows you how to:
 
     We are using **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 
 
-## Download Postman collection and environment
+## Download Postman files
 
 Clone a GitHub repository that contains the  Postman collection and environment files.
 
