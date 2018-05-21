@@ -12,33 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/19/2018
+ms.date: 05/21/2018
 ms.author: spelluru
 
 ---
-# An introduction to Classroom Labs
-Azure Lab Services enables you to quickly set up an environment for your team (for example: development environment, test environment, classroom lab environment) in the cloud. A lab owner creates a lab, provisions Windows, or Linux virtual machines, installs the necessary software and tools, and makes them available to lab users. Lab users connect to virtual machines (VMs) in the lab, and use them for their day-to-day work, short-term projects, or for doing classroom exercises. Once users start utilizing resources in the lab, a lab admin can analyze cost and usage across multiple labs, and set overarching policies to optimize your organization or team's costs.
+# Introduction to classroom labs
+Azure Lab Services enables you to quickly set up a classroom lab environment in the cloud. An educator creates a classroom lab, provisions Windows, or Linux virtual machines, installs the necessary software and tools labs in the class, and makes them available to students. The students in the class connect to virtual machines (VMs) in the lab, and use them for their projects, assignments, classroom exercises. 
 
-> [!IMPORTANT]
-> Azure DevTest Labs is being expanded with new types of labs (Azure Lab Services)! 
-> 
-> Azure Lab Services lets you create managed labs, such as classroom labs. The service itself handles all the infrastructure management for a managed lab, from spinning up VMs to handling errors, and scaling the infrastructure. The managed labs are currently in preview. Once the preview ends, the new lab types and existing DevTest Labs come under the new common umbrella name of Azure Lab Services where all lab types continue to evolve. 
-
-## Key capabilities
-Azure Lab Services supports the following key capabilities/features: 
-
-- **Fast and flexible setup of a lab**. Using Azure Lab Services, lab owners can quickly set up a lab for their needs. The service offers the option to take care of all Azure infrastructure work for managed labs, or to enable lab owners to self-manage and customize infrastructure in the lab owner’s subscription. The service provides built-in scaling and resiliency of infrastructure for labs that the service manages for you. 
-- **Simplified experience for lab users**. In a managed lab, such as a classroom lab, lab users can register to a lab with a registration code, and access the lab any time to use the lab’s resources. In a custom lab created in DevTest Labs, a lab owner can give permissions for lab users to create and access virtual machines, manage and reuse data disks, and set up reusable secrets.  
-- **Cost optimization and analysis**. A lab owner can set lab schedules to automatically shut down and start up virtual machines. The lab owner can set a schedule to specify the time slots when the lab’s virtual machines are accessible to users, set usage policies per user or per lab to optimize cost, and analyze usage and activity trends in a lab. For managed labs such as classroom labs, currently a smaller subset of cost optimization and analysis options are available. 
-- **Embedded security**. A lab owner can set up a private virtual networks and a subnet for a lab, and enable a shared public IP address. Lab users can securely access resources using the virtual network configured with ExpressRoute or site-to-site VPN. (currently available in DevTest Labs only)
-- **Integration into your workflows and tools**. Azure Lab Services allows you to integrate the labs into your organization’s website and management systems. You can automatically provision environments from within your continuous integration/continuous deployment (CI/CD) tools. (currently available in DevTest Labs only)
+The classroom labs are managed labs that are managed by Azure. The service itself handles all the infrastructure management for a managed lab, from spinning up virtual machines (VMs) to handling errors, and scaling the infrastructure. You specify what kind of infrastructure you need and install any tools or software that's required for the class. The managed labs are currently in preview.  
 
 ## Scenarios
-Here is the main scenario that classroom labs of Azure Lab Services supports: 
+Here is the main scenario that classroom labs of Azure Lab Services support: 
 
 ### Set up a resizable computer lab in the cloud for your classroom  
 
-- Create a managed classroom lab. You just tell the service exactly what you need, and it will create and manage the infrastructure of the lab for you so that you can focus on teaching your class, not technical details of a lab. 
+- Create a managed classroom lab. You just tell the service exactly what you need, and it creates and manages the infrastructure of the lab for you so that you can focus on teaching your class, not technical details of a lab. 
 - Provide students with a lab of virtual machines that are configured with exactly what’s needed for a class. Give each student a limited number of hours for using the VMs for class work.  
 - Move your school’s physical computer lab into the cloud. Automatically scale the number of VMs only to the maximum usage and cost threshold that you set on the lab. 
 - Delete the lab with a single click once you’re done. 
@@ -53,20 +41,20 @@ Typically, and IT administrator of organization's cloud resources, who owns the 
 - Manages and configures policies across all labs.
 - Gives permissions to people in the organization to create a lab under the lab account.
 
-### Lab creator 
-Typically, users such as a development lead/manager, a teacher, a hackathon host, an online trainer creates labs under a lab account. A lab creator does the following tasks: 
+### Educator
+Typically, users such as a teacher or an online trainer creates classroom labs under a lab account. An educator does the following tasks: 
 
-- Creates a lab.
+- Creates a classroom lab.
 - Creates virtual machines in the lab. 
 - Installs the appropriate software on virtual machines.
 - Specifies who can access the lab.
-- Provides link to the lab to lab users.
+- Provides registration link to the lab to students.
 
-### Lab user
-A lab user does the following tasks:
+### Student
+A student does the following tasks:
 
 - Uses the registration link that the lab user receives from a lab creator to register with the lab. 
-- Connects to a virtual machine in the lab and use it for development, testing, or doing class work. 
+- Connects to a virtual machine in the lab and use it for doing class work, assignments, and projects. 
 
 ## Next steps
 Get started with setting up a classroom lab using Azure Lab Services:
