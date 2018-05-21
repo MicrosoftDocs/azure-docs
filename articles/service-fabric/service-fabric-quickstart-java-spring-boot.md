@@ -22,7 +22,7 @@ ms.custom: mvc, devcenter
 # Quickstart: deploy a Java Spring Boot Application to Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
 
-This quickstart shows how to deploy a Spring Boot application to Service Fabric using a Mac or Linux developer machine. This quickstart uses the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. Using familiar command-line tools, this quickstart walks you through deploying the Spring Boot sample as a Service Fabric application. When you're finished, you have the Spring Boot Getting Started sample working on Service Fabric. 
+Using familiar command-line tools, this quickstart walks you through how to deploy a functional Spring Boot application to Service Fabric on a Mac or Linux developer machine using the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website.
 
 ![Application Screenshot](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
