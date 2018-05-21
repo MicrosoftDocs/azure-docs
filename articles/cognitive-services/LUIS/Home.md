@@ -11,27 +11,6 @@ ms.date: 05/07/2017
 ms.author: v-geberr
 ---
 
-<!--
-The three questions an overview article needs to answer are:
-
-What is it?
-Why should I care?
-How can I get started?
-
-
-
-Points of confusion:
-
-What client application is : conversational application such as chat bot, VR app, cortana app
-What LUIS application is: trained and published domain-specific model
-What client does: sending 500 chars to LUIS and acting on response from LUIS
-what LUIS does: receive text, apply pre-prediction changes (spelling, timezoneoffset), apply prediction model to text, respond with overall prediction and any extracted detailed data
-
-what LUIS had to know before the client passes information: trained domain model with examples
-
-what does "label" mean?
--->
-
 # What is Language Understanding (LUIS)?
 Language Understanding (LUIS) is a REST-based service that applies custom machine-learning to a user's natural language text to predict overall meaning and pull out relevant, detailed information. 
 
