@@ -3,17 +3,18 @@ title: Troubleshoot Kerberos Constrained Delegation Configurations for Applicati
 description: Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: markvi
+ms.date: 05/21/2018
+ms.author: barbkess
 ms.reviewer: harshja
 
 ---
