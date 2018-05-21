@@ -25,7 +25,7 @@ This article describes the `api-version=2017-11-11-Preview` version of Azure Sea
 
 [Cognitive search](cognitive-search-concept-intro.md), a new enrichment capability in Azure Search finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
 
-The following two operations are introduced or modified in the preview REST API. All other REST APIs are the same whether you call the generally available or preview version (for example, .
+The following two operations are introduced or modified in the preview REST API. All other REST APIs are the same whether you call the generally available or preview version.
 
 + [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)
 
@@ -37,9 +37,9 @@ All other REST APIs are the same whether you call the generally available or pre
 
 Features from earlier previews are still in public preview. If you're calling this API with an earlier api-version, you can continue to use that version or switch to `2017-11-11-Preview` with no changes to expected behavior.
 
-+ [CSV files in Azure Blob indexing](search-howto-index-csv-blobs.md), introduced in `api-version=2015-02-28-Preview`, remains a preview feature. This feature is part of Azure Blob indexing and is invoked through a paramater setting. Each line in a CSV file is indexed as a separate document.
++ [CSV files in Azure Blob indexing](search-howto-index-csv-blobs.md), introduced in `api-version=2015-02-28-Preview`, remains a preview feature. This feature is part of Azure Blob indexing and is invoked through a parameter setting. Each line in a CSV file is indexed as a separate document.
 
-+ [JSON arrays in Azure Blob indexing](search-howto-index-json-blobs.md), introduced in `api-version=2015-02-28-Preview`, remains a preview feature. This feature is part of Azure Blob indexing and is invoked through a paramater setting. where each element in the array is indexed as a separate document.
++ [JSON arrays in Azure Blob indexing](search-howto-index-json-blobs.md), introduced in `api-version=2015-02-28-Preview`, remains a preview feature. This feature is part of Azure Blob indexing and is invoked through a parameter setting. where each element in the array is indexed as a separate document.
 
 + [moreLikeThis query parameter](search-more-like-this.md) finds documents that are relevant to a specific document. This feature has been in earlier previews. 
 
