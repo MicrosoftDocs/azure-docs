@@ -117,7 +117,7 @@ We suggest following these practices while configuring backups for virtual machi
 * Schedule VM backups during non-peak hours. This way the Backup service uses IOPS for transferring data from the customer storage account to the vault.
 * Make sure that a policy is applied on VMs spread across different storage accounts. We suggest no more than 20 total disks from a single storage account be protected by the same backup schedule. If you have greater than 20 disks in a storage account, spread those VMs across multiple policies to get the required IOPS during the transfer phase of the backup process.
 * Do not restore a VM running on Premium storage to same storage account. If the restore operation process coincides with the backup operation, it reduces the available IOPS for backup.
-* For Premium VM backup, ensure that storage account that hosts premium disks has atleast 50% free space for staging snapshot for a successful backup. 
+* For Premium VM backup on VM backup stack V1, it is recommended that you allocate only 50% of the total storage account space so that Azure Backup service can copy the snapshot to storage account and transfer data from this copied location in storage account to the vault.
 * Make sure that python version on Linux VMs enabled for backup is 2.7
 
 ## Data encryption
