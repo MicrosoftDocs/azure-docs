@@ -160,7 +160,7 @@ The single page app uses Azure AD B2C for user sign-up, sign-in, and calls the p
 To change the app settings:
 
 1. Open the `index.html` file in the Node.js single page app sample.
-2. Configure the sample with the Azure AD B2C tenant registration information. In the following code, add your tenant name to **b2cScopes** and change and **webApi** value using the *applicationURL* that you previously recorded:
+2. Configure the sample with the Azure AD B2C tenant registration information. In the following code, add your tenant name to **b2cScopes** and change **webApi** value using the *applicationURL* that you previously recorded:
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
