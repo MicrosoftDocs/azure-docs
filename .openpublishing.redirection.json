@@ -5726,6 +5726,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cosmos-db/tutorial-develop-sql-api-dotnet.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/documentdb-index.md",
             "redirect_url": "/azure/cosmos-db/sql-api-index",
             "redirect_document_id": true
