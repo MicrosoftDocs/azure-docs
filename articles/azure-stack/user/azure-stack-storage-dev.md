@@ -4,7 +4,7 @@ description: Guidance to get started with using Azure Stack Storage development 
 services: azure-stack 
 author: mabriggs
 ms.author: mabrigg
-ms.date: 02/21/2018
+ms.date: 05/14/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
@@ -16,11 +16,12 @@ ms.reviewer: xiaofmao
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Microsoft Azure Stack provides a set of storage services, including Azure Blob, Table, and Queue storage.
+Microsoft Azure Stack provides a set of storage services that includes blob, table, and queue storage.
 
-This article provides quick guidance on how to start using Azure Stack Storage development tools. You can find more detailed information and sample code in the corresponding Azure Storage tutorials.
+Use this article as a guide to get started using Azure Stack Storage development tools. You can find more detailed information and sample code in corresponding Azure Storage tutorials.
 
-There are known differences between Azure Storage and Azure Stack Storage, including some specific requirements for each platform. For example, there are specific client libraries and specific endpoint suffix requirements for Azure Stack. For more information, see [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md).
+>[!NOTE]
+>There are known differences between Azure Stack Storage and Azure Storage, including specific requirements for each platform. For example, there are specific client libraries and specific endpoint suffix requirements for Azure Stack. For more information, see [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md).
 
 ## Azure client libraries
 
@@ -43,6 +44,7 @@ The supported REST API versions for Azure Stack Storage are 2017-04-17, 2016-05-
 To install via Composer: (take blob as example).
 
 1. Create a file named **composer.json** in the root of the project with following code:
+
   ```php
     {
       "require": {
@@ -50,6 +52,7 @@ To install via Composer: (take blob as example).
       }
     }
   ```
+
 2. Download [composer.phar](http://getcomposer.org/composer.phar) to the project root.
 3. Run: `php composer.phar install`.
 
@@ -70,6 +73,7 @@ To install via Composer: (take blob as example).
 To install via Composer:
 
 1. Create a file named **composer.json** in the root of the project with following code:
+
   ```php
     {
           "require":{
@@ -77,6 +81,7 @@ To install via Composer:
           }
     }
   ```
+
 2. Download [composer.phar](http://getcomposer.org/composer.phar) into the project root.
 3. Run: `php composer.phar install`.
 
@@ -88,16 +93,16 @@ Contact your cloud administrator if you’re not sure about your endpoint.
 
 ## Examples
 
-
 ### .NET
 
 For Azure Stack, the endpoint suffix is specified in the app.config file:
 
 ```
-<add key="StorageConnectionString" 
+<add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
 ```
+
 ### Java
 
 For Azure Stack, the endpoint suffix is specified in the setup of connection string:
@@ -118,6 +123,7 @@ For Azure Stack, the endpoint suffix is specified in the declaration instance:
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
+
 ### C++
 
 For Azure Stack, the endpoint suffix is specified in the setup of connection string:
@@ -149,6 +155,7 @@ block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
 ```
+
 ### Ruby
 
 For Azure Stack, the endpoint suffix is specified in the setup of connection string:
@@ -184,7 +191,6 @@ The following Azure Queue storage tutorials are applicable to Azure Stack. Note 
 * [How to use Queue storage from PHP](../../storage/queues/storage-php-how-to-use-queues.md)
 * [How to use Queue storage from Python](../../storage/queues/storage-python-how-to-use-queue-storage.md)
 * [How to use Queue storage from Ruby](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
-
 
 ## Table storage
 

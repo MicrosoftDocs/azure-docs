@@ -58,7 +58,7 @@ Applications that support the SCIM profile described in this article can be conn
 **To connect an application that supports SCIM:**
 
 1. Sign in to [the Azure portal](https://portal.azure.com). 
-2. Browse to **Azure Active Directory > Enterprise Applications, and select **New application > All > Non-gallery application**.
+2. Browse to **Azure Active Directory > Enterprise Applications**, and select **New application > All > Non-gallery application**.
 3. Enter a name for your application, and click **Add** icon to create an app object.
     
   ![][1]
@@ -138,7 +138,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 **To register the sample SCIM endpoint in Azure AD:**
 
 1. Sign in to [the Azure portal](https://portal.azure.com). 
-2. Browse to **Azure Active Directory > Enterprise Applications, and select **New application > All > Non-gallery application**.
+2. Browse to **Azure Active Directory > Enterprise Applications**, and select **New application > All > Non-gallery application**.
 3. Enter a name for your application, and click **Add** icon to create an app object. The application object created is intended to represent the target app you would be provisioning to and implementing single sign-on for, and not just the SCIM endpoint.
 4. In the resulting screen, select the **Provisioning** tab in the left column.
 5. In the **Provisioning Mode** menu, select **Automatic**.

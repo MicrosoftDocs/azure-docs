@@ -26,7 +26,7 @@ Integrating Adaptive Suite with Azure AD provides you with the following benefit
 - You can enable your users to automatically get signed-on to Adaptive Suite (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -112,7 +112,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	>[!NOTE]
 	> You can get this value from the Adaptive Suite’s **SAML SSO Settings** page.
-	>  
+	>
+	
+	Check the **Show advanced URL settings** box. In the **Identifier (Entity ID)** textbox, type the same URL you entered in the **Reply URL** textbox.
+	
+	>[!NOTE]
+	> The entity ID for each Adaptive Insights domain is the same as its reply URL.
+	>
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -262,7 +268,7 @@ When you click the Adaptive Suite tile in the Access Panel, you should get autom
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

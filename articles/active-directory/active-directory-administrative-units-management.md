@@ -36,4 +36,4 @@ In this preview release, you can create and manage administrative units using th
 For more information on software requirements and installing the Azure AD module, and for information on the Azure AD Module cmdlets for managing administrative units, including syntax, parameter descriptions, and examples, see [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## Next steps
-[Azure Active Directory editions](active-directory-editions.md)
+[Azure Active Directory editions](active-directory-whatis.md)

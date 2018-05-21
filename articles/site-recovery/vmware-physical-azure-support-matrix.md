@@ -25,7 +25,7 @@ Physical servers | Replication of on-premises Windows/Linux physical serversto A
 
 **Server** | **Requirements** | **Details**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0, or 5.5 or vSphere 6.5, 6.0, or 5.5 | We recommend that you use a vCenter server.<br/><br/> We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. By default the process server components runs on the configuration server, so this will be the network in which you set up the configuration server, unless you set up a dedicated process server. 
+VMware | vCenter Server 6.5, 6.0, or 5.5 or vSphere 6.5, 6.0, or 5.5 | We recommend that you use a vCenter server.<br/><br/> We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. By default the process server components runs on the configuration server, so this will be the network in which you set up the configuration server, unless you set up a dedicated process server.
 Physical | N/A
 
 ## Site Recovery configuration server
@@ -34,19 +34,19 @@ The configuration server is an on-premises machine that runs Site Recovery compo
 
 **Component** | **Requirements**
 --- |---
-CPU cores | 8 
+CPU cores | 8
 RAM | 12 GB
 Number of disks | 3 disks<br/><br/> Disks include the OS disk, process server cache disk, and retention drive for failback.
 Disk free space | 600 GB of space required for process server cache.
 Disk free space | 600 GB  of space required for retention drive.
-Operating system  | Windows Server 2012 R2 or Windows Server 2016 | 
-Operating system locale | English (en-us) 
+Operating system  | Windows Server 2012 R2 or Windows Server 2016 |
+Operating system locale | English (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") should be installed.
 Windows Server roles | Don't enable: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
 Group policies| Don't enable: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Make sure you:<br/><br/> - Don't have a preexisting default website <br> - Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting  <br> - Don't have preexisting website/app listening on port 443<br>
-NIC type | VMXNET3 (when deployed as a VMware VM) 
-IP address type | Static 
+NIC type | VMXNET3 (when deployed as a VMware VM)
+IP address type | Static
 Ports | 443 used for control channel orchestration)<br>9443 used for data transport
 
 ## Replicated machines
@@ -135,13 +135,15 @@ Multi-NIC | Yes
 Reserved IP address | Yes
 IPv4 | Yes
 Retain source IP address | Yes
-Azure Virtual Network service endpoints<br/><br/> (Azure Storage firewalls and virtual networks) | No
+Azure Virtual Network service endpoints<br/> (without Azure Storage firewalls) | Yes
+Accelerated Networking | No
 
 ## Storage
 **Component** | **Supported**
 --- | ---
 Host NFS | Yes for VMware<br/><br/> No for physical servers
-Host SAN (ISCSI) | Yes
+Host SAN (iSCSI/FC) | Yes
+Host vSAN | Yes for VMware<br/><br/> N/A for physical servers
 Host multipath (MPIO) | Yes, tested with Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Host Virtual Volumes (VVols) | Yes for VMware<br/><br/> N/A for physical servers
 Guest/server VMDK | Yes
@@ -181,7 +183,7 @@ Block blobs | No
 Encryption at rest (Storage Service Encryption)| Yes
 Premium storage | Yes
 Import/export service | No
-Virtual Network service endpoints<br/><br/> Storage firewalls and virtual networks configured on target storage/cache storage account (used to store replication data) | No
+Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | No
 General purpose v2 storage accounts (both hot and cool tiers) | No
 
 ## Azure compute
@@ -198,16 +200,16 @@ On-premises VMs that you replicate to Azure must meet the Azure VM requirements 
 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
-Guest operating system | Verify [supported operating systems](#replicated machines). | Check fails if unsupported. 
-Guest operating system architecture | 64-bit. | Check fails if unsupported. 
-Operating system disk size | Up to 2,048 GB. | Check fails if unsupported. 
+Guest operating system | Verify [supported operating systems](#replicated machines). | Check fails if unsupported.
+Guest operating system architecture | 64-bit. | Check fails if unsupported.
+Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
 Operating system disk count | 1 | Check fails if unsupported.  
 Data disk count | 64 or less. | Check fails if unsupported.  
-Data disk size | Up to 4,095 GB | Check fails if unsupported. 
-Network adapters | Multiple adapters are supported. | 
-Shared VHD | Not supported. | Check fails if unsupported. 
-FC disk | Not supported. | Check fails if unsupported. 
-BitLocker | Not supported. | BitLocker must be disabled before you enable replication for a machine. | 
+Data disk size | Up to 4,095 GB | Check fails if unsupported.
+Network adapters | Multiple adapters are supported. |
+Shared VHD | Not supported. | Check fails if unsupported.
+FC disk | Not supported. | Check fails if unsupported.
+BitLocker | Not supported. | BitLocker must be disabled before you enable replication for a machine. |
 VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number. |  Update the value in the machine properties in Site Recovery.
 
 

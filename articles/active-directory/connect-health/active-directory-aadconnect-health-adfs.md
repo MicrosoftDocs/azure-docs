@@ -197,7 +197,6 @@ If you are seeing load balancer IP addresses, it is highly likely that your exte
 
 3. What do I do to block the IP address?  <br />
 You should add identified malicious IP address to the firewall or block in Exchange.   <br />
-For AD FS 2016 + 1803.C+ QFE, you can block the IP address directly at AD FS. 
 
 4. Why am I not seeing any items in this report? <br />
    - Failed sign-in activities are not exceeding the threshold settings. 

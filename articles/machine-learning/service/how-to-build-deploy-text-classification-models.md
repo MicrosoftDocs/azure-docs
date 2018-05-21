@@ -418,9 +418,7 @@ text_classifier.fit(df_train)
             weight_col=None)
 
 
-During the training phase, transformations are applied using preprocessing and featurizing steps. This phase is referred to as the training pipeline. In supervised learning scenarios, the training pipeline must contain both text and label columns.
-
-The next phase is referred to as the prediction pipeline in which you fit the learner. Fitting involves invoking the prediction of the trained learner, which is the scikit-learn estimator in this example. Input to this prediction pipeline only needs to contain text column(s).
+During training, you must have both text and label columns. While, only the text column is needed for predictions. 
 
 ### Examine and set the parameters of the different pipeline steps
     

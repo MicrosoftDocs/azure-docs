@@ -76,7 +76,7 @@ You need to install an agent to send guest OS monitoring data into an event hub.
 
 ### Stream Linux data to an event hub
 
-The [Linux Azure Diagnostic agent](../virtual-machines/linux/diagnostic-extension.md) can be used to send monitoring data from a Linux machine to an event hub. Do this by adding the event hub as a sink in your LAD configuration file protected settings JSON. [See this article to learn more about adding the event hub sink to your Linux Azure Diagnostic agent](../virtual-machines/linux/diagnostic-extension.md#protected-settings).
+The [Linux Azure Diagnostic agent](../virtual-machines/extensions/diagnostics-linux.md) can be used to send monitoring data from a Linux machine to an event hub. Do this by adding the event hub as a sink in your LAD configuration file protected settings JSON. [See this article to learn more about adding the event hub sink to your Linux Azure Diagnostic agent](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > You cannot set up streaming of guest OS monitoring data to an event hub in the portal. Instead, you must manually edit the configuration file.

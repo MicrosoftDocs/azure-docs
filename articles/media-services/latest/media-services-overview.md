@@ -62,7 +62,7 @@ As a developer, you can use Media Services [REST API](https://go.microsoft.com/f
 
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [.NET languages](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
-* .NET Core 
+* [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (choose the **.NET CLI** tab)
 * Java
 
   Add following dependency in your project:
