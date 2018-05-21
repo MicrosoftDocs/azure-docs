@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center data security | Microsoft Docs
-description: " Information about Azure Security Center trust and compliance. "
+title: Manage user data in Azure Security Center | Microsoft Docs
+description: " Learn how to manage user data in Azure Security Center. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -18,8 +18,10 @@ ms.author: terrylan
 
 ---
 
-# Azure Security Center data security
-For information about Azure Security Center trust and compliance, see the [Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted) and the [Microsoft 365 Enterprise GDPR Compliance site](https://docs.microsoft.com/en-us/microsoft-365/compliance/compliance-solutions-overview).
+# Manage user data in Azure Security Center
+This article provides information about how you can manage the user data in Azure Security Center. Managing user data includes the ability to access, delete, or export data.
+
+[!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## Searching for and identifying personal data
 A Security Center user can view their personal data through the Azure portal. Security Center only stores security contact details such as email addresses and phone numbers. See [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) for more information.
@@ -31,7 +33,7 @@ In the Azure portal, a user can view security alerts provided by Security Center
 ## Classifying personal data
 You do not need to classify personal data found in Security Center. The data saved is an email address (or multiple email addresses) and a phone number. [Contact data](security-center-provide-security-contact-details.md) is validated by Security Center.
 
-You do not need to classify the IP addresses and port numbers saved by Security Center's [just in time](security-center-just-in-time) feature.
+You do not need to classify the IP addresses and port numbers saved by Security Center's [just in time](security-center-just-in-time.md) feature.
 
 Only a user assigned the role of Administrator can classify personal data by [viewing alerts](security-center-managing-and-responding-alerts.md) in Security Center.
 
