@@ -21769,6 +21769,11 @@
             "source_path": "articles/azure-maps/search-categories.md",
             "redirect_url": "/azure/azure-maps/supported-search-categories",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-concept-intro-to-luis.md",
+            "redirect_url": "articles/cognitive-services/LUIS/home.md",
+            "redirect_document_id": true
         }
 
     ]
