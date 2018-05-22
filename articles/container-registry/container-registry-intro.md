@@ -50,13 +50,10 @@ Configure [ACR Build](#azure-container-registry-build) build tasks to automatica
 
 [Azure Container Registry Build](container-registry-build-overview.md) (ACR Build) is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. Use ACR Build to extend your development inner-loop to the cloud by offloading `docker build` operations to Azure. Configure build tasks to automate your container OS and framework patching pipeline, and build images automatically when your team commits code to source control.
 
-> [!NOTE]
-> ACR Build is in currently in preview, and is supported only by Azure container registries in the **East US**  (eastus) and **West Europe** (westeurope) regions. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 ## Next steps
 
 * [Create a container registry using the Azure portal](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md)
 * [Automate OS and framework patching with ACR Build](container-registry-build-overview.md) (Preview)
-
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

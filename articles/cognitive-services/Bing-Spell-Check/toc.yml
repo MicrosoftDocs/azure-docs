@@ -49,10 +49,14 @@
     href: https://stackoverflow.com/questions/tagged/bing-api
   - name: Supported languages
     href: bing-spell-check-supported-languages.md
-  - name: Analytics for Spell Check API
+  - name: Analytics for Bing Spell Check API
     href: bing-spell-check-stats.md
-  - name: SDK samples overview
-    href: sdk.md
+  - name: Bing Spell Check SDK
+    items:
+    - name: SDK C# quickstart
+      href: sdk-quickstart-spell-check.md
+    - name: SDK samples overview
+      href: sdk.md
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
   - name: Try it!

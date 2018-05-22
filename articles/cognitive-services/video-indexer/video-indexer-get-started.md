@@ -37,6 +37,9 @@ Once your video has been uploaded, Video Indexer starts indexing and analyzing t
 
 Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
+> [!Note]
+> The free trial has a daily upload limit of 100 files. You can check the error message returned for details. Note that the daily limit might change.
+
 ## Next steps
 
 You can now use the [Video Indexer portal](video-indexer-view-edit.md) or the [API](video-indexer-use-apis.md) to see the insights of the video. 

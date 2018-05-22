@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 05/13/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -50,7 +50,7 @@ Bash completion has been installed to:
 The [helm init][helm-init] command is used to install Helm components in a Kubernetes cluster and make client-side configurations. Run the following command to install Helm on your AKS cluster and configure the Helm client.
 
 ```azurecli-interactive
-helm init
+helm init --upgrade --service-account default
 ```
 
 Output:
@@ -115,7 +115,7 @@ Update Complete. ⎈ Happy Helming!⎈
 To deploy an NGINX ingress controller, use the [helm install][helm-install] command.
 
 ```azurecli-interactive
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 The output looks similar to the following, but includes additional information such as instructions on how to use the Kubernetes deployment.

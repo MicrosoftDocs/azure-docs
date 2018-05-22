@@ -30,7 +30,7 @@ To install .NET on your web and worker roles, include the .NET web installer as 
 ## Add the .NET installer to your project
 To download the web installer for the .NET Framework, choose the version that you want to install:
 
-* [.NET 4.7.2 web installer](https://www.microsoft.com/net/download/thank-you/net472-offline)
+* [.NET 4.7.2 web installer](http://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET 4.6.1 web installer](http://go.microsoft.com/fwlink/?LinkId=671729)
 
 To add the installer for a *web* role:
@@ -96,7 +96,7 @@ You can use startup tasks to perform operations before a role starts. Installing
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
     REM ***** To install .NET 4.7 set the variable netfx to "NDP47" ***** 
     REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** http://go.microsoft.com/fwlink/?LinkId=852095
-    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://www.microsoft.com/net/download/thank-you/net472-offline
+    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** http://go.microsoft.com/fwlink/?LinkId=863262
     set netfx="NDP472"
     
     REM ***** Set script start timestamp *****
@@ -149,7 +149,7 @@ You can use startup tasks to perform operations before a role starts. Installing
     goto logtimestamp
     
     :NDP472
-    set "netfxinstallfile=NDP472-KB4054530-x86-x64-AllOS-ENU.exe"
+    set "netfxinstallfile=NDP472-NDP472-KB4054531-Web.exe"
     set netfxregkey="0x70BF6"
     goto logtimestamp
     
