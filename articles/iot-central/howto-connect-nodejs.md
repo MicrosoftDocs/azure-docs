@@ -1,22 +1,11 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Connnect a generic Node.js client application to Azure IoT Central | Microsoft Docs
+title: Connect a generic Node.js client application to Azure IoT Central | Microsoft Docs
 description: As an device developer, how to connect a generic Node.js device to your Azure IoT Central application.
-services: iot-central
 author: tanmaybhagwat
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite:
-# ms.tgt_pltfrm:
-# ms.reviewer:
+ms.topic: conceptual
+ms.service: iot-central
 manager: timlt
 ---
 
