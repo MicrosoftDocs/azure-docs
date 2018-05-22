@@ -8,11 +8,11 @@
     href: ../event-grid/compare-messaging-services.md
 - name: Quickstarts
   items:
-  - name: Send and receive messages - Portal and PowerShell
+  - name: Send messages - Portal and PowerShell
     href: service-bus-quickstart-powershell.md
-  - name: Send and receive messages - Portal and .NET
+  - name: Send messages - Portal and .NET
     href: service-bus-quickstart-portal.md
-  - name: Send and receive messages - CLI and Java
+  - name: Send messages - CLI and Java
     href: service-bus-quickstart-cli.md
 - name: Tutorials
   items:

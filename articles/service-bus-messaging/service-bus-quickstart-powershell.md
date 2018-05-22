@@ -1,6 +1,6 @@
 ---
-title: Azure quickstart - Send and receive messages to and from Azure Service Bus | Microsoft Docs
-description: Learn to send and receive Service Bus messages using PowerShell and the .NET Standard client
+title: Quickstart - Send and receive messages to and from Azure Service Bus | Microsoft Docs
+description: In this quickstart, you learn to send and receive Service Bus messages using PowerShell and the .NET Standard client
 services: service-bus-messaging
 author: sethmanheim
 manager: timlt
@@ -9,11 +9,12 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/14/2018
+ms.date: 05/22/2018
 ms.author: sethm
+# Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
-# Send and receive using Azure PowerShell and .NET
+# Quickstart: Send and receive messages using Azure PowerShell and .NET
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the client app sends to and receives messages from a Service Bus queue.
 
@@ -53,7 +54,7 @@ This quickstart requires that you are running the latest version of Azure PowerS
    Get-AzureRmContext
    ```
 
-## Use PowerShell to provision resources
+## Provision resources
 
 From the PowerShell prompt, issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
@@ -111,7 +112,7 @@ To run the code, do the following:
 
    ![program output](./media/service-bus-quickstart-powershell/dotnet.png)
 
-## Clean up deployment
+## Clean up resources
 
 Run the following command to remove the resource group, namespace, and all related resources:
 

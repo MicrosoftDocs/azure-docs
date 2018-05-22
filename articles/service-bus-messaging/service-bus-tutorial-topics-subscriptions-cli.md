@@ -1,19 +1,19 @@
 ---
-title: Azure Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with CLI | Microsoft Docs
-description: How to send and receive messages from a topic and subscription, and how to add and use filter rules using Azure CLI.
+title: Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with CLI | Microsoft Docs
+description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using Azure CLI
 services: service-bus-messaging
 author: sethmanheim
 manager: timlt
 
 ms.author: sethm
-ms.date: 05/14/2018
+ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 
 ---
 
-# Update inventory using CLI and topics/subscriptions
+# Tutorial: Update inventory using CLI and topics/subscriptions
 
 Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. This tutorial shows how to use Service Bus topics and subscriptions in a retail inventory scenario, with publish/subscribe channels using Azure CLI and Java.
 
@@ -152,7 +152,7 @@ After the namespace and topic/subscriptions are provisioned, and you have the ne
 
    ![program output](./media/service-bus-tutorial-topics-subscriptions-cli/service-bus-tutorial-topics-subscriptions-cli.png)
 
-## Clean up deployment
+## Clean up resources
 
 Run the following command to remove the resource group, namespace, and all related resources:
 
@@ -324,11 +324,21 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
 
 ## Next steps
 
-In this article, you created a Service Bus namespace and other resources required to send and receive messages from a topic and its subscriptions. To learn more about sending and receiving messages, continue with the following articles:
+In this tutorial, you provisioned resources using Azure CLI, then sent and received messages from a Service Bus topic and its subscriptions. You learned how to:
 
-* [Get started with Service Bus samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted)
-* [Service Bus .NET Standard library samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus)[Service Bus messaging overview](service-bus-messaging-overview.md)
-* [How to use Service Bus queues](service-bus-quickstart-cli.md)
+> [!div class="checklist"]
+> * Create a Service Bus topic and one or more subscriptions to that topic using the Azure portal
+> * Add topic filters using .NET code
+> * Create two messages with different content
+> * Send the messages and verify they arrived in the expected subscriptions
+> * Receive messages from the subscriptions
+
+For more examples of sending and receiving messages, get started with the [Service Bus samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted).
+
+Advance to the next tutorial to learn more about using the publish/subscribe capabilities of Service Bus.
+
+> [!div class="nextstepaction"]
+> [Update inventory using PowerShell and topics/subscriptions](service-bus-tutorial-topics-subscriptions-portal.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

@@ -1,6 +1,6 @@
 ---
-title: Azure quickstart - Use the Azure portal and JMS to send and receive messages from Azure Service Bus | Microsoft Docs
-description: Quickly learn to send and receive Service Bus messages using Azure portal and JMS
+title: Quickstart - Use the Azure portal to send and receive messages from Azure Service Bus | Microsoft Docs
+description: In this quickstart, you learn to send and receive Service Bus messages using Azure portal
 services: service-bus-messaging
 author: sethmanheim
 manager: timlt
@@ -9,8 +9,9 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/14/2018
+ms.date: 05/22/2018
 ms.author: sethm
+# Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
 
@@ -35,7 +36,7 @@ To complete this tutorial, make sure you have installed:
 
 First, go to the [Azure portal][Azure portal] and log on using your Azure subscription. The first step is to create a Service Bus namespace of type **Messaging**.
 
-## Create a Service Bus messaging namespace
+## Create a Service Bus namespace
 
 A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a Service Bus messaging namespace in a new or existing [resource group](/azure/azure-resource-manager/resource-group-portal):
 
@@ -106,7 +107,7 @@ To run the code, do the following:
 
    ![program output](./media/service-bus-quickstart-portal/dotnet.png)
 
-## Clean up deployment
+## Clean up resources
 
 You can use the portal to remove the resource group, namespace, and queue.
 
