@@ -408,11 +408,7 @@ Once ran, have the user log in to the Azure portal and view **All Resources** in
 
 When a user, who is assigned to the Automation Operator role on the Runbook scope views a Runbook they are assigned to, they can only start the runbook and view the runbook jobs.
 
-![No access to resources](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
-
-The user has access to view and to create schedules, but does not have access to any other asset type.
-
-![No access to webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)
+![Only has access to start](media/automation-role-based-access-control/automation-only-start.png)
 
 ## Next steps
 
