@@ -30,12 +30,14 @@
     href: render-coverage.md
   - name: Routing coverage
     href: routing-coverage.md
-  - name: Search categories
-    href: search-categories.md
+  - name: Supported search categories
+    href: supported-search-categories.md
   - name: Supported languages
     href: supported-languages.md
   - name: Consumption model
     href: consumption-model.md
+  - name: Extend geoJSON
+    href: extend-geojson.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
