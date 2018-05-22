@@ -143,16 +143,14 @@
       href: log-analytics-alerts-actions.md
     - name: Create alert rules
       items:
-      - name: OMS portal
-        href: log-analytics-alerts-creating.md
+      - name: Azure portal
+        href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
       - name: REST API
         href: log-analytics-api-alerts.md
       - name: Resource Manager template
-        href: ../monitoring/monitoring-solutions-resources-searches-alerts.md
+        href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md
     - name: Webhook action sample
-      href: log-analytics-alerts-webhooks.md
-    - name: Alert Management solution
-      href: log-analytics-solution-alert-management.md
+      href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md
   - name: Manage
     items:
     - name: Personal data handling
