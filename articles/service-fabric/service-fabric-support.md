@@ -10,10 +10,10 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/26/2018
+ms.date: 5/14/2018
 ms.author: pkc
 
 ---
@@ -75,7 +75,7 @@ Here are the list of the Service Fabric versions that are supported and their su
 | 5.6.* | 5.4.164.* |Less than or equal to version  2.6 |October 13,2017   |
 | 5.7.* | 5.4.164.* |Less than or equal to version  2.7 |December 15,2017  |
 | 6.0.* | 5.6.205.* |Less than or equal to version  2.8 |March 30,2018     | 
-| 6.1.* | 5.7.221.* |Less than or equal to version  3.0 |June 15,2018      |
+| 6.1.* | 5.7.221.* |Less than or equal to version  3.0 |July 15,2018      |
 | 6.2.* | 6.0.232.* |Less than or equal to version  3.1 |Current version and so no end date |
 
 ## Service Fabric Preview Versions - unsupported for production use.

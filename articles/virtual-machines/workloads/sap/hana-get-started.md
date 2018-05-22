@@ -249,7 +249,7 @@ For a description of the standard file-system layout of SAP HANA, see the [SAP H
 
 When you install SAP NetWeaver on a standard SLES/SLES for SAP Applications 12 Azure gallery image, a message is displayed that says  there is no swap space, as shown in the following screenshot. To dismiss this message, you can manually add a swap file by using **dd**, **mkswap**, and **swapon**. To learn how, search for "Adding a swap file manually" in the [Using the YaST Partitioner](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip) section of the SUSE documentation.
 
-Another option is to configure swap space by using the Linux VM agent. For more information, see the [Azure Linux Agent User Guide](../../linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Another option is to configure swap space by using the Linux VM agent. For more information, see the [Azure Linux Agent User Guide](../../extensions/agent-linux.md).
 
 ![Pop-up message advising that there is insufficient swap space](./media/hana-get-started/image010.jpg)
 

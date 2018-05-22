@@ -1,6 +1,6 @@
 ---
-title: Migrate SQL Server DB to Azure SQL Database using DMS | Microsoft Docs
-description: Learn to migrate your SQL Server database to Azure SQL Database using DMS.
+title: Migrate SQL Server DB to Azure SQL Database using DMA | Microsoft Docs
+description: Learn to migrate your SQL Server database to Azure SQL Database using DMA.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -12,7 +12,7 @@ ms.author: carlrab
 
 ---
 
-# Migrate your SQL Server database to Azure SQL Database using DMS
+# Migrate your SQL Server database to Azure SQL Database using DMA
 
 Moving your SQL Server database to an Azure SQL Database single database is as simple as creating an empty SQL database in Azure and then using  the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) to import the database into Azure. For additional migration options, see [Migrate your database to Azure SQL Database](sql-database-cloud-migrate.md).
 
