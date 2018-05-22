@@ -36,22 +36,4 @@ This command will produce a response similar to this:
 <add key="AadClientId" value="44444444-0000-2222-3333-55555555555" />
 <add key="ArmEndpoint" value="https://management.azure.com/" />
 ```
-
-### Configure your .NET Core app
-
-1. Open Visual Studio Code.
-2. Browse and open the App.config file.
-3. Replace the appSettings values with the values you got in the previous step.
-
- ```xml
- <add key="Region" value="value" />
- <add key="ResourceGroup" value="value" />
- <add key="AadEndpoint" value="value" />
- <add key="AccountName" value="value" />
- <add key="SubscriptionId" value="value" />
- <add key="ArmAadAudience" value="value" />
- <add key="AadTenantId" value="value" />
- <add key="AadSecret" value="value" />
- <add key="AadClientId" value="value" />
- <add key="ArmEndpoint" value="value" />
- ```    
+ 
