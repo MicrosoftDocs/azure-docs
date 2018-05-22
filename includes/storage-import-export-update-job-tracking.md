@@ -1,14 +1,14 @@
 ---
 title: Update Azure Import/Export job | Microsoft Docs
-description: Learn how to update Azure Import/Export job in Azure portal with tracking information.
+description: Update Azure Import/Export job | Microsoft Docsinformation.
 author: alkohli
-manager: jeconnoc
 services: storage
 
 ms.service: storage
 ms.topic: include
-ms.date: 05/14/2018
+ms.date: 05/22/2018
 ms.author: alkohli
+ms.custom: Update Azure Import/Export job | Microsoft Docs
 
 ---
 

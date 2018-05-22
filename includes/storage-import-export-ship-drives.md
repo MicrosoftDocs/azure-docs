@@ -1,14 +1,13 @@
 ---
 title: Ship disk drives used for Azure Import/Export | Microsoft Docs
-description: Learn how to ship disk drives used in Azure Import/Export service.
+description: Ship disk drives used for Azure Import/Export | Microsoft Docs
 author: alkohli
-manager: jeconnoc
-services: storage
 
 ms.service: storage
 ms.topic: include
-ms.date: 05/14/2018
+ms.date: 05/22/2018
 ms.author: alkohli
+ms.custom: Ship disk drives used for Azure Import/Export | Microsoft Docs
 
 ---
 
