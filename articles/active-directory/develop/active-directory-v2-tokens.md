@@ -3,21 +3,23 @@ title: Azure Active Directory v2.0 tokens reference | Microsoft Docs
 description: The types of tokens and claims emitted by the Azure AD v2.0 endpoint
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-
 ---
+
 # Azure Active Directory v2.0 tokens reference
 The Azure Active Directory (Azure AD) v2.0 endpoint emits several types of security tokens in each [authentication flow](active-directory-v2-flows.md). This reference describes the format, security characteristics, and contents of each type of token.
 
@@ -66,8 +68,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | name |`name` |`Babe Ruth` |The name claim provides a human-readable value that identifies the subject of the token. The value is not guaranteed to be unique, it is mutable, and it's designed to be used only for display purposes. The `profile` scope is required in order to receive this claim. |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |The primary email address associated with the user account, if one exists. Its value is mutable and might change over time. The `email` scope is required in order to receive this claim. |
 | preferred username |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |The primary username that represents the user in the v2.0 endpoint. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. Since it is mutable, this value must not be used to make authorization decisions. The `profile` scope is required in order to receive this claim. |
-| subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource, and can be used as a key in database tables. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. The subject is, however, a pairwise identifier - it is unique to a particular application ID.  Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim.  This may or may not be desired depending on your architecture and privacy requirements. |
-| object ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | The immutable identifier for an object in the Microsoft identity system, in this case, a user account.  It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim.  This means that it can be used when making queries to Microsoft online services, such as the Microsoft Graph.  The Microsoft Graph will return this ID as the `id` property for a given user account.  Because the `oid` allows multiple apps to correlate users, the `profile` scope is required in order to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials. |
+| subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource, and can be used as a key in database tables. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. The subject is, however, a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements. |
+| object ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | The immutable identifier for an object in the Microsoft identity system, in this case, a user account. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. This means that it can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required in order to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials. |
 
 ### Access tokens
 
@@ -80,7 +82,7 @@ Refresh tokens are security tokens that your app can use to get new access token
 
 Refresh tokens are multi-resource. A refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource.
 
-To receive a refresh in a token response, your app must request and be granted the `offline_acesss` scope. To learn more about the `offline_access` scope, see the [consent and scopes](active-directory-v2-scopes.md) article.
+To receive a refresh in a token response, your app must request and be granted the `offline_access` scope. To learn more about the `offline_access` scope, see the [consent and scopes](active-directory-v2-scopes.md) article.
 
 Refresh tokens are, and always will be, completely opaque to your app. They are issued by the Azure AD v2.0 endpoint and can only be inspected and interpreted by the v2.0 endpoint. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time. Refresh tokens can be invalidated at any moment for various reasons - for details, see [token revocation](active-directory-token-and-claims.md#token-revocation). The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to the v2.0 endpoint.
 
@@ -120,7 +122,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 >
 >
 
-This metadata document is a JSON object that has several useful pieces of information, such as the location of the various endpoints required for OpenID Connect authentication.  The document also includes a *jwks_uri*, which gives the location of the set of public keys used to sign tokens. The JSON document located at the jwks_uri has all the public key information that is currently in use. Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a token. It then performs signature validation by using the correct public key and the indicated algorithm.
+This metadata document is a JSON object that has several useful pieces of information, such as the location of the various endpoints required for OpenID Connect authentication. The document also includes a *jwks_uri*, which gives the location of the set of public keys used to sign tokens. The JSON document located at the jwks_uri has all the public key information that is currently in use. Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a token. It then performs signature validation by using the correct public key and the indicated algorithm.
 
 Performing signature validation is outside the scope of this document. Many open-source libraries are available to help you with this.
 

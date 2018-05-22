@@ -196,6 +196,27 @@ Use the list command to find the job id, and then use cancel to cancel the job.
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
    ```
 
+## Pipelines and recurrences
+
+**Get information about pipelines and recurrences**
+
+Use the `az dla job pipeline` commands to see the pipeline information previously submitted jobs.
+
+```
+az dla job pipeline list --account "<Data Lake Analytics Account Name>"
+
+az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
+```
+
+Use the `az dla job recurrence` commands to see the recurrence information for previously submitted jobs.
+
+```
+az dla job recurrence list --account "<Data Lake Analytics Account Name>"
+
+az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
+```
+
+
 ## Use Azure Resource Manager groups
 Applications are typically made up of many components, for example a web app, database, database server, storage,
 and third party services. Azure Resource Manager enables you to work with the resources in your application 

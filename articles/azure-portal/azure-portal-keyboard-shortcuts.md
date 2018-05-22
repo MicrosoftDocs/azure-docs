@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/24/2017

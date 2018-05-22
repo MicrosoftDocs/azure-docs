@@ -1,19 +1,16 @@
 ---
 title: Configure Azure Multi-Factor Authentication | Microsoft Docs
-description: This article describes how to configure Azure Multi-Factor Authentication settings for reports, fraud alerts, one-time bypasses, custom voice messages, caching, trusted IPs, and app passwords.
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
+description: This article describes how to configure Azure Multi-Factor Authentication settings in the Azure portal
 
-ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 01/03/2018
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
 
 ---

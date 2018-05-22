@@ -39,7 +39,7 @@ This article talks about the steps to back up and restore virtual machines (VMs)
 
 * A Recovery Services vault was created and storage replication was set by following the steps in [Prepare your environment for backup](backup-azure-arm-vms-prepare.md).
 
-* Backup was given [permissions to access a key vault](#provide-permissions-to-azure-backup) containing keys and secrets for encrypted VMs.
+* Backup was given [permissions to access a key vault](#provide-permissions-to-backup) containing keys and secrets for encrypted VMs.
 
 ## Backup-encrypted VM
 Use the following steps to set a backup goal, define a policy, configure items, and trigger a backup.
