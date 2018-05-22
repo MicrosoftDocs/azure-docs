@@ -70,7 +70,7 @@ If you delete a database, SQL Database will keep the backups in the same way it 
 
 ### PITR Retention for the vCore-based service tiers (preview)
 
-During preview, the PITR retention period for databases created using the vCore-based purchasing model set to 7 days and cannot be changed. The associated storage is included for free.    
+During preview, the PITR retention period for databases created using the vCore-based purchasing model set to 7 days. The associated storage is included for free.    
 
 ## Are backups encrypted?
 
