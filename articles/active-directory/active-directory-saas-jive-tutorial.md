@@ -226,7 +226,7 @@ When you click the Jive tile in the Access Panel, you should get automatically s
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure User Provisioning](active-directory-saas-jive-provisioning-tutorial.md)
 
 <!--Image references-->
