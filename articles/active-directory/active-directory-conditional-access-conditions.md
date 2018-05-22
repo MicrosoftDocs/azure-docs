@@ -154,7 +154,7 @@ An application is classified as:
 
 - A a mobile app or desktop application if it uses the mobile app OpenID Connect for a native client.
 
-For a complete list of the client apps you can use in your conditional access policy, see the [Azure Active Directory Conditional Access technical reference](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+For a complete list of the client apps you can use in your conditional access policy, see [Client apps condition](active-directory-conditional-access-technical-reference.md#client-apps-condition) in the Azure Active Directory Conditional Access technical reference.
 
 Common use cases for this condition are policies that:
 
