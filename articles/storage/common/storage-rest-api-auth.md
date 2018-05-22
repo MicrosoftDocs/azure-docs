@@ -2,18 +2,13 @@
 title: Calling Azure Storage Services REST API operations including authentication | Microsoft Docs
 description: Calling Azure Storage Services REST API operations including authentication
 services: storage
-documentationcenter: na
-author: robinsh
-manager: timlt
+author: tamram
+manager: twooley
 
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 11/27/2017
-ms.author: robinsh
+ms.date: 05/22/2018
+ms.author: tamram
 ---
 
 # Using the Azure Storage REST API
