@@ -4,16 +4,14 @@ description: This is page provides a comprehensive table that compares the vario
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
-editor: curtand
-
+manager: mtillman
 ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 04/27/2018
 ms.author: billmath
 
 ---
@@ -41,13 +39,14 @@ PP = Public Preview
 | Connect to single on-premises AD forest |● |● |● |● |● |
 | Connect to multiple on-premises AD forests |● |● | |● |● |
 | Connect to multiple on-premises Exchange Orgs |● | | | | |
-| Connect to single on-premises LDAP directory |FR | | |● |● |
-| Connect to multiple on-premises LDAP directories |FR | | |● |● |
-| Connect to on-premises AD and on-premises LDAP directories |FR | | |● |● |
+| Connect to single on-premises LDAP directory | | | |● |● |
+| Connect to multiple on-premises LDAP directories |  | | |● |● |
+| Connect to on-premises AD and on-premises LDAP directories | | | |● |● |
 | Connect to custom systems (i.e. SQL, Oracle, MySQL, etc.) |FR | | |● |● |
 | Synchronize customer defined attributes (directory extensions) |● | | | | |
 | Connect to on-premises HR (i.e., SAP, Oracle eBusiness,PeopleSoft) |FR | | |● |● |
 | Supports FIM synchronization rules and connectors for provisioning to on-premises systems. | | | |● |● |
+
 
 ## Cloud to On-Premises Synchronization
 | Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |

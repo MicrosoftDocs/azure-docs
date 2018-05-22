@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 4df349b2-a73f-4b88-a077-ec0fbfc26527
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: jeedes
 
 ---
@@ -26,7 +26,7 @@ Integrating Skillport with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Skillport (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -108,20 +108,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following patterns:
+	a. In the **Sign-on URL** textbox, type the URL:
       
-      EU Datacenter: `https://<subdomain>.skillport.eu`
+      EU Datacenter: `https://adfs.skillport.eu`
    
-      US Datacenter: `https://<subdomain>.skillport.com`
-   
-    b. In the **Reply URL** textbox, type a URL using the following patterns:
-    
-      EU Datacenter: `https://<subdomain>.skillport.eu/adfs/ls/`
-    
-	  US Datacenter: `https://<subdomain>.skillport.com/sp/ACS.saml2`
+      US Datacenter: `https://sso.skillport.com`
 
-    > [!NOTE] 
-	> These values are not the real. Update these values with the actual Reply URL and Sign-On URL. Contact [Skillport Client support team](https://www.skillsoft.com/contact.asp) to get these values.
+    b. In the **Identifier** textbox, type the URL:
+      
+      EU Datacenter: `http://adfs.skillport.eu/adfs/services/trust`
+   
+      US Datacenter: `https://sso.skillport.com`
+   
+    c. In the **Reply URL** textbox, type the URL:
+    
+      EU Datacenter: ` https://adfs.skillport.eu/adfs/ls/`
+    
+	  US Datacenter: `https://sso.skillport.com/sp/ACS.saml2`
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
@@ -208,7 +211,7 @@ For more information about the Access Panel, see [Introduction to the�
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

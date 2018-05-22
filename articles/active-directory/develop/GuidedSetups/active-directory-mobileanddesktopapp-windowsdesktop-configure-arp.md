@@ -4,7 +4,7 @@ description: How a Windows Desktop .NET (XAML) application can get an access tok
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -30,4 +30,4 @@ private static string ClientId = "[Enter the application Id here]";
 
 ### What is Next
 
-[Test and Validate](active-directory-mobileanddesktopapp-windowsdesktop-test.md)
+[!INCLUDE [Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-test.md)]

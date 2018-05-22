@@ -1,9 +1,9 @@
----
+﻿---
 title: Upgrade from Mobile Services to Azure App Service - Node.js
 description: Learn how to easily upgrade your Mobile Services application to an App Service Mobile App
 services: app-service\mobile
 documentationcenter: ''
-author: adrianhall
+author: conceptdev
 manager: yochayk
 editor: ''
 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: mobile
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: crdun
 
 ---
 # Upgrade your existing Node.js Azure Mobile Service to App Service
 App Service Mobile is a new way to build mobile applications using Microsoft Azure. To learn more, see [What are Mobile Apps?].
 
-This topic describes how to upgrade an existing Node.js backend application from Azure Mobile Services to a new App Service 
+This article describes how to upgrade an existing Node.js backend application from Azure Mobile Services to a new App Service
 Mobile Apps. While you perform this upgrade, your existing Mobile Services application can continue to operate.  If you
 need to upgrade a Node.js backend application, refer to [Upgrading your .NET Mobile Services](app-service-mobile-net-upgrading-from-mobile-services.md).
 
@@ -30,37 +30,37 @@ When a mobile backend is upgraded to Azure App Service, it has access to all App
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
 > [!TIP]
-> It is recommended that you [perform a migration](app-service-mobile-migrating-from-mobile-services.md) before going 
-> through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional 
+> It is recommended that you [perform a migration](app-service-mobile-migrating-from-mobile-services.md) before going
+> through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional
 > cost.
-> 
-> 
+>
+>
 
 ### Improvements in Mobile Apps Node.js server SDK
-Upgrading to the new [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-apps) provides a lot of improvements, including:
+Upgrading to the new [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-apps) provides many improvements, including:
 
-* Based on the [Express framework](http://expressjs.com/en/index.html), the new Node SDK is light-weight and designed to keep up 
+* Based on the [Express framework](http://expressjs.com/en/index.html), the new Node SDK is light-weight and designed to keep up
   with new Node versions as they come out. You can customize the application behavior with Express middleware.
 * Significant performance improvements compared to the Mobile Services SDK.
-* You can now host a website together with your mobile backend; similarly, it's easy to add the Azure Mobile SDK to any 
+* You can now host a website together with your mobile backend; similarly, it's easy to add the Azure Mobile SDK to any
   existing express.v4 application.
-* Built for cross-platform and local development, the Mobile Apps SDK can be developed and run locally on Windows, Linux, 
-  and OSX platforms. It's now easy to use common Node development techniques like running [Mocha](https://mochajs.org/) tests 
+* Built for cross-platform and local development, the Mobile Apps SDK can be developed and run locally on Windows, Linux,
+  and OSX platforms. It's now easy to use common Node development techniques like running [Mocha](https://mochajs.org/) tests
   prior to deployment.
 
 ## <a name="overview"></a>Basic upgrade overview
 To aid in upgrading a Node.js backend, Azure App Service has provided a compatibility package.  After upgrade, you will have
-a niew site that can be deployed to a new App Service site.
+a new site that can be deployed to a new App Service site.
 
-The Mobile Services client SDKs are **not** compatible with the new Mobile Apps server SDK. In order to provide continuity of 
-service for your app, you should not publish changes to a site currently serving published clients. Instead, you should create 
-a new mobile app that serves as a duplicate. You can put this application on the same App Service plan to avoid incurring 
+The Mobile Services client SDKs are **not** compatible with the new Mobile Apps server SDK. In order to provide continuity of
+service for your app, you should not publish changes to a site currently serving published clients. Instead, you should create
+a new mobile app that serves as a duplicate. You can put this application on the same App Service plan to avoid incurring
 additional financial cost.
 
-You will then have two versions of the application: one that stays the same and serves published apps in the wild, and the 
-other which you can then upgrade and target with a new client release. You can move and test your code at your pace, but you 
-should make sure that any bug fixes you make get applied to both. Once you feel that a desired number of client apps in the 
-wild have updated to the latest version, you can delete the original migrated app if you desire. It doesn't incur any additional 
+You will then have two versions of the application: one that stays the same and serves published apps in the wild, and the
+other which you can then upgrade and target with a new client release. You can move and test your code at your pace, but you
+should make sure that any bug fixes you make get applied to both. Once you feel that a desired number of client apps in the
+wild have updated to the latest version, you can delete the original migrated app if you desire. It doesn't incur any additional
 monetary costs, if hosted in the same App Service plan as your Mobile App.
 
 The full outline for the upgrade process is as follows:
@@ -69,7 +69,7 @@ The full outline for the upgrade process is as follows:
 2. Convert the project to an Azure Mobile App using the compatibility package.
 3. Correct any differences (such as authentication settings).
 4. Deploy your converted Azure Mobile App project to a new App Service.
-5. Release a new version of your client application that use the new Mobile App.
+5. Release a new version of your client application that uses the new Mobile App.
 6. (Optional) Delete your original migrated mobile service app.
 
 Deletion can occur when you don't see any traffic on your original migrated mobile service.
@@ -88,7 +88,7 @@ installed, you can run the following command from a new cmd or PowerShell prompt
 * Navigate to `site/wwwroot/App_Data/config` by clicking on each directory in turn
 * Click on the download icon next to the `scripts` directory.
 
-This will download the scripts in ZIP format.  Create a new directory on your local machine and unpack the `scripts.ZIP` file 
+This will download the scripts in ZIP format.  Create a new directory on your local machine and unpack the `scripts.ZIP` file
 within the directory.  This will create a `scripts` directory.
 
 ## <a name="scaffold-app"></a> Scaffold the new Azure Mobile Apps backend
@@ -111,17 +111,17 @@ During deployment, you will need to do the following:
 ### Create a new Mobile App
 1. Log in at the [Azure Portal].
 2. Click **+NEW** > **Web + Mobile** > **Mobile App**, then provide a name for your Mobile App backend.
-3. For the **Resource Group**, select an existing resource group, or create a new one (using the same name as your app.) 
-   
+3. For the **Resource Group**, select an existing resource group, or create a new one (using the same name as your app.)
+
     You can either select another App Service plan or create a new one. For more about App Services plans and how to create a new plan in a different pricing tier and in your desired location, see [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. For the **App Service plan**, the default plan (in the [Standard tier](https://azure.microsoft.com/pricing/details/app-service/)) is selected. You can also  select a different plan, or [create a new one](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). The App Service plan's settings determine the [location, features, cost and compute resources](https://azure.microsoft.com/pricing/details/app-service/) associated with your app. 
-   
-    After you decide on the plan, click **Create**. This creates the Mobile App backend. 
+4. For the **App Service plan**, the default plan (in the [Standard tier](https://azure.microsoft.com/pricing/details/app-service/)) is selected. You can also  select a different plan, or [create a new one](../app-service/app-service-plan-manage.md#create-an-app-service-plan). The App Service plan's settings determine the [location, features, cost, and compute resources](https://azure.microsoft.com/pricing/details/app-service/) associated with your app.
+
+    After you decide on the plan, click **Create**. This creates the Mobile App backend.
 
 ### Run CreateViews.SQL
 The scaffolded app contains a file called `createViews.sql`.  This script must be executed against the
 target database.  The connection string for the target database can be obtained from your migrated mobile
-service from the **Settings** blade under **Connection Strings**.  It is named `MS_TableConnectionString`.
+service from the **Settings** page under **Connection Strings**.  It is named `MS_TableConnectionString`.
 
 You can run this script from within SQL Server Management Studio or Visual Studio.
 
@@ -134,25 +134,25 @@ Link the existing database to your App Service:
 * In the drop-down, select **SQL Database**
 * Under **SQL Database**, select your existing database, then click on **Select**.
 * Under **Connection string**, enter the username and password for the database, then click on **OK**.
-* In the **Add data connections** blade, click on **OK**.
+* In the **Add data connections** page, click on **OK**.
 
-The username and password can be found by viewing the Connection String for the target database in your 
+The username and password can be found by viewing the Connection String for the target database in your
 migrated Mobile Service.
 
 ### Set up authentication
-Azure Mobile Apps allows you to configure Azure Active Directory, Facebook, Google, Microsoft and Twitter
+Azure Mobile Apps allows you to configure Azure Active Directory, Facebook, Google, Microsoft, and Twitter
 authentication within the service.  Custom authentication will need to be developed separately.  Refer to
 the [Authentication Concepts] documentation and [Authentication Quickstart] documentation for more
 information.  
 
 ## <a name="updating-clients"></a>Update Mobile clients
-Once you have an operational Mobile App backend, you can work on a new version of your client application 
-which consumes it. Mobile Apps also includes a new version of the client SDKs, and similar to the server 
+Once you have an operational Mobile App backend, you can work on a new version of your client application
+which consumes it. Mobile Apps also includes a new version of the client SDKs, and similar to the server
 upgrade above, you will need to remove all references to the Mobile Services SDKs before installing the
  Mobile Apps versions.
 
-One of the main changes between the versions is that the constructors no longer require an application key. 
-You now simply pass in the URL of your Mobile App. For example, on the .NET clients, the `MobileServiceClient` 
+One of the main changes between the versions is that the constructors no longer require an application key.
+You now simply pass in the URL of your Mobile App. For example, on the .NET clients, the `MobileServiceClient`
 constructor is now:
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
@@ -166,12 +166,12 @@ You can read about installing the new SDKs and using the new structure via the l
 * [.NET (Windows/Xamarin) version 2.0.0 or later](app-service-mobile-dotnet-how-to-use-client-library.md)
 * [Apache Cordova version 2.0 or later](app-service-mobile-cordova-how-to-use-client-library.md)
 
-If your application makes use of push notifications, make note of the specific registration instructions for 
+If your application makes use of push notifications, make note of the specific registration instructions for
 each platform, as there have been some changes there as well.
 
-When you have the new client version ready, try it out against your upgraded server project. After validating that 
-it works, you can release a new version of your application to customers. Eventually, once your customers have had 
-a chance to receive these updates, you can delete the Mobile Services version of your app. At this point, you have 
+When you have the new client version ready, try it out against your upgraded server project. After validating that
+it works, you can release a new version of your application to customers. Eventually, once your customers have had
+a chance to receive these updates, you can delete the Mobile Services version of your app. At this point, you have
 completely upgraded to an App Service Mobile App using the latest Mobile Apps server SDK.
 
 <!-- URLs. -->
@@ -185,11 +185,11 @@ completely upgraded to an App Service Mobile App using the latest Mobile Apps se
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
-[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[App Service pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Authentication Concepts]: ../app-service/app-service-authentication-overview.md
 [Authentication Quickstart]: app-service-mobile-auth.md

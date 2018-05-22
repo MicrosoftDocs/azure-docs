@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
@@ -26,7 +26,7 @@ Integrating LinkedIn Elevate with Azure AD provides you with the following benef
 - You can enable your users to automatically get signed-on to LinkedIn Elevate (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure Management portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -134,15 +134,15 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	| --- | --- |    
 	| department| user.department |
 
-	![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
+      ![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
-   	a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
+      a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
 
-   	![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+      ![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
 
-   	b. Click on **Ok** to save the attribute.
+      b. Click on **Ok** to save the attribute.
 
-	c. Change the name of the attribute **emailaddress** to **email**.
+      c. Change the name of the attribute **emailaddress** to **email**.
 
 
 10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
@@ -238,7 +238,7 @@ When you click the LinkedIn Elevate tile in the Access Panel, you should get the
 
 * [Tutorial: Configuring LinkedIn Elevate for automatic user provisioning with Azure Active Directory](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

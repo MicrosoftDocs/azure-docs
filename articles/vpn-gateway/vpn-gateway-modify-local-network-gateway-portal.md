@@ -30,13 +30,13 @@ Sometimes the settings for your local network gateway AddressPrefix or GatewayIP
 >
 
 
-## Modify IP address prefixes
+## <a name="ipaddprefix"></a>Modify IP address prefixes
 
 When you modify IP address prefixes, the steps you follow depend on whether your local network gateway has a connection.
 
 [!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
 
-## Modify the gateway IP address
+## <a name="gwip"></a>Modify the gateway IP address
 
 If the VPN device that you want to connect to has changed its public IP address, you need to modify the local network gateway to reflect that change. When you change the public IP address, the steps you follow depend on whether your local network gateway has a connection.
 

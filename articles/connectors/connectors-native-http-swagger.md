@@ -26,7 +26,7 @@ in your logic app workflow. You can also extend logic apps to call any REST
 endpoint with a first-class Logic App Designer experience.
 
 To learn how to create logic apps with connectors, see 
-[Create a new logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+[Create a new logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Use HTTP + Swagger as a trigger or an action
 
@@ -61,7 +61,7 @@ You might want to reference a Swagger document that's not hosted, or that doesn'
 
 Here are the steps to create, configure, and store Swagger documents in Azure Storage:
 
-1. [Create an Azure storage account with Azure Blob storage](../storage/storage-create-storage-account.md). 
+1. [Create an Azure storage account with Azure Blob storage](../storage/common/storage-create-storage-account.md). 
 To perform this step, set permissions to **Public Access**.
 
 2. Enable CORS on the blob. 
@@ -137,5 +137,5 @@ When making calls to various actions, you might get certain responses. Following
 - - -
 ## Next steps
 
-* [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Find other connectors](apis-list.md)

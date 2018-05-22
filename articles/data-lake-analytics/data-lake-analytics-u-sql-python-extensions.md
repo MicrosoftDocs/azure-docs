@@ -4,7 +4,7 @@ description: 'Learn how to run Python code in U-SQL Scripts'
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
-manager: saveenr
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
@@ -19,6 +19,16 @@ ms.author: saveenr
 ---
 
 # Tutorial: Get started with extending U-SQL with Python
+
+## Prerequisites
+
+Before you begin, ensure the Python extensions are installed in your Azure Data Lake Analytics account.
+
+* Navigate to you Data Lake Analytics Account in the Azure portal
+* In the left menu, under **GETTING STARTED** click on **Sample Scripts**
+* Click **Install U-SQL Extensions** then **OK**
+
+## Overview 
 
 Python Extensions for U-SQL enable developers to perform massively parallel execution of Python code. The following example illustrates the basic steps:
 
@@ -96,4 +106,4 @@ Every vertex has a limited amount of memory assigned to it. Currently, that limi
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-
+* [Use Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

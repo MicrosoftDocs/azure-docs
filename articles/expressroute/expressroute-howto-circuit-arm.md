@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Create and modify an ExpressRoute circuit: PowerShell: Azure Resource Manager | Microsoft Docs'
 description: This article describes how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 documentationcenter: na
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 10/18/2017
 ms.author: ganesr;cherylmc
 
 ---
 # Create and modify an ExpressRoute circuit using PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
-> * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> 
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [Azure CLI](howto-circuit-cli.md)
+> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
 This article describes how to create an Azure ExpressRoute circuit by using PowerShell cmdlets and the Azure Resource Manager deployment model. This article also shows you how to check the status of the circuit, update it, or delete and deprovision it.
@@ -33,12 +34,12 @@ This article describes how to create an Azure ExpressRoute circuit by using Powe
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
 
-## Create and provision an ExpressRoute circuit
+## <a name="create"></a>Create and provision an ExpressRoute circuit
 ### 1. Sign in to your Azure account and select your subscription
 To begin your configuration, sign in to your Azure account. Use the following examples to help you connect:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Check the subscriptions for the account:
@@ -62,7 +63,7 @@ The PowerShell cmdlet **Get-AzureRmExpressRouteServiceProvider** returns this in
 Get-AzureRmExpressRouteServiceProvider
 ```
 
-Check to see if your connectivity provider is listed there. Make a note of the following information. You'll need it later when you create a circuit.
+Check to see if your connectivity provider is listed there. Make a note of the following information, which you need later when you create a circuit:
 
 * Name
 * PeeringLocations
@@ -78,7 +79,7 @@ New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
 
 
-The following example shows how to create a 200-Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, substitute that information when you make your request. The following is an example request for a new service key:
+The following example shows how to create a 200-Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, substitute that information when you make your request. Use the following example to request a new service key:
 
 ```powershell
 New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
@@ -90,7 +91,7 @@ Make sure that you specify the correct SKU tier and SKU family:
 * SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*.
 
 > [!IMPORTANT]
-> Your ExpressRoute circuit will be billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
+> Your ExpressRoute circuit is billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
 > 
 > 
 
@@ -108,7 +109,7 @@ To get a list of all the ExpressRoute circuits that you created, run the **Get-A
 Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
-The response will look similar to the following example:
+The response looks similar to the following example:
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
@@ -132,14 +133,14 @@ The response will look similar to the following example:
     ServiceKey                        : **************************************
     Peerings                          : []
 
-You can retrieve this information at any time by using the `Get-AzureRmExpressRouteCircuit` cmdlet. Making the call with no parameters lists all the circuits. Your service key will be listed in the *ServiceKey* field:
+You can retrieve this information at any time by using the `Get-AzureRmExpressRouteCircuit` cmdlet. Making the call with no parameters lists all the circuits. Your service key is listed in the *ServiceKey* field:
 
 ```powershell
 Get-AzureRmExpressRouteCircuit
 ```
 
 
-The response will look similar to the following example:
+The response looks similar to the following example:
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
@@ -171,16 +172,16 @@ get-help Get-AzureRmExpressRouteCircuit -detailed
 ```
 
 ### 5. Send the service key to your connectivity provider for provisioning
-*ServiceProviderProvisioningState* provides information about the current state of provisioning on the service-provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
+*ServiceProviderProvisioningState* provides information about the current state of provisioning on the service-provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
-When you create a new ExpressRoute circuit, the circuit will be in the following state:
+When you create a new ExpressRoute circuit, the circuit is in the following state:
 
     ServiceProviderProvisioningState : NotProvisioned
     CircuitProvisioningState         : Enabled
 
 
 
-The circuit will change to the following state when the connectivity provider is in the process of enabling it for you:
+The circuit changes to the following state when the connectivity provider is in the process of enabling it for you:
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
@@ -198,7 +199,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 ```
 
 
-The response will look similar to the following example:
+The response looks similar to the following example:
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
@@ -226,7 +227,7 @@ The response will look similar to the following example:
 For step-by-step instructions, see the [ExpressRoute circuit routing configuration](expressroute-howto-routing-arm.md) article to create and modify circuit peerings.
 
 > [!IMPORTANT]
-> These instructions only apply to circuits that are created with service providers that offer layer 2 connectivity services. If you're using a service provider that offers managed layer 3 services (typically an IP VPN, like MPLS), your connectivity provider will configure and manage routing for you.
+> These instructions only apply to circuits that are created with service providers that offer layer 2 connectivity services. If you're using a service provider that offers managed layer 3 services (typically an IP VPN, like MPLS), your connectivity provider configures and manages routing for you.
 > 
 > 
 
@@ -241,7 +242,7 @@ Get-AzureRmExpressRouteCircuit
 ```
 
 
-The response will be similar to the following example:
+The response is similar to the following example:
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
@@ -273,7 +274,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 ```
 
 
-The response will look similar to the following example:
+The response looks similar to the following example:
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
@@ -307,14 +308,14 @@ get-help get-azurededicatedcircuit -detailed
 ## <a name="modify"></a>Modifying an ExpressRoute circuit
 You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
 
-You can do the following with no downtime:
+You can do the following tasks with no downtime:
 
 * Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
 * Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported. 
 * Change the metering plan from Metered Data to Unlimited Data. Changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
 
-For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md).
+For more information on limits and limitations, see the [ExpressRoute FAQ](expressroute-faqs.md).
 
 ### To enable the ExpressRoute premium add-on
 You can enable the ExpressRoute premium add-on for your existing circuit by using the following PowerShell snippet:
@@ -328,18 +329,18 @@ $ckt.sku.Name = "Premium_MeteredData"
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-The circuit will now have the ExpressRoute premium add-on features enabled. We will begin billing you for the premium add-on capability as soon as the command has successfully run.
+The circuit now has the ExpressRoute premium add-on features enabled. We begin billing you for the premium add-on capability as soon as the command has successfully run.
 
 ### To disable the ExpressRoute premium add-on
 > [!IMPORTANT]
-> This operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
+> If you're using resources that are greater than what is permitted for the standard circuit, this operation can fail.
 > 
 > 
 
-Note the following:
+Note the following information:
 
-* Before you downgrade from premium to standard, you must ensure that the number of virtual networks that are linked to the circuit is less than 10. If you don't do this, your update request fails, and we will bill you at premium rates.
-* You must unlink all virtual networks in other geopolitical regions. If you don't do this, your update request will fail, and we will bill you at premium rates.
+* Before you downgrade from premium to standard, you must ensure that the number of virtual networks that are linked to the circuit is less than 10. If you don't, your update request fails, and we bill you at premium rates.
+* You must unlink all virtual networks in other geopolitical regions. If you don't do this, your update request fails, and we bill you at premium rates.
 * Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session drops and won't be reenabled until the number of advertised prefixes goes below 4,000.
 
 You can disable the ExpressRoute premium add-on for the existing circuit by using the following PowerShell cmdlet:
@@ -390,12 +391,12 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ### To control access to the classic and Resource Manager environments
 Review the instructions in [Move ExpressRoute circuits from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md).  
 
-## Deprovisioning and deleting an ExpressRoute circuit
-Note the following:
+## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit
+Note the following information:
 
 * You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
-* If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
-* If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**) you can then delete the circuit. This will stop billing for the circuit
+* If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
+* If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**), you can delete the circuit. This stops billing for the circuit.
 
 You can delete your ExpressRoute circuit by running the following command:
 
@@ -405,7 +406,7 @@ Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup"
 
 ## Next steps
 
-After you create your circuit, make sure that you do the following:
+After you create your circuit, make sure that you do the following next steps:
 
 * [Create and modify routing for your ExpressRoute circuit](expressroute-howto-routing-arm.md)
 * [Link your virtual network to your ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)

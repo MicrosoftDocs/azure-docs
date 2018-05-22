@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 34ebaf1e-480c-4b4d-9bf6-251bd3f8f2cf
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
@@ -149,7 +149,7 @@ Resource Manager identifies circular dependencies during template validation. If
 3. Extension on vm1 depends on vm1 and vm2. The extension sets values on vm1 that it gets from vm2.
 4. Extension on vm2 depends on vm1 and vm2. The extension sets values on vm2 that it gets from vm1.
 
-For information about assessing the deployment order and resolving dependency errors, see [Check deployment sequence](resource-manager-common-deployment-errors.md#check-deployment-sequence).
+For information about assessing the deployment order and resolving dependency errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## Next steps
 * To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).

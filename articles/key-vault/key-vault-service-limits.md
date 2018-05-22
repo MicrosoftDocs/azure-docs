@@ -3,7 +3,7 @@ title: Azure Key Vault Service Limits | Microsoft Docs
 description: Learn about the service limits for Azure Key Vault.
 documentationcenter: dev-center-name
 services: key-vault
-author: cabailey
+author: barclayn
 manager: mbaldwin
 editor: ''
 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2016
-ms.author: mbaldwin
+ms.date: 11/02/2017
+ms.author: barclayn
 
 ---
-# Azure Key Vault Service Limits
+# Azure Key Vault service limits
 Here are the service limits for Azure Key Vault.
 
 [!INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]

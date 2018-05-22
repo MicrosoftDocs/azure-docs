@@ -4,7 +4,7 @@ description: Create an unmanged image of a generalized Windows VM to use to crea
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
+ROBOTS: NOINDEX
 
 ---
 
@@ -59,7 +60,7 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
 1. Open Azure PowerShell and sign in to your Azure account.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
    
     A pop-up window opens for you to enter your Azure account credentials.
@@ -75,6 +76,11 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
     ```
 
 ## Deallocate the VM and set the state to generalized
+
+> [!IMPORTANT] 
+> You cannot add, edit or remove tags from a VM once it is marked as generalized. If you want to add a tag to the VM, make sure you add the tags before marking it as generalized.
+> 
+
 1. Deallocate the VM resources.
    
     ```powershell
@@ -250,6 +256,6 @@ When complete, you should see the newly created VM in the [Azure portal](https:/
 ```
 
 ## Next steps
-To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

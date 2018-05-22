@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Windows Universal SDK Integration for Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This document describes all the integration and configuration options available for the Azure Mobile Engagement Windows Universal SDK.
 
 ## Prerequisites

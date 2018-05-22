@@ -3,8 +3,12 @@
 # Quickstarts
 ## [Create an Oracle DB](oracle-database-quick-create.md)
 # Tutorials
-## [Configuring Oracle ASM](configure-oracle-asm.md)
-## [Configuring Oracle DataGuard](configuring-oracle-dataguard.md)
-## [Configuring Oracle GoldenGate](configure-oracle-golden-gate.md)
+## [Configure Oracle ASM](configure-oracle-asm.md)
+## [Configure Oracle DataGuard](configure-oracle-dataguard.md)
+## [Configure Oracle GoldenGate](configure-oracle-golden-gate.md)
+# Concepts
+## [Architect an Oracle DB](oracle-design.md)
+## [Backup strategy for Oracle DB](oracle-backup-recovery.md)
+## [Oracle Disaster Recovery options](oracle-disaster-recovery.md)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

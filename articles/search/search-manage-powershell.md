@@ -1,21 +1,15 @@
 ﻿---
 title: Manage Azure Search with Powershell scripts | Microsoft Docs
 description: Manage your Azure Search service with PowerShell scripts. Create or update an Azure Search service and manage Azure Search admin keys
-services: search
-documentationcenter: ''
-author: seansaleh
-manager: mblythe
-editor: ''
+author: HeidiSteen
+manager: cgronlun
 tags: azure-resource-manager
-
-ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: powershell
+ms.devlang: powershell
+ms.topic: conceptual
 ms.date: 08/15/2016
-ms.author: seasa
+ms.author: heidist
 
 ---
 # Manage your Azure Search service with PowerShell
@@ -26,7 +20,7 @@ ms.author: seasa
 > 
 
 This topic describes the PowerShell commands to perform many of the management tasks for Azure Search services. We will walk through creating a search service, scaling it, and managing its API keys.
-These commands parallel the management options available in the [Azure Search Management REST API](http://msdn.microsoft.com/library/dn832684.aspx).
+These commands parallel the management options available in the [Azure Search Management REST API](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## Prerequisites
 * You must have Azure PowerShell 1.0 or greater. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/overview).
@@ -34,7 +28,7 @@ These commands parallel the management options available in the [Azure Search Ma
 
 First, you must login to Azure with this command:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Specify the email address of your Azure account and its password in the Microsoft Azure login dialog.
 
@@ -59,7 +53,7 @@ To specify the subscription, run the following command. In the following example
     # New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
     # Register the ARM provider idempotently. This must be done once per subscription
-    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search" -Force
+    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search"
 
     # Create a new search service
     # This command will return once the service is fully created

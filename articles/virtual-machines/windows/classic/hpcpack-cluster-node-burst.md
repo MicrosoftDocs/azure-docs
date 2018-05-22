@@ -4,7 +4,7 @@ description: Learn how to expand an HPC Pack cluster in Azure on-demand by addin
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,hpc-pack
 
@@ -25,6 +25,7 @@ running in a cloud service) as compute resources to a
 
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![Burst nodes][burst]
 
@@ -51,11 +52,10 @@ Pack](https://technet.microsoft.com/library/gg481749.aspx).
 * **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
 ## Step 1: Create a cloud service and a storage account for the Azure nodes
-Use the Azure classic portal or equivalent tools to configure the following resources that are needed to deploy
-your Azure nodes:
+Use the Azure portal or equivalent tools to configure the following resources that are needed to deploy your Azure nodes:
 
-* A new Azure cloud service
-* A new Azure storage account
+* A new Azure cloud service (classic)
+* A new Azure storage account (classic)
 
 > [!NOTE]
 > Don't reuse an existing cloud service in your subscription. 
@@ -77,7 +77,11 @@ Certificate** that HPC Pack installs and configures automatically on the
 head node. This certificate is useful for testing purposes and
 proof-of-concept deployments. To use this certificate, upload the
 file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer from the head node VM to the
-subscription. To upload the certificate in the [Azure classic portal](https://manage.windowsazure.com), click **Settings** > **Management Certificates**.
+subscription. To upload the certificate in the [Azure portal](https://portal.azure.com):
+
+1. Click **Subscriptions** > *your_subscription_name*.
+
+2. Click **Management certificates** > **Upload**.
 
 For additional options to configure the management certificate, see
 [Scenarios to Configure the Azure Management Certificate for Azure Burst
@@ -101,7 +105,7 @@ Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## Next steps
 * To use a compute-intensive instance size for the burst nodes, see the considerations in 
-  [About H-series and compute-intensive A-series VMs](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  [High performance compute VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * If you want to
   automatically grow or shrink the Azure computing resources according to
   the cluster workload, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](hpcpack-cluster-node-autogrowshrink.md).

@@ -3,7 +3,7 @@ title: Azure IoT security architecture | Microsoft Docs
 description: IoT security architecture guidelines and considerations including threat modeling.
 services: iot-hub
 documentationcenter: ''
-author: YuriDio
+author: dominicbetts
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/03/2017
-ms.author: yurid
+ms.date: 01/17/2018
+ms.author: dobett
 
 ---
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
@@ -24,8 +24,8 @@ To learn more about securing your IoT solution see, [Secure your IoT deployment]
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

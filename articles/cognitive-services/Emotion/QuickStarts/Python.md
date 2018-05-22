@@ -2,112 +2,160 @@
 title: Emotion API Python quick start | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Emotion API with Python in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
-
+author: anrothMSFT
+manager: corncar
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 02/05/2018
 ms.author: anroth
 ---
 
-# Emotion API Python Quick Start
-This article provides information and code samples to help you quickly get started using the [Emotion API Recognize method](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with Python to recognize the emotions expressed by one or more people in an image. 
+# Emotion API Python Quickstart
+
+> [!IMPORTANT]
+> Video API Preview ended on October 30, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
+videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+
+This walkthrough provides information and code samples to help you quickly get started using the [Emotion API Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with Python to recognize the emotions expressed by one or more people in an image. 
+
+You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
+
 
 ## Prerequisite
-* Get your free Subscription Key [here](https://azure.microsoft.com/en-us/try/cognitive-services/)
+Get your free Subscription Key [here](https://azure.microsoft.com/try/cognitive-services/)
 
-## Recognize Emotions Python Example Request
+## Running the walkthrough
+To continue with this walkthrough, replace `subscription_key` with the API key you obtained earlier.
 
-Copy the appropriate section for your version of Python and save it to a file such as `test.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, add a URL to a photograph of a celebrity to the `body` variable, and change the REST URL to use the region where you obtained your subscription keys.
 
 ```python
-########### Python 2.7 #############
-import httplib, urllib, base64
-
-headers = {
-    # Request headers. Replace the placeholder key below with your subscription key.
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
-}
-
-params = urllib.urlencode({
-})
-
-# Replace the example URL below with the URL of the image you want to analyze.
-body = "{ 'url': 'http://example.com/picture.jpg' }"
-
-try:
-    # NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-    #   URL below with "westcentralus".
-    conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
-    conn.request("POST", "/emotion/v1.0/recognize?%s" % params, body, headers)
-    response = conn.getresponse()
-    data = response.read()
-    print(data)
-    conn.close()
-except Exception as e:
-    print("[Errno {0}] {1}".format(e.errno, e.strerror))
-
-####################################
-
-########### Python 3.2 #############
-import http.client, urllib.request, urllib.parse, urllib.error, base64, sys
-
-headers = {
-    # Request headers. Replace the placeholder key below with your subscription key.
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
-}
-
-params = urllib.parse.urlencode({
-})
-
-# Replace the example URL below with the URL of the image you want to analyze.
-body = "{ 'url': 'http://example.com/picture.jpg' }"
-
-try:
-    # NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-    #   URL below with "westcentralus".
-    conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
-    conn.request("POST", "/emotion/v1.0/recognize?%s" % params, body, headers)
-    response = conn.getresponse()
-    data = response.read()
-    print(data)
-    conn.close()
-except Exception as e:
-    print(e.args)
-####################################
+subscription_key = None
+assert subscription_key
 ```
 
-## Recognize Emotions Sample Response
-A successful call returns an array of face entries and their associated emotion scores, ranked by face rectangle size in descending order. An empty response indicates that no faces were detected. An emotion entry contains the following fields:
-* faceRectangle - Rectangle location of face in the image.
-* scores - Emotion scores for each face in the image. 
+Next, verify that the service URL corresponds to the region you used when setting up the API key. If you are using a trial key, you do not need to make any changes.
 
-```json
-application/json 
-[
-  {
-    "faceRectangle": {
-      "left": 68,
-      "top": 97,
-      "width": 64,
-      "height": 97
-    },
-    "scores": {
-      "anger": 0.00300731952,
-      "contempt": 5.14648448E-08,
-      "disgust": 9.180124E-06,
-      "fear": 0.0001912825,
-      "happiness": 0.9875571,
-      "neutral": 0.0009861537,
-      "sadness": 1.889955E-05,
-      "surprise": 0.008229999
-    }
-  }
-]
 
+```python
+emotion_recognition_url = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize"
+```
+
+This walkthrough uses images that are stored on disk. You can also use images that are available via a publically accessible URL. For more information, see the [REST API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa).
+
+Since the image data is passed as part of the request body, notice that you need to set the `Content-Type` header to `application/octet-stream`. If you are passing in an image via a URL, remember to set the header to:
+```python
+header = {'Ocp-Apim-Subscription-Key': subscription_key }
+```
+create a dictionary containing the URL:
+```python
+data = {'url': image_url}
+```
+and pass that to the `requests` library using:
+```python
+requests.post(emotion_recognition_url, headers=headers, json=image_data)
+```
+
+First download a few sample images from the [Emotion API](https://azure.microsoft.com/services/cognitive-services/emotion/) site.
+
+
+```bash
+%%bash
+mkdir -p images
+curl -Ls https://aka.ms/csnb-emotion-1 -o images/emotion_1.jpg
+curl -Ls https://aka.ms/csnb-emotion-2 -o images/emotion_2.jpg
+```
+
+
+```python
+image_path = "images/emotion_1.jpg"
+image_data = open(image_path, "rb").read()
+```
+
+
+```python
+import requests
+headers  = {'Ocp-Apim-Subscription-Key': subscription_key, "Content-Type": "application/octet-stream" }
+response = requests.post(emotion_recognition_url, headers=headers, data=image_data)
+response.raise_for_status()
+analysis = response.json()
+analysis
+```
+
+
+
+
+    [{'faceRectangle': {'height': 162, 'left': 130, 'top': 141, 'width': 162},
+      'scores': {'anger': 9.29041e-06,
+       'contempt': 0.000118981574,
+       'disgust': 3.15619363e-05,
+       'fear': 0.000589638,
+       'happiness': 0.06630674,
+       'neutral': 0.00555004273,
+       'sadness': 7.44669524e-06,
+       'surprise': 0.9273863}}]
+
+
+
+The returned JSON object contains the bounding boxes of the faces that were recognized along with the detected emotions. Each emotion is associated with a score between 0 and 1 where a higher score is more indicative of an emotion than a lower score. 
+
+The following lines of code the detected emotions on the faces in the image using the `matplotlib` library. To reduce clutter, only the top three emotions are shown.
+
+
+```python
+%matplotlib inline
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+from io import BytesIO
+from PIL import Image
+
+plt.figure(figsize=(5,5))
+
+image  = Image.open(BytesIO(image_data))
+ax     = plt.imshow(image, alpha=0.6)
+
+for face in analysis:
+    fr = face["faceRectangle"]
+    em = face["scores"]
+    origin = (fr["left"], fr["top"])
+    p = Rectangle(origin, fr["width"], fr["height"], fill=False, linewidth=2, color='b')
+    ax.axes.add_patch(p)
+    ct = "\n".join(["{0:<10s}{1:>.4f}".format(k,v) for k, v in sorted(list(em.items()),key=lambda r: r[1], reverse=True)][:3])
+    plt.text(origin[0], origin[1], ct, fontsize=20)    
+_ = plt.axis("off")
+```
+
+The `annotate_image` function shown next can be used to overlay emotions on top of an image file given its path on the file system. It is based on the code for calling into the Emotion API shown earlier.
+
+
+```python
+def annotate_image(image_path):    
+    image_data = open(image_path, "rb").read()
+    headers  = {'Ocp-Apim-Subscription-Key': subscription_key, "Content-Type": "application/octet-stream" }
+    response = requests.post(emotion_recognition_url, headers=headers, data=image_data)
+    response.raise_for_status()
+    analysis = response.json()
+
+    plt.figure()
+
+    image  = Image.open(image_path)
+    ax     = plt.imshow(image, alpha=0.6)
+
+    for face in analysis:
+        fr = face["faceRectangle"]
+        em = face["scores"]
+        origin = (fr["left"], fr["top"])
+        p = Rectangle(origin, fr["width"], fr["height"], fill=False, linewidth=2, color='b')
+        ax.axes.add_patch(p)
+        ct = "\n".join(["{0:<10s}{1:>.4f}".format(k,v) for k, v in sorted(list(em.items()),key=lambda r: r[1], reverse=True)][:3])
+        plt.text(origin[0], origin[1], ct, fontsize=20, va="bottom")    
+    _ = plt.axis("off")
+```
+
+Finally, the `annotate_image` function can be called on an image file as shown in the following line:
+
+
+```python
+annotate_image("images/emotion_2.jpg")
+```

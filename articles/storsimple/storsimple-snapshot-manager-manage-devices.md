@@ -4,7 +4,7 @@ description: Describes how to use the StorSimple Snapshot Manager MMC snap-in to
 services: storsimple
 documentationcenter: ''
 author: SharS
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/18/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
 
 ---
@@ -38,39 +38,37 @@ Depending on your **View** selections, the **Results** pane shows the following 
 
 If you right-click the **Devices** node in the **Scope** pane, you can select from the following actions:
 
-* Add or replace a device 
-* Connect a device and verify imports 
-* Refresh connected devices 
+* Add or replace a device
+* Connect a device and verify imports
+* Refresh connected devices
 
 If you click the **Devices** node and then right-click a device name in the **Results** pane, you can select from the following actions:
 
-* Authenticate a device 
-* View device details 
-* Refresh a device 
-* Delete a device configuration 
+* Authenticate a device
+* View device details
+* Refresh a device
+* Delete a device configuration
 * Change a device password
 
 > [!NOTE]
 > All of these actions are also available in the **Actions** pane.
-> 
-> 
+
 
 This tutorial explains how to use StorSimple Snapshot Manager to connect and manage devices and perform the following tasks:
 
-* Add or replace a device 
-* Connect a device and verify imports 
-* Refresh connected devices 
-* Authenticate a device 
-* View device details 
-* Refresh an individual device 
-* Delete a device configuration 
+* Add or replace a device
+* Connect a device and verify imports
+* Refresh connected devices
+* Authenticate a device
+* View device details
+* Refresh an individual device
+* Delete a device configuration
 * Change an expired device password
 * Replace a failed device
 
 > [!NOTE]
 > For general information about using the StorSimple Snapshot Manager interface, go to [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
-> 
-> 
+
 
 ## Add or replace a device
 Use the following procedure to add or replace a StorSimple device.
@@ -83,7 +81,7 @@ Use the following procedure to add or replace a StorSimple device.
 3. In the **Device** drop-down box, select the IP address of the device or virtual device. 
 4. In the **Password** text box, type the StorSimple Snapshot Manager password that you created for the device in the Azure classic portal. Click **OK**. StorSimple Snapshot Manager searches for the device that you identified. 
    
-   * If the device is available, StorSimple Snapshot Manager adds a connection. 
+   * If the device is available, StorSimple Snapshot Manager adds a connection.
    * If the device is unavailable for any reason, StorSimple Snapshot Manager returns an error message. Click **OK** to close the error message, and then click **Cancel** to close the **Configure a Device** dialog box.
 
 ## Connect a device and verify imports
@@ -99,7 +97,7 @@ Use the following procedure to connect a StorSimple device and verify that any e
 3. Right-click the top node in the **Scope** pane, and then click **Toggle Imports Display**.
    
     ![Select Toggle Imports Display](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Toggle_Imports_Display.png) 
-4. The **Toggle Imports Display** dialog box appears, showing the status of the imported volume groups and backups. Click **OK**. 
+4. The **Toggle Imports Display** dialog box appears, showing the status of the imported volume groups and backups. Click **OK**.
 
 After the volume groups and backups are successfully imported, you can use StorSimple Snapshot Manager to manage them, just as you would manage volume groups and backups that you created and configured with StorSimple Snapshot Manager. 
 
@@ -131,9 +129,9 @@ Use the following procedure to view the details of a StorSimple device and, if n
 #### To view and resynchronize device details
 1. Click the desktop icon to start StorSimple Snapshot Manager.
 2. In the **Scope** pane, click **Devices**.
-3. In the **Results** pane, right-click the name of the device, and then click **Details**. 
+3. In the **Results** pane, right-click the name of the device, and then click **Details**.
 
-4.The **Device Details** dialog box appears. This box shows the name, model, version, serial number, status, target iSCSI Qualified Name (IQN), and last synchronization date and time. 
+4.The **Device Details** dialog box appears. This box shows the name, model, version, serial number, status, target iSCSI Qualified Name (IQN), and last synchronization date and time.
 
 * Click **Resync** to synchronize the device.
 * Click **OK** or **Cancel** to close the dialog box.
@@ -146,13 +144,13 @@ Use the following procedure to resynchronize an individual StorSimple device wit
 #### To refresh a device
 1. Click the desktop icon to start StorSimple Snapshot Manager. 
 2. In the **Scope** pane, click **Devices**. 
-3. In the **Results** pane, right-click the name of the device, and then click **Refresh Device**. This synchronizes the device with StorSimple Snapshot Manager. 
+3. In the **Results** pane, right-click the name of the device, and then click **Refresh Device**. This synchronizes the device with StorSimple Snapshot Manager.
 
 ## Delete a device configuration
 Use the following procedure to delete an individual StorSimple device configuration from StorSimple Snapshot Manager.
 
 #### To delete a device configuration
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 2. In the **Scope** pane, click **Devices**. 
 3. In the **Results** pane, right-click the name of the device, and then click **Delete**. 
 4. The following message appears. Click **Yes** to delete the configuration or click **No** to cancel the deletion.
@@ -160,7 +158,7 @@ Use the following procedure to delete an individual StorSimple device configurat
     ![Delete device configuration](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_DeleteDevice.png)
 
 ## Change an expired device password
-You must enter a password to authenticate a StorSimple device with StorSimple Snapshot Manager. You configure this password when you use the Windows PowerShell interface to set up the device. However, the password can expire. If this happens, you can use the Azure classic portal to change the password. Then, because the device was configured in StorSimple Snapshot Manager before the password expired, you must re-authenticate the device in StorSimple Snapshot Manager. 
+You must enter a password to authenticate a StorSimple device with StorSimple Snapshot Manager. You configure this password when you use the Windows PowerShell interface to set up the device. However, the password can expire. If this happens, you can use the Azure classic portal to change the password. Then, because the device was configured in StorSimple Snapshot Manager before the password expired, you must re-authenticate the device in StorSimple Snapshot Manager.
 
 #### To change the expired password
 1. In the Azure classic portal, start the StorSimple Manager service.
@@ -171,41 +169,40 @@ You must enter a password to authenticate a StorSimple device with StorSimple Sn
 
 #### To re-authenticate the device
 1. Start StorSimple Snapshot Manager.
-2. In the **Scope** pane, click **Devices**. A list of configured devices appears in the **Results** pane. 
+2. In the **Scope** pane, click **Devices**. A list of configured devices appears in the **Results** pane.
 3. Select the device, right-click, and then click **Authenticate**.
-4. In the **Authenticate** window, enter the new password. 
-5. Select the device, right-click, and select **Refresh device**. This synchronizes the device with StorSimple Snapshot Manager. 
+4. In the **Authenticate** window, enter the new password.
+5. Select the device, right-click, and select **Refresh device**. This synchronizes the device with StorSimple Snapshot Manager.
 
 ## Replace a failed device
 If a StorSimple device fails and is replaced by a standby (failover) device, use the following steps to connect to the new device and view the associated backups.
 
 #### To connect to a new device after failover
-1. Reconfigure the iSCSI connection to the new device. For instructions, go to "Step 7: Mount, initialize, and format a volume" in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md). 
+1. Reconfigure the iSCSI connection to the new device. For instructions, go to "Step 7: Mount, initialize, and format a volume" in [Deploy your on-premises StorSimple device](storsimple-8000-deployment-walkthrough-u2.md).
 
 > [!NOTE]
-> If the new StorSimple device has the same IP address as the old one, you might be able to connect the old configuration. 
-> 
-> 
+> If the new StorSimple device has the same IP address as the old one, you might be able to connect the old configuration.
+
 
 1. Stop the Microsoft StorSimple Management Service:
    
    1. Start Server Manager.
-   2. On the Server Manager Dashboard, on the **Tools** menu, select **Services**. 
-   3. On the **Services** window, select the **Microsoft StorSimple Management Service**. 
-   4. In the right pane, under **Microsoft StorSimple Management Service**, click **Stop the service**. 
-2. Remove the configuration information related to the old device: 
+   2. On the Server Manager Dashboard, on the **Tools** menu, select **Services**.
+   3. On the **Services** window, select the **Microsoft StorSimple Management Service**.
+   4. In the right pane, under **Microsoft StorSimple Management Service**, click **Stop the service**.
+2. Remove the configuration information related to the old device:
    
-   1. In File Explorer, browse to C:\ProgramData\Microsoft\StorSimple\BACatalog. 
-   2. Delete the files in the BACatalog folder. 
-3. Restart the Microsoft StorSimple Management Service: 
+   1. In File Explorer, browse to C:\ProgramData\Microsoft\StorSimple\BACatalog.
+   2. Delete the files in the BACatalog folder.
+3. Restart the Microsoft StorSimple Management Service:
    
-   1. On the Server Manager Dashboard, on the **Tools** menu, select **Services**. 
-   2. On the **Services** window, select the **Microsoft StorSimple Management Service**. 
-   3. In the right pane, under **Microsoft StorSimple Management Service**, click **Restart the service**. 
-4. Start StorSimple Snapshot Manager. 
-5. To configure the new StorSimple device, complete the steps in Step 2: Connect a StorSimple device in [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md). 
+   1. On the Server Manager Dashboard, on the **Tools** menu, select **Services**.
+   2. On the **Services** window, select the **Microsoft StorSimple Management Service**.
+   3. In the right pane, under **Microsoft StorSimple Management Service**, click **Restart the service**.
+4. Start StorSimple Snapshot Manager.
+5. To configure the new StorSimple device, complete the steps in Step 2: Connect a StorSimple device in [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 6. Right-click the top-level node in the **Scope** pane (StorSimple Snapshot Manager in the example), and then click **Toggle Imports Display**. 
-7. A message appears when the imported volume groups and backups are visible in StorSimple Snapshot Manager. Click **OK**. 
+7. A message appears when the imported volume groups and backups are visible in StorSimple Snapshot Manager. Click **OK**.
 
 ## Next steps
 * Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).

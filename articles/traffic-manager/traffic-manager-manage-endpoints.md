@@ -36,7 +36,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
     1. For **Type**, click **Azure endpoint**.
     2. Provide a **Name** by which you want to recognize this endpoint.
     3. For **Target resource type**, from the drop-down, choose the appropriate resource type.
-    4. For **Target resource**, from the drop-down, choose the appropriate target resource to show the listing resources under the same subscription in the **Resources blade**. In the **Resource** blade that is displayed, pick the service that you want to add as the first endpoint.
+    4. For **Target resource**, click the **Choose...** selector to list resources under the same subscription in the **Resources blade**. In the **Resource** blade that is displayed, pick the service that you want to add as the first endpoint.
     5. For **Priority**, select as **1**. This results in all traffic going to this endpoint if it is healthy.
     6. Keep **Add as disabled** unchecked.
     7. Click **OK**

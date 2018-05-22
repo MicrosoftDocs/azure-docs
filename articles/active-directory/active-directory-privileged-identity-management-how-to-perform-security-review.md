@@ -3,18 +3,16 @@ title: How to perform an access review | Microsoft Docs
 description: Learn how to perform a review with the Azure Privileged Identity Management application.
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: curtand
+manager: mtillman
 editor: ''
 
-ms.assetid: 49ee2feb-7d2e-4acf-82c1-40ff23062862
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
 ---
 # How to perform an access review in Azure AD Privileged Identity Management
@@ -29,7 +27,7 @@ You can use the Azure AD Privileged Identity Management (PIM) application in the
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select your username in the upper right-hand corner of the Azure portal, and select the directory where you will you be operating.
-3. Select **More services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
+3. Select **All services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
 4. Check **Pin to dashboard** and then click **Create**. The Privileged Identity Management application will open.
 
 ## Approve or deny access

@@ -1,79 +1,205 @@
 ---
-title: Language Understanding Intelligent Services (LUIS) in Azure Frequently Asked Questions | Microsoft Docs
-description:  A list of Frequently Asked Questions about Language Understanding Intelligent Services (LUIS)
+title: Language Understanding (LUIS) in Azure frequently asked questions | Microsoft Docs
+description: Get answers to frequently asked questions about Language Understanding (LUIS)
+author: v-geberr
+manager: kaiqb
 services: cognitive-services
-author: cahann
-manager: hsalama
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: cahann
+ms.date: 05/07/2018
+ms.author: v-geberr
 ---
-# Language Understanding Intelligent Services (LUIS) Frequently Asked Questions
+# Language Understanding FAQ
 
-This article contains answers to some frequently asked questions about LUIS.
+This article contains answers to frequently asked questions about Language Understanding (LUIS).
 
+## LUIS authoring
 
-## I want to build an app in LUIS with more than 80 intents. What should I do?
+### What are the LUIS best practices? 
+Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the [best practices](luis-concept-best-practices.md). 
 
-Divide your intents into multiple LUIS apps, in which each app will group related intents. At runtime, you send the utterance to all the apps and pick the top firing intent with the highest confidence score. One best practice is to group related intents in one app.
+### What is the best way to start building my app in LUIS?
 
+The best way to build your app is through an [incremental process](luis-concept-app-iteration.md). 
 
-## I want to build an app in LUIS with more than 30 entities. What should I do?
+### What is a good practice to model the intents of my app? Should I create more specific or more generic intents?
 
-You might need to use hierarchical and composite entities. Hierarchical entities reflect the relationship between entities that share characteristics or are members of a category. The child entities are all members of their parent's category. For example, a hierarchical entity named PlaneTicketClass may have the child entities EconomyClass and FirstClass. The hierarchy spans only one level of depth. 
+Choose intents that are not so general as to be overlapping, but not so specific that it makes it difficult for LUIS to distinguish between similar intents. Creating discriminative specific intents is one of the best practices for LUIS modeling.
 
-Composite entities represent parts of a whole. For example, a composite entity named PlaneTicketOrder may have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities or prebuilt entities. LUIS is limited to 10 parent entities with up to 10 children for each parent entity (composite or hierarchical). 
+### Is it important to train the None intent?
 
-LUIS also provides the list entity type that is not machine learned but allows users to specify a fixed set entities with a given set of values. 
+Yes, it is good to train your **None** intent with more utterances as you add more labels to other intents. A good ratio is 1 or 2 labels added to **None** for every 10 labels added to an intent. This ratio boosts the discriminative power of LUIS.
 
-## What is the best way to start on building my app in LUIS?
+### How can I correct spelling mistakes in utterances?
 
-The best way to build you app is through an incremental process. You could start by defining the schema of your app (intents and entities). For every intent and entity model, you can provide a few dozen labels. Train and publish your app to get an endpoint. Then, upload 100-200 unlabeled utterances to your app. You can use the suggestion feature to leverage LUIS intelligence in selecting the most informative utterances to label. You can select the intent or entity you want to improve and label the utterances suggested by LUIS. Labeling a few hundred utterance should result in a decent accuracy for intents. Entities might need more examples to converge.
+See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS enforces limits imposed by Bing Spell Check API V7. 
 
-## What is a good practice to model the intents of my app? Should I create more specific or more generic intents?
+### How do I edit my LUIS app programmatically?
+To edit your LUIS app programmatically, use the [Authoring API](https://aka.ms/luis-authoring-apis). See [Call LUIS authoring API](./luis-quickstart-node-add-utterance.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-concept-keys.md#authoring-key) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-concept-keys.md).
 
-Choose intents that are not so general as to be overlapping, but not so specific that it makes it difficult for LUIS to distinguish between similar intents. Creating discriminative specific intents is one of LUIS modeling best practices.
+### Where is the Pattern feature that provided regular expression matching?
+The previous **Pattern feature** is currently deprecated, replaced by **[Patterns](luis-concept-patterns.md)**. 
 
-## Is it important to train the None intent?
+### How do I use an entity to pull out the correct data? 
+See [entities](luis-concept-entity-types.md) and [data extraction](luis-concept-data-extraction.md).
 
-Yes, it is good that to train your **None** intent with more utterances as you add more labels to other intents. A good ratio is to add 1 or 2 labels to **None** for every 10 labels added to an intent. This boosts the discriminative power of LUIS.
+## LUIS endpoint
 
-## How can I deal with spelling mistakes in utterances?
+### Why does LUIS add spaces to the query around or in the middle of words?
+LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).
 
-You have one of two options: 
-1.	Pass your utterances by a spell checker before sending them to the LUIS endpoint.
-2.	Label utterances that have spelling mistakes that are as diverse as possible, so that LUIS can learn proper spelling as well as typos.
+### How do I create and assign a LUIS endpoint key?
+[Create the endpoint key](azureibizasubscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](Manage-keys.md#assign-endpoint-key) on the **[Publish](publishapp.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
 
-The second option takes more labeling effort while the first might be easier.
+### How do I interpret LUIS scores? 
+Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 (less than 50%) does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
 
-## I see some errors in the batch testing pane for some of the models in my app. How can I address this problem?
+### Why don't I see my endpoint hits in my app's Dashboard?
+The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS Subscription key in the Azure portal are updated more frequently. 
 
-This is an indication that there is some discrepancy between your labels and the predictions from your models. You need to do one or both of the following:
-1.	Add more labels to help LUIS make the discrimination among intents better.
-2.	Add phrase list feature(s) to introduce domain-specific vocabulary to help LUIS learn faster.
+If you don't see updated endpoint hits in the Dashboard, log in to the Azure portal, and find the resource associated with your LUIS subscription key, and open **Metrics** to select the **Total Calls** metric. If the subscription key is used for more than one LUIS app, the metric in the Azure portal shows the aggregate number of calls from all LUIS apps that use it.
 
+### My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it? 
+Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) in the next FAQ to create a LUIS endpoint key and assign it to the app. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
 
-## I have an app in one language and would like to create a parallel app in another language. What is the easiest way to do so?
-1.	Export your app.
-2.	Translate the labeled utterances in the JSON of the exported app to the target language.
-3.	You might need to change the names of the intents and entities or leave them as they are.
-4.	Import the app afterwards to have an LUIS app in the target language
+### How do I secure my LUIS endpoint? 
+See [Securing the endpoint](luis-concept-security.md#securing-the-endpoint).
 
-## How can I delete data from LUIS? 
+## Working within LUIS limits
 
-* If you delete an utterance from your LUIS app, it is removed from the LUIS web service and not available for export.
-* If you delete an account, all apps and their utterances are deleted. Data is retained on the servers for 60 days before permanent deletion.
-* You can turn off the logging of user utterances by setting `log=false` in the URL when your client application queries LUIS. However, note that this will disable your LUIS app's ability to suggest utterances or improve performance based on user queries. If you set `log=false` due to data privacy concerns be aware that you won't be able to download a record of user utterances from LUIS or use those utterances to improve your app.
+### What is the maximum number of intents and entities that a LUIS app can support?
+See the [boundaries](luis-boundaries.md) reference.
 
-<!-- What does it mean to delete an utterance? 
-Deleting an account -all apps, all utterances deleted, 60 days retention
-Turning off logging-->
+### I want to build a LUIS app with more than the maximum number of intents. What should I do?
+
+See [Best practices for intents](luis-concept-intent.md#if-you-need-more-than-the-maximum-number-of-intents).
+
+### I want to build an app in LUIS with more than the maximum number of entities. What should I do?
+
+See [Best practices for entities](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)
+
+### What are the limits on the number and size of phrase lists?
+For the maximum length of a [phrase list](./luis-concept-feature.md), see the [boundaries](luis-boundaries.md) reference.
+
+### What are the limits on example utterances?
+See the [boundaries](luis-boundaries.md) reference.
+
+## Testing and training
+
+### I see some errors in the batch testing pane for some of the models in my app. How can I address this problem?
+
+The errors indicate that there is some discrepancy between your labels and the predictions from your models. To address the problem, do one or both of the following tasks:
+* To help LUIS improve discrimination among intents, add more labels.
+* To help LUIS learn faster, add phrase-list features that introduce domain-specific vocabulary.
+
+See the [Batch testing](luis-tutorial-batch-testing.md) tutorial.
+
+### When an app is exported then reimported into a new app (with a new app ID), the LUIS prediction scores are different. Why does this happen? 
+
+See [Prediction differences between copies of same app](luis-concept-prediction-score.md#differences-with-predictions).
+
+## App publishing
+
+### What is the tenant ID in the "Add a key to your app" window?
+In Azure, a tenant represents the client or organization that's associated with a service. Find your tenant ID in the Azure portal in the **Directory ID** box by selecting **Azure Active Directory** > **Manage** > **Properties**.
+
+![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
+
+### Why are there more subscription keys on my app's publish page than I assigned to the app? 
+Each LUIS app has the authoring/starter key. LUIS subscription keys created during the GA time frame are visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS subscription keys do not appear on the publish page. 
+
+## App management
+
+### How do I transfer ownership of a LUIS app?
+To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app. 
+
+### How do I download a log of user utterances?
+By default, your LUIS app logs utterances from users. To download a log of utterances that users send to your LUIS app, go to **My Apps**, and click on the ellipsis (***...***) in the listing for your app. Then click **Export Endpoint Logs**. The log is formatted as a comma-separated value (CSV) file.
+
+### How can I disable the logging of utterances?
+You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on user queries. If you set `log=false` because of data-privacy concerns, you can't download a record of those user utterances from LUIS or use those utterances to improve your app.
+
+### Why don't I want all my endpoint utterances logged?
+If you are using your log for prediction analysis, do not capture test utterances in your log.
+
+## Data management
+
+### Can I delete data from LUIS? 
+
+* You can always delete example utterances used for training LUIS. If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
+* You can delete utterances from the list of user utterances that LUIS suggests in the **Review endpoint utterances** page. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
+* If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
+
+## Language and translation support 
+
+### I have an app in one language and want to create a parallel app in another language. What is the easiest way to do so?
+1. Export your app.
+2. Translate the labeled utterances in the JSON file of the exported app to the target language.
+3. You might need to change the names of the intents and entities or leave them as they are.
+4. Finally, import the app to have a LUIS app in the target language.
+
+## App notification
+
+### Why did I get an email saying I'm almost out of quota?
+Your authoring/starter key is only allowed 1000 endpoint queries a month. Create a LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
+
+## Integrating LUIS
+
+### Where is my LUIS app created during the Azure web app bot subscription process?
+If you select a LUIS template, and select the **Select** button in the template pane, the left-side pane changes to include the template type, and asks in what region to create the LUIS template. The web app bot process doesn't create a LUIS subscription though.
+
+![LUIS template web app bot region](./media/luis-faq/web-app-bot-location.png)
+
+### What LUIS regions support Bot Framework speech priming?
+[Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) is only supported for LUIS apps in the central (US) instance. 
+
+## LUIS service 
+
+### Is LUIS available on-premise or in private cloud?
+No. 
+
+## Changes to the Docs
+
+### Where did the tutorials go? 
+The articles that were previously in the Tutorial section are now in the How-to section of the documents. 
+
+|Tutorial|
+|--|
+|Integrate LUIS with a bot with [C#](luis-csharp-tutorial-build-bot-framework-sample.md) and [Node.js](luis-nodejs-tutorial-build-bot-framework-sample.md)|
+|Add Application Insights to a Bot with [C#](luis-tutorial-bot-csharp-appinsights.md) and [Node.js](luis-tutorial-function-appinsights.md)|
+|Build a LUIS app programmatically using [Node.js](luis-tutorial-node-import-utterances-csv.md)|
+|Use [composite entity](luis-tutorial-composite-entity.md) to extract grouped data|
+|Add [list entity](luis-tutorial-list-entity.md) for increased entity detection using Node.js|
+|Improve prediction accuracy with a [phrase list](luis-tutorial-interchangeable-phrase-list.md), [patterns](luis-tutorial-pattern.md), and [batch testing](luis-tutorial-batch-testing.md)|
+|[Correct spelling](luis-tutorial-batch-testing.md) with Bing Spell Check API v7
+
+### At the Build 2018 Conference, I heard about a Language Understanding feature or demo but I don't remember what it was called? 
+
+The following features were released at the Build 2018 Conference:
+
+|Name|Content|
+|--|--|
+|Enhancements|[Regular expression](luis-concept-data-extraction.md##regular-expression-entity-data) entity and [Key phrase](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) entity
+|Patterns|Patterns [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) entity concept including [Explicit list](luis-concept-patterns.md#explicit-lists) for exceptions<br>[Roles](luis-concept-roles.md) concept|
+|Integrations|[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integration of [sentiment analysis](publishapp.md#enable-sentiment-analysis)<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech) integration of [speech priming](publishapp.md#enable-speech-priming) in conjunction with [Speech SDK](https://aka.ms/SpeechSDK)|
+|Dispatch tool|Part of [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), Dispatch command line [tool](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) to combine multiple LUIS and QnA Maker apps into single LUIS app for better intent recognition in a Bot
+
+Additional authoring [API routes](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) were included. 
+
+Videos: 
+* [Azure Friday At Build 2018: Cognitive Services - Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Build 2018 AI Show - What’s New with Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
+* [Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+
+Projects: 
+* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on Github
 
 ## Next steps
 
-* You can find many answers in the [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis).
-* Another resource is the [MSDN LUIS Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
+To learn more about LUIS, see the following resources:
+* [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
+* [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
 
+[LUIS]:luis-reference-regions.md#luis-website

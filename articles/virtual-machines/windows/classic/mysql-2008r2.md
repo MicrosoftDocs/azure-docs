@@ -4,7 +4,7 @@ description: Create an Azure virtual machine running Windows Server 2012 R2 and 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -25,6 +25,7 @@ For instructions on installing MySQL on Linux, refer to: [How to install MySQL o
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## Create a virtual machine running Windows Server 2016
 If you don't already have a VM running Windows Server 2016, you can use this [tutorial](./tutorial.md) to create the virtual machine.
@@ -32,7 +33,7 @@ If you don't already have a VM running Windows Server 2016, you can use this [tu
 ## Attach a data disk
 After the virtual machine is created, you can optionally attach a data disk. Adding a data disk is recommended for production workloads and to avoid running out of space on the OS drive (C:), which includes the operating system.
 
-See [How to attach a data disk to a Windows virtual machine](../attach-disk-portal.md) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
+See [How to attach a data disk to a Windows virtual machine](../attach-managed-disk-portal.md) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
 
 ## Log on to the virtual machine
 Next, you'll [log on to the virtual machine](./connect-logon.md) so you can install MySQL.

@@ -12,23 +12,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/19/2016
+ms.topic: conceptual
+ms.date: 11/15/2016
 ms.author: tomfitz
 
 ---
 # Manage Azure resources through portal
-> [!div class="op_single_selector"]
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [Azure CLI](xplat-cli-azure-resource-manager.md)
-> * [Portal](resource-group-portal.md) 
-> * [REST API](resource-manager-rest-api.md)
-> 
-> 
 
-This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
+This article shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
 
-Currently, not every service supports the portal or Resource Manager. For those services, you need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## Manage resource groups
 
@@ -55,7 +48,7 @@ The resource group stores metadata about the resources. Therefore, when you spec
    
     ![add columns](./media/resource-group-portal/add-columns.png)
 7. To learn about deploying resources to your new resource group, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
-8. For quick access to a resource group, you can pin the blade to your dashboard.
+8. For quick access to a resource group, you can pin the resource group to your dashboard.
    
     ![pin resource group](./media/resource-group-portal/pin-group.png)
 9. The dashboard displays the resource group and its resources. You can select either the resource groups or any of its resources to navigate to the item.
@@ -68,12 +61,12 @@ You can apply tags to resource groups and resources to logically organize your a
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## Monitor resources
-When you select a resource, the resource blade presents default graphs and tables for monitoring that resource type.
+When you select a resource, the portal presents default graphs and tables for monitoring that resource type.
 
 1. Select a resource and notice the **Monitoring** section. It includes graphs that are relevant to the resource type. The following image shows the default monitoring data for a storage account.
    
     ![show monitoring](./media/resource-group-portal/show-monitoring.png)
-2. You can pin a section of the blade to your dashboard by selecting the ellipsis (...) above the section. You can also customize the size the section in the blade or remove it completely. The following image shows how to pin, customize, or remove the CPU and Memory section.
+2. You can pin a section to your dashboard by selecting the ellipsis (...) above the section. You can also customize the size the section or remove it completely. The following image shows how to pin, customize, or remove the CPU and Memory section.
    
     ![pin section](./media/resource-group-portal/pin-cpu-section.png)
 3. After pinning the section to the dashboard, you will see the summary on the dashboard. And, selecting it immediately takes you to more details about the data.
@@ -89,7 +82,7 @@ When you select a resource, the resource blade presents default graphs and table
      To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
 
 ## Manage resources
-In the blade for a resource, you see the options for managing the resource. The portal presents management options for that particular resource type. You see the management commands across the top of the resource blade and on the left side.
+When viewing a resource in the portal, you see the options for managing that particular resource.
 
 ![manage resources](./media/resource-group-portal/manage-resources.png)
 
@@ -108,7 +101,7 @@ You can view information about your subscription and the rolled-up costs for all
 
 ![subscription](./media/resource-group-portal/select-subscription.png)
 
-Within the subscription blade, you see a burn rate.
+You see the burn rate.
 
 ![burn rate](./media/resource-group-portal/burn-rate.png)
 
@@ -125,14 +118,14 @@ After setting up your resource group, you may want to view the Resource Manager 
 For step-by-step guidance, see [Export Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 
 ## Delete resource group or resources
-Deleting a resource group deletes all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you delete a resource group because there might be resources in other resource groups that are linked to it. Resource Manager does not delete linked resources, but they may not operate correctly without the expected resources.
+Deleting a resource group deletes all the resources contained within it. You can also delete individual resources within a resource group. Use caution when deleting a resource group. That resource group might contain resources that resources in other resource groups depend on.
 
 ![delete group](./media/resource-group-portal/delete-group.png)
 
-## Next Steps
+## Next steps
 * To view activity logs, see [Audit operations with Resource Manager](resource-group-audit.md).
 * To view details about a deployment, see [View deployment operations](resource-manager-deployment-operations.md).
 * To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
-* To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+* To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

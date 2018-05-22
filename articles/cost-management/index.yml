@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Cost Management Documentation
+metadata:
+  title: Cost Management Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Azure Cost Management is a multi-cloud cost management solution that helps you use Azure and other cloud resources. Learn how to review usage and costs, actively manage costs, forecast spending, and optimize costs with our quickstarts and tutorials.
+  services: cost-management
+  author: bandersmsft
+  manager: carmonm
+  ms.service: cost-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/27/2018
+  ms.author: banders
+abstract:
+  description: Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary, is a multi-cloud cost management solution that helps you best utilize and manage Azure and other cloud resources. Learn how to review usage and costs, actively manage costs, forecast spending, and optimize costs with our quickstarts and tutorials.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Learn how to register your Azure agreement or subscription information with Cost Management and start viewing cost data.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: View Cost Data
+      href: quick-register-azure-sub
+- title: Step-by-step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to review usage and costs, actively manage costs, forecast spending, and optimize costs with Cost Management.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-review-usage">Review usage and costs to detect anomalies and efficiencies</a>
+    - html: <a href="tutorial-forecast-spending">Forecast future spending</a>
+    - html: <a href="tutorial-manage-costs">Manage costs with cost allocation and showback and chargeback reports</a>
+    - html: <a href="tutorial-optimize-reserved-instances">Optimize reserved instances</a>
+    - html: <a href="tutorial-user-access">Assign access to Cost Management data</a>

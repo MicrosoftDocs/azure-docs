@@ -2,7 +2,7 @@
 title: Azure Mobile Engagement Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to get insights into mobile app usage and real-time user segmentation, and how to enable contextually-aware push notifications and in-app messaging.
 services: mobile-engagement
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:	
@@ -15,6 +15,10 @@ ms.author: carolz
 ---
 
 # Mobile Engagement Documentation
+
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
 
 Learn how to increase the usage, retention, and monetization of mobile apps with Mobile Engagement. Tutorials, SDKs, and other documentation show you how to get insights into app usage and real-time user segmentation, and how to enable contextually-aware push notifications and in-app messaging.
 

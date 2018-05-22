@@ -1,22 +1,14 @@
 ---
-title: Data upload in Azure Search using the .NET SDK | Microsoft Docs
+title: "Upload data (.NET - Azure Search) | Microsoft Docs"
 description: Learn how to upload data to an index in Azure Search using the .NET SDK.
-services: search
-documentationcenter: ''
 author: brjohnstmsft
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 0e0e7e7b-7178-4c26-95c6-2fd1e8015aca
+manager: jlembicz
+ms.author: brjohnst
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 01/13/2017
-ms.author: brjohnst
-
 ---
 # Upload data to Azure Search using the .NET SDK
 > [!div class="op_single_selector"]
@@ -30,7 +22,8 @@ This article will show you how to use the [Azure Search .NET SDK](https://aka.ms
 
 Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md). This article also assumes that you have already created a `SearchServiceClient` object, as shown in [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient).
 
-Note that all sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto).
+> [!NOTE]
+> All sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto). You can also read about the [Azure Search .NET SDK](search-howto-dotnet-sdk.md) for a more detailed walk through of the sample code.
 
 In order to push documents into your index using the .NET SDK, you will need to:
 

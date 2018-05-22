@@ -13,20 +13,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 12/19/2017
 ms.author: sethm
 
 ---
 
 # Event Hubs .NET Framework API overview
+
 This article summarizes some of the key Event Hubs .NET Framework client APIs. There are two categories: management and run-time APIs. Run-time APIs consist of all operations needed to send and receive a message. Management operations enable you to manage an Event Hubs entity state by creating, updating, and deleting entities.
 
-Monitoring scenarios span both management and run-time. For detailed reference documentation on the .NET APIs, see the [Service Bus .NET](/dotnet/api) and [EventProcessorHost API](/dotnet/api) references.
+[Monitoring scenarios](event-hubs-metrics-azure-monitor.md) span both management and run-time. For detailed reference documentation on the .NET APIs, see the [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) and [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) references.
 
 ## Management APIs
+
 To perform the following management operations, you must have **Manage** permissions on the Event Hubs namespace:
 
 ### Create
+
 ```csharp
 // Create the event hub
 var ehd = new EventHubDescription(eventHubName);
@@ -35,6 +38,7 @@ await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
 ### Update
+
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
@@ -47,18 +51,21 @@ await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
 ### Delete
+
 ```csharp
-await namespaceManager.DeleteEventHubAsync("Event Hub name");
+await namespaceManager.DeleteEventHubAsync("event hub name");
 ```
 
 ## Run-time APIs
 ### Create publisher
+
 ```csharp
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
-var eventHubClient = EventHubClient.Create("Event Hub name");
+var eventHubClient = EventHubClient.Create("event hub name");
 ```
 
 ### Publish message
+
 ```csharp
 // Create the device/temperature metric
 var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
@@ -77,6 +84,7 @@ await client.SendAsync(data);
 ```
 
 ### Create consumer
+
 ```csharp
 // Create the Event Hubs client
 var eventHubClient = EventHubClient.Create(EventHubName);
@@ -95,6 +103,7 @@ var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index
 ```
 
 ### Consume message
+
 ```csharp
 var message = await consumer.ReceiveAsync();
 
@@ -107,6 +116,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## Event Processor Host APIs
+
 These APIs provide resiliency to worker processes that may become unavailable, by distributing partitions across available workers.
 
 ```csharp

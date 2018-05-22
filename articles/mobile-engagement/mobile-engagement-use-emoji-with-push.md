@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Use Emoji emoticon within Push Notifications
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 You can include Emoji emoticons in you push notification in a few easy steps: 
 
 1. First of all you need to find the Emoji you want to send in the message. Please ensure that the Emoji you are selecting will be supported by the target device as device manufactures take some time to add newly approved Emojis to the device platforms. 

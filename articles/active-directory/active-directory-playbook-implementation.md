@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory, playbook, Proof of Concept, PoC
 documentationcenter: ''
 author: dstefanMSFT
-manager: asuthar
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 04/12/2017
 ms.author: dstefan
 
 ---
@@ -84,7 +84,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 ### Secure Remote Access to On-Premises Applications
 
-1. Bob, the Azure AD Global Admin, has gotten numerous requests to enable employees to access several useful on-premises resources, such as the expenses application, while working remotely. He follows the [Application Proxy documentation](active-directory-application-proxy-enable.md) to install a connector and publish Expenses as an Application Proxy application. 
+1. Bob, the Azure AD Global Admin, has gotten numerous requests to enable employees to access several useful on-premises resources, such as the expenses application, while working remotely. He follows the [Application Proxy documentation](manage-apps/application-proxy-enable.md) to install a connector and publish Expenses as an Application Proxy application. 
 2. Bob share the external Expenses application URL with Susie, one of the employees who needs remote access. She accesses the link, and after authenticating against AAD, she is able to access the Expenses app and continue to be productive while remote. 
 3. Bob then continues to publish additional on-premises applications using the same process and giving access to users as needed. He adds conditional access and multi-factor authentication for the more sensitive applications that he publishes, to ensure additional security.
 

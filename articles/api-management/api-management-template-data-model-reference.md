@@ -3,7 +3,7 @@ title: Azure API Management template data model reference | Microsoft Docs
 description: Learn about the entity and type representations for common items used in the data models for the developer portal templates in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 12/05/2017
 ms.author: apimpm
 ---
 # Azure API Management template data model reference
@@ -43,11 +43,11 @@ This topic describes the entity and type representations for common items used i
 -   [Subscription](#Subscription)  
 -   [Subscription summary](#SubscriptionSummary)  
 -   [User account info](#UserAccountInfo)  
--   [User sign in](#UseSignIn)  
--   [User sign up](#UserSignUp)  
+-   [User sign-in](#UseSignIn)  
+-   [User sign-up](#UserSignUp)  
   
 ##  <a name="API"></a> API  
- The `API` entity has the following properties.  
+ The `API` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -58,10 +58,10 @@ This topic describes the entity and type representations for common items used i
 |path|string|Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.|  
 |protocols|array of number|Describes on which protocols the operations in this API can be invoked. Allowed values are `1 - http` and `2 - https`, or both.|  
 |authenticationSettings|[Authorization server authentication settings](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Collection of authentication settings included in this API.|  
-|subscriptionKeyParameterNames|object|Optional property that can be used to specify custom names for query and/or header parameters containing the subscription key. When this property is present it must contain at least one of the two following properties.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
+|subscriptionKeyParameterNames|object|Optional property that can be used to specify custom names for query and/or header parameters containing the subscription key. When this property is present, it must contain at least one of the two following properties.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="APISummary"></a> API summary  
- The `API summary` entity has the following properties.  
+ The `API summary` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -70,7 +70,7 @@ This topic describes the entity and type representations for common items used i
 |description|string|Description of the API. Must not be empty. May include HTML formatting tags. Maximum length is 1000 characters.|  
   
 ##  <a name="Application"></a> Application  
- The `application` entity has the following properties.  
+ The `application` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -88,7 +88,7 @@ This topic describes the entity and type representations for common items used i
 |Icon|[Attachment](#Attachment)|The icon the for the application.|  
   
 ##  <a name="Attachment"></a> Attachment  
- The `attachment` entity has the following properties.  
+ The `attachment` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -115,7 +115,7 @@ This topic describes the entity and type representations for common items used i
 |parameters|Collection of [Parameter](#Parameter) entities.|Parameters that are defined for this operation.|  
   
 ##  <a name="Comment"></a> Comment  
- The `API` entity has the following properties.  
+ The `API` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -141,7 +141,7 @@ This topic describes the entity and type representations for common items used i
 |Services|Collection of [API](#API) entities.|The APIs subscribed to by the user that filed the issue.|  
   
 ##  <a name="Filtering"></a> Filtering  
- The `filtering` entity has the following properties.  
+ The `filtering` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -181,7 +181,7 @@ This topic describes the entity and type representations for common items used i
 |representations|array of [Representation](#Representation)|Collection of operation response representations.|  
   
 ##  <a name="Operation"></a> Operation  
- The `operation` entity has the following properties.  
+ The `operation` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -196,7 +196,7 @@ This topic describes the entity and type representations for common items used i
 |responses|array of [HTTP Response](#HTTPResponse)|Array of operation [HTTP Response](#HTTPResponse) entities.|  
   
 ##  <a name="Menu"></a> Operation menu  
- The `operation menu` entity has the following properties.  
+ The `operation menu` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -206,7 +206,7 @@ This topic describes the entity and type representations for common items used i
 |MenuItems|Collection of [Operation menu item](#MenuItem) entities.|The operations for the current API.|  
   
 ##  <a name="MenuItem"></a> Operation menu item  
- The `operation menu item` entity has the following properties.  
+ The `operation menu item` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -215,7 +215,7 @@ This topic describes the entity and type representations for common items used i
 |HttpMethod|string|The Http method of the operation.|  
   
 ##  <a name="Paging"></a> Paging  
- The `paging` entity has the following properties.  
+ The `paging` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -239,7 +239,7 @@ This topic describes the entity and type representations for common items used i
 |typeName|string|Parameter type.|  
   
 ##  <a name="Product"></a> Product  
- The `product` entity has the following properties.  
+ The `product` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -249,10 +249,10 @@ This topic describes the entity and type representations for common items used i
 |Terms|string|Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.|  
 |ProductState|number|Specifies whether the product is published or not. Published products are discoverable by developers on the developer portal. Non-published products are visible only to administrators.<br /><br /> The allowable values for product state are:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
 |AllowMultipleSubscriptions|boolean|Specifies whether a user can have multiple subscriptions to this product at the same time.|  
-|MultipleSubscriptionsCount|number|The number of subscriptions to this product by the current user.|  
+|MultipleSubscriptionsCount|number|Maximum number of subscriptions to this product a user is allowed to have at the same time.|  
   
 ##  <a name="Provider"></a> Provider  
- The `provider` entity has the following properties.  
+ The `provider` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -265,11 +265,11 @@ This topic describes the entity and type representations for common items used i
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|contentType|string|Specifies a registered or custom content type for this representation, e.g. `application/xml`.|  
+|contentType|string|Specifies a registered or custom content type for this representation, for example, `application/xml`.|  
 |sample|string|An example of the representation.|  
   
 ##  <a name="Subscription"></a> Subscription  
- The `subscription` entity has the following properties.  
+ The `subscription` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -278,10 +278,10 @@ This topic describes the entity and type representations for common items used i
 |ProductTitle|string|Name of the product. Must not be empty. Maximum length is 100 characters.|  
 |ProductDescription|string|Description of the product. Must not be empty. May include HTML formatting tags. Maximum length is 1000 characters.|  
 |ProductDetailsUrl|string|Relative URL to the product details.|  
-|state|string|The state of the subscription. Possible states are:<br /><br /> - `0 - suspended` – the subscription is blocked, and the subscriber cannot call any APIs of the product.<br /><br /> - `1 - active` – the subscription is active.<br /><br /> - `2 - expired` – the subscription reached its expiration date and was deactivated.<br /><br /> - `3 - submitted` – the subscription request has been made by the developer, but has not yet been approved or rejected.<br /><br /> - `4 - rejected` – the subscription request has been denied by an administrator.<br /><br /> - `5 - cancelled` – the subscription has been cancelled by the developer or administrator.|  
+|state|string|The state of the subscription. Possible states are:<br /><br /> - `0 - suspended` – the subscription is blocked, and the subscriber cannot call any APIs of the product.<br /><br /> - `1 - active` – the subscription is active.<br /><br /> - `2 - expired` – the subscription reached its expiration date and was deactivated.<br /><br /> - `3 - submitted` – the subscription request has been made by the developer, but has not yet been approved or rejected.<br /><br /> - `4 - rejected` – the subscription request has been denied by an administrator.<br /><br /> - `5 - cancelled` – the subscription has been canceled by the developer or administrator.|  
 |DisplayName|string|Display name of the subscription.|  
 |CreatedDate|dateTime|The date the subscription was created, in ISO 8601 format: `2014-06-24T16:25:00Z`.|  
-|CanBeCancelled|boolean|Whether the subscription can be cancelled by the current user.|  
+|CanBeCancelled|boolean|Whether the subscription can be canceled by the current user.|  
 |IsAwaitingApproval|boolean|Whether the subscription is awaiting approval.|  
 |StartDate|dateTime|The start date for the subscription, in ISO 8601 format: `2014-06-24T16:25:00Z`.|  
 |ExpirationDate|dateTime|The expiration date for the subscription, in ISO 8601 format: `2014-06-24T16:25:00Z`.|  
@@ -295,7 +295,7 @@ This topic describes the entity and type representations for common items used i
 |RenewUrl|string|The relative Url to renew the subscription.|  
   
 ##  <a name="SubscriptionSummary"></a> Subscription summary  
- The `subscription summary` entity has the following properties.  
+ The `subscription summary` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -303,7 +303,7 @@ This topic describes the entity and type representations for common items used i
 |DisplayName|string|The display name of the subscription|  
   
 ##  <a name="UserAccountInfo"></a> User account info  
- The `user account info` entity has the following properties.  
+ The `user account info` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -316,7 +316,7 @@ This topic describes the entity and type representations for common items used i
 |IsBasicAccount|boolean|True if this account was registered using email and password; false if the account was registered using a provider.|  
   
 ##  <a name="UseSignIn"></a> User sign in  
- The `user sign in` entity has the following properties.  
+ The `user sign in` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
@@ -328,13 +328,13 @@ This topic describes the entity and type representations for common items used i
 |DelegationEnabled|boolean|Whether delegated sign in is enabled.|  
 |DelegationUrl|string|The delegated sign in url, if enabled.|  
 |SsoSignUpUrl|string|The single sign on URL for the user, if present.|  
-|AuxServiceUrl|string|If the current user is an administrator, this is a link to the service instance in the Azure Classic Portal.|  
+|AuxServiceUrl|string|If the current user is an administrator, this is a link to the service instance in the Azure portal.|  
 |Providers|Collection of [Provider](#Provider) entities|The authentication providers for this user.|  
 |UserRegistrationTerms|string|Terms that a user must agree to before signing in.|  
 |UserRegistrationTermsEnabled|boolean|Whether terms are enabled.|  
   
 ##  <a name="UserSignUp"></a> User sign up  
- The `user sign up` entity has the following properties.  
+ The `user sign up` entity has the following properties:  
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  

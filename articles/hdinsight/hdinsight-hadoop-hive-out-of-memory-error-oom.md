@@ -12,10 +12,8 @@ ms.assetid: 7bce3dff-9825-4fa0-a568-c52a9f7d1dad
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/25/2017
+ms.topic: conceptual
+ms.date: 05/14/2018
 ms.author: jgao
 
 ---
@@ -23,7 +21,7 @@ ms.author: jgao
 
 Learn how to fix a Hive out of memory error when process large tables by configuring Hive memory settings.
 
-## Scenario: Run a Hive query against large tables
+## Run Hive query against large tables
 
 A customer ran a Hive query:
 
@@ -119,10 +117,6 @@ Because a D12 machine has 28GB memory, we decided to use a container size of 10G
 
 With the new settings, the query successfully ran in under 10 minutes.
 
-## Conclusion: OOM errors and container size
-
-Getting an OOM error doesn't necessarily mean the container size is too small. Instead, you should configure the memory settings so that the heap size is increased and is at least 80% of the container memory size.
-
 ## Next steps
 
-- For optimizing Hive queries, see [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+Getting an OOM error doesn't necessarily mean the container size is too small. Instead, you should configure the memory settings so that the heap size is increased and is at least 80% of the container memory size. For optimizing Hive queries, see [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).

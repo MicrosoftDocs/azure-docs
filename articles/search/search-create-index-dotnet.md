@@ -1,19 +1,13 @@
 ---
-title: Create an Azure Search index using the .NET SDK | Microsoft Docs
+title: "Create an index (.NET API - Azure Search) | Microsoft Docs"
 description: Create an index in code using the Azure Search .NET SDK.
-services: search
-documentationcenter: ''
 author: brjohnstmsft
-manager: jhubbard
-editor: ''
+manager: jlembicz
 tags: azure-portal
-
-ms.assetid: 3a851647-fc7b-4fb6-8506-6aaa519e77cd
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 05/22/2017
 ms.author: brjohnst
 
@@ -33,8 +27,7 @@ Before following this guide and creating an index, you should have already [crea
 
 > [!NOTE]
 > All sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto). You can also read about the [Azure Search .NET SDK](search-howto-dotnet-sdk.md) for a more detailed walk through of the sample code.
->
->
+
 
 ## Identify your Azure Search service's admin api-key
 Now that you have provisioned an Azure Search service, you are almost ready to issue requests against your service endpoint using the .NET SDK. First, you will need to obtain one of the admin api-keys that was generated for the search service you provisioned. The .NET SDK will send this api-key on every request to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.

@@ -3,8 +3,8 @@ title: How to use Azure Redis Cache with Node.js | Microsoft Docs
 description: Get started with Azure Redis Cache using Node.js and node_redis.
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: v-lincan
 
 ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
@@ -14,12 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
-ms.author: sdanie
+ms.author: wesmc
 
 ---
 # How to use Azure Redis Cache with Node.js
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+> * [.NET Core](cache-dotnet-core-quickstart.md)
 > * [ASP.NET](cache-web-app-howto.md)
 > * [Node.js](cache-nodejs-get-started.md)
 > * [Java](cache-java-get-started.md)
@@ -29,7 +30,7 @@ ms.author: sdanie
 
 Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
-This topic shows you how to get started with Azure Redis Cache using Node.js. For another example of using Azure Redis Cache with Node.js, see [Build a Node.js Chat Application with Socket.IO on an Azure Website](../app-service-web/web-sites-nodejs-chat-app-socketio.md).
+This topic shows you how to get started with Azure Redis Cache using Node.js. 
 
 ## Prerequisites
 Install [node_redis](https://github.com/mranney/node_redis):
