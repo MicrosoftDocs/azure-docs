@@ -17,7 +17,7 @@ ms.date: 05/19/2018
 ms.author: weig
 ---
 # Data science code testing with UCI adult income prediction dataset
-In this article, we provide preliminary guidelines regarding code test for data science workflow. Such testing gives data scientists a systematic and efficient way to check the quality and expected outcome of their code. 
+In this article, we provide preliminary guidelines regarding code test for data science workflow. Such testing gives data scientists a systematic and efficient way to check the quality and expected outcome of their code. We use a Team Data Science Process (TDSP) [project which uses the UCI Adult Income dataset](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) we already published earlier to show how code testing can be done. 
 
 ## Introduction on code testing
 "Unit testing" a longstanding practice for software development. But for data science, it is often not precisely clear what that means and how one should test code for different stages of a data science lifecycle, such as data preparation, data quality examination, modeling, model deployment etc. For this article, we replace the term "unit testing" by "code testing". We refer to testing as the functions, which help to assess if code for a certain step of a data science lifecycle is producing results "as expected". What is "as expected" is defined by the person writing the test, depending on the outcome of the function, for example, data quality check, modeling etc.
