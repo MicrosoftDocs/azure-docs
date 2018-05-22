@@ -15,6 +15,8 @@
     items:
     - name: With .NET
       href: stream-files-tutorial-with-api.md
+    - name: With REST
+      href: stream-files-tutorial-with-rest.md
   - name: Analyze your video
     items:
     - name: With .NET
