@@ -45,7 +45,7 @@ Treat your subscription key and the access token as secrets that should be hidde
 
 Code samples demonstrating use of Microsoft Translator Speech API are available from the [Microsoft Translator Github site](https://github.com/MicrosoftTranslator).
 
-## Implementation Notes
+## Implementation notes
 
 GET /speech/translate Establishes a session for speech translation
 
