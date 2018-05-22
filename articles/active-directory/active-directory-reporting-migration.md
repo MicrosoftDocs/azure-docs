@@ -78,7 +78,7 @@ To view details about application usage for all apps or for a single app, under 
 
 #### Azure AD anomalous activity reports
 
-Azure AD anomalous activity security reports from the Azure classic portal have been consolidated to provide you with one, central view. This view shows all security-related risk events that Azure AD can detect and report on.
+Azure AD anomalous activity security reports are consolidated to provide you with one central view. This view shows all security-related risk events that Azure AD can detect and report on.
 
 The following table lists the Azure AD anomalous activity security reports, and corresponding risk event types in the Azure portal.
 
@@ -95,8 +95,6 @@ The following Azure AD anomalous activity security reports are not included as r
 
 * Sign-ins after multiple failures
 * Sign-ins from multiple geographies
-
-These reports are still available in the Azure classic portal, but they will be deprecated at some time in the future.
 
 For more information, see
 [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md).  
