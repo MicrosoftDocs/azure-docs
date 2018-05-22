@@ -5,9 +5,8 @@ description: Learn how to use the Face API with the Python SDK to detect human f
 services: cognitive-services
 author: SteveMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: face
+ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles
@@ -29,7 +28,7 @@ To use the tutorial, you will need to do the following:
 pip install cognitive_face
 ```
 
-- Obtain a [subscription key](https://azure.microsoft.com/en-us/try/cognitive-services/) for Microsoft Cognitive Services. You can use either your primary or your secondary key in this tutorial. (Note that to use any Face API, you must have a valid subscription key.)
+- Obtain a [subscription key](https://azure.microsoft.com/try/cognitive-services/) for Microsoft Cognitive Services. You can use either your primary or your secondary key in this tutorial. (Note that to use any Face API, you must have a valid subscription key.)
 
 ## <a name="sdk-example"></a> Detect a Face in an Image
 

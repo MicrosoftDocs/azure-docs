@@ -139,7 +139,7 @@ Now that you have a web app registered and policies created, you need to configu
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-The sample ASP.NET web app is a simple task list app for creating and updating a to-do list. The app uses [Microsoft OWIN middleware components](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/) to let users sign up to use the app in your Azure AD B2C tenant. By creating an Azure AD B2C policy, users can use a social account or create an account to use as their identity to access the app. 
+The sample ASP.NET web app is a simple task list app for creating and updating a to-do list. The app uses [Microsoft OWIN middleware components](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) to let users sign up to use the app in your Azure AD B2C tenant. By creating an Azure AD B2C policy, users can use a social account or create an account to use as their identity to access the app. 
 
 There are two projects in the sample solution:
 

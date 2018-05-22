@@ -8,6 +8,7 @@ manager: mtillman
 editor: bryanla
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -88,7 +89,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     The CURL request for the access token is below.  
     
     ```bash
-    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
     
     > [!NOTE]

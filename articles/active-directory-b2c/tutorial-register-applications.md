@@ -172,4 +172,4 @@ In this article, you learned how to:
 > * Register your application
 
 > [!div class="nextstepaction"]
-> [Enable a web application to authenticate with accounts](active-directory-b2c-app-registration.md)
+> [Enable a web application to authenticate with accounts](active-directory-b2c-tutorials-web-app.md)

@@ -43,6 +43,10 @@ This action is the same as a Docker restart.
 
 Yes, you can do that through the source control management (SCM) site.
 
+> [!NOTE] 
+> You can also connect to the app container directly from your local development machine using SSH, SFTP, or Visual Studio Code (for live debugging Node.js apps). For more information, see [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug).
+>
+
 **How can I create a Linux App Service plan through an SDK or an Azure Resource Manager template?**
 
 You need to set the **reserved** field of the app service to *true*.

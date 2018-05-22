@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Resource Manager template with VS Code extension | Microsoft Docs
 description: Use the Azure Resource Manager tools extension to work on Resource Manager templates.
 services: azure-resource-manager
@@ -12,7 +12,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 09/06/2017
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.author: tomfitz
 ---
 
@@ -258,7 +258,7 @@ You are ready to deploy this template. You use either PowerShell or Azure CLI to
 * For PowerShell, use the following commands from the folder containing the template:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    
    New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json

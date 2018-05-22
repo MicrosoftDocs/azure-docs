@@ -3,7 +3,7 @@ title: Enable Application Insights Profiler for applications that are hosted on 
 description: Learn how to set up Application Insights Profiler on an application running on Azure Cloud Services.
 services: application-insights
 documentationcenter: ''
-author: ramach-msft
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: ramach
+ms.author: ramach; mbullwin
 
 ---
 
@@ -37,7 +37,7 @@ To fully enable Profiler, you must change the configuration in three locations:
 
 ## Set up the Application Insights instance
 
-1. [Create a new Application Insights resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource), or select an existing one. 
+1. [Create a new Application Insights resource](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource), or select an existing one. 
 
 2. Go to your Application Insights resource, and then copy the instrumentation key.
 

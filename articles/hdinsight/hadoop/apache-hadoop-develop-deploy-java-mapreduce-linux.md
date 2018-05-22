@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: Java
 ms.topic: conceptual
-ms.date: 01/25/2018
+ms.date: 04/23/2018
 ms.author: larryfr
 
 ---

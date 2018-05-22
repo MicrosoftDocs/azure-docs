@@ -4,9 +4,8 @@ description: Get information and a code sample to help you quickly get started u
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
@@ -22,7 +21,7 @@ This article provides information and a code sample to help you quickly get star
 
 ## Prerequisites
 * Get the Emotion API Java for Android SDK [here](https://github.com/Microsoft/Cognitive-emotion-android)
-* Get your free subscription key [here](https://azure.microsoft.com/en-us/try/cognitive-services/)
+* Get your free subscription key [here](https://azure.microsoft.com/try/cognitive-services/)
 
 ## Recognize Emotions Java for Android Example Request
 

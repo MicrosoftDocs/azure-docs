@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
@@ -64,12 +64,11 @@ In a cluster with multiple node types, there is one primary node type and the re
 ## The durability characteristics of the cluster
 The durability tier is used to indicate to the system the privileges that your VMs have with the underlying Azure infrastructure. In the primary node type, this privilege allows Service Fabric to pause any VM level infrastructure request (such as a VM reboot, VM reimage, or VM migration) that impact the quorum requirements for the system services and your stateful services. In the non-primary node types, this privilege allows Service Fabric to pause any VM level infrastructure requests (such as VM reboot, VM reimage, and VM migration) that impact the quorum requirements for your stateful services.
 
-| Durability Tier  | Privilege       |  Required Minimum Number of VMs | VM Skus  | 
+| Durability Tier  | Updates you make to your VMSS | Updates and maintenance initiated by Azure       |  Required Minimum Number of VMs | VM Skus  | 
 | ---------------- | --------------- | ---------------------- | -----------|
-| Gold             | Infrastructure jobs can be paused for a duration of 2 hours per UD 	| 5 | Full-node skus dedicated to a single customer (eg. L32s, GS5, G5, DS15_v2, D15_v2) |
-| Silver           | Infrastructure jobs can be paused for a duration of 10 minutes per UD	| 5 | VMs of single core or above 
-| Bronze           | No privileges.    								| 1 | All
-
+| Gold             | Can be delayed until approved by the Service Fabric cluster | Can be paused for a duration of 2 hours per UD, allowing additional time for replicas to recover from earlier failures.	| 5 | Full-node skus dedicated to a single customer (eg. L32s, GS5, G5, DS15_v2, D15_v2) |
+| Silver           | Can be delayed until approved by the Service Fabric cluster| Cannot be delayed for any significant period of time.	| 5 | VMs of single core or above 
+| Bronze           | Will not be delayed by the Service Fabric cluster | cannot be delayed for any significant period of time. | 1 | All
 
 > [!WARNING]
 > NodeTypes running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed which may impact your workloads. Only use Bronze for NodeTypes that run only stateless workloads. For production workloads, running Silver or above is recommended. 
@@ -106,10 +105,11 @@ Use Silver or Gold durability for all node types that host stateful services you
     > Changing the VM SKU Size for virtual machine scale sets not running at least Silver durability is not recommended. Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without at least some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
     > 
 	
-- Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled
+- Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled.
+- Each VM scale set with durability level Silver or Gold must map to its own node type in the Service Fabric cluster. Mapping multiple VM scale sets to a single node type will prevent coordination between the Service Fabric cluster and the Azure infrastructure from working properly.
 - Do not delete random VM instances, always use virtual machine scale set scale down feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to properly load balance amongst the service instances/Service replicas.
 - If using Autoscale, then set the rules such that scale in (removing of VM instances) are done only one node at a time. Scaling down more than one instance at a time is not safe.
-- If Scaling down a primary node type, you should never scale it down more than what the reliability tier allows.
+- If deleting or deallocating VMs on the primary node type, you should never reduce the count of allocated VMs below what the reliability tier requires. These operations will be blocked indefinitely in a scale set with a durability level of Silver or Gold.
 
 ## The reliability characteristics of the cluster
 The reliability tier is used to set the number of replicas of the system services that you want to run in this cluster on the primary node type. The more the number of replicas, the more reliable the system services are in your cluster.  

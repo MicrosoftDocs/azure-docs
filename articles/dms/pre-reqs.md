@@ -10,7 +10,7 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/22/2018
 ---
 
 # Overview of prerequisites for using the Azure Database Migration Service
@@ -50,8 +50,8 @@ When using the Azure Database Migration Service to perform SQL Server to Azure S
 - If you are running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
 - Ensure that the logins used to connect the source SQL Server and target Managed Instance are members of the sysadmin server role.
 - Create a network share that the Azure Database Migration Service can use to back up the source database.
-- Ensure that the service account running the source SQL Server instance has write privileges on the network share that you created.
-- Make a note of a Windows user (and password) that has full control privilege on the network share that you created above. The Azure Database Migration Service impersonates the user credential to upload the backup files to Azure storage container for restore operation.
+- Ensure that the service account running the source SQL Server instance has write privileges on the network share that you created and that the computer account for the source server has read/write access to the same share.
+- Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. The Azure Database Migration Service impersonates the user credential to upload the backup files to Azure storage container for restore operation.
 - Create a blob container and retrieve its SAS URI by using the steps in the article [Manage Azure Blob Storage resources with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Be sure to select all permissions (Read, Write, Delete, List) on the policy window while creating the SAS URI.
 
    > [!NOTE]

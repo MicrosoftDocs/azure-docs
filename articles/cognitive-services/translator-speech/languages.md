@@ -4,9 +4,8 @@ description: View languages supported by the Microsoft Translator Speech API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
-
 ms.service: cognitive-services
-ms.technology: translator
+ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jansko

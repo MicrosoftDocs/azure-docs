@@ -23,6 +23,12 @@ This article lists some of the common terms used in the IoT Hub articles.
 ## Advanced Message Queueing Protocol
 [Advanced Message Queueing Protocol (AMQP)](https://www.amqp.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
+## Automatic Device Management
+Automatic Device Management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  Consists of [automatic device configurations](iot-hub-auto-device-config.md) and [IoT Edge automatic deployments](../iot-edge/how-to-deploy-monitor.md).
+
+## Automatic device configuration
+Your solution back end can use [automatic device configurations](iot-hub-auto-device-config.md) to assign desired properties to a set of [device twins](#device-twin) and report status using system metrics and custom metrics. 
+
 ## Azure CLI
 The [Azure CLI](../cli-install-nodejs.md) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This version of the CLI is implemented using Node.js.
 
@@ -62,6 +68,9 @@ A cloud gateway enables connectivity for devices that cannot connect directly to
 
 ## Cloud-to-device
 Refers to messages sent from an IoT hub to a connected device. Often, these messages are commands that instruct the device to take an action. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
+
+## Configuration
+In the context of [automatic device configuration](iot-hub-auto-device-config.md), a configuration within IoT Hub defines the desired configuration for a set of devices twins and provides a set of metrics to report status and progress.
 
 ## Connection string
 You use connection strings in your app code to encapsulate the information required to connect to an endpoint. A connection string typically includes the address of the endpoint and security information, but connection string formats vary across services. There are two types of connection string associated with the IoT Hub service:
@@ -107,6 +116,9 @@ The [Device Identities REST API](https://docs.microsoft.com/rest/api/iothub/ioth
 ## Device identity
 The device identity is the unique identifier assigned to every device registered in the [identity registry](#identity-registry).
 
+## Module identity
+The module identity is the unique identifier assigned to every module that belong to a device. Module identity is also registered in the [identity registry](#identity-registry).
+
 ## Device management
 Device management encompasses the full lifecycle associated with managing the devices in your IoT solution including planning, provisioning, configuring, monitoring, and retiring.
 
@@ -122,14 +134,17 @@ Device provisioning is the process of adding the initial [device data](#device-d
 ## Device twin
 A [device twin](iot-hub-devguide-device-twins.md) is JSON document that stores device state information such as metadata, configurations, and conditions. [IoT Hub](#iot-hub) persists a device twin for each device that you provision in your IoT hub. Device twins enable you to synchronize [device conditions](#device-condition) and configurations between the device and the solution back end. You can query device twins to locate specific devices and query the status of long-running operations.
 
-## Device twin queries
-[Device twin queries](iot-hub-devguide-query-language.md) use the SQL-like IoT Hub query language to retrieve information from your device twins. You can use the same IoT Hub query language to retrieve information about [jobs](#job) running in your IoT hub.
+## Module twin
+Similar to device twin, a module twin is JSON document that stores module state information such as metadata, configurations, and conditions. IoT Hub persists a module twin for each module identity that you provision under a device identity in your IoT hub. Module twins enable you to synchronize module conditions and configurations between the module and the solution back end. You can query module twins to locate specific modules and query the status of long-running operations.
+
+## Twin queries
+[Device and module twin queries](iot-hub-devguide-query-language.md) use the SQL-like IoT Hub query language to retrieve information from your device twins or module twins. You can use the same IoT Hub query language to retrieve information about [jobs](#job) running in your IoT hub.
 
 ## Device Twin REST API
 You can use the [Device Twin REST API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) from the solution back end to manage your device twins. The API enables you to retrieve and update [device twin](#device-twin) properties and invoke [direct methods](#direct-method). Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
 
-## Device twin synchronization
-Device twin synchronization uses the [desired properties](#desired-properties) in your device twins to configure your devices and retrieve [reported properties](#reported-properties) from your devices to store in the device twin.
+## Twin synchronization
+Twin synchronization uses the [desired properties](#desired-properties) in your device twins or module twins to configure your devices or modules and retrieve [reported properties](#reported-properties) from them to store in the twin.
 
 ## Direct method
 A [direct method](iot-hub-devguide-direct-methods.md) is a way for you to trigger a method to execute on a device by invoking an API on your IoT hub.
@@ -172,8 +187,8 @@ The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like l
 ## IoT Hub Resource Provider REST API
 You can use the [IoT Hub Resource Provider REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) to manage the IoT hubs in your [Azure subscription](#subscription) performing operations such as creating, updating, and deleting hubs.
 
-## IoT Suite
-Azure IoT Suite packages together multiple Azure services with preconfigured solutions. These preconfigured solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What is Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
+## IoT solution accelerators
+Azure IoT solution accelerators package together multiple Azure services into solutions. These solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What are Azure IoT solution accelerators?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 
 ## The IoT extension for Azure CLI 2.0
 [The IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.

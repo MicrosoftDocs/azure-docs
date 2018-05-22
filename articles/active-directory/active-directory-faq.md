@@ -109,18 +109,18 @@ For more information, see [Monitor your on-premises identity infrastructure and 
 
 **A:** Password write-back operates in real time.
 
-For more information, see [Getting started with password management](active-directory-passwords-getting-started.md).
+For more information, see [Getting started with password management](authentication/quickstart-sspr.md).
 
 - - -
 **Q: Can I use password write-back with passwords that are managed by an admin?**
 
 **A:** Yes, if you have password write-back enabled, the password operations performed by an admin are written back to your on-premises environment.  
 
-For more answers to password-related questions, see [Password management frequently asked questions](active-directory-passwords-faq.md).
+For more answers to password-related questions, see [Password management frequently asked questions](authentication/active-directory-passwords-faq.md).
 - - -
 **Q:  What can I do if I can't remember my existing Office 365/Azure AD password while trying to change my password?**
 
-**A:** For this type of situation, there are a couple of options.  Use self-service password reset (SSPR) if it's available.  Whether SSPR works depends on how it's configured.  For more information, see [How does the password reset portal work](active-directory-passwords-best-practices.md).
+**A:** For this type of situation, there are a couple of options.  Use self-service password reset (SSPR) if it's available.  Whether SSPR works depends on how it's configured.  For more information, see [How does the password reset portal work](authentication/howto-sspr-deployment.md).
 
 For Office 365 users, your admin can reset the password by using the steps outlined in [Reset user passwords](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
@@ -172,7 +172,7 @@ For more information, see:
 * Direct sign-in to federated apps
 * Deep links to federated, password-based, or existing apps
 
-For more information, see [Deploying Azure AD integrated applications to users](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+For more information, see [Deploying Azure AD integrated applications to users](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 
 - - -
 **Q: What are the different ways Azure AD enables authentication and single sign-on to applications?**
@@ -183,14 +183,14 @@ For more information, see:
 
 * [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md)
 * [Active Directory authentication protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [How does single sign-on with Azure Active Directory work?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [How does single sign-on with Azure Active Directory work?](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 **Q: Can I add applications I’m running on-premises?**
 
 **A:** Azure AD Application Proxy provides you with easy and secure access to on-premises web applications that you choose. You can access these applications in the same way that you access your software as a service (SaaS) apps in Azure AD. There is no need for a VPN or to change your network infrastructure.  
 
-For more information, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+For more information, see [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
 
 - - -
 **Q: How do I require multi-factor authentication for users who access a particular application?**

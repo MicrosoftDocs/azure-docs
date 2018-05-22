@@ -9,10 +9,10 @@ editor: ''
 ms.assetid: 
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/10/2018
+ms.date: 4/30/2018
 ms.author: jlian
 ---
 
@@ -46,7 +46,7 @@ After you're added to an Azure EA enrollment as an Account Owner, Azure uses the
 - You have one or more EA or EA Dev/Test subscriptions, meaning that you've gone through manual sign-up at least once
 - You're logged into the Account Owner's *home directory*, which is the directory that subscriptions are created in by default
 
-If the above two conditions are met, an `enrollmentAccount` resource is returned and you can start creating subscriptions under that account. All subscriptions created under the account are billed towards the EA enrollment that the account is in.
+If the above three conditions are met, an `enrollmentAccount` resource is returned and you can start creating subscriptions under that account. All subscriptions created under the account are billed towards the EA enrollment that the account is in.
 
 # [REST](#tab/rest)
 
@@ -62,19 +62,19 @@ Azure responds with a list of all enrollment accounts you have access to:
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -85,18 +85,18 @@ Azure responds with a list of all enrollment accounts you have access to:
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Use the [Get-EnrollmentAccount command](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) to list all enrollment accounts you have access to.
+Use the [Get-AzureRmEnrollmentAccount command](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) to list all enrollment accounts you have access to.
 
 ```azurepowershell-interactive
-Get-EnrollmentAccount
+Get-AzureRmEnrollmentAccount
 ```
 
 Azure responds with a list of the Object IDs and email addresses of accounts.
 
 ```azurepowershell
 ObjectId                               | PrincipalName
-<enrollmentAccountId>   | MobileOnboardingEng@contoso.com
-<enrollmentAccountId>   | MobileBackendEng@contoso.com
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -114,19 +114,19 @@ Azure responds with a list of the Object IDs and email addresses of accounts.
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -139,14 +139,14 @@ Use the `principalName` property to identify the account that you want subscript
 
 ## Create subscriptions under a specific enrollment account 
 
-The following example creates a request to create subscription named *Dev Team Subscription* and subscription offer is *MS-AZR-0017P* (regular EA). The enrollment account is `<enrollmentAccountId>`, which is the enrollment account for MobileOnboardingEng@contoso.com. It also optionally adds two users as RBAC Owners for the subscription.
+The following example creates a request to create subscription named *Dev Team Subscription* and subscription offer is *MS-AZR-0017P* (regular EA). The enrollment account is `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (placeholder value, this is a GUID), which is the enrollment account for SignUpEngineering@contoso.com. It also optionally adds two users as RBAC Owners for the subscription.
 
 # [REST](#tab/rest)
 
 Use the `id` of the `enrollmentAccount` in the path of the request to create subscription.
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -172,18 +172,19 @@ In the response, you get back a `subscriptionOperation` object for monitoring. W
 
 # [PowerShell](#tab/azure-powershell)
 
-To use this preview module, install it by running `Install-Module AzureRM.Subscription -AllowPrerelease` first. To make sure `-AllowPrerelease` works, install a recent version of PowerShellGet from [Get PowerShellGet Module](/powershell/gallery/psget/get_psget_module).
+To use this preview module, install it by running `Install-Module AzureRM.Subscription -AllowPrerelease` first. To make sure `-AllowPrerelease` works, install a recent version of PowerShellGet from [Get PowerShellGet Module](/powershell/gallery/installing-psget).
 
-Use the [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) along with `enrollmentAccount` name as the `EnrollmentAccountObjectId` parameter to create a new subscription. 
+Use the [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) along with `enrollmentAccount` object ID as the `EnrollmentAccountObjectId` parameter to create a new subscription. 
 
 ```azurepowershell-interactive
-New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountId> -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
 | Element Name  | Required | Type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | No      | String | The display name of the subscription. If not specified, it is set to the name of the offer, like "Microsoft Azure Enterprise."                                 |
 | `OfferType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | Yes       | String | The Object ID of the enrollment account that the subscription is created under and billed to. This is a GUID value that you get from `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 | `OwnerSignInName`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.|
 | `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.| 
@@ -194,32 +195,33 @@ To see a full list of all parameters, see [New-AzureRmSubscription](/powershell/
 
 To use this preview extension, install it by running `az extension add --name subscription` first.
 
-Use the [az account create](/cli/azure/ext/subscription/account) along with `enrollmentAccount` name as the `enrollment_account_name` parameter to create a new subscription.
+Use the [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) along with `enrollmentAccount` object ID as the `enrollment-account-object-id` parameter to create a new subscription.
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-name "<enrollmentAccountId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | Element Name  | Required | Type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | No      | String | The display name of the subscription. If not specified, it is set to the name of the offer, like "Microsoft Azure Enterprise."                                 |
 | `offer-type`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | Yes       | String | The Object ID of the enrollment account that the subscription is created under and billed to. This is a GUID value that you get from `az billing enrollment-account list`. |
 | `owner-object-id`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
-| `upn`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.|
-| `spn` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.| 
+| `owner-upn`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.|
+| `owner-spn` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.| 
 
-To see a full list of all parameters, see [az account create](/cli/azure/account).
+To see a full list of all parameters, see [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 
 ----
 
 ## Delegate access to an enrollment account using RBAC
 
-To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner role at the scope of the enrollment account](../active-directory/role-based-access-control-manage-access-rest.md). The following example gives a user in the tenant with `principalId` of `<userObjectId>` (for MobileOnboardingEng@contoso.com) an Owner role on the enrollment account. 
+To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner role at the scope of the enrollment account](../active-directory/role-based-access-control-manage-access-rest.md). The following example gives a user in the tenant with `principalId` of `<userObjectId>` (for SignUpEngineering@contoso.com) an Owner role on the enrollment account. 
 
 # [REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
@@ -235,7 +237,7 @@ When the Owner role is successfully assigned at the enrollment account scope, Az
   "properties": {
     "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
     "principalId": "<userObjectId>",
-    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
+    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "createdOn": "2018-03-05T08:36:26.4014813Z",
     "updatedOn": "2018-03-05T08:36:26.4014813Z",
     "createdBy": "<assignerObjectId>",
@@ -252,7 +254,7 @@ When the Owner role is successfully assigned at the enrollment account scope, Az
 Use the [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) to give another user Owner access to your enrollment account.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -260,7 +262,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Sc
 Use the [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli.md) to give another user Owner access to your enrollment account.
 
 ```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ----
@@ -294,4 +296,4 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 * For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * To learn more about Azure Resource Manager and its APIs, see [Azure Resource Manager overview](resource-group-overview.md).
 * To learn more about managing large numbers of subscriptions using Management Groups, see [Organize your resources with Azure Management Groups](management-groups-overview.md)
-* To see a comprehensive best practice guidance for large organizations on subscription governance, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md)
+* To see a comprehensive best practice guidance for large organizations on subscription governance, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance)

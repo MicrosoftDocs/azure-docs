@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Monitoring REST API walkthrough | Microsoft Docs
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
 author: mcollier
@@ -38,7 +38,7 @@ $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
 
 # Authenticate to a specific Azure subscription.
-Login-AzureRmAccount -SubscriptionId $subscriptionId
+Connect-AzureRmAccount -SubscriptionId $subscriptionId
 
 # Password for the service principal
 $pwd = "{service-principal-password}"
