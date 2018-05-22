@@ -290,7 +290,7 @@ This Azure SQL Database instance contains the data to be copied to Blob storage.
     {
         "Id": "1",
         "tableName": "Table1"
-    }
+    },
     {
         "Id": "2",
         "tableName": "Table2"
