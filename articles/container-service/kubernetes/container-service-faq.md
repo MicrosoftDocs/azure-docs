@@ -3,7 +3,7 @@ title: Azure Container Service - FAQ
 description: Answers frequently asked questions about Azure Container Service, a service that simplifies the creation, configuration, and management of a cluster of virtual machines to run Docker container apps.
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

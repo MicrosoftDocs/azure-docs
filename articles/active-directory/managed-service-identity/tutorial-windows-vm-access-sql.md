@@ -8,6 +8,7 @@ manager: mtillman
 editor: bryanla
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,7 +18,7 @@ ms.author: skwan
 ---
 
 
-# Use a Windows VM Managed Service Identity (MSI) to access Azure SQL
+# Tutorial: Use a Windows VM Managed Service Identity (MSI) to access Azure SQL
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

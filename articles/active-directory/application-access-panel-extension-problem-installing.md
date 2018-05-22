@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
 ---
@@ -80,6 +80,12 @@ You can also download the extension for Chrome and Edge directly from following 
    3. Search for an app that's available in the My Apps portal.
    4. In the search results list, select the app.  
        The last three apps you've used are displayed in the **Recently Used** shortcut list.
+       
+* To use internal company URLs while remote, do the following:
+    1. [Configure Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) on your tenant
+    2. [Publish the application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy
+    3. Install the extension, and sign in to it by selecting Sign in to get started
+    4. You can now browse to the internal company URL even while remote
 
 > [!NOTE]
 > The preceding options are available only for Edge, Chrome, and Firefox.
@@ -115,4 +121,4 @@ Open a support ticket with the following information, if it is available:
 -   Fiddler traces
 
 ## Next steps
-[What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

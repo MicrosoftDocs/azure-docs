@@ -69,10 +69,10 @@ The following is our initial effort at providing a list. Over time, this list wi
 
 ## Azure Networking
 
-* [Network Security Groups](../virtual-network/virtual-networks-nsg.md)
+* [Network Security Groups](../virtual-network/security-overview.md)
 * [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)
 * [Azure Load Balancer](../load-balancer/load-balancer-overview.md)
 * [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
 * [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
-* [Azure Application Proxy](../active-directory/active-directory-application-proxy-enable.md)
+* [Azure Application Proxy](../active-directory/manage-apps/application-proxy-enable.md)

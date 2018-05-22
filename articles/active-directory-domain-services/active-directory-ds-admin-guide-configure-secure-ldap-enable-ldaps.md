@@ -102,7 +102,7 @@ The following table illustrates a sample NSG you can configure, to lock down sec
 
 ![Sample NSG to secure LDAPS access over the internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**More information** - [Network security groups](../virtual-network/virtual-networks-nsg.md).
+**More information** - [Network security groups](../virtual-network/security-overview.md).
 
 <br>
 
@@ -125,5 +125,5 @@ If you still have trouble connecting to the managed domain using secure LDAP, [c
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
 * [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
 * [Administer Group Policy on an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
-* [Network security groups](../virtual-network/virtual-networks-nsg.md)
+* [Network security groups](../virtual-network/security-overview.md)
 * [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

@@ -3,7 +3,7 @@ title: Monitor Azure Kubernetes cluster with Datadog
 description: Monitoring Kubernetes cluster in Azure Container Service using Datadog
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

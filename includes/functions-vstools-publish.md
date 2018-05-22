@@ -1,10 +1,20 @@
-1. In **Solution Explorer**, right-click the project and select **Publish**. Choose **Create New**  and then **Publish**. 
+---
+title: include file
+description: include file
+services: functions
+author: ggailey777
+ms.service: functions
+ms.topic: include
+ms.date: 05/22/2018
+ms.author: glenga
+ms.custom: include file
+---
 
-    ![Publish create new function app](./media/functions-vstools-publish/functions-vstools-publish-new-function-app.png)
+1. In **Solution Explorer**, right-click the project and select **Publish**. Choose **Create New**  and then **Publish**.
 
-2. If you haven't already connected Visual Studio to your Azure account, select **Add an account...**.  
+2. If you haven't already connected Visual Studio to your Azure account, select **Add an account...**.
 
-3. In the **Create App Service** dialog, use the **Hosting** settings as specified in the following table: 
+3. In the **Create App Service** dialog, use the **Hosting** settings as specified in the following table:
 
     ![Azure local runtime](./media/functions-vstools-publish/functions-vstools-publish.png)
 
