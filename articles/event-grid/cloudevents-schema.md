@@ -120,7 +120,7 @@ az eventgrid event-subscription create \
   --event-delivery-schema cloudeventv01schema
 ```
 
-The current version of the CloudEvents doesn't support batching of events. An event subscription that's configured for CloudEvent schema receives each event individually. Currently, you can't use an Event Grid trigger for an Azure Functions app. You must use an HTTP trigger.
+The current version of the CloudEvents doesn't support batching of events. An event subscription that's configured for CloudEvent schema receives each event individually. Currently, you can't use an Event Grid trigger for an Azure Functions app when the event is delivered in the CloudEvents schema. You must use an HTTP trigger.
 
 ## Next steps
 
