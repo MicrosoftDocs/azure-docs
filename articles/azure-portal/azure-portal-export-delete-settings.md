@@ -18,7 +18,7 @@ You can export and delete the following settings from the Azure portal settings 
 * User settings like favorite subscriptions or directories, and last logged in directory
 * Themes and customizations
 
-We strongly recommend that you export and review your settings before you delete them. It can be time consuming to rebuild the dashboards and readd your customizations.
+We strongly recommend that you export and review your settings before you delete them. It can be time consuming to rebuild the dashboards and re-add your customizations.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -34,7 +34,7 @@ We strongly recommend that you export and review your settings before you delete
 
       The following table describes these settings. 
 
-      | Setting | description |
+      | Setting | Description |
       | --- | --- |
       | **Export all settings** | Creates a .json file that contains your user settings like your dashboard theme.|
       | **Delete all settings and private dashboards** | Deletes all links to private dashboards and other user customizations you've made to the portal dashboard. |
