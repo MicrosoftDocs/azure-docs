@@ -19,6 +19,8 @@ ms.custom: mvc
 #Customer intent: As a developer, I want to be able to configure my devices from the cloud and receive status and compliance data from my devices.
 ---
 
+<!-- **TODO** Update publish config with repo paths before publishing! -->
+
 # Tutorial: Configure your devices from a back-end service
 
 As well as receiving telemetry from your devices, you may need to configure your devices from your back-end service. When you send a desired configuration to your devices, you may also want to receive status and compliance updates from those devices. For example, you might set a target operational temperature range for a device or collect firmware version information from your devices.
@@ -101,33 +103,33 @@ To view the simulated device sample code that receives desired properties, navig
 
 The following code connects to your IoT hub using a device connection string:
 
-[!code-javascript[Create IoT Hub client](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=createhubclient&highlight=2 "Create IoT Hub client")]
+[!code-javascript[Create IoT Hub client](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=createhubclient&highlight=2 "Create IoT Hub client")]
 
 The following code gets a twin from the client object:
 
-[!code-javascript[Get twin](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=gettwin&highlight=2 "Get twin")]
+[!code-javascript[Get twin](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=gettwin&highlight=2 "Get twin")]
 
 ### Sample desired properties
 
 You can structure your desired properties in any way that's convenient to your application. This example uses one top-level property called **fanOn** and groups the remaining properties into separate **components**. The following JSON snippet shows the structure of the desired properties this tutorial uses:
 
-[!code[Sample desired properties](~/iot-samples-node/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
+[!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
 
 ### Create handlers
 
 You can create handlers for desired property updates that respond to updates at different levels in the JSON hierarchy. For example, this handler sees all desired property changes sent to the device. The **delta** variable contains the desired properties sent from the solution backend:
 
-[!code-javascript[Handle all properties](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=allproperties&highlight=2 "Handle all properties")]
+[!code-javascript[Handle all properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=allproperties&highlight=2 "Handle all properties")]
 
 The following handler only reacts to changes made to the **fanOn** desired property:
 
-[!code-javascript[Handle fan property](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=fanproperty&highlight=2 "Handle fan property")]
+[!code-javascript[Handle fan property](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=fanproperty&highlight=2 "Handle fan property")]
 
 ### Handlers for multiple properties
 
 In the example desired properties JSON shown previously, the **climate** node under **components** contains two properties, **minTemperature** and **maxTemperature**. A back-end application could send an update to one, or other, or both of these properties. In the following code snippet, when the simulated device receives an update to either value, it uses the values in the local twin to configure the device:
 
-[!code-javascript[Handle climate component](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]
+[!code-javascript[Handle climate component](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]
 
 The local **twin** object stores a complete set of desired and reported properties. The **delta** sent from the back end might update just a subset of desired properties.
 
@@ -137,7 +139,7 @@ The desired properties sent from the back end don't indicate what operation is b
 
 The following snippet shows how the simulated device handles insert, update, and delete operations on the list of **components** in the desired properties. You can see how to use **null** values to indicate that a component should be deleted:
 
-[!code-javascript[Handle components](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=components&highlight=2,6,13 "Handle components")]
+[!code-javascript[Handle components](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=components&highlight=2,6,13 "Handle components")]
 
 ### Send desired properties to a device from the back end
 
@@ -147,15 +149,15 @@ To view the simulated device sample code that receives desired properties, navig
 
 The following code snippet shows how to connect to the device identity registry and access the twin for a specific device:
 
-[!code-javascript[Create registry and get twin](~/iot-samples-node/Tutorials/DeviceTwins/ServiceClient.js?name=getregistrytwin&highlight=2,6 "Create registry and get twin")]
+[!code-javascript[Create registry and get twin](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=getregistrytwin&highlight=2,6 "Create registry and get twin")]
 
 The following snippet shows different desired property *patches* the back end application sends to the device:
 
-[!code-javascript[Patches sent to device](~/iot-samples-node/Tutorials/DeviceTwins/ServiceClient.js?name=patches&highlight=2,12,26,41,56 "Patches sent to device")]
+[!code-javascript[Patches sent to device](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=patches&highlight=2,12,26,41,56 "Patches sent to device")]
 
 The following snippet shows how the back-end application sends a desired property update to a device:
 
-[!code-javascript[Send desired properties](~/iot-samples-node/Tutorials/DeviceTwins/ServiceClient.js?name=senddesiredproperties&highlight=2 "Send desired properties")]
+[!code-javascript[Send desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=senddesiredproperties&highlight=2 "Send desired properties")]
 
 ### Run the applications
 
@@ -193,17 +195,17 @@ Your back-end application receives state information from a device as reported p
 
 You can send updates to reported property values as a patch. The following snippet shows a template for the patch the simulated device sends. The simulated device updates the fields in the patch before sending it to the hub:
 
-[!code-javascript[Reported properties patches](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 "Reported properties patches")]
+[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 "Reported properties patches")]
 
 The simulated device uses the following function to send the patch that contains the reported properties to the hub:
 
-[!code-javascript[Send reported properties](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=sendreportedproperties&highlight=2 "Send reported properties")]
+[!code-javascript[Send reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=sendreportedproperties&highlight=2 "Send reported properties")]
 
 ### Process reported properties
 
 A back-end application accesses the current reported property values for a device through the device twin. The following snippet shows you how the back-end application reads the reported property values for the simulated device:
 
-[!code-javascript[Display reported properties](~/iot-samples-node/Tutorials/DeviceTwins/ServiceClient.js?name=displayreportedproperties&highlight=2 "Display reported properties")]
+[!code-javascript[Display reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=displayreportedproperties&highlight=2 "Display reported properties")]
 
 ### Run the applications
 
