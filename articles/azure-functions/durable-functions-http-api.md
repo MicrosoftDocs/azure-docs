@@ -127,6 +127,7 @@ The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON objec
 |-----------------|-----------|-------------|
 | runtimeStatus   | string    | The runtime status of the instance. Values include *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
 | input           | JSON      | The JSON data used to initialize the instance. |
+| customStatus    | JSON      | The JSON data used for custom orchestration status. This field is `null` if not set. |
 | output          | JSON      | The JSON output of the instance. This field is `null` if the instance is not in a completed state. |
 | createdTime     | string    | The time at which the instance was created. Uses ISO 8601 extended notation. |
 | lastUpdatedTime | string    | The time at which the instance last persisted. Uses ISO 8601 extended notation. |
@@ -176,6 +177,7 @@ Here is an example response payload including the orchestration execution histor
       }
   ],
   "input": null,
+  "customStatus": { "nextActions": ["A", "B", "C"], "foo": 2 },
   "lastUpdatedTime": "2018-02-28T05:18:54Z",
   "output": [
       "Hello Tokyo!",

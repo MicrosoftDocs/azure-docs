@@ -60,9 +60,9 @@ In the **Request body** box, enter some text. The following example shows an int
 	Also, 999-99-9999 looks like a social security number (SSN).
 ```
 
-### Text classification feature (preview)
+### Text classification feature
 
-In the following example, you see Content Moderator’s machine-assisted text classification (preview) response. It helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words for review. 
+In the following example, you see Content Moderator’s machine-assisted text classification response. It helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words for review. 
 
 #### Explanation
 

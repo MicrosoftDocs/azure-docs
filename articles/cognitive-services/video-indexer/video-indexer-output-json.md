@@ -12,7 +12,12 @@ ms.date: 03/05/2018
 ms.author: juliako
 
 ---
-# Examine the Video Indexer output
+# Examine the Video Indexer output produced by v1 API
+
+> [!Note]
+> The Video Indexer v1 API is going to be deprecated on August 1, 2018. You should start using the Video Indexer v2 API. 
+> 
+> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://aka.ms/viapi). 
 
 When you call the **Get Breakdowns** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights including (transcript, OCRs, people). The details include keywords (topics), faces, blocks. Each block includes time ranges, transcript lines, OCR lines, sentiments, faces, and block thumbnails.
 

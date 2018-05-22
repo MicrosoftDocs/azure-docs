@@ -8,6 +8,7 @@ manager: mtillman
 editor: 
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,7 +17,7 @@ ms.date: 11/20/2017
 ms.author: skwan
 ---
 
-# Use Managed Service Identity for a Linux VM to access Azure Data Lake Store
+# Tutorial: Use Managed Service Identity for a Linux VM to access Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

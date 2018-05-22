@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/09/2018
+ms.date: 04/27/2018
 ms.author: billmath
 
 ---
@@ -39,16 +39,14 @@ PP = Public Preview
 | Connect to single on-premises AD forest |● |● |● |● |● |
 | Connect to multiple on-premises AD forests |● |● | |● |● |
 | Connect to multiple on-premises Exchange Orgs |● | | | | |
-| Connect to single on-premises LDAP directory |●* | | |● |● |
-| Connect to multiple on-premises LDAP directories |●*  | | |● |● |
-| Connect to on-premises AD and on-premises LDAP directories |●* | | |● |● |
+| Connect to single on-premises LDAP directory | | | |● |● |
+| Connect to multiple on-premises LDAP directories |  | | |● |● |
+| Connect to on-premises AD and on-premises LDAP directories | | | |● |● |
 | Connect to custom systems (i.e. SQL, Oracle, MySQL, etc.) |FR | | |● |● |
 | Synchronize customer defined attributes (directory extensions) |● | | | | |
 | Connect to on-premises HR (i.e., SAP, Oracle eBusiness,PeopleSoft) |FR | | |● |● |
 | Supports FIM synchronization rules and connectors for provisioning to on-premises systems. | | | |● |● |
-&#42; Currently there are two supported options for this.  They are:
-   1. You can use the generic LDAP connector and enable it outside of Azure AD Connect.  This is complex and requires a partner for on-boarding and a premier support agreement to maintain.  This option can handle both single and multiple LDAP directories.
-   2. You can develop your own solution for moving objects from LDAP to Active Directory.  Then synchronize the objects with Azure AD Connect.  MIM or FIM could be used as a possible solution for moving the objects.
+
 
 ## Cloud to On-Premises Synchronization
 | Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |

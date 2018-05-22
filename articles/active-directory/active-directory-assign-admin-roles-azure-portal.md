@@ -9,8 +9,7 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm:
-ms.devlang:
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: curtand
@@ -39,7 +38,7 @@ The following administrator roles are available:
   > [!NOTE]
   > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be Global Administrator.
   
-* **CRM Service Administrator**: Users with this role have global permissions within Microsoft CRM Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Dynamics 365 service administrator**: Users with this role have global permissions within Microsoft CRM Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Device Administrators**: Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
 

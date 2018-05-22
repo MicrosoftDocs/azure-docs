@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/29/2018
+ms.date: 5/21/2018
 ms.author: victorh
 
 ---
@@ -153,7 +153,7 @@ This scenario can be done using NSGs on Application Gateway subnet. The followin
 
 * Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](application-gateway-diagnostics.md).
 
-* Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](../virtual-network/virtual-networks-nsg.md).
+* Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](../virtual-network/security-overview.md).
 
 * Block all other incoming traffic with a Deny all rule.
 
@@ -176,6 +176,26 @@ No, but Application Gateway has a throughput metric that can be used to alert yo
 **Q. Does manual scale up/down cause downtime?**
 
 There is no downtime, instances are distributed across upgrade domains and fault domains.
+
+**Q. Does application gateway support connection draining?**
+
+Yes. You can configure connection draining to change members within a backend pool without disruption. This will allow existing connections to continue to be sent to their previous destination until either that connection is closed or a configurable timeout expires. Note that connection draining only waits for current in-flight connections to complete. Application Gateway is not aware of application session state.
+
+**Q. What are application gateway sizes?**
+
+Application Gateway is currently offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
+
+You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. For a complete list of application gateway limits, see [Application Gateway service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+The following table shows an average performance throughput for each application gateway instance with SSL offload enabled:
+
+| Back-end page response | Small | Medium | Large |
+| --- | --- | --- | --- |
+| 6K |7.5 Mbps |13 Mbps |50 Mbps |
+| 100K |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests. These values are only provided for capacity planning guidance.
 
 **Q. Can I change instance size from medium to large without disruption?**
 
@@ -327,4 +347,4 @@ The most common reason is access to the backend is being blocked by an NSG or cu
 
 ## Next Steps
 
-To learn more about Application Gateway visit [Introduction to Application Gateway](application-gateway-introduction.md).
+To learn more about Application Gateway visit [What is Azure Application Gateway?](overview.md)
