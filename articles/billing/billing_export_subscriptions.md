@@ -19,7 +19,7 @@ ms.date: 10/9/2017
 ms.author: adpick
 ms.custom: H1Hack27Feb2017
 ---
-# Export and view your top level Subscription information
+# Export and view your top-level Subscription information
 If you need to view the set of subscription IDs associated with your user credentials, you can download a .json file at the [Azure Account Center](http://account.azure.com/subscriptions/download).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
