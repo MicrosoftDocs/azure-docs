@@ -69,30 +69,30 @@ Append Block        Append blobs                        Writes a block of data t
 
 Step 1: Create a container to store the blobs that need to be kept in the immutable state. Click on Access Policy in the Container settings and then click on **+ Add Policy** under **Immutable Blob Storage** policy as illustrated below.
  
-![Container Access](/media/storage-immutable-blob-storage/portal-image-1.jpg)
+![Container Access](media/storage-immutable-blob-storage/portal-image-1.jpg)
 
-![Container Access](/media/storage-immutable-blob-storage/portal-image-2.jpg)
+![Container Access](media/storage-immutable-blob-storage/portal-image-2.jpg)
 
 Step 2: To enable time-based retention, choose Time-Based Retention from the drop-down menu. Enter the desired retention interval in days (minimum is one day)
 
-![Time-based retention](/media/storage-immutable-blob-storage/portal-image-3-time-based-retention.jpg)
+![Time-based retention](media/storage-immutable-blob-storage/portal-image-3-time-based-retention.jpg)
 
 As you can see above, the state of the policy will initially be unlocked. This will allow you to test the feature with a smaller retention interval, and make changes to the policy before locking it.
  
 Locking is essential for SEC 17a-4 etc. regulatory compliance.
  Step 3: Lock the policy by right-clicking on the ..., and the following menu will appear:-
 
-![Lock policy](/media/storage-immutable-blob-storage/portal-image-4-lock-policy.jpg)
+![Lock policy](media/storage-immutable-blob-storage/portal-image-4-lock-policy.jpg)
 
 Click on Lock Policy and the policy state will now show as locked. Once locked, the policy can longer be deleted and only extensions of the retention interval will be allowed.
  
 Step 4: To enable legal holds, click on + Add Policy and  choose Legal hold from the drop-down menu
 
-![Hold selection](/media/storage-immutable-blob-storage/portal-image-legal-hold-selection-7.jpg)
+![Hold selection](media/storage-immutable-blob-storage/portal-image-legal-hold-selection-7.jpg)
 
  Create a legal hold with one or more tags
 
-![Hold tags](/media/storage-immutable-blob-storage/portal-image-set-legal-hold-tags.jpg)
+![Hold tags](media/storage-immutable-blob-storage/portal-image-set-legal-hold-tags.jpg)
 
  **CLI**
  Install the CLI [extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) with `az extension add -n storage-preview`
