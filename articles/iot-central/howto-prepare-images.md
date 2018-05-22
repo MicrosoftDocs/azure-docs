@@ -6,7 +6,7 @@ ms.author: tanmayb
 ms.date: 04/16/2018
 ms.topic: conceptual
 ms.service: iot-central
-manager: timlt
+manager: 
 ---
 
 # Prepare and upload images to your Azure IoT Central application

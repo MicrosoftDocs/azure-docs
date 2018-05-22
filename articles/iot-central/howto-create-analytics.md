@@ -6,7 +6,7 @@ ms.author: tanmayb
 ms.date: 04/16/2018
 ms.topic: conceptual
 ms.service: iot-central
-manager: timlt
+manager:
 ---
 
 # How to use analytics to analyze your device data

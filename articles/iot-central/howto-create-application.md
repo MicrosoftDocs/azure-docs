@@ -6,7 +6,7 @@ ms.author: tanmayb
 ms.date: 03/20/2018
 ms.topic: conceptual
 ms.service: iot-central
-manager: timlt
+manager: 
 ---
 
 # Create your Azure IoT Central Application

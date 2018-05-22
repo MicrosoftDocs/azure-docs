@@ -6,7 +6,7 @@ ms.author: ankitgup
 ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-central
-manager: timlt
+manager:
 ---
 
 # Create an Event rule and set up notifications in your Azure IoT Central application

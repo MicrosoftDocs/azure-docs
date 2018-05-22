@@ -7,7 +7,7 @@ ms.date: 04/16/2018
 ms.topic: tutorial
 ms.service: iot-central
 ms.custom: mvc
-manager: timlt
+manager:
 ---
 
 # Add a real device to your Azure IoT Central application

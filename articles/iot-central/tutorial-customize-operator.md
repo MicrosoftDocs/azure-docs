@@ -7,7 +7,7 @@ ms.date: 04/16/2018
 ms.topic: tutorial
 ms.service: iot-central
 ms.custom: mvc
-manager: timlt
+manager:
 ---
 
 # 3 - Customize the Azure IoT Central operator's view
