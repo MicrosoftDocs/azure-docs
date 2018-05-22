@@ -47,7 +47,6 @@ Each deployment also creates a new Log Analytics instance or can join an existin
 
 This solution template can deploy single or multi region-based multi member Ethereum consortium network. The virtual network of each region is connected to other region in a chain topology using the VNET gateways and connection resources. It also provisions a registrar, which contains required information of all the Miner and Transaction nodes deployed in each region.
 
-
 ### Standalone and consortium leader overview
 
 ![Standalone and Consortium Leader Overview](./media/ethereum-deployment-guide/leader-overview.png)
@@ -60,13 +59,13 @@ This solution template can deploy single or multi region-based multi member Ethe
 
 This process requires an Azure subscription that can support deploying several virtual machines scale sets and managed disks. If necessary, create a free Azure account to begin.
 
-Once a subscription is secured, go to Azure portal. Select **+ Create a resource**, Marketplace (See all), and search for `Ethereum Proof-of-Work Consortium`.
+Once a subscription is secured, go to Azure portal. Select **+ Create a resource**, Marketplace (See all), and search for **Ethereum Proof-of-Work Consortium**.
 
 The template deployment will walk you through configuring the first member's footprint in the network. The deployment flow is divided into five steps: Basics, Operations Management Suite, Deployment regions, Network size, and performance, Ethereum settings.
 
 ### Basics
 
-Under `Basics`, specify values for standard parameters for any deployment, such as subscription, resource group, and basic virtual machine properties.
+Under **Basics**, specify values for standard parameters for any deployment, such as subscription, resource group, and basic virtual machine properties.
 
 ![Basics](./media/ethereum-deployment-guide/sample-deployment.png)
 
@@ -165,7 +164,7 @@ To find it, select the resource group that was deployed. Then, select **Overview
 
 ![Resource group overview](./media/ethereum-deployment-guide/resource-overview.png)
 
-The new screen shows deployment history. Select the first deployment resource (ex. `microsoft-azure-blockchain.azure-blockchain-servi...`) and look for the **Outputs** section in the lower half of the page. You`ll see the URL for the admin page listed in the template deployment output parameter as ADMIN_SITE.
+The new screen shows deployment history. Select the first deployment resource (For example, microsoft-azure-blockchain.azure-blockchain-servi...) and look for the **Outputs** section in the lower half of the page. You`ll see the URL for the admin page listed in the template deployment output parameter as ADMIN_SITE.
 
 ![Resource deployments](./media/ethereum-deployment-guide/resource-deployments.png)
 
@@ -198,13 +197,13 @@ Clicking on the overview will direct you to a portal to view per-node statistics
 
 ### Accessing nodes
 
-You can remotely connect to the virtual machines for the transaction nodes via SSH with your provided admin username and password/SSH key. Since the transaction node VMs do not have their own public IP addresses, you will need to go through the load balancer and specify the port number. The SSH command to run to access the first transaction node is listed in the template deployment output parameter as, `SSH_TO_FIRST_TX_NODE` (for the sample deployment: ssh -p 4000 gethadmin@leader4vb.eastus.cloudapp.azure.com). To get to additional transaction nodes, increment the port number by one (For example, the first transaction node is on port 4000).
+You can remotely connect to the virtual machines for the transaction nodes via SSH with your provided admin username and password/SSH key. Since the transaction node VMs do not have their own public IP addresses, you will need to go through the load balancer and specify the port number. The SSH command to run to access the first transaction node is listed in the template deployment output parameter as, **SSH_TO_FIRST_TX_NODE** (for the sample deployment: ssh -p 4000 gethadmin@leader4vb.eastus.cloudapp.azure.com). To get to additional transaction nodes, increment the port number by one (For example, the first transaction node is on port 4000).
 
 Since the virtual machines on which the mining nodes run are not externally accessible, you need to go through one of the transaction nodes. Once you have a SSH session to a transaction node, install your private key on the transaction node or use your password to start a SSH session into any of the mining nodes.
 
 **Note**
 
-The hostnames can be obtained from Admin Site or from the Azure portal. In Azure portal, the hostnames of nodes present in the virtual machine scale set (VMSS) resource is listed under **Instances**, which differs from the actual hostnames. For example, the hostname in Azure Portal may look like **mn-asdfmv-reg1_0** but the actual hostname would be like `mn-asdfmv-reg`.
+The hostnames can be obtained from Admin Site or from the Azure portal. In Azure portal, the hostnames of nodes present in the virtual machine scale set (VMSS) resource is listed under **Instances**, which differs from the actual hostnames. For example, the hostname in Azure Portal may look like **mn-asdfmv-reg1_0** but the actual hostname would be like **mn-asdfmv-reg**.
 
 For example:
 
@@ -224,29 +223,29 @@ As the first member (or a connected member) of the consortium, you need to provi
     the Ethereum connection between two members. The necessary information, including the
     genesis block, consortium network ID, and boot nodes, is written to a file on the transaction
     nodes of the leader or another deployed member. The location of this file is listed in the
-    template deployment output parameter named `CONSORTIUM-DATA`.
+    template deployment output parameter named **CONSORTIUM-DATA**.
 2. **Peer Info endpoint**: The Peer info registrar endpoint to get information of all the nodes
     already connected to the Ethereum network from the Leaders or another member's
     deployment. The DB stores a set of information regarding each node connected in the
     network, information such as node's hostname, private IP address etc. This is the template
-    deployment output parameter named `PEER_INFO_ENDPOINT`.
+    deployment output parameter named **PEER_INFO_ENDPOINT**.
 3. **Peer Info Primary Key**: The Peer info registrar Primary key is used to get access to the
     leader's or other member's Peer info primary key. This is the template deployment output
-    parameter named `PEER_INFO_PRIMARY_KEY`.
+    parameter named **PEER_INFO_PRIMARY_KEY**.
 
 
 4. **VNET Gateway**: Each member establishes a connection to the entire blockchain network
     through an existing member. To connect VNET, you need the resource path to the VNET
     Gateway of the member to which you are connecting. This is the template deployment output
-    parameter named `CONSORTIUM_MEMBER_GATEWAY_ID`.
+    parameter named **CONSORTIUM_MEMBER_GATEWAY_ID**.
 5. **Shared Key**: A pre-established secret between two members of the consortium network that
     are establishing a connection. This is an alphanumeric string (between 1 to 128 characters)
     that has been agreed upon outside the context of the deployment. (For example,
-    `MySharedKeyAbc123`)
+    **MySharedKeyAbc123**)
 
 ### Acceptance of new member
 
-This step should be done after the joining member has deployed their network successfully. Before a member can join the network and see transaction traffic, an existing member must perform a final configuration on their VPN Gateway to accept the connection. This means the Ethereum nodes of the joining member will not run until a connection is established. This configuration can be done via PowerShell or xPlat CLI. A PowerShell module and xPlat CLI script is also stored on the transaction node, alongside the consortium data. The script location is the deployment output parameters named `PAIR-GATEWAY-PS-MODULE` and `PAIR-GATEWAY-AZURE-CLISCRIPT`, respectively.
+This step should be done after the joining member has deployed their network successfully. Before a member can join the network and see transaction traffic, an existing member must perform a final configuration on their VPN Gateway to accept the connection. This means the Ethereum nodes of the joining member will not run until a connection is established. This configuration can be done via PowerShell or xPlat CLI. A PowerShell module and xPlat CLI script is also stored on the transaction node, alongside the consortium data. The script location is the deployment output parameters named **PAIR-GATEWAY-PS-MODULE** and **PAIR-GATEWAY-AZURE-CLISCRIPT**, respectively.
 
 **PowerShell/CLI Setup**
 
@@ -256,9 +255,9 @@ You will need the latest version of the Azure cmdlets installed locally and a se
 
 **PowerShell: Establish Connection**
 
-Download the PowerShell module and store it locally. The location of the PowerShell module is specified as the `PAIR-GATEWAY-PS-MODULE` template deployment output parameter.
+Download the PowerShell module and store it locally. The location of the PowerShell module is specified as the **PAIR-GATEWAY-PS-MODULE** template deployment output parameter.
 
-If not already enabled, use the Set-ExecutionPolicy cmdlet for the local session to allow running an unsigned module.
+If not already enabled, use the **Set-ExecutionPolicy** cmdlet for the local session to allow running an unsigned module.
 
 **Set-ExecutionPolicy Unrestricted CurrentUser**
 
@@ -272,12 +271,11 @@ Next, import the module:
 
 Finally, run the function with the appropriate input:
 
-
 - **MyGatewayResourceId** : Resource path of your Gateway. This is the template deployment
-    output parameter named `CONSORTIUM_MEMBER_GATEWAY_ID`.
+    output parameter named **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **OtherGatewayResourceId** : Resource path of the joining member's gateway. This is
     provided by the joining member and is the template deployment output parameter of also
-    named `CONSORTIUM_MEMBER_GATEWAY_ID`.
+    named **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **ConnectionName** : A name for you to identify this Gateway connection.
 - **Shared Key** : The pre-established secret between the two members of the consortium
     network that are establishing a connection.
@@ -288,16 +286,15 @@ Finally, run the function with the appropriate input:
 
 **xPlat CLI: Establish Connection**
 
-Download the Azure CLI script and store it locally. The location of the Azure CLI script is specified
-in the template deployment parameter named `PAIR-GATEWAY-AZURE-CLI-SCRIPT.`
+Download the Azure CLI script and store it locally. The location of the Azure CLI script is specified in the template deployment parameter named **PAIR-GATEWAY-AZURE-CLI-SCRIPT**.
 
 Run the script with the appropriate input:
 
 - **MyGatewayResourceId** : Resource path of your Gateway. This is the template deployment
-    output parameter named `CONSORTIUM_MEMBER_GATEWAY_ID`.
+    output parameter named **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **OtherGatewayResourceId** : Resource path of the joining member's gateway. This is
     provided by the joining member and is the template deployment parameter of their
-    deployment also named `CONSORTIUM_MEMBER_GATEWAY_ID`.
+    deployment also named **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **ConnectionName** : A name for you to identify this Gateway connection.
 - **Shared Key** : The pre-established secret between the two members of the consortium
     network that are establishing a connection.
@@ -309,8 +306,7 @@ $MyResourceGroup --vnet-gateway1 $MyGatewayResourceId --shared-key $SharedKey --
 gateway2 $OtherGatewayResourceId --enable-bgp
 ```
 
-The architecture will be as follows after you have successfully configured connection between
-**leader** and **member** deployments.
+The architecture will be as follows after you have successfully configured connection between **leader** and **member** deployments.
 
 ![Leader and member architecture](./media/ethereum-deployment-guide/leader-member.png)
 
@@ -330,7 +326,7 @@ If a custom genesis block is provided without an account or you do not have acce
 
 ## Create Ethereum account
 
-To create an additional account, you can use a variety of solutions. One such solution is MetaMask, a Chrome extension that provides an 'identity vault' and connection to an Ethereum network, public, test or custom. MetaMask formulates a transaction to register the account in the network.
+To create an additional account, you can use a variety of solutions. One such solution is MetaMask, a Chrome extension that provides an identity vault and connection to an Ethereum network, public, test or custom. MetaMask formulates a transaction to register the account in the network.
 
 This transaction, like any other transaction, will go to one of the transaction nodes, and eventually be mined into a block as illustrated below.
 
@@ -344,7 +340,7 @@ Once installed, open MetaMask and create a new vault. By default, the vault will
 
 ![MetaMask settings](./media/ethereum-deployment-guide/metamask-settings.png)
 
-By creating the vault, you create a wallet containing an account. To create additional accounts, select Switch Accounts and then the **+** button as shown below.
+By creating the vault, you create a wallet containing an account. To create additional accounts, select **Switch Accounts** and then the **+** button.
 
 ![MetaMask create account](./media/ethereum-deployment-guide/metamask-create-account.png)
 
@@ -361,7 +357,6 @@ Via the clipboard icon in the MetaMask wallet, copy the address of the Ethereum 
 Once the transaction is committed into a mined block, the account balance in MetaMask for your account will reflect the transfer of 1000 Ether.
 
 ![MetaMask transfer](./media/ethereum-deployment-guide/metamask-transfer.png)
-
 
 ### Transfer of Ether between accounts
 
@@ -380,5 +375,3 @@ Once again, when the transaction is mined and committed into a block, the accoun
 ## Next steps
 
 You are now ready to focus on application and smart contract development against your private consortium blockchain network.
-
-
