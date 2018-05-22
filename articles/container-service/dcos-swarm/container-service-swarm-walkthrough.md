@@ -3,7 +3,7 @@ title: Quickstart - Azure Docker Swarm cluster for Linux
 description: Quickly learn to create a Docker Swarm cluster for Linux containers in Azure Container Service with the Azure CLI.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart

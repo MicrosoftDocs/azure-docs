@@ -75,16 +75,16 @@ BingAPIs-Market: en-US
             "datePublished" : "2014-03-04T11:51:53",
             "publisher" : [
                 {
-                    "name" : "YouTube"
+                    "name" : "Fabrikam"
                 }
             ],
             "creator" : {
-                "name" : "sailaboattv"
+                "name" : "Marcus Appel"
             },
-            "contentUrl" : "https:\/\/www.youtube.com\/watch?v=vzmPjHZ--g",
+            "contentUrl" : "https:\/\/www.fabrikam.com\/watch?v=vzmPjHZ--g",
             "hostPageUrl" : "https:\/\/www.bing.com\/cr?IG=81EF7545D56944...",
             "encodingFormat" : "h264",
-            "hostPageDisplayUrl" : "https:\/\/www.youtube.com\/watch?v=vzmPjBZ--g",
+            "hostPageDisplayUrl" : "https:\/\/www.fabrikam.com\/watch?v=vzmPjBZ--g",
             "width" : 1280,
             "height" : 720,
             "duration" : "PT2M47S",

@@ -32,17 +32,12 @@ When you write orchestrator functions in scripting languages (for example, in th
 {
     "name": "<Name of input parameter in function signature>",
     "orchestration": "<Optional - name of the orchestration>",
-    "version": "<Optional - version label of this orchestrator function>",
     "type": "orchestrationTrigger",
     "direction": "in"
 }
 ```
 
 * `orchestration` is the name of the orchestration. This is the value that clients must use when they want to start new instances of this orchestrator function. This property is optional. If not specified, the name of the function is used.
-* `version` is a version label of the orchestration. Clients that start a new instance of an orchestration must include the matching version label. This property is optional. If not specified, the empty string is used. For more information on versioning, see [Versioning](durable-functions-versioning.md).
-
-> [!NOTE]
-> Setting values for `orchestration` or `version` properties is not recommended at this time.
 
 Internally this trigger binding polls a series of queues in the default storage account for the function app. These queues are internal implementation details of the extension, which is why they are not explicitly configured in the binding properties.
 
@@ -65,12 +60,11 @@ The orchestration trigger binding supports both inputs and outputs. Here are som
 * **inputs** - Orchestration functions support only [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) as a parameter type. Deserialization of inputs directly in the function signature is not supported. Code must use the [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) method to fetch orchestrator function inputs. These inputs must be JSON-serializable types.
 * **outputs** - Orchestration triggers support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
 
-> [!NOTE]
-> Orchestration triggers are only supported in C# at this time.
-
 ### Trigger sample
 
-The following is an example of what the simplest "Hello World" C# orchestrator function might look like:
+The following is an example of what the simplest "Hello World" orchestrator function might look like:
+
+#### C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -81,7 +75,23 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    return `Hello ${name}!`;
+});
+```
+
+> [!NOTE]
+> JavaScript orchestrators should use `return`. The `durable-functions` library takes care of calling the `context.done` method.
+
 Most orchestrator functions call activity functions, so here is a "Hello World" example that demonstrates how to call an activity function:
+
+#### C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -92,6 +102,18 @@ public static async Task<string> Run(
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }
+```
+
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    const result = yield context.df.callActivityAsync("SayHello", name);
+    return result;
+});
 ```
 
 ## Activity triggers
@@ -106,17 +128,12 @@ If you're using the Azure portal for development, the activity trigger is define
 {
     "name": "<Name of input parameter in function signature>",
     "activity": "<Optional - name of the activity>",
-    "version": "<Optional - version label of this activity function>",
     "type": "activityTrigger",
     "direction": "in"
 }
 ```
 
 * `activity` is the name of the activity. This is the value that orchestrator functions use to invoke this activity function. This property is optional. If not specified, the name of the function is used.
-* `version` is a version label of the activity. Orchestrator functions that invoke an activity must include the matching version label. This property is optional. If not specified, the empty string is used. For more information, see [Versioning](durable-functions-versioning.md).
-
-> [!NOTE]
-> Setting values for `activity` or `version` properties is not recommended at this time.
 
 Internally this trigger binding polls a queue in the default storage account for the function app. This queue is an internal implementation detail of the extension, which is why it is not explicitly configured in the binding properties.
 
@@ -140,12 +157,11 @@ The activity trigger binding supports both inputs and outputs, just like the orc
 * **outputs** - Activity functions support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
 * **metadata** - Activity functions can bind to a `string instanceId` parameter to get the instance ID of the parent orchestration.
 
-> [!NOTE]
-> Activity triggers are not currently supported in Node.js functions.
-
 ### Trigger sample
 
-The following is an example of what a simple "Hello World" C# activity function might look like:
+The following is an example of what a simple "Hello World" activity function might look like:
+
+#### C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -156,7 +172,17 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
+#### JavaScript (Functions v2 only)
+
+```javascript
+module.exports = function(context) {
+    context.done(null, `Hello ${context.bindings.name}!`);
+};
+```
+
 The default parameter type for the `ActivityTriggerAttribute` binding is `DurableActivityContext`. However, activity triggers also support binding directly to JSON-serializeable types (including primitive types), so the same function could be simplified as follows:
+
+#### C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -164,6 +190,14 @@ public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
 }
+```
+
+#### JavaScript (Functions v2 only)
+
+```javascript
+module.exports = function(context, name) {
+    context.done(null, `Hello ${name}!`);
+};
 ```
 
 ### Passing multiple parameters 
@@ -298,9 +332,9 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 }
 ```
 
-#### Node.js Sample
+#### JavaScript Sample
 
-The following sample shows how to use the durable orchestration client binding to start a new function instance from a Node.js function:
+The following sample shows how to use the durable orchestration client binding to start a new function instance from a JavaScript function:
 
 ```js
 module.exports = function (context, input) {
