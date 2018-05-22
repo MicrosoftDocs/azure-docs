@@ -11,7 +11,7 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 
