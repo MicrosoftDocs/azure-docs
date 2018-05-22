@@ -3,7 +3,7 @@ title: Load balance containers in Azure DC/OS cluster
 description: Load balance across multiple containers in an Azure Container Service DC/OS cluster.
 services: container-service
 author: rgardler
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial

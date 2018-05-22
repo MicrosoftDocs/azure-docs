@@ -13,6 +13,8 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: carolz
+experimental: true
+experiment_id: "50f26fb6-3aa0-42"
 ---
 
 # Azure Active Directory Documentation
@@ -62,7 +64,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                     <div class="cardText">
                         <h3>External users</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b">Business-to-business (B2B)</a><br/>
+                        <a href="/azure/active-directory/b2b/what-is-b2b">Business-to-business (B2B)</a><br/>
                         <a href="/azure/active-directory-b2c/">Business-to-customer (B2C)</a>
                         </p>
                     </div>
@@ -96,7 +98,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Identity protection</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Conditional access</a><br/>
-                        <a href="/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access">Privileged identity management</a>
+                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure">Privileged identity management</a>
                         </p>
                     </div>
                 </div>

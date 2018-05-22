@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -34,7 +34,10 @@ Set-PSRepository `
 
  Azure Stack compatible AzureRM modules are installed through API version profiles. Azure Stack requires the 2017-03-09-profile API version profile, which is available by installing the AzureRM.Bootstrapper module. 
  
- You can install the Azure Stack PowerShell with or without internet connectivity to the ASDK host computer:
+ You can install the latest Azure Stack PowerShell module with or without internet connectivity to the ASDK host computer:
+
+> [!IMPORTANT]
+> Before installing the required version, make sure that you [uninstall any existing Azure PowerShell modules](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell).
 
 - **With an internet connection** from the ASDK host computer. Run the following PowerShell script to install these modules on your development kit installation:
 

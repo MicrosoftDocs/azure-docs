@@ -32,7 +32,7 @@ In addition to integrating with these two services, IoT Hub also provides its ow
 
 Azure Monitor provides resource-level diagnostics information, which means that you can monitor operations that take place within your IoT hub. 
 
-Azure Monitor's diagnostics settings replaces the IoT Hub operations monitor. If you currently user operations monitoring, you should migrate your workflows. For more information, see [Migrate from operations monitoring to diagnostics settings][lnk-migrate].
+Azure Monitor's diagnostics settings replaces the IoT Hub operations monitor. If you currently use operations monitoring, you should migrate your workflows. For more information, see [Migrate from operations monitoring to diagnostics settings][lnk-migrate].
 
 To learn more about the specific metrics and events that Azure Monitor watches, see [Supported metrics with Azure Monitor][lnk-AM-metrics] and [Supported services, schemas, and categories for Azure Diagnostic Logs][lnk-AM-schemas].
 
@@ -242,7 +242,7 @@ The direct methods category tracks request-reponse interactions sent to individu
 
 After you set up event logging through diagnostics settings, you can create applications that read out the logs so that you can take action based on the information in them. This sample code retrieves logs from an event hub:
 
-```
+```csharp
 class Program 
 { 
     static string connectionString = "{your AMS eventhub endpoint connection string}"; 

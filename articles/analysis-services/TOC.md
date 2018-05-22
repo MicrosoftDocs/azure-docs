@@ -11,6 +11,7 @@
 ## [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)
 
 # Concepts
+## [Automation with service principals](analysis-services-service-principal.md)
 ## [Supported data sources](analysis-services-datasource.md)
 ## [Connecting to on-premises data sources](analysis-services-gateway.md)
 ## [Connecting to servers](analysis-services-connect.md)

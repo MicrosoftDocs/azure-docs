@@ -12,7 +12,7 @@ ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
 ---
-# Tutorial: Create an application gateway with SSL termination using Azure PowerShell
+# Create an application gateway with SSL termination using Azure PowerShell
 
 You can use Azure PowerShell to create an [application gateway](overview.md) with a certificate for [SSL termination](ssl-overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
 

@@ -93,10 +93,10 @@ This property can be read from your device.
 Get the reported properties of the device by running the following command:
 
 ```bash
-az iot hub device-twin update -n <your hub name> -d <your device id> --set properties.reported.interval = 3000
+az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
-One of the properties is $metadata.$lastUpdated which shows the last time this device sends or receives a message.
+One of the twin reported properties is $metadata.$lastUpdated which shows the last time the device app updated its reported property set.
 
 ## Device twin tags
 
