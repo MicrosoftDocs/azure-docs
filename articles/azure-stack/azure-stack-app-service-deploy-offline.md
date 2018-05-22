@@ -78,10 +78,12 @@ To deploy App Service in a disconnected environment, you must first create an of
     1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
         - Provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
     2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
+    
     > [!NOTE]
     > App Service can only be deployed into the **Default Provider Subscription** at this time.  In a future update App Service will deploy into the new Metering Subscription introduced in Azure Stack 1804 and all existing deployments will be migrated to this new subscription also.
     >
     >
+    
     3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
     4. Click **Next**.
 
