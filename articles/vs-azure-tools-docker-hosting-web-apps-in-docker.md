@@ -51,6 +51,6 @@ The following steps guide you through creating a basic ASP.NET Core app that wil
     ![Visual Studio's create Azure Container Registry dialog][0]
 5. Click **Create**
 
-You can now pull the container from any host capable of running Docker images, for example [Azure Container Instances](./container-instances/container-instances-tutorial-deploy-app.md).
+You can now pull the container from the registry to any host capable of running Docker images, for example [Azure Container Instances](./container-instances/container-instances-tutorial-deploy-app.md).
 
 [0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/vs-acr-provisioning-dialog.png
