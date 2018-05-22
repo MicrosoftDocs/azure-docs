@@ -23,7 +23,7 @@ Once your app is published, use the authoring cycle of add features, publish, an
 
 In order for LUIS to be efficient at its job of learning, do not expand the utterances until the current set of both example and endpoint utterances are returning confident, high prediction scores. Improve scores using active learning, patterns, and phrase lists. 
 
-# Do and Don't
+## Do and Don't
 The following list includes best practices for LUIS apps:
 
 |Do|Don't|

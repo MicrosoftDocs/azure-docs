@@ -78,10 +78,12 @@ Another method is to do some preprocessing on the utterance, such as matching on
 
 To improve responsiveness, ordinarily a system is designed to reduce the number of REST API calls. Instead, consider sending the utterance to multiple LUIS apps simultaneously and asynchronously, then pick the intent with the highest score.  
 
-If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. To do so, gather detailed information about your system, go to the [LUIS][LUIS] website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/). 
+If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. To do so, gather detailed information about your system, go to the [LUIS][LUIS] website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/support/options/). 
 
 ## Next steps
 
 * Learn more about [entities](luis-concept-entity-types.md), which are important words relevant to intents
 * Learn how to [add and manage intents](Add-intents.md) in your LUIS app.
 * Review intent [best practices](luis-concept-best-practices.md)
+
+[LUIS]:luis-reference-regions.md#luis-website
