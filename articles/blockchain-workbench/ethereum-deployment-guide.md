@@ -199,15 +199,15 @@ Clicking on the overview will direct you to a portal to view per-node statistics
 
 You can remotely connect to the virtual machines for the transaction nodes via SSH with your provided admin username and password/SSH key. Since the transaction node VMs do not have their own public IP addresses, you will need to go through the load balancer and specify the port number. The SSH command to run to access the first transaction node is listed in the template deployment output parameter as, **SSH_TO_FIRST_TX_NODE** (for the sample deployment: ssh -p 4000 gethadmin@leader4vb.eastus.cloudapp.azure.com). To get to additional transaction nodes, increment the port number by one (For example, the first transaction node is on port 4000).
 
-Since the virtual machines on which the mining nodes run are not externally accessible, you need to go through one of the transaction nodes. Once you have a SSH session to a transaction node, install your private key on the transaction node or use your password to start a SSH session into any of the mining nodes.
+Since the virtual machines on which the mining nodes run are not externally accessible, you need to go through one of the transaction nodes. Once you have an SSH session to a transaction node, install your private key on the transaction node or use your password to start an SSH session into any of the mining nodes.
 
 **Note**
 
-The hostnames can be obtained from Admin Site or from the Azure portal. In Azure portal, the hostnames of nodes present in the virtual machine scale set (VMSS) resource is listed under **Instances**, which differs from the actual hostnames. For example, the hostname in Azure Portal may look like **mn-asdfmv-reg1_0** but the actual hostname would be like **mn-asdfmv-reg**.
+The hostnames can be obtained from Admin Site or from the Azure portal. In Azure portal, the hostnames of nodes present in the virtual machine scale set (VMSS) resource is listed under **Instances**, which differs from the actual hostnames. For example, the hostname in Azure portal may look like **mn-asdfmv-reg1_0** but the actual hostname would be like **mn-asdfmv-reg**.
 
 For example:
 
-Azure Portal hostname| Actual hostname
+Azure portal hostname| Actual hostname
 ---|---
 mn-ethwvu-reg1_0| mn-ethwvu-reg1000000
 mn-ethwvu-reg1_1 |mn-ethwvu-reg1000001
@@ -245,11 +245,11 @@ As the first member (or a connected member) of the consortium, you need to provi
 
 ### Acceptance of new member
 
-This step should be done after the joining member has deployed their network successfully. Before a member can join the network and see transaction traffic, an existing member must perform a final configuration on their VPN Gateway to accept the connection. This means the Ethereum nodes of the joining member will not run until a connection is established. This configuration can be done via PowerShell or xPlat CLI. A PowerShell module and xPlat CLI script is also stored on the transaction node, alongside the consortium data. The script location is the deployment output parameters named **PAIR-GATEWAY-PS-MODULE** and **PAIR-GATEWAY-AZURE-CLISCRIPT**, respectively.
+This step should be done after the joining member has deployed their network successfully. Before a member can join the network and see transaction traffic, an existing member must perform a final configuration on their VPN Gateway to accept the connection. This means the Ethereum nodes of the joining member will not run until a connection is established. This configuration can be done via PowerShell or xPlat CLI. A PowerShell module and xPlat CLI script are also stored on the transaction node, alongside the consortium data. The script location is the deployment output parameters named **PAIR-GATEWAY-PS-MODULE** and **PAIR-GATEWAY-AZURE-CLISCRIPT**, respectively.
 
 **PowerShell/CLI Setup**
 
-Additional information on how to get started with Azure PowerShell cmdlets and Azure xPlat CLI can be found on our Azure documentation pages.
+Additional information on how to get started with Azure PowerShell cmdlets and Azure xPlat CLI can be found in Azure documentation.
 
 You will need the latest version of the Azure cmdlets installed locally and a session open. Make sure to log into the session with your Azure subscription credentials.
 
@@ -316,7 +316,7 @@ The architecture will be as follows after you have successfully configured conne
 
 As the first member, your Ethereum account is funded with one trillion ether if the deployment generates the genesis block (Custom Genesis Block = No). Other members will have an account that is not pre-funded and must wait to accumulate Ether as their mining nodes begin to mine blocks. To avoid having new members wait for Ether, you will need to explicitly fund joining members' Ethereum accounts.
 
-To do so, joining members must provide you with the Ethereum account that is displayed on their admin website. You can then use your admin website to transfer Ether from your account to their account by simply entering the account provided.
+To do so, joining members must provide you with the Ethereum account that is displayed on their admin website. You can then use your admin website to transfer Ether from your account to their account by entering the account provided.
 
 ### Custom genesis block
 
@@ -326,7 +326,7 @@ If a custom genesis block is provided without an account or you do not have acce
 
 ## Create Ethereum account
 
-To create an additional account, you can use a variety of solutions. One such solution is MetaMask, a Chrome extension that provides an identity vault and connection to an Ethereum network, public, test or custom. MetaMask formulates a transaction to register the account in the network.
+To create an additional account, you can use a variety of solutions. One such solution is MetaMask, a Chrome extension that provides an identity vault and connection to an Ethereum network, public, test, or custom. MetaMask formulates a transaction to register the account in the network.
 
 This transaction, like any other transaction, will go to one of the transaction nodes, and eventually be mined into a block as illustrated below.
 
@@ -348,7 +348,7 @@ By creating the vault, you create a wallet containing an account. To create addi
 
 Through the administrator page, you can formulate a transaction to transfer Ether from the pre-allocated account to another Ethereum account. This Ether transfer is a transaction that is sent to the transaction node and mined into a block as illustrated below.
 
-![Tranasction node](./media/ethereum-deployment-guide/transaction-node-mined.png)
+![Transaction node](./media/ethereum-deployment-guide/transaction-node-mined.png)
 
 Via the clipboard icon in the MetaMask wallet, copy the address of the Ethereum account to which you want to transfer ether and go back to the administrator page. Paste the copied account into the input field to transfer 1000 ether from the pre-allocated Ethereum account to your newly created account. Click **Submit** and wait for the transaction to be mined into a block.
 

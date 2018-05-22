@@ -13,18 +13,16 @@ manager: femila
 ---
 # Hyperledger Fabric single member network
 
-Over the past year, we have worked diligently to develop an open blockchain ecosystem on Microsoft Azure for blockchain application development. Our goal has been to empower users to build blockchain solutions easily, with the ledger and development tools of your choice.
-
-Initially, we targeted dev/test topologies to deliver development and demo machines for a variety of protocols. We received ample positive feedback from customers to expand support to more complex topologies as they began working on more advanced scenarios. We have now built out support for Hyperledger Fabric Single Member (multi-node) network solution templates in the Azure marketplace.
+You can use the Hyperledger Fabric Consortium solution template to deploy and configure a Hyperledger Fabric single member (multi-node) network.
 
 After reading this article, you will:
 
 - Obtain working knowledge of blockchain, Hyperledger Fabric, and more complicated consortium network architectures
-- Learn how to deploy and configure a single-member Hyperledger Fabric consortium network from within the Azure Management Portal
+- Learn how to deploy and configure a single-member Hyperledger Fabric consortium network from within the Azure portal
 
 ## About blockchain
 
-For those that are new to the blockchain community, this is a great opportunity to learn about the technology in an easy and configurable manner on Azure. Blockchain is the underlying technology behind Bitcoin; however, it is much more than just an enabler for a virtual currency. It is a composite of existing database, distributed system, and cryptographic technologies that enables secure multi-party computation with guarantees around immutability, verifiability, auditability, and resiliency to attack. Different protocols employ different mechanisms to provide these attributes. [Hyperledger Fabric](https://github.com/hyperledger/fabric) is one such protocol.
+If you are new to the blockchain community, this is a great opportunity to learn about the technology in an easy and configurable manner on Azure. Blockchain is the underlying technology behind Bitcoin; however, it is much more than just an enabler for a virtual currency. It is a composite of existing database, distributed system, and cryptographic technologies that enables secure multi-party computation with guarantees around immutability, verifiability, auditability, and resiliency to attack. Different protocols employ different mechanisms to provide these attributes. [Hyperledger Fabric](https://github.com/hyperledger/fabric) is one such protocol.
 
 ## Consortium architecture on Azure
 
