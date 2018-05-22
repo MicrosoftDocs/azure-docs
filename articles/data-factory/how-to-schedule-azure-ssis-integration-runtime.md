@@ -1,4 +1,4 @@
-Ôªø---
+---
 title: How to schedule Azure SSIS integration runtime | Microsoft Docs
 description: This article describes how to schedule starting and stopping of an Azure SSIS integration runtime by using Azure Automation and Data Factory.
 services: data-factory
@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: douglasl
 
@@ -236,7 +236,7 @@ After you create and test the pipeline, you create a schedule trigger and associ
  
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameMyAzureSsisDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name ‚ÄúMyAzureSsisDataFactory‚Äù is not available`
+       `Data factory name ìMyAzureSsisDataFactoryî is not available`
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
      
