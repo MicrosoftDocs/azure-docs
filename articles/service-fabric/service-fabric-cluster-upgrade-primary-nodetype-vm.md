@@ -44,6 +44,11 @@ Here is the process for updating the VM size and operating system of the primary
 11. If you deployed the stateful application in a previous step, verify that the application is functional.
 
 ```powershell
+# Variables.
+$groupname = "sfupgradetestgroup"
+$clusterloc="southcentralus"  
+$subscriptionID="<your subscription ID>"
+
 # sign in to your Azure account and select your subscription
 Login-AzureRmAccount -SubscriptionId $subscriptionID 
 
