@@ -39,7 +39,7 @@ For information on how to configure data retention for the Windows event logs, s
 
 To ensure the Application Proxy logs do not have personal data, you can either:
 
-- Delete and export requests as they arise, or
+- Delete or view data when needed, or
 - Turn off logging
 
 Use the following sections to remove personal data from connector event logs. You must complete the removal process for all devices on which the connector is installed.
