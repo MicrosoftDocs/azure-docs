@@ -61,17 +61,25 @@
     href: cognitive-search-concept-intro.md
   - name: Full text search
     href: search-lucene-query-architecture.md
-  - name: Linguistic analysis
-    href: search-analyzers.md
-  - name: Indexing
-    href: search-what-is-data-import.md
-  - name: Index definition
-    href: search-what-is-an-index.md
-  - name: Indexers
-    href: search-indexer-overview.md
 - name: How-to guides
   items:
-  - name: Plan & design
+  - name: Cognitive search (Preview)
+    items:
+    - name: Define a skillset
+      href: cognitive-search-defining-skillset.md
+    - name: Reference an annotation
+      href: cognitive-search-concept-annotations-syntax.md
+    - name: Map to index fields
+      href: cognitive-search-output-field-mapping.md
+    - name: Process and extract information from images
+      href: cognitive-search-concept-image-scenarios.md
+    - name: Integrate custom skills
+      href: cognitive-search-custom-skill-interface.md
+    - name: Example - custom skills
+      href: cognitive-search-create-custom-skill-example.md
+    - name: Troubleshooting tips
+      href: cognitive-search-concept-troubleshooting.md
+  - name: Planning
     items:
     - name: Choose a tier
       href: search-sku-tier.md
@@ -117,20 +125,34 @@
         href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
-    - name: Model complex data types
-      href: search-howto-complex-data-types.md
-    - name: Handle concurrent updates
-      href: search-howto-concurrency.md
-    - name: Paging results
-      href: search-pagination-page-layout.md
-  - name: Text analysis
-    items:
-    - name: Language analyzers
-      href: https://docs.microsoft.com/rest/api/searchservice/language-support
-    - name: Custom analyzers
-      href: https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search
+    - name: Index design
+      items:
+      - name: Index definition
+        href: search-what-is-an-index.md
+      - name: Auto-suggestions
+        href: https://docs.microsoft.com/rest/api/searchservice/suggesters
+      - name: Linguistic analysis
+        items:
+        - name: Text Analyzers
+          href: search-analyzers.md
+        - name: Language analyzers API
+          href: https://docs.microsoft.com/rest/api/searchservice/language-support
+        - name: Custom analyzers API
+          href: https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search
+      - name: Faceted navigation
+        href: search-faceted-navigation.md
+      - name: Model complex data types
+        href: search-howto-complex-data-types.md
+      - name: Relevance tuning
+        href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
+      - name: Synonyms (Preview)
+        href: search-synonyms.md
   - name: Indexing data
     items:
+    - name: Push vs. Pull
+      href: search-what-is-data-import.md
+    - name: Indexers overview
+      href: search-indexer-overview.md
     - name: Azure Blob storage indexer
       href: search-howto-indexing-azure-blob-storage.md
     - name: Azure Table storage indexer
@@ -148,24 +170,10 @@
     - name: Field mappings in indexers
       href: search-indexer-field-mappings.md
     - name: Rebuild an index
-      href: search-howto-reindex.md 
-  - name: Cognitive search (Preview)
-    items:
-    - name: Define a skillset
-      href: cognitive-search-defining-skillset.md
-    - name: Reference an annotation
-      href: cognitive-search-concept-annotations-syntax.md
-    - name: Map to index fields
-      href: cognitive-search-output-field-mapping.md
-    - name: Process and extract information from images
-      href: cognitive-search-concept-image-scenarios.md
-    - name: Integrate custom skills
-      href: cognitive-search-custom-skill-interface.md
-    - name: Example - custom skills
-      href: cognitive-search-create-custom-skill-example.md
-    - name: Troubleshooting tips
-      href: cognitive-search-concept-troubleshooting.md
-  - name: Full text search
+      href: search-howto-reindex.md
+    - name: Handle concurrent updates
+      href: search-howto-concurrency.md
+  - name: Searching data
     items:
     - name: Basic query construction
       href: search-query-overview.md
@@ -173,16 +181,10 @@
       href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
     - name: Lucene query syntax
       href: https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search
-    - name: Lucene syntax query examples
+    - name: Lucene query examples
       href: search-query-lucene-examples.md
-    - name: Faceted navigation
-      href: search-faceted-navigation.md
-    - name: Scoring profiles
-      href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
-    - name: Suggestions
-      href: https://docs.microsoft.com/rest/api/searchservice/suggesters
-    - name: Synonyms (Preview)
-      href: search-synonyms.md
+    - name: Paging results
+      href: search-pagination-page-layout.md
   - name: Filters
     items:
     - name: Filter overview
