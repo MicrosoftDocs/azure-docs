@@ -2,7 +2,7 @@
 title: Agile development of data science projects - Azure Machine Learning | Microsoft Docs
 description: How developers can execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 

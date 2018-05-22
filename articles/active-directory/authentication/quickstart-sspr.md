@@ -1,22 +1,17 @@
 ---
 title: Self-service password reset quickstart - Azure Active Directory
 description: Rapidly deploy Azure AD self-service password reset
+
 services: active-directory
-keywords: 
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 01/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
-ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro;seohack1
 
 ---
 # Azure AD self-service password reset rapid deployment
@@ -29,6 +24,8 @@ Self-service password reset (SSPR) offers a simple means for IT administrators t
 This guide assumes you already have a working trial or licensed Azure Active Directory (Azure AD) tenant. If you need help setting up Azure AD, see [Getting started with Azure AD](../get-started-azure-ad.md).
 
 ## Enable SSPR for your Azure AD tenant
+
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
 
 1. From your existing Azure AD tenant, on the **Azure Portal** under **Azure Active Directory** select **Password reset**.
 

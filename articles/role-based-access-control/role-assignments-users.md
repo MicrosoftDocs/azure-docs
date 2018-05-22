@@ -6,10 +6,10 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: jeffsta
+editor: ''
 
 ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

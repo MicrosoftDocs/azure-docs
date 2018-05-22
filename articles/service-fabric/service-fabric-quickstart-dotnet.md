@@ -107,6 +107,7 @@ To look at what happens in the code, complete the following steps:
     - Finally, return the response from the back-end service to the client **(3)**.
 
 4. Press **F5** to continue
+    - If prompted by the browser, grant ServiceFabricAllowedUsers group read and execute permissions for Debug Mode.
     - You are now at the break point in the back-end service.
     
     ![Add Vote Back-End Service](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
@@ -171,15 +172,17 @@ Now that the application is ready, you can deploy it to a cluster directly from 
     ![Application front end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## Scale applications and services in a cluster
-Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Service Fabric CLI (sfctl). In this example, use Service Fabric Explorer.
+Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Service Fabric CLI (sfctl). This example uses Service Fabric Explorer.
 
-Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 
-You may receive a browser warning that the location is not trusted. This is because the certificate is self-signed. You may choose to ignore the warning and proceed. When prompted by the browser, select the installed certificate to connect. 
+You may receive a browser warning that the location is not trusted. This is because the certificate is self-signed. You may choose to ignore the warning and proceed.
+1. When prompted by the browser, select the installed certificate to connect. The party cluster certificate you select from the list must match the party cluster that you are attempting to access. For example, win243uja6w62r.westus.cloudapp.azure.com.
+2. If prompted by the browser, grant access to your CryptoAPI Private Key for this session.
 
 To scale the web front-end service, do the following steps:
 
-1. Open Service Fabric Explorer in your cluster - for example,`http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+1. Open Service Fabric Explorer in your cluster - for example,`https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 2. In the tree view, expand **Applications**->**VotingType**->**fabric:/Voting**. Click on the ellipsis (three dots) next to the **fabric:/Voting/VotingWeb** node in the treeview and choose **Scale Service**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)

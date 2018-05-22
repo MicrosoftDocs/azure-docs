@@ -4,7 +4,7 @@ description: Reference documentation for Azure CDN rules engine features.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 
 ---
@@ -390,7 +390,7 @@ Configure this feature by defining both of the following options:
 Option|Description
 --|--
 Original Path| Define the relative path to the types of requests whose cache-key is rewritten. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern.
-New Path|Define the relative path for the new cache-key. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern. This relative path can be dynamically constructed through the use of HTTP variables
+New Path|Define the relative path for the new cache-key. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern. This relative path can be dynamically constructed through the use of [HTTP variables](cdn-http-variables.md).
 **Default Behavior:** A request's cache-key is determined by the request URI.
 
 [Back to top](#azure-cdn-rules-engine-features)
@@ -883,9 +883,9 @@ One of the following actions can be performed on a request header:
 
 Option|Description|Example
 -|-|-
-Append|The specified value will be added to the end of the existing request header value.|**Request header value (Client):**Value1 <br/> **Request header value (HTTP Rules Engine):** Value2 <br/>**New request header value:** Value1Value2
-Overwrite|The request header value will be set to the specified value.|**Request header value (Client):**Value1 <br/>**Request header value (HTTP Rules Engine):** Value2 <br/>**New request header value:** Value2 <br/>
-Delete|Deletes the specified request header.|**Request header value (Client):**Value1 <br/> **Modify Client Request Header configuration:** Delete the request header in question. <br/>**Result:** The specified request header will not be forwarded to the origin server.
+Append|The specified value will be added to the end of the existing request header value.|**Request header value (client):**<br/>Value1<br/>**Request header value (rules engine):**<br/>Value2 <br/>**New request header value:** <br/>Value1Value2
+Overwrite|The request header value will be set to the specified value.|**Request header value (client):**<br/>Value1<br/>**Request header value (rules engine):**<br/>Value2<br/>**New request header value:**<br/> Value2 <br/>
+Delete|Deletes the specified request header.|**Request header value (client):**<br/>Value1<br/>**Modify client request header configuration:**<br/>Delete the request header in question.<br/>**Result:**<br/>The specified request header will not be forwarded to the origin server.
 
 Key information:
 
@@ -921,9 +921,9 @@ One of the following actions can be performed on a response header:
 
 Option|Description|Example
 -|-|-
-Append|The specified value will be added to the end of the existing response header value.|**Response header value (Client):**Value1 <br/> **Response header value (HTTP Rules Engine):** Value2 <br/>**New Response header value:** Value1Value2
-Overwrite|The response header value will be set to the specified value.|**Response header value (Client):**Value1 <br/>**Response header value (HTTP Rules Engine):** Value2 <br/>**New response header value:** Value2 <br/>
-Delete|Deletes the specified response header.|**Response header value (Client):** Value1 <br/> **Modify Client Response Header configuration:** Delete the response header in question. <br/>**Result:** The specified response header will not be forwarded to the requester.
+Append|The specified value will be added to the end of the existing response header value.|**Response header value (client):**<br />Value1<br/>**Response header value (rules engine):**<br/>Value2<br/>**New response header value:**<br/>Value1Value2
+Overwrite|The response header value will be set to the specified value.|**Response header value (client):**<br/>Value1<br/>**Response header value (rules engine):**<br/>Value2 <br/>**New response header value:**<br/>Value2 <br/>
+Delete|Deletes the specified response header.|**Response header value (client):**<br/>Value1<br/>**Modify client response header configuration:**<br/>Delete the response header in question.<br/>**Result:**<br/>The specified response header will not be forwarded to the requester.
 
 Key information:
 
@@ -1233,34 +1233,34 @@ The configuration of this feature requires setting the following options:
 Option|Description
 -|-
 Code|Select the response code that will be returned to the requester.
-Source & Pattern| These settings define a request URI pattern that identifies the type of requests that may be redirected. Only requests whose URL satisfies both of the following criteria will be redirected: <br/> <br/> **Source (or content access point):** Select a relative path that identifies an origin server. This path is the  _/XXXX/_ section and your endpoint name. <br/> **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> - Ensure that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any match conditions defined for this feature. <br/> - Specify a pattern; if you use a blank value as the pattern, all strings are matched.
-Destination| Define the URL to which the above requests will be redirected. <br/> Dynamically construct this URL using: <br/> - A regular expression pattern <br/>- HTTP variables <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. <br/> 
+Source & Pattern| These settings define a request URI pattern that identifies the type of requests that may be redirected. Only requests whose URL satisfies both of the following criteria will be redirected: <br/> <br/> **Source (or content access point):** Select a relative path that identifies an origin server. This path is the  _/XXXX/_ section and your endpoint name. <br/><br/> **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> - Ensure that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any match conditions defined for this feature. <br/> - Specify a pattern; if you use a blank value as the pattern, all strings are matched.
+Destination| Define the URL to which the above requests will be redirected. <br/><br/> Dynamically construct this URL using: <br/> - A regular expression pattern <br/>- [HTTP variables](cdn-http-variables.md) <br/><br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. <br/> 
 It is highly recommended to use an absolute URL. The use of a relative URL may redirect CDN URLs to an invalid path.
 
 **Sample Scenario**
 
 This example, demonstrates how to redirect an edge CNAME URL that resolves to this base CDN URL:
-http://marketing.azureedge.net/brochures
+http:\//marketing.azureedge.net/brochures
 
 Qualifying requests will be redirected to this base edge CNAME URL:
-http://cdn.mydomain.com/resources
+http:\//cdn.mydomain.com/resources
 
 This URL redirection may be achieved through the following configuration:
-![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+![URL redirect](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Key points:**
 
 - The URL Redirect feature defines the request URLs that will be redirected. As a result, additional match conditions are not required. Although the match condition was defined as "Always," only requests that point to the "brochures" folder on the "marketing" customer origin will be redirected. 
 - All matching requests will be redirected to the edge CNAME URL defined in the Destination option. 
 	- Sample scenario #1: 
-		- Sample request (CDN URL): http://marketing.azureedge.net/brochures/widgets.pdf 
-		- Request URL (after redirect): http://cdn.mydomain.com/resources/widgets.pdf  
+		- Sample request (CDN URL): http:\//marketing.azureedge.net/brochures/widgets.pdf 
+		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/widgets.pdf  
 	- Sample scenario #2: 
-		- Sample request (Edge CNAME URL): http://marketing.mydomain.com/brochures/widgets.pdf 
-		- Request URL (after redirect): http://cdn.mydomain.com/resources/widgets.pdf  Sample scenario
+		- Sample request (Edge CNAME URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
+		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/widgets.pdf  Sample scenario
 	- Sample scenario #3: 
-		- Sample request (Edge CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-		- Request URL (after redirect): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+		- Sample request (Edge CNAME URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
+		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - The Request Scheme (%{scheme}) variable is leveraged in the Destination option, which ensures that the request's scheme remains unchanged after redirection.
 - The URL segments that were captured from the request are appended to the new URL via "$1."
 
@@ -1278,27 +1278,27 @@ Key information:
 
 Option|Description
 -|-
- Source & Pattern | These settings define a request URI pattern that identifies the type of requests that may be rewritten. Only requests whose URL satisfies both of the following criteria will be rewritten: <br/>     - **Source (or content access point):** Select a relative path that identifies an origin server. This path is the  _/XXXX/_ section and your endpoint name. <br/> - **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> Verify that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any of the match conditions defined for this feature. Specify a pattern; if you use a blank value as the pattern, all strings are matched. 
- Destination  |Define the relative URL to which the above requests will be rewritten by: <br/>    1. Selecting a content access point that identifies an origin server. <br/>    2. Defining a relative path using: <br/>        - A regular expression pattern <br/>        - HTTP variables <br/> <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. 
+ Source & Pattern | These settings define a request URI pattern that identifies the type of requests that may be rewritten. Only requests whose URL satisfies both of the following criteria will be rewritten: <br/><br/>  - **Source (or content access point):** Select a relative path that identifies an origin server. This path is the  _/XXXX/_ section and your endpoint name. <br/><br/> - **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> Verify that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any of the match conditions defined for this feature. Specify a pattern; if you use a blank value as the pattern, all strings are matched. 
+ Destination  |Define the relative URL to which the above requests will be rewritten by: <br/>    1. Selecting a content access point that identifies an origin server. <br/>    2. Defining a relative path using: <br/>        - A regular expression pattern <br/>        - [HTTP variables](cdn-http-variables.md) <br/> <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. 
  This feature allows the POPs to rewrite the URL without performing a traditional redirect. That is, the requester receives the same response code as if the rewritten URL had been requested.
 
 **Sample Scenario 1**
 
 This example demonstrates how to redirect an edge CNAME URL that resolves to this base CDN URL:
-http://marketing.azureedge.net/brochures/
+http:\//marketing.azureedge.net/brochures/
 
 Qualifying requests will be redirected to this base edge CNAME URL:
-http://MyOrigin.azureedge.net/resources/
+http:\//MyOrigin.azureedge.net/resources/
 
 This URL redirection may be achieved through the following configuration:
-![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+![URL redirect](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Sample Scenario 2**
 
 This example demonstrates how to redirect an edge CNAME URL from UPPERCASE to lowercase using regular expressions.
 
 This URL redirection may be achieved through the following configuration:
-![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+![URL redirect](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Key points:**
