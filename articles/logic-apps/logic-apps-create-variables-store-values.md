@@ -31,7 +31,7 @@ for example:
 
 * Increase the value in a variable.
 * Decrease the value in a variable.
-* Change the value in a variable.
+* Assign a different value to a variable.
 * Add the value in a variable to the end of an array.
 * Add the value in a variable to the end of a string.
 
@@ -100,14 +100,14 @@ When you're done, on the designer toolbar, choose **Save**.
 
 <a name="change-variable-value"></a>
 
-## Change values in variables
+## Change values in a variable
 
 In Logic App Designer, you have a few ways that you 
 can change the value in an existing variable. 
 
 * [Add a value or "increment" the variable](#increment-value).
 * [Subtract a value or "decrement" the variable](#decrement-value).
-* [Assign a specific value to the variable](#set-value).
+* [Assign a specific value to the variable](#assign-value).
 
 If you don't have an existing variable yet, 
 [create that variable now](#create-variable).
@@ -119,10 +119,9 @@ If you don't have an existing variable yet,
 To increase a variable by a specific value, add the 
 **Variables - Increment variable** action to your logic app. 
 
-1. In Logic App Designer, under the step where you want 
-to increase an existing variable, choose 
-**New step** > **Add an action**. 
-For example:
+1. In Logic App Designer, under the step where 
+you want to increase an existing variable, 
+choose **New step** > **Add an action**. For example:
 
    ![Add action](./media/logic-apps-create-variables-store-values/add-increment-variable-action.png)
 
@@ -151,7 +150,7 @@ In the actions list, select this action:
 
 4. When you're done, on the designer toolbar, choose **Save**.
 
-*Example: Count loop cycles*
+#### Example: Count loop cycles
 
 Variables often perform the work for 
 counting how many times a loop runs. 
@@ -165,51 +164,120 @@ email has one or more attachments.
    This example uses the Office 365 Outlook trigger 
    for **When a new email arrives**. However, 
    you can use any connector that checks 
-   for email with attachments, such as the 
-   Outlook.com trigger.
+   for new email with attachments, 
+   such as the Outlook.com connector.
 
 2. Set up the trigger to check for attachments 
 and include those attachments as inputs 
-in the workflow. For this example, 
-choose **Show advanced options** in the trigger. 
-Set the **Has Attachment** and **Include Attachments** 
-properties to **Yes**.
+in the workflow. 
 
-   ![Check for and include attachments](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
+   1. In this example, inside the trigger, 
+   choose **Show advanced options**. 
 
-2. Create an integer variable for tracking the number of attachments, for example:
+   2. Set these properties to **Yes**: 
+   
+      * **Has Attachment** 
+      * **Include Attachments** 
+
+      ![Check for and include attachments](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
+
+3. Add the [**Initialize variable**](#create-variable) 
+action so that you can create an integer variable that 
+tracks the number of attachments, for example:
 
    ![Add action for "Initialize variable"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
-3. Add a "for each" loop that cycles through the attachments. 
+4. Under the previous action, add a "for each" 
+loop that cycles through each attachment. 
 (Choose **New step** > **More** > **Add a for each**)
 
-   ![Add "for each" loop](./media/logic-apps-create-variables-store-values/add-loop.png)
+   ![Add a "for each" loop](./media/logic-apps-create-variables-store-values/add-loop.png)
 
-4. In the **For each** loop, 
+5. In the **For each** loop, 
 click inside the **Select an output from previous steps** box. 
 When the dynamic content list appears, 
-select **Attachments**, which is an output from the trigger.
+select **Attachments**. 
 
    ![Select "Attachments"](./media/logic-apps-create-variables-store-values/select-attachments.png)
 
-5. In the "for each" loop, select **Add an action**. 
+   The **Attachments** field represents an array that 
+   has the email attachments as output from the trigger.
+
+6. In the "for each" loop, select **Add an action**. 
 
    ![Select "Add an action"](./media/logic-apps-create-variables-store-values/add-action-2.png)
 
-6. In the search box, enter "increment variable" as your filter. 
-From the actions list, select the **Variables - Increment variable** action.
+7. In the search box, enter "increment variable" as your filter. 
+From the actions list, select the **Increment variable** action.
 
-   > Check that the **Increment variable** 
+   > Make sure the **Increment variable** 
    > action appears inside the loop. 
    > If the action appears outside the loop,
    > drag the action into the loop.
 
-7. In the **Increment variable** action, 
-select the **Count** variable from the **Name** list.
+8. In the **Increment variable** action, 
+select the **Count** variable from the **Name** list. 
+
+   ![Select "Add an action"](./media/logic-apps-create-variables-store-values/add-increment-variable-example.png)
+
+   The default incremental value is one, 
+   so you don't have to specify a value for this example. 
+
+9. Outside the loop, add an action that 
+sends you the total number of attachments. 
+This example sends an email with the results.
+
+   ![Add an action that sends results](./media/logic-apps-create-variables-store-values/send-email-results.png)
+
+10. Save your logic app. On the designer toolbar, choose **Save**. 
+
+*Test your logic app*
+
+1. If your logic app isn't running already, on the logic app menu, 
+choose **Overview**, and on the **Overview** page, choose **Enable**. 
+
+2. Send an email that has one or more attachments 
+to the email account that you used in this example.
+
+3. On the Logic App Designer, choose **Run**. 
+This step manually and immediately starts your logic app.
+
+After your logic app finishes running, 
+you get an email with the number of attachments 
+for the email that you sent to yourself. 
+
+<a name="decrement-value"></a>
+
+### Decrement variable
+
+The steps for decreasing an existing variable by a specific value are 
+similar to [increasing a variable](#increment-value) except
+that you select the **Variables - Decrement variable** action instead. 
+This action subtracts your specified value from the variable's current value. 
+The default value for this action is also one.
+
+<a name="assign-value"></a>
+
+### Assign a specific value 
+
+The steps for setting an existing variable to a specific value are 
+similar to [increasing a variable](#increment-value) and 
+[decreasing a variable](#decrement-value) except: 
+
+* You select the **Variables - Set variable** action instead. 
+
+* You must specify the new value to assign the variable. 
+This action doesn't have a default value. 
+
+## Append variable
 
 
 
+## Get support
 
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
+## Next steps
 
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
