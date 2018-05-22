@@ -44,7 +44,7 @@ Alternately, you can automate Mobility Service installation with [Azure Automati
 4. Copy the **MobSvc.passphrase** file into the **MobSvcWindows** folder on your network share.
 5. Browse to the installer repository on the configuration server by running the following command:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Copy the **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** to the **MobSvcWindows** folder on your network share.
 7. Copy the following code, and save it as **install.bat** into the **MobSvcWindows** folder.
@@ -225,7 +225,7 @@ You can monitor the deployment progress by using the Configuration Manager conso
 4. Copy the **MobSvc.passphrase** file into the **MobSvcLinux** folder on your network share.
 5. Browse to the installer repository on the configuration server by running the command:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Copy the following files to the **MobSvcLinux** folder on your network share:
    * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz

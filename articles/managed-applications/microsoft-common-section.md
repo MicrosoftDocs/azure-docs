@@ -1,13 +1,13 @@
 ---
 title: Azure Section UI element | Microsoft Docs
 description: Describes the Microsoft.Common.Section UI element for Azure portal.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na

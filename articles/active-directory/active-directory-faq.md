@@ -172,7 +172,7 @@ For more information, see:
 * Direct sign-in to federated apps
 * Deep links to federated, password-based, or existing apps
 
-For more information, see [Deploying Azure AD integrated applications to users](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+For more information, see [Deploying Azure AD integrated applications to users](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 
 - - -
 **Q: What are the different ways Azure AD enables authentication and single sign-on to applications?**
@@ -183,14 +183,14 @@ For more information, see:
 
 * [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md)
 * [Active Directory authentication protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [How does single sign-on with Azure Active Directory work?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [How does single sign-on with Azure Active Directory work?](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 **Q: Can I add applications I’m running on-premises?**
 
 **A:** Azure AD Application Proxy provides you with easy and secure access to on-premises web applications that you choose. You can access these applications in the same way that you access your software as a service (SaaS) apps in Azure AD. There is no need for a VPN or to change your network infrastructure.  
 
-For more information, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+For more information, see [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
 
 - - -
 **Q: How do I require multi-factor authentication for users who access a particular application?**

@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/08/2017
-ms.author: brumba
+ms.author: brumbaug
 ---
 
 # Build a console app search client in C#

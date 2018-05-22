@@ -121,9 +121,10 @@ The following steps show you how to create an IoT Edge module based on .NET core
     // Read TemperatureThreshold from Module Twin Desired Properties
     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
     var moduleTwinCollection = moduleTwin.Properties.Desired;
-    if (moduleTwinCollection["TemperatureThreshold"] != null)
-    {
+    try {
         temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    } catch(ArgumentOutOfRangeException e) {
+        Console.WriteLine("Property TemperatureThreshold not exist");
     }
 
     // Attach callback for Twin desired properties updates
