@@ -6946,6 +6946,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/search/search-api-2017-11-11-preview.md",
+            "redirect_url": "/azure/search/search-api-preview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/search/search-api-2016-09-01-preview.md",
+            "redirect_url": "/azure/search/search-api-2017-11-11-preview",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/search/search-api-2015-02-28-preview.md",
             "redirect_url": "articles/search/search-api-2016-09-01-preview.md",
             "redirect_document_id": false
@@ -21753,6 +21763,11 @@
         {
             "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
             "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-gdpr.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-remove-personal-data",
             "redirect_document_id": true
         },
         {
