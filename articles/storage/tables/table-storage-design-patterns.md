@@ -57,7 +57,7 @@ Consider the following points when deciding how to implement this pattern:
 
 * Table storage is relatively cheap to use so the cost overhead of storing duplicate data should not be a major concern. However, you should always evaluate the cost of your design based on your anticipated storage requirements and only add duplicate entities to support the queries your client application will execute.  
 * Because the secondary index entities are stored in the same partition as the original entities, you should ensure that you do not exceed the scalability targets for an individual partition.  
-* You can keep your duplicate entities consistent with each other by using EGTs to update the two copies of the entity atomically. This implies that you should store all copies of an entity in the same partition. For more information, see the section [Using Entity Group Transactions](table-storage-design#entity-group-transactions).  
+* You can keep your duplicate entities consistent with each other by using EGTs to update the two copies of the entity atomically. This implies that you should store all copies of an entity in the same partition. For more information, see the section [Using Entity Group Transactions](table-storage-design.md#entity-group-transactions).  
 * The value used for the **RowKey** must be unique for each entity. Consider using compound key values.  
 * Padding numeric values in the **RowKey** (for example, the employee id 000223), enables correct sorting and filtering based on upper and lower bounds.  
 * You do not necessarily need to duplicate all the properties of your entity. For example, if the queries that lookup the entities using the email address in the **RowKey** never need the employee's age, these entities could have the following structure:
@@ -908,7 +908,7 @@ Note that each entity must still have **PartitionKey**, **RowKey**, and **Timest
 
 The first option, prepending the entity type to the **RowKey**, is useful if there is a possibility that two entities of different types might have the same key value. It also groups entities of the same type together in the partition.  
 
-The techniques discussed in this section are especially relevant to the discussion [Inheritance relationships](table-storage-design-modeling#inheritance-relationships) earlier in this guide in the section [Modeling relationships](table-storage-design-modeling#modeling-relationships).  
+The techniques discussed in this section are especially relevant to the discussion [Inheritance relationships](table-storage-design-modeling.md#inheritance-relationships) earlier in this guide in the section [Modeling relationships](table-storage-design-modeling.md#modeling-relationships).  
 
 > [!NOTE]
 > You should consider including a version number in the entity type value to enable client applications to evolve POCO objects and work with different versions.  

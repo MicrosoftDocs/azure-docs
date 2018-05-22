@@ -90,7 +90,7 @@ Many designs must meet requirements to enable lookup of entities based on multip
 
 * [Intra-partition secondary index pattern](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - Store multiple copies of each entity using different **RowKey** values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
 * [Inter-partition secondary index pattern](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Store multiple copies of each entity using different **RowKey** values in separate partitions or in separate tables to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
-* [Index Entities Pattern](table-storage-design-patterns#index-entities-pattern) - Maintain index entities to enable efficient searches that return lists of entities.  
+* [Index Entities Pattern](table-storage-design-patterns.md#index-entities-pattern) - Maintain index entities to enable efficient searches that return lists of entities.  
 
 ## Sorting data in the Table service
 The Table service returns entities sorted in ascending order based on **PartitionKey** and then by **RowKey**. These keys are string values and to ensure that numeric values sort correctly, you should convert them to a fixed length and pad them with zeroes. For example, if the employee id value you use as the **RowKey** is an integer value, you should convert employee id **123** to **00000123**.  

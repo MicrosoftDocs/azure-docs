@@ -36,7 +36,7 @@ An alternative approach is to denormalize your data and store only employee enti
 
 ![Employee entity](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
 
-For more information, see the [Denormalization pattern](table-storage-design-patterns#Denormalization-pattern) later in this guide.  
+For more information, see the [Denormalization pattern](table-storage-design-patterns.md#Denormalization-pattern) later in this guide.  
 
 The following table summarizes the pros and cons of each of the approaches outlined above for storing employee and department entities that have a one-to-many relationship. You should also consider how often you expect to perform various operations: it may be acceptable to have a design that includes an expensive operation if that operation only happens infrequently.  
 
@@ -100,7 +100,7 @@ Domain models may include one-to-one relationships between entities. If you need
 
 Note that there are also implementation considerations that might lead you to implement one-to-one relationships in the Table service:  
 
-* Handling large entities (for more information, see [Large Entities Pattern](table-storage-design-patterns#large-entities-pattern)).  
+* Handling large entities (for more information, see [Large Entities Pattern](table-storage-design-patterns.md#large-entities-pattern)).  
 * Implementing access controls (for more information, see [Controlling access with Shared Access Signatures](#controlling-access-with-shared-access-signatures)).  
 
 ## Join in the client
