@@ -38,12 +38,13 @@ Keep in mind the following points about the preview:
 >
 > During the preview, role assignments may take up to five minutes to propagate.  
 
+For additional information, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
+
 ## Next Steps
 
 - To learn more about RBAC roles for Azure Storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
 - To learn how to authenticate with Azure AD from your Azure Storage applications, see [Authenticate with Azure AD from an Azure Storage application (Preview)](storage-auth-aad-app.md)
 - To learn how to authenticate with Azure AD from an Azure VM Managed Service Identity (MSI), see [Authenticate with Azure AD from an Azure VM Managed Service Identity (Preview)](storage-auth-aad-msi.md).
-- See the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
-
+- To learn how to log into Azure CLI and PowerShell with an Azure AD identity, see [Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)](storage-auth-aad-script.md).
 
 

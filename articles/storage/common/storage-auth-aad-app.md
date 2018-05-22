@@ -61,9 +61,7 @@ The **Required Permissions** windows now shows that your Azure AD application ha
 
 ## .NET code example: Create a block blob
 
-The code example shows how to get an access token from Azure AD. The access token is used to authenticate the specified user and then authorize a request to create a block blob. This example authenticates a user, but you can use a similar approach to authenticate a group or service principal.
-
-To get this sample working, first follow the steps outlined in the preceding sections. Also, make sure that the user specified in the method that retrieves the access token has been assigned the Blob Data Contributor RBAC role, even if that user is yourself.
+The code example shows how to get an access token from Azure AD. The access token is used to authenticate the specified user and then authorize a request to create a block blob. To get this sample working, first follow the steps outlined in the preceding sections.
 
 ### Endpoints for authentication with Azure AD
 
@@ -104,13 +102,10 @@ Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0-Previe
 Next, add the following using statements to your code:
 
 ```dotnet
-using System.Web.Script.Serialization;
 using Microsoft.IdentityModel.Clients.ActiveDirectory; //ADAL client library for getting the access token
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
-
-You'll need to explicitly reference the **System.Web.Extensions** package in order to resolve members of the `System.Web.Script.Serialization` assembly. For more information, see [How to: Add or remove references by using the Reference Manager](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager).
 
 ### Get an OAuth token from Azure AD
 
@@ -156,7 +151,8 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 ## Next steps
 
 - To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
-- 
+- To learn about using Managed Service Identity with Azure Storage, see [Authenticate with Azure AD from an Azure Managed Service Identity (Preview)](storage-auth-aad-msi.md).
+- To learn how to log into Azure CLI and PowerShell with an Azure AD identity, see [Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)](storage-auth-aad-script.md).
 
 
 
