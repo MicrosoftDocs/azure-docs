@@ -74,5 +74,5 @@ One option to ensure the connector logs do not contain personal information is t
 
 ## Next steps
 
-For an overview of the Azure AD application proxy, see [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
+For an overview of the Azure AD application proxy, see [How to provide secure remote access to on-premises applications](application-proxy.md).
 
