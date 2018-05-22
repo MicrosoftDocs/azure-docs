@@ -9,28 +9,34 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy to the edge - Linux/Mac
-    href: quickstart-linux.md
-  - name: Deploy to the edge - Windows
-    href: quickstart.md
+  - name: Run code at the edge
+    items:
+    - name: Linux/Mac
+      href: quickstart-linux.md
+    - name: Windows
+      href: quickstart.md
 - name: Tutorials
   items:
-  - name: Simulate an Edge device - Linux/Mac
-    href: tutorial-simulate-device-linux.md
-  - name: Simulate an Edge device - Windows
-    href: tutorial-simulate-device-windows.md
-  - name: Deploy code in a module
+  - name: Install IoT Edge and simulate a sensor
+    items: 
+    - name: Linux/Mac
+      href: tutorial-simulate-device-linux.md
+    - name: Windows
+      href: tutorial-simulate-device-windows.md
+  - name: Find insights at the edge
     items:
-    - name: C#
-      href: tutorial-csharp-module.md
-    - name: Python
-      href: tutorial-python-module.md
-  - name: Deploy Azure Stream Analytics
-    href: tutorial-deploy-stream-analytics.md
-  - name: Deploy Azure Machine Learning
-    href: tutorial-deploy-machine-learning.md
-  - name: Deploy Azure Functions
-    href: tutorial-deploy-function.md
+    - name: Filter data with Azure Functions
+      href: tutorial-deploy-function.md
+    - name: Find averages with ASA
+      href: tutorial-deploy-stream-analytics.md
+    - name: Score data with Azure ML
+      href: tutorial-deploy-machine-learning.md
+    - name: Filter data with custom code
+      items:
+      - name: C#
+        href: tutorial-csharp-module.md
+      - name: Python
+        href: tutorial-python-module.md
 - name: How-to guides
   items:
   - name: Create gateways
