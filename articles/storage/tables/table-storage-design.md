@@ -1,5 +1,5 @@
 ---
-title: Design Scalable and Performant Tables | Microsoft Docs
+title: Design scalable and performant tables | Microsoft Docs
 description: Design scalable and performant tables in Azure Table storage.
 services: storage
 documentationcenter: na
@@ -162,7 +162,7 @@ Table storage is relatively inexpensive, but you should include cost estimates f
 ## Next steps
 
 - [Table Design Patterns](table-storage-design-patterns.md)
-- [Modeling relationships](table-storage-design-modelling.md)
+- [Modeling relationships](table-storage-design-modeling.md)
 - [Design for querying](table-storage-design-for-query.md)
 - [Encrypting Table Data](table-storage-design-encrypt-data.md)
 - [Design for data modification](table-storage-design-for-modification.md)

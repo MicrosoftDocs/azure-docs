@@ -28,7 +28,7 @@ Designing tables for use with the Azure storage table service is very different 
 * ***Use compound key values.*** The only keys you have are **PartitionKey** and **RowKey**. For example, use compound key values to enable alternate keyed access paths to entities.  
 * ***Use query projection.*** You can reduce the amount of data that you transfer over the network by using queries that select just the fields you need.  
 
-## Design your Table service solution to be write-efficient:  
+## Design your Table service solution to be write-efficient  
 
 * ***Do not create hot partitions.*** Choose keys that enable you to spread your requests across multiple partitions at any point of time.  
 * ***Avoid spikes in traffic.*** Smooth the traffic over a reasonable period of time and avoid spikes in traffic.
@@ -39,7 +39,7 @@ As you read this guide, you will see examples that put all of these principles i
 
 ## Next steps
 
-- [Table Design Patterns](table-storage-design-patterns.md)
+- [Table design patterns](table-storage-design-patterns.md)
 - [Design for querying](table-storage-design-for-query.md)
-- [Encrypting Table Data](table-storage-design-encrypt-data.md)
+- [Encrypt table data](table-storage-design-encrypt-data.md)
 - [Design for data modification](table-storage-design-for-modification.md)

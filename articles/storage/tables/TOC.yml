@@ -54,10 +54,10 @@
   - name: Encrypting table data
     href: table-storage-design-encrypt-data.md
   - name: Modeling relationships
-    href: table-storage-design-modelling.md
+    href: table-storage-design-modeling.md
   - name: Table design patterns
     href: table-storage-design-patterns.md
-- name: How to Guides
+- name: How-to guides
   items:
   - name: How to use the storage emulator
     href: /azure/storage/common/storage-use-emulator

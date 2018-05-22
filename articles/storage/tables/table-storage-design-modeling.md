@@ -1,6 +1,6 @@
 ---
 title: Guidelines for table design | Microsoft Docs
-description: Design your Table service to support read operations efficiently.
+description: Understand the modeling process when designing your Table storage solution.
 services: storage
 documentationcenter: na
 author: MarkMcGeeAtAquent
@@ -26,7 +26,7 @@ One-to-many relationships between business domain objects occur very frequently:
 Consider the example of a large multi-national corporation with tens of thousands of departments and employee entities where every department has many employees and each employee as associated with one specific department. One approach is to store separate department and employee entities such as these:  
 
 
-![Image01](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
+![Store separate department and employee entities](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
 
 This example shows an implicit one-to-many relationship between the types based on the **PartitionKey** value. Each department can have many employees.  
 
@@ -34,9 +34,9 @@ This example also shows a department entity and its related employee entities in
 
 An alternative approach is to denormalize your data and store only employee entities with denormalized department data as shown in the following example. In this particular scenario, this denormalized approach may not be the best if you have a requirement to be able to change the details of a department manager because to do this you need to update every employee in the department.  
 
-![.media/storage-table-design-guide/storage-table-design-IMAGE01.png](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
+![Employee entity](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
 
-For more information, see the [Denormalization pattern](#denormalization-pattern) later in this guide.  
+For more information, see the [Denormalization pattern](table-storage-design-patterns#Denormalization-pattern) later in this guide.  
 
 The following table summarizes the pros and cons of each of the approaches outlined above for storing employee and department entities that have a one-to-many relationship. You should also consider how often you expect to perform various operations: it may be acceptable to have a design that includes an expensive operation if that operation only happens infrequently.  
 
@@ -100,29 +100,29 @@ Domain models may include one-to-one relationships between entities. If you need
 
 Note that there are also implementation considerations that might lead you to implement one-to-one relationships in the Table service:  
 
-* Handling large entities (for more information, see [Large Entities Pattern](#large-entities-pattern)).  
+* Handling large entities (for more information, see [Large Entities Pattern](table-storage-design-patterns#large-entities-pattern)).  
 * Implementing access controls (for more information, see [Controlling access with Shared Access Signatures](#controlling-access-with-shared-access-signatures)).  
 
 ## Join in the client
-Although there are ways to model relationships in the Table service, you should not forget that the two prime reasons for using the Table service are scalability and performance. If you find you are modelling many relationships that compromise the performance and scalability of your solution, you should ask yourself if it is necessary to build all the data relationships into your table design. You may be able to simplify the design and improve the scalability and performance of your solution if you let your client application perform any necessary joins.  
+Although there are ways to model relationships in the Table service, you should not forget that the two prime reasons for using the Table service are scalability and performance. If you find you are modeling many relationships that compromise the performance and scalability of your solution, you should ask yourself if it is necessary to build all the data relationships into your table design. You may be able to simplify the design and improve the scalability and performance of your solution if you let your client application perform any necessary joins.  
 
 For example, if you have small tables that contain data that does not change very often, then you can retrieve this data once and cache it on the client. This can avoid repeated roundtrips to retrieve the same data. In the examples we have looked at in this guide, the set of departments in a small organization is likely to be small and change infrequently making it a good candidate for data that client application can download once and cache as look up data.  
 
 ## Inheritance relationships
 If your client application uses a set of classes that form part of an inheritance relationship to represent business entities, you can easily persist those entities in the Table service. For example, you might have the following set of classes defined in your client application where **Person** is an abstract class.
 
-![.media/storage-table-design-guide/storage-table-design-IMAGE03.png](media/storage-table-design-guide/storage-table-design-IMAGE03.png)
+![Abstract Person class](media/storage-table-design-guide/storage-table-design-IMAGE03.png)
 
 You can persist instances of the two concrete classes in the Table service using a single Person table using entities in that look like this:  
 
-![.media/storage-table-design-guide/storage-table-design-IMAGE04.png](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
+![Person table](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
 For more information about working with multiple entity types in the same table in client code, see the section [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types) later in this guide. This provides examples of how to recognize the entity type in client code.  
 
 
 ## Next steps
 
-- [Table Design Patterns](table-storage-design-patterns.md)
+- [Table design patterns](table-storage-design-patterns.md)
 - [Design for querying](table-storage-design-for-query.md)
-- [Encrypting Table Data](table-storage-design-encrypt-data.md)
+- [Encrypt table data](table-storage-design-encrypt-data.md)
 - [Design for data modification](table-storage-design-for-modification.md)

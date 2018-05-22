@@ -1,5 +1,5 @@
 ---
-title: Designing tables for queries | Microsoft Docs
+title: Design tables for queries | Microsoft Docs
 description: Design tables for queries in Azure Table Storage.
 services: storage
 documentationcenter: na
@@ -61,13 +61,13 @@ $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')
 
 For examples of client-side code that use the Storage Client Library to execute efficient queries, see:  
 
-* [Executing a point query using the Storage Client Library](table-storage-design-patterns.md#executing-a-point-query-using-the-storage-client-library)
-* [Retrieving multiple entities using LINQ](table-storage-design-patterns.md#retrieving-multiple-entities-using-linq)
+* [Execute a point query using the Storage Client Library](table-storage-design-patterns.md#executing-a-point-query-using-the-storage-client-library)
+* [Retrieve multiple entities using LINQ](table-storage-design-patterns.md#retrieving-multiple-entities-using-linq)
 * [Server-side projection](table-storage-design-patterns.md#server-side-projection)  
 
 For examples of client-side code that can handle multiple entity types stored in the same table, see:  
 
-* [Working with heterogeneous entity types](table-storage-design-patterns.md#working-with-heterogeneous-entity-types)  
+* [Work with heterogeneous entity types](table-storage-design-patterns.md#working-with-heterogeneous-entity-types)  
 
 ## Choosing an appropriate PartitionKey
 Your choice of **PartitionKey** should balance the need to enable the use of EGTs (to ensure consistency) against the requirement to distribute your entities across multiple partitions (to ensure a scalable solution).  
@@ -90,7 +90,7 @@ Many designs must meet requirements to enable lookup of entities based on multip
 
 * [Intra-partition secondary index pattern](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - Store multiple copies of each entity using different **RowKey** values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
 * [Inter-partition secondary index pattern](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Store multiple copies of each entity using different **RowKey** values in separate partitions or in separate tables to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
-* [Index Entities Pattern](#index-entities-pattern) - Maintain index entities to enable efficient searches that return lists of entities.  
+* [Index Entities Pattern](table-storage-design-patterns#index-entities-pattern) - Maintain index entities to enable efficient searches that return lists of entities.  
 
 ## Sorting data in the Table service
 The Table service returns entities sorted in ascending order based on **PartitionKey** and then by **RowKey**. These keys are string values and to ensure that numeric values sort correctly, you should convert them to a fixed length and pad them with zeroes. For example, if the employee id value you use as the **RowKey** is an integer value, you should convert employee id **123** to **00000123**.  
@@ -103,7 +103,7 @@ Many applications have requirements to use data sorted in different orders: for 
 
 ## Next steps
 
-- [Table Design Patterns](table-storage-design-patterns.md)
-- [Modeling relationships](table-storage-design-modelling.md)
-- [Encrypting Table Data](table-storage-design-encrypt-data.md)
+- [Table design patterns](table-storage-design-patterns.md)
+- [Modeling relationships](table-storage-design-modeling.md)
+- [Encrypt table data](table-storage-design-encrypt-data.md)
 - [Design for data modification](table-storage-design-for-modification.md)
