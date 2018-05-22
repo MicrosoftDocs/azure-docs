@@ -63,7 +63,7 @@ The IP address plan for an AKS cluster consists of a VNet, at least one Subnet f
 
 | Address range / Azure resource | Limits and sizing |
 | --------- | ------------- |
-| Virtual network |  Address range for the VNet. |
+| Virtual network | Azure VNet can be as large as /8 but may only have 4096 configured IP addresses. |
 | Subnet | Must be large enough to accommodate the VMs and Pods. To calculate your minimum subnet size: (Number of VMs) + (Number of VMs * Pods per VM). For a 50 node cluster: (50) + (50 * 30) = 1,550, your Subnet would need to be a /21 or larger. |
 | Kubernetes service address range | This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. |
 | Kubernetes DNS Service IP address | IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). |
