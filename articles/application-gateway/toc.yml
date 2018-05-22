@@ -56,14 +56,23 @@
   items:
   - name: Manage web traffic
     items:
-    - name: PowerShell
+    - name: Azure PowerShell
       href: tutorial-manage-web-traffic-powershell.md
     - name: Template
       href: create-vmss-template.md
   - name: Configure internal load balancer
     items:
-    - name: PowerShell
+    - name: Azure PowerShell
       href: application-gateway-ilb-arm.md
+  - name: Configure SSL termination
+    items:
+    - name: SSL termination using Azure PowerShell
+      href: tutorial-ssl-powershell.md
+    - name: Renew certificates
+      href: renew-certificates.md
+    - name: Configure SSL policy
+      href: application-gateway-configure-ssl-policy-powershell.md
+  - name: Customize WAF rules
     items:
     - name: Azure portal
       href: application-gateway-customize-waf-rules-portal.md
@@ -95,10 +104,6 @@
     href: create-url-route-portal.md
   - name: Restrict web traffic using Azure PowerShell
     href: tutorial-restrict-web-traffic-powershell.md
-  - name: SSL termination using Azure PowerShell
-    href: tutorial-ssl-powershell.md
-  - name: Renew certificates
-    href: renew-certificates.md
   - name: Host multiple sites using Azure PowerShell
     href: tutorial-multiple-sites-powershell.md
   - name: Route web traffic using Azure PowerShell
