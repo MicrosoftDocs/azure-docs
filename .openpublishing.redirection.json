@@ -4046,11 +4046,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-service/dcos-swarm/container-service-deployment.md",
-            "redirect_url": "/azure/container-service/container-service-swarm-mode-walkthrough",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md",
             "redirect_url": "/azure/container-service/dcos-swarm",
             "redirect_document_id": false
