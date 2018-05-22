@@ -170,7 +170,7 @@ The new screen shows deployment history. Select the first deployment resource (F
 
 ![Deployment output](./media/ethereum-deployment-guide/deployment-output.png)
 
-To get to the admin page, copy the `ADMIN-SITE` output and open it in another tab.
+To get to the admin page, copy the **ADMIN-SITE** output and open it in another tab.
 
 On the admin page, you can get a high-level overview of the topology you deployed by reviewing the Ethereum Node Status section. It includes all node hostnames, their peer count, and the latest block seen. The peer count for each node is between the minimum of one less than the *total node count* and the configured maximum peer count. Note, that the peer count does not restrict the number of nodes that can be deployed within the network.
 Occasionally, you will see the peer count fluctuate and be less than the (total number of nodes - 1). The difference in the count is not always a sign that the nodes are unhealthy, since forks in the ledger can cause minor changes in peer count. Finally, you can inspect the latest block seen by each node in the network to determine forks or lags in the system.
