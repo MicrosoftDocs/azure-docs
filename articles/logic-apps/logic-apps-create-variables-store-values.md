@@ -1,7 +1,7 @@
 ---
 # required metadata
-title: Save values with variables - Azure Logic Apps | Microsoft Docs
-description: Create variables so you can save and manage values in Azure Logic Apps
+title: Save values as variables - Azure Logic Apps | Microsoft Docs
+description: Create variables for saving and changing values in Azure Logic Apps
 services: logic-apps
 author: ecfan
 manager: cfowler
@@ -15,13 +15,19 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Save and manage values with variables in Azure Logic Apps
+# Save and manage values as variables in Azure Logic Apps
 
-This article shows how you can store and use values throughout your logic 
-app by creating variables so that you can save and work with those values. 
-For example, variables can help you count how often a loop runs, 
-or find an array item by referencing that item's index value. 
-You can perform other tasks with those values, for example:
+This article shows how you can store and use values 
+throughout your logic app by creating variables. 
+For example, variables can help you count 
+how often a loop runs, or find an array item 
+by referencing that item's index value. 
+Variables exist globally and only within the 
+logic app instance where you create them. 
+They are also shared across loops in the same instance. 
+
+You can perform other tasks with variables, 
+for example:
 
 * Increase the value in a variable.
 * Decrease the value in a variable.
@@ -29,23 +35,27 @@ You can perform other tasks with those values, for example:
 * Add the value in a variable to the end of an array.
 * Add the value in a variable to the end of a string.
 
-Variables exist globally and are shared across 
-any loop iterations inside a logic app instance, 
-but variables exist only within that instance. 
-
-If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/). 
-If you're new to logic apps, review 
-[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+If you don't have an Azure subscription yet, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
 ## Prerequisites
 
-* The logic app where you want to create a variable 
+* The logic app where you want to create the variable. 
+If you're new to logic apps, review 
+[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+* A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
+as the first step in your logic app. Before you can add actions 
+for creating and working with variables, 
+your logic app must start with a trigger.
 
 <a name="create-variable"></a>
 
-## Create variable
+## Create a variable
+
+You can declare a variable and its data type 
+plus a starting value - all at the same time 
+in your logic app. 
 
 1. In the Azure portal or Visual Studio, 
 open your logic app in Logic App Designer. 
@@ -90,17 +100,19 @@ When you're done, on the designer toolbar, choose **Save**.
 
 <a name="change-variable-value"></a>
 
-## Change variable values
+## Change values in variables
 
-In Logic App Designer, you have several ways that you 
-can easily change the value in an existing variable. 
+In Logic App Designer, you have a few ways that you 
+can change the value in an existing variable. 
 
-* Add a value to the variable, or "increment" the variable.
-* Subtract a value from the variable, or "decrement" the variable.
-* Assign a new value to the variable.
+* [Add a value or "increment" the variable](#increment-value).
+* [Subtract a value or "decrement" the variable](#decrement-value).
+* [Assign a specific value to the variable](#set-value).
 
 If you don't have an existing variable yet, 
 [create that variable now](#create-variable).
+
+<a name="increment-value"></a>
 
 ### Increment variable 
 
@@ -109,7 +121,8 @@ To increase a variable by a specific value, add the
 
 1. In Logic App Designer, under the step where you want 
 to increase an existing variable, choose 
-**New step** > **Add an action**.
+**New step** > **Add an action**. 
+For example:
 
    ![Add action](./media/logic-apps-create-variables-store-values/add-increment-variable-action.png)
 
@@ -128,8 +141,8 @@ In the actions list, select this action:
 
    | Property | Required | Value |  Description |
    |----------|----------|-------|--------------|
-   | Name | Yes | <*variable-name*> | The name for the existing variable to increment | 
-   | Value | No | <*increment-value*> | The value to add to the variable value | 
+   | Name | Yes | <*variable-name*> | The name for the variable to increment | 
+   | Value | No | <*increment-value*> | The value used for incrementing the variable. The default value is one. | 
    |||| 
 
    For example: 
@@ -138,25 +151,65 @@ In the actions list, select this action:
 
 4. When you're done, on the designer toolbar, choose **Save**.
 
+*Example: Count loop cycles*
+
+Variables often perform the work for 
+counting how many times a loop runs. 
+This example shows how you can use variables 
+for this task by following these steps: 
+
+1. Create a blank logic app, and add a trigger 
+that checks for new email and fires only when the 
+email has one or more attachments. 
+
+   This example uses the Office 365 Outlook trigger 
+   for **When a new email arrives**. However, 
+   you can use any connector that checks 
+   for email with attachments, such as the 
+   Outlook.com trigger.
+
+2. Set up the trigger to check for attachments 
+and include those attachments as inputs 
+in the workflow. For this example, 
+choose **Show advanced options** in the trigger. 
+Set the **Has Attachment** and **Include Attachments** 
+properties to **Yes**.
+
+   ![Check for and include attachments](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
+
+2. Create an integer variable for tracking the number of attachments, for example:
+
+   ![Add action for "Initialize variable"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
+
+3. Add a "for each" loop that cycles through the attachments. 
+(Choose **New step** > **More** > **Add a for each**)
+
+   ![Add "for each" loop](./media/logic-apps-create-variables-store-values/add-loop.png)
+
+4. In the **For each** loop, 
+click inside the **Select an output from previous steps** box. 
+When the dynamic content list appears, 
+select **Attachments**, which is an output from the trigger.
+
+   ![Select "Attachments"](./media/logic-apps-create-variables-store-values/select-attachments.png)
+
+5. In the "for each" loop, select **Add an action**. 
+
+   ![Select "Add an action"](./media/logic-apps-create-variables-store-values/add-action-2.png)
+
+6. In the search box, enter "increment variable" as your filter. 
+From the actions list, select the **Variables - Increment variable** action.
+
+   > Check that the **Increment variable** 
+   > action appears inside the loop. 
+   > If the action appears outside the loop,
+   > drag the action into the loop.
+
+7. In the **Increment variable** action, 
+select the **Count** variable from the **Name** list.
 
 
-### Example: Count loop cycles
 
-Variables often perform the work for counting how many times a loop runs. 
-This example shows how you can use variables for this task by creating a 
-variable that starts at zero and increasing that variable for each file 
-that's attached to each email that you get.
 
-a "for-each" loop that cycles through the attachments counts the attachments for each email 
-that arrives: 
 
- with a "do-until" loop
-
-1. Outside your loop, create a variable that tracks the 
-count value and set the starting value to zero. 
-
-2. Inside your loop, you increase the variable's value, 
-usually by a value of one, but you can specify any value you want. 
-
-   ![Increment value in loop example](./media/logic-apps-create-variables-store-values/count-attachments-example.png)
 
