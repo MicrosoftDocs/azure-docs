@@ -1,20 +1,20 @@
 ---
-title: Azure Cognitive Services, Text Analytics With Power BI | Microsoft Docs
+title: Text Analytics With Power BI - Azure Cognitive Services | Microsoft Docs
 description: Learn how to use Text Analytics to extract key phrases from text stored in Power BI.
 services: cognitive-services
 author: luiscabrer
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
+ms.topic: tutorial
 ms.date: 3/07/2018
 ms.author: luisca
 ---
 # Text Analytics with Power BI
 
-Microsoft Power BI distills organizational data into beautiful reports, which you can distribute across your organization for faster, deeper insight. The Text Analytics service, part of Cognitive Services in Microsoft Azure, can extract the most important phrases from text via its Key Phrases API. Together, these tools can help you quickly see what your customers are talking about and how they feel about it. 
+Microsoft Power BI distills organizational data into beautiful reports, which you can distribute across your organization for faster, deeper insight. The Text Analytics service, part of Cognitive Services in Microsoft Azure, can extract the most important phrases from text via its Key Phrases API. Together, these tools can help you quickly see what your customers are talking about and how they feel about it.
 
-In this tutorial, you see how to integrate Power BI Desktop and the Key Phrases API to extract the most important phrases from customer feedback using a custom Power Query function. We also create a Word Cloud from these phrases.
+In this tutorial, you can see how to integrate Power BI Desktop and the Key Phrases API to extract the most important phrases from customer feedback using a custom Power Query function. We also create a Word Cloud from these phrases.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ To do this tutorial, you need:
 To get started, open Power BI Desktop and load the Comma-Separated Value (CSV) file **FabrikamComments.csv**. This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
 
 > [!NOTE]
->  Power BI can use data from a wide variety of sources, such as Facebook or a SQL database. Learn more at [Facebook integration with Power BI](https://powerbi.microsoft.com/integrations/facebook/) and [SQL Server integration with Power BI](https://powerbi.microsoft.com/integrations/sql-server/).
+> Power BI can use data from a wide variety of sources, such as Facebook or a SQL database. Learn more at [Facebook integration with Power BI](https://powerbi.microsoft.com/integrations/facebook/) and [SQL Server integration with Power BI](https://powerbi.microsoft.com/integrations/sql-server/).
 
 In the main Power BI Desktop window, find the External Data group of the Home ribbon. Choose **Text/CSV** in the **Get Data** drop-down menu in this group.
 
@@ -188,7 +188,7 @@ Down a little further in this panel, turn off **Rotate Text** and **Title**.
 
 ![[activate focus mode]](../media/tutorials/power-bi/word-cloud-focus-mode.png)
 
-Click the Focus Mode tool in the report to get a better look at our word cloud. This expands the word cloud to fill the entire workspace, as shown below.
+Click the Focus Mode tool in the report to get a better look at our word cloud. The tool expands the word cloud to fill the entire workspace, as shown below.
 
 ![[A Word Cloud]](../media/tutorials/power-bi/word-cloud.png)
 

@@ -28,7 +28,7 @@ The Azure IoT _solution accelerators_ are a set of solutions that:
 
 The solution accelerators are all designed according to the same principles and goals.
 
-The following video presents an overview of the remote monitoring solution accelerator:
+The following video presents an overview of the Remote Monitoring solution accelerator:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
@@ -50,7 +50,7 @@ Each solution accelerator is a complete, end-to-end implementation that can use 
 Three solution accelerators  are available today:
 
 * [Remote Monitoring](iot-accelerators-remote-monitoring-explore.md)
-* [Predictive Maintenance](../iot-suite/iot-suite-predictive-overview.md)
+* [Predictive Maintenance](iot-accelerators-predictive-overview.md)
 * [Connected Factory](iot-accelerators-connected-factory-overview.md)
 
 The following table shows how the solutions map to specific IoT features:
@@ -58,7 +58,7 @@ The following table shows how the solutions map to specific IoT features:
 | Solution | Data ingestion | Device identity | Device management | Edge processing | Command and control | Rules and actions | Predictive analytics |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Remote Monitoring](iot-accelerators-remote-monitoring-explore.md)  |Yes |Yes |Yes |-   |Yes |Yes |-   |
-| [Predictive Maintenance](../iot-suite/iot-suite-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
+| [Predictive Maintenance](iot-accelerators-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
 | [Connected Factory](iot-accelerators-connected-factory-overview.md) |Yes |- |- |Yes |Yes |Yes |-   |
 
 * *Data ingestion*: Ingress of data at scale to the cloud.
@@ -87,14 +87,14 @@ When you deploy a solution accelerator, the provisioning process configures a nu
 | Azure Storage         |                    | Yes                    | Yes               |
 
 > [!NOTE]
-> For more information about the resources deployed in the remote monitoring solution accelerator, see this [article](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) on GitHub.
+> For more information about the resources deployed in the Remote Monitoring solution accelerator, see this [article](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) on GitHub.
 
 * [Azure IoT Hub](../iot-hub/index.yml). This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key solution accelerator services. The service enables you to receive messages from your devices at scale, and send commands to your devices. The service also enables you to [manage your devices](../iot-hub/iot-hub-device-management-overview.md). For example, you can configure, reboot, or perform a factory reset on one or more devices connected to the hub.
 * [Azure Event Hubs](../active-directory-domain-services/index.md). This service provides high-volume event ingestion to the cloud. See [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).
 * [Azure Time Series Insights](../time-series-insights/index.yml). The solution accelerators use this service to analyze and display the telemetry data from your devices.
 * [Azure Container Service](../container-service/index.yml). This service hosts and manages the microservices in the solution accelerators.
 * [Azure Cosmos DB](../cosmos-db/index.yml) and [Azure Storage](../storage/index.yml) for data storage.
-* [Azure Stream Analytics](../stream-analytics/index.yml). The predictive maintenance preconfigured solution uses this service to process incoming telemetry, perform aggregation, and detect events. This preconfigured solution also uses stream analytics to process informational messages that contain data such as metadata or command responses from devices.
+* [Azure Stream Analytics](../stream-analytics/index.yml). The Predictive Maintenance solution accelerator uses this service to process incoming telemetry, perform aggregation, and detect events. This preconfigured solution also uses stream analytics to process informational messages that contain data such as metadata or command responses from devices.
 * [Azure Web Apps](../app-service/index.yml) to host the custom application code in the preconfigured solutions.
 
 For an overview of the architecture of a typical IoT solution, see [Microsoft Azure and the Internet of Things (IoT)](iot-accelerators-what-is-azure-iot.md).
@@ -113,7 +113,7 @@ The following sections describe what's new in the microservices-based solution a
 
 ### Microservices
 
-The new version of the remote monitoring solution accelerator uses a microservices architecture. This solution accelerator is composed of multiple microservices such as an *IoT Hub manager* and a *Storage manager*. Both Java and .NET versions of each microservice are available to download, along with related developer documentation. For more information about the microservices, see [Remote Monitoring architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+The new version of the Remote Monitoring solution accelerator uses a microservices architecture. This solution accelerator is composed of multiple microservices such as an *IoT Hub manager* and a *Storage manager*. Both Java and .NET versions of each microservice are available to download, along with related developer documentation. For more information about the microservices, see [Remote Monitoring architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md).
 
 This microservices architecture is a proven pattern for cloud solutions that:
 
@@ -125,7 +125,7 @@ This microservices architecture is a proven pattern for cloud solutions that:
 > [!TIP]
 > To learn more about microservice architectures, see [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) and [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
-When you deploy the new version of remote monitoring, you must select one of the following deployment options:
+When you deploy the new version of Remote Monitoring, you must select one of the following deployment options:
 
 * **Basic:** Reduced cost version for a demonstration or to test a deployment. All the microservices deploy to a single Azure virtual machine.
 * **Standard:** Expanded infrastructure deployment for developing a production deployment. The Azure Container Service deploys the microservices to multiple Azure virtual machines. Kubernetes orchestrates the Docker containers that host the individual microservices.
@@ -148,7 +148,7 @@ The UI is built using the [React](https://facebook.github.io/react/) javascript 
 Now that you have an overview of the IoT solution accelerators, here are suggested next steps for each of the solution accelerators:
 
 * [Explore the Remote Monitoring solution](iot-accelerators-remote-monitoring-explore.md).
-* [Predictive Maintenance solution accelerator overview](../iot-suite/iot-suite-predictive-overview.md).
+* [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md).
 * [Get started with the Connected Factory solution accelerator](iot-accelerators-connected-factory-overview.md).
 
-For more information about IoT solution architectures, see [Microsoft Azure IoT services: Reference Architecture](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf).
+For more information about IoT solution architectures, see [Microsoft Azure IoT services: Reference Architecture](https://aka.ms/iotrefarchitecture).
