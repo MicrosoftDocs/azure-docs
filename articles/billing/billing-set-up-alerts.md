@@ -49,7 +49,7 @@ After you set up alerts, the Account Center lists them and shows how many more y
 ## Delete your email address from the Azure Billing Alert Service
 If you ever need to remove any email addresses from the service, simply update the email addresses, or delete the alert entirely.
 
-    ![Screenshot of the alert deletion view, where you can remove personal info][Image4]
+   ![Screenshot of the alert deletion view, where you can remove personal info][Image4]
 
 ## Billing alerts for Enterprise Agreement (EA) customers
 EA subscriptions are not supported by this service, instead EA customers can get alerts for each department under an enrollment by setting spending quotas. See [Department Spending Quotas](https://ea.azure.com/helpdocs/departmentSpendingQuotas) in the EA portal to get started.
