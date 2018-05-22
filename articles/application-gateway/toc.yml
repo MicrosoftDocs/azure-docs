@@ -48,6 +48,7 @@
   - name: Redirection support
     href: redirect-overview.md
   - name: Multi-tenant support
+    href: application-gateway-web-app-overview.md
   - name: Health monitoring
     href: application-gateway-probe-overview.md
   - name: WebSocket support
@@ -72,6 +73,14 @@
       href: renew-certificates.md
     - name: Configure SSL policy
       href: application-gateway-configure-ssl-policy-powershell.md
+  - name: Configure Web Application Firewall
+    items:
+    - name: Azure portal
+      href: application-gateway-web-application-firewall-portal.md
+    - name: Azure PowerShell
+      href: application-gateway-web-application-firewall-portal.md
+    - name: Azure CLI
+      href: application-gateway-web-application-firewall-cli.md
   - name: Customize WAF rules
     items:
     - name: Azure portal
