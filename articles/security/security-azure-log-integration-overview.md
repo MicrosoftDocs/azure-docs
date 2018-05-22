@@ -13,21 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2018
+ms.date: 05/21/2018
 ms.author: TomSh
 ms.custom: azlog
 
 ---
 # Introduction to Azure Log Integration
 
-You can use Azure Log Integration to integrate raw logs from your Azure resources with your on-premises Security Information and Event Management (SIEM) systems. Use Azure Log Integration only if a connector to [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) isn't available from your SIEM vendor.
+>[!IMPORTANT]
+> The Azure Log integration feature will be deprecated by 5/30/2019.
 
-The preferred method for integrating Azure logs is by using your SIEM vendor’s Azure Monitor connector. To use the connector, follow the instructions in [Monitor stream monitoring for data event hubs](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). 
-
-However, if your SIEM vendor doesn’t provide a connector to Azure Monitor, you might be able to use Azure Log Integration as a temporary solution until a connector is available. Azure Log Integration is an option only if Azure Log Integration supports your SIEM.
+The Azure Log Integration feature was provided to make the task of integrating Azure Logs with your on-premises Security Information and Event Management (SIEM) system easier.  This Azure Log integration feature will be deprecated by 5/30/2019.  New downloads of the feature are being disabled by 6/15/2018 but Azure will continue to support existing installations until 5/30/2019. The recommended method for integrating Azure logs is to use your SIEM vendor’s direct connectors. Azure Monitor provides the ability to stream the logs into event hubs and SIEM vendors can write connectors to further integrate logs from the event hub into the SIEM.  For a description of how this works, follow the instructions in [Monitor stream monitoring for data event hubs](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). The article also lists the SIEMs for which direct Azure connectors are already available.  
 
 > [!IMPORTANT]
 > If your primary interest is collecting virtual machine logs, most SIEM vendors include this option in their solution. Using the SIEM vendor's connector is always the preferred alternative.
+
+The documentation on Azure log integration feature is still being maintained until the feature is deprecated.
+
+Read further to learn more about the Azure Log integration feature:
 
 Azure Log Integration collects Windows events from Windows Event Viewer logs, [Azure activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center alerts](../security-center/security-center-intro.md), and [Azure Diagnostics logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) from Azure resources. Integration helps your SIEM solution provide a unified dashboard for all your assets, whether on-premises or in the cloud. You can use a dashboard to receive, aggregate, correlate, and analyze alerts for security events.
 
