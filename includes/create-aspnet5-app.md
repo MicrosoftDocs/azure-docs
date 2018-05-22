@@ -1,13 +1,13 @@
 ---
-title: Create ASP.NET Core application with Docker support | Microsoft Docs
+title: "include file"
+description: "include file"
+services: container-registry
 author: mlearned
-manager: douge
-editor: ''
+ms.service: container-registry 
 ms.author: mlearned
-ms.topic: include
-ms.prod: visual-studio
-ms.date: 05/17/2018
-ms.technology: aspnet-core
+ms.topic: "include"
+ms.date: 05/21/2018
+ms.custom: "include file"
 
 ---
 
