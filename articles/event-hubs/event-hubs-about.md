@@ -1,21 +1,16 @@
 ---
-title: Event Hubs overview | Microsoft Docs
-description: Overview and what is Azure Event Hubs
+title: What is Azure Event Hubs? | Microsoft Docs
+description: Learn about Azure Event Hubs: a Big Data streaming service that ingests millions of events per second, and provides low latency and high throughput for real-time analytics and visualization.
 services: event-hubs
-documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
 
-ms.assetid:
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/23/2018
+ms.date: 05/22/2018
 ms.author: shvija
+#Customer intent: As a developer, how do I build data telemetry pipelines for real-time business scenarios?
 
 ---
 # What is Azure Event Hubs?
