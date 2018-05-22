@@ -21,7 +21,7 @@ Creating a NetApp account enables you to set up a capacity pool and subsequently
 
 ## Before you begin
 You must have been whitelisted for accessing the Microsoft.NetApp Azure Resource Provider and configured for using the Azure NetApp Files service.  
-[Azure NetApp Files Public Preview survey page](#https://aka.ms/nfspublicpreview). 
+[Azure NetApp Files Public Preview survey page](https://aka.ms/nfspublicpreview). 
 
 ## Steps 
 
