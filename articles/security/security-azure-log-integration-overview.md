@@ -23,7 +23,9 @@ ms.custom: azlog
 >[!IMPORTANT]
 > The Azure Log integration feature will be deprecated by 5/30/2019.
 
-The Azure Log Integration feature was provided to make the task of integrating Azure Logs with your on-premises Security Information and Event Management (SIEM) system easier.  This Azure Log integration feature will be deprecated by 5/30/2019.  New downloads of the feature are being disabled by 6/15/2018 but Azure will continue to support existing installations until 5/30/2019. The recommended method for integrating Azure logs is to use your SIEM vendor’s direct connectors. Azure Monitor provides the ability to stream the logs into event hubs and SIEM vendors can write connectors to further integrate logs from the event hub into the SIEM.  For a description of how this works, follow the instructions in [Monitor stream monitoring for data event hubs](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). The article also lists the SIEMs for which direct Azure connectors are already available.  
+Azure Log Integration  was made available to make the task of integrating Azure Logs with your on-premises Security Information and Event Management (SIEM) system easier.
+
+New downloads are being disabled by 6/15/2018 but Azure will continue to support existing installations until 5/30/2019. The recommended method for integrating Azure logs is to use your SIEM vendor’s connectors. Azure Monitor provides the ability to stream the logs into event hubs and SIEM vendors can write connectors to further integrate logs from the event hub into the SIEM.  For a description of how this works, follow the instructions in [Monitor stream monitoring for data event hubs](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). The article also lists the SIEMs for which direct Azure connectors are already available.  
 
 > [!IMPORTANT]
 > If your primary interest is collecting virtual machine logs, most SIEM vendors include this option in their solution. Using the SIEM vendor's connector is always the preferred alternative.
