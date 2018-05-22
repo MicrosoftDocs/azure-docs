@@ -14,8 +14,8 @@ ms.custom: mvc
 
 Each policy definition in Azure Policy has a single effect that determines what is performed or
 reported during scanning when the **if** segment of the policy rule is evaluated to match the
-resource being scanned. The effects can also behave differently if they are for a new resource,
-an updated resource, or an existing resource.
+resource being scanned. The effects can also behave differently if they are for a new resource, an
+updated resource, or an existing resource.
 
 There are currently five effects that are supported in a policy definition:
 
@@ -52,18 +52,18 @@ resource.
 
 As mentioned, append evaluates prior to the request getting processed by a Resource Provider during
 the creation or updating of a resource. Append adds field(s) to the resource when the **if**
-condition of the policy rule is met. If the append effect would override a value in the original request
-with a different value, then it acts as a deny effect and reject the request.
+condition of the policy rule is met. If the append effect would override a value in the original
+request with a different value, then it acts as a deny effect and reject the request.
 
 When a policy definition using the append effect is run as part of an evaluation cycle, it does not
-make changes to resources that already exist. Instead, it acts as an audit effect based on the
-**field/value** pairs in the **details** array.
+make changes to resources that already exist. Instead, it marks any resource that meets the **if**
+condition as non-compliant.
 
 ### Append Properties
 
 An append effect only has a **details** array, which is required. As **details** is an array, it can
 take either a single **field/value** pair or multiples. Refer to [policy definition](policy-definition.md#fields)
-for the list of accepting fields.
+for the list of acceptable fields.
 
 ### Append Examples
 
@@ -96,7 +96,8 @@ Example 2: Multiple **field/value** pairs to append a set of tags.
 }
 ```
 
-Example 3: Single **field/value** pair using an [alias](policy-definition.md#aliases) with an array **value** to set IP rules on a storage account.
+Example 3: Single **field/value** pair using an [alias](policy-definition.md#aliases) with an array
+**value** to set IP rules on a storage account.
 
 ```json
 "then": {
@@ -118,21 +119,21 @@ definition and fails the request.
 
 ### Deny Evaluation
 
-When creating or updating a resource, deny prevents the request prior to being sent to the
-Resource Provider. The request is returned as a 403 (Forbidden). In the portal, the Forbidden
-can be viewed as a status on the deployment that was prevented due to the policy assignment.
+When creating or updating a resource, deny prevents the request prior to being sent to the Resource
+Provider. The request is returned as a 403 (Forbidden). In the portal, the Forbidden can be viewed
+as a status on the deployment that was prevented due to the policy assignment.
 
-During an evaluation cycle, policy definitions with a deny effect that match resources are
-marked as non-compliant, but no action is performed on that resource.
+During an evaluation cycle, policy definitions with a deny effect that match resources are marked
+as non-compliant, but no action is performed on that resource.
 
 ### Deny Properties
 
-The deny effect does not have any additional properties for use in the **then** condition of the policy
-definition.
+The deny effect does not have any additional properties for use in the **then** condition of the
+policy definition.
 
 ### Deny Example
 
-Example: Using the example effect.
+Example: Using the deny effect.
 
 ```json
 "then": {
@@ -142,20 +143,20 @@ Example: Using the example effect.
 
 ## Audit
 
-Audit effect is used to create a warning event in audit log when a non-compliant resource is evaluated,
-but it does not stop the request.
+Audit effect is used to create a warning event in audit log when a non-compliant resource is
+evaluated, but it does not stop the request.
 
 ### Audit Evaluation
 
-The audit effect is the last to run during the creation or update of a resource prior to the resource
-is sent to the Resource Provider. Audit works the same for a resource request and an evaluation cycle,
-and executes a `Microsoft.Authorization/policies/audit/action` operation to the Activity Log. In
-both cases, the resource is marked as non-compliant.
+The audit effect is the last to run during the creation or update of a resource prior to the
+resource is sent to the Resource Provider. Audit works the same for a resource request and an
+evaluation cycle, and executes a `Microsoft.Authorization/policies/audit/action` operation to the
+Activity Log. In both cases, the resource is marked as non-compliant.
 
 ### Audit Properties
 
-The audit effect does not have any additional properties for use in the **then** condition of the policy
-definition.
+The audit effect does not have any additional properties for use in the **then** condition of the
+policy definition.
 
 ### Audit Example
 
@@ -169,17 +170,17 @@ Example: Using the audit effect.
 
 ## AuditIfNotExists
 
-AuditIfNotExists enables auditing on a resource that matches the **if** condition, but does not have the
-components specified in the **details** of the **then** condition.
+AuditIfNotExists enables auditing on a resource that matches the **if** condition, but does not
+have the components specified in the **details** of the **then** condition.
 
 ### AuditIfNotExists Evaluation
 
-AuditIfNotExists runs after a Resource Provider has handled a create or update request to a resource
-and has returned a success status code. The effect is triggered if there are no related resources or
-if the resources defined by **ExistenceCondition** do not evaluate to true. When the effect is triggered,
-a `Microsoft.Authorization/policies/audit/action` operation to the Activity Log is executed in the same
-way as the audit effect. When triggered, the resource that satisfied the **if** condition is the resource
-that is marked as non-compliant.
+AuditIfNotExists runs after a Resource Provider has handled a create or update request to a
+resource and has returned a success status code. The effect is triggered if there are no related
+resources or if the resources defined by **ExistenceCondition** do not evaluate to true. When the
+effect is triggered, a `Microsoft.Authorization/policies/audit/action` operation to the Activity
+Log is executed in the same way as the audit effect. When triggered, the resource that satisfied
+the **if** condition is the resource that is marked as non-compliant.
 
 ### AuditIfNotExists Properties
 
@@ -211,7 +212,8 @@ related resources to match.
 
 ### AuditIfNotExists Example
 
-Example: Evaluates Virtual Machines to determine if the Antimalware extension exists then audits when missing.
+Example: Evaluates Virtual Machines to determine if the Antimalware extension exists then audits
+when missing.
 
 ```json
 {
@@ -246,13 +248,13 @@ is met.
 
 ### DeployIfNotExists Evaluation
 
-DeployIfNotExists also runs after a Resource Provider has handled a create or update request to a resource
-and has returned a success status code. The effect is triggered if there are no related resources or
-if the resources defined by **ExistenceCondition** do not evaluate to true. When the effect is triggered,
-a template deployment is executed.
+DeployIfNotExists also runs after a Resource Provider has handled a create or update request to a
+resource and has returned a success status code. The effect is triggered if there are no related
+resources or if the resources defined by **ExistenceCondition** do not evaluate to true. When the
+effect is triggered, a template deployment is executed.
 
-During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources are
-marked as non-compliant, but no action is performed on that resource.
+During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources
+are marked as non-compliant, but no action is performed on that resource.
 
 ### DeployIfNotExists Properties
 
@@ -283,14 +285,18 @@ related resources to match and the template deployment to execute.
   - Can use [field()] to check equivalence with values in the **if** condition.
   - As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 - **Deployment** [required]
-  - This property should contain the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API.
+  - This property should contain the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployment REST API](/rest/api/resources/deployments).
 
   > [!NOTE]
-  > All functions inside the **Deployment** property are evaluated as components of the template, not the policy. The exception is the **parameters** property that passes values from the policy to the template. The **value** in this section under a template parameter name is used to perform this value passing (see _fullDbName_ in the DeployIfNotExists example).
+  > All functions inside the **Deployment** property are evaluated as components of the
+  > template, not the policy. The exception is the **parameters** property that passes values from
+  > the policy to the template. The **value** in this section under a template parameter name is used
+  > to perform this value passing (see _fullDbName_ in the DeployIfNotExists example).
 
 ### DeployIfNotExists Example
 
-Example: Evaluates SQL Server databases to determine if transparentDataEncryption is enabled. If not, then a deployment to enable it is executed.
+Example: Evaluates SQL Server databases to determine if transparentDataEncryption is enabled. If
+not, then a deployment to enable it is executed.
 
 ```json
 "if": {
