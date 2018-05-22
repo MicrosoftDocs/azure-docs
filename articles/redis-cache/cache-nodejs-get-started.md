@@ -83,38 +83,31 @@ var bluebird = require("bluebird");
 bluebird.promisifyAll(redis.RedisClient.prototype);
 bluebird.promisifyAll(redis.Multi.prototype);
 
-// Connect to the Redis cache over the SSL port using the key.
-var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, 
+async function testCache() {
+
+    // Connect to the Redis cache over the SSL port using the key.
+    var cacheConnection = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, 
         {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
 
-console.log("\nCache command: PING");
-client.pingAsync().then(function(reply) {
-    console.log("Cache response : " + reply);
+        
+    console.log("\nCache command: PING");
+    console.log("Cache response : " + await cacheConnection.pingAsync());
 
     console.log("\nCache command: GET Message");
-    client.getAsync("Message").then(function(reply) {
-        console.log("Cache response : " + reply);
+    console.log("Cache response : " + await cacheConnection.getAsync("Message"));    
 
-        console.log("\nCache command: SET Message");
-        client.setAsync("Message", "Hello! The cache is working from Node.js!").then(function(reply) {
-            console.log("Cache response : " + reply);
+    console.log("\nCache command: SET Message");
+    console.log("Cache response : " + await cacheConnection.setAsync("Message",
+        "Hello! The cache is working from Node.js!"));    
 
-            console.log("\nCache command: GET Message");
-            client.getAsync("Message").then(function(reply) {
-                console.log("Cache response : " + reply);
+    console.log("\nCache command: GET Message");
+    console.log("Cache response : " + await cacheConnection.getAsync("Message"));    
 
-                console.log("\nCache command: CLIENT LIST");
-                client.clientAsync("LIST").then(function(reply) {
-                    console.log("Cache response : " + reply);
-                });
-                
-            });            
-            
-        });
-        
-    });
-    
-});
+    console.log("\nCache command: CLIENT LIST");
+    console.log("Cache response : " + await cacheConnection.clientAsync("LIST"));    
+}
+
+testCache();
 ```
 
 ![Cache app completed](./media/cache-nodejs-get-started/cache-app-complete.png)
