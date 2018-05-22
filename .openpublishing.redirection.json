@@ -4051,6 +4051,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-service/dcos-swarm/container-service-swarm-walkthrough.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-swarm-mode-walkthrough",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-service/dcos-swarm/container-service-connect.md",
             "redirect_url": "/azure/container-service/dcos-swarm",
             "redirect_document_id": false
