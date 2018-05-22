@@ -102,7 +102,7 @@ Mark optional text in the utterance using the regular expression square bracket 
 ```
 
 ## Best practices
-See [Entity best practices](luis-concept-best-practices.md#entities) to learn more.
+Learn [best practices](luis-concept-best-practices.md).
 
 ## Next steps
 
