@@ -17,7 +17,6 @@ ms.date: 5/18/2018
 ms.author: markgal
 
 ---
-
 # Install Azure Backup Server on Azure Stack
 
 This article explains how to install Azure Backup Server on Azure Stack. With Azure Backup Server, you can protect application workloads running in Azure Stack from a single console.
@@ -31,6 +30,7 @@ You can also protect Infrastructure as a Service (IaaS) workloads such as VMs in
 The first step towards getting the Azure Backup Server up and running is to set up a virtual machine in Azure Stack.
 
 ## Using an IaaS VM in Azure Stack
+
 When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2012 R2 Datacenter or Windows Server 2016 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), provides a tutorial for getting started with the recommended virtual machine, even if you've never used Azure Stack before. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with two cores and 3.5 GB RAM.
 
 Protecting workloads with Azure Backup Server has many nuances. The article, [Install DPM as an Azure virtual machine](https://technet.microsoft.com/library/jj852163.aspx), helps explain these nuances. Before deploying the machine, read this article completely.
@@ -47,6 +47,7 @@ Always join Azure Backup Server to a domain. If you plan to move the server to a
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
 ### Set Storage Replication
+
 The Recovery Services vault storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/common/storage-redundancy-grs.md) and [locally redundant](../storage/common/storage-redundancy-lrs.md) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
 
 To edit the storage replication setting:
@@ -57,22 +58,23 @@ To edit the storage replication setting:
     ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
 ## Download Azure Backup Server installer
+
 Once you create a Recovery Services vault, use the Getting Started menu in the Recovery Services vault to download the Azure Backup Server installer to your Azure Stack virtual machine. The following steps take place in your Azure subscription.
 
 1. From your Azure Stack virtual machine, [sign in to your Azure subscription in the Azure portal](https://portal.azure.com/).
 2. In the left-hand menu, select **All Services**.
 
-    ![Choose the All Services option in main menu](./media/backup-mabs-install-azure-stack/click-all-services.png) <br/>
+    ![Choose the All Services option in main menu](./media/backup-mabs-install-azure-stack/click-all-services.png)
 
 3. In the **All services** dialog, type *Recovery Services*. As you begin typing, your input filters the list of resources. Once you see it, select **Recovery Services vaults**.
 
-    ![Type Recovery Services in the All services dialog](./media/backup-mabs-install-azure-stack/all-services.png) <br/>
+    ![Type Recovery Services in the All services dialog](./media/backup-mabs-install-azure-stack/all-services.png)
 
     The list of Recovery Services vaults in the subscription appears.
 
 4. From the list of Recovery Services vaults, select your vault to open its dashboard.
 
-    ![Type Recovery Services in the All services dialog](./media/backup-mabs-install-azure-stack/rs-vault-dashboard.png) <br/>
+    ![Type Recovery Services in the All services dialog](./media/backup-mabs-install-azure-stack/rs-vault-dashboard.png)
 
 5. In the vault's Getting Started menu, click **Backup** to open the Getting Started wizard.
 
@@ -94,7 +96,7 @@ Once you create a Recovery Services vault, use the Getting Started menu in the R
 
     The Microsoft web page that hosts the downloadable files for Azure Backup Server, opens.
 
-8. In the Microsoft Azure Backup Server download page, select a language, and click **Download**. 
+8. In the Microsoft Azure Backup Server download page, select a language, and click **Download**.
 
     ![Download center opens](./media/backup-mabs-install-azure-stack/mabs-download-center-page.png)
 
@@ -102,7 +104,7 @@ Once you create a Recovery Services vault, use the Getting Started menu in the R
 
     ![Download center 1](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
 
-    Since the download size of all the files is > 3G, on a 10Mbps download link it may take up to 60 minutes for the download to complete. The files will download to your specified download location. 
+    Since the download size of all the files is > 3G, on a 10Mbps download link it may take up to 60 minutes for the download to complete. The files will download to your specified download location.
 
 ## Extract Azure Backup Server install files
 
@@ -136,10 +138,9 @@ After you've downloaded all files to your virtual machine, go to the download lo
 
    ![Microsoft Azure Backup Setup Wizard](./media/backup-mabs-install-azure-stack/mabs-install-wizard-finish-4.png)
 
-
 ## Install the software package
 
-In the previous step, you clicked **Finish** to exit the extraction phase, and start the Azure Backup Server setup wizard. 
+In the previous step, you clicked **Finish** to exit the extraction phase, and start the Azure Backup Server setup wizard.
 
 ![Microsoft Azure Backup Setup Wizard](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
@@ -175,7 +176,6 @@ Azure Backup Server shares code with Data Protection Manager. You will see refer
 
     If a failure occurs with a recommendation to restart the machine, do so, restart the installer, at this screen, click **Check Again**.
 
-
 5. In the **Installation Settings**, provide a location for the installation of Microsoft Azure Backup server files and click **Next**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
@@ -207,7 +207,7 @@ Azure Backup Server shares code with Data Protection Manager. You will see refer
 10. To install the Microsoft Azure Recovery Services Agent, click **Install**.
 
     ![Azure Backup Serer PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-mars-agent-16.png)
- 
+
     The Microsoft Azure Recovery Services agent, also called the Azure Backup agent, configures the Azure Backup Server to the Recovery Services vault. Once configured, Azure Backup Server will always backup data to the same Recovery Services vault.
 
 11. Once the Microsoft Azure Recovery Services agent finishes installing, click **Next** to start the next phase: registering Azure Backup Server with the Recovery Services vault.
@@ -228,7 +228,7 @@ Azure Backup Server shares code with Data Protection Manager. You will see refer
 
     The path to the credentials appears in the Vault Identification menu. Click **Next** to advance to the Encryption Setting.
 
-14. In the **Encryption Setting** dialog, provide a passphrase for the backup encryption, and a location to store the passphrase, and click **Next**. 
+14. In the **Encryption Setting** dialog, provide a passphrase for the backup encryption, and a location to store the passphrase, and click **Next**.
 
     ![Azure Backup Serer PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-encryption-19.png)
 
@@ -238,13 +238,14 @@ Azure Backup Server shares code with Data Protection Manager. You will see refer
 
     ![Azure Backup Serer PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-still-installing-20.png)
 
-15. When the installer completes, the Status shows that all software has been successfully installed.  
+15. When the installer completes, the Status shows that all software has been successfully installed.
 
     ![Azure Backup Serer PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-done-22.png)
 
     When installation completes, the Azure Backup Server console and the Azure Backup Server PowerShell icons are created on the server desktop.
 
 ### Add backup storage
+
 The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Configure storage pools and disk storage](https://technet.microsoft.com/library/hh758075.aspx).
 
 > [!NOTE]
@@ -253,6 +254,7 @@ The first backup copy is kept on storage attached to the Azure Backup Server mac
 >
 
 ## Network connectivity
+
 Azure Backup Server requires connectivity to the Azure Backup service for the product to work successfully. To validate whether the machine has the connectivity to Azure, use the ```Get-DPMCloudConnection``` cmdlet in the Azure Backup Server PowerShell console. If the output of the cmdlet is TRUE then connectivity exists, else there is no connectivity.
 
 At the same time, the Azure subscription needs to be in a healthy state. To find out the state of your subscription and to manage it, log in to the [subscription portal](https://account.windowsazure.com/Subscriptions).
@@ -269,31 +271,35 @@ Once you know the state of the Azure connectivity and of the Azure subscription,
 | Lost connectivity > 15 days |Deprovisioned |Stopped |Stopped |Stopped and Azure recovery points deleted |Stopped |
 
 ### Recovering from loss of connectivity
+
 If you have a firewall or a proxy that is preventing access to Azure, you need to whitelist the following domain addresses in the firewall/proxy profile:
 
-* www.msftncsi.com
-* \*.Microsoft.com
-* \*.WindowsAzure.com
-* \*.microsoftonline.com
-* \*.windows.net
+- www.msftncsi.com
+- \*.Microsoft.com
+- \*.WindowsAzure.com
+- \*.microsoftonline.com
+- \*.windows.net
 
 Once connectivity to Azure has been restored to the Azure Backup Server machine, the operations that can be performed are determined by the Azure subscription state. The table above has details about the operations allowed once the machine is "Connected".
 
 ### Handling subscription states
+
 It is possible to take an Azure subscription from an *Expired* or *Deprovisioned* state to the *Active* state. However this has some implications on the product behavior while the state is not *Active*:
 
-* A *Deprovisioned* subscription loses functionality for the period that it is deprovisioned. On turning *Active*, the product functionality of backup/restore is revived. The backup data on the local disk also can be retrieved if it was kept with a sufficiently large retention period. However, the backup data in Azure is irretrievably lost once the subscription enters the *Deprovisioned* state.
-* An *Expired* subscription only loses functionality for until it has been made *Active* again. Any backups scheduled for the period that the subscription was *Expired* will not run.
+- A *Deprovisioned* subscription loses functionality for the period that it is deprovisioned. On turning *Active*, the product functionality of backup/restore is revived. The backup data on the local disk also can be retrieved if it was kept with a sufficiently large retention period. However, the backup data in Azure is irretrievably lost once the subscription enters the *Deprovisioned* state.
+- An *Expired* subscription only loses functionality for until it has been made *Active* again. Any backups scheduled for the period that the subscription was *Expired* will not run.
 
 ## Troubleshooting
+
 If Microsoft Azure Backup server fails with errors during the setup phase (or backup or restore), refer to this [error codes document](https://support.microsoft.com/kb/3041338)  for more information.
 You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## Next steps
+
 You can get detailed information about [preparing your environment for DPM](https://technet.microsoft.com/library/hh758176.aspx) on the Microsoft TechNet site. It also contains information about supported configurations on which Azure Backup Server can be deployed and used.
 
 You can use these articles to gain a deeper understanding of workload protection using Microsoft Azure Backup server.
 
-* [SQL Server backup](backup-azure-backup-sql.md)
-* [SharePoint server backup](backup-azure-backup-sharepoint.md)
-* [Alternate server backup](backup-azure-alternate-dpm-server.md)
+- [SQL Server backup](backup-azure-backup-sql.md)
+- [SharePoint server backup](backup-azure-backup-sharepoint.md)
+- [Alternate server backup](backup-azure-alternate-dpm-server.md)
