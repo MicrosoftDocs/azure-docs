@@ -8,7 +8,7 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/09/2018
 ms.author: v-jerkin
 ---
 # Speech service REST APIs
@@ -19,11 +19,11 @@ The REST APIs of the unified Speech service are similar to the APIs provided by 
 
 In the Speech to Text API, only the endpoints used differ from the previous Speech service Speech Recognition API. The new endpoints are shown in the table below. Use the one that matches your subscription region.
 
-Region|	Endpoint
+Region|	Speech to Text endpoint
 -|-
-West US| `https://westus.stt.speech.microsoft.com/cognitiveservices/v1`
-East Asia| `https://eastasia.stt.speech.microsoft.com/cognitiveservices/v1`
-North Europe| `https://northeurope.stt.speech.microsoft.com/cognitiveservices/v1`
+West US| `https://westus.stt.speech.microsoft.com/cognitiveservices/recognition/conversation/cognitiveservices/v1`
+East Asia| `https://eastasia.stt.speech.microsoft.com//recognition/conversation/cognitiveservices/v1`
+North Europe| `https://northeurope.stt.speech.microsoft.com//recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
 > If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
@@ -45,16 +45,16 @@ The new Text to Speech API supports 24-KHz audio output. The `X-Microsoft-Output
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
-The Speech service also provides two 24-KHz voices:
+The Speech service now provides two 24-KHz voices:
 
 Locale | Language   | Gender | Service name mapping
 -------|------------|--------|------------
-en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
-en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
+en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
+en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
 The following are the REST endpoints for the unified Speech service Text to Speech API. Use the endpoint that matches your subscription region.
 
-Region|	Endpoint
+Region|	Text to Speech endpoint
 -|-
 West US|	`https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
 East Asia|	`https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
@@ -63,14 +63,17 @@ North Europe|	`https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1
 > [!NOTE]
 > If you created a custom voice font, use your custom endpoint instead.
 
-Keep these differences in mind as you refer to the [REST API documentation](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) for the Speech service.
+Keep these differences in mind as you refer to the [REST API documentation](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) for the previous Speech API.
 
 ## Authentication
 
-Sending a request to the Speech service's REST API requires an access token. You obtain a token by providing your subscription key to a Speech service `issueToken` endpoint. Example code is shown in the following sections.
+Sending a request to the Speech service's REST API requires an access token. You obtain a token by providing your subscription key to a regional Speech service `issueToken` endpoint, shown in the table below. Use the endpoint that matches your subscription region.
 
-> [!NOTE]
-> You must use the same endpoint both to obtain a token and to actually call the service. For example, to authorize a Text to Speech request, use the Text to Speech `issueToken` endpoint to get the token for the request. Be sure to use the appropriate regional or custom URI.
+Region|	Token service endpoint
+-|-
+West US|	`https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+East Asia|	`https://eastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+North Europe|	`https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 
 Each access token is valid for 10 minutes. You may obtain a new token at any time—including, if you like, just before every Speech REST API request. To minimize network traffic and latency, however, we recommend using the same token for nine minutes.
 
@@ -81,19 +84,18 @@ The following sections show how to get a token and how to use it in a request.
 Below is a sample HTTP request for obtaining a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, replace the `Host` header with your region's hostname.
 
 ```
-POST /cognitiveservices/v1/issueToken HTTP/1.1
+POST /sts/v1.0/issueToken HTTP/1.1
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: westus.tts.speech.microsoft.com
+Host: westus.api.cognitive.microsoft.com
 Content-type: application/x-www-form-urlencoded
 Content-Length: 0
-Connection: Keep-Alive
 ```
 
-The body of the response to this request is the access token. 
+The body of the response to this request is the access token in Java Web Token (JWT) format.
 
 ### Getting a token: PowerShell
 
-The Windows PowerShell script below illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, change the hostname of the given URI appropriately.
+The Windows PowerShell script below illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, change the hostname of the given URI accordingly.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -102,7 +104,7 @@ $FetchTokenHeader = @{
   'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
 }
 
-$OAuthToken = Invoke-RestMethod -Method POST -Uri https://westus.tts.speech.microsoft.com/cognitiveservices/v1/issueToken
+$OAuthToken = Invoke-RestMethod -Method POST -Uri https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
  -Headers $FetchTokenHeader
 
 # show the token received
@@ -112,14 +114,14 @@ $OAuthToken
 
 ### Getting a token: cURL
 
-cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The cURL command below illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, change the hostname of the given URI appropriately.
+cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The cURL command below illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, change the hostname of the given URI accordingly.
 
 > [!NOTE]
 > The command is shown on multiple lines for readability, but should entered on a single line at a shell prompt.
 
 ```
 curl -v -X POST 
- "https://westus.tts.speech.microsoft.com/cognitiveservices/v1/issueToken" 
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
  -H "Content-type: application/x-www-form-urlencoded" 
  -H "Content-Length: 0" 
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
@@ -136,7 +138,7 @@ The C# class below illustrates how to obtain an access token. Pass your Speech s
     public class Authentication
     {
         public static readonly string FetchTokenUri =
-            "https://westus.tts.speech.microsoft.com/cognitiveservices/v1";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
         private string subscriptionKey;
         private string token;
 
@@ -192,7 +194,7 @@ The authorization token expires after 10 minutes. Renew your authorization by ob
 The following C# code is a drop-in replacement for the class presented earlier. The `Authentication` class automatically obtains a new access token every nine minutes using a timer. This approach ensures that a valid token is always available while your program is running.
 
 > [!NOTE]
-> Instead of using a timer, you could store a timestamp of when the current token was obtained, then request a new one only if the current token is close to expiring. This approach avoids getting new tokens unnecessarily and may be more suitable for programs that make infrequent Speech requests.
+> Instead of using a timer, you could store a timestamp of when the current token was obtained, then request a new one only if the current token is close to expiring. This approach avoids requesting new tokens unnecessarily and may be more suitable for programs that make infrequent Speech requests.
 
 As before, make sure the `FetchTokenUri` value matches your subscription region. Pass your subscription key when instantiating the class.
 
@@ -203,7 +205,7 @@ As before, make sure the `FetchTokenUri` value matches your subscription region.
     public class Authentication
     {
         public static readonly string FetchTokenUri = 
-            "https://westus.tts.speech.microsoft.com/cognitiveservices/v1";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
         private string subscriptionKey;
         private string token;
         private Timer accessTokenRenewer;

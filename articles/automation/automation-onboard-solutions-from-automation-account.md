@@ -6,7 +6,7 @@ ms.service: automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/10/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ---
@@ -43,6 +43,7 @@ Each solution uses a Scope Configuration within the workspace to target the comp
 If the selected workspace does not have the Update Management or Change Tracking solutions yet, The following scope configurations are created:
 
 * **MicrosoftDefaultScopeConfig-ChangeTracking**
+
 * **MicrosoftDefaultScopeConfig-Updates**
 
 If the the selected workspace already has the solution. The solution is not re-deployed, and the scope configuration is not added to it.

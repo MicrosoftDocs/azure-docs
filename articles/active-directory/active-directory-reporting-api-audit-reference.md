@@ -49,7 +49,7 @@ For:
 ## Prerequisites
 To access this report through the Reporting API, you must have:
 
-* An [Azure Active Directory Free or better edition](active-directory-editions.md)
+* An [Azure Active Directory Free or better edition](active-directory-whatis.md)
 * Completed the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md). 
 
 ## Accessing the API

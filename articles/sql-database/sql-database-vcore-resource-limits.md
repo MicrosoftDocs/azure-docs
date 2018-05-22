@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 05/15/2018
 ms.author: carlrab
 
 ---
@@ -171,7 +171,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |||
 
 #### Generation 5 compute platform
-|Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|Performance level|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|48|80|
@@ -223,7 +223,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|48|64|80|
+|vCores|2|4|8|16|24|32|48|80|
 |Memory (GB)|11|22|44|88|132|176|264|440|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.571|3.142|6.284|15.768|25.252|37.936|68.104|131.64|

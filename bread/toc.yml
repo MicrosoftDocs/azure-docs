@@ -339,6 +339,9 @@
     - name: IoT solution accelerators
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/   
+    - name: IoT Central
+      tocHref: /azure/iot-central/
+      topicHref: /azure/iot-central/         
     - name: Maps
       tocHref: /azure/azure-maps/
       topicHref: /azure/azure-maps/

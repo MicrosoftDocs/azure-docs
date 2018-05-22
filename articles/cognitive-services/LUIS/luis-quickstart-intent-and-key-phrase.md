@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 --- 
 
-# Quickstart: Create app that returns key subject matter found in utterances
+# Quickstart: Create app that returns key phrases found in utterances
 In this quickstart, create an app that demonstrates how to extract key subject matter from utterances.
 
 For this article, you can use the free [LUIS][LUIS] account in order to author your LUIS application.

@@ -84,7 +84,7 @@ When Managed Service Identity is enabled on a VM, the following error is shown w
 
 The Managed Service Identity VM extension does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable Managed Service Identity on the resource. These sections can be added manually by following the examples in [Configure a VM Managed Service Identity by using a template](qs-configure-template-windows-vm.md).
 
-When the schema export functionality becomes available for the MSI VM extension, it will be listed in [Exporting Resource Groups that contain VM extensions](../../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+When the schema export functionality becomes available for the MSI VM extension, it will be listed in [Exporting Resource Groups that contain VM extensions](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### Configuration blade does not appear in the Azure portal
 
