@@ -209,7 +209,7 @@ If you encounter problems, refer to [FAQs](https://microsoft.github.io/azure-iot
 
 ## Next steps
 
-You have learned how to connect a DevKit device to your Azure IoT Suite and use the SendGrid service to send an email. Here are the suggested next steps:
+You have learned how to connect a DevKit device to your Azure IoT Remote Monitoring solution accelerator and use the SendGrid service to send an email. Here are the suggested next steps:
 
-* [Azure IoT Suite overview](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Remote Monitoring solution accelerator overview](https://docs.microsoft.com/azure/iot-suite/)
+* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

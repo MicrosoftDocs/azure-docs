@@ -1,25 +1,27 @@
 ---
 title: Add utterances to a LUIS app using JavaScript | Microsoft Docs
-description: Learn to call a LUIS app using JavaScript.
+description: Learn to call a LUIS app using JavaScript in this quickstart.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/18/2017
 ms.author: v-geberr
+#Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using Javascript. 
 ---
-# Add utterances to a LUIS app using JavaScript
-Programmatically add labeled utterances to your LUIS app and train it. 
+# Quickstart: Add utterances to app using JavaScript
+In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in Javascript.
 
 For more information, see the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
 
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
 ## Prerequisites
-> [!div class="checklist"]
-> * Your LUIS [**authoring key**](luis-concept-keys.md#authoring-key). 
-> * Your existing LUIS **application ID** and **version ID**. 
-> * A new file named `add-utterances.html` project in VSCode.
+* Your LUIS [**authoring key**](luis-concept-keys.md#authoring-key). 
+* Your existing LUIS **application ID** and **version ID**. 
+* A new file named `add-utterances.html` project in VSCode.
 
 > [!NOTE] 
 > The complete `add-utterances.html` file is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/javascript/add-utterance.html).
@@ -72,3 +74,4 @@ Create `add-utterances.html` and add the following code:
 > [!div class="nextstepaction"]
 > [Integrate LUIS with a bot](luis-csharp-tutorial-build-bot-framework-sample.md)
 
+[LUIS]: luis-reference-regions.md#luis-website

@@ -148,4 +148,4 @@ open a support ticket with the following information if available:
 -   Fiddler traces
 
 ## Next steps
-[Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Managing Applications with Azure Active Directory](manage-apps/what-is-application-management.md)

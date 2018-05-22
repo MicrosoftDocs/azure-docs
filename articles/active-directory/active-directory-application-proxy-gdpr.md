@@ -3,17 +3,17 @@ title: GDPR in the Azure Active Directory application proxy | Microsoft Docs
 description:  Learn more about GDPR in the Azure Active Directory application proxy.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 
-ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2018
-ms.author: markvi
+ms.date: 05/21/2018
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
 
@@ -79,5 +79,5 @@ To turn off connector logs, you need to adjust `C:\Program Files\Microsoft AAD A
 
 ## Next steps
 
-For an overview of the Azure AD application proxy, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+For an overview of the Azure AD application proxy, see [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
 

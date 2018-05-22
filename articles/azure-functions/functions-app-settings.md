@@ -151,8 +151,8 @@ Default is "6.5.0".
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
-> [!div class="nextstepaction"]
-> [See global settings in the host.json file](functions-host-json.md)
+[See global settings in the host.json file](functions-host-json.md)
+
+[See other app settings for App Service apps](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

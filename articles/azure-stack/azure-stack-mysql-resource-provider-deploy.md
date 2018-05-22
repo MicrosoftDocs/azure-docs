@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/24/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ---
@@ -114,7 +114,7 @@ You can:
 Here's an example you can run from the PowerShell prompt. Be sure to change the account information and passwords as needed:
 
 
-```
+```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
@@ -176,6 +176,8 @@ You can specify these parameters in the command line. If you do not, or if any p
 | **DebugMode** | Prevents automatic cleanup on failure. | No |
 | **AcceptLicense** | Skips the prompt to accept the GPL license.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
+>[!NOTE]
+> SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is created.
 
 ## Verify the deployment by using the Azure Stack portal
 
@@ -209,6 +211,10 @@ You can specify these parameters in the command line. If you do not, or if any p
     - Database capacity
     - Automatic backup
     - Reserve high-performance servers for individual departments
+
+
+  > [!IMPORTANT]
+  > You cannot mix standalone servers with Always On instances in the same SKU. Attempting to mix types after adding the first hosting server results in an error.
  
 
 The SKU name should reflect the properties so that tenants can place their databases appropriately. All hosting servers in a SKU should have the same capabilities.
@@ -216,8 +222,7 @@ The SKU name should reflect the properties so that tenants can place their datab
 ![Create a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
->[!NOTE]
-> SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is created.
+
 
 
 ## Test your deployment by creating your first MySQL database
