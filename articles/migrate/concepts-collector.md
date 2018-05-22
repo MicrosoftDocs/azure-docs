@@ -4,7 +4,7 @@ description: Provides an overview of the Collector appliance and how to configur
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 05/22/2018
 ms.author: ruturajd
 services: azure-migrate
 ---
@@ -183,7 +183,7 @@ We also recommend the following steps to secure your appliance
 
 You can upgrade the Collector to the latest version without downloading the OVA once again.
 
-1. Download the latest [upgrade package](https://aka.ms/migrate/col/latestupgrade) (version 1.0.9.10).
+1. Download the latest [upgrade package](https://aka.ms/migrate/col/upgrade_9_11) (version 1.0.9.11).
 2. To ensure that the downloaded hotfix is secure, open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
 
 	```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -195,19 +195,19 @@ You can upgrade the Collector to the latest version without downloading the OVA 
 
 ### List of updates
 
-#### Upgrade to version 1.0.9.10
+#### Upgrade to version 1.0.9.11
 
-For Upgrade to version 1.0.9.10 download [package](https://aka.ms/migrate/col/upgrade_9_10)
+Hash values for upgrade [package 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)
 
 **Algorithm** | **Hash value**
 --- | ---
-MD5 | b55a30ee660c87179a8d1cb53b883bc4
-SHA1 | 8f530de1ca01b4e6ab24d564d82127a2da6ac1cc
-SHA256 | 516c409cf27a2939c1f67cc604967ecaaf287c513f8342cb8db581a58e203f85
+MD5 | 0e36129ac5383b204720df7a56b95a60
+SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
+SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
 
 #### Upgrade to version 1.0.9.7
 
-For Upgrade to version 1.0.9.7 download [package](https://aka.ms/migrate/col/upgrade_9_7)
+Hash values for upgrade [package 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
 
 **Algorithm** | **Hash value**
 --- | ---
