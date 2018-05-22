@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-ms.date: 04/20//2018
+ms.date: 04/20/2018
 ms.author: kgremban
 
 # As a developer, I need to build an end-to-end IoT solution that sends telemetry from a device to an IoT hub and reads that telemetry data from the hub using a back-end application.

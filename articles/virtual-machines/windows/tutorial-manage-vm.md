@@ -64,7 +64,7 @@ Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compu
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM" `
-    -Location "East US" `
+    -Location "EastUS" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `

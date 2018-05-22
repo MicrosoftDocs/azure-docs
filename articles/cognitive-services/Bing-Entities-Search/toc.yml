@@ -25,6 +25,10 @@
     href: tutorial-bing-entities-search-single-page-app.md
   - name: Single-page web app (source code)
     href: tutorial-bing-entities-search-single-page-app-source.md
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search
 - name: How-to guides
   items:
   - name: Use and display requirements
