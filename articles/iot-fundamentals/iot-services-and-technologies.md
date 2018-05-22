@@ -1,20 +1,13 @@
 ---
 title: Azure Internet of Things (IoT) technologies and solutions
 description: Presents the collection of PaaS/SaaS techologies and solutions available for building an Azure IoT solution.
-services: iot-fundamentals
-documentationcenter: 
 author: BryanLa
 manager: timlt
-editor: bryanla; v-clay
 
 ms.service: iot-fundamentals
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/18/2018
-ms.author: bryanla; v-clay
-ms.custom: 
+ms.author: bryanla
 
 ---
 # Azure IoT technologies and solutions: PaaS and SaaS
