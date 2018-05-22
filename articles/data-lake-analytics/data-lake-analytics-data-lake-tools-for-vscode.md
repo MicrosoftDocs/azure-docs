@@ -346,7 +346,7 @@ As the same time, you can monitor the [downloading status](#check-storage-tasks-
 
 
 ### Create extract script 
-You can create EXTRACT script for .csv, .tsv, .txt files by entering the commands **ADL: Create EXTRACT Script**.
+You can create EXTRACT script for .csv, .tsv, .txt files by entering the command **ADL: Create EXTRACT Script**.
 
 1. Select Ctrl+Shift+P to open the command palette, enter **ADL: Create EXTRACT Script**.
 2. Specify the full path for an Azure storage file, press **Enter**.
@@ -355,7 +355,7 @@ You can create EXTRACT script for .csv, .tsv, .txt files by entering the command
 
     ![Create extract script process](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-process.png)
 
-The Extract script is generated based on your entries. For the script that cannot detect the columns, choose one from the two options. If not, only one script will be generated.
+The extract script is generated based on your entries. For the script that cannot detect the columns, choose one from the two options. If not, only one script will be generated.
 
 ![Create extract script result](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-result.png)
 
