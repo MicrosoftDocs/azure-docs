@@ -133,7 +133,7 @@ For tracking performance of Reliable Services or Actors in your applications, yo
     * `Service Fabric Actor(*)\\Average milliseconds per request`
     * `Service Fabric Actor Method(*)\\Invocations/Sec`
 
-    Check these links for the full list of performance counters on Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) and [Actors](service-fabric-reliable-actors-diagnostics.md)
+Check these links for the full list of performance counters on Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) and [Actors](service-fabric-reliable-actors-diagnostics.md)
 
 ## Next steps
 
