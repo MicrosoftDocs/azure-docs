@@ -15,8 +15,7 @@ ms.date: 05/22/2017
 
 Azure Stream Analytics jobs can be easily deleted through the Azure portal or Azure PowerShell.
 
->[!NOTE]
->Microsoft does not own any data processed by Azure Stream Analytics or stored in Azure Storage. Azure Stream Analytics does not store any data once a job is stopped or deleted. If you are required to remove data from Azure, be sure to follow the removal process for the input and output resources of your Stream Analytics job.
+>[!NOTE] When you stop your Stream Analytics job, the data persists only in the input and output storage, such as Event Hubs, Azure SQL Database, etc. If you are required to remove data from Azure, be sure to follow the removal process for the input and output resources of your Stream Analytics job.
 
 ## Stop a job in Azure portal
 
