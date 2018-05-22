@@ -40,11 +40,14 @@ SQL Database offers a [DTU-based purchasing model](sql-database-service-tiers-dt
 - The DTU-based purchasing model offers a blend of compute, memory, and IO resources in three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. Performance levels within each tier provide a different mix of these resources, to which you can add additional storage resources.
 - The vCore-based purchasing model (preview) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage.
 
-You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability* enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
    ![DTU scaling](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 SQL Database Managed Instance is in preview and offers a single service tier. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md)
+
+  >[!IMPORTANT]
+  > *Dynamic scalability is not the same thing as autoscale. Autoscale refers to a service scaling automatically based on a certain number of parameters. Azure SQL Database supports dynamic scalability, and not autoscale. Dynamic scalability allows for manual scalability without downtime, but this is not done automatically based on load. 
 
 ### Elastic pools to maximize resource utilization
 
