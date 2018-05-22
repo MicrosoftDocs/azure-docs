@@ -14,7 +14,7 @@ ms.date: 05/17/2018
 ms.author: HeidiSteen
 
 ---
-# Azure Search Service REST API: Version 2017-11-11-Preview
+# Azure Search Service REST api-version 2017-11-11-Preview
 This article describes the `api-version=2017-11-11-Preview` version of Azure Search service REST API, offering experimental features not yet generally available.
 
 > [!NOTE]
