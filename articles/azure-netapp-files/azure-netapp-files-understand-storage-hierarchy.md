@@ -50,8 +50,9 @@ Before creating a volume in Azure NetApp Files, you must purchase and set up a p
 The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   
     ![Conceptual diagram of storage hierarchy](../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png)
 
-## Related information
+## Next steps
 
-- [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
-- [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
-- [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
+1. [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
+2. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+3. [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
+4. [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)

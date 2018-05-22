@@ -13,7 +13,7 @@
 
 # How to
 ## [Manage volumes](azure-netapp-files-manage-volumes.md)
-## [Mount or unmount a volume for virtual machines](azure-netapp-files-mount-or-unmount-a-volume-for-virtual-machines.md)
+## [Mount or unmount a volume for virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 ## [Manage snapshots](azure-netapp-files-manage-snapshots.md)
 
 # Moniter and troubleshoot

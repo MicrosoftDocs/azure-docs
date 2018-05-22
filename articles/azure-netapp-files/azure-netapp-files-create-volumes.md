@@ -51,6 +51,3 @@ A volume inherits subscription, resource group, location attributes from its cap
 ## Next steps  
 [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
 
-
-## Related information 
-[Understand the storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)

@@ -33,6 +33,7 @@ Currently, you can restore a snapshot only to a new volume.
 1. Use the Manage Snapshots blade from the Volume blade to display the snapshot list. 
 2. Select a snapshot to restore.  
 3. Right-click the snapshot name and select **Restore to new volume** from the menu option.  
+
 ![Restore snapshot to new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 4. In the New Volume window, provide information for the new volume:  
@@ -48,8 +49,14 @@ Currently, you can restore a snapshot only to a new volume.
     The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.
     *   **Virtual network**  
     Specify the Azure virtual network (Vnet) from which you want to access the volume.   
-    The Azure NetApp Files service can be accessed only from a Vnet that is in the same location as the volume. 
+    The Azure NetApp Files service can be accessed only from a Vnet that is in the same location as the volume.  
+
     ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
     
 5. Click **OK**.   
     The new volume to which the snapshot is restored appears in the Volumes blade.
+
+## Next steps 
+
+* [Manage volumes](azure-netapp-files-manage-volumes.md)
+* [Manage snapshots](azure-netapp-files-manage-snapshots.md)

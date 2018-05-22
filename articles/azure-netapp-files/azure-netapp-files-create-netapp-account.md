@@ -49,7 +49,7 @@ You must have been whitelisted for accessing the Microsoft.NetApp Azure Resource
   The NetApp account you created now appears in the Azure NetApp Files blade. 
 
 ## Next steps  
-[Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 
-## Related information 
-[Understand the storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)
+1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+2. [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
+3. [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)

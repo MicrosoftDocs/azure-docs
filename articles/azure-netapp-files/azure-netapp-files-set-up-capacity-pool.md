@@ -44,7 +44,7 @@ You must have already created a NetApp account.
 4. Click **OK**.
 
 ## Next steps 
-[Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 
-## Related information 
-[Understand the storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)
+1. [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
+2. [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
+

@@ -30,3 +30,10 @@ You must delete all sub-objects of a volume (for example, mount targets) before 
 
 1.	Click the **Volumes** blade from the Manage Capacity Pools blade. 
 2.	Use the **Browse Volumes** view to view, update, or delete existing volumes. 
+
+
+
+## Next steps 
+
+* [Mount or unmount a volume for virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Manage snapshots](azure-netapp-files-manage-snapshots.md)
