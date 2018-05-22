@@ -7,7 +7,7 @@ services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/22/2018
 ms.author: alkohli
 
 ---
@@ -76,7 +76,7 @@ There is no limit to the number of HDDs in one shipment. If the disks belong to 
 Ship only your hard drives in the shipping package. Do not include items like power supply cables or USB cables.
 
 ### Do I have to ship my drives using FedEx or DHL?
-You can ship drives to the Azure datacenter using any known carrier like FedEx, DHL, UPS, or US Postal Service. However, for retun shipment of drives to you from the datacenter, you must provide:
+You can ship drives to the Azure datacenter using any known carrier like FedEx, DHL, UPS, or US Postal Service. However, for return shipment of drives to you from the datacenter, you must provide:
 
 - A FedEx account number in the US and EU, or
 - A DHL account number in the Asia and Australia regions.
