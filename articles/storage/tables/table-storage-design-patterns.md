@@ -908,7 +908,7 @@ Note that each entity must still have **PartitionKey**, **RowKey**, and **Timest
 
 The first option, prepending the entity type to the **RowKey**, is useful if there is a possibility that two entities of different types might have the same key value. It also groups entities of the same type together in the partition.  
 
-The techniques discussed in this section are especially relevant to the discussion [Inheritance relationships](table-storage-design-modeling.md#inheritance-relationships) earlier in this guide in the section [Modeling relationships](table-storage-design-modeling.md#modeling-relationships).  
+The techniques discussed in this section are especially relevant to the discussion [Inheritance relationships](table-storage-design-modeling.md#inheritance-relationships) earlier in this guide in the article [Modeling relationships](table-storage-design-modeling.md).  
 
 > [!NOTE]
 > You should consider including a version number in the entity type value to enable client applications to evolve POCO objects and work with different versions.  

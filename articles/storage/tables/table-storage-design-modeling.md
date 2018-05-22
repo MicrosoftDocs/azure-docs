@@ -36,7 +36,7 @@ An alternative approach is to denormalize your data and store only employee enti
 
 ![Employee entity](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
 
-For more information, see the [Denormalization pattern](table-storage-design-patterns.md#Denormalization-pattern) later in this guide.  
+For more information, see the [Denormalization pattern](table-storage-design-patterns.md#denormalization-pattern) later in this guide.  
 
 The following table summarizes the pros and cons of each of the approaches outlined above for storing employee and department entities that have a one-to-many relationship. You should also consider how often you expect to perform various operations: it may be acceptable to have a design that includes an expensive operation if that operation only happens infrequently.  
 
