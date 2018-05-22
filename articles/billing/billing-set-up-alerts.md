@@ -46,8 +46,8 @@ Azure supports any email address but doesn't verify that the email address works
 ## Check on your alerts
 After you set up alerts, the Account Center lists them and shows how many more you can set up. For each alert, you see the date and time it was sent, whether it’s an alert for Billing Total or Monetary Credit, and the limit you set up. The date and time format is 24-hour Universal Time Coordinate (UTC) and the date is yyyy-mm-dd format. Click the plus sign for an alert in the list to edit it, or click the trash-can to delete it.
 
-## Delete your email address from the Azure Billing Alert Service
-If you ever need to remove any email addresses from the service, simply update the email addresses, or delete the alert entirely.
+## Delete your information from the Azure Billing Alert Service
+If you ever need to remove any information from the service, simply update the email address on file, or delete the alert entirely.
 
    ![Screenshot of the alert deletion view, where you can remove personal info][Image4]
 
