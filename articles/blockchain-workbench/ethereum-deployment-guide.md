@@ -66,9 +66,9 @@ The template deployment will walk you through configuring the first member's foo
 
 ### Basics
 
-Under the `Basics` blade, specify values for standard parameters for any deployment, such as subscription, resource group, and basic virtual machine properties.
+Under `Basics`, specify values for standard parameters for any deployment, such as subscription, resource group, and basic virtual machine properties.
 
-A detailed description of each parameter follows:
+![Basics](./media/ethereum-deployment-guide/sample-deployment.png)
 
 Parameter Name|Description| Allowed Values|Default Values
 ---|---|---|---
@@ -83,38 +83,25 @@ Subscription| The subscription to which to deploy the consortium network||NA
 Resource Group| The resource group to which to deploy the consortium network.||NA
 Location| The Azure region for resource group. ||NA
 
-**A sample deployment is shown below**
 
-![Sample deployment](./media/ethereum-deployment-guide/sample-deployment.png)
 
 ### Operations Management Suite
 
 The Operations Management Suite (OMS) blade allows you to configure an OMS resource for your network. OMS will collect and surface useful metrics and logs from your network, providing the ability to quickly check the network health or debug issues. The free offering of OMS will fail gracefully once capacity is reached.
 
+![Creating new OMS](./media/ethereum-deployment-guide/new-oms.png)
 
 Parameter Name|Description| Allowed Values|Default Values
 ---|---|---|---
 Connect to existing OMS|Create a new Log Analytics instance or join an existing instance|Create new Join existing|Create new Log Analytics Location|The region where the new Log Analytics will be deployed (Visible if *Create new* is selected)
-Existing OMS Workspace Id|Workspace ID of the existing instance (Visible if *Join Existing* is selected) OMS Service Tier|Choose the pricing tier for the new instance. More Info at https://azure.microsoft.com/en-us/pricing/details/log-analytics/ (Visible if *Join Existing* is selected)|Free Standalone Per Node|Free
+Existing OMS Workspace Id|Workspace ID of the existing instance (Visible if *Join Existing* is selected) OMS Service Tier|Choose the pricing tier for the new instance. More Info at https://azure.microsoft.com/pricing/details/log-analytics/ (Visible if *Join Existing* is selected)|Free Standalone Per Node|Free
 Existing OMS Primary Key|The primary key used to connect to the existing OMS instance (Visible if *Join Existing* is selected)
-
-
-**A sample deployment is shown below:**
-
-Creating New
-
-![Creating new OMS](./media/ethereum-deployment-guide/new-oms.png)
-
-Joining Existing
-
-![Join existing OMS](./media/ethereum-deployment-guide/existing-oms.png)
 
 ### Deployment regions
 
-Next, under Deployment regions, specify inputs for Number of region(s) to deploy the consortium network and selection of Azure regions based on the number of regions given. User can deploy in maximum of five regions.
+Next, under **Deployment regions**, specify inputs for **Number of region(s)** to deploy the consortium network and selection of Azure regions based on the number of regions given. User can deploy in maximum of five regions.
 
-A detailed description of each parameter follows:
-
+![Deployment regions](./media/ethereum-deployment-guide/deployment-regions.png)
 
 Parameter Name| Description| Allowed Values |Default Values
 ---|---|---|---
@@ -125,16 +112,11 @@ Third region| Third region to deploy the consortium network (Visible only when n
 Fourth region| Fourth region to deploy the consortium network (Visible only when number of regions is selected as 4)|All allowed Azure regions| East US 2
 Fifth region| Fifth region to deploy the consortium network (Visible only when number of regions is selected as 5)|All allowed Azure regions| West US 2
 
-
-**A sample deployment is shown below:**
-![Deployment regions](./media/ethereum-deployment-guide/deployment-regions.png)
-
 ### Network size and performance
 
-Next, under `Network size and performance` specify inputs for the size of the consortium network, such as number and size of mining nodes and transaction nodes.
+Next, under **Network size and performance** specify inputs for the size of the consortium network, such as number and size of mining nodes and transaction nodes.
 
-A detailed description of each parameter follows:
-
+![Network size and performance](./media/ethereum-deployment-guide/network-size-performance.png)
 
 Parameter Name |Description |Allowed Values| Default Values
 ---|---|---|---
@@ -145,16 +127,11 @@ Number of load balanced transaction nodes|The number of transaction nodes to pro
 Transaction node storage performance|The type of managed disk backing each of the deployed transaction nodes.|Standard or Premium|Standard
 Transaction node virtual machine size|The virtual machine size used for transaction nodes.|Standard A, <br />Standard D, <br />Standard D-v2, <br />Standard F series, <br />Standard DS, <br />and Standard FS|Standard D1v2
 
-**A sample deployment is shown below:**
-
-![Network size and performance](./media/ethereum-deployment-guide/network-size-performance.png)
-
 ### Ethereum settings
 
-Next, under Ethereum settings, specify Ethereum-related configuration settings, like the network ID and Ethereum account password or genesis block.
+Next, under **Ethereum settings**, specify Ethereum-related configuration settings, like the network ID and Ethereum account password or genesis block.
 
-A detailed description of each parameter follows:
-
+![Ethereum settings](./media/ethereum-deployment-guide/standalone-leader-deployment.png)
 
 Parameter Name |Description |Allowed Values|Default Values
 ---|---|---|---
@@ -170,27 +147,13 @@ VNet Gateway to Connect to|The resource path of the VNet Gateway to which to con
 Endpoint of Peer information registrar|Peer info endpoint provided by another member's deployment|Valid endpoint of first member in consortium|NA
 Key of Peer information registrar|Peer info primary key provided by another member's deployment|Valid primary key of first member in consortium|NA
 
-
-**A sample deployment is shown below:**
-
-Standalone or leader deployment
-
-![Standalone or leader deployment](./media/ethereum-deployment-guide/standalone-leader-deployment.png)
-
-Joining member deployment
-
-![Joining member deployment](./media/ethereum-deployment-guide/joining-deployment.png)
-
 ### Summary
 
 Click through the summary blade to review the inputs specified and to run basic pre-deployment validation.
 
-**A sample deployment is shown below:**
-
 ![Summary](./media/ethereum-deployment-guide/summary.png)
 
-
-Review legal and privacy terms and click `Purchase` to deploy. If the deployment has more than one region, or is for a consortium network, then this template pre-deploys the necessary VPN Gateways to support network connectivity with other members. Deployment of the gateway can take up to 45 to 50 minutes.
+Review legal and privacy terms and click **Purchase** to deploy. If the deployment has more than one region, or is for a consortium network, then this template pre-deploys the necessary VPN gateways to support network connectivity with other members. Deployment of the gateway can take up to 45 to 50 minutes.
 
 ## Post deployment sanity checks
 
@@ -198,16 +161,15 @@ Review legal and privacy terms and click `Purchase` to deploy. If the deployment
 
 Once the deployment has completed successfully and all resources have been provisioned, you can go to the administrator page to get a view of your blockchain network and sanity check the deployment state. The URL of the admin page is the DNS name of the load balancer; it is present in the output section of the template deployment named as ADMIN_SITE.
 
-To find it, select the resource group that was deployed. Then, select Overview, and click on the link immediately under Deployments that shows the number that succeeded.
+To find it, select the resource group that was deployed. Then, select **Overview**, and click on the link immediately under **Deployments** that shows the number that succeeded.
 
 ![Resource group overview](./media/ethereum-deployment-guide/resource-overview.png)
 
-The new screen shows deployment history. Select the first deployment resource (ex. `microsoft-azure-blockchain.azure-blockchain-servi...`) and look for the `Outputs` section in the lower half of the screen. You`ll see the URL for the admin page listed in the template deployment output parameter as ADMIN_SITE.
+The new screen shows deployment history. Select the first deployment resource (ex. `microsoft-azure-blockchain.azure-blockchain-servi...`) and look for the **Outputs** section in the lower half of the page. You`ll see the URL for the admin page listed in the template deployment output parameter as ADMIN_SITE.
 
 ![Resource deployments](./media/ethereum-deployment-guide/resource-deployments.png)
 
 ![Deployment output](./media/ethereum-deployment-guide/deployment-output.png)
-
 
 To get to the admin page, copy the `ADMIN-SITE` output and open it in another tab.
 
@@ -226,7 +188,7 @@ You can locate your OMS portal either by following the link in the deployment ou
 
 ![OMS resource](./media/ethereum-deployment-guide/oms-resource.png)
 
-The portal will first display high-level network statistics as an Overview.
+The portal will first display high-level network statistics as an overview.
 
 ![OMS Overview](./media/ethereum-deployment-guide/oms-overview.png)
 
@@ -236,17 +198,15 @@ Clicking on the overview will direct you to a portal to view per-node statistics
 
 ### Accessing nodes
 
-You can remotely connect to the virtual machines for the transaction nodes via SSH with your provided admin username and password/SSH key. Since the transaction node VMs do not have their own public IP addresses, you will need to go through the load balancer and specify the port number. The SSH command to run to access the first transaction node is listed in the template deployment output parameter as, `SSH_TO_FIRST_TX_NODE` (for the sample deployment: ssh -p
-4000 gethadmin@leader4vb.eastus.cloudapp.azure.com). To get to additional transaction nodes, increment the port number by one (For example, the first transaction node is on port 4000).
+You can remotely connect to the virtual machines for the transaction nodes via SSH with your provided admin username and password/SSH key. Since the transaction node VMs do not have their own public IP addresses, you will need to go through the load balancer and specify the port number. The SSH command to run to access the first transaction node is listed in the template deployment output parameter as, `SSH_TO_FIRST_TX_NODE` (for the sample deployment: ssh -p 4000 gethadmin@leader4vb.eastus.cloudapp.azure.com). To get to additional transaction nodes, increment the port number by one (For example, the first transaction node is on port 4000).
 
-Since the virtual machines on which the mining nodes run are not externally accessible, you need to go through one of the transaction nodes. Once you have a SSH session to a transaction node, install your private key on the transaction node or use your password to start a SSH session into any of the
-mining nodes.
+Since the virtual machines on which the mining nodes run are not externally accessible, you need to go through one of the transaction nodes. Once you have a SSH session to a transaction node, install your private key on the transaction node or use your password to start a SSH session into any of the mining nodes.
 
 **Note**
 
-The hostnames can be obtained from Admin Site or from the Azure portal. In Azure portal, the hostnames of nodes present in the virtual machine scale set (VMSS) resource is listed under **Instances**, which differs from the actual hostnames. For example, the hostname in Azure Portal may look like **mn-asdfmv-reg1_0** but the actual hostname would be like **mn-asdfmv-reg**
+The hostnames can be obtained from Admin Site or from the Azure portal. In Azure portal, the hostnames of nodes present in the virtual machine scale set (VMSS) resource is listed under **Instances**, which differs from the actual hostnames. For example, the hostname in Azure Portal may look like **mn-asdfmv-reg1_0** but the actual hostname would be like `mn-asdfmv-reg`.
 
-**Few examples**
+For example:
 
 Azure Portal hostname| Actual hostname
 ---|---
@@ -343,9 +303,11 @@ Run the script with the appropriate input:
     network that are establishing a connection.
 - **Location** : The Azure region where your gateway resource is deployed.
 
+``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group
 $MyResourceGroup --vnet-gateway1 $MyGatewayResourceId --shared-key $SharedKey --vnet-
 gateway2 $OtherGatewayResourceId --enable-bgp
+```
 
 The architecture will be as follows after you have successfully configured connection between
 **leader** and **member** deployments.
@@ -358,12 +320,11 @@ The architecture will be as follows after you have successfully configured conne
 
 As the first member, your Ethereum account is funded with one trillion ether if the deployment generates the genesis block (Custom Genesis Block = No). Other members will have an account that is not pre-funded and must wait to accumulate Ether as their mining nodes begin to mine blocks. To avoid having new members wait for Ether, you will need to explicitly fund joining members' Ethereum accounts.
 
-
 To do so, joining members must provide you with the Ethereum account that is displayed on their admin website. You can then use your admin website to transfer Ether from your account to their account by simply entering the account provided.
 
 ### Custom genesis block
 
-If a custom genesis block is provided with a specified Ethereum account, you can use MetaMask or another tool to transfer ether from that specified account to the pre-generated Ethereum account visible in the admin website. For instructions on how to use MetaMask, skip ahead to the last section, 'Creating Ethereum Account'.
+If a custom genesis block is provided with a specified Ethereum account, you can use MetaMask or another tool to transfer ether from that specified account to the pre-generated Ethereum account visible in the admin website. For instructions on how to use MetaMask, see [Creating Ethereum Account](#create-ethereum-account).
 
 If a custom genesis block is provided without an account or you do not have access to any pre-allocated accounts, you will need to wait until your mining nodes begin to mine to generate Ether into your account (coin base). How quickly the funds are generated depends on the difficulty level you specify in the custom genesis block.
 
@@ -375,7 +336,7 @@ This transaction, like any other transaction, will go to one of the transaction 
 
 ![Transaction node](./media/ethereum-deployment-guide/transaction-node.png)
 
-To install the extension in Chrome, go to Customize and control Google Chrome (Overflow button), More Tools, Extensions, Get More Extensions, and search for MetaMask.
+To install the extension in Chrome, go to Customize and control Google Chrome (overflow button) > More Tools > Extensions > Get More Extensions, and search for MetaMask.
 
 ![MetaMask extension](./media/ethereum-deployment-guide/metamask-extension.png)
 
@@ -393,7 +354,7 @@ Through the administrator page, you can formulate a transaction to transfer Ethe
 
 ![Tranasction node](./media/ethereum-deployment-guide/transaction-node-mined.png)
 
-Via the clipboard icon in the MetaMask wallet, copy the address of the Ethereum account to which you want to transfer ether and go back to the administrator page. Paste the copied account into the input field to transfer 1000 ether from the pre-allocated Ethereum account to your newly created account. Click submit and wait for the transaction to be mined into a block.
+Via the clipboard icon in the MetaMask wallet, copy the address of the Ethereum account to which you want to transfer ether and go back to the administrator page. Paste the copied account into the input field to transfer 1000 ether from the pre-allocated Ethereum account to your newly created account. Click **Submit** and wait for the transaction to be mined into a block.
 
 ![Node status](./media/ethereum-deployment-guide/node-status2.png)
 
@@ -406,11 +367,11 @@ Once the transaction is committed into a mined block, the account balance in Met
 
 At this point, you are ready to execute transactions within your private consortium network. The simplest transaction is to transfer Ether from one account to another. To formulate such a transaction, you can use MetaMask once again, transferring money from the first account used above to a second account.
 
-From Wallet 1 in MetaMask, click on send. Copy the address of the second wallet created into Recipient Address input field and amount of Ether to transfer in the Amount input field. Click send and accept the transaction.
+From **Wallet 1** in MetaMask, click on send. Copy the address of the second wallet created into **Recipient Address** input field and amount of Ether to transfer in the **Amount** input field. Click **Send** and accept the transaction.
 
 ![MetaMask send transaction](./media/ethereum-deployment-guide/metamask-send.png)
 
-Once again, when the transaction is mined and committed into a block, the account balances are reflected accordingly. Note, wallet 1's balance is deducted a bit more than 15 Ether, since you had to pay a mining fee to process the transaction.
+Once again, when the transaction is mined and committed into a block, the account balances are reflected accordingly. Note, **Wallet 1**'s balance is deducted more than 15 Ether, since you had to pay a mining fee to process the transaction.
 
 ![Wallet 1](./media/ethereum-deployment-guide/wallet1.png)
 

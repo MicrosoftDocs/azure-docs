@@ -1,4 +1,17 @@
-# Hyperledger Fabric single member blockchain in Azure Marketplace
+---
+title: Hyperledger Fabric Consortium
+description: Use the Hyperledger Fabric Consortium solution template to deploy and configure a single member network
+services: azure-blockchain
+keywords: 
+author: PatAltimore
+ms.author: patricka
+ms.date: 5/21/2018
+ms.topic: article
+ms.service: azure-blockchain
+ms.reviewer: zeyadr
+manager: femila
+---
+# Hyperledger Fabric single member network
 
 Over the past year, we have worked diligently to develop an open blockchain ecosystem on Microsoft Azure for blockchain application development. Our goal has been to empower users to build blockchain solutions easily, with the ledger and development tools of your choice.
 
@@ -34,7 +47,7 @@ By default, most subscription types support a small deployment topology without 
 - 1 load balancer
 - 1 public IP address
 
-Once you have a subscription, go to the [Azure portal](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/private/f086574e-217b-4868-859c-9f8c6dcd9010). Select **+**, select Blockchain, and select **Hyperledger Fabric Single Member Blockchain**.
+Once you have a subscription, go to the [Azure portal](https://portal.azure.com). Select **+**, select Blockchain, and select **Hyperledger Fabric Single Member Blockchain**.
 
 ![Hyperledger Fabric Single Member Blockchain Marketplace template](./media/hyperledger-fabric-single-member-blockchain/marketplace-template.png)
 
@@ -48,7 +61,7 @@ The Template Deployment will walk you through configuring the multi-node network
 
 Under the **Basics** blade, specify values for standard parameters for any deployment, such as subscription, resource group, and basic virtual machine properties.
 
-A detailed description of each parameter follows:
+![Basics](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
 Parameter Name| Description| Allowed Values|Default Value
 ---|---|---|---
@@ -63,16 +76,11 @@ Parameter Name| Description| Allowed Values|Default Value
 **Resource Group** |The resource group to which to deploy the consortium network.||NA
 **Location** |The Azure region to which to deploy the first member**s network footprint.
 
-
-A sample deployment is shown below:
-
-![Basics](./media/hyperledger-fabric-single-member-blockchain/basics.png)
-
 ### Network size and performance
 
-Next, under **Network size and performance,** specify inputs for the size of the consortium network, such as the number of membership, orderer, and peer nodes. Choose infrastructure options and your Virtual machine size.
+Next, under **Network size and performance,** specify inputs for the size of the consortium network, such as the number of membership, orderer, and peer nodes. Choose infrastructure options and your virtual machine size.
 
-A detailed description of each parameter follows:
+![Network size and performance](./media/hyperledger-fabric-single-member-blockchain/network-size-performance.png)
 
 Parameter Name| Description| Allowed Values|Default Value
 ---|---|---|---
@@ -82,28 +90,20 @@ Parameter Name| Description| Allowed Values|Default Value
 **Storage performance**|The type of storage backing each of the deployed nodes. To learn more about storage, visit [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction) and [Premium Storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage).|Standard or Premium|Standard
 **Virtual machine size** |The virtual machine size used for all nodes in the network|Standard A,<br />Standard D,<br />Standard D-v2,<br />Standard F series,<br />Standard DS,<br />and Standard FS|Standard D1_v2
 
-A sample deployment is shown below:
-
-![Network size and performance](./media/hyperledger-fabric-single-member-blockchain/network-size-performance.png)
-
 ### Fabric specific settings
 
-Finally, under Fabric specific settings, specify Fabric-related configuration settings.
+Finally, under **Fabric Settings**, specify Fabric-related configuration settings.
 
-A detailed description of each parameter follows:
+![Fabric settings](./media/hyperledger-fabric-single-member-blockchain/fabric-settings.png)
 
 Parameter Name| Description| Allowed Values|Default Value
 ---|---|---|---
 **Bootstrap User Name**| The initial authorized user that will be registered with the member services in the deployed network.|9 or fewer characters|admin
 **Bootstrap User Password for Fabric CA**|The administrator password used to secure the Fabric CA account imported into the Membership node.<br /><br />The password must contain the following: 1 upper case character, 1 lower case character, and 1 number.|12 or more characters|NA
 
-A sample deployment is shown below:
-
-![Fabric settings](./media/hyperledger-fabric-single-member-blockchain/fabric-settings.png)
-
 ### Deploy
 
-Click through the summary blade to review the inputs specified and to run basic pre-deployment validation.
+In **Summary**, review the inputs specified and to run basic pre-deployment validation.
 
 ![Summary](./media/hyperledger-fabric-single-member-blockchain/summary.png)
 
@@ -111,13 +111,13 @@ Review legal and privacy terms and click **Purchase** to deploy. Depending on th
 
 ### Accessing nodes
 
-Once the deployment is finished, you should see an Overview screen much like the picture below.
+Once the deployment is finished, an **Overview** is displayed.
 
 ![Deployments](./media/hyperledger-fabric-single-member-blockchain/deployments.png)
 
-If the screen does not appear automatically (maybe because you moved around the management portal while the deployment was running), you can always find it in the Resource Groups tab in the left-side navigation bar. Just click on the Resource Group name you entered in step 1 to go to the Overview screen.
+If the screen does not appear automatically (maybe because you moved around the management portal while the deployment was running), you can always find it in the Resource Groups tab in the left-side navigation bar. Click on the Resource Group name you entered in step 1 to go to the **Overview** page.
 
-This Overview screen shows you a list of all the resources that were deployed by the solution template. You can explore them at will, but from this screen you can also access the _output parameters_ generated by the template. These output parameters will give you useful information when connecting to your Hyperledger Fabric network.
+Overview lists all of the resources that were deployed by the solution template. You can explore them at will, but from this screen you can also access the _output parameters_ generated by the template. These output parameters will give you useful information when connecting to your Hyperledger Fabric network.
 
 To access the output parameters, first click on the Deployments tab in the Resource Group blade. This opens the Deployment History as shown below.
 
@@ -136,8 +136,7 @@ The details screen will show you a summary of the deployment, followed by three 
     to connect to the first VM in your network; in the case of Hyperledger Fabric, it will be the Fabric-CA
     node.
 
-You can remotely connect to the virtual machines for each node via SSH with your provided admin username and password/SSH key. Since the node VMs do not have their own public IP addresses, you will need to go through the load balancer and specify the port number. The SSH command to access the first transaction node is the third template output, **SSH-TO-FIRST-VM (for the sample deployment: ssh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com). To get to additional transaction nodes, increment the port number by one (For example, the first transaction node is on port 3000, the second is on 3001, the third is on
-3002, etc.).
+You can remotely connect to the virtual machines for each node via SSH with your provided admin username and password/SSH key. Since the node VMs do not have their own public IP addresses, you will need to go through the load balancer and specify the port number. The SSH command to access the first transaction node is the third template output, **SSH-TO-FIRST-VM (for the sample deployment: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). To get to additional transaction nodes, increment the port number by one (For example, the first transaction node is on port 3000, the second is on 3001, the third is on 3002, etc.).
 
 ## Next steps
 
