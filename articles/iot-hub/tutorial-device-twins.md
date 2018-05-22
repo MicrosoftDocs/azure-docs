@@ -50,9 +50,9 @@ node --version
 
 Download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
-## Set up resources
+## Set up Azure resources
 
-To complete this tutorial, you need an IoT hub with a device added to the device identity registry.
+To complete this tutorial, your Azure subscription must contain an IoT hub with a device added to the device identity registry. The entry in the device identity registry enables the simulated device you run in this tutorial to connect to your hub.
 
 If you don't already have an IoT hub set up in your subscription, you can set one up with following CLI script. This script uses the name **tutorial-iot-hub** for the IoT hub, you should replace this name with your own unique name when you run it. The script creates the resource group and hub in the **Central US** region, you can change the region to one closer to you:
 
@@ -70,7 +70,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --name $hub-name -o table
+az iot hub show-connection-string --hub-name $hub-name -o table
 
 ```
 
@@ -79,9 +79,6 @@ This tutorial uses a simulated device called **MyTwinDevice**. The following scr
 ```azurecli-interactive
 # Set the name of your IoT hub:
 hubname=tutorial-iot-hub
-
-# Install the IoT extension if it's not already installed:
-az extension add --name azure-cli-iot-ext
 
 # Create the device in the identity registry:
 az iot hub device-identity create --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg
