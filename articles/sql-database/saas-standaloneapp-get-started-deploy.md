@@ -3,18 +3,12 @@ title: Multi-tenant SaaS tutorial - Azure SQL Database | Microsoft Docs
 description: "Deploy and explore a standalone single-tenant SaaS application, that uses Azure SQL Database."
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: craigg
-editor: ''
-ms.assetid:
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/01/2018
 ms.author: genemi
 ---
 # Deploy and explore a standalone single-tenant application that uses Azure SQL Database
@@ -95,9 +89,7 @@ In a production environment, typically you create a CNAME DNS record to [*point 
 Let’s look at some of the resources that were deployed:
 
 1. In the [Azure portal](http://portal.azure.com), browse to the list of resource groups.
-2. See the **wingtip-sa-catalog-&lt;user&gt;** resource group.
-    - In this resource group, the **catalog-sa-&lt;user&gt;** server is deployed. The server contains the **tenantcatalog** database.
-    - You should also see the three tenant resource groups.
+2. You should see the three tenant resource groups.
 3. Open the **wingtip-sa-fabrikam-&lt;user&gt;** resource group, which contains the resources for the Fabrikam Jazz Club deployment.  The **fabrikamjazzclub-&lt;user&gt;** server contains the **fabrikamjazzclub** database.
 
 Each tenant database is a 50 DTU *standalone* database.
@@ -126,6 +118,6 @@ In this tutorial you learned:
 > * About the servers and databases that make up the app.
 > * How to delete sample resources to stop related billing.
 
-Next, try the [Provision and Catalog](saas-standaloneapp-provision-and-catalog.md) tutorial.
+Next, try the [Provision and Catalog](saas-standaloneapp-provision-and-catalog.md) tutorial in which you will explore the use of a catalog of tenants that enables a range of cross-tenant scenarios such as schema management and tenant analytics.
  
 

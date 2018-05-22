@@ -2,14 +2,14 @@
 title: Azure Storage account options | Microsoft Docs
 description: Understanding options for using Azure Storage.
 services: storage
-author: jirwin
+author: hux
 manager: jwillis
 
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 01/17/2018
-ms.author: jirwin
+ms.date: 05/02/2018
+ms.author: hux  
 
 ---
 # Azure Storage account options
@@ -29,7 +29,7 @@ Each type of account is described in greater detail in the following section:
 
 General-purpose v2 (GPv2) accounts are storage accounts that support all of the latest features for blobs, files, queues, and tables. GPv2 accounts support all APIs and features supported in GPv1 and Blob storage accounts. They also support the same durability, availability, scalability, and performance features in those account types. Pricing for GPv2 accounts has been designed to deliver the lowest per gigabyte prices, and industry competitive transaction prices.
 
-You can upgrade your GPv1 account to a GPv2 account using PowerShell or Azure CLI. 
+You can upgrade your GPv1 account to a GPv2 account using Azure portal, PowerShell, or Azure CLI. 
 
 For block blobs in a GPv2 storage account, you can choose between hot and cool storage tiers at the account level, or hot, cool, and archive tiers at the blob level based on access patterns. Store frequently, infrequently, and rarely accessed data in the hot, cool, and archive storage tiers respectively to optimize costs. 
 
@@ -69,8 +69,6 @@ General-purpose v1 (GPv1) storage accounts are the oldest type of storage accoun
 ### Blob storage accounts
 
 Blob storage accounts support all the same block blob features as GPv2, but are limited to supporting only block blobs. Pricing is broadly similar to pricing for general-purpose v2 accounts. Customers should review the pricing differences between Blob storage accounts and GPv2, and consider upgrading to GPv2. This upgrade cannot be undone.
-
-The ability to upgrade Blob storage Accounts to GPv2 is coming soon.
 
 > [!NOTE]
 > Blob storage accounts support only block and append blobs, and not page blobs.
@@ -112,9 +110,10 @@ All storage accounts use a pricing model for blob storage based on the tier of e
 
 In this section, the following scenarios are demonstrated using the Azure portal:
 
-* How to create a GPv2 storage account.
-* How to convert a GPv1 or Blob storage account to a GPv2 storage account.
-* How to set account and blob tier in a GPv2 storage account.
+* [How to create a GPv2 storage account.](#create-a-gpv2-storage-account-using-the-azure-portal)
+* [How to convert a GPv1 or Blob storage account to a GPv2 storage account.](#convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal)
+* [How to set account in a GPv2 storage account.](#change-the-storage-tier-of-a-gpv2-storage-account-using-the-azure-portal)
+* [How to set blob tier in a Blob storage or GPv2 storage account.](#change-the-storage-tier-of-a-blob-using-the-azure-portal)
 
 You cannot set the access tier to archive in the following examples because this setting applies to the whole storage account. Archive can only be set on a specific blob.
 
@@ -122,7 +121,7 @@ You cannot set the access tier to archive in the following examples because this
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the Hub menu, select **New** > **Data + Storage** > **Storage account**.
+2. On the Hub menu, select **Create a resource** > **Data + Storage** > **Storage account**.
 
 3. Enter a name for your storage account.
 
@@ -138,7 +137,7 @@ You cannot set the access tier to archive in the following examples because this
 
 6. Select the replication option for the storage account: **LRS**, **ZRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**.
 
-    LRS = locally-redundant storage; ZRS = zone-redundant storage; GRS = geo-redundant storage (two regions); RA-GRS is read-access geo-redundant storage (two regions with read access to the second).
+    LRS = locally-redundant storage; ZRS = zone-redundant storage; GRS = geo-redundant storage (two regions); RA-GRS = read-access geo-redundant storage (two regions with read access to the second).
 
     For more details on Azure Storage replication options, see [Azure Storage replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -152,11 +151,11 @@ You cannot set the access tier to archive in the following examples because this
 
 11. Click **Create** to create the storage account.
 
-### Convert a GPv1 account to a GPv2 storage account using the Azure portal
+### Convert a GPv1 or Blob storage account to a GPv2 storage account using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. To navigate to your storage account, select All Resources, then select your storage account.
+2. To navigate to your storage account, select **All resources**, then select your storage account.
 
 3. In the Settings section, click **Configuration**.
 
@@ -170,7 +169,7 @@ You cannot set the access tier to archive in the following examples because this
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. To navigate to your storage account, select All Resources, then select your storage account.
+2. To navigate to your storage account, select **All resources**, then select your storage account.
 
 3. In the Settings blade, click **Configuration** to view and/or change the account configuration.
 
@@ -182,7 +181,7 @@ You cannot set the access tier to archive in the following examples because this
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. To navigate to your blob in your storage account, select All Resources, select your storage account, select your container, and then select your blob.
+2. To navigate to your blob in your storage account, select **All resources**, select your storage account, select your container, and then select your blob.
 
 3. In the Blob properties blade, click the **Access Tier** dropdown menu to select the **Hot**, **Cool**, or **Archive** storage tier.
 
@@ -215,7 +214,7 @@ To monitor your existing storage accounts and gather this data, you can make use
 For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account. Zone-redundant storage (ZRS) accounts support collecting metrics data, while ZRS Classic storage accounts do not. For more information on ZRS, see [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage). 
+> Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account. 
 
 To monitor the storage consumption for Blob storage, you need to enable the capacity metrics.
 With this enabled, capacity data is recorded daily for a storage account's Blob service and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
@@ -296,8 +295,8 @@ You can create a custom application to migrate your data into a Blob storage acc
 
 For more information, see [Get Started with Azure Blob storage](../blobs/storage-dotnet-how-to-use-blobs.md).
 
-> [!NOTE]
-> Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> [!IMPORTANT]
+> Blobs encrypted using client-side encryption store encryption-related metadata with the blob. If you copy a blob that is encrypted with client-side encryption, ensure that the copy operation preserves the blob metadata, and especially the encryption-related metadata. If you copy a blob without the encryption metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## FAQ
 
@@ -309,13 +308,13 @@ Yes, existing storage accounts (GPv1) are still available and are unchanged in p
 
 GPv2 storage accounts are specialized for providing the lowest GB storage costs, while delivering industry competitive transaction and data access costs. Going forward, GPv2 storage accounts are the recommended way for storing blobs, as future capabilities such as change notifications will be introduced based on this account type. However, it is up to you when you would like to upgrade based on your business requirements. For example, you may choose to optimize your transaction patterns prior to upgrade.
 
-Downgrade from GPv2 is not supported, so consider all pricing implications prior to upgrading your accounts to GPv2.
+Downgrades from GPv2 are not supported, so consider all pricing implications prior to upgrading your accounts to GPv2.
 
 **Can I upgrade my existing storage account to a GPv2 storage account?**
 
-Yes. GPv1 accounts can easily be upgraded to GPv2 in the portal, or using PowerShell or CLI. Blob storage accounts can be upgraded to GPv2 using PowerShell or CLI. The ability to upgrade a Blob storage account to GPv2 in the portal is coming soon.
+Yes. GPv1 or Blob storage accounts can easily be upgraded to GPv2 in the portal, or using PowerShell or CLI. 
 
-Downgrade from GPv2 is not supported, so consider all pricing implications prior to upgrading your accounts to GPv2.
+Downgrades from GPv2 are not supported, so consider all pricing implications prior to upgrading your accounts to GPv2.
 
 **Can I store objects in both storage tiers in the same account?**
 
@@ -327,7 +326,7 @@ Yes, you can change the account storage tier by setting the **Access Tier** attr
 
 **How frequently can I change the storage tier of my Blob storage account?**
 
-While we do not enforce a limitation on how frequently the storage tier can be changed, be aware that changing the storage tier from cool to hot can incur significant charges. Changing the storage tier frequently is not recommended.
+While there is no enforced limitation on how frequently the storage tier can be changed, be aware that changing the storage tier from cool to hot can incur significant charges. Changing the storage tier frequently is not recommended.
 
 **Do the blobs in the cool storage tier behave differently than the ones in the hot storage tier?**
 

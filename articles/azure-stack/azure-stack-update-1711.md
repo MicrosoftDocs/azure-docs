@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/22/2018
 ms.author: brenduns
-
+ms.reviewer: justini
 ---
 
 # Azure Stack 1711 update
@@ -35,7 +35,13 @@ The Azure Stack 1711 update build number is **171201.3**.
 
 ### Prerequisites
 
-You must first install the Azure Stack [1710 Update](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) before applying this update.
+- You must first install the Azure Stack [1710 Update](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) before applying this update.
+
+- Review use of **CloudAdmin** as an account name before installing update 1711. Beginning with version 1711, *CloudAdmin* is a reserved account name and should not   be manually specified. When you update to version 1711, the update removes existing instances of the deployment account (typically called AzureStackAdmin). If you      named the deployment account *CloudAdmin*, updating to 1711 deletes it. 
+
+  *CloudAdmin* is the built-in account to connect to the [*privileged endpoint*](azure-stack-privileged-endpoint.md) (PEP). The deletion of this account can result in a lockout of the PEP unless there is already another user account that is a member of the CloudAdmin group. 
+
+  If you used CloudAdmin as name of the deployment account, add a new CloudAdmin user to your PEP before you start the update to 1711 to avoid being locked out of Azure Stack. To add a new CloudAdmin user, run the cmdlet **New-CloudAdminUser** on the PEP.
 
 ### New features and fixes
 
@@ -74,11 +80,11 @@ This section contains known issues that you may encounter during the 1711 update
 	1. **Cause:** This issue is caused when resuming an update from the portal that was previously resumed using a Privileged End Point (PEP).
 	2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
 <br><br>
-3. **Symptom:**Azure Stack operators may see the following error during the update process:*"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for <machineName>-ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c".*
+3. **Symptom:** Azure Stack operators may see the following error during the update process:*"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for <machineName>-ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c".*
 	1. **Cause:** This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates.
 	2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
 <br><br>
-4. **Symptom:**Azure Stack operators may see the following error during the update process:*"Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262"*
+4. **Symptom:** Azure Stack operators may see the following error during the update process:*"Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262"*
 	1. **Cause:** This issue is caused by a failed or incomplete background download of Windows Defender definition updates.
 	2. **Resolution:** Please attempt to resume the update after up to 8 hours have passed since the first update try.
 
@@ -102,6 +108,7 @@ This section contains post-installation known issues with build **20171201.3**.
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
+- The **Service Health** blade fails to load. When you open the Service Health blade in either the admin or user portal, Azure Stack displays an error and does not load information. This is expected behavior. Although you can select and open Service Health, this feature is not yet available but will be implemented in a future version of Azure Stack.
 
 #### Health and monitoring
 

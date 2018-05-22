@@ -5,8 +5,7 @@ keywords: Application development, database tutorial, java application, java web
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
-manager: jhubbard
-editor: mimig
+manager: kfile
 
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
@@ -26,8 +25,6 @@ ms.author: denlee
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 This Java web application tutorial shows you how to use the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service to store and access data from a Java application hosted on Azure App Service Web Apps. In this topic, you will learn:
 
@@ -740,7 +737,7 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 3. In Eclipse, on the **File** menu, click **Import**.
 4. In the **Import** window, click **Git**, click **Projects from Git**, and then click **Next**.
 5. On the **Select Repository Source** screen, click **Clone URI**.
-6. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/java-todo-app.git, and then click **Next**.
+6. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/documentdb-java-todo-app.git, and then click **Next**.
 7. On the **Branch Selection** screen, ensure that **master** is selected, and then click **Next**.
 8. On the **Local Destination** screen, click **Browse** to select a folder where the repository can be copied, and then click **Next**.
 9. On the **Select a wizard to use for importing projects** screen, ensure that **Import existing projects** is selected, and then click **Next**.

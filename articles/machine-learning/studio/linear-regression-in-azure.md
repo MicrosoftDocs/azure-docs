@@ -4,8 +4,9 @@ description: A comparison of linear regression models in Excel and in Azure Mach
 metakeywords: ''
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: kbaroni;garye
 
 ---
 # Using linear regression in Azure Machine Learning

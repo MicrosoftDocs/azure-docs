@@ -3,7 +3,7 @@ title: Move Data to and from Blob Storage with Azure Storage Explorer | Microsof
 description: Move Data to and from Azure Blob Storage using Azure Storage Explorer
 services: machine-learning,storage
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Move data to and from Azure Blob Storage using Azure Storage Explorer

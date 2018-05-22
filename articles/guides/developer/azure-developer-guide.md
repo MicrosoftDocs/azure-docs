@@ -149,7 +149,7 @@ Azure provides several ways to use containers in your applications.
 
 	>**When to use**: When deploying a web app on Linux to a Docker image.
 
-    >**Get started**: [Use a custom Docker image for App Service on Linux](../../app-service/containers/quickstart-custom-docker-image.md).
+    >**Get started**: [Use a custom Docker image for App Service on Linux](../../app-service/containers/quickstart-docker-go.md).
 
 ### Authentication
 
@@ -233,14 +233,15 @@ Azure is built on a set of REST APIs that support the Azure portal UI. Most of t
 In addition to REST APIs, many Azure services also let you programmatically manage resources from your applications by using platform-specific Azure SDKs, including SDKs for the following development platforms:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](http://azure.github.io/azure-sdk-for-node/)
--   [Java](https://docs.microsoft.com/java/api/)
+-   [Node.js](https://docs.microsoft.com/javascript/azure)
+-   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
+-   [Python](https://docs.microsoft.com/python/azure)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
+-   [Go](https://docs.microsoft.com/go/azure)
 
 Services such as [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md)
-and [Azure Media Services](../../media-services/media-services-dotnet-how-to-use.md) provide client-side SDKs to let you access services from web and mobile client apps.
+and [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) provide client-side SDKs to let you access services from web and mobile client apps.
 
 ### Azure Resource Manager 
  	
@@ -299,7 +300,7 @@ given task.
 
 	>**When to use**: When you need fine-grained access management for users and groups.
 
-    >**Get started**: To learn more, see [Get started with access management in the Azure portal](../../active-directory/role-based-access-control-what-is.md).
+    >**Get started**: To learn more, see [Get started with access management in the Azure portal](../../role-based-access-control/overview.md).
 
 -   **Service principal objects**: In addition to providing access to user principals and groups, you can grant the same access to a service principal.
 

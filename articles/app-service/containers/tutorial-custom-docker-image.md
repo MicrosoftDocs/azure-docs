@@ -38,7 +38,6 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need:
 
 * [Git](https://git-scm.com/downloads)
-* An active [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Docker](https://docs.docker.com/get-started/#setup)
 * A [Docker Hub account](https://docs.docker.com/docker-id/)
 
@@ -122,6 +121,10 @@ Verify the web app and container are functioning correctly by browsing to `http:
 
 ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
+> [!NOTE] 
+> You can also connect to the app container directly from your local development machine using SSH, SFTP, or Visual Studio Code (for live debugging Node.js apps). For more information, see [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug).
+>
+
 ## Push the Docker image to Docker Hub
 
 A registry is an application that hosts images and provides services image and container services. In order to share your image, you must push it to a registry. 
@@ -189,7 +192,7 @@ You can host native Linux applications in the cloud by using Azure Web Apps. To 
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### Create a Linux App Service plan
 

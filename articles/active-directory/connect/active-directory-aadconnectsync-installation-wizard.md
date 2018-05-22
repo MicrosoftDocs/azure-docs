@@ -75,7 +75,7 @@ To change the state, select this option and select or unselect the checkbox.
 ![Option that is also showing the current state of staging mode](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
 ## Change user sign-in
-This option allows you to change from password sync to federation or the other way around. You cannot change to **do not configure**.
+This option allows you to change the user sign-in method to and from password hash sync, pass-through authentication or federation. You cannot change to **do not configure**.
 
 For more information on this option, see [user sign-in](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 

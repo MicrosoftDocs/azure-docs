@@ -1,21 +1,13 @@
 ---
 title: Authentication and user permissions in Azure Analysis Services | Microsoft Docs
 description: Learn about authentication and user permissions in Azure Analysis Services.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 10/09/2017
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Authentication and user permissions
@@ -66,7 +58,7 @@ Excel users can connect to a server by using a Windows account, an organization 
 
 ![Access control in Azure portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Roles at this level apply to users or accounts that need to perform tasks that can be completed in the portal or by using Azure Resource Manager templates. To learn more, see [Role-Based Access Control](../active-directory/role-based-access-control-what-is.md). 
+Roles at this level apply to users or accounts that need to perform tasks that can be completed in the portal or by using Azure Resource Manager templates. To learn more, see [Role-Based Access Control](../role-based-access-control/overview.md). 
 
 
 ## Database roles
@@ -82,4 +74,4 @@ Roles at this level apply to users or accounts that need to perform tasks that c
 [Manage access to resources with Azure Active Directory groups](../active-directory/active-directory-manage-groups.md)   
 [Manage database roles and users](analysis-services-database-users.md)  
 [Manage server administrators](analysis-services-server-admins.md)  
-[Role-Based Access Control](../active-directory/role-based-access-control-what-is.md)  
+[Role-Based Access Control](../role-based-access-control/overview.md)  

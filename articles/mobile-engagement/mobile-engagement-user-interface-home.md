@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # How to manage your existing application and projects
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This article describes the **Home** page of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. 
 
 To get to the home page, click **Home** on the top left of the page. It contains the list of all of your applications that are part of the chosen collection. On this page you just see a quick overview of your applications.

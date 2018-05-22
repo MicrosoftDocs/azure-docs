@@ -5,7 +5,7 @@ keywords: ''
 services: virtual-machines-linux
 documentationcenter: ''
 author: Drewm3
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

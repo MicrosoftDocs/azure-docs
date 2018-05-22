@@ -3,18 +3,15 @@ title: 'Authorization code flow - Azure AD B2C | Microsoft Docs'
 description: Learn how to build web apps by using Azure AD B2C and OpenID Connect authentication protocol.
 services: active-directory-b2c
 documentationcenter: ''
-author: saeedakhter-msft
+author: davidmu1
 manager: mtillman
-editor: parakhj
+editor: ''
 
-ms.assetid: c371aaab-813a-4317-97df-b62e2f53d865
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeedakhter-msft
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: OAuth 2.0 authorization code flow
@@ -196,7 +193,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | Parameter | Required? | Description |
 | --- | --- | --- |
 | p |Required |The policy that was used to acquire the original refresh token. You cannot use a different policy in this request. Note that you add this parameter to the *query string*, not in the POST body. |
-| client_id |Recommended |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
+| client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
+| client_secret |Required |The client_secret associated to your client_id in the [Azure portal](https://portal.azure.com). |
 | grant_type |Required |The type of grant. For this leg of the authorization code flow, the grant type must be `refresh_token`. |
 | scope |Recommended |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app will need a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
 | redirect_uri |Optional |The redirect URI of the application where you received the authorization code. |

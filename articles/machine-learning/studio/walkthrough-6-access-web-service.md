@@ -3,8 +3,9 @@ title: 'Step 6: Access the Machine Learning Web service | Microsoft Docs'
 description: 'Step 6 of the Develop a predictive solution walkthrough: Access an active Azure Machine Learning Web service.'
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
 
 ---
 # Walkthrough Step 6: Access the Azure Machine Learning web service

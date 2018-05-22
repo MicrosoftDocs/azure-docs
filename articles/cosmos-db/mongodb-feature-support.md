@@ -3,8 +3,7 @@ title: 'Azure Cosmos DB feature support for MongoDB | Microsoft Docs'
 description: Learn about the feature support the Azure Cosmos DB MongoDB API provides for MongoDB 3.4.
 services: cosmos-db
 author: alekseys
-manager: jhubbard
-editor: ''
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
@@ -15,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-
+experimental: true
+experiment_id: "662dc5fd-886f-4a"
 ---
 # MongoDB API support for MongoDB features and syntax
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the database's MongoDB API through any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The MongoDB API enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-By using the Azure Cosmos DB MongoDB API, you can enjoy the benefits of the MongoDB APIs you're used to, with all of Azure Cosmos DB's enterprise capabilities: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
+By using the Azure Cosmos DB MongoDB API, you can enjoy the benefits of the MongoDB APIs you're used to, with all of the enterprise capabilities Azure Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
 
 ## MongoDB query language support
 
@@ -89,6 +89,7 @@ Azure Cosmos DB supports aggregation pipeline in public preview. See the [Azure 
 - $lookup
 - $out
 - $count
+- $addFields
 
 ### Aggregation expressions
 
@@ -235,8 +236,35 @@ When there's a need to include '$' or '|', it is best to create two (or more) re
 For example, given the following original query: ```find({x:{$regex: /^abc$/})```, it has to be modified as follows:
 ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries. 
-The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^abc|^def/})``` matches the documents whin which field 'x' has value that begins with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^abc|^def/})``` matches the documents in which field 'x' has values that begin with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
+### Update operators
+
+#### Field update operators
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- $unset
+- $min
+- $max
+- $currentDate
+
+#### Array update operators
+- $addToSet
+- $pop
+- $pullAll
+- $pull  (Note: $pull with condition is not supported)
+- $pushAll
+- $push
+- $each
+- $slice
+- $sort
+- $position
+
+#### Bitwise update operator
+- $bit
 
 ### Geospatial operators
 

@@ -1,23 +1,23 @@
 ---
-title: Azure Managed Application SizeSelector UI element | Microsoft Docs
-description: Describes the Microsoft.Compute.SizeSelector UI element for Azure Managed Applications
-services: azure-resource-manager
+title: Azure SizeSelector UI element | Microsoft Docs
+description: Describes the Microsoft.Compute.SizeSelector UI element for Azure portal.
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 04/30/2018
 ms.author: tomfitz
 
 ---
 # Microsoft.Compute.SizeSelector UI element
-A control for selecting a size for one or more virtual machine instances. You use this element when [creating an Azure Managed Application](publish-service-catalog-app.md).
+A control for selecting a size for one or more virtual machine instances.
 
 ## UI sample
 ![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
@@ -36,7 +36,9 @@ A control for selecting a size for one or more virtual machine instances. You us
   ],
   "constraints": {
     "allowedSizes": [],
-    "excludedSizes": []
+    "excludedSizes": [],
+    "numAvailabilityZonesRequired": 3,
+    "zone": "3"
   },
   "osPlatform": "Windows",
   "imageReference": {
@@ -62,6 +64,7 @@ used to determine the hardware costs of the virtual machines.
 - `count` is used to set the appropriate multiplier for the element. It supports
 a static value, like **2**, or a dynamic value from another element, like
 `[steps('step1').vmCount]`. The default value is **1**.
+- The `numAvailabilityZonesRequired` can be 1, 2, or 3.
 
 ## Sample output
 ```json
@@ -69,6 +72,5 @@ a static value, like **2**, or a dynamic value from another element, like
 ```
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

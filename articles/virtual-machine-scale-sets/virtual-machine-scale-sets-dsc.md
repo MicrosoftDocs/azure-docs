@@ -4,7 +4,7 @@ description: Using Virtual Machine Scale Sets with the Azure DSC Extension
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: zjalexander
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
 keywords: ''

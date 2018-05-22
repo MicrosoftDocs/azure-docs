@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 05/22/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -52,26 +52,40 @@ The following section provides you with a complete overview of all possible erro
 
 ## Error codes
 
+
 |Error|Description|
 |---|---|
 |50001|The service principal named X was not found in the tenant named Y. This can happen if the application has not been installed by the administrator of the tenant. Or Resource principal was not found in the directory or is invalid.|
 |50008|SAML assertion are missing or misconfigured in the token.|
 |50011|The reply address is missing, misconfigured or does not match reply addresses configured for the application.|
 |50012|User reported fraud during Multi-Factor authentication.|
+|50027|Invalid JWT token - doesn't contain nonce claim/ sub claim/ subject identifier mismatch / duplicate claim in idToken claims/ unexpected issuer/ unexpected audience/ not within its valid time range/ token format is not proper/External ID token from issuer failed signiture verifcation.|
 |50053|Account is locked because user tried to sign in too many times with an incorrect user ID or password.|
 |50054|Old password is used for authentication.|
 |50055|Invalid password, entered expired password.|
+|50056|Invalid or null password/Password does not exist in store for this user|
 |50057|User account is disabled.|
 |50058|No information about user's identity is found among provided credentials or User was not found in tenant or A silent sign-in request was sent but no user is signed in or Service was unable to authenticate the user.|
+|50072|Users' needs to enroll for second factor authentication (interactive)|
 |50074|User did not pass the MFA challenge.|
+|50076|User did not pass the MFA challenge (non interactive)|
 |50079|User needs to enroll for second factor authentication.|
 |50089|Flow token validation failed due to flow token expiry.|
 |50097|Device is not authenticated.|
 |50105|The signed in user is not assigned to a role for this application.|
+|50125|Sign-in was interrupted due to a password reset or password registration entry|
 |50126|Invalid username or password or Invalid on-premise username or password.|
+|50127|User needs to install a broker app to gain access to this content.|
+|50129|Device is not Workplace joined - Workplace join is required to register the device.|
 |50131|Used in various conditional access errors. E.g Bad Windows device state, request blocked due to suspicious activity, access policy and security policy decisions.|
 |50133|Session is invalid due to expiration or recent password change.|
+|50140|User prompted for consent to keep them signed-in on the device|
 |50144|User's Active Directory password has expired.|
+|50158|External security challenge not satisfied|
+|51005|Temporary Redirect|
+|53000|Conditional Access policy requires a compliant device, and the device is not compliant.|
+|53003|Access has been blocked due to conditional access policies.|
+|53004|User needs to complete Multi-factor authentication registration process before accessing this content.|
 |65001|Application X doesn't have permission to access application Y or the permission has been revoked. Or The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. Or The user or administrator has not consented to use the application with ID X. Send an authorization request to your tenant admin to act on behalf of the App : Y for Resource : Z.|
 |65005|The application required resource access list does not contain applications discoverable by the resource or The client application has requested access to resource which was not specified in its required resource access list or Graph service returned bad request or resource not found.|
 |70001|The application named X was not found in the tenant named Y. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.|
@@ -95,7 +109,7 @@ The following section provides you with a complete overview of all possible erro
 |81013|Unable to find user object based on information in the user's Kerberos ticket.|
 |90014|Used in various cases when an expected field is not present in the credential.|
 |90093|Graph returned with forbidden error code for the request.|
-
+|90094|Admin consent is needed.|
 
 
 ## Next steps

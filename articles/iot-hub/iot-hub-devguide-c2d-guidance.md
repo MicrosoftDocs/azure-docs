@@ -24,6 +24,8 @@ IoT Hub provides three options for device apps to expose functionality to a back
 * [Twin's desired properties][lnk-twins] for long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes.
 * [Cloud-to-device messages][lnk-c2d] for one-way notifications to the device app.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 Here is a detailed comparison of the various cloud-to-device communication options.
 
 |  | Direct methods | Twin's desired properties | Cloud-to-device messages |

@@ -1,6 +1,6 @@
 ---
 title: Analyze data usage in Log Analytics | Microsoft Docs
-description: Use the Usage dashboard in Log Analytics to view how much data is being sent to the Log Analytics service and troubleshoot why large amounts of data are being sent.
+description: Use the Usage and estimated cost dashboard in Log Analytics to evaluate how much data is sent to Log Analytics and identify what may cause unforeseen increases.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 03/29/2018
 ms.author: magoedte
-
 ---
+
 # Analyze data usage in Log Analytics
-Log Analytics includes information on the amount of data collected, which systems sent the data and the different types of data sent.  Use the **Log Analytics Usage** dashboard to see the amount of data sent to the Log Analytics service. The dashboard shows how much data is collected by each solution and how much data your computers are sending.
+Log Analytics includes information on the amount of data collected, which sources sent the data, and the different types of data sent.  Use the **Log Analytics Usage** dashboard to review and analyze data usage. The dashboard shows how much data is collected by each solution and how much data your computers are sending.
 
 ## Understand the Usage dashboard
 The **Log Analytics usage** dashboard displays the following information:
@@ -32,19 +32,22 @@ The **Log Analytics usage** dashboard displays the following information:
 - Offerings
     - Insight and Analytics nodes
     - Automation and Control nodes
-    - Security nodes
+    - Security nodes  
+- Performance
+    - Time taken to collect and index data  
 - List of queries
 
-![usage dashboard](./media/log-analytics-usage/usage-dashboard01.png)
+![Usage and cost dashboard](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+)
 
 ### To work with usage data
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 3. In your list of Log Analytics workspaces, select a workspace.
-4. Select **Log Analytics usage** from the list in the left pane.
-5. On the **Log Analytics Usage** dashboard, click **Time: Last 24 hours** to change the time interval.<br><br> ![time interval](./media/log-analytics-usage/time.png)<br><br>
-6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).<br><br> ![example data usage blade](./media/log-analytics-usage/blade.png)<br><br>
-7. On the Log Search dashboard, review the results that are returned from the search.<br><br> ![example usage log search](./media/log-analytics-usage/usage-log-search.png)
+4. Select **Usage and estimated costs** from the list in the left pane.
+5. On the **Usage and estimated costs** dashboard, you can modify the time range by selecting the **Time: Last 24 hours** and change the time interval.<br><br> ![time interval](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
+6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).<br><br> ![example data usage kpi](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+7. On the Log Search dashboard, review the results that are returned from the search.<br><br> ![example usage log search](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## Create an alert when data collection is higher than expected
 This section describes how to create an alert if:
@@ -148,19 +151,6 @@ Click on **See all...** to view the full list of computers sending data for the 
 
 Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
 
-## Check if there is ingestion latency
-With Log Analytics there is an anticipated latency with the ingestion of collected data.  The absolute time between indexing data and when it is available to search can be unpredictable. Previously we included a performance chart on the dashboard that showed the time taken to collect and index data, and with the introduction of the new query language, we have temporarily removed this chart.  As an interim solution until we release updated data ingestion latency metrics, the following query can be used to approximate the latency for each data type.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> The ingestion latency query does not show historical latency and is limited to only returning results for the current time.  The value for *TimeGenerated* is populated at the agent for Common schema logs and populated at the collection endpoint for Custom logs.  
->
 
 ## Next steps
 * See [Log searches in Log Analytics](log-analytics-log-searches.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.

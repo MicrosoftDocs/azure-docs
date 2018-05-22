@@ -1,15 +1,16 @@
 ---
-title: "Monitor Azure SQL Data Sync with OMS Log Analytics | Microsoft Docs"
-description: "Learn how to monitor Azure SQL Data Sync by using OMS log analytics"
+title: "Monitor Azure SQL Data Sync (Preview) with Log Analytics | Microsoft Docs"
+description: "Learn how to monitor Azure SQL Data Sync (Preview) by using Log Analytics"
 services: sql-database
-ms.date: "11/7/2017"
+ms.date: "04/01/2018"
 ms.topic: "article"
 ms.service: "sql-database"
 author: "douglaslMS"
 ms.author: "douglasl"
 manager: "craigg"
+ms.custom: data-sync
 ---
-# Monitor SQL Data Sync (Preview) with OMS Log Analytics 
+# Monitor SQL Data Sync (Preview) with Log Analytics 
 
 To check the SQL Data Sync activity log and detect errors and warnings, you previously had to check SQL Data Sync manually in the Azure portal, or use PowerShell or the REST API. Follow the steps in this article to configure a custom solution that improves the Data Sync monitoring experience. You can customize this solution to fit your scenario.
 
@@ -17,27 +18,27 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 
 ## Monitoring Dashboard for all your Sync Groups 
 
-You no longer need to look through the logs of each Sync Group individually to look for issues. You can monitor all your Sync Groups from any of your subscriptions in one place by using a custom OMS (Operations Management Suite) view. This view surfaces the information that matters to SQL Data Sync customers.
+You no longer need to look through the logs of each Sync Group individually to look for issues. You can monitor all your Sync Groups from any of your subscriptions in one place by using a custom Log Analytics view. This view surfaces the information that matters to SQL Data Sync customers.
 
 ![Data Sync monitoring dashboard](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## Automated Email notifications
 
-You no longer need to check the log manually in the Azure portal or through PowerShell or the REST API. With [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), you can create alerts that go directly to the email addresses of the people that need to see them when an error occurs.
+You no longer need to check the log manually in the Azure portal or through PowerShell or the REST API. With [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), you can create alerts that go directly to the email addresses of the people that need to see them when an error occurs.
 
 ![Data Sync email notifications](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## How do you set up these monitoring features? 
 
-Implement a custom OMS monitoring solution for SQL Data Sync in less than an hour by doing the following things:
+Implement a custom Log Analytics monitoring solution for SQL Data Sync in less than an hour by doing the following things:
 
 You need to configure three components:
 
--   A PowerShell runbook to feed SQL Data Sync log data to OMS.
+-   A PowerShell runbook to feed SQL Data Sync log data to Log Analytics.
 
--   An OMS Log Analytics alert for email notifications.
+-   A Log Analytics alert for email notifications.
 
--   An OMS View for monitoring.
+-   A Log Analytics View for monitoring.
 
 ### Samples to download
 
@@ -45,7 +46,7 @@ Download the following two samples:
 
 -   [Data Sync Log PowerShell Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Data Sync Log OMS View](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Data Sync Log Analytics View](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### Prerequisites
 
@@ -53,11 +54,11 @@ Make sure you have set up the following things:
 
 -   An Azure Automation account
 
--   Log Analytics linked with OMS Workspace
+-   Log Analytics Workspace
 
 ## PowerShell Runbook to get SQL Data Sync Log 
 
-Use a PowerShell runbook hosted in Azure Automation to pull the SQL Data Sync log data and send it to OMS. A sample script is included. As a prerequisite, you need to have an Azure Automation account. Then you need to create a runbook and schedule it to run. 
+Use a PowerShell runbook hosted in Azure Automation to pull the SQL Data Sync log data and send it to Log Analytics. A sample script is included. As a prerequisite, you need to have an Azure Automation account. Then you need to create a runbook and schedule it to run. 
 
 ### Create a runbook
 
@@ -87,7 +88,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
     2.  Sync Group information.
 
-    3.  OMS information. Find this information at OMS Portal | Settings | Connected Sources. For more info about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (public preview)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  OMS information. Find this information at OMS Portal | Settings | Connected Sources. For more info about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (preview)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Run the runbook in the Test pane. Check to make sure it was successful.
 
@@ -115,9 +116,9 @@ To schedule the runbook:
 
 To monitor whether your automation is running as expected, under **Overview** for your automation account, find the **Job Statistics** view under **Monitoring**. Pin this view to your dashboard for easy viewing. Successful runs of the runbook show as "Completed" and Failed runs show as "Failed."
 
-## Create an OMS Log Reader Alert for Email Notifications
+## Create a Log Analytics Reader Alert for Email Notifications
 
-To create an alert that uses OMS Log Analytics, do the following things. As a prerequisite, you need to have Log Analytics linked with an OMS Workspace.
+To create an alert that uses Log Analytics, do the following things. As a prerequisite, you need to have Log Analytics linked with a Log Analytics Workspace.
 
 1.  In the OMS portal, select **Log Search**.
 
@@ -173,7 +174,7 @@ In most cases, this solution is free.
 
 **Azure Automation:** There may be a cost incurred with the Azure Automation account, depending on your usage. The first 500 minutes of job run time per month are free. In most cases, this solution is expected to use less than 500 minutes per month. To avoid charges, schedule the runbook to run at an interval of two hours or more. For more info, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
 
-**OMS Log Analytics:** There may be a cost associated with OMS depending on your usage. The free tier includes 500 MB of ingested data per day. In most cases, this solution is expected to ingest less than 500 MB per day. To decrease the usage, use the failure-only filtering included in the runbook. If you are using more than 500 MB per day, upgrade to the paid tier to avoid the risk of analytics stopping when the limitation is reached. For more info, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Log Analytics:** There may be a cost associated with Log Analytics depending on your usage. The free tier includes 500 MB of ingested data per day. In most cases, this solution is expected to ingest less than 500 MB per day. To decrease the usage, use the failure-only filtering included in the runbook. If you are using more than 500 MB per day, upgrade to the paid tier to avoid the risk of analytics stopping when the limitation is reached. For more info, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## Code samples
 
@@ -181,7 +182,7 @@ Download the code samples described in this article from the following locations
 
 -   [Data Sync Log PowerShell Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Data Sync Log OMS View](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Data Sync Log Analytics View](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## Next steps
 For more info about SQL Data Sync, see:

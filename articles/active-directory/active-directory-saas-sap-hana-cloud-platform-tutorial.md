@@ -27,7 +27,7 @@ Integrating SAP Cloud Platform with Azure AD provides you with the following ben
 - You can enable your users to automatically get signed-on to SAP Cloud Platform (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -226,7 +226,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
     c. The names and values for **Principal Attribute** shown in the screenshot depend on how the application is developed. It is possible that your application requires different mappings.
 
-###Assertion-based groups
+### Assertion-based groups
 
 As an optional step, you can configure assertion-based groups for your Azure Active Directory Identity Provider.
 
@@ -334,7 +334,7 @@ When you click the SAP Cloud Platform tile in the Access Panel, you should get a
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

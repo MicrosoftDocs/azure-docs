@@ -3,7 +3,7 @@ title: Get started with private Templates | Microsoft Docs
 description: Add, manage and share your private templates using the Azure portal, the Azure CLI, or PowerShell.
 services: marketplace-customer
 documentationcenter: ''
-author: VybavaRamadoss
+author: msmbaldwin
 manager: asimm
 editor: ''
 tags: marketplace, azure-resource-manager
@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: vybavar
+ms.author: mbaldwin
 
 ---
 # Get started with private Templates on the Azure portal
@@ -100,7 +100,7 @@ You can deploy any **Template** that you have **Read** permissions on. Fill out 
 ![Deploy Template](media/deploy-template-portal1b.png)
 
 ## Share a Template resource
-A **Template** resource can be shared with your peers. Sharing behaves similarly to [role assignment for any resource on Azure](../active-directory/role-based-access-control-configure.md). The **Template** owner provides permissions to other users who can interact with a Template resource. The person or group of people you share the **Template** are able to see the Resource Manager template and its gallery properties.
+A **Template** resource can be shared with your peers. Sharing behaves similarly to [role assignment for any resource on Azure](../role-based-access-control/role-assignments-portal.md). The **Template** owner provides permissions to other users who can interact with a Template resource. The person or group of people you share the **Template** are able to see the Resource Manager template and its gallery properties.
 
 ### Access control for the Microsoft.Gallery resources
 | Role | Permissions |

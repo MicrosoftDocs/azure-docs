@@ -2,20 +2,13 @@
 title: Installing elastic database jobs | Microsoft Docs
 description: Walk through installation of the elastic job feature.
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
+manager: craigg
 author: ddove
-editor: ''
-
-ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
-ms.author: ddove
+ms.date: 04/01/2018
+ms.author: sstein
 
 ---
 # Installing Elastic Database jobs overview

@@ -4,7 +4,7 @@ description: Learn to detach a data disk from a virtual machine in Azure using C
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 

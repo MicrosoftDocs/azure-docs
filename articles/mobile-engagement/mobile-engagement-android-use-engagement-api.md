@@ -18,6 +18,10 @@ ms.author: piyushjo;ricksal
 
 ---
 # How to Use the Engagement API on Android
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This document is an add-on to the document [Advanced Reporting options for Android Mobile Engagement SDK](mobile-engagement-android-advanced-reporting.md). It provides in depth details about how to use the Engagement API to report your application statistics.
 
 Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your `Activity` sub-classes inherit from the corresponding `EngagementActivity` class.

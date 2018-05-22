@@ -3,7 +3,7 @@ title: Move data from an on-premises SQL Server to SQL Azure with Azure Data Fac
 description: Set up an ADF pipeline that composes two data migration activities that together move data on a daily basis between databases on-premises and in the cloud.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Move data from an on-premises SQL server to SQL Azure with Azure Data Factory
@@ -175,7 +175,7 @@ Copy the JSON definition of the table into a file called *bloboutputtabledef.jso
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sq"></a>SQL Azure Table
+### <a name="adf-table-azure-sql"></a>SQL Azure Table
 Definition for the table for the SQL Azure output is in the following (this schema maps the data coming from the blob):
 
     {

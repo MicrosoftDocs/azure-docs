@@ -1,20 +1,13 @@
-﻿---
+---
 title: Manage Azure Analysis Services with PowerShell | Microsoft Docs
 description: Azure Analysis Services management with PowerShell.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: reference
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 
@@ -27,7 +20,7 @@ Server management tasks such as creating or deleting a server, suspending or res
 ## Permissions
 Most PowerShell tasks require you have Admin privileges on the Analysis Services server you are managing. Scheduled PowerShell tasks are unattended operations. The account running the scheduler must have Admin privileges on the Analysis Services server. 
 
-For server operations using AzureRm cmdlets, your account or the account running scheduler must also belong to the Owner role for the resource in [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md). 
+For server operations using AzureRm cmdlets, your account or the account running scheduler must also belong to the Owner role for the resource in [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md). 
 
 ## Server operations 
 Azure Analysis Services cmdlets are included in the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) component module. To install AzureRM cmdlet modules, see [Azure Resource Manager cmdlets](/powershell/azure/overview) in the PowerShell Gallery.

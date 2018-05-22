@@ -1,23 +1,17 @@
 ---
 title: Data loading best practices - Azure SQL Data Warehouse | Microsoft Docs
-description: Recommendations for loading data and performing ELT with Azure SQL Data Warehouse. 
+description: Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
-
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 12/13/2017
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
 ---
+
 # Best practices for loading data into Azure SQL Data Warehouse
 Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse. 
 
@@ -59,11 +53,11 @@ Connect to the data warehouse and create a user. The following code assumes you 
 ```
 To run a load with resources for the staticRC20 resource classes, simply log in as LoaderRC20 and run the load.
 
-Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [service level](performance-tiers.md#service-levels). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
+Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
 
 ## Allowing multiple users to load
 
-There is often a need to have multiple users load data into a data warehouse. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
+There is often a need to have multiple users load data into a data warehouse. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
 
 For example, consider database schemas, schema_A for dept A, and schema_B for dept B. Let database users user_A and user_B be users for PolyBase loading in dept A and B, respectively. They both have been granted CONTROL database permissions. The creators of schema A and B now lock down their schemas using DENY:
 
@@ -96,13 +90,13 @@ A load using an external table can fail with the error *"Query aborted-- the max
 To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE.
 
 ## Inserting data into a production table
-A one-time load to a small table with an [INSERT statement](/sql/t-sql/statements/insert-transact-sql.md), or even a periodic reload of a look-up might perform good enough with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  However, singleton inserts are not as efficient as performing a bulk load. 
+A one-time load to a small table with an [INSERT statement](/sql/t-sql/statements/insert-transact-sql), or even a periodic reload of a look-up might perform good enough with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  However, singleton inserts are not as efficient as performing a bulk load. 
 
 If you have thousands or more single inserts throughout the day, batch the inserts so you can bulk load them.  Develop your processes to append the single inserts to a file, and then create another process that periodically loads the file.
 
 ## Creating statistics after the load
 
-To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  For a detailed explanation of statistics, see [Statistics][Statistics]. The following example creates statistics on five columns of the Customer_Speed table.
+To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  For a detailed explanation of statistics, see [Statistics](sql-data-warehouse-tables-statistics.md). The following example creates statistics on five columns of the Customer_Speed table.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -117,15 +111,23 @@ It is good security practice to change the access key to your blob storage on a 
 
 To rotate Azure Storage account keys:
 
-1. Create a second database scoped credential based on the secondary storage access key.
-2. Create a second external data source based off this new credential.
-3. Drop and create the external table(s) so they point to the new external data sources. 
+For each storage account whose key has changed, issue [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql).
 
-After migrating your external tables to the new data source, perform the following clean-up tasks:
+Example:
 
-1. Drop the first external data source.
-2. Drop the first database scoped credential based on the primary storage access key.
-3. Log in to Azure and regenerate the primary access key so it is ready for your next rotation.
+Original key is created
+
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+    ``` 
+
+Rotate key from key 1 to key 2
+
+    ```sq;
+    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```
+
+No other changes to underlying external data sources are needed.
 
 
 ## Next steps

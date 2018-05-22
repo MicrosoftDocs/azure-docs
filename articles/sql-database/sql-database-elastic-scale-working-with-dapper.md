@@ -2,19 +2,13 @@
 title: Using elastic database client library with Dapper | Microsoft Docs
 description: Using elastic database client library with Dapper.
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: torsteng
-
-ms.assetid: 463d2676-3b19-47c2-83df-f8c50492c9d2
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
-ms.author: torsteng
+ms.date: 04/01/2018
+ms.author: sstein
 
 ---
 # Using elastic database client library with Dapper

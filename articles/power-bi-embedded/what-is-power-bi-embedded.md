@@ -3,8 +3,8 @@ title: About Azure Power BI Embedded | Microsoft Docs
 description: Power BI Embedded is intended to simplify how ISVs and developers use Power BI capabilities, helping them quickly add stunning visuals, reports and dashboards into their apps.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
-manager: erikre
+author: markingmyname
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/04/2018
-ms.author: asaxton
+ms.author: maghan
 ---
 
 # About Power BI Embedded

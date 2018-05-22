@@ -3,7 +3,7 @@ title: Routing messages with Azure IoT Hub (Node) | Microsoft Docs
 description: How to process Azure IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: node
-author: msebolt
+author: dominicbetts
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
-ms.author: v-masebo
+ms.author: v-masebo;dobett
 
 ---
 # Routing messages with IoT Hub (Node)
@@ -228,7 +228,7 @@ In this tutorial, you learned how to reliably dispatch device-to-cloud messages 
 
 The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your solution back end.
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite][lnk-suite].
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator][lnk-suite].
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 

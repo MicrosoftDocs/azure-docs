@@ -4,8 +4,8 @@ description: 'In this tutorial, you create an Azure data factory pipeline that c
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services

@@ -10,10 +10,10 @@ editor: tysonn
 ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 05/17/2018
 ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
@@ -23,8 +23,6 @@ To deploy your solution, you can use either a single template or a main template
 For small to medium solutions, a single template is easier to understand and maintain. You are able to see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components, and reuse templates.
 
 When using linked template, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
-
-![linked templates](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
 ## Link or nest a template
 
@@ -146,7 +144,7 @@ The following example shows how to use a base URL to create two URLs for linked 
 }
 ```
 
-You can also use [deployment()](resource-group-template-functions-deployment.md#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This approach is useful if your template location changes (maybe due to versioning) or you want to avoid hard coding URLs in the template file.
+You can also use [deployment()](resource-group-template-functions-deployment.md#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This approach is useful if your template location changes (maybe due to versioning) or you want to avoid hard coding URLs in the template file. The templateLink property is only returned when linking to a remote template with a URL. If you are using a local template, that property is not available.
 
 ```json
 "variables": {
@@ -207,7 +205,7 @@ The main template deploys the linked template and gets the returned value. Notic
 }
 ```
 
-Like other resource types, you can set dependencies between the linked template and other resources. Therefore, when other resources require an output value from the linked template, you can make sure the linked template is deployed before them. Or, when the linked template relies on other resources, you can make sure other resources are deployed before the linked template.
+Like other resource types, you can set dependencies between the linked template and other resources. Therefore, when other resources require an output value from the linked template, make sure the linked template is deployed before them. Or, when the linked template relies on other resources, make sure other resources are deployed before the linked template.
 
 The following example shows a template that deploys a public IP address and returns the resource ID:
 
@@ -444,7 +442,7 @@ The following example shows how to pass a SAS token when linking to a template:
 }
 ```
 
-In PowerShell, you get a token for the container and deploy the templates with:
+In PowerShell, you get a token for the container and deploy the templates with the following commands. Notice that the **containerSasToken** parameter is defined in the template. It is not a parameter in the **New-AzureRmResourceGroupDeployment** command.
 
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
