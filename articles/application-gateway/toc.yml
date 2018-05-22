@@ -57,7 +57,7 @@
   - name: Manage web traffic
     items:
     - name: PowerShell
-      href: tutorial-manage-web-traffic-powershell
+      href: tutorial-manage-web-traffic-powershell.md
     - name: Template
       href: create-vmss-template.md
   - name: Configure internal load balancer
