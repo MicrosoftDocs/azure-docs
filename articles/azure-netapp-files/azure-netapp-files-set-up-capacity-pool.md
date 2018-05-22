@@ -25,7 +25,7 @@ You must have already created a NetApp account.
 
 ## Steps 
 
-1. Access the Capacity pools blade from the Manage NetApp Account blade. 
+1. Access the **Capacity pools** blade from the Manage NetApp Account blade. 
 
 2. Click **+ Add pools** to create a new capacity pool.   
     The New Capacity Pool window appears.

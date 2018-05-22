@@ -45,8 +45,7 @@ You must have already set up a capacity pool.
 ![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
 
 4.	Click OK. 
-
-[!NOTE] 
+ 
 A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
 
 ## Next steps  
