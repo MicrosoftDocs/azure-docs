@@ -14,7 +14,7 @@ ms.author: sethm
 
 ---
 
-# Send and receive messages using Azure CLI and Java
+# Quickstart: Send and receive messages using Azure CLI and Java
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services, or processes from each other (applications do not need to be online at the same time), transferring state or data changes, and sending messages between the applications. 
 
