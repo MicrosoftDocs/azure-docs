@@ -86,7 +86,7 @@
       href: https://docs.microsoft.com/en-us/rest/api/maps/trafficservice
     - name: Maps account management
       href: https://docs.microsoft.com/en-us/rest/api/maps-management
-  - name: Javascript
+  - name: JavaScript
     items:
     - name: Map control
       href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
