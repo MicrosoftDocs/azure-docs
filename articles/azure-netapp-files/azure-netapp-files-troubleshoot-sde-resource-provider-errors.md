@@ -20,6 +20,33 @@ ms.author: b-juche
 # Troubleshoot SDE Resource Provider errors for Azure NetApp Files
 This article describes common SDE Resource Provider errors, their causes, solutions, and workarounds. 
 
+
+* [Azure KeyVault not configured](#error_01)
+* [Creation Token cannot be changed](#error_02)
+* [Creation Token must be at least 16 characters long](#error_03)
+* [Error deleting a volume that was not found at NFSaaS](#error_04)
+* [Error inserting a new Volume found at NFSaaS](#error_05)
+* [The file path name can contain letters, numbers and hyphens ("-") only](#error_06)
+* [Volume ID cannot be changed](#error_07)
+* [An invalid value '{0}' was received for {1}](#error_08)
+* [Missing value for '{0}'](#error_09)
+* [{0} already in use](#error_10)
+* [{0} too short](#error_11)
+* [NFSaaS API unreachable](#error_12)
+* [No NFS credentials found for subscription '{0}'](#error_13)
+* [No operation result id found for '{0}'](#error_14)
+* [Operation '{0}' not supported](#error_15)
+* [Patch operation is not supported for this resource type](#error_16)
+* [Received a value for read-only property '{0}'](#error_17)
+* [The requested {0} was not found](#error_18)
+* [Unable to get NFS credentials for subscription '{0}'](#error_19)
+* [Unknown NFSaaS Error](#error_20)
+* [Value received for an unknown property '{0}'](#error_21)
+* [Update operation is not supported for this resource type](#error_22)
+* [Number of items: {0} for object: {1} is outside min-max range](#error_23)
+* [Duplicate value error for object {0}](#error_24)
+
+
 ## <a name="error_01"></a>*Azure KeyVault not configured*
 The KeyVault stores the required credentials for accessing the underlying API. This error indicates that the KeyVault did not receive the complete credentials for accessing the underlying API.
 
