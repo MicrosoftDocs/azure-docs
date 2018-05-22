@@ -41,7 +41,7 @@
   - name: Execute data science tasks
     href: execute-data-science-tasks.md
   - name: Code testing
-    href: code_test.md
+    href: code-test.md
   - name: Track progress
     href: track-progress.md
 - name: Examples
