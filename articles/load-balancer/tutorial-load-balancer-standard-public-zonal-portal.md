@@ -112,31 +112,31 @@ In this section, you create NSG rules to allow inbound connections by using HTTP
 
 ### Create virtual machines
 
-1. On the top left-hand side of the screen, click **Create a resource** > **Compute** > **Windows Server 2016 Datacenter** and enter these values for the virtual machine:
-    - *myVM1* - for the name of the virtual machine.        
-    - *azureuser* - for the administrator user name.    
-    - *myResourceGroupZLB* - for **Resource group**, select **Use existing**, and then select *myResourceGroupZLB*.
-2. Click **OK**.
-3. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
+1. On the top left-hand side of the screen, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**. Enter these values for the virtual machine:
+    - *myVM1*, for the name of the virtual machine.        
+    - *azureuser*, for the administrator user name.    
+    - *myResourceGroupZLB*, for **Resource group**. Select **Use existing**, and then select *myResourceGroupZLB*.
+2. Select **OK**.
+3. Select **DS1_V2** for the size of the virtual machine. Select **Select**.
 4. Enter these values for the VM settings:
-    - *zone 1* - for the Availability zone where you place the VM.
-    -  *myVNet* - ensure it is selected as the virtual network.
-    - *myVM1PIP* - for the Standard Public IP Address that you create. Click *Create new* and then for name type, *myVM1PIP*, for Zone select **1**. The IP address SKU is Standard by default.
-    - *myBackendSubnet* - ensure it is selected as the subnet.
-    - *myNetworkSecurityGroup* - for the name of the network security group (firewall) that already exists.
-5. Click **Disabled** to disable boot diagnostics.
-6. Click **OK**, review the settings on the summary page, and then click **Create**.
-7. Create a second VM, named, *myVM2* in Zone 1 with *myVnet* as the virtual network, *myVM2PIP* as the Standard Public IP address, *myBackendSubnet* as the subnet,  and **myNetworkSecurityGroup* as the network security group using steps 1-6.
+    - *zone 1*, for the Availability zone where you place the VM.
+    -  *myVNet*. Ensure it's selected as the virtual network.
+    - *myVM1PIP*, for the Standard Public IP Address that you create. Select *Create new*. Then for name type, select *myVM1PIP*. For Zone, select **1**. The IP address SKU is Standard by default.
+    - *myBackendSubnet*. Make sure it's selected as the subnet.
+    - *myNetworkSecurityGroup*, for the name of the network security group (firewall) that already exists.
+5. Select **Disabled** to disable boot diagnostics.
+6. Select **OK**. Review the settings on the summary page. Then select **Create**.
+7. Use steps 1 to 6 to create a second VM, named *myVM2*, in Zone 1. Make *myVnet* the virtual network. Make *myVM2PIP* the Standard Public IP address. Make *myBackendSubnet* the subnet. And make **myNetworkSecurityGroup** the network security group.
 
     ![Create RDP rule](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-machine.png) 
 
 ### Install IIS on VMs
 
-1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM1** that is located in the *myResourceGroupZLB* resource group.
-2. On the **Overview** page, click **Connect** to RDP into the VM.
-3. Log into the VM with the user name and password that you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
-4. On the server desktop, navigate to **Windows Administrative Tools**>**Windows PowerShell**.
-6. In the PowerShell Window, run the following commands to install the IIS server, remove the  default iisstart.htm file, and then add a new iisstart.htm file that displays the name of the VM:
+1. Select **All resources** in the left-hand menu. Then from the resources list, select **myVM1**, which is located in the *myResourceGroupZLB* resource group.
+2. On the **Overview** page, select **Connect** to RDP into the VM.
+3. Log in to the VM with the user name and password that you specified when you created the VM. You might need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM. Then select **OK**. You might receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
+4. On the server desktop, navigate to **Windows Administrative Tools** > **Windows PowerShell**.
+6. In the PowerShell Window, run the following commands to install the IIS server. These commands also remove the default iisstart.htm file and then add a new iisstart.htm file that displays the name of the VM:
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -146,28 +146,28 @@ In this section, you create NSG rules to allow inbound connections by using HTTP
     # Add a new htm file that displays server name
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-7. Close the RDP session with *myVM1*
+7. Close the RDP session with *myVM1*.
 8. Repeat steps 1 to 7 to install IIS on *myVM2*.
 
 ## Create load balancer resources
 
-In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer and NAT rules.
+In this section, you configure load balancer settings for a back-end address pool and a health probe. You also specify load balancer and NAT rules.
 
 
-### Create a backend address pool
+### Create a back-end address pool
 
-To distribute traffic to the VMs, a back-end address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to include *VM1* and *VM2*.
+To distribute traffic to the VMs, a back-end address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the back-end address pool *myBackendPool* to include *VM1* and *VM2*.
 
-1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer* from the resources list.
-2. Under **Settings**, click **Backend pools**, then click **Add**.
-3. On the **Add a backend pool** page, do the following:
-    - For name, type *myBackEndPool*, as the name for your backend pool.
-    - For **Virtual network**, in the drop-down menu, click *myVNet*
-    - For **Virtual machine** and **IP address**  add *myVM1* and *myVM2*  and their corresponding public IP addresses.
-4. Click **Add**.
-5. Check to make sure your load balancer backend pool setting displays both the VMs - **myVM1** and **myVM2**.
+1. Select **All resources** in the left-hand menu. Then select **myLoadBalancer* from the resources list.
+2. Under **Settings**, select **Backend pools**. Then select **Add**.
+3. On the **Add a backend pool** page, take the following actions:
+    - For name, enter *myBackEndPool* as the name for your back-end pool.
+    - For **Virtual network**, in the drop-down menu, select *myVNet*. 
+    - For **Virtual machine** and **IP address**, add *myVM1* and *myVM2* and their corresponding public IP addresses.
+4. Select **Add**.
+5. Check to make sure your load balancer back-end pool setting displays both the VMs: **myVM1** and **myVM2**.
  
-    ![Create backend pool](./media/tutorial-load-balancer-standard-zonal-portal/create-backend-pool.png) 
+    ![Create back-end pool](./media/tutorial-load-balancer-standard-zonal-portal/create-backend-pool.png) 
 
 ### Create a health probe
 
