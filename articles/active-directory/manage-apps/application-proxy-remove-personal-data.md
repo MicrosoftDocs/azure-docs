@@ -18,9 +18,9 @@ ms.custom: it-pro
 
 ---
 
-# Remove personal data for Azure Active Directory application proxy  
+# Remove personal data for Azure Active Directory Application Proxy  
 
-Application Proxy requires that you install connectors on your devices, which means that there might be personal data on your devices. This article provides steps for how to delete that personal data to improve privacy. 
+Azure Active Directory Application Proxy requires that you install connectors on your devices, which means that there might be personal data on your devices. This article provides steps for how to delete that personal data to improve privacy. 
 
 
 ## Where is the personal data?
@@ -79,5 +79,5 @@ One option to ensure the connector logs do not contain personal data is to turn 
 
 ## Next steps
 
-For an overview of the Azure AD application proxy, see [How to provide secure remote access to on-premises applications](application-proxy.md).
+For an overview of Application Proxy, see [How to provide secure remote access to on-premises applications](application-proxy.md).
 
