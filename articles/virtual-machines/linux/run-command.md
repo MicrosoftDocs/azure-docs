@@ -64,9 +64,9 @@ This table shows the list of commands available for Linux VMs. The **RunShellScr
 
 ## Limiting access to Run Command
 
-Listing the run commands or showing the details of a command require the `Microsoft.Compute/locations/runCommands/read` permission, which the built-in [Reader role](../../role-based-access-control/built-in-roles.md#reader) has.
+Listing the run commands or showing the details of a command require the `Microsoft.Compute/locations/runCommands/read` permission, which the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher have.
 
-Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission, which the [Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) has.
+Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission, which the [Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher have.
 
 You can use one of the [built-in](../../role-based-access-control/built-in-roles.md) roles or create a [custom](../../role-based-access-control/custom-roles.md) role to use Run Command.
 
