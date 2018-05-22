@@ -19,7 +19,7 @@ Microsoft Translator continually extends the list of languages supported by its 
 
 Code samples demonstrating use of the API to get available languages are available from the [Microsoft Translator Github site](https://github.com/MicrosoftTranslator).
 
-## Implementation Notes
+## Implementation notes
 
 GET /languages 
 
