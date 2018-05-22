@@ -177,8 +177,30 @@ To disable Write Accelerator, use [az vm update](https://docs.microsoft.com/en-u
 az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false
 ```
 
-## Enabling Azure Write Accelerator using the Rest APIs
-In order to deploy through Azure Rest API, you can deploy through Azure CLI or PowerShell.
+### Enabling through Rest APIs
+In order to deploy through Azure Rest API, you need to install the Azure armclient
+
+#### Install armclient
+
+To run armclient, you need to install it through Chocolatey. You can install it through cmd.exe or powershell. Use elevated rights for these commands (“Run as Administrator”).
+
+Using cmd.exe run the following command:
+
+```
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+```
+
+Using Power Shell you have to use:
+
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+```
+
+Now you can install the armclient with the command below in cmd.exe or Power Shell
+
+```
+choco install armclient
+```
 
 #### Getting your current VM configuration
 In order to change the attributes of your disk configuration, you first need to get the current configuration in a JSON file. You can get the current configuration by executing the following command:
