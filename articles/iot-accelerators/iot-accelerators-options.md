@@ -1,17 +1,14 @@
 ---
 title: Microsoft Azure IoT options | Microsoft Docs
 description: Choose how to implement your IoT solution using Azure IoT solution accelerators, Azure IoT Central, or Azure IoT Hub.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 
-ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
-ms.service: iot-suite
-ms.topic: get-started-article
+ms.service: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
+ms.custom: 
 
 ---
 

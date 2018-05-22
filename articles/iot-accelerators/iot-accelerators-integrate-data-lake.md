@@ -1,14 +1,12 @@
 ---
 title: Integrate the Remote Monitoring solution with Azure Data Lake Store | Microsoft Docs
 description: Learn how to integrate the Remote Monitoring solution with Azure Data Lake Store using an Azure Stream Analytics job.
-+services: ''
-+suite: iot-suite
-+author: philmea
-+manager: timlt
-+ms.author: philmea
-+ms.date: 04/029/2018
-+ms.topic: article
-+ms.service: iot-suite
+author: philmea
+manager: 
+ms.author: philmea
+ms.date: 04/29/2018
+ms.topic: conceptual
+ms.service: iot-accelerators
 
 ---
 # Integrate the Remote Monitoring solution with Azure Data Lake Store

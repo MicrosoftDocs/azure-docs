@@ -1,17 +1,12 @@
 ---
 title: Simulated device behavior in remote monitoring solution - Azure | Microsoft Docs
 description: This article describes how to use JavaScript to define the behavior of a simulated device in the remote monitoring solution.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
 # Implement the device model behavior

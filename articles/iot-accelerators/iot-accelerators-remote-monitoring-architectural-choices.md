@@ -1,17 +1,12 @@
 ---
 title: Remote Monitoring solution architectural choices - Azure | Microsoft Docs 
 description: This article describes the architectural and technical choices made in Remote Monitoring
-services: iot-suite
-suite: iot-suite
 author: timlaverty
 manager: camerons
 ms.author: timlav
-ms.service: iot-suite
+ms.service: iot-accelerators
 ms.date: 04/30/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
 # Remote Monitoring architectural choices

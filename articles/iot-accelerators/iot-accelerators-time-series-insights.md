@@ -1,15 +1,12 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Visualize Remote Monitoring Data with Azure Time Series Insights | Microsoft Docs
 description: Learn how to configure your Time Series Insights environment to explore and analyze the time series data of your Remote Monitoring solution.
-services: ''
-suite: iot-suite
 author: philmea
 manager: timlt
 ms.author: philmea
 ms.date: 04/29/2018
-ms.topic: article
-ms.service: iot-suite
+ms.topic: conceptual
+ms.service: iot-accelerators
 ---
 # Visualize Remote Monitoring Data with Time Series Insights
 

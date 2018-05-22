@@ -1,19 +1,11 @@
 ---
 title: Connected Factory solution features - Azure | Microsoft Docs
 description: An overview of the features of the Connected Factory preconfigured solution.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
 
-ms.assetid: 
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: dobett
 
