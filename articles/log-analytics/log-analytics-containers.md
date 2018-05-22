@@ -524,7 +524,7 @@ You can verify that the Container Monitoring solution is set correctly for Windo
 
 ## Solution components
 
-If you are using Windows agents, then the following management pack is installed on each computer with an agent when you add this solution. No configuration or maintenance is required for the management pack.
+From the OMS portal, navigate to the *Solutions Gallery* and add the **Container Monitoring Solution**. If you are using Windows agents, then the following management pack is installed on each computer with an agent when you add this solution. No configuration or maintenance is required for the management pack.
 
 - *ContainerManagement.xxx* installed in C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs
 
@@ -559,6 +559,7 @@ Labels appended to *PodLabel* data types are your own custom labels. The appende
 
 ## Monitor containers
 After you have the solution enabled in the Log Analytics portal, the **Containers** tile shows summary information about your container hosts and the containers running in hosts.
+
 
 ![Containers tile](./media/log-analytics-containers/containers-title.png)
 
