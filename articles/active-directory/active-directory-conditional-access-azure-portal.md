@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory conditional access | Microsoft Docs
 description: Learn how conditional access in Azure Active Directory can help you to manage access control from a central location.
 services: active-directory
@@ -120,3 +120,5 @@ Using conditional access requires a Azure AD Premium license. To find the right 
 - If you want to get some experience with configuring conditional access policies, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+
+- If you would like a step-by-step deployment plan with recommended policies, see the [conditional access deployment plan](http://aka.ms/conditionalaccessdeploymentplan)

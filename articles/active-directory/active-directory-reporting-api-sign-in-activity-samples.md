@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/21/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk 
 
 ---
 # Azure Active Directory sign-in activity report API samples
-This topic is part of a collection of topics about the Azure Active Directory reporting API.  
+This article is part of a collection of articles about the Azure Active Directory reporting API.  
 Azure AD reporting provides you with an API that enables you to access sign-in activity data using code or related tools.  
-The scope of this topic is to provide you with sample code for the **sign-in activity API**.
+The scope of this Article is to provide you with sample code for the **sign-in activity API**.
 
 See:
 
@@ -30,7 +30,7 @@ See:
 
 
 ## Prerequisites
-Before you can use the samples in this topic, you need to complete the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md).  
+Before you can use the samples in this article, you need to complete the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md).  
 
 ## PowerShell script
     # This script will require the Web Application and permissions setup in Azure Active Directory
@@ -81,7 +81,7 @@ Once you finish editing the script, run it and verify that the expected data fro
 The script returns output from the sign-in report in JSON format. It also creates an `SigninActivities.json` file with the same output. You can experiment by modifying the script to return data from other reports, and comment out the output formats that you do not need.
 
 ## Next Steps
-* Would you like to customize the samples in this topic? Check out the [Azure Active Directory sign-in activity API reference](active-directory-reporting-api-sign-in-activity-reference.md). 
+* Would you like to customize the samples in this article? Check out the [Azure Active Directory sign-in activity API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). 
 * If you want to see a complete overview of using the Azure Active Directory reporting API, see [Getting started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started.md).
 * If you would like to find out more about Azure Active Directory reporting, see the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
 

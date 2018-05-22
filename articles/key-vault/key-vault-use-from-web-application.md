@@ -10,7 +10,7 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 05/10/2018
 ms.author: adhurwit
 
 ---
@@ -154,7 +154,7 @@ For more information on creating a test certificate, see [How to: Create Your Ow
 
 ### Associate the Certificate with an Azure AD application
 
-Now that you have a certificate, you need to associate it with an Azure AD application. Presently, the Azure portal does not support this workflow; this can be completed through PowerShell. Run the following commands to assoicate the certificate with the Azure AD application:
+Now that you have a certificate, you need to associate it with an Azure AD application. Presently, the Azure portal does not support this workflow; this can be completed through PowerShell. Run the following commands to associate the certificate with the Azure AD application:
 
 ```ps
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2

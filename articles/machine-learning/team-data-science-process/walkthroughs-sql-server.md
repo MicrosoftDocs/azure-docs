@@ -3,7 +3,7 @@ title: SQL Server data science walkthroughs using R, Python and T-SQL  | Microso
 description: Examples that walk through the use R, Python and T-SQL in SQL Server to do predictive analytics.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 

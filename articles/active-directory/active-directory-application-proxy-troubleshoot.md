@@ -3,17 +3,17 @@ title: Troubleshoot Application Proxy | Microsoft Docs
 description: Covers how to troubleshoot errors in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 
-ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2018
-ms.author: markvi
+ms.date: 05/21/2018
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 
@@ -26,7 +26,7 @@ If errors occur in accessing a published application or in publishing applicatio
 * Open the Windows Services console and verify that the **Microsoft AAD Application Proxy Connector** service is enabled and running. You may also want to look at the Application Proxy service properties page, as shown in the following image:  
   ![Microsoft AAD Application Proxy Connector Properties window screenshot](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * Open Event Viewer and look for Application Proxy connector events in **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
-* If needed, more detailed logs are available by [turning on the Application Proxy connector session logs](application-proxy-understand-connectors.md#under-the-hood).
+* If needed, more detailed logs are available by [turning on the Application Proxy connector session logs](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 For more information about the Azure AD Troubleshooting tool, see [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
 
@@ -49,7 +49,7 @@ Once you find the Connector error from the event log, use this table of common e
 
 | Error | Recommended steps |
 | ----- | ----------------- |
-| Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'One or more errors occurred.' | If you closed the registration window without signing in to Azure AD, run the Connector wizard again and register the Connector. <br><br> If the registration window opens and then immediately closes without allowing you to log in, you will probably get this error. This error occurs when there is a networking error on your system. Make sure that it is possible to connect from a browser to a public website and that the ports are open as specified in [Application Proxy prerequisites](active-directory-application-proxy-enable.md). |
+| Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'One or more errors occurred.' | If you closed the registration window without signing in to Azure AD, run the Connector wizard again and register the Connector. <br><br> If the registration window opens and then immediately closes without allowing you to log in, you will probably get this error. This error occurs when there is a networking error on your system. Make sure that it is possible to connect from a browser to a public website and that the ports are open as specified in [Application Proxy prerequisites](manage-apps/application-proxy-enable.md). |
 | Clear error is presented in the registration window. Cannot proceed | If you see this error and then the window closes, you entered the wrong username or password. Try again. |
 | Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'AADSTS50059: No tenant-identifying information found in either the request or implied by any provided credentials and search by service principal URI has failed. | You are trying to sign in using a Microsoft Account and not a domain that is part of the organization ID of the directory you are trying to access. Make sure that the admin is part of the same domain name as the tenant domain, for example, if the Azure AD domain is contoso.com, the admin should be admin@contoso.com. |
 | Failed to retrieve the current execution policy for running PowerShell scripts. | If the Connector installation fails, check to make sure that PowerShell execution policy is not disabled. <br><br>1. Open the Group Policy Editor.<br>2. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows PowerShell** and double-click **Turn on Script Execution**.<br>3. The execution policy can be set to either **Not Configured** or **Enabled**. If set to **Enabled**, make sure that under Options, the Execution Policy is set to either **Allow local scripts and remote signed scripts** or to **Allow all scripts**. |
@@ -86,10 +86,10 @@ This list covers errors that your end users might encounter when they try to acc
 If you encounter an error or problem with Azure AD Application Proxy that isn't listed in this troubleshooting guide, we'd like to hear about it. Send an email to our [feedback team](mailto:aadapfeedback@microsoft.com) with the details of the error you encountered.
 
 ## See also
-* [Enable Application Proxy for Azure Active Directory](active-directory-application-proxy-enable.md)
-* [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
-* [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md)
-* [Enable conditional access](application-proxy-enable-remote-access-sharepoint.md)
+* [Enable Application Proxy for Azure Active Directory](manage-apps/application-proxy-enable.md)
+* [Publish applications with Application Proxy](manage-apps/application-proxy-publish-azure-portal.md)
+* [Enable single sign-on](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Enable conditional access](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

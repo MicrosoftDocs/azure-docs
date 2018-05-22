@@ -29,7 +29,7 @@ The scenario in this tutorial consists of two main tasks:
 1. Add Clarizen from the gallery.
 2. Configure and test Azure AD single sign-on.
 
-If you want more details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+If you want more details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 To configure Azure AD integration with Clarizen, you need the following items:
@@ -245,7 +245,7 @@ When you click the Clarizen tile in the Access Panel, you should be automaticall
 ## Additional resources
 
 * [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure User Provisioning](active-directory-saas-clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
