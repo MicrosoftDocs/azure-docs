@@ -62,7 +62,9 @@ set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-## Connect to the cache securely using SSL
+
+## Connect to the cache
+
 The latest builds of [node_redis](https://github.com/mranney/node_redis) provide support for connecting to Azure Redis Cache using SSL. The following example shows how to connect to Azure Redis Cache using the SSL endpoint of 6380. 
 
 ```js
@@ -73,8 +75,13 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
     {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
 ```
 
-## Add something to the cache and retrieve it
-The following example shows you how to connect to an Azure Redis Cache instance, and store and retrieve an item from the cache. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [http://redis.js.org/](http://redis.js.org/).
+Don't create a new connections for each operation in your code. Instead, reuse connections as much as possible. 
+
+## Executing cache commands
+
+Create a new script file named *redistest.js*.
+
+Add the following example JavaScript to the file. This code shows you how to connect to an Azure Redis Cache instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The script also executes the `PING` and `CLIENT LIST` commands. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [http://redis.js.org/](http://redis.js.org/).
 
 ```js
 var redis = require("redis");
@@ -88,11 +95,14 @@ async function testCache() {
     // Connect to the Redis cache over the SSL port using the key.
     var cacheConnection = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, 
         {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
-
         
+    // Perform cache operations using the cache connection object...
+
+    // Simple PING command
     console.log("\nCache command: PING");
     console.log("Cache response : " + await cacheConnection.pingAsync());
 
+    // Simple get and put of integral data types into the cache
     console.log("\nCache command: GET Message");
     console.log("Cache response : " + await cacheConnection.getAsync("Message"));    
 
@@ -100,9 +110,11 @@ async function testCache() {
     console.log("Cache response : " + await cacheConnection.setAsync("Message",
         "Hello! The cache is working from Node.js!"));    
 
+    // Demostrate "SET Message" executed as expected...
     console.log("\nCache command: GET Message");
     console.log("Cache response : " + await cacheConnection.getAsync("Message"));    
 
+    // Get the client list, useful to see if connection list is growing...
     console.log("\nCache command: CLIENT LIST");
     console.log("Cache response : " + await cacheConnection.clientAsync("LIST"));    
 }
@@ -110,10 +122,41 @@ async function testCache() {
 testCache();
 ```
 
+Run the script with Node.js.
+
+In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+
 ![Cache app completed](./media/cache-nodejs-get-started/cache-app-complete.png)
 
 
+## Clean up resources
+
+If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
+
+Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
+
+> [!IMPORTANT]
+> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
+>
+
+Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+
+In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+
+![Delete](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
+
+You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
+
+After a few moments, the resource group and all of its contained resources are deleted.
+
+
+
 ## Next steps
-* [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache.
-* Read the official [Redis documentation](http://redis.io/documentation).
+
+In this quickstart, you learned how to use Azure Redis Cache from a Node.js application. Continue to the next quickstart to use Redis Cache with an ASP.NET web app.
+
+> [!div class="nextstepaction"]
+> [Create an ASP.NET web app that uses an Azure Redis Cache.](./cache-web-app-howto.md)
+
+
 
