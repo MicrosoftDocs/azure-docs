@@ -22,7 +22,6 @@ This tutorial shows you how to analyze videos with Azure Media Services. There a
 This tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Launch Azure Cloud Shell
 > * Create a Media Services account
 > * Access the Media Services API
 > * Configure the sample app
@@ -60,10 +59,9 @@ The sample performs the following actions:
 1. Creates a new Transform (first, checks if the specified Transform exists). 
 2. Creates an output Asset that is used as the encoding Job's output.
 3. Create an input Asset and uploads the specified local video file into it. The Asset is used as the Job's input. 
-4. Submits the encoding Job using the input and output that was created earlier.
+4. Submits the encoding Job using the input and output that was created.
 5. Checks the Job's status.
-6. Creates a StreamingLocator.
-7. Builds streaming URLs.
+6. Downloads the encoded files.
 
 ### Start using Media Services APIs with .NET SDK
 
@@ -131,7 +129,7 @@ The following function downloads the results from the output [Asset](https://doc
 
 ### Clean up resource in your Media Services account
 
-Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse. For example, the following code deletes Jobs.
+Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms and  persist StreamingLocators). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse. For example, the following code deletes Jobs.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
 
