@@ -40,7 +40,7 @@ Media Services defines a set of built-in system encoding presets you can use whe
 
 ### Custom presets
 
-Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. You can also use custom presets. For more information, see [How to customize encoder presets](customize-encoder-presets-how-to.md).
+Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. For more information, see [How to customize encoder presets](customize-encoder-presets-how-to.md).
 
 Find more detailed information about the schema of the encoder is in the [REST reference documentation](https://docs.microsoft.com/rest/api/media/transforms). 
 
