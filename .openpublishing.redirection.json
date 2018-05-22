@@ -2,7 +2,12 @@
     "redirections": [
         {
             "source_path": "articles/search/search-api-2016-09-01-preview.md",
-            "redirect_url": "/azure/search/search-api-2017-11-11-preview",
+            "redirect_url": "/azure/search/search-api-preview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/search/search-api-2017-11-11-preview.md",
+            "redirect_url": "/azure/search/search-api-preview",
             "redirect_document_id": true
         },
         {
