@@ -81,7 +81,7 @@ Don't create a new connections for each operation in your code. Instead, reuse c
 
 Create a new script file named *redistest.js*.
 
-Add the following example JavaScript to the file. This code shows you how to connect to an Azure Redis Cache instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The script also executes the `PING` and `CLIENT LIST` commands. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [http://redis.js.org/](http://redis.js.org/).
+Add the following example JavaScript to the file. This code shows you how to connect to an Azure Redis Cache instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [http://redis.js.org/](http://redis.js.org/).
 
 ```js
 var redis = require("redis");
@@ -124,6 +124,10 @@ testCache();
 
 Run the script with Node.js.
 
+```
+node redistest.js
+```
+
 In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
 ![Cache app completed](./media/cache-nodejs-get-started/cache-app-complete.png)
@@ -143,7 +147,7 @@ Sign in to the [Azure portal](https://portal.azure.com) and click **Resource gro
 
 In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
 
-![Delete](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
+![Delete](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
 
 You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
 
