@@ -1,23 +1,21 @@
 ---
 title: Directory integration between Azure Multi-Factor Authentication and Active Directory
-description: This is the Azure Multi-factor authentication page that describes how to integrate the Azure Multi-Factor Authentication Server with Active Directory so you can synchronize the directories.
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
+description: How to integrate the Azure Multi-Factor Authentication Server with Active Directory so you can synchronize the directories.
 
-ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 06/16/2017
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
+
 ---
 # Directory integration between Azure MFA Server and Active Directory
+
 Use the Directory Integration section of the Azure MFA Server to integrate with Active Directory or another LDAP directory. You can configure attributes to match the directory schema and set up automatic user synchronization.
 
 ## Settings

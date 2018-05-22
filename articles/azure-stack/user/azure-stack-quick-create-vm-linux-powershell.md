@@ -25,6 +25,7 @@ ms.custom: mvc
 You can create a Ubuntu Server 16.04 LTS virtual machine by using Azure Stack PowerShell. Follow the steps in this article to create and use a virtual machine.  This article also gives you the steps to:
 
 * Connect to the virtual machine with a remote client.
+* Install the NGINX web server and view the default home page.
 * Clean up unused resources.
 
 ## Prerequisites
@@ -215,6 +216,26 @@ ssh <Public IP Address>
 ```
 
 When prompted, enter azureuser as the login user. If you used a passphrase when you created the SSH keys, you'll have to provide the passphrase.
+
+## Install the NGINX web server
+
+To update package resources and install the latest NGINX package, run the following script:
+
+```bash
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
+```
+
+## View the NGINX welcome page
+
+With NGINX installed, and port 80 open on your virtual machine, you can access the web server using the virtual machine's public IP address. Open a web browser, and browse to ```http://<public IP address>```.
+
+![NGINX web server Welcome page](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## Clean up resources
 

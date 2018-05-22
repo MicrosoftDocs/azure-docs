@@ -3,7 +3,7 @@ title: Threat intelligence in Azure Security Center | Microsoft Docs
 description: Learn how to use the threat intelligence capability in Azure Security Center to identify potential threats in your VMs and computers.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 

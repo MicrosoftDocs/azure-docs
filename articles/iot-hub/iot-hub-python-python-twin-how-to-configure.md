@@ -156,7 +156,7 @@ In this section, you create a Python console app that connects to your hub as **
 1. Run the device app:
    
     ```cmd/sh
-    node SimulateDeviceConfiguration.py
+    python SimulateDeviceConfiguration.py
     ```
    
     You should see the message `Device twins updated.`. Keep the app running.

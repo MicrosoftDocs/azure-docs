@@ -383,7 +383,7 @@ No, if you delete an entire account or container, all associated blobs will
 be permanently deleted. To learn how to protect a storage account from
 accidental deletes, please see the Azure Resource Manager article [Lock
 Resources to Prevent Unexpected
-Changes](/azure-resource-manager/resource-group-lock-resources.md).
+Changes](../../azure-resource-manager/resource-group-lock-resources.md).
 
 **Can I view capacity metrics for deleted data?**
 

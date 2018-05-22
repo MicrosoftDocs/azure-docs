@@ -3,7 +3,7 @@ title: Scale Azure Container Service cluster
 description: How to scale agent nodes in a DC/OS, Docker Swarm, or Kubernetes cluster in Azure Container Service using the Azure CLI or Azure portal.
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

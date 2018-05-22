@@ -246,7 +246,6 @@ do
     {
         Console.WriteLine(item.Uri);
     }
-    blobContinuationToken = results.ContinuationToken;
 } while (blobContinuationToken != null); // Loop while the continuation token is not null. 
 
 ```
