@@ -23,25 +23,44 @@
       href: tutorial-simulate-device-linux.md
     - name: Windows
       href: tutorial-simulate-device-windows.md
-  - name: Find insights at the edge
+  - name: Filter data with Azure Functions
+    href: tutorial-deploy-function.md
+  - name: Find averages with ASA
+    href: tutorial-deploy-stream-analytics.md
+  - name: Score data with Azure ML
+    href: tutorial-deploy-machine-learning.md
+  - name: Filter data with custom code
     items:
-    - name: Filter data with Azure Functions
-      href: tutorial-deploy-function.md
-    - name: Find averages with ASA
-      href: tutorial-deploy-stream-analytics.md
-    - name: Score data with Azure ML
-      href: tutorial-deploy-machine-learning.md
-    - name: Filter data with custom code
-      items:
-      - name: C#
-        href: tutorial-csharp-module.md
-      - name: Python
-        href: tutorial-python-module.md
+    - name: C#
+      href: tutorial-csharp-module.md
+    - name: Python
+      href: tutorial-python-module.md
+- name: Concepts
+  items: 
+  - name: IoT Edge runtime
+    href: iot-edge-runtime.md
+  - name: IoT Edge modules
+    href: iot-edge-modules.md
+    items: 
+    - name: Development
+      href: module-development.md
+    - name: Composition
+      href: module-composition.md
+    - name: Edge agent and hub properties
+      href: module-edgeagent-edgehub.md
+  - name: Deployments
+    href: module-deployment-monitoring.md
+  - name: IoT Edge device as a gateway
+    href: iot-edge-as-gateway.md
+  - name: Security
+    href: security.md
+  - name: IoT Edge glossary
+    href: iot-edge-glossary.md
 - name: How-to guides
   items:
-  - name: Create gateways
+  - name: Use Edge devices as gateways
     items:
-    - name: Create a transparent gateway
+    - name: Transparent gateway
       href: how-to-create-transparent-gateway.md
     - name: Modbus gateway
       href: deploy-modbus-gateway.md
@@ -65,27 +84,6 @@
     href: sql-storage.md
   - name: Troubleshoot
     href: troubleshoot.md
-- name: Concepts
-  items: 
-  - name: IoT Edge modules
-    href: iot-edge-modules.md
-    items: 
-    - name: Development
-      href: module-development.md
-    - name: Composition
-      href: module-composition.md
-    - name: Edge agent and hub properties
-      href: module-edgeagent-edgehub.md
-  - name: IoT Edge runtime
-    href: iot-edge-runtime.md
-  - name: Deployments
-    href: module-deployment-monitoring.md
-  - name: IoT Edge device as a gateway
-    href: iot-edge-as-gateway.md
-  - name: Security
-    href: security.md
-  - name: IoT Edge glossary
-    href: iot-edge-glossary.md
 - name: Related
   items:
   - name: Solutions
