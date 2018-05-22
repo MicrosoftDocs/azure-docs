@@ -35,32 +35,32 @@ To help you understand how to secure your IoT solutions, we have the following i
 ## Security architecture
 When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning.
 
-You can learn about IoT security architecture by reading [Internet of Things Security Architecture](../iot-suite/iot-security-architecture.md).
+You can learn about IoT security architecture by reading [Internet of Things Security Architecture](../iot-accelerators/iot-security-architecture.md).
 
 This article discusses the following topics:
 
-* [Security Starts with a Threat Model](../iot-suite/iot-security-architecture.md#security-starts-with-a-threat-model)
-* [Security in IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
-* [Threat Modeling the Azure IoT Reference Architecture](../iot-suite/iot-security-architecture.md#threat-modeling-the-azure-iot-reference-architecture)
+* [Security Starts with a Threat Model](../iot-accelerators/iot-security-architecture.md#security-starts-with-a-threat-model)
+* [Security in IoT](../iot-accelerators/iot-security-architecture.md#security-in-iot)
+* [Threat Modeling the Azure IoT Reference Architecture](../iot-accelerators/iot-security-architecture.md#threat-modeling-the-azure-iot-reference-architecture)
 
 ## Security from the ground up
 The IoT poses unique security, privacy, and compliance challenges to businesses worldwide. Unlike traditional cyber technology where these issues revolve around software and how it is implemented, IoT concerns what happens when the cyber and the physical worlds converge. Protecting IoT solutions requires ensuring secure provisioning of devices, secure connectivity between these devices and the cloud, and secure data protection in the cloud during processing and storage. Working against such functionality, however, are resource-constrained devices, geographic distribution of deployments, and many devices within a solution.
 
-You can learn how to handle security in these areas by reading [Internet of Things security from the ground up](../iot-suite/securing-iot-ground-up.md).
+You can learn how to handle security in these areas by reading [Internet of Things security from the ground up](../iot-accelerators/securing-iot-ground-up.md).
 
 The article discusses the following topics:
 
-* [Secure infrastructure from the ground up](../iot-suite/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
-* [Microsoft Azure – secure IoT infrastructure for your business](../iot-suite/securing-iot-ground-up.md#microsoft-azure---secure-iot-infrastructure-for-your-business)
+* [Secure infrastructure from the ground up](../iot-accelerators/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
+* [Microsoft Azure – secure IoT infrastructure for your business](../iot-accelerators/securing-iot-ground-up.md#microsoft-azure---secure-iot-infrastructure-for-your-business)
 
 ## Best Practices
 Securing an IoT infrastructure requires a rigorous security-in-depth strategy. From securing data in the cloud, protecting data integrity while in transit over the public internet, to securely provisioning devices, each layer builds greater security assurance in the overall infrastructure.
 
-You can learn about Internet of Things security best practices by reading [Internet of Things security best practices](../iot-suite/iot-security-best-practices.md).
+You can learn about Internet of Things security best practices by reading [Internet of Things security best practices](../iot-accelerators/iot-security-best-practices.md).
 
 The article discusses the following topics:
 
-* [IoT hardware manufacturer/integrator](../iot-suite/iot-security-best-practices.md#iot-hardware-manufacturerintegrator)
-* [IoT solution developer](../iot-suite/iot-security-best-practices.md#iot-solution-developer)
-* [IoT solution deployer](../iot-suite/iot-security-best-practices.md#iot-solution-deployer)
-* [IoT solution operator](../iot-suite/iot-security-best-practices.md#iot-solution-operator)
+* [IoT hardware manufacturer/integrator](../iot-accelerators/iot-security-best-practices.md#iot-hardware-manufacturerintegrator)
+* [IoT solution developer](../iot-accelerators/iot-security-best-practices.md#iot-solution-developer)
+* [IoT solution deployer](../iot-accelerators/iot-security-best-practices.md#iot-solution-deployer)
+* [IoT solution operator](../iot-accelerators/iot-security-best-practices.md#iot-solution-operator)

@@ -3,8 +3,8 @@ title: Overview of multi-tenant back ends with Azure Application Gateway | Micro
 description: This page provides an overview of the Application Gateway support for multi-tenant back ends.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: 
 
 ms.service: application-gateway
@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: davidmu
+ms.author: victorh
 
 ---
 

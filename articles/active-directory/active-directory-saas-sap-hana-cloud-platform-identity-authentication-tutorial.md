@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/03/2018
 ms.author: jeedes
 
 ---
@@ -27,7 +27,7 @@ When you integrate SAP Cloud Platform Identity Authentication with Azure AD, you
 - You can enable your users to automatically sign in to SAP applications with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
-For more information about SaaS app integration with Azure AD, see the article [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+For more information about SaaS app integration with Azure AD, see the article [What is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -124,21 +124,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. If you want to configure the application in **IDP** initiated mode, in the **SAP Cloud Platform Identity Authentication Domain and URLs** section, in the **Identifier** box, type a URL with the following pattern: `https://<entity-id>.accounts.ondemand.com`.  
+3. If you want to configure the application in **IDP** initiated mode, in the **SAP Cloud Platform Identity Authentication Domain and URLs** section, perform the following steps:  
 
 	![SAP Cloud Platform Identity Authentication Domain and URLs single sign-on information](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url.png)
 
-	> [!NOTE] 
-	> This value isn't real. Update this value with the actual identifier. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get this value. If you don't understand this value, read the SAP Cloud Platform Identity Authentication documentation about [Tenant SAML 2.0 configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+	a. In the **Identifier** box, type a URL with the following pattern: `<IAS-tenant-id>.accounts.ondemand.com`
 
-4. If you want to configure the application in **SP** initiated mode, select **Show advanced URL settings**. 
+	b. In the **Reply URL** box, type a URL with the following pattern: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
+
+	> [!NOTE]
+	> These values are not real. Update these values with the actual identifier and Reply URL. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get these values. If you don't understand Identifier value, read the SAP Cloud Platform Identity Authentication documentation about [Tenant SAML 2.0 configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+
+4. If you want to configure the application in **SP** initiated mode, select **Show advanced URL settings**.
 
 	![SAP Cloud Platform Identity Authentication Domain and URLs single sign-on information](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url1.png)
 
-	In the **Sign On URL** box, type a URL with the following pattern: `https://<entity-id>.accounts.ondemand.com/admin`.
+	In the **Sign On URL** box, type a URL with the following pattern: `{YOUR BUSINESS APPLICATION URL}`.
 
-	> [!NOTE] 
-	> This value isn't real. Update this value with the actual sign-on URL. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get this value.
+	> [!NOTE]
+	> This value is not real. Update this value with the actual sign-on URL. Please use your specific business application Sign-on URL. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) if you have any doubt.
 
 5. In the **SAML Signing Certificate** section, select **Metadata XML**. Then save the metadata file on your computer.
 
@@ -267,12 +271,12 @@ In this section, you test your Azure AD single sign-on configuration by using th
 
 When you select the SAP Cloud Platform Identity Authentication tile in the access panel, you get automatically signed into your SAP Cloud Platform Identity Authentication application.
 
-For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
 * [List of tutorials on how to integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -287,4 +291,3 @@ For more information about the access panel, see [Introduction to the access 
 [201]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_203.png
-
