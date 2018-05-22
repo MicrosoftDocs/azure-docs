@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 05/23/2018
 ms.author: maheshu
 
 ---
@@ -39,7 +39,7 @@ The next configuration task is to create an Azure virtual network and a dedicate
   > **You cannot move your managed domain to a different virtual network after you enable Azure AD Domain Services.** Pick the right virtual network to enable your managed domain. After you create a managed domain, you cannot move it to a different virtual network, without deleting the managed domain. We recommend reviewing the [networking considerations for Azure Active Directory Domain Services](active-directory-ds-networking.md) before you proceed.  
   >
 
-4. **Create virtual network:** Click **Create new** to create a new virtual network. We highly recommend using a dedicated subnet for Azure AD Domain Services. For example, create a subnet with the name 'DomainServices', making it easy for other administrators to understand what is deployed within the subnet. Click **OK** when you're done.
+4. **Create virtual network:** Click **Create new** to create a new virtual network. You must use a dedicated subnet for Azure AD Domain Services. For example, create a subnet with the name 'DomainServices', making it easy for other administrators to understand what is deployed within the subnet. Click **OK** when you're done.
 
     ![Pick virtual network](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
