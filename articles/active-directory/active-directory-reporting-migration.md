@@ -21,14 +21,7 @@ ms.reviewer: dhanyahk
 
 In this article, we describe how to find Azure Active Directory user activity reports in the Azure portal.
 
-## What's new
-
-Reports in the Azure classic portal were separated into categories:
-* Security reports
-* Activity reports
-* Integrated app reports
-
-### Activity and integrated app reports
+## Activity and integrated app reports
 
 For context-based reporting in the Azure portal, existing reports are merged into a single view. A single, underlying API provides the data to the view.
 
@@ -124,29 +117,10 @@ For more information about security reports, see:
 - [Risky Sign-ins report in the Azure Active Directory portal](active-directory-reporting-security-risky-sign-ins.md)
 
 
-## Activity reports in the Azure classic portal vs. the Azure portal
-
-The table in this section lists existing reports in the Azure classic portal. It also describes how you can get the same information in the Azure portal.
-
-To view all auditing data, on the **Azure Active Directory** blade, under **ACTIVITY**, go to **Audit logs**.
-
-![Audit logs](./media/active-directory-reporting-migration/61.png "Audit logs")
-
-| Azure classic portal                 | To find in the Azure portal                                                         |
-| ---                                  | ---                                                                        |
-| Audit logs                           | For **Activity Category**, select **Core Directory**.                       |
-| Password reset activity              | For **Activity Category**, select **Self-service Password Management**. |
-| Password reset registration activity | For **Activity Category**, select **Self-service Password Management**.     |
-| Self-service groups activity         | For **Activity Category**, select **Self-service Group Management**.        |
-| Account provisioning activity        | For **Activity Category**, select **Account User Provisioning**.         |
-| Password rollover status             | For **Activity Category**, select **Automatic App Password Rollover**.      |
-| Account provisioning errors          | For **Activity Category**, select **Account User Provisioning**.        |
-| Office365 Group Name Changes         | For **Activity Category**, select **Self-service Password Management**. For **Activity Resource Type**, select **Group**. For **Activity Source**, select **O365 groups**.|
-
 To view the **Application Usage** report, on the **Azure Active Directory** blade, under **MANAGE**, select **Enterprise Applications**, and then select **Sign-ins**.
 
 
-![Enterprise Applications Sign-Ins report](./media/active-directory-reporting-migration/199.png "Enterprise Applications Sign-Ins report")
+![Enterprise Applications Sign-Ins report](./media/active-directory-reporting-migration/199.png)
 
 ## Next steps
 
