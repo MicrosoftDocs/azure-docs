@@ -125,54 +125,56 @@
         href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
-    - name: Index design
+  - name: Index design
+    items:
+    - name: Index definition
+      href: search-what-is-an-index.md
+    - name: Analyzers
       items:
-      - name: Index definition
-        href: search-what-is-an-index.md
-      - name: Auto-suggestions
-        href: https://docs.microsoft.com/rest/api/searchservice/suggesters
-      - name: Linguistic analysis
-        items:
-        - name: Text Analyzers
-          href: search-analyzers.md
-        - name: Language analyzers API
-          href: https://docs.microsoft.com/rest/api/searchservice/language-support
-        - name: Custom analyzers API
-          href: https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search
-      - name: Faceted navigation
-        href: search-faceted-navigation.md
-      - name: Model complex data types
-        href: search-howto-complex-data-types.md
-      - name: Relevance tuning
-        href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
-      - name: Synonyms (Preview)
-        href: search-synonyms.md
+      - name: Text Analyzers
+        href: search-analyzers.md
+      - name: Language analyzers API
+        href: https://docs.microsoft.com/rest/api/searchservice/language-support
+      - name: Custom analyzers API
+        href: https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search
+    - name: Auto-suggestions
+      href: https://docs.microsoft.com/rest/api/searchservice/suggesters
+    - name: Model complex data types
+      href: search-howto-complex-data-types.md
+    - name: Faceted navigation
+      href: search-faceted-navigation.md
+    - name: Relevance tuning
+      href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
+    - name: Synonyms (Preview)
+      href: search-synonyms.md
   - name: Indexing data
     items:
     - name: Push vs. Pull
       href: search-what-is-data-import.md
-    - name: Indexers overview
-      href: search-indexer-overview.md
-    - name: Azure Blob storage indexer
-      href: search-howto-indexing-azure-blob-storage.md
-    - name: Azure Table storage indexer
-      href: search-howto-indexing-azure-tables.md
-    - name: Azure SQL indexer
-      href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-    - name: Azure Cosmos DB indexer
-      href: search-howto-index-cosmosdb.md
-    - name: Index CSV blobs
-      href: search-howto-index-csv-blobs.md
-    - name: Index JSON blobs
-      href: search-howto-index-json-blobs.md
-    - name: Configure indexer connections to SQL Server on Azure VM
-      href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-    - name: Field mappings in indexers
-      href: search-indexer-field-mappings.md
     - name: Rebuild an index
       href: search-howto-reindex.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
+    - name: Indexers
+      items:
+      - name: Indexers overview
+        href: search-indexer-overview.md
+      - name: Azure Blob storage indexer
+        href: search-howto-indexing-azure-blob-storage.md
+      - name: Azure Table storage indexer
+        href: search-howto-indexing-azure-tables.md
+      - name: Azure SQL indexer
+        href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+      - name: Azure Cosmos DB indexer
+        href: search-howto-index-cosmosdb.md
+      - name: Index CSV blobs
+        href: search-howto-index-csv-blobs.md
+      - name: Index JSON blobs
+        href: search-howto-index-json-blobs.md
+      - name: Configure indexer connections to SQL Server on Azure VM
+        href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+      - name: Field mappings in indexers
+        href: search-indexer-field-mappings.md
   - name: Searching data
     items:
     - name: Basic query construction
@@ -185,14 +187,14 @@
       href: search-query-lucene-examples.md
     - name: Paging results
       href: search-pagination-page-layout.md
-  - name: Filters
-    items:
-    - name: Filter overview
-      href: search-filters.md
-    - name: Facet filters
-      href: search-filters-facets.md
-    - name: Filter expression syntax
-      href: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
+    - name: Filters
+      items:
+      - name: Filter overview
+        href: search-filters.md
+      - name: Facet filters
+        href: search-filters-facets.md
+      - name: Filter expression syntax
+        href: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
   - name: Administration & analytics
     items:
     - name: Administration (portal)
