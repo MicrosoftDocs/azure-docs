@@ -1,4 +1,4 @@
-﻿---
+---
 title: Copy data from and to Dynamics CRM or Dynamics 365 (Common Data Service) by using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 (Common Data Service) to supported sink data stores, or from supported source data stores to Dynamics CRM or Dynamics 365, by using a copy activity in a data factory pipeline.
 services: data-factory
@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 
@@ -321,24 +321,24 @@ Configure the corresponding Data Factory data type in a dataset structure based 
 
 | Dynamics data type | Data Factory interim data type | Supported as source | Supported as sink |
 |:--- |:--- |:--- |:--- |
-| AttributeTypeCode.BigInt | Long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | |	
-| AttributeType.DateTime | Datetime | ✓ | ✓ |
-| AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | String | ✓ | ✓ |
-| AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ |
-| AttributeType.ManagedProperty | Boolean | ✓ | |
-| AttributeType.Memo | String | ✓ | ✓ |
-| AttributeType.Money | Decimal | ✓ | ✓ |
-| AttributeType.Owner | Guid | ✓ | |
-| AttributeType.Picklist | Int32 | ✓ | ✓ |
-| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | String | ✓ | ✓ |
-| AttributeType.State | Int32 | ✓ | ✓ |
-| AttributeType.Status | Int32 | ✓ | ✓ |
+| AttributeTypeCode.BigInt | Long | ? | ? |
+| AttributeTypeCode.Boolean | Boolean | ? | ? |
+| AttributeType.Customer | Guid | ? | |	
+| AttributeType.DateTime | Datetime | ? | ? |
+| AttributeType.Decimal | Decimal | ? | ? |
+| AttributeType.Double | Double | ? | ? |
+| AttributeType.EntityName | String | ? | ? |
+| AttributeType.Integer | Int32 | ? | ? |
+| AttributeType.Lookup | Guid | ? | ? |
+| AttributeType.ManagedProperty | Boolean | ? | |
+| AttributeType.Memo | String | ? | ? |
+| AttributeType.Money | Decimal | ? | ? |
+| AttributeType.Owner | Guid | ? | |
+| AttributeType.Picklist | Int32 | ? | ? |
+| AttributeType.Uniqueidentifier | Guid | ? | ? |
+| AttributeType.String | String | ? | ? |
+| AttributeType.State | Int32 | ? | ? |
+| AttributeType.Status | Int32 | ? | ? |
 
 
 > [!NOTE]
