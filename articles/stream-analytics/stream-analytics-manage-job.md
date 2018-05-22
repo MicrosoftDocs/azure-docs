@@ -3,14 +3,13 @@ title: "Tutorial: Create and manage a Stream Analytics job by using Azure portal
 description: This tutorial provides an end-to-end illustration of how to use Azure Stream Analytics to analyze fraudulent calls in a phone call stream. 
 services: stream-analytics
 author: SnehaGunda
+ms.author: sngun
 manager: kfile
-
 ms.service: stream-analytics
+ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.workload: data-services
-ms.author: sngun
 
 #Customer intent: "As an IT admin/developer I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard."
 ---

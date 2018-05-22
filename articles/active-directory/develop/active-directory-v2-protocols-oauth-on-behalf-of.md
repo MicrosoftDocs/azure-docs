@@ -3,21 +3,23 @@ title: Azure AD v2.0 OAuth2.0 On-Behalf-Of flow | Microsoft Docs
 description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-
 ---
+
 # Azure Active Directory v2.0 and OAuth 2.0 On-Behalf-Of flow
 The OAuth 2.0 On-Behalf-Of flow serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from Azure Active Directory (Azure AD), on behalf of the user.
 
@@ -27,10 +29,10 @@ The OAuth 2.0 On-Behalf-Of flow serves the use case where an application invokes
 >
 
 ## Protocol diagram
-Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](active-directory-v2-protocols-oauth-code.md).  At this point, the application has an access token *for API A* (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
+Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](active-directory-v2-protocols-oauth-code.md). At this point, the application has an access token *for API A* (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
 
 > [!IMPORTANT]
-> Tokens acquired using the [implicit grant](active-directory-v2-protocols-implicit.md) cannot be used for the On-Behalf-Of flow.  The client in implcit flows is not authenticated (via e.g. a client secret) and therefore should not be allowed to bootstrap into another, possibly more powerful token.
+> Tokens acquired using the [implicit grant](active-directory-v2-protocols-implicit.md) cannot be used for the On-Behalf-Of flow. The client in implcit flows is not authenticated (via e.g. a client secret) and therefore should not be allowed to bootstrap into another, possibly more powerful token.
 
 The steps that follow constitute the On-Behalf-Of flow and are explained with the help of the following diagram.
 
@@ -95,7 +97,7 @@ A service-to-service access token request with a certificate contains the follow
 | grant_type |required | The type of the token request. For a request using a JWT, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | client_id |required | The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
 | client_assertion_type |required |The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |required | An assertion (a JSON Web Token) that you need to create and sign with the certificate you registered as credentials for your application.  Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
+| client_assertion |required | An assertion (a JSON Web Token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
 | assertion |required | The value of the token used in the request. |
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
 | scope |required | A space separated list of scopes for the token request. For more information, see [scopes](active-directory-v2-scopes.md).|
@@ -147,7 +149,7 @@ The following example shows a success response to a request for an access token 
 ```
 
 > [!NOTE]
-> Notice that the above access token is a V1-formatted token.  This is because the token is provided based on the resource being accessed.  The Microsoft Graph requests V1 tokens, so Azure AD produces V1 access tokens when a client requests tokens for Microsoft Graph.  Only applications should look at access tokens - clients should not need to inspect them. 
+> Notice that the above access token is a V1-formatted token. This is because the token is provided based on the resource being accessed. The Microsoft Graph requests V1 tokens, so Azure AD produces V1 access tokens when a client requests tokens for Microsoft Graph. Only applications should look at access tokens - clients should not need to inspect them. 
 
 
 ### Error response example

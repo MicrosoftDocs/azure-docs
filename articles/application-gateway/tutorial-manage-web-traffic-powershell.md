@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Manage web traffic - Azure PowerShell
+title: Manage web traffic - Azure PowerShell
 description: Learn how to create an application gateway with a virtual machine scale set to manage web traffic using using Azure PowerShell.
 services: application-gateway
 author: vhorne
@@ -12,7 +12,7 @@ ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
 ---
-# Tutorial: Manage web traffic with an application gateway using Azure PowerShell
+# Manage web traffic with an application gateway using Azure PowerShell
 
 Application gateway is used to manage and secure web traffic to servers that you maintain. You can use Azure PowerShell to create an [application gateway](overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 

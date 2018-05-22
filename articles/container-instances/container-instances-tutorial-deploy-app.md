@@ -3,7 +3,7 @@ title: Azure Container Instances tutorial - Deploy app
 description: Azure Container Instances tutorial part 3 of 3 - Deploy application
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: tutorial

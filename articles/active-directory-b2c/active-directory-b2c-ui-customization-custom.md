@@ -139,7 +139,7 @@ Under the top-level *\<TrustFrameworkPolicy\>* tag, you should find *\<BuildingB
 
 ## Test the custom policy by using **Run now**
 
-1. On the **Azure AD B2C** blade, go to **All polices**.
+1. On the **Azure AD B2C** blade, go to **All policies**.
 2. Select the custom policy that you uploaded, and click the **Run now** button.
 3. You should be able to sign up by using an email address.
 

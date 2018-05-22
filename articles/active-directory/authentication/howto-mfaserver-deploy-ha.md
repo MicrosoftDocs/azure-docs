@@ -1,22 +1,18 @@
 ---
 title: Configure Azure MFA Server for high availability | Microsoft Docs
 description: Deploy multiple instances of Azure Multi-Factor Authentication Server in configurations that provide high availability.
-services: multi-factor-authentication
-keywords: Azure MFA, 
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
 
-ms.assetid: 
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 08/23/2017
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
+
 ---
 # Configure Azure Multi-Factor Authentication Server for high availability
 
