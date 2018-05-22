@@ -35,7 +35,7 @@ All Azure resources are created in an Azure region and subscription. A resource 
 
 ## Subscriptions
 
-You can deploy as many virtual networks as required within each subscription, up to the [limit](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Some organizations have different subscriptions for different departments, for example. For more information and considerations around subscriptions, see [Subscription governance](../azure-resource-manager/resource-manager-subscription-governance.md?toc=%2fazure%2fvirtual-network%2ftoc.json#define-your-hierarchy).
+You can deploy as many virtual networks as required within each subscription, up to the [limit](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Some organizations have different subscriptions for different departments, for example. For more information and considerations around subscriptions, see [Subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 
 ## Segmentation
 
@@ -78,7 +78,7 @@ You can view sample designs for implementing a DMZ between Azure and the interne
 ### Traffic routing
 
 Azure creates several default routes for outbound traffic from a subnet. You can override Azure's default routing by creating a route table and associating it to a subnet. Common reasons for overriding Azure's default routing are:
-- Because you want traffic between subnets to flow through an NVA. To learn more about how to [configure route tables to force traffic through an NVA](tutorial-create-route-table-portal.md)
+- Because you want traffic between subnets to flow through an NVA. To learn more about how to [configure route tables to force traffic through an NVA](tutorial-create-route-table-portal.md).
 - Because you want to force all internet-bound traffic through an NVA, or on-premises, through an Azure VPN gateway. Forcing internet traffic on-premises for inspection and logging is often referred to as forced tunneling. Learn more about how to configure [forced tunneling](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 If you need to implement custom routing, it's recommended that you familiarize yourself with [routing in Azure](virtual-networks-udr-overview.md).
@@ -89,17 +89,17 @@ You can connect a virtual network to other virtual networks using virtual networ
 
 ### Peering
 
-When using [virtual network peering](virtual-network-peering-overview.md), the virtual networks can be in the same, or different, supported Azure regions. The virtual networks can be in the same, or different Azure subscriptions, as long as both subscriptions are assigned to the same Azure Active Directory tenant. Before creating a peering, it's recommended that you familiarize yourself with all of the peering [requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). Bandwidth between resources in peered virtual networks is the same as if the resources were in the same virtual network.
+When using [virtual network peering](virtual-network-peering-overview.md), the virtual networks can be in the same, or different, supported Azure regions. The virtual networks can be in the same, or different Azure subscriptions, as long as both subscriptions are assigned to the same Azure Active Directory tenant. Before creating a peering, it's recommended that you familiarize yourself with all of the peering [requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). Bandwidth between resources in virtual networks peered in the same region is the same as if the resources were in the same virtual network.
 
 ### VPN gateway
 
 You can use an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to connect a virtual network to your on-premises network using a [site-to-site VPN](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json), or using a dedicated connection with Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-You can combine peering and a VPN gateway to create [hub and spoke networks](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), where spoke virtual networks connect to a hub virtual network and the hub connects to an on-premises network, for example.
+You can combine peering and a VPN gateway to create [hub and spoke networks](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), where spoke virtual networks connect to a hub virtual network, and the hub connects to an on-premises network, for example.
 
 ### Name resolution
 
-Resources in one virtual network cannot resolve the names of resources in the peered virtual network using Azure's [built-in DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md). To resolve names in a peered virtual network, [deploy your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server), or use Azure DNS [private domains](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Resolving names between resources in a virtual network and on-premises networks also requires you to deploy your own DNS server.
+Resources in one virtual network cannot resolve the names of resources in a peered virtual network using Azure's [built-in DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md). To resolve names in a peered virtual network, [deploy your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server), or use Azure DNS [private domains](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Resolving names between resources in a virtual network and on-premises networks also requires you to deploy your own DNS server.
 
 ## Permissions
 
@@ -107,6 +107,10 @@ Azure utilizes [role based access control](../role-based-access-control/overview
 
 ## Policy
 
-Azure Policy enables you to create, assign, and manage policy definitions. Policy definitions enforce different rules and effects over your resources, so the resources stay compliant with your organizational standards and service level agreements. Azure Policy runs an evaluation of your resources, scanning for resources that are not compliant with the policy definitions you have. For example, you can have a policy that allows creation of virtual networks in only a specific resource group. Another policy might require that every subnet has a network security group associated to it. The policies are then evaluated when creating and updating resources.
+Azure Policy enables you to create, assign, and manage policy definitions. Policy definitions enforce different rules over your resources, so the resources stay compliant with your organizational standards and service level agreements. Azure Policy runs an evaluation of your resources, scanning for resources that are not compliant with the policy definitions you have. For example, you can define and apply a policy that allows creation of virtual networks in only a specific resource group or region. Another policy can require that every subnet has a network security group associated to it. The policies are then evaluated when creating and updating resources.
 
 Policies are applied to the following hierarchy: Subscription, management group, and resource group. Learn more about [Azure policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or deploy some virtual network [policy template](policy-samples.md) samples.
+
+## Next steps
+
+Learn about all tasks, settings, and options for a [virtual network](manage-virtual-network.md), [subnet and service endpoint](virtual-network-manage-subnet.md), [network interface](virtual-network-network-interface.md), [peering](virtual-network-manage-peering.md),  [network and application security group](manage-network-security-group.md), or [route table](manage-route-table.md).
