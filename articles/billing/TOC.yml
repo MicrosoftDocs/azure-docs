@@ -32,21 +32,21 @@
     href: billing-subscription-transfer.md
   - name: Cancel subscription
     href: billing-how-to-cancel-azure-subscription.md
+  - name: Reactivate subscription
+    href: billing-subscription-become-disable.md 
+  - name: Switch subscription offer
+    href: billing-how-to-switch-azure-offer.md
   - name: Update payment information
     href: billing-how-to-change-credit-card.md
   - name: Pay by invoice
-    href: billing-how-to-pay-by-invoice.md
-  - name: Reactivate subscription
-    href: billing-subscription-become-disable.md  
+    href: billing-how-to-pay-by-invoice.md 
   - name: Create management group
     href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
-  - name: Switch subscription offer
-    href: billing-how-to-switch-azure-offer.md
   - name: Link Azure AD tenant
     href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
 - name: Manage account
   items:
-  - name: Free trial account 
+  - name: Free account (trial)
     items:
     - name: Upgrade 
       href: billing-upgrade-azure-subscription.md
