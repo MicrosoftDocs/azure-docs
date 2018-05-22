@@ -21772,7 +21772,7 @@
         },
         {
             "source_path": "articles/cognitive-services/LUIS/luis-concept-intro-to-luis.md",
-            "redirect_url": "azure/cognitive-services/LUIS/home.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/home.md",
             "redirect_document_id": true
         }
 
