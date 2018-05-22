@@ -38,7 +38,7 @@ Create an intent when this intent would trigger an action in your client applica
 
 |Example intent   | Entity | Entity in example utterances   | 
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date", } | What's the weather like in `Seattle` `tomorrow`? |
+| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` | 
 
 ## Custom intents
