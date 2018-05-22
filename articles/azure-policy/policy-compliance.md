@@ -28,14 +28,13 @@ assignments:
 Before looking at the methods to report on compliance, let's look at when compliance information is
 updated and the frequency and events that trigger an evaluation cycle.
 
-## Timing of evaluations
+## Evaluation triggers
 
 The results of a completed evaluation cycle are reflected in the `Microsoft.PolicyInsights`
 Resource Provider through `PolicyStates` and `PolicyEvents` operations. For more information about
-the options and capabilities of the Policy Insights REST API, see [Policy
-Insights](/rest/api/policy-insights/).
+the options and capabilities of the Policy Insights REST API, see [Policy Insights](/rest/api/policy-insights/).
 
-Evaluations of assigned policies and initiatives happen at a few different times:
+Evaluations of assigned policies and initiatives happen as the result of various events:
 
 - A policy or initiative is newly assigned to a scope. When this occurs, it can take up to 30
 minutes for the assignment to be applied to the defined scope. Once it is applied, the evaluation
@@ -255,7 +254,8 @@ The preview module has three cmdlets:
 - `Get-AzureRmPolicyState`
 - `Get-AzureRmPolicyEvent`
 
-Example: Getting the state summary for a single assigned policy.
+Example: Getting the state summary for the topmost assigned policy with the highest number of
+non-compliant resources.
 
 ```powershell
 PS > Get-AzureRmPolicyStateSummary -Top 1
@@ -266,7 +266,8 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
                         oft.authorization/policyassignments/37ce239ae4304622914f0c77}
 ```
 
-Example: Getting the details for a single non-compliant resource.
+Example: Getting the state record for the most recently evaluated resource (default is by timestamp
+in descending order).
 
 ```powershell
 PS > Get-AzureRmPolicyState -Top 1
@@ -295,7 +296,7 @@ PolicyDefinitionCategory   : tbd
 Example: Getting the details for all non-compliant virtual network resources.
 
 ```powershell
-PS > Get-AzureRmPolicyState | Where-Object { $_.ResourceType -eq '/Microsoft.Network/virtualNetworks' }
+PS > Get-AzureRmPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
 
 Timestamp                  : 5/22/2018 4:02:20 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -316,6 +317,44 @@ PolicyAssignmentScope      : /subscriptions/{subscriptionId}/resourceGroups/RG-T
 PolicyDefinitionName       : 1e30110a-5ceb-460c-a204-c1c3969c6d62
 PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
+```
+
+Example: Getting events related to non-compliant virtual network resources that occurred after a
+specific date.
+
+```powershell
+PS > Get-AzureRmPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+
+Timestamp                  : 5/19/2018 5:18:53 AM
+ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
+                             crosoft.Network/virtualNetworks/RG-Tags-vnet
+PolicyAssignmentId         : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
+                             crosoft.Authorization/policyAssignments/37ce239ae4304622914f0c77
+PolicyDefinitionId         : /providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62
+IsCompliant                : False
+SubscriptionId             : {subscriptionId}
+ResourceType               : /Microsoft.Network/virtualNetworks
+ResourceLocation           : eastus
+ResourceGroup              : RG-Tags
+ResourceTags               : tbd
+PolicyAssignmentName       : 37ce239ae4304622914f0c77
+PolicyAssignmentOwner      : tbd
+PolicyAssignmentParameters : {"tagName":{"value":"costCenter"},"tagValue":{"value":"Contoso-Test"}}
+PolicyAssignmentScope      : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags
+PolicyDefinitionName       : 1e30110a-5ceb-460c-a204-c1c3969c6d62
+PolicyDefinitionAction     : deny
+PolicyDefinitionCategory   : tbd
+TenantId                   : {tenantId}
+PrincipalOid               : {principalOid}
+```
+
+The **PrincipalOid** field can be used to get a specific user with the Azure PowerShell cmdlet
+`Get-AzureRmADUser`. Replace **{principalOid}** with the response you get from the previous
+example.
+
+```powershell
+PS > (Get-AzureRmADUser -ObjectId {principalOid}).DisplayName
+Trent Baker
 ```
 
 ## Log Analytics

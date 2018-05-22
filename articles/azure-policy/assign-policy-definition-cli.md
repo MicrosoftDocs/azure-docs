@@ -28,7 +28,7 @@ This quickstart requires that you run Azure CLI version 2.0.4 or later to instal
 Register the Policy Insights resource provider using Azure CLI. Registering the resource provider makes sure that your subscription works with it. To register a resource provider, you must have permission to perform the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
 
 ```azurecli-interactive
-az provider register –-namespace 'Microsoft.PolicyInsights'
+az provider register --namespace 'Microsoft.PolicyInsights'
 ```
 
 For more information about registering and viewing resource providers, see [Resource Providers and Types](../azure-resource-manager/resource-manager-supported-services.md)
@@ -102,7 +102,7 @@ The results are comparable to what you'd typically see listed under **Non-compli
 Other guides in this collection build upon this quickstart. If you plan to continue to work with later tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, delete the assignment you created by running the following command:
 
 ```azurecli-interactive
-az policy assignment delete –name 'Audit Virtual Machines without Managed Disks Assignment' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
+az policy assignment delete --name 'Audit Virtual Machines without Managed Disks Assignment' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 
 ## Next steps
