@@ -27,7 +27,7 @@ With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/
 * The coordinates, gender, and age of any faces contained in the image.
 * The ImageType (clip art or a line drawing).
 * The dominant color, the accent color, or whether an image is black & white.
-* The category defined in this [taxonomy](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
+* The category defined in this [taxonomy](../Category-Taxonomy.md).
 * Does the image contain adult or sexually suggestive content?
 
 To run the sample, do the following steps:
@@ -35,7 +35,7 @@ To run the sample, do the following steps:
 1. Create a new Visual C# Console App in Visual Studio.
 2. Replace Program.cs with the following code.
 3. Replace `<Subscription Key>` with your valid subscription key.
-4. Change the `uriBase` value to use the location where you obtained your subscription keys, if necessary.
+4. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
 5. Run the program.
 6. At the prompt, enter the path to an image.
 
@@ -320,7 +320,7 @@ A successful response is returned in JSON, for example:
 
 ## Next steps
 
-Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag and describe visual features, including faces, in an image.
+Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
 
 > [!div class="nextstepaction"]
 > [Use Computer Vision with C#](../Tutorials/CSharpTutorial.md)

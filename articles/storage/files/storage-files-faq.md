@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions for Azure Files | Microsoft Docs
+title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Find answers to frequently asked questions about Azure Files.
 services: storage
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 12/04/2017
 ms.author: renash
 ---
 
-# Frequently asked questions about Azure Files
+# Frequently asked questions (FAQ) about Azure Files
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (also known as Common Internet File System, or CIFS). You can mount Azure file shares concurrently on cloud or on-premises deployments of Windows, Linux, and macOS. You also can cache Azure file shares on Windows Server machines by using Azure File Sync (preview) for fast access close to where the data is used.
 
 This article answers common questions about Azure Files features and functionality, including the use of Azure File Sync with Azure Files. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -229,7 +229,7 @@ This article answers common questions about Azure Files features and functionali
 ## Backup
 * <a id="backup-share"></a>
 **How do I back up my Azure file share?**  
-    You can use periodic [share snapshots](storage-snapshots-files.md) for protection against accidental deletions. You also can use AzCopy, Robocopy, or a third-party backup tool that can back up a mounted file share. 
+    You can use periodic [share snapshots](storage-snapshots-files.md) for protection against accidental deletions. You also can use AzCopy, Robocopy, or a third-party backup tool that can back up a mounted file share. Azure Backup offers backup of Azure Files. Learn more about [back up Azure file shares by Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
 
 ## Share snapshots
 ### Share snapshots: General

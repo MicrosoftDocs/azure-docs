@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/22/2018
+ms.date: 5/22/2018
 ms.author: nachandr
 
 ---
@@ -319,6 +319,10 @@ To have consistency of environment across cluster, we recommend installing the u
 Q. **Post upgrade does patch orchestration app do the cleanup of unused packages?**
 
 A. Yes, cleanup happens as part of post-installation steps. 
+
+Q. **Can Patch Orchestration app be used to patch my dev cluster (one-node cluster) ?**
+
+A. No, Patch orchestration app cannot be used to patch one-node cluster. This limitation is by design, as [service fabric system services](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) or any customer apps will face downtime and hence any repair job for patching would never get approved by repair manager.
 
 ## Troubleshooting
 
