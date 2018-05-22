@@ -64,3 +64,4 @@ To learn more, see [Azure cost management guidance](billing-getting-started.md).
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png 
+[Image4]: ./media/azure-billing-set-up-alerts/AlertsDeleteScreen1.PNG
