@@ -986,6 +986,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-manager-subscription-examples.md",
+            "redirect_url": "/azure/architecture/cloud-adoption-guide/subscription-governance-examples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-subscription-governance.md",
+            "redirect_url": "/azure/architecture/cloud-adoption-guide/subscription-governance",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/azure-toolkit-for-eclipse-debugging-azure-applications.md",
             "redirect_url": "/azure/azure-toolkit-for-eclipse",
             "redirect_document_id": false
@@ -21728,6 +21738,11 @@
         {
             "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
             "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/azure-maps/search-categories.md",
+            "redirect_url": "/azure/azure-maps/supported-search-categories",
             "redirect_document_id": true
         }
 
