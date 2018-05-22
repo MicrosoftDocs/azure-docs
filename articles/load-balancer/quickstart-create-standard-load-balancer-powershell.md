@@ -118,7 +118,7 @@ $natrule2 = New-AzureRmLoadBalancerInboundNatRuleConfig `
 
 ### Create load balancer
 
-Create the Stadnard Load Balancer with [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). The following example creates a public Basic Load Balancer named myLoadBalancer using the frontend IP configuration, backend pool, health probe, load balancing rule, and NAT rules that you created in the preceding steps:
+Create the Standard Load Balancer with [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). The following example creates a public Basic Load Balancer named myLoadBalancer using the frontend IP configuration, backend pool, health probe, load balancing rule, and NAT rules that you created in the preceding steps:
 
 ```azurepowershell-interactive
 $lb = New-AzureRmLoadBalancer `
