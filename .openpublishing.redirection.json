@@ -18102,11 +18102,7 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md",
-<<<<<<< HEAD
-            "redirect_url": "azure/iot-suite/iot-suite-what-are-solution-accelerators",
-=======
             "redirect_url": "/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators",
->>>>>>> 436bc67b7874bfa7db11fbcfb0d845c2a4c0aecf
             "redirect_document_id": false
         },
         {
