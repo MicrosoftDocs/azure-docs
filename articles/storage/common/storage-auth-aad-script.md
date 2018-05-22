@@ -11,16 +11,16 @@ ms.date: 05/18/2018
 ms.author: tamram
 ---
 
-## Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)
+# Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)
 
-Azure Storage provides preview extensions for Azure CLI and PowerShell that enable you to log in and run scripting commands under an Azure Active Directory (Azure AD) identity. The Azure AD identity can be a user, group, or application service principal, or it can be a [managed service identity](../../active-directory/managed-service-identity/overview). When you log in under a given identity, CLI and PowerShell get an access token for accessing Azure Storage under that identity. That token can then be used to authorize data operations. 
+Azure Storage provides preview extensions for Azure CLI and PowerShell that enable you to log in and run scripting commands under an Azure Active Directory (Azure AD) identity. The Azure AD identity can be a user, group, or application service principal, or it can be a [managed service identity](../../active-directory/managed-service-identity/overview.md). When you log in under a given identity, CLI and PowerShell get an access token for accessing Azure Storage under that identity. That token can then be used to authorize data operations. 
 
 The preview extensions are supported for operations on containers and queues. For those operations, you no longer need to pass an account key or SAS token with the command.
 
 > [!IMPORTANT]
 > Azure AD integration with Azure Storage is in preview, and is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications. 
 
-### Call CLI commands with an Azure AD identity
+## Call CLI commands with an Azure AD identity
 
 To install the preview extension for Azure CLI:
 
