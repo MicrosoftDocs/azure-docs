@@ -131,7 +131,9 @@ For import jobs, drives are encrypted in two ways.
 - Enable BitLocker encryption manually on the drive. Specify the encryption key in the *driveset.csv* when running WAImportExport tool command line during drive preparation.
 
 
-For export jobs, after your data is copied to the drives, the service encrypts the drive using BitLocker before shipping it back to you. The encryption key is provided to you via the Azure portal. 
+For export jobs, after your data is copied to the drives, the service encrypts the drive using BitLocker before shipping it back to you. The encryption key is provided to you via the Azure portal.
+
+[!INCLUDE storage-import-export-delete-personal-info.md] 
 
 
 ### Pricing
