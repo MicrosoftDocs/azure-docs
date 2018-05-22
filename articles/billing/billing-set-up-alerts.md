@@ -4,8 +4,8 @@ description: Describes how you can set up alerts on your Azure bill so you can a
 keywords: credit alert,billing alert
 services: ''
 documentationcenter: ''
-author: vikdesai
-manager: tonguyen
+author: adpick
+manager: adpick
 editor: ''
 tags: billing
 
@@ -14,15 +14,17 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/9/2017
-ms.author: vikdesai
+ms.author: adpick
 ms.custom: H1Hack27Feb2017
 ---
 # Set up billing or credit alerts for your Microsoft Azure subscriptions
 If you’re the Account Admin for an Azure subscription, you can use the Azure Billing Alert Service to create customized billing alerts that help you monitor and manage billing activity for your Azure accounts.
 
 This service is in preview, so you need to enable it in the Preview Features page first.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## Set the alert threshold and email recipients
 1. Visit [the Preview Features page](https://account.windowsazure.com/PreviewFeatures) and enable **Billing Alert Service**.
@@ -45,7 +47,7 @@ Azure supports any email address but doesn't verify that the email address works
 After you set up alerts, the Account Center lists them and shows how many more you can set up. For each alert, you see the date and time it was sent, whether it’s an alert for Billing Total or Monetary Credit, and the limit you set up. The date and time format is 24-hour Universal Time Coordinate (UTC) and the date is yyyy-mm-dd format. Click the plus sign for an alert in the list to edit it, or click the trash-can to delete it.
 
 ## Billing alerts for Enterprise Agreement (EA) customers
-EA customers can get alerts for each department under an enrollment by setting spending quotas. See [Department Spending Quotas](https://ea.azure.com/helpdocs/departmentSpendingQuotas) in the EA portal to get started.
+EA subscriptions are not supported by this service, instead EA customers can get alerts for each department under an enrollment by setting spending quotas. See [Department Spending Quotas](https://ea.azure.com/helpdocs/departmentSpendingQuotas) in the EA portal to get started.
 
 ## Learn more about Azure cost management
 - Estimate costs using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/), [total cost of ownership calculator](https://aka.ms/azure-tco-calculator), and when you add a service.

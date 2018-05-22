@@ -14,7 +14,10 @@ ms.author: v-gedod
 
 # Entity Search SDK C# quickstart
 
-The Bing Entity Search API contains the functionality of the REST API for entity search and parsing the results. 
+The Bing Entity Search API contains the functionality of the REST API for entity search and parsing the results.
+
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending.  
 
 ## Application dependencies
 

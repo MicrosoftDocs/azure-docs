@@ -7,10 +7,8 @@ manager: ehansen
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/15/2018
 ms.author: scottwhi
 ---
-
-# Bing Search API Use and Display Requirements
 
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

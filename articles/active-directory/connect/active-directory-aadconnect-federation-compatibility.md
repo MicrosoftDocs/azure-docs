@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 04/27/2018
 ms.author: billmath
 
 ---
@@ -20,10 +20,10 @@ ms.author: billmath
 Azure Active Directory provides single-sign on and enhanced application access security for Office 365 and other Microsoft Online services for hybrid and cloud-only implementations without requiring any third party solution. Office 365, like most of Microsoft’s Online services, is integrated with Azure Active Directory for directory services, authentication, and authorization. Azure Active Directory also provides single sign-on to thousands of SaaS applications and on-premises web applications. See the Azure Active Directory [application gallery](https://azuremarketplace.microsoft.com/marketplace/apps) for supported SaaS applications. 
 
 ## IDP Validation
-If your organization uses a third-party federation solution, you can configure single sign-on for your on-premises Active Directory users with Microsoft Online services provided that the third-party federation solution is compatible with Azure Active Directory. The following is a list of [compatible providers](https://www.microsoft.com/download/details.aspx?id=56843) that were validated by Oxford Computer Group on behalf of Microsoft, as of November 2017. 
+If your organization uses a third-party federation solution, you can configure single sign-on for your on-premises Active Directory users with Microsoft Online services, such as Office 365, provided the third-party federation solution is compatible with Azure Active Directory.  For questions regarding compatibility, please contact your identity provider.  If you would like to see a list of identity providers who have previously been tested for compatibility with Azure AD, by Microsoft, click [here](https://www.microsoft.com/download/details.aspx?id=56843). 
 
 >[!NOTE]
->Microsoft no longer provides validation testing to independent identity providers for compatibility with Azure Active Directory. Microsoft encourages identity providers to use the self-service [documents](https://www.microsoft.com/download/details.aspx?id=56843) to validate compatibility with Azure Active Directory. 
+>Microsoft no longer provides validation testing to independent identity providers for compatibility with Azure Active Directory. If you would like to test your product for interoperability please refer to these [guidelines](https://www.microsoft.com/download/details.aspx?id=56843). 
 
 ## Next Steps
 
