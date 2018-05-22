@@ -123,6 +123,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     ```bash
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
     ```     
+
 ## Next steps
 
 In this tutorial, you learned how to create a user assigned identity and attach it to a Azure Virtual Machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
