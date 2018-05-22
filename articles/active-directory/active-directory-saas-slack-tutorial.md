@@ -26,7 +26,7 @@ Integrating Slack with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Slack (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -256,8 +256,9 @@ When you click the Slack tile in the Access Panel, you should get automatically 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure User Provisioning](active-directory-saas-slack-provisioning-tutorial.md)
+
 
 <!--Image references-->
 

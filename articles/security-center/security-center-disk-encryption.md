@@ -4,7 +4,7 @@ description: This document helps you to encrypt an Azure Virtual Machine after r
 services: security, security-center
 documentationcenter: na
 author: TomShinder
-manager: swadhwa
+manager: mbaldwin
 editor: ''
 
 ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5

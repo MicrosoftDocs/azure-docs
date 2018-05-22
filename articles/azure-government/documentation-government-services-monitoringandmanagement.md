@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 4/5/2018
+ms.date: 05/01/2018
 ms.author: gsacavdm
 
 ---
@@ -114,8 +114,7 @@ For more information on using PowerShell, see [public documentation](https://doc
 Diagnostic Logs are generally available in Azure Government with no differences from commercial Azure.
 
 #### Metrics
-Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported only via the REST API. The Azure Government portal is not able show charts that include multi-dimensional metrics. 
-
+Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported only via the REST API. The ability to [show multi-dimensional metrics](../monitoring-and-diagnostics/monitoring-metric-charts.md) is in preview in the Azure Government portal. 
 
 #### Metric Alerts
 The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  A second generation of alerts is available only in commercial Azure.  
@@ -166,6 +165,7 @@ The URLs for Log Analytics are different in Azure Government:
 | portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
 | api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
 | docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
+| \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../log-analytics/log-analytics-concept-hybrid.md#network-firewall-requirements) |
 
 The following Log Analytics features behave differently in Azure Government:
 

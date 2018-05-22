@@ -23,7 +23,7 @@ Consulting Services in Azure Marketplace provides Microsoft partners the goal of
 
 These consulting-service offerings are customer-specific engagements. They're fixed in scope and duration, can be fixed-price or free, and have a defined outcome. Potential customers can easily request to be contacted by partners. Partners receive a notification in their CRM system, and they aim to respond to requests within 48 hours.
 
-Consulting Services in Azure Marketplace vs AppSource storefront
+## Consulting Services in Azure Marketplace vs AppSource Storefront
 The marketplace storefronts are aligned with audiences and Microsoft cloud products to help customers find what they need. Each storefront offers specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
 
 |         |Azure Marketplace  |AppSource |

@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Import an API | Microsoft Docs
 description: Azure PowerShell Script Sample - Import an API
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

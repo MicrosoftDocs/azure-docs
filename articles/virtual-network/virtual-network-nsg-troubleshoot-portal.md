@@ -27,9 +27,9 @@ ms.author: anithaa
 
 If you configured Network Security Groups (NSGs) on your virtual machine (VM) and are experiencing VM connectivity issues, this article provides an overview of diagnostics capabilities for NSGs to help troubleshoot further.
 
-NSGs enable you to control the types of traffic that flow in and out of your virtual machines (VMs). NSGs can be applied to subnets in an Azure Virtual Network (VNet), network interfaces (NIC), or both. The effective rules applied to a NIC are an aggregation of the rules that exist in the NSGs applied to a NIC and the subnet it is connected to. Rules across these NSGs can sometimes conflict with each other and impact a VM's network connectivity.  
+NSGs enable you to control the types of traffic that flow in and out of your virtual machines (VMs). NSGs can be applied to subnets in an Azure Virtual Network (VNet), network interfaces (NIC), or both. The effective rules applied to a NIC are an aggregation of the rules that exist in the NSGs applied to a NIC and the subnet it is connected to. Rules across these NSGs can sometimes conflict with each other and impact a VM's network connectivity.
 
-You can view all the effective security rules from your NSGs, as applied on your VM's NICs. This article shows how to troubleshoot VM connectivity issues using these rules in the Azure Resource Manager deployment model. If you're not familiar with VNet and NSG concepts, read the [Virtual network](virtual-networks-overview.md) and [Network security groups](virtual-networks-nsg.md) overview articles.
+You can view all the effective security rules from your NSGs, as applied on your VM's NICs. This article shows how to troubleshoot VM connectivity issues using these rules in the Azure Resource Manager deployment model. If you're not familiar with VNet and NSG concepts, see [Virtual network overview](virtual-networks-overview.md) and [Network security group overview](security-overview.md).
 
 ## Using Effective Security Rules to troubleshoot VM traffic flow
 The scenario that follows is an example of a common connection problem:
@@ -43,7 +43,7 @@ Complete the following steps to troubleshoot NSGs for a VM:
 
 You can view full list of the effective security rules on a NIC, from the VM itself. You can also add, modify, and delete both NIC and subnet NSG rules from the effective rules blade, if you have permissions to perform these operations.
 
-1. Login to the Azure portal at https://portal.azure.com with an Azure account. Your account must be assigned the *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operation for the network interface. To learn how to assign operations to accounts, see [Create custom roles for Azure Role-Based Access Control](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Login to the Azure portal at https://portal.azure.com with an Azure account. Your account must be assigned the *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operation for the network interface. To learn how to assign operations to accounts, see [Create custom roles for Azure Role-Based Access Control](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Click **All services**, then click **Virtual machines** in the list that appears.
 3. Select a VM to troubleshoot from the list that appears and a VM blade with options appears.
 4. Click **Diagnose & solve problems** and then select a common problem. For this example, **I can’t connect to my Windows VM** is selected. 
@@ -63,7 +63,7 @@ You can view full list of the effective security rules on a NIC, from the VM its
    * **Scope:** Set to *VM1*, the VM selected in step 3.
    * **Network interface:** *VM1-NIC1* is selected. A VM can have multiple network interfaces (NIC). Each NIC can have unique effective security rules. When troubleshooting, you may need to view the effective security rules for each NIC.
    * **Associated NSGs:** NSGs can be applied to both the NIC and the subnet the NIC is connected to. In the picture, an NSG has been applied to both the NIC and the subnet it's connected to. You can click on the NSG names to directly modify rules in the NSGs.
-   * **VM1-nsg tab:** The list of rules displayed in the picture is for the NSG applied to the NIC. Several default rules are created by Azure whenever an NSG is created. You can't remove the default rules, but you can override them with rules of higher priority. To learn more about default rules, read the [NSG overview](virtual-networks-nsg.md#default-rules) article.
+   * **VM1-nsg tab:** The list of rules displayed in the picture is for the NSG applied to the NIC. Several default rules are created by Azure whenever an NSG is created. You can't remove the default rules, but you can override them with rules of higher priority. Learn more about [default security rules](security-overview.md#default-security-rules).
    * **DESTINATION column:** Some of the rules have text in the column, while others have address prefixes. The text is the name of default tags applied to the security rule when it was created. The tags are system-provided identifiers that represent multiple prefixes. Selecting a rule with a tag, such as *AllowInternetOutBound*, lists the prefixes in the **Address prefixes** blade.
    * **Download:** The list of rules can be long. You can download a .csv file of the rules for offline analysis by clicking **Download** and saving the file.
    * **AllowRDP** Inbound rule: This rule allows RDP connections to the VM.

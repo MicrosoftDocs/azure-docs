@@ -1,20 +1,21 @@
-﻿---
+---
 title: Manage access to cloud apps by restricting tenants - Azure | Microsoft Docs
 description: How to use Tenant Restrictions to manage which users can access apps based on their Azure AD tenant.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: barbkess
 manager: mtillman
 editor: yossib
 
-ms.assetid:
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
-ms.author: kgremban
+ms.date: 05/15/2018
+ms.author: barbkess
+ms.reviewer: richagi
 
 ---
 # Use Tenant Restrictions to manage access to SaaS cloud applications
