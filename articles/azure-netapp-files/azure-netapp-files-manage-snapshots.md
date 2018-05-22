@@ -42,7 +42,7 @@ Snapshot policies are not currently supported.
 
 5. In the New Volume window, provide information for the new volume:  
     * **Name**   
-    Specify the name of the volume you are creating.  
+    Specify the name for the volume you are creating.  
     The name must be unique within a resource group. It must be at least 3 characters long.  It can use any alphanumeric characters.
     * **File path**     
     Specify the file path that will be used to create the export path for the new volume. The export path is used to mount and access the volume.   
