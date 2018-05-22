@@ -8,7 +8,6 @@ ms.service: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.custom: 
 
 ---
 
