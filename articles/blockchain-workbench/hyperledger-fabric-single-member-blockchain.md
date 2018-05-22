@@ -36,7 +36,7 @@ The network comprises of three types of nodes:
 
 ## Getting started
 
-To begin, you will need an Azure subscription that can support deploying several virtual machines and standard storage accounts. If you do not have an Azure subscription, you can [create a free Azure account](https://azure.microsoft.com/en-us/free/).
+To begin, you will need an Azure subscription that can support deploying several virtual machines and standard storage accounts. If you do not have an Azure subscription, you can [create a free Azure account](https://azure.microsoft.com/free/).
 
 By default, most subscription types support a small deployment topology without needing to increase quota. The smallest possible deployment for one member will need:
 
@@ -85,7 +85,7 @@ Parameter Name| Description| Allowed Values|Default Value
 **Number of Membership Nodes**|The number of nodes that run the membership service. For additional details on the membership service, look at Security & Membership Services under the Hyperledger [documentation](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf).<br /><br />This value is currently restricted to 1 node, but we plan to support scale out through clustering in the next revision.|1| 1
 **Number of Orderer Nodes** |The number of nodes that order (organize) transactions into a block.--> This statement is wordy and confusing. For additional details on the ordering service, visit the Hyperledger [documentation](http://hyperledger-fabric.readthedocs.io/en/latest/orderingservice.html).<br /><br />This value is currently restricted to 1 node, but we plan to support scale out in the next version.|1 |1
 **Number of Peer Nodes**| Nodes that are owned by consortium members that execute transactions and maintain the state and a copy of the ledger.<br /><br />For additional details on the ordering service, visit the Hyperledger [documentation](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|3| 3 - 9
-**Storage performance**|The type of storage backing each of the deployed nodes. To learn more about storage, visit [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction) and [Premium Storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage).|Standard or Premium|Standard
+**Storage performance**|The type of storage backing each of the deployed nodes. To learn more about storage, visit [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) and [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard or Premium|Standard
 **Virtual machine size** |The virtual machine size used for all nodes in the network|Standard A,<br />Standard D,<br />Standard D-v2,<br />Standard F series,<br />Standard DS,<br />and Standard FS|Standard D1_v2
 
 ### Fabric specific settings
