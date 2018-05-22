@@ -221,7 +221,7 @@
     href: luis-tutorial-node-import-utterances-csv.md
 - name: Reference
   items: 
-  - name: GDPR
+  - name: User privacy
     href: luis-reference-gdpr.md
   - name: Regions
     href: luis-reference-regions.md
