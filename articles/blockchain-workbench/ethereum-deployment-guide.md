@@ -213,7 +213,7 @@ mn-ethwvu-reg1_0| mn-ethwvu-reg1000000
 mn-ethwvu-reg1_1 |mn-ethwvu-reg1000001
 mn-ethwvu-reg1_2 |mn-ethwvu-reg1000002
 
-## Adding a new consortium member: network establishment and acceptance
+## Adding a new consortium member
 
 ### Sharing data
 
@@ -310,7 +310,7 @@ The architecture will be as follows after you have successfully configured conne
 
 ![Leader and member architecture](./media/ethereum-deployment-guide/leader-member.png)
 
-## Fund new member Ethereum account
+## Fund new member account
 
 ### Generated genesis block
 
