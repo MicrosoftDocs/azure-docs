@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 05/22/2018
 ms.author: carlrab
 
 ---

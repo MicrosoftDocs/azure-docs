@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 04/04/2018
+ms.date: 05/22/2018
 ms.author: carlrab
 
 ---
