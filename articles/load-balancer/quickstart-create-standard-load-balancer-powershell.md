@@ -19,7 +19,7 @@ ms:custom: mvc
 ---
 
 # <a name="get-started"></a>Quickstart: Create a Standard Load Balancer using Azure PowerShell
-This quickstart shows you how to create a Standard Load Balancer using Azure PowerShell. To test the load balancer, you deploy two virtual machines (VMs) running Windows server and load balance a web app between the VMs. To learn more about Standard Load Balancer, see {what is Standard Load Balancer](load-balancer-standard-overview.md)}
+This quickstart shows you how to create a Standard Load Balancer using Azure PowerShell. To test the load balancer, you deploy two virtual machines (VMs) running Windows server and load balance a web app between the VMs. To learn more about Standard Load Balancer, see [what is Standard Load Balancer](load-balancer-standard-overview.md).
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
