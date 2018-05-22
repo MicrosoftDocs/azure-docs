@@ -13,7 +13,7 @@ manager: carmonm
 ---
 # Role-based access control in Azure Automation
 
-Role-based access control (RBAC) enables access management for Azure resources. Using [RBAC](../role-based-access-control/role-assignments-portal.md), you can segregate duties within your team and grant only the amount of access to users, groups, and applications that they need to perform their jobs. Role-based access can be granted to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
+Role-based access control (RBAC) enables access management for Azure resources. Using [RBAC](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users, groups, and applications that they need to perform their jobs. Role-based access can be granted to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
 
 ## Roles in Automation accounts
 
@@ -65,6 +65,24 @@ A Reader can view all the resources in an Automation account but cannot make any
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|View all resources in an Automation account. |
 
+### Automation Operator
+
+An Automation Operator is able to create and manage jobs, and read runbook names and properties for all runbooks in an Automation account.  Note: If you want to control operator access to individual runbooks then don’t set this role, and instead use the 'Automation Job Operator' and 'Automation Runbook Operator' roles in combination. The following table shows the permissions granted for the role:
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|Microsoft.Authorization/*/read|Read authorization.|
+|Microsoft.Automation/automationAccounts/jobs/read|List jobs of the runbook.|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|Resume a job that is paused.|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancel a job in progress.|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output.|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress.|
+|Microsoft.Automation/automationAccounts/jobs/write|Create jobs.|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments.         |
+|Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
+|Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
+|Microsoft.Support/* |Create and manage support tickets.|
+
 ### Automation Job Operator
 
 An Automation Job Operator role is granted at the Automation account scope. This allows the operator permissions to create and manage jobs for all runbooks in the account. The following table shows the permissions granted for the role:
@@ -87,9 +105,6 @@ An Automation Job Operator role is granted at the Automation account scope. Th
 
 An Automation Runbook Operator role is granted at the Runbook scope. An Automation Runbook Operator can view the runbook's name and properties.  This role combined with the 'Automation Job Operator' role enables the operator to also create and manage jobs for the runbook. The following table shows the permissions granted for the role:
 
-> [!NOTE]
-> Do not set the 'Automation Operator' role unless you want to grant an operator the ability to manage jobs for all runbooks in the account.
-
 |**Actions**  |**Description**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/runbooks/read     | List the runbooks.        |
@@ -98,24 +113,6 @@ An Automation Runbook Operator role is granted at the Runbook scope. An Automati
 |Microsoft.Resources/deployments/*      | Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/*      | Create and manage support tickets.        |
-
-### Automation Operator
-
-An Automation Operator is able to create and manage jobs, and read runbook names and properties for all runbooks in an Automation account.  Note: If you want to control operator access to individual runbooks then don’t set this role, and instead use the 'Automation Job Operator' and 'Automation Runbook Operator' roles.  The following table shows the permissions granted for the role:
-
-|**Actions**  |**Description**  |
-|---------|---------|
-|Microsoft.Authorization/*/read|Read authorization.|
-|Microsoft.Automation/automationAccounts/jobs/read|List jobs of the runbook.|
-|Microsoft.Automation/automationAccounts/jobs/resume/action|Resume a job that is paused.|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancel a job in progress.|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output.|
-|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress.|
-|Microsoft.Automation/automationAccounts/jobs/write|Create jobs.|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments.         |
-|Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
-|Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
-|Microsoft.Support/* |Create and manage support tickets.|
 
 ### Log Analytics Contributor
 
@@ -400,7 +397,7 @@ New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job 
 New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
 ```
 
-Once ran, have the user log in to the Azure portal and view **All Resources** in the list they see the Runbook they were added as a **Automation Runbook Operator** for.
+Once ran, have the user log in to the Azure portal and view **All Resources**. In the list they see the Runbook they were added as a **Automation Runbook Operator** for.
 
 ![Runbook RBAC in the portal](./media/automation-role-based-access-control/runbook-rbac.png)
 
