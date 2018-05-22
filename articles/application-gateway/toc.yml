@@ -89,6 +89,12 @@
       href: application-gateway-customize-waf-rules-powershell.md
     - name: Azure CLI
       href: application-gateway-customize-waf-rules-cli.md
+  - name: Route by URL
+    items:
+    - name: Azure portal
+      href: create-url-route-portal.md
+    - name: Azure PowerShell
+      href: tutorial-url-route-powershell.md
   - name: Redirect external traffic
     items:
     - name: Azure PowerShell
@@ -109,14 +115,10 @@
         href: redirect-internal-site-cli.md
   - name: Restrict web traffic - Portal
     href: create-waf-portal.md
-  - name: Route based on URL - Portal
-    href: create-url-route-portal.md
   - name: Restrict web traffic using Azure PowerShell
     href: tutorial-restrict-web-traffic-powershell.md
   - name: Host multiple sites using Azure PowerShell
     href: tutorial-multiple-sites-powershell.md
-  - name: Route web traffic using Azure PowerShell
-    href: tutorial-url-route-powershell.md
   - name: Redirect web traffic using Azure PowerShell
     href: tutorial-url-redirect-powershell.md
   - name: Create a zone redundant application gateway
