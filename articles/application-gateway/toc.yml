@@ -54,19 +54,16 @@
     href: application-gateway-websocket.md
 - name: How-to guides
   items:
-  - name: Create application gateway
+  - name: Manage web traffic
     items:
+    - name: PowerShell
+      href: tutorial-manage-web-traffic-powershell
     - name: Template
       href: create-vmss-template.md
-    - name: Web apps - PowerShell
-      href: create-web-app.md
-    - name: Configure an internal load balancer
-      href: application-gateway-ilb.md
-  - name: Configure SSL termination - Portal
-    href: create-ssl-portal.md
-  - name: Host multiple sites - Portal
-    href: create-multiple-sites-portal.md
-  - name: Customize WAF rules
+  - name: Configure internal load balancer
+    items:
+    - name: PowerShell
+      href: application-gateway-ilb-arm.md
     items:
     - name: Azure portal
       href: application-gateway-customize-waf-rules-portal.md
@@ -96,8 +93,6 @@
     href: create-waf-portal.md
   - name: Route based on URL - Portal
     href: create-url-route-portal.md
-  - name: Manage web traffic using Azure Powershell
-    href: tutorial-manage-web-traffic-powershell.md
   - name: Restrict web traffic using Azure PowerShell
     href: tutorial-restrict-web-traffic-powershell.md
   - name: SSL termination using Azure PowerShell
