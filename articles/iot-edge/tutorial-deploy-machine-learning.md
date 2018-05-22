@@ -130,7 +130,7 @@ You can view the device-to-cloud messages that your IoT Edge device sends by usi
 In this tutorial, you deployed an IoT Edge module powered by Azure Machine Learning. You can continue on to any of the other tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Deploy an Azure Function as a module](tutorial-deploy-function.md)
+> [Filter sensor data using C# code](tutorial-csharp-module.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

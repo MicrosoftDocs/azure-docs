@@ -199,7 +199,7 @@ You should be able to watch the machine's temperature gradually rise until it re
 In this tutorial, you configured an Azure storage container and a Streaming Analytics job to analyze data from your IoT Edge device. You then loaded a custom Azure Stream Analytics module to move data from your device, through the stream, into a blob for download. To see how Azure IoT Edge can create more solutions for your business, continue on to the other tutorials.
 
 > [!div class="nextstepaction"] 
-> [Deploy an Azure Machine Learning model as a module][lnk-ml-tutorial]
+> [Score sensor data against an Azure Machine Learning model at the edge][lnk-ml-tutorial]
 
 <!-- Images. -->
 [1]: ./media/tutorial-deploy-stream-analytics/storage.png

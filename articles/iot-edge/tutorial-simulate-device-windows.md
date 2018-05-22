@@ -138,7 +138,7 @@ In this tutorial, you created a new IoT Edge device and used the Azure IoT Edge 
 This tutorial is the prerequisite for all of the other IoT Edge tutorials. You can continue on to any of the other tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Develop and deploy C# code as a module](tutorial-csharp-module.md)
+> [Filter sensor data using an Azure Function](tutorial-deploy-function.md)
 
 <!-- Images -->
 [2]: ./media/tutorial-install-iot-edge/install-edge-full.png
