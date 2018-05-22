@@ -22,7 +22,7 @@ This document explains how to find user information collected by Azure Multi-Fac
 
 ## Information collected
 
-MFA server, the NPS Extension, and the Windows Server 2016 Azure MFA AD FS Adapter collect and store the following information for 90 days.
+MFA Server, the NPS Extension, and the Windows Server 2016 Azure MFA AD FS Adapter collect and store the following information for 90 days.
 
 Authentication Attempts (used for reporting and troubleshooting):
 
@@ -64,7 +64,7 @@ Authentication Attempts (used for reporting and troubleshooting):
 - Result
 - Used Check for Notification
 
-Activations (attempts to activate an account in the Microsoft Authenticator mobile app)
+Activations (attempts to activate an account in the Microsoft Authenticator mobile app):
 - Username
 - Account Name
 - Timestamp
@@ -131,16 +131,16 @@ Changes (used to sync user changes to MFA Server or AAD):
 
 For MFA Server version 8.0 or higher the following process allows administrators to export all data for users:
 
-- Log in to your MFA Server, navigate to the **Users** tab, find, and select the user in question and click the **Edit** button. Take screenshots (Alt-PrtScn) of each tab to provide the user their current MFA settings.
+- Log in to your MFA Server, navigate to the **Users** tab, select the user in question, and click the **Edit** button. Take screenshots (Alt-PrtScn) of each tab to provide the user their current MFA settings.
 - From the command line of the MFA Server, run the following command changing the path according to your installation `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` to produce a JSON formatted file.
-- Administrators can also use the Web Service SDK GetUserGdpr operation as an option to export all MFA cloud service information collected for a given user or use the Web Service SDK GetUserGdpr operation to incorporate your MFA Server into a larger solution.
+- Administrators can also use the Web Service SDK GetUserGdpr operation as an option to export all MFA cloud service information collected for a given user or  incorporate into a larger reporting solution.
 
 ## Delete data from MFA Server
 
 From the command line of the MFA Server, run the following command changing the path according to your installation `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe delete <username>` to delete all MFA cloud service information collected for this user.
 
 - Data included in the export is deleted in real time, but it may take up to 30 days for operational or duplicative data to be fully removed.
-- Administrators can also use the Web Service SDK DeleteUserGdpr operation as an option to delete all MFA cloud service information collected for a given user or use the Web Service SDK DeleteUserGdpr operation to incorporate your MFA Server into a larger solution.
+- Administrators can also use the Web Service SDK DeleteUserGdpr operation as an option to delete all MFA cloud service information collected for a given user or  incorporate into a larger reporting solution.
 
 ## Gather data from NPS Extension
 
