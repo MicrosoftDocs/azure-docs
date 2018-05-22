@@ -986,6 +986,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-manager-subscription-examples.md",
+            "redirect_url": "/azure/architecture/cloud-adoption-guide/subscription-governance-examples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-subscription-governance.md",
+            "redirect_url": "/azure/architecture/cloud-adoption-guide/subscription-governance",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/azure-toolkit-for-eclipse-debugging-azure-applications.md",
             "redirect_url": "/azure/azure-toolkit-for-eclipse",
             "redirect_document_id": false
@@ -4032,6 +4042,21 @@
         },
         {
             "source_path": "articles/container-service/dcos-swarm/container-service-deployment.md",
+            "redirect_url": "/azure/container-service/dcos-swarm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md",
+            "redirect_url": "/azure/container-service/dcos-swarm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/dcos-swarm/container-service-swarm-walkthrough.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-swarm-mode-walkthrough",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/dcos-swarm/container-service-connect.md",
             "redirect_url": "/azure/container-service/dcos-swarm",
             "redirect_document_id": false
         },
@@ -21529,7 +21554,7 @@
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-node-api.md",
             "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/active-directory/active-directory-b2b-add-guest-to-role.md",
             "redirect_url": "/azure/active-directory/b2b/add-guest-to-role",
@@ -21560,7 +21585,7 @@
             "redirect_url": "/azure/active-directory/b2b/auditing-and-reporting",
             "redirect_document_id": true
         },
-        {               
+        {
             "source_path": "articles/active-directory/active-directory-b2b-claims-mapping.md",
             "redirect_url": "/azure/active-directory/b2b/claims-mapping",
             "redirect_document_id": true
@@ -21728,6 +21753,11 @@
         {
             "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
             "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/azure-maps/search-categories.md",
+            "redirect_url": "/azure/azure-maps/supported-search-categories",
             "redirect_document_id": true
         }
 
