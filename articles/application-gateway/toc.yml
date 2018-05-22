@@ -122,10 +122,6 @@
         href: redirect-internal-site-powershell.md
       - name: Azure CLI
         href: redirect-internal-site-cli.md
-  - name: Restrict web traffic - Portal
-    href: create-waf-portal.md
-  - name: Restrict web traffic using Azure PowerShell
-    href: tutorial-restrict-web-traffic-powershell.md
   - name: Redirect web traffic using Azure PowerShell
     href: tutorial-url-redirect-powershell.md
   - name: Create a zone redundant application gateway
