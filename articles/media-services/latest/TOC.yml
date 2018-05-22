@@ -12,9 +12,15 @@
 - name: Tutorials
   items:
   - name: Upload, encode, and stream
-    href: stream-files-tutorial-with-api.md
+    items:
+    - name: With .NET
+      href: stream-files-tutorial-with-api.md
+    - name: With REST
+      href: stream-files-tutorial-with-rest.md
   - name: Analyze your video
-    href: analyze-videos-tutorial-with-api.md
+    items:
+    - name: With .NET
+      href: analyze-videos-tutorial-with-api.md
 - name: Samples
   items:
   - name: Azure code samples
@@ -49,6 +55,10 @@
       href: job-input-from-http-how-to.md
     - name: From a local file
       href: job-input-from-local-file-how-to.md    
+  - name: Customize encoder presets
+    items:
+    - name: With .NET Core
+      href: customize-encoder-presets-how-to.md
 - name: Reference
   items:
   - name: Azure CLI 2.0

@@ -3,7 +3,7 @@ title: Scale U-SQL local run and test with Azure Data Lake U-SQL SDK | Microsoft
 description: 'Learn how to use Azure Data Lake U-SQL SDK to scale U-SQL jobs local run and test with command line and programming interfaces on your local workstation.'
 services: data-lake-analytics
 documentationcenter: ''
-author: 
+author: yanacai
 manager: 
 editor: 
 
