@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Remote Monitoring architectural choices
 
-The Azure IoT Remote Monitoring solution accelerator is an open-source, MIT licensed, solution accelerator that introduces common IoT scenarios such as device connectivity, device management, and stream processing, so customers can speed up their development process.  The Remote Monitoring solution follows the recommended Azure IoT reference architecture published [here](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/).  
+The Azure IoT Remote Monitoring solution accelerator is an open-source, MIT licensed, solution accelerator that introduces common IoT scenarios such as device connectivity, device management, and stream processing, so customers can speed up their development process.  The Remote Monitoring solution follows the recommended Azure IoT reference architecture published [here](https://aka.ms/iotrefarchitecture).  
 
 This article describes the architectural and technical choices made in each of the subsystems for the Remote Monitoring solution, and discusses alternatives considered.  It is important to note that the technical choices made in the Remote Monitoring solution are not the only way to implement a remote monitoring IoT solution.  The technical implementation is a baseline for building a successful application and should be modified to fit the skills, experience, and vertical application needs for a customer solution implementation.
 
@@ -53,4 +53,4 @@ The application runtime chosen for subsystem implementation in the Remote Monito
 ## Next steps
 * Deploy your the Remote Monitoring solution [here](https://www.azureiotsuite.com/).
 * Explore GitHub code in [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) and [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
-* Learn more about the IoT Reference Architecture [here](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/).
+* Learn more about the IoT Reference Architecture [here](https://aka.ms/iotrefarchitecture).

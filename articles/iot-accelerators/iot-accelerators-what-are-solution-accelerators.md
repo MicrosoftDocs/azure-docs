@@ -151,4 +151,4 @@ Now that you have an overview of the IoT solution accelerators, here are suggest
 * [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md).
 * [Get started with the Connected Factory solution accelerator](iot-accelerators-connected-factory-overview.md).
 
-For more information about IoT solution architectures, see [Microsoft Azure IoT services: Reference Architecture](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf).
+For more information about IoT solution architectures, see [Microsoft Azure IoT services: Reference Architecture](https://aka.ms/iotrefarchitecture).
