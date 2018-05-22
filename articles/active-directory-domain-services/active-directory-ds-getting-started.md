@@ -21,7 +21,7 @@ ms.author: maheshu
 This article shows how to enable Azure Active Directory Domain Services (Azure AD DS) using the Azure portal.
 
 ## Before you begin
-To perform the tasks listed in this article, you need:
+To complete the tasks listed in this article, you need:
 
 * A valid **Azure subscription**.
 * An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
