@@ -89,18 +89,18 @@
       href: billing-understand-reserved-instance-usage-ea.md
     - name: Reserve Instances Windows costs
       href: billing-reserved-instance-windows-software-costs.md
-  - name: Troubleshoot
-    items:
-    - name: Sign-up issues
-      href: https://support.microsoft.com/en-us/help/4042959
-    - name: Declined card
-      href: https://support.microsoft.com/en-us/help/4042960
-    - name: Sign-in issues
-      href: https://support.microsoft.com/en-us/help/4042961
-    - name: No subscriptions found
-      href: billing-no-subscriptions-found.md
-    - name: Enterprise cost view disabled
-      href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
+- name: Troubleshoot
+  items:
+  - name: Sign-up issues
+    href: https://support.microsoft.com/en-us/help/4042959
+  - name: Declined card
+    href: https://support.microsoft.com/en-us/help/4042960
+  - name: Sign-in issues
+    href: https://support.microsoft.com/en-us/help/4042961
+  - name: No subscriptions found
+    href: billing-no-subscriptions-found.md
+  - name: Enterprise cost view disabled
+    href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
 - name: Reference
   items:
   - name: Azure Billing API Overview
@@ -139,30 +139,3 @@
     href: ../azure-supportability/how-to-create-azure-support-request.md
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
