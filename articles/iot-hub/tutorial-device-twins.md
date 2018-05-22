@@ -98,7 +98,7 @@ You use desired properties to send state information from a back-end application
 * Receive and process desired properties on a device.
 * Send desired properties from a back-end application.
 
-To view the simulated device sample code that receives desired properties, navigate to the **Tutorials/DeviceTwins** folder in the sample Node.js project you downloaded. Then open the SimulatedDevice.js file in a text editor.
+To view the simulated device sample code that receives desired properties, navigate to the **iot-hub/Tutorials/DeviceTwins** folder in the sample Node.js project you downloaded. Then open the SimulatedDevice.js file in a text editor.
 
 ### Retrieve the device twin object
 
@@ -146,7 +146,7 @@ The following snippet shows how the simulated device handles insert, update, and
 
 You've seen how a device implements handlers for receiving desired property updates. This section shows you how to send desired property changes to a device from a back-end application.
 
-To view the simulated device sample code that receives desired properties, navigate to the **Tutorials/DeviceTwins** folder in the sample Node.js project you downloaded. Then open the ServiceClient.js file in a text editor.
+To view the simulated device sample code that receives desired properties, navigate to the **iot-hub/Tutorials/DeviceTwins** folder in the sample Node.js project you downloaded. Then open the ServiceClient.js file in a text editor.
 
 The following code snippet shows how to connect to the device identity registry and access the twin for a specific device:
 
@@ -166,14 +166,14 @@ In this section, you run two sample applications to observe as a back-end applic
 
 To run the simulated device and back-end applications, you need the device and service connection strings. You made a note of the connection strings when you created the resources at the start of this tutorial.
 
-To run the simulated device application, open a shell or command prompt window and navigate to the **Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
+To run the simulated device application, open a shell or command prompt window and navigate to the **iot-hub/Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
 
 ```cmd/sh
 npm install
 node SimulatedDevice.js "{your device connection string}"
 ```
 
-To run the back-end application, open another shell or command prompt window. Then navigate to the **Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
+To run the back-end application, open another shell or command prompt window. Then navigate to the **iot-hub/Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
 
 ```cmd/sh
 npm install
@@ -216,14 +216,14 @@ You run the same two sample applications that you ran to see how desired propert
 
 To run the simulated device and back-end applications, you need the device and service connection strings. You made a note of the connection strings when you created the resources at the start of this tutorial.
 
-To run the simulated device application, open a shell or command prompt window and navigate to the **Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
+To run the simulated device application, open a shell or command prompt window and navigate to the **iot-hub/Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
 
 ```cmd/sh
 npm install
 node SimulatedDevice.js "{your device connection string}"
 ```
 
-To run the back-end application, open another shell or command prompt window. Then navigate to the **Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
+To run the back-end application, open another shell or command prompt window. Then navigate to the **iot-hub/Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
 
 ```cmd/sh
 npm install
