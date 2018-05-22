@@ -195,5 +195,9 @@ Now that you downloaded and changed the script based on your needs, runt the scr
 
 ### Step 5 - Configure routing within the VM's operating system
 
-Azure DHCP assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. To configure routing for secondary network interfaces, see [Routing within a virtual machine operating system with multiple network interfaces](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics).
-).
+Azure DHCP assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. To configure routing for secondary network interfaces, see the following articles:
+
+-[Configure a Windows VM for multiple NICs](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics)
+)
+-[Configure a Linux VM for multiple NICs](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics)
+)
