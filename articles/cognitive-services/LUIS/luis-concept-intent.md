@@ -33,7 +33,7 @@ You assign an utterance to a single intent. When LUIS receives an utterance on t
 ## Intent compared to entity
 The intent represents action the chat bot should take for the user and is based on the entire utterance. The entity represents words or phrases contained inside the utterance. An utterance can have only one top scoring intent but it can have many entities. 
 
-<a name="how-do-intents-relate-to-entities">
+<a name="how-do-intents-relate-to-entities"></a>
 Create an intent when this intent would trigger an action in your client application, like a call to the checkweather() function, and create an entity to represent parameters required to execute the action. 
 
 |Example intent   | Entity | Entity in example utterances   | 
