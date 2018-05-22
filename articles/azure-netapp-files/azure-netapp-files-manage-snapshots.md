@@ -34,7 +34,7 @@ Currently, you can restore a snapshot only to a new volume.
 2. Select a snapshot to restore.  
 3. Right-click the snapshot name and select **Restore to new volume** from the menu option.  
 
-![Restore snapshot to new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
+    ![Restore snapshot to new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 4. In the New Volume window, provide information for the new volume:  
     * **Name**   

@@ -56,7 +56,7 @@ You must have already set up a capacity pool.
 
         Specify the Azure virtual network (Vnet) from which you want to access the volume. The Azure NetApp Files service can be accessed only from a Vnet that is in the same location as the volume.   
 
-![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+    ![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
 
 4.	Click OK. 
  
