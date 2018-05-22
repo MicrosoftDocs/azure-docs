@@ -19,7 +19,7 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 ![Example of how a VNet Service Endpoint works](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> For Azure Database for PostgreSQL, this feature is available in Preview in all regions of Azure public cloud.
+> For Azure Database for PostgreSQL, this feature is available in public preview in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed.
 
 <a name="anch-terminology-and-description-82f" />
 
