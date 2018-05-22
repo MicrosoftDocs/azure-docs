@@ -26,12 +26,12 @@ Variables exist globally and only within the
 logic app instance where you create them. 
 They are also shared across loops in the same instance. 
 
-You can perform other tasks with variables, 
-for example:
+When you have an existing variable, 
+you can perform other tasks, for example:
 
 * Increase the value in a variable.
 * Decrease the value in a variable.
-* Assign a different value to a variable.
+* Set a specific value for a variable.
 * Add the value in a variable to the end of an array.
 * Add the value in a variable to the end of a string.
 
@@ -107,7 +107,7 @@ can change the value in an existing variable.
 
 * [Add a value or "increment" the variable](#increment-value).
 * [Subtract a value or "decrement" the variable](#decrement-value).
-* [Assign a specific value to the variable](#assign-value).
+* [Set a specific value for the variable](#assign-value).
 
 If you don't have an existing variable yet, 
 [create that variable now](#create-variable).
@@ -258,18 +258,18 @@ The default value for this action is also one.
 
 <a name="assign-value"></a>
 
-### Assign a specific value 
+### Set a specific value 
 
-The steps for setting an existing variable to a specific value are 
-similar to [increasing a variable](#increment-value) and 
-[decreasing a variable](#decrement-value) except: 
+The steps for assigning a specific value to an existing variable 
+are similar to [increasing a variable](#increment-value) and 
+[decreasing a variable](#decrement-value) except for these steps: 
 
 * You select the **Variables - Set variable** action instead. 
 
-* You must specify the new value to assign the variable. 
+* You must provide the new value that you want to assign the variable. 
 This action doesn't have a default value. 
 
-## Append variable
+## Add to string or array
 
 
 
