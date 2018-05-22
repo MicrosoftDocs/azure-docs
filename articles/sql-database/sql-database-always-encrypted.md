@@ -4,7 +4,7 @@ description: This article shows you how to secure sensitive data in a SQL databa
 keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
