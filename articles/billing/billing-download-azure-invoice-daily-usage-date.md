@@ -38,14 +38,14 @@ You can opt in and configure additional recipients to receive your Azure invoice
 
     ![Screenshot that shows the opt-in flow step 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
  
-3. Once you've accepted the agreement, you can configure additional recipients. When a recipient is removed, we no longer store the email address. If you change your mind you need to re-add them.
+3. Once you've accepted the agreement, you can configure additional recipients. When a recipient is removed, the email address is no longer scored. If you change your mind, you need to re-add them.
 
     ![Screenshot that shows the opt-in flow step 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
     
 If you don't get an email after following the steps, make sure your email address is correct in the [communication preferences on your profile](https://account.windowsazure.com/profile).
 
 ### Opt out from getting your invoice in email(.pdf)
-If you no longer wish to recieve your invoice via email, you can opt out from the same location. Simply click the opt out link and affirm the confirmation prompt. This removes any alternate recipients you may have configured previously. If you change your mind you will need to re-configure recipients.
+If you no longer wish to receive your invoice via email, you can opt out from the same location. Simply click the opt-out link and affirm the confirmation prompt. This removes any alternate recipients you may have configured previously. If you change your mind, you will need to reconfigure recipients.
 
  ![Screenshot that shows the opt-out flow](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
