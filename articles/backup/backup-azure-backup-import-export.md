@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 5/8/2018
+ms.date: 517/2018
 ms.author: saurse;nkolli;trinadhk
 
 ---
@@ -64,7 +64,7 @@ Before initiating the Offline Backup workflow, complete the following prerequisi
     4. In the list of providers scroll down to Microsoft.ImportExport. If the Status is NotRegistered, click **Register**.
     ![registering the resource provider](./media/backup-azure-backup-import-export/registerimportexport.png)
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you are trying to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
-* When sending disks to Azure, use only 2.5 inch SSD, or 2.5-inch or 3.5-inch SATA II/III internal hard drives. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-service.md#hard-disk-drives) for the latest set of drives that the service supports.
+* When sending disks to Azure, use only 2.5 inch SSD, or 2.5-inch or 3.5-inch SATA II/III internal hard drives. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
 * The SATA drives must be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the *staging location* to the SATA drives is done. Ensure that Bitlocker is enabled on the *copy computer*.
 
 ## Workflow

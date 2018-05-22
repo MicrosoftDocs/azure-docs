@@ -131,7 +131,7 @@ This *optional* step helps you determines the number of drives required for the 
     |**/ExportBlobListFile:**|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation of the Import/Export service REST API.|  
     |**/DriveSize:**|Required. The size of drives to use for an export job, *e.g.*, 500 GB, 1.5 TB.|  
 
-    See an [Example of the PreviewExport command](example-of-previewexport-command).
+    See an [Example of the PreviewExport command](#example-of-previewexport-command).
  
 5. Check that you can read/write to the drives that will be shipped for the export job.
 
@@ -188,7 +188,7 @@ The following table shows examples of valid blob paths:
 
 ## Next steps
 
-* [View the job and drive status](storage-import-export-view-job-status.md)
+* [View the job and drive status](storage-import-export-view-drive-status.md)
 * [Review Import/Export requirements](storage-import-export-requirements.md)
 
 

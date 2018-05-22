@@ -21,7 +21,7 @@ Before you create an import job to transfer data into Azure Blob Storage, carefu
 You must:
 
 - Have an active Azure subscription that can be used for the Import/Export service.
-- Have at least one Azure Storage account with a storage container. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account). For information on storage container, go to [Create a storage container](storage-quickstart-blobs-portal.md#create-a-container).
+- Have at least one Azure Storage account with a storage container. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account). For information on storage container, go to [Create a storage container](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems). 
 - Enable BitLocker on the Windows system. See [How to enable BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
@@ -127,7 +127,7 @@ Perform the following steps to create an import job in the Azure portal.
 
 ## Next steps
 
-* [View the job and drive status](storage-import-export-view-job-status.md)
+* [View the job and drive status](storage-import-export-view-drive-status.md)
 * [Review Import/Export requirements](storage-import-export-requirements.md)
 
 

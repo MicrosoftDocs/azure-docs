@@ -189,7 +189,7 @@ An import example is shown below.
 
 ## Next steps
 
-* [View the job and drive status](storage-import-export-view-job-status.md)
+* [View the job and drive status](storage-import-export-view-drive-status.md)
 * [Review Import/Export requirements](storage-import-export-requirements.md)
 
 

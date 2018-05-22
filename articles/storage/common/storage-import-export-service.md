@@ -42,7 +42,7 @@ Import/Export service uses the following components:
     - Version 1 for import/export into Azure Blob storage. 
     - Version 2 for importing data into Azure files.
 
-    The WAImportExport tool is only compatible with 64-bit Windows operating system. For specific OS versions supported, go to [Azure Import/Export requirements](storage-import-export-requirements.md#supported-operating-system).
+    The WAImportExport tool is only compatible with 64-bit Windows operating system. For specific OS versions supported, go to [Azure Import/Export requirements](storage-import-export-requirements.md#supported-operating-systems).
 
 - **Disks**: You can ship Solid-state drives (SSDs) or Hard disk drives (HDDs) to the Azure datacenter. When creating an import job, you ship disk drives containing your data. When creating an export job, you ship empty drives to the Azure datacenter. For specific disk types, go to [Supported disk types](storage-import-export-requirements.md#supported-hardware).
 
