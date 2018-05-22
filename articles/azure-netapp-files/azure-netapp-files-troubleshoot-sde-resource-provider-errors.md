@@ -27,7 +27,7 @@ The KeyVault stores the required credentials for accessing the underlying API. T
 The KeyVault did not receive the correct credentials, or the credentials are incomplete.  
 
 ### Solution
-Cloud Volumes use a KeyVault. The KeyVault authenticates by using a token from Azure Active Directory. To do this, the owner of the application must register the application in the Azure Active Directory.
+Cloud Volumes use a KeyVault. The KeyVault authenticates by using a token from Azure Active Directory. Therefore, the owner of the application must register the application in the Azure Active Directory.
 
 ### Workaround
 None.  The KeyVault must be set up correctly for using the Cloud Volume service.  
@@ -37,7 +37,7 @@ This error occurs when you try to change the creation token after the volume has
 Creation token must be set when the volume is created and cannot be changed later.
 
 ### Cause
-You are trying to change the creation token after the volume has been created, and this is not a supported operation.
+You are trying to change the creation token after the volume has been created, which is not a supported operation.
 
 ### Solution
 After the Volume has been created, consider removing the parameter from the request to dismiss the error message.
@@ -63,7 +63,7 @@ The minimum required length of the creation token cannot be bypassed.  You can u
 This error occurred because the internal registry of resources is out of sync.
 
 ### Cause
-The volume might remain displayed in the portal for some time after it has been deleted. If you delete the volume by using the API, it is possible that the volume was not specified correctly. The error can also be caused by outdated browser cache.
+The volume might stay displayed in the portal for some time after it has been deleted. If you delete the volume by using the API, it is possible that the volume was not specified correctly. The error can also be caused by outdated browser cache.
 
 ### Solution
 Clear browser cache if you are using the portal. There is also an internal cache that is refreshed every 10 minutes.  You can try to clear cache again.  If the problem persists after 10 minutes, you can create a support ticket.
@@ -85,7 +85,7 @@ If you are using the portal, the volume has already been created.  The volume sh
 You can create a volume with a different name and a different creation token.
 
 
-## <a name="error_06"></a>*The file path name can contain letters, numbers and hyphens (""-"") only*
+## <a name="error_06"></a>*The file path name can contain letters, numbers, and hyphens (""-"") only*
 This error occurs when the file path contains unsupported characters, for example, a period ("."), comma (","), underscore ("\_"), or dollar sign ("$").
 
 ### Cause
@@ -196,7 +196,7 @@ This error indicates that an internal error is preventing the operation from com
 An internal error occurred and prevented the operation from completing.
 
 ### Solution
-This error is likely to be temporary.  You should wait a few minutes and try again. If the problem persists, create a ticket to have technical support investigate the issue.
+This error is likely to be temporary.  Wait a few minutes and try again. If the problem persists, create a ticket to have technical support investigate the issue.
 
 ### Workaround
 Wait a few minutes and check if the problem persists.
@@ -209,7 +209,7 @@ This error indicates that the command is not available for the active subscripti
 The operation is not available for the subscription or resource.
 
 ### Solution
-Make sure that the command is entered correctly and that it is available for the resource and subscription that you are using.
+Make sure that the command is entered correctly and available for the resource and subscription that you are using.
 
 ### Workaround
 See the Solution section.  
@@ -241,7 +241,7 @@ None. The parameter for the volume ID cannot be modified.
 The volume ID should not require modification.  Therefore, a workaround is not necessary.
 
 ## <a name="error_18"></a>*The requested {0} was not found*
-This error occurs when you try to reference a nonexistent resource (for example, a volume or snapshot) that has already been deleted or has an incorrectly spelled resource name.
+This error occurs when you try to reference a nonexistent resource, for example, a volume or snapshot. The resource might have been deleted or have a misspelt resource name.
 
 ### Cause
 You are trying to reference a nonexistent resource (for example, a volume or snapshot) that has already been deleted or has an incorrectly spelled resource name.
@@ -262,7 +262,7 @@ Credentials that are invalid or incorrectly set in the subscription prevent acce
 Make sure that the credentials are set and entered correctly on the command line.
 
 ### Workaround
-None.  Correctly set credentials is essential for using Cloud Volumes.
+None.  Correctly set credentials are essential for using Cloud Volumes.
 
 ## <a name="error_20"></a>*Unknown NFSaaS Error*
 The Azure API relies on the NFSaaS API to manage volumes. The error indicates an issue in the communication to the API.
@@ -286,7 +286,7 @@ The request has a set of properties that can be used with each resource.  You ca
 Make sure that all property names are spelled correctly and the properties are available for the subscription and resource.
 
 ### Workaround
-Reduce the amount of properties that are defined in the request to eliminate the property that is causing the error.
+Reduce the number of properties defined in the request to eliminate the property that is causing the error.
 
 
 ## <a name="error_22"></a>*Update operation is not supported for this resource type*
@@ -316,10 +316,10 @@ It is not mandatory to use export policy on the volumes. Therefore, you can omit
 
 
 ## <a name="error_24"></a>*Duplicate value error for object {0}*
-This error occurs when the export policy is not defined with a unique index in the range from 1 to 5.  When you define export policies, all export policy rules must have a unique index between 1 and 5.
+This error occurs when the export policy is not defined with a unique index.  When you define export policies, all export policy rules must have a unique index between 1 and 5.
 
 ### Cause
-The defined export policy does not meet the requirement of having one export policy rule at the minimum and five export policy rules at the maximum.  
+The defined export policy does not meet the requirement for export policy rules. You must have one export policy rule at the minimum and five export policy rules at the maximum.  
 
 ### Solution
 Make sure that the index is not already used and that it is in the range from 1 to 5.

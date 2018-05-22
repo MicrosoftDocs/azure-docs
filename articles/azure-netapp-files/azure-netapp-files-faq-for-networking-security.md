@@ -34,13 +34,12 @@ No. The NFS data path does not go over the Internet. The Azure NetApp Files serv
 
 ## <a name="faq_network_03"></a>*What is the available network bandwidth and capability for the ExpressRoute circuit that is used by the Azure NetApp Files service?*
 
-The service uses 10Gbps Standard ExpressRoute circuits. The Azure Virtual Network Gateways that are used for the Azure NetApp Files service are the Ultra Performance (9Gbps) SKU gateways. 
+The service uses 10 Gbps Standard ExpressRoute circuits. The Azure Virtual Network Gateways that are used for the Azure NetApp Files service are the Ultra Performance (9 Gbps) SKU gateways. 
 
 
 ## <a name="faq_network_04"></a>*Can I request more bandwidth?*
 
-The Public Preview and General Availability phases of the service rollout will utilize a wider range of Express Route circuit and VNet Gateway options based on use case and performance requirements.
-
+Based on use case and performance requirements, during Public Preview and General Availability, the service will use a wider range of Express Route circuit and VNet Gateway options. 
 
 
 ## <a name="faq_network_05"></a>*Are there any SLAs or guarantees of network performance or availability?*
@@ -59,13 +58,13 @@ There are no guarantees of network performance implied or explicitly made by Mic
 
 You will be able to connect VNets that you have created to the service. 
 
-However, when you use a pre-existing VNet, the VNet must have an available /28 block of IP addresses for the Gateway Subnet that ExpressRoute uses. If your VNet does not have an available /28 block of IP addresses, you will be instructed to add a /28 address space to the VNet and create a Gateway Subnet from that address space.
+However, when you use a pre-existing VNet, the VNet must have an available /28 block of IP addresses for the Gateway Subnet that ExpressRoute uses. If your VNet does not have an available /28 block of IP addresses, you will need to add a /28 address space to the VNet, and you will also need to create a Gateway Subnet from that address space.
 
 
 
 ## <a name="faq_network_07"></a>*Can I connect to the Azure NetApp Files service from my on-site network using a dedicated ExpressRoute connection?*
 
-No. Although Microsoft Azure supports connecting up to four ExpressRoute circuits to an Azure VNet using separate providers, transitive routing via the Azure VNet (Storage Network <--> VNet <--> Customer On-site Network) is not supported by ExpressRoute. 
+No. Microsoft Azure supports connecting up to four ExpressRoute circuits to an Azure VNet using separate providers. However, ExpressRoute does not support transitive routing via the Azure VNet (Storage Network <--> VNet <--> Customer On-site Network). 
 
 Connecting directly to the Storage Network from your on-site network bypassing the Equinix Cloud Exchange is not supported.
 
@@ -79,7 +78,7 @@ Yes.  As indicated in ExpressRoute documentation [Configure ExpressRoute and Sit
 
 ## <a name="faq_network_09"></a>*Can a network route from the service leak or be propagated into my on-site network or other VNets in my Azure subscription?*
 
-No. The routes from our service cannot be propagated beyond the Azure VNet that the service is connected to.
+No. The routes from the service cannot be propagated beyond the Azure VNet that the service is connected to.
 
 
 
@@ -101,7 +100,7 @@ The ExpressRoute circuit is created under a Microsoft subscription, and the VNet
 
 ## <a name="faq_network_13"></a>*What are the costs associated with the Azure ExpressRoute circuit and the Azure VNet gateway?*
 
-There is no charge associated with the ExpressRoute circuit that is provided for the purposes of accessing the Azure NetApp Files service.  Upon request, Microsoft can provide a sponsored pass to offset the cost of the VNet gateway that is deployed for the purpose of accessing the Azure NetApp Files service.
+There is no charge associated with the ExpressRoute circuit that is provided for accessing the Azure NetApp Files service.  Upon request, Microsoft can provide a sponsored pass to offset the cost of the VNet gateway that is deployed for accessing the Azure NetApp Files service.
 
 The VNet gateway pricing model is rated on a per-hour basis, regardless of whether data is transiting across the ExpressRoute circuit. For more information, see the [Azure VNet Gateway documentation](https://azure.microsoft.com/pricing/details/vpn-gateway/). 
 
