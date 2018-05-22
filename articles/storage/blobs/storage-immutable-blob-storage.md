@@ -14,11 +14,9 @@ ms.author: sangsinh
 
 # Overview
 
-Azure Storage now offers WORM (Write Once Read Many) support for blob object storage that allows you to
-store data in a non-erasable, non-modifiable state for a user-specified interval
-of time. Blobs can be created and read, but not modified or deleted for the duration of the retention interval. This feature enables organizations in many regulated industries,
-particularly broker-dealer organizations to store data in a manner compliant
-with SEC 17a-4(f) and other regulations.
+Azure Storage now offers WORM (Write Once Read Many) support for blob object storage that allows you to store data in a non-erasable, non-modifiable state for a user-specified interval of time.
+Blobs can be created and read, but not modified or deleted for the duration of the retention interval.
+This feature enables organizations in many regulated industries, particularly broker-dealer organizations, to store data in a manner compliant with SEC 17a-4(f) and other regulations.
 
 Feature characteristics include:
 
@@ -47,7 +45,8 @@ Feature characteristics include:
  
 ## How does it work?
 
-When a time-based retention policy or legal hold is applied on a container, the following operations will be disallowed for existing blobs and new blobs added to the container. When the retention interval expires, and there are no legal holds set on the container, the delete operations will be enabled. However, if only a legal hold is applied and there is no time-based retention policy on a container, all of the following blob operations will be allowed when all the legal holds are cleared. 
+When a time-based retention policy or legal hold is applied on a container, the following operations will be disallowed for existing blobs and new blobs added to the container. When the retention interval expires, and there are no legal holds set on the container, the delete operations will be enabled. However, if only a legal hold is applied and there is no time-based retention policy on a container, all of the following blob operations will be allowed when all the legal holds are cleared.
+ 
 **Operation         Resource Type                       Description**
 Delete Container    Container                           Deletes the container and any blobs it contains
 Put Blob            Block, Append, and page blobs        Replace an existing blob within a container
@@ -59,48 +58,48 @@ Put Block list      Block blobs                         Commits a blob by specif
 Put Page            Page blobs                          Writes a range of pages into a page blob
 Append Block        Append blobs                        Writes a block of data to the end of an append blob.
 
-## Note
+### Note
 1. The feature is only available in GPv2 and blob storage accounts. Note that the policy administration is only available through the rSRP/Azure Resource Manager interfaces and so the storage account must be Azure Resource Manager enabled. 
-2. Each container contains an audit trail showing up to 5 time-based retention commands for locked time-based retention policies and up to 10 legal hold commands. This log is retained for the lifetime of the container. However, the complete log of all the commands can be found  in the Azure activity log. Refer to the [Azure Activity log documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) for more details
-3. Page blobs and Append blobs need to be created outside of a protected container, then copied in.
 
-### Getting Started
+2. Each container contains an audit trail showing up to 5 time-based retention commands for locked time-based retention policies and up to 10 legal hold commands. This log is retained for the lifetime of the container. However, the complete log of all the commands can be found  in the Azure activity log. Refer to the [Azure Activity log documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) for more details
+
+3. Page blobs and Append blobs need to be created outside of a protected container, then copied into that container.
+
+## Getting Started
 **Azure portal**
 
-Step 1: Create a container to store the blobs that need to be kept in the immutable state. Click on Access Policy in the Container settings and then click on **+ Add Policy** under **Immutable Blob Storage** policy as illustrated below.
+1. Create a container to store the blobs that need to be kept in the immutable state. Click on **Access Policy** in the Container settings and then click on **+ Add Policy** under **Immutable Blob Storage** policy as illustrated in the following image:
  
 ![Container Access](media/storage-immutable-blob-storage/portal-image-1.jpg)
 
+2. To enable time-based retention, choose Time-Based Retention from the drop-down menu. Enter the desired retention interval in days (minimum is one day)
+
 ![Container Access](media/storage-immutable-blob-storage/portal-image-2.jpg)
 
-Step 2: To enable time-based retention, choose Time-Based Retention from the drop-down menu. Enter the desired retention interval in days (minimum is one day)
+
+As you can see in the following image, the state of the policy will initially be unlocked. This will allow you to test the feature with a smaller retention interval, and make changes to the policy before locking it.
 
 ![Time-based retention](media/storage-immutable-blob-storage/portal-image-3-time-based-retention.jpg)
-
-As you can see above, the state of the policy will initially be unlocked. This will allow you to test the feature with a smaller retention interval, and make changes to the policy before locking it.
  
 Locking is essential for SEC 17a-4 etc. regulatory compliance.
- Step 3: Lock the policy by right-clicking on the ..., and the following menu will appear:-
+3. Lock the policy by right-clicking on the ..., and the following menu will appear:-
 
 ![Lock policy](media/storage-immutable-blob-storage/portal-image-4-lock-policy.jpg)
 
 Click on Lock Policy and the policy state will now show as locked. Once locked, the policy can longer be deleted and only extensions of the retention interval will be allowed.
  
-Step 4: To enable legal holds, click on + Add Policy and  choose Legal hold from the drop-down menu
+4. To enable legal holds, click on + Add Policy and  choose Legal hold from the drop-down menu
 
-![Hold selection](media/storage-immutable-blob-storage/portal-image-legal-hold-selection-7.jpg)
-
- Create a legal hold with one or more tags
+5. Create a legal hold with one or more tags
 
 ![Hold tags](media/storage-immutable-blob-storage/portal-image-set-legal-hold-tags.jpg)
 
  **CLI**
- Install the CLI [extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) with `az extension add -n storage-preview`
+ Install the CLI [extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) with `az extension add -n storage-preview`.
 
-If you already have this extension installed, then to enable the Immutable Blob Storage feature, use the command  the extension and just  `az extension update -n storage-preview`
+If you already have this extension installed, then to enable the Immutable Blob Storage feature, use the command: `az extension update -n storage-preview`
 The feature is included in the following command groups (run “-h” on them to see the commands):
 `az storage container immutability-policy`  and `az storage container legal-hold ` 
-
 
 
 # Parameter limits
@@ -124,16 +123,16 @@ The following restrictions apply during public preview:
 
 -    All  preview/NDA restrictions apply
 
-### Client Libraries and Tools 
+## Client Libraries and Tools 
 
 The Immutable Blob Storage feature is supported in the following client libraries:-
 [.net](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
 [node.js](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
 [Python](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/storageManagement2)
 
-### Powershell 
+## Sample PowerShell script
 
-A sample Powershell script to use this feature is provided below for reference:
+A sample PowerShell script to use this feature is provided below for reference:
 
 ```powershell
 \$ResourceGroup = "\<Enter your resource group\>”
