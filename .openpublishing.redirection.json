@@ -1,16 +1,6 @@
 {
     "redirections": [
         {
-            "source_path": "articles/search/search-api-2016-09-01-preview.md",
-            "redirect_url": "/azure/search/search-api-preview",
-            "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/search/search-api-2017-11-11-preview.md",
-            "redirect_url": "/azure/search/search-api-preview",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
             "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
             "redirect_document_id": true
@@ -6941,8 +6931,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/search/search-api-2017-11-11-preview.md",
+            "redirect_url": "/azure/search/search-api-preview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/search/search-api-2016-09-01-preview.md",
+            "redirect_url": "/azure/search/search-api-2017-11-11-preview",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/search/search-api-2015-02-28-preview.md",
-            "redirect_url": "articles/search/search-api-preview.md",
+            "redirect_url": "articles/search/search-api-2016-09-01-preview.md",
             "redirect_document_id": false
         },
         {
