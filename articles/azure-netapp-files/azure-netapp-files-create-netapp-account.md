@@ -29,7 +29,7 @@ You must have been whitelisted for accessing the Microsoft.NetApp Azure Resource
 2.	Access the Azure NetApp Files blade by using one of the following methods:  
   * Search for **Azure NetApp Files** in the Azure Portal search box.  
   * Click **All services** in the navigation, and then filter to Azure NetApp Files.  
-  [!NOTE] You can "favorite" the Azure NetApp Files blade by clicking the star icon next to it. 
+  You can "favorite" the Azure NetApp Files blade by clicking the star icon next to it. 
 3. Click **+ Add** to create a new NetApp account.  
   The New NetApp account window appears.  
 4. Provide the following information for your NetApp account: 
