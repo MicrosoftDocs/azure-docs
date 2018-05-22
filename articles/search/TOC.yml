@@ -213,13 +213,13 @@
     href: /rest/api/searchservice
     items:
     - name: 2017-11-11-Preview
-      href: search-api-2017-11-11-preview.md
+      href: search-api-preview.md
   - name: REST (Management)
     href: /rest/api/searchmanagement
   - name: Cognitive search (Preview)
     items:
     - name: 2017-11-11-Preview (REST)
-      href: search-api-2017-11-11-preview.md
+      href: search-api-preview.md
       items:
       - name: Create Skillset (Preview)
         href: ref-create-skillset.md
