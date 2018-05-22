@@ -46,4 +46,4 @@ You must have already created a NeApp account.
 [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 
 ## Related information 
-[Understand storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)
+[Understand the storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)

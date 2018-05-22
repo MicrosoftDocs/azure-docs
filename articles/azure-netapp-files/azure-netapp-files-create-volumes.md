@@ -53,4 +53,4 @@ A volume inherits subscription, resource group, location attributes from its cap
 
 
 ## Related information 
-[Understand storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)
+[Understand the storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)

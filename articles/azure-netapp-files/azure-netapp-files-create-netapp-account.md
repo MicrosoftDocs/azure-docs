@@ -52,4 +52,4 @@ You must have been whitelisted for accessing the Microsoft.NetApp Azure Resource
 [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 
 ## Related information 
-[Understand storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)
+[Understand the storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)

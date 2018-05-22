@@ -3,7 +3,7 @@
 # Overview
 ## [Introduction to Azure NetApp Files](azure-netapp-files-introduction.md)
 ## [Networking and security FAQ for Azure NetApp Files](azure-netapp-files-faq-for-networking-security.md)
-## [Understand storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)
+## [Understand the storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)
 
 # Get started
 ## [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
