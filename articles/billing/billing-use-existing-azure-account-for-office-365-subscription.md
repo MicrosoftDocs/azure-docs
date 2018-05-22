@@ -13,7 +13,7 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: cjiang
 

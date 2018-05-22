@@ -8,6 +8,7 @@ manager: mtillman
 editor: 
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,7 +17,7 @@ ms.date: 04/09/2018
 ms.author: skwan
 
 ---
-# Use a Linux VM MSI to access Azure Cosmos DB 
+# Tutorial: Use a Linux VM MSI to access Azure Cosmos DB 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -69,6 +70,7 @@ To create an MSI-enabled VM:
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
+   ```
 
 ## Create a Cosmos DB account 
 

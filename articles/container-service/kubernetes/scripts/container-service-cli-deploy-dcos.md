@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Create ACS DC/OS Cluster
 services: container-service
 documentationcenter: ''
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
