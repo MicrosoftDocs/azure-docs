@@ -69,7 +69,7 @@ To delete specific data:
 
 One option to ensure the connector logs do not contain personal information is to turn off the log generation. To stop generating connector logs, remove the following highlighted line from `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`. 
 
-![Configuration](./media/active-directory-application-proxy-gdpr/01.png)
+![Configuration](./media/application-proxy-remove-personal-data/01.png)
 
 
 ## Next steps
