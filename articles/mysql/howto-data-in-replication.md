@@ -53,11 +53,11 @@ This article assumes that you have at least some prior experience with MySQL ser
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Create a new account and set up permission
+3. Create a new replication role and set up permission
 
    Create a user account on the primary server that is configured with replication privileges. This can be done through SQL commands or a tool like MySQL Workbench. Consider whether you plan on replicating with SSL as this will need to be specified when creating the user. Refer to the MySQL documentation to understand how to [add user accounts](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) on your primary server. 
 
-   In the commands below, the new user account created is able to access the primary from any host (using the syntax "@'%'"). If you require that the user can only access the primary server from within the same domain, use "@'%.companya.com'" instead. See the MySQL documentation to learn more about [specifying account names](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
+   In the commands below, the new replication role created is able to access the primary from any machine, not just the machine that hosts the primary itself. This is done by specifying "syncuser@'%'" in the create user command. See the MySQL documentation to learn more about [specifying account names](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 
    **SQL Command**
 
@@ -81,7 +81,7 @@ This article assumes that you have at least some prior experience with MySQL ser
 
    **MySQL Workbench**
 
-   To create the replication user account in MySQL Workbench, open the **Users and Privileges** panel from the **Management”** panel. Then click on **Add Account**. 
+   To create the replication role in MySQL Workbench, open the **Users and Privileges** panel from the **Management** panel. Then click on **Add Account**. 
  
    ![Users and Privileges](./media/howto-data-in-replication/users_privileges.png)
 
@@ -89,7 +89,7 @@ This article assumes that you have at least some prior experience with MySQL ser
 
    ![Sync user](./media/howto-data-in-replication/syncuser.png)
  
-   Click on the **Administrative Roles** panel and then select **Replication Slave** from the list of **Global Privileges**. Then click on **Apply** to create the user account.
+   Click on the **Administrative Roles** panel and then select **Replication Slave** from the list of **Global Privileges**. Then click on **Apply** to create the replication role.
 
    ![Replication Slave](./media/howto-data-in-replication/replicationslave.png)
 
