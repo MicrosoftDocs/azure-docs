@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: cosmos-db
 documentationcenter: ''
-author: ShehaGunda
+author: SnehaGunda
 manager: kfile
 editor: ''
 tags: ''

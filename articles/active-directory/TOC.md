@@ -209,6 +209,7 @@
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
+##### [Qlik](active-directory-application-proxy-qlik.md)
 
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
@@ -225,7 +226,7 @@
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
-#### [SSO access](active-directory-appssoaccess-whatis.md)
+#### [SSO access](manage-apps/what-is-single-sign-on.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
 #### [Tenant restrictions](active-directory-tenant-restrictions.md)
 #### [Use SCIM provision users](active-directory-scim-provisioning.md)
