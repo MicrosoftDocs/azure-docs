@@ -21,6 +21,7 @@ Setting up a capacity pool enables you to create volumes within it.
 
 ## Before you begin 
 You must have already created a NetApp account.   
+
 [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
 
 ## Steps 
@@ -28,18 +29,28 @@ You must have already created a NetApp account.
 1. Access the **Capacity pools** blade from the Manage NetApp Account blade. 
 
 2. Click **+ Add pools** to create a new capacity pool.   
+
     The New Capacity Pool window appears.
+
 3. Provide the following information for the new capacity pool:  
+
   * **Name**  
     Specify the name for the capacity pool.  
+
     The capacity pool name must be unique for each NetApp account.
+
   * **Service level**   
     This field shows the target performance for the capacity pool.  
+
     Currently, only the Premium service level is available. 
-  *  **Size (TiB)**   
-    Specify the size of the capacity pool that you are purchasing.  
-    The minimum capacity pool size is 4 TiB. You can create a pool with a size that is multiples of 4 TiB.   
-    ![New capacity pool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+
+  *  **Size**   
+  
+      Specify the size of the capacity pool that you are purchasing.  
+      
+      The minimum capacity pool size is 4 TiB. You can create a pool with a size that is multiples of 4 TiB.   
+      
+      ![New capacity pool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
 4. Click **OK**.
 

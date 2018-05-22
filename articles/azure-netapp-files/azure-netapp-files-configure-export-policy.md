@@ -29,7 +29,7 @@ You can optionally configure export policy to control access to an Azure NetApp 
 
         Specify the index number for the rule.  
 
-        An export policy can consist of up to five rules. Rules are evaluated according to their order in the list of index numbers; rules with lower index numbers are evaluated first. For example, the rule with index number 1 is evaluated before the rule with index number 2. 
+        An export policy can consist of up to five rules. Rules are evaluated according to their order in the list of index numbers. Rules with lower index numbers are evaluated first. For example, the rule with index number 1 is evaluated before the rule with index number 2. 
 
     * **Allowed Clients**   
         Specify the value in one of the following formats:  
@@ -45,7 +45,7 @@ You can optionally configure export policy to control access to an Azure NetApp 
         * Read Only
 
     * **Protocols**   
-    
+
         Specify the protocol to use for the export policy.   
 
         Currently, Azure NetApp Files supports only NFSv3.
