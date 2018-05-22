@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom:
@@ -24,6 +24,7 @@ When you registered your Azure agreement or account, an account with admin permi
 > [!div class="checklist"]
 > * Create a user with admin access
 > * Create a user with user access
+> * Delete a user
 > * Create and manage entities
 
 
@@ -53,6 +54,20 @@ Typical users that need access to cost management data like dashboards and repor
 ![add new user with user access](.\media\tutorial-user-access\new-user-access.png)
 
 To watch a tutorial video about adding users, see [Adding Users to Azure Cost Management](https://youtu.be/Nzn7GLahx30).
+
+## Delete a user
+
+When you delete a user, any entities that the user has access to remain intact. You cannot remove yourself as a user.
+
+> [!WARNING]
+> When you delete a user, it can’t be restored.
+
+1.	In the Cloudyn portal, click the gear symbol in the upper right and then select **User Management**.
+2.	In the list of users, select the user that you want to delete and then click **Delete User** (the trash can symbol).
+3.	In the Delete User box, click **Yes** and then click **OK**.
+
+
+
 
 ## Create and manage entities
 
@@ -101,6 +116,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create a user with admin access
 > * Create a user with user access
+> * Delete a user
 > * Create and manage entities
 
 
