@@ -2,62 +2,62 @@
 title: Supported languages in Bing Spell Check API (Microsoft Cognitive Services on Azure) | Microsoft Docs
 description: List of generally available and preview language support for Bing Spell Check API operations.
 services: cognitive-services
-author: swhite-msft
-manager: ehansen
+author: noellelacharite
+manager: nolachar
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
-ms.date: 09/26/2017
-ms.author: scottwhi
+ms.topic: conceptual
+ms.date: 05/08/2018
+ms.author: nolachar
 ---
-
-
 # Supported language list and status
 
-| Language    | Language code | Supported| 
-|:----------- |:-------------:|:---------:|
-| Arabic      | `ar`          | ✔    |
-| Chinese (People's Republic of China)     | `zh-CN`          | ✔    |
-| Chinese (Hong Kong SAR)    | `zh-HK`          | ✔    |
-| Chinese (Taiwan)     | `zh-TW`          | ✔    |
-| Danish      | `da`          | ✔    |
-| Dutch (Belgium)       | `nl-BE`          | ✔    |
-| Dutch (Netherlands)      | `nl-NL`          | ✔    |
-| English (Australia)    | `en-AU`          | ✔    |
-| English (Canada)     | `en-CA`          | ✔    |
-| English (India)    | `en-IN`          | ✔    |
-| English (Indonesia)     | `en-ID`          | ✔    |
-| English (Malaysia)     | `en-MY`          | ✔    |
-| English (New Zealand)    | `en-NZ`          | ✔    |
-| English (Philippines)     | `en-PH`          | ✔    |
-| English (South Africa)    | `en-ZA`          | ✔    |
-| English (United Kingdom)    | `en-GB`          | ✔    |
-| English (United States)    | `en-US`          | ✔    |
-| Finnish     | `fi`          | ✔    |
-| French (Belgium)     | `fr-BE`          | ✔    |
-| French (Canada)     | `fr-CA`          | ✔    |
-| French (France)     | `fr-FR`          | ✔    |
-| French (Switzerland)      | `fr-CH`          | ✔    |
-| German (Austria)      | `de-AT`          | ✔    |
-| German (Germany)      | `de-DE`          | ✔    |
-| German (Switzerland)      | `de-CH`          | ✔    |
-| Italian     | `it`          | ✔    |
-| Japanese    | `ja`          | ✔    |
-| Korean      | `ko`          | ✔    |
-| Norwegian   | `no`          | ✔    |
-| Polish      | `pl`          | ✔    |
-| Portuguese (Brazil)   | `pt-BR`| ✔    |
-| Portuguese (Portugal) | `pt-PT`| ✔    |
-| Russian     | `ru`          | ✔    |
-| Spanish (Argentina)    | `es-AR`          | ✔    |
-| Spanish (Chile)     | `es-CL`          | ✔    |
-| Spanish (Mexico)    | `es-MX`          | ✔    |
-| Spanish (Spain)    | `es-ES`          | ✔    |
-| Spanish (United States)    | `es-US`          | ✔    |
-| Swedish     | `sv`          | ✔    |
-| Turkish     | `tr`          | ✔    |
+These languages are supported by the Bing Spell Check API.
 
-### See also
+| Language    | Language code |
+|:----------- |:-------------:|
+| Arabic      | `ar`          |
+| Chinese (People's Republic of China)     | `zh-CN`          |
+| Chinese (Hong Kong SAR)    | `zh-HK`          |
+| Chinese (Taiwan)     | `zh-TW`          |
+| Danish      | `da`          |
+| Dutch (Belgium)       | `nl-BE`          |
+| Dutch (Netherlands)      | `nl-NL`          |
+| English (Australia)    | `en-AU`          |
+| English (Canada)     | `en-CA`          |
+| English (India)    | `en-IN`          |
+| English (Indonesia)     | `en-ID`          |
+| English (Malaysia)     | `en-MY`          |
+| English (New Zealand)    | `en-NZ`          |
+| English (Philippines)     | `en-PH`          |
+| English (South Africa)    | `en-ZA`          |
+| English (United Kingdom)    | `en-GB`          |
+| English (United States)    | `en-US`          |
+| Finnish     | `fi`          |
+| French (Belgium)     | `fr-BE`          |
+| French (Canada)     | `fr-CA`          |
+| French (France)     | `fr-FR`          |
+| French (Switzerland)      | `fr-CH`          |
+| German (Austria)      | `de-AT`          |
+| German (Germany)      | `de-DE`          |
+| German (Switzerland)      | `de-CH`          |
+| Italian     | `it`          |
+| Japanese    | `ja`          |
+| Korean      | `ko`          |
+| Norwegian   | `no`          |
+| Polish      | `pl`          |
+| Portuguese (Brazil)   | `pt-BR`|
+| Portuguese (Portugal) | `pt-PT`|
+| Russian     | `ru`          |
+| Spanish (Argentina)    | `es-AR`          |
+| Spanish (Chile)     | `es-CL`          |
+| Spanish (Mexico)    | `es-MX`          |
+| Spanish (Spain)    | `es-ES`          |
+| Spanish (United States)    | `es-US`          |
+| Swedish     | `sv`          |
+| Turkish     | `tr`          |
 
- [Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)   
- [Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
+## See also
+
+- [Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)
+- [Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)

@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Bing News Search Documentation 
 metadata:
-  title: Bing News Search Documentation - Tutorials, API Reference - Azure Cognitive Services
+  title: Bing News Search Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   description: Learn how to use Bing News Search API to obtain news from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
   services: cognitive-services
   author: mikedodaro
@@ -26,7 +26,7 @@ sections:
       - image:
           src: media/index/logo_csharp.svg
         href: csharp
-        text: "C#"
+        text: "C&#35;"
       - image:
           src: media/index/logo_java.svg
         href: java
@@ -52,7 +52,7 @@ sections:
   - type: paragraph
     text: 'Develop applications using the Bing News Search API:'
   - type: paragraph
-    text: <a href="tutorial-bing-news-search-single-page-app">Single-Page Web app</a> &#124; <a href="tutorial-bing-news-search-single-page-app-source">Source code</a>
+    text: <a href="tutorial-bing-news-search-single-page-app">Single-page web app</a> &#124; <a href="tutorial-bing-news-search-single-page-app-source">Source code</a>
 - title: Reference
   items:
   - type: list
