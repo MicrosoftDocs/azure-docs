@@ -4046,6 +4046,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md",
+            "redirect_url": "/azure/container-service/dcos-swarm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/dcos-swarm/container-service-swarm-walkthrough.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-swarm-mode-walkthrough",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/dcos-swarm/container-service-connect.md",
+            "redirect_url": "/azure/container-service/dcos-swarm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/aks/azure-files.md",
             "redirect_url": "/azure/aks/azure-files-dynamic-pv",
             "redirect_document_id": false
@@ -21539,7 +21554,7 @@
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-node-api.md",
             "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/active-directory/active-directory-b2b-add-guest-to-role.md",
             "redirect_url": "/azure/active-directory/b2b/add-guest-to-role",
@@ -21570,7 +21585,7 @@
             "redirect_url": "/azure/active-directory/b2b/auditing-and-reporting",
             "redirect_document_id": true
         },
-        {               
+        {
             "source_path": "articles/active-directory/active-directory-b2b-claims-mapping.md",
             "redirect_url": "/azure/active-directory/b2b/claims-mapping",
             "redirect_document_id": true
@@ -21738,6 +21753,11 @@
         {
             "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
             "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/azure-maps/search-categories.md",
+            "redirect_url": "/azure/azure-maps/supported-search-categories",
             "redirect_document_id": true
         }
 
