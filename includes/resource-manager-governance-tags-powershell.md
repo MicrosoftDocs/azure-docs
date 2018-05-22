@@ -57,6 +57,10 @@ if ($group.Tags -ne $null) {
             # Reapply the updated tags to the resource 
             Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
+        else
+        {
+            Set-AzureRmResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
+        }
     }
 }
 ```

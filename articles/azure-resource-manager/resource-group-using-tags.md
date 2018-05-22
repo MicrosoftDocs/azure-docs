@@ -133,6 +133,10 @@ if ($group.Tags -ne $null) {
             }
             Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
+        else
+        {
+            Set-AzureRmResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
+        }
     }
 }
 ```
