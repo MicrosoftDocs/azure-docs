@@ -20,7 +20,7 @@ ms.author: b-juche
 Setting up a capacity pool enables you to create volumes within it.  
 
 ## Before you begin 
-You must have already created a NeApp account.   
+You must have already created a NetApp account.   
 [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
 
 ## Steps 
@@ -31,9 +31,10 @@ You must have already created a NeApp account.
     The New Capacity Pool window appears.
 3. Provide the following information for the new capacity pool:  
   * **Name**  
+    Specify the name for the capacity pool.  
     The capacity pool name must be unique for each NetApp account.
   * **Service level**   
-    This field shows the target performance for the capacity pool. 
+    This field shows the target performance for the capacity pool.  
     Currently, only the Premium service level is available. 
   *  **Size (TiB)**   
     Specify the size of the capacity pool that you are purchasing.  

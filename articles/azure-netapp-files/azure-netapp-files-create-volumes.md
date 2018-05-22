@@ -40,7 +40,7 @@ You must have already set up a capacity pool.
     This is the amount of logical storage in GB that is allocated to the volume.  
     The Available quota (GiB) field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
     * **Virtual network**  
-    This is the Azure virtual network (Vnet) from which you want to access the volume. Azure NetApp Files service can be accessed only from a Vnet that is in the same location as the volume. 
+    This is the Azure virtual network (Vnet) from which you want to access the volume. Azure NetApp Files service can be accessed only from a Vnet that is in the same location as the volume.   
 ![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
 
 4.	Click OK. 
