@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/17/2018
+ms.date: 05/21/2018
 ms.author: mlearned
 
 ---
@@ -35,11 +35,12 @@ The following steps guide you through creating a basic ASP.NET Core app that wil
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## 2. Publish Your Container to an Azure Container Registry
+## 2. Publish your container to Azure Container Registry
 1. Right-click your project in **Solution Explorer** and choose **Publish**.
 2. On the publish target dialog, select the **Container Registry** tab.
 3. Choose **New Azure Container Registry** and click **Publish**.
 4. Fill in your desired values in the **Create a new Azure Container Registry**.
+
     | Setting      | Suggested value  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **DNS Prefix** | Globally unique name | Name that uniquely identifies your container registry. |
