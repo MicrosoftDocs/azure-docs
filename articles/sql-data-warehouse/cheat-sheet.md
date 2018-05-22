@@ -74,7 +74,7 @@ Indexing is helpful for reading tables quickly. There is a unique set of technol
 **Tips:**
 * On top of a clustered index, you might want to add a nonclustered index to a column heavily used for filtering. 
 * Be careful how you manage the memory on a table with CCI. When you load data, you want the user (or the query) to benefit from a large resource class. Make sure to avoid trimming and creating many small compressed row groups.
-* Optimized for Compute Tier rocks with CCI.
+* On Gen2, CCI tables are cached locally on the compute nodes to maximize performance.
 * For CCI, slow performance can happen due to poor compression of your row groups. If this occurs, rebuild or reorganize your CCI. You want at least 100,000 rows per compressed row groups. The ideal is 1 million rows in a row group.
 * Based on the incremental load frequency and size, you want to automate when you reorganize or rebuild your indexes. Spring cleaning is always helpful.
 * Be strategic when you want to trim a row group. How large are the open row groups? How much data do you expect to load in the coming days?
@@ -107,7 +107,7 @@ SQL Data Warehouse uses resource groups as a way to allocate memory to queries. 
 
 If you notice that queries take too long, check that your users do not run in large resource classes. Large resource classes consume many concurrency slots. They can cause other queries to queue up.
 
-Finally, by using the Compute Optimized Tier, each resource class gets 2.5 times more memory than on the Elastic Optimized Tier.
+Finally, by using Gen2 of SQL Data Warehouse, each resource class gets 2.5 times more memory than Gen1.
 
 Learn more how to work with [resource classes and concurrency].
 
