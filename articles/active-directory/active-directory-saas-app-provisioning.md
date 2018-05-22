@@ -77,7 +77,7 @@ To contact the Azure AD engineering team to request provisioning support for add
 
 Configuration of the Azure AD provisioning service for a selected application starts in the **[Azure portal](https://portal.azure.com)**. In the **Azure Active Directory > Enterprise Applications** section, select **Add**, then **All**, and then add either of the following depending on your scenario:
 
-* All applications in the **Featured applications** section support automatic provisioning. See the [list of application tutorials for user provisioning]active-directory-saas-tutorial-list.md) for additional ones.
+* All applications in the **Featured applications** section support automatic provisioning. See the [list of application tutorials for user provisioning](active-directory-saas-tutorial-list.md) for additional ones.
 
 * Use the “non-gallery application” option for custom-developed SCIM integrations
 
@@ -173,7 +173,7 @@ The provisioning job will be removed from quarantine after all of the offending 
 
 Performance will be different depending on whether your provisioning job is performing an initial sync, or an incremental sync.
 
-For initial syncs, the time it takes to complete will be directly dependent on how many users, groups, and group members are present in the source system. Very small source systems with hundreds of objects can complete initial syncs in a matter of minutes. However, source systems with hundreds of thousands or millions of combined objects can take a very long time.
+For initial syncs, the time it takes to complete will be directly dependent on how many users, groups, and group members are present in the source system. Very small source systems with hundreds of objects can complete initial syncs in a matter of minutes. However, source systems with hundreds of thousands or millions of combined objects will take longer.
 
 For incremental syncs, the time it takes depends on the number changes detected in that sync cycle. If there are less than 5,000 user or group membership changes detected, these can often be synced within a 40 minute cycle. 
 
@@ -217,4 +217,5 @@ Contact us through the [Azure Active Directory feedback forum](https://feedback.
 * [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
 * [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Step-by-step deployment plan for outbound user provisioning of an application](https://aka.ms/userprovisioningdeploymentplan)
 

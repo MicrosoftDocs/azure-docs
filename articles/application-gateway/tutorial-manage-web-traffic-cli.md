@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 3/22/2018
+ms.date: 5/16/2018
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -22,6 +22,8 @@ In this tutorial, you learn how to:
 > * Set up the network
 > * Create an application gateway
 > * Create a virtual machine scale set with the default backend pool
+
+If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -91,7 +93,7 @@ az network application-gateway create \
 - *appGatewayFrontendIP* - Assigns *myAGPublicIPAddress* to *appGatewayHttpListener*.
 - *rule1* - The default routing rule that is associated with *appGatewayHttpListener*.
 
-## Create a virtual machine scale set
+## Create a Virtual Machine Scale Set
 
 In this example, you create a virtual machine scale set that provides servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, use [az vmss create](/cli/azure/vmss#az_vmss_create).
 
@@ -112,6 +114,8 @@ az vmss create \
 ```
 
 ### Install NGINX
+
+Now you can install NGINX on the virtual machine scale set so you can test HTTP connectivity to the backend pool.
 
 ```azurecli-interactive
 az vmss extension set \

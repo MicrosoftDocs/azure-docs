@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/20/2018
+ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
 ---
@@ -20,13 +20,19 @@ ms.custom: mvc
  
 ## Overview ##
 
-The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your web apps, [mobile apps][mobileapps], API apps, and [functions][Functions].
+The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your:
+
+* Windows web apps
+* Linux web apps (in Preview)
+* Docker containers (in Preview)
+* Mobile apps
+* Functions
 
 App Service environments (ASEs) are appropriate for application workloads that require:
 
-- Very high scale.
-- Isolation and secure network access.
-- High memory utilization.
+* Very high scale.
+* Isolation and secure network access.
+* High memory utilization.
 
 Customers can create multiple ASEs within a single Azure region or across multiple Azure regions. This flexibility makes ASEs ideal for horizontally scaling stateless application tiers in support of high RPS workloads.
 
@@ -35,7 +41,7 @@ ASEs are isolated to running only a single customer's applications and are alway
 * ASEs enable high-scale app hosting with secure network access. For more information, see the [AzureCon Deep Dive](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) on ASEs.
 * Multiple ASEs can be used to scale horizontally. For more information, see [how to set up a geo-distributed app footprint](app-service-app-service-environment-geo-distributed-scale.md).
 * ASEs can be used to configure security architecture, as shown in the AzureCon Deep Dive. To see how the security architecture shown in the AzureCon Deep Dive was configured, see the [article on how to implement a layered security architecture](app-service-app-service-environment-layered-security.md) with App Service environments.
-* Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAFs). For more information, see [Configure a WAF for App Service environments](app-service-app-service-environment-web-application-firewall.md).
+* Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAFs). For more information, see [Integrating your ILB App Service Environment with the Azure Application Gateway][AppGW].
 
 ## Dedicated environment ##
 
@@ -55,7 +61,7 @@ There is a flat monthly rate for an ASE that pays for the infrastructure and doe
 
 ## Virtual network support ##
 
-An ASE can be created only in an Azure Resource Manager virtual network. To learn more about Azure virtual networks, see the [Azure virtual networks FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). An ASE always exists in a virtual network, and more precisely, within a subnet of a virtual network. You can use the security features of virtual networks to control inbound and outbound network communications for your apps.
+The ASE feature is a deployment of the Azure App Service directly into a customer's Azure resource manager virtual network. To learn more about Azure virtual networks, see the [Azure virtual networks FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). An ASE always exists in a virtual network, and more precisely, within a subnet of a virtual network. You can use the security features of virtual networks to control inbound and outbound network communications for your apps.
 
 An ASE can be either internet-facing with a public IP address or internal-facing with only an Azure internal load balancer (ILB) address.
 
@@ -83,7 +89,7 @@ ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md

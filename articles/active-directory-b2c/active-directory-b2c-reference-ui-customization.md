@@ -329,7 +329,17 @@ On this page, users can verify their phone numbers (using text or voice) during 
 
 ## Localizing your HTML content
 
-You can localize your HTML content by turning on ['Language customization'](active-directory-b2c-reference-language-customization.md).  Enabling this feature allows Azure AD B2C to forward the Open ID Connect parameter, `ui-locales`, to your endpoint.  Your content server can use this parameter to provide customized HTML pages that are language-specific.
+There are two ways to localize your HTML content. One way is to turn on [language customization](active-directory-b2c-reference-language-customization.md). Enabling this feature allows Azure AD B2C to forward the Open ID Connect parameter, `ui-locales`, to your endpoint.  Your content server can use this parameter to provide customized HTML pages that are language specific.
+
+Alternatively, you can pull content from different places based on the locale that's used. In your CORS-enabled endpoint, you can set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value `{Culture:RFC5646}`.  For example, assume that this is your custom page URI:
+
+```
+https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
+```
+You can load the page in `fr`. When the page pulls HTML and CSS content, it's pulling from:
+```
+https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
+```
 
 ## Things to remember when building your own content
 

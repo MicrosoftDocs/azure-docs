@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 4/18/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
 
 ---
@@ -132,6 +132,11 @@ Once the container starts, find its IP address so that you can connect to your r
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
+If that command does not return anything, run the following command and inspect the **NetworkSettings**->**Networks** element for the IP address:
+```
+docker inspect my-web-site
+```
+
 Connect to the running container. Open a web browser pointing to the IP address returned, for example "http://172.31.194.61". You should see the heading "Hello World!" display in the browser.
 
 To stop your container, run:
@@ -191,6 +196,8 @@ The containerized service needs an endpoint for communication. Add an `Endpoint`
 ```
 
 By defining an endpoint, Service Fabric publishes the endpoint to the Naming service. Other services running in the cluster can resolve this container. You can also perform container-to-container communication using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy HTTP listening port and the name of the services that you want to communicate with as environment variables.
+
+The service is listening on a specific port (8081 in this example). When the application deploys to a cluster in Azure, both the cluster and the application run behind an Azure load balancer. The application port must be open in the Azure load balancer so that inbound traffic can get through to the service.  You can open this port in the Azure load balancer using a [PowerShell script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) or in the [Azure portal](https://portal.azure.com).
 
 ## Configure and set environment variables
 Environment variables can be specified for each code package in the service manifest. This feature is available for all services irrespective of whether they are deployed as containers or processes or guest executables. You can override environment variable values in the application manifest or specify them during deployment as application parameters.
