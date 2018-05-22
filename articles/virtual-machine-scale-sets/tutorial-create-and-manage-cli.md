@@ -117,6 +117,11 @@ SSH to your first VM instance. Specify your public IP address and port number wi
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
+You can also connect the VM instance by using private IP, to get the private ip of instance will be, go to see the load balancer by consulting backend pools, then using the following command :
+ssh <username>@<PrivateIP>
+Example : ssh azureuser@100.69.0.41 
+
+
 Once logged in to the VM instance, you could perform some manual configuration changes as needed. For now, close the SSH session as normal:
 
 ```bash
