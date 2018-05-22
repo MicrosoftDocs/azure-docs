@@ -87,18 +87,25 @@ Because the default PITR retention for any Standard or Premium database in the D
 ## How to change backup retention period
 Because of the default PITR retention included with DTU-based service tiers is 35 days, you may want to reduce it to meet specific compliance requirements. You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. 
 
-The following examples illustrate how to change the PITR to the maximum retention that is GDPR compliant.
+The following examples illustrate how to change the PITR retention to be GDPR compliant.
+
+### Set backup retention period to 21 days using PowerShell
+```powershell
+Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 21
+```
+> [!IMPORTANT]
+> This APIs is included in Azure PowerShell starting from version vxxx.x.x. 
 
 
-## Set backup retention period to 28 days using REST API
+## Set backup retention period to 21 days using REST API
 **Sample Request**
 ```http
-PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-03-01-preview
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
 ```
 **Request Body**
 ```json
 {
-  "retentionDays": 28
+  "retentionDays": 21
 }
 ```
 **Sample Response**
@@ -110,18 +117,11 @@ Status code: 200
   "name": "default",
   "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
   "properties": {
-    "retentionDays": 28
+    "retentionDays": 21
   }
 }
 ```
 See [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backups) for more details.
-
-### Set backup retention period to 28 days using PowerShell
-```powershell
-Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
-```
-> [!IMPORTANT]
-> This APIs is included in Azure PowerShell starting from version vxxx.x.x. 
 
 ## Next steps
 
