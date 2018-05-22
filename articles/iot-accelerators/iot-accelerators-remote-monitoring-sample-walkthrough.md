@@ -94,13 +94,13 @@ The solution includes two microservices to handle device telemetry.
 
 The [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) microservice:
 
-* Stores telemetry in Cosmos DB.
+* Stores telemetry in Azure Cosmos DB.
 * Analyzes the telemetry stream from devices.
 * Generates alarms according to defined rules.
 
-The alarms are stored in Cosmos DB.
+The alarms are stored in Azure Cosmos DB.
 
-The `telemetry-agent` microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
+The [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
 
 * Define monitoring rules such as the thresholds that trigger alarms
 * Retrieve the list of past alarms.
@@ -111,9 +111,9 @@ Use the RESTful endpoint provided by this microservice to manage telemetry, rule
 
 The [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) microservice is an adapter in front of the main storage service used for the solution accelerator. It provides simple collection and key-value storage.
 
-The standard deployment of the solution accelerator uses Cosmos DB as its main storage service.
+The standard deployment of the solution accelerator uses Azure Cosmos DB as its main storage service.
 
-The Cosmos DB database stores data in the solution accelerator. The **storage-adapter** microservice acts as an adapter for the other microservices in the solution to access storage services.
+The Azure Cosmos DB database stores data in the solution accelerator. The **storage-adapter** microservice acts as an adapter for the other microservices in the solution to access storage services.
 
 ## Presentation
 
