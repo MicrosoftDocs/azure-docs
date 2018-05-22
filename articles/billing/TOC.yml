@@ -20,15 +20,13 @@
     href: billing-spending-limit.md
   - name: Set up billing alerts
     href: billing-set-up-alerts.md
-  - name: Organize resources 
-    href: billing-enterprise-mgmt-group-overview.md
   - name: Tag Azure resources
-    href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
+    href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
 - name: Manage subscription 
   items: 
   - name: Limits and quotas
     href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
-  - name: Manage administrator roles
+  - name: Change administrator
     href: billing-add-change-azure-subscription-administrator.md
   - name: Transfer ownership
     href: billing-subscription-transfer.md
@@ -40,15 +38,15 @@
     href: billing-how-to-pay-by-invoice.md
   - name: Reactivate subscription
     href: billing-subscription-become-disable.md  
-  - name: Find subscription or management group
-    href: billing-enterprise-mgmt-grp-find.md
+  - name: Create management group
+    href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
   - name: Switch subscription offer
     href: billing-how-to-switch-azure-offer.md
   - name: Link Azure AD tenant
     href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
 - name: Manage account
   items:
-  - name: Manage free account 
+  - name: Free trial account 
     items:
     - name: Upgrade 
       href: billing-upgrade-azure-subscription.md
@@ -74,18 +72,18 @@
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Sign up for Office 365 with Azure account
     href: billing-use-existing-azure-account-for-office-365-subscription.md
-- name: Save with Reserved Instances
+- name: Save with reserved instances
   href: billing-save-compute-costs-reservations.md
   items:
     - name: Prepay for Virtual Machines 
       href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
-    - name: Manage Reserved Instances
+    - name: Manage reserved instances
       href: billing-manage-reserved-vm-instance.md
-    - name: Understand discount application
+    - name: Discount application
       href: billing-understand-vm-reservation-charges.md
-    - name: Understand usage for Pay-As-You-Go
+    - name: Usage for Pay-As-You-Go
       href: billing-understand-reserved-instance-usage.md
-    - name: Understand usage for Enterprise
+    - name: Usage for Enterprise
       href: billing-understand-reserved-instance-usage-ea.md
     - name: Windows costs
       href: billing-reserved-instance-windows-software-costs.md
