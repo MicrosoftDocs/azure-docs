@@ -45,6 +45,6 @@ sections:
     className: cardsW
     items:
     - title: Languages
-      html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Javascript (Map control)</a></p>
+      html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">JavaScript (Map control)</a></p>
     - title: REST
       html: <p><a href="https://docs.microsoft.com/rest/api/maps/renderservice">Render service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/routeservice">Route service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/searchservice">Search service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezoneservice">Timezone service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/trafficservice">Traffic service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">Maps account management</a></p>
