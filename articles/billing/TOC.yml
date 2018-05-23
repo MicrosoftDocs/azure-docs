@@ -45,9 +45,9 @@
   - name: Create management group
     href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json  
   - name: Move resources
-    href: ../azure-resource-manager/resource-group-move-resources?toc=/azure/billing/TOC.json
+    href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: Create Enterprise subscriptions
-    href: ../azure-resource-manager/programmatically-create-subscription?toc=/azure/billing/TOC.json
+    href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Link Azure AD tenant
     href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
 - name: Manage account
