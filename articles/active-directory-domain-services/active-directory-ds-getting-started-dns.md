@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
 
 ---
@@ -28,15 +28,7 @@ To update the DNS server setting for the virtual network in which you have enabl
 
     ![Domain Services - Overview tab after fully provisioned](./media/getting-started/domain-services-provisioned-overview.png)
 
-2. When your domain is fully provisioned, two IP addresses are displayed in this tile. Each of these IP addresses represents a domain controller for your managed domain.
-
-3. To copy the first IP address to clipboard, click the copy button next to it. Then click the **Configure DNS servers** button.
-
-4. Paste the first IP address into the **Add DNS server** textbox in the **DNS servers** blade. Scroll horizontally to the left to copy the second IP address and paste it into the **Add DNS server** textbox.
-
-    ![Domain Services - update DNS](./media/getting-started/domain-services-update-dns.png)
-
-5. Click **Save** when you are done to update the DNS servers for the virtual network.
+2. Click the **Configure** button to update the DNS server settings for the virtual network.
 
 > [!NOTE]
 > Virtual machines in the network only get the new DNS settings after a restart. If you need them to get the updated DNS settings right away, trigger a restart either by the portal, PowerShell, or the CLI.
