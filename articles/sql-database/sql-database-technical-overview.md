@@ -46,8 +46,8 @@ You can build your first app on a small, single database at a low cost per month
 
 SQL Database Managed Instance is in preview and offers a single service tier. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md)
 
-  >[!IMPORTANT]
-  > *Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. Azure SQL Database supports dynamic scalability, but not autoscale.
+  > [!IMPORTANT]
+  > *Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. Single Azure SQL Database supports manual dynamic scalability, but not autoscale. For a more "automatic" experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs. 
 
 ### Elastic pools to maximize resource utilization
 
