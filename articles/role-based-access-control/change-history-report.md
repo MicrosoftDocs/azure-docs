@@ -19,24 +19,32 @@ ms.custom: H1Hack27Feb2017
 ---
 # View activity logs for role-based access control changes
 
-Any time someone makes changes to role definitions or role assignments within your subscriptions, the changes get logged in [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in the Administrative category. You can view the activity logs to see all the role-based access control (RBAC) changes for the past 90 days.
+Sometimes you need to know when access changes were made to Azure resources, such as for auditing or troubleshooting purposes. Any time someone makes changes to role definitions or role assignments within your subscriptions, the changes get logged in [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). You can view the activity logs to see all the role-based access control (RBAC) changes for the past 90 days.
 
 ## Operations that are logged
 
 Here are the RBAC-related operations that are logged in Activity Log:
 
-- Create or update custom role definition
-- Delete custom role definition
 - Create role assignment
 - Delete role assignment
+- Create or update custom role definition
+- Delete custom role definition
 
 ## Azure portal
 
-The easiest way to get started is to view the activity logs with the Azure portal. The following screenshot shows an example of an activity log that has been filtered to display the **Administrative** category along with role definition and role assignment operations. It also includes a link to download the logs as a CSV file.
+The easiest way to get started is to view the activity logs with the Azure portal. The following screenshot shows an example of an activity log that has been filtered to display role definition and role assignment operations. It also includes a link to download the logs as a CSV file.
 
 ![Activity logs using the portal - screenshot](./media/change-history-report/activity-log-portal.png)
 
-For more information, see [View events in activity log](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+The activity log in the portal has several filters. Here are the RBAC-related filters:
+
+|Filter  |Value  |
+|---------|---------|
+|Event category     | <ul><li>Administrative</li></ul>         |
+|Operation     | <ul><li>Create role assignment</li> <li>Delete role assignment</li> <li>Create or update custom role definition</li> <li>Delete custom role definition</li></ul>      |
+
+
+For more information about activity logs, see [View events in activity log](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## Azure PowerShell
 
