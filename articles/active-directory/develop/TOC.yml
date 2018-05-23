@@ -98,6 +98,8 @@
       href: active-directory-single-sign-out-protocol-reference.md
   - name: Create a tenant
     href: active-directory-howto-tenant.md
+  - name: Terms of service and privacy statement
+    href: active-directory-app-terms-service-privacy-statement.md
   - name: Branding guidelines
     href: active-directory-branding-guidelines.md
   - name: Mobile & Desktop SSO

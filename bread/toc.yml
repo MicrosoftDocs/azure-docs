@@ -289,7 +289,7 @@
   - name: Event Hubs
     tocHref: /azure/event-hubs/
     topicHref: /azure/event-hubs/
-  - name: Expressroute
+  - name: ExpressRoute
     tocHref: /azure/expressroute/
     topicHref: /azure/expressroute/
   - name: Guidance
