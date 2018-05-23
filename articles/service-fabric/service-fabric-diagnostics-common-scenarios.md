@@ -58,7 +58,7 @@ The solutions in this article will use the following tools. We recommend you hav
 
 ## How do I create an alert when a node goes down
 
-1. Node events are tracked by your Service Fabric cluster. Navigate to the Service Fabric Analytics solution resource named **ServiceFabric<NameofResourceGroup>**
+1. Node events are tracked by your Service Fabric cluster. Navigate to the Service Fabric Analytics solution resource named **ServiceFabric(NameofResourceGroup)**
 2. Click on the graph on the bottom of the blade titled "Summary"
 
     ![OMS Solution](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
