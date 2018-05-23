@@ -24,6 +24,8 @@ ms.author: daveba
 
 A common challenge when building cloud applications is how to manage the credentials that need to be in your code for authenticating to cloud services. Keeping these credentials secure is an important task. Ideally, they never appear on developer workstations or get checked into source control. Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
+Managed Service Identity comes with Azure Active Directory free, which is the default for Azure subscriptions. There is no additional cost for Managed Service Identity.
+
 ## How does it work?
 
 There are two types of Managed Service Identities: **System Assigned** and **User Assigned**.
@@ -101,17 +103,6 @@ Try a Managed Service Identity tutorial to learn end-to-end scenarios for access
 
 Managed identities can be used to authenticate to services that support Azure AD authentication. For a list of Azure services that support Managed Service Identity refer to the following article:
 - [Services that support Managed Service Identity](services-support-msi.md)
-
-## How much does Managed Service Identity cost?
-
-Managed Service Identity comes with Azure Active Directory Free, which is the default for Azure subscriptions. There is no additional cost for Managed Service Identity.
-
-## Support and feedback
-
-We would love to hear from you!
-
-* Ask how-to questions on Stack Overflow with the tag [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
-* Make feature requests or give feedback on the [Azure AD feedback forum for developers](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
 ## Next steps
 
