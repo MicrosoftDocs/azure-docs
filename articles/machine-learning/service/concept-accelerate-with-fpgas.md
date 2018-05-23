@@ -53,7 +53,7 @@ Project Brainwave is a hardware architecture designed to accelerate real-time AI
 
 - Low cost
 
-    Currently it takes less than $0.20 for processing a million images using Brainwave.
+    Currently it takes less than $0.20 for processing a million images using Brainwave. The price will continue dropping as Microsoft makes performance improvements to the engine.
 
 ## Where do I start? 
 
