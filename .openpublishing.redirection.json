@@ -31,6 +31,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/marketplace-consumer/mytemplates-getstarted.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-univ.md",
             "redirect_url": "https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2",
             "redirect_document_id": false
