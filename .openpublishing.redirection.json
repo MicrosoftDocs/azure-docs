@@ -21779,6 +21779,11 @@
             "source_path": "articles/cognitive-services/LUIS/luis-concept-intro-to-luis.md",
             "redirect_url": "/azure/cognitive-services/LUIS/home",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/application-gateway/application-gateway-ilb.md",
+            "redirect_url": "/articles/application-gateway/application-gateway-ilb-arm.md",
+            "redirect_document_id": false
         }
 
     ]
