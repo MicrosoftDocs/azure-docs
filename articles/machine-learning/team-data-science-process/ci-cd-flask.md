@@ -3,7 +3,7 @@ title: "DevOps for Artificial Intelligence (AI) applications: Creating continous
 description: "DevOps for Artificial Intelligence (AI) applications: Creating continous integration pipeline using Docker and Kubernetes"
 services: machine-learning, team-data-science-process
 documentationcenter: ''
-author: rijai
+author: jainr
 manager: deguhath
 editor: cgronlun
 
