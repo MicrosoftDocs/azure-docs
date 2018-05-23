@@ -138,7 +138,7 @@
   - name: Create alerts
     items:
     - name: Understanding log alerts
-      href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts
+      href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md
     - name: Create log alert
       href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
   - name: Manage
