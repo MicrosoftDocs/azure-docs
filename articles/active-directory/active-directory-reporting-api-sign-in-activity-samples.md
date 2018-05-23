@@ -51,7 +51,7 @@ $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2
 if ($oauth.access_token -ne $null) {
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
 	
-    $url = "$msgraphEndpoint/testAxm/auditLogs/signIns"
+    $url = "$msgraphEndpoint/beta/auditLogs/signIns"
     Write-Output "Fetching data using Uri: $url"
 	$i=0
 	$docCount=0
