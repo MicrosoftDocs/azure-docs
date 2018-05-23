@@ -21,7 +21,7 @@ This article gives answers to Azure Media Services (AMS) v3 frequently asked que
 
 ## Can I use the Azure portal to manage v3 resources?
 
-Not yet. You can use one of the supported SDKs. Find samples [here](https://github.com/johndeu/BUILD2018)
+Not yet. You can use one of the supported SDKs. See tutorials and samples in this doc set.
 
 ## Is there an API for configuring Media Reserved Units?
 
@@ -35,7 +35,11 @@ The AssetFiles were removed from the AMS API in order to separate Media Services
 
 ## Where did client side storage encryption go?
 
-We now recommend server side storage encryption (which is on by default), and the use of https ingest.
+We now recommend server side storage encryption (which is on by default).
+
+## What is the recommended upload method?
+
+We recommend the use of [HTTP(s) ingest](job-input-from-http-how-to.md).
 
 ## How does pagination work?
 
@@ -45,7 +49,7 @@ This allows you to either get a small sample of items using $top (for example, t
 
 Media Services does not support paging through the data with a user specified page size.
 
-## All of the Get methods are based off of entity name as opposed to entity id. How can a particular entity be retrieved based upon its guid?
+## Get methods are now based off of entity names as opposed to entity ids. How can I retrieve an entity based upon its guid?
 
 v3 is based on a unified API surface which exposes both management and operations functionality built on **Azure Resource Manager**. In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
 
