@@ -292,7 +292,7 @@ This value is required because this action doesn't have a default value.
 
 <a name="append-value"></a>
 
-## Append value to variable
+### Append values to variables
 
 For variables that store either strings or arrays, you can add 
 values with the same type at the ends of those strings or arrays. 
@@ -317,10 +317,11 @@ This value is required because this action doesn't have a default value.
 
 <a name="get-value"></a>
 
-## Get variable value
+## Get variable values
 
 To retrieve or reference the value in a variable, 
-use the [variables() function](../logic-apps/workflow-definition-language-functions-reference.md#variables).
+you can use the [variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) 
+function.
 
 ## Get support
 
