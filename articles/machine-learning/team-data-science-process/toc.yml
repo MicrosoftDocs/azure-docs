@@ -30,7 +30,7 @@
     href: project-ic-tasks.md
 - name: Project structure
   href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
-- name: Planning
+- name: Project planning
   href: team-data-science-process-project-templates.md
 - name: Development
   items:
@@ -44,9 +44,9 @@
     href: code-test.md
   - name: Track progress
     href: track-progress.md
-- name: Operations
+- name: Operationalization
   items:
-  - name: CI/CD of ML models
+  - name: CI/CD of models
     href: ci-cd-flask.md
 - name: Worked-out examples
   href: walkthroughs.md
@@ -277,16 +277,14 @@
     items:
     - name: Data exploration & modeling (GitHub)
       href: https://github.com/Azure/Azure-TDSP-Utilities
-    - name: Data Science Utilities v.0.11 for the TDSP
-      href: https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/
-    - name: Latest utilities for the TDSP
-      href: https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/
   - name: Blogs
     items:
     - name: Recent Updates for the TDSP
       href: https://blogs.technet.microsoft.com/machinelearning/2017/10/09/the-microsoft-team-data-science-process-tdsp-recent-updates/
     - name: Using the TDSP in Azure Machine Learning
       href: https://blogs.technet.microsoft.com/machinelearning/2017/09/25/using-the-team-data-science-process-tdsp-in-azure-machine-learning/
+    - name: Data Science Utilities v.0.11 for the TDSP
+      href: https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/
     - name: Latest utilities for the TDSP
       href: https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/
     - name: Data Science Project Planning Template
