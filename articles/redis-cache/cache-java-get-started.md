@@ -32,7 +32,7 @@ ms.custom: mvc
 
 Azure Redis Cache gives you access to a dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
-This topic shows you how to get started with Azure Redis Cache using Java.
+This article shows you how to get started with Azure Redis Cache using Java.
 
 ![Cache app completed](./media/cache-java-get-started/cache-app-complete.png)
 
@@ -105,30 +105,38 @@ public class App
         String cacheHostname = System.getenv("REDISCACHEHOSTNAME");
         String cachekey = System.getenv("REDISCACHEKEY");
 
+        // Connect to the Redis cache over the SSL port using the key.
         JedisShardInfo shardInfo = new JedisShardInfo(cacheHostname, 6380, useSsl);
         shardInfo.setPassword(cachekey); /* Use your access key. */
-
         Jedis jedis = new Jedis(shardInfo);      
 
-        System.out.println( "\nCache Command : Ping" );
+        // Perform cache operations using the cache connection object...
+
+        // Simple PING command        
+        System.out.println( "\nCache Command  : Ping" );
         System.out.println( "Cache Response : " + jedis.ping());
 
-        System.out.println( "\nCache Command : GET Message" );
+        // Simple get and put of integral data types into the cache
+        System.out.println( "\nCache Command  : GET Message" );
         System.out.println( "Cache Response : " + jedis.get("Message"));
 
-        System.out.println( "\nCache Command : SET Message" );
+        System.out.println( "\nCache Command  : SET Message" );
         System.out.println( "Cache Response : " + jedis.set("Message", "Hello! The cache is working from Java!"));
 
-        System.out.println( "\nCache Command : GET Message" );
+        // Demostrate "SET Message" executed as expected...
+        System.out.println( "\nCache Command  : GET Message" );
         System.out.println( "Cache Response : " + jedis.get("Message"));
 
-        System.out.println( "\nCache Command : CLIENT LIST" );
+        // Get the client list, useful to see if connection list is growing...
+        System.out.println( "\nCache Command  : CLIENT LIST" );
         System.out.println( "Cache Response : " + jedis.clientList());
 
         jedis.close();
     }
 }
 ```
+
+This code shows you how to connect to an Azure Redis Cache instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. 
 
 Save *App.java*.
 

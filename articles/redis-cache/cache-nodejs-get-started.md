@@ -77,7 +77,7 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
 
 Don't create a new connections for each operation in your code. Instead, reuse connections as much as possible. 
 
-## Executing cache commands
+## Create a new Node.js app
 
 Create a new script file named *redistest.js*.
 
