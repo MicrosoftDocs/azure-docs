@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial:' Add a basic sample model to your Azure Analysis Services server by using th eportal | Microsoft Docs
+title: Tutorial - Add a basic sample model to your Azure Analysis Services server by using th eportal | Microsoft Docs
 description: In this tutorial lesson, learn how to add a sample model in Azure Analysis Services.
 author: minewiskan
 manager: kfile
