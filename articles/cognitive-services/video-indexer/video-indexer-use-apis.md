@@ -54,6 +54,8 @@ Each call to the Operations API should be associated with an access token, match
 - Account level – account level access tokens let you perform operations on the account level. for example, Upload video, list all videos, create a language model, etc.
 - Video level – video level access tokens let you perform operations on specific videos. for example, get video insights, download captions, get widgets, etc. 
 
+To make things easier, you can use the **Authorization** API -> GetAccounts to get your accounts without obtaining a user token first. You can also ask to get the accounts with valid tokens, enabling you to skip an additional call to get an account token.
+
 Access tokens expire after 1 hour. Make sure your access token is valid before using the Operations API. If expires, call the Authorization API again to get a new access token.
  
 You are ready to start integrating with the API. Find [the detailed description of each Video Indexer REST API](http://api-portal.videoindexer.ai/).
