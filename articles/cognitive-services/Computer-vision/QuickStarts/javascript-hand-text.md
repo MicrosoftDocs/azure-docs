@@ -26,7 +26,7 @@ To run the sample, do the following steps:
 
 1. Copy the following and save it to a file such as `handwriting.html`.
 1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uriBase` value to the location where you obtained your subscription keys.
+1. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
 1. Drag-and-drop the file into your browser.
 1. Click the `Read image` button.
 
@@ -71,7 +71,7 @@ This sample uses jQuery 1.9.0. For a sample that uses JavaScript without jQuery,
         var sourceImageUrl = document.getElementById("inputImage").value;
         document.querySelector("#sourceImage").src = sourceImageUrl;
 
-        // This operation requrires two REST API calls. One to submit the image
+        // This operation requires two REST API calls. One to submit the image
         // for processing, the other to retrieve the text found in the image.
         //
         // Make the first REST API call to submit the image for processing.
