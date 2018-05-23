@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-title: Azure Billing Documentation - Tutorials, API Reference | Microsoft Docs
-description: Learn how to understand your Azure billing, as well as manage and monitor usage and costs. Tutorials, FAQs, API references, and other documentation.
+title: Azure Billing Documentation | Microsoft Docs
+description: Learn how to understand your Azure billing, manage and monitor usage and costs, and manage your account and subscriptions. 
 services: billing
 author: cwatson-cat
 manager: dougeby
@@ -11,15 +11,13 @@ ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 05/14/2018
+ms.date: 05/23/2018
 ms.author: cwatson
-experimental: false
-experiment_id: 
 ---
 
 # Azure Billing Documentation
 
-Learn how to understand your Azure billing, and monitor usage and costs.
+Learn how to understand your Azure billing, monitor usage and costs, and manage your account and subscriptions.
 
 <ul class="panelContent cardsF">
     <li>
@@ -117,7 +115,7 @@ Learn how to understand your Azure billing, and monitor usage and costs.
                         <p>
                         <a href="/azure/billing/billing-usage-rate-card-overview">Azure Billing APIs</a><br/>
                         <a href="/azure/billing/billing-enterprise-api">Enterprise reporting APIs</a><br/>
-                        <a href="/rest/api/consumption/">Azure Consumption APIs </a><br/>   
+                        <a href="/rest/api/consumption/">Azure Consumption APIs </a><br/>
                         <a href="/azure/azure-resource-manager/programmatically-create-subscription">Create Enterprise subscriptions</a>                       
                         </p>
                     </div>
