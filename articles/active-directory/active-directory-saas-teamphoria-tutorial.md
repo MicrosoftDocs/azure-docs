@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/23/2018
 ms.author: jeedes
 
 ---
@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the Azure  portal and con
 
 7. To configure single sign-on on **Teamphoria** side, Login to your Teamphoria application as an administrator.
 
-8. Go to **ADMIN SETTINGS** option in the left toolbar and under the the Configure Tab click on **SINGLE SIGN-ON** to open the SSO configuration window.
+8. Go to **ADMIN SETTINGS** option in the left toolbar and under the Configure Tab click on **SINGLE SIGN-ON** to open the SSO configuration window.
 
 	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/admin_sso_configure.png)
 
@@ -139,7 +139,7 @@ In this section, you enable Azure AD single sign-on in the Azure  portal and con
 
 	a. **DISPLAY NAME**: Enter the display name of the plugin on the admin page.
 
-	b. **BUTTON NAME**: The name of the tab which will display on the login page for logging in via SSO.
+	b. **BUTTON NAME**: The name of the tab that will display on the login page for logging in via SSO.
 
 	c. **CERTIFICATE**: Open the Certificate downloaded earlier from the Azure portal in notepad, copy the contents of the same and paste it here in the box.
 
@@ -158,8 +158,8 @@ The objective of this section is to create a test user in the Azure  portal call
 
 	![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/create_aaduser_01.png) 
 
-2. Go to **Users and groups** and click **All users** to display the list of users.
-	
+2. To display the list of users, go to **Users and groups**, and then click **All users**.
+
 	![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/create_aaduser_02.png) 
 
 3. At the top of the dialog click **Add** to open the **User** dialog.
@@ -182,7 +182,7 @@ The objective of this section is to create a test user in the Azure  portal call
 
 In order to enable Azure AD users to log into Teamphoria, they must be provisioned into Teamphoria. In the case of Teamphoria, provisioning is a manual task.
 
-**To provision a user accounts, perform the following steps:**
+**To provision a user account, perform the following steps:**
 
 1. Log in to your Teamphoria company site as an administrator.
 
@@ -208,7 +208,7 @@ In order to enable Azure AD users to log into Teamphoria, they must be provision
 
 ### Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Teamphoria.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Teamphoria.
 
 ![Assign User][200]
 
@@ -240,7 +240,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+If you want to test your single sign-on settings, open the Access Panel. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
 
 ## Additional resources
 
