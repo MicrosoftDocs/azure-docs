@@ -1,5 +1,5 @@
 ﻿---
-title: Quickstart - Create an Azure Analysis Services server by using PowerShell | Microsoft Docs
+title: 'Quickstart:' Create an Azure Analysis Services server by using PowerShell | Microsoft Docs
 description: Learn how to create an Azure Analysis Services server by using PowerShell
 author: minewiskan
 manager: kfile

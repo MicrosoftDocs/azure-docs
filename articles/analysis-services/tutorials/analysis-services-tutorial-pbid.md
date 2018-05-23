@@ -1,5 +1,5 @@
 ---
-title: 3 - Connect to Azure Analysis Services with Power BI Desktop | Microsoft Docs
+title: 'Tutorial:' Connect to Azure Analysis Services with Power BI Desktop | Microsoft Docs
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
@@ -9,7 +9,7 @@ ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to a sample tabular model on a server and create a basic report by using the Power BI Desktop client application.
 ---
-# 3 - Connect with Power BI Desktop
+# Tutorial: Connect with Power BI Desktop
 
 In this tutorial, you use Power BI Desktop to connect to the adventureworks sample model database on your server. The tasks you complete simulate a typical user connection to the model and creating a basic report from model data.
 

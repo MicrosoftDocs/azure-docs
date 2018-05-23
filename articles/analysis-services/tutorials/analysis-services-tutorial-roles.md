@@ -1,5 +1,5 @@
 ---
-title: 2 - Configure server administrator and user roles with SSMS tutorial lesson | Microsoft Docs
+title: 'Tutorial:' Configure server administrator and user roles with SSMS tutorial lesson | Microsoft Docs
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
@@ -10,7 +10,7 @@ ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to my server by using SQL Server Management Studio to configure server administrator and model database user roles.
 ---
 
-# 2 - Configure server administrator and user roles
+# Tutorial: Configure server administrator and user roles
 
  In this stutorial, you use SQL Server Management Studio (SSMS) to connect to your server in Azure to configure server administrator and model database roles. You're also introduced  to [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL is a JSON based scripting language for tabular models at the 1200 and higher compatibility levels. It can be used to automate many tabular modeling tasks. TMSL is often used with PowerShell, but in this tutorial, you use the XMLA query editor in SSMS. With this tutorial, you complete these tasks: 
   
