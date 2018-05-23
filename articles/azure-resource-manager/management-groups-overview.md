@@ -68,7 +68,7 @@ Each directory is given a single top-level management group called the "Root" ma
 
 Azure Management Groups supports [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) for all resource accesses and role definitions. These permissions are inherited to child resources that exist in the hierarchy.   
 
-While any [built-in RBAC role](../role-based-access-control/overview.md#built-in-roles) can be assigned to a management group, there are four roles that are commonly used: 
+While any [built-in RBAC role](../role-based-access-control/built-in-roles.md) can be assigned to a management group, there are four roles that are commonly used: 
 - **Owner** has full access to all resources including the right to delegate access to others. 
 - **Contributor** can create and manage all types of Azure resources but can't grant access to others.
 - **Resource Policy Contributor** can create and manage policies in the directory on the resources.     

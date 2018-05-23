@@ -70,6 +70,8 @@ items:
     items:
     - name: Global distribution
       href: distribute-data-globally.md
+    - name: Multi-master setup
+      href: multi-region-writers.md
     - name: Partitioning
       href: partition-data.md
     - name: Throughput
@@ -165,8 +167,6 @@ items:
           href: sql-api-resources.md
         - name: Model document data
           href: modeling-data.md
-        - name: Multi-master setup
-          href: multi-region-writers.md
       - name: How To Guides
         items:
         - name: BulkExecutor - .NET
