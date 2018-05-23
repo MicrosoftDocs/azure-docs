@@ -85,6 +85,7 @@ The following section provides you with a complete overview of all possible erro
 |51005|Temporary Redirect|
 |53000|Conditional Access policy requires a compliant device, and the device is not compliant.|
 |53003|Access has been blocked due to conditional access policies.|
+|53004|User needs to complete Multi-factor authentication registration process before accessing this content.|
 |65001|Application X doesn't have permission to access application Y or the permission has been revoked. Or The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. Or The user or administrator has not consented to use the application with ID X. Send an authorization request to your tenant admin to act on behalf of the App : Y for Resource : Z.|
 |65005|The application required resource access list does not contain applications discoverable by the resource or The client application has requested access to resource which was not specified in its required resource access list or Graph service returned bad request or resource not found.|
 |70001|The application named X was not found in the tenant named Y. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.|
@@ -109,7 +110,6 @@ The following section provides you with a complete overview of all possible erro
 |90014|Used in various cases when an expected field is not present in the credential.|
 |90093|Graph returned with forbidden error code for the request.|
 |90094|Admin consent is needed.|
-
 
 
 ## Next steps

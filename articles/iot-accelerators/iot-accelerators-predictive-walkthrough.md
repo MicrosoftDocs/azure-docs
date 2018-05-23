@@ -24,7 +24,7 @@ The blue items are Azure services provisioned in the region where you deployed t
 
 The green item is a simulated device that represents an aircraft engine. You can learn more about these simulated devices in the [Simulated devices](#simulated-devices) section.
 
-The gray items represent components that implement *device management* capabilities. The current release of the Predictive Maintenance solution accelerator does not provision these resources. To learn more about device management, refer to the [remote monitoring pre-configured solution][lnk-remote-monitoring].
+The gray items represent components that implement *device management* capabilities. The current release of the Predictive Maintenance solution accelerator does not provision these resources. To learn more about device management, refer to the [Remote Monitoring solution accelerator][lnk-remote-monitoring].
 
 ## Simulated devices
 

@@ -10,11 +10,11 @@ ms.date: 01/24/2018
 ms.author: dobett
 
 ---
-# Connect your Raspberry Pi device to the remote monitoring solution accelerator (Node.js)
+# Connect your Raspberry Pi device to the Remote Monitoring solution accelerator (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the remote monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
+This tutorial shows you how to connect a physical device to the Remote Monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
 
 ### Required hardware
 
@@ -98,7 +98,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
     var async = require('async');
     ```
 
-1. Add the following variable declarations after the `require` statements. Replace the placeholder value `{device connection string}` with value you noted for the device you provisioned in the remote monitoring solution:
+1. Add the following variable declarations after the `require` statements. Replace the placeholder value `{device connection string}` with value you noted for the device you provisioned in the Remote Monitoring solution:
 
     ```nodejs
     var connectionString = '{device connection string}';

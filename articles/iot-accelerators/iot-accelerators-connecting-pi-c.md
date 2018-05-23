@@ -10,11 +10,11 @@ ms.date: 03/14/2018
 ms.author: dobett
 
 ---
-# Connect your Raspberry Pi device to the remote monitoring solution accelerator (C)
+# Connect your Raspberry Pi device to the Remote Monitoring solution accelerator (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the remote monitoring solution accelerator. As with most embedded applications that run on constrained devices, the client code for the Raspberry Pi device application is written in C. In this tutorial, you build the application on a Raspberry Pi running the Raspbian OS.
+This tutorial shows you how to connect a physical device to the Remote Monitoring solution accelerator. As with most embedded applications that run on constrained devices, the client code for the Raspberry Pi device application is written in C. In this tutorial, you build the application on a Raspberry Pi running the Raspbian OS.
 
 ### Required hardware
 

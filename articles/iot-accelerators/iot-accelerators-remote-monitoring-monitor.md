@@ -1,6 +1,13 @@
 ---
+<<<<<<< HEAD
 title: Advanced monitoring in remote monitoring solution - Azure | Microsoft Docs
 description: This tutorial shows you how to monitor devices with the remote monitoring solution dashboard.
+=======
+title: Advanced monitoring in Remote Monitoring solution - Azure | Microsoft Docs
+description: This tutorial shows you how to monitor devices with the Remote Monitoring solution dashboard.
+services: iot-suite
+suite: iot-suite
+>>>>>>> 63778198d1ea3cfdaa2c936681fa1b66687517fb
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,9 +16,9 @@ ms.date: 02/22/2018
 ms.topic: conceptual
 ---
 
-# Perform advanced monitoring using the remote monitoring solution
+# Perform advanced monitoring using the Remote Monitoring solution
 
-This tutorial shows the capabilities of the remote monitoring dashboard. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application.
+This tutorial shows the capabilities of the Remote Monitoring dashboard. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application.
 
 In this tutorial, you use two simulated Contoso truck devices to learn how to monitor your devices from the solution accelerator dashboard. As a Contoso operator, you need to monitor the location and behavior of your trucks in the field.
 
@@ -26,9 +33,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To follow this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
+To follow this tutorial, you need a deployed instance of the Remote Monitoring solution in your Azure subscription.
 
-If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) tutorial.
+If you haven't deployed the Remote Monitoring solution yet, you should complete the [Deploy the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 ## Choose the devices to display
 
@@ -94,7 +101,7 @@ You can use the **Dashboard** filter to adjust the time span for the KPI aggrega
 
 ## Next steps
 
-This tutorial showed you how to use the **Dashboard** page to filter and monitor the simulated trucks provisioned in your remote monitoring solution:
+This tutorial showed you how to use the **Dashboard** page to filter and monitor the simulated trucks provisioned in your Remote Monitoring solution:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

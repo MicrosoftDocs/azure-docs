@@ -14,7 +14,7 @@ ms.author: dobett
 
 See also, the general [FAQ](iot-accelerators-faq.md).
 
-### How much does it cost to provision the new remote monitoring solution?
+### How much does it cost to provision the new Remote Monitoring solution?
 
 The new solution accelerator offers two deployment options:
 
@@ -23,7 +23,7 @@ The new solution accelerator offers two deployment options:
 
 ### How can I ensure I keep my costs down while I develop my solution?
 
-In addition to providing two differentiated deployments, the new remote monitoring solution has a setting to enable or disable all the simulated devices on demand. Disabling the simulation reduces the data ingested in the solution and, thus, the overall cost.
+In addition to providing two differentiated deployments, the new Remote Monitoring solution has a setting to enable or disable all the simulated devices on demand. Disabling the simulation reduces the data ingested in the solution and, thus, the overall cost.
 
 ### What is the difference between the basic and standard deployment options? How do I decide between the two deployment options?
 
@@ -37,7 +37,7 @@ For more information, see [Upgrade map key to see devices on a dynamic map](http
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Explore the capabilities of the remote monitoring solution accelerator](iot-accelerators-remote-monitoring-explore.md)
+* [Explore the capabilities of the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-explore.md)
 * [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
 * [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
 * [IoT security from the ground up](securing-iot-ground-up.md)

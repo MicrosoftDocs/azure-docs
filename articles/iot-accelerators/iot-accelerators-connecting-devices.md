@@ -10,11 +10,11 @@ ms.date: 03/14/2018
 ms.author: dobett
 
 ---
-# Connect your device to the remote monitoring solution accelerator (Windows)
+# Connect your device to the Remote Monitoring solution accelerator (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the remote monitoring solution accelerator.
+This tutorial shows you how to connect a physical device to the Remote Monitoring solution accelerator.
 
 ## Create a C client solution on Windows
 

@@ -1,6 +1,13 @@
 ---
+<<<<<<< HEAD
 title: Detect device issues in remote monitoring solution - Azure | Microsoft Docs
 description: This tutorial shows you how to use rules and actions to automatically detect threshold-based device issues in the remote monitoring solution.
+=======
+title: Detect device issues in Remote Monitoring solution - Azure | Microsoft Docs
+description: This tutorial shows you how to use rules and actions to automatically detect threshold-based device issues in the Remote Monitoring solution.
+services: iot-suite
+suite: iot-suite
+>>>>>>> 63778198d1ea3cfdaa2c936681fa1b66687517fb
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -11,7 +18,7 @@ ms.topic: conceptual
 
 # Detect issues using threshold-based rules
 
-This tutorial shows the capabilities of the rules engine in the remote monitoring solution. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application.
+This tutorial shows the capabilities of the rules engine in the Remote Monitoring solution. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application.
 
 Contoso has a rule that generates a critical alert when the pressure reported by a **Chiller** device exceeds 250 PSI. As an operator, you want to identify **Chiller** devices that may have problematic sensors by looking for initial pressure spikes. To identify these devices, you create a rule to generate a warning when the pressure exceeds 150 PSI.
 
@@ -28,9 +35,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To follow this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
+To follow this tutorial, you need a deployed instance of the Remote Monitoring solution in your Azure subscription.
 
-If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) tutorial.
+If you haven't deployed the Remote Monitoring solution yet, you should complete the [Deploy the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 ## View the rules in your solution
 

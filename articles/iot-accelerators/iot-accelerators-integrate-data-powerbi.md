@@ -96,7 +96,7 @@ You'll also want to [refresh the data](https://docs.microsoft.com/en-us/power-bi
 
 In this article, you learned about how to visualize remote monitoring data using Power BI
 
-For more information about customizing the remote monitoring solution, see:
+For more information about customizing the Remote Monitoring solution, see:
 
 * [Customizing the Remote Monitoring Solution UI](iot-accelerators-remote-monitoring-customize.md)
 * [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
