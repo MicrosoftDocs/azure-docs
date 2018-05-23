@@ -131,7 +131,7 @@ To set up autoscale on a virtual machine scale set by using PowerShell, see [aut
 
 ### If I have stopped (deallocated) a VM, is that VM started as part of an autoscale operation?
 
-No. If autoscale rules require additional VM instances as part of a scale set, a new VM instance is created. VM instances that are stopped (deallocated) are not started as part of an autoscale event. However, those stopped (deallocated) VMs may be deleted as part of autoscale event that scales in the number of instances, the same way that any VM instance may be deleted based on the order of VM instance ID.
+No. If autoscale rules require additional VM instances as part of a scale set, a new VM instance is created. VM instances that are stopped (deallocated) are not started as part of an autoscale event. However, those stopped (deallocated) VMs may be deleted as part of an autoscale event that scales in the number of instances, the same way that any VM instance may be deleted based on the order of VM instance ID.
 
 
 
