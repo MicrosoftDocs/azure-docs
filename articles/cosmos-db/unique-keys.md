@@ -130,7 +130,7 @@ The following command sample shows how to create a unique index on the firstName
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
-## Azure portal sample
+## Configure unique keys by using Azure portal
 
 In the sections above you'll find code samples that will show how you can define unique key constraints when a collection is created using the SQL API or MongoDB API. But it's also possible to define unique keys when you create a collection via the web UI in the Azure Portal. 
 
