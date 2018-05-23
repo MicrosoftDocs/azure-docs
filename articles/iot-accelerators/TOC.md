@@ -11,37 +11,6 @@
 ### [Deploy the solution accelerator](iot-accelerators-remote-monitoring-deploy.md)
 ### [Operate the solution accelerator](iot-accelerators-remote-monitoring-explore.md)
 
-## Remote Monitoring (previous version)
-### [What are the solution accelerators?](../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md)
-### [FAQ](../iot-suite/iot-suite-v1-faq.md)
-
-### Get Started
-#### [Get started with the solution accelerators](../iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md)
-#### [Permissions on azureiotsuite.com](../iot-suite/iot-suite-v1-permissions.md)
-#### [Remote Monitoring solution walkthrough](../iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md)
-#### [Connect your Raspberry Pi](../iot-suite/iot-suite-v1-raspberry-pi-kit-get-started.md)
-##### Use C
-###### [Simulated data](../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
-###### [Use real sensors](../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
-###### [Implement firmware update](../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
-##### Use Node.js
-###### [Simulated data](../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
-###### [Use real sensors](../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
-###### [Implement firmware update](../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### [Connect your MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
-
-### How-to guides
-#### Connect a simulated device
-##### [C on Windows](../iot-suite/iot-suite-v1-connecting-devices.md)
-##### [C on Linux](../iot-suite/iot-suite-v1-connecting-devices-linux.md)
-##### [Node.js](../iot-suite/iot-suite-v1-connecting-devices-node.md)
-#### [Connect a Logic App to the Remote Monitoring solution](../iot-suite/iot-suite-v1-logic-apps-tutorial.md)
-#### [Customize a solution accelerator](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
-#### [Use dynamic telemetry with the Remote Monitoring solution](../iot-suite/iot-suite-v1-dynamic-telemetry.md)
-#### [Create a custom rule in the Remote Monitoring solution](../iot-suite/iot-suite-v1-custom-rule.md)
-#### [Device information in the Remote Monitoring solution](../iot-suite/iot-suite-v1-remote-monitoring-device-info.md)
-
-
 ## Predictive Maintenance
 ### [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
 ### [Predictive Maintenance solution accelerator walkthrough](iot-accelerators-predictive-walkthrough.md)

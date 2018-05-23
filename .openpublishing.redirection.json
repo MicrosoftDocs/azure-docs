@@ -8726,6 +8726,56 @@
           "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-get-started.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-raspberry-pi-kit-get-started.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-remote-monitoring-device-info.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-remote-monitoring-device-info.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-remote-monitoring-sample-walkthrough.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-what-are-preconfigured-solutions.md",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
             "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-build-system.md",
             "redirect_document_id": false
