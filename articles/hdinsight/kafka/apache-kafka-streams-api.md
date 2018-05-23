@@ -250,7 +250,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
         jumped  13641
    
     > [!NOTE]
-    > The parameter `--from-beggining` configures the consumer to start at the beginning of the records stored in the topic. The count increments each time a word is encountered, so the topic contains multiple entries for each word, with an increasing count.
+    > The parameter `--from-beginning` configures the consumer to start at the beginning of the records stored in the topic. The count increments each time a word is encountered, so the topic contains multiple entries for each word, with an increasing count.
 
 7. Use the __Ctrl + C__ to exit the producer. Continue using __Ctrl + C__ to exit the application and the consumer.
 
