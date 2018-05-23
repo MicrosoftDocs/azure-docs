@@ -38,6 +38,8 @@ When calling the **Operations** APIs, the subscription key won't be used anymore
 
 Each request should have a valid token, matching the access level of the API you are calling. For example, operations on your user, such as getting your accounts, require a user access token. Operations on the account level, such as list all videos, require an account access token. Operations on videos, such as reindex video, require a video access token.
 
+To make things easier, you can use **Authorization** API -> GetAccounts to get your accounts without obtaining a user token first. You can also ask to get the accounts with valid tokens, enabling you to skip an additional call to get an account token.
+
 For more information about the different access tokens, see [Use Azure Video Indexer API](video-indexer-use-apis.md).
 
 ### Locations
