@@ -155,6 +155,8 @@
       href: log-analytics-solution-alert-management.md
   - name: Manage
     items:
+    - name: Personal data handling
+      href: log-analytics-personal-data-mgmt.md
     - name: Agent management
       href: log-analytics-agent-manage.md
     - name: Manage workspace cost

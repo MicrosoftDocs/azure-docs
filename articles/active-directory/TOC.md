@@ -204,11 +204,17 @@
 ##### [Silent install](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [Custom home page](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [Translate inline links](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
+##### [Wildcards](active-directory-application-proxy-wildcard.md)
+##### [Remove personal data](manage-apps/application-proxy-remove-personal-data.md)
+
+
 #### Publishing walkthroughs
 ##### [Remote Desktop](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
+##### [Qlik](active-directory-application-proxy-qlik.md)
+
 
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
