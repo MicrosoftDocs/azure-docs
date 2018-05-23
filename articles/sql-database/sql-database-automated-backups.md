@@ -94,7 +94,7 @@ The following examples illustrate how to change the PITR retention to be GDPR co
 Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 > [!IMPORTANT]
-> This APIs is included in Azure PowerShell starting from version vxxx.x.x. 
+> This APIs is included in Azure PowerShell starting from version 4.6.0-preview. 
 
 
 ## Set backup retention period to 28 days using REST API
