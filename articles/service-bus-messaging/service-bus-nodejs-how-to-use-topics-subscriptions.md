@@ -78,7 +78,7 @@ The Azure module reads the environment variable `AZURE_SERVICEBUS_CONNECTION_STR
 
 For an example of setting the environment variables for an Azure Cloud Service, see [Node.js Cloud Service with Storage][Node.js Cloud Service with Storage].
 
-For an example of setting the environment variables for an Azure Website, see [Node.js Web Application with Storage][Node.js Web Application with Storage].
+
 
 ## Create a topic
 The **ServiceBusService** object enables you to work with topics. The
@@ -440,4 +440,4 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Create and deploy a Node.js application to an Azure Web Site]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Node.js Web Application with Storage]:../storage/tables/table-storage-cloud-service-nodejs.md
+
