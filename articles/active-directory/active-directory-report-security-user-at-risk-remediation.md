@@ -37,7 +37,7 @@ You can review users flagged for risk through the related [report](https://porta
 
 
 
-### Azure AD subscription for Office 365 customers:
+### Azure AD subscription for Office 365 customers
 
 Once complete, you can use your Office 365 credentials to access the Azure Admin Center. After you have activated your access to Azure AD, you are redirected to the Azure AD portal. At the basic subscription level, the amount of detail provided in the reports are limited. Additional data and analytics are available for Azure Premium subscribers.
 
@@ -51,7 +51,7 @@ Once complete, you can use your Office 365 credentials to access the Azure Admin
 4.	In the navigation menu on the left side, click **Azure Active Directory**. 
 5.	In the navigation pane, under **Security**, click **Users flagged for risk**.
 
-Review the information displayed here. You should reset the password for any account that is listed here. 
+Review the information displayed here. You should reset the password for any account that is listed. 
 
 ## Remediation actions
 
