@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/22/2018
 ms.author: sngun
 
 ---
@@ -35,6 +35,8 @@ If you don't already have Visual Studio, download [Visual Studio 2017 Community 
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+
+The sample described in this article is compatible with MongoDB.Driver version 2.6.1.
 
 ## Clone the sample app
 
@@ -78,10 +80,7 @@ The following snippets are all taken from the Dal.cs file in the DAL directory.
         MongoIdentity identity = new MongoInternalIdentity(dbName, userName);
         MongoIdentityEvidence evidence = new PasswordEvidence(password);
 
-        settings.Credentials = new List<MongoCredential>()
-        {
-            new MongoCredential("SCRAM-SHA-1", identity, evidence)
-        };
+        settings.Credential = new MongoCredential("SCRAM-SHA-1", identity, evidence);
 
         MongoClient client = new MongoClient(settings);
     ```

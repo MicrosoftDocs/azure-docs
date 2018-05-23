@@ -69,10 +69,8 @@
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
-  - name: Developing a LUIS app
-    href: luis-concept-intro-to-luis.md
-  - name: Authoring and endpoint keys
-    href: luis-concept-keys.md
+  - name: Best practices
+    href: luis-concept-best-practices.md
   - name: Author App
     items: 
     - name: Authoring cycle
@@ -123,8 +121,8 @@
     items:
     - name: App access
       href: luis-concept-security.md
-  - name: Best practices
-    href: luis-concept-best-practices.md
+    - name: Authoring and endpoint keys
+      href: luis-concept-keys.md
 - name: How-to guides
   items: 
   - name: Plan your app
