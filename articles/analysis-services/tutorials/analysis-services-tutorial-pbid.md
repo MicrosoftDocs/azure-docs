@@ -4,7 +4,7 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: tutorial
-ms.date: 05/10/2018
+ms.date: 05/23/2018
 ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to a sample tabular model on a server and create a basic report by using the Power BI Desktop client application.
@@ -54,7 +54,7 @@ In **Azure portal** > server > **Overview** > **Server name**, copy the server n
 
    ![Visualizations](./media/analysis-services-tutorial-pbid/aas-pbid-visualizations-report.png)
 
-5. In **FIELDS** > **Internet Sales** table, select **Internet Sales Total** and **Margin** measures. In **Product Category** table, select **Product Category Name**. Your report should look like this:
+5. In **FIELDS** > **Internet Sales** table, select **Internet Sales Total** and **Margin** measures. In **Product Category** table, select **Product Category Name**.
 
    ![Complete report](./media/analysis-services-tutorial-pbid/aas-pbid-complete-report.png)
 
@@ -65,4 +65,4 @@ In **Azure portal** > server > **Overview** > **Server name**, copy the server n
 If no longer needed, do not save your report or delete the file if you did save.
 
 ## Next steps
-In this tutorial, you learned how to use Power BI Desktop to connect to an Azure AS server and create a basic report. To learn more about connecting to your server by using tools and clients, see [Connecting to servers](../analysis-services-connect.md).
+In this tutorial, you learned how to use Power BI Desktop to connect to a data model on a server and create a basic report. If you're not familiar with how to create a data model, see the [Adventure Works Internet Sales tabular data modeling tutorial](aas-adventure-works-tutorial.md).

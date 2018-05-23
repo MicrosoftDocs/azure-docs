@@ -12,7 +12,7 @@ ms.reviewer: minewiskan
 ---
 # Quickstart: Create a server - Portal
 
-This article describes how to create an Analysis Services server resource in your Azure subscription by using the portal.
+This quickstart describes how to create an Analysis Services server resource in your Azure subscription by using the portal.
 
 ## Prerequisites 
 

@@ -12,7 +12,7 @@ ms.reviewer: owend
 
 # Tutorial: Configure server administrator and user roles
 
- In this stutorial, you use SQL Server Management Studio (SSMS) to connect to your server in Azure to configure server administrator and model database roles. You're also introduced  to [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL is a JSON based scripting language for tabular models at the 1200 and higher compatibility levels. It can be used to automate many tabular modeling tasks. TMSL is often used with PowerShell, but in this tutorial, you use the XMLA query editor in SSMS. With this tutorial, you complete these tasks: 
+ In this tutorial, you use SQL Server Management Studio (SSMS) to connect to your server in Azure to configure server administrator and model database roles. You're also introduced  to [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL is a JSON-based scripting language for tabular models at the 1200 and higher compatibility levels. It can be used to automate many tabular modeling tasks. TMSL is often used with PowerShell, but in this tutorial, you use the XMLA query editor in SSMS. With this tutorial, you complete these tasks: 
   
 > [!div class="checklist"]
 > * Get your server name from the portal
@@ -67,7 +67,7 @@ In this task, you add a user or group account from your Azure AD to the server a
 
 1. In **Object Explorer**, right-click your server name, and then click **Properties**. 
 2. In the **Analysis Server Properties** window, click **Security** > **Add**.
-3. In the **Select a User or Group** window, search or manually enter a user or group account in your Azure AD, and then cick **Add**. 
+3. In the **Select a User or Group** window, enter a user or group account in your Azure AD, and then click **Add**. 
    
      ![Add server admin](./media/analysis-services-tutorial-roles/aas-add-server-admin.png)
 
@@ -139,5 +139,5 @@ When no longer needed, delete the user or group accounts and roles. To do so, us
 In this tutorial, you learned how to connect to your Azure AS server and explore the adventureworks sample model databases and properties in SSMS. You also learned how to use SSMS and TMSL scripts to add users or groups to existing and new roles. Now that you have user permissions configured for your server and sample model database, you and other users can connect to it by using client applications like Power BI. To learn more, continue to the next tutorial. 
 
 > [!div class="nextstepaction"]
-> [Connect with Power BI Desktop](analysis-services-tutorial-pbid.md)
+> [Tutorial: Connect with Power BI Desktop](analysis-services-tutorial-pbid.md)
 
