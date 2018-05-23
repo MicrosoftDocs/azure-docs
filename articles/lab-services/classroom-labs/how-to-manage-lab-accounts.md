@@ -32,23 +32,23 @@ This article describes how to create a lab account, view all lab accounts, or de
     4. For **Location**, select a location/region in which you want the lab account to be created. 
     5. Select **Create**. 
 
-        ![Create a lab account window](./media/how-to-manage-lab-accounts/lab-account-settings.png)
+        ![Create a lab account window](../media/how-to-manage-lab-accounts/lab-account-settings.png)
 5. If you don't see the page for the lab account, select the **notifications** button, and then click **Go to resource** button in the notifications. 
 
-    ![Create a lab account window](./media/how-to-manage-lab-accounts/notification-go-to-resource.png)    
+    ![Create a lab account window](../media/how-to-manage-lab-accounts/notification-go-to-resource.png)    
 6. You see the following **lab account** page:
 
-    ![Lab account page](./media/how-to-manage-lab-accounts/lab-account-page.png)
+    ![Lab account page](../media/how-to-manage-lab-accounts/lab-account-page.png)
 
 ## Add a user to the Lab Creator role
 To provide educators the permission to create labs for their classes, add them to the Lab Creator role:
 
 1. On the **Lab Account** page, select **Access control (IAM)**, and click **+ Add** on the toolbar. 
 
-    ![Lab account page](./media/tutorial-setup-lab-account/access-control.png)
+    ![Lab account page](../media/tutorial-setup-lab-account/access-control.png)
 2. On the **Add permissions** page, select **Lab Creator** for **Role**, select the user you want to add to the Lab Creators role, and select **Save**. 
 
-    ![Add user to the Lab Creator role](./media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
+    ![Add user to the Lab Creator role](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 
 ## View lab accounts
@@ -69,4 +69,4 @@ Follow instructions from the previous section that displays lab accounts in a li
 Get started with setting up a lab using Azure Lab Services:
 
 - [Set up a classroom lab](tutorial-setup-classroom-lab.md)
-- [Set up a custom lab](tutorial-create-custom-lab.md)
+- [Set up a custom lab](../tutorial-create-custom-lab.md)
