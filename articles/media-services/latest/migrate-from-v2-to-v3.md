@@ -37,7 +37,7 @@ This article describes changes that were introduced in Azure Media Services (AMS
 ### New features
 
 * Encoding now supports HTTPS ingest (Url-based input).
-* Transforms are new in v3. A Transform is used to share configurations, create ARM Templates, and isolate encoding settings for a specific customer or tenant. 
+* Transforms are new in v3. A Transform is used to share configurations, create Azure Resource Manager Templates, and isolate encoding settings for a specific customer or tenant. 
 * StreamingLocators can have different Dynamic Packaging and Dynamic Encryption settings.
 * Content protection supports multi-key features. 
 * LiveEvent (Channel in v2) supports Dynamic Packaging and Dynamic Encryption.
