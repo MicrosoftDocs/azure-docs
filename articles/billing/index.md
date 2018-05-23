@@ -32,6 +32,7 @@ Learn how to understand your Azure billing, and monitor usage and costs.
                         <a href="/azure/billing/billing-understand-your-bill">Understand your bill</a><br/>
                         <a href="/azure/billing/billing-download-azure-invoice-daily-usage-date">Get invoice and usage</a><br/>
                         <a href="/azure/billing/billing-understand-your-azure-marketplace-charges">External service charges</a><br/>
+                        <a href="/azure/billing/billing-understand-your-usage">Usage terms</a>
                         </p>
                     </div>
                 </div>
@@ -116,7 +117,7 @@ Learn how to understand your Azure billing, and monitor usage and costs.
                         <p>
                         <a href="/azure/billing/billing-usage-rate-card-overview">Azure Billing APIs</a><br/>
                         <a href="/azure/billing/billing-enterprise-api">Enterprise reporting APIs</a><br/>
-                        <a href="/rest/api/consumption/">Azure Consumption APIs </a>   
+                        <a href="/rest/api/consumption/">Azure Consumption APIs </a><br/>   
                         <a href="/azure/azure-resource-manager/programmatically-create-subscription">Create Enterprise subscriptions</a>                       
                         </p>
                     </div>
@@ -149,8 +150,8 @@ Learn how to understand your Azure billing, and monitor usage and costs.
                         <h3>Organize resources</h3>
                         <p>
                         <a href="/azure/azure-resource-manager/resource-group-using-tags">Resource tags</a><br/>
-                        <a href="/azure/azure-resource-manager/management-groups-overview">Resource management groups</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-move-resources">Move Azure resources</a>
+                        <a href="/azure/azure-resource-manager/management-groups-overview">Management groups</a><br/>
+                        <a href="/azure/azure-resource-manager/resource-group-move-resources">Move Azure resources</a><br/>
                         <a href="/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment">Deploy Azure resources</a>
                         </p>
                     </div>
