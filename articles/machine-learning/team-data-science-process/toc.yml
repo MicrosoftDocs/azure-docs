@@ -30,9 +30,9 @@
     href: project-ic-tasks.md
 - name: Project structure
   href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
-- name: Project planning
+- name: Planning
   href: team-data-science-process-project-templates.md
-- name: Project execution
+- name: Development
   items:
   - name: Agile development
     href: agile-development.md
@@ -44,7 +44,11 @@
     href: code-test.md
   - name: Track progress
     href: track-progress.md
-- name: Examples
+- name: Operations
+  items:
+  - name: CI/CD
+    href: ci-cd-flask.md
+- name: Worked-out samples
   href: walkthroughs.md
   items:
   - name: Azure Machine Learning

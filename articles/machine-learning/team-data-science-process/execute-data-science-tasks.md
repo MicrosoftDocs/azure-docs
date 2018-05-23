@@ -107,6 +107,7 @@ When multiple models are in production, it can be useful to perform [A/B testing
 ## Next steps
 
 [Track progress of data science projects](track-progress.md) shows how a data scientist can track the progress of a data science project.
- 
+
+[Model operation and CI/CD](ci-cd-flask.md) shows how CI/CD can be performed with developed models.
 
 
