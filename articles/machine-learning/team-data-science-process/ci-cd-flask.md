@@ -17,7 +17,12 @@ ms.date: 05/22/2018
 ms.author: jainr
 ---
 # DevOps for Artificial Intelligence (AI) applications: Creating continuous integration pipeline using Docker and Kubernetes
-For an AI application, there are frequently two streams of work, Data Scientists building machine learning models and App developers building the application and exposing it to end users to consume. In this article, we demonstrate how to implement a Continuous Integration (CI)/Continous Delivery (CD) pipeline for an AI application. AI application is a combination of application code embedded with a pretrained machine learning (ML) model. For this tutorial, we are fetching a pretrained model from a private Azure blob storage account, it could be an AWS S3 account as well. We will use a simple python flask web application for the tutorial.
+For an AI application, there are frequently two streams of work, Data Scientists building machine learning models and App developers building the application and exposing it to end users to consume. In this article, we demonstrate how to implement a Continuous Integration (CI)/Continous Delivery (CD) pipeline for an AI application. AI application is a combination of application code embedded with a pretrained machine learning (ML) model. For this article, we are fetching a pretrained model from a private Azure blob storage account, it could be an AWS S3 account as well. We will use a simple python flask web application for the article.
+
+> [!NOTE]
+> This is one of several ways CI/CD can be performed. There are alternatives to the tooling and other pre-requisites mentioned below. As we develop additional content, we will publish those.
+>
+>
 
 ## GitHub repository with document and code
 You can download the source code from [GitHub](https://github.com/Azure/DevOps-For-AI-Apps). A [detailed tutorial](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) is also available.
@@ -58,3 +63,6 @@ The pipeline architecture is given below.
 
 ## References
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)
+* [Azure Machine Learning (AML)](https://docs.microsoft.com/en-us/azure/machine-learning/service/)
+* [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/vso/)
+* [Azure Kubernetes Services (AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
