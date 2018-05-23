@@ -1,6 +1,6 @@
 ---
-title: Ship disk drives used for Azure Import/Export | Microsoft Docs
-description: Ship disk drives used for Azure Import/Export | Microsoft Docs
+title: include file
+description: include file
 author: alkohli
 services: storage
 
@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/22/2018
 ms.author: alkohli
-ms.custom: Ship disk drives used for Azure Import/Export | Microsoft Docs
+ms.custom: include file
 
 ---
 
