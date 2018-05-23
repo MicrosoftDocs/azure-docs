@@ -117,6 +117,8 @@
     href: FAQs.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
+  - name: GDPR Compliance
+    href: ./content-moderator-gdpr.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/559960-content-moderator
   - name: Stack Overflow
