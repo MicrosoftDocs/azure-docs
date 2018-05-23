@@ -121,7 +121,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">What monitoring and logging options available in Azure?</p>
+                            <p style="font-size: 1.12rem;">What monitoring and logging options are available in Azure?</p>
                         </div>
                     </div>
                 </div>
