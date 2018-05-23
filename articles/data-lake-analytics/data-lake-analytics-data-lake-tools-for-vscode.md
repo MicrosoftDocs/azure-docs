@@ -58,7 +58,7 @@ Create a new .usql file or open an existing .usql file to activate the extension
 
 To work with U-SQL, you need open either a U-SQL file or a folder.
 
-**To Open the sample script**
+**To open the sample script**
 
 Open the command palette (Ctrl+Shift+P) and enter **ADL: Open Sample Script**. It opens another instance of this sample. You can also edit, configure, and submit script on this instance.
 
@@ -251,15 +251,17 @@ To sign out, enter the command **ADL: Logout**.
 
 **To connect to Azure from explorer**
 
-To sign in from explorer, expand **AZURE DATALAKE**, click **Sign in to Azure...**, then follow the step3/step4 of [**To connect to Azure using command**](#sign-in-by-command).
+To sign in from explorer, expand **AZURE DATALAKE**, click **Sign in to Azure...**, then follow the step3 and step4 of [**To connect to Azure using command**](#sign-in-by-command).
 
 ![Connect to Azure from explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-sign-in-from-explorer.png )  
 
-No way to sign out from explorer. To sign out, see [**To connect to Azure using command**](#sign-in-by-command).
+You can not sign out from explorer. To sign out, see [**To connect to Azure using command**](#sign-in-by-command).
 
 
 ## Create extract script 
-You can create EXTRACT script for .csv, .tsv, .txt files by entering the command **ADL: Create EXTRACT Script**.
+You can create EXTRACT script for .csv, .tsv, .txt files using the command **ADL: Create EXTRACT Script** or from **AZURE DATALAKE** explorer.
+
+**To create EXTRACT script using command**
 
 1. Select Ctrl+Shift+P to open the command palette, enter **ADL: Create EXTRACT Script**.
 2. Specify the full path for an Azure storage file, press **Enter**.
@@ -272,24 +274,20 @@ The extract script is generated based on your entries. For the script that canno
 
 ![Create extract script result](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-result.png)
 
+**To create EXTRACT script from explorer**
 
-Another way to create EXTRACT script is through the right-click menu on the .csv, .tsv, .txt file in blob storage and data lake storage.
+Another way to create EXTRACT script is through the right-click menu on the .csv, .tsv, .txt file in data lake storage or blob storage.
+
+![Create extract script from context menu](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-from-context-menu.png)
 
 ## Integrate with Azure Data Lake Analytics through command
 
-### List your Data Lake Analytics accounts
+You can access Azure Data Lake Analytics resources including list accounts, access metadata and view analytics jobs. 
 
-To test the connection, get a list of your Data Lake Analytics accounts.
-
-**To list the Data Lake Analytics accounts under your Azure subscription**
+**To list the Azure Data Lake Analytics accounts under your Azure subscription**
 
 1. Select Ctrl+Shift+P to open the command palette.
 2. Enter **ADL: List Accounts**. The accounts appear in the **Output** pane.
-
-
-### Access the Data Lake Analytics catalog
-
-After you have connected to Azure, you can use the following steps to access the U-SQL catalog.
 
 **To access Azure Data Lake Analytics metadata**
 
@@ -298,9 +296,7 @@ After you have connected to Azure, you can use the following steps to access the
 3.	Select one of the Data Lake Analytics databases.
 4.	Select one of the schemas. You can see the list of tables.
 
-### View Data Lake Analytics jobs
-
-**To view Data Lake Analytics jobs**
+**To view Azure Data Lake Analytics jobs**
 1.  Open the command palette (Ctrl+Shift+P) and select **ADL: Show Jobs**. 
 2.	Select a Data Lake Analytics or local account. 
 3.  Wait for the jobs list for the account to appear.
@@ -360,7 +356,7 @@ As the same time, you can monitor the [uploading status](#check-storage-tasks-st
 
 
 ### Download file 
-You can download files by entering the commands **ADL: Download File** or **ADL: Download File (Advanced)**.
+You can download files using the commands **ADL: Download File** or **ADL: Download File (Advanced)**.
 
 **To download files though the ADL: Download File (Advanced)**
 1. Right-click the script editor, and then select **Download File (Advanced)**.
@@ -426,11 +422,7 @@ Navigate to **Data Lake Store**
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
- - On the file node, you can **Preview**, **Download**, **Delete**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu. 
-
-   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
-
-- On the .csv, .tsv, .txt file node, you can **Create EXTRACT Script** in the right-click context menu.
+- On the file node, you can **Preview**, **Download**, **Delete**, **Create EXTRACT Script** (only available for CSV, TSV and TXT files), as well as **Copy Relative Path**, and **Copy Full Path** in the right-click context menu.
 
     ![DataLake explorer - extract](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-extract.png)
 
@@ -446,9 +438,9 @@ Navigate to **Blob Storage**
 
     ![Blob Storage folder node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
 
-- On the file node, you can **Preview/Edit**, **Download**, **Delete**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu.
+- On the file node, you can **Preview/Edit**, **Download**, **Delete**, **Create EXTRACT Script** (only available for CSV, TSV and TXT files), as well as **Copy Relative Path**, and **Copy Full Path** in the right-click context menu.
 
-    ![Blob Storage file node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
+    ![Create extract script from context menu](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-from-context-menu-2.png)
 
 ## Open ADL storage explorer in portal
 1. Select Ctrl+Shift+P to open the command palette.
