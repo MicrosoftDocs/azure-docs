@@ -41,7 +41,7 @@ Before you begin, note that:
 - This tutorial sets up physical server disaster recovery to Azure with the simplest settings. If you want to learn about other options, read through our How To guides:
     - Set up the [replication source](physical-azure-set-up-source.md), including the Site Recovery configuration server.
     - Set up the [replication target](physical-azure-set-up-target.md).
-    - Configure a [replication policy](vmware-azure-set-up-replication), and [enable replication](vmware-azure-enable-replication.md).
+    - Configure a [replication policy](vmware-azure-set-up-replication.md), and [enable replication](vmware-azure-enable-replication.md).
 
 
 ### Set up an Azure account
