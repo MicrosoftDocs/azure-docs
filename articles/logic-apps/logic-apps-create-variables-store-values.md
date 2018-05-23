@@ -32,6 +32,7 @@ you can perform other tasks, for example:
 * Increase or decrease the value in an integer or float variable.
 * Assign a value with the same data type to a variable.
 * Add a value at the end of an array or string variable.
+* Get or reference the value in a variable.
 
 If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
@@ -165,19 +166,15 @@ counting how many times a loop runs.
 This example shows how you can use variables 
 for this task by following these steps: 
 
-1. Create a blank logic app, and add a trigger 
-that checks for new email and fires only when the 
-email has one or more attachments. 
+1. Create a blank logic app, and add a trigger that checks for new email. 
+Set up the trigger to fire only when the email has one or more attachments. 
 
-   This example uses the Office 365 Outlook trigger 
-   for **When a new email arrives**. However, 
-   you can use any connector that checks 
-   for new email with attachments, 
+   This example uses the Office 365 Outlook trigger for **When a new email arrives**. 
+   However, you can use any connector that checks for new emails with attachments, 
    such as the Outlook.com connector.
 
-2. Set up the trigger to check for attachments 
-and include those attachments as inputs 
-in the workflow. 
+2. Set up the trigger to check for attachments and 
+include those attachments as inputs in the workflow. 
 
    1. In this example, inside the trigger, 
    choose **Show advanced options**. 
@@ -317,6 +314,13 @@ This value is required because this action doesn't have a default value.
   | Name | Yes | <*variable-name*> | The name for the variable to change | 
   | Value | Yes | <*append-value*> | The value you want to append. This new value must have the same data type as the variable. | 
   |||||  
+
+<a name="get-value"></a>
+
+## Get variable value
+
+To retrieve or reference the value in a variable, 
+use the [variables() function](../logic-apps/workflow-definition-language-functions-reference.md#variables).
 
 ## Get support
 
