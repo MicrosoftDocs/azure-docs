@@ -76,7 +76,7 @@ follow one of these steps:
    over the connecting arrow so the plus sign (+) appears. 
    Choose the plus sign, and then choose **Add an action**.
 
-3. In the search box, enter "variables" as the filter. 
+3. In the search box, enter "variables" as your filter. 
 From the actions list, select **Variables - Initialize variable**.
 
    ![Select action](./media/logic-apps-create-variables-store-values/select-initialize-variable-action.png)
@@ -191,13 +191,6 @@ Here are examples for a few other variable types:
 },
 ```
 
-* [*Append*](#append-value) or add a value 
-at the end of a string or array variable. 
-Both the value and variable must have the same data type.
-
-If you don't have an existing variable yet, 
-[create that variable now](#create-variable).
-
 <a name="increment-value"></a>
 
 ## Increment variable 
@@ -222,8 +215,7 @@ choose **New step** > **Add an action**.
    the plus sign, and then choose **Add an action**.
 
 2. In the search box, enter "increment variable" as your filter. 
-In the actions list, select this action: 
-**Variables - Increment variable**
+In the actions list, select **Variables - Increment variable**.
 
    ![Select "Increment variable" action](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
 
@@ -295,7 +287,7 @@ loop that cycles through each attachment.
 
    ![Add a "for each" loop](./media/logic-apps-create-variables-store-values/add-loop.png)
 
-5. In the **For each** loop, click in the **Select an output from previous steps** box. 
+5. Inside the loop, click in the **Select an output from previous steps** box. 
 When the dynamic content list appears, select **Attachments**. 
 
    ![Select "Attachments"](./media/logic-apps-create-variables-store-values/select-attachments.png)
@@ -308,7 +300,7 @@ When the dynamic content list appears, select **Attachments**.
    ![Select "Add an action"](./media/logic-apps-create-variables-store-values/add-action-2.png)
 
 7. In the search box, enter "increment variable" as your filter. 
-From the actions list, select the **Increment variable** action.
+From the actions list, select **Variables - Increment variable**.
 
    > [!NOTE]
    > Make sure the **Increment variable** action appears inside the loop. 
@@ -376,7 +368,7 @@ for the email you sent to yourself.
 
 ## Decrement variable
 
-To decrease an existing variable by a specific value, you can follow 
+To decrease a variable by a specific value, you can follow 
 the steps for [increasing a variable](#increment-value) except that you 
 find and select the **Variables - Decrement variable** action instead. 
 This action works only with integer and float variables.
@@ -408,7 +400,7 @@ in your logic app definition, which uses JavaScript Object Notation (JSON) forma
 
 <a name="assign-value"></a>
 
-## Assign new values
+## Assign new value
 
 To assign a different value to an existing variable, 
 you can follow the steps for [increasing a variable](#increment-value) 
@@ -518,7 +510,7 @@ Your result is `[1,2,3,"red"]`.
 
 <a name="get-value"></a>
 
-## Get values from variables
+## Get value from variable
 
 To retrieve or reference the value or values in a variable, you can use the 
 [variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) function in the Logic App Designer or in the code view editor.
