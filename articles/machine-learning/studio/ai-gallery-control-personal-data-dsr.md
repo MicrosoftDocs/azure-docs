@@ -16,7 +16,7 @@ ms.date: 05/25/2018
 
 You can export and delete your in-product user data from Azure AI Gallery using the interface or AI Gallery Catalog API. This article shows you how.
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## View your data in AI Gallery with the UI
 
@@ -70,7 +70,7 @@ Returns a response such as:
     {"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
 
 
-### View published entities
+### View public entities
 
 The Catalog API stores information about published entities to the Azure AI Gallery that you can also view directly on the [AI Gallery website](https://gallery.azure.ai/). See previous sections for more information.
 
@@ -82,13 +82,16 @@ For example:
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq 'CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE'
 
+### View unlisted and public entities
+
 This query displays only public entities. To view all your entities, including unlisted ones, provide the access token obtained from the previous section.
 
-1.	Using a tool like [Postman](https://www.getpostman.com), create an HTTP GET request to the catalog URL as described above.
-2.	Create an HTTP request header called “DataLabAccessToken”, with the value set to the Access Token.
-3.	Make the HTTP request.
+1.	Using a tool like [Postman](https://www.getpostman.com), create an HTTP GET request to the catalog URL as described in [Get your access token](#get-your-access-token).
+2.	Create an HTTP request header called `DataLabAccessToken`, with the value set to the access token.
+3.	Submit the HTTP request.
 
-Note: If unlisted entities are not showing up in responses from the Catalog API, the user may have an invalid or expired Access Token. Log out of the Azure AI Gallery, then repeat the steps in “Getting an Access Token” to renew the token.
+> [!TIP]
+> If unlisted entities are not showing up in responses from the Catalog API, the user may have an invalid or expired access token. Sign out of the Azure AI Gallery, and then repeat the steps in [Get your access token](#get-your-access-token) to renew the token. 
 
 ## Next steps
 
