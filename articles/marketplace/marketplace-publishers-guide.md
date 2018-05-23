@@ -54,9 +54,9 @@ Take advantage of marketplace capabilities to grow your business.
     >Apps that extend Office must access insights through the publishing process for Office apps.  
 
 ### Go-To-Market Benefits  
-Azure Marketplace and AppSource enables you to showcase your solutions to millions of customers. New listings in the marketplace are automatically offered a set of free GTM benefits to help drive awareness of your offer to our customer ecosystem.  
+Azure Marketplace and AppSource enable you to showcase your solutions to millions of customers. New listings in the marketplace are automatically offered a set of free GTM benefits to help drive awareness of your offer to Microsoft customers.  
 
-Listing your offer in the marketplace storefront is a launchpad for joint GTM activities with Microsoft and the doorway to a Co-sell Ready partnership opportunity. All new listings are automatically offered a set of no cost GTM benefits to help drive awareness of your offer to our customer ecosystem. The GTM benefits deliver a variety of co-marketing and co-sell activities designed to leverage our brand, channels and ecosystem to help you drive awareness for their solution and generate sales. No action is required by you. As soon as an offer is published, Microsoft GTM team contacts you to begin delivery.  
+Listing your offer in the marketplace storefront is a launchpad for joint GTM activities with Microsoft and the doorway to a Co-sell Ready partnership opportunity. All new listings are automatically offered a set of no cost GTM benefits to help drive awareness of your offer to Microsoft customers. The GTM benefits deliver a variety of co-marketing and co-sell activities designed to leverage the Microsoft brand, channels, customers, and partners to help you drive awareness for their solution and generate sales. No action is required by you. As soon as an offer is published, Microsoft GTM team contacts you to begin delivery.  
 *   For more information about Microsoft GTM benefits and ways to grow your business in the marketplace, visit the Microsoft Go-To-Market Services page located at [partner.microsoft.com/reach-customers/gtm](https://partner.microsoft.com/reach-customers/gtm).  
 
 Go to [Contents](#Contents)  
@@ -117,7 +117,7 @@ Engage business users on AppSource to find, try, and get line-of-business SaaS a
 |:--- |:--- | 
 | ***Business solutions that work with Microsoft products they already use*** | Enables customers to use third-party apps and services to extend Microsoft cloud apps and technologies | 
 | ***Ability to easily find the right solution or implementation service.*** | Provides a one-stop shop to discover, try, and get apps and services, add-ins, and more | 
-| ***Industry-specific line-of-business solutions to address their specific business challenges*** | Provides finished end-to-end industry solutions to help address specific requirements across many industries | 
+| ***Industry-specific line-of-business solutions to address their specific business challenges*** | Provides finished end-to-end industry solutions to help identify and specify requirements across many industries | 
 | ***Apps to help improve productivity, efficiency, and business insights*** | Provides apps for lines of business, including customer service, HR, operations, and many more | 
 | ***Experienced implementation partner to help adapt apps to their unique situation*** | Provides a catalog of Consulting Services offerings for solutions based on Dynamics 365, Power BI, PowerApps, and third-party apps to help business users deliver predictable outcomes |    
 
@@ -213,7 +213,7 @@ The following steps assist you in registering as a publisher in the storefronts 
 
 ##### Register in Microsoft Partner Network  
 | 15 min |  
-Join the Microsoft Partner Network (MPN) to become an official Microsoft partner and receive additional benefits and support for being an Publisher in Azure Marketplace. Register in MPN and click "Enroll".  
+Join the Microsoft Partner Network (MPN) to become an official Microsoft partner and receive additional benefits and publishing support in Azure Marketplace. Register in MPN and click "Enroll".  
 *   To register in MPN, visit the Membership page located at [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
 
 You are able to join an existing membership for your organization during registration. After registering, record the MPN ID for your organization. Microsoft requests your MPN ID prior to activating your publisher profile in Cloud Partner Portal. 
@@ -249,14 +249,14 @@ A Dev Center account is required for publishing apps that have transact capabili
 
 ##### Sign into AppSource  
 | 15 minutes |  
-After your Nomination is approved and you have registered in both the MPN and Dev Center, a marketplace account is created for you to access AppSource. First-time sign in credentials are sent in your Nomination approval email. 
+After your Nomination is approved and you have registered in both the MPN and Dev Center, a marketplace account is created for you to access AppSource. First-time sign-in credentials are sent in your Nomination approval email. 
 *   To access the MPN, visit the Membership page located at [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
 *   To access Dev Center, visit the Windows Dev Center page located at [dev.windows.com](https://dev.windows.com).  
 *   To access AppSource, visit the AppSource page located at [appsource.microsoft.com](https://appsource.microsoft.com).  
 
 ##### Sign into Cloud Partner Portal
 | 15 minutes |  
-After your Nomination is approved and you have registered in both the MPN and Dev Center, a marketplace account is created for you to access Cloud Partner Portal. First-time sign in credentials are sent in your Nomination approval email. 
+After your Nomination is approved and you have registered in both the MPN and Dev Center, a marketplace account is created for you to access Cloud Partner Portal. First-time sign-in credentials are sent in your Nomination approval email. 
 *   To access the MPN, visit the Membership page located at [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
 *   To access Dev Center, visit the Windows Dev Center page located at [dev.windows.com](https://dev.windows.com).  
 *   To access the Microsoft Cloud Partner Portal, visit the Cloud Partner Portal page located at [cloudpartner.azure.com](https://cloudpartner.azure.com).  
@@ -268,7 +268,7 @@ Go to [Contents](#Contents)
 ---   
 
 ### Requirements by Listing Type  
-The technical and marketing content requirements varies by storefront, offer type, and listing type. You should review the following specifications to ensure your compliance.  
+The technical and marketing content requirements vary by storefront, offer type, and listing type. You should review the following specifications to ensure your compliance.  
 1. Storefront Requirements:  
     *   [AppSource](#Storefront-Requirements:-AppSource)  
     *   [Azure Marketplace](#Storefront-Requirements:-Azure-Marketplace)  
@@ -299,24 +299,24 @@ The following table describes the prerequisite requirements for publishing on Ap
 | ***Azure Active Directory (Azure AD)*** | Your app must allow Azure Active Directory federated single sign-on (Azure AD federated SSO) with consent enabled.<ul> <li>For more information about enabling Azure AD federated SSO, visit the Configuring single sign-on to applications that are not in the Azure Active Directory application gallery page located at [docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Required |   
 | ***Integration with Microsoft Cloud Services*** | Your app should integrate with other Microsoft Cloud services like Microsoft Power BI, Cortana Intelligence, or Microsoft Azure services such as Internet of Things. | Recommended |  
 | ***Audience*** | Your app must be for line-of-business users and business owners. | Required | 
-| ***Software as a service (SaaS) app for business*** | Your app must all of the following. <ul> <li>A line-of-business SaaS app</li> <li>Business-process focused</li> <li>Targeted to business customers</li> <li>Enable users to use their work credentials to sign in such as user name and password</li> </ul> | Required |  
-| ***Free trial period and trial experience*** | Your app must include one the following options in order for a customer to use your app for free for a limited time.<ul> <li>Provide a *try* method, so customers are able to initiate a trial of your app from within AppSource</li> <li>Provide a *request trial* option in the AppSource, so customers are able to request a trial version of your app</li> </ul>The free trial that you you provide must offer the customer a minimum amount of time to try out your app with no additional cost. | Required |  
+| ***Software as a service (SaaS) app for business*** | Your app must include all of the following. <ul> <li>A line-of-business SaaS app</li> <li>Business-process focused</li> <li>Targeted to business customers</li> <li>Enable users to use their work credentials to sign in such as user name and password</li> </ul> | Required |  
+| ***Free trial period and trial experience*** | Your app must include one the following options in order for a customer to use your app for free for a limited time.<ul> <li>Provide a *try* method, so customers are able to initiate a trial of your app from within AppSource</li> <li>Provide a *request trial* option in the AppSource, so customers are able to request a trial version of your app</li> </ul>The free trial that you provide must offer the customer a minimum amount of time to try out your app with no additional cost. | Required |  
 | ***Easily configurable, turnkey solution*** | Your app must be easy and quick to configure and set up with no customization required. | Required |  
 | ***Lead management*** | You must enable your CRM such as Marketo, Microsoft Dynamics, or Salesforce to accept lead data prior to receive leads from the storefront. | Required |  
 | ***Privacy policy and terms of use*** | Your app must provide a link to your privacy policy page using a public URL. You must provide your terms of use as text during publishing. | Required |  
-| ***Support*** | Your app must provide a link to your customer support page using a public URL. If your app is a trial, then you must provide support at no additional cost during the trial period. | Required |  
+| ***Support*** | Your app must provide a link to your customer support page using a public URL. If your app is a trial, then you must support your app at no additional cost during the trial period. | Required |  
 
 #### Storefront Requirements: Azure Marketplace  
 The following table describes the prerequisite requirements for listing types in Azure Marketplace.  
 
 | Requirement | Details | Listing type |  
 |:--- |:--- |:--- |  
-| ***Participation policies*** | You app must follow the Azure Marketplace participation policies.<ul> <li>For more information about the participation policies, visit the Azure Marketplace Participation Policies page located at [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />transact<br />trial |  
+| ***Participation policies*** | Your app must follow the Azure Marketplace participation policies.<ul> <li>For more information about the participation policies, visit the Azure Marketplace Participation Policies page located at [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />transact<br />trial |  
 | ***Integration with Microsoft*** | Your offer should use or extend Microsoft Azure service types such as compute, networking, or storage. Your offer should align to an existing Azure Marketplace category such as databases, security, or networking.<ul> <li>For more information about Marketplace offers, visit the Marketplace Apps page located at [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps).</li> </ul> | list<br />transact<br />trial |  
 | ***Audience*** | Your offer must be for IT pros, cloud developers, or other technical customer roles. | list<br />transact<br />trial |  
 | ***Lead management*** | You must enable your CRM (Marketo, Microsoft Dynamics, or Salesforce) to accept lead data prior to receive leads from the storefront. | list<br />transact<br />trial |  
 | ***Privacy policy and terms of use*** | Your app must provide a link to your privacy policy page using a public URL. You must provide your terms of use as text during publishing. | list<br />transact<br />trial |  
-| ***Support*** | Your offer must provide a link to your customer support page using a public URL. If your offer is a trial, then you must provide support at no additional cost during the trial period. | transact<br />trial |  
+| ***Support*** | Your offer must provide a link to your customer support page using a public URL. If your offer is a trial, then you must support your offer at no additional cost during the trial period. | transact<br />trial |  
 
 #### All Listings  
 
@@ -326,21 +326,21 @@ This section describes all offers that do not use the Transact listing type.
 
 | Requirements | Details |  
 |:--- |:--- |  
-| ***Service offer characteristics*** | Your consulting service must be meet the following criteria.<ul> <li>Deliver a fixed-scope, fixed-duration, fixed-price (or free) engagement.</li> <li>Orient primarily for pre-sales.</li> <li>Limit to a single customer.</li> <li>Conduct on site.</li> </ul> |  
+| ***Service offer characteristics*** | Your consulting service must meet the following criteria.<ul> <li>Deliver a fixed-scope, fixed-duration, fixed-price (or free) engagement.</li> <li>Orient primarily for pre-sales.</li> <li>Limit to a single customer.</li> <li>Conduct on site.</li> </ul> |  
 | ***Partner requirements for Consulting Services*** | You must meet the criteria in the relevant area for your service.<table><tr><th>Solution Area</th><th>Criteria</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Have Silver or Gold Cloud Customer Relationship Management competency.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Enterprise edition</td><td>Have Silver or Gold Enterprise Resource Planning competency, and a minimum revenue of $25,000 in cloud operations in the trailing 12 months.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Business edition</td><td>Serve as Cloud Services Provider (CSP) or Digital Partner of Record (DPOR) for one or more customers.</td></tr><tr><td>Power BI</td><td>Meet the Solution Partner criteria.</td></tr><tr><td>PowerApps</td><td>Have a Partner Showcase solution.</td></tr></table><ul> <li>For more information about customer relationship management, visit the Cloud Customer Relationship Management page located at [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>For more information about resource planning, visit the Enterprise Resource Planning page located at [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>For more information about CSP, visit the Cloud Services Provider page located at [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>For more information about DPOR, visit the Digital Partner of Record and Partner Association page located at [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>For more information about solution partner criteria, visit the Solution Partner Overview and Incentives document located at [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>For more information about partner showcase, visit the Partner Showcase page located at [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
 
 #### Azure Marketplace Listing Type Requirements: List (Consulting Services only)  
 
 | Requirements | Details |  
 |:--- |:--- |  
-| ***Service offer characteristics*** | Your consulting service must be meet the following criteria.<ul> <li>Deliver a fixed-scope, fixed-duration, fixed-price (or free) engagement.</li> <li>Orient primarily for pre-sales.</li> <li>Limit to a single customer.</li> <li>Conduct on site.</li> </ul> |  
+| ***Service offer characteristics*** | Your consulting service must meet the following criteria.<ul> <li>Deliver a fixed-scope, fixed-duration, fixed-price (or free) engagement.</li> <li>Orient primarily for pre-sales.</li> <li>Limit to a single customer.</li> <li>Conduct on site.</li> </ul> |  
 | ***Partner requirements for Consulting Services*** | You must have silver or gold in one of the following competencies in the relevant area for your service. <table><tr><th>Solution Area</th><th>Competency</th></tr><td>Cloud Platform and Infrastructure</td><td>Cloud Platform<br />Data Center</td><tr><td>Application Development and ISV</td><td>Application Development<br />Application Integration<br />DevOps</td></tr><tr><td>Data Management and Analytics</td><td>Data Analytics<br />Data Platform</td></tr></table><ul> <li>For more information about competencies, visit the Competencies Through Microsoft Partner Network page located at [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies).</li> <li>For more information about listing, visit the Azure Marketplace Consulting Services page located at [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services).</li></ul> |  
 
 #### Listing Type Requirements: Trial  
 
 | Requirement | Details |  
 |:--- |:--- |  
-| ***Free trial period and trial experience*** | A customer must be able to use your app for free for a limited time.<br /><br />This means that the customer is not subject to license or subscription fees for your offer or app, nor the cost of the underlying Microsoft first-party product or service. Because all trial options are deployed to the your Microsoft product subscription, you solely controls trial cost optimization and management.<br /><br />You choose a free trial, interactive demo, or test drive. No matter what you choose, the free trial must offer the customer a minimum amount of time to try the app for no additional cost.<ul> <li>To begin the process of creating a test drive, send an email to [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com).</li> </ul>Note: Azure Marketplace SaaS trial experiences must allow users to use their work crendentials to sign in.<ul> <li>For more information, visit the AppSource trial experiences section located at [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences).</li> </ul> |  
+| ***Free trial period and trial experience*** | A customer must be able to use your app for free for a limited time.<br /><br />This means that the customer is not subject to license or subscription fees for your offer or app, nor the cost of the underlying Microsoft first-party product or service. Because all trial options are deployed to your Microsoft product subscription, you solely control trial cost optimization and management.<br /><br />You choose a free trial, interactive demo, or test drive. No matter what you choose, the free trial must offer the customer a minimum amount of time to try the app for no additional cost.<ul> <li>To begin the process of creating a test drive, send an email to [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com).</li> </ul>Note: Azure Marketplace SaaS trial experiences must allow users to use their work credentials to sign into your app or offer.<ul> <li>For more information, visit the AppSource trial experiences section located at [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences).</li> </ul> |  
 | ***Easily configurable, turnkey solution*** | Your app must be easy and quick to configure and set up. |  
 | ***Availability / uptime*** | Your SaaS app or platform must have an uptime of at least 99.9%. |  
 | ***Azure Active Directory*** | Your offer must allow Azure Active Directory (Azure AD) federated single sign-on (SSO) (Azure AD federated SSO) with consent enabled. |  
@@ -459,13 +459,13 @@ Go to [Contents](#Contents)
 Azure AD is a cloud identity service that enables authentication with a Microsoft work or school account by using industry-standard frameworks: OAuth and OpenID Connect.  
 *   For more information about Azure AD, visit the Azure Active Directory page located at [azure.microsoft.com/services/active-directory](https://azure.microsoft.com/services/active-directory).  
 
-Microsoft authenticates all marketplace users with Azure AD. When an authenticated user clicks through your trial listing in the marketplace and is redirected to your trial environment, you are able to provision the user directly into a trial without requiring additional sign in steps. Your app receives a token from Azure AD during authentication that includes valuable user information for creating a user account in your app. You are able to automate the provisioning experience and increase the likelihood of conversion.  
+Microsoft authenticates all marketplace users with Azure AD. When an authenticated user clicks through your trial listing in the marketplace and is redirected to your trial environment, you are able to provision the user directly into a trial without requiring additional sign-in steps. Your app receives a token from Azure AD during authentication that includes valuable user information for creating a user account in your app. You are able to automate the provisioning experience and increase the likelihood of conversion.  
 *   For more information about the token sent from Azure AD during authentication, visit the Sample Tokens section located at [docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens)
 
 You may use Azure AD to enable one-click authentication in your app or trial.  
 *   Streamline the customer experience from marketplace to trial.  
 *   Maintain the feel of an in-product experience, even when the user is redirected from the Marketplace to your domain or trial environment.  
-*   Decrease the likelihood of abandonment on redirect, because there are no additional sign in steps.  
+*   Decrease the likelihood of abandonment on redirect, because there are no additional sign-in steps.  
 *   Reduce deployment barriers for the large population of Azure AD users.  
 
 #### Certify Your Azure AD Integration for the Marketplace: Multitenant Apps  
@@ -474,7 +474,7 @@ You may use Azure AD to support the following today.
 *   Enable the multitenancy support feature in Azure AD to get a one-click trial experience.  
 *   For more information about app registration, visit the Integrating applications with Azure Active Directory page located at [docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
-You should do the following steps if you are new to Azure AD federated SSO.  
+You should perform the following steps if you are new to Azure AD federated SSO.  
 *   Register your app in the marketplace. 
 *   Develop SSO with Azure AD by using OpenID Connect or OAuth 2.0. 
     *   For more information about Open ID Connect, visit the OpenID Connect page located at [docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  
@@ -541,25 +541,25 @@ Go to [Contents](#Contents)
 
 ---  
 
-## Guidelines and How-Tos  
+## Guidelines and How To Guides  
 
 ### Guidelines for creating a Microsoft ID to manage an Azure Marketplace account  
 If more than one person requires access to the same Microsoft ID used to create your Azure Marketplace account, then you should follow these guidelines to help you create a company account. 
 
 >[!IMPORTANT]
->To authorize multiple users to access your Dev Center account, Microsoft recommends that you use Azure Active Directory (Azure AD) to assign roles to individual users. Each user must access the account by signing in with individual Azure AD credentials. Create your Microsoft ID by using an email address in a domain registered to your company Microft sggests that the email about not be assigned to an individual. An example is `windowsapps@fabrikam.com`.  
+>To authorize multiple users to access your Dev Center account, Microsoft recommends that you use Azure Active Directory (Azure AD) to assign roles to individual users. Each user must access the account by signing in with individual Azure AD credentials. Create your Microsoft ID by using an email address in a domain registered to your company. Microsoft suggests that the email about not be assigned to an individual. An example is `windowsapps@fabrikam.com`.  
 >*   More information, visit the [Issue: Microsoft ID in an Azure AD federated domain](#Issue:-Microsoft-ID-in-an-Azure-AD-federated-domain) section.  
 
 *   Limit access to the Microsoft ID to the smallest possible number of developers. 
-*   Set up a corporate email distribution list that includes everyone who must access your Dev Center account, and add this email address to your security information. This enables all of the employees on the list to receive security codes when requested and to manage the security information for your Microsoft ID. If setting up a distribution list is not feasible, then the owner of the individual email account must be available to access and share the security code when prompted.  
+*   Set up a corporate email distribution list that includes everyone who must access your Dev Center account, and add the new email address to your security information. This enables all of the employees on the list to receive security codes when requested and to manage the security information for your Microsoft ID. If setting up a distribution list is not feasible, then the owner of the individual email account must be available to access and share the security code when prompted.  
     *   For example, the owner is prompted when new security information is added to the account or when it must be accessed from a new device.  
 *   Add a company phone number that does not require an extension and is accessible to key team members.  
 *   In general, you should require developers to use trusted devices to sign into the Dev Center account for your company. All key team members should have access to the trusted devices. Using trusted devices to access reduces the requirement for sending security codes when someone is accessing the account.  
 *   If you are required to grant access to the account from a non-trusted computer, then you should limit access to a maximum of five developers. Ideally, your developers should access the account from machines that share the same geographical and network location.  
-*   Frequently review and verify the security information for you company.  
+*   Frequently review and verify the security information for your company.  
     *   To view your security information, visit the Security settings page located at [account.live.com/proofs/Manage](https://account.live.com/proofs/Manage).
 
-Your Dev Center account should be primarily accessed from trusted computers. This is critical, because there is a limit to the number of codes generated per account per week. Using trusted computers also enables the most seamless sign in experience. 
+Your Dev Center account should be primarily accessed from trusted computers. This is critical, because there is a limit to the number of codes generated per account per week. Using trusted computers also enables the most seamless sign-in experience. 
 *   For more information about additional Dev Center account guidelines and security, visit the Opening a developer account page located at [docs.microsoft.com/windows/uwp/publish/opening-a-developer-account](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account). 
 
 Go to [Contents](#Contents)  
@@ -668,10 +668,10 @@ If you have issues with Dev Center registration, then follow these steps to subm
     Select `Publish and manage apps` from the *Category* drop-down menu.  
     
     Click on the Start email button.  
-4.  On the sign in page, sign in using use any Microsoft ID. If you do not have a Microsoft ID, then create one.  
+1.  On the sign-in page, sign into Dev Center using any Microsoft ID. If you do not have a Microsoft ID, then create one.  
     *   For more information about creating a Microsoft ID, visit the [Guidelines for creating a Microsoft ID to manage an Azure Marketplace account](#Guidelines-for-creating-a-Microsoft-ID-to-manage-an-Azure-Marketplace-account) section.  
-5.  Fill in the details of the issue.  
-6.  To submit the ticket, click on the Submit button. 
+2.  Fill in the details of the issue.  
+3.  To submit the ticket, click on the Submit button. 
 
 Go to [Contents](#Contents)  
 
@@ -724,7 +724,7 @@ There are no fees for participating in the Marketplace. There is no revenue shar
 *   For more information, visit the Azure Marketplace Participation Policies page located at [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies). 
 
 #### Pay-As-You-Go and Bring Your Own License Billing Options  
-When you use a Pay-As-You-Go billing model as a publishing option, your usage-based software licensing revenue is shared 80/20 between you and Microsoft. A single offer may priced using both Pay-As-You-Go and Bring Your Own License (BYOL) billing models, and the two billing models coexist at the offer level as separate SKUs. You configure the billing models in your offer on Cloud Partner Portal. 
+When you use a Pay-As-You-Go billing model as a publishing option, your usage-based software licensing revenue is shared 80/20 between you and Microsoft. A single offer may be priced using both Pay-As-You-Go and Bring Your Own License (BYOL) billing models, and the two billing models coexist at the offer level as separate SKUs. You configure the billing models in your offer on Cloud Partner Portal. 
 
 Consider the following example.  
 *   If you enable the Pay-As-You-Go option.  
@@ -760,7 +760,7 @@ Consider the following example.
 An important benefit of using the transact listing option is that Microsoft may single-bill your licensing costs at the same time as the underlying Azure usage directly to your customer. In this scenario, Microsoft bills and collects on your behalf, which removes the requirement for you to create your own procurement relationship with your customer. This may save you time and resources; helping you to focus on landing the sale, rather than collecting the bill. 
 
 #### Enterprise Agreement  
-If you are an Enterprise Agreement (EA) customer with Microsoft, then you may use an EA to pay for Microsoft products, including Azure usage. This payment option is designed for organizations that want to license software and cloud services for three or more years. You have the option to spread payments instead of one making up-front payment. If you use Pay-As-You-Go transact listing type, then the billing for the your software licensing costs follows the quarterly EA overage billing cycle.  
+If you are an Enterprise Agreement (EA) customer with Microsoft, then you may use an EA to pay for Microsoft products, including Azure usage. This payment option is designed for organizations that want to license software and cloud services for three or more years. You have the option to spread payments instead of one making up-front payment. If you use Pay-As-You-Go transact listing type, then the billing for your software licensing costs follows the quarterly EA overage billing cycle.  
 
 ##### Monetary Commitment  
 If you are an EA customer, then you may add Azure to your agreement by making an upfront monetary commitment to Azure. That commitment is consumed throughout the year by using any combination of the wide variety of cloud services that are provided from the Azure global datacenters.  
