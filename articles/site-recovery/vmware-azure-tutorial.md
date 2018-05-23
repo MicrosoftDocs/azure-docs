@@ -32,7 +32,7 @@ Before you start, it's helpful to:
 - This tutorial sets up VMware disaster recovery to Azure with the simplest settings. If you want to learn about other options, read through our How To guides:
     - Set up the [replication source](vmware-azure-set-up-source.md) and [configuration server](vmware-azure-deploy-configuration-server.md).
     - Set up the [replication target](vmware-azure-set-up-target.md).
-    - Configure a [replication policy](vmware-azure-set-up-replication), and [enable replication](vmware-azure-enable-replication.md).
+    - Configure a [replication policy](vmware-azure-set-up-replication.md), and [enable replication](vmware-azure-enable-replication.md).
 
 
 ## Select a replication goal
