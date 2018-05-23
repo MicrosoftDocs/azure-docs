@@ -3,7 +3,7 @@ title: Making an accessible application with Azure Maps | Microsoft Docs
 description: How to build an accessible application using Azure Maps
 services: azure-maps
 keywords: 
-author: chgennar-azureiot
+author: chgennar
 ms.author: chgennar
 ms.date: 05/18/2018
 ms.topic: article
