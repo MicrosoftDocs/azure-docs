@@ -273,10 +273,6 @@
           href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Resources
   items:
-  - name: TDSP tools and utilities
-    items:
-    - name: Data exploration & modeling (GitHub)
-      href: https://github.com/Azure/Azure-TDSP-Utilities
   - name: Blogs
     items:
     - name: Recent Updates for the TDSP
