@@ -35,6 +35,8 @@ For more information about how built-in roles are defined for Azure Storage, see
 You can also define custom roles for use with Blob storage and Azure Queues. For more information, see [Create custom roles for Azure Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/custom-roles.md). 
 
 > [!IMPORTANT]
+> This preview is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications. 
+>
 > During the preview, role assignments may take up to five minutes to propagate.
 
 ## Assign a role to a security principal
