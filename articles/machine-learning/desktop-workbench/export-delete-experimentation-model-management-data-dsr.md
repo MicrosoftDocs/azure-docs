@@ -23,7 +23,7 @@ In-product data stored by Azure Machine Learning Experimentation and Model Manag
 
 In order to delete data, the following API calls can be made with the HTTP DELETE verb.  These are authorized by having an `Authorization: Bearer <arm-token>` header in the request, where `<arm-token>` is the AAD access token for the endpoint `https://management.core.windows.net/` endpoint.  
 
-To learn how to  how to obtain this token and call Azure endpoints, see [Azure REST API documentation](https://docs.microsoft.com/rest/api/azure/).  
+To learn how to get this token and call Azure endpoints, see [Azure REST API documentation](https://docs.microsoft.com/rest/api/azure/).  
 
 In the examples following, replace the text in {} with the instance names that determine the associated resource.
 
@@ -81,7 +81,7 @@ https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{res
 ## Export service data with the REST API
 In order to export data, the following API calls can be made with the HTTP GET verb.  These are authorized by having an `Authorization: Bearer <arm-token>` header in the request, where `<arm-token>` is the AAD access token for the endpoint `https://management.core.windows.net/`  
 
-To learn how to  how to obtain this token and call Azure endpoints, see [Azure REST API documentation](https://docs.microsoft.com/rest/api/azure/).   
+To learn how to get this token and call Azure endpoints, see [Azure REST API documentation](https://docs.microsoft.com/rest/api/azure/).   
 
 In the examples following, replace the text in {} with the instance names that determine the associated resource.
 
