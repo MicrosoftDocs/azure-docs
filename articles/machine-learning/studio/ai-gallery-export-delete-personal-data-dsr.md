@@ -1,6 +1,6 @@
 ---
-title: Export and delete in-product user data from Azure AI Gallery | Microsoft Docs
-description: In-product data stored by Azure Machine Learning Studio is available for export and deletion through the Azure portal and also through authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. This article shows you how.
+title: View, export, delete your data from Azure AI Gallery | Microsoft Docs
+description: You can export and delete your in-product user data from Azure AI Gallery using the interface or AI Gallery Catalog API. This article shows you how.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -12,51 +12,64 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ---
 
-# Export and delete in-product user data from Azure AI Gallery
+# View, export, and delete in-product user data from Azure AI Gallery
 
+You can export and delete your in-product user data from Azure AI Gallery using the interface or AI Gallery Catalog API. This article shows you how.
 
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+## View your data in AI Gallery with the UI
 
+You can view items you published through the Azure AI Gallery website UI. Users can view both public and unlisted solutions, projects, experiments, and other published items:
 
+1.	Sign in to the [Azure AI Gallery](https://gallery.azure.ai/).
+2.	Click the profile picture in the top-right corner, and then the account name to load your profile page.
+3.	The profile page displays all items published to the gallery, including unlisted entries.
 
+## Use the AI Gallery Catalog API to view your data
 
-Azure AI Gallery
-View items published through the Azure AI Gallery website
-Users can view both public and unlisted Solutions, Projects, Experiments, and other published items by visiting the Azure AI Gallery website.
-1.	Log into https://gallery.cortanaintelligence.com
-2.	Click on the profile picture in the top-right corner, then the account name to load the profile page.
-3.	The profile page displays all items published to the Gallery, including unlisted entries.
+You can programmatically view data collected through the AI Gallery Catalog API, which is accessible at https://catalog.cortanaanalytics.com/entities. To view data, you need your Author ID. To view unlisted entities through the Catalog API, you need an access token.
 
-AI Gallery Catalog API
-One can programmatically view data collected through the Catalog API, which is accessible at https://catalog.cortanaanalytics.com. To view data, the user will need their Author ID.  To view unlisted entities through the Catalog API, an Access Token will be required
-All catalog responses are returned in JSON format.
-Getting an Author ID
-The Author ID is based on the email address used when publishing to the Azure AI Gallery. It does not change:
-1.	Log into https://gallery.cortanaintelligence.com
-2.	Click the profile picture in the top-right corner, then click the account name to load the profile page.
-3.	The URL in the address bar will display the author id after “authorId=”. For example, if the address bar contains:
-https://gallery.cortanaintelligence.com/Home/Author?authorId=CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE
-then the author id is
-CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE
+Catalog responses are returned in JSON format.
 
-Getting your Access Token
-One will need an Access Token to view unlisted entities through the Catalog API. Without an Access Token, users can still view public entities and other user info.
+### Get an author ID
+The author ID is based on the email address used when publishing to the Azure AI Gallery. It doesn't change:
 
-To get an Access Token a user will need to inspect the “DataLabAccessToken” header of an HTTP request the browser makes to the Catalog API while logged in.
-1.	Open a browser tab to the profile page by following steps 1 and 2 from “Getting an Author ID”.
-2.	Open a “Developer Tools” window by pressing F12, select the Network tab, and refresh the page. Filter requests by the string “catalog” by typing into the Filter textbox.
-3.	One should see some requests to the URL “https://catalog.cortanaanalytics.com/entities”. Find a GET request and select the “Headers” tab. Scroll down to the “Request Headers” section.
-4.	One should see a header with the name “DataLabAccessToken”. The value of this field is the token. It is not to be shared. 
-View user information
-To view information in a user’s profile, visit the following URL, replacing [AuthorId] with the Author Id obtained from the previous section.
-https://catalog.cortanaanalytics.com/users/[AuthorID]
+1.	Sign in to [Azure AI Gallery](https://gallery.azure.ai/).
+2.	Click the profile picture in the top-right corner, and then the account name to load your profile page.
+3.	The URL in the address bar displays the alphanumeric ID following `authorId=`. For example, for the URL: 
+    `https://gallery.cortanaintelligence.com/Home/Author?authorId=CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE`
+        
+    Author ID: 
+    `CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE`
 
-For example:
-https://catalog.cortanaanalytics.com/users/CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE
+### Get your access token
+
+You need an access token to view unlisted entities through the Catalog API. Without an Access Token, users can still view public entities and other user info.
+
+To get an access token, you need to inspect the `DataLabAccessToken` header of an HTTP request the browser makes to the Catalog API while logged in:
+
+1.	Sign in to the [Azure AI Gallery](https://gallery.azure.ai/).
+2.	Click the profile picture in the top-right corner, and then the account name to load your profile page.
+3.	Open the browser Developer Tools pane by pressing F12, select the Network tab, and refresh the page. 
+4. Filter requests on the string *catalog* by typing into the Filter text box.
+5.	In requests to the URL `https://catalog.cortanaanalytics.com/entities`, find a GET request and select the *Headers* tab. Scroll down to the *Request Headers* section.
+6.	Under the header `DataLabAccessToken` is the alphanumeric token. To help keep your data secure, don't share this token.
+
+### View user information
+Using the author ID you got in the previous steps, view information in a user's profile by replacing `S[AuthorId]` in the following URL:
+
+    https://catalog.cortanaanalytics.com/users/[AuthorID]
+
+For example, this URL request:
+    
+    https://catalog.cortanaanalytics.com/users/CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE
 
 Returns a response such as:
-{"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
+
+    {"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
+
+
 View published entities
 The Catalog API stores information about published entities to the Azure AI Gallery. One can also view this information directly on the Gallery website at https://gallery.cortanaintelligence.com. See previous sections for more information.
 To view published entities, visit the following URL, replacing [AuthorId] with the Author ID obtained from the previous section.
