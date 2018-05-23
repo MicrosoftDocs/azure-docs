@@ -23,10 +23,10 @@ This article shows you how [Azure App Service](app-service-web-overview.md) help
 
 The platform components of App Service, including Azure VMs, storage, network connections, web frameworks, management and integration features, are actively secured and hardened. App Service goes through vigorous compliance checks on a continuous basis to make sure that:
 
-- Your app resources are [isolated](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) from the other customers' Azure resources.
+- Your app resources are [secured](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) from the other customers' Azure resources.
 - [VM instances and runtime software are regularly updated](app-service-patch-os-runtime.md) to address newly discovered vulnerabilities. 
 - Communication of secrets (such as connection strings) between your app and other Azure resources (such as [SQL Database](/services/sql-database/)) stays within Azure and doesn't cross any network boundaries. Secrets are always encrypted.
-- All communication between your app and external resources, such as [hybrid connection](app-service-hybrid-connections.md) to an on-premises resource, is encrypted. 
+- All communication over the App Service connectivity features, such as [hybrid connection](app-service-hybrid-connections.md), is encrypted. 
 - Connections with remote management tools like Azure PowerShell, Azure CLI, Azure SDKs, REST APIs, are all encrypted.
 - 24-hour threat management protects the infrastructure and platform against malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats.
 
@@ -51,7 +51,7 @@ App Service supports both FTP and FTPS for deploying your files. However, FTPS s
 
 ## Static IP restrictions
 
-By default, your App Service app accepts requests from all IP addresses from the internet, but you can limit that access to a small subset of IP addresses. App Service lets you define a list of IP addresses that are allowed to access your app. The allowed list can include individual IP addresses or a range of IP addresses defined by a subnet mask. For more information, see [Azure App Service Static IP Restrictions](app-service-ip-restrictions.md).
+By default, your App Service app accepts requests from all IP addresses from the internet, but you can limit that access to a small subset of IP addresses. App Service on Windows lets you define a list of IP addresses that are allowed to access your app. The allowed list can include individual IP addresses or a range of IP addresses defined by a subnet mask. For more information, see [Azure App Service Static IP Restrictions](app-service-ip-restrictions.md).
 
 For App Service on Windows, you can also restrict IP addresses dynamically by configuring the _web.config_. For more information, see [Dynamic IP Security <dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
@@ -81,6 +81,6 @@ Except for the **Isolated** pricing tier, all tiers run your apps on the shared 
 - Restrict network access with [network security groups](../virtual-network/virtual-networks-nsg.md). 
 - Serve your apps through a dedicated public endpoint, with dedicated front ends.
 - Serve internal application using an internal load balancer (ILB), which allows access only from inside your Azure Virtual Network. The ILB has an IP address from your private subnet, which provides total isolation of your apps from the internet.
-- Use an ILB behind a [web application firewall](../application-gateway/application-gateway-web-application-firewall-overview.md) (WAF). The WAF offers enterprise-level protection to your public-facing applications, such as DDoS protection, URI filtering, and SQL injection prevention.
+- [Use an ILB behind a web application firewall (WAF)](environment/integrate-with-application-gateway.md). The WAF offers enterprise-level protection to your public-facing applications, such as DDoS protection, URI filtering, and SQL injection prevention.
 
 For more information, see [Introduction to Azure App Service Environments](environment/intro.md).
