@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 05/22/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -154,7 +154,7 @@ An application is classified as:
 
 - A a mobile app or desktop application if it uses the mobile app OpenID Connect for a native client.
 
-For a complete list of the client apps you can use in your conditional access policy, see the [Azure Active Directory Conditional Access technical reference](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+For a complete list of the client apps you can use in your conditional access policy, see [Client apps condition](active-directory-conditional-access-technical-reference.md#client-apps-condition) in the Azure Active Directory Conditional Access technical reference.
 
 Common use cases for this condition are policies that:
 
@@ -164,17 +164,25 @@ Common use cases for this condition are policies that:
 
 In addition to using web SSO and modern authentication protocols, you can apply this condition to mail applications that use Exchange ActiveSync, like the native mail apps on most smartphones. Currently, client apps using legacy protocols need to be secured using AD FS.
 
+You can only select this condition if **Office 365 Exchange Online is the only cloud app you have selected.
+
+![Cloud apps](./media/active-directory-conditional-access-conditions/32.png)
+
+Selecting **Exchange ActiveSync** as client apps condition is only supported if you don't have other conditions  in a policy configured. However, you can narrow down the scope of this condition to only apply to supported platforms.
+
+ 
+![Supported platforms](./media/active-directory-conditional-access-conditions/33.png)
+
+Applying this condition only to supported platforms is the equivalent to all device platforms in a [device platform condition](active-directory-conditional-access-conditions.md#device-platforms).
+
+![Supported platforms](./media/active-directory-conditional-access-conditions/34.png)
+
+
  For more information, see:
 
 - [Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access](active-directory-conditional-access-no-modern-authentication.md)
  
 - [Azure Active Directory app-based conditional access](active-directory-conditional-access-mam.md) 
-
-
-
-
-
-
 
 
 ## Next steps

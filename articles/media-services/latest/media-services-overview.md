@@ -47,7 +47,9 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 
 ## v3 capabilities
 
-v3 is based on a unified API surface which exposes both management and operations functionality built on **Azure Resource Manager**. This version provides the following capabilities:  
+v3 is based on a unified API surface which exposes both management and operations functionality built on **Azure Resource Manager**. In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
+
+This version provides the following capabilities:  
 
 * **Transforms** that help you define simple workflows of media processing or analytics tasks. Transform is a recipe for processing your video and audio files. You can then apply it repeatedly to process all the files in your content library, by submitting jobs to the Transform.
 * **Jobs** to process (encode or analyze) your videos. An input content can be specified on a job using HTTP(s) URLs, SAS URLs, or paths to files located in Azure Blob storage. 

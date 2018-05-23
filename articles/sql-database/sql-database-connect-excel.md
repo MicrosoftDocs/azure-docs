@@ -7,7 +7,7 @@ author: joseidz
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2017
 ms.author: craigg
 

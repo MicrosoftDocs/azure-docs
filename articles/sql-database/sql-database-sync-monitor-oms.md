@@ -3,7 +3,7 @@ title: "Monitor Azure SQL Data Sync (Preview) with Log Analytics | Microsoft Doc
 description: "Learn how to monitor Azure SQL Data Sync (Preview) by using Log Analytics"
 services: sql-database
 ms.date: "04/01/2018"
-ms.topic: "article"
+ms.topic: conceptual
 ms.service: "sql-database"
 author: "douglaslMS"
 ms.author: "douglasl"
