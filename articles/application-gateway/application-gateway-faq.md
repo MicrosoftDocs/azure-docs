@@ -83,7 +83,8 @@ Only one public IP address is supported on an Application Gateway.
 
 **Q. How big should I make my subnet for Application Gateway?**
 
-Application Gateway consumes 1 private IP address per instance, plus another Private IP if a Private Frontend IP Configuration is configured.  For example, if Application Gateway is set to 3 instances and no private frontend IP, a /29 subnet size or greater will be needed; as Application Gateway would use 3 IP addresses.  If I have 3 instances and an IP address for the Private frontend IP configuration, then a /28 subnet size or greater will be needed as 4 IP addresses would be required.
+Application Gateway consumes one private IP address per instance, plus another private IP address if a private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage.
+For example, if Application Gateway is set to three instances and no private frontend IP, then a /29 subnet size or greater is needed. In this case, Application Gateway uses three IP addresses. If you have three instances and an IP address for the private frontend IP configuration, then a /28 subnet size or greater is needed as four IP addresses are required.
 
 **Q. Does Application Gateway support x-forwarded-for headers?**
 
