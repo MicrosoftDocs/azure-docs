@@ -18,7 +18,7 @@ ms.author: menchi
 ms.custom: H1Hack27Feb2017
 
 ---
-# Get started with IoT Hub module identity and module twin using .NET backup and .NET device
+# Get started with IoT Hub module identity and module twin using .NET back end and .NET device
 
 > [!NOTE]
 > [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
