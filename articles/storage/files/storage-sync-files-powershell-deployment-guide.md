@@ -25,6 +25,9 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 This article focuses on the steps needed using Azure File Sync PowerShell for deployment.
 Alternatively, follow the [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) guide that will illustrate a deployment using the Azure portal and server utilities.
 
+> [!Important]
+> Azure File Sync PowerShell modules require the use of PowerShell version 5.1 or higher.
+
 
 # PowerShell modules
 There are two PowerShell modules that get placed in the install directory of the Azure File Sync agent.
