@@ -3,11 +3,11 @@ title: Calling Azure Storage Services REST API operations including authenticati
 description: Calling Azure Storage Services REST API operations including authentication
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/19/2018
+ms.date: 05/22/2018
 ms.author: tamram
 ---
 
@@ -268,6 +268,9 @@ Content-Length: 1511
 Now that you understand how to create the request, call the service, and parse the results, let’s see how to create the authorization header. Creating that header is complicated, but the good news is that once you have the code working, it works for all of the Storage Service REST APIs.
 
 ## Creating the authorization header
+
+> [!TIP]
+> Azure Storage now supports Azure Active Directory (Azure AD) integration for the Blob and Queue services (Preview). Azure AD offers a much simpler experience for authorizing a request to Azure Storage. For more information on using Azure AD to authorize REST operations, see [Authenticate with Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). For an overview of Azure AD integration with Azure Storage, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
 
 There is an article that explains conceptually (no code) how to perform [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services).
 Let's distill that article down to exactly is needed and show the code.
