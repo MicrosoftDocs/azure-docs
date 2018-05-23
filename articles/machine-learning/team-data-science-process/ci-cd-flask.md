@@ -22,6 +22,15 @@ For an AI application, there are frequently two streams of work, Data Scientists
 ## GitHub repository with document and code
 You can download the source code from [GitHub](https://github.com/Azure/DevOps-For-AI-Apps). A [detailed tutorial](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) is also available.
 
+## Pre-requisites
+The following are the pre-requisites for following the CI/CD pipeline described below:
+* [Visual Studio Team Services Account](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student)
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure Container Service (AKS) cluster running Kubernetes](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+* [Azure Container Registy (ACR) account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
+* [Install Kubectl to run commands against Kubernetes cluster.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) We will need this to fetch configuration from ACS cluster. 
+* Fork the repository to your GitHub account.
+
 ## Description of the CI/CD pipeline
 The pipeline kicks off for each new commit, run the test suite, if the test passes takes the latest build, packages it in a Docker container. The container is then deployed using Azure container service (ACS) and images are securely stored in Azure container registry (ACR). ACS is running Kubernetes for managing container cluster but you can choose Docker Swarm or Mesos.
 
@@ -43,15 +52,6 @@ The pipeline architecture is given below.
 9. Latest image from ACR is pulled and deployed across Kubernetes cluster on ACS.
 10. Users request for the app goes through DNS server.
 11. DNS server passes the request to load balancer and sends the response back to user.
-
-## Pre-requisites
-* [Visual Studio Team Services Account](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Azure Container Service (AKS) cluster running Kubernetes](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Azure Container Registy (ACR) account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
-* [Install Kubectl to run commands against Kubernetes cluster.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) We will need this to fetch configuration from ACS cluster. 
-* Fork the repository to your GitHub account.
-
 
 ## Next steps
 * Refer to the [tutorial]((https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md)) to follow the details and implement your own CI/CD pipeline for your application.
