@@ -44,4 +44,4 @@ QnA Maker makes it very simple to onboard your existing data sources to create a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Import a knowledge base](./migrate-knowledge-base.md)
+> [Import a knowledge base](../Tutorials/migrate-knowledge-base.md)
