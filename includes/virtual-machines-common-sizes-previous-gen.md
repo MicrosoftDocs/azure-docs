@@ -11,6 +11,9 @@
 ---
 
 
+This article provides information on previous generations of virtual machine sizes. These sizes can still be used, but there are newer generations available.
+
+
 ## DS-series
 
 ACU: 160
