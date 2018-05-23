@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
-ms.author: rijai
+ms.author: jainr
 ---
 # DevOps for Artificial Intelligence (AI) applications: Creating continuous integration pipeline using Docker and Kubernetes
 For an AI application, there are frequently two streams of work, Data Scientists building machine learning models and App developers building the application and exposing it to end users to consume. In this article, we demonstrate how to implement a Continuous Integration (CI)/Continous Delivery (CD) pipeline for an AI application. AI application is a combination of application code embedded with a pretrained machine learning (ML) model. For this tutorial, we are fetching a pretrained model from a private Azure blob storage account, it could be an AWS S3 account as well. We will use a simple python flask web application for the tutorial.
 
 ## GitHub repository with document and code
-You can download the source code from [GitHub](https://github.com/Azure/DevOps-For-AI-Apps)
+You can download the source code from [GitHub](https://github.com/Azure/DevOps-For-AI-Apps). A [detailed tutorial](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) is also available.
 
 ## Description of the CI/CD pipeline
 The pipeline kicks off for each new commit, run the test suite, if the test passes takes the latest build, packages it in a Docker container. The container is then deployed using Azure container service (ACS) and images are securely stored in Azure container registry (ACR). ACS is running Kubernetes for managing container cluster but you can choose Docker Swarm or Mesos.

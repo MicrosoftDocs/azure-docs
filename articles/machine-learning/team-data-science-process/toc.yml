@@ -46,7 +46,7 @@
     href: track-progress.md
 - name: Operationalization
   items:
-  - name: CI/CD of models
+  - name: CI/CD
     href: ci-cd-flask.md
 - name: Worked-out examples
   href: walkthroughs.md
