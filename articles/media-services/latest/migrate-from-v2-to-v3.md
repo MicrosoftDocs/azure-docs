@@ -25,7 +25,7 @@ ms.author: juliako
 
 This article describes changes that were introduced in Azure Media Services (AMS) v3 and shows differences between two versions.
 
-## Why should a customer move to v3?
+## Why should you move to v3?
 
 ### API is more approachable
 
@@ -59,9 +59,11 @@ This article describes changes that were introduced in Azure Media Services (AMS
   * LiveOutput replaces Program.
   * StreamingLocator replaces Locator.
 
-## Create Asset and Upload file 
+## Code changes
 
-### v2
+### Create an asset and upload a file 
+
+#### v2
 
 ```csharp
 IAsset asset = context.Assets.Create(assetName, storageAccountName, options);
@@ -71,7 +73,7 @@ IAssetFile assetFile = asset.AssetFiles.Create(assetFileName);
 assetFile.Upload(filePath);
 ```
 
-### v3
+#### v3
 
 ```csharp
 Asset asset = client.Assets.CreateOrUpdate(resourceGroupName, accountName, assetName, new Asset());
@@ -85,9 +87,9 @@ var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
 blob.UploadFromFile(fileToUpload);
 ```
 
-## Submit a job
+### Submit a job
 
-### v2
+#### v2
 
 ```csharp
 IMediaProcessor processor = context.MediaProcessors.GetLatestMediaProcessorByName(mediaProcessorName);
@@ -103,7 +105,7 @@ task.OutputAssets.AddNew(outputAssetName, outputAssetStorageAccountName, outputA
 job.Submit();
 ```
 
-### v3
+#### v3
 
 ```csharp
 client.Assets.CreateOrUpdate(resourceGroupName, accountName, outputAssetName, new Asset());
@@ -117,9 +119,9 @@ accountName, transformName, jobName,
 new Job {Input = jobInput, Outputs = jobOutputs});
 ```
 
-## Publish an Asset with AES Encryption 
+### Publish an asset with AES encryption 
 
-### v2
+#### v2
 
 1. Create ContentKeyAuthorizationPolicyOption
 2. Create ContentKeyAuthorizationPolicy
@@ -131,7 +133,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 8. Create AccessPolicy
 9. Create Locator
 
-### v3
+#### v3
 
 1. Create Content Key Policy
 2. Create Asset
