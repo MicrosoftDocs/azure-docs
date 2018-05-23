@@ -113,7 +113,8 @@ In this section, you will configure blob storage as an input to the Stream Analy
    |Output alias |   BlobOutput   |   Enter a name to identify the job’s output. |
    |Subscription  |  \<Your subscription\>  |  Select the Azure subscription that has the storage account you created. The storage account can be in the same or in a different subscription. This example assumes that you have created storage account in the same subscription. |
    |Storage account |  myasastorageaccount |   Choose or enter the name of the storage account. Storage account names are automatically detected if they are created in the same subscription.       |
-   |Container |   container2  |  Create a new container in the same storage account that you used for input.   |
+   |Container |   container1  |  Select the existing container that you created in your storage account.   |
+   |Path pattern |   output  |  Enter a name to serve as the path within your existing container for the output.   |
 
 4. Leave other options to default values and select **Save** to save the settings.  
 
@@ -150,7 +151,7 @@ In this section, you will configure blob storage as an input to the Stream Analy
 
    ![Start the job](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
-3. After few minutes, in the portal, find the storage account & the container that you have configured as output for the job. You can now see the output file in the container. The job takes a few minutes to start for the first time, after it is started, it will continue to run as the data arrives.  
+3. After few minutes, in the portal, find the storage account & the container that you have configured as output for the job. Select the output path. You can now see the output file in the container. The job takes a few minutes to start for the first time, after it is started, it will continue to run as the data arrives.  
 
    ![Transformed output](./media/stream-analytics-quick-create-portal/transformed-output.png)
 
