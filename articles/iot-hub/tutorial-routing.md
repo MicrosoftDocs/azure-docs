@@ -596,6 +596,6 @@ In this tutorial, you learned how to use message routing to route IoT Hub messag
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
 > [!div class="nextstepaction"]
-[Get started with Azure IoT Hub device twins](iot-hub-node-node-twin-getstarted.md)
+[Configure your devices from a back-end service](tutorial-device-twins.md)
 
  <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

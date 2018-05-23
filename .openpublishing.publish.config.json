@@ -151,7 +151,7 @@
     },
     {
       "path_to_root": "iot-samples-node",
-      "url": "https://github.com/dominicbetts/azure-iot-samples-node",
+      "url": "https://github.com/Azure-Samples/azure-iot-samples-node",
       "branch": "tutorial-device-twin",
       "branch_mapping": {}
     },
