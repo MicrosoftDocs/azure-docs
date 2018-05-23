@@ -137,20 +137,10 @@
       href: log-analytics-powerbi.md
   - name: Create alerts
     items:
-    - name: Understanding alerts
-      href: log-analytics-alerts.md
-    - name: Alert actions
-      href: log-analytics-alerts-actions.md
-    - name: Create alert rules
-      items:
-      - name: Azure portal
-        href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
-      - name: REST API
-        href: log-analytics-api-alerts.md
-      - name: Resource Manager template
-        href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md
-    - name: Webhook action sample
-      href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md
+    - name: Understanding log alerts
+      href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts
+    - name: Create log alert
+      href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
   - name: Manage
     items:
     - name: Personal data handling
