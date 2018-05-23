@@ -52,7 +52,7 @@ Policy is generally available in Azure Government.
 
 ### Variations
 The following Policy features are not currently available in Azure Government:
-* Provisioning and management of policies is available through [PowerShell](../azure-policy/assign-policy-definition-ps) and [CLI](../azure-policy/assign-policy-definition-cli). Policy enforcements (audit, append, deny, deployIfNotExists) are visible from the Azure Activity Log, however portal support to provision and manage policies is not available yet. > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/32570320-azure-policy-in-azure-government)
+* Provisioning and management of policies is available through [PowerShell](../azure-policy/assign-policy-definition-ps.md) and [CLI](../azure-policy/assign-policy-definition-cli.md). Policy enforcements (audit, append, deny, deployIfNotExists) are visible from the Azure Activity Log, however portal support to provision and manage policies is not available yet. > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/32570320-azure-policy-in-azure-government)
 * Policy will only be enforced during resource creation. The ability to check for policy compliance on existing resources is not available yet. > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/32570320-azure-policy-in-azure-government).
 
 For more information, see [Azure Policy](../azure-policy/azure-policy-introduction.md).
