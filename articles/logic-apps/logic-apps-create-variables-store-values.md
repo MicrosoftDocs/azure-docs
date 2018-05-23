@@ -239,7 +239,7 @@ This example sends an email with the results.
 *Test your logic app*
 
 1. If your logic app isn't running already, on the logic app menu, 
-choose **Overview**, and on the **Overview** page, choose **Enable**. 
+choose **Overview**. On the **Overview** page, choose **Enable**. 
 
 2. Send an email that has one or more attachments 
 to the email account that you used in this example.
@@ -249,7 +249,7 @@ This step manually and immediately starts your logic app.
 
 After your logic app finishes running, 
 you get an email with the number of attachments 
-for the email that you sent to yourself. 
+for the email you sent to yourself. 
 
 <a name="decrement-value"></a>
 
@@ -282,13 +282,13 @@ except for these steps:
 * Provide the value you want to assign the variable. 
 This value is required because this action doesn't have a default value. 
 
-  Here are the properties for the **Set variable** action:
+Here are the properties for the **Set variable** action:
 
-  | Property | Required | Value |  Description | 
-  |----------|----------|-------|--------------| 
-  | Name | Yes | <*variable-name*> | The name for the variable to change | 
-  | Value | Yes | <*new-value*> | The value you want to assign the variable. This new value must have the same data type as the variable. | 
-  ||||| 
+| Property | Required | Value |  Description | 
+|----------|----------|-------|--------------| 
+| Name | Yes | <*variable-name*> | The name for the variable to change | 
+| Value | Yes | <*new-value*> | The value you want to assign the variable. This new value must have the same data type as the variable. | 
+||||| 
 
 <a name="append-value"></a>
 
@@ -307,13 +307,13 @@ except for these steps:
 * Provide the value you want to append to the variable. 
 This value is required because this action doesn't have a default value. 
 
-  Here are the properties for the **Append to...** actions:
+Here are the properties for the **Append to...** actions:
 
-  | Property | Required | Value |  Description | 
-  |----------|----------|-------|--------------| 
-  | Name | Yes | <*variable-name*> | The name for the variable to change | 
-  | Value | Yes | <*append-value*> | The value you want to append. This new value must have the same data type as the variable. | 
-  |||||  
+| Property | Required | Value |  Description | 
+|----------|----------|-------|--------------| 
+| Name | Yes | <*variable-name*> | The name for the variable to change | 
+| Value | Yes | <*append-value*> | The value you want to append. This new value must have the same data type as the variable. | 
+|||||  
 
 <a name="get-value"></a>
 
