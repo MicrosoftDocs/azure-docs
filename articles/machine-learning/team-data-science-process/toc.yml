@@ -44,9 +44,9 @@
     href: code-test.md
   - name: Track progress
     href: track-progress.md
-- name: Operations & CI/CD
+- name: Operations
   items:
-  - name: CI/CD
+  - name: CI/CD of ML models
     href: ci-cd-flask.md
 - name: Worked-out examples
   href: walkthroughs.md
@@ -88,6 +88,10 @@
     href: team-data-science-process-for-data-scientists.md
   - name: For DevOps
     href: team-data-science-process-for-devops.md
+- name: TDSP utilities & tools
+  items:
+  - name: Data exploration & modeling utils (GitHub)
+    href: https://github.com/Azure/Azure-TDSP-Utilities
 - name: How To
   items:
   - name: Use TDSP in Azure ML
@@ -271,7 +275,7 @@
   items:
   - name: TDSP tools and utilities
     items:
-    - name: Download from GitHub
+    - name: Data exploration & modeling (GitHub)
       href: https://github.com/Azure/Azure-TDSP-Utilities
     - name: Data Science Utilities v.0.11 for the TDSP
       href: https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/
@@ -283,6 +287,8 @@
       href: https://blogs.technet.microsoft.com/machinelearning/2017/10/09/the-microsoft-team-data-science-process-tdsp-recent-updates/
     - name: Using the TDSP in Azure Machine Learning
       href: https://blogs.technet.microsoft.com/machinelearning/2017/09/25/using-the-team-data-science-process-tdsp-in-azure-machine-learning/
+    - name: Latest utilities for the TDSP
+      href: https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/
     - name: Data Science Project Planning Template
       href: https://blogs.msdn.microsoft.com/buckwoody/2017/10/24/a-data-science-microsoft-project-template-you-can-use-in-your-solutions/
     - name: Cortana Intelligence and Machine Learning Blog
