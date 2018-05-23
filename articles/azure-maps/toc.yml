@@ -69,7 +69,9 @@
     - name: Show traffic 
       href: map-show-traffic.md
     - name: Interacting with mouse events
-      href: map-events.md   
+      href: map-events.md
+    - name: Accessible map applications
+      href: map-accessibility.md
 - name: Reference
   items:
   - name: Services API - REST
