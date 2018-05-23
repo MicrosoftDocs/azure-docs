@@ -22,8 +22,11 @@ Data Subject to DSR Processing
 
 ## Delete account data with the REST API 
 
-In order to delete data, the following API calls can be made with the HTTP DELETE verb.  These are authorized by having an "Authorization: Bearer <arm-token>" header in the request, where <arm-token> is the AAD access token for the "https://management.core.windows.net/" endpoint.  Please see further documentation here: https://docs.microsoft.com/en-us/rest/api/azure/ on how to obtain this token and call Azure endpoints.  
-Replace the text in {} with the instance names that determine the associated resource.
+In order to delete data, the following API calls can be made with the HTTP DELETE verb.  These are authorized by having an "Authorization: Bearer <arm-token>" header in the request, where <arm-token> is the AAD access token for the "https://management.core.windows.net/" endpoint.  
+
+To learn how to  how to obtain this token and call Azure endpoints, see [Azure REST API documentation](https://docs.microsoft.com/rest/api/azure/).  
+
+In the examples following, replace the text in {} with the instance names that determine the associated resource.
 
 ## Delete from a hosting account
     https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.MachineLearningModelManagement/accounts/{account-name}?api-version=2017-09-01-preview		
@@ -74,7 +77,11 @@ https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{res
 
 
 ## Export service data with the REST API
-In order to export data, the following API calls can be made with the HTTP GET verb.  These are authorized by having an "Authorization: Bearer <arm-token>" header in the request, where <arm-token> is the AAD access token for the "https://management.core.windows.net/" endpoint.  Please see further documentation here: https://docs.microsoft.com/en-us/rest/api/azure/ on how to obtain this token and call Azure endpoints.  Replace the text in {} with the instance names that determine the associated resource.
+In order to export data, the following API calls can be made with the HTTP GET verb.  These are authorized by having an "Authorization: Bearer <arm-token>" header in the request, where <arm-token> is the AAD access token for the "https://management.core.windows.net/" endpoint.  
+
+To learn how to  how to obtain this token and call Azure endpoints, see [Azure REST API documentation](https://docs.microsoft.com/rest/api/azure/).   
+
+In the examples following, replace the text in {} with the instance names that determine the associated resource.
 
 ## Export hosting account data
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningModelManagement/accounts/{accountName}?api-version=2017-09-01-preview		
