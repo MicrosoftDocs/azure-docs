@@ -475,7 +475,7 @@ specified value as the last array item in the variable.
       "type": "AppendToArrayVariable",
       "inputs": {
          "name": "myArrayVariable",
-         "value": "4"
+         "value": 4
       },
       "runAfter": {
         "Initialize_variable": [ "Succeeded" ]
