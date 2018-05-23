@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 05/23/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
@@ -81,7 +81,7 @@ Azure AD sign-in gives the user the option to remain signed in when they close a
 ## Add company branding to your directory
 
 1. Sign in to [the Azure AD admin center](https://aad.portal.azure.com) with an account that's a global admin for the tenant.
-2. Select **Users and groups** > **Company branding** > **Edit**.
+2. Select **Azure Active Directory** > **Company branding** > **Edit**.
   
   ![Opening custom branding](./media/customize-branding/navigation-to-branding.png)
 3. Modify the elements you want to customize. All elements are optional.
