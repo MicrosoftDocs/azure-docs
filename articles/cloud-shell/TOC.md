@@ -5,8 +5,7 @@
 ## [PowerShell - Quickstart](quickstart-powershell.md)
 
 # Features & tooling
-## [Bash - Features & tools](features.md)
-## [PowerShell - Features & tools](features-powershell.md)
+## [Features & tools](features.md)
 
 # How-to
 ## [Bash - Persisting storage](persisting-shell-storage.md)
