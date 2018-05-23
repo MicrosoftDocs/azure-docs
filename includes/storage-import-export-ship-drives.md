@@ -2,6 +2,7 @@
 title: Ship disk drives used for Azure Import/Export | Microsoft Docs
 description: Ship disk drives used for Azure Import/Export | Microsoft Docs
 author: alkohli
+services: storage
 
 ms.service: storage
 ms.topic: include

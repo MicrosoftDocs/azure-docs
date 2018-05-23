@@ -1,6 +1,6 @@
 ---
 title: Update Azure Import/Export job | Microsoft Docs
-description: Update Azure Import/Export job | Microsoft Docsinformation.
+description: Update Azure Import/Export job | Microsoft Docs
 author: alkohli
 services: storage
 
