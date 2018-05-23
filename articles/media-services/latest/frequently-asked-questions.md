@@ -33,13 +33,13 @@ S3 RUs are necessary for the **VideoAnalyzerPreset** and **AudioAnalyzerPreset**
 
 The AssetFiles were removed from the AMS API in order to separate Media Services from Storage SDK dependency. Now Storage, not Media Services, keeps the information that belongs in Storage. 
 
-## Where did client side storage encryption go?
+## Where did client-side storage encryption go?
 
-We now recommend server side storage encryption (which is on by default).
+We now recommend server-side storage encryption (which is on by default).
 
 ## What is the recommended upload method?
 
-We recommend the use of [HTTP(s) ingest](job-input-from-http-how-to.md).
+We recommend the use of HTTP(s) ingests. For more information, see [HTTP(s) ingest](job-input-from-http-how-to.md).
 
 ## How does pagination work?
 
@@ -49,9 +49,9 @@ This allows you to either get a small sample of items using $top (for example, t
 
 Media Services does not support paging through the data with a user specified page size.
 
-## Get methods are now based off of entity name as opposed to entity id, how to retrieve an entity based on its GUID?
+## How to retrieve an entity based on its GUID, what used to be ID in v2?
 
-v3 is based on a unified API surface which exposes both management and operations functionality built on **Azure Resource Manager**. In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
+v3 is based on a unified API surface, which exposes both management and operations functionality built on **Azure Resource Manager**. In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
 
 ## Next steps
 
