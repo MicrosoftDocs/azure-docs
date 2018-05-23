@@ -61,18 +61,16 @@ open your logic app in Logic App Designer.
    This example uses the Azure portal 
    and a logic app with an existing trigger.
 
-2. In Logic App Designer, under the step in your logic app 
-where you want to add a variable, add an action.
+2. In Logic App Designer, under the step where you want to add a variable, 
+choose one of these steps: 
 
-   To add an action under the last step, 
-   choose **New step** > **Add an action**.
+   * Under the last step, choose **New step** > **Add an action**.
 
      ![Add action](./media/logic-apps-create-variables-store-values/add-action.png)
 
-   To add an action between existing steps, 
-   move your mouse over the connecting arrow 
-   so that the plus sign (+) appears. Choose 
-   the plus sign, and then choose **Add an action**.
+   * To add an action between existing steps, move your mouse 
+   over the arrow so that the plus sign (+) appears. 
+   Choose the plus sign, and then choose **Add an action**.
 
 3. In the search box, enter "variables" as your filter. 
 From the actions list, select this action: 
@@ -80,7 +78,7 @@ From the actions list, select this action:
 
    ![Select action](./media/logic-apps-create-variables-store-values/select-initialize-variable-action.png)
 
-4. Provide this information for the variable you want to create.
+4. Provide this information for the variable:
 
    | Property | Required | Value |  Description |
    |----------|----------|-------|--------------|
@@ -96,9 +94,9 @@ From the actions list, select this action:
 5. Now continue adding the actions you want. 
 When you're done, on the designer toolbar, choose **Save**.
 
-Here is how the **Initialize variable** action appears in the logic 
-app definition when you switch from the designer to the code view editor. 
-The definition uses JavaScript Object Notation (JSON) format:
+If you switch from the designer to the code view editor, 
+here is how the **Initialize variable** action appears 
+in the logic app definition, which uses JavaScript Object Notation (JSON) format:
 
 ```json
 "actions": {
@@ -190,8 +188,8 @@ you want to increase an existing variable,
 choose **New step** > **Add an action**. 
 
    For example, this logic app already has a trigger 
-   and an action that created a variable. So, you add 
-   a new action under these steps:
+   and an action that created a variable. So, 
+   add a new action under these steps:
 
    ![Add action](./media/logic-apps-create-variables-store-values/add-increment-variable-action.png)
 
@@ -206,8 +204,7 @@ In the actions list, select this action:
 
    ![Select "Increment variable" action](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
 
-3. Provide the information for incrementing your variable. 
-Here are the properties for this action:
+3. Provide this information for incrementing your variable:
 
    | Property | Required | Value |  Description |
    |----------|----------|-------|--------------|
@@ -221,9 +218,9 @@ Here are the properties for this action:
 
 4. When you're done, on the designer toolbar, choose **Save**. 
 
-Here is how the **Increment variable** action appears in the logic app 
-definition when you switch from the designer to the code view editor. 
-The definition uses JavaScript Object Notation (JSON) format:
+If you switch from the designer to the code view editor, 
+here is how the **Increment variable** action appears in the logic app 
+definition, which uses JavaScript Object Notation (JSON) format:
 
 ```json
 "actions": {
@@ -310,10 +307,10 @@ This example sends an email with the results.
 
 10. Save your logic app. On the designer toolbar, choose **Save**. 
 
-Here is how the **Increment variable** action appears 
-inside the "for each" loop in the logic app definition 
-when you switch from the designer to the code view editor. 
-The definition uses JavaScript Object Notation (JSON) format:
+If you switch from the designer to the code view editor, 
+here is how the **Increment variable** action appears 
+inside the "for each" loop in the logic app definition. 
+The definition uses JavaScript Object Notation (JSON) format.
 
 ```json
 "actions": {
@@ -407,11 +404,11 @@ Here are the properties for the **Set variable** action:
 | Value | Yes | <*new-value*> | The value you want to assign the variable. Both the new value and variable must have the same data type. | 
 ||||| 
 
-Here is how the **Set variable** action appears in the logic app 
-definition when you switch from the designer to the code view editor. 
+If you switch from the designer to the code view editor, 
+here is how the **Set variable** action appears in the logic app 
+definition, which uses JavaScript Object Notation (JSON) format. 
 In this example, the variable value is reset to zero 
 after a previously defined "for each" loop exits successfully. 
-The definition uses JavaScript Object Notation (JSON) format:
 
 ```json
 "actions": {
@@ -454,11 +451,12 @@ Here are the properties for the **Append to...** actions:
 | Value | Yes | <*append-value*> | The value you want to append. Both the new value and variable must have the same data type. | 
 |||||  
 
-Here is how the **Append to array variable** action appears in the logic app 
-definition when you switch from the designer to the code view editor. 
+If you switch from the designer to the code view editor, 
+here is how the **Append to array variable** action appears in the 
+logic app definition, which uses JavaScript Object Notation (JSON) format.
 This example creates an array variable, and adds the 
 specified value as the last array item in the variable. 
-The definition uses JavaScript Object Notation (JSON) format:
+
 
 ```json
 "actions": {
@@ -491,7 +489,7 @@ The definition uses JavaScript Object Notation (JSON) format:
 ## Get values from variables
 
 To retrieve or reference the value or values in a variable, you can use the 
-[variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) function in the Logic App Designer or in code view.
+[variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) function in the Logic App Designer or in the code view editor.
 
 For example, using the array variable [previously defined in this article](#append-value), 
 this expression gets the array items from the variable with the **variables()** function. 
