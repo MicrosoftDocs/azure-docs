@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
@@ -59,22 +59,23 @@ Follow these steps to update the Defender definitions:
 Here is a sample script to update the Defender definitions (substitute the address or name of the virtual machine with the actual value):
 
 ```powershell
-# Set credentials for the diagnostic user
-$diagPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$diagCreds = New-Object System.Management.Automation.PSCredential `
-    ("dbadapterdiag", $vmLocalAdminPass)$diagCreds = Get-Credential
+# Set credentials for the RP VM local admin user
+$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminUser = "<local admin user name>"
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
+    ($vmLocalAdminUser, $vmLocalAdminPass)
 
 # Public IP Address of the DB adapter machine
-$databaseRPMachine  = "XX.XX.XX.XX"
+$databaseRPMachine  = "<RP VM IP address>"
 $localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe"
- 
+
 # Download Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions. 
 Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64 `
     -Outfile $localPathToDefenderUpdate 
 
 # Create session to the maintenance endpoint
 $session = New-PSSession -ComputerName $databaseRPMachine `
-    -Credential $diagCreds -ConfigurationName DBAdapterMaintenance
+    -Credential $vmLocalAdminCreds -ConfigurationName DBAdapterMaintenance
 # Copy defender update file to the db adapter machine
 Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
      -Destination "User:\mpam-fe.exe"
@@ -84,7 +85,7 @@ Invoke-Command -Session $session -ScriptBlock `
 # Cleanup the definitions package file and session
 Invoke-Command -Session $session -ScriptBlock `
     {Remove-AzSItemOnUserDrive -ItemPath "User:\mpam-fe.exe"}
-$session | Remove-PSSession
+$session | Remove-PSSession 
 ```
 
 
@@ -102,12 +103,12 @@ This sample script demonstrates the use of these commands:
 
 ```powershell
 # Create a new diagnostics endpoint session.
-$databaseRPMachineIP = '<RP VM IP>'
+$databaseRPMachineIP = '<RP VM IP address>'
 $diagnosticsUserName = 'dbadapterdiag'
-$diagnosticsUserPassword = '<see above>'
+$diagnosticsUserPassword = '<Enter Diagnostic password>'
 
 $diagCreds = New-Object System.Management.Automation.PSCredential `
-        ($diagnosticsUserName, $diagnosticsUserPassword)
+        ($diagnosticsUserName, (ConvertTo-SecureString -String $diagnosticsUserPassword -AsPlainText -Force))
 $session = New-PSSession -ComputerName $databaseRPMachineIP -Credential $diagCreds `
         -ConfigurationName DBAdapterDiagnostics
 
