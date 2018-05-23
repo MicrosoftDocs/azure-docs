@@ -44,7 +44,7 @@ To find an IP address and port that you can use to remotely connect to a specifi
 
     The following screenshot shows using Remote Desktop Connection to connect to the **FrontEnd (Instance 1)** node in a Windows cluster:
     
-    ![Remote Desktop Connection](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp.png)
+    ![Remote Desktop Connection](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp-connect.png)
 
     On Linux nodes, you can connect with SSH (the following example reuses the same IP address and port for brevity):
 
