@@ -35,7 +35,6 @@ You can review users flagged for risk through the related [report](https://porta
 - Require the user to securely reset their password the next time they sign in
 - Dismiss the user risk without taking any remediation action.
 
-If you want to review the past sign-ins of an at-risk user, select the related user, and then click **All sign-ins** on the top of the screen. 
 
 
 ### Azure AD subscription for Office 365 customers:
