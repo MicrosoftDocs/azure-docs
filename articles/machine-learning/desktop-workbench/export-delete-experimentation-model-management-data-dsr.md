@@ -21,7 +21,7 @@ In-product data stored by Azure Machine Learning Experimentation and Model Manag
 
 ## Delete account data with the REST API 
 
-In order to delete data, the following API calls can be made with the HTTP DELETE verb.  These are authorized by having an "Authorization: Bearer <arm-token>" header in the request, where <arm-token> is the AAD access token for the "https://management.core.windows.net/" endpoint.  
+In order to delete data, the following API calls can be made with the HTTP DELETE verb.  These are authorized by having an `Authorization: Bearer <arm-token>` header in the request, where `<arm-token>` is the AAD access token for the endpoint `https://management.core.windows.net/` endpoint.  
 
 To learn how to  how to obtain this token and call Azure endpoints, see [Azure REST API documentation](https://docs.microsoft.com/rest/api/azure/).  
 
@@ -34,14 +34,17 @@ In the examples following, replace the text in {} with the instance names that d
 
 ### Model document
 Use this call to get a list of models and their IDs:
+
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models?api-version=2017-09-01-preview"
 
 Individual models can be deleted with:	
-https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models/{modelId}?api-version=2017-09-01-preview
+
+    https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models/{modelId}?api-version=2017-09-01-preview
 
 ### Manifest document
 Use this call to get a list of all manifests and their IDs:
-https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests?api-version=2017-09-01-preview
+
+    https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests?api-version=2017-09-01-preview
 
 Individual models can be deleted with:
 https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests/{manifestId}?api-version=2017-09-01-preview
@@ -76,7 +79,7 @@ https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{res
 
 
 ## Export service data with the REST API
-In order to export data, the following API calls can be made with the HTTP GET verb.  These are authorized by having an "Authorization: Bearer <arm-token>" header in the request, where <arm-token> is the AAD access token for the "https://management.core.windows.net/" endpoint.  
+In order to export data, the following API calls can be made with the HTTP GET verb.  These are authorized by having an `Authorization: Bearer <arm-token>` header in the request, where `<arm-token>` is the AAD access token for the endpoint `https://management.core.windows.net/`  
 
 To learn how to  how to obtain this token and call Azure endpoints, see [Azure REST API documentation](https://docs.microsoft.com/rest/api/azure/).   
 
