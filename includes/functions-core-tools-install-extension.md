@@ -16,4 +16,4 @@ When you develop functions locally, you can install the extensions you need by u
 func extensions install --package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version <target_version>
 ```
 
-Replace `<taget_version>` with a specific version of the package. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org).
+Replace `<target_version>` with a specific version of the package. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org).

@@ -4,7 +4,7 @@ description: A Node.js tutorial that creates a Cosmos DB with the SQL API.
 keywords: node.js tutorial, node database
 services: cosmos-db
 documentationcenter: node.js
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 editor: monicar
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: anhoh
+ms.author: sngun
 
 ---
 # Node.js tutorial: Use the SQL API in Azure Cosmos DB to create a Node.js console application

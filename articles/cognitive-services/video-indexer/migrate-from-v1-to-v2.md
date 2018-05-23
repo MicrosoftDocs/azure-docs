@@ -40,26 +40,6 @@ Each request should have a valid token, matching the access level of the API you
 
 For more information about the different access tokens, see [Use Azure Video Indexer API](video-indexer-use-apis.md).
 
-#### Uploading a video in V1:
-
-```
-https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns?name=some_name&description=some_description&privacy=private&videoUrl=http://URL_TO_YOUR_VIDEO
-```
-
-#### Uploading a video in V2:
-
-1. Get an access token for the upload request:
-
-  ```
-  https://api.videoindexer.ai/auth/westus2/Accounts/00000000-c48b-4703-a5d6-2d3fd810ff9c/AccessToken?allowEdit=true
-  ```
-  
-2. Upload a video:
-
-  ```
-  https://api.videoindexer.ai/westus2/Accounts/00000000-c48b-4703-a5d6-2d3fd810ff9c/Videos?accessToken=YOUR_ACCESS_TOKEN&name=my-video&description=my-video-description&language=English&videoUrl=http://url-to-the-video&indexingPreset=Default&streamingPreset=Default&privacy=Private
-  ```
-
 ### Locations
 
 Each call to the API should include the location of your Video Indexer account. API calls without the location or with a wrong location will fail.
@@ -80,6 +60,50 @@ Video Indexer now has a simplified data model to deliver much clearer insights. 
 ### Swagger
 
 The Video Indexer API definitions were updated accordingly and are available to download through the [API portal](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
+
+
+### V1 vs V2 examples
+
+#### Uploading a video in V1:
+
+```
+https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns?name=some_name&description=some_description&privacy=private&videoUrl=http://URL_TO_YOUR_VIDEO
+```
+
+#### Uploading a video in V2:
+
+1. Get an access token for the upload request:
+
+  ```
+  https://api.videoindexer.ai/auth/westus2/Accounts/00000000-c48b-4703-a5d6-2d3fd810ff9c/AccessToken?allowEdit=true
+  ```
+  
+2. Upload a video:
+
+  ```
+  https://api.videoindexer.ai/westus2/Accounts/00000000-c48b-4703-a5d6-2d3fd810ff9c/Videos?accessToken=YOUR_ACCESS_TOKEN&name=my-video&description=my-video-description&language=English&videoUrl=http://url-to-the-video&indexingPreset=Default&streamingPreset=Default&privacy=Private
+  ```
+  
+
+#### Getting insights in V1:
+
+```
+https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns/VIDEO_ID
+```
+  
+#### Getting insights in V2:
+
+1. Get a video level access token:
+
+  ```
+  https://api.videoindexer.ai/auth/westus2/Accounts/YOUR_ACCOUNT_ID/Videos/VIDEO_ID/AccessToken
+  ```
+  
+2. Get insights:
+
+  ```
+  https://api.videoindexer.ai/westus2/Accounts/YOUR_ACCOUNT_ID/Videos/VIDEO_ID/Index?accessToken=ACCESS_TOKEN&language=English
+  ```
 
 ## Next steps
 

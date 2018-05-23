@@ -61,12 +61,10 @@
       href: virtual-networks-acl.md
 - name: How-to guides
   items:
-  - name: Plan and design
+  - name: Plan
     items:
     - name: Virtual networks
       href: virtual-network-vnet-plan-design-arm.md
-    - name: Network security groups
-      href: virtual-networks-nsg.md
   - name: Deploy
     items:
     - name: Network security groups
