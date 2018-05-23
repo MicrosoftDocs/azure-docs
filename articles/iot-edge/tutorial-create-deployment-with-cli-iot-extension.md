@@ -1,4 +1,4 @@
-﻿---
+---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Deploy modules to IoT Edge devices using IoT extension for Azure CLI 2.0 | Microsoft Docs 
 description: Deploy modules to an IoT Edge device using IoT extension for Azure CLI 2.0
