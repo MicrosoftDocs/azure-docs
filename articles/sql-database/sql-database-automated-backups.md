@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
 ms.workload: "Active"
-ms.date: 05/18/2018
+ms.date: 05/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -70,7 +70,7 @@ If you delete a database, SQL Database will keep the backups in the same way it 
 
 ### PITR Retention for the vCore-based service tiers (preview)
 
-During preview, the PITR retention period for databases created using the vCore-based purchasing model set to 7 days. The associated storage is included for free.    
+During preview, the PITR retention period for databases created using the vCore-based purchasing model is set to 7 days. The associated storage is included for free.    
 
 ## Are backups encrypted?
 
@@ -82,22 +82,22 @@ If the backup contains personal data, which is subject to General Data Protectio
 Because the default PITR retention for any Standard or Premium database in the DTU-based service tiers is 35 days, you must reduce it to be compliant with GDPR. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details. 
 
 > [!IMPORTANT]
-> If you migrated your database from a DTU-based service tier with the default PITR retention of 35 days, to a vCore-based service tier, the PITR retention was preserved to ensure that your application's data recovery policy is not compromized. If GDPR compliance is important for you application, you can use the same method to bring the database into compliance. 
+> When you migrate your database from a DTU-based service tier with the default PITR retention of 35 days, to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy is not compromized. If GDPR compliance is important for you application, you can use the same method to bring the database into compliance. 
 
 ## How to change backup retention period
 Because of the default PITR retention included with DTU-based service tiers is 35 days, you may want to reduce it to meet specific compliance requirements. You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. 
 
 The following examples illustrate how to change the PITR retention to be GDPR compliant.
 
-### Set backup retention period to 21 days using PowerShell
+### Set backup retention period to 28 days using PowerShell
 ```powershell
-Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 21
+Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 > [!IMPORTANT]
 > This APIs is included in Azure PowerShell starting from version vxxx.x.x. 
 
 
-## Set backup retention period to 21 days using REST API
+## Set backup retention period to 28 days using REST API
 **Sample Request**
 ```http
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
@@ -105,7 +105,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 **Request Body**
 ```json
 {
-  "retentionDays": 21
+  "retentionDays": 28
 }
 ```
 **Sample Response**
@@ -117,7 +117,7 @@ Status code: 200
   "name": "default",
   "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
   "properties": {
-    "retentionDays": 21
+    "retentionDays": 28
   }
 }
 ```
