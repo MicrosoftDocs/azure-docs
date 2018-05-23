@@ -15,7 +15,7 @@
     href: event-hubs-quickstart-powershell.md
 - name: Tutorials
   items:
-  - name: Visualize data anomalies on Event Hub stream
+  - name: Visualize data anomalies on Event Hubs data streams
     href: event-hubs-tutorial-visualize-anomalies.md
 - name: Samples
   href: event-hubs-samples.md
