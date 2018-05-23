@@ -24,3 +24,13 @@ This article shows you how to build a map application that can be used by a scre
 </iframe>
 
 The map is prebuilt with some accessibility features. A user can navigate the map using the keyboard and if a screen reader is running, the map will notify the user of changes to its state. For example, the user will be notified of the map's new latitude, longitude, zoom and locality when the map is panned or zoomed. Any additional information that is placed on the base map should have corresponding textual information for screen reader users. Using [Popup](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest) is one way to achieve this. In the above search example, a popup with textual information is added to the map for every pin that is placed on the map. Using the [Popup's](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest) attach method allows the the popup to be seen by a screen reader without visually displaying the popup on the map.
+
+## Next steps
+
+Learn more about the Popup class and its methods used in this article:
+
+* [Popup](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest)
+    * [attach](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#attach)
+    * [remove](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#remove)
+    * [open](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#open)
+    * [close](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#close)
