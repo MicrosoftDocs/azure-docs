@@ -43,4 +43,4 @@ You can now use Table service in the Azure portal to create a table.
 
 ## Next steps
 
-- [Azure Table storage: Node.js web application](table-storage-cloud-service-nodejs.md)
+- [Guidelines for table design](table-storage-design-guidelines.md)
