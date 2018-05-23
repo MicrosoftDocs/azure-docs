@@ -29,7 +29,7 @@ This article describes changes that were introduced in Azure Media Services (AMS
 
 ### API is more approachable
 
-* v3 is based on a unified API surface which exposes both management and operations functionality built on Azure Resource Manager (ARM). ARM templates can be used to create and deploy Transforms, Streaming Endpoints, Channels, and more.
+* v3 is based on a unified API surface which exposes both management and operations functionality built on Azure Resource Manager. Azure Resource Manager templates can be used to create and deploy Transforms, Streaming Endpoints, Channels, and more.
 * Open API (aka Swagger) Specification document.
 * SDKs available for .Net, .Net Core, Node.js, Python, Java, Ruby.
 * Azure CLI integration.
