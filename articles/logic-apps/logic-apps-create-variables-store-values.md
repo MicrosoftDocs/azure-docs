@@ -87,7 +87,7 @@ From the actions list, select this action:
    |----------|----------|-------|--------------|
    | Name | Yes | <*variable-name*> | The name for the variable to increment | 
    | Type | Yes | <*variable-type*> | The data type for the variable | 
-   | Value | No | <*start-value*> | The initial value for your variable | 
+   | Value | No | <*start-value*> | The initial value for your variable <p>**Tip**: Although optional, setting this value is a best practice so that you always know the start value for your variable. | 
    |||| 
 
    For example: 
