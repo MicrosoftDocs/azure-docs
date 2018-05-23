@@ -10,6 +10,7 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
+#Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
 
