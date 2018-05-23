@@ -32,7 +32,7 @@ ms.custom: mvc
 
 Azure Redis Cache gives you access to a dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
-This article shows you how to get started with Azure Redis Cache using Java.
+This article shows you how to get started with Azure Redis Cache using the [Jedis](https://github.com/xetorthio/jedis) Redis Cache client for Java.
 
 ![Cache app completed](./media/cache-java-get-started/cache-app-complete.png)
 
@@ -70,7 +70,7 @@ mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -Darchetyp
 
 Change to the new *redistest* project directory.
 
-Open the *pom.xml* file and add a dependency for Jedis:
+Open the *pom.xml* file and add a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
 ```xml
     <dependency>
