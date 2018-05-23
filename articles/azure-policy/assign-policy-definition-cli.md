@@ -4,7 +4,7 @@ description: Use PowerShell to create an Azure Policy assignment to identify non
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -37,19 +37,20 @@ If you haven't already, install the [ARMClient](https://github.com/projectkudu/A
 
 ## Create a policy assignment
 
-In this quickstart, you create a policy assignment and assign the Audit Virtual Machines without Managed Disks definition. This policy definition identifies resources that don't comply with the conditions set in the policy definition.
+In this quickstart, you create a policy assignment and assign the **Audit VMs that do not use managed disks** definition. This policy definition identifies resources that don't comply with the conditions set in the policy definition.
 
 Run the following command to create a policy assignment:
 
 ```azurecli-interactive
-az policy assignment create --name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
+az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
 ```
 
 The preceding command uses the following information:
 
-- **Name** - Display name for the policy assignment. In this case, you're using *Audit Virtual Machines without Managed Disks Assignment*.
-- **Policy** – The policy definition ID, based on which you're using to create the assignment. In this case, it is the policy definition – *Audit Virtual Machines without Managed Disks*. To get the policy definition ID, run this command:
-        `az policy definition show --name 'Audit Virtual Machines without Managed Disks Assignment'`
+- **Name** - The actual name of the assignment.  For this example, *audit-vm-manageddisks* was used.
+- **DisplayName** - Display name for the policy assignment. In this case, you're using *Audit Virtual Machines without Managed Disks Assignment*.
+- **Policy** – The policy definition ID, based on which you're using to create the assignment. In this case, it is the ID of policy definition *Audit VMs that do not use managed disks*. To get the policy definition ID, run this command:
+        `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. Be sure to replace &lt;scope&gt; with the name of your resource group.
 
 ## Identify non-compliant resources
@@ -57,7 +58,7 @@ The preceding command uses the following information:
 To view the resources that aren't compliant under this new assignment, get the policy assignment ID by running the following commands:
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks' }
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 

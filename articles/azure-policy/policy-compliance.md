@@ -4,7 +4,7 @@ description: Azure Policy evaluations and effects determine compliance. Learn ho
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/18/2018
+ms.date: 05/23/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
