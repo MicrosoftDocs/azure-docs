@@ -59,7 +59,7 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" + \
 import requests
 headers  = {'Ocp-Apim-Subscription-Key': subscription_key}
 # Note: The request parameter changed for APIv2.
-# For APIv1, it is "handwriting=true".
+# For APIv1, it is 'handwriting': 'true'.
 params   = {'mode': 'Handwritten'}
 data     = {'url': image_url}
 response = requests.post(
