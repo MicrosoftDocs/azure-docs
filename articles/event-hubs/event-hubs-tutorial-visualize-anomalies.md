@@ -1,7 +1,7 @@
 ---
-title: Visualize data anomalies in events sent to an Event Hub | Microsoft Docs
+title: Visualize data anomalies in real-time events sent to an Event Hub | Microsoft Docs
 # event-hubs-tutorial-visualize-anomalies.md
-description: Tutorial - Visualize data anomalies in events sent to an Event Hub
+description: Tutorial - Visualize data anomalies in real-time events sent to an Event Hub
 services: event-hubs
 author: robinsh
 manager: timlt
@@ -11,15 +11,14 @@ ms.date: 05/15/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-#Customer intent: As a developer, I want to learn how to visualize data anomalies in Event Hub data. 
+#Customer intent: As a developer, I want to learn how to visualize data anomalies in Event Hub data in real-time. 
 ---
 
-# Tutorial: Visualize data anomalies in events sent to an Event Hub
+# Tutorial: Visualize data anomalies in events sent to an Event Hub in real-time
 
 Microsoft Azure Event Hubs is a big data streaming service that can collect and store millions of events per second. Event Hubs provides both real-time and batch streaming, while giving you low latency and configurable time retention. Event Hubs decouples smart endpoints, providing a durable time retention buffer in the cloud that enables you to focus on your business and big data analytics both fast and slow.
  
-In this tutorial, you feed simulated events to an event hub, then read the stream of data with Azure 
-Stream Analytics and visualize the anomalies with a PowerBI visualization. This usage is similar to what a company might do if they were ingesting credit card transactions into an event hub, and then separating the valid transactions from the invalid transactions. 
+In this tutorial, you send simulated events to an event hub, then read the stream of data in real-time with Azure Stream Analytics and visualize the anomalies with a PowerBI visualization. This usage is similar to what a company might do if they were ingesting credit card transactions into an event hub, and then separating the valid transactions from the invalid transactions. 
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -279,13 +278,13 @@ To use the data in a PowerBI visualization, first set up a Stream Analytics job 
 
 This section is optional, but recommended.
 
-1. Run the Anomaly Detector app. 
+1. Run the Anomaly Detector app to send data to the event hub while you're setting up and running the test. 
 
 2. In the Query pane, click the dots next to the `contosoinputs` input and then select **Sample data from input**.
 
 3. Specify that you want three minutes of data and click **OK**. Wait until you're notified that the data has been sampled.
 
-4. Click **Test** and make sure you're getting results. 
+4. Click **Test** and make sure you're getting results. Results are displayed in the Results section of the bottom pane on the right under the query.
 
 5. Close the Query pane.
 
