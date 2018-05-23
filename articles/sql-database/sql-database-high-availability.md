@@ -5,7 +5,7 @@ services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
