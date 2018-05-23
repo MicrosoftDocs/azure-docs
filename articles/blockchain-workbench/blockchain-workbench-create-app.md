@@ -234,7 +234,7 @@ Add the following version pragma at the top of `HelloBlockchain.sol` smart contr
 
 ### Base class
 
-**WorkbenchBase** base class enables Blockchain Workbench to create an update the contract. The base class is required for Blockchain Workbench specific smart contract code. Your contract needs to inherit from the **WorkbenchBase** base class.
+**WorkbenchBase** base class enables Blockchain Workbench to create and update the contract. The base class is required for Blockchain Workbench specific smart contract code. Your contract needs to inherit from the **WorkbenchBase** base class.
 
 In `HelloBlockchain.sol` smart contract code file, add the **WorkbenchBase** class at the beginning of the file. 
 
