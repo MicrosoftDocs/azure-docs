@@ -8676,6 +8676,56 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-connecting-devices.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices-linux.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-connecting-devices-linux.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices-node.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-connecting-devices-node.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-custom-rule.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-custom-rule.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-dynamic-telemetry.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-dynamic-telemetry.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-faq.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-faq.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-getstarted-preconfigured-solutions.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-logic-apps-tutorial.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-logic-apps-tutorial.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-permissions.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-permissions.md",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
             "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-build-system.md",
             "redirect_document_id": false
