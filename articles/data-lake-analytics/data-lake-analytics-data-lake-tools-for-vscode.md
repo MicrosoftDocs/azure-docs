@@ -418,7 +418,7 @@ The status displays on the bottom of the status bar when completed downloading a
 
 Navigate to **Data Lake Store**
 
- - On the folder node, you can **Refresh**, **Delete**, **Upload**, **Upload Folder**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu.
+ - On the folder node, you can **Refresh**, **Delete**, **Upload**, **Upload Folder**, **Copy Relative Path**, and **Copy Full Path** in the right-click context menu.
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
@@ -430,11 +430,11 @@ Navigate to **Data Lake Store**
 
 Navigate to **Blob Storage**
 
-- On the blob container node, you can **Refresh**, **Delete Blob Container**, **Upload Blob** in the right-click context menu.
+- On the blob container node, you can **Refresh**, **Delete Blob Container**, and **Upload Blob** in the right-click context menu.
 
     ![Blob Storage blob container node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
 
-- On the folder node, you can **Refresh**, **Upload Blob** in the right-click context menu.
+- On the folder node, you can **Refresh**, and **Upload Blob** in the right-click context menu.
 
     ![Blob Storage folder node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
 
