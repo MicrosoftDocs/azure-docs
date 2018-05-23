@@ -40,4 +40,4 @@ The following services support Azure AD authentication, and have been tested wit
 | Azure SQL | https://database.windows.net/ | Available | October 2017 | |
 | Azure Event Hubs | https://eventhubs.azure.net | Available | December 2017 | |
 | Azure Service Bus | https://servicebus.azure.net | Available | December 2017 | |
-| Azure Storage | https://storage.azure.com/ | Preview | May 2018 | [Azure portal](/azure/storage/common/storage-auth-aad-rbac.md)<br>[PowerShell](/azure/storage/common/storage-auth-aad-rbac.md)<br>[Azure CLI](/azure/storage/common/storage-auth-aad-rbac.md)|
+| Azure Storage | https://storage.azure.com/ | Preview | May 2018 | |
