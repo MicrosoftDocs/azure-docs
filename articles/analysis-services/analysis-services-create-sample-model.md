@@ -66,7 +66,9 @@ These steps describe how to delete a model from a server by using SSMS. You can 
 
 ## Next steps 
 
-[Connect in Power BI Desktop](analysis-services-connect-pbi.md)   
-[Manage database roles and users](analysis-services-database-users.md)
+In this tutorial, you learned how to add a basic, sample model to your server. Now that you have a model database, you can connect to it from SQL Server Management Studio and add user roles. To learn more, continue with the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Manage database roles and users](analysis-services-database-users.md)
 
 
