@@ -59,7 +59,3 @@ For next steps, read the following articles:
 * [Update the RDP port range values](./scripts/service-fabric-powershell-change-rdp-port-range.md) on cluster VMs after deployment
 * [Change the admin username and password](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) for cluster VMs
 
-<!--Image references-->
-[LBBlade]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/LBBlade.png
-[NATRules]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/NATRules.png
-[RDP]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/RDP.png
