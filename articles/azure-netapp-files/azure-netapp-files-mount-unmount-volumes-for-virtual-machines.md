@@ -23,7 +23,3 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
 1. Click the **Volumes** blade, and then select the volume for which you want to mount NFS exports. 
 2. Click **Mount instructions** from the selected volume, and then follow the instructions. 
 
-## Next steps 
-
-* [Manage volumes](azure-netapp-files-manage-volumes.md)
-* [Manage snapshots](azure-netapp-files-manage-snapshots.md)

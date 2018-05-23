@@ -22,6 +22,7 @@ A volume's capacity consumption counts against its pool's provisioned capacity. 
 
 ## Before you begin 
 You must have already set up a capacity pool.  
+
 [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 
 ## Steps 
