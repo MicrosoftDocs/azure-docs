@@ -39,19 +39,23 @@ From the list of workspaces in the Azure portal, click **Add** in the list of wo
 
 
 ## Where do I find my settings?
-The options that were available in the **Settings** section of the OMS portal are available in the **Advanced settings** menu for the workspace except for the following:
+The following table lists how you can access settings that were previously available in the **Settings** section of the OMS portal.
 
 
-**Preview Features** - No longer required.<br>
-**Solutions** - [List and remove management solutions](#How do I install and-remove-management-solutions) from list of solutions in the Azure portal.<br>
-**Upgrade Summary** - No longer required.<br>
-
-**Accounts**<br>
-**Automation Account** - **Automation Account** menu for the workspace.<br>
-**Alerts** - Alert rules based on Log Analytics queries are now managed in the [unified alerting experience](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
-**Azure Subscription & Data Plan** - **Pricing tier** menu for the workspace.<br>
-**Manage users** - Use Azure role-based access to [manage permissions for your workspace](#how-do-i-manage-permissions).<br>
-**Workspace Information** - Information available on **OMS Workspace** menu for the workspace.<br>
+| Setting in the OMS portal | Equivalent in the Azure portal |
+|:---|:---|
+| Solutions         |  [List and remove management solutions](#How do I install and-remove-management-solutions) from list of solutions in the Azure portal. |
+| Connected Sources | **Advanced settings** menu for the workspace. |
+| Data              | **Advanced settings** menu for the workspace. |
+| Computer Groups   | **Advanced settings** menu for the workspace. |
+| Accounts | |
+| Automation Account | **Automation Account** menu for the workspace. |
+| Azure Subscription & Data Plan | **Pricing tier** menu for the workspace. |
+| Manage users | Use Azure role-based access to [manage permissions for your workspace](#how-do-i-manage-permissions). |
+| Workspace Information | Information available on **OMS Workspace** menu for the workspace. |
+| Alerts | Alert rules based on Log Analytics queries are now managed in the [unified alerting experience](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). |
+| Preview Features | No longer required. |
+| Upgrade Summary | No longer required. |
 
 
 ![Advanced settings]()
@@ -70,9 +74,6 @@ You can now permissions to your Log Analytics workspace using [Azure role-based 
 You can now easily view and manage your usage and cost of Log Analytics by selecting **Usage and estimated costs** in your workspace.
 
 ![Usage and estimated costs]()
-
-To view your workspace, you need at least a “Reader” role, granted specifically for this specific workspace or the subscription it belongs to. Contact an admin of subscription/workspace to be assigned with the proper role.
-To learn about role-based access control in Azure, see this article.
 
 
 ## Can I still use the classic portal?
