@@ -86,7 +86,8 @@ az monitor activity-log list --resource-provider Microsoft.Web \
 ```
 
 ## Work with alerts 
-[!NOTE] Only alerts (classic) is supported in CLI at this time. 
+> [!NOTE]
+> Only alerts (classic) is supported in CLI at this time. 
 
 ### Get alert (classic) rules in a resource group
 
