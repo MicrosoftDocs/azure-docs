@@ -35,11 +35,11 @@ Keep in mind the following points about the preview:
         - [Queue](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-queue)
 
 > [!IMPORTANT]
-> This preview is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications. 
+> This preview is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications. For additional information about the preview, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
 >
-> During the preview, role assignments may take up to five minutes to propagate.  
+> During the preview, RBAC role assignments may take up to five minutes to propagate.
 
-For additional information, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
+For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/azure-ad-authentication-for-azure-storage-now-in-public-preview/).
 
 ## Next Steps
 
