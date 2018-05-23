@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 05/21/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -112,29 +112,6 @@ Check that the .OVA file is secure, before you deploy it.
     MD5 | 7326020e3b83f225b794920b7cb421fc
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
-
-    For OVA version 1.0.8.59
-
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | 71139e24a532ca67669260b3062c3dad
-    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
-    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
-
-    For OVA version 1.0.8.49
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8
-    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
-    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
-
-    For the OVA version 1.0.8.40:
-
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
-    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
-    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
 ## Create the collector VM
 
