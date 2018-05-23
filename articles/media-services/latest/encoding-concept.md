@@ -17,36 +17,34 @@ ms.author: juliako
 
 # Encoding with Azure Media Services
 
-Azure Media Services enables you to encode your media files in the cloud. You might want to stream your content in Apple's HLS, MPEG DASH, or CMAF formats so it can be played on a wide variety of browsers and devices. Or, you might want to analyze your video or audio content. This topic give you guidance on how to encode your content with Media Services.
+Azure Media Services enables you to encode your media files in the cloud. You might want to stream your content in Apple's HLS or MPEG DASH formats so it can be played on a wide variety of browsers and devices. Or, you might want to analyze your video or audio content. This topic give you guidance on how to encode your content with Media Services.
 
 ## Presets
 
-### Predefined/built-in presets
+### Built-in presets
 
 Media Services defines a set of built-in system encoding presets you can use when creating encoding jobs. Currently, the following predefined presets are supported.
 
-* AudioAnalyzerPreset
-* BuiltInStandardEncoderPreset 
-    * EncoderNamedPreset.AdaptiveStreaming 
-        
-        It is recommended to use the EncoderNamedPreset.AdaptiveStreaming preset if you want to encode a video for streaming with Media Services. When you specify this preset, Media Encoder auto-generates a bitrate ladder. For more information, see [auto-generating a bitrate ladder](autogen-bitrate-ladder.md).
-
-    * EncoderNamedPreset.AACGoodQualityAudio
-    * EncoderNamedPreset.H264MultipleBitrate1080p
-    * EncoderNamedPreset.H264MultipleBitrate720p
-    * EncoderNamedPreset.H264MultipleBitrateSD
-* StandardEncoderPreset
-* VideoAnalyzerPreset
+|Preset name|Scenario|More info|
+|---|---|---|
+|AudioAnalyzerPreset|Analyzing audio||
+|VideoAnalyzerPreset|Analyzing video|For more information, see [Analyze video](analyze-videos-tutorial-with-api.md)|
+|BuiltInStandardEncoderPreset|Streaming|Used to set built-in presets:<br/>EncoderNamedPreset.AdaptiveStreaming (recommended). For more information, see [auto-generating a bitrate ladder](autogen-bitrate-ladder.md).<br/>EncoderNamedPreset.AACGoodQualityAudio (produces a single MP4 file containing only stereo audio encoded at 192 kbps).<br/>EncoderNamedPreset.H264MultipleBitrate1080p (produces a set of 8 GOP-aligned MP4 files, ranging from 6000 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 1080p and goes down to 360p).<br/>EncoderNamedPreset.H264MultipleBitrate720p (produces a set of 6 GOP-aligned MP4 files, ranging from 3400 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 720p and goes down to 360p.)<br/>EncoderNamedPreset.H264MultipleBitrateSD (Produces a set of 5 GOP-aligned MP4 files, ranging from 1600kbps to 400 kbps, and stereo AAC audio. Resolution starts at 480p and goes down to 360p).<br/><br/>For more information, see [Uploading, encoding, and streaming files](stream-files-tutorial-with-api.md).|
+|StandardEncoderPreset|Streaming|Used to set a custom encoder preset. For more information, see [How to customize encoder presets](customize-encoder-presets-how-to.md).|
 
 ### Custom presets
 
-Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. For more information, see [How to customize encoder presets](customize-encoder-presets-how-to.md).
+Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. General steps when encoding with a custom preset are:
+
+For a detailed explanations and example, see [How to customize encoder presets](customize-encoder-presets-how-to.md).
 
 Find more detailed information about the schema of the encoder is in the [REST reference documentation](https://docs.microsoft.com/rest/api/media/transforms). 
 
 ## Tranforms and jobs
 
-To encode with Media Services v3, you need to create a tranform and a job. For more information, see [Transforms and Jobs](transform-concept.md)
+To encode with Media Services v3, you need to create a transform and a job. A transform defines the recipe for your encoding settings and outputs, and the job is an instance of the recipe. 
+
+For more information, see [Transforms and Jobs](transform-concept.md)
 
 ## Scaling encoding in v3
 
