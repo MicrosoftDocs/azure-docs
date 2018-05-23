@@ -67,6 +67,8 @@
       href: application-gateway-ilb-arm.md
   - name: Configure SSL termination
     items:
+    - name: SSL termination using the Azure portal
+      href: create-ssl-portal.md
     - name: SSL termination using Azure PowerShell
       href: tutorial-ssl-powershell.md
     - name: Renew certificates
@@ -124,8 +126,8 @@
         href: redirect-internal-site-cli.md
   - name: Multi-tenant support
     items:
-    -name: Configure multi-tenat support
-     href: create-web-app.md
+    - name: Configure multi-tenat support
+      href: create-web-app.md
   - name: Redirect web traffic using Azure PowerShell
     href: tutorial-url-redirect-powershell.md
   - name: Create a zone redundant application gateway
