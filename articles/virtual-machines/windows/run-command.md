@@ -13,19 +13,15 @@ manager: carmonm
 
 Run Command allows you to run PowerShell scripts within an Azure Windows VM regardless of network connectivity. These scripts can be used for general machine or application management, and can be used to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
-## Prerequisites
-
-The account using run command must have the [Contributor role](../../role-based-access-control/built-in-roles.md) for the VM.
-
 ## Benefits
 
-There are multiple options that can be used to access your virtual machines. Run command can run scripts on your virtual machines regardless of network connectivity and is available by default (no installation required). Run command can be used through the Azure portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), or [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+There are multiple options that can be used to access your virtual machines. Run Command can run scripts on your virtual machines regardless of network connectivity and is available by default (no installation required). Run Command can be used through the Azure portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), or [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
 This capability is useful in all scenarios where you want to run a script witin a virtual machines, and is one of the only ways to troubleshoot and remediate a virtual machine that is not connected to the network due to improper network or administrative user configuration.
 
 ## Restrictions
 
-The following restrictions apply when using run command:
+The following restrictions apply when using Run Command:
 
 * Output is limited to last 4096 bytes
 * The minimum time to run a script is about 20 seconds
@@ -72,9 +68,13 @@ The following is an example using the [Invoke-AzureRmVMRunCommand](/powershell/m
 Invoke-AzureRmVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
-## Limiting access to run command
+## Limiting access to Run Command
 
-Run command is available for users with the VM Contributor or higher permissions. In order to limit the access to this feature remove the VM Contributor or higher role from the user's roles.
+Listing the run commands or showing the details of a command require the `Microsoft.Compute/locations/runCommands/read` permission, which the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher have.
+
+Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission, which the [Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher have.
+
+You can use one of the [built-in](../../role-based-access-control/built-in-roles.md) roles or create a [custom](../../role-based-access-control/custom-roles.md) role to use Run Command.
 
 ## Next steps
 
