@@ -19,7 +19,7 @@ ms.reviewer: rqureshi
 ms.custom: it-pro
 ---
 # Built-in roles for Azure role-based access control
-[Role-based access control (RBAC)](overview.md) has several built-in role definitions that you can assign to users, groups, and service principals. Role assignments are the way you control access to resources in Azure. You can’t modify the built-in roles, but you can create your own [custom roles](custom-roles.md) to fit the specific needs of your organization.
+[Role-based access control (RBAC)](overview.md) has several built-in role definitions that you can assign to users, groups, and service principals. Role assignments are the way you control access to resources in Azure. If the built-in roles don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md).
 
 The built-in roles are always evolving. To get the latest role definitions, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 

@@ -24,6 +24,7 @@ Keep in mind the following points about the preview:
 - Azure AD integration is available for the Blob and Queue services only in the preview.
 - Azure AD integration is available for GPv1, GPv2, and Blob storage accounts in all public regions. 
 - Only storage accounts created with the Resource Manager deployment model are supported. 
+- Support for caller identity information in Azure Storage Analytics logging is coming soon.
 - Azure AD authorization of access to resources in standard storage accounts is currently supported. Authorization of access to page blobs in premium storage accounts will be supported soon.
 - Azure Storage supports both built-in and custom RBAC roles. You can assign roles scoped to the subscription, the resource group, the storage account, or an individual container or queue.
 - The Azure Storage client libraries that currently support Azure AD integration include:
