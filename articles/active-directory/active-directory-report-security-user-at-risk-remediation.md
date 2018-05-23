@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
+ms.date: 05/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -29,20 +29,19 @@ If unusual activities that may indicate unauthorized access to some of your user
 
 ## Access the users flagged for risk report
 
-To access the [users flagged for risk security report](active-directory-reporting-security-user-at-risk.md), you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+You can review users flagged for risk through the related [report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) in Azure Active Directory (AD). If you are not a subscriber to Azure AD, you can go through the one-time subscription process at no cost at [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). On this report, you can take various actions such as:
+
+- Generate temporary password
+- Require the user to securely reset their password the next time they sign in
+- Dismiss the user risk without taking any remediation action.
+
+If you want to review the past sign-ins of an at-risk user, select the related user, and then click **All sign-ins** on the top of the screen. 
 
 
+### Azure AD subscription for Office 365 customers:
 
+Once complete, you can use your Office 365 credentials to access the Azure Admin Center. After you have activated your access to Azure AD, you are redirected to the Azure AD portal. At the basic subscription level, the amount of detail provided in the reports are limited. Additional data and analytics are available for Azure Premium subscribers.
 
-
-
-
-
-You can review users flagged for risk through an online Azure Active Directory report. If you are not a subscriber to Azure, you can go through the subscription process at no cost at [http://aka.ms/AccessAAD](http://aka.ms/AccessAAD).  
-
-Once complete, you can use your Office 365 credentials to access the Azure Admin Center. Please note that at the basic subscription level, the amount of detail provided is limited. Additional data and analytics are available for Azure Premium subscribers. For more information, see the [Users flagged for risk security report in the Azure Active Directory portal](active-directory-reporting-security-user-at-risk.md).
-
-Once you have activated your access to Azure AD, you are redirected to the [Azure AD portal](https://portal.azure.com). To go directly to the report, navigate to the following URL: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk).
 
 **To access the Users flagged for risk reports in the Office 365 admin center:**
 
