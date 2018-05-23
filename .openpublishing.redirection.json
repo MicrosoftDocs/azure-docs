@@ -5931,11 +5931,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/lab-services/compare-lab-types.md",
-            "redirect_url": "/azure/lab-services/classroom-labs/compare-lab-types",
-            "redirect_document_id": false
-        },                                
-        {
             "source_path": "articles/log-analytics/log-analytics-security.md",
             "redirect_url": "/azure/log-analytics/log-analytics-data-security",
             "redirect_document_id": false
