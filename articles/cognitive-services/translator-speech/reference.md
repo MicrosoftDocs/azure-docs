@@ -28,7 +28,7 @@ To access the Microsoft Translator Text API you will need to [sign up for Micros
 
 Use the subscription key to authenticate. Microsoft Translator Speech API supports two modes of authentication:
 
-* **Using an access token:** In your application, obtain an access token from the token service. Use your Microsoft Translator Speech API subscription key to obtain an acess token from the Cognitive Services authentication service. The acces token is valid for 10 minutes. Obtain a new acces token every 10 minutes, and keep using the same access token for repeated requests within these 10 minutes.
+* **Using an access token:** In your application, obtain an access token from the token service. Use your Microsoft Translator Speech API subscription key to obtain an access token from the Cognitive Services authentication service. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests within these 10 minutes.
 
 * **Using a subscription key directly:** In your application, pass your subscription key as a value in `Ocp-Apim-Subscription-Key` header.
 
