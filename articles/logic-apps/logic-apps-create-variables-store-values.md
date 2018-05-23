@@ -17,29 +17,32 @@ ms.suite: integration
 
 # Save and manage values as variables in Azure Logic Apps
 
-This article shows how you can store and use values 
+This article shows how you can store and work with values 
 throughout your logic app by creating variables. 
-For example, variables can help you count the number 
-of times that a loop runs, or find an array item 
-by referencing that item's index value. 
-After you create a variable, you can perform 
-other tasks with that variable, for example:
+For example, variables can help count the number 
+of times that a loop runs, or check for an item in 
+an array by acting as the item's index value. 
 
-* Increase or decrease the value for an integer or float variable.
-* Assign another value to a variable, provided they have the same data type.
-* Add a value at the end of an array variable or string variable.
+You can create variables for various data types, 
+such as integer, float, boolean, string, array, and object. 
+After you create a variable, you can perform other tasks, 
+for example:
+
+* Increase or decrease the value for a variable.
+* Assign a different value to a variable.
+* Add a value as the last item in a variable for a string or array.
 * Get the value from a variable.
 
-Variables exist globally only within the logic app 
-instance that creates them. They also persist across 
-a loop's iterations within the logic app instance. 
+Variables exist only within the logic app 
+instance that creates them and globally persist 
+across any loop's iterations within the logic app instance. 
 
 If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
 ## Prerequisites
 
-* The logic app where you want to create the variable. 
+* The logic app where you want to create a variable. 
 If you're new to logic apps, review 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -52,8 +55,8 @@ start with a trigger.
 
 ## Create variable
 
-You can declare a variable along with its data type and 
-initial value - all at the same time in your logic app. 
+You can declare a variable along with its data 
+type and initial value - all at the same time. 
 
 1. In the Azure portal or Visual Studio, 
 open your logic app in Logic App Designer. 
@@ -61,24 +64,24 @@ open your logic app in Logic App Designer.
    This example uses the Azure portal 
    and a logic app with an existing trigger.
 
-2. In Logic App Designer, under the step where you want to add a variable, 
-choose one of these steps: 
+2. In your logic app, under the step where you want to add a variable, 
+follow one of these steps: 
 
-   * Under the last step, choose **New step** > **Add an action**.
+   * To add an action under the last step, 
+   choose **New step** > **Add an action**.
 
      ![Add action](./media/logic-apps-create-variables-store-values/add-action.png)
 
-   * To add an action between existing steps, move your mouse 
-   over the arrow so that the plus sign (+) appears. 
+   * To add an action between steps, move your mouse 
+   over the connecting arrow so the plus sign (+) appears. 
    Choose the plus sign, and then choose **Add an action**.
 
-3. In the search box, enter "variables" as your filter. 
-From the actions list, select this action: 
-**Variables - Initialize variable** 
+3. In the search box, enter "variables" as the filter. 
+From the actions list, select **Variables - Initialize variable**.
 
    ![Select action](./media/logic-apps-create-variables-store-values/select-initialize-variable-action.png)
 
-4. Provide this information for the variable:
+4. Provide this information for your variable:
 
    | Property | Required | Value |  Description |
    |----------|----------|-------|--------------|
@@ -95,8 +98,8 @@ From the actions list, select this action:
 When you're done, on the designer toolbar, choose **Save**.
 
 If you switch from the designer to the code view editor, 
-here is how the **Initialize variable** action appears 
-in the logic app definition, which uses JavaScript Object Notation (JSON) format:
+here is the way that the **Initialize variable** action appears 
+in your logic app definition, which uses JavaScript Object Notation (JSON) format:
 
 ```json
 "actions": {
@@ -108,13 +111,49 @@ in the logic app definition, which uses JavaScript Object Notation (JSON) format
                "type": "Integer",
                "value": 0
           } ]
-      }
-   },
-   "runAfter": {}
+      },
+      "runAfter": {}
+   }
 },
 ```
 
 Here are examples for a few other variable types:
+
+*String variable*
+
+```json
+"actions": {
+   "Initialize_variable": {
+      "type": "InitializeVariable",
+      "inputs": {
+         "variables": [ {
+               "name": "myStringVariable",
+               "type": "String",
+               "value": "lorem ipsum"
+          } ]
+      },
+      "runAfter": {}
+   }
+},
+```
+
+*Boolean variable*
+
+```json
+"actions": {
+   "Initialize_variable": {
+      "type": "InitializeVariable",
+      "inputs": {
+         "variables": [ {
+               "name": "myBooleanVariable",
+               "type": "Boolean",
+               "value": false
+          } ]
+      },
+      "runAfter": {}
+   }
+},
+```
 
 *Array with integers*
 
@@ -128,9 +167,9 @@ Here are examples for a few other variable types:
                "type": "Array",
                "value": [1, 2, 3]
           } ]
-      }
-   },
-   "runAfter": {}
+      },
+      "runAfter": {}
+   }
 },
 ```
 
@@ -146,27 +185,11 @@ Here are examples for a few other variable types:
                "type": "Array",
                "value": ["red", "orange", "yellow"]
           } ]
-      }
-   },
-   "runAfter": {}
+      },
+      "runAfter": {}
+   }
 },
 ```
-
-<a name="change-variable-value"></a>
-
-## Change values for variables
-
-After you create a variable, you have several ways 
-that you can change the value in that variable.
-
-* [*Increment*](#increment-value) or add a value to the variable. 
-This action works only for integer or float variables.
-
-* [*Decrement*](#decrement-value) or subtract a value from the variable.
-This action works only for integer or float variables.
-
-* [Assign a new value](#assign-value) to the variable. 
-Both the new value and the variable must have the same data type.
 
 * [*Append*](#append-value) or add a value 
 at the end of a string or array variable. 
@@ -219,8 +242,8 @@ In the actions list, select this action:
 4. When you're done, on the designer toolbar, choose **Save**. 
 
 If you switch from the designer to the code view editor, 
-here is how the **Increment variable** action appears in the logic app 
-definition, which uses JavaScript Object Notation (JSON) format:
+here is the way that the **Increment variable** action appears in your 
+logic app definition, which uses JavaScript Object Notation (JSON) format:
 
 ```json
 "actions": {
@@ -308,9 +331,9 @@ This example sends an email with the results.
 10. Save your logic app. On the designer toolbar, choose **Save**. 
 
 If you switch from the designer to the code view editor, 
-here is how the **Increment variable** action appears 
-inside the "for each" loop in the logic app definition. 
-The definition uses JavaScript Object Notation (JSON) format.
+here is the way that the **Increment variable** action appears 
+in the "for each" loop of your logic app definition, 
+which uses JavaScript Object Notation (JSON) format.
 
 ```json
 "actions": {
@@ -366,9 +389,9 @@ Here are the properties for the **Decrement variable** action:
 | Value | No | <*increment-value*> | The value for decrementing the variable. The default value is one. <p><p>**Tip**: Although optional, set this value as a best practice so you always know the specific value for decrementing your variable. | 
 ||||| 
 
-Here is how the **Decrement variable** action appears in the logic app 
-definition when you switch from the designer to the code view editor. 
-The definition uses JavaScript Object Notation (JSON) format:
+If you switch from the designer to the code view editor, 
+here is the way that the **Decrement variable** action appears 
+in your logic app definition, which uses JavaScript Object Notation (JSON) format.
 
 ```json
 "actions": {
@@ -395,6 +418,7 @@ except for these steps:
 
 * Provide the value you want to assign the variable. 
 This value is required because this action doesn't have a default value. 
+Both the new value and the variable must have the same data type.
 
 Here are the properties for the **Set variable** action:
 
@@ -405,21 +429,31 @@ Here are the properties for the **Set variable** action:
 ||||| 
 
 If you switch from the designer to the code view editor, 
-here is how the **Set variable** action appears in the logic app 
-definition, which uses JavaScript Object Notation (JSON) format. 
-In this example, the variable value is reset to zero 
-after a previously defined "for each" loop exits successfully. 
+here is the way that the **Set variable** action appears in your 
+logic app definition, which uses JavaScript Object Notation (JSON) format. 
+Here, the start value for a variable changes to another value. 
 
 ```json
 "actions": {
+   "Initialize_variable": {
+      "type": "InitializeVariable",
+      "inputs": {
+         "variables": [ {
+               "name": "Count",
+               "type": "Integer",
+               "value": 0
+          } ]
+      },
+      "runAfter": {}
+   },
    "Set_variable": {
       "type": "SetVariable",
       "inputs": {
          "name": "Count",
-         "value": 0
+         "value": 100
       },
       "runAfter": {
-         "For_each": [ "Succeeded" ]
+         "Initialize_variable": [ "Succeeded" ]
       }
    }
 },
@@ -431,7 +465,6 @@ after a previously defined "for each" loop exits successfully.
 
 For variables that store either strings or arrays, you can 
 add a value as the last item in those strings or arrays. 
-Both the value and variable must have the same data type. 
 You can follow the steps for [increasing a variable](#increment-value) 
 except for these steps: 
 
@@ -440,23 +473,22 @@ except for these steps:
   * **Variables - Append to string variable**
   * **Variables - Append to array variable** 
 
-* Provide the value you want to append to the variable. 
-This value is required because this action doesn't have a default value. 
+* Provide the value you want to add as the last item in the string or array. 
+This value is required. 
 
 Here are the properties for the **Append to...** actions:
 
 | Property | Required | Value |  Description | 
 |----------|----------|-------|--------------| 
 | Name | Yes | <*variable-name*> | The name for the variable to change | 
-| Value | Yes | <*append-value*> | The value you want to append. Both the new value and variable must have the same data type. | 
+| Value | Yes | <*append-value*> | The value you want to append, which can have any type | 
 |||||  
 
 If you switch from the designer to the code view editor, 
-here is how the **Append to array variable** action appears in the 
-logic app definition, which uses JavaScript Object Notation (JSON) format.
-This example creates an array variable, and adds the 
-specified value as the last array item in the variable. 
-
+here is the way that the **Append to array variable** action appears in 
+your logic app definition, which uses JavaScript Object Notation (JSON) format.
+The example creates an array variable, and adds the specified value as the last array item. 
+Your result is `[1,2,3,"red"]`.
 
 ```json
 "actions": {
@@ -475,7 +507,7 @@ specified value as the last array item in the variable.
       "type": "AppendToArrayVariable",
       "inputs": {
          "name": "myArrayVariable",
-         "value": 4
+         "value": "red"
       },
       "runAfter": {
         "Initialize_variable": [ "Succeeded" ]
