@@ -57,7 +57,7 @@ To get an access token, you need to inspect the `DataLabAccessToken` header of a
 6.	Under the header `DataLabAccessToken` is the alphanumeric token. To help keep your data secure, don't share this token.
 
 ### View user information
-Using the author ID you got in the previous steps, view information in a user's profile by replacing `S[AuthorId]` in the following URL:
+Using the author ID you got in the previous steps, view information in a user's profile by replacing `[AuthorId]` in the following URL:
 
     https://catalog.cortanaanalytics.com/users/[AuthorID]
 
@@ -70,20 +70,26 @@ Returns a response such as:
     {"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
 
 
-View published entities
-The Catalog API stores information about published entities to the Azure AI Gallery. One can also view this information directly on the Gallery website at https://gallery.cortanaintelligence.com. See previous sections for more information.
-To view published entities, visit the following URL, replacing [AuthorId] with the Author ID obtained from the previous section.
-https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
+### View published entities
+
+The Catalog API stores information about published entities to the Azure AI Gallery that you can also view directly on the [AI Gallery website](https://gallery.azure.ai/). See previous sections for more information.
+
+To view published entities, visit the following URL, replacing `[AuthorId]` with the Author ID obtained in [Get an author ID](#get-an-author-ID) above.
+
+    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
+
 For example:
-https://catalog.cortanaanalytics.com/entities?$filter=author/id eq 'CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE'
 
-This query will only display public entities. To view all your entities, including unlisted ones, one must provide the Access Token obtained from the previous section.
+    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq 'CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE'
 
-1.	Using a tool like Postman (https://www.getpostman.com), create an HTTP GET request to the catalog URL as described above.
+This query displays only public entities. To view all your entities, including unlisted ones, provide the access token obtained from the previous section.
+
+1.	Using a tool like [Postman](https://www.getpostman.com), create an HTTP GET request to the catalog URL as described above.
 2.	Create an HTTP request header called “DataLabAccessToken”, with the value set to the Access Token.
 3.	Make the HTTP request.
 
 Note: If unlisted entities are not showing up in responses from the Catalog API, the user may have an invalid or expired Access Token. Log out of the Azure AI Gallery, then repeat the steps in “Getting an Access Token” to renew the token.
 
-Links to Public Documentation
-Further REST API documentation for Web Services, and Commitment Plan billing is available at: https://docs.microsoft.com/en-us/rest/api/machinelearning/
+## Next steps
+
+For documentation covering web services and commitment plan billing, see [Azure Machine Learning REST API reference](https://docs.microsoft.com/en-us/rest/api/machinelearning/). 
