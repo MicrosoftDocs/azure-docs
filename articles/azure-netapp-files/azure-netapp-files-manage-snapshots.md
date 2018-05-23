@@ -64,6 +64,3 @@ Currently, you can restore a snapshot only to a new volume.
 5. Click **OK**.   
     The new volume to which the snapshot is restored appears in the Volumes blade.
 
-## Next steps 
-
-* [Manage volumes](azure-netapp-files-manage-volumes.md)
