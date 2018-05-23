@@ -44,7 +44,7 @@ Create an instance of the `CognitiveServicesCredentials`, and instantiate the cl
 ```
 client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Search images on query (Yosemite), filtered for animated gifs and wide aspect, then verify number of results and print out insightsToken, thumbnail URL, and web URL of first result.
+Search images on query (Yosemite), filtered for animated gifs and wide aspect. Verify number of results and print out insightsToken, thumbnail URL, and web URL of first result.
 ```
 image_results = client.images.search(
         query="Yosemite",
@@ -63,7 +63,7 @@ image_results = client.images.search(
         print("Couldn't find image results!")
 
 ```
-Search images for (Yosemite), filtered for animated gifs and wide aspect, then verify number of results and print out `insightsToken`, `thumbnail url` and `web url` of first result.
+Search images for (Yosemite), filtered for animated gifs and wide aspect.  Verify number of results.  Print out `insightsToken`, `thumbnail url` and `web url` of first result.
 ```
 image_results = client.images.search(
     query="Yosemite",
