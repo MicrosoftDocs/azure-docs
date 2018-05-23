@@ -285,7 +285,8 @@ To enable soft delete, update a blob client’s service properties:
 ```azurecli-interactive
 az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
 ```
-To verify soft delete is turned on use the following command. 
+
+To verify soft delete is turned on, use the following command: 
 
 ```azurecli-interactive
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
