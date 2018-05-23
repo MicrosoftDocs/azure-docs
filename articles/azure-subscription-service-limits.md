@@ -79,7 +79,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Network Watcher](#network-watcher-limits)
 * [Notification Hub Service](#notification-hub-service-limits)
 * [Resource Group](#resource-group-limits)
-* [Role-Based Access Control](#role-based-access-control-limits)
+* [Role-based access control](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
 * [Service Bus](#service-bus-limits)
@@ -313,7 +313,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Automation limits
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
-### Role-Based Access Control limits
+### Role-based access control limits
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### SQL Database limits
