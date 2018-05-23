@@ -19,31 +19,42 @@ ms.author: juluk
 
 # Features & tools for Bash in Azure Cloud Shell
 
-[!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
+Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
 
-> [!TIP]
-> Features & tools in [PowerShell](features-powershell.md) is also available.
+Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure resources without the overhead of installing, versioning, and maintaining a machine yourself.
 
-Bash in Cloud Shell runs on `Ubuntu 16.04 LTS`.
+Cloud Shell provisions machines on a per-request basis and as a result machine state will not persist across sessions. 
+Since Cloud Shell is built for interactive sessions, shells automatically terminate after 20 minutes of shell inactivity.
+
+Azure in Cloud Shell runs on `Ubuntu 16.04 LTS`.
 
 ## Features
 
 ### Secure automatic authentication
 
-Bash in Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0.
+Bash in Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0 and Azure PowerShell.
 
 ### $Home persistence across sessions
 
 To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
 Once completed, Cloud Shell will automatically attach your storage (mounted as `$Home\clouddrive`) for all future sessions.
-Additionally, in Bash in Cloud Shell your `$Home` directory is persisted as an .img in your Azure File share.
+Additionally, your `$Home` directory is persisted as an .img in your Azure File share.
 Files outside of `$Home` and machine state are not persisted across sessions. Use best practices when storing secrets such as SSH keys. Services like [Azure Key Vault have tutorials for setup](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
 [Learn more about persisting files in Bash in Cloud Shell.](persisting-shell-storage.md)
 
-### Integration with open-source tooling
+### Azure drive (Azure:)
 
-Bash in Cloud Shell includes pre-configured authentication for open-source tools such as Terraform, Ansible, and Chef InSpec. Try it out from the example walkthroughs.
+PowerShell in Cloud Shell (Preview) starts you in Azure drive (`Azure:`).
+The Azure drive enables easy discovery and navigation of Azure resources such as Compute, Network, Storage etc. similar to filesystem navigation.
+You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure) to manage these resources.
+Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are instantly reflected in the Azure drive.
+
+![](media/features-powershell/azure-drive.png)
+
+### Deep integration with open-source tooling
+
+Cloud Shell includes pre-configured authentication for open-source tools such as Terraform and Ansible. Try it out from the example walkthroughs.
 
 ## Tools
 
@@ -71,4 +82,6 @@ Bash in Cloud Shell includes pre-configured authentication for open-source tools
 
 ## Next steps
 [Bash in Cloud Shell Quickstart](quickstart.md) <br>
-[Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/)
+[PowerShell in Cloud Shell (Preview) Quickstart](quickstart-powershell.md) <br>
+[Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Learn about Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>
