@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/11/2018
-ms.author: adigan,markgal
+ms.date: 5/18/2018
+ms.author: adigan
 
 ---
 # Back up files and applications on Azure Stack
@@ -44,7 +44,7 @@ Azure Backup Server protects the following Azure Stack virtual machine workloads
 
 
 ## Install Azure Backup Server
-To install Azure Backup Server on an Azure Stack virtual machine, see the article, [Preparing to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md). Before installing and configuring Azure Backup Server, be aware of the following:
+To install Azure Backup Server on an Azure Stack virtual machine, see the article, [Preparing to back up workloads using Azure Backup Server](backup-mabs-install-azure-stack.md). Before installing and configuring Azure Backup Server, be aware of the following:
 
 ### Determining size of virtual machine
 To run Azure Backup Server on an Azure Stack virtual machine, use size A2 or larger. For assistance in choosing a virtual machine size, download the [Azure Stack VM size calculator](https://www.microsoft.com/download/details.aspx?id=56832).
