@@ -50,7 +50,7 @@ start with a trigger.
 
 <a name="create-variable"></a>
 
-## Create a variable
+## Create variable
 
 You can declare a variable along with its data type and 
 initial value - all at the same time in your logic app. 
@@ -157,10 +157,10 @@ Here are examples for a few other variable types:
 
 <a name="change-variable-value"></a>
 
-## Change values in variables
+## Change values for variables
 
-You have several ways that you can change the value 
-for an existing variable in the Logic App Designer.
+After you create a variable, you have several ways 
+that you can change the value in that variable.
 
 * [*Increment*](#increment-value) or add a value to the variable. 
 This action works only for integer or float variables.
@@ -356,7 +356,7 @@ for the email you sent to yourself.
 
 <a name="decrement-value"></a>
 
-### Decrement variable
+## Decrement variable
 
 To decrease an existing variable by a specific value, you can follow 
 the steps for [increasing a variable](#increment-value) except that you 
@@ -391,7 +391,7 @@ The definition uses JavaScript Object Notation (JSON) format:
 
 <a name="assign-value"></a>
 
-## Assign a value 
+## Assign new values
 
 To assign a different value to an existing variable, 
 you can follow the steps for [increasing a variable](#increment-value) 
@@ -493,14 +493,14 @@ The definition uses JavaScript Object Notation (JSON) format:
 
 <a name="get-value"></a>
 
-## Get variable values
+## Get values from variables
 
 To retrieve or reference the value or values in a variable, you can use the 
-[variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) function.
+[variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) function in the Logic App Designer or in code view.
 
 For example, using the array variable [previously defined in this article](#append-value), 
-this expression gets the array items from the variable by using the **variables()** function. 
-The **string()** function returns those array items as this string: "1, 2, 3, 4"
+this expression gets the array items from the variable with the **variables()** function. 
+The **string()** function then returns those array items as this string: "1, 2, 3, 4"
 
 ```json
 @{string(variables('myArrayVariable'))}
