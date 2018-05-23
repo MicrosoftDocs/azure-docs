@@ -23,8 +23,8 @@ For example, variables can help count the number
 of times that a loop runs, or check for an item in 
 an array by acting as the item's index value. 
 
-You can create variables for various data types, 
-such as integer, float, boolean, string, array, and object. 
+You can create variables for data types such as integer, 
+float, boolean, string, array, and object. 
 After you create a variable, you can perform other tasks, 
 for example:
 
@@ -281,11 +281,26 @@ counting and tracking the number of attachments, for example:
 
    ![Add action for "Initialize variable"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
-4. Under the previous action, add a "for each" 
-loop that cycles through each attachment. 
-(Choose **New step** > **More** > **Add a for each**)
+4. Add a "for each" loop that cycles through each attachment. 
 
-   ![Add a "for each" loop](./media/logic-apps-create-variables-store-values/add-loop.png)
+   1. Choose **New step** > **More** > **Add a for each**.
+
+      ![Add a "for each" loop](./media/logic-apps-create-variables-store-values/add-loop.png)
+
+      Now set your loop to run sequentially. By default, 
+      for each loop iterations run in parallel, which might 
+      cause miscalculates for your attachment count.
+   
+   2. In the loop's upper-right corner, choose the ellisis (...) button, 
+   and then choose **Settings**. 
+
+   3. Under **Concurrency Control**, set **Override Default** to **On**.
+
+   4. For **Degree of Parallelsim**, drag the slider to 1, and choose **Done**.
+
+      For example:
+
+      ![Set loop to run sequentially](./media/logic-apps-create-variables-store-values/set-sequential.png)
 
 5. Inside the loop, click in the **Select an output from previous steps** box. 
 When the dynamic content list appears, select **Attachments**. 
