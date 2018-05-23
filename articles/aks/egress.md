@@ -11,7 +11,7 @@ ms.date: 05/23/2018
 ms.author: nepeters
 ---
 
-# Understand egress traffic from Azure Kubernetes Service (AKS)
+# Azure Kubernetes Service (AKS) egress
 
 By default, the egress address from an Azure Kubernetes Service (AKS) cluster is randomly assigned. This configuration is not ideal when needing to identify an IP address for accessing external services. This document details how to create and maintain a statically assigned egress IP address in an AKS cluster.
 
