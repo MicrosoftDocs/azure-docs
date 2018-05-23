@@ -14,11 +14,14 @@ ms.author: b-juche
 ---
 # Azure NetApp Files Documentation
 
-Learn how to use Azure NetApp Files to create and manage volumes, create a mount target, configure export policy, mount a volume for a virtual machine, manage snapshots, and use metrics to monitor volume performance.
+Learn how to use Azure NetApp Files to create and manage volumes, create a mount target, configure export policy, mount a volume for a virtual machine, and manage snapshots.
+
+> [!IMPORTANT] 
+> All tasks described in this documentation require that you be whitelisted for accessing the Microsoft.NetApp Azure Resource Provider and using the Azure NetApp Files service.  For details about the whitelisting process, see the [Azure NetApp Files Public Preview survey page](https://aka.ms/nfspublicpreview). 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/azure-netapp-files/netapp-introduction">
+        <a href="/azure/azure-netapp-files/azure-netapp-files-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -55,7 +58,7 @@ Learn how to use Azure NetApp Files to create and manage volumes, create a mount
         </a>
     </li> 
     <li>
-        <a href="/azure/azure-netapp-files/netapp-prepare-to-deploy">
+        <a href="/azure/azure-netapp-files/azure-netapp-files-create-netapp-account">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
