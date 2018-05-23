@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/22/2018
+ms.date: 05/23/2018
 ms.author: terrylan
 
 ---
@@ -33,7 +33,7 @@ In the Azure portal, a user can view allowed IP configurations using Security Ce
 In the Azure portal, a user can view security alerts provided by Security Center including IP addresses and attacker details. See [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information.
 
 ## Classifying personal data
-You do not need to classify personal data found in Security Center. The data saved is an email address (or multiple email addresses) and a phone number. [Contact data](security-center-provide-security-contact-details.md) is validated by Security Center.
+You do not need to classify personal data found in Security Center's security contact feature. The data saved is an email address (or multiple email addresses) and a phone number. [Contact data](security-center-provide-security-contact-details.md) is validated by Security Center.
 
 You do not need to classify the IP addresses and port numbers saved by Security Center's [just in time](security-center-just-in-time.md) feature.
 
@@ -58,7 +58,7 @@ A Security Center user assigned the role of Owner, Contributor, or Account Admin
 
 A Security Center user assigned the role of Owner, Contributor, or Account Administrator can delete the [just in time policies](security-center-just-in-time.md) via the Azure portal.
 
-A Security Center user cannot delete alert incidents. An [alert incident](security-center-managing-and-responding-alerts.md) is considered security data and is read only.
+A Security Center user cannot delete alert incidents. Due to security needs an [alert incident](security-center-managing-and-responding-alerts.md) is considered read only data.
 
 ## Exporting personal data
 A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can export [security contact data](security-center-provide-security-contact-details.md) by:
