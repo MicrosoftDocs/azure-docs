@@ -7,7 +7,8 @@ ms.author: viviali
 ms.date: 04/16/2018
 ms.topic: conceptual
 ms.service: iot-central
-manager: 
+services: iot-central
+manager: peterpr
 ---
 
 # Set up a device template

@@ -6,8 +6,9 @@ ms.author: ankitgup
 ms.date: 04/16/2018
 ms.topic: tutorial
 ms.service: iot-central
+services: iot-central
 ms.custom: mvc
-manager: 
+manager: peterpr
 ---
 
 # 2 - Configure rules and actions for your device in Azure IoT Central

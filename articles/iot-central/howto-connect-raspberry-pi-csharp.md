@@ -6,6 +6,7 @@ ms.author: dobett
 ms.date: 01/22/2018
 ms.topic: conceptual
 ms.service: iot-central
+services: iot-central
 manager: timlt
 ---
 

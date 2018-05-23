@@ -6,7 +6,8 @@ ms.author: sandeepu
 ms.date: 01/19/2018
 ms.topic: conceptual
 ms.service: iot-central
-manager: 
+services: iot-central
+manager: peterpr
 ---
 
 # Create a new device template version

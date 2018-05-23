@@ -6,7 +6,8 @@ ms.author: elfarber
 ms.date: 01/21/2018
 ms.topic: conceptual
 ms.service: iot-central
-manager: 
+services: iot-central
+manager: peterpr
 ---
 
 # Manage devices in your Azure IoT Central application

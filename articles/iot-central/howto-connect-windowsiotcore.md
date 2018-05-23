@@ -6,6 +6,7 @@ ms.author: mriamb
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-central
+services: iot-central
 manager: peterpr
 ---
 

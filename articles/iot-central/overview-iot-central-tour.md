@@ -1,13 +1,14 @@
 ---
 title: Take a tour of the Azure IoT Central UI | Microsoft Docs
 description: As a builder, become familiar with the key areas of the Azure IoT Central UI that you use to create an IoT solution.
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/13/2018
 ms.topic: overview
 ms.service: iot-central
+services: iot-central
 ms.custom: mvc
-manager: 
+manager: peterpr
 ---
 
 # Take a tour of the Azure IoT Central UI

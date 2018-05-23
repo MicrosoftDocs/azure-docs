@@ -1,12 +1,13 @@
 ---
 title: Administer an Azure IoT Central application | Microsoft Docs
 description: As an adminstrator, how to administer your Azure IoT Central application
-author: TanmayBhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
 ms.topic: conceptual
 ms.service: iot-central
-manager: 
+services: iot-central
+manager: peterpr
 ---
 
 # How to administer your application

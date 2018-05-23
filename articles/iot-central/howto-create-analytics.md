@@ -1,12 +1,13 @@
 ---
 title: Create custom analytics for your Azure IoT Central application | Microsoft Docs
 description: As an operator, how to create custom analytics for your Azure IoT Central application.
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
 ms.topic: conceptual
 ms.service: iot-central
-manager:
+services: iot-central
+manager: peterpr
 ---
 
 # How to use analytics to analyze your device data

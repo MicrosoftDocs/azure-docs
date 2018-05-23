@@ -6,8 +6,9 @@ ms.author: sandeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
 ms.service: iot-central
+services: iot-central
 ms.custom: mvc
-manager:
+manager: peterpr
 ---
 
 # Add a real device to your Azure IoT Central application

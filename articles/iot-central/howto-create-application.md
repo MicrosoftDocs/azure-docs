@@ -1,12 +1,13 @@
 ---
 title: Create an Azure IoT Central application | Microsoft Docs
 description: As an adminstrator, how to create an Azure IoT Central application.
-author: TanmayBhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 03/20/2018
 ms.topic: conceptual
 ms.service: iot-central
-manager: 
+services: iot-central
+manager: peterpr
 ---
 
 # Create your Azure IoT Central Application

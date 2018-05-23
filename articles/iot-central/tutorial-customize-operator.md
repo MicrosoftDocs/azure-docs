@@ -6,8 +6,9 @@ ms.author: sadeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
 ms.service: iot-central
+services: iot-central
 ms.custom: mvc
-manager:
+manager: peterpr
 ---
 
 # 3 - Customize the Azure IoT Central operator's view

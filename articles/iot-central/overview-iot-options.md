@@ -6,6 +6,7 @@ ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: overview
 ms.service: iot-central
+services: iot-central
 ms.custom: mvc
 manager: timlt
 ---
