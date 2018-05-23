@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.topic: conceptual
 ms.date: 05/22/2018
 ---
-# Export or delete account data related to experimentation or model management in Machine Learning
+# Export or delete your experimentation or model management data in Machine Learning
 
 In Azure Machine Learning, you can export or delete your account data related to experimentation or model management with the Azure portal, CLI, SDK, and authenticated REST APIs. This article shows you how.
 
