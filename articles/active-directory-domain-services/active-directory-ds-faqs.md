@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/23/2018
 ms.author: maheshu
 
 ---
@@ -78,6 +78,9 @@ Yes. Members of the 'AAD DC Administrators' group are granted 'DNS Administrator
 
 ### What is the password lifetime policy on a managed domain?
 The default password lifetime on an Azure AD Domain Services managed domain is 90 days. This password lifetime is not synchronized with the password lifetime configured in Azure AD. Therefore, you may have a situation where users' passwords expire in your managed domain, but are still valid in Azure AD. In such scenarios, users need to change their password in Azure AD and the new password will synchronize to your managed domain. Additionally, the 'password-does-not-expire' and 'user-must-change-password-at-next-logon' attributes for user accounts are not synchronized to your managed domain.
+
+### Does Azure AD Domain Services provide AD account lockout protection?
+Yes. 4 invalid password attempts within 2 minutes on the managed domain cause a user account to be locked out for 30 minutes. After 30 minutes, the user account is automatically unlocked. Invalid password attempts on the managed domain do not lock out the user account in Azure AD. The user account is locked out only within your Azure AD Domain Services managed domain.
 
 ## Billing and availability
 ### Is Azure AD Domain Services a paid service?

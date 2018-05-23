@@ -18,7 +18,7 @@ ms.author: menchi
 ms.custom: H1Hack27Feb2017
 
 ---
-# Get started with IoT Hub module identity and module twin using .NET backup and .NET device
+# Get started with IoT Hub module identity and module twin using .NET back end and .NET device
 
 > [!NOTE]
 > [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
@@ -75,7 +75,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
 
     ```csharp
     private const string ModuleConnectionString = "<Your module connection string>";
-    private static DeviceClient Client = null;
+    private static ModuleClient Client = null;
     static void ConnectionStatusChangeHandler(ConnectionStatus status, ConnectionStatusChangeReason reason)
     {
         Console.WriteLine("Connection Status Changed to {0}; the reason is {1}", status, reason);
@@ -108,7 +108,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
 
         try
         {
-            Client = DeviceClient.CreateFromConnectionString(ModuleConnectionString, transport);
+            Client = ModuleClient.CreateFromConnectionString(ModuleConnectionString, transport);
             Client.SetConnectionStatusChangesHandler(ConnectionStatusChangeHandler);
             Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
 

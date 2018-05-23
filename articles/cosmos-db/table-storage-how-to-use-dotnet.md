@@ -99,7 +99,7 @@ You can use NuGet to obtain both packages. Follow these steps:
 >
 
 ### Determine your target environment
-You have two environment options for running the examples in this guide:
+You have three environment options for running the examples in this guide:
 
 * You can run your code against an Azure Storage account in the cloud. 
 * You can run your code against an Azure Cosmos DB account in the cloud.
