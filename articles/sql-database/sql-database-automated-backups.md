@@ -40,19 +40,15 @@ Full database backups happen weekly, differential database backups generally hap
 The backup storage geo-replication occurs based on the Azure Storage replication schedule.
 
 ## How long do you keep my backups?
-Each SQL Database backup has a retention period that is based on the service tier of the database, and differs between the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md). 
+Each SQL Database backup has a default retention period that is based on the service tier of the database, and differs between the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md). You can update the backup retention period for a database. See [Update Backup Retention Period](sql-database-automated-backups.md#how-to-update-backup-retention-period) for more details.
 
 
-### Database Retention for DTU-based purchasing model
+### Default Automated Backup Retention for DTU-based purchasing model
 The retention period for a database in the DTU-based purchasing model depends on the service tier. The retention period for a database for the:
 
 * Basic service tier is 7 days.
 * Standard service tier is 35 days.
 * Premium service tier is 35 days.
-* General-purpose tier is configurable with 35 days maximum (7 days by default)*
-* Business Critical tier (preview) is configurable with 35 days maximum (7 days by default)*
-
-\* During preview, the backups retention period is not configurable and is fixed to 7 days.
 
 If you convert a database with longer backups retention to a database with shorter retention, all existing backups older than target tier retention period are no longer available.
 
@@ -69,6 +65,43 @@ Storage for database backups is allocated to support the Point in Time Restore (
 
 - **PITR**: Individual database backups are copied to RA-GRS storage are automatically. The storage size increases dynamically as the new backups are created.  The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The storage consumption depends on the rate of change of the database and the retention period. You can configure a separate retention period for each database between 7 and 35 days. A minimum storage amount equal to 1x of data size is provided at no extra charge. For most databases, this amount is enough to store 7 days of backups. For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 - **LTR**: SQL Database offers the option configuring long-term retention of full backups for up to 10 years. If LTR policy is enabled, theses backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. This configuration will define how much storage will be used for the LTR backups. You can use the LTR pricing calculator to estimate the cost of LTR storage. For more information, see [Long-term retention](sql-database-long-term-retention.md).
+
+## How to update automated backup retention period
+
+You can update automated backup retention period for a database between 7 and 35 days (during vCore-based purchasing model preview, the backup retention period is 7 days, and cannot be updated). You can update the backup retention period using REST API or PowerShell:
+
+### Update backup retention period to 14 days using REST API
+**Sample Request**
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
+```
+**Request Body**
+```json
+{
+  "retentionDays": 14
+}
+```
+**Sample Response**
+
+Status code: 200
+```json
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
+  "name": "default",
+  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
+  "properties": {
+    "retentionDays": 14
+  }
+}
+```
+See [Backup Short Term Retention Policies REST API documentation](austin-to-send-me-the-link) for more details.
+
+### Update backup retention period to 14 days using PowerShell (will be supported in Azure Powershell Vxxx.x.x)
+```powershell
+Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 14
+```
+
+Updating backup retention period in Azure portal is not supported yet. 
 
 ## How to extend the backup retention period?
 
