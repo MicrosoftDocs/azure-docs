@@ -51,7 +51,7 @@ Examples: `https://myapp.com/terms-of-service` and `https://myapp.com/privacy-st
 
 When the terms of service and privacy statement are ready, you can add links to these documents in your app using one of these methods:
 * [Through the Azure portal](#registered-in-azure-portal)
-* [In the Application Registration Center, or Dev Center](#registered-in-app-reg-portal)
+* [In the Application Registration Portal, or Dev Center](#registered-in-app-reg-portal)
 * [Using the app object JSON](#app-object-json)
 * [Using the MSGraph beta REST API](#msgraph-beta-rest-api)
 
@@ -104,4 +104,5 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 ```
 
 > [!NOTE]
-> The MSGraph beta REST API will only work when you sign in with an Azure AD account. Personal Microsoft accounts are not supported.
+> * Be careful not to overwrite any pre-existing values you have assigned to any of these fields: `supportUrl`, `marketingUrl`, and `logoUrl`
+> * The MSGraph beta REST API will only work when you sign in with an Azure AD account. Personal Microsoft accounts are not supported.
