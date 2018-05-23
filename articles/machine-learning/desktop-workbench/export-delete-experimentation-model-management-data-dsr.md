@@ -17,8 +17,7 @@ In Azure Machine Learning, you can export or delete your account data related to
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## Control your account data
-In-product data stored by Azure Machine Learning Experimentation and Model Management is available for export and delete through the Azure portal, CLI, SDK, and authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. For Azure Machine Learning, personal data consists of user information in run history documents and telemetry records of some user actions when interacting with the service.
-Data Subject to DSR Processing
+In-product data stored by Azure Machine Learning Experimentation and Model Management is available for export and delete through the Azure portal, CLI, SDK, and authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. For Azure Machine Learning, personal data consists of user information in run history documents and telemetry records of some user actions from interactions with the service.
 
 ## Delete account data with the REST API 
 
@@ -118,7 +117,7 @@ https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId
 
 ## Export compute data
 ### Compute clusters
-Use call this to get a list of all computes clusters and their names
+Use this call to get a list of all computes clusters and their names
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes?api-version=2018-03-01-preview
 
 Individual clusters can be obtained by:
