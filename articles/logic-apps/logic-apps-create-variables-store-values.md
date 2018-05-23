@@ -96,6 +96,63 @@ From the actions list, select this action:
 5. Now continue adding the actions you want. 
 When you're done, on the designer toolbar, choose **Save**.
 
+Here is how the **Initialize variable** action appears for an integer variable 
+in the underlying logic app definition, which uses JavaScript Object Notation (JSON) format:
+
+```json
+"actions": {
+   "Initialize_variable": {
+      "type": "InitializeVariable",
+      "inputs": {
+         "variables": [ {
+               "name": "Count",
+               "type": "Integer",
+               "value": 0
+          } ]
+      }
+   },
+   "runAfter": {}
+},
+```
+
+Here are examples for a few other variable types:
+
+*Array with integers*
+
+```json
+"actions": {
+   "Initialize_variable": {
+      "type": "InitializeVariable",
+      "inputs": {
+         "variables": [ {
+               "name": "myArrayVariable",
+               "type": "Array",
+               "value": [1, 2, 3]
+          } ]
+      }
+   },
+   "runAfter": {}
+},
+```
+
+*Array with strings*
+
+```json
+"actions": {
+   "Initialize_variable": {
+      "type": "InitializeVariable",
+      "inputs": {
+         "variables": [ {
+               "name": "myArrayVariable",
+               "type": "Array",
+               "value": ["red", "orange", "yellow"]
+          } ]
+      }
+   },
+   "runAfter": {}
+},
+```
+
 <a name="change-variable-value"></a>
 
 ## Change values in variables
@@ -154,14 +211,30 @@ Here are the properties for this action:
    | Property | Required | Value |  Description |
    |----------|----------|-------|--------------|
    | Name | Yes | <*variable-name*> | The name for the variable to increment | 
-   | Value | No | <*increment-value*> | The value used for incrementing the variable. The default value is one. | 
+   | Value | No | <*increment-value*> | The value used for incrementing the variable. The default value is one. <p><p>**Tip**: Although optional, set this value as a best practice so you always know the specific value for incrementing your variable. | 
    |||| 
 
    For example: 
    
    ![Increment value example](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
-4. When you're done, on the designer toolbar, choose **Save**.
+4. When you're done, on the designer toolbar, choose **Save**. 
+
+Here is how the **Increment variable** action appears in the underlying 
+logic app definition, which uses JavaScript Object Notation (JSON) format:
+
+```json
+"actions": {
+   "Increment_variable": {
+      "type": "IncrementVariable",
+      "inputs": {
+         "name": "Count",
+         "value": 1
+      },
+      "runAfter": {}
+   }
+},
+```
 
 ### Example: Count loop cycles
 
@@ -235,6 +308,31 @@ This example sends an email with the results.
 
 10. Save your logic app. On the designer toolbar, choose **Save**. 
 
+Here is how the **Increment variable** action appears inside the "for each" loop in the 
+underlying logic app definition, which uses JavaScript Object Notation (JSON) format:
+
+```json
+"actions": {
+   "For_each": {
+      "type": "Foreach",
+      "actions": {
+         "Increment_variable": {
+           "type": "IncrementVariable",
+            "inputs": {
+               "name": "Count",
+               "value": 1
+            },
+            "runAfter": {}
+         }
+      },
+      "foreach": "@triggerBody()?['Attachments']",
+      "runAfter": {
+         "Initialize_variable": [ "Succeeded" ]
+      }
+   }
+},
+```
+
 ### Test your logic app
 
 1. If your logic app isn't running already, on the logic app menu, 
@@ -264,12 +362,28 @@ Here are the properties for the **Decrement variable** action:
 | Property | Required | Value |  Description |
 |----------|----------|-------|--------------|
 | Name | Yes | <*variable-name*> | The name for the variable to decrement | 
-| Value | No | <*increment-value*> | The value for decrementing the variable. The default value is one. | 
+| Value | No | <*increment-value*> | The value for decrementing the variable. The default value is one. <p><p>**Tip**: Although optional, set this value as a best practice so you always know the specific value for decrementing your variable. | 
 ||||| 
+
+Here is how the **Decrement variable** action appears in the underlying 
+logic app definition, which uses JavaScript Object Notation (JSON) format:
+
+```json
+"actions": {
+   "Decrement_variable": {
+      "type": "DecrementVariable",
+      "inputs": {
+         "name": "Count",
+         "value": 1
+      },
+      "runAfter": {}
+   }
+},
+```
 
 <a name="assign-value"></a>
 
-### Assign a specific value 
+## Assign a value 
 
 To assign a different value to an existing variable, 
 you can follow the steps for [increasing a variable](#increment-value) 
@@ -288,12 +402,34 @@ Here are the properties for the **Set variable** action:
 | Value | Yes | <*new-value*> | The value you want to assign the variable. Both the new value and variable must have the same data type. | 
 ||||| 
 
+Here is how the **Set variable** action appears in the underlying 
+logic app definition, which uses JavaScript Object Notation (JSON) format. 
+In this example, the variable value is reset to zero after a previously 
+defined "for each" loop exits successfully:
+
+```json
+"actions": {
+   "Set_variable": {
+      "type": "SetVariable",
+      "inputs": {
+         "name": "Count",
+         "value": 0
+      },
+      "runAfter": {
+         "For_each": [ "Succeeded" ]
+      }
+   }
+},
+```
+
 <a name="append-value"></a>
 
-### Append to variables
+## Append to variable
 
 For variables that store either strings or arrays, you can 
-add a value at the ends of those strings or arrays. Both the value and variable must have the same data type. You can follow the steps for [increasing a variable](#increment-value) 
+add a value as the last item in those strings or arrays. 
+Both the value and variable must have the same data type. 
+You can follow the steps for [increasing a variable](#increment-value) 
 except for these steps: 
 
 * Select the action based on whether you have a string or array variable: 
@@ -312,6 +448,38 @@ Here are the properties for the **Append to...** actions:
 | Value | Yes | <*append-value*> | The value you want to append. Both the new value and variable must have the same data type. | 
 |||||  
 
+Here is how the **Append to array variable** 
+action appears in the underlying logic app definition, 
+which uses JavaScript Object Notation (JSON) format. 
+This example creates an array variable, and adds the 
+specified value as the last array item in the variable:
+
+```json
+"actions": {
+   "Initialize_variable": {
+      "type": "InitializeVariable",
+      "inputs": {
+         "variables": [ {
+            "name": "myArrayVariable",
+            "type": "Array",
+            "value": [1, 2, 3]
+         } ]
+      },
+      "runAfter": {}
+   },
+   "Append_to_array_variable": {
+      "type": "AppendToArrayVariable",
+      "inputs": {
+         "name": "myArrayVariable",
+         "value": "4"
+      },
+      "runAfter": {
+        "Initialize_variable": [ "Succeeded" ]
+      }
+   }
+},
+```
+
 <a name="get-value"></a>
 
 ## Get variable values
@@ -319,6 +487,13 @@ Here are the properties for the **Append to...** actions:
 To retrieve or reference the value in a variable, 
 you can use the [variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) 
 function.
+
+For example, using the array variable [previously defined in this article](#append-value), 
+this expression gets the array items from the variable by using the **variables()** function. The **string()** function returns those array items as this string: "1, 2, 3, 4"
+
+```json
+@{string(variables('myArrayVariable'))}
+```
 
 ## Get support
 
