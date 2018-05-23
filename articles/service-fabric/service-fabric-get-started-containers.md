@@ -318,7 +318,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 ```
 
 ## Configure isolation mode
-Windows supports two isolation modes for containers: process and Hyper-V. With the process isolation mode, all the containers running on the same host machine share the kernel with the host. With the Hyper-V isolation mode, the kernels are isolated between each Hyper-V container and the container host. The isolation mode is specified in the `ContainerHostPolicies` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default isolation mode defaults to `process` on Windows Server hosts, and defaults to `hyperv` on Windows 10 hosts. The following snippet shows how the isolation mode is specified in the application manifest file.
+Windows supports two isolation modes for containers: process and Hyper-V. With the process isolation mode, all the containers running on the same host machine share the kernel with the host. With the Hyper-V isolation mode, the kernels are isolated between each Hyper-V container and the container host. The isolation mode is specified in the `ContainerHostPolicies` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default  is process isolation mode on Windows Server hosts. On Windows 10 hosts, only Hyper-V isolation mode is supported, so the container runs in Hyper-V isolation mode regardless of the isolation mode setting for the container. The following snippet shows how the isolation mode is specified in the application manifest file.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
@@ -411,6 +411,10 @@ We recommend the following practices to make sure that containers are deployed c
 
 - Use explicit image tagging with your Docker images to specify the version of Windows Server OS that a container is built from. 
 - Use [OS tagging](#specify-os-build-specific-container-images) in your application manifest file to make sure that your application is compatible across different Windows Server versions and upgrades.
+
+> [!NOTE]
+> With Service Fabric version 6.2 and later, you can deploy containers based on Windows Server 2016 locally on a Windows 10 host. On Windows 10, containers run in Hyper-V isolation mode, regardless of the isolation mode set in the application manifest. To learn more, see [Configure isolation mode](#configure-isolation-mode).   
+>
  
 ## Specify OS build specific container images 
 
