@@ -1,5 +1,5 @@
 ---
-title: Export and delete in-product user data from Machine Learning Studio - Azure | Microsoft Docs
+title: Export and delete in-product user data from Azure AI Gallery | Microsoft Docs
 description: In-product data stored by Azure Machine Learning Studio is available for export and deletion through the Azure portal and also through authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. This article shows you how.
 services: machine-learning
 author: heatherbshapiro
@@ -12,24 +12,15 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ---
 
-# Export and delete in-product user data from Machine Learning Studio
+# Export and delete in-product user data from Azure AI Gallery
 
-In-product data stored by Azure Machine Learning Studio is available for export and deletion through the Azure portal and also through authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. This article shows you how.
+
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## What kinds of user data does Studio collect?
 
-For this service, personal data consists of information about users who are authorized to access workspaces and telemetry records of user interactions with the service.
 
-## Delete workspace data in Studio 
 
-Users can delete individual assets in a workspace by selecting them and triggering the delete button as shown below.
- 
-Users can also delete their entire workspace either through the Azure Portal (for paid workspaces) or by using the delete button in the Settings pane (for free workspaces) 
-DSR Export Interface Detail
-Azure Machine Learning Studio
-Users can export all their information from Azure Machine Learning Studio in a portable format using a PowerShell library available here.
 Azure AI Gallery
 View items published through the Azure AI Gallery website
 Users can view both public and unlisted Solutions, Projects, Experiments, and other published items by visiting the Azure AI Gallery website.
