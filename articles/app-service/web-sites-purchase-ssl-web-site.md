@@ -97,7 +97,7 @@ In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** 
 
 Click the name of your app to which you want to assign this certificate.
 
-In the **Settings**, click **SSL certificates**.
+In the **Settings**, click **SSL settings**.
 
 Click **Import App Service Certificate** and select the certificate that you just purchased.
 
@@ -202,5 +202,7 @@ If your SSL certificate is configured for auto-renewal, but it is not automatica
 
 ## More resources
 
+* [Enforce HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
+* [Enforce TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)
 * [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md)
 * [FAQ : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

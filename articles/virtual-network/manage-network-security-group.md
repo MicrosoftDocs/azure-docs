@@ -28,8 +28,10 @@ Complete the following tasks before completing steps in any section of this arti
 
 - If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
 - If using the portal, open https://portal.azure.com, and log in with your Azure account.
-- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.28 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
+
+The account you log into, or connect to Azure with must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions).
 
 ## Work with network security groups
 
@@ -41,7 +43,7 @@ There is a limit to how many network security groups you can create per Azure lo
 
 1. In the top-left corner of the portal, select **+ Create a resource**.
 2. Select **Networking**, then select **network security group**.
-3. Enter a **Name** for the network security group, select your **Subscription**, create a new **Resource group**, or select an existing resource group, select a **Location**, and then select **Create**. 
+3. Enter a **Name** for the network security group, select your **Subscription**, create a new **Resource group**, or select an existing resource group, select a **Location**, and then select **Create**.
 
 **Commands**
 
@@ -64,7 +66,7 @@ In the search box at the top of the portal, enter *network security groups*. Whe
 3. To learn more about the common Azure settings listed, see the following articles:
 	*	[Activity log](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
 	*	[Access control (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-	*	[Tags](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+	*	[Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 	*	[Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 	*	[Automation script](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -76,7 +78,7 @@ In the search box at the top of the portal, enter *network security groups*. Whe
 ### Change a network security group
 
 1. In the search box at the top of the portal, enter *network security groups* in the search box. When **network security groups** appear in the search results, select it.
-2. Select the network security group you want to change. The most common changes are [adding](#create-a-security-rule) or [removing](#delete-a-security-rule) security rules and [Associating or dissociating a network security group to or from a subnet or network interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource).
+2. Select the network security group you want to change. The most common changes are [adding](#create-a-security-rule) or [removing](#delete-a-security-rule) security rules and [Associating or dissociating a network security group to or from a subnet or network interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface).
 
 **Commands**
 
@@ -208,7 +210,7 @@ While you can change some settings such as tags and permissions for an existing 
 
 ### Delete an application security group
 
-You cannot delete an application security group if it has any network interfaces in it. You must remove all network interfaces from the application security group by either changing network interface settings, or deleting the network interfaces. For details, see [Add to or remove a network interface from application security groups](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) or [delete a network interface](virtual-network-network-interface.md#delete-a-network-interface).
+You cannot delete an application security group if it has any network interfaces in it. Remove all network interfaces from the application security group by either changing network interface settings, or deleting the network interfaces. For details, see [Add to or remove a network interface from application security groups](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) or [delete a network interface](virtual-network-network-interface.md#delete-a-network-interface).
 
 **Commands**
 
@@ -217,18 +219,33 @@ You cannot delete an application security group if it has any network interfaces
 
 ## Permissions
 
-To perform tasks on network security groups, security rules, and application security groups, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate permissions listed in the following table:
+To perform tasks on network security groups, security rules, and application security groups, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate permissions listed in the following tables:
 
-|Operation                                                       |   Operation name                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/ruleTables/read                              |   Get network security group                              |
-|Microsoft.Network/ruleTables/write                             |   Create or update network security group                 |
-|Microsoft.Network/ruleTables/delete                            |   Delete network security group                           |
-|Microsoft.Network/ruleTables/join/action                       |   Join network security group                             |
-|Microsoft.Network/ruleTables/rules/read                       |   Get rule                                    |
-|Microsoft.Network/ruleTables/rules/write                      |   Create or update rule                       |
-|Microsoft.Network/ruleTables/rules/delete                     |   Delete rule                                 |
-|Microsoft.Network/networkInterfaces/effectiveruleTable/action  |   Get Network Interface Effective network security group  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   Gets the next hop from a VM                  |
+### Network security groups
 
-The *Join network security group* operation is required to associate a network security group to a subnet.
+| Action                                                        |   Name                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/ruleTables/read                             |   Get network security group                                          |
+| Microsoft.Network/ruleTables/write                            |   Create or update network security group                             |
+| Microsoft.Network/ruleTables/delete                           |   Delete network security group                                       |
+| Microsoft.Network/ruleTables/join/action                      |   Associate a network security group to a subnet or network interface |
+| Microsoft.Network/ruleTables/rules/read                       |   Get rule                                                            |
+| Microsoft.Network/ruleTables/rules/write                      |   Create or update rule                                               |
+| Microsoft.Network/ruleTables/rules/delete                     |   Delete rule                                                         |
+| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Get Network Interface Effective network security group              |
+| Microsoft.Network/networkWatchers/nextHop/action              |   Gets the next hop from a VM                                         |
+
+### Application security groups
+
+| Action                                                                     | Name                                                     |
+| --------------------------------------------------------------             | -------------------------------------------              |
+| Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Join an IP configuration to an application security group|
+| Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Join a security rule to an application security group    |
+| Microsoft.Network/applicationSecurityGroups/read                           | Get an application security group                        |
+| Microsoft.Network/applicationSecurityGroups/write                          | Create or update an application security group           |
+| Microsoft.Network/applicationSecurityGroups/delete                         | Delete an application security group                     |
+
+## Next steps
+
+- Create a network or application security group using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager templates](template-samples.md)
+- Create and apply [Azure policy](policy-samples.md) for virtual networks

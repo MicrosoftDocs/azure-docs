@@ -4,8 +4,8 @@ description: Learn how to develop and debug Data Factory pipelines iteratively i
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/04/2018
-ms.topic: article
+ms.date: 05/14/2018
+ms.topic: conceptual
 ms.service: data-factory
 
 services: data-factory
@@ -17,6 +17,10 @@ ms.devlang: na
 # Iterative development and debugging with Azure Data Factory
 
 Azure Data Factory lets you iteratively develop and debug Data Factory pipelines.
+
+For an eight-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
 
 ## Iterative debugging features
 Create pipelines and do test runs using the **Debug** capability in the pipeline canvas without writing a single line of code.
@@ -41,9 +45,17 @@ When you do test runs, you don't have to publish your changes to the data factor
 
 ## Setting breakpoints for debugging
 
-Data Factory also lets you debug until you reach a particular activity in your pipeline canvas. Just put a breakpoint on the activity until which you want to test, and select **Debug**. Data Factory ensures that the test runs only until the breakpoint activity on the pipeline canvas. This *Debug Until* feature is useful when you don't want to test the entire pipeline, but only a subset of activities inside the pipeline.
+Data Factory also lets you debug until you reach a particular activity on the pipeline canvas. Just put a breakpoint on the activity until which you want to test, and select **Debug**. Data Factory ensures that the test runs only until the breakpoint activity on the pipeline canvas. This *Debug Until* feature is useful when you don't want to test the entire pipeline, but only a subset of activities inside the pipeline.
 
 ![Breakpoints on the pipeline canvas](media/iterative-development-debugging/iterative-development-image4.png)
+
+To set a breakpoint, select an element on the pipeline canvas. A *Debug Until* option appears as an empty red circle at the upper right corner of the element.
+
+![Before setting a breakpoint on the selected element](media/iterative-development-debugging/iterative-development-image5.png)
+
+After you select the *Debug Until* option, it changes to a filled red circle to indicate the the breakpoint is enabled.
+
+![After setting a breakpoint on the selected element](media/iterative-development-debugging/iterative-development-image6.png)
 
 ## Next steps
 [Continuous integration and deployment in Azure Data Factory](continuous-integration-deployment.md)

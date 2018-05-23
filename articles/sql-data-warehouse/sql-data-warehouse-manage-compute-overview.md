@@ -2,22 +2,16 @@
 title: Manage compute resource in Azure SQL Data Warehouse | Microsoft Docs
 description: Learn about performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs, or lower costs by pausing the data warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: johnmac
-editor: ''
-
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 02/20/2018
-ms.author: elbutter
-
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
 ---
+
 # Manage compute in Azure SQL Data Warehouse
 Learn about managing compute resources in Azure SQL Data Warehouse. Lower costs by pausing the data warehouse, or scale the data warehouse to meet performance demands. 
 

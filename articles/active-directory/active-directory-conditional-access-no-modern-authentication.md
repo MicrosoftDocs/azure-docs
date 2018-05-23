@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -178,7 +178,11 @@ By applying the following three rules:
 
 ## Next steps
 
-For more information, see [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+For more information, see [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+For instructions about configuring claim rules, see [Configure Claim Rules](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-claim-rules). 
+
+
 
 
 

@@ -3,7 +3,7 @@ title: Use Studio 3T (MongoChef) with Azure Cosmos DB | Microsoft Docs
 description: 'Learn how to use Studio 3T with an Azure Cosmos DB MongoDB API account'
 keywords: mongochef, studio 3T
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 documentationcenter: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
-ms.author: anhoh
+ms.author: sngun
 
 ---
 # Azure Cosmos DB: Use Studio 3T with a MongoDB API account

@@ -4,9 +4,8 @@ description: Learn the attributes you can use with the Author entity in the Acad
 services: cognitive-services
 author: alch-msft
 manager: kuansanw
-
 ms.service: cognitive-services
-ms.technology: academic-knowledge
+ms.component: academic-knowledge
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alch

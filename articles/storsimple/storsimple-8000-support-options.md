@@ -1,4 +1,4 @@
----
+﻿---
 title: StorSimple Support terms | Microsoft Docs
 description: Describes support options for StorSimple 8000 series enterprise storage customers. 
 services: storsimple
@@ -81,7 +81,7 @@ If your support contract has expired, be aware, depending on how long the suppor
 In addition to English, local language support is provided in the following languages during business hours: Japanese, Korean, Taiwanese, and Traditional Chinese.
 
 ## Support scope 
-Support for billing and subscription management-related issues is available at all support levels. In order to receive StorSimple support, customer must be actively enrolled for either StorSimple Standard or Premium support plans. StorSimple support team will be responsible for resolving all issues that impact the StorSimple solution. In order to receive support for Azure-related issues that are not directly related to StorSimple, customer needs to be enrolled in an appropriate Azure support plan. Refer [here](https://azure.microsoft.com/en-us/support/plans/) for details. The support team refers non-StorSimple support cases to the Azure team for followup based on customer entitlements for Azure support. 
+Support for billing and subscription management-related issues is available at all support levels. In order to receive StorSimple support, customer must be actively enrolled for either StorSimple Standard or Premium support plans. StorSimple support team will be responsible for resolving all issues that impact the StorSimple solution. In order to receive support for Azure-related issues that are not directly related to StorSimple, customer needs to be enrolled in an appropriate Azure support plan. Refer [here](https://azure.microsoft.com/support/plans/) for details. The support team refers non-StorSimple support cases to the Azure team for followup based on customer entitlements for Azure support. 
 
 
 | **SEVERITY** |**CUSTOMER'S SITUATION**                                                                                                                                | EXPECTED MICROSOFT RESPONSE <sup>2                                                                                       | EXPECTED CUSTOMER RESPONSE                                                                                                                                                       |

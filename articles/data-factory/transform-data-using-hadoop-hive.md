@@ -3,17 +3,16 @@ title: Transform data using Hadoop Hive activity in Azure Data Factory | Microso
 description: Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: shengc
+ms.author: douglasl
 
 ---
 # Transform data using Hadoop Hive activity in Azure Data Factory

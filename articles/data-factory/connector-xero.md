@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 
@@ -52,7 +52,7 @@ The following properties are supported for Xero linked service:
 | type | The type property must be set to: **Xero** | Yes |
 | host | The endpoint of the Xero server (`api.xero.com`).  | Yes |
 | consumerKey | The consumer key associated with the Xero application. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| privateKey | The private key from the .pem file that was generated for your Xero private application, see [Create a public/private key pair](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Include all the text from the .pem file including the Unix line endings(\n), see sample below.<br/>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| privateKey | The private key from the .pem file that was generated for your Xero private application, see [Create a public/private key pair](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Note to **generate the privatekey.pem with numbits of 512** using `openssl genrsa -out privatekey.pem 512`; 1024 is not supported. Include all the text from the .pem file including the Unix line endings(\n), see sample below.<br/><br/>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether the host name is required in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |

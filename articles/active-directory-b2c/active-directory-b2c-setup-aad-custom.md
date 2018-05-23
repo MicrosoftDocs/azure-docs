@@ -43,12 +43,12 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 > We use "contoso.com" for the organizational Azure AD tenant and "fabrikamb2c.onmicrosoft.com" as the Azure AD B2C tenant in the following instructions.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the top bar, select your account. From the **Directory** list, choose the organizational Azure AD tenant where you want to register your application (contoso.com).
-1. Select **More services** in the left pane, and search for "App registrations."
-1. Select **New application registration**.
-1. Enter a name for your application (for example, `Azure AD B2C App`).
-1. Select **Web app / API** for the application type.
-1. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
+2. On the top bar, select your account. From the **Directory** list, choose the organizational Azure AD tenant where you want to register your application (contoso.com).
+3. Select **More services** in the left pane, and search for "App registrations."
+4. Select **New application registration**.
+5. Enter a name for your application (for example, `Azure AD B2C App`).
+6. Select **Web app / API** for the application type.
+7. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >The value for "yourtenant" must be all lowercase in the **Sign-on URL**.
@@ -57,10 +57,10 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Save the application ID.
-1. Select the newly created application.
-1. Under the **Settings** blade, select **Keys**.
-1. Create a new key, and save it. You will use it in the steps in the next section.
+8. Save the application ID.
+9. Select the newly created application.
+10. Under the **Settings** blade, select **Keys**.
+11. Enter the key description, select a duration, and then click **Save**. The value of the key is displayed. Copy it because you will use it in the steps in the next section.
 
 ## Add the Azure AD key to Azure AD B2C
 

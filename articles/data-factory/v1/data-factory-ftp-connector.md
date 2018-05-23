@@ -12,8 +12,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/02/2018
 ms.author: jingwang
 
 robots: noindex
@@ -73,6 +73,9 @@ The following table describes JSON elements specific to an FTP linked service.
 | port |Specify the port on which the FTP server is listening. |No |21 |
 | enableSsl |Specify whether to use FTP over an SSL/TLS channel. |No |true |
 | enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when you are using FTP over SSL/TLS channel. |No |true |
+
+>[!NOTE]
+>The FTP connector supports accessing FTP server with either no encryption or explicit SSL/TLS encryption; it doesn’t support implicit SSL/TLS encryption.
 
 ### Use Anonymous authentication
 

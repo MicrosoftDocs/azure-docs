@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/25/2018
 ms.author: richrund
 
 ---
@@ -121,7 +121,7 @@ The following parameters set a default value:
 
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:<br><br> ![Example result when deployment is complete](./media/log-analytics-template-workspace-configuration/template-output-01.png)
 
-## Create and configure a Log Analytics workspace
+## Configure a Log Analytics workspace
 The following template sample illustrates how to:
 
 1. Add solutions to the workspace
@@ -227,7 +227,7 @@ The following template sample illustrates how to:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
+            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -503,10 +503,9 @@ The Azure quickstart template gallery includes several templates for Log Analyti
 * [Deploy a virtual machine running Linux with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Monitor Azure Site Recovery using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Monitor Azure Web Apps using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Monitor SQL Azure using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [Deploy a Service Fabric cluster and monitor it with an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Deploy a Service Fabric cluster and create a Log Analytics workspace to monitor it](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Add an existing storage account to OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## Next steps
-* [Deploy agents into Azure VMs using Resource Manager templates](log-analytics-azure-vm-extension.md)
+* [Deploy Windows agent to Azure VMs using Resource Manager template](../virtual-machines/windows/extensions-oms.md).
+* [Deploy Linux agent to Azure VMs using Resource Manager template](../virtual-machines/linux/extensions-oms.md).
 

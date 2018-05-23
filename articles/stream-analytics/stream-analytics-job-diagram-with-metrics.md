@@ -72,11 +72,11 @@ If the preceding query step is an input processor, use the input metrics to help
  
 ### Are we falling behind in reading data?
 
-*   **InputEventsSourcesBackloggedTotal** tells you how many more messages need to be read for Event Hubs and Azure IoT Hub inputs.
+*   **Input Events Backlogged (Total)** tells you how many more messages need to be read for Event Hubs and Azure IoT Hub inputs. When this number is greater than 0, it means your job can't process the data as fast as it is coming in. In this case you may need to increase the number of Streaming Units and/or make sure your job can be parallelized. You can see more info on this on the  [query parallelization page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## Get help
-For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)

@@ -162,7 +162,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     Line 2 of config.properties should now look similar to 
 
-    `cassandra_host=cosmos-db-quickstarts.documents.azure.com`
+    `cassandra_host=cosmos-db-quickstarts.cassandra.cosmosdb.azure.com`
 
 3. Go back to portal and copy the USERNAME value. Past the USERNAME value from the portal over `<cassandra endpoint username>` on line 4.
 

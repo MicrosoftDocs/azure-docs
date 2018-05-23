@@ -4,13 +4,11 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 documentationcenter: ''
 author: luiscabrer
-
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
-ms.author: luisca
-
+ms.author: ashmaka
 ---
 
 # Quickstart for Text Analytics API with C# 
@@ -53,31 +51,46 @@ using System;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using System.Collections.Generic;
+using Microsoft.Rest;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
     class Program
     {
+        /// <summary>
+        /// container for subscription credentials. Make sure to enter 
+        /// </summary>
+        class ApiKeyServiceClientCredentials : ServiceClientCredentials
+        {
+            public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+            {
+                request.Headers.Add("Ocp-Apim-Subscription-Key", "ENTER KEY HERE");
+                return base.ProcessHttpRequestAsync(request, cancellationToken);
+            }
+        }
+
         static void Main(string[] args)
         {
+
             // Create a client.
-            ITextAnalyticsAPI client = new TextAnalyticsAPI();
+            ITextAnalyticsAPI client = new TextAnalyticsAPI(new ApiKeyServiceClientCredentials());
             client.AzureRegion = AzureRegions.Westus;
-            client.SubscriptionKey = "ENTER KEY HERE";
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             // Extracting language
             Console.WriteLine("===== LANGUAGE EXTRACTION ======");
-            
-            LanguageBatchResult result = client.DetectLanguage(
-                    new BatchInput(
-                        new List<Input>()
+
+            var result =  client.DetectLanguageAsync(new BatchInput(
+                    new List<Input>()
                         {
                           new Input("1", "This is a document written in English."),
                           new Input("2", "Este es un document escrito en Español."),
                           new Input("3", "这是一个用中文写的文件")
-                        }));
+                    })).Result;
 
             // Printing language results.
             foreach (var document in result.Documents)
@@ -88,16 +101,14 @@ namespace ConsoleApp1
             // Getting key-phrases
             Console.WriteLine("\n\n===== KEY-PHRASE EXTRACTION ======");
 
-            KeyPhraseBatchResult result2 = client.KeyPhrases(
-                    new MultiLanguageBatchInput(
+            KeyPhraseBatchResult result2 = client.KeyPhrasesAsync(new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
                           new MultiLanguageInput("ja", "1", "猫は幸せ"),
                           new MultiLanguageInput("de", "2", "Fahrt nach Stuttgart und dann zum Hotel zu Fu."),
                           new MultiLanguageInput("en", "3", "My cat is stiff as a rock."),
                           new MultiLanguageInput("es", "4", "A mi me encanta el fútbol!")
-                        }));
-
+                        })).Result;
 
             // Printing keyphrases
             foreach (var document in result2.Documents)
@@ -115,7 +126,7 @@ namespace ConsoleApp1
             // Extracting sentiment
             Console.WriteLine("\n\n===== SENTIMENT ANALYSIS ======");
 
-            SentimentBatchResult result3 = client.Sentiment(
+            SentimentBatchResult result3 = client.SentimentAsync(
                     new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
@@ -123,7 +134,7 @@ namespace ConsoleApp1
                           new MultiLanguageInput("en", "1", "This was a waste of my time. The speaker put me to sleep."),
                           new MultiLanguageInput("es", "2", "No tengo dinero ni nada que dar..."),
                           new MultiLanguageInput("it", "3", "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."),
-                        }));
+                        })).Result;
 
 
             // Printing sentiment results
@@ -131,7 +142,6 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);
             }
-
         }
     }
 }

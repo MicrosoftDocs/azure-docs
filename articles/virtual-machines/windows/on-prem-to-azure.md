@@ -1,4 +1,4 @@
----
+﻿---
 title: Migrate from AWS and other platforms to Managed Disks in Azure | Microsoft Docs
 description: Create VMs in Azure using VHDs uploaded from other clouds like AWS or other virtualization platforms and take advantage of Azure Managed Disks.
 services: virtual-machines-windows
@@ -95,7 +95,7 @@ By default, disk caching policy is *Read-Only* for all the Premium data disks, a
 
 ### Pricing
 
-Review the [pricing for Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Pricing of Premium Managed Disks is same as the Premium Unmanaged Disks. But pricing for Standard Managed Disks is different than Standard Unmanaged Disks.
+Review the [pricing for Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Pricing of Premium Managed Disks is same as the Premium Unmanaged Disks. But pricing for Standard Managed Disks is different than Standard Unmanaged Disks.
 
 
 ## Next Steps

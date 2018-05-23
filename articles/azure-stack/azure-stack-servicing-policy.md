@@ -3,7 +3,7 @@ title: Azure Stack servicing policy | Microsoft Docs
 description: Learn about the Azure Stack servicing policy, and how to keep an integrated system in a supported state.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/18/2018
 ms.author: brenduns
 ms.reviewer: harik
 
@@ -53,6 +53,9 @@ To continue to receive support, you must keep your Azure Stack deployment curren
 For example, if the most recently available update version is 1805, and the previous two update packages were versions 1804 and 1803, both 1803 and 1804 remain in support. However, 1802 is out of support. The policy holds true when there is no release for a month or two. For example, if the current release is 1805 and there was no 1804 release, the previous two update packages of 1803 and 1802 remain in support.
 
 Microsoft software update packages are non-cumulative and require the previous update package as a prerequisite. If you decide to defer one or more updates, consider the overall runtime if you want to get  to the latest version. 
+
+## Get support
+Azure Stack follows the same support process as Azure. Enterprise customers can follow the process described in [How to create an Azure support request](/azure/azure-supportability/how-to-create-azure-support-request). If you are a customer of a Cloud Service Provider (CSP), contact your CSP for support.  For more information, see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/). 
 
 
 ## Next steps

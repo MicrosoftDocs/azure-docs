@@ -40,6 +40,8 @@
     href: collaborative-coding-with-git.md
   - name: Execute data science tasks
     href: execute-data-science-tasks.md
+  - name: Code testing
+    href: code-test.md
   - name: Track progress
     href: track-progress.md
 - name: Examples
@@ -51,10 +53,13 @@
     - name: Sentiment classification
       href: predict-twitter-sentiment.md
     - name: US income classification
-      href: ../preview/scenario-tdsp-classifying-us-incomes.md
+      href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
       maintainContext: true
     - name: Biomedical entity recognition
-      href: ../preview/scenario-tdsp-biomedical-recognition.md
+      href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
+      maintainContext: true
+    - name: Skin cancer image classification
+      href: isic-image-classification.md
       maintainContext: true
   - name: Spark with PySpark and Scala
     href: walkthroughs-spark.md
@@ -82,7 +87,7 @@
 - name: How To
   items:
   - name: Use TDSP in Azure ML
-    href: ../preview/how-to-use-tdsp-in-azure-ml.md
+    href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
     maintainContext: true
   - name: Set up data science environments
     href: environment-setup.md
@@ -294,4 +299,4 @@
       href: http://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-
+      
