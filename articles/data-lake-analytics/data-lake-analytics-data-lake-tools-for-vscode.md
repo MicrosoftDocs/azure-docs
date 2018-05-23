@@ -129,7 +129,7 @@ Open the command palette (Ctrl+Shift+P) and enter **ADL: Open Sample Script**. I
         ![Data Lake Tools for Visual Studio Code configuration file](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-setting.png)
       
         > [!NOTE] 
-        > After the configuration is saved, The account, database, and schema information appear on the status bar at the bottom-left corner of the corresponding .usql file file if you don’t have default context set up.
+        > After the configuration is saved, the account, database, and schema information appear on the status bar at the bottom-left corner of the corresponding .usql file file if you don’t have default context set up.
 
 **Set Git Ignore**
 
@@ -243,7 +243,7 @@ Before you can compile and run U-SQL scripts in Data Lake Analytics, you must co
 4.  Follow the instructions to sign in from the webpage. When you're connected, your Azure account name appears on the status bar in the lower-left corner of the **VS Code** window. 
 
     > [!NOTE] 
-    >- Data Lake Tool automatically signs in next time If you have signed in before, but you have not logged out yet.
+    >- Data Lake Tool automatically signs in next time if you have signed in before, but you have not logged out yet.
     >- If your account has two factors enabled, we recommend that you use phone authentication rather than using a PIN.
 
 
@@ -255,7 +255,7 @@ To sign in from explorer, expand **AZURE DATALAKE**, click **Sign in to Azure...
 
 ![Connect to Azure from explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-sign-in-from-explorer.png )  
 
-You can not sign out from explorer. To sign out, see [**To connect to Azure using command**](#sign-in-by-command).
+You cannot sign out from explorer. To sign out, see [**To connect to Azure using command**](#sign-in-by-command).
 
 
 ## Create extract script 
@@ -282,7 +282,7 @@ Another way to create EXTRACT script is through the right-click menu on the .csv
 
 ## Integrate with Azure Data Lake Analytics through command
 
-You can access Azure Data Lake Analytics resources including list accounts, access metadata and view analytics jobs. 
+You can access Azure Data Lake Analytics resources including list accounts, access metadata, and view analytics jobs. 
 
 **To list the Azure Data Lake Analytics accounts under your Azure subscription**
 
