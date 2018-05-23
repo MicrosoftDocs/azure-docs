@@ -151,7 +151,7 @@
       href: search-what-is-data-import.md
     - name: Rebuild an index
       href: search-howto-reindex.md
-    - name: Build large indexes
+    - name: Index large data sets
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
