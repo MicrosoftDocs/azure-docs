@@ -1,15 +1,14 @@
 ---
 title: Export your subscription top level information | Microsoft Docs
 description: Describes how you can view all Azure subscription IDs associated with your account.
-keywords: subscription export
-services: ''
+keywords:
+services: 'billing'
 documentationcenter: ''
 author: adpick
 manager: adpick
 editor: ''
 tags: billing
 
-ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -17,12 +16,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/9/2017
 ms.author: adpick
-ms.custom: H1Hack27Feb2017
 ---
 # Export and view your top-level Subscription information
 If you need to view the set of subscription IDs associated with your user credentials, you can download a .json file at the [Azure Account Center](http://account.azure.com/subscriptions/download).
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE gdpr-dsr-and-stp-note]
 
 ## subscriptions.json sample
 
