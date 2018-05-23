@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/13/2018
+ms.date: 05/22/2018
 ms.author: juliako
 ---
 
@@ -27,30 +27,37 @@ This article describes changes that were introduced in Azure Media Services (AMS
 
 ## Why should a customer move to v3?
 
-* API is more approachable
+### API is more approachable
 
-  * Open API (aka Swagger) Specification document
-  * SDKs available for .Net, .Net Core, Node.js, Python, Java, Ruby  
-  * Azure CLI integration
+* v3 is based on a unified API surface which exposes both management and operations functionality built on Azure Resource Manager (ARM). ARM templates can be used to create and deploy Transforms, Streaming Endpoints, Channels, and more.
+* Open API (aka Swagger) Specification document.
+* SDKs available for .Net, .Net Core, Node.js, Python, Java, Ruby.
+* Azure CLI integration.
 
-* New features
+### New features
 
-  * Encoding supports Url-based input
-  * StreamingLocators can now have different DynaMux/Enc settings
-  * LiveEvents support DynaMux and DynaEnc 
+* Encoding now supports HTTPS ingest (Url-based input).
+* Transforms are new in v3. A Transform is used to share configurations, create ARM Templates, and isolate encoding settings for a specific customer or tenant. 
+* StreamingLocators can have different Dynamic Packaging and Dynamic Encryption settings.
+* Content protection supports multi-key features. 
+* LiveEvent (Channel in v2) supports Dynamic Packaging and Dynamic Encryption.
+* LiveEvent preview supports DASH and HLS dynamic packaging.
+* LiveOuput (Program in v2) is simpler to use than the older Program entity. 
+* RBAC support on entities was added.
 
 ## Changes from v2
-* In v3, all of the encoding bit rates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, not 128000. 
-* No AssetFiles, AccessPolicies, IngestManifests
-* Many Entities renamed
 
-  * Transforms replace JobTemplate, now required
-  * JobOutput replace Task, now just part of the Job
-  * LiveEvent replaces Channel
-  * LiveOutput replaces Program
-  * StreamingLocator replaces Locator
-  * ContentKeys are no longer an entity, property of the StreamingLocator
-  * NotificationEndpoint replaced by Azure Event Grid
+* Decoupled from the Storage SDK versioning issue and can leverage storage SDKs directly. 
+* In v3, all of the encoding bit rates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, not 128000. 
+* AssetFiles, AccessPolicies, IngestManifests do not exist in v3.
+* ContentKeys are no longer an entity, property of the StreamingLocator.
+* Event Grid support replaces standard Azure Queues and WebHooks.
+* Some entities were renamed
+
+  * JobOutput replaces Task, now just part of the Job.
+  * LiveEvent replaces Channel.
+  * LiveOutput replaces Program.
+  * StreamingLocator replaces Locator.
 
 ## Create Asset and Upload file 
 
