@@ -190,10 +190,6 @@ the subscription or the management group.
 | Policy Assignment | Exclusions (notScopes) | 100 |
 | Policy Rule | Nested Conditionals | 512 |
 
-## Videos
-
-> [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
-
 ## Recommendations for managing policies
 
 While creating and managing policy definitions and assignments, here are a few pointers we advise
