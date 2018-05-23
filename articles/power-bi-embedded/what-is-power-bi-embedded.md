@@ -31,7 +31,7 @@ Have an existing app with embedded Power BI content using Power BI Premium? If y
 
 ## Comparing Power BI Embedded with Power BI Premium
 
-Power BI Embedded is for developers who build applications. It can be used when you want to use a third-party business intelligence offering to visualize application data instead of building it yourself. Developers embed dashboards and reports into applications using Power BI Embedded. Power BI is a software-as-a-service analytics solution that gives organizations a single view of their most critical business data.
+Power BI Embedded is for developers who build applications. It can be used when you want to use a third-party business intelligence offering to visualize application data instead of building it yourself. Develop embed dashboards and reports into applications using Power BI Embedded. Power BI is a software-as-a-service analytics solution that gives organizations a single view of their most critical business data.
 
 ## Easy-to-use tools
 
