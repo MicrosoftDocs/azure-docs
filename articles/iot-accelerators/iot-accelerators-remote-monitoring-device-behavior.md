@@ -1,6 +1,6 @@
 ---
-title: Simulated device behavior in remote monitoring solution - Azure | Microsoft Docs
-description: This article describes how to use JavaScript to define the behavior of a simulated device in the remote monitoring solution.
+title: Simulated device behavior in Remote Monitoring solution - Azure | Microsoft Docs
+description: This article describes how to use JavaScript to define the behavior of a simulated device in the Remote Monitoring solution.
 services: iot-suite
 suite: iot-suite
 author: dominicbetts
@@ -25,7 +25,7 @@ In this article, you learn how to:
 
 >[!div class="checklist"]
 > * Control the state of a simulated device
-> * Define how a simulated device reponds to a method call from the remote monitoring solution
+> * Define how a simulated device reponds to a method call from the Remote Monitoring solution
 > * Debug your scripts
 
 ## State behavior
@@ -259,12 +259,12 @@ This article described how to define the behavior of your own custom simulated d
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
 > * Control the state of a simulated device
-> * Define how a simulated device reponds to a method call from the remote monitoring solution
+> * Define how a simulated device reponds to a method call from the Remote Monitoring solution
 > * Debug your scripts
 
 Now you have learned how to specify the behavior of a simulated device, the suggested next step is to learn how to [Create a simulated device](iot-accelerators-remote-monitoring-test.md).
 
-For more developer information about the remote monitoring solution, see:
+For more developer information about the Remote Monitoring solution, see:
 
 * [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
