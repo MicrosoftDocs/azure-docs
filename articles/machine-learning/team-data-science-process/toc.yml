@@ -44,11 +44,11 @@
     href: code-test.md
   - name: Track progress
     href: track-progress.md
-- name: Operations
+- name: Operations & CI/CD
   items:
   - name: CI/CD
     href: ci-cd-flask.md
-- name: Worked-out samples
+- name: Worked-out examples
   href: walkthroughs.md
   items:
   - name: Azure Machine Learning
