@@ -17,7 +17,7 @@ ms.date: 12/03/2018
 ms.author: isacabe
 
 ---
-# Connect MXChip IoT DevKit AZ3166 to Azure IoT Suite for remote monitoring v2
+# Connect MXChip IoT DevKit AZ3166 to the IoT Remote Monitoring solution accelerator
 
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
@@ -46,7 +46,7 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 
 4. Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP AZ3166 > AzureIoT**, and select **RemoteMonitoringv2**. It opens a new VS Code window with a project folder in it.
 
-  ![Open remote monitoring project](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-arduino-examples.png)
+  ![Open Remote Monitoring project](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-arduino-examples.png)
 
 
   > [!NOTE]
