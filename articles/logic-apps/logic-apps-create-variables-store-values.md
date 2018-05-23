@@ -288,15 +288,15 @@ counting and tracking the number of attachments, for example:
       ![Add a "for each" loop](./media/logic-apps-create-variables-store-values/add-loop.png)
 
       Now set your loop to run sequentially. By default, 
-      for each loop iterations run in parallel, which might 
-      cause miscalculates for your attachment count.
+      a "for each" loop's cycles run in parallel, 
+      which might cause miscalculations in your attachments count.
    
-   2. In the loop's upper-right corner, choose the ellisis (...) button, 
+   2. In the loop's upper-right corner, choose the ellipsis (...) button, 
    and then choose **Settings**. 
 
    3. Under **Concurrency Control**, set **Override Default** to **On**.
 
-   4. For **Degree of Parallelsim**, drag the slider to 1, and choose **Done**.
+   4. For **Degree of Parallelism**, drag the slider to 1, and choose **Done**.
 
       For example:
 
