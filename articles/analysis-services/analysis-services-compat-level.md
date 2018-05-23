@@ -13,9 +13,9 @@ ms.reviewer: minewiskan
 
 # Compatibility level for Analysis Services tabular models
 
-*Compatibility level* refers to release-specific behaviors in the Analysis Services engine. Changes to the compatibility level typically coincide with major releases of SQL Server. These changes are also implemented in Azure Analysis Services to maintain parity between both platforms. Compatibility level changes also affect features available in your tabular models. For example, DirectQuery and tabular object metadata have different implementations depending on the compatibility level. 
+*Compatibility level* refers to release-specific behaviors in the Analysis Services engine. Changes to the compatibility level typically coincide with major releases of SQL Server. These changes are also implemented in Azure Analysis Services to maintain parity between both platforms. Compatibility level changes also affect features available in your tabular models. For example, DirectQuery and tabular object metadata have different implementations depending on the compatibility level. Compatibility level is specified in the tabular model project in Visual Studio (SSDT). Tabular models created in and imported from Power BI Desktop are at the 1400 compatibility level only.
 
-Azure Analysis Services supports tabular models at the 1200 and 1400 compatibility levels.
+Azure Analysis Services supports tabular models at the 1200 and 1400 compatibility levels. 
 
 The latest compatibility level is 1400. This level coincides with SQL Server 2017 Analysis Services. Major features in the 1400 compatibility level include:
 

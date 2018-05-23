@@ -44,9 +44,9 @@
 ## Model
 ### [Import a Power BI Desktop file](analysis-services-import-pbix.md)
 ### [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)
-### [Deploy from Visual Studio](analysis-services-deploy.md)
+### [Deploy from Visual Studio (SSDT)](analysis-services-deploy.md)
 ### [Refresh with REST API](analysis-services-async-refresh.md)
-### [Advanced data modeling - Adventure Works (1400) tutorial](tutorials/aas-adventure-works-tutorial.md)
+### [Data modeling in Visual Studio - Adventure Works (1400) tutorial](tutorials/aas-adventure-works-tutorial.md)
 #### [1 - Create a tabular model project](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2 - Get data](tutorials/aas-lesson-2-get-data.md)
 #### [3 - Mark as Date Table](tutorials/aas-lesson-3-mark-as-date-table.md) 
@@ -75,7 +75,7 @@
 
 # Reference
 
-## [Azure PowerShell](analysis-services-powershell.md)
+## [PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)

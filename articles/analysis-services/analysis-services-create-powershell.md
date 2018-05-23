@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: quickstart
-ms.date: 05/14/2018
+ms.date: 05/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to create an Azure Analysis Services server by using PowerShell.
@@ -42,15 +42,15 @@ Connect-AzureRmAccount
 An [Azure resource group](../azure-resource-manager/resource-group-overview.md) is a logical container where Azure resources are deployed and managed as a group. When you create your server, you must specify a resource group in your subscription. If you do not already have a resource group, you can create a new one by using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. The following example creates a resource group named `myResourceGroup` in the West US region.
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "WestUS"
 ```
 
 ## Create a server
 
-Create a new server by using the [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. The following example creates a server named myServer in myResourceGroup, in the West US region, at the D1 (free) tier, and specifies philipc@adventureworks.com as a server administrator.
+Create a new server by using the [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. The following example creates a server named myServer in myResourceGroup, in the WestUS region, at the D1 (free) tier, and specifies philipc@adventureworks.com as a server administrator.
 
 ```powershell
-New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location West US -Sku D1 -Administrator "philipc@adventure-works.com"
+New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
 ```
 
 ## Clean up resources
@@ -59,7 +59,7 @@ You can remove the server from your subscription by using the [Remove-AzureRmAna
 
 
 ```powershell
-Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myResourceGroup"
+Remove-AzureRmAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
 ```
 
 ## Next steps
