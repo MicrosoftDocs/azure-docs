@@ -6,9 +6,8 @@ ms.author: skamma
 ms.date: 05/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
-
-manager: timlt
-ms.custom: 
+services: azure-maps
+manager: 
 ---
 
 

@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
-
+services: azure-maps
 manager: timlt
 ms.custom: mvc
 ---

@@ -6,7 +6,7 @@ ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
-
+services: azure-maps
 manager: timlt
 ms.custom: codepen
 ---

@@ -6,8 +6,8 @@ ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
-
-manager: timlt
+services: azure-maps
+manager: 
 ---
 
 # Zoom levels and tile grid

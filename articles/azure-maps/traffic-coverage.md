@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: conceptual
 ms.service: azure-maps
-
+services: azure-maps
 manager: timlt
 ---
 

@@ -6,8 +6,8 @@ ms.author: julieko
 ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: azure-maps
-
-manager: timlt
+services: azure-maps
+manager: 
 ---
 
 # Azure Maps supported languages
