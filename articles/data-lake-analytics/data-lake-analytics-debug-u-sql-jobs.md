@@ -1,21 +1,15 @@
 ---
-title: Debug user-defined C# code for failed Azure Data Lake U-SQL jobs | Microsoft Docs
-description: 'Learn how to debug a U-SQL failed vertex using Azure Data Lake Tools for Visual Studio.'
+title: Debug user-defined C# code for failed Azure Data Lake U-SQL jobs
+description: This article describes how to debug a U-SQL failed vertex using Azure Data Lake Tools for Visual Studio.
 services: data-lake-analytics
-documentationcenter: ''
-author: yanancai
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/31/2017
+author: yanancai
 ms.author: yanacai
-
+manager: kfile
+editor: jasonwhowell
+ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
+ms.topic: conceptual
+ms.date: 11/31/2017
 ---
 
 # Debug user-defined C# code for failed U-SQL jobs
