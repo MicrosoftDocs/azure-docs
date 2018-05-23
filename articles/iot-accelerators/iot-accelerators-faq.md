@@ -3,13 +3,13 @@ title: Azure IoT solution accelerators FAQ | Microsoft Docs
 description: Frequently asked questions for IoT solution accelerators
 author: dominicbetts
 manager: timlt
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-
 ---
+
 # Frequently asked questions for IoT solution accelerators
 
 See also, the [Connected Factory-specific FAQ](iot-accelerators-faq-cf.md) and the [Remote Monitoring-specific FAQ](iot-accelerators-faq-rm-v2.md) .

@@ -3,13 +3,13 @@ title: Provision Windows devices to remote monitoring in C - Azure | Microsoft 
 description: Describes how to connect a device to the Remote Monitoring solution accelerator using an application written in C running on Windows.
 author: dominicbetts
 manager: timlt
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
-
 ---
+
 # Connect your device to the Remote Monitoring solution accelerator (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]

@@ -1,17 +1,11 @@
 ---
-<<<<<<< HEAD
 title: Get started with the remote monitoring solution - Azure | Microsoft Docs 
 description: This tutorial uses simulated scenarios to introduce the remote monitoring solution accelerator. These scenarios are created when you deploy the remote monitoring solution accelerator for the first time.
-=======
-title: Get started with the Remote Monitoring solution - Azure | Microsoft Docs 
-description: This tutorial uses simulated scenarios to introduce the Remote Monitoring solution accelerator. These scenarios are created when you deploy the Remote Monitoring solution accelerator for the first time.
-services: iot-suite
-suite: iot-suite
->>>>>>> 63778198d1ea3cfdaa2c936681fa1b66687517fb
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ---

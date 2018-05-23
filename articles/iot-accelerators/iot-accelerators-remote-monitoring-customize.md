@@ -5,6 +5,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
 ---

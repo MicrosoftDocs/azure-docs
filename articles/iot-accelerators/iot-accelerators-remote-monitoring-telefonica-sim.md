@@ -5,6 +5,7 @@ author: hegate
 manager: 
 ms.author: hegate
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
 ---

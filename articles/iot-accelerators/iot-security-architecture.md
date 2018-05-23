@@ -3,13 +3,13 @@ title: IoT Security Architecture | Microsoft Docs
 description: IoT security architecture guidelines and considerations
 author: dominicbetts
 manager: timlt
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-
 ---
+
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
 ## See also

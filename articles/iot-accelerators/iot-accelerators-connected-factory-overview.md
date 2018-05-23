@@ -3,12 +3,11 @@ title: Connected Factory solution overview - Azure | Microsoft Docs
 description: A description of the Azure IoT Connected Factory solution accelerator.
 author: dominicbetts
 manager: timlt
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-
 ---
 # Get started with the Connected Factory solution accelerator
 

@@ -3,13 +3,12 @@ title: 'IoT DevKit to cloud: Connect IoT DevKit AZ3166 to Azure IoT Suite Remote
 description: In this tutorial, learn how to send status of sensors on IoT DevKit AZ3166 to Remote Monitoring v2 from Azure IoT Suite for monitoring and visualization.
 author: isabelcabezasm
 manager: 
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-
 ---
 # Connect MXChip IoT DevKit AZ3166 to the IoT Remote Monitoring solution accelerator
 

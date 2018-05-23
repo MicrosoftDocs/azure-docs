@@ -3,12 +3,11 @@ title: Deploy your Connected Factory gateway - Azure | Microsoft Docs
 description: How to deploy a gateway on either Windows or Linux to enable connectivity to the Connected Factory solution accelerator.
 author: dominicbetts
 manager: timlt
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-
 ---
 
 # Deploy an edge gateway for the Connected Factory solution accelerator on Windows or Linux

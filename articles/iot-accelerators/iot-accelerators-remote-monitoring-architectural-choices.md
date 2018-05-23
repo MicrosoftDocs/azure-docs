@@ -5,6 +5,7 @@ author: timlaverty
 manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 04/30/2018
 ms.topic: conceptual
 ---

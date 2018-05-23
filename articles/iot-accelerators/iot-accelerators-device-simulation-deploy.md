@@ -5,6 +5,7 @@ author: troyhopwood
 manager: 
 ms.author: troyhop
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/18/2017
 ms.topic: conceptual
 ---

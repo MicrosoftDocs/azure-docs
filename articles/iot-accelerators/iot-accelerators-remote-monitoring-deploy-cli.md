@@ -1,17 +1,11 @@
 ---
-<<<<<<< HEAD
-title: Deploy the Java remote monitoring solution - Azure | Microsoft Docs 
-description: This tutorial shows you how to provision the remote monitoring solution accelerator using the CLI.
-=======
 title: Deploy the Java Remote Monitoring solution - Azure | Microsoft Docs 
 description: This tutorial shows you how to provision the Remote Monitoring solution accelerator using the CLI.
-services: iot-suite
-suite: iot-suite
->>>>>>> 63778198d1ea3cfdaa2c936681fa1b66687517fb
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
 ---

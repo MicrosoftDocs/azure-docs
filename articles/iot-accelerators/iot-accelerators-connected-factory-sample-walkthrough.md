@@ -3,13 +3,13 @@ title: Connected Factory solution walkthrough - Azure | Microsoft Docs
 description: A description of the Azure IoT solution accelerator Connected Factory and its architecture.
 author: dominicbetts
 manager: timlt
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-
 ---
+
 # Connected Factory solution accelerator walkthrough
 
 The Connected Factory [solution accelerator][lnk-preconfigured-solutions] is an implementation of an end-to-end industrial solution that:

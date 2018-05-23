@@ -3,13 +3,13 @@ title: Securing your Internet of Things from the ground up | Microsoft Docs
 description: This article describes the built-in security features of the Microsoft Azure IoT solution accelerators
 author: dominicbetts
 manager: timlt
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-
 ---
+
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
 ## Next steps

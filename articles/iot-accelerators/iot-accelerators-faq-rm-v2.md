@@ -3,13 +3,13 @@ title: Remote Monitoring solution accelerator FAQ | Microsoft Docs
 description: Frequently asked questions for Remote Monitoring solution accelerator
 author: dominicbetts
 manager: timlt
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-
 ---
+
 # Frequently asked questions for Remote Monitoring solution accelerator
 
 See also, the general [FAQ](iot-accelerators-faq.md).

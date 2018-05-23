@@ -3,13 +3,13 @@ title: Azure IoT solution accelerators overview | Microsoft Docs
 description: A description of the Azure IoT solution accelerators and their architecture with links to additional resources.
 author: dominicbetts
 manager: timlt
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-
 ---
+
 # What are the IoT solution accelerators?
 
 The Azure IoT _solution accelerators_ are a set of solutions that:

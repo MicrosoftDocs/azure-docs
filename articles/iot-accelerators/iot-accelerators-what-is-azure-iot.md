@@ -3,13 +3,13 @@ title: Azure solutions for Internet of Things | Microsoft Docs
 description: A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT solution accelerators, and the solution accelerators.
 author: dominicbetts
 manager: timlt
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-
 ---
+
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Next steps

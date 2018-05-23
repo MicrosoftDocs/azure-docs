@@ -5,6 +5,7 @@ author: asdonald
 manager: hegate
 ms.author: asdonald
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ---

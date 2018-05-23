@@ -7,7 +7,9 @@ ms.author: philmea
 ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
+services: iot-accelerators
 ---
+
 # Visualize Remote Monitoring Data with Time Series Insights
 
 An operator may want to further extend the out of the box data visualization provided by the Remote Monitoring preconfigure solution. Our solution accelerator provides out of the box integration with TSI. In this how-to you will learn how to configure Time Series Insights to analyze device telemetry and detect anomalies.

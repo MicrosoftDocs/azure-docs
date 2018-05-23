@@ -3,14 +3,14 @@ title: Customize the Connected Factory solution - Azure | Microsoft Docs
 description: A description of how to customize the behavior of the Connected Factory solution accelerator.
 author: dominicbetts
 manager: timlt
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-
 ---
+
 # Customize how the Connected Factory solution displays data from your OPC UA servers
 
 The Connected Factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution. For more information about OPC UA, see the [Connected Factory FAQ](iot-accelerators-faq-cf.md).

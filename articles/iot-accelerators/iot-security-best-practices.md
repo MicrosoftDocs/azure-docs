@@ -3,13 +3,13 @@ title: IoT security best practices | Microsoft Docs
 description: Security best practices for securing your IoT infrastructure
 author: dominicbetts
 manager: timlt
-
 ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-
 ---
+
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
 ## See also
