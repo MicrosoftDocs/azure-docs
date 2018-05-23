@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 05/23/2018
 ms.author: glenga
 ---
 # Azure Functions Tools for Visual Studio  
@@ -70,14 +70,14 @@ To create and deploy functions, you also need:
 
 4. After the update is complete, choose **Close** and restart Visual Studio.
 
-## Create an Azure Functions project 
+## Create an Azure Functions project
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
 The project template creates a C# project, installs the `Microsoft.NET.Sdk.Functions` NuGet package, and sets the target framework. Functions 1.x targets the .NET Framework, and Functions 2.x targets .NET Standard. The new project has the following files:
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
-    
+
 * **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools topic.
 
 For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
@@ -104,11 +104,11 @@ In pre-compiled functions, the bindings used by the function are defined by appl
 
 2. Choose your trigger, set the binding properties, and click **Create**. The following example shows the settings when creating a Queue storage triggered function. 
 
-    ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
-    
-    This trigger example uses a connection string with a key named **QueueStorage**. This connection string setting must be defined in the local.settings.json file. 
- 
-3. Examine the newly added class. You see a static **Run** method, that is attributed with the **FunctionName** attribute. This attribute indicates that the method is the entry point for the function. 
+    ![Create a quere triggered function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
+
+    This trigger example uses a connection string with a key named **QueueStorage**. This connection string setting must be defined in the local.settings.json file.
+
+3. Examine the newly added class. You see a static **Run** method, that is attributed with the **FunctionName** attribute. This attribute indicates that the method is the entry point for the function.
 
     For example, the following C# class represents a basic Queue storage triggered function:
 
@@ -121,20 +121,48 @@ In pre-compiled functions, the bindings used by the function are defined by appl
     {
         public static class Function1
         {
-            [FunctionName("QueueTriggerCSharp")]        
+            [FunctionName("QueueTriggerCSharp")]
             public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, TraceWriter log)
             {
                 log.Info($"C# Queue trigger function processed: {myQueueItem}");
             }
         }
-    } 
+    }
     ````
  
     A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute.
 
+## Adding bindings
+
+In the same way that triggers are defined by applying attributes, you can add input and output bindings to a function in the following way:
+
+1. Add the approprate NuGet extension package for the binding. For more information, see [Local C# development using Visual Studio](functions-triggers-bindings.md#local-csharp) in the Triggers and Bindings topic. The specific NuGet package requirements are found in the reference topic for the binding.
+
+1. Add the appropriate binding attribute to the method signature. For example, the following example is a Queue storage triggered function with an output queue binding. The function writes the queue message that triggers the function to a new queue message in a different queue.
+
+    ```csharp
+    public static class SimpleExampleWithOutput
+    {
+        [FunctionName("CopyQueueMessage")]
+        public static void Run(
+            [QueueTrigger("myqueue-items-source")] string myQueueItem, 
+            [Queue("myqueue-items-destination")] out string myQueueItemCopy,
+            TraceWriter log)
+        {
+            log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+            myQueueItemCopy = myQueueItem;
+        }
+    }
+    ```
+
+For more information, see the reference topic for the specific binding.
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+
 ## Testing functions
 
-Azure Functions Core Tools lets you run Azure Functions project on your local development computer. You are prompted to install these tools the first time you start a function from Visual Studio.  
+Azure Functions Core Tools lets you run Azure Functions project on your local development computer. You are prompted to install these tools the first time you start a function from Visual Studio.
 
 To test your function, press F5. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools. You may also need to enable a firewall exception so that the tools can handle HTTP requests.
 
@@ -148,9 +176,9 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## Function app settings   
+## Function app settings
 
-Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project. 
+Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project.
 
 The easiest way to upload the required settings to your function app in Azure is to use the **Manage Application Settings...** link that is displayed after you successfully publish your project. 
 
