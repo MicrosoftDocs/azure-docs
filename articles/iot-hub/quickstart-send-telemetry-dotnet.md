@@ -85,7 +85,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
 
-1. In a terminal window, navigate to the root folder of the sample C# project. Then navigate to the **Quickstarts\simulated-device** folder.
+1. In a terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder.
 
 1. Open the **SimulatedDevice.cs** file in a text editor of your choice.
 
@@ -111,7 +111,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 The back-end application connects to the service-side **Events** endpoint on your IoT Hub. The application receives the device-to-cloud messages sent from your simulated device. An IoT Hub back-end application typically runs in the cloud to receive and process device-to-cloud messages.
 
-1. In another terminal window, navigate to the root folder of the sample C# project. Then navigate to the **Quickstarts\read-d2c-messages** folder.
+1. In another terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\read-d2c-messages** folder.
 
 1. Open the **ReadDeviceToCloudMessages.cs** file in a text editor of your choice.
 
