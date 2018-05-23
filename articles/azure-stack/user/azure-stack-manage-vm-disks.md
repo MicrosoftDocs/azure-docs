@@ -58,7 +58,7 @@ After you create a VM, you can use the portal to:
 Each unmanaged disk you add should be put in a separate container.
 
 >[!NOTE]
->Disks created and managed by Azure are called [managed disks](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview).
+>Disks created and managed by Azure are called [managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 ### Use the portal to create and attach a new data disk
 
