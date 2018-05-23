@@ -49,7 +49,7 @@ This allows you to either get a small sample of items using $top (for example, t
 
 Media Services does not support paging through the data with a user specified page size.
 
-## Get methods are now based off of entity names as opposed to entity ids. How can I retrieve an entity based upon its guid?
+## Get methods are now based off of entity name as opposed to entity id, how to retrieve an entity based on its GUID?
 
 v3 is based on a unified API surface which exposes both management and operations functionality built on **Azure Resource Manager**. In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
 
