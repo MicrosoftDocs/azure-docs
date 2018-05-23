@@ -1,5 +1,5 @@
 ---
-title: Guidelines for table design | Microsoft Docs
+title: Modeling relationships in Table design | Microsoft Docs
 description: Understand the modeling process when designing your Table storage solution.
 services: storage
 documentationcenter: na

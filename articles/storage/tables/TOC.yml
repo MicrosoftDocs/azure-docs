@@ -39,7 +39,7 @@
     href: /azure/cosmos-db/table-storage-how-to-use-ruby  
     maintainContext: true
   - name: PowerShell
-    href: /azure/cosmos-db/table-storage-how-to-use-powershell       
+    href: /azure/storage/tables/table-storage-how-to-use-powershell       
     maintainContext: true
 - name: Concepts
   items: 

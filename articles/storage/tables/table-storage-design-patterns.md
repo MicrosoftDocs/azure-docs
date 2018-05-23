@@ -84,7 +84,7 @@ Store multiple copies of each entity using different **RowKey** values in separa
 ### Context and problem
 The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using these values. For example, using the table structure shown below, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee ID (the **PartitionKey** and **RowKey** values). A client can also retrieve entities sorted by employee ID within each department.  
 
-![Employee ID](/media/storage-table-design-guide/storage-table-design-IMAGE09.png)
+![Employee ID](media/storage-table-design-guide/storage-table-design-IMAGE09.png)
 
 If you also want to be able to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because the table service does not provide secondary indexes. In addition, there is no option to request a list of employees sorted in a different order than **RowKey** order.  
 
@@ -93,7 +93,7 @@ You are anticipating a very high volume of transactions against these entities a
 ### Solution
 To work around the lack of secondary indexes, you can store multiple copies of each entity with each copy using different **PartitionKey** and **RowKey** values. If you store an entity with the structures shown below, you can efficiently retrieve employee entities based on email address or employee id. The prefix values for the **PartitionKey**, "empid_" and "email_" enable you to identify which index you want to use for a query.  
 
-![Primary index and secondary index](/media/storage-table-design-guide/storage-table-design-IMAGE10.png)
+![Primary index and secondary index](media/storage-table-design-guide/storage-table-design-IMAGE10.png)
 
 
 The following two filter criteria (one looking up by employee id and one looking up by email address) both specify point queries:  
@@ -119,7 +119,7 @@ Consider the following points when deciding how to implement this pattern:
 * Padding numeric values in the **RowKey** (for example, the employee id 000223), enables correct sorting and filtering based on upper and lower bounds.  
 * You do not necessarily need to duplicate all the properties of your entity. For example, if the queries that lookup the entities using the email address in the **RowKey** never need the employee's age, these entities could have the following structure:
   
-   ![Employee entity (secondary index)](/media/storage-table-design-guide/storage-table-design-IMAGE11.png)
+   ![Employee entity (secondary index)](media/storage-table-design-guide/storage-table-design-IMAGE11.png)
 
 * It is typically better to store duplicate data and ensure that you can retrieve all the data you need with a single query than to use one query to locate an entity using the secondary index and another to lookup the required data in the primary index.  
 
@@ -190,7 +190,7 @@ Maintain index entities to enable efficient searches that return lists of entiti
 ### Context and problem
 The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using a point query. For example, using the table structure shown below, a client application can efficiently retrieve an individual employee entity by using the department name and the employee id (the **PartitionKey** and **RowKey**).  
 
-![Employee entity](/media/storage-table-design-guide/storage-table-design-IMAGE13.png)
+![Employee entity](media/storage-table-design-guide/storage-table-design-IMAGE13.png)
 
 If you also want to be able to retrieve a list of employee entities based on the value of another non-unique property, such as their last name, you must use a less efficient partition scan to find matches rather than using an index to look them up directly. This is because the table service does not provide secondary indexes.  
 
@@ -209,7 +209,7 @@ For the first option, you create a blob for every unique last name, and in each 
 
 For the second option, use index entities that store the following data:  
 
-![Employee index entity](/media/storage-table-design-guide/storage-table-design-IMAGE14.png)
+![Employee index entity](media/storage-table-design-guide/storage-table-design-IMAGE14.png)
 
 The **EmployeeIDs** property contains a list of employee ids for employees with the last name stored in the **RowKey**.  
 
@@ -231,7 +231,7 @@ The following steps outline the process you should follow when you need to look 
 
 For the third option, use index entities that store the following data:  
 
-![Employee index entity in a separate partition](/media/storage-table-design-guide/storage-table-design-IMAGE15.png)
+![Employee index entity in a separate partition](media/storage-table-design-guide/storage-table-design-IMAGE15.png)
 
 
 The **EmployeeIDs** property contains a list of employee ids for employees with the last name stored in the **RowKey**.  
@@ -264,12 +264,12 @@ Combine related data together in a single entity to enable you to retrieve all t
 ### Context and problem
 In a relational database, you typically normalize data to remove duplication resulting in queries that retrieve data from multiple tables. If you normalize your data in Azure tables, you must make multiple round trips from the client to the server to retrieve your related data. For example, with the table structure shown below you need two round trips to retrieve the details for a department: one to fetch the department entity that includes the manager's ID, and then another request to fetch the manager's details in an employee entity.  
 
-![Department entity and Employee entity](/media/storage-table-design-guide/storage-table-design-IMAGE16.png)
+![Department entity and Employee entity](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### Solution
 Instead of storing the data in two separate entities, denormalize the data and keep a copy of the manager's details in the department entity. For example:  
 
-![Department entity](/media/storage-table-design-guide/storage-table-design-IMAGE17.png)
+![Department entity](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
 With department entities stored with these properties, you can now retrieve all the details you need about a department using a point query.  
 
@@ -297,18 +297,18 @@ In a relational database, it is quite natural to use joins in queries to return 
 
 Assume you are storing employee entities in the Table service using the following structure:  
 
-![Employee entity structure](/media/storage-table-design-guide/storage-table-design-IMAGE18.png)
+![Employee entity structure](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
 
 You also need to store historical data relating to reviews and performance for each year the employee has worked for your organization and you need to be able to access this information by year. One option is to create another table that stores entities with the following structure:  
 
-![Alternative employee entity structure](/media/storage-table-design-guide/storage-table-design-IMAGE19.png)
+![Alternative employee entity structure](media/storage-table-design-guide/storage-table-design-IMAGE19.png)
 
 Notice that with this approach you may decide to duplicate some information (such as first name and last name) in the new entity to enable you to retrieve your data with a single request. However, you cannot maintain strong consistency because you cannot use an EGT to update the two entities atomically.  
 
 ### Solution
 Store a new entity type in your original table using entities with the following structure:  
 
-![Solution for employee entity structure](/media/storage-table-design-guide/storage-table-design-IMAGE20.png)
+![Solution for employee entity structure](media/storage-table-design-guide/storage-table-design-IMAGE20.png)
 
 Notice how the **RowKey** is now a compound key made up of the employee id and the year of the review data that enables you to retrieve the employee's performance and review data with a single request for a single entity.  
 
@@ -377,7 +377,7 @@ Many applications delete old data which no longer needs to be available to a cli
 
 One possible design is to use the date and time of the login request in the **RowKey**:  
 
-![Date and time of login attempt](/media/storage-table-design-guide/storage-table-design-IMAGE21.png)
+![Date and time of login attempt](media/storage-table-design-guide/storage-table-design-IMAGE21.png)
 
 This approach avoids partition hotspots because the application can insert and delete login entities for each user in a separate partition. However, this approach may be costly and time consuming if you have a large number of entities because first you need to perform a table scan in order to identify all the entities to delete, and then you must delete each old entity. Note that you can reduce the number of round trips to the server required to delete the old entities by batching multiple delete requests into EGTs.  
 
@@ -407,14 +407,14 @@ Store complete data series in a single entity to minimize the number of requests
 ### Context and problem
 A common scenario is for an application to store a series of data that it typically needs to retrieve all at once. For example, your application might record how many IM messages each employee sends every hour, and then use this information to plot how many messages each user sent over the preceding 24 hours. One design might be to store 24 entities for each employee:  
 
-![Store 24 entities for each employee](/media/storage-table-design-guide/storage-table-design-IMAGE22.png)
+![Store 24 entities for each employee](media/storage-table-design-guide/storage-table-design-IMAGE22.png)
 
 With this design, you can easily locate and update the entity to update for each employee whenever the application needs to update the message count value. However, to retrieve the information to plot a chart of the activity for the preceding 24 hours, you must retrieve 24 entities.  
 
 ### Solution
 Use the following design with a separate property to store the message count for each hour:  
 
-![Message stats entity](/media/storage-table-design-guide/storage-table-design-IMAGE23.png)
+![Message stats entity](media/storage-table-design-guide/storage-table-design-IMAGE23.png)
 
 With this design, you can use a merge operation to update the message count for an employee for a specific hour. Now, you can retrieve all the information you need to plot the chart using a request for a single entity.  
 
@@ -443,7 +443,7 @@ An individual entity can have no more than 252 properties (excluding the mandato
 ### Solution
 Using the Table service, you can store multiple entities to represent a single large business object with more than 252 properties. For example, if you want to store a count of the number of IM messages sent by each employee for the last 365 days, you could use the following design that uses two entities with different schemas:  
 
-![Multiple entities](/media/storage-table-design-guide/storage-table-design-IMAGE24.png)
+![Multiple entities](media/storage-table-design-guide/storage-table-design-IMAGE24.png)
 
 If you need to make a change that requires updating both entities to keep them synchronized with each other you can use an EGT. Otherwise, you can use a single merge operation to update the message count for a specific day. To retrieve all the data for an individual employee you must retrieve both entities, which you can do with two efficient requests that use both a **PartitionKey** and a **RowKey** value.  
 
@@ -470,7 +470,7 @@ An individual entity cannot store more than 1 MB of data in total. If one or sev
 ### Solution
 If your entity exceeds 1 MB in size because one or more properties contain a large amount of data, you can store data in the Blob service and then store the address of the blob in a property in the entity. For example, you can store the photo of an employee in blob storage and store a link to the photo in the **Photo** property of your employee entity:  
 
-![Photo property](/media/storage-table-design-guide/storage-table-design-IMAGE25.png)
+![Photo property](media/storage-table-design-guide/storage-table-design-IMAGE25.png)
 
 ### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -495,12 +495,12 @@ Increase scalability when you have a high volume of inserts by spreading the ins
 ### Context and problem
 Prepending or appending entities to your stored entities typically results in the application adding new entities to the first or last partition of a sequence of partitions. In this case, all of the inserts at any given time are taking place in the same partition, creating a hotspot that prevents the table service from load balancing inserts across multiple nodes, and possibly causing your application to hit the scalability targets for partition. For example, if you have an application that logs network and resource access by employees, then an entity structure as shown below could result in the current hour's partition becoming a hotspot if the volume of transactions reaches the scalability target for an individual partition:  
 
-![Entity structure](/media/storage-table-design-guide/storage-table-design-IMAGE26.png)
+![Entity structure](media/storage-table-design-guide/storage-table-design-IMAGE26.png)
 
 ### Solution
 The following alternative entity structure avoids a hotspot on any particular partition as the application logs events:  
 
-![Alternative entity structure](/media/storage-table-design-guide/storage-table-design-IMAGE27.png)
+![Alternative entity structure](media/storage-table-design-guide/storage-table-design-IMAGE27.png)
 
 Notice with this example how both the **PartitionKey** and **RowKey** are compound keys. The **PartitionKey** uses both the department and employee id to distribute the logging across multiple partitions.  
 
@@ -526,13 +526,13 @@ Typically, you should use the Blob service instead of the Table service to store
 ### Context and problem
 A common use case for log data is to retrieve a selection of log entries for a specific date/time range: for example, you want to find all the error and critical messages that your application logged between 15:04 and 15:06 on a specific date. You do not want to use the date and time of the log message to determine the partition you save log entities to: that results in a hot partition because at any given time, all the log entities will share the same **PartitionKey** value (see the section [Prepend/append anti-pattern](#prepend-append-anti-pattern)). For example, the following entity schema for a log message results in a hot partition because the application writes all log messages to the partition for the current date and hour:  
 
-![Log message entity](/media/storage-table-design-guide/storage-table-design-IMAGE28.png)
+![Log message entity](media/storage-table-design-guide/storage-table-design-IMAGE28.png)
 
 In this example, the **RowKey** includes the date and time of the log message to ensure that log messages are stored sorted in date/time order, and includes a message id in case multiple log messages share the same date and time.  
 
 Another approach is to use a **PartitionKey** that ensures that the application writes messages across a range of partitions. For example, if the source of the log message provides a way to distribute messages across many partitions, you could use the following entity schema:  
 
-![Alternative log message entity](/media/storage-table-design-guide/storage-table-design-IMAGE29.png)
+![Alternative log message entity](media/storage-table-design-guide/storage-table-design-IMAGE29.png)
 
 However, the problem with this schema is that to retrieve all the log messages for a specific time span you must search every partition in the table.
 
