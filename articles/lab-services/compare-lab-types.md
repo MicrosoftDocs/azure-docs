@@ -60,5 +60,5 @@ The following table compares two types of labs that are supported by Azure Lab S
 ## Next steps
 Get started with setting up a lab using Azure Lab Services:
 
-- [Set up a classroom lab](tutorial-setup-classroom-lab.md)
+- [Set up a classroom lab](classroom-labs/tutorial-setup-classroom-lab.md)
 - [Set up a custom lab](tutorial-create-custom-lab.md)
