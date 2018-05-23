@@ -48,7 +48,7 @@ Advanced networking provides the following benefits:
 ## Advanced networking prerequisites
 
 * The VNet for the AKS cluster must allow outbound internet connectivity.
-* Do not create more than one AKS cluster in the same Subnet.
+* Do not create more than one AKS cluster in the same subnet.
 * Advanced networking for AKS does not support VNets that use Azure Private DNS Zones.
 * AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, or `172.31.0.0/16` for the Kubernetes service address range.
 * The service principal used for the AKS cluster must have `Owner` permissions to the resource group containing the existing VNet.
@@ -59,12 +59,12 @@ Clusters configured with Advanced networking require additional planning. The si
 
 IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the VNet. Each node is configured with a primary IP, which is the IP of the node and 30 additional IP addresses pre-configured by Azure CNI that are assigned to pods scheduled to the node. When you scale out your cluster, each node is similarly configured with IP addresses from the subnet.
 
-The IP address plan for an AKS cluster consists of a VNet, at least one Subnet for VMs and Pods, and a Kubernetes service address range.
+The IP address plan for an AKS cluster consists of a VNet, at least one subnet for VMs and Pods, and a Kubernetes service address range.
 
 | Address range / Azure resource | Limits and sizing |
 | --------- | ------------- |
 | Virtual network | Azure VNet can be as large as /8 but may only have 4096 configured IP addresses. |
-| Subnet | Must be large enough to accommodate the VMs and Pods. To calculate your minimum subnet size: (Number of VMs) + (Number of VMs * Pods per VM). For a 50 node cluster: (50) + (50 * 30) = 1,550, your Subnet would need to be a /21 or larger. |
+| Subnet | Must be large enough to accommodate the VMs and Pods. To calculate your minimum subnet size: (Number of VMs) + (Number of VMs * Pods per VM). For a 50 node cluster: (50) + (50 * 30) = 1,550, your subnet would need to be a /21 or larger. |
 | Kubernetes service address range | This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. |
 | Kubernetes DNS Service IP address | IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). |
 | Docker bridge address | IP address (in CIDR notation) used as the Docker bridge ip address on VMs. Default of 172.17.0.1/16. |
