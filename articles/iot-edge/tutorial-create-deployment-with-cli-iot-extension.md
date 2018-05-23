@@ -67,7 +67,7 @@ Create an IoT hub called **CLIDemoHub** in the newly created resource group:
 Create an IoT Edge device:
 
    ```cli
-   az iot hub device-identity create --device-id edge001 -hub-name CLIDemoHub --edge-enabled
+   az iot hub device-identity create --device-id edge001 --hub-name CLIDemoHub --edge-enabled
    ```
 
    ![Create IoT Edge device][4]
