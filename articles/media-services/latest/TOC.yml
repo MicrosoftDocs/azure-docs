@@ -43,6 +43,8 @@
     href: reacting-to-media-services-events.md    
 - name: How-to guides
   items:
+  - name: Migrate from v2 to v3
+    href: migrate-from-v2-to-v3.md
   - name: Create an account - CLI
     href: create-account-cli-how-to.md  
   - name: Access APIs - CLI
@@ -61,6 +63,8 @@
       href: customize-encoder-presets-how-to.md
 - name: Reference
   items:
+  - name: OpenAPI Specification (Swagger)
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview  
   - name: Azure CLI 2.0
     href: https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest
   - name: REST

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 05/23/2018
 ms.author: maheshu
 
 ---
@@ -35,4 +35,5 @@ The following features are available in Azure AD Domain Services managed domains
 * **Create custom Organizational Units (OUs):** Members of the 'AAD DC Administrators' group can create custom OUs in the managed domain. These users are granted full administrative privileges over custom OUs, so they can add/remove service accounts, computers, groups etc. within these custom OUs.
 * **Available in multiple Azure regions:** See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services is available.
 * **High availability:** Azure AD Domain Services offers high availability for your domain. This feature offers the guarantee of higher service uptime and resilience to failures. Built-in health monitoring offers automated remediation from failures by spinning up new instances to replace failed instances and to provide continued service for your domain.
+* **AD Account lockout protection:** Users accounts are locked out for 30 minutes if 4 invalid password attempts are encountered within 2 minutes. Accounts are automatically unlocked after 30 minutes.
 * **Use familiar management tools:** You can use familiar Windows Server Active Directory management tools such as the Active Directory Administrative Center or Active Directory PowerShell to administer managed domains.

@@ -74,7 +74,7 @@ For links to articles that show how to use each event handler, see [Event handle
 There are five concepts in Azure Event Grid that let you get going:
 
 * **Events** - What happened.
-* **Event sources/publishers** - Where the event took place.
+* **Event sources** - Where the event took place.
 * **Topics** - The endpoint where publishers send events.
 * **Event subscriptions** - The endpoint or built-in mechanism to route events, sometimes to multiple handlers. Subscriptions are also used by handlers to intelligently filter incoming events.
 * **Event handlers** - The app or service reacting to the event.
