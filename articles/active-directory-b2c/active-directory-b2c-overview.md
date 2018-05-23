@@ -15,7 +15,7 @@ ms.author: davidmu
 ---
 # What is Azure Active Directory B2C?
 
-Azure Active Directory (Azure AD) B2C is an identity management service that enables you to customize and control how customers sign up, sign in, and manage their profiles when using your applications. This includes applications developed for iOS, Android, and .NET, among others. Azure AD B2C enables these actions while protecting your customer identities at the same time.
+Azure Active Directory (Azure AD) B2C is an identity management service that enables you to customize and control how customers sign up, sign in and manage their profiles when using your applications. This includes applications developed for iOS, Android and .NET among others. Azure AD B2C enables these actions while protecting your customer identities at the same time.
 
 You can configure an application registered with Azure AD B2C to perform a variety of identity management actions. Some examples are:
 
@@ -58,7 +58,7 @@ Azure AD B2C protects from denial-of-service and password attacks against your a
 
 #### Built-in policies
 
-Each request that is sent to Azure AD B2C specifies a policy. A policy controls the behavior of how your application interacts with Azure AD B2C. Built-in policies are predefined for the most common identity tasks, such as sign-up, sign-in, and profile editing.  For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
+Each request that is sent to Azure AD B2C specifies a policy. A policy controls the behavior of how your application interacts with Azure AD B2C. Built-in policies are predefined for the most common identity tasks, such as sign-up, sign-in and profile editing.  For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
 
 - Social accounts that the customer can use to sign up for the application
 - Data collected from the customer such as first name or postal code
@@ -94,7 +94,7 @@ You can send parameters to Azure AD B2C in a query string. By passing the parame
 
 ## How do I get started with Azure AD B2C?
 
-In Azure AD B2C, a tenant represents your organization and is a directory of users. Each Azure AD B2C tenant is distinct and separate from other Azure AD B2C tenants. A tenant contains information about the customers that have signed up to use your application. For example, passwords, profile data, and permissions.
+In Azure AD B2C, a tenant represents your organization and is a directory of users. Each Azure AD B2C tenant is distinct and separate from other Azure AD B2C tenants. A tenant contains information about the customers that have signed up to use your application. For example, passwords, profile data and permissions.
 
 You need to link your Azure AD B2C tenant to your Azure subscription to enable all functionality and pay for usage charges. To allow Azure AD B2C customers to sign in to your application, you must register your application in an Azure AD B2C tenant.
 
