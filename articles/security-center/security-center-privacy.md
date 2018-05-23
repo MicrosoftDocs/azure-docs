@@ -58,7 +58,7 @@ A Security Center user assigned the role of Owner, Contributor, or Account Admin
 
 A Security Center user assigned the role of Owner, Contributor, or Account Administrator can delete the [just in time policies](security-center-just-in-time.md) via the Azure portal.
 
-A Security Center user cannot delete alert incidents. Due to security needs an [alert incident](security-center-managing-and-responding-alerts.md) is considered read only data.
+A Security Center user cannot delete alert incidents. Due to security needs, an [alert incident](security-center-managing-and-responding-alerts.md) is considered read only data.
 
 ## Exporting personal data
 A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can export [security contact data](security-center-provide-security-contact-details.md) by:
