@@ -105,7 +105,9 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 **Request Body**
 ```json
 {
-  "retentionDays": 28
+  "properties":{  
+      "retentionDays":28
+   }
 }
 ```
 **Sample Response**
