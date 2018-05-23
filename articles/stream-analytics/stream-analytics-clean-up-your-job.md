@@ -41,4 +41,4 @@ Azure Stream Analytics jobs can be easily deleted through the Azure portal or Az
 
 ## Stop or delete a job using PowerShell
 
-To stop or delete a job using PowerShell, refer to [Monitor and manage Stream Analytics jobs with Azure PowerShell cmdlets](stream-analytics-monitor-and-manage-jobs-use-powershell).
+To stop or delete a job using PowerShell, refer to [Monitor and manage Stream Analytics jobs with Azure PowerShell cmdlets](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
