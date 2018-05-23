@@ -33,6 +33,22 @@ S3 RUs are necessary for the **VideoAnalyzerPreset** and **AudioAnalyzerPreset**
 
 The AssetFiles were removed from the AMS API in order to separate Media Services from Storage SDK dependency. Now Storage, not Media Services, keeps the information that belongs in Storage. 
 
+## Where did client side storage encryption go?
+
+We now recommend server side storage encryption (which is on by default), and the use of https ingest.
+
+## How does pagination work?
+
+Media Services supports $top for resources that support OData but the value passed to $top must be less than 1000 (for example, the page size for pagination).
+
+This allows you to either get a small sample of items using $top (for example, the 100 most recent items) or to page though all items using pagination. 
+
+Media Services does not support paging through the data with a user specified page size.
+
+## All of the Get methods are based off of entity name as opposed to entity id. How can a particular entity be retrieved based upon its guid?
+
+v3 is based on a unified API surface which exposes both management and operations functionality built on **Azure Resource Manager**. In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
