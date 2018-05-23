@@ -35,10 +35,9 @@ You can review users flagged for risk through the related [report](https://porta
 - Require the user to securely reset their password the next time they sign in
 - Dismiss the user risk without taking any remediation action.
 
-If you want to review the past sign-ins of an at-risk user, select the related user, and then click **All sign-ins** on the top of the screen. 
+For more information, see [Users flagged for risk security report in the Azure Active Directory portal](active-directory-reporting-security-user-at-risk.md).
 
-
-### Azure AD subscription for Office 365 customers:
+### Azure AD subscription for Office 365 customers
 
 Once complete, you can use your Office 365 credentials to access the Azure Admin Center. After you have activated your access to Azure AD, you are redirected to the Azure AD portal. At the basic subscription level, the amount of detail provided in the reports are limited. Additional data and analytics are available for Azure Premium subscribers.
 
@@ -52,7 +51,7 @@ Once complete, you can use your Office 365 credentials to access the Azure Admin
 4.	In the navigation menu on the left side, click **Azure Active Directory**. 
 5.	In the navigation pane, under **Security**, click **Users flagged for risk**.
 
-Review the information displayed here. You should reset the password for any account that is listed here. 
+Review the information displayed here. You should reset the password for any account that is listed. 
 
 ## Remediation actions
 
