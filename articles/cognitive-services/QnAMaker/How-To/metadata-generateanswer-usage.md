@@ -13,7 +13,7 @@ ms.author: pchoudh
 
 # Using metadata and the GenerateAnswer API
 
-QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. This information can be used in various ways such as filtering results to user queries, boosting certain results, and storing additional information that can be used in follow up conversations. For more information see [Knowledge base](../Concepts/knowledge-base.md).
+QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. This information can be used in various ways such as filtering results to user queries, boosting certain results, and storing additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
 
 ## QnA Entity
 
@@ -32,7 +32,7 @@ You use the GenerateAnswer API in your Bot or application to query your knowledg
 Once you publish your knowledge base, either from the [QnA Maker portal](https://www.qnamaker.ai), or using the [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), you can get the details of your GenerateAnswer endpoint.
 
 To get your endpoint details:
-1. Login to [https://www.qnamaker.ai](https://www.qnamaker.ai).
+1. Log in to [https://www.qnamaker.ai](https://www.qnamaker.ai).
 2. In **My knowledge bases**, click on **View Code** for your knowledge base.
 ![my knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 3. Get your GenerateAnswer endpoint details.
@@ -46,7 +46,7 @@ You call GenerateAnswer with an HTTP POST request. For sample code that shows ho
 - **Request URL**: https://{QnA Maker endpoint}/knowledgebases/{knowledge base ID}/generateAnswer
 
 - **Request parameters**: 
-    - **Knowledge base ID** (string) - GUID of your knowledge base. This is unique for every knowledge base.
+    - **Knowledge base ID** (string) - The GUID for your knowledge base.
     - **QnAMaker endpoint** (string) - The hostname of the endpoint deployed in your Azure subscription.
 - **Request headers**
     - **Content-Type** (string) - The media type of the body sent to the API.
@@ -54,8 +54,8 @@ You call GenerateAnswer with an HTTP POST request. For sample code that shows ho
 - **Request body**
     - **question** (string) - A user question to be queried against your knowledge base.
     - **top** (optional, integer) - The number of ranked results to include in the output. The default value is 1.
-    - **userId** (optional, string) - A unique id to identify the user. This will be recorded in the chat logs.
-    - **strictFilters** (optional, string) - If specified, tells QnA Maker to return only answers that have the specified metadata. See below for more details.
+    - **userId** (optional, string) - A unique ID to identify the user. This ID will be recorded in the chat logs.
+    - **strictFilters** (optional, string) - If specified, tells QnA Maker to return only answers that have the specified metadata. For more information, see below.
     ```json
     {
         "question": "qna maker and luis",
@@ -79,7 +79,7 @@ You call GenerateAnswer with an HTTP POST request. For sample code that shows ho
         - **metadata**: The metadata associated with the answer.
             - name: Metadata name. (string, max Length: 100, required)
             - value: Metadata value. (string, max Length: 100, required)
-        - **Id**: A unique id assigned to the answer.
+        - **Id**: A unique ID assigned to the answer.
     ```json
     {
         "answers": [
@@ -110,9 +110,9 @@ Consider the below FAQ data for restaurants in Hyderabad. Add metadata to your k
 
 ### Filter results with strictFilters
 
-Consider the user question "When does this hotel close?" where the intent is implied for the restaurant "Paradise".
+Consider the user question "When does this hotel close?" where the intent is implied for the restaurant "Paradise."
 
-Since results are required only for the restaurant "Paradise", we can set a filter in the GenerateAnswer call on the metadata "Restaurant Name", as follows.
+Since results are required only for the restaurant "Paradise", you can set a filter in the GenerateAnswer call on the metadata "Restaurant Name", as follows.
 
 ```json
 {
