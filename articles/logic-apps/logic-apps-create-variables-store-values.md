@@ -96,9 +96,8 @@ From the actions list, select this action:
 5. Now continue adding the actions you want. 
 When you're done, on the designer toolbar, choose **Save**.
 
-Here is how the **Initialize variable** action appears 
-in the underlying logic app definition 
-when you switch from the designer and code view. 
+Here is how the **Initialize variable** action appears in the logic 
+app definition when you switch from the designer to the code view editor. 
 The definition uses JavaScript Object Notation (JSON) format:
 
 ```json
@@ -222,9 +221,8 @@ Here are the properties for this action:
 
 4. When you're done, on the designer toolbar, choose **Save**. 
 
-Here is how the **Increment variable** action appears 
-in the underlying logic app definition 
-when you switch from the designer and code view. 
+Here is how the **Increment variable** action appears in the logic app 
+definition when you switch from the designer to the code view editor. 
 The definition uses JavaScript Object Notation (JSON) format:
 
 ```json
@@ -312,9 +310,9 @@ This example sends an email with the results.
 
 10. Save your logic app. On the designer toolbar, choose **Save**. 
 
-Here is how the **Increment variable** action appears inside 
-the "for each" loop in the underlying logic app definition 
-when you switch from the designer and code view. 
+Here is how the **Increment variable** action appears 
+inside the "for each" loop in the logic app definition 
+when you switch from the designer to the code view editor. 
 The definition uses JavaScript Object Notation (JSON) format:
 
 ```json
@@ -371,9 +369,8 @@ Here are the properties for the **Decrement variable** action:
 | Value | No | <*increment-value*> | The value for decrementing the variable. The default value is one. <p><p>**Tip**: Although optional, set this value as a best practice so you always know the specific value for decrementing your variable. | 
 ||||| 
 
-Here is how the **Decrement variable** action appears 
-in the underlying logic app definition 
-when you switch from the designer and code view. 
+Here is how the **Decrement variable** action appears in the logic app 
+definition when you switch from the designer to the code view editor. 
 The definition uses JavaScript Object Notation (JSON) format:
 
 ```json
@@ -410,11 +407,10 @@ Here are the properties for the **Set variable** action:
 | Value | Yes | <*new-value*> | The value you want to assign the variable. Both the new value and variable must have the same data type. | 
 ||||| 
 
-Here is how the **Set variable** action appears 
-in the underlying logic app definition 
-when you switch from the designer and code view. 
+Here is how the **Set variable** action appears in the logic app 
+definition when you switch from the designer to the code view editor. 
 In this example, the variable value is reset to zero 
-after a previously defined "for each" loop exits successfully.
+after a previously defined "for each" loop exits successfully. 
 The definition uses JavaScript Object Notation (JSON) format:
 
 ```json
@@ -458,11 +454,10 @@ Here are the properties for the **Append to...** actions:
 | Value | Yes | <*append-value*> | The value you want to append. Both the new value and variable must have the same data type. | 
 |||||  
 
-Here is how the **Append to array variable** action appears 
-in the underlying logic app definition 
-when you switch from the designer and code view. 
+Here is how the **Append to array variable** action appears in the logic app 
+definition when you switch from the designer to the code view editor. 
 This example creates an array variable, and adds the 
-specified value as the last array item in the variable:
+specified value as the last array item in the variable. 
 The definition uses JavaScript Object Notation (JSON) format:
 
 ```json
