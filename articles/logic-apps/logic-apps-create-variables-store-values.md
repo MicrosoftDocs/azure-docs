@@ -29,11 +29,9 @@ They are also shared across loops in the same instance.
 When you have an existing variable, 
 you can perform other tasks, for example:
 
-* Increase the value in a variable.
-* Decrease the value in a variable.
-* Set a specific value for a variable.
-* Add the value in a variable to the end of an array.
-* Add the value in a variable to the end of a string.
+* Increase or decrease the value in an integer or float variable.
+* Assign a value with the same data type to a variable.
+* Add a value at the end of an array or string variable.
 
 If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
@@ -100,14 +98,22 @@ When you're done, on the designer toolbar, choose **Save**.
 
 <a name="change-variable-value"></a>
 
-## Change values in a variable
+## Change values in variables
 
 In Logic App Designer, you have a few ways that you 
 can change the value in an existing variable. 
 
-* [Add a value or "increment" the variable](#increment-value).
-* [Subtract a value or "decrement" the variable](#decrement-value).
-* [Set a specific value for the variable](#assign-value).
+* [*Increment*](#increment-value) or add a value to the variable. 
+Works only for integer or float variables.
+
+* [*Decrement*](#decrement-value) or subtract a value from the variable.
+Works only for integer or float variables.
+
+* [Assign a new value](#assign-value) to the variable. 
+This new value must have the same the data type as the variable.
+
+* [*Append*](#append-value) or add a value that has the 
+same data type to the end of a string or array variable.
 
 If you don't have an existing variable yet, 
 [create that variable now](#create-variable).
@@ -118,6 +124,7 @@ If you don't have an existing variable yet,
 
 To increase a variable by a specific value, add the 
 **Variables - Increment variable** action to your logic app. 
+This action works only for variables with integer or float data types.
 
 1. In Logic App Designer, under the step where 
 you want to increase an existing variable, 
@@ -136,7 +143,8 @@ In the actions list, select this action:
 
    ![Select "Increment variable" action](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
 
-3. Provide the information for incrementing your variable.
+3. Provide the information for incrementing your variable. 
+Here are the properties for the **Increment variable** action:
 
    | Property | Required | Value |  Description |
    |----------|----------|-------|--------------|
@@ -250,28 +258,65 @@ for the email that you sent to yourself.
 
 ### Decrement variable
 
-The steps for decreasing an existing variable by a specific value are 
-similar to [increasing a variable](#increment-value) except
-that you select the **Variables - Decrement variable** action instead. 
-This action subtracts your specified value from the variable's current value. 
-The default value for this action is also one.
+To decrease an existing variable by a specific value, you can follow 
+the steps for [increasing a variable](#increment-value) 
+except that you use the **Variables - Decrement variable** action instead. 
+This action subtracts the specified value from the variable's current value,
+and works only for variables with integer or float data types. 
+
+Here are the properties for the **Decrement variable** action:
+
+| Property | Required | Value |  Description |
+|----------|----------|-------|--------------|
+| Name | Yes | <*variable-name*> | The name for the variable to decrement | 
+| Value | No | <*increment-value*> | The value for decrementing the variable. The default value is one. | 
+|||| 
 
 <a name="assign-value"></a>
 
-### Set a specific value 
+### Assign a specific value 
 
-The steps for assigning a specific value to an existing variable 
-are similar to [increasing a variable](#increment-value) and 
-[decreasing a variable](#decrement-value) except for these steps: 
+To assign a different value to an existing variable, 
+you can follow the steps for [increasing a variable](#increment-value) 
+except for these steps: 
 
-* You select the **Variables - Set variable** action instead. 
+* Select the **Variables - Set variable** action instead. 
 
-* You must provide the new value that you want to assign the variable. 
-This action doesn't have a default value. 
+* Provide the value you want to assign the variable. 
+This value is required because this action doesn't have a default value. 
 
-## Add to string or array
+  Here are the properties for the **Set variable** action:
 
+  | Property | Required | Value |  Description | 
+  |----------|----------|-------|--------------| 
+  | Name | Yes | <*variable-name*> | The name for the variable to change | 
+  | Value | Yes | <*new-value*> | The value you want to assign the variable. This new value must have the same data type as the variable. | 
+  ||||| 
 
+<a name="append-value"></a>
+
+## Append value to variable
+
+For variables that store either strings or arrays, you can add 
+values with the same type at the ends of those strings or arrays. 
+You can follow steps similar to [increasing a variable](#increment-value) 
+except for these steps: 
+
+* Select the action based on whether you have a string or array variable: 
+
+  * **Variables - Append to string variable**
+  * **Variables - Append to array variable** 
+
+* Provide the value you want to append to the variable. 
+This value is required because this action doesn't have a default value. 
+
+  Here are the properties for the **Append to...** actions:
+
+  | Property | Required | Value |  Description | 
+  |----------|----------|-------|--------------| 
+  | Name | Yes | <*variable-name*> | The name for the variable to change | 
+  | Value | Yes | <*append-value*> | The value you want to append. This new value must have the same data type as the variable. | 
+  |||||  
 
 ## Get support
 
