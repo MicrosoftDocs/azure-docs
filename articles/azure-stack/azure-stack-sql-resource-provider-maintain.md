@@ -60,13 +60,13 @@ Here is a sample script to update the Defender definitions (substitute the addre
 
 ```powershell
 # Set credentials for the RP VM local admin user
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$vmLocalAdminUser = "localadmin"
+$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
 
 # Public IP Address of the DB adapter machine
-$databaseRPMachine  = "XX.XX.XX.XX"
+$databaseRPMachine  = "<RP VM IP address>"
 $localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe"
 
 # Download Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions. 
@@ -103,7 +103,7 @@ This sample script demonstrates the use of these commands:
 
 ```powershell
 # Create a new diagnostics endpoint session.
-$databaseRPMachineIP = '<RP VM IP>'
+$databaseRPMachineIP = '<RP VM IP address>'
 $diagnosticsUserName = 'dbadapterdiag'
 $diagnosticsUserPassword = '<Enter Diagnostic password>'
 
