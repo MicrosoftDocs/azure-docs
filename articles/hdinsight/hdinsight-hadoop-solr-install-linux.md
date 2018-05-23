@@ -4,7 +4,7 @@ description: Learn how to install Solr on Linux-based HDInsight Hadoop clusters 
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 
@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/20/2018
+ms.date: 05/16/2018
 ms.author: larryfr
 
 ---
@@ -77,8 +77,11 @@ Use the following steps to add example data to Solr, and then query it:
 
 1. Connect to the HDInsight cluster using SSH:
 
+    > [!NOTE]
+    > Replace `sshuser` with the SSH user for the cluster. Replace `clustername` with the name of the cluster.
+
     ```bash
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
     For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).

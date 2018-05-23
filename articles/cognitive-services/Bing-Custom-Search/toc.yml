@@ -22,6 +22,10 @@
   items:
     - name: Build a Custom Search web page
       href: ./tutorials/custom-search-web-page.md
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
 - name: How-to guides 
   items:        
     - name: Configure custom search experience

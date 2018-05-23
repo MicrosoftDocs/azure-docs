@@ -12,9 +12,15 @@
 - name: Tutorials
   items:
   - name: Upload, encode, and stream
-    href: stream-files-tutorial-with-api.md
+    items:
+    - name: With .NET
+      href: stream-files-tutorial-with-api.md
+    - name: With REST
+      href: stream-files-tutorial-with-rest.md
   - name: Analyze your video
-    href: analyze-videos-tutorial-with-api.md
+    items:
+    - name: With .NET
+      href: analyze-videos-tutorial-with-api.md
 - name: Samples
   items:
   - name: Azure code samples
@@ -37,6 +43,8 @@
     href: reacting-to-media-services-events.md    
 - name: How-to guides
   items:
+  - name: Migrate from v2 to v3
+    href: migrate-from-v2-to-v3.md
   - name: Create an account - CLI
     href: create-account-cli-how-to.md  
   - name: Access APIs - CLI
@@ -49,14 +57,24 @@
       href: job-input-from-http-how-to.md
     - name: From a local file
       href: job-input-from-local-file-how-to.md    
+  - name: Customize encoder presets
+    items:
+    - name: With .NET Core
+      href: customize-encoder-presets-how-to.md
 - name: Reference
   items:
+  - name: OpenAPI Specification (Swagger)
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview  
   - name: Azure CLI 2.0
     href: https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest
   - name: REST
     href: https://go.microsoft.com/fwlink/p/?linkid=873030
   - name: .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet
+  - name: Java
+    href: https://docs.microsoft.com/java/api/overview/azure/mediaservices
+  - name: Python
+    href: https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python
   - name: Event schemas
     href: media-services-event-schemas.md
 - name: Resources

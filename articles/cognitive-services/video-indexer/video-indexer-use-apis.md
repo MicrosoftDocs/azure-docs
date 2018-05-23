@@ -50,7 +50,7 @@ Once you subscribed to the Authorization API, you will be able to obtain access 
 
 Each call to the Operations API should be associated with an access token, matching the authorization scope of the call.
 
-- User level -  user level access tokens let you perform operations on the user level. E.g.,  get associated accounts.
+- User level -  user level access tokens let you perform operations on the user level. For example,  get associated accounts.
 - Account level – account level access tokens let you perform operations on the account level. for example, Upload video, list all videos, create a language model, etc.
 - Video level – video level access tokens let you perform operations on specific videos. for example, get video insights, download captions, get widgets, etc. 
 
@@ -60,14 +60,17 @@ You are ready to start integrating with the API. Find [the detailed description 
 
 ## Location
 
-All operation APIs require a Location parameter which indicates the region to which the call should be routed and in which the account was created.
+All operation APIs require a Location parameter, which indicates the region to which the call should be routed and in which the account was created.
 
-The following values apply:
+The values described in the following table apply. The **Param value** is the value you pass when using the API.
 
-* Trial – for trial accounts
-* Westus2 – Azure West US 2 region
-* Northeurrope – Azure North Europe region
-* Eastasia – Azure East Asia region
+
+|**Name**|**Param value**|**Description**|
+|---|---|---|
+|Trial|trial|Used for trial accounts.|
+|West US|westus2|Used for the Azure West US 2 region.|
+|North Europe |northeurope|Used for the Azure North Europe region.|
+|East Asia|eastasia|Used for the Azure East Asia region.|
 
 ## Recommendations
 
@@ -107,7 +110,7 @@ client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
 var content = new MultipartFormDataContent();
 Debug.WriteLine("Uploading...");
 var videoUrl = "..."; // replace with the video url 
-var uploadRequestResult = client.PostAsync(string.Format($"{apiUrl}/{location}/Accounts/{accountId}/Videos?accessToken={accountAccessToken}&name=some_name&description=some_description&privacy=private&partition=some_partition&videoUrl={videoUrl}"), content).Result;
+var uploadRequestResult = client.PostAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos?accessToken={accountAccessToken}&name=some_name&description=some_description&privacy=private&partition=some_partition&videoUrl={videoUrl}", content).Result;
 var uploadResult = uploadRequestResult.Content.ReadAsStringAsync().Result;
 
 // get the video id from the upload result
@@ -120,7 +123,7 @@ client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
 var videoTokenRequestResult = client.GetAsync($"{apiUrl}/auth/{location}/Accounts/{accountId}/Videos/{videoId}/AccessToken?allowEdit=true").Result;
 var videoAccessToken = videoTokenRequestResult.Content.ReadAsStringAsync().Result.Replace("\"", "");
 
-client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key"); //workaround
+client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
 
 // wait for the video index to finish
 while (true)
@@ -132,14 +135,14 @@ while (true)
 
   var processingState = JsonConvert.DeserializeObject<dynamic>(videoGetIndexResult)["state"];
 
-  Debug.WriteLine();
+  Debug.WriteLine("");
   Debug.WriteLine("State:");
   Debug.WriteLine(processingState);
 
   // job is finished
   if (processingState != "Uploaded" && processingState != "Processing")
   {
-      Debug.WriteLine();
+      Debug.WriteLine("");
       Debug.WriteLine("Full JSON:");
       Debug.WriteLine(videoGetIndexResult);
       break;
@@ -149,7 +152,7 @@ while (true)
 // search for the video
 var searchRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/Search?accessToken={accountAccessToken}&id={videoId}").Result;
 var searchResult = searchRequestResult.Content.ReadAsStringAsync().Result;
-Debug.WriteLine();
+Debug.WriteLine("");
 Debug.WriteLine("Search:");
 Debug.WriteLine(searchResult);
 
@@ -162,7 +165,7 @@ Debug.WriteLine(insightsWidgetLink);
 // get player widget url
 var playerWidgetRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/{videoId}/PlayerWidget?accessToken={videoAccessToken}").Result;
 var playerWidgetLink = playerWidgetRequestResult.Headers.Location;
-Debug.WriteLine();
+Debug.WriteLine("");
 Debug.WriteLine("Player Widget url:");
 Debug.WriteLine(playerWidgetLink);
 

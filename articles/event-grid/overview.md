@@ -6,7 +6,7 @@ author: banisadr
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
+ms.topic: overview
 ms.date: 04/27/2018
 ms.author: babanisa
 ---
@@ -66,8 +66,6 @@ Currently, the following Azure services support handling events from Event Grid:
 * Microsoft Flow
 * Queue Storage
 * WebHooks
-
-When using Azure Functions as the handler, use the Event Grid trigger instead of generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](security-authentication.md#webhook-event-delivery).
 
 For links to articles that show how to use each event handler, see [Event handlers in Azure Event Grid](event-handlers.md).
 

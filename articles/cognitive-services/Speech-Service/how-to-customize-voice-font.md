@@ -82,7 +82,7 @@ Place the set of audio files into a single folder without subdirectories and pac
 
 ### Transcripts
 
-The transcription file is a plain text file in UTF-8 encoding. Each line of the transcription file must have the name of an audio file, followed by a tab (ASCII 9) character, and finally its transcript. No blank lines are allowed.
+The transcription file is a plain Unicode text file (UTF-16 little-endian). Each line of the transcription file must have the name of an audio file, followed by a tab (code point 9) character, and finally its transcript. No blank lines are allowed.
 
 For example:
 
