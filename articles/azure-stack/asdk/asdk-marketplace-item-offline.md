@@ -45,7 +45,7 @@ You can publish the Windows Server 2016 image to the Azure Stack marketplace by 
 
 Use this option if you have deployed Azure Stack in a disconnected scenario or in scenarios with limited connectivity.
 
-1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
+1. [Install PowerShell for Azure Stack](../azure-stack-powershell-install.md).
 
   ```PowerShell  
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
@@ -81,7 +81,7 @@ Use this option if you have deployed Azure Stack in a disconnected scenario or i
     -ArmEndpoint $ArmEndpoint
     ```
 
-3. Sign in to Azure Stack as an operator. For instructions, see [Sign in to Azure Stack as an operator](azure-stack-powershell-configure-admin.md).
+3. Sign in to Azure Stack as an operator. For instructions, see [Sign in to Azure Stack as an operator](../azure-stack-powershell-configure-admin.md).
 
    ````PowerShell  
     Add-AzureRmAccount `
