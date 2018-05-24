@@ -12,10 +12,10 @@ ms.custom: mvc
 ---
 # Understanding Policy Effects
 
-Each policy definition in Azure Policy has a single effect that determines what is performed or
-reported during scanning when the **if** segment of the policy rule is evaluated to match the
-resource being scanned. The effects can also behave differently if they are for a new resource, an
-updated resource, or an existing resource.
+Each policy definition in Azure Policy has a single effect that determines what happens during
+scanning when the **if** segment of the policy rule is evaluated to match the resource being
+scanned. The effects can also behave differently if they are for a new resource, an updated
+resource, or an existing resource.
 
 There are currently five effects that are supported in a policy definition:
 
