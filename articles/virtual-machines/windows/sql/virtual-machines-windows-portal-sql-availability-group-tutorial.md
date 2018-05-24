@@ -83,7 +83,7 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 
    ![Cluster Properties](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Select **Static IP Address** and specify an available address from subnet where the SQL Server is in the Address text box. Then, click **OK**.
+3. Select **Static IP Address** and specify an available address from the Automatic Private IP Addressing (APIPA) range: 169.254.0.1 to 169.254.255.254 in the Address text box. For this example you can use any address in that range. For example `169.254.0.1`. Then, click **OK**.
 4. In the **Cluster Core Resources** section, right-click cluster name and click **Bring Online**. Then, wait until both resources are online. When the cluster name resource comes online, it updates the DC server with a new AD computer account. Use this AD account to run the Availability Group clustered service later.
 
 ### <a name="addNode"></a>Add the other SQL Server to cluster
