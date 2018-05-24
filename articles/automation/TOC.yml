@@ -213,12 +213,8 @@
   items:
   - name: Automation introduction video
     href: https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/
-  - name: Azure Automation training
-    href: https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=management-tools&query=automation
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/automation/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation
   - name: Pricing
