@@ -1,6 +1,6 @@
 ---
 title: Compare different types of labs in Azure Lab Services | Microsoft Docs
-description: Explains and compares different types of labs you can create by using Azure Lab Services (formerly DevTest Labs).
+description: Explains and compares different types of labs you can create by using Azure Lab Services 
 services: lab-services
 documentationcenter: na
 author: spelluru

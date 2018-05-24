@@ -57,6 +57,6 @@ A student does the following tasks:
 - Connects to a virtual machine in the lab and use it for doing class work, assignments, and projects. 
 
 ## Next steps
-Get started with setting up a classroom lab using Azure Lab Services:
+Get started with setting up a lab account that's required to create a classroom lab using Azure Lab Services:
 
-- [Set up a classroom lab](tutorial-setup-classroom-lab.md)
+- [Set up a lab account](tutorial-setup-lab-account.md)
