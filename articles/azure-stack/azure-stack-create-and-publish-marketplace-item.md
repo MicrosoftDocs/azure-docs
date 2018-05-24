@@ -32,8 +32,10 @@ ms.reviewer: jeffgo
        /Contoso.TodoList/Strings/
        /Contoso.TodoList/DeploymentTemplates/
 3. [Create an Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) or choose a template from GitHub. The Marketplace item uses this template to create a resource.
+
     > [!Note]  
-    > Never hard code any secrets like product keys, password or any customer identifiable information in the Azure Resource Manager template. The template json file is accessible without the need for authentication once published in the gallery. Store all secrets in [Key Vault](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-keyvault-parameter) and call them form within the template.
+    > Never hard code any secrets like product keys, password or any customer identifiable information in the Azure Resource Manager template. Template json files are accessible without the need for authentication once published in the gallery.  Store all secrets in [Key Vault](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-keyvault-parameter) and call them from within the template.
+
 4. To make sure that the resource can be deployed successfully, test the template with the Microsoft Azure Stack APIs.
 5. If your template relies on a virtual machine image, follow the instructions to [add a virtual machine image to Azure Stack](azure-stack-add-vm-image.md).
 6. Save your Azure Resource Manager template in the **/Contoso.TodoList/DeploymentTemplates/** folder.
