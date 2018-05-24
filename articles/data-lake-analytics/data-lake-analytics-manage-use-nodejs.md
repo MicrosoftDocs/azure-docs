@@ -16,7 +16,7 @@ ms.date: 12/05/2016
 
 This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using an app written using the Azure SDK for Node.js. 
 
-The following versions are supposed:
+The following versions are supported:
 * **Node.js version: 0.10.0 or higher**
 * **REST API version for Account: 2015-10-01-preview**
 * **REST API version for Catalog: 2015-10-01-preview**
