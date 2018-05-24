@@ -230,7 +230,3 @@ Use this call to get a list of artifacts and their paths:
 ### Project information
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects/{projectName}?api-version=2017-05-01-preview
-
-## Next steps
-
-For more information on accessing Machine Learning account data through REST, see [Azure Machine Learning REST API reference](https://docs.microsoft.com/en-us/rest/api/machinelearning/). 
