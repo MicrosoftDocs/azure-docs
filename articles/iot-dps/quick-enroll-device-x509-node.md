@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 manager: timlt
-ms.devlang: node
+ms.devlang: nodejs
 ms.custom: mvc
 ---
  
