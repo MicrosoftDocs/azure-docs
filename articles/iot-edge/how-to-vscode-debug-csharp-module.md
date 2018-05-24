@@ -5,7 +5,7 @@ author: shizn
 manager: 
 ms.author: xshi
 ms.date: 03/18/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---

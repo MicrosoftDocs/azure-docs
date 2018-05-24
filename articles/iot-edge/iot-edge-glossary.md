@@ -3,8 +3,8 @@ title: Azure IoT Edge glossary of terms | Microsoft Docs
 description: Concepts - a glossary of common terms relating to Azure IoT Edge.
 author: menchi
 manager: bzurcher
-ms.service: iot-hub
-services: iot-hub
+ms.service: iot-edge
+services: iot-edge
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: menchi
