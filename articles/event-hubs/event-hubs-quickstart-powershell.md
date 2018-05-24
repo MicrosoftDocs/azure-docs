@@ -165,11 +165,12 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-Congratulations! You created an event hub and you sent and received events. To learn more, continue with the following articles:
+In this article, you created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn more, continue with the following tutorial:
+
+> [!div class="nextstepaction"]
+> [Visualize data anomalies on Event Hubs data streams](event-hubs-tutorial-visualize-anomalies.md)
 
 * [Download the PowerShell script for provisioning Event Hubs resources](https://github.com/Azure/azure-event-hubs/blob/master/samples/DotNet/Quickstart_PSsample1.ps1)
-* [Learn about Event Processor Host](event-hubs-dotnet-standard-getstarted-send.md)
-* [Understanding the data streaming world](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps

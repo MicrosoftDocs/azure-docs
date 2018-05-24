@@ -276,10 +276,10 @@ public void onEvents(PartitionContext context, Iterable<EventData> events) throw
 
 ## Next steps
 
-In this article, you created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn more, continue with the following articles.
+In this article, you created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn more, continue with the following tutorial:
 
-* [Send events to your event hub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
-* [Receive events from your event hub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
+> [!div class="nextstepaction"]
+> [Visualize data anomalies on Event Hubs data streams](event-hubs-tutorial-visualize-anomalies.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
