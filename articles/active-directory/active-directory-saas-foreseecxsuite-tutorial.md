@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 05/24/2018
 ms.author: jeedes
 
 ---
@@ -96,30 +96,44 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-1. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
 
 	![Single sign-on dialog box](./media/active-directory-saas-foreseecxsuite-tutorial/tutorial_foreseecxsuite_samlbase.png)
 
-3. On the **ForeSee CX Suite Domain and URLs** section, perform the following steps:
+3. On the **ForeSee CX Suite Domain and URLs** section, if you have **Service Provider metadata file**, perform the following steps:
+
+	![ForeSee CX Suite Domain and URLs single sign-on information](./media/active-directory-saas-foreseecxsuite-tutorial/upload.png)
+
+	a. Click **Upload metadata file**.
+
+	![ForeSee CX Suite Domain and URLs single sign-on information](./media/active-directory-saas-foreseecxsuite-tutorial/tutorial_foreseen_uploadconfig.png)
+
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
+
+	c. After successfull completion of uploading **Service Provider metadata file** the **Identifier** value get auto populated in **ForeSee CX Suite Domain and URLs** section textbox as shown below:
+
+	![ForeSee CX Suite Domain and URLs single sign-on information](./media/active-directory-saas-foreseecxsuite-tutorial/urlupload.png)
+
+4. If you dont have **Service Provider metadata file**, perform the following steps:
 
 	![ForeSee CX Suite Domain and URLs single sign-on information](./media/active-directory-saas-foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
 
-    a. In the **Sign-on URL** textbox, type the URL: `cxsuite.foresee.com`
+    a. In the **Sign-on URL** textbox, type the URL: `https://cxsuite.foresee.com/`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.okta.com/saml2/service-provider/<UniqueID>`
 
 	> [!NOTE]
-	> The Identifier value is not real. Update this values with the actual Identifier. Contact [ForeSee CX Suite Client support team](mailto:support@foresee.com) to get this value.
+	> The Identifier value is not real. Update this value with the actual Identifier. Contact [ForeSee CX Suite Client support team](mailto:support@foresee.com) to get this value.
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-foreseecxsuite-tutorial/tutorial_foreseecxsuite_certificate.png)
 
-5. Click **Save** button.
+6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-foreseecxsuite-tutorial/tutorial_general_400.png)
 
-6. To configure single sign-on on **ForeSee CX Suite** side, you need to send the downloaded **Metadata XML** to [ForeSee CX Suite support team](mailto:support@foresee.com). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **ForeSee CX Suite** side, you need to send the downloaded **Metadata XML** to [ForeSee CX Suite support team](mailto:support@foresee.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
