@@ -137,19 +137,20 @@ The following are post-installation known issues for build  **20180302.1**
 #### Health and monitoring
 - <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
 
-   Alert #1:
+  Alert #1:
    - NAME:  Infrastructure role unhealthy
    - SEVERITY: Warning
    - COMPONENT: Health controller
    - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
 
-   Alert #2:
+  Alert #2:
    - NAME:  Infrastructure role unhealthy
    - SEVERITY: Warning
    - COMPONENT: Health controller
    - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
-   Both alerts can be safely ignored. They will close automatically over time. 
+  Both alerts can be safely ignored. They will close automatically over time.  
+
 
 #### Marketplace
 - Users can browse the full marketplace without a subscription and can see administrative items like plans and offers. These items are non-functional to users.

@@ -82,6 +82,23 @@ The following are now available, but don't require Azure Stack update 1804.
 
     This alert can be safely ignored. 
 
+#### Health and monitoring
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alert #1:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+
+  Alert #2:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+
+  Both alerts can be safely ignored. They will close automatically over time.  
+
 #### Compute
 - <!-- TBD -  IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
@@ -137,21 +154,7 @@ The following are now available, but don't require Azure Stack update 1804.
 
 <!-- #### Identity -->
 
-#### Monitoring
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details: 
-   Alert #1:
-   - NAME:  Infrastructure role unhealthy
-   - SEVERITY: Warning
-   - COMPONENT: Health controller
-   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
 
-   Alert #2:
-   - NAME:  Infrastructure role unhealthy
-   - SEVERITY: Warning
-   - COMPONENT: Health controller
-   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
-
-   Both alerts can be safely ignored. They will close automatically over time. 
 
 
 
@@ -188,7 +191,22 @@ The new features and fixes released for Azure Stack integrated systems version 1
 
     This alert can be safely ignored. 
 
+#### Health and monitoring
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
 
+   Alert #1:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+
+  Alert #2:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+
+  Both alerts can be safely ignored. They will close automatically over time.  
 
 #### Marketplace
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
@@ -246,21 +264,6 @@ The new features and fixes released for Azure Stack integrated systems version 1
 #### Identity
 -->
 
-#### Monitoring
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details: 
-   Alert #1:
-   - NAME:  Infrastructure role unhealthy
-   - SEVERITY: Warning
-   - COMPONENT: Health controller
-   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
-
-   Alert #2:
-   - NAME:  Infrastructure role unhealthy
-   - SEVERITY: Warning
-   - COMPONENT: Health controller
-   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
-
-   Both alerts can be safely ignored. They will close automatically over time. 
 
 
 #### Downloading Azure Stack Tools from GitHub
@@ -310,7 +313,24 @@ See the [new features and fixes](.\.\azure-stack-update-1802.md#new-features-and
 - The **Service Health** blade fails to load. When you open the Service Health blade in either the admin or user portal, Azure Stack displays an error and does not load information. This is expected behavior. Although you can select and open Service Health, this feature is not yet available but will be implemented in a future version of Azure Stack.
 
 #### Health and monitoring
-In the Azure Stack admin portal, you might see a critical alert with the name **Pending external certificate expiration**.  This alert can be safely ignored and does affect operations of the Azure Stack Development Kit. 
+#### Health and monitoring
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alert #1:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+
+  Alert #2:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+
+  Both alerts can be safely ignored. They will close automatically over time.  
+
+- In the Azure Stack admin portal, you might see a critical alert with the name **Pending external certificate expiration**.  This alert can be safely ignored and does affect operations of the Azure Stack Development Kit. 
 
 
 #### Marketplace
@@ -372,22 +392,6 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 <!--
 #### Identity
 -->
-#### Monitoring
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details: 
-   Alert #1:
-   - NAME:  Infrastructure role unhealthy
-   - SEVERITY: Warning
-   - COMPONENT: Health controller
-   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
-
-   Alert #2:
-   - NAME:  Infrastructure role unhealthy
-   - SEVERITY: Warning
-   - COMPONENT: Health controller
-   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
-
-   Both alerts can be safely ignored. They will close automatically over time. 
-
 
 #### Downloading Azure Stack Tools from GitHub
 - When using the *invoke-webrequest* PowerShell cmdlet to download the Azure Stack tools from Github, you receive an error:     

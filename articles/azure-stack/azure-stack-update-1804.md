@@ -126,14 +126,14 @@ The following are post-installation known issues for build  **20180513.1**.
    - COMPONENT: Health controller
    - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
 
-   Alert #2:
+  Alert #2:
    - NAME:  Infrastructure role unhealthy
    - SEVERITY: Warning
    - COMPONENT: Health controller
    - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
-   Both alerts can be safely ignored. They will close automatically over time. 
-
+  Both alerts can be safely ignored. They will close automatically over time.  
+ 
 
 #### Compute
 - <!-- TBD - IS --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  

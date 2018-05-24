@@ -122,13 +122,13 @@ This section contains post-installation known issues with build **180106.1**.
    - COMPONENT: Health controller
    - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
 
-   Alert #2:
+  Alert #2:
    - NAME:  Infrastructure role unhealthy
    - SEVERITY: Warning
    - COMPONENT: Health controller
    - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
-   Both alerts can be safely ignored. They will close automatically over time.  
+  Both alerts can be safely ignored. They will close automatically over time.  
 
 - If you reboot an infrastructure role instance, you may receive a message indicating that the reboot failed. However, the reboot actually succeeded.
 
