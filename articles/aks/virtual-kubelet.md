@@ -151,8 +151,15 @@ To remove Virtual Kubelet, run the following command. Replace the argument value
 az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
 ```
 
-<!-- LINKS -->
-[aks-quick-start]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
+## Next steps
+
+Read more about Virtual Kublet at the [Virtual Kubelet Github projet][vk-github].
+
+<!-- LINKS - internal -->
+[aks-quick-start]: ./kubernetes-walkthrough.md
+[az-container-list]: /cli/azure/aks#az_aks_list
+
+<!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create
 [kubectl-get]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#get
-[az-container-list]: https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az_aks_list
+[vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
