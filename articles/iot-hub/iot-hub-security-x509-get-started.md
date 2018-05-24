@@ -1,21 +1,15 @@
 ---
 title: Tutorial for X.509 security in Azure IoT Hub | Microsoft Docs
 description: Get started on the X.509 based security in your Azure IoT hub in a simulated environment.
-services: iot-hub
-documentationcenter: ''
 author: dsk-2015
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dkshir
-
 ---
+
 # Set up X.509 security in your Azure IoT hub
 
 This tutorial simulates the steps you need to secure your Azure IoT hub using the *X.509 Certificate Authentication*. For the purpose of illustration, we will show how to use the open source tool OpenSSL to create certificates locally on your Windows machine. We recommend that you use this tutorial for test purposes only. For production environment, you should purchase the certificates from a *root certificate authority (CA)*. 

@@ -1,21 +1,17 @@
 ---
 title: Use Azure IoT Hub device twin properties (Java) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to configure devices. You use the Azure IoT device SDK for Java to implement a simulated device app and the Azure IoT service SDK for Java to implement a service app that modifies a device configuration using a device twin.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/12/2017
 ms.author: dobett
-
 ---
+
 # Use desired properties to configure devices
 
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
