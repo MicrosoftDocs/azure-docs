@@ -41,11 +41,13 @@
 ### Visual Studio
 #### [Install](data-lake-analytics-data-lake-tools-install.md)
 #### [Browse and view jobs](data-lake-analytics-data-lake-tools-view-jobs.md)
+#### [Local run & debug](data-lake-analytics-data-lake-tools-local-run.md)
 #### [Debug custom C# code](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Troubleshoot recurring jobs](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 #### [Vertex execution details](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 #### [Export U-SQL database](data-lake-analytics-data-lake-tools-export-database.md)
 #### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
+#### [Resolve data-skew](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
 #### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ### Visual Studio Code
