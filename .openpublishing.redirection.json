@@ -21875,5 +21875,16 @@
             "redirect_url": "https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy",
             "redirect_document_id": true
         }
-    ]
+        ,
+        {
+            "source_path": "articles/security/azure-security-architecture-overview.md",
+            "redirect_url": "https://docs.microsoft.com/azure/security/",
+            "redirect_document_id": true
+        }
+        ,
+        {
+            "source_path": "articles/security/azure-security-getting-started.md",
+            "redirect_url": "https://docs.microsoft.com/azure/security/",
+            "redirect_document_id": true
+        }
 }
