@@ -21,24 +21,24 @@ Azure Media Services enables you to encode your media files in the cloud. You mi
 
 ## Presets
 
+When encoding with Azure Media Services, you use presets to tell the encoder how the input media files should be processed. You can specify the video resolution and the number of audio channels you want in the encoded content. 
+
+You can get started quickly with one of the recommended built-in presets based on industry best practices or you can choose to build a custom preset to target your specific scenario or device requirements. 
+
 ### Built-in presets
 
-Media Services defines a set of built-in system encoding presets you can use when creating encoding jobs. Currently, the following predefined presets are supported.
+Media Services currently supports the following built-in encoding presets:  
 
-|Preset name|Scenario|More info|
+|Preset name|Scenario|Description|
 |---|---|---|
-|AudioAnalyzerPreset|Analyzing audio||
-|VideoAnalyzerPreset|Analyzing video|For more information, see [Analyze video](analyze-videos-tutorial-with-api.md)|
-|BuiltInStandardEncoderPreset|Streaming|Used to set built-in presets:<br/>EncoderNamedPreset.AdaptiveStreaming (recommended). For more information, see [auto-generating a bitrate ladder](autogen-bitrate-ladder.md).<br/>EncoderNamedPreset.AACGoodQualityAudio (produces a single MP4 file containing only stereo audio encoded at 192 kbps).<br/>EncoderNamedPreset.H264MultipleBitrate1080p (produces a set of 8 GOP-aligned MP4 files, ranging from 6000 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 1080p and goes down to 360p).<br/>EncoderNamedPreset.H264MultipleBitrate720p (produces a set of 6 GOP-aligned MP4 files, ranging from 3400 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 720p and goes down to 360p.)<br/>EncoderNamedPreset.H264MultipleBitrateSD (Produces a set of 5 GOP-aligned MP4 files, ranging from 1600kbps to 400 kbps, and stereo AAC audio. Resolution starts at 480p and goes down to 360p).<br/><br/>For more information, see [Uploading, encoding, and streaming files](stream-files-tutorial-with-api.md).|
-|StandardEncoderPreset|Streaming|Used to set a custom encoder preset. For more information, see [How to customize encoder presets](customize-encoder-presets-how-to.md).|
+|**AudioAnalyzerPreset**|Analyzing audio|The preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.<br/>You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region' (for example, 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.|
+|**VideoAnalyzerPreset**|Analyzing video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify Whether to only extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial-with-api.md)|
+|**BuiltInStandardEncoderPreset**|Streaming|Used to set a built-in preset for encoding the input video with the Standard Encoder. <br/>The following presets are currently supported:<br/>**EncoderNamedPreset.AdaptiveStreaming** (recommended). For more information, see [auto-generating a bitrate ladder](autogen-bitrate-ladder.md).<br/>**EncoderNamedPreset.AACGoodQualityAudio** - produces a single MP4 file containing only stereo audio encoded at 192 kbps.<br/>**EncoderNamedPreset.H264MultipleBitrate1080p** - produces a set of 8 GOP-aligned MP4 files, ranging from 6000 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 1080p and goes down to 360p.<br/>**EncoderNamedPreset.H264MultipleBitrate720p** - produces a set of 6 GOP-aligned MP4 files, ranging from 3400 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 720p and goes down to 360p.<br/>**EncoderNamedPreset.H264MultipleBitrateSD** - produces a set of 5 GOP-aligned MP4 files, ranging from 1600kbps to 400 kbps, and stereo AAC audio. Resolution starts at 480p and goes down to 360p.<br/><br/>For more information, see [Uploading, encoding, and streaming files](stream-files-tutorial-with-api.md).|
+|**StandardEncoderPreset**|Streaming|Describes settings to be used when encoding the input video with the Standard Encoder. <br/>Use this preset when customizing Transform presets. For more information, see [How to customize Transform presets](customize-encoder-presets-how-to.md).|
 
 ### Custom presets
 
-Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. General steps when encoding with a custom preset are:
-
-For a detailed explanations and example, see [How to customize encoder presets](customize-encoder-presets-how-to.md).
-
-Find more detailed information about the schema of the encoder is in the [REST reference documentation](https://docs.microsoft.com/rest/api/media/transforms). 
+Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. For a detailed explanations and example, see [How to customize encoder presets](customize-encoder-presets-how-to.md).
 
 ## Tranforms and jobs
 
@@ -78,5 +78,4 @@ You can use any of the following supported Media Services SDKs to encode your co
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Stream video files](stream-files-dotnet-quickstart.md)
+Find more detailed information about the schema of the encoder is in the [OpenAPI Specification](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview) or [REST reference documentation](https://docs.microsoft.com/rest/api/media/transforms). 
