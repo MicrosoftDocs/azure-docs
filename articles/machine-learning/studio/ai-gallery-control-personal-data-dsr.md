@@ -74,7 +74,7 @@ Returns a response such as:
 
 ### View public entities
 
-The Catalog API stores information about published entities to the Azure AI Gallery that you can also view directly on the [AI Gallery website](https://gallery.azure.ai/). See previous sections for more information.
+The Catalog API stores information about published entities to the Azure AI Gallery that you can also view directly on the [AI Gallery website](https://gallery.azure.ai/). 
 
 To view published entities, visit the following URL, replacing `[AuthorId]` with the Author ID obtained in [Get an author ID](#get-an-author-ID) above.
 
