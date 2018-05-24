@@ -33,13 +33,7 @@ On Azure Stack, virtual machine scale sets don't support auto-scale. You can add
 - **Marketplace syndication**  
     Register Azure Stack with global Azure to enable Marketplace syndication. Follow the instructions in [Register Azure Stack with Azure](azure-stack-registration.md).
 - **Operating system image**  
-    If you haven’t added an operating system image to the Azure Stack Marketplace, see [Add the Windows Server 2016 VM image to the Azure Stack marketplace](asdk/asdk-marketplace-item.md).
-
-    For Linux support, download Ubuntu Server 16.04 and add it using the **Add-AzsPlatformImage** cmdlet.
-
-    ```PowerShell  
-    Add-AzsPlatformImage -publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS".
-    ```
+    If you haven’t added an operating system image to the Azure Stack Marketplace, see [Add an Azure Stack marketplace item from Azure](asdk/asdk-marketplace-item.md).
 
 ## Add the Virtual Machine Scale Set
 
