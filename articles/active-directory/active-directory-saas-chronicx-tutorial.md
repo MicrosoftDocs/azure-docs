@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ChronicX® Domain and URLs single sign-on information](./media/active-directory-saas-chronicx-tutorial/tutorial_chronicx_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.chronicx.com/ups`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.chronicx.com/ups/processlogonSSO.jsp`
 
 	b. In the **Identifier** textbox, type a URL: `ups.chronicx.com`
 
