@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: heidist
 
 ---
@@ -94,7 +94,8 @@ Basic services created after late 2017 have an increased limit of 15 indexes, da
 | Maximum datasources |3 |5 or 15 |50 |200 |200 |N/A |
 | Maximum skillsets <sup>4</sup> |3 |5 or 15 |50 |200 |200 |N/A |
 | Maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A |
-| Maximum running time | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |
+| Maximum running time <sup>5</sup> | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |
+| Maximum running time (indexer uses a skillset or does image processing) <sup>5</sup> | 3-10 minutes |2 hours |2 hours |2 hours |2 hours |N/A  |
 | Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A  |
 | Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 million |4 million |4 million |N/A |
 
@@ -105,6 +106,8 @@ Basic services created after late 2017 have an increased limit of 15 indexes, da
 <sup>3</sup> S3 HD services do not include indexer support.
 
 <sup>4</sup> Maximum of 30 skills per skillset.
+
+<sup>5</sup> When an indexer that runs on a schedule is interruped due to reaching its running time quota, the indexer will continue where it left off next time it runs according to the schedule. 
 
 ## Queries per second (QPS)
 
