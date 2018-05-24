@@ -27,7 +27,7 @@ The Azure Functions Tools provides the following benefits:
 * Develop and deploy pre-compiled C# functions. Pre-complied functions provide a better cold-start performance than C# script-based functions. 
 * Code your functions in C# while having all of the benefits of Visual Studio development. 
 
-This topic shows you how to use the Azure Functions Tools for Visual Studio 2017 to develop your functions in C#. You also learn how to publish your project to Azure as a .NET assembly.
+This article shows you how to use the Azure Functions Tools for Visual Studio 2017 to develop your functions in C#. You also learn how to publish your project to Azure as a .NET assembly.
 
 > [!IMPORTANT]
 > Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
@@ -78,7 +78,7 @@ The project template creates a C# project, installs the `Microsoft.NET.Sdk.Funct
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools topic.
+* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
 
 For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
 
@@ -104,7 +104,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
 
 2. Choose your trigger, set the binding properties, and click **Create**. The following example shows the settings when creating a Queue storage triggered function. 
 
-    ![Create a quere triggered function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
+    ![Create a queue triggered function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
     This trigger example uses a connection string with a key named **QueueStorage**. This connection string setting must be defined in the local.settings.json file.
 
@@ -116,7 +116,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
-    
+
     namespace FunctionApp1
     {
         public static class Function1
@@ -129,16 +129,19 @@ In pre-compiled functions, the bindings used by the function are defined by appl
         }
     }
     ````
- 
     A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute.
 
-## Adding bindings
+## Add bindings
 
 As with triggers, input and output bindings are added to your function as binding attributes. Add bindings to a function as follows:
 
-1. Add the approprate NuGet extension package for the binding. For more information, see [Local C# development using Visual Studio](functions-triggers-bindings.md#local-csharp) in the Triggers and Bindings topic. The specific NuGet package requirements are found in the reference topic for the binding.
+1. Make sure you have [configured the project for local development](#configure-the-project-for-local-development).
 
-2. Add the appropriate binding attribute to the method signature. For example, the following example is a Queue storage triggered function with an output queue binding. The function writes the queue message that triggers the function to a new queue message in a different queue.
+2. Add the appropriate NuGet extension package for the specific binding. For more information, see [Local C# development using Visual Studio](functions-triggers-bindings.md#local-csharp) in the Triggers and Bindings article. The binding-specific NuGet package requirements are found in the reference article for the binding.
+
+3. If there is a service connection string, add it to the **Values** collection in the [local setting file](functions-run-local.md#local-settings-file). These values are used instead of the actual connection strings in your binding attributes. They must also be added to the [function app settings](#function-app-settings) when you publish the project.
+
+4. Add the appropriate binding attribute to the method signature. For example, the following example is a Queue storage triggered function with an output queue binding. The function writes the queue message that triggers the function to a new queue message in a different queue.
 
     ```csharp
     public static class SimpleExampleWithOutput
@@ -154,8 +157,7 @@ As with triggers, input and output bindings are added to your function as bindin
         }
     }
     ```
-
-For more information, see the reference topic for the specific binding.
+For more information, see the reference article for the specific binding.
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings-dotnet.md)]
 
@@ -199,4 +201,4 @@ For more information about Azure Functions Tools, see the Common Questions secti
 
 To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
 
-To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This topic also links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    
+To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This article also links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    
