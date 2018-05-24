@@ -35,9 +35,20 @@ To install Virtual Kubelet for an AKS cluster, run the following command. Replac
 - resource-group - the resource group of the AKS cluster.
 - name - the name of the AKS cluster.
 - connector-name - the name given to the Virtual Kubelet.
+- aci-resource-group - the resource group where the container instances are created. This need to be the AKS node resource group.
+
+Get the AKS node resource group with the following command.
+
+```azurecli
+$ az resource show --resource-group myAKSCluster --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
+
+MC_myAKSCluster_myAKSCluster_eastus
+```
+
+Use the following command to install the connector. Update the relevant arguments to match your environment.
 
 ```azurecli-interactive
-az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
+az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet --aci-resource-group MC_myAKSCluster_myAKSCluster_eastusclear
 ```
 
 Output:
