@@ -7,7 +7,7 @@ manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
-ms.author: saurse;markgal;jimpark;nkolli;trinadhk
+ms.author: saurse
 ---
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
 This article shows you how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.

@@ -7,7 +7,7 @@ manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 10/13/2017
-ms.author: pajosh;markgal;trinadhk; sogup
+ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 ---
 # Back up and restore encrypted virtual machines with Azure Backup

@@ -7,7 +7,7 @@ manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
-ms.author: saurse;trinadhk;markgal;
+ms.author: saurse
 ---
 # Restore files to a Windows server or Windows client machine using Resource Manager deployment model
 

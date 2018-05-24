@@ -7,7 +7,7 @@ manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/24/2017
-ms.author: pullabhk;markgal;adigan
+ms.author: adigan
 ---
 
 # Troubleshoot System Center Data Protection Manager

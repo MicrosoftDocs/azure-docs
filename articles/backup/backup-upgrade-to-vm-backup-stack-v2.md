@@ -8,7 +8,7 @@ tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup, virtual-machines
 ms.topic: conceptual
 ms.date: 03/08/2018
-ms.author: trinadhk, sogup
+ms.author: trinadhk
 --- 
 
 # Upgrade to the Azure Resource Manager deployment model for Azure VM backup stack

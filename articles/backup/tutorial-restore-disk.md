@@ -8,7 +8,7 @@ tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
 ms.date: 4/17/2018
-ms.author: iainfou
+ms.author: markgal
 ms.custom: mvc
 ---
 

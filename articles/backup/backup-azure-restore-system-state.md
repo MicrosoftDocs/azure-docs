@@ -7,7 +7,7 @@ manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
-ms.author: saurse;trinadhk;markgal;
+ms.author: saurse
 ---
 # Restore System State to Windows Server
 

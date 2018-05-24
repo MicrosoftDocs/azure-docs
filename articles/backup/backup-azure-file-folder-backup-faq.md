@@ -8,7 +8,7 @@ keywords: backup and disaster recovery; backup service
 ms.service: backup
 ms.topic: conceptual
 ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
+ms.author: trinadhk
 ---
 
 # Questions about the Azure Backup agent

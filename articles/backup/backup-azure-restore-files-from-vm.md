@@ -8,7 +8,7 @@ keywords: item level recovery; file recovery from Azure VM backup; restore files
 ms.service: backup
 ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: pullabhk;markgal
+ms.author: pullabhk
 ---
 # Recover files from Azure virtual machine backup
 

@@ -7,7 +7,7 @@ manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk;markgal
+ms.author: trinadhk
 ---
 # Manage Azure virtual machine backups
 

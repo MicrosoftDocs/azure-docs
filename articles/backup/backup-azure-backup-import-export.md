@@ -7,7 +7,7 @@ manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: saurse;nkolli;trinadhk
+ms.author: saurse
 ---
 # Offline-backup workflow in Azure Backup
 Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Through the process of offline seeding, Azure Backup can use disks to upload the offline backup data to Azure.

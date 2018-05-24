@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
+ms.author: adigan
 ---
 
 # Install Azure Backup Server v2

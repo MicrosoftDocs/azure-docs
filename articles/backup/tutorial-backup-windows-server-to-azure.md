@@ -8,7 +8,7 @@ keywords: windows server back up; back up windows server; back up and disaster r
 ms.service: backup
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: saurabhsensharma;markgal;
+ms.author: saurse
 ms.custom: mvc
 ---
 # Back up Windows Server to Azure

@@ -8,7 +8,7 @@ keywords: backup and restore; recovery services; backup solutions
 ms.service: backup
 ms.topic: overview
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;anuragm
+ms.author: markgal
 ms.custom: mvc
 ---
 # Overview of the features in Azure Backup

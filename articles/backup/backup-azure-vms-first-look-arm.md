@@ -8,7 +8,7 @@ keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.author: markgal;jimpark;sogup
+ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: backups; vm backup
 ---

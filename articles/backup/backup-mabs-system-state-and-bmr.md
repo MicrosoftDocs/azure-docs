@@ -8,7 +8,7 @@ keywords:
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: markgal,masaran
+ms.author: markgal
 ---
 
 # Back up system state and restore to bare metal with Azure Backup Server

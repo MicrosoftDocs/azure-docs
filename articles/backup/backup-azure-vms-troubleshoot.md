@@ -7,7 +7,7 @@ manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;sogup
+ms.author: trinadhk
 ---
 # Troubleshoot Azure virtual machine backup
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.

@@ -8,7 +8,7 @@ keywords: virtual machine backup; back up virtual machine; backup and disaster r
 ms.service: backup
 ms.topic: tutorial
 ms.date: 09/06/2017
-ms.author: trinadhk;jimpark;markgal;
+ms.author: trinadhk
 ms.custom: mvc
 ---
 # Back up Azure virtual machines in Azure at scale

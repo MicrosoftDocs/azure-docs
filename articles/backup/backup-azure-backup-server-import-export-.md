@@ -7,7 +7,7 @@ manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
-ms.author: saurse;nkolli;trinadhk
+ms.author: saurse
 ---
 # Offline-backup workflow for DPM and Azure Backup Server
 Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Azure Backup compresses the initial backups. Through the process of offline seeding, Azure Backup can use disks to upload the compressed initial backup data offline to Azure.

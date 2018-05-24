@@ -7,7 +7,7 @@ manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2017
-ms.author: trinadhk;markgal
+ms.author: trinadhk
 ---
 
 # Use Role-Based Access Control to manage Azure Backup recovery points

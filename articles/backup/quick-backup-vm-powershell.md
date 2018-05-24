@@ -9,7 +9,7 @@ ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 2/14/2018
-ms.author: iainfou
+ms.author: markgal
 ms.custom: mvc
 ---
 

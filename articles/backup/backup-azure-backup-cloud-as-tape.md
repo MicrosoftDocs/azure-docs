@@ -7,7 +7,7 @@ manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/10/2017
-ms.author: saurse;trinadhk;markgal
+ms.author: saurse
 ms.custom: H1Hack27Feb2017
 ---
 # Move your long-term storage from tape to the Azure cloud

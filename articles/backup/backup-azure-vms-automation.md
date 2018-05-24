@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk;pullabhk
+ms.author: markgal
 ms.custom: H1Hack27Feb2017
 ---
 # Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines

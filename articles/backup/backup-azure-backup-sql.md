@@ -7,7 +7,7 @@ manager: Nkolli
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/27/2016
-ms.author: adigan;giridham;jimpark;markgal;trinadhk
+ms.author: adigan
 ---
 # Back up SQL Server to Azure as a DPM workload
 This article leads you through the configuration steps for backup of SQL Server databases using Azure Backup.

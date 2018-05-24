@@ -8,7 +8,7 @@ keywords: backups; backing up;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;sogup;
+ms.author: markgal
 ---
 # Prepare your environment to back up Resource Manager-deployed virtual machines
 

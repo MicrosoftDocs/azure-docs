@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
+ms.author: markgal
 ---
 
 # Add storage to Azure Backup Server v2

@@ -8,7 +8,7 @@ keywords: backup and disaster recovery; backup service
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/9/2018
-ms.author: markgal;arunak;trinadhk;sogup;
+ms.author: markgal
 ---
 # Questions about the Azure Backup service
 This article answers common questions about the Azure Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).

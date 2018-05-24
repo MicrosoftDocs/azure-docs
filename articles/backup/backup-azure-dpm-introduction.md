@@ -8,7 +8,7 @@ keywords: System Center Data Protection Manager, data protection manager, dpm ba
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/15/2017
-ms.author: adigan;giridham;jimpark;markgal;trinadhk
+ms.author: adigan
 ---
 # Preparing to back up workloads to Azure with DPM
 > [!div class="op_single_selector"]

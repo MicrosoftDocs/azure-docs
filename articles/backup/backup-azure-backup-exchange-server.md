@@ -7,7 +7,7 @@ manager: NKolli1
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 09/08/2017
-ms.author: masaran;jimpark;delhan;trinadhk;markgal
+ms.author: adigan
 ---
 # Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM
 This article describes how to configure a System Center 2012 R2 Data Protection Manager (DPM) server to back up a Microsoft Exchange server to  Azure Backup.  

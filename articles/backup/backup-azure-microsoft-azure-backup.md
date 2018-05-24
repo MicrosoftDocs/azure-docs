@@ -8,7 +8,7 @@ keywords: azure backup server; protect workloads; back up workloads
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/14/2018
-ms.author: masaran;trinadhk;pullabhk;markgal;adigan
+ms.author: adigan
 ---
 
 # Preparing to back up workloads using Azure Backup Server

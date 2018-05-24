@@ -8,7 +8,7 @@ keywords: app-consistent backup; application-consistent Azure VM backup; Linux V
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
-ms.author: anuragm;markgal
+ms.author: anuragm
 ---
 
 # Application-consistent backup of Azure Linux VMs

@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
-ms.author: sogup;markgal;arunak
+ms.author: sogup
 ---
 # Upgrade a Backup vault to a Recovery Services vault
 

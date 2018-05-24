@@ -7,7 +7,7 @@ manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
 ms.date: 12/4/2017
-ms.author: saurse;markgal;
+ms.author: saurse
 ---
 
 # Troubleshoot Azure Backup Agent configuration and registration issues

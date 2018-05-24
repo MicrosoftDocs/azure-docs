@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 10/15/2017
-ms.author: markgal;arunak;sogup
+ms.author: markgal
 ---
 # Recovery Services vaults overview
 

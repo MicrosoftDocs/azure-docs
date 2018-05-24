@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk
+ms.author: markgal
 ---
 # Delete a Recovery Services vault
 This article explains how to delete a Recovery Services vault in the Azure portal. If you had Backup vaults, they have been converted to Recovery Services vaults.   

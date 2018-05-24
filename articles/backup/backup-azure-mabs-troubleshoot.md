@@ -7,7 +7,7 @@ manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/24/2017
-ms.author: pullabhk;markgal;
+ms.author: pullabhk
 ---
 
 # Troubleshoot Azure Backup Server

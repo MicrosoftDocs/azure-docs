@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
-ms.author: markgal;
+ms.author: adigan
 ---
 # Back up a VMware server to Azure
 

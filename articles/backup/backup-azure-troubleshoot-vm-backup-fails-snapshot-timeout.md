@@ -8,7 +8,7 @@ keywords: Azure backup; VM agent; Network connectivity;
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
+ms.author: genli
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension
