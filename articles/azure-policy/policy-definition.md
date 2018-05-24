@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -198,7 +198,7 @@ The following fields are supported:
 
 - `name`
 - `fullName`
-  - Returns the full name of the resource, including any parents (for example "myServer/myDatabase")
+  - Returns the full name of the resource. The full name of a resource is the resource name prepended by any parent resource names (for example "myServer/myDatabase").
 - `kind`
 - `type`
 - `location`

@@ -5,7 +5,7 @@ services: automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/25/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm

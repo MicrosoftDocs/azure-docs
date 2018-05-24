@@ -59,7 +59,7 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 
     ![The "Notifications" pane](./media/quickstart-create-database-portal/3-notifications.png)
    
-  By default, a **postgres** database is created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database that's meant for use by users, utilities, and third-party applications. 
+   By default, a **postgres** database is created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database that's meant for use by users, utilities, and third-party applications. (The other default database is **azure_maintenance**. Its function is to separate the managed service processes from user actions. You cannot access this database.)
 
 ## Configure a server-level firewall rule
 

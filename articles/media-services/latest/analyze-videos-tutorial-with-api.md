@@ -22,7 +22,6 @@ This tutorial shows you how to analyze videos with Azure Media Services. There a
 This tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Launch Azure Cloud Shell
 > * Create a Media Services account
 > * Access the Media Services API
 > * Configure the sample app
@@ -55,15 +54,38 @@ Clone a GitHub repository that contains the .NET sample to your machine using th
 
 This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) file of the *AnalyzeVideos* project.
 
+The sample performs the following actions:
+
+1. Creates a new Transform (first, checks if the specified Transform exists). 
+2. Creates an output Asset that is used as the encoding Job's output.
+3. Create an input Asset and uploads the specified local video file into it. The Asset is used as the Job's input. 
+4. Submits the encoding Job using the input and output that was created.
+5. Checks the Job's status.
+6. Downloads the encoded files.
+
 ### Start using Media Services APIs with .NET SDK
 
 To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. You first need to get a token and then create a **ClientCredential** object from the returned token. In the code you cloned at the beginning of the article, the **ArmClientCredential** object is used to get the token.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateMediaServicesClient)]
 
+### Create an input asset and upload a local file into it 
+
+The **CreateInputAsset** function creates a new input [Asset](https://docs.microsoft.com/rest/api/media/assets) and uploads the specified local video file into it. This Asset is used as the input to your encoding Job. In Media Services v3, the input to a Job can either be an Asset, or it can be content that you make available to your Media Services account via HTTPS URLs. If you want to learn how to encode from a HTTPS URL, see [this](job-input-from-http-how-to.md) article.  
+
+In Media Services v3, you use Azure Storage APIs to upload files. The following .NET snippet shows how.
+
+The following function performs these actions:
+
+* Creates an Asset 
+* Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the Asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
+* Uploads the file into the container in storage using the SAS URL
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
+
 ### Create an output asset to store the result of a job 
 
-The output asset stores the result of your job. The project defines the **DownloadResults** function that downloads the results from this output asset into the "output" folder, so you can see what you got.
+The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your job. The project defines the **DownloadResults** function that downloads the results from this output asset into the "output" folder, so you can see what you got.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
@@ -73,7 +95,7 @@ When encoding or processing content in Media Services, it is a common pattern to
 
 #### Transform
 
-When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, the **VideoAnalyzerPreset** preset is used and the language ("en-US") is passed to its constructor. This preset enables you to extract multiple audio and video insights from a video. You can use the **AudioAnalyzerPreset** preset if you need to extract multiple audio insights from a video. 
+When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, the **VideoAnalyzerPreset** preset is used and the language ("en-US") is passed to its constructor. This preset enables you to extract multiple audio and video insights from a video. You can use the **AudioAnalyzerPreset** preset if you need to extract multiple audio insights from a video. 
 
 When creating a **Transform**, you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
 
@@ -81,7 +103,7 @@ When creating a **Transform**, you should first check if one already exists usin
 
 #### Job
 
-As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTPS URLs, SAS URLs, or Assets that are in your Media Service account. 
+As mentioned above, the [Transform](https://docs.microsoft.com/rest/api/media/transforms) object is the recipe and a [Job](https://docs.microsoft.com/en-us/rest/api/media/jobs) is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTPS URLs, SAS URLs, or Assets that are in your Media Service account. 
 
 In this example, the job input is a local video.  
 
@@ -89,7 +111,7 @@ In this example, the job input is a local video.
 
 ### Wait for the job to complete
 
-The job takes some time to complete and when it does you want to be notified. There are different options to get notified about the job completion. The simplest option (that is shown here) is to use polling. 
+The job takes some time to complete and when it does you want to be notified. There are different options to get notified about the [Job](https://docs.microsoft.com/en-us/rest/api/media/jobs) completion. The simplest option (that is shown here) is to use polling. 
 
 Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
 
@@ -101,13 +123,13 @@ The **Job** usually goes through the following states: **Scheduled**, **Queued**
 
 ### Download the result of the job
 
-The following function downloads the results from the output asset into the "output" folder, so you can examine the results of the job. 
+The following function downloads the results from the output [Asset](https://docs.microsoft.com/rest/api/media/assets) into the "output" folder, so you can examine the results of the job. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
 ### Clean up resource in your Media Services account
 
-Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse. For example, the following code deletes Jobs.
+Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms and  persist StreamingLocators). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse. For example, the following code deletes Jobs.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
 

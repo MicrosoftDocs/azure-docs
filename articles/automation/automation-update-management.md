@@ -7,7 +7,7 @@ ms.component: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/23/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Update Management solution in Azure

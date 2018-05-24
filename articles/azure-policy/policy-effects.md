@@ -4,7 +4,7 @@ description: Azure Policy definition have various effects that determine how com
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/23/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm

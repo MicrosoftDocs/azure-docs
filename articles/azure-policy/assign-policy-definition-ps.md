@@ -4,7 +4,7 @@ description: In this quickstart, you use PowerShell to create an Azure Policy as
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/16/2018
+ms.date: 05/24/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
