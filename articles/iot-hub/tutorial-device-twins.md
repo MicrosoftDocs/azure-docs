@@ -1,5 +1,5 @@
 ---
-title: Synchronize device state with device twins | Microsoft Docs
+title: Synchronize device state from Azure IoT Hub | Microsoft Docs
 description: Use device twins to synchronize state between your devices and your IoT hub
 services: iot-hub
 documentationcenter: 
