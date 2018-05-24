@@ -34,21 +34,6 @@ You can use these backups to:
 > In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping multiple secondary databases synchronized with a primary database. 
 > 
 
-## How often do backups happen?
-### Backups for point-in-time restore
-SQL Database supports self-service for point-in-time restore (PITR) by automatically creating full backup, differential backups, and transaction log backups. Full database backups are created weekly, differential database backups are created every few hours, and transaction log backups are created every 5 - 10 minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by the SQL Database service as it balances the overall system workload.
-
-The PITR backups are geo-redundant and protected by [Azure Storage cross-regional replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
-
-For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
-
-### Backups for long-term retention
-SQL Database offers the option of configuring long-term retention (LTR) of full backups for up to 10 years. If LTR policy is enabled, the weekly full backups are automatically copied to a different RA-GRS storage container. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. The storage consumption depends on the selected frequency of backups and the retention period(s). You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage. 
-
-Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cross-regional replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
-
-For more information, see [Long-term retention](sql-database-long-term-retention.md).
-
 ## How long are backups kept?
 Each SQL Database backup has a default retention period that is based on the service tier of the database, and differs between the  [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md). You can update the backup retention period for a database. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
 
@@ -63,10 +48,28 @@ If you reduce the current PITR retention period, all existing backups older than
 
 If you increase the current PITR retention period, SQL Database will keep the existing backups until the longer retention period is reached.
 
+If you need to keep the backups for a longer period, you should add a long-term retetion policy to your database. See [Long-term backup retention](sql-database-long-term-retention.md) for more details.
+
 If you delete a database, SQL Database will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that is four days old is saved for three more days.
 
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
+
+## How often do backups happen?
+### Backups for point-in-time restore
+SQL Database supports self-service for point-in-time restore (PITR) by automatically creating full backup, differential backups, and transaction log backups. Full database backups are created weekly, differential database backups are created every few hours, and transaction log backups are created every 5 - 10 minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by the SQL Database service as it balances the overall system workload.
+
+The PITR backups are geo-redundant and protected by [Azure Storage cross-regional replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+
+For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+
+### Backups for long-term retention
+SQL Database offers the option of configuring long-term retention (LTR) of full backups for up to 10 years. If LTR policy is enabled, the weekly full backups are automatically copied to a different RA-GRS storage container. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. The storage consumption depends on the selected frequency of backups and the retention period(s). You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage. 
+
+Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cross-regional replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
+
+For more information, see [Long-term backup retention](sql-database-long-term-retention.md).
+
 
 ### PITR Retention for the vCore-based service tiers (preview)
 
@@ -95,7 +98,6 @@ Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resource
 ```
 > [!IMPORTANT]
 > This APIs is included in Azure PowerShell starting from version 4.6.0-preview. 
-
 
 ## Set backup retention period to 28 days using REST API
 **Sample Request**
