@@ -661,16 +661,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/active-directory/managed-service-identity/tutorial-vm-windows-access-storage.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/managed-service-identity/tutorial-linux-vm-access-storage.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-storage-sas.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
             "redirect_document_id": false
@@ -4403,6 +4393,21 @@
         {
             "source_path": "articles/data-lake-analytics/data-lake-analytics-use-window-functions.md",
             "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-analytics/data-lake-analytics-u-sql-develop-assemblies.md",
+            "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-for-vscode",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-rest-api.md",
+            "redirect_url": "/rest/api/datalakeanalytics/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-java-sdk.md",
+            "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-manage-use-java-sdk",
             "redirect_document_id": false
         },
         {
@@ -21869,10 +21874,23 @@
             "source_path": "articles/application-gateway/application-gateway-ilb.md",
             "redirect_url": "/azure/application-gateway/application-gateway-ilb-arm",
             "redirect_document_id": false
-        },
+        }
+        ,
 	    {
             "source_path": "articles/active-directory/active-directory-conditional-access-vpn-connectivity-windows10.md",
             "redirect_url": "https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy",
+            "redirect_document_id": true
+        }
+        ,
+        {
+            "source_path": "articles/security/azure-security-architecture-overview.md",
+            "redirect_url": "https://docs.microsoft.com/azure/security",
+            "redirect_document_id": true
+        }
+        ,
+        {
+            "source_path": "articles/security/azure-security-getting-started.md",
+            "redirect_url": "https://docs.microsoft.com/azure/security",
             "redirect_document_id": true
         }
     ]
