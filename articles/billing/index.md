@@ -1,6 +1,6 @@
 ---
 layout: LandingPage
-title: Azure Billing Documentation | Microsoft Docs
+title: Azure billing documentation | Microsoft Docs
 description: Learn how to understand your Azure billing, manage and monitor usage and costs, and manage your account and subscriptions. 
 services: billing
 author: cwatson-cat
@@ -11,11 +11,11 @@ ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 05/23/2018
+ms.date: 05/24/2018
 ms.author: cwatson
 ---
 
-# Azure Billing Documentation
+# Azure billing documentation
 
 Learn how to understand your Azure billing, monitor usage and costs, and manage your account and subscriptions.
 
@@ -28,9 +28,9 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <h3>Understand Azure charges</h3>
                         <p>
                         <a href="/azure/billing/billing-understand-your-bill">Understand your bill</a><br/>
-                        <a href="/azure/billing/billing-download-azure-invoice-daily-usage-date">Get invoice and usage</a><br/>
-                        <a href="/azure/billing/billing-understand-your-azure-marketplace-charges">External service charges</a><br/>
-                        <a href="/azure/billing/billing-understand-your-usage">Usage terms</a>
+                        <a href="/azure/billing/billing-download-azure-invoice-daily-usage-date">Get invoice and usage data</a><br/>
+                        <a href="/azure/billing/billing-understand-your-azure-marketplace-charges">Third-party service charges</a><br/>
+                        <a href="/azure/billing/billing-understand-your-usage">Usage terms explained</a>
                         </p>
                     </div>
                 </div>
@@ -131,7 +131,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <h3>Save with reserved instances</h3>
                         <p>
                         <a href="/azure/billing/billing-save-compute-costs-reservations">What are reserved instances?</a><br/>
-                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances">Buy reserved instance</a><br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances">Buy a reserved instance</a><br/>
                         <a href="/azure/billing/billing-understand-vm-reservation-charges">How discount is applied</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Software costs not included</a>
                         </p>
@@ -147,7 +147,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                     <div class="cardText">
                         <h3>Organize resources</h3>
                         <p>
-                        <a href="/azure/azure-resource-manager/resource-group-using-tags">Resource tags</a><br/>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags">Use resource tags</a><br/>
                         <a href="/azure/azure-resource-manager/management-groups-overview">Management groups</a><br/>
                         <a href="/azure/azure-resource-manager/resource-group-move-resources">Move Azure resources</a><br/>
                         <a href="/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment">Deploy Azure resources</a>
