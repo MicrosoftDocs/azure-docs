@@ -116,7 +116,7 @@ $databaseRPMachine  = "<RP VM IP address>"
 $localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe"
 
 # Download Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions. 
-Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64 `
+Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64' `
     -Outfile $localPathToDefenderUpdate 
 
 # Create session to the maintenance endpoint
@@ -124,10 +124,10 @@ $session = New-PSSession -ComputerName $databaseRPMachine `
     -Credential $vmLocalAdminCreds -ConfigurationName DBAdapterMaintenance
 # Copy defender update file to the db adapter machine
 Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
-     -Destination "User:\mpam-fe.exe"
+     -Destination "User:\"
 # Install the update file
 Invoke-Command -Session $session -ScriptBlock `
-    {Update-AzSDBAdapterWindowsDefenderDefinitions -DefinitionsUpdatePackageFile "User:\mpam-fe.exe"}
+    {Update-AzSDBAdapterWindowsDefenderDefinition -DefinitionsUpdatePackageFile "User:\mpam-fe.exe"}
 # Cleanup the definitions package file and session
 Invoke-Command -Session $session -ScriptBlock `
     {Remove-AzSItemOnUserDrive -ItemPath "User:\mpam-fe.exe"}
