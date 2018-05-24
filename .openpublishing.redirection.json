@@ -4406,6 +4406,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/data-lake-analytics/data-lake-analytics-u-sql-develop-assemblies.md",
+            "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-for-vscode",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-rest-api.md",
+            "redirect_url": "/rest/api/datalakeanalytics/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-java-sdk.md",
+            "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-manage-use-java-sdk",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/dotnet/index.md",
             "redirect_url": "/dotnet/azure/",
             "redirect_document_id": false
