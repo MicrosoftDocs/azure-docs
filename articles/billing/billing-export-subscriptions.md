@@ -20,7 +20,7 @@ ms.author: adpick
 # Export and view your top-level Subscription information
 If you need to view the set of subscription IDs associated with your user credentials, [download a .json file with your subscription information from the Azure Account Center](http://account.azure.com/subscriptions/download).
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 The downloaded .json file provides the following information:
 - Email: the email address associated with your account
