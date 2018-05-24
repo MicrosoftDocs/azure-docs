@@ -6,7 +6,7 @@ author: jovanpop-msft
 ms.reviewer: carlrab, bonova 
 ms.service: sql-database 
 ms.custom: managed instance
-ms.topic: article 
+ms.topic: conceptual 
 ms.date: 04/10/2018 
 ms.author: jovanpop 
 manager: craigg 

@@ -104,13 +104,6 @@ Try a Managed Service Identity tutorial to learn end-to-end scenarios for access
 Managed identities can be used to authenticate to services that support Azure AD authentication. For a list of Azure services that support Managed Service Identity refer to the following article:
 - [Services that support Managed Service Identity](services-support-msi.md)
 
-## Support and feedback
-
-We would love to hear from you!
-
-* Ask how-to questions on Stack Overflow with the tag [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
-* Make feature requests or give feedback on the [Azure AD feedback forum for developers](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
-
 ## Next steps
 
 Get started with Azure Managed Service Identity with the following quickstarts:

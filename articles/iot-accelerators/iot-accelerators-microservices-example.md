@@ -1,17 +1,13 @@
 ---
 title: Change and redeploy a microservice | Microsoft Docs
 description: This tutorial shows you how to change and redeploy a microservice in Remote Monitoring
-services: ''
-suite: iot-suite
 author: giyeh
 manager: hegate
 ms.author: giyeh
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 04/19/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
 # Customize and redeploy a microservice
@@ -34,7 +30,7 @@ In this tutorial, you learn how to:
 To follow this tutorial, you need:
 
 >[!div class="checklist"]
-> * [Deploy the remote monitoring preconfigured solution locally](iot-accelerators-remote-monitoring-deploy-local.md)
+> * [Deploy the Remote Monitoring solution accelerator locally](iot-accelerators-remote-monitoring-deploy-local.md)
 > * [A Docker account](https://hub.docker.com/)
 > * [Postman](https://www.getpostman.com/) - Needed to view the API response
 
