@@ -2,7 +2,6 @@
 title: Overview of Azure Table storage | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
 

@@ -2,7 +2,6 @@
 title: Get started with Azure Table storage and the Azure Cosmos DB Table API using Python | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 services: cosmos-db
-documentationcenter: python
 author: SnehaGunda
 manager: kfile
 

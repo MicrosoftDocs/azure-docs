@@ -2,7 +2,6 @@
 title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resources | Microsoft Docs'
 description: Learn all about the SQL .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
-documentationcenter: .net
 author: rnagpal
 manager: kfile
 editor: cgronlun

@@ -2,7 +2,6 @@
 title: Azure Cosmos DB Table API for Node.js | Microsoft Docs
 description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
-documentationcenter: nodejs
 author: yarong
 manager: kfile
 editor: ''
