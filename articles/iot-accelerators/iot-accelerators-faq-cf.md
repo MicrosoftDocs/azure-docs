@@ -1,23 +1,15 @@
 ---
 title: Connected Factory solution FAQ - Azure | Microsoft Docs
 description: Frequently asked questions for the Connected Factory solution accelerator
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-
 ---
+
 # Frequently asked questions for Connected Factory solution accelerator
 
 See also, the general [FAQ](iot-accelerators-faq.md) for IoT solution accelerators.

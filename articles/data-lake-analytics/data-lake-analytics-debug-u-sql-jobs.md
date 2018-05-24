@@ -4,7 +4,7 @@ description: This article describes how to debug a U-SQL failed vertex using Azu
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanancai
-ms.author: yanancai
+ms.author: yanacai
 manager: kfile
 editor: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
