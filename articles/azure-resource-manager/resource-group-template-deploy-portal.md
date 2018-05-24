@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: tomfitz
 
@@ -19,8 +19,6 @@ ms.author: tomfitz
 # Deploy resources with Resource Manager templates and Azure portal
 
 This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](resource-group-portal.md).
-
-[!INCLUDE [Handle personal data](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## Create resource group
 
@@ -112,7 +110,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
 ## Deploy resources from a template saved to your account
 
-The portal enables you to save a template to your Azure account, and redeploy it later. For more information about working with these saved templates, [Get started with private templates on the Azure portal](../marketplace-consumer/mytemplates-getstarted.md).
+The portal enables you to save a template to your Azure account, and redeploy it later. For more information on templates, see [Create and deploy your first Azure Resource Manager template](resource-manager-create-first-template.md).
 
 1. To find your saved templates, select **More services**.
 
@@ -134,4 +132,4 @@ The portal enables you to save a template to your Azure account, and redeploy it
 * To view audit logs, see [Audit operations with Resource Manager](resource-group-audit.md).
 * To troubleshoot deployment errors, see [View deployment operations](resource-manager-deployment-operations.md).
 * To retrieve a template from a deployment or resource group, see [Export Azure Resource Manager template from existing resources](resource-manager-export-template.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).

@@ -27,7 +27,7 @@ Integrating OpenAthens with Azure AD provides you with the following benefits:
 - You can enable your users to automatically sign on to OpenAthens (single sign-on) with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
-For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -222,7 +222,7 @@ For more information about the Access Panel, see [Introduction to the Access 
 ## Additional resources
 
 * For a list of tutorials on how to integrate SaaS apps with Azure Active Directory, see [SaaS app integration tutorials for use with Azure AD](active-directory-saas-tutorial-list.md).
-* For more information about application access and single sign-on with Azure Active Directory, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+* For more information about application access and single sign-on with Azure Active Directory, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 <!--Image references-->
 

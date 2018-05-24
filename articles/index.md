@@ -1,4 +1,4 @@
----
+﻿---
 layout: HubPage
 hide_bc: true
 experimental: true
@@ -69,7 +69,7 @@ featureFlags:
         </ul>
     </div>
     <div class="container">
-        <h1 class="screenReader">Microsoft Azure Documentation</h1>
+        <h1 class="visually-hidden">Microsoft Azure Documentation</h1>
         <ul class="pivots">
             <li>
                 <a href="#get-started">Get Started</a>
@@ -244,9 +244,15 @@ featureFlags:
                                                 <h3>DevOps</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-                                                            Deploy to Azure
+                                                        <a class="barLink" href="/azure/ansible/">
+                                                            <img src="media/index/ansible.svg" alt="">
+                                                            Ansible
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/chef">
+                                                            <img src="chef/media/Chef_Regular.svg" alt="">
+                                                            Chef
                                                         </a>
                                                     </li>
                                                     <li>
@@ -259,6 +265,12 @@ featureFlags:
                                                         <a class="barLink" href="/azure/terraform">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_terraform.svg" alt="">
                                                             Terraform
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+                                                            Visual Studio Team Services
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -1380,9 +1392,9 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/location-based-services/">
+                                            <a href="/azure/azure-maps/">
                                                 <img src="media/index/azure-lbs-icon.svg" alt="" />
-                                                <p>Azure Location Based Services</p>
+                                                <p>Azure Maps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2487,7 +2499,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/location-based-services/">
+                                <a href="/azure/azure-maps">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2497,7 +2509,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Location Based Services</h3>
+                                                    <h3>Azure Maps</h3>
                                                     <p>Simple and secure location APIs provide geospatial context to data</p>
                                                 </div>
                                             </div>
