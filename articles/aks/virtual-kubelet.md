@@ -26,7 +26,7 @@ This document details configuring the Virtual Kubelet Azure Container Instance p
 
 This document assumes that you have an AKS cluster. If you an AKS cluster, see the [Azure Kubernetes Service (AKS) quickstart][aks-quick-start].
 
-You also need the Azure CLI version **2.0.31** or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+You also need the Azure CLI version **2.0.33** or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Installation
 
@@ -124,23 +124,11 @@ Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to o
 kubectl get pods -o wide
 ```
 
-Notice that the `kube-aci-demo` pod has been scheduled on the `myACIConnector` node.
+Notice that the `kube-aci-demo` pod has been scheduled on the `virtual-kubelet-virtual-kubelet-linux` node.
 
 ```console
 NAME                                            READY     STATUS    RESTARTS   AGE       IP             NODE
-aci-helloworld-2559879000-8vmjw                 1/1       Running   0          39s       52.179.3.180   aci-connector
-```
-
-To validate that the container is running in an Azure Container Instance, use the [az container list][az-container-list] Azure CLI command.
-
-```azurecli-interactive
-az container list -o table
-```
-
-Output:
-
-```console
-Name                                     ResourceGroup                              ProvisioningState    Image                     IP:ports     CPU/Memory       OsType    Location---------------------------------------  -----------------------------------------  -------------------  ------------------------  -----------------  ---------------  --------  ----------default-aci-helloworld-56468f98c7-kgff4     MC_myAKSCluster_myAKSCluster007_eastus  Succeeded            microsoft/aci-helloworld  104.211.60.198:80  1.0 core/1.5 gb  Linux     eastus
+aci-helloworld-2559879000-8vmjw                 1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux
 ```
 
 ## Remove Virtual Kubelet
