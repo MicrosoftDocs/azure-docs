@@ -40,10 +40,10 @@ The author ID is based on the email address used when publishing to the Azure AI
 1.	Sign in to [Azure AI Gallery](https://gallery.azure.ai/).
 2.	Click the profile picture in the top-right corner, and then the account name to load your profile page.
 3.	The URL in the address bar displays the alphanumeric ID following `authorId=`. For example, for the URL: 
-    `https://gallery.cortanaintelligence.com/Home/Author?authorId=CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE`
+    `https://gallery.cortanaintelligence.com/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
     Author ID: 
-    `CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE`
+    `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
 ### Get your access token
 
@@ -65,11 +65,11 @@ Using the author ID you got in the previous steps, view information in a user's 
 
 For example, this URL request:
     
-    https://catalog.cortanaanalytics.com/users/CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE
+    https://catalog.cortanaanalytics.com/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA
 
 Returns a response such as:
 
-    {"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
+    {"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
 
 
 ### View public entities
@@ -82,7 +82,7 @@ To view published entities, visit the following URL, replacing `[AuthorId]` with
 
 For example:
 
-    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq 'CB9AEFCBEB947FD5D25D29A477B9CBC572AAD7BEF3236FF55724282F7C8CE8BE'
+    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
 
 ### View unlisted and public entities
 
@@ -94,7 +94,3 @@ This query displays only public entities. To view all your entities, including u
 
 > [!TIP]
 > If unlisted entities are not showing up in responses from the Catalog API, the user may have an invalid or expired access token. Sign out of the Azure AI Gallery, and then repeat the steps in [Get your access token](#get-your-access-token) to renew the token. 
-
-## Next steps
-
-For documentation covering web services and commitment plan billing, see [Azure Machine Learning REST API reference](https://docs.microsoft.com/en-us/rest/api/machinelearning/). 
