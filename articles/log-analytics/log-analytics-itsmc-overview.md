@@ -93,7 +93,7 @@ Once you have prepped your ITSM tools, follow the steps below to create a connec
 
     > [!NOTE]
 
-    > By default, ITSMC refreshes the connection's configuration data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the "Refresh" button displayed next to your connection.
+    > By default, ITSMC refreshes the connection's configuration data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the **Sync** button on your connection's blade.
 
     ![Connection refresh](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
 
