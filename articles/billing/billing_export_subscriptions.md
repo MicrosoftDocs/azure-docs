@@ -22,10 +22,10 @@ If you need to view the set of subscription IDs associated with your user creden
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-intro-sentence.md)]
 
-The downloaded .json file contains the following information:
+The downloaded .json file provides the following information:
 - Email: the email address associated with your account
 - Puid: the unique identifier associated with your billing account
-- SubscriptionIds: a list of subscriptions that belong to your account, enumerated by subscription Id
+- SubscriptionIds: a list of subscriptions that belong to your account, enumerated by subscription ID
 
 ### subscriptions.json sample
 ~~~~
