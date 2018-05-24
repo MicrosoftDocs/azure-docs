@@ -39,7 +39,7 @@ Each SQL Database backup has a default retention period that is based on the ser
 
 If you delete a database, SQL Database will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that is four days old is saved for three more days.
 
-If you need to keep the backups for longer than the PITR retentio  period, you can modify the backup properties to add one or more long-term retetion periods to your database. See [Long-term backup retention](sql-database-long-term-retention.md) for more details.
+If you need to keep the backups for longer than the maximum PITR retention period, you can modify the backup properties to add one or more long-term retetion periods to your database. See [Long-term backup retention](sql-database-long-term-retention.md) for more details.
 
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server and theor backups are also deleted and cannot be recovered. You cannot restore a deleted server. But if you configured long-term retention, the backups for the databases included in LTR will not be deleted and can be used to restore the databases.
