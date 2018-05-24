@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # View activity logs for role-based access control changes
 
-Sometimes you need to know when access changes were made to Azure resources, such as for auditing or troubleshooting purposes. Any time someone makes changes to role definitions or role assignments within your subscriptions, the changes get logged in [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). You can view the activity logs to see all the role-based access control (RBAC) changes for the past 90 days.
+Sometimes you need information about role-based access control (RBAC) changes, such as for auditing or troubleshooting purposes. Any time someone makes changes to role assignments or role definitions within your subscriptions, the changes get logged in [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). You can view the activity logs to see all the RBAC changes for the past 90 days.
 
 ## Operations that are logged
 
@@ -32,7 +32,7 @@ Here are the RBAC-related operations that are logged in Activity Log:
 
 ## Azure portal
 
-The easiest way to get started is to view the activity logs with the Azure portal. The following screenshot shows an example of an activity log that has been filtered to display role definition and role assignment operations. It also includes a link to download the logs as a CSV file.
+The easiest way to get started is to view the activity logs with the Azure portal. The following screenshot shows an example of an activity log that has been filtered to display role assignment and role definition operations. It also includes a link to download the logs as a CSV file.
 
 ![Activity logs using the portal - screenshot](./media/change-history-report/activity-log-portal.png)
 
@@ -103,7 +103,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## Azure Log Analytics
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) is another tool you can use to collect and analyze role-based access control changes for all your Azure resources. Log Analytics has the following benefits:
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) is another tool you can use to collect and analyze RBAC changes for all your Azure resources. Log Analytics has the following benefits:
 
 - Write complex queries and logic
 - Integrate with alerts, Power BI, and other tools
