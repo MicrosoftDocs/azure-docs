@@ -34,9 +34,8 @@ for example:
 * Add a value as the last item in a variable for a string or array.
 * Get the value from a variable.
 
-Variables exist only within the logic app 
-instance that creates them, and they persist 
-across any loop iterations inside the logic app instance. 
+Variables exist only within the logic app instance that creates them. 
+Also, they persist across any loop iterations inside a logic app instance. 
 
 If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
@@ -270,7 +269,7 @@ include those attachments as inputs for the workflow.
    1. In this example, inside the trigger, 
    choose **Show advanced options**. 
 
-   2. Set these properties to **Yes**: 
+   2. Select **Yes** for these properties: 
    
       * **Has Attachment** 
       * **Include Attachments** 
@@ -290,24 +289,26 @@ and tracks the number of attachments, for example:
       ![Add a "for each" loop](./media/logic-apps-create-variables-store-values/add-loop.png)
 
       Now set up your loop to run sequentially. By default, 
-      a "for each" loop's cycles run in parallel, 
-      which might cause problems calculating the number of attachments.
+      a "for each" loop's cycles run in parallel. This setting 
+      might cause problems when calculating the number of attachments.
    
    2. In your loop's upper-right corner, choose the ellipsis (...) button, 
    and then choose **Settings**. 
 
    3. Under **Concurrency Control**, set **Override Default** to **On**.
-   For **Degree of Parallelism**, drag the slider to 1, and choose **Done**.
+   For **Degree of Parallelism**, drag the slider to **1**.
 
       ![Set loop to run sequentially](./media/logic-apps-create-variables-store-values/set-sequential.png)
+
+   4. When you're ready, choose **Done**.
 
 5. Inside the loop, click in the **Select an output from previous steps** box. 
 When the dynamic content list appears, select **Attachments**. 
 
    ![Select "Attachments"](./media/logic-apps-create-variables-store-values/select-attachments.png)
 
-   The **Attachments** field passes in an array that has the 
-   email attachments as output from the trigger.
+   The **Attachments** field passes in an array that 
+   has the email attachments in the trigger output.
 
 6. In the "for each" loop, select **Add an action**. 
 
@@ -321,11 +322,11 @@ From the actions list, select **Variables - Increment variable**.
    > If the action appears outside the loop, drag the action into the loop.
 
 8. In the **Increment variable** action, 
-select the **Count** variable from the **Name** list. 
+open the **Name** list, and select the **Count** variable. 
 
-   ![Select "Add an action"](./media/logic-apps-create-variables-store-values/add-increment-variable-example.png)
+   ![Select "Count" variable](./media/logic-apps-create-variables-store-values/add-increment-variable-example.png)
 
-9. Outside the loop, add an action that 
+9. Under the loop, add an action that 
 sends you the total number of attachments. 
 This example sends an email with the results.
 
@@ -333,9 +334,26 @@ This example sends an email with the results.
 
 10. Save your logic app. On the designer toolbar, choose **Save**. 
 
+### Test your logic app
+
+1. If your logic app isn't running already, on the logic app menu, 
+choose **Overview**. On the **Overview** page, choose **Enable**. 
+
+2. On the Logic App Designer toolbar, choose **Run**. 
+This step manually and immediately starts your logic app.
+
+3. Send an email with one or more attachments 
+to the email account you used in this example. 
+
+   This step fires the logic app's trigger, which creates 
+   and runs an instance for the logic app workflow.
+   As a result, the logic app sends you email 
+   with the number of attachments in the email
+   you sent to yourself.
+
 If you switch from the designer to the code view editor, 
-here is the way the **Increment variable** action appears 
-within the "for each" loop of your logic app definition, 
+here is the way the "for each" loop appears with the 
+**Increment variable** action inside your logic app definition, 
 which is in JSON format.
 
 ```json
@@ -359,23 +377,6 @@ which is in JSON format.
    }
 },
 ```
-
-### Test your logic app
-
-1. If your logic app isn't running already, on the logic app menu, 
-choose **Overview**. On the **Overview** page, choose **Enable**. 
-
-2. On the Logic App Designer toolbar, choose **Run**. 
-This step manually and immediately starts your logic app.
-
-3. Send an email with one or more attachments 
-to the email account you used in this example. 
-
-   This step fires the logic app's trigger, which creates 
-   and runs an instance for the logic app workflow.
-   As a result, the logic app sends you email 
-   with the number of attachments in the email
-   you sent to yourself.
 
 <a name="decrement-value"></a>
 
@@ -417,7 +418,7 @@ inside your logic app definition, which is in JSON format.
 
 To assign a different value to an existing variable, 
 you can follow the steps for [increasing a variable](#increment-value) 
-except for these steps: 
+except that you use these steps: 
 
 * Find and select the **Variables - Set variable** action instead. 
 
@@ -471,7 +472,7 @@ This example changes the "Count" variable's start value to another value.
 For variables that store strings or arrays, you can 
 add a value as the last item in those strings or arrays. 
 You can follow the steps for [increasing a variable](#increment-value) 
-except for these steps: 
+except that you use these steps: 
 
 * Select an action based on whether you have a string or array variable: 
 
@@ -527,11 +528,11 @@ Your result is `[1,2,3,"red"]`.
 ## Get value from variable
 
 To retrieve or reference the value or values in a variable, you can use the 
-[variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) function in the Logic App Designer or in the code view editor.
+[variables() function](../logic-apps/workflow-definition-language-functions-reference.md#variables) in the Logic App Designer or in the code view editor.
 
-For example, using the array variable [previously created in this article](#append-value) 
-and the **variables()** function, this expression gets the items from the array variable. 
-The **string()** function then returns those array items as this string: "1, 2, 3, 4"
+For example, this expression gets the items from the array variable 
+[previously created in this article](#append-value) and the **variables()** function. 
+The **string()** function returns those array items as this string: "1, 2, 3, 4"
 
 ```json
 @{string(variables('myArrayVariable'))}
