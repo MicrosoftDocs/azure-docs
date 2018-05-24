@@ -1,22 +1,16 @@
 ---
 title: Use Azure IoT Hub device twin properties (.NET/.NET) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to configure devices. You use the Azure IoT device SDK for .NET to implement a simulated device app and the Azure IoT service SDK for .NET to implement a service app that modifies a device configuration using a device twin.
-services: iot-hub
-documentationcenter: .net
 author: dsk-2015
 manager: timlt
-editor: ''
-
-ms.assetid: 3c627476-f982-43c9-bd17-e0698c5d236d
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: csharp
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dkshir
-
 ---
+
 # Use desired properties to configure devices
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
