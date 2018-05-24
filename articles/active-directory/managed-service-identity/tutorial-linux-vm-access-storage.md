@@ -25,7 +25,7 @@ ms.author: skwan
 This tutorial shows you how to create and use a Linux VM MSI to access Azure Storage. You learn how to:
 
 > [!div class="checklist"]
-> * Enable MSI on a Linux VM
+> * Enable Managed Service Identity (MSI) on a Windows Virtual Machine (VM)
 > * Create a blob container in a storage account
 > * Retrieve the `principalID` of the of the Linux VM's MSI
 > * Grant the Linux VM's MSI access to an Azure Storage container
@@ -68,13 +68,13 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 A Virtual Machine MSI enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling MSI on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and configures the identity on the VM.
 
 1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
-2. Under the "Settings" category on the left navigation, click on  Configuration.
-3. To enable the MSI, select Yes. To disable, choose No.
-4. Click Save, to apply the configuration. 
+2. Under the **Settings** category on the left navigation, click on **Configuration**.
+3. To enable the MSI, select **Yes**. To disable, choose **No**.
+4. Click **Save**, to apply the configuration. 
 
 ## Create a storage account 
 
-If you don't already have one, now create a storage account. You can also skip this step and use an existing storage account, if you prefer. 
+If you don't already have one, create a storage account. You can also skip this step and use an existing storage account, if you prefer. 
 
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Click **Storage**, then **Storage Account**, and a new "Create storage account" panel  displays.

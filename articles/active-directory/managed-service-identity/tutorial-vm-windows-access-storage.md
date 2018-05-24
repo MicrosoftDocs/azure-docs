@@ -8,6 +8,7 @@ manager: mtillman
 editor: daveba
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -20,11 +21,11 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and use the identity to access Azure Storage.
-
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and use that identity to access Azure Storage.  You learn how to:
 
 > [!div class="checklist"]
-> * Enable the Managed Service Identity (MSI) on a Windows Virtual Machine (VM) 
+> * Enable Managed Service Identity (MSI) on a Windows Virtual Machine (VM)
+> * Create a blob container in a storage account
 > * Grant your Virtual Machine Identity access to a storage account 
 > * Get an access token using your Virtual Machine's identity, and use it to access Azure Storage 
 
