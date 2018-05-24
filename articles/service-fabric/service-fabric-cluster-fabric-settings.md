@@ -378,7 +378,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AzureStorageMaxConnections | Int, default is 5000 |Dynamic|The maximum number of concurrent connections to azure storage. |
 |AzureStorageMaxWorkerThreads | Int, default is 25 |Dynamic|The maximum number of worker threads in parallel. |
 |AzureStorageOperationTimeout | Time in seconds, default is 6000 |Dynamic|Specify timespan in seconds. Time out for xstore operation to complete. |
-|CleanupApplicationPackageOnProvisionSuccess|TimeSpan, default is Common::TimeSpan::FromSeconds(600) |Dynamic|Specify timespan in seconds. Timeout for xstore operation to complete |
+|CleanupApplicationPackageOnProvisionSuccess|bool, default is FALSE |Dynamic|This configuration enables or disables the automatic cleanup of application package on successful provision. |
 |DisableChecksumValidation | Bool, default is false |Static| This configuration allows us to enable or disable checksum validation during application provisioning. |
 |DisableServerSideCopy | Bool, default is false |Static|This configuration enables or disables server-side copy of application package on the ImageStore during application provisioning. |
 |ImageCachingEnabled | Bool, default is true |Static|This configuration allows us to enable or disable caching. |
