@@ -1,6 +1,6 @@
 ---
-title: Quota Limits in Azure Data Lake Analytics
-description: Learn how to adjust and increase quota limits in Azure Data Lake Analytics (ADLA) accounts.
+title: Adjust quotas and limits in Azure Data Lake Analytics
+description: Learn how to adjust and increase quotas and limits in Azure Data Lake Analytics (ADLA) accounts.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: omidm1
@@ -12,9 +12,9 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ---
 
-# Azure Data Lake Analytics Quota Limits
+# Adjust quotas and limits in Azure Data Lake Analytics
 
-Learn how to adjust and increase quota limits in Azure Data Lake Analytics (ADLA) accounts. Knowing these limits may help you understand your U-SQL job behavior. All quota limits are soft, so you can increase the maximum limits by contacting Azure support.
+Learn how to adjust and increase the quota and limits in Azure Data Lake Analytics (ADLA) accounts. Knowing these limits may help you understand your U-SQL job behavior. All quota limits are soft, so you can increase the maximum limits by contacting Azure support.
 
 ## Azure subscriptions limits
 
