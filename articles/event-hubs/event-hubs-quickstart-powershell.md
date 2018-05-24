@@ -10,8 +10,9 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: sethm
+#Customer intent: How do I stream data and process telemetry from an event hub?
 
 ---
 
@@ -154,7 +155,7 @@ On the Azure portal, you can view the rate at which events are being processed f
 
    ![][5]
 
-## Clean up deployment
+## Clean up resources
 
 When you've completed the quickstart, you can delete your resource group and the namespace, storage account, and event hub within it. Replace `myResourceGroup` with the name of the resource group you created. 
 

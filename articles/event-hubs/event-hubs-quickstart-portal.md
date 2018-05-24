@@ -1,25 +1,21 @@
----
+	---
 title: Azure Quickstart - Process event streams using the Azure portal | Microsoft Docs
-description: Quickly learn to process event streams using Azure portal
+description: In this quickstart, you learn how to process event streams using Azure portal
 services: event-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: ''
 
-ms.assetid: ''
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/18/2018
+ms.date: 05/24/2018
 ms.author: sethm
+#Customer intent: How do I stream data and process telemetry from an event hub? 
 
 ---
 
-# Process event streams using the Azure portal and .NET
+# Quickstart: Process event streams using the Azure portal and .NET
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create an event hub using the [Azure portal](https://portal.azure.com), and then send to and receive from an event hub using the .NET Standard SDK.
 
@@ -163,6 +159,10 @@ Then, run the **SampleEphReceiver** app, and observe the messages being received
 
 ![][4]
  
+## Clean up resources
+
+You can use the portal to remove the storage account, namespace, and event hub.
+
 ## Next steps
 
 In this article, you've created the Event Hubs namespace and other resources required to send and receive events from your event hub, and send and received a set of messages. To learn more, continue with the following articles.

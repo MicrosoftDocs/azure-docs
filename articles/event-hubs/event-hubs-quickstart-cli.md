@@ -9,8 +9,9 @@ ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/11/2018
+ms.date: 05/24/2018
 ms.author: sethm
+#Customer intent: How do I stream data and process telemetry from an event hub?
 
 ---
 
@@ -120,6 +121,14 @@ If the builds completed successfully, you are ready to send and receive events.
 After running both programs, you can check the Azure portal overview page for the event hub to see the incoming and outgoing message count:
 
 ![send and receive](./media/event-hubs-quickstart-cli/ephjava.png)
+
+## Clean up resources
+
+Run the following command to remove the resource group, namespace, storage account, and all related resources. Replace `myResourceGroup` with the name of the resource group you created:
+
+```azurecli
+az group delete --resource-group myResourceGroup
+```
 
 ## Understand the sample code
 
@@ -263,14 +272,6 @@ public void onEvents(PartitionContext context, Iterable<EventData> events) throw
     }
     System.out.println("SAMPLE: Partition " + context.getPartitionId() + " batch size was " + eventCount + " for host " + context.getOwner());
 }
-```
-
-## Clean up deployment
-
-Run the following command to remove the resource group, namespace, storage account, and all related resources. Replace `myResourceGroup` with the name of the resource group you created:
-
-```azurecli
-az group delete --resource-group myResourceGroup
 ```
 
 ## Next steps
