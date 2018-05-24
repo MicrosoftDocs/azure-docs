@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with CLI | Microsoft Docs
+title: Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with Azure CLI | Microsoft Docs
 description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using Azure CLI
 services: service-bus-messaging
 author: sethmanheim
