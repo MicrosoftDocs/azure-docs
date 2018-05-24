@@ -116,7 +116,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <a href="/azure/billing/billing-usage-rate-card-overview">Azure Billing APIs</a><br/>
                         <a href="/azure/billing/billing-enterprise-api">Enterprise reporting APIs</a><br/>
                         <a href="/rest/api/consumption/">Azure Consumption APIs </a><br/>
-                        <a href="/azure/azure-resource-manager/programmatically-create-subscription">Create Enterprise subscriptions</a>                       
+                        <a href="/azure/azure-resource-manager/programmatically-create-subscription?toc=/azure/billing/TOC.json">Create Enterprise subscriptions</a>                       
                         </p>
                     </div>
                 </div>
@@ -131,7 +131,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <h3>Save with reserved instances</h3>
                         <p>
                         <a href="/azure/billing/billing-save-compute-costs-reservations">What are reserved instances?</a><br/>
-                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances">Buy a reserved instance</a><br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Buy a reserved instance</a><br/>
                         <a href="/azure/billing/billing-understand-vm-reservation-charges">How discount is applied</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Software costs not included</a>
                         </p>
@@ -147,10 +147,10 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                     <div class="cardText">
                         <h3>Organize resources</h3>
                         <p>
-                        <a href="/azure/azure-resource-manager/resource-group-using-tags">Use resource tags</a><br/>
-                        <a href="/azure/azure-resource-manager/management-groups-overview">Management groups</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-move-resources">Move Azure resources</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment">Deploy Azure resources</a>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Use resource tags</a><br/>
+                        <a href="/azure/azure-resource-manager/management-groups-overview?toc=/azure/billing/TOC.json">Management groups</a><br/>
+                        <a href="/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/billing/TOC.json">Move Azure resources</a><br/>
+                        <a href="/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment?toc=/azure/billing/TOC.json">Deploy Azure resources</a>
                         </p>
                     </div>
                 </div>
