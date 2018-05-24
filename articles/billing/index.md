@@ -47,7 +47,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <a href="/azure/billing/billing-getting-started">Prevent unexpected costs</a><br/>
                         <a href="/azure/billing/billing-set-up-alerts">Set up alerts</a><br/>
                         <a href="https://azure.microsoft.com/pricing/calculator/">Calculate pricing</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-using-tags">Use resource tags</a><br/>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Use resource tags</a><br/>
                         </p>
                     </div>
                 </div>
