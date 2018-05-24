@@ -34,6 +34,9 @@
     "globalMetadata": {
       "uhfHeaderId": "MSDocsHeader-Dev_Office",
       "breadcrumb_path": "/office/dev/store/breadcrumb/toc.json",
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "OfficeDev/office-store-docs",
+      "feedback_product_url": "https://officespdev.uservoice.com/",
       "extendBreadcrumb": true,
       "ms.suite": "office365",
       "ms.author": "o365devx",
