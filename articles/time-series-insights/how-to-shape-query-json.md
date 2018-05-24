@@ -6,7 +6,7 @@ author: ashannon7
 manager: timlt
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 05/24/2018
 ms.author: bryanla
 
 # Customer intent: As a developer, I want learn about best practices for shaping JSON, so I can create efficient Time Series Insights queries when using APIs.
@@ -161,7 +161,7 @@ Reference Data (key properties are deviceId and series.tagId):
 | FYYY | pumpRate | LINE\_DATA | US | Flow Rate | ft3/s |
 | FYYY | oilPressure | LINE\_DATA | US | Engine Oil Pressure | psi |
 
-TSI event table:
+Time Series Insights event table (after flattening):
 
 | deviceId | series.tagId | messageId | deviceLocation | type | unit | timestamp | series.value |
 | --- | --- | --- | --- | --- | --- | --- | --- |
