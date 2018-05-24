@@ -737,7 +737,7 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 3. In Eclipse, on the **File** menu, click **Import**.
 4. In the **Import** window, click **Git**, click **Projects from Git**, and then click **Next**.
 5. On the **Select Repository Source** screen, click **Clone URI**.
-6. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/java-todo-app.git, and then click **Next**.
+6. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/documentdb-java-todo-app.git, and then click **Next**.
 7. On the **Branch Selection** screen, ensure that **master** is selected, and then click **Next**.
 8. On the **Local Destination** screen, click **Browse** to select a folder where the repository can be copied, and then click **Next**.
 9. On the **Select a wizard to use for importing projects** screen, ensure that **Import existing projects** is selected, and then click **Next**.

@@ -66,7 +66,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Select the **Metrics** tab, fill in the **Subscription**, **Resource Group**, **Resource Type** and **Resource** information for your logic app.
 
-3. From the list of metrics, choose **Runs Started**.
+3. From the list of metrics, choose **Runs Failed**.
 
 4. Modify the **Time range** of the chart to display data for the past hour.
 
