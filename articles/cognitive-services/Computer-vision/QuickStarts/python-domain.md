@@ -34,9 +34,9 @@ To run the sample, do the following steps:
 
 The following code uses the Python `requests` library to call the Computer Vision Analyze Image API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary. The model to use is passed in via the `params` dictionary.
 
-### Landmark identification
+## Landmark identification
 
-#### Recognize Landmark request
+### Recognize Landmark request
 
 ```python
 # Replace <Subscription Key> with your valid subscription key.
@@ -86,7 +86,7 @@ plt.axis("off")
 _ = plt.title(landmark_name, size="x-large", y=-0.1)
 ```
 
-#### Recognize Landmark response
+### Recognize Landmark response
 
 A successful response is returned in JSON, for example:
 
@@ -109,9 +109,9 @@ A successful response is returned in JSON, for example:
 }
 ```
 
-### Celebrity identification
+## Celebrity identification
 
-#### Recognize Celebrity request
+### Recognize Celebrity request
 
 ```python
 # Replace <Subscription Key> with your valid subscription key.
@@ -147,7 +147,7 @@ plt.axis("off")
 _ = plt.title(celebrity_name, size="x-large", y=-0.1)
 ```
 
-#### Recognize Celebrity response
+### Recognize Celebrity response
 
 A successful response is returned in JSON, for example:
 

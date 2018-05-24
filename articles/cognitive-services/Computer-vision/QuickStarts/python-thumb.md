@@ -34,7 +34,7 @@ To run the sample, do the following steps:
 
 The following code uses the Python `requests` library to call the Computer Vision Analyze Image API. The API key is passed in via the `headers` dictionary. The size of the thumbnail is passed in via the `params` dictionary. The thumbnail is returned as a byte array in the response.
 
-### Get Thumbnail request
+## Get Thumbnail request
 
 ```python
 # Replace <Subscription Key> with your valid subscription key.

@@ -136,9 +136,6 @@ You need open either a U-SQL file or a folder to work with U-SQL.
 Azure Data Lake Tool supports multiple custom codes, the instructions see [Develop U-SQL with Python, R, and CSharp for Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
 ## Use assemblies
-
-For information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md).
-
 You can use Data Lake Tools to register custom code assemblies in the Data Lake Analytics catalog.
 
 **To register an assembly**
@@ -448,8 +445,3 @@ Data Lake Tools for VS Code supports the following features:
 - [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
 - [Tutorial: Get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)
 - [Tutorial: Develop U-SQL scripts by using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-- [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md)
-
-
-
-

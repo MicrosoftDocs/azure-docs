@@ -12,9 +12,7 @@ ms.topic: conceptual
 ms.date: 12/05/2016
 ---
 # Develop U-SQL user-defined operators (UDOs)
-Learn how to develop user-defined operators to process data in a U-SQL job.
-
-For instructions on developing general-purpose assemblies for U-SQL, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md)
+This article describes how to develop user-defined operators to process data in a U-SQL job.
 
 ## Define and use a user-defined operator in U-SQL
 **To create and submit a U-SQL job**

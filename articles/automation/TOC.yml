@@ -159,7 +159,7 @@
       items:
         - name: Runbook gallery
           href: automation-runbook-gallery.md
-        - name: Monitor runbooks with activity logs
+        - name: Monitor runbooks with metric alerts
           href: automation-alert-activity-log.md
         - name: Start a runbook from Azure alerts
           href: automation-create-alert-triggered-runbook.md 
