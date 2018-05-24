@@ -59,6 +59,6 @@ Alert creation will continue to work from the [Log Analytics API](../log-analyti
 
 ## Next steps
 
-* Learn about the tools to [initiate extending alerts from OMS into Azure](monitoring-alerts-extend-tool.md)
+* Learn about the tools to [initiate extending alerts from Log Analytics into Azure](monitoring-alerts-extend-tool.md)
 * Learn more about the new [Azure alerts experience](monitoring-overview-unified-alerts.md).
 * Learn how to create [log alerts in Azure Alerts](monitor-alerts-unified-log.md).
