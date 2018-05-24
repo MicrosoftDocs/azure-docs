@@ -1,5 +1,5 @@
 ---
-title: """Azure Backup: Restore virtual machines by using the Azure portal"""
+title: 'Azure Backup: Restore virtual machines by using the Azure portal'
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal
 services: backup
 author: markgalioto

@@ -1,5 +1,5 @@
 ---
-title: """Azure Backup: Recover files and folders from an Azure VM backup"""
+title: 'Azure Backup: Recover files and folders from an Azure VM backup'
 description: Recover files from an Azure virtual machine recovery point
 services: backup
 author: pvrk

@@ -1,5 +1,5 @@
 ---
-title: """First look: Protect Azure VMs with a recovery services vault"""
+title: 'First look: Protect Azure VMs with a recovery services vault'
 description: Protect Azure VMs with a recovery services vault. Use backups of Resource Manager-deployed VMs, Classic-deployed VMs and Premium Storage VMs, Encrypted VMs, VMs on Managed Disks to protect your data. Create and register a recovery services vault. Register VMs, create policy, and protect VMs in Azure.
 services: backup
 author: markgalioto
