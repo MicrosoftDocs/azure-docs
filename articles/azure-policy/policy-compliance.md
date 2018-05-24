@@ -1,5 +1,5 @@
 ---
-title: Getting Compliance Data
+title: Getting Compliance Data in Azure Policy
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details.
 services: azure-policy
 author: DCtheGeek
