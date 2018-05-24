@@ -49,7 +49,7 @@ If you're installing Docker on **Windows Server 2016**, use the following PowerS
 Install-Module DockerMsftProvider -Force
 Install-Package Docker -ProviderName DockerMsftProvider -Force
 
-# This next command will restart the server if needed
+# The -Restart parameter will automatically restart your computer if needed.
 Install-WindowsFeature Containers -Restart
 ```
 
@@ -77,7 +77,7 @@ After you install the SDK and Visual Studio tools, create a development cluster.
 "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
 
 # Start the local cluster manager
-`"C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"`
+"C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
 ```
 
 ## Next steps
