@@ -12,9 +12,9 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ---
 
-# View, export, and delete in-product user data from Azure AI Gallery
+# View and delete in-product user data from Azure AI Gallery
 
-You can export and delete your in-product user data from Azure AI Gallery using the interface or AI Gallery Catalog API. This article shows you how.
+You can view and delete your in-product user data from Azure AI Gallery using the interface or AI Gallery Catalog API. This article tells you how.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
