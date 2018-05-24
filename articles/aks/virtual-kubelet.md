@@ -35,20 +35,9 @@ To install Virtual Kubelet for an AKS cluster, run the following command. Replac
 - resource-group - the resource group of the AKS cluster.
 - name - the name of the AKS cluster.
 - connector-name - the name given to the Virtual Kubelet.
-- aci-resource-group - the resource group where the container instances are created. This need to be the AKS node resource group.
-
-Get the AKS node resource group with the following command.
-
-```azurecli
-$ az resource show --resource-group myAKSCluster --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
-
-MC_myAKSCluster_myAKSCluster_eastus
-```
-
-Use the following command to install the connector. Update the relevant arguments to match your environment.
 
 ```azurecli-interactive
-az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet --aci-resource-group MC_myAKSCluster_myAKSCluster_eastusclear
+az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
 ```
 
 Output:
@@ -151,9 +140,7 @@ az container list -o table
 Output:
 
 ```console
-Name                             ResourceGroup    ProvisioningState    Image                     IP:ports         CPU/Memory       OsType    Location
--------------------------------  ---------------  -------------------  ------------------------  ---------------  ---------------  --------  ----------
-aci-helloworld-2559879000-8vmjw  myAKSCluster2    Succeeded            microsoft/aci-helloworld  52.179.3.180:80  1.0 core/1.5 gb  Linux     eastus
+Name                                     ResourceGroup                              ProvisioningState    Image                     IP:ports     CPU/Memory       OsType    Location---------------------------------------  -----------------------------------------  -------------------  ------------------------  -----------------  ---------------  --------  ----------default-aci-helloworld-56468f98c7-kgff4     MC_myAKSCluster_myAKSCluster007_eastus  Succeeded            microsoft/aci-helloworld  104.211.60.198:80  1.0 core/1.5 gb  Linux     eastus
 ```
 
 ## Remove Virtual Kubelet
