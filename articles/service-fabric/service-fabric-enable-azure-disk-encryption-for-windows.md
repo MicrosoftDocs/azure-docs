@@ -32,8 +32,8 @@ The guide covers the following procedures:
 
 
 ## Prerequisites
-1. **Self-Registration** - virtual machine scale set disk encryption preview requires self-registration in order to use
-a. You can self register your subscription by running the following steps: 
+1. **Self-Registration** - In order to use, virtual machine scale set disk encryption preview requires self-registration
+a. You can self-register your subscription by running the following steps: 
 ```Powershell
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
@@ -59,18 +59,18 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncrypti
 | Set-AzureRmVmssDiskEncryptionExtension   | 3.4.0 or above | AzureRM.Compute |
 
 
-4. Install latest [Azure CLI 2.0][https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest] which has the new encryption commands.
+4. Install latest [Azure CLI 2.0][https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest] , which has the new encryption commands.
 
 
 ## Supported Scenarios for Windows virtual machine scale set
 1. virtual machine scale set encryption is supported only for scale sets created with managed disks, and not supported for native (or unmanaged) disk scale sets
 2. virtual machine scale set encryption is supported for OS and Data volumes for Windows VMSS. Disable encryption is supported for OS and Data volumes for Windows VMSS
-3. virtual machine scale set VM reimage and upgrade operations are not supported in current preview 
+3. virtual machine scale set VM re-image and upgrade operations are not supported in current preview 
 
 
-### Create new cluster and enable disk ebcryption
+### Create new cluster and enable disk encryption
 
-Use the following commands to create cluster and enable disk encryption using ARM template & self signed certificate.
+Use the following commands to create cluster and enable disk encryption using Azure Resource Manager template & self signed certificate.
 
 ### login in to Azure.
 
@@ -90,9 +90,9 @@ az account set --subscription $subscriptionId
 
 #### Use the custom template that you already have 
 
-If you need to author a custom template to suit your needs, it is highly recomended that you start with one of the templates that are available on the [azure service fabric template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Follow guidance and explanations to [customize your cluster template][customize-your-cluster-template] section below.
+If you need to author a custom template to suit your needs, it is highly recommended that you start with one of the templates that are available on the [azure service fabric template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Follow guidance and explanations to [customize your cluster template][customize-your-cluster-template] section below.
 
-If you already have a custom template, then make sure to double check, that all the three certificate related parameters in the template and the parameter file are named as follows and values are null as follows.
+If you already have a custom template, then make sure to double check, that all the three certificate-related parameters in the template and the parameter file are named as follows and values are null as follows.
 
 ```Json
    "certificateThumbprint": {
@@ -124,7 +124,6 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Certifica
 
 ```
 
-Here is the equivalent CLI command to do the same. Change the values in the declare statements to appropriate values. CLI supports all the other parameters that the above powershell command supports.
 
 ```CLI
 
@@ -144,7 +143,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ```
 
-#### Deploy application to Service Fabric cluster
+#### Deploy application to Windows Service Fabric cluster
 Follow steps and guidance to [deploy application to your cluster][https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications]
 
 
@@ -169,9 +168,9 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 ```
 
 
-#### Validate if disk enryption enabled for Windows virtual machine scale set.
-We can get status of an entire Virtual Machine scale set or as well as any VM in scale set. See commands below.
-Additionally we can login to VM in scale set and make sure drives are encrypted
+#### Validate if disk encryption enabled for Windows virtual machine scale set.
+Get status of an entire virtual machine scale set or any instance in scale set. See commands below.
+Additionally user can log in to VM in scale set and make sure drives are encrypted
 
 ```Powershell
 
@@ -191,7 +190,7 @@ az vmss encryption show -g <resourceGroupName> -n <VMSS name>
 
 
 #### Disable disk encryption for Service Fabric Cluster virtual machine scale set 
-Disable disk ecryption applies to entire virtual machine scale set and not by instance 
+Disable disk encryption applies to entire virtual machine scale set and not by instance 
 
 ```Powershell
 
