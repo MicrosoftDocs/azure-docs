@@ -17,7 +17,7 @@ ms.date: 04/12/2018
 ms.author: daveba
 ---
 
-# Use a Windows VM Managed Service Identity to access Azure Storage
+# Tutorial: Use a Windows VM Managed Service Identity to access Azure Storage
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

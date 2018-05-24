@@ -17,7 +17,7 @@ ms.date: 04/09/2018
 ms.author: skwan
 
 ---
-# Use a Linux VM's MSI to access Azure Storage 
+# Tutorial: Use a Linux VM's MSI to access Azure Storage 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
