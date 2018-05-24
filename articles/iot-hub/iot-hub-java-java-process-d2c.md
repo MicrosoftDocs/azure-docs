@@ -124,6 +124,9 @@ In this section, you create a Service Bus queue, connect it to your IoT hub, and
 
 1. Create a Service Bus queue as described in [Get started with queues][lnk-sb-queues-java]. Make a note of the namespace and queue name.
 
+    > [!NOTE]
+    > Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
+
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
 
     ![Endpoints in IoT hub][30]
@@ -202,7 +205,7 @@ In this tutorial, you learned how to reliably dispatch device-to-cloud messages 
 
 The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your solution back end.
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite][lnk-suite].
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator][lnk-suite].
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 

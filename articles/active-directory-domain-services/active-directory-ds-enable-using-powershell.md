@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Enable Azure Active Directory Domain Services using PowerShell | Microsoft Docs'
 description: Enable Azure Active Directory Domain Services using PowerShell
 services: active-directory-ds
@@ -159,7 +159,7 @@ $AzureLocation = "westus"
 Connect-AzureAD
 
 # Login to your Azure subscription.
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”

@@ -84,7 +84,7 @@ You can install these packages using `pip`, `easy_install` or through standard `
 
 ### Test the Microsoft Genomics client
 To test the Microsoft Genomics client, download the config file from your genomics account. 
-Navigate to your genomics account by clicking **More services** in the bottom left, filtering, and selecting for genomics accounts.
+Navigate to your genomics account by clicking **All services** in the top left, filtering, and selecting for genomics accounts.
 
 
 ![Filter for Microsoft Genomics on Azure portal](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Filter for Microsoft Genomics on Azure portal")
@@ -175,4 +175,4 @@ Once your workflow completes, you can view the output files in your Azure Storag
 
 
 ## Next steps
-In this article, you uploaded sample input data into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. To learn more about other input file types that can be used with the Microsoft Genomics service, see the following pages: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) 
+In this article, you uploaded sample input data into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. To learn more about other input file types that can be used with the Microsoft Genomics service, see the following pages: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md). You can also explore this tutorial using our [Azure notebook tutorial.](http://aka.ms/genomicsnotebook)

@@ -27,7 +27,7 @@ You can scale in the portal, and you can also use the [REST API](https://msdn.mi
 ## Scaling manually
 1. In the [Azure Portal](https://portal.azure.com/), click **Browse**, then navigate to the resource you want to scale, such as an **App Service plan**.
 2. Click **Settings > Scale out (App Service plan).**
-3. At the top of the **Scale** blade you can see a history of autoscale actions of the service.
+3. At the top of the **Scale** blade, in the **Run history** tab you can see a history of autoscale actions of the service.
    
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -35,7 +35,7 @@ You can scale in the portal, and you can also use the [REST API](https://msdn.mi
    > Only actions that are performed by autoscale will show up in this chart. If you manually adjust the instance count, the change will not be reflected in this chart.
    > 
    > 
-4. You can manually adjust the number **Instances** with slider.
+4. You can manually adjust the number **Instances** in the **Configure** tab.
 5. Click the **Save** command and you'll be scaled to that number of instances almost immediately.
 
 ## Scaling based on a pre-set metric

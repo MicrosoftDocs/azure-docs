@@ -12,8 +12,6 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
 
@@ -540,6 +538,7 @@ MH: 6
 FM: 5
 ```
 
-<!-- ## Next steps -->
-<!-- * [Phoenix in HDInsight](hdinsight-phoenix-in-hdinsight.md)  -->
-<!-- * [Using the HBase REST SDK](hdinsight-using-hbase-rest-sdk.md)  -->
+## Next steps 
+
+* [Phoenix in HDInsight](../hdinsight-phoenix-in-hdinsight.md)
+* [Using the HBase REST SDK](apache-hbase-rest-sdk.md)

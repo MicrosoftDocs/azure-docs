@@ -33,7 +33,7 @@ Follow these steps:
 2. Assign the necessary permissions to the service principal in Data Lake Store.
 3. To access a file in Data Lake Store, use the service principal credentials in Notebook.
 
-For more information, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
+For more information, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
 
 ## Fix common problems
 

@@ -26,12 +26,12 @@ The following limits apply only for networking resources managed through Azure R
 | Subnets per virtual network |1000 |10000 |
 | Virtual network peerings per Virtual Network |10 |50 |
 | DNS Servers per virtual network |9 |25 |
-| Private IP Addresses per virtual network |4096 |8192 |
+| Private IP Addresses per virtual network |16384** |16384 |
 | Private IP Addresses per network interface |256 |1024 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
-| Network Interfaces (NIC) |350 |20000 |
+| Network Interfaces (NIC) |24000** |24000 |
 | Network Security Groups (NSG) |100 |5000 |
-| NSG rules per NSG |200 |500 |
+| NSG rules per NSG |1000** |1000 |
 | IP addresses and ranges specified for source or destination in a security group |2000 |4000 |
 | Application security groups |200 |500 |
 | Application security groups per IP configuration, per NIC |10 |20 |
@@ -44,6 +44,8 @@ The following limits apply only for networking resources managed through Azure R
 | Public IP addresses - static |(Standard) 20 |contact support |
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 
+**These default limits apply to subscriptions that have not previously had these limits increased through support
+
 #### <a name="load-balancer"></a>Load Balancer limits
 
 | Resource | Default limit | Maximum Limit |
@@ -52,11 +54,11 @@ The following limits apply only for networking resources managed through Azure R
 | Rules per resource, Basic | 150 | 250 |
 | Rules per resource, Standard | 1250 | 1500 |
 | Rules per IP configuration | 299 |299 |
-| Frontend IP configurations, Basic | 10 | contact support |
+| Frontend IP configurations, Basic | 10 | 200 |
 | Frontend IP configurations, Standard | 10 | 600 |
-| Backend pool, Basic | 100, single Availability Set | - |
-| Backend pool, Standard | 1000, single VNet | - |
-| HA Ports, Standard | 1 per internal frontend | - |
+| Backend pool, Basic | 100, single Availability Set | 100, single Availability Set |
+| Backend pool, Standard | 1000, single VNet | 1000, single VNet |
+| HA Ports, Standard | 1 per internal frontend | 1 per internal frontend |
 
 [Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 

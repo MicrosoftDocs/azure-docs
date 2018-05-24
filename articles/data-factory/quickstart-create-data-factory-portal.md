@@ -1,16 +1,16 @@
 ---
 title: Create an Azure data factory using the Azure Data Factory UI | Microsoft Docs
-description: 'This tutorial shows you how to create a data factory with a pipeline that copies data from one folder to another folder in Azure Blob Storage.'
+description: Create a data factory with a pipeline that copies data from one location in Azure Blob storage to another location.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
 
 ---
@@ -35,8 +35,9 @@ Watching this video helps you understand the Data Factory UI:
 
 ## Create a data factory
 
-1. Go to the [Azure portal](https://portal.azure.com). 
-2. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. Go to the [Azure portal](https://portal.azure.com). 
+3. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 2. On the **New data factory** page, enter **ADFTutorialDataFactory** for **Name**. 
@@ -131,7 +132,7 @@ In the linked service settings, you specified the Azure storage account that con
 
    c. Specify **OutputDataset** for the name.
 
-   d. Enter **adftutorial/output** for the folder. The copy activity creates the output folder if it doesn't exist.
+   d. Enter **adftutorial/output** for the folder. If the **output** folder does not exist, the copy activity creates it at runtime.
 
    e. Enter `@CONCAT(pipeline().RunId, '.txt')` for the file name. 
    
@@ -140,7 +141,7 @@ In the linked service settings, you specified the Azure storage account that con
    ![Output dataset settings](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
 
 ## Create a pipeline 
-In this procedure, you create and validate a pipeline with a copy activity that uses the input and output datasets. The copy activity copies data from the file specified in the input dataset settings to the file specified in the output dataset settings. If the input dataset specifies only a folder (not the file name), the copy activity copies all the files in the source folder to the destination. 
+In this procedure, you create and validate a pipeline with a copy activity that uses the input and output datasets. The copy activity copies data from the file you specified in the input dataset settings to the file you specified in the output dataset settings. If the input dataset specifies only a folder (not the file name), the copy activity copies all the files in the source folder to the destination. 
 
 1. Select the **+** (plus) button, and then select **Pipeline**. 
 
@@ -178,7 +179,7 @@ In this step, you test run the pipeline before deploying it to Data Factory.
 ## Trigger the pipeline manually
 In this procedure, you deploy entities (linked services, datasets, pipelines) to Azure Data Factory. Then, you manually trigger a pipeline run. You can also publish entities to your own Visual Studio Team Services Git repository, which is covered in [another tutorial](tutorial-copy-data-portal.md?#configure-code-repository).
 
-1. Before you trigger a pipeline, you must publish entities to Data Factory. To publish, select **Publish** in the left pane. 
+1. Before you trigger a pipeline, you must publish entities to Data Factory. To publish, select **Publish All** in the left pane. 
 
    ![Publish button](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. To trigger the pipeline manually, select **Trigger** on the toolbar, and then select **Trigger Now**. 
@@ -222,9 +223,9 @@ This procedure is optional in this tutorial. You can create a *scheduler trigger
 5. Review the warning message, and select **Finish**.
 
    ![Warning and "Finish" button](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Select **Publish** to publish changes to Data Factory. 
+6. Select **Publish All** to publish changes to Data Factory. 
 
-   ![Publish button](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![Publish button](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Switch to the **Monitor** tab on the left. Select **Refresh** to refresh the list. You see that the pipeline runs once every minute from the publish time to the end time. 
 
    Notice the values in the **Triggered By** column. The manual trigger run was from the step (**Trigger Now**) that you did earlier. 

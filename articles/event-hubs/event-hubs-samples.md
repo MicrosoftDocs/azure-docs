@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: sethm
 
 ---
@@ -59,14 +59,6 @@ The [Event Hubs Getting Started](https://code.msdn.microsoft.com/Service-Bus-Eve
 
 The [Scale out event processing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) sample demonstrates how to use the [Event Processor Host](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) to distribute the workload of Event Hubs stream consumption. It shows how to implement the **EventProcessor** and **EventProcessorFactory** objects to manage the event stream. 
 
-###  Pull data from SQL into an event hub
-
-The [Pulling SQL data](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) sample shows how to pull data from a SQL table and push it to an event hub, to use as an input in downstream analytical applications.
-
-### Pull web data into an event hub 
-
-The [Import data from the web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) sample shows how to pull data from public feeds (such as the Department of Transportation's traffic information feed) and push it to an event hub.
-
 ## Next steps
 
 Learn more about .NET Framework versions by visiting the following links:
@@ -77,5 +69,5 @@ Learn more about .NET Framework versions by visiting the following links:
 You can learn more about Event Hubs in the following articles:
 
 - [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-- [Create an event hub](event-hubs-create.md)
+- [Event Hubs features](event-hubs-features.md)
 - [Event Hubs FAQ](event-hubs-faq.md)

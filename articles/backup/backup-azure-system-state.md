@@ -4,7 +4,7 @@ description: Learn to back up the system state of Windows Server and/or Windows 
 services: backup
 documentationcenter: ''
 author: saurabhsensharma
-manager: carmonm
+manager: shivamg
 editor: ''
 keywords: how to backup; how to back up; backup files and folders
 
@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
-ms.author: saurse;markgal
+ms.date: 05/23/2018
+ms.author: saurse
 
 ---
 # Back up Windows system state in Resource Manager deployment
@@ -30,7 +30,7 @@ To back up your Windows Server System State, you need to create a Recovery Servi
 
 ### To create a Recovery Services vault
 1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
-2. On the Hub menu, click **More services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
+2. On the Hub menu, click **All services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
@@ -84,7 +84,7 @@ When you create a Recovery Services vault, make sure storage redundancy is confi
 
     ![storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
+    By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy-grs.md) and [locally redundant](../storage/common/storage-redundancy-lrs.md) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
 
 Now that you've created a vault, configure it for backing up Windows System State.
 
@@ -136,6 +136,8 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 > The vault credentials must be saved only to a location that is local to the Windows Server on which you intend to use the agent. 
 >
 
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## Install and register the agent
 
 > [!NOTE]
@@ -170,6 +172,11 @@ The initial backup includes two tasks:
 * Back up  System State for the first time
 
 To complete the initial backup, use the Microsoft Azure Recovery Services agent.
+
+> [!NOTE]
+> You can back up System State on Windows Server 2008 R2 through Windows Server 2016. System State back up is not supported on client SKUs. System State is not shown as an option for Windows clients, or Windows Server 2008 SP2 machines.
+>
+>
 
 ### To schedule the backup job
 

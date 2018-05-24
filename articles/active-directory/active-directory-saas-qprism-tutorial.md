@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/23/2018
 ms.author: jeedes
 
 ---
@@ -27,14 +27,14 @@ Integrating QPrism with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed on to QPrism (single sign-on) with their Azure AD accounts.
 - You can manage your accounts in one central location: the Azure portal.
 
-For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
 To configure Azure AD integration with QPrism, you need the following items:
 
 - An Azure AD subscription
-- A QPrism single-sign on enabled subscription
+- A QPrism single sign-on enabled subscription
 
 To test the steps in this tutorial, follow these recommendations:
 
@@ -108,34 +108,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal, and con
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual identifier and sign-on URL. Contact [QPrism Client support team](mailto:qsupport-ce@quatrro.com) to get these values. 
 
-4. To generate the **Metadata** URL, do the following:
+4. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
-    a. Select **App registrations**.
-    
-    ![Configure single sign-on app registrations](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appregistrations.png)
-   
-    b. Select **Endpoints** to open **Endpoints** dialog box.  
-    
-    ![Configure single sign-on endpoint](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpointicon.png)
-
-    c. Select the copy button to copy the **FEDERATION METADATA DOCUMENT** URL, and paste it into Notepad.
-    
-    ![Configure single sign-on endpoint](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpoint.png)
-     
-    d. Now go to the property page of **QPrism**, and copy the **Application ID** by using **Copy**. Then paste it into Notepad.
- 
-    ![Configure single sign-on application ID](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appid.png)
-
-    e. Generate the **Metadata URL** by using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
+     ![The Certificate download link](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_certificate.png)
 
 5. Select **Save**.
 
 	![Configure single sign-on Save button](./media/active-directory-saas-qprism-tutorial/tutorial_general_400.png)
 	
-6. To configure single sign-on on the **QPrism** side, send the **Metadata URL** to the [QPrism support team](mailto:qsupport-ce@quatrro.com). They ensure that the SAML single sign-on connection is set properly on both sides.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app. After you add this app from the **Active Directory** > **Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+6. To configure single sign-on on **QPrism** side, you need to send the **App Federation Metadata Url** to [QPrism support team](mailto:qsupport-ce@quatrro.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -213,7 +194,7 @@ For more information about the Access Panel, see [Introduction to the Access 
 ## Additional resources
 
 * [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

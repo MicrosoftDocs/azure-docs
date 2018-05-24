@@ -210,7 +210,7 @@ This article describes the Azure infrastructure preparation steps that are neede
 
 Before you start the installation, review the following article:
 
-* [Architecture guide: Cluster SAP ASCS/SCS instances on a Windows failover cluster by using file share][sap-high-availability-guide-wsfc-shared-disk]
+* [Architecture guide: Cluster SAP ASCS/SCS instances on a Windows failover cluster by using file share][sap-high-availability-guide-wsfc-file-share]
 
 
 ## Host names and IP addresses

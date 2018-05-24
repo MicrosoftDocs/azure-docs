@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Box | Microsoft Docs'
+title: 'Tutorial: Configure Box for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Box .
 services: active-directory
 documentationCenter: na
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Configuring Box for Automatic User Provisioning
+# Tutorial: Configure Box for automatic user provisioning
 
 The objective of this tutorial is to show the steps you need to perform in Box and Azure AD to automatically provision and de-provision user accounts from Azure AD to Box.
 
@@ -40,7 +40,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 The **Box > Users and Groups** tab in the Azure portal allows you to specify which users and groups should be granted access to Box. Assignment of a user or group causes the following things to occur:
 
 * Azure AD permits the assigned user (either by direct assignment or group membership) to authenticate to Box. If a user is not assigned, then Azure AD does not permit them to sign in to Box and returns an error on the Azure AD sign-in page.
-* An app tile for Box is added to the user's [application launcher](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+* An app tile for Box is added to the user's [application launcher](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 * If automatic provisioning is enabled, then the assigned users and/or groups are added to the provisioning queue to be automatically provisioned.
   
   * If only user objects were configured to be provisioned, then all directly assigned users are placed in the provisioning queue, and all users that are members of any assigned groups are placed in the provisioning queue. 
@@ -105,9 +105,9 @@ The objective of this section is to outline how to enable provisioning of Active
 
 14. Click **Save.**
 
-That starts the initial synchronization of any users and/or groups assigned to Box in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Box app.
+That starts the initial synchronization of any users and/or groups assigned to Box in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Box app.
 
-You can now create a test account. Wait for up to 20 minutes to verify that the account has been synchronized to box.
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 In your Box tenant, synchronized users are listed under **Managed Users** in the **Admin Console**.
 
@@ -117,5 +117,5 @@ In your Box tenant, synchronized users are listed under **Managed Users** in the
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure Single Sign-on](active-directory-saas-box-tutorial.md)

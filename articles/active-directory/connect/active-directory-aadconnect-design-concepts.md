@@ -42,7 +42,7 @@ The attribute value must follow the following rules:
 * Not contain a special character: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Must be globally unique
 * Must be either a string, integer, or binary
-* Should not be based on user's name, these changes
+* Should not be based on user's name, these change
 * Should not be case-sensitive and avoid values that may vary by case
 * Should be assigned when the object is created
 

@@ -10,9 +10,13 @@ ms.topic: sample
 ms.service: functions
 ms.custom: mvc
 ---
-# Create a function in Azure that is deployed from Visual Studio Team Services
+# Create a function app and deploy function code from Visual Studio Team Services
 
-This topic shows you how to use Azure Functions to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function app using the [consumption plan](../functions-scale.md#consumption-plan). The function app, which is a container for your functions, is continuously deployed from a Visual Studio Team Services (VSTS) repository. To complete this topic, you must have:
+This topic shows you how to use Azure Functions to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function app using the [consumption plan](../functions-scale.md#consumption-plan). The function app, which is a container for your functions, is continuously deployed from a Visual Studio Team Services (VSTS) repository. 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+
+To complete this topic, you must have:
 
 * A VSTS repository that contains your function app project and to which you have administrative permissions.
 * A [personal access token (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) to access your VSTS repository.
@@ -44,6 +48,6 @@ This script uses the following commands to create a resource group, storage acco
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
 Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).

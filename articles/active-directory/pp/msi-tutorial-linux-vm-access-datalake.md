@@ -3,8 +3,8 @@ title: How to use a Linux VM Managed Service Identity (MSI) to access Azure Data
 description: A tutorial that shows you how to use a Linux VM Managed Service Identity (MSI) to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
-author: skwan
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 For this tutorial, we create a new Linux VM. You can also enable MSI on an existing VM.
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 
@@ -184,7 +184,7 @@ Congratulations!  You've authenticated to the Data Lake Store filesystem using a
 ## Related content
 
 - For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
-- For management operations Data Lake Store uses Azure Resource Manager.  For more information on using a VM MSI to authenticate to Resource Manager, read [Use a Linux VM Managed Service Identity (MSI) to access Resource Manager](msi-tutorial-linux-vm-access-arm.md).
+- For management operations Data Lake Store uses Azure Resource Manager.  For more information on using a VM MSI to authenticate to Resource Manager, read [Use a Linux VM Managed Service Identity (MSI) to access Resource Manager](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Learn more about [Authentication with Data Lake Store using Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 - Learn more about [Filesystem operations on Azure Data Lake Store using REST API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) or the [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis.md).
 - Learn more about [Access Control in Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).

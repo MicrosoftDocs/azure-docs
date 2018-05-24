@@ -153,7 +153,7 @@ These endpoint differences must be taken into account when you connect to storag
     ```
 
 #### Node.js
-1. Download the [Azure Storage SDK for Node.js](../storage/blobs/storage-nodejs-how-to-use-blob-storage.md#configure-your-application-to-access-storage) and configure your application accordingly.
+1. Download the [Azure Storage SDK for Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md#configure-your-storage-connection-string) and configure your application accordingly.
 2. The following code below connects to Azure Blob Storage and creates a Container using the Azure Storage API. 
     **Paste** your Azure Storage account connection string into the storageConnectionString variable below. 
 

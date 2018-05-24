@@ -4,15 +4,15 @@ description: Learn about Web Table Connector of Azure Data Factory that lets you
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/05/2018
+ms.topic: conceptual
+ms.date: 04/28/2018
 ms.author: jingwang
 
 ---
@@ -76,7 +76,7 @@ The following properties are supported for Web table linked service:
 
 For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Web table dataset.
 
-To copy data from Web table, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data from Web table, set the type property of the dataset to **WebTable**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -91,7 +91,10 @@ To copy data from Web table, set the type property of the dataset to **Relationa
     "name": "WebTableInput",
     "properties": {
         "type": "WebTable",
-        "linkedServiceName": "WebLinkedService",
+        "linkedServiceName": {
+            "referenceName": "<Web linked service name>",
+            "type": "LinkedServiceReference"
+        },
         "typeProperties": {
             "index": 1,
             "path": "AFI's_100_Years...100_Movies"
@@ -140,6 +143,8 @@ To copy data from Web table, set the source type in the copy activity to **WebSo
 ```
 
 ## Get index of a table in an HTML page
+
+To get the index of a table which you need to configure in [dataset properties](#dataset-properties), you can use e.g. Excel 2016 as the tool as follows:
 
 1. Launch **Excel 2016** and switch to the **Data** tab.
 2. Click **New Query** on the toolbar, point to **From Other Sources** and click **From Web**.

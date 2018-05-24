@@ -2,18 +2,15 @@
 title: Add sign-in to a Node.js web app - Azure Active Directory B2C
 description: How to build a Node.js web app that signs in users with Azure Active Directory B2C.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: dstrockis
+editor: ''
 
-ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: javascript
 ms.topic: article
 ms.date: 03/10/2017
-ms.author: xerners
+ms.author: davidmu
 ---
 
 # Azure AD B2C: Add sign-in to a Node.js web app
@@ -29,7 +26,7 @@ You need to:
 3. Use Passport to issue sign-in and sign-out requests to Azure AD.
 4. Print user data.
 
-The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). To follow along, you can [download the app's skeleton as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip). You can also clone the skeleton:
+The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). To follow along, you can [download the app's skeleton as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/master.zip). You can also clone the skeleton:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
@@ -398,7 +395,7 @@ Run `node app.js` and navigate to `http://localhost:3000`
 
 Sign up or sign in to the app by using email or Facebook. Sign out and sign back in as a different user.
 
-##Next steps
+## Next steps
 
 For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). You can also clone it from GitHub:
 

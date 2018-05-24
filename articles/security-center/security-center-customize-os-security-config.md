@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/25/2018
 ms.author: terrylan
 
 ---
@@ -24,7 +24,7 @@ This walkthrough demonstrates how to customize OS security configuration assessm
 
 ## What are OS security configurations?
 
-Azure Security Center monitors security configurations by applying a set of over 150 recommended rules for hardening the OS, including rules related to firewalls, auditing, password policies, and more. If a machine is found to have a vulnerable configuration, Security Center generates a security recommendation.
+Azure Security Center monitors security configurations by applying a set of [over 150 recommended rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for hardening the OS, including rules related to firewalls, auditing, password policies, and more. If a machine is found to have a vulnerable configuration, Security Center generates a security recommendation.
 
 By customizing the rules, organizations can control which configuration options are more appropriate for their environment. You can set a customized assessment policy and then apply it on all applicable machines in the subscription.
 
@@ -58,8 +58,8 @@ To customize the default OS security configuration in Security Center, do the fo
 3.  Select the subscription that you want to perform the customization for.
 
 4. Under **Policy Components**, select **Edit security configurations**.  
-    The **Edit security configurations** window opens. 
-    
+    The **Edit security configurations** window opens.
+
     ![The "Edit security configurations" window](media/security-center-customize-os-security-config/blade.png)
 
 5. In the right pane, follow the steps for downloading, editing, and uploading the modified file.
@@ -68,7 +68,7 @@ To customize the default OS security configuration in Security Center, do the fo
    > By default, the configuration file that you download is in *json* format. For instructions about modifying this file, go to [Customize the configuration file](#customize-the-configuration-file).
    >
 
-   After you've successfully saved the file, the configuration is applied to all VMs and computers that are connected to all workspaces under the subscription. The process usually takes a few minutes but can take longer, depending on the infrastructure size. 
+   After you've successfully saved the file, the configuration is applied to all VMs and computers that are connected to all workspaces under the subscription. The process usually takes a few minutes but can take longer, depending on the infrastructure size.
 
 6. To commit the change, select **Save**. Otherwise, the policy is not stored.
 

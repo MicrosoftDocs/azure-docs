@@ -4,8 +4,8 @@ description: 'In this tutorial, you create an Azure Data Factory pipeline that c
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -131,7 +131,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 	```
 
-### Create another table in the SQL database to store the high watermark value
+### Create another table in the Azure SQL database to store the high watermark value
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value: 
     
     ```sql
@@ -153,7 +153,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     
     ```
 
-### Create a stored procedure in the SQL database 
+### Create a stored procedure in the Azure SQL database 
 
 Run the following command to create a stored procedure in your SQL database. This stored procedure updates the watermark value after every pipeline run. 
 
@@ -171,7 +171,7 @@ END
 
 ```
 
-### Create data types and additional stored procedures
+### Create data types and additional stored procedures in Azure SQL database
 Run the following query to create two stored procedures and two data types in your SQL database. 
 They're used to merge the data from source tables into destination tables.
 
@@ -225,6 +225,7 @@ END
 
 ## Create a data factory
 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
@@ -419,7 +420,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     3. Select **Object** for the parameter **type**.
 
     ![Pipeline parameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. Drag-and-drop the **ForEach** activity from the **Activities** toolbox to the pipeline designer surface. In the **General** tab of the **Properties** window, enter **IterateSQLTables**. 
+4. In the **Activities** toolbox, expand **Iteration & Conditionals**, and drag-drop the **ForEach** activity to the pipeline designer surface. In the **General** tab of the **Properties** window, enter **IterateSQLTables**. 
 
     ![ForEach activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. Switch to the **Settings** tab in the **Properties** window, and enter `@pipeline().parameters.tableList` for **Items**. The ForEach activity iterates through a list of tables and performs the incremental copy operation. 
@@ -428,7 +429,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 6. Select the **ForEach** activity in the pipeline if it isn't already selected. Click the **Edit (Pencil icon)** button.
 
     ![ForEach activity - edit](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. Drag-drop the **Lookup** activity from the **Activities** toolbox, and enter **LookupOldWaterMarkActivity** for **Name**.
+7. In the **Activities** toolbox, expand **General**, drag-drop the **Lookup** activity to the pipeline designer surface, and enter **LookupOldWaterMarkActivity** for **Name**.
 
     ![First Lookup Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. Switch to the **Settings** tab of the **Properties** window, and do the following steps: 
@@ -494,12 +495,13 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 19. Switch to the **Stored Procedure** tab, and do the following steps:
 
-    1. Enter `sp_write_watermark` for **Stored procedure name**. 
-    2. Use the **New** button to add the following parameters: 
+    1. For **Stored procedure name**, select `sp_write_watermark`. 
+    2. Select **Import parameter**. 
+    3. Specify the following values for the parameters: 
 
         | Name | Type | Value | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

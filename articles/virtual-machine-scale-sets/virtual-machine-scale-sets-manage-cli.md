@@ -21,11 +21,11 @@ ms.author: iainfou
 # Manage a virtual machine scale set with the Azure CLI 2.0
 Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. This article details some of the common Azure CLI 2.0 commands that let you perform these tasks.
 
-To complete these management tasks, you need the latest Azure CLI 2.0 build. For information on how to install and use the latest version, see [Install the Azure CLI 2.0](/cli/azure/install-azure-cli). If you need to create a virtual machine scale set, you can [create a scale set in the Azure portal](virtual-machine-scale-sets-create-portal.md).
+To complete these management tasks, you need the latest Azure CLI 2.0. For information, see [Install the Azure CLI 2.0](/cli/azure/install-azure-cli). If you need to create a virtual machine scale set, you can [create a scale set with the Azure CLI 2.0](quick-create-cli.md).
 
 
 ## View information about a scale set
-To view the overall information about a scale set, use [az vmss show](/cli/azure/vmss#show). The following example gets information about the scale set named *myScaleSet* in the *myResourceGroup* resource group. Enter your own names as follows:
+To view the overall information about a scale set, use [az vmss show](/cli/azure/vmss#az_vmss_show). The following example gets information about the scale set named *myScaleSet* in the *myResourceGroup* resource group. Enter your own names as follows:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -65,7 +65,7 @@ az vmss list-instance-connection-info \
 ## Change the capacity of a scale set
 The preceding commands showed information about your scale set and the VM instances. To increase or decrease the number of instances in the scale set, you can change the capacity. The scale set creates or removes the required number of VMs, then configures the VMs to receive application traffic.
 
-To see the number of instances you currently have in a scale set, use [az vmss show](/cli/azure/vmss#show) and query on *sku.capacity*:
+To see the number of instances you currently have in a scale set, use [az vmss show](/cli/azure/vmss#az_vmss_show) and query on *sku.capacity*:
 
 ```azurecli
 az vmss show \
@@ -75,7 +75,7 @@ az vmss show \
     --output table
 ```
 
-You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](/cli/azure/vmss#scale). The following example sets the number of VMs in your scale set to *5*:
+You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](/cli/azure/vmss#az_vmss_scale). The following example sets the number of VMs in your scale set to *5*:
 
 ```azurecli
 az vmss scale \
@@ -96,7 +96,7 @@ The following example stops instance *0* in the scale set named *myScaleSet* and
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-Stopped VMs remain allocated and continue to incur compute charges. If you instead wish the VMs to be deallocated and only incur storage charges, use [az vmss deallocate](/cli/azure/vmss#deallocate). To deallocate multiple VMs, separate each instance ID with a space. The following example stops and deallocates instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
+Stopped VMs remain allocated and continue to incur compute charges. If you instead wish the VMs to be deallocated and only incur storage charges, use [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate). To deallocate multiple VMs, separate each instance ID with a space. The following example stops and deallocates instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 
 ```azurecli
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -104,7 +104,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### Start VMs in a scale set
-To start one or more VMs in a scale set, use [az vmss start](/cli/azure/vmss#start). The `--instance-ids` parameter allows you to specify one or more VMs to start. If you do not specify an instance ID, all VMs in the scale set are started. To start multiple VMs, separate each instance ID with a space.
+To start one or more VMs in a scale set, use [az vmss start](/cli/azure/vmss#az_vmss_start). The `--instance-ids` parameter allows you to specify one or more VMs to start. If you do not specify an instance ID, all VMs in the scale set are started. To start multiple VMs, separate each instance ID with a space.
 
 The following example starts instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 
@@ -114,7 +114,7 @@ az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 
 
 
 ## Restart VMs in a scale set
-To restart one or more VMs in a scale set, use [az vmss restart](/cli/azure/vmss#restart). The `--instance-ids` parameter allows you to specify one or more VMs to restart. If you do not specify an instance ID, all VMs in the scale set are restarted. To restart multiple VMs, separate each instance ID with a space.
+To restart one or more VMs in a scale set, use [az vmss restart](/cli/azure/vmss#az_vmss_restart). The `--instance-ids` parameter allows you to specify one or more VMs to restart. If you do not specify an instance ID, all VMs in the scale set are restarted. To restart multiple VMs, separate each instance ID with a space.
 
 The following example restarts instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 

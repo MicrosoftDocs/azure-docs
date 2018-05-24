@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/24/2018
 ms.author: billmath
 ---
 
@@ -27,7 +27,7 @@ When a user tries to sign in to an application secured by Azure AD, and if Pass-
 2. If the user is not already signed in, the user is redirected to the Azure AD **User Sign-in** page.
 3. The user enters their username and password into the Azure AD sign in page, and then selects the **Sign in** button.
 4. Azure AD, on receiving the request to sign in, places the username and password (encrypted by using a public key) in a queue.
-5. An on-premises Authentication Agent retrieves the username and encrypted password from the queue. Note that the Agent doesn't frequently poll for requests from the queue, but retrieves requests over a pre-established persistant connection.
+5. An on-premises Authentication Agent retrieves the username and encrypted password from the queue. Note that the Agent doesn't frequently poll for requests from the queue, but retrieves requests over a pre-established persistent connection.
 6. The agent decrypts the password by using its private key.
 7. The agent validates the username and password against Active Directory by using standard Windows APIs, which is a similar mechanism to what Active Directory Federation Services (AD FS) uses. The username can be either the on-premises default username, usually `userPrincipalName`, or another attribute configured in Azure AD Connect (known as `Alternate ID`).
 8. The on-premises Active Directory domain controller (DC) evaluates the request and returns the appropriate response (success, failure, password expired, or user locked out) to the agent.

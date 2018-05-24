@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 02/12/2018
 ms.author: tdykstra
 ---
 
@@ -45,6 +45,13 @@ The following sample *host.json* file has all possible options specified.
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -104,7 +111,7 @@ Specifies how many function invocations are aggregated when [calculating metrics
 }
 ```
 
-|Property  |Default | Description |
+|Property |Default  | Description |
 |---------|---------|---------| 
 |batchSize|1000|Maximum number of requests to aggregate.| 
 |flushTimeout|00:00:30|Maximum time period to aggregate.| 
@@ -128,8 +135,48 @@ Controls the [sampling feature in Application Insights](functions-monitoring.md#
 
 |Property  |Default | Description |
 |---------|---------|---------| 
-|isEnabled|false|Enables or disables sampling.| 
+|isEnabled|true|Enables or disables sampling.| 
 |maxTelemetryItemsPerSecond|5|The threshold at which sampling begins.| 
+
+## durableTask
+
+Configuration settings for [Durable Functions](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub",
+    "ControlQueueBatchSize": 32,
+    "PartitionCount": 4,
+    "ControlQueueVisibilityTimeout": "00:05:00",
+    "WorkItemQueueVisibilityTimeout": "00:05:00",
+    "MaxConcurrentActivityFunctions": 10,
+    "MaxConcurrentOrchestratorFunctions": 10,
+    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
+    "TraceInputsAndOutputs": false,
+    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "EventGridKeySettingName":  "EventGridKey"
+  }
+}
+```
+
+Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](durable-functions-task-hubs.md).
+
+|Property  |Default | Description |
+|---------|---------|---------|
+|HubName|DurableFunctionsHub|Alternate [task hub](durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if they are using the same storage backend.|
+|ControlQueueBatchSize|32|The number of messages to pull from the control queue at a time.|
+|PartitionCount |4|The partition count for the control queue. May be a positive integer between 1 and 16.|
+|ControlQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued control queue messages.|
+|WorkItemQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued work item  queue messages.|
+|MaxConcurrentActivityFunctions |10X the number of processors on the current machine|The maximum number of activity functions that can be processed concurrently on a single host instance.|
+|MaxConcurrentOrchestratorFunctions |10X the number of processors on the current machine|The maximum number of activity functions that can be processed concurrently on a single host instance.|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|The name of the app setting that has the Azure Storage connection string used to manage the underlying Azure Storage resources.|
+|TraceInputsAndOutputs |false|A value indicating whether to trace the inputs and outputs of function calls. The default behavior when tracing function execution events is to include the number of bytes in the serialized inputs and outputs for function calls. This provides minimal information about what the inputs and outputs look like without bloating the logs or inadvertently exposing sensitive information to the logs. Setting this property to true causes the default function logging to log the entire contents of function inputs and outputs.|
+|EventGridTopicEndpoint ||The URL of an Azure Event Grid custom topic endpoint. When this property is set, orchestration life cycle notification events are published to this endpoint.|
+|EventGridKeySettingName ||The name of the app setting containing the key used for authenticating with the Azure Event Grid custom topic at `EventGridTopicEndpoint`.
+
+Many of these are for optimizing performance. For more information, see [Performance and scale](durable-functions-perf-and-scale.md).
 
 ## eventHub
 
@@ -139,7 +186,7 @@ Configuration settings for [Event Hub triggers and bindings](functions-bindings-
 
 ## functions
 
-A list of functions that the job host will run.  An empty array means run all functions.  Intended for use only when [running locally](functions-run-local.md). In function apps, use the *function.json* `disabled` property rather than this property in *host.json*.
+A list of functions that the job host will run. An empty array means run all functions. Intended for use only when [running locally](functions-run-local.md). In function apps, use the *function.json* `disabled` property rather than this property in *host.json*.
 
 ```json
 {
@@ -157,6 +204,30 @@ Indicates the timeout duration for all functions. In Consumption plans, the vali
 }
 ```
 
+## healthMonitor
+
+Configuration settings for [Host health monitor](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|enabled|true|Whether the feature is enabled. | 
+|healthCheckInterval|10 seconds|The time interval between the periodic background health checks. | 
+|healthCheckWindow|2 minutes|A sliding time window used in conjunction with the `healthCheckThreshold` setting.| 
+|healthCheckThreshold|6|Maximum number of times the health check can fail before a host recycle is initiated.| 
+|counterThreshold|0.80|The threshold at which a performance counter will be considered unhealthy.| 
+
 ## http
 
 Configuration settings for [http triggers and bindings](functions-bindings-http-webhook.md).
@@ -166,6 +237,9 @@ Configuration settings for [http triggers and bindings](functions-bindings-http-
 ## id
 
 The unique ID for a job host. Can be a lower case GUID with dashes removed. Required when running locally. When running in Azure Functions, an ID is generated automatically if `id` is omitted.
+
+If you share a Storage account across multiple function apps, make sure that each function app has a different `id`. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer will run.
+
 
 ```json
 {
@@ -202,25 +276,7 @@ Controls filtering for logs written by an [ILogger object](functions-monitoring.
 
 Configuration settings for [Storage queue triggers and bindings](functions-bindings-storage-queue.md).
 
-```json
-{
-    "queues": {
-      "maxPollingInterval": 2000,
-      "visibilityTimeout" : "00:00:30",
-      "batchSize": 16,
-      "maxDequeueCount": 5,
-      "newBatchThreshold": 8
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|maxPollingInterval|60000|The maximum interval in milliseconds between queue polls.| 
-|visibilityTimeout|0|The time interval between retries when processing of a message fails.| 
-|batchSize|16|The number of queue messages to retrieve and process in parallel. The maximum is 32.| 
-|maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.| 
-|newBatchThreshold|batchSize/2|The threshold at which a new batch of messages are fetched.| 
+[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## serviceBus
 
@@ -233,6 +289,7 @@ Configuration setting for [Service Bus triggers and bindings](functions-bindings
 Configuration settings for Singleton lock behavior. For more information, see [GitHub issue about singleton support](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
+{
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -278,21 +335,6 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
     "watchDirectories": [ "Shared" ]
 }
 ```
-
-## durableTask
-
-[Task hub](durable-functions-task-hubs.md) name for [Durable Functions](durable-functions-overview.md).
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub"
-  }
-}
-```
-
-Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](durable-functions-task-hubs.md).
-
 
 ## Next steps
 

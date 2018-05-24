@@ -3,8 +3,8 @@ title: Database migration tool for Azure Cosmos DB | Microsoft Docs
 description: Learn how to use the open source Azure Cosmos DB data migration tools to import data to Azure Cosmos DB from various sources including MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV, and JSON files. CSV to JSON conversion.
 keywords: csv to json, database migration tools, convert csv to json
 services: cosmos-db
-author: andrewhoh
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: monicar
 documentationcenter: ''
 
@@ -14,13 +14,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
-ms.author: anhoh
+ms.date: 03/30/2018
+ms.author: sngun
 ms.custom: mvc
 ---
 # Azure Cosmos DB: Data migration tool
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 This tutorial provides instructions on using the Azure Cosmos DB Data Migration tool, which can import data from various sources into Azure Cosmos DB collections and tables. You can import from JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and even Azure Cosmos DB SQL API collections, and you migrate that data to collections and tables for use with Azure Cosmos DB. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the SQL API.
 
@@ -42,6 +40,8 @@ Before following the instructions in this article, ensure that you have the foll
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) or higher.
 
+* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for an individual collection or a set of collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
+
 ## <a id="Overviewl"></a>Overview
 The Data Migration tool is an open source solution that imports data to Azure Cosmos DB from a variety of sources, including:
 
@@ -57,7 +57,7 @@ The Data Migration tool is an open source solution that imports data to Azure Co
 While the import tool includes a graphical user interface (dtui.exe), it can also be driven from the command line (dt.exe). In fact, there is an option to output the associated command after setting up an import through the UI. Tabular source data (e.g. SQL Server or CSV files) can be transformed such that hierarchical relationships (subdocuments) can be created during import. Keep reading to learn more about source options, sample command lines to import from each source, target options, and viewing import results.
 
 ## <a id="Install"></a>Installation
-The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool) and a compiled version is available from [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). You may either compile the solution or simply download and extract the compiled version to a directory of your choice. Then run either:
+The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally, or [download a pre-compiled binary](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip), then run either:
 
 * **Dtui.exe**: Graphical interface version of the tool
 * **Dt.exe**: Command-line version of the tool
@@ -459,7 +459,7 @@ To import to a single collection, enter the name of the collection to which data
 Once the collection name(s) have been specified, choose the desired throughput of the collection(s) (400 RUs to 250,000 RUs). For best import performance, choose a higher throughput. For more information about performance levels, see [Performance levels in Azure Cosmos DB](performance-levels.md). Any import to collections with throughput >10,000 RUs require a partition key. If you choose to have more than 250,000 RUs, you need to file a request in the portal to have your account increased.
 
 > [!NOTE]
-> The throughput setting only applies to collection creation. If the specified collection already exists, its throughput will not be modified.
+> The throughput setting only applies to collection or database creation. If the specified collection already exists, its throughput will not be modified.
 > 
 > 
 
@@ -505,7 +505,7 @@ Using the Indexing Policy advanced option, you can select an indexing policy fil
 The policy templates the tool provides are:
 
 * Default. This policy is best when you’re performing equality queries against strings and using ORDER BY, range, and equality queries for numbers. This policy has a lower index storage overhead than Range.
-* Range. This policy is best you’re using ORDER BY, range, and equality queries on both numbers and strings. This policy has a higher index storage overhead than Default or Hash.
+* Range. This policy is best when you’re using ORDER BY, range, and equality queries on both numbers and strings. This policy has a higher index storage overhead than Default or Hash.
 
 ![Screenshot of Azure Cosmos DB Indexing Policy advanced options](./media/import-data/indexingpolicy2.png)
 

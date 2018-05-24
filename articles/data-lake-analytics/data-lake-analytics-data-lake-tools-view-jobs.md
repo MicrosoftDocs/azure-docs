@@ -1,23 +1,17 @@
 ---
-title: Use Job Browser and Job View for Azure Data Lake Analytics jobs | Microsoft Docs
-description: 'Learn how to use Job Browser and Job View for Azure Data Lake Analytics jobs. '
+title: Use Job Browser and Job View for Azure Data Lake Analytics jobs
+description: This article describes how to use Job Browser and Job View for Azure Data Lake Analytics jobs.
 services: data-lake-analytics
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+editor: jasonwhowell
+ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
+ms.topic: conceptual
 ms.date: 08/02/2017
-ms.author: jgao
-
 ---
-# Use Job Browser and Job View for Azure Data lake Analytics jobs
+# Use Job Browser and Job View for Azure Data Lake Analytics
 The Azure Data Lake Analytics service archives submitted jobs in a [query store](#query-store). In this article, you learn how to use Job Browser and Job View in Azure Data Lake Tools for Visual Studio to find the historical job information. 
 
 By default, the Data Lake Analytics service archives the jobs for 30 days. The expiration period can be configured from the Azure portal by configuring the customized expiration policy. You will not be able to access the job information after expiration. 
@@ -46,7 +40,7 @@ Job View contains:
       ![Azure Data Lake Analytics job phases status](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Preparing: Upload your script to the cloud, compiling and optimizing the script using the compile service.
-    * Queued: Jobs are queued whey they are waiting for enough resources, or the jobs exceed the max concurrent jobs per account limitation. The priority setting determines the sequence of queued jobs - the lower the number, the higher the priority.
+    * Queued: Jobs are queued when they are waiting for enough resources, or the jobs exceed the max concurrent jobs per account limitation. The priority setting determines the sequence of queued jobs - the lower the number, the higher the priority.
     * Running: The job is actually running in your Data Lake Analytics account.
     * Finalizing: The job is completing (for example, finalizing the file).
       

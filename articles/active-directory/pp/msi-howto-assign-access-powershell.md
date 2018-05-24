@@ -1,10 +1,10 @@
----
+﻿---
 title: How to assign an MSI access to an Azure resource, using PowerShell
 description: Step by step instructions for assigning an MSI on one resource, access to another resource, using PowerShell.
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -33,10 +33,10 @@ Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com
 
 After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-powershell-windows-vm.md):
 
-1. Sign in to Azure using the `Login-AzureRmAccount` cmdlet. Use an account that is associated with the Azure subscription under which you have configured the MSI:
+1. Sign in to Azure using the `Connect-AzureRmAccount` cmdlet. Use an account that is associated with the Azure subscription under which you have configured the MSI:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 2. In this example, we are giving an Azure VM access to a storage account. First we use [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) to get the service principal for the VM named "myVM", which was created when we enabled MSI. Then, we use [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) to give the VM "Reader" access to a storage account called "myStorageAcct":
 

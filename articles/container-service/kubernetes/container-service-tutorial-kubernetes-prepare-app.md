@@ -3,11 +3,11 @@ title: Azure Container Service tutorial - Prepare App
 description: Azure Container Service tutorial - Prepare App 
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 09/14/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---

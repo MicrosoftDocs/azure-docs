@@ -4,7 +4,7 @@ description: Learn how to capture an image of a Linux-based Azure virtual machin
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -96,7 +96,7 @@ These steps assume that you've already created an Azure VM using the Classic dep
    azure vm image list
    ```
 
-   On the [Azure portal](http://portal.azure.com), the new image appears in the **VM images (classic)** that belongs to the **Compute** services. You can access **VM images (classic)** by clicking _More services_ at the bottom of the Azure service list, and then looking in the **Compute** services.   
+   On the [Azure portal](http://portal.azure.com), the new image appears in the **VM images (classic)** that belongs to the **Compute** services. You can access **VM images (classic)** by clicking **All services** at the top of the Azure service list, and then looking in the **Compute** services.   
 
    ![Image capture successful](./media/capture-image/VMCapturedImageAvailable.png)
 
@@ -105,7 +105,7 @@ The image is ready to be used to create VMs. You can use the Azure CLI command `
 
 Alternatively, use the [Azure portal](http://portal.azure.com) to create a custom VM by using the **Image** method and selecting the image you created. For more information, see [How to Create a Custom VM][How to Create a Custom Virtual Machine].
 
-**See also:** [Azure Linux Agent User Guide](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+**See also:** [Azure Linux Agent User Guide](../../extensions/agent-linux.md)
 
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]:create-custom-classic.md

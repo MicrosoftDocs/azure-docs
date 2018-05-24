@@ -86,7 +86,6 @@ Use the Azure CLI to create a resource group and then add an IoT hub.
 > [!NOTE]
 > The previous command creates an IoT hub in the S1 pricing tier for which you are billed. For more information, see [Azure IoT Hub pricing][lnk-iot-pricing].
 >
->
 
 ## Remove an IoT Hub
 

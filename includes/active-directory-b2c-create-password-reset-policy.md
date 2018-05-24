@@ -1,4 +1,4 @@
-To enable fine-grained password reset on your application, you will need to create a password reset policy. Note that the tenant-wide password reset option specified [here](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). This policy describes the experiences that the consumers will go through during password reset and the contents of tokens that the application will receive on successful completion.
+To enable fine-grained password reset on your application, you use a **password reset** policy. Note that the tenant-wide password reset option specified [here](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). This policy describes the experiences that the customers will go through during password reset and the contents of tokens that the application will receive on successful completion.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

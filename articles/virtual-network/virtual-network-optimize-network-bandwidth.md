@@ -93,7 +93,7 @@ Significant throughput performance can be achieved by upgrading to the Azure Lin
 uname -r
 
 #sample output on Azure kernel:
-#4.11.0-1014-azure
+#4.13.0-1007-azure
 ```
 
 If your VM does not have the Azure kernel, the version number usually begins with "4.4." If the VM does not have the Azure kernel, run the following commands as root:
@@ -141,10 +141,10 @@ In order to get the optimizations, it is best to create a VM with the latest sup
 New and existing VMs can benefit from installing the latest Linux Integration Services (LIS). The throughput optimization is in LIS, starting from 4.2. Enter the following commands to download and install LIS:
 
 ```bash
-mkdir lis4.2.3-1
-cd lis4.2.3-1
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
-tar xvzf lis-rpms-4.2.3-1.tar.gz
+mkdir lis4.2.3-5
+cd lis4.2.3-5
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+tar xvzf lis-rpms-4.2.3-5.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

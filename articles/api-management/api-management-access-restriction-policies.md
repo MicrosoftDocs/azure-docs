@@ -84,8 +84,8 @@ This topic provides a reference for the following API Management policies. For i
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
-    <api name="name" calls="number" renewal-period="seconds">  
-        <operation name="name" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </rate-limit>  
 ```  
@@ -109,8 +109,8 @@ This topic provides a reference for the following API Management policies. For i
 |Name|Description|Required|  
 |----------|-----------------|--------------|  
 |set-limit|Root element.|Yes|  
-|api|Add one  or more of these elements to impose a call rate limit on APIs within the product. Product and API call rate limits are applied independently.|No|  
-|operation|Add one  or more of these elements to impose a call rate limit on operations within an API. Product, API, and operation call rate limits are applied independently.|No|  
+|api|Add one  or more of these elements to impose a call rate limit on APIs within the product. Product and API call rate limits are applied independently. API can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.|No|  
+|operation|Add one  or more of these elements to impose a call rate limit on operations within an API. Product, API, and operation call rate limits are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.|No|  
   
 ### Attributes  
   
@@ -239,8 +239,8 @@ This topic provides a reference for the following API Management policies. For i
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="name" calls="number" bandwidth="kilobytes">  
-        <operation name="name" calls="number" bandwidth="kilobytes" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </quota>  
 ```  
@@ -264,8 +264,8 @@ This topic provides a reference for the following API Management policies. For i
 |Name|Description|Required|  
 |----------|-----------------|--------------|  
 |quota|Root element.|Yes|  
-|api|Add one  or more of these elements to impose a quota on APIs within the product. Product and API quotas are applied independently.|No|  
-|operation|Add one  or more of these elements to impose a quota on operations within an API. Product, API, and operation quotas are applied independently.|No|  
+|api|Add one  or more of these elements to impose call quota on APIs within the product. Product and API call quotas are applied independently. API can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.|No|  
+|operation|Add one  or more of these elements to impose call quota on operations within an API. Product, API, and operation call quotas are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.|No|  
   
 ### Attributes  
   
@@ -346,7 +346,7 @@ This topic provides a reference for the following API Management policies. For i
  The `validate-jwt` policy enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.  
   
 > [!IMPORTANT]
->  The `validate-jwt` policy requires that the `exp` registered claim is inlcuded in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.  
+>  The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.  
 > The `validate-jwt` policy supports HS256 and RS256 signing algorithms. For HS256 the key must be provided inline within the policy in the base64 encoded form. For RS256 the key has to be provide via an Open ID configuration endpoint.  
   
 ### Policy statement  
@@ -493,10 +493,10 @@ This topic provides a reference for the following API Management policies. For i
   
 |Name|Description|Required|Default|  
 |----------|-----------------|--------------|-------------|  
-|clock-skew|Timespan. Provides some small leeway in case the token's expiration claim is present in the token and is past the current date / time.|No|0 seconds|  
+|clock-skew|Timespan. Use to specify maximum expected time difference between the system clocks of the token issuer and the API Management instance.|No|0 seconds|  
 |failed-validation-error-message|Error message to return in the HTTP response body if the JWT does not pass validation. This message must have any special characters properly escaped.|No|Default error message depends on validation issue, for example "JWT not present."|  
 |failed-validation-httpcode|HTTP Status code to return if the JWT doesn't pass validation.|No|401|  
-|header-name|The name of the HTTP header holding the token.|Either `header-name` or `query-paremeter-name` must be specified; but not both.|N/A|  
+|header-name|The name of the HTTP header holding the token.|Either `header-name` or `query-parameter-name` must be specified; but not both.|N/A|  
 |id|The `id` attribute on the `key` element allows you to specify the string that will be matched against `kid` claim in the token (if present) to find out the appropriate key to use for signature validation.|No|N/A|  
 |match|The `match` attribute on the `claim` element specifies whether every claim value in the policy must be present in the token for validation to succeed. Possible values are:<br /><br /> -                          `all` - every claim value in the policy must be present in the token for validation to succeed.<br /><br /> -                          `any` - at least one claim value must be present in the token for validation to succeed.|No|all|  
 |query-paremeter-name|The name of the the query parameter holding the token.|Either `header-name` or `query-paremeter-name` must be specified; but not both.|N/A|  
@@ -504,7 +504,7 @@ This topic provides a reference for the following API Management policies. For i
 |require-scheme|The name of the token scheme, e.g. "Bearer". When this attribute is set, the policy will ensure that specified scheme is present in the Authorization header value.|No|N/A|
 |require-signed-tokens|Boolean. Specifies whether a token is required to be signed.|No|true|  
 |separator|String. Specifies a separator (e.g. ",") to be used for extracting a set of values from a multi-valued claim.|No|N/A| 
-|url|Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`.|Yes|N/A|  
+|url|Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. The response should be according to specs as defined at URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`.|Yes|N/A|  
   
 ### Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

@@ -4,8 +4,7 @@ description: Learn about a design pattern for Social Networks by leveraging the 
 keywords: social media apps
 services: cosmos-db
 author: ealsur
-manager: jhubbard
-editor: ''
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
-ms.author: mimig
+ms.author: maquaran
 
 ---
 # Going social with Azure Cosmos DB
@@ -226,7 +225,7 @@ Cosmos DB supports [dynamic partitioning](https://azure.microsoft.com/blog/10-th
 
 One interesting point worth mentioning is that Cosmos DB will run your queries (including [aggregates](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) across all your partitions transparently, you don't need to add any logic as your data grows.
 
-With time, you will eventually grow in traffic and your resource consumption (measured in [RUs](request-units.md), or Request Units) will increase. You will read and write more frequently as your userbase grows and they will start creating and reading more content; the ability of **scaling your throughput** is vital. Increasing our RUs is very easy, we can do it with a few clicks on the Azure Portal or by [issuing commands through the API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+With time, you will eventually grow in traffic and your resource consumption (measured in [RUs](request-units.md), or Request Units) will increase. You will read and write more frequently as your userbase grows and they will start creating and reading more content; the ability of **scaling your throughput** is vital. Increasing our RUs is very easy, we can do it with a few clicks on the Azure Portal or by [issuing commands through the API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
 ![Scaling up and defining a partition key](./media/social-media-apps/social-media-apps-scaling.png)
 

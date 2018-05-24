@@ -21,12 +21,12 @@ ms.author: crdun
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## Overview
-In this tutorial, you add push notifications to the [Xamarin.Android quick start](app-service-mobile-windows-store-dotnet-get-started.md) project so that a push notification is sent to the device every time a record is inserted.
+In this tutorial, you add push notifications to the [Xamarin.Android quickstart](app-service-mobile-windows-store-dotnet-get-started.md) project so that a push notification is sent to the device every time a record is inserted.
 
-If you do not use the downloaded quick start server project, you will need the push notification extension package. See [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) for more information.
+If you do not use the downloaded quickstart server project, you will need the push notification extension package. For more information, see the [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) guide.
 
 ## Prerequisites
-This tutorial requires the following:
+This tutorial requires the  setup:
 
 * An active Google account. You can sign up for a Google account at [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 * [Google Cloud Messaging Client Component](http://components.xamarin.com/view/GCMClient/).
@@ -52,7 +52,7 @@ This tutorial requires the following:
 ## <a name="test"></a>Test push notifications in your app
 You can test the app by using a virtual device in the emulator. There are additional configuration steps required when running on an emulator.
 
-1. Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device (AVD) manager.
+1. The virtual device must have Google APIs set as the target in the Android Virtual Device (AVD) manager.
    
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 2. Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then follow the prompts.

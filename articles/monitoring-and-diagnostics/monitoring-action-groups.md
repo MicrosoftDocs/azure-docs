@@ -1,8 +1,8 @@
 ---
 title: Create and manage action groups in the Azure portal | Microsoft Docs
 description: Learn how to create and manage action groups in the Azure portal.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
-ms.author: ancav
+ms.date: 04/20/2018
+ms.author: dukek
 
 ---
 # Create and manage action groups in the Azure portal
 ## Overview ##
 This article shows you how to create and manage action groups in the Azure portal.
 
-You can configure a list of actions with action groups. These groups then can be used when you define activity log alerts. These groups can then be reused by each activity log alert you define, ensuring that the same actions are taken each time the activity log alert is triggered.
+You can configure a list of actions with action groups. These groups can then be used by each alert you define, ensuring that the same actions are taken each time an alert is triggered.
 
-An action group can have up to 10 of each action type. Each action is made up of the following properties:
+Each action is made up of the following properties:
 
 * **Name**: A unique identifier within the action group.  
-* **Action type**: Send an SMS, send an email, call a webhook, send data to an ITSM tool, call an Azure app, or run an Automation runbook.
+* **Action type**: Send an Voice call or SMS, send an email, call a webhook, send data to an ITSM tool, call a Logic App, send a push notification to the Azure app, or run an Automation runbook.
 * **Details**: The corresponding phone number, email address, webhook URI, or ITSM Connection Details.
 
 For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md).
@@ -53,14 +53,45 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     a. **Name**: Enter a unique identifier for this action.
 
-    b. **Action Type**: Select SMS, email, webhook, Azure app, ITSM, or Automation Runbook.
+    b. **Action Type**: Select Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
 
-    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires. 
-
-   > [!NOTE]
-   > ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md). ITSM Action currently works only for Activity Log Alerts. For other alert types, this action currently is a no-op.
+    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
 
 8. Select **OK** to create the action group.
+
+## Action specific information
+<dl>
+<dt>Azure app Push</dt>
+<dd>You may have up to 10 Azure app actions in an Action Group.</dd>
+<dd>At this time the Azure app action only supports ServiceHealth alerts. Any other alert time will be ignored. See [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
+
+<dt>Email</dt>
+<dd>You may have up to 50 email actions in an Action Group</dd>
+<dd>See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article</dd>
+
+<dt>ITSM</dt>
+<dd>You may have up to 10 ITSM actions in an Action Group</dd>
+<dd>ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md).</dd>
+
+<dt>Logic App</dt>
+<dd>You may have up to 10 Logic App actions in an Action Group</dd>
+
+<dt>Runbook</dt>
+<dd>You may have up to 10 Runbook actions in an Action Group</dd>
+
+<dt>SMS</dt>
+<dd>You may have up to 10 SMS actions in an Action Group</dd>
+<dd>See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article</dd>
+<dd>See the [SMS alert behavior](monitoring-sms-alert-behavior.md) article</dd>
+
+<dt>Voice</dt>
+<dd>You may have up to 10 Voice actions in an Action Group</dd>
+<dd>See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article</dd>
+
+<dt>Webhook</dt>
+<dd>You may have up to 10 Webhook actions in an Action Group
+<dd>Retry logic - The timeout period for a response is 10 seconds. The webhook call will be retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second and last retry happens after 100 seconds.</dd>
+</dl>
 
 ## Manage your action groups ##
 After you create an action group, it's visible in the **Action groups** section of the **Monitor** blade. Select the action group you want to manage to:
@@ -72,6 +103,6 @@ After you create an action group, it's visible in the **Action groups** section 
 * Learn more about [SMS alert behavior](monitoring-sms-alert-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md).  
 * Learn more about [ITSM Connector](../log-analytics/log-analytics-itsmc-overview.md)
-* Learn more about [rate limiting](monitoring-alerts-rate-limiting.md) on alerts. 
+* Learn more about [rate limiting](monitoring-alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](monitoring-overview-alerts.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).

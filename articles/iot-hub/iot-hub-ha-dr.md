@@ -31,6 +31,8 @@ In addition to intra-region HA, IoT Hub implements failover mechanisms for disas
 | Operations monitoring messages |All unread messages are lost |
 | Cloud-to-device messages |0-5 mins data loss |
 | Cloud-to-device feedback queue |All unread messages are lost |
+| Device twin data |0-5 mins data loss |
+| Parent and device jobs |0-5 mins data loss |
 
 ## Regional failover with IoT Hub
 A complete treatment of deployment topologies in IoT solutions is outside the scope of this article. The article discusses the *regional failover* deployment model for the purpose of high availability and disaster recovery.

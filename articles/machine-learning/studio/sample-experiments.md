@@ -4,8 +4,9 @@ description: Learn how to use example machine learning experiments to create new
 keywords: machine learning examples, sample experiment, machine learning sample, AI examples
 services: machine-learning
 documentationcenter: ''
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/05/2018
-ms.author: cgronlun
 
 ---
 # Create machine learning experiments from working examples in Azure AI Gallery

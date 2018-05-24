@@ -4,9 +4,8 @@ description: Test-drive custom term lists in the Content Moderator API console.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 08/05/2017
 ms.author: sajagtap
@@ -18,7 +17,9 @@ The default global list of terms in Azure Content Moderator is sufficient for mo
 
 Use the [List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) to create custom lists of terms to use with the Text Moderation API. The **Text - Screen** operation scans your text for profanity, and also compares text against custom and shared blacklists.
 
-Use the List Management API to create and custom lists of images. This article focuses on lists of terms.
+> [!NOTE]
+> There is a maximum limit of **5 term lists** with each list to **not exceed 10,000 terms**.
+>
 
 You can use the List Management API to do the following tasks:
 - Create a list.
@@ -30,7 +31,26 @@ You can use the List Management API to do the following tasks:
 - Refresh the index so that changes to the list are included in a new scan.
 
 ## Use the API console
-Before you can test-drive the API in the online console, you need your subscription key. This is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
+
+Before you can test-drive the API in the online console, you need your subscription key. This key is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
+
+## Refresh search index
+
+After you make changes to a term list, you must refresh its index for changes to be included in future scans. This step is similar to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
+
+1.	In the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), in the left menu, select **Term Lists**, and then select **Refresh Search Index**. 
+
+  The **Term Lists - Refresh Search Index** page opens.
+
+2. For **Open API testing console**, select the region that most closely describes your location. 
+
+  ![Term Lists - Refresh Search Index page region selection](images/test-drive-region.png)
+
+  The **Term Lists - Refresh Search Index** API console opens.
+
+3.	In the **listId** box, enter the list ID. Enter your subscription key, and then select **Send**.
+
+  ![Term Lists API - Refresh Search Index console Response content box](images/try-terms-list-refresh-1.png)
 
 ## Create a term list
 1.	Go to the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
@@ -63,7 +83,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
   Add list metadata as key-value pairs, and not actual terms.
  
-6.	Select **Send**. Your list is created. Note the **Id** value that is associated with the new list. You need this for other term list management functions.
+6.	Select **Send**. Your list is created. Note the **ID** value that is associated with the new list. You need this ID for other term list management functions.
 
   ![Term Lists - Create console Response content box shows the list ID](images/try-terms-list-create-2.png)
  
@@ -113,7 +133,7 @@ This example deletes a single term.
 
   The **Term - Delete** API console opens.
   
-3.	In the **listId** box, enter the ID of the list that you want to delete a term from. This is the number (in our example, **122**) that is returned in the **Term Lists - Get Details** console for MyList. Enter the term and select a language.
+3.	In the **listId** box, enter the ID of the list that you want to delete a term from. This ID is the number (in our example, **122**) that is returned in the **Term Lists - Get Details** console for MyList. Enter the term and select a language.
  
   ![Term - Delete console query parameters](images/try-terms-list-delete-1.png)
 
@@ -143,23 +163,6 @@ You can edit a list’s name and description, and add metadata items.
 
   ![Term Lists - Update Details console Request body edits](images/try-terms-list-change-1.png)
  
-## Refresh Search Index
-
-After you make changes to a term list, you must refresh its index for changes to be included in future scans. This is a similar step to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
-
-1.	In the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), in the left menu, select **Term Lists**, and then select **Refresh Search Index**. 
-
-  The **Term Lists - Refresh Search Index** page opens.
-
-2. For **Open API testing console**, select the region that most closely describes your location. 
-
-  ![Term Lists - Refresh Search Index page region selection](images/test-drive-region.png)
-
-  The **Term Lists - Refresh Search Index** API console opens.
-
-3.	In the **listId** box, enter the list ID. Enter your subscription key, and then select **Send**.
-
-  ![Term Lists API - Refresh Search Index console Response content box](images/try-terms-list-refresh-1.png)
 
 ## Next steps
 

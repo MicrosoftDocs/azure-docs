@@ -4,7 +4,7 @@ description: Lists the Vm sizes that are capable of having a constrained vCPU co
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/07/2017
+ms.date: 03/09/2018
 ms.author: jonbeck
 
 ---
