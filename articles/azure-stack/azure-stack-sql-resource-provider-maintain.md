@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 05/24/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
@@ -35,6 +35,52 @@ You are responsible for creating and maintaining system admin accounts on your S
 To modify the settings, click **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers** &gt; **SQL Logins** and select a login name. The change must be made on the SQL instance first (and any replicas, if necessary). In the **Settings** panel, click on **Password**.
 
 ![Update the admin password](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
+
+## Secrets rotation 
+When using the SQL and MySQL resource providers with Azure Stack integrated systems, you can rotate the following infrastructure (deployment) secrets:
+- External SSL Certificate [provided during deployment](azure-stack-pki-certs.md).
+- The resource provider VM local administrator account password provided during deployment.
+- Resource provider diagnostic user (dbadapterdiag) password.
+
+### PowerShell examples for rotating secrets
+
+**Change all secrets at the same time**
+```powershell
+.\SecretRotationSQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint -CloudAdminCredential $cloudCreds -AzCredential $adminCreds –DiagnosticsUserPassword $passwd -DependencyFilesLocalPath $certPath -DefaultSSLCertificatePassword $certPasswd  -VMLocalCredential $localCreds
+```
+
+**Change diagnostic user password only**
+```powershell
+.\SecretRotationSQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint -CloudAdminCredential $cloudCreds -AzCredential $adminCreds –DiagnosticsUserPassword  $passwd 
+```
+
+**Change VM local administrator account password**
+```powershell
+.\SecretRotationSQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint -CloudAdminCredential $cloudCreds -AzCredential $adminCreds  -VMLocalCredential $localCreds
+```
+
+**Change SSL Certificate**
+```powershell
+.\SecretRotationSQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint -CloudAdminCredential $cloudCreds -AzCredential $adminCreds -DependencyFilesLocalPath $certPath -DefaultSSLCertificatePassword $certPasswd 
+```
+
+### SecretRotationSQLProvider.ps1 parameters
+
+|Parameter|Description|
+|-----|-----|
+|AzCredential|Azure Stack Service Admin account credential|
+|CloudAdminCredential|Azure Stack cloud admin domain account credential.|
+|PrivilegedEndpoint|Privileged Endpoint to access Get-AzureStackStampInformation.|
+|DiagnosticsUserPassword|Diagnostics User password.|
+|VMLocalCredential|The local administrator account of the MySQLAdapter VM.|
+|DefaultSSLCertificatePassword|Default SSL Certificate (*pfx) Password.|
+|DependencyFilesLocalPath|Dependency Files Local Path|
+|     |     |
+
+### Known issues
+Issue: The logs for secrets rotation are not automatically collected when the script is run.
+
+Workaround: Use the Get-AzsDBAdapterLogs cmdlet to collect all resource provider logs, including AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, under C:\Logs.
 
 ## Update the virtual machine operating system
 There are several ways to update the Windows Server VM:

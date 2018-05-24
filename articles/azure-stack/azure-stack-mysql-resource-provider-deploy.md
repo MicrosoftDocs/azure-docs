@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 05/24/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
@@ -67,12 +67,13 @@ The system account must have the following privileges:
     >[!NOTE] 
     > The resource provider has a minimum corresponding Azure Stack build. Be sure to download the correct binary for the version of Azure Stack that is running.
 
-    | Azure Stack build | MySQL RP installer |
+    | Azure Stack version | MySQL RP version|
     | --- | --- |
-    | 1802: 1.0.180302.1 | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
-    | 1712: 1.0.180102.3 or 1.0.180106.1 (multi-node) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
-    | 1711: 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
-    | 1710: 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
+    | Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
+    | Version 1802 (1.0.180302.1) | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
+    | Version 1712 (1.0.180102.3 or 1.0.180106.1 (integrated systems)) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | Version 1711 (1.0.171122.1) | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
+    | Version 1710 (1.0.171028.1) | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
 
 4.  For the Azure SDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
@@ -436,6 +437,59 @@ Invoke-Command -Session $session -ScriptBlock `
     {Remove-AzSItemOnUserDrive -ItemPath "User:\mpam-fe.exe"}
 $session | Remove-PSSession 
 ```
+
+### Secrets rotation 
+When using the SQL and MySQL resource providers with Azure Stack integrated systems, you can rotate the following infrastructure (deployment) secrets:
+- External SSL Certificate [provided during deployment](azure-stack-pki-certs.md).
+- The resource provider VM local administrator account password provided during deployment.
+- Resource provider diagnostic user (dbadapterdiag) password.
+
+#### PowerShell examples for rotating secrets
+
+**Change all secrets at the same time**
+```powershell
+.\SecretRotationMySQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint -CloudAdminCredential $cloudCreds -AzCredential $adminCreds –DiagnosticsUserPassword $passwd -DependencyFilesLocalPath $certPath -DefaultSSLCertificatePassword $certPasswd  -VMLocalCredential $localCreds
+```
+
+**Change diagnostic user password only**
+```powershell
+.\SecretRotationMySQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint -CloudAdminCredential $cloudCreds -AzCredential $adminCreds –DiagnosticsUserPassword  $passwd 
+```
+
+**Change VM local administrator account password**
+```powershell
+.\SecretRotationMySQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint -CloudAdminCredential $cloudCreds -AzCredential $adminCreds  -VMLocalCredential $localCreds
+```
+
+**Change SSL Certificate**
+```powershell
+.\SecretRotationMySQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint -CloudAdminCredential $cloudCreds -AzCredential $adminCreds -DependencyFilesLocalPath $certPath -DefaultSSLCertificatePassword $certPasswd 
+```
+
+### SecretRotationMySQLProvider.ps1 parameters
+
+|Parameter|Description|
+|-----|-----|
+|AzCredential|Azure Stack Service Admin account credential|
+|CloudAdminCredential|Azure Stack cloud admin domain account credential.|
+|PrivilegedEndpoint|Privileged Endpoint to access Get-AzureStackStampInformation.|
+|DiagnosticsUserPassword|Diagnostics User password.|
+|VMLocalCredential|The local administrator account of the MySQLAdapter VM.|
+|DefaultSSLCertificatePassword|Default SSL Certificate (*pfx) Password.|
+|DependencyFilesLocalPath|Dependency Files Local Path|
+|     |     |
+
+### Known issues
+Issue: The logs for secrets rotation are not automatically collected when the script is run.
+
+Workaround: Use the Get-AzsDBAdapterLogs cmdlet to collect all resource provider logs, including AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, under C:\Logs.
+
+
+
+
+
+
+
 
 ## Remove the MySQL resource provider adapter
 
