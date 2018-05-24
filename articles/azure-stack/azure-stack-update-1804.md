@@ -38,10 +38,19 @@ This update includes the following improvements for Azure Stack.
  
 - <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
 
-- <!-- 1759172 - IS, ASDK --> **More granular administrative subscriptions**. With version 1804 and later, the Default Provider subscription is now complemented with two additional subscriptions. The additions facilitate separating the management of core infrastructure, additional resource providers, and workloads. The following three subscriptions are available after the update installs:
-  - *Default Provider subscription*. Use this subscription for core infrastructure only. Do not deploy resources or resource providers on this subscription.
-  - *Metering subscription*. Use this subscription for resource provider deployment. Resources deployed on this subscription are not charged.
-  - *Consumption subscription*. Use this subscription for any other workload that you want to deploy. Resources deployed here are charged normal usage prices.
+- <!-- 1759172 - IS, ASDK --> **New administrative subscriptions**. With 1804 there are two new subscription types available in the portal. These new subscription types are in addition to the Default Provider subscription and visible with new Azure Stack installations beginning with version 1804. *Do not use these new subscription types with this version of Azure Stack*. We will announce the availability to use these subscription types in with a future update. 
+
+  If you update Azure Stack to version 1804, the two new subscription types are not visible. However, new deployments of Azure Stack integrated systems and installations of the Azure Stack Development Kit version 1804 or later have access to all three subscription types.  
+
+  These new subscription types are part of a larger change to secure the Default Provider subscription, and to make it easier to deploy shared resources like SQL Hosting servers. As we add more parts of this larger change with future updates to Azure Stack, resources deployed under these new subscription types might be lost. 
+
+  The three subscription types now visible are:  
+  - Default Provider subscription:  Continue to use this subscription type. 
+  - Metering subscription: *Do not use this subscription type.*
+  - Consumption subscription: *Do not use this subscription type*
+
+  
+
 
 
 ## Fixed issues
@@ -74,6 +83,8 @@ The following are now available, but don't require Azure Stack update 1804.
 - During installation of the 1804 update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after the update to 1804 completes.   
  
 - <!-- TBD - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+
+
 ### Post-update steps
 *There are no post-update steps for update 1804.*
 
@@ -83,6 +94,9 @@ The following are now available, but don't require Azure Stack update 1804.
 The following are post-installation known issues for build  **20180513.1**.
 
 #### Portal
+- <!-- TBD - IS ASDK --> Some administrative subscription types are not available.  When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](#new-features) are not visible in the console. This is expected. The unavailable subscription types are *Metering subscription*, and *Consumption subscription*. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
+
+
 - <!-- TBD -  IS ASDK -->The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - For Azure Stack integrated systems, use https://aka.ms/newsupportrequest.
 

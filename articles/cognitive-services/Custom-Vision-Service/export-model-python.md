@@ -165,7 +165,7 @@ input_node = 'Placeholder:0'
 
 with tf.Session() as sess:
     prob_tensor = sess.graph.get_tensor_by_name(output_layer)
-    predictions, = sess.run(prob_tensor, {input_node: [bgr_image] })
+    predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
 ```
 
 ## View the results
