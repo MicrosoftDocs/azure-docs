@@ -4,7 +4,7 @@ description: This quickstart shows how to enable Azure CDN by creating a new CDN
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/13/2018
-ms.author: mazha
+ms.date: 05/24/2018
+ms.author: v-deasim
 ms.custom: mvc
 
 ---
@@ -51,9 +51,9 @@ After you've created a CDN profile, you can use it to create an endpoint.
 
     | Setting | Value |
     | ------- | ----- |
-    | **Name** | Enter *my-endpoint-123* for your endpoint hostname. This name must be globally unique; if it is already in use, you may enter a different one. This name is used to access your cached resources at the domain _&lt;endpoint name&gt;_.azureedge.net.|
+    | **Name** | Enter *my-endpoint-123* for your endpoint hostname. This name must be globally unique; if it is already in use, you may enter a different name. This name is used to access your cached resources at the domain _&lt;endpoint name&gt;_.azureedge.net.|
     | **Origin type** | Select **Storage**. | 
-    | **Origin hostname** | Enter *mystorageacct123.blob.core.windows.net* for your hostname. This name must be globally unique; if it is already in use, you may enter a different one |
+    | **Origin hostname** | Enter *mystorageacct123.blob.core.windows.net* for your hostname. This name must be globally unique; if it is already in use, you may enter a different name. |
     | **Origin path** | Leave blank. |
     | **Origin host header** | Leave the default generated value. |  
     | **Protocol** | Leave the default **HTTP** and **HTTPS** options selected. |
