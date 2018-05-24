@@ -58,6 +58,12 @@
     href: iot-edge-glossary.md
 - name: How-to guides
   items:
+  - name: Develop and debug modules
+    items:
+    - name: C#
+      href: how-to-vscode-debug-csharp-module.md
+    - name: Azure Functions
+      href: how-to-vscode-debug-azure-function.md
   - name: Use Edge devices as gateways
     items:
     - name: Transparent gateway
@@ -70,14 +76,8 @@
     href: how-to-deploy-monitor.md
   - name: Provision an IoT Core device
     href: how-to-install-iot-core.md
-  - name: Use VS Code to develop IoT Edge solutions
-    items:
-      - name: Work with multiple modules
-        href: tutorial-multiple-modules-in-vscode.md
-      - name: Debug C# module
-        href: how-to-vscode-debug-csharp-module.md
-      - name: Debug Azure Functions
-        href: how-to-vscode-debug-azure-function.md
+  - name: Work with multiple modules
+    href: tutorial-multiple-modules-in-vscode.md
   - name: CI/CD in VSTS
     href: how-to-ci-cd.md
   - name: Store data at the edge
