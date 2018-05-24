@@ -3,7 +3,7 @@ title: Use MySQL databases as PaaS on Azure Stack | Microsoft Docs
 description: Learn how you can deploy the MySQL Resource Provider and provide MySQL databases as a service on Azure Stack.
 services: azure-stack
 documentationCenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -12,15 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2018
-ms.author: mabrigg
+ms.date: 05/23/2018
+ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
 
 # Use MySQL databases on Microsoft Azure Stack
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
 You can deploy a MySQL resource provider on Azure Stack. After you deploy the resource provider, you can create MySQL servers and databases through Azure Resource Manager deployment templates. You can also provide MySQL databases as a service. 
 
 MySQL databases, which are common on web sites, support many website platforms. For example, after you deploy the resource provider, you can create WordPress websites from the Web Apps platform as a service (PaaS) add-on for Azure Stack.
@@ -115,10 +112,9 @@ Here's an example you can run from the PowerShell prompt. Be sure to change the 
 
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -281,11 +277,10 @@ Following is an example of the *UpdateMySQLProvider.ps1* script that you can run
 > [!NOTE]
 > The update process only applies to integrated systems.
 
-```
-# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules.
+```powershell
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -353,14 +348,14 @@ To use these commands, you need to create a remote PowerShell session to the res
 
 This sample script demonstrates the use of these commands:
 
-```
+```powershell
 # Create a new diagnostics endpoint session.
-$databaseRPMachineIP = '<RP VM IP>'
+$databaseRPMachineIP = '<RP VM IP address>'
 $diagnosticsUserName = 'dbadapterdiag'
-$diagnosticsUserPassword = '<see above>'
+$diagnosticsUserPassword = '<Enter Diagnostic password>'
 
 $diagCreds = New-Object System.Management.Automation.PSCredential `
-        ($diagnosticsUserName, $diagnosticsUserPassword)
+        ($diagnosticsUserName, (ConvertTo-SecureString -String $diagnosticsUserPassword -AsPlainText -Force))
 $session = New-PSSession -ComputerName $databaseRPMachineIP -Credential $diagCreds `
         -ConfigurationName DBAdapterDiagnostics
 
@@ -411,23 +406,25 @@ Follow these steps to update the Defender definitions:
 
 Here is a sample script to update the Defender definitions (substitute the address or name of the virtual machine with the actual value):
 
-```
-# Set credentials for the diagnostic user
-$diagPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$diagCreds = New-Object System.Management.Automation.PSCredential `
-    ("dbadapterdiag", $vmLocalAdminPass)$diagCreds = Get-Credential
+```powershell
+```powershell
+# Set credentials for the RP VM local admin user
+$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminUser = "<local admin user name>"
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
+    ($vmLocalAdminUser, $vmLocalAdminPass)
 
 # Public IP Address of the DB adapter machine
-$databaseRPMachine  = "XX.XX.XX.XX"
+$databaseRPMachine  = "<RP VM IP address>"
 $localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe"
- 
+
 # Download Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions. 
 Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64 `
     -Outfile $localPathToDefenderUpdate 
 
 # Create session to the maintenance endpoint
 $session = New-PSSession -ComputerName $databaseRPMachine `
-    -Credential $diagCreds -ConfigurationName DBAdapterMaintenance
+    -Credential $vmLocalAdminCreds -ConfigurationName DBAdapterMaintenance
 # Copy defender update file to the db adapter machine
 Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
      -Destination "User:\mpam-fe.exe"
@@ -437,9 +434,8 @@ Invoke-Command -Session $session -ScriptBlock `
 # Cleanup the definitions package file and session
 Invoke-Command -Session $session -ScriptBlock `
     {Remove-AzSItemOnUserDrive -ItemPath "User:\mpam-fe.exe"}
-$session | Remove-PSSession
+$session | Remove-PSSession 
 ```
-
 
 ## Remove the MySQL resource provider adapter
 

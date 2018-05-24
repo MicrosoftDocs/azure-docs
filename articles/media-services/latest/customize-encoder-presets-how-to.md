@@ -17,7 +17,7 @@ ms.author: juliako
 
 # How to encode with a custom Transform
 
-When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets based on industry best practices as demonstrated in the [Streaming files](stream-files-tutorial-with-api.md) tutorial, or you can choose to build a custom preset to target your specific scenario or device requirements. For more information, see [Encoding overview](encoding-concept.md)
+When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets based on industry best practices as demonstrated in the [Streaming files](stream-files-tutorial-with-api.md) tutorial, or you can choose to build a custom preset to target your specific scenario or device requirements. 
 
 > [!Note]
 >  All of the bitrates are in bits per second.  
