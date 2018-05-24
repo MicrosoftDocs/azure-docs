@@ -1,4 +1,4 @@
-﻿---
+---
 title: Frequently asked questions for Azure Application Gateway
 description: This page provides answers to frequently asked questions about Azure Application Gateway
 services: application-gateway
@@ -80,6 +80,11 @@ No, Application Gateway does not support static public IP addresses, but it does
 **Q. Does Application Gateway support multiple public IPs on the gateway?**
 
 Only one public IP address is supported on an Application Gateway.
+
+**Q. How big should I make my subnet for Application Gateway?**
+
+Application Gateway consumes one private IP address per instance, plus another private IP address if a private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage.
+For example, if Application Gateway is set to three instances and no private frontend IP, then a /29 subnet size or greater is needed. In this case, Application Gateway uses three IP addresses. If you have three instances and an IP address for the private frontend IP configuration, then a /28 subnet size or greater is needed as four IP addresses are required.
 
 **Q. Does Application Gateway support x-forwarded-for headers?**
 
