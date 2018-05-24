@@ -4,7 +4,7 @@ description: Establish high availability for SAP HANA on Azure (Large Instances)
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: timlt
+manager: jeconnoc
 editor:
 
 ms.service: virtual-machines-linux
