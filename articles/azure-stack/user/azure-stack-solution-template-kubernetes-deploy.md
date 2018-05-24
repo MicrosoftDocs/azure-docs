@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -50,6 +50,8 @@ To get started, make sure you have the right permissions and that your Azure Sta
     For instructions on generating a key, see [SSH Key Generation](https://github.com/msazurestackworkloads/acs-engine/blob/master/docs/ssh.md#ssh-key-generation).
 
 3. Check that you have a valid subscription in your Azure Stack tenant portal, and that you have enough public IP addresses available to add new applications.
+
+    The cluster cannot be deployed to an Azure Stack **Administrator** subscription. You must use a **User** subscription. 
 
 ## Create a service principal in Azure AD
 
@@ -103,44 +105,44 @@ Give the service principal access to your subscription so that the principal can
 
 2. Select **+New** > **Compute** > **Kubernetes Cluster**.
 
-    ![Deploy Solution Template](../media/azure-stack-solution-template-kubernetes-cluster-add/azure-stack-kubernetes-cluster-solution-template.png)
+    ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-3. Select **Parameters** in the Deploy Solution Template.
+3. Select **Basics** in the Create Kubernetes Cluster.
 
-    ![Deploy Solution Template](../media/azure-stack-solution-template-kubernetes-cluster-add/azure-stack-kubernetes-cluster-solution-template-parameters.png)
+    ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
-2. Enter the **Linux administrative user name**. User name for the Linux Virtual Machines that are part of the Kubernetes cluster and DVM.
+2. Enter the **Linux VM admin username**. User name for the Linux Virtual Machines that are part of the Kubernetes cluster and DVM.
 
 3. Enter the **SSH public key** used for authorization to all Linux machines created as part of the Kubernetes cluster and DVM.
 
-4. Enter the **tenant endpoint**. This is the Azure Resource Manager endpoint to connect to create the resource group for the Kubernetes cluster. You will need to get the endpoint from your Azure Stack operator for an integrated system. For the Azure Stack Development Kit (ASDK), you can use `https://management.local.azurestack.external`.
-
-5. Enter the **tenant ID** for the tenant. If you need help finding this value, see [Get tenant ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
-
-6. Enter the **master profile DNS prefix** that is unique to the region. This must be a region-unique name, such as `k8s-12345`. Try to chose it same as the resource group name as best practice.
+4. Enter the **Master Profile DNS Prefix** that is unique to the region. This must be a region-unique name, such as `k8s-12345`. Try to chose it same as the resource group name as best practice.
 
     > [!Note]  
     > For each cluster, use a new and unique master profile DNS prefix.
 
-7. Enter the number of agents in the cluster. This value is referred to as the **Agent Pool Profile Count**. There can be from 1 to 32
+5. Enter the **Agent Pool Profile Count**. The count contains the number of agents in the cluster. There can be from 1 to 32
 
-8. Enter the **service principal application ID** This is used by the Kubernetes Azure cloud provider.
+6. Enter the **Service Principle ClientId** This is used by the Kubernetes Azure cloud provider.
 
-9. Enter the **service principal client secret** that you created when creating service principal application.
+7. Enter the **Service Principal Client Secret** that you created when creating service principal application.
 
-10. Enter the **Kubernetes Azure Cloud Provider Version**. This is the version for the Kubernetes Azure provider. Azure Stack releases a custom Kubernetes build for each Azure Stack version.
+8. Enter the **Kubernetes Azure Cloud Provider Version**. This is the version for the Kubernetes Azure provider. Azure Stack releases a custom Kubernetes build for each Azure Stack version.
 
-12. Select **OK**.
+9. Select your **Subscrition** ID.
 
-### Specify the solution values
+10. Enter the name of a new resource group or select an existing resource group. The resource name needs to be alphanumeric and lowercase.
 
-1. Select the **Subscription**.
+11. Enter the **Location** of the resource group, such as **local**.
 
-2. Enter the name of a new resource group or select an existing resource group. The resource name needs to be alphanumeric and lowercase.
+### Specify the Azure Stack settings
 
-3. Enter the location of the resource group, such as **local**.
+1. Select the **Azure Stack Stamp Settings**.
 
-4. Select **Create.**
+    ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
+
+2. Enter the **Tenant Arm Endpoint**. This is the Azure Resource Manager endpoint to connect to create the resource group for the Kubernetes cluster. You will need to get the endpoint from your Azure Stack operator for an integrated system. For the Azure Stack Development Kit (ASDK), you can use `https://management.local.azurestack.external`.
+
+3. Enter the **Tenant ID** for the tenant. If you need help finding this value, see [Get tenant ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
 
 ## Connect to your cluster
 
