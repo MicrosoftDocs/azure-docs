@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 5/21/2018
+ms.date: 5/23/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL
 
@@ -110,6 +110,8 @@ For Azure Database for PostgreSQL, the virtual network rules feature has the fol
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
 
 - Turning ON virtual network service endpoints to Azure Database for PostgreSQL using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure SQL Data Warehouse.
+- 
+- At the time of public preview, there is no support for VNet move operations. To move a virtual network rule, drop and recreate it. Future versions of VNet service endpoints will support moves.
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
