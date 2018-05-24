@@ -98,18 +98,21 @@ In order to comply with the GDPR, you need a way to manage the data requests of 
 > When you migrate your database from a DTU-based service tier with the default PITR retention of 35 days, to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy is not compromized. 
 
 ## How to change backup retention period
-Because of the default PITR retention included with DTU-based service tiers is 35 days, you may want to reduce it to meet specific compliance requirements. You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. 
+You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. 
 
 The following examples illustrate how to change the PITR retention period.
 
-### Set backup retention period to 28 days using PowerShell
+> [!NOTE]
+> Thes APIs will only impact the PITR retention period. If you configured LTR for your database, it will not be impacted. See [Long-term backup retention](sql-database-long-term-retention.md) for details of how to change the LTR retention period(s).
+
+### Set PITR backup retention period using PowerShell
 ```powershell
 Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 > [!IMPORTANT]
 > This APIs is included in Azure PowerShell starting from version 4.6.0-preview. 
 
-## Set backup retention period to 28 days using REST API
+## Change PTR retention period using REST API
 **Sample Request**
 ```http
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
