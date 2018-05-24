@@ -69,6 +69,9 @@ StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
 ``` 
 
+> [!NOTE]
+> Azure AD integration with Azure Storage requires that you use HTTPS for Azure Storage operations.
+
 ## Next steps
 
 - To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
