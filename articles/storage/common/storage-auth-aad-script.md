@@ -85,4 +85,4 @@ Get-AzureStorageBlob -Container $sample-container -Context $ctx
 - To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
 - To learn about using Managed Service Identity with Azure Storage, see [Authenticate with Azure AD from an Azure Managed Service Identity (Preview)](storage-auth-aad-msi.md).
 - To learn how to authorize access to containers and queues from within your storage applications, see [Use Azure AD with storage applications](storage-auth-aad-app.md).
-- For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage//).
+- For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
