@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/11/2018
+ms.date: 05/24/2018
 ms.author: danlep
 ms.custom: 
 ---
@@ -56,7 +56,9 @@ The following command mounts a file share *myfileshare* in storage account *myst
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
 ```
 
-To simplify the mount operation, persist the credentials on the nodes. Then, you can mount the share without credentials. Perform the following two steps:
+For simplicity, the examples here pass the credentials directly in text. In practice, we strongly recommend managing the credentials using environment variables, certificates, or a solution such as Azure Key Vault.
+
+To simplify the mount operation, optionally persist the credentials on the nodes. Then, you can mount the share without credentials. Perform the following two steps:
 
 1. Run the `cmdkey` command-line utility using a start task in the pool configuration. This persists the credentials on each Windows node. The start task command line is similar to:
 
@@ -64,7 +66,8 @@ To simplify the mount operation, persist the credentials on the nodes. Then, you
   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
   ```
-2. Mount the share on each node as part of each task using `net use`. For example, the following task command line mounts the file share as the *S:* drive. This would be followed by a command or script that references the share. Cached credentials are used in the call to `net use`. 
+
+2. Mount the share on each node as part of each task using `net use`. For example, the following task command line mounts the file share as the *S:* drive. This would be followed by a command or script that references the share. Cached credentials are used in the call to `net use`. This step assumes you are using the same user identity for the tasks that you used in the start task on the pool, which isn't appropriate for all scenarios.
 
   ```
   cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
@@ -111,12 +114,12 @@ tasks.Add(task);
 
 ## Mount a share on a Linux pool
 
-Azure file shares can be mounted in Linux distributions using the [CIFS kernel client](https://wiki.samba.org/index.php/LinuxCIFS). For prerequisites and steps to mount an Azure file share on different distributions, see [Use Azure Files with Linux](../storage/files/storage-how-to-use-files-linux.md). The following example shows how to mount a file share on a pool of Ubuntu 16.04 LTS compute nodes. 
+Azure file shares can be mounted in Linux distributions using the [CIFS kernel client](https://wiki.samba.org/index.php/LinuxCIFS). The following example shows how to mount a file share on a pool of Ubuntu 16.04 LTS compute nodes. If you use a different Linux distribution, the general steps are similar, but use the package manager appropriate for the distribution. For details and additional examples, see [Use Azure Files with Linux](../storage/files/storage-how-to-use-files-linux.md).
 
-First, install the `cifs-utils` package, and create the mount point (for example, */mnt/MyAzureFileShare*) in the local filesystem:
+First, under an administrator user identity, install the `cifs-utils` package, and create the mount point (for example, */mnt/MyAzureFileShare*) in the local filesystem. A folder for a mount point can be created anywhere on the file system, but it's common convention to create this under the `/mnt` folder. Be sure not to create a mount point directly at `/mnt` (on Ubuntu) or `/mnt/resource` (on other distributions).
 
 ```
-sudo apt-get update && sudo apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileShare
+apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileShare
 ```
 
 Then, run the `mount` command to mount the file share, providing these credentials:
@@ -127,10 +130,12 @@ Then, run the `mount` command to mount the file share, providing these credentia
 The following command mounts a file share *myfileshare* in storage account *mystorageaccountname* at */mnt/MyAzureFileShare*: 
 
 ```
-sudo mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino && ls /mnt/MyAzureFileShare
+mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino && ls /mnt/MyAzureFileShare
 ```
 
-On a Linux pool, you can combine all of these steps in a single start task, or run them in a script. Run a start task as an administrator user on the pool. Set your start task to wait to complete successfully before running further tasks on the pool that reference the share.
+For simplicity, the examples here pass the credentials directly in text. In practice, we strongly recommend managing the credentials using environment variables, certificates, or a solution such as Azure Key Vault.
+
+On a Linux pool, you can combine all of these steps in a single start task, or run them in a script. Run the start task as an administrator user on the pool. Set your start task to wait to complete successfully before running further tasks on the pool that reference the share.
 
 ### Python example
 
@@ -149,7 +154,7 @@ pool = batch.models.PoolAddParameter(
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_POOL_NODE_COUNT,
     start_task=batchmodels.StartTask(
-        command_line="/bin/bash -c \"sudo apt-get update && sudo apt-get install cifs-utils && sudo mkdir -p {} && sudo mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(_COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
+        command_line="/bin/bash -c \"apt-get update && apt-get install cifs-utils && mkdir -p {} && mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(_COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
         wait_for_success=True,
         user_identity=batchmodels.UserIdentity(
             auto_user=batchmodels.AutoUserSpecification(
