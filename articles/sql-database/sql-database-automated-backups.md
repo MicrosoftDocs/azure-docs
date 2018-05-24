@@ -82,22 +82,25 @@ For more information, see [Long-term backup retention](sql-database-long-term-re
 
 If your database is encrypted with TDE the backups are automatically encrypted at rest, including LTR backups. When TDE is enabled for an Azure SQL database, backups are also encrypted. All new Azure SQL databases are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
-## Are backups compliant with GDPR?
+## Backups and GDPR?
 
 > [!NOTE]
 > This article provides steps for how to delete personal data from the device or service and can be used to support your obligations under the GDPR. If you’re looking for general information about GDPR, see the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
-If the backup contains personal data, which is subject to General Data Protection Regulation (GDPR), you are required to apply enhanced security measures to protect the data from unauthorized access. In order to comply with the GDPR, you need a way to manage the data requests of data owners without having to access backups. For short-term backups, one solution can be to shorten the backup window to under 30 days, which is the time allowed to complete the data access requests. If longer term backups are required, it is recommended to store only "pseudonymized" data in backups. For example, if data about a person needs to be deleted or updated, it will not require deleting or updating the existing backups. You can find more information about the GDPR best practices in  [Data Governance for GDPR Compliance](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html). 
+If the backup contains personal data, which is subject to General Data Protection Regulation (GDPR), you are required to apply enhanced security measures to protect the data from unauthorized access. 
 
-Because the default PITR retention for any Standard or Premium database in the DTU-based service tiers is 35 days, you must reduce it to be compliant with GDPR. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details. 
+In order to comply with the GDPR, you need a way to manage the data requests of data owners without having to access backups. 
+
+- To reduce the backup retention period, you can shorten the backup window to under 30 days. For more information on the default backup retention period for SQL Database, see [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
+- If longer term backups are required, you can store only "pseudonymized" data in backups. For example, if data about a person needs to be deleted or updated, it will not require deleting or updating the existing backups. You can find more information about the GDPR best practices in  [Data Governance for GDPR Compliance](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html). 
 
 > [!IMPORTANT]
-> When you migrate your database from a DTU-based service tier with the default PITR retention of 35 days, to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy is not compromized. If GDPR compliance is important for you application, you can use the same method to bring the database into compliance. 
+> When you migrate your database from a DTU-based service tier with the default PITR retention of 35 days, to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy is not compromized. 
 
 ## How to change backup retention period
 Because of the default PITR retention included with DTU-based service tiers is 35 days, you may want to reduce it to meet specific compliance requirements. You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. 
 
-The following examples illustrate how to change the PITR retention to be GDPR compliant.
+The following examples illustrate how to change the PITR retention period.
 
 ### Set backup retention period to 28 days using PowerShell
 ```powershell
