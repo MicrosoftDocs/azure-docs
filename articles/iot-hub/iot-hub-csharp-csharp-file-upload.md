@@ -5,7 +5,7 @@ author: fsautomata
 manager: 
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: elioda

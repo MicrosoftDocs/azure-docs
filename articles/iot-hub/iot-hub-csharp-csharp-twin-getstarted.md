@@ -5,7 +5,7 @@ author: dsk-2015
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: node
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: dkshir

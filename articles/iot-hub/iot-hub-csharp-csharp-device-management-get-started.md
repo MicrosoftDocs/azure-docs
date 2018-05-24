@@ -5,7 +5,7 @@ author: dominicbetts
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: dobett

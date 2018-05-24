@@ -5,7 +5,7 @@ author: fsautomata
 manager: 
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: node
+ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: elioda
