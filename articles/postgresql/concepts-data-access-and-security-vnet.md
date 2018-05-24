@@ -113,6 +113,8 @@ For Azure Database for PostgreSQL, the virtual network rules feature has the fol
 
 - At the time of public preview, there is no support for VNet move operations. To move a virtual network rule, drop and recreate it. Future versions of VNet service endpoints will support moves.
 
+- Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
+
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
     - On-premises via [ExpressRoute][expressroute-indexmd-744v]
