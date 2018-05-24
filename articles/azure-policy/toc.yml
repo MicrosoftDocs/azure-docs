@@ -39,6 +39,8 @@
     href: /cli/azure/policy
   - name: Azure PowerShell
     href: /powershell/module/azurerm.resources/#policies
+  - name: REST API
+    href: /rest/api/policy-insights/
 - name: Resources
   items:
   - name: Azure roadmap
