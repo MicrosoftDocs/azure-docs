@@ -1,16 +1,17 @@
-- name: Azure Billing Documentation
+- name: Azure billing documentation
   href: index.md
 - name: Understand Azure charges
+  expanded: true
   items:
   - name: Understand your bill
     href: billing-understand-your-bill.md
-  - name: Get invoice and usage
+  - name: Get invoice and usage data
     href: billing-download-azure-invoice-daily-usage-date.md
-  - name: Terms on invoice
+  - name: Invoice terms explained
     href: billing-understand-your-invoice.md
-  - name: Terms on usage
+  - name: Usage terms explained
     href: billing-understand-your-usage.md
-  - name: External service charges
+  - name: Third-party service charges
     href: billing-understand-your-azure-marketplace-charges.md
 - name: Forecast and track costs
   items:
@@ -79,9 +80,10 @@
   - name: Sign up for Office 365 with Azure account
     href: billing-use-existing-azure-account-for-office-365-subscription.md
 - name: Save with reserved instances
-  href: billing-save-compute-costs-reservations.md
   items:
-    - name: Buy reserved instance 
+    - name: What are reserved instances?
+      href: billing-save-compute-costs-reservations.md
+    - name: Buy a reserved instance 
       href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
     - name: Manage reserved instances
       href: billing-manage-reserved-vm-instance.md
@@ -105,9 +107,11 @@
     href: billing-no-subscriptions-found.md
   - name: Enterprise cost view disabled
     href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
+  - name: Contact support
+    href: ../azure-supportability/how-to-create-azure-support-request.md
 - name: Reference
   items:
-  - name: Azure Billing API Overview
+  - name: Azure Billing API overview
     href: billing-usage-rate-card-overview.md
     items:
     - name: Azure Billing REST API
@@ -122,10 +126,10 @@
       href: https://msdn.microsoft.com/library/azure/mt219005.aspx
     - name: Usage REST API
       href: https://msdn.microsoft.com/library/azure/mt219003.aspx
-  - name: Enterprise Reporting Overview
+  - name: Enterprise reporting overview
     href: billing-enterprise-api.md
     items:
-      - name: Enterprise Reporting REST API
+      - name: Enterprise reporting REST API
         href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
   - name: Billing code samples
     items: 
@@ -135,11 +139,4 @@
         href: https://github.com/Azure-Samples/billing-dotnet-usage-api
       - name: RateCard API code sample
         href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
-- name: Resources
-  items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Contact support
-    href: ../azure-supportability/how-to-create-azure-support-request.md
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
+
