@@ -1,4 +1,4 @@
-Ôªø---
+---
 title: How to schedule Azure SSIS integration runtime | Microsoft Docs
 description: This article describes how to schedule starting and stopping of an Azure SSIS integration runtime by using Azure Automation and Data Factory.
 services: data-factory
@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
-ms.topic: article
-ms.date: 04/17/2018
+ms.topic: conceptual
+ms.date: 05/18/2018
 ms.author: douglasl
 
 ---
@@ -66,21 +66,17 @@ If you don't have an Azure Automation account, create one by following the instr
 
 ### Import Data Factory modules
 
-1. Select **Modules** in the **SHARED RESOURCES** section on the left menu, and verify whether you have **AzureRM.Profile** and **AzureRM.DataFactoryV2** in the list of modules. If it's not there, select **Browse gallery** on the toolbar.
+1. Select **Modules** in the **SHARED RESOURCES** section on the left menu, and verify whether you have **AzureRM.Profile** and **AzureRM.DataFactoryV2** in the list of modules.
 
-    ![Automation home page](./media/how-to-schedule-azure-ssis-integration-runtime/automation-modules.png)
-2. In the **Browse Gallery** window, type **AzureRM.Profile** in the search window, and press **ENTER**. Select **AzureRM.Profile** in the list. Then, click **Import** on the toolbar. 
+    ![Verify the required modules](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-    ![Select AzureRM.Profile](./media/how-to-schedule-azure-ssis-integration-runtime/select-azurerm-profile.png)
-1. In the **Import** window, select **I agree to update all of the Azure modules** option, and click **OK**.  
+2.  Go to the PowerShell Gallery for the [AzureRM.DataFactoryV2 0.5.2 module](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/0.5.2), select **Deploy to Azure Automation**, select your Automation account, and then select **OK**. Go back to view **Modules** in the **SHARED RESOURCES** section on the left menu, and wait until you see the **STATUS** of the **AzureRM.DataFactoryV2 0.5.2** module change to **Available**.
 
-    ![Import AzureRM.Profile](./media/how-to-schedule-azure-ssis-integration-runtime/import-azurerm-profile.png)
-4. Close windows to get back to the **Modules** window. You should see the status of the import in the list. Select **Refresh** to refresh the list. Wait until you see the **STATUS** as **Available**.
+    ![Verify the Data Factory module](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-    ![Import status](./media/how-to-schedule-azure-ssis-integration-runtime/module-list-with-azurerm-profile.png)
-1. Repeat the steps to import the **AzureRM.DataFactoryV2** module. Confirm that the status of this module is set to **Available** before proceeding further. 
+3.  Go to the PowerShell Gallery for the [AzureRM.Profile 4.5.0 module](https://www.powershellgallery.com/packages/AzureRM.profile/4.5.0), click on **Deploy to Azure Automation**, select your Automation account, and then select **OK**. Go back to view **Modules** in the **SHARED RESOURCES** section on the left menu, and wait until you see the **STATUS** of the **AzureRM.Profile 4.5.0** module change to **Available**.
 
-    ![Final import status](./media/how-to-schedule-azure-ssis-integration-runtime/module-list-with-azurerm-datafactoryv2.png)
+    ![Verify the Profile module](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
 ### Create a PowerShell runbook
 The following procedure provides steps for creating a PowerShell runbook. The script associated with the runbook either starts/stops an Azure SSIS IR based on the command you specify for the **OPERATION** parameter. This section does not provide all the details for creating a runbook. For more information, see [Create a runbook](../automation/automation-quickstart-create-runbook.md) article.
@@ -240,7 +236,7 @@ After you create and test the pipeline, you create a schedule trigger and associ
  
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameMyAzureSsisDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name ‚ÄúMyAzureSsisDataFactory‚Äù is not available`
+       `Data factory name ìMyAzureSsisDataFactoryî is not available`
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
      

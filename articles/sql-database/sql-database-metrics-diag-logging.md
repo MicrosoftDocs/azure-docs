@@ -7,7 +7,7 @@ author: veljko-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: vvasic
 
@@ -47,6 +47,7 @@ You can provision a new Azure resource or select an existing resource. After sel
 - [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset): Contains information about timeouts that happened on a database.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): Contains information about blocking events that happened on a database.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Contains Intelligent Insights. [Learn more about Intelligent Insights](sql-database-intelligent-insights.md).
+- **Audit** / **SQLSecurityAuditEvents**: Currently unavailable.
 
 If you select Event Hubs or a storage account, you can specify a retention policy. This policy deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. For more information, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
@@ -150,7 +151,7 @@ You can combine these parameters to enable multiple output options.
 
 ### REST API
 
-Read about how to [change diagnostics settings by using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
+Read about how to [change diagnostics settings by using the Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
 
 ### Resource Manager template
 

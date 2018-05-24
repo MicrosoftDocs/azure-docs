@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: bryanla
 ms.author: v-masebo;bryanla
-ms.date: 04/09/2018
+ms.date: 05/21/2018
 ms.topic: quickstart
 ms.service: iot-dps
 
@@ -106,7 +106,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-1. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py**. Modify the _GLOBAL\_PROV\_URI_ and _ID\_SCOPE_ variables to the values noted previously.
+1. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py**. Modify the *GLOBAL\_PROV\_URI* and  *ID\_SCOPE* variables to the values noted previously. Also make sure *SECURITY\_DEVICE\_TYPE* is set to `ProvisioningSecurityDeviceType.TPM`
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"

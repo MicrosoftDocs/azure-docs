@@ -1,22 +1,15 @@
 ---
-title: 'Azure Data Lake Tools: Use Azure Data Lake Tools for Visual Studio Code | Microsoft Docs'
-description: 'Learn how to use Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts. '
-Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
+title: Use Azure Data Lake Tools for Visual Studio Code
+description: Learn how to use Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts.
 services: data-lake-analytics
-documentationcenter: ''
 author: Jejiang
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
+ms.author: jejiang
+manager: kfile
+editor: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/09/2018
-ms.author: jejiang
 ---
 
 # Use Azure Data Lake Tools for Visual Studio Code
@@ -446,6 +439,10 @@ Data Lake Tools for VS Code supports the following features:
 
     ![Data Lake Tools for Visual Studio Code syntax highlights](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
+   >[!NOTE]
+   >In preparation for the new General Data Protection Regulation (GDPR) going into effect on May 25, 2018, it is recommended that users of Azure Data Lake Tools for Visual Studio Code upgrade to version 0.2.13 or later. This version includes changes based on the most recent data protection requirements. Note that previous versions are not available for download and are deprecated. 
+ 
+   
 ## Next steps
 - [Develop U-SQL with Python, R, and CSharp for Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)

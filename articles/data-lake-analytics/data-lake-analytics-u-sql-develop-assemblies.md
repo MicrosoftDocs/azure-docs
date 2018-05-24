@@ -1,20 +1,14 @@
 ---
-title: Develop U-SQL assemblies for Azure Data Lake Analytics jobs | Microsoft Docs
-description: 'Learn how to develop assemblies to be used and reused in Data Lake Analytics jobs. '
+title: Develop U-SQL assemblies for Azure Data Lake Analytics jobs
+description: Learn how to develop assemblies to be used and reused in Data Lake Analytics jobs.
 services: data-lake-analytics
-documentationcenter: ''
-author: jejiang
-manager: jhubbard
-editor: cgronlun
-
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/30/2016
+author: jejiang
 ms.author: jejiang
-
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 11/30/2016
 ---
 # Develop U-SQL assemblies for Azure Data Lake Analytics jobs
 Learn how to turn code-behind into assemblies to be used and reused in Data Lake Analytics jobs. 

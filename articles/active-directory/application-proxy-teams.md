@@ -3,17 +3,17 @@ title: Access Azure AD App Proxy apps in Teams | Microsoft Docs
 description: Use Azure AD Application Proxy to access your on-premises application through Microsoft Teams. 
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
 
-ms.assetid:
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
@@ -27,7 +27,7 @@ Your users can add cloud apps to their Teams channels [using tabs](https://suppo
 
 ## Install the Application Proxy connector and publish your app
 
-If you haven't already, [configure Application Proxy for your tenant and install the connector](active-directory-application-proxy-enable.md). Then, [publish your on-premises application](application-proxy-publish-azure-portal.md) for remote access. When you're publishing the app, make note of the external URL because it's used to add the app to Teams.
+If you haven't already, [configure Application Proxy for your tenant and install the connector](manage-apps/application-proxy-enable.md). Then, [publish your on-premises application](manage-apps/application-proxy-publish-azure-portal.md) for remote access. When you're publishing the app, make note of the external URL because it's used to add the app to Teams.
 
 If you already have your apps published but don't remember their external URLs, look them up in the [Azure portal](https://portal.azure.com). Sign in, then navigate to **Azure Active Directory** > **Enterprise applications** > **All applications** > select your app > **Application proxy**.
 
@@ -51,5 +51,5 @@ Once one member of a team adds the tab, it shows up for everyone in the channel.
 
 ## Next steps
 
-- Learn how to [publish on-premises SharePoint sites](application-proxy-enable-remote-access-sharepoint.md) with Application Proxy.
-- Configure your apps to use [custom domains](active-directory-application-proxy-custom-domains.md) for their external URL. 
+- Learn how to [publish on-premises SharePoint sites](manage-apps/application-proxy-integrate-with-sharepoint-server.md) with Application Proxy.
+- Configure your apps to use [custom domains](manage-apps/application-proxy-configure-custom-domain.md) for their external URL. 

@@ -3,7 +3,7 @@ title: 'Introduction to Azure Cosmos DB: MongoDB API | Microsoft Docs'
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of JSON documents with low latency using the popular OSS MongoDB APIs.
 keywords: what is MongoDB
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 documentationcenter: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: anhoh
+ms.author: sngun
 experimental: true
 experiment_id: "662dc5fd-886f-4a"
 ---

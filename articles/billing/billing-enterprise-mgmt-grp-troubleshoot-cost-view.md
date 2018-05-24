@@ -8,7 +8,7 @@ editor: ''
 ms.assetid: 
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
