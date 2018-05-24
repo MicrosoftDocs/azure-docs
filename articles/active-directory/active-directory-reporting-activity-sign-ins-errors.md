@@ -26,7 +26,7 @@ With the information provided by the user sign-ins report, you find answers to q
 - Which apps were signed into?
 - Which sign-ins were failures and if so why?
 
-This topic lists the error codes and the related descriptions. 
+This article lists the error codes and the related descriptions. 
 
 ## How can I display failed sign-ins? 
 
@@ -64,7 +64,7 @@ The following section provides you with a complete overview of all possible erro
 |50000|There is an issue with our sign-in service.|
 |50001|The service principal name was not found in this tenant. This can happen if the application has not been installed by the administrator of the tenant. Or Resource principal was not found in the directory or is invalid.|
 |50002|Sign-in failed due to restricted proxy access on tenant. If it's your own tenant policy, you can change your restricted tenant settings to fix this issue|
-|50003|Signin failed due to missing signing key or certificate. This might be because there was no signing key configured in the application. Check out the resolutions outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). If you still see issues, please contact the application owner or the application admin|
+|50003|Sign-in failed due to missing signing key or certificate. This might be because there was no signing key configured in the application. Check out the resolutions outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). If you still see issues, please contact the application owner or the application admin|
 |50005|User tried to login to a device from a platform that's currently not supported through conditional access policy|
 |50006| Signature verification failed due to invalid signature. Check out the resolution outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery).  If you still see issues, please contact the application owner or app admin|
 |50007|Partner encryption certificate was not found for this application. Please file a support ticket with Microsoft to get this fixed|
@@ -73,8 +73,8 @@ The following section provides you with a complete overview of all possible erro
 |50011|The reply address is missing, misconfigured or does not match reply addresses configured for the application. Try out the resolution listed at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). If you still see issues, please contact the application owner or app admin|
 |50013|Assertion is invalid because of various reasons - The token issuer doesn't match the api versionot within its valid time range -expired -malformed - Refresh token in the assertion is not a primary refresh token.|
 |50017|Certification validation failed, reasons for the following reasons: <ul><li>Cannot find issuing certificate in trusted certificates list</li><li>Unable to find expected CrlSegment</li><li>Cannot find issuing certificate in trusted certificates list.</li><li>Delta CRL distribution point is configured without a corresponding CRL distribution point.</li><li>Unable to retrieve valid CRL segments due to timeout issue. - Unable to download CRL</li></ul>|
-|50020|User is unauthorised - unable to issue tokens because of version issue - issuer name is not specified - problems with issuer name (null -max lenghth). Please contact the app owner|
-|50027|Invalid JWT token due to the following reasons:<ul><li>doesn't contain nonce claim, sub claim</li><li>subject identifier mismatch</li><li>duplicate claim in idToken claims</li><li>unexpected issuer</li><li>unexpected audience</li><li>not within its valid time range</li><li>token format is not proper</li><li>External ID token from issuer failed signiture verifcation. Please contact the application owner</li></ul>|
+|50020|User is unauthorized - unable to issue tokens because of version issue - issuer name is not specified - problems with issuer name (null -max length). Please contact the app owner|
+|50027|Invalid JWT token due to the following reasons:<ul><li>doesn't contain nonce claim, sub claim</li><li>subject identifier mismatch</li><li>duplicate claim in idToken claims</li><li>unexpected issuer</li><li>unexpected audience</li><li>not within its valid time range</li><li>token format is not proper</li><li>External ID token from issuer failed signature verification. Please contact the application owner</li></ul>|
 |50029|Invalid URI - domain name contains invalid characters.|
 |50033|Please have the user try again later. |
 |50034|User account not found - could not create remote sign in session|
@@ -87,7 +87,7 @@ The following section provides you with a complete overview of all possible erro
 |50057|User account is disabled. The account has been disabled by an administrator.|
 |50058|The application tried to perform a silent sign in and the user could not be silently signed in. The application needs to start an interactive flow giving users an option to sign in. Contact app owner.|
 |50059|User does not exist in directory. Please contact your tenant admin|
-|50061|Signout request is invalid. Please Contact the application owner|
+|50061|Sign out request is invalid. Please Contact the application owner|
 |50072|Users' needs to enroll for second factor authentication (interactive)|
 |50074|User did not pass the MFA challenge.|
 |50076|User did not pass the MFA challenge (non interactive)|
@@ -123,7 +123,7 @@ The following section provides you with a complete overview of all possible erro
 |50180|Windows Integrated authentication is needed. Enable the tenant for Seamless SSO.|
 |51001|Domain Hint is not present with On-Premises Security Identifier - On-Premises UPN|
 |51004|User account doesn’t exist in the directory.|
-|51006|Windows Integrated authentication is needed. User logged in using session token that is missing wia claim. Please request the the user to re-login.|
+|51006|Windows Integrated authentication is needed. User logged in using session token that is missing via claim. Please request the the user to re-login.|
 |53000|Conditional Access policy requires a compliant device, and the device is not compliant. Please have the user enrioll their device with an approved MDM provider like InTune|
 |53001|Conditional Access policy requires a domain joined device, and the device is not domain joined. Please have the user use a domain joined device|
 |53002|Application used is not an approved application for conditional access. User need to use one of the apps from the list of approved applications to use in order to get access.|
@@ -139,9 +139,9 @@ The following section provides you with a complete overview of all possible erro
 |70005|The application returned an unsupported response type due to the following reasons: - response_type 'token' is not enabled for the application -response_type 'id_token' requires the 'openid' scope -contains an unsupported OAuth parameter value in the encoded wctx Please contact the application owner|
 |70007|The application returned an unsupported value of 'response_mode' when requesting a token. Please contact the app owner|
 |70008|The provided authorization code or refresh token is expired -revoked. Please have the user retry signing in|
-|70018|Invalid verfication code due to User typing in wrong user code for device code flow. Authorization is not approved|
+|70018|Invalid verification code due to User typing in wrong user code for device code flow. Authorization is not approved|
 |70019|Verification code expired. Please have the user retry the sign-in|
-|75003|The applicatiion returned an error related to unsupported Binding (SAML protocol response cannot be sent via bindings other than HTTP POST). Please contact the app owner|
+|75003|The application returned an error related to unsupported Binding (SAML protocol response cannot be sent via bindings other than HTTP POST). Please contact the app owner|
 |75005|Azure AD doesn’t support the SAML Request sent by the application for Single Sign-on. Please contact the app owner|
 |75008|The request from the application was denied since the SAML request had an unexpected destination. Please contact the app owner|
 |75011|Authentication method by which the user authenticated with the service doesn't match requested authentication method. Please contact the app owner|
