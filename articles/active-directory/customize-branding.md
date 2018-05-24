@@ -94,7 +94,7 @@ It can take up to an hour for any changes you made to the sign-in page branding 
 ## Add language-specific company branding to your directory
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
-2. Select **Users and groups** > **Company branding** > **New language**.
+2. Select **Azure Active Directory** > **Company branding** > **New language**.
   
   ![Add language-specific branding elements](./media/customize-branding/add-language.png)
 5. Modify the elements you want to customize. All elements are optional.
