@@ -148,8 +148,7 @@ Let's look at the first skill, which is the predefined [named entity recognition
           "name": "text",
           "source": "/document/content"
         }
-      ],
-      "outputs": [
+      ],      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -204,7 +203,7 @@ Recall the structure of the custom Bing entity search enricher:
      "description": "This skill calls an Azure function, which in turn calls Bing Entity Search",
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
-          "Ocp-Apim-Subscription-Key": "foobar",
+          "Ocp-Apim-Subscription-Key": "foobar"
       }
       "context": "/document/content/organizations/*",
       "inputs": [
