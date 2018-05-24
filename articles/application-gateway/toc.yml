@@ -80,9 +80,7 @@
     - name: Azure portal
       href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
-      href: application-gateway-web-application-firewall-powershell.md
-    - name: Azure CLI
-      href: application-gateway-web-application-firewall-cli.md
+      href: tutorial-restrict-web-traffic-powershell.md
   - name: Customize WAF rules
     items:
     - name: Azure portal
