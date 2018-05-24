@@ -1,6 +1,6 @@
 ---
-title: General Data Protection Regulation (GDPR) reference | Microsoft Docs
-description: Reference for General Data Protection Regulation from Language Understanding service (LUIS).
+title: Export and deletion of customer data - LUIS - Azure Cognitive Services | | Microsoft Docs
+description: Reference for export and deletion of customer data from Language Understanding service (LUIS).
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
@@ -8,14 +8,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 05/23/2018
 ms.author: v-geberr;
 ---
 
-# General Data Protection Regulation (GDPR) reference
+# Export and delete your customer data in Language Understanding (LUIS) in Cognitive Services
 
 ## Summary of customer data request features​
 Language Understanding Intelligent Service (LUIS) preserves customer content to operate the service, but the LUIS user has full control over viewing, exporting, and deleting their data. This can be done through the LUIS web [portal](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions) or the [LUIS Programmatic APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 Customer content is stored encrypted in Microsoft regional Azure storage and includes:
 

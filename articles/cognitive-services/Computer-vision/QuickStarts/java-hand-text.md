@@ -88,7 +88,7 @@ public class Main {
 
             // Request parameter.
             // Note: The request parameter changed for APIv2.
-            // For APIv1, it is "handwriting=true".
+            // For APIv1, it is "handwriting", "true".
             builder.setParameter("mode", "Handwritten");
 
             // Prepare the URI for the REST API call.
