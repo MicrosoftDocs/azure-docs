@@ -134,11 +134,11 @@ In pre-compiled functions, the bindings used by the function are defined by appl
 
 ## Adding bindings
 
-In the same way that triggers are defined by applying attributes, you can add input and output bindings to a function in the following way:
+As with triggers, input and output bindings are added to your function as binding attributes. Add bindings to a function as follows:
 
 1. Add the approprate NuGet extension package for the binding. For more information, see [Local C# development using Visual Studio](functions-triggers-bindings.md#local-csharp) in the Triggers and Bindings topic. The specific NuGet package requirements are found in the reference topic for the binding.
 
-1. Add the appropriate binding attribute to the method signature. For example, the following example is a Queue storage triggered function with an output queue binding. The function writes the queue message that triggers the function to a new queue message in a different queue.
+2. Add the appropriate binding attribute to the method signature. For example, the following example is a Queue storage triggered function with an output queue binding. The function writes the queue message that triggers the function to a new queue message in a different queue.
 
     ```csharp
     public static class SimpleExampleWithOutput
@@ -158,7 +158,6 @@ In the same way that triggers are defined by applying attributes, you can add in
 For more information, see the reference topic for the specific binding.
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings-dotnet.md)]
-
 
 ## Testing functions
 
