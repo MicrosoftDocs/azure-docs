@@ -53,7 +53,7 @@ In this section, you create a .NET console app on your simulated device that upd
 
     ![Create a visual studio project][13]
 
-2. **Install Azure IoT Hub .NET device SDK V1.16.0-preview-005** - Module identity and module twin is in public preview. It's only availble in the IoT Hub prerelease device SDKs. In Visual Studio, open tools > Nuget package manager > manage Nuget packages for solution. Search Microsoft.Azure.Devices.Client. Make sure you've checked include prerelease check box. Select version V1.16.0-preview-005 and install. Now you have access to all the module features. 
+2. **Install the latest Azure IoT Hub .NET device SDK** - Module identity and module twin is in public preview. It's only availble in the IoT Hub prerelease device SDKs. In Visual Studio, open tools > Nuget package manager > manage Nuget packages for solution. Search Microsoft.Azure.Devices.Client. Make sure you've checked include prerelease check box. Select the latest version and install. Now you have access to all the module features. 
 
     ![Install Azure IoT Hub .NET service SDK V1.16.0-preview-005][14]
 
@@ -116,7 +116,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
             var twinTask = Client.GetTwinAsync();
             twinTask.Wait();
             var twin = twinTask.Result;
-            Console.WriteLine(JsonConvert.SerializeObject(twin));
+            Console.WriteLine(JsonConvert.SerializeObject(twin.Properties)); 
 
             Console.WriteLine("Sending app start time as reported property");
             TwinCollection reportedProperties = new TwinCollection();
@@ -137,7 +137,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
 
     This code sample shows you how to retrieve the module twin and update reported properties with AMQP protocol. In public preview, we only support AMQP for module twin operations.
 
-5. In addtion to the above **Main** method, you can add below code block to send event to IoT Hub from your module:
+5. In addition to the above **Main** method, you can add below code block to send event to IoT Hub from your module:
     ```csharp
     Byte[] bytes = new Byte[2];
     bytes[0] = 0;

@@ -1,17 +1,13 @@
 ---
 title: Integrate SIM data in the Remote Monitoring Solution - Azure| Microsoft Docs 
 description: This article describes how to integrate Telefónica SIM data into the Remote Monitoring solution. 
-services: iot-suite
-suite: iot-suite
 author: hegate
-manager: timlt
+manager: 
 ms.author: hegate
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
 # Integrate SIM data in the Remote Monitoring solution
