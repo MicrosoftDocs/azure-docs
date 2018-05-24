@@ -46,23 +46,30 @@ Visual Studio creates a project and in it a class that contains boilerplate code
 Now, replace all of the content of the file *Function1.cs* with the following code:
 
 ```csharp
+using System;
+using System.Net.Http;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.IO;
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
-using System.Net.Http;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Text;
 
 namespace TranslateFunction
 {
     // This function will simply translate messages sent to it.
     public static class Function1
     {
+
+        string path = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0";
+
+        // NOTE: Replace this example key with a valid subscription key.
+        string key = "064d8095730d4a99b49f4bcf16ac67f8";
+
         #region classes used to serialize the response
         private class WebApiResponseError
         {
@@ -87,7 +94,6 @@ namespace TranslateFunction
             public List<WebApiResponseRecord> values { get; set; }
         }
         #endregion
-
 
         /// <summary>
         /// Note that this function can translate up to 1000 characters. If you expect to need to translate more characters, use 
@@ -121,23 +127,14 @@ namespace TranslateFunction
 
             recordId = data?.values?.First?.recordId?.Value as string;
             originalText = data?.values?.First?.data?.text?.Value as string;
-            originalLanguage = data?.values?.First?.data?.language?.Value as string;
+            toLanguage = data?.values?.First?.data?.language?.Value as string;
 
             if (recordId == null)
             {
                 return new BadRequestObjectResult("recordId cannot be null");
             }
 
-            // Only translate records that actually need to be translated. 
-            if (!originalLanguage.Contains("en"))
-            {
-                translatedText = TranslateText(originalText, "en-us").Result;
-            }
-            else
-            {
-                // text is already in English.
-                translatedText = originalText;
-            }
+            translatedText = TranslateText(originalText, toLanguage).Result;
 
             // Put together response.
             WebApiResponseRecord responseRecord = new WebApiResponseRecord();
@@ -155,41 +152,34 @@ namespace TranslateFunction
         /// <summary>
         /// Use Cognitive Service to translate text from one language to antoher.
         /// </summary>
-        /// <param name="myText">The text to translate</param>
-        /// <param name="destinationLanguage">The language you want to translate to.</param>
+        /// <param name="originalText">The text to translate.</param>
+        /// <param name="toLanguage">The language you want to translate to.</param>
         /// <returns>Asynchronous task that returns the translated text. </returns>
-        async static Task<string> TranslateText(string myText, string destinationLanguage)
+        async static Task<string> TranslateText(string originalText, string toLanguage)
         {
-            string host = "https://api.microsofttranslator.com";
-            string path = "/V2/Http.svc/Translate";
+	    System.Object[] body = new System.Object[] { new { Text = originalText } };
+	    var requestBody = JsonConvert.SerializeObject(body);
 
-            // NOTE: Replace this example key with a valid subscription key.
-            string key = "064d8095730d4a99b49f4bcf16ac67f8";
+            var uri = $"{path}&to={toLanguage}";
 
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+            string result = "";
 
-            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>() {
-                new KeyValuePair<string, string>(myText, "en-us")
-            };
+	    using (var client = new HttpClient())
+	    using (var request = new HttpRequestMessage())
+	    {
+	        request.Method = HttpMethod.Post;
+		request.RequestUri = new Uri(uri);
+		request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+		request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
-            StringBuilder totalResult = new StringBuilder();
+		var response = await client.SendAsync(request);
+		var responseBody = await response.Content.ReadAsStringAsync();
 
-            foreach (KeyValuePair<string, string> i in list)
-            {
-                string uri = host + path + "?to=" + i.Value + "&text=" + System.Net.WebUtility.UrlEncode(i.Key);
+		dynamic data = JsonConvert.DeserializeObject(responseBody);
+		result = data?.First?.translations?.First?.text?.Value as string;
 
-                HttpResponseMessage response = await client.GetAsync(uri);
-
-                string result = await response.Content.ReadAsStringAsync();
-
-                // Parse the response XML
-                System.Xml.XmlDocument xmlResponse = new System.Xml.XmlDocument();
-                xmlResponse.LoadXml(result);
-                totalResult.Append(xmlResponse.InnerText); 
-            }
-
-            return totalResult.ToString();
+	    }
+            return result();
         }
     }
 }
