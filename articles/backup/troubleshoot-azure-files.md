@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Files Backup 
+title: Troubleshoot Azure Files Backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
 services: backup
 ms.service: backup
@@ -7,9 +7,7 @@ author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
-ms.workload: storage-backup-recovery
 manager: carmonm
-
 ---
 
 # Troubleshoot problems backing up Azure Files

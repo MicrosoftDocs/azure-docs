@@ -2,18 +2,11 @@
 title: Use DPM to back up workloads to Azure portal| Microsoft Docs
 description: An introduction to backing up DPM servers using the Azure Backup service
 services: backup
-documentationcenter: ''
 author: adigan
 manager: nkolli
-editor: ''
 keywords: System Center Data Protection Manager, data protection manager, dpm backup
-
-ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
 ---
