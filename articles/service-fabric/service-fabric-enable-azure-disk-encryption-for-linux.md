@@ -33,11 +33,10 @@ The guide covers the following procedures:
 
 ## Prerequisites
 1. **Self-Registration** - In order to use, virtual machine scale set disk encryption preview requires self-registration
-a. You can self-register your subscription by running the following steps
+a. You can self-register your subscription by running the following steps:
 ```Powershell
 
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
-
 ```
 
 b. Wait around 10 minutes until the state as 'Registered'. You can check the state by running the following command: 
@@ -46,14 +45,12 @@ b. Wait around 10 minutes until the state as 'Registered'. You can check the sta
 
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-
 ```
 
 2. **Azure Key Vault** - Create a KeyVault in the same subscription and region as the virtual machine scale set and set the access policy   'EnabledForDiskEncryption' on the KeyVault using its PS cmdlet. You can also set the policy using the KeyVault UI in the Azure portal: 
 ```Powershell
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
-
 ```
 
 3. Install the latest version of [Azure SDK from Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. The following are the VMSS ADE cmdlets to enable ([Set](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) encryption, retrieve ([Get](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) encryption status and remove ([disable](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) encryption on scale set instance.
