@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure server administrator and user roles with SSMS tutorial lesson | Microsoft Docs
+title: Tutorial - Configure Azure Analysis Services server administrator and user roles tutorial lesson | Microsoft Docs
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
