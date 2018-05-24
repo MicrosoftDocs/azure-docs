@@ -21875,9 +21875,23 @@
             "redirect_url": "/azure/application-gateway/application-gateway-web-application-firewall-portal",
             "redirect_document_id": false
         },
+        }
+        ,
 	    {
             "source_path": "articles/active-directory/active-directory-conditional-access-vpn-connectivity-windows10.md",
             "redirect_url": "https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy",
+            "redirect_document_id": true
+        }
+        ,
+        {
+            "source_path": "articles/security/azure-security-architecture-overview.md",
+            "redirect_url": "https://docs.microsoft.com/azure/security",
+            "redirect_document_id": true
+        }
+        ,
+        {
+            "source_path": "articles/security/azure-security-getting-started.md",
+            "redirect_url": "https://docs.microsoft.com/azure/security",
             "redirect_document_id": true
         }
     ]
