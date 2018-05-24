@@ -20,13 +20,13 @@ This article provides guidance for shaping JSON, to maximize the efficiency of y
 
 It's important to think about how you send events to Time Series Insights. Namely, you should always:
 
-1. send data over the network more efficiently.
+1. send data over the network as efficiently as possible.
 2. ensure your data is stored in a way that enables you to perform aggregations suitable for your scenario.
 3. ensure you don't hit TSI's maximum property limits of
    - 600 properties (columns) for S1 environments.
    - 800 properties (columns) for S2 environments.
 
-The following guidance helps you ensure query performance:
+The following guidance helps ensure the best possible query performance:
 
 1. Don't use dynamic properties, such as a tag ID as property name, as it contributes to hitting the maximum properties limit.
 2. Don't send unnecessary properties. If a query property isn't required, it's best not to send it, and avoid storage limitations.
@@ -37,11 +37,11 @@ The following guidance helps you ensure query performance:
 
 ## Examples
 
-The following two examples demonstrate sending events, to highlight the previous recommendations. Following each example, you see how the recommendations have been applied.
+The following two examples demonstrate sending events, to highlight the previous recommendations. Following each example, you can see how the recommendations have been applied.
 
 The examples are based on a scenario where multiple devices send measurements or signals. Measurements or signals could be Flow Rate, Engine Oil Pressure, Temperature, and Humidity. In the first example, there are a few measurements across all devices. In the second example, there are many devices, and each sends many unique measurements.
 
-### Only a few measurements/signals exist
+### Scenario: only a few measurements/signals exist
 
 **Recommendation:** send each measurement as a separate property/column.
 
@@ -105,7 +105,7 @@ Note the following in the previous example:
 
 - Measures are sent as separate properties within same object, since there are few measures. Here, **series.Flow Rate psi** and **series.Engine Oil Pressure ft3/s** are unique columns.
 
-### Several measures exist
+### Scenario: several measures exist
 
 **Recommendation:** send measurements as "type", "unit", "value" tuples.
 
@@ -172,19 +172,19 @@ TSI event table:
 | FYYY | pumpRate | LINE\_DATA | US | Flow Rate | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
 | FYYY | oilPressure | LINE\_DATA | US | Engine Oil Pressure | psi | 2018-01-17T01:18:00Z | 22.2 |
 
-Note the following in the previous example:
+Note the following in the previous example, and similar to the first example:
 
-- Like the first example, columns **deviceId** and **series.tagId** serve as the column headers for the various devices and tags in a fleet. Using each as its own attribute would have limited the query to 594 (S1 environments) or 794 (S2 environments) total devices with the other six columns.
+- columns **deviceId** and **series.tagId** serve as the column headers for the various devices and tags in a fleet. Using each as its own attribute would have limited the query to 594 (S1 environments) or 794 (S2 environments) total devices with the other six columns.
 
-- Like the first example, unnecessary properties were avoided, for the same reasons.
+- unnecessary properties were avoided, for the reason cited in the first example.
 
-- Like the first example, reference data is used to reduce the number of bytes transferred over the network by introducing **deviceId**, for a unique pair of **messageId** and **deviceLocation**. A composite key is used, **series.tagId**,  for the unique pair of **type** and **unit.**. The composite key allows the  **deviceId** and **series.tagId** pair to be used, to refer to four values: **messageId, deviceLocation, type,** and **unit**. This data is joined with the telemetry data at ingress time, and subsequently stored in TSI for querying.
+- reference data is used to reduce the number of bytes transferred over the network by introducing **deviceId**, for a unique pair of **messageId** and **deviceLocation**. A composite key is used, **series.tagId**,  for the unique pair of **type** and **unit.**. The composite key allows the  **deviceId** and **series.tagId** pair to be used, to refer to four values: **messageId, deviceLocation, type,** and **unit**. This data is joined with the telemetry data at ingress time, and subsequently stored in TSI for querying.
 
-- Like the first example, two layers of nesting are used, for the same reason.
+- two layers of nesting are used, for the reason cited in the first example.
 
-### For all scenarios
+### For both scenarios
 
-If you have a property with a large number of possible values, it's best to send as distinct values within a single column, rather than creating a new column for each value. From the previous 2 examples:
+If you have a property with a large number of possible values, it's best to send as distinct values within a single column, rather than creating a new column for each value. From the previous two examples:
   - In the first example, there are few properties that have several values, so it's appropriate to make each a separate property. 
   - However, in the second example, you can see that the measures are not specified as individual properties, but rather, an array of values/measures under a common series property. A new key is sent, **tagId** , which creates a new column, **series.tagId** in the flattened table. New properties are created, **type** and **unit**, using reference data, thus preventing the property limit from being hit.
 
