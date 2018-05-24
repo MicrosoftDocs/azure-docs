@@ -61,6 +61,26 @@ This build includes the following improvements and fixes for Azure Stack.
 
     This alert can be safely ignored. 
 
+
+#### Health and monitoring
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alert #1:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+
+  Alert #2:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+
+  Both alerts can be safely ignored. They will close automatically over time.  
+
+
+
 #### Compute
 - <!-- TBD -  IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
@@ -98,23 +118,6 @@ This build includes the following improvements and fixes for Azure Stack.
  
 - <!-- TBD -  IS ASDK --> Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
 
-#### Health and monitoring
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
-
-   Alert #1:
-   - NAME:  Infrastructure role unhealthy
-   - SEVERITY: Warning
-   - COMPONENT: Health controller
-   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
-
-   Alert #2:
-   - NAME:  Infrastructure role unhealthy
-   - SEVERITY: Warning
-   - COMPONENT: Health controller
-   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
-
-   Both alerts can be safely ignored. They will close automatically over time. 
-
 
 #### SQL and MySQL 
 - <!-- TBD - ASDK --> The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
@@ -132,7 +135,6 @@ This build includes the following improvements and fixes for Azure Stack.
 - <!-- TBD -  IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 <!-- #### Identity -->
-
 
 
 
