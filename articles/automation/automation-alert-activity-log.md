@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure Automation runbooks with activity logs alerts
-description: This article walks you through monitoring Azure Automation runbooks with the activity log
+title: Monitor Azure Automation runbooks with metric alerts
+description: This article walks you through monitoring Azure Automation runbooks based off of metrics
 services: automation
 ms.service: automation
 author: georgewallace
@@ -9,7 +9,7 @@ ms.date: 05/17/2018
 ms.topic: article
 manager: carmonm
 ---
-# Monitoring runbooks with Azure Activity log alerts
+# Monitoring runbooks with metric alerts
 
 In this article, you learn how to create alerts based on the completion status of runbooks.
 

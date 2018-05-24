@@ -60,6 +60,8 @@
       href: stream-analytics-test-query.md
     - name: View results on a dashboard
       href: stream-analytics-power-bi-dashboard.md
+    - name: Clean up your job
+      href: stream-analytics-clean-up-your-job.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
