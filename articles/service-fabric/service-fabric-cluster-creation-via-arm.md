@@ -580,6 +580,22 @@ The following diagram illustrates where your key vault and Azure AD configuratio
 
 ![Resource Manager dependency map][cluster-security-arm-dependency-map]
 
+
+## Azure Disk Encryption for Windows virtual machine scale set
+
+Azure Disk Encryption is a new capability that helps you [encrypt your Windows virtual machine disks](service-fabric-enable-azure-disk-encryption-for-windows.md). 
+Azure Disk Encryption leverages the industry standard [BitLocker][https://technet.microsoft.com/library/cc732774.aspx] feature of Windows to provide volume encryption for the OS volume. 
+The solution is integrated with [Azure Key Vault][https://azure.microsoft.com/documentation/services/key-vault/] to help you control and manage the disk-encryption keys and secrets in your key vault subscription. 
+The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage. 
+
+## Azure Disk Encryption for Linux virtual machine scale set
+
+Azure Disk Encryption is a new capability that helps you [encrypt your Linux virtual machine disks](service-fabric-enable-azure-disk-encryption-for-linux.md). 
+Azure Disk Encryption leverages the industry standard [DM-Crypt][https://en.wikipedia.org/wiki/Dm-crypt] feature of Linux to provide volume encryption for the data disks. 
+The solution is integrated with [Azure Key Vault][https://azure.microsoft.com/documentation/services/key-vault/] to help you control and manage the disk-encryption keys and secrets in your key vault subscription. 
+The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage. 
+
+
 ## Create the cluster using Azure resource template 
 
 You can now deploy you cluster using the steps outlined earlier in the document, or if you have 
