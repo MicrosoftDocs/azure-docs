@@ -1,23 +1,15 @@
 ---
 title: Provision Raspberry Pi to Remote Monitoring using C - Azure | Microsoft Docs
 description: Describes how to connect a Raspberry Pi device to the Remote Monitoring solution accelerator using an application written in C.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
-
 ---
+
 # Connect your Raspberry Pi device to the Remote Monitoring solution accelerator (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
