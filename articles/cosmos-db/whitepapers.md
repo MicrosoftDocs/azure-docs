@@ -6,7 +6,6 @@ author: SnehaGunda
 manager: kfile
 
 ms.service: cosmos-db
-ms.workload: data-services
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: sngun

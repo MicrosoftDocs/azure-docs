@@ -10,8 +10,6 @@ editor: monicar
 
 ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017

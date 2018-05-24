@@ -2,7 +2,6 @@
 title: Expire data in Azure Cosmos DB with time to live | Microsoft Docs
 description: With TTL, Microsoft Azure Cosmos DB provides the ability to have documents automatically purged from the system after a period of time.
 services: cosmos-db
-documentationcenter: ''
 keywords: time to live
 author: SnehaGunda
 manager: kfile
@@ -11,8 +10,6 @@ ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/29/2017
 ms.author: sngun
 

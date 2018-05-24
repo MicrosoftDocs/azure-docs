@@ -9,8 +9,6 @@ editor: cgronlun
 
 ms.assetid: 7861cadf-2a05-471a-9925-0fec0599351b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 05/16/2018

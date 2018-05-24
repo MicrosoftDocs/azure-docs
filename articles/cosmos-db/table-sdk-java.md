@@ -9,8 +9,6 @@ editor: ''
 
 ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 11/20/2017

@@ -8,8 +8,6 @@ manager: kfile
 
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
 ms.date: 04/05/2018

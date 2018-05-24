@@ -9,8 +9,6 @@ manager: kfile
 
 ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: cosmos-db
-ms.workload: data-management
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 02/23/2017

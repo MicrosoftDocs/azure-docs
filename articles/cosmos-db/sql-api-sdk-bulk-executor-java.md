@@ -8,8 +8,6 @@ manager: kfile
 editor: cgronlun
 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/07/2018

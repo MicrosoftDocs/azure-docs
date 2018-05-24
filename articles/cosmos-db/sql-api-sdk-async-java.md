@@ -8,8 +8,6 @@ manager: kfile
 
 ms.assetid: a452ffa2-c15d-4b0a-a8c1-ec9b750ce52b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 05/18/2018
