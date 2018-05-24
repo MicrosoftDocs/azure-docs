@@ -109,13 +109,13 @@ spec:
         image: microsoft/aci-helloworld
         ports:
         - containerPort: 80
-      nodeName: aci-connector
+      nodeName: virtual-kubelet-virtual-kubelet-linux
 ```
 
 Run the application with the [kubectl create][kubectl-create] command.
 
 ```azurecli-interactive
-kubectl create -f aci-connector-test.yml
+kubectl create -f virtual-kubelete-test.yaml
 ```
 
 Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods with the scheduled node.
@@ -124,7 +124,7 @@ Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to o
 kubectl get pods -o wide
 ```
 
-Notice that the `kube-aci-demo` pod has been scheduled on the `virtual-kubelet-virtual-kubelet-linux` node.
+Notice that the `aci-helloworld` pod has been scheduled on the `virtual-kubelet-virtual-kubelet-linux` node.
 
 ```console
 NAME                                            READY     STATUS    RESTARTS   AGE       IP             NODE
