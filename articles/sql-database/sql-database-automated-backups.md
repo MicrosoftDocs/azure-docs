@@ -17,6 +17,9 @@ ms.reviewer: carlrab
 
 SQL Database automatically creates database backups and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen. Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If you want to keep backups in your own storage container you can configure a long-term backup retention policy. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
+> [!NOTE]
+> This article provides steps for how to delete personal data from the device or service and can be used to support your obligations under the GDPR. If you’re looking for general information about GDPR, see the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+
 ## What is a SQL Database backup?
 
 SQL Database uses SQL Server technology to create [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](http://msdn.microsoft.com/library/ms175526.aspx), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups for the purposes of Point-in-time restore (PITR). The transaction log backups generally happen every 5 - 10 minutes, with the frequency based on the performance level and amount of database activity. Transaction log backups, with full and differential backups, allow you to restore a database to a specific point-in-time to the same server that hosts the database. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
