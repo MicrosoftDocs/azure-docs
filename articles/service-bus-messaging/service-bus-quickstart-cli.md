@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - use Azure CLI and Java to send and receive messages from Azure Service Bus | Microsoft Docs
-description: This quickstart teaches you to send and receive Azure Service Bus messages using Azure CLI and a sample Java application.
+title: Quickstart - Use Azure CLI and Java to send and receive messages from Azure Service Bus | Microsoft Docs
+description: In this quickstart, you learn to send and receive Azure Service Bus messages using Azure CLI and a sample Java application
 services: service-bus-messaging
 author: sethmanheim
 manager: timlt
@@ -8,12 +8,13 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/14/2018
+ms.date: 05/22/2018
 ms.author: sethm
+# Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
 
-# Send and receive messages using Azure CLI and Java
+# Quickstart: Send and receive messages using Azure CLI and Java
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services, or processes from each other (applications do not need to be online at the same time), transferring state or data changes, and sending messages between the applications. 
 
@@ -95,7 +96,7 @@ After you've created the namespace and queue, and you have the necessary credent
 
    ![program output](./media/service-bus-quickstart-cli/javaqs.png)
 
-## Clean up deployment
+## Clean up resources
 
 Run the following command to remove the resource group, namespace, and all related resources:
 

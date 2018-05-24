@@ -1,19 +1,20 @@
 ---
-title: Azure Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with PowerShell | Microsoft Docs
-description: How to send and receive messages from a topic and subscription, and how to add and use filter rules using Azure PowerShell.
+title: Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with with Azure PowerShell | Microsoft Docs
+description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using Azure PowerShell
 services: service-bus-messaging
 author: sethmanheim
 manager: timlt
 
-ms.author: sethm;chwolf
-ms.date: 05/14/2018
+ms.author: sethm
+ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
+#Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
 
-# Update inventory using PowerShell and topics/subscriptions
+# Tutorial: Update inventory using PowerShell and topics/subscriptions
 
 Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. 
 
@@ -67,7 +68,7 @@ Issue the following commands to log on to Azure. These steps are not necessary i
    Get-AzureRmContext
    ```
 
-## Use PowerShell to provision resources
+## Provision resources
 
 After logging in to Azure, issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
@@ -123,7 +124,7 @@ To run the code, do the following:
 
    ![program output](./media/service-bus-quickstart-powershell/dotnet.png)
 
-## Clean up deployment
+## Clean up resources
 
 Run the following command to remove the resource group, namespace, and all related resources:
 
@@ -266,12 +267,21 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## Next steps
 
-In this article, you created a Service Bus namespace and other resources required to send and receive messages from a Service Bus queue. To learn more about Service Bus, continue with the following articles:
+In this tutorial, you provisioned resources using Azure PowerShell, then sent and received messages from a Service Bus topic and its subscriptions. You learned how to:
 
-* [Get started with Service Bus samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted)
-* [Service Bus .NET Standard library samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus)
-* [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Learn how to use topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+> [!div class="checklist"]
+> * Create a Service Bus topic and one or more subscriptions to that topic using the Azure portal
+> * Add topic filters using .NET code
+> * Create two messages with different content
+> * Send the messages and verify they arrived in the expected subscriptions
+> * Receive messages from the subscriptions
+
+For more examples of sending and receiving messages, get started with the [Service Bus samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted).
+
+Advance to the next tutorial to learn more about using the publish/subscribe capabilities of Service Bus.
+
+> [!div class="nextstepaction"]
+> [Update inventory using PowerShell and topics/subscriptions](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: /powershell/azure/install-azurerm-ps
