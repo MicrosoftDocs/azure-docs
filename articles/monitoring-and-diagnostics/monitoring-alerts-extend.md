@@ -1,20 +1,13 @@
 ---
-title: Extend (copy) alerts from OMS portal into Azure - Overview | Microsoft Docs
+title: Extend (copy) alerts from OMS portal into Azure
 description: Overview of process of copy alerts from OMS portal into Azure Alerts, details around common customer concerns.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: vinagara
-
+ms.component: alerts
 ---
 # Extend (copy) alerts from OMS portal into Azure
 The Operations Management Suite (OMS) portal shows only Log Analytics alerts.  The new alerts experience has now integrated the alerting experience across various services and parts in Microsoft Azure. The new experience available as **Alerts** under Azure Monitor in the Azure portal contains activity log alerts, metric alerts, and log alerts for both Log Analytics and Application Insights. 

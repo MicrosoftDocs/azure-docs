@@ -1,21 +1,13 @@
 ---
-title: Create alerts for Azure services - Azure portal | Microsoft Docs
+title: Create classic alerts for Azure services - Azure portal
 description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the conditions you specify are met.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 09/23/2016
 ms.author: robb
-
+ms.component: alerts
 ---
 # Create classic metric alerts in Azure Monitor for Azure services - Azure portal
 > [!div class="op_single_selector"]

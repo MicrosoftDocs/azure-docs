@@ -1,21 +1,13 @@
 ---
-title: Create, view and manage alerts Using Azure Monitor | Microsoft Docs
+title: "Create, view and manage alerts Using Azure Monitor"
 description: Use the new unified Azure alerts experience to author, view and manage metric and log alert rules from one place.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
-
+ms.component: alerts
 ---
 # Create, view, and manage alerts using Azure Monitor  
 

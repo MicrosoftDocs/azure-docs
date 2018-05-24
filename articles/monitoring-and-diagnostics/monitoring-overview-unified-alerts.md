@@ -1,22 +1,14 @@
-﻿---
-title: Explore the new Alerts experience in Azure Monitor| Microsoft Docs
+---
+title: Explore the new Alerts experience in Azure Monitor
 description: Understand how the new simple and scalable alerts experience in Azure makes authoring, viewing and managing alerts easier
 author: manishsm-msft
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: mamit
-ms.custom:
-
+ms.custom: 
+ms.component: alerts
 ---
 # The new alerts experience in Azure Monitor
 

@@ -1,21 +1,13 @@
 ---
-title: Scale instance count manually or with autoscale with Azure Portal | Microsoft Docs
+title: Scale instance count manually or with autoscale in Azure portal
 description: Learn how to scale your services Azure.
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 2397596a-071f-4d49-8893-bec5f735bd7b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: ancav
-
+ms.component: autoscale
 ---
 # Scale instance count manually or automatically
 In the [Azure Portal](https://portal.azure.com/), you can manually set the instance count of your service, or, you can set parameters to have it automatically scale based on demand. This is typically referred to as *Scale out* or *Scale in*.

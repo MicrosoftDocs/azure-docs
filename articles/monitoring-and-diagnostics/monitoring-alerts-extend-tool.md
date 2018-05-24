@@ -1,20 +1,13 @@
 ---
-title: How to extend (copy) alerts from OMS portal into Azure | Microsoft Docs
+title: How to extend (copy) alerts from OMS portal into Azure
 description: Tools and API by which extending alerts from OMS into Azure Alerts, can be done by customers voluntarily.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: vinagara
-
+ms.component: alerts
 ---
 # How to extend (copy) alerts from OMS into Azure
 Beginning **May 14, 2018**, all customers using alerts that are configured in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), will be extended into Azure. Alerts that are extended to Azure behave the same way as in OMS. Monitoring capabilities remain intact. Extending alerts created in OMS to Azure provides many benefits. For more information about the advantages and process of extending alerts from OMS to Azure, see [Extend alerts from OMS to Azure](monitoring-alerts-extend.md).

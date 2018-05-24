@@ -1,20 +1,13 @@
 ---
-title: Stream Azure Diagnostic Logs to Log Analytics | Microsoft Docs
+title: Stream Azure Diagnostic Logs to Log Analytics
 description: Learn how to stream Azure diagnostic logs to a Log Analytics workspace.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-
+ms.component: logs
 ---
 # Stream Azure Diagnostic Logs to Log Analytics
 
