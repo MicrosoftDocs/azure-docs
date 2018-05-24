@@ -46,7 +46,7 @@ require_once 'HTTP/Request2.php';
 // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
 //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
 //   URL below with "westus".
-$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze');
+$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze');
 $url = $request->getUrl();
 
 $headers = array(
@@ -212,7 +212,7 @@ require_once 'HTTP/Request2.php';
 //   URL below with "westus".
 //
 // Also, change "landmarks" to "celebrities" in the url to use the Celebrities model.
-$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze');
+$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/models/landmarks/analyze');
 $url = $request->getUrl();
 
 $headers = array(
@@ -294,7 +294,7 @@ require_once 'HTTP/Request2.php';
 // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
 //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
 //   URL below with "westus".
-$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail');
+$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail');
 $url = $request->getUrl();
 
 $headers = array(
@@ -351,7 +351,7 @@ Change the REST URL to use the location where you obtained your subscription key
 // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 require_once 'HTTP/Request2.php';
 
-$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr');
+$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr');
 $url = $request->getUrl();
 
 $headers = array(
