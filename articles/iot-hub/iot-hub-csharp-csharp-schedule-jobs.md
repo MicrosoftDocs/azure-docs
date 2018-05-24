@@ -84,6 +84,7 @@ In this section, you create a .NET console app that responds to a direct method 
     ```csharp
     static string DeviceConnectionString = "<yourDeviceConnectionString>";
     static DeviceClient Client = null;
+    ```
 
 1. Add the following to implement the direct method on the device:
 
@@ -97,6 +98,7 @@ In this section, you create a .NET console app that responds to a direct method 
         string result = "'Door was locked.'";
         return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
     }
+    ```
 
 1. Add the following to implement the device twins listener on the device:
 
