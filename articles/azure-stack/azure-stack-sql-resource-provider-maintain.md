@@ -37,6 +37,8 @@ To modify the settings, click **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; 
 ![Update the admin password](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 ## Secrets rotation 
+*These instructions apply only to Azure Stack Integrated Systems Version 1804 and Later. Do not attempt secret rotation on pre-1804 Azure Stack Versions.*
+
 When using the SQL and MySQL resource providers with Azure Stack integrated systems, you can rotate the following infrastructure (deployment) secrets:
 - External SSL Certificate [provided during deployment](azure-stack-pki-certs.md).
 - The resource provider VM local administrator account password provided during deployment.

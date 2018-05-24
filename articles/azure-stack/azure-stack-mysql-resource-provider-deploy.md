@@ -72,8 +72,6 @@ The system account must have the following privileges:
     | Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
     | Version 1802 (1.0.180302.1) | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
     | Version 1712 (1.0.180102.3 or 1.0.180106.1 (integrated systems)) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
-    | Version 1711 (1.0.171122.1) | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
-    | Version 1710 (1.0.171028.1) | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
 
 4.  For the Azure SDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
@@ -438,6 +436,8 @@ $session | Remove-PSSession
 ```
 
 ### Secrets rotation 
+*These instructions apply only to Azure Stack Integrated Systems Version 1804 and Later. Do not attempt secret rotation on pre-1804 Azure Stack Versions.*
+
 When using the SQL and MySQL resource providers with Azure Stack integrated systems, you can rotate the following infrastructure (deployment) secrets:
 - External SSL Certificate [provided during deployment](azure-stack-pki-certs.md).
 - The resource provider VM local administrator account password provided during deployment.
