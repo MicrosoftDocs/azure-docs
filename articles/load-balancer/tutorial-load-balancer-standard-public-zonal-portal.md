@@ -35,7 +35,7 @@ This tutorial creates a public [Standard Load Balancer](https://aka.ms/azureload
 
 For more information about using availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 
-If you prefer, use the [Azure CLI](load-balancer-standard-public-zonal-cli.md) to do this tutorial.
+If you prefer, use the [Azure CLI](load-balancer-standard-public-zonal-cli.md) to complete this tutorial.
 
 ## Log in to Azure
 
@@ -49,12 +49,12 @@ Standard Load Balancer only supports a standard public IP address. When you crea
 2. In the **Create load balancer** page, enter these values for the load balancer:
     - *myLoadBalancer*, for the name of the load balancer.
     - **Public**, for the type of the load balancer.
-     - *myPublicIPZonal*, for the new Public IP address that you create. Select **Choose a public IP address**. Then select **Create new**. For the name, enter *myPublicIP*. SKU is standard by default. It selects **Zone 1** for **Availability zone**.
+     - *myPublicIPZonal*, for the new Public IP address that you create. Select **Choose a public IP address**. Then select **Create new**. For name, enter *myPublicIP*. SKU is standard by default. It selects **Zone 1** for **Availability zone**.
     - *myResourceGroupZLB*, for the name of the new resource group that you create.
     - **westeurope**, for the location.
 3. Select **Create** to create the load balancer.
    
-    ![Create a zonal load balancer standard by using the Azure portal](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
+    ![Create a zonal Standard Load Balancer by using the Azure portal](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
 
 
 ## Create back-end servers
@@ -126,7 +126,7 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
     - *myNetworkSecurityGroup*, for the name of the network security group firewall that already exists.
 5. Select **Disabled** to disable boot diagnostics.
 6. Select **OK**. Review the settings on the summary page. Then select **Create**.
-7. Use steps 1 to 6 to create a second VM, named *myVM2*, in Zone 1. Make *myVnet* the virtual network. Make *myVM2PIP* the Standard Public IP address. Make *myBackendSubnet* the subnet. And make **myNetworkSecurityGroup** the network security group.
+7. Repeat steps 1 to 6 to create a second VM, named *myVM2*, in Zone 1. Make *myVnet* the virtual network. Make *myVM2PIP* the Standard Public IP address. Make *myBackendSubnet* the subnet. And make **myNetworkSecurityGroup** the network security group.
 
     ![Create virtual machines](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-machine.png) 
 
