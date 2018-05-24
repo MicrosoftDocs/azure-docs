@@ -264,8 +264,6 @@ Run an actual failover for the EC2 instances to migrate them to Azure VMs.
 > *Don't cancel a failover in progress*. Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.  
 
 
-
-
 ## Next steps
 
 In this article, you learned how to migrate AWS EC2 instances to Azure VMs. To learn more about Azure VMs, continue to the tutorials for Windows VMs.

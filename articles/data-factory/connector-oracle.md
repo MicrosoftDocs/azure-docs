@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
 
 ---
@@ -37,6 +37,9 @@ Specifically, this Oracle connector supports the following versions of an Oracle
 - Oracle 10g R1, R2 (10.1, 10.2)
 - Oracle 9i R1, R2 (9.0.1, 9.2)
 - Oracle 8i R3 (8.1.7)
+
+> [!Note]
+> Oracle proxy server is not supported.
 
 ## Prerequisites
 
