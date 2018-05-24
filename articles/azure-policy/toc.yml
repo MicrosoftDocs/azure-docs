@@ -17,6 +17,8 @@
   items:
   - name: Create and manage Azure Policy
     href: create-manage-policy.md
+  - name: Exploring Azure Policy (Hands-on Labs)
+    href: https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyId=story://Content-Private/content/sp-azuregovernance/1-azpolicy/a-policy
 - name: Samples
   items:
   - name: Azure Policy samples

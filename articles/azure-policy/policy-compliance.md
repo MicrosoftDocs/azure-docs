@@ -4,7 +4,7 @@ description: Azure Policy evaluations and effects determine compliance. Learn ho
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/23/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -36,7 +36,7 @@ the options and capabilities of the Policy Insights REST API, see [Policy Insigh
 
 Evaluations of assigned policies and initiatives happen as the result of various events:
 
-- A policy or initiative is newly assigned to a scope. When this occurs, it can take up to 30
+- A policy or initiative is newly assigned to a scope. When this occurs, it takes around 30
 minutes for the assignment to be applied to the defined scope. Once it is applied, the evaluation
 cycle begins for resources within that scope against the newly assigned policy or initiative and
 depending on the effects used by the policy or initiative, resources are marked as compliant or
@@ -47,11 +47,42 @@ completes, updated compliance results are available in the portal and SDKs.
 for this scenario is the same as for a new assignment to a scope.
 - A resource is deployed to a scope with an assignment via Resource Manager, REST, Azure CLI, or
 Azure PowerShell. In this scenario, the effect event (append, audit, deny, deploy) and compliant
-status information becomes available in the portal and SDKs within 15 minutes.
+status information becomes available in the portal and SDKs around 15 minutes later.
 - Standard compliance evaluation cycle. Once every 24 hours, assignments are automatically
 re-evaluated. A large policy or initiative evaluated against a large scope of resources can take
 time, so there is no pre-defined expectation of when the evaluation cycle will complete. Once it
 completes, updated compliance results are available in the portal and SDKs.
+
+## How compliance works
+
+In an assignment, a resource is non-compliant if it doesn't follow policy or initiative rules. The
+following table shows how different policy effects work with the condition evaluation for the
+resulting compliance state:
+
+| Resource state | Effect | Policy evaluation | Compliance state |
+| --- | --- | --- | --- |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non-Compliant |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compliant |
+| New | Audit, AuditIfNotExist\* | True | Non-Compliant |
+| New | Audit, AuditIfNotExist\* | False | Compliant |
+
+\* The Append, DeployIfNotExist, and AuditIfNotExist effects require the IF statement to be TRUE.
+The effects also require the existence condition to be FALSE to be non-compliant. When TRUE, the IF
+condition triggers evaluation of the existence condition for the related resources.
+
+To better understand how resources are flagged as non-compliant, let's use the policy assignment
+example created above.
+
+For example, assume that you have a resource group – ContsoRG, with some storage accounts
+(highlighted in red) that are exposed to public networks.
+
+![Storage accounts exposed to public networks](media/policy-insights/resource-group01.png)
+
+In this example, you need to be wary of security risks. Now that you've created a policy
+assignment, it is evaluated for all storage accounts in the ContosoRG resource group. It audits the
+three non-compliant storage accounts, consequently changing their states to **non-compliant.**
+
+![Audited non-compliant storage accounts](media/policy-insights/resource-group03.png)
 
 ## Portal
 
@@ -228,6 +259,30 @@ parameters were passed to the policy definition.
     }]
 }
 ```
+
+### View events
+
+When a resource is created or updated, a policy evaluation result is generated. Results are called _policy events_. Use the following Uri to view recent policy events associated with the subscription.
+
+```http
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2018-04-04
+```
+
+Your results resemble the following example:
+
+```json
+{
+    "@odata.context": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
+    "@odata.count": 1,
+    "value": [{
+        "@odata.id": null,
+        "@odata.context": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
+        "NumAuditEvents": 16
+    }]
+}
+```
+
+For more information about querying policy events, see the [Policy Events](/rest/api/policy-insights/policyevents) reference article.
 
 ### Azure PowerShell (Preview)
 
