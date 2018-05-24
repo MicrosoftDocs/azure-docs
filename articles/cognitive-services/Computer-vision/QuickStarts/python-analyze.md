@@ -42,7 +42,7 @@ To run the sample, do the following steps:
 
 The following code uses the Python `requests` library to call the Computer Vision Analyze Image API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary. The types of features to recognize is passed in via the `params` dictionary.
 
-### Analyze Image request
+## Analyze Image request
 
 ```python
 # Replace <Subscription Key> with your valid subscription key.
@@ -90,7 +90,7 @@ plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
 ```
 
-### Analyze Image response
+## Analyze Image response
 
 A successful response is returned in JSON, for example:
 
