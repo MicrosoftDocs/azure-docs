@@ -14,7 +14,11 @@ ms.date: 05/25/2018
 
 # Export and delete in-product user data from Machine Learning Studio
 
-In-product data stored by Azure Machine Learning Studio is available for export and deletion through the Azure portal and also through authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. This article shows you how.
+You can delete or export in-product data stored by Azure Machine Learning Studio by using the Azure portal, the Studio interface, PowerShell, and authenticated REST APIs. This article tells you how. 
+
+Telemetry data can be accessed through the Azure Privacy portal. 
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -31,7 +35,7 @@ There are two kinds of user data in Machine Learning Studio:
 There are three kinds of accounts in Machine Learning Studio. The kind of account you have determines how your data is stored and how you can delete or export it.
 
 - A **guest workspace** is a free, anonymous account. You sign up without providing credentials, such as an email address or password.
-	-  Data is purged every 8 hours when the guest account expires.
+	-  Data is purged every eight hours when the guest account expires.
 - A **free workspace** is a free account you sign in to with Microsoft account credentials - an email address and password.
 	- You can export and delete personal and customer data, which are subject to data subject rights (DSR) requests.
 	- You can export customer data through the UI, REST APIs, or PowerShell package.
