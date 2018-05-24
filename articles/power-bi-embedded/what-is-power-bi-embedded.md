@@ -17,7 +17,7 @@ ms.date: 01/04/2018
 ms.author: maghan
 ---
 
-# About Power BI Embedded
+# What is Power BI Embedded?
 
 Power BI Embedded is intended to simplify how ISVs and developers use Power BI capabilities. Power BI Embedded simplifies Power BI capabilities by helping you quickly add stunning visuals, reports, and dashboards into your apps. Similar to apps built on Microsoft Azure use services like Machine Learning and IoT. By enabling easy-to-navigate data exploration in their apps, ISVs allow their customers to make quick, informed decisions in context.
 
@@ -31,7 +31,7 @@ Have an existing app with embedded Power BI content using Power BI Premium? If y
 
 ## Comparing Power BI Embedded with Power BI Premium
 
-Power BI Embedded is for developers who build applications. It can be used when you want to use a third-party business intelligence offering to visualize application data instead of building it yourself. Developers embed dashboards and reports into applications using Power BI Embedded. Power BI is a software-as-a-service analytics solution that gives organizations a single view of their most critical business data.
+Power BI Embedded is either for independent software vendors (ISVs) or developers who build applications for their customers. It can be used when you want to use a third-party business intelligence offering to visualize application data instead of building it yourself. Power BI Embedded is a platform-as-a-service (PaaS) analytics solution, where developers can embed reports and dashboards into an application for their customers. Power BI Premium is a software-as-a-service (SaaS) analytics solution that gives your organization a single view of their most critical business data. Power BI Embedded is a Pay-as-you-go feature, while Power BI Premium is a monthly fee. Where to go to purchase your Power BI Embedded dedicated capacity or your Power BI Premium dedicated capacity depends on which solution is right for you and your customers. [Power BI Embedded](https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/) is a pay-as-you-go feature, while [Power BI Premium](https://powerbi.microsoft.com/en-us/calculator/) is a monthly fee. For more information, please view this [video](https://www.youtube.com/watch?v=0y2oJikC6Xc&t=0s&list=PLv2BtOtLblH1dQPV49Ni12olDcUoW-GEl&index=3).
 
 ## Easy-to-use tools
 
