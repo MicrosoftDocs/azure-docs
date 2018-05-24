@@ -521,6 +521,9 @@
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
+      - name: Tables
+        tocHref: /azure/storage/tables/
+        topicHref: /azure/storage/tables/table-storage-overview
   - name: StorSimple
     tocHref: /azure/storsimple/
     topicHref: /azure/storsimple/
