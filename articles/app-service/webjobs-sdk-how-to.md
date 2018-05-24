@@ -388,6 +388,26 @@ Some triggers have built-in support for concurrency management:
 
 You can use these settings to ensure that your function runs as a singleton on a single instance. To ensure only a single instance of the function is running when the web app scales out to multiple instances, apply a listener level Singleton lock on the function (`[Singleton(Mode = SingletonMode.Listener)]`). Listener locks are acquired on startup of the JobHost. If three scaled-out instances all start at the same time, only one of the instances acquires the lock and only one listener starts.
 
+### Scope Values
+
+You can specify a **scope expression/value** on the Singleton which will ensure that all executions of the function at that scope will be serialized. Implementing more granular locking in this way can allow for some level of parallelism for your function, while serializing other invocations as dictated by your requirements. For example, in the following example the scope expression binds to the `Region` value of the incoming message. If the queue contains 3 messages in Regions "East", "East", and "West" respectively, then the messages that have region "East" will be executed serially while the message with region "West" will be executed in parallel with those.
+
+```csharp
+[Singleton("{Region}")]
+public static async Task ProcessWorkItem([QueueTrigger("workitems")] WorkItem workItem)
+{
+     // Process the work item
+}
+
+public class WorkItem
+{
+     public int ID { get; set; }
+     public string Region { get; set; }
+     public int Category { get; set; }
+     public string Description { get; set; }
+}
+```
+
 ### SingletonScope.Host
 
 The default scope for a lock is `SingletonScope.Function` meaning the lock scope (the blob lease path) is tied to the fully qualified function name. To lock across functions, specify `SingletonScope.Host` and use a scope ID name that is the same across all of the functions that you don't want to run simultaneously. In the following example, only one instance of `AddItem` or `RemoveItem` runs at a time:

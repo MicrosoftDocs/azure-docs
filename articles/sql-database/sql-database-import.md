@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.custom: load & move data
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.topic: article
+ms.topic: conceptual
 
 ---
 # Import a BACPAC file to a new Azure SQL Database

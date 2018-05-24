@@ -60,7 +60,7 @@ Ensure that the following prerequisites are met before initiating the Offline Ba
  ![Creating a classic storage account](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you are trying to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
-* With regards to disks that will be sent to Azure, ensure that only 2.5 inch SSD, or 2.5-inch or 3.5-inch SATA II/III internal hard drives are used. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-service.md#hard-disk-drives) for the latest set of drives that the service supports.
+* With regards to disks that will be sent to Azure, ensure that only 2.5 inch SSD, or 2.5-inch or 3.5-inch SATA II/III internal hard drives are used. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
 * The SATA drives have to be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the *staging location* to the SATA drives is done. Ensure that Bitlocker is enabled on the *copy computer* 
 
 ## Workflow
@@ -199,7 +199,7 @@ Follow the steps below, to check the Import Job status.
 
     ![Checking Import Job Status](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
 
-For more information on the various states of the Azure import job, see [this article](../storage/common/storage-import-export-service.md#how-does-the-azure-importexport-service-work)
+For more information on the various states of the Azure import job, see [this article](../storage/common/storage-import-export-view-drive-status.md)
 
 ### Complete the workflow
 After the import job finishes, initial backup data is available in your storage account. At the time of the next scheduled backup, Azure backup copies the contents of the data from the storage account to the Recovery Services vault as shown below: 
