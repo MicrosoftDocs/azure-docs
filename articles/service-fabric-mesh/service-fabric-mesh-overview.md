@@ -20,9 +20,7 @@ Service Fabric Mesh is a server-less platform that runs on top of [Service Fabri
 
 You worry about your code, Azure takes care of the hardware.
 
-|     |
-| --- |
-| Service Fabric Mesh is in currently in preview, and only supports the **East US** region. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). |
+[!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 ## Microservices
 

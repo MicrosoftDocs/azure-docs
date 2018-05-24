@@ -20,9 +20,7 @@ Service Fabric Mesh makes it easy to create and manage Docker containers in Azur
 
 To read more about applications and Service Fabric Mesh, head over to the [Service Fabric Mesh Overview](./service-fabric-mesh-overview.md)
 
-|     |
-| --- |
-| Service Fabric Mesh is in currently in preview, and only supports the **East US** region. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). |
+[!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 If you don't already have an Azure account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
