@@ -4,7 +4,7 @@ description: Learn to back up the system state of Windows Server and/or Windows 
 services: backup
 documentationcenter: ''
 author: saurabhsensharma
-manager: carmonm
+manager: shivamg
 editor: ''
 keywords: how to backup; how to back up; backup files and folders
 
@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
-ms.author: saurse;markgal
+ms.date: 05/23/2018
+ms.author: saurse
 
 ---
 # Back up Windows system state in Resource Manager deployment
@@ -172,6 +172,11 @@ The initial backup includes two tasks:
 * Back up  System State for the first time
 
 To complete the initial backup, use the Microsoft Azure Recovery Services agent.
+
+> [!NOTE]
+> You can back up System State on Windows Server 2008 R2 through Windows Server 2016. System State back up is not supported on client SKUs. System State is not shown as an option for Windows clients, or Windows Server 2008 SP2 machines.
+>
+>
 
 ### To schedule the backup job
 
