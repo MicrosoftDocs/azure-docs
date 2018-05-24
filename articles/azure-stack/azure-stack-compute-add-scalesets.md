@@ -45,11 +45,11 @@ On Azure Stack, virtual machine scale sets don't support auto-scale. You can add
 
 1. Open the Azure Stack Marketplace and connect to Azure. Select **Marketplace management**> **+ Add from Azure**.
 
-    ![Marketplace management](\media\azure-stack-compute-add-scalesets\image01.png)
+    ![Marketplace management](media/azure-stack-compute-add-scalesets/image01.png)
 
 2. Add and download the Virtual Machine Scale Set marketplace item.
 
-    ![Virtual Machine Scale Set](\media\azure-stack-compute-add-scalesets\image02.png)
+    ![Virtual Machine Scale Set](media/azure-stack-compute-add-scalesets/image02.png)
 
 ## Update images in a Virtual Machine Scale Set
 
