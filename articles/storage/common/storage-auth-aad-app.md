@@ -67,7 +67,7 @@ The code example shows how to get an access token from Azure AD. The access toke
 
 ### Endpoints for authentication with Azure AD
 
-To authenticate a security principal with Azure AD, you need to include some well-known endpoints in your code.
+To authenticate a security principal with Azure AD, you need to include some well-known values in your code.
 
 #### Azure AD OAuth endpoint
 
@@ -149,6 +149,9 @@ StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 // Create a block blob using those credentials
 CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
 ```
+
+> [!NOTE]
+> Azure AD integration with Azure Storage requires that you use HTTPS for Azure Storage operations.
 
 ## Next steps
 

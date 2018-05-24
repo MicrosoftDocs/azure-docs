@@ -21,6 +21,8 @@ The preview extensions are supported for operations on containers and queues. Fo
 > This preview is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications. For additional information about the preview, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
 >
 > During the preview, RBAC role assignments may take up to five minutes to propagate.
+>
+> Azure AD integration with Azure Storage requires that you use HTTPS for Azure Storage operations.
 
 ## Call CLI commands with an Azure AD identity
 
