@@ -1,22 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Microsoft Azure IoT options | Microsoft Docs
 description: Choose how to implement your Azure IoT solution using Azure IoT Central, IoT Suite, or IoT Hub.
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: overview
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
 manager: timlt
 ---
 
@@ -26,7 +17,7 @@ To implement an IoT solution, Microsoft Azure IoT Central and Azure IoT offer se
 
 * [Azure IoT Central](overview-iot-central.md) is a Software-as-a-Service (SaaS) solution that uses a model-based approach to enable you to build enterprise-grade IoT solutions without requiring cloud solution development expertise.
 
-* [Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/) is an enterprise-grade collection of [preconfigured solutions](https://docs.microsoft.com/azure/iot-suite/iot-suite-what-are-preconfigured-solutions) built on Azure Platform-as-a-Service (PaaS) that enable you to accelerate the development of custom IoT solutions.
+* [Azure IoT solution accelerators](https://docs.microsoft.com/azure/iot-accelerators/) is an enterprise-grade collection of [solution accelerators](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) built on Azure Platform-as-a-Service (PaaS) that enable you to accelerate the development of custom IoT solutions.
 
 ## Azure IoT Hub
 
@@ -61,5 +52,5 @@ The decision of which product to use to build your IoT solution is ultimately de
 Based on your chosen product and approach, the suggested next steps are:
 
 * **Azure IoT Central**: [Azure IoT Central](overview-iot-central.md).
-* **IoT Suite**: [What are the Azure IoT preconfigured solutions?](https://docs.microsoft.com/azure/iot-suite/iot-suite-what-are-preconfigured-solutions).
+* **IoT solution accelerators**: [What are the Azure IoT solution accelerators?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md).
 * **IoT Hub**: [Overview of the Azure IoT Hub service](https://docs.microsoft.com/azure/iot-hub/iot-hub-what-is-iot-hub).

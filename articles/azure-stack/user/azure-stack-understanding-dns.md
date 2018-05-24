@@ -7,14 +7,14 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/15/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
+ms.reviewer: scottnap
 
 ---
 # Introducing iDNS for Azure Stack
@@ -28,9 +28,9 @@ enables you to resolve external DNS names (for example, http://www.bing.com.) It
 
 With iDNS in Azure Stack, you get the following capabilities, without having to specify custom DNS server entries:
 
-* Shared DNS name resolution services for tenant workloads.
-* Authoritative DNS service for name resolution and DNS registration within the tenant virtual network.
-* Recursive DNS service for resolution of Internet names from tenant VMs. Tenants no longer need to specify custom DNS entries to resolve Internet names (for example, www.bing.com.)
+- Shared DNS name resolution services for tenant workloads.
+- Authoritative DNS service for name resolution and DNS registration within the tenant virtual network.
+- Recursive DNS service for resolution of Internet names from tenant VMs. Tenants no longer need to specify custom DNS entries to resolve Internet names (for example, www.bing.com.)
 
 You can still bring your own DNS and use custom DNS servers. However, by using iDNS, you can resolve Internet DNS names and connect to other VMs in the same virtual network, you don’t need to create custom DNS entries.
 
@@ -48,10 +48,10 @@ As the previous image shows, Azure will create an “A” record in DNS for the 
 Azure Stack only supports iDNS for internal name
 registration, so it cannot do the following:
 
-* Create a DNS record under an existing hosted DNS zone (for example, local.azurestack.external.)
-* Create a DNS zone (such as Contoso.com.)
-* Create a record under your own custom DNS zone.
-* Support the purchase of domain names.
+- Create a DNS record under an existing hosted DNS zone (for example, local.azurestack.external.)
+- Create a DNS zone (such as Contoso.com.)
+- Create a record under your own custom DNS zone.
+- Support the purchase of domain names.
 
 ## Next steps
 

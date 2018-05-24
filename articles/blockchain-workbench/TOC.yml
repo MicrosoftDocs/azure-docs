@@ -1,6 +1,7 @@
 - name: Azure Blockchain Workbench (public preview)
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: About Azure Blockchain Workbench
     href: blockchain-workbench-overview.md
@@ -11,6 +12,7 @@
   - name: Integration patterns
     href: blockchain-workbench-integration-patterns.md
 - name: How-to guides
+  expanded: true
   items: 
   - name: Deploy Workbench
     href: blockchain-workbench-deploy.md
@@ -48,3 +50,9 @@
     href: blockchain-workbench-messages-overview.md
   - name: REST API
     href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
+  - name: Solution templates
+    items:
+    - name: Ethereum proof-of-work consortium
+      href: ethereum-deployment-guide.md
+    - name: Hyperledger Fabric consortium
+      href: hyperledger-fabric-single-member-blockchain.md

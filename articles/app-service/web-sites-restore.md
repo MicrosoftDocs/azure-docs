@@ -23,7 +23,7 @@ that you have previously backed up (see [Back up your app in Azure](web-sites-ba
 with its linked databases on-demand to a previous state, or create a new app based on one of
 your original app's backups. Azure App Service supports the following databases for backup and restore:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
-- [Azure Database for MySQL)](https://azure.microsoft.com/services/mysql)
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgres)
 - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
@@ -54,7 +54,7 @@ backups to be performed than **Standard** tier.
    > 
    > 
    
-    You can select **Existing App** to restore the app backup to another app in the same resoure group. Before you use this option, you should have already created another app in your resource group with mirroring database configuration to the one defined in the app backup. You can also Create a **New** app to restore your content to.
+    You can select **Existing App** to restore the app backup to another app in the same resource group. Before you use this option, you should have already created another app in your resource group with mirroring database configuration to the one defined in the app backup. You can also Create a **New** app to restore your content to.
 
 4. Click **OK**.
 

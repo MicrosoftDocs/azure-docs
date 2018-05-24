@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
 
@@ -53,7 +53,7 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
 | Property | Description | Required |
 |:--- |:--- |:--- |:--- |
 | SecurityLevel | The level of security (SSL/TLS) that the driver uses for the connection to the data store. E.g. `SecurityLevel=preferredSecured`. Supported values are:<br/>- Only Unsecured (**onlyUnSecured**): The driver does not use SSL.<br/>- **Preferred Unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver does not use SSL. <br/>- **Preferred Secured (preferredSecured)**: If the server provides a choice, the driver uses SSL. <br/>- **Only Secured (onlySecured)**: The driver does not connect unless an SSL connection is available | No |
-| CaCertFile | The full path to the SSL certificate that is used by the server. E.g. `UseSystemTrustStore=<cert path>;`| Yes, if SSL is enabled |
+| CaCertFile | The full path to the SSL certificate that is used by the server. E.g. `CaCertFile=<cert path>;`| Yes, if SSL is enabled |
 
 **Example:**
 
