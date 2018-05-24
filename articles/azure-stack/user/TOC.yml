@@ -55,6 +55,8 @@
         href: azure-stack-manage-vm-disks.md
       - name: Protect VMs
         href: azure-stack-manage-vm-protect.md
+      - name: SQL Server VM considerations
+        href: sql-server-vm-considerations.md
     - name: Storage
       items:
       - name: Overview

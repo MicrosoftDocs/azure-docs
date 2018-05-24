@@ -1,13 +1,12 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: How to use the Azure Maps Map Control | Microsoft Docs 
 description: Learn how to use the Azure Maps Map Control client-side Javascript library.
-services: azure-maps 
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
+services: azure-maps
 manager: timlt
 ---
 

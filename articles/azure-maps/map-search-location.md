@@ -1,18 +1,13 @@
 ---
 title: Show search results with Azure Maps | Microsoft Docs
 description: How to perform a search request with Azure Maps then display the results on a Javascrip map
-services: azure-maps
-keywords: 
-
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: 
 ms.custom: codepen
 ---
 
