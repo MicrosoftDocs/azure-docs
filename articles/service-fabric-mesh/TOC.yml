@@ -18,7 +18,7 @@
 - name: Tutorials
   items:
   - name: Create a service - Visual Studio
-    href: service-fabric-mesh-tutorial-deploy-dotnetcore.md
+    href: service-fabric-mesh-tutorial-create-dotnetcore.md
 
 - name: Concepts
   items:

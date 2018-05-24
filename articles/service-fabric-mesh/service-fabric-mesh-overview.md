@@ -46,7 +46,7 @@ You can also take advantage of the Service Fabric runtime that Service Fabric Me
 
 It only takes a few steps to deploy a sample project with the Azure CLI. For more information, see [Deploy a container](service-fabric-mesh-quickstart-deploy-container.md). 
 
-If you're using Visual Studio, try the [Create an ASP.NET Core website](service-fabric-mesh-tutorial-deploy-dotnetcore.md) tutorial.
+If you're using Visual Studio, try the [Create an ASP.NET Core website](service-fabric-mesh-tutorial-create-dotnetcore.md) tutorial.
 
 
 
