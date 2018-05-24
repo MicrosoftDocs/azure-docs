@@ -1,5 +1,5 @@
 ---
-title: Use DPM to back up workloads to Azure portal| Microsoft Docs
+title: Use DPM to back up workloads to Azure portal
 description: An introduction to backing up DPM servers using the Azure Backup service
 services: backup
 author: adigan
