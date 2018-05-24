@@ -1,22 +1,18 @@
 ---
 title: Getting started Azure Multi-Factor Authentication Server | Microsoft Docs
-description: This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA Server.
-services: multi-factor-authentication
-keywords: authentication server, azure multi factor authentication app activation page, authentication server download
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
+description: Step-by-step get started with Azure MFA Server on-premises
 
-ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 10/02/2017
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
+
 ---
 # Getting started with the Azure Multi-Factor Authentication Server
 
@@ -186,7 +182,7 @@ The new server is now up and running with the original backed-up configuration a
 ## Next steps
 
 - Set up and configure the [User Portal](howto-mfaserver-deploy-userportal.md) for user self-service.
-- Set up and configure the Azure MFA Server with [Active Directory Federation Service](../../multi-factor-authentication/multi-factor-authentication-get-started-adfs.md), [RADIUS Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md), or [LDAP Authentication](howto-mfaserver-dir-ldap.md).
-- Set up and configure [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](../../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md).
+- Set up and configure the Azure MFA Server with [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [RADIUS Authentication](howto-mfaserver-dir-radius.md), or [LDAP Authentication](howto-mfaserver-dir-ldap.md).
+- Set up and configure [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md).
 - [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md).
-- [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md).
+- [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](howto-mfaserver-nps-vpn.md).

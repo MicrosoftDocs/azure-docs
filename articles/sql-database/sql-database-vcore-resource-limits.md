@@ -6,8 +6,8 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: carlrab
 
 ---
@@ -21,50 +21,95 @@ ms.author: carlrab
 For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), the [Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli), or the [REST API](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api).
 
 ### General Purpose service tier
-|Performance level|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|H/W generation|4|4|4|4|4|
-|vCores|1|2|4|8|16|
-|Memory (GB)|7|14|28|56|112|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
-|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
-|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data size (GB)|1024|1024|1536|3072|4096|
-|Max log size|307|307|461|922|1229|
-|TempDB size(DB)|32|64|128|256|384|
-|Target IOPS|320|640|1280|2560|5120|
-|IO latency (approximate)|5-7 ms (write)
-|Max concurrent workers (requests)|200|400|800|1600|3200|
-|Max concurrent logins|200|400|800|1600|3200|
-|Max allowed sessions|3000|3000|3000|3000|3000|
-|Number of replicas|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
-|Read Scale-out|N/A|N/A|N/A|N/A|N/A|
-|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+#### Generation 4 compute platform
+|Performance level|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
+|:--- | --: |--: |--: |--: |--: |--: |
+|H/W generation|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Memory (GB)|7|14|28|56|112|168|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Max data size (GB)|1024|1024|1536|3072|4096|4096|
+|Max log size|307|307|461|922|1229|1229|
+|TempDB size(DB)|32|64|128|256|384|384|
+|Target IOPS (64 KB)|500|1000|2000|4000|7000|7000|
+|Max concurrent workers (requests)|200|400|800|1600|3200|4800|
+|Max allowed sessions|30000|30000|30000|30000|30000|30000|
+|Number of replicas|1|1|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|000
+|Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+|||
+
+#### Generation 5 compute platform
+|Performance level|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48| GP_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
+|H/W generation|5|5|5|5|5|5|5|
+|vCores|2|4|8|16|24|32|48|80|
+|Memory (GB)|11|22|44|88|132|176|264|440|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Max data size (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
+|Max log size|307|307|461|614|1229|1229|1229|1229|
+|TempDB size(DB)|64|128|256|384|384|384|384|384|
+|Target IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
+|Max concurrent workers (requests)|200|400|800|1600|2400|3200|4800|8000|
+|Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
+|Number of replicas|1|1|1|1|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
 ### Business Critical service tier
-|Performance level|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|H/W generation|4|4|4|4|4|
-|vCores|1|2|4|8|16|
-|Memory (GB)|7|14|28|56|112|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|1|2|4|8|20|
-|Storage type|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|
-|Max data size (GB)|1024|1024|1024|1024|1024|
-|Max log size|307|307|307|307|307|
-|TempDB size(DB)|32|64|128|256|384|
-|Target IOPS|5000|10000|20000|40000|80000|
-|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
-|Max concurrent workers (requests)|200|400|800|1600|3200|
-|Max concurrent logins|200|400|800|1600|3200|
-|Max allowed sessions|3000|3000|3000|3000|3000|
-|Number of replicas|3|3|3|3|3|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|
-|Read Scale-out|Yes|Yes|Yes|Yes|Yes|
-|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+#### Generation 4 compute platform
+|Performance level|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |
+|H/W generation|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Memory (GB)|7|14|28|56|112|168|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|1|2|4|8|20|36|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
+|Max data size (GB)|1024|1024|1024|1024|1024|1024|
+|Max log size|307|307|307|307|307|307|
+|TempDB size(DB)|32|64|128|256|384|384|
+|Target IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
+|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
+|Max concurrent workers (requests)|200|400|800|1600|3200|4800|
+|Max allowed sessions|30000|30000|30000|30000|30000|30000|
+|Number of replicas|3|3|3|3|3|3|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+|||
+
+#### Generation 5 compute platform
+|Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|H/W generation|5|5|5|5|5|5|5|5|
+|vCores|2|4|8|16|24|32|48|80|
+|Memory (GB)|11|22|44|88|132|176|264|440|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|1.571|3.142|6.284|15.768|25.252|37.936|68.104|131.64|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
+|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
+|Max data size (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
+|Max log size|307|307|307|307|614|1229|1229|1229|
+|TempDB size(DB)|64|128|256|384|384|384|384|384|
+|Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
+|Max concurrent workers (requests)|200|400|800|1600|2400|3200|4800|8000|
+|Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
+|Number of replicas|1|1|1|1|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
 ## Single database: Change storage size
@@ -100,53 +145,103 @@ For SQL Database elastic pools, the following tables show the resources availabl
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools that has the same performance level. For example, the max concurrent workers for an GP_Gen4_1 database is 200 workers. So, the max concurrent workers for a database in a GP_Gen4_1 pool is also 200 workers. Note, the total number of concurrent workers in GP_Gen4_1 pool is 210.
 
 ### General Purpose service tier
-|Performance level|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|H/W generation|4|4|4|4|4|
-|vCores|1|2|4|8|16|
-|Memory (GB)|7|14|28|56|112|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
-|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
-|Max data size (GB)|512|756|1536|2048|3584|
-|Max log size|154|227|461|614|1075|
-|TempDB size(DB)|32|64|128|256|384|
-|Target IOPS|320|640|1280|2560|5120|
-|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max concurrent workers (requests)|210|420|840|1680|3360|
-|Max concurrent logins|210|420|840|1680|3360|
-|Max allowed sessions|3000|3000|3000|3000|3000|
-|Max pool density|100|200|500|500|500|
-|Min/max elastic pool click-stops|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
-|Number of replicas|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
-|Read Scale-out|N/A|N/A|N/A|N/A|N/A|
-|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+#### Generation 4 compute platform
+|Performance level|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |
+|H/W generation|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Memory (GB)|7|14|28|56|112|168|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
+|Max data size (GB)|512|756|1536|2048|3584|4096|
+|Max log size|154|227|461|614|1075|1229|
+|TempDB size(DB)|32|64|128|256|384|384|
+|Target IOPS (64 KB)|500|1000|2000|4000|7000|7000|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Max concurrent workers (requests)|210|420|840|1680|3360|5040|
+|Max allowed sessions|30000|30000|30000|30000|30000|30000|
+|Max pool density|100|200|500|500|500|500|
+|Min/max elastic pool click-stops|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|Number of replicas|1|1|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+|||
+
+#### Generation 5 compute platform
+|Performance level|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48|GP_Gen5_80|
+|:--- | --: |--: |--: |--: |--: |--: |--: |--: |
+|H/W generation|5|5|5|5|5|5|5|5|
+|vCores|2|4|8|16|24|32|48|80|
+|Memory (GB)|11|22|44|88|132|176|264|440|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
+|Max data size (GB)|512|756|1536|2048|3072|4096|4096|4096|
+|Max log size|154|227|461|614|922|1229|1229|1229|
+|TempDB size(DB)|64|128|256|384|384|384|384|384|
+|Target IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Max concurrent workers (requests)|210|420|840|1680|2520|3360|5040|8400
+|Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
+|Max pool density|100|200|500|500|500|500|500|500|
+|Min/max elastic pool click-stops|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|Number of replicas|1|1|1|1|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
 ### Business Critical service tier
-|Performance level|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|H/W generation|4|4|4|4|4|
-|vCores|1|2|4|8|16|
-|Memory (GB)|7|14|28|56|112|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|1|2|4|8|20|
-|Storage type|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|
-|Max data size (GB)|1024|1024|1024|1024|1024|
-|Max log size|307|307|307|461|614|
-|TempDB size(DB)|32|64|128|256|384|
-|Target IOPS|320|640|1280|2560|5120|
-|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
-|Max concurrent workers (requests)|210|420|840|1680|3360|
-|Max concurrent logins|210|420|840|1680|3360|
-|Max allowed sessions|3000|3000|3000|3000|3000|
-|Max pool density|N/A|50|100|100|100|
-|Min/max elastic pool click-stops|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|
-|Read Scale-out|Yes|Yes|Yes|Yes|Yes|
-|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+#### Generation 4 compute platform
+|Performance level|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |
+|H/W generation|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Memory (GB)|7|14|28|56|112|168|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|1|2|4|8|20|36|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
+|Max data size (GB)|1024|1024|1024|1024|1024|1024|
+|Max log size|307|307|307|307|307|307|
+|TempDB size(DB)|32|64|128|256|384|384|
+|Target IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
+|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
+|Max concurrent workers (requests)|210|420|840|1680|3360|5040|
+|Max allowed sessions|30000|30000|30000|30000|30000|30000|
+|Max pool density|N/A|50|100|100|100|100|
+|Min/max elastic pool click-stops|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
+
+#### Generation 5 compute platform
+|Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|:--- | --: |--: |--: |--: |--: |--: |--: |--: |
+|H/W generation|5|5|5|5|5|5|5|5|
+|vCores|2|4|8|16|24|32|48|80|
+|Memory (GB)|11|22|44|88|132|176|264|440|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|1.571|3.142|6.284|15.768|25.252|37.936|68.104|131.64|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
+|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
+|Max data size (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
+|Max log size|307|307|307|307|614|1229|1229|1229|
+|TempDB size(DB)|64|128|256|384|384|384|384|384|
+|Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
+|Max concurrent workers (requests)|210|420|840|1680|2520|3360|5040|8400|
+|Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
+|Max pool density|N/A|50|100|100|100|100|100|100|
+|Min/max elastic pool click-stops|N/A|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+|||
+
 If all vCores of an elastic pool are busy, then each database in the pool receives an equal amount of compute resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the vCore min per database is set to a non-zero value.
 
 ### Database properties for pooled databases

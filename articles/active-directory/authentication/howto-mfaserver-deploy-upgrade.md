@@ -1,24 +1,19 @@
 ---
 title: Azure MFA Server upgrade | Microsoft Docs
 description: Steps and guidance to upgrade the Azure Multi-Factor Authentication Server to a newer version. 
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
 
-ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/16/2017
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
+
 ---
-
-
 # Upgrade to the latest Azure Multi-Factor Authentication Server
 
 This article walks you through the process of upgrading Azure Multi-Factor Authentication (MFA) Server v6.0 or higher. If you need to upgrade an old version of the PhoneFactor Agent, refer to [Upgrade the PhoneFactor Agent to Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade-pf.md).
@@ -106,8 +101,8 @@ These instructions only apply if you run Multi-Factor Authentication Server sepa
 
 ## Next steps
 
-- Get examples of [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md)
+- Get examples of [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](howto-mfaserver-nps-vpn.md)
 
 - [Synchronize MFA Server with Windows Server Active Directory](howto-mfaserver-dir-ad.md)
 
-- [Configure Windows Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-server-windows.md) for your applications
+- [Configure Windows Authentication](howto-mfaserver-windows.md) for your applications

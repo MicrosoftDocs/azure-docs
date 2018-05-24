@@ -1,4 +1,4 @@
-﻿---
+---
 title: Integrate logs from Azure Key Vault by using Event Hubs | Microsoft Docs
 description: Tutorial that provides the necessary steps to make Key Vault logs available to a SIEM by using Azure Log Integration
 services: security
@@ -9,17 +9,18 @@ editor: TomShinder
 ms.assetid:
 ms.service: security
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 05/21/2018
 ms.author: Barclayn
 ms.custom: AzLog
-
 ---
 # Azure Log Integration tutorial: Process Azure Key Vault events by using Event Hubs
 
 You can use Azure Log Integration to retrieve logged events and make them available to your security information and event management (SIEM) system. This tutorial shows an example of how Azure Log Integration can be used to process logs that are acquired through Azure Event Hubs.
 
 >[!IMPORTANT]
->The preferred method for integrating Azure logs is by using your SIEM vendor’s Azure Monitor connector and following these [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn’t provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
+> The Azure Log integration feature will be deprecated by 5/30/2019.
+
+The preferred method for integrating Azure logs is by using your SIEM vendor’s Azure Monitor connector and following these [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn’t provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
 
  
 Use this tutorial to get acquainted with how Azure Log Integration and Event Hubs work together by following the example steps and understanding how each step supports the solution. Then you can take what you’ve learned here to create your own steps to support your company’s unique requirements.
@@ -86,7 +87,7 @@ You should see something like this:</br>
 
 4. After successful authentication, you're logged in and you see the information in the following screenshot. Take note of the subscription ID and subscription name, because you'll need them to complete later steps.
 
-   ![PowerShell window](./media/security-azure-log-integration-keyvault-eventhub/Connect-AzureRmAccount.png)
+   ![PowerShell window](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 5. Create variables to store values that will be used later. Enter each of the following PowerShell lines. You might need to adjust the values to match your environment.
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name might be different. You can see it as part of the output of the previous command.)
     - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this variable to be any location of your choosing.)

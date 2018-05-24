@@ -89,7 +89,7 @@ The following tables detail each step of filling out your offer listing.
 **Storefront details - Marketing artifacts**
 | Storefront settings       | Best practices          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Offer logo (.png format, 58x48)**    | Your logo should be designed and optimized for a digital medium.<br>Upload logo in PNG format for the offer’s search page. |
+| **Offer logo (.png format, 48x48)**    | Your logo should be designed and optimized for a digital medium.<br>Upload logo in PNG format for the offer’s search page. |
 | **Offer logo (.png. 216 x 216)**     | Your logo should be designed and optimized for a digital medium. <br>Upload logo in PNG format for the offer’s app details listing page. |
 | **Learn more**   | Include supporting sales and marketing assets under “Learn more,” for example, white papers, brochures, checklists, PowerPoints, and so on. All files should be in PDF format. Don’t sell, educate the prospect. <br>Add the link to your app landing page to all your documents and add URL parameters to help you track visitors and trials. |
 | **Videos**       | Upload at least one video, up to four videos are permitted. Your video should communicate the value of your offer. Make sure the prospect is the hero of the story, not your company. Your video should speak to the principal challenges and goals of your core decision maker persona. <br>Recommended length: 60-90 seconds. Incorporate you key search words in the name of the videos.<br>Consider adding additional videos such as a how-to video; a getting started video, or a customer testimonial video. |
@@ -99,7 +99,7 @@ The following tables detail each step of filling out your offer listing.
 
 When your offer is listed on AppSource, you’ve earned the right to display the “Available on AppSource” badge on your website. 
 
-    ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
+ ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
     
 Adding this badge to your site promotes that your offer on AppSource, and you can link potential customers directly to the listing page. The AppSource badge is available in three sizes. You can download the badge along with guidance on how to use it at [Promote your app's availability on Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
 
@@ -120,7 +120,7 @@ Adding these parameters to your AppSource URL enables you to review the effectiv
 
 New listings in AppSource are eligible to receive free marketplace GTM benefits. Once listed, our team of marketing specialists will reach out to you, and work with your marketing contact to kick-start these activities. 
 The activities we provide differ depending on your solution status in our marketplace. Benefits increase for offers that come with a trial experience. Microsoft Gold partners can access additional benefits. 
-To maximize the impact of these activities, we encourage you to have your launch plan ready to execute. You may want to leverage your landing page for many of these tactics. Note that One Commercial Partner (OCP) Catalog is a benefit of members in the Microsoft Partner Network. For guidance on how to build a great landing page, see [Build a Great Landing Page](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page). 
+To maximize the impact of these activities, we encourage you to have your launch plan ready to execute. You may want to leverage your landing page for many of these tactics. Note that One Commercial Partner (OCP) Catalog is a benefit of members in the Microsoft Partner Network. For guidance on how to build a great landing page, see [Build a Great Landing Page](https://docs.microsoft.com/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page). 
 For additional go-to-market support including templates, web content, training, and tools to promote your business, visit [https://www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com). 
 
 #### Enable lead sharing 

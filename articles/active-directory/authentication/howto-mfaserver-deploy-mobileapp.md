@@ -1,22 +1,18 @@
-
 ---
 title: Azure MFA Server Mobile App Web Service | Microsoft Docs
-description: The Microsoft Authenticator app offers an additional out-of-band authentication option.  It allows the MFA server to use push notifications to users.
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
+description: Configure MFA server to send push notifications to users with the Microsoft Authenticator App.
 
-ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 08/23/2017
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
+
 ---
 # Enable mobile app authentication with Azure Multi-Factor Authentication Server
 
@@ -104,4 +100,4 @@ The Web Service SDK must be secured with an SSL certificate. A self-signed certi
 
 ## Next steps
 
-- [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md).
+- [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](howto-mfaserver-nps-vpn.md).

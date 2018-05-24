@@ -135,7 +135,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 #### Enable CORS
 
-To allow your single page app to call the ASP.NET Core web API, you need to enable [CORS](https://docs.microsoft.com/en-us/aspnet/core/security/cors).
+To allow your single page app to call the ASP.NET Core web API, you need to enable [CORS](https://docs.microsoft.com/aspnet/core/security/cors).
 
 1. In **Startup.cs**, add CORS to the `ConfigureServices()` method.
 
@@ -152,13 +152,15 @@ To allow your single page app to call the ASP.NET Core web API, you need to enab
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
+3. Open the **launchSettings.json** file under **Properties**, locate the *applicationURL* setting, and record the value for use in the next section.
+
 ### Configure the single page app
 
 The single page app uses Azure AD B2C for user sign-up, sign-in, and calls the protected ASP.NET Core web API. You need to update the single page app call the .NET Core web api.
 To change the app settings:
 
 1. Open the `index.html` file in the Node.js single page app sample.
-2. Configure the sample with the Azure AD B2C tenant registration information. Change the **b2cScopes** and **webApi** values in following lines of code:
+2. Configure the sample with the Azure AD B2C tenant registration information. In the following code, add your tenant name to **b2cScopes** and change the **webApi** value to the *applicationURL* value that you previously recorded:
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -166,7 +168,7 @@ To change the app settings:
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:58553/api/values',
+        webApi: 'http://localhost:64791/api/values',
     };
     ```
 

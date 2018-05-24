@@ -40,22 +40,20 @@ Update the `cloud_init_modules` section in `/etc/cloud/cloud.cfg` to include the
 
 Here is a sample of what a general-purpose `cloud_init_modules` section looks like.
 ```bash
- cloud_config_modules:
- - mounts
- - locale
- - set-passwords
- - rh_subscription
- - yum-add-repo
- - package-update-upgrade-install
- - timezone
- - puppet
- - chef
- - salt-minion
- - mcollective
- - disable-ec2-metadata
- - runcmd
+cloud_init_modules:
+ - migrator
+ - bootcmd
+ - write-files
+ - growpart
+ - resizefs
  - disk_setup
  - mounts
+ - set_hostname
+ - update_hostname
+ - update_etc_hosts
+ - rsyslog
+ - users-groups
+ - ssh
 ```
 A number of tasks relating to provisioning and handling ephemeral disks need to be updated in `/etc/waagent.conf`. Run the following commands to update the appropriate settings. 
 ```bash
@@ -135,7 +133,7 @@ All Azure platform images have the Azure Linux Agent installed, regardless if it
 sudo waagent -deprovision+user -force
 ```
 
-For more information about the Azure Linux Agent deprovision commands, see the [Azure Linux Agent](agent-user-guide.md) for more details.
+For more information about the Azure Linux Agent deprovision commands, see the [Azure Linux Agent](../extensions/agent-linux.md) for more details.
 
 Exit the SSH session, then from your bash shell, run the following AzureCLI commands to deallocate, generalize and create a new Azure VM image.  Replace `myResourceGroup` and `sourceVmName` with the appropriate information reflecting your sourceVM.
 

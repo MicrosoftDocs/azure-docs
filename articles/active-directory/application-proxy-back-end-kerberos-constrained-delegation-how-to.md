@@ -3,17 +3,18 @@ title: Troubleshoot Kerberos Constrained Delegation Configurations for Applicati
 description: Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: markvi
+ms.date: 05/21/2018
+ms.author: barbkess
 ms.reviewer: harshja
 
 ---
@@ -28,7 +29,7 @@ As such, this article attempts to provide a single point of reference that shoul
 
 This article makes the following assumptions:
 
--   The deployment of Azure Application Proxy per [documentation](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) and general access to non KCD applications is working as expected.
+-   The deployment of Azure Application Proxy per [documentation](manage-apps/application-proxy-enable.md) and general access to non KCD applications is working as expected.
 
 -   The published target application is based on IIS and Microsoft’s implementation of Kerberos.
 
@@ -40,7 +41,7 @@ This article makes the following assumptions:
 
 Azure Application Proxy can be deployed into many types of infrastructures or environments and the architectures no doubt vary from organization to organization. One of the most common causes of KCD-related issues are not the environments themselves, but rather simple mis-configurations, or general oversight.
 
-For this reason, it is always best to start by making sure you have met all the pre-requisites laid out in [Using KCD SSO with the Application Proxy article](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) before starting troubleshooting.
+For this reason, it is always best to start by making sure you have met all the pre-requisites laid out in [Using KCD SSO with the Application Proxy article](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) before starting troubleshooting.
 
 Particularly the section on configuring KCD on 2012R2, as this employs a fundamentally different approach to configuring KCD on previous versions of Windows, but also while being mindful of several other considerations:
 
@@ -66,13 +67,13 @@ all which bear the same symptom of failing to perform SSO, and consequently deny
 
 ## Troubleshooting
 
-How you then troubleshoot depend on the issue and observed symptoms. Before going any further, explore the following links, as they contain useful information you may not yet have come across:
+How you troubleshoot depends on the issue and observed symptoms. Before going any further, explore the following links, as they contain useful information you may not yet have come across:
 
--   [Troubleshoot Application Proxy problems and error messages](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
+-   [Troubleshoot Application Proxy problems and error messages](active-directory-application-proxy-troubleshoot.md)
 
--   [Kerberos errors and symptoms](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#kerberos-errors)
+-   [Kerberos errors and symptoms](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [Working with SSO when on-premises and cloud identities are not identical](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd#working-with-sso-when-on-premises-and-cloud-identities-are-not-identical)
+-   [Working with SSO when on-premises and cloud identities are not identical](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
 If you’ve got this far, then the main issue definitely exists. Start by separating the flow into three distinct stages that you can troubleshoot.
 
@@ -96,7 +97,7 @@ And the corresponding entries seen the event log would be seen as events 13019 o
 
 -   Use an A record in your internal DNS for the application’s address, and not a CName
 
--   Reconfirm that the connector host has been granted the rights to delegate to the designated target account’s SPN, and that **Use any authentication protocol** is selected. For more information about this topic, see [SSO configuration article](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)
+-   Reconfirm that the connector host has been granted the rights to delegate to the designated target account’s SPN, and that **Use any authentication protocol** is selected. For more information about this topic, see [SSO configuration article](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 
 -   Verify that there is only a single instance of the SPN in existence in AD by issuing a `setspn -x` from a cmd prompt on any domain member host
 
@@ -177,4 +178,4 @@ If you’re still unable to progress your issue, support would be more than happ
 -   Double hop authentication - Commonly used in scenarios where an application is tiered, with a backend and front end, both requiring authentication, such as SQL Reporting Services.
 
 ## Next steps
-[Configure kerberos constrained delegation (KCD) on a managed domain](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
+[Configure kerberos constrained delegation (KCD) on a managed domain](../active-directory-domain-services/active-directory-ds-enable-kcd.md)

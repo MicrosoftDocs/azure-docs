@@ -197,7 +197,7 @@ The following steps create the necessary resources required to deploy your appli
     </Certificates>
     ```
 
-2. To deploy your application to this cluster, you must use SFCTL to establish a connection to the cluster. SFCTL requires a PEM file with both the public and private key to connect to the cluster and as result, run the following command to produce a PEM file with both the public and private key. 
+2. To deploy your application to this cluster, you must use SFCTL to establish a connection to the cluster. SFCTL requires a PEM file with both the public and private key to connect to the cluster. Run the following command to produce a PEM file with both the public and private key. 
 
     ```bash
     openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>

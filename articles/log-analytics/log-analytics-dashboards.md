@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 This guide helps you understand how Log Analytics dashboards can visualize all of your saved log searches, giving you a single lens to view your environment.
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you cannot edit your existing **My Dashboard**. If your workspace did not have any **My Dashboard** tiles added, then you will not see **My Dashboard** in your upgraded workspace. 
+> You can no longer edit your existing **My Dashboard**. This feature is in the process of being deprecated.
 
 ![Example Dashboard](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 

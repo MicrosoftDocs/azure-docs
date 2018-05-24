@@ -16,6 +16,8 @@ ms.author: v-gedod
 
 The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results.
 
+The [source code for C# Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) is available on Git Hub.
+
 ## Application dependencies
 
 To set up a console application using the Bing Web Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.WebSearch` package.

@@ -73,7 +73,7 @@ The [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-tool
 Use the Cognitive Toolkit when you want to build a model using deep learning.  The Cognitive Toolkit can be used in any of the preceding services.
 
 ## Azure Cognitive Services
-[Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) is a set of about 30 APIs that enable you build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. Easily add intelligent features to your apps, such as: 
+[Azure Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) is a set of about 30 APIs that enable you build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. Easily add intelligent features to your apps, such as: 
 
 - Emotion and sentiment detection
 - Vision and speech recognition

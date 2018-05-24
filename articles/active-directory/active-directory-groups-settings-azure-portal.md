@@ -8,11 +8,9 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: 2f058f9a-5a8f-4b4b-b3b7-885ff10cb1be
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: curtand
