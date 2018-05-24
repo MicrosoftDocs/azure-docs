@@ -1,23 +1,15 @@
 ---
 title: Predictive Maintenance solution accelerator overview - Azure | Microsoft Docs
-description: A description of the Azure Predictive Maintenance solution accelerator.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
+description: A description of the Azure Predictive Maintenance solution accelerator
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: b370b3d7-2ce5-4906-9818-3aeedd471ee3
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: dobett
-
 ---
+
 # Predictive Maintenance solution accelerator overview
 
 The *Predictive Maintenance* [solution accelerator][lnk_preconfigured_solutions] is one of the [Microsoft Azure IoT solution accelerators][lnk_iot_suite] solution accelerators. This solution integrates real-time device telemetry collection with a predictive model created using [Azure Machine Learning][lnk-machine-learning].
