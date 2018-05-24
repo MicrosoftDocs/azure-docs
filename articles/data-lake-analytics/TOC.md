@@ -38,10 +38,13 @@
 #### [Cognitive extensions](data-lake-analytics-u-sql-cognitive.md)
 #### [Programmability guide](data-lake-analytics-u-sql-programmability-guide.md)
 
+### U-SQL SDK
+#### [Local run & debug](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Run & test](data-lake-analytics-u-sql-sdk.md) 
+
 ### Visual Studio
 #### [Install](data-lake-analytics-data-lake-tools-install.md)
 #### [Browse and view jobs](data-lake-analytics-data-lake-tools-view-jobs.md)
-#### [Local run & debug](data-lake-analytics-data-lake-tools-local-run.md)
 #### [Debug custom C# code](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Troubleshoot recurring jobs](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 #### [Vertex execution details](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
@@ -66,7 +69,7 @@
 # Resources
 ## [Azure Data Lake Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Request changes](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
