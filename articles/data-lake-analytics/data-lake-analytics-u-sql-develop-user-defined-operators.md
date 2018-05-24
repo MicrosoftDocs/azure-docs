@@ -46,7 +46,7 @@ For instructions on developing general-purpose assemblies for U-SQL, see [Develo
                         "USA", "United States of America"
                     },
                     {
-                        "??", "PR China"
+                        "中国", "PR China"
                     }
                 };
 
