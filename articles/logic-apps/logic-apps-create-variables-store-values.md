@@ -20,8 +20,9 @@ ms.suite: integration
 This article shows how you can store and work with values 
 throughout your logic app by creating variables. 
 For example, variables can help count the number 
-of times that a loop runs, or check for an item in 
-an array by acting as the item's index value. 
+of times that a loop runs. You can use a variable 
+as the index value for each item in an array when 
+checking that array for a specific item. 
 
 You can create variables for data types such as integer, 
 float, boolean, string, array, and object. 
@@ -34,29 +35,31 @@ for example:
 * Get the value from a variable.
 
 Variables exist only within the logic app 
-instance that creates them and globally persist 
-across any loop's iterations within the logic app instance. 
+instance that creates them, and they persist 
+across any loop iterations inside the logic app instance. 
 
 If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
 ## Prerequisites
 
-* The logic app where you want to create a variable. 
-If you're new to logic apps, review 
-[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* The logic app where you want to create a variable 
 
-* A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
-as the first step in your logic app. Before you can add actions 
-that help you create and work with variables, your logic app must 
-start with a trigger.
+  If you're new to logic apps, review 
+  [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+  and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+* A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) as the first step in your logic app 
+
+  Before you can add actions for creating and working with variables, 
+  your logic app must start with a trigger.
 
 <a name="create-variable"></a>
 
 ## Create variable
 
 You can declare a variable along with its data 
-type and initial value - all at the same time. 
+type and its starting value - all inside one action. 
 
 1. In the Azure portal or Visual Studio, 
 open your logic app in Logic App Designer. 
@@ -90,16 +93,15 @@ From the actions list, select **Variables - Initialize variable**.
    | Value | No | <*start-value*> | The initial value for your variable <p><p>**Tip**: Although optional, set this value as a best practice so you always know the start value for your variable. | 
    ||||| 
 
-   For example: 
-
    ![Initialize variable](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
 5. Now continue adding the actions you want. 
 When you're done, on the designer toolbar, choose **Save**.
 
 If you switch from the designer to the code view editor, 
-here is the way that the **Initialize variable** action appears 
-in your logic app definition, which uses JavaScript Object Notation (JSON) format:
+here is the way the **Initialize variable** action 
+appears inside your logic app definition, 
+which is in JavaScript Object Notation (JSON) format:
 
 ```json
 "actions": {
@@ -234,8 +236,8 @@ In the actions list, select **Variables - Increment variable**.
 4. When you're done, on the designer toolbar, choose **Save**. 
 
 If you switch from the designer to the code view editor, 
-here is the way that the **Increment variable** action appears in your 
-logic app definition, which uses JavaScript Object Notation (JSON) format:
+here is the way the **Increment variable** action appears 
+inside your logic app definition, which is in JSON format:
 
 ```json
 "actions": {
@@ -252,8 +254,8 @@ logic app definition, which uses JavaScript Object Notation (JSON) format:
 
 ### Example: Count loop cycles
 
-Variables often perform the work for counting how many times a loop runs. 
-This example shows how you can use variables for this task. 
+Variables often perform the work for counting how often a loop runs. 
+This example shows how you can create and use variables for this task.
 
 1. Create a blank logic app, and add a trigger that checks for new email. 
 Set up the trigger to fire only when the email has one or more attachments. 
@@ -275,9 +277,9 @@ include those attachments as inputs for the workflow.
 
       ![Check for and include attachments](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
 
-3. Add the [**Initialize variable**](#create-variable) 
-action so that you can create an integer variable for 
-counting and tracking the number of attachments, for example:
+3. [Add the **Initialize variable** action](#create-variable) 
+and create an integer variable that counts 
+and tracks the number of attachments, for example:
 
    ![Add action for "Initialize variable"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
@@ -287,18 +289,15 @@ counting and tracking the number of attachments, for example:
 
       ![Add a "for each" loop](./media/logic-apps-create-variables-store-values/add-loop.png)
 
-      Now set your loop to run sequentially. By default, 
+      Now set up your loop to run sequentially. By default, 
       a "for each" loop's cycles run in parallel, 
-      which might cause miscalculations in your attachments count.
+      which might cause problems calculating the number of attachments.
    
-   2. In the loop's upper-right corner, choose the ellipsis (...) button, 
+   2. In your loop's upper-right corner, choose the ellipsis (...) button, 
    and then choose **Settings**. 
 
    3. Under **Concurrency Control**, set **Override Default** to **On**.
-
-   4. For **Degree of Parallelism**, drag the slider to 1, and choose **Done**.
-
-      For example:
+   For **Degree of Parallelism**, drag the slider to 1, and choose **Done**.
 
       ![Set loop to run sequentially](./media/logic-apps-create-variables-store-values/set-sequential.png)
 
@@ -307,7 +306,7 @@ When the dynamic content list appears, select **Attachments**.
 
    ![Select "Attachments"](./media/logic-apps-create-variables-store-values/select-attachments.png)
 
-   The **Attachments** field passes an array that has the 
+   The **Attachments** field passes in an array that has the 
    email attachments as output from the trigger.
 
 6. In the "for each" loop, select **Add an action**. 
@@ -326,9 +325,6 @@ select the **Count** variable from the **Name** list.
 
    ![Select "Add an action"](./media/logic-apps-create-variables-store-values/add-increment-variable-example.png)
 
-   The default incremental value is one, 
-   so you don't have to specify a value for this example. 
-
 9. Outside the loop, add an action that 
 sends you the total number of attachments. 
 This example sends an email with the results.
@@ -338,9 +334,9 @@ This example sends an email with the results.
 10. Save your logic app. On the designer toolbar, choose **Save**. 
 
 If you switch from the designer to the code view editor, 
-here is the way that the **Increment variable** action appears 
-in the "for each" loop of your logic app definition, 
-which uses JavaScript Object Notation (JSON) format.
+here is the way the **Increment variable** action appears 
+within the "for each" loop of your logic app definition, 
+which is in JSON format.
 
 ```json
 "actions": {
@@ -369,15 +365,17 @@ which uses JavaScript Object Notation (JSON) format.
 1. If your logic app isn't running already, on the logic app menu, 
 choose **Overview**. On the **Overview** page, choose **Enable**. 
 
-2. Send an email with one or more attachments 
-to the email account you used in this example.
-
-3. On the Logic App Designer, choose **Run**. 
+2. On the Logic App Designer toolbar, choose **Run**. 
 This step manually and immediately starts your logic app.
 
-After your logic app finishes running, 
-you get an email with the number of attachments 
-for the email you sent to yourself. 
+3. Send an email with one or more attachments 
+to the email account you used in this example. 
+
+   This step fires the logic app's trigger, which creates 
+   and runs an instance for the logic app workflow.
+   As a result, the logic app sends you email 
+   with the number of attachments in the email
+   you sent to yourself.
 
 <a name="decrement-value"></a>
 
@@ -397,8 +395,8 @@ Here are the properties for the **Decrement variable** action:
 ||||| 
 
 If you switch from the designer to the code view editor, 
-here is the way that the **Decrement variable** action appears 
-in your logic app definition, which uses JavaScript Object Notation (JSON) format.
+here is the way the **Decrement variable** action appears 
+inside your logic app definition, which is in JSON format.
 
 ```json
 "actions": {
@@ -432,13 +430,13 @@ Here are the properties for the **Set variable** action:
 | Property | Required | Value |  Description | 
 |----------|----------|-------|--------------| 
 | Name | Yes | <*variable-name*> | The name for the variable to change | 
-| Value | Yes | <*new-value*> | The value you want to assign the variable. Both the new value and variable must have the same data type. | 
+| Value | Yes | <*new-value*> | The value you want to assign the variable. Both must have the same data type. | 
 ||||| 
 
 If you switch from the designer to the code view editor, 
-here is the way that the **Set variable** action appears in your 
-logic app definition, which uses JavaScript Object Notation (JSON) format. 
-Here, the start value for a variable changes to another value. 
+here is the way the **Set variable** action appears 
+inside your logic app definition, which is in JSON format. 
+This example changes the "Count" variable's start value to another value. 
 
 ```json
 "actions": {
@@ -470,12 +468,12 @@ Here, the start value for a variable changes to another value.
 
 ## Append to variable
 
-For variables that store either strings or arrays, you can 
+For variables that store strings or arrays, you can 
 add a value as the last item in those strings or arrays. 
 You can follow the steps for [increasing a variable](#increment-value) 
 except for these steps: 
 
-* Select the action based on whether you have a string or array variable: 
+* Select an action based on whether you have a string or array variable: 
 
   * **Variables - Append to string variable**
   * **Variables - Append to array variable** 
@@ -492,9 +490,10 @@ Here are the properties for the **Append to...** actions:
 |||||  
 
 If you switch from the designer to the code view editor, 
-here is the way that the **Append to array variable** action appears in 
-your logic app definition, which uses JavaScript Object Notation (JSON) format.
-The example creates an array variable, and adds the specified value as the last array item. 
+here is the way the **Append to array variable** action 
+appears inside your logic app definition, which is in JSON format.
+This example first creates an array variable, 
+and then adds the specified value as the last array item. 
 Your result is `[1,2,3,"red"]`.
 
 ```json
@@ -530,8 +529,8 @@ Your result is `[1,2,3,"red"]`.
 To retrieve or reference the value or values in a variable, you can use the 
 [variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) function in the Logic App Designer or in the code view editor.
 
-For example, using the array variable [previously defined in this article](#append-value), 
-this expression gets the array items from the variable with the **variables()** function. 
+For example, using the array variable [previously created in this article](#append-value) 
+and the **variables()** function, this expression gets the items from the array variable. 
 The **string()** function then returns those array items as this string: "1, 2, 3, 4"
 
 ```json
