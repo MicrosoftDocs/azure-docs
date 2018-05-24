@@ -43,3 +43,13 @@ It uses file as input.
 [!code-csharp[Translation Using File Input](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/translation_samples.cs#TranslationWithFileAsync)]
 
 - - -
+
+## Sample Source Code
+
+The latest version of the samples in this article and even more advanced samples are in a dedicated [GitHub repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+
+## Next Steps
+
+- [Speech Recognition](./speech-to-text-sample.md)
+
+- [Intent Recognition](./intent.md)
