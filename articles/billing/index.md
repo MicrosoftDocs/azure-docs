@@ -45,9 +45,9 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <h3>Forecast + track costs</h3>
                         <p>
                         <a href="/azure/billing/billing-getting-started">Prevent unexpected costs</a><br/>
-                        <a href="/azure/billing/billing-set-up-alerts">Set up alerts</a><br/>
+                        <a href="/azure/billing/billing-set-up-alerts">Set up billing alerts</a><br/>
                         <a href="https://azure.microsoft.com/pricing/calculator/">Calculate pricing</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Use resource tags</a><br/>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Use resource tags</a>
                         </p>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                     <div class="cardText">
                         <h3>Billing administrator</h3>
                         <p>
-                        <a href="/azure/billing/billing-manage-access">Manage access to billing</a><br/>
+                        <a href="/azure/billing/billing-manage-access">Grant access to billing</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">Pay by invoice</a><br/>
                         <a href="/azure/billing/billing-manage-reserved-vm-instance">Manage reserved instances</a><br/>
                         <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Usage for reserved instances</a>
@@ -114,8 +114,8 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <h3>Developer + ISV</h3>
                         <p>
                         <a href="/azure/billing/billing-usage-rate-card-overview">Azure Billing APIs</a><br/>
-                        <a href="/azure/billing/billing-enterprise-api">Enterprise reporting APIs</a><br/>
                         <a href="/rest/api/consumption/">Azure Consumption APIs </a><br/>
+                        <a href="/azure/billing/billing-enterprise-api">Enterprise reporting APIs</a><br/>
                         <a href="/azure/azure-resource-manager/programmatically-create-subscription?toc=/azure/billing/TOC.json">Create Enterprise subscriptions</a>                       
                         </p>
                     </div>
@@ -167,7 +167,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <a href="/azure/billing/billing-no-subscriptions-found">'No subscription found'</a><br/>
                         <a href="https://support.microsoft.com/help/4042960/troubleshoot-why-your-debit-card-or-credit-card-is-declined-at-azure-s">Declined card</a><br/>
                         <a href="https://support.microsoft.com/help/4042959/troubleshoot-why-you-can-t-sign-up-for-azure">Sign up</a><br/>
-                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">Sign in</a><br/>
+                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">Sign in</a>
                         </p>
                     </div>
                 </div>
