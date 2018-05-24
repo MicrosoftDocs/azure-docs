@@ -4,18 +4,19 @@ title: Links on the page don't work for an Application Proxy application
 description:  How to troubleshoot issues with broken links on Application Proxy applications you have integrated with Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-
+ms.date: 05/18/2018
+ms.author: barbkess
+ms.reviewer: harshja
 ---
 
 # Links on the page don't work for an Application Proxy application
@@ -44,5 +45,5 @@ There are three ways to resolve this issue. The choices below are in listed in i
 As a result, we strongly recommend using the [custom domains](manage-apps/application-proxy-configure-custom-domain.md) solution if possible. If you do want to join the preview, email <aadapfeedback@microsoft.com> with the applicationId(s).
 
 ## Next steps
-[Work with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md)
+[Work with existing on-premises proxy servers](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
 

@@ -3,17 +3,19 @@ title: How to configure an Application Proxy application | Microsoft Docs
 description: Learn how to create an configure an APplication Proxy application in a few simple steps  
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
+ms.date: 05/18/2018
+ms.author: barbkess
+ms.reviewer: harshja
 
 ---
 
@@ -49,7 +51,7 @@ The error message should display in the top right corner when you create the app
 
 ## Configure connectors/connector groups
 
-If you are having difficulty configuring your application because of warning about the connectors and connector groups, see instructions on enabling Application Proxy for details on how to download connectors. If you want to learn more about connectors, see the [connectors documentation](application-proxy-understand-connectors.md).
+If you are having difficulty configuring your application because of warning about the connectors and connector groups, see instructions on enabling Application Proxy for details on how to download connectors. If you want to learn more about connectors, see the [connectors documentation](manage-apps/application-proxy-connectors.md).
 
 If your connectors are inactive, this means that they are unable to reach the service. This is often because all the required ports are not open. To see a list of required ports, see the pre-requisites section of the enabling Application Proxy documentation.
 

@@ -3,17 +3,17 @@ title: Wildcard applications in the Azure Active Directory application proxy | M
 description: Learn how to use Wildcard applications in the Azure Active Directory application proxy.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 
-ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
-ms.author: markvi
+ms.date: 05/21/2018
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
 
@@ -111,7 +111,7 @@ If you use this option, you also need another CNAME entry for the value `AppId.d
 
 The wildcard application is represented with just one tile in the [MyApps panel](https://myapps.microsoft.com). By default this tile is hidden. To show the tile and have users land on a specific page:
 
-1. Follow the guidelines for [setting a homepage URL](application-proxy-office365-app-launcher.md).
+1. Follow the guidelines for [setting a homepage URL](manage-apps/application-proxy-configure-custom-home-page.md).
 2. Set **Show Application** to **true** on the application properties page.
 
 ### Kerberos constrained delegation

@@ -9,6 +9,7 @@
 ## [Send telemetry (.NET)](quickstart-send-telemetry-dotnet.md)
 ## [Send telemetry (Java)](quickstart-send-telemetry-java.md)
 ## [Send telemetry (Python)](quickstart-send-telemetry-python.md)
+## [Send telemetry (iOS)](quickstart-send-telemetry-ios.md)
 ## [Control a device (Node.js)](quickstart-control-device-node.md)
 ## [Control a device (.NET)](quickstart-control-device-dotnet.md)
 ## [Control a device (Java)](quickstart-control-device-java.md)
@@ -89,7 +90,6 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
-#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 ## [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
 ### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
@@ -292,6 +292,7 @@
 # Resources
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
+## [Customer data requests](iot-hub-customer-data-requests.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)

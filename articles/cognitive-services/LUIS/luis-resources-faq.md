@@ -1,6 +1,6 @@
 ---
-title: Language Understanding Intelligent Services (LUIS) in Azure frequently asked questions | Microsoft Docs
-description: Get answers to frequently asked questions about Language Understanding Intelligent Services (LUIS)
+title: Language Understanding (LUIS) in Azure frequently asked questions | Microsoft Docs
+description: Get answers to frequently asked questions about Language Understanding (LUIS)
 author: v-geberr
 manager: kaiqb
 services: cognitive-services
@@ -73,11 +73,11 @@ See the [boundaries](luis-boundaries.md) reference.
 
 ### I want to build a LUIS app with more than the maximum number of intents. What should I do?
 
-See [Best practices for intents](luis-concept-best-practices.md#if-you-need-more-than-the-maximum-number-of-intents).
+See [Best practices for intents](luis-concept-intent.md#if-you-need-more-than-the-maximum-number-of-intents).
 
 ### I want to build an app in LUIS with more than the maximum number of entities. What should I do?
 
-See [Best practices for entities](luis-concept-best-practices.md#if-you-need-more-than-the-maximum-number-of-entities)
+See [Best practices for entities](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)
 
 ### What are the limits on the number and size of phrase lists?
 For the maximum length of a [phrase list](./luis-concept-feature.md), see the [boundaries](luis-boundaries.md) reference.
@@ -187,7 +187,14 @@ The following features were released at the Build 2018 Conference:
 
 Additional authoring [API routes](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) were included. 
 
-[Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo
+Videos: 
+* [Azure Friday At Build 2018: Cognitive Services - Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Build 2018 AI Show - What’s New with Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
+* [Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+
+Projects: 
+* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on Github
 
 ## Next steps
 

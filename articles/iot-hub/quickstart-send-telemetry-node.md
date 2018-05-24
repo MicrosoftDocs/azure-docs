@@ -56,8 +56,10 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyNodeDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
     ```
+
+    If you choose a different name for your device, update the device name in the sample applications before you run them.
 
 1. Run the following command to get the _device connection string_ for the device you just registered:
 
@@ -79,7 +81,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
 
-1. In a terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **Quickstarts\simulated-device** folder.
+1. In a terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder.
 
 1. Open the **SimulatedDevice.js** file in a text editor of your choice.
 
@@ -102,7 +104,7 @@ The back-end application connects to the service-side **Events** endpoint on you
 
 1. In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **read-d2c-messages** folder.
 
-1. Open the **Quickstarts\ReadDeviceToCloudMessages.js** file in a text editor of your choice.
+1. Open the **iot-hub\Quickstarts\ReadDeviceToCloudMessages.js** file in a text editor of your choice.
 
     Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **ReadDeviceToCloudMessages.js** file.
 

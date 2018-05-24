@@ -53,7 +53,7 @@ Not only do users not have to manage multiple sets of usernames and passwords, a
 Learn more:
 
 * [Overview of Single Sign-On](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [What is application access and single sign-on with Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Integrate Azure Active Directory single sign-on with SaaS apps](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## Reverse proxy
@@ -64,7 +64,7 @@ Learn more:
 * [Enabling Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-enable.md)
 * [Publish applications using Azure AD Application Proxy](../active-directory/active-directory-application-proxy-publish.md)
 * [Single-sign-on with Application Proxy](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [Working with conditional access](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
+* [Working with conditional access](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## Multi-factor authentication
 Azure Multi-factor authentication (MFA) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options—phone call, text message, or mobile app notification or verification code and third party OAuth tokens.
