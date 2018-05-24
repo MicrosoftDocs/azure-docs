@@ -1,4 +1,4 @@
-	---
+---
 title: Azure Quickstart - Process event streams using the Azure portal | Microsoft Docs
 description: In this quickstart, you learn how to process event streams using Azure portal
 services: event-hubs
