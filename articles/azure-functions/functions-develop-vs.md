@@ -157,7 +157,7 @@ In the same way that triggers are defined by applying attributes, you can add in
 
 For more information, see the reference topic for the specific binding.
 
-[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings-dotnet.md)]
 
 
 ## Testing functions
