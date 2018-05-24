@@ -1,28 +1,22 @@
 ---
-title: Use Data Lake Analytics Java SDK to develop applications | Microsoft Docs
-description: Use Azure Data Lake Analytics Java SDK to develop applications
+title: Use Java SDK to create Azure Data Lake Analytics jobs
+description: This article describes how to use the Azure Java SDK to write apps that create an Azure Data Lake Analytics account and job.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-
-ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
+ms.topic: conceptual
+ms.date: 12/05/2016
 ---
 # Get started with Azure Data Lake Analytics using Java SDK
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Learn how to use the Azure Data Lake Analytics Java SDK to create an Azure Data Lake account and perform basic operations such as create folders, upload and download data files, delete your account, and work with jobs. For more information about Data Lake, see [Azure Data Lake Analytics](data-lake-analytics-overview.md).
+This article describes how to use the Java SDK to create an Azure Data Lake account and perform basic operations such as create folders, upload and download data files, delete your account, and work with jobs. 
 
-In this tutorial, you will develop a Java console application which contains samples of common administrative tasks as well as creating test data and submitting a job.  To go through the same tutorial using other supported tools, click the tabs on the top of this section.
+The Java console application contains samples of common administrative tasks as well as creating test data and submitting a job. 
 
 ## Prerequisites
 * Java Development Kit (JDK) 8 (using Java version 1.8).
