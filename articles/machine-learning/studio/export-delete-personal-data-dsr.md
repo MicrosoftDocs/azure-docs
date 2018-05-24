@@ -27,7 +27,7 @@ Telemetry data can be accessed through the Azure Privacy portal.
 For this service, user data consists of information about users authorized to access workspaces and telemetry records of user interactions with the service.
 
 There are two kinds of user data in Machine Learning Studio:
-- **Personal account data:** Account IDs, name, address, and so on.
+- **Personal account data:** Account IDs and email addresses associated with an account.
 - **Customer data:** Data you uploaded to analyze.
 
 ## Studio account types and how data is stored
@@ -35,10 +35,12 @@ There are two kinds of user data in Machine Learning Studio:
 There are three kinds of accounts in Machine Learning Studio. The kind of account you have determines how your data is stored and how you can delete or export it.
 
 - A **guest workspace** is a free, anonymous account. You sign up without providing credentials, such as an email address or password.
-	-  Data is purged every eight hours when the guest account expires.
+	-  Data is purged after the guest workspace expires.
+	- Guest users can export customer data through the UI, REST APIs, or PowerShell package.
 - A **free workspace** is a free account you sign in to with Microsoft account credentials - an email address and password.
 	- You can export and delete personal and customer data, which are subject to data subject rights (DSR) requests.
 	- You can export customer data through the UI, REST APIs, or PowerShell package.
+    - For free workspaces not using Azure AD accounts, telemetry can be exported using the Privacy Portal.
 	- When you delete the workspace, you delete all personal customer data.
 - A **standard workspace** is a paid account you access with sign-in credentials.
 	- You can export and delete personal and customer data, which are subject to DSR requests.
