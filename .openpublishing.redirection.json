@@ -21871,7 +21871,11 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/application-gateway/application-gateway-ilb.md",
+            "source_path": "articles/cosmos-db/table-storage-how-to-use-powershell.md",
+            "redirect_url": "/azure/storage/tables/table-storage-how-to-use-powershell",
+            "redirect_document_id": true
+        },
+        {   "source_path": "articles/application-gateway/application-gateway-ilb.md",
             "redirect_url": "/azure/application-gateway/application-gateway-ilb-arm",
             "redirect_document_id": false
         },
