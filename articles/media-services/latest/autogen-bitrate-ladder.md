@@ -35,7 +35,7 @@ This section shows three examples of the output video layers produced by the Med
 ### Example 1
 Source with height "1080" and framerate "29.970" produces 6 video layers:
 
-|Layer|Height|Width|Bitrate(kbps)|
+|Layer|Height|Width|Bitrate (kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -47,7 +47,7 @@ Source with height "1080" and framerate "29.970" produces 6 video layers:
 ### Example 2
 Source with height "720" and framerate "23.970" produces 5 video layers:
 
-|Layer|Height|Width|Bitrate(kbps)|
+|Layer|Height|Width|Bitrate (kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -58,7 +58,7 @@ Source with height "720" and framerate "23.970" produces 5 video layers:
 ### Example 3
 Source with height "360" and framerate "29.970" produces 3 video layers:
 
-|Layer|Height|Width|Bitrate(kbps)|
+|Layer|Height|Width|Bitrate (kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|
