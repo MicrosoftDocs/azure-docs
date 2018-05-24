@@ -1,3 +1,14 @@
+---
+title: include file
+description: include file
+services: data-lake-analytics
+ms.service: data-lake-analytics
+author: jasonwhowell
+ms.author: jasonh
+ms.topic: include
+ms.date: 05/24/2018
+ms.custom: include file
+---
 > [!div class="op_single_selector"]
 > * [Azure portal](../articles/data-lake-analytics/data-lake-analytics-manage-use-portal.md)
 > * [Azure CLI](../articles/data-lake-analytics/data-lake-analytics-manage-use-cli.md)
