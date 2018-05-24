@@ -76,7 +76,7 @@ There are three types of remote resources your app may need to access:
 - [Resources inside an Azure Virtual Network](#resources-inside-an-azure-virtual-network)
 - [On-premises resources](#on-premises-resources)
 
-In each of these cases, App Service provides a way for you to make secure connections, but you should still observe security best practices, such as always using encrypted connections even if the back-end resource allows unencrypted connections. Furthermore, make sure that your back-end Azure service allows the minimum set of IP addresses. You can find the outbound IP addresses for your app at [Inbound and outbound IP addresses in Azure App Service](app-service-ip-addresses.md).
+In each of these cases, App Service provides a way for you to make secure connections, but you should still observe security best practices. For example, always use encrypted connections even if the back-end resource allows unencrypted connections. Furthermore, make sure that your back-end Azure service allows the minimum set of IP addresses. You can find the outbound IP addresses for your app at [Inbound and outbound IP addresses in Azure App Service](app-service-ip-addresses.md).
 
 ### Azure resources
 
