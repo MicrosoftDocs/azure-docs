@@ -27,7 +27,7 @@ You can use these backups to:
 * Restore a database to a point-in-time within the retention period. This operation will create a new database in the same server as the original database.
 * Restore a deleted database to the time it was deleted or any time within the retention period. The deleted database can only be restored in the same server where the original database was created.
 * Restore a database to another geographical region. This allows you to recover from a geographic disaster when you cannot access your server and database. It creates a new database in any existing server anywhere in the world. 
-* Restore a database from a specific long-term backup if the database has been configured with a long-term retention policy. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](sql-database-long-term-retention.md).
+* Restore a database from a specific long-term backup if the database has been configured with a long-term retention policy (LTR). This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](sql-database-long-term-retention.md).
 * To perform a restore, see [restore database from backups](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -37,23 +37,28 @@ You can use these backups to:
 ## How long are backups kept?
 Each SQL Database backup has a default retention period that is based on the service tier of the database, and differs between the  [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md). You can update the backup retention period for a database. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
 
+If you delete a database, SQL Database will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that is four days old is saved for three more days.
+
+If you need to keep the backups for longer than the PITR retentio  period, you can modify the backup properties to add one or more long-term retetion periods to your database. See [Long-term backup retention](sql-database-long-term-retention.md) for more details.
+
+> [!IMPORTANT]
+> If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server and theor backups are also deleted and cannot be recovered. You cannot restore a deleted server. But if you configured long-term retention, the backups for the databases included in LTR will not be deleted and can be used to restore the databases.
+
 ### PITR Retention for DTU-based service tiers
 The default retention period for a database created using the DTU-based purchasing model depends on the service tier:
 
-* Basic service tier is 7 days.
-* Standard service tier is 35 days.
-* Premium service tier is 35 days.
+* Basic service tier is 1 week.
+* Standard service tier is 5 weeks.
+* Premium service tier is 5 weeks.
 
 If you reduce the current PITR retention period, all existing backups older than the new retention period will no longer be available. 
 
 If you increase the current PITR retention period, SQL Database will keep the existing backups until the longer retention period is reached.
 
-If you need to keep the backups for a longer period, you should add a long-term retetion policy to your database. See [Long-term backup retention](sql-database-long-term-retention.md) for more details.
+### PITR Retention for the vCore-based service tiers (preview)
 
-If you delete a database, SQL Database will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that is four days old is saved for three more days.
+During preview, the PITR retention period for databases created using the vCore-based purchasing model is set to 7 days. The associated storage is included for free.    
 
-> [!IMPORTANT]
-> If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 
 ## How often do backups happen?
 ### Backups for point-in-time restore
@@ -70,16 +75,11 @@ Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cro
 
 For more information, see [Long-term backup retention](sql-database-long-term-retention.md).
 
-
-### PITR Retention for the vCore-based service tiers (preview)
-
-During preview, the PITR retention period for databases created using the vCore-based purchasing model is set to 7 days. The associated storage is included for free.    
-
 ## Are backups encrypted?
 
 If your database is encrypted with TDE the backups are automatically encrypted at rest, including LTR backups. When TDE is enabled for an Azure SQL database, backups are also encrypted. All new Azure SQL databases are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
-## Are the automatic backups compliant with GDPR?
+## Are backups compliant with GDPR?
 If the backup contains personal data, which is subject to General Data Protection Regulation (GDPR), you are required to apply enhanced security measures to protect the data from unauthorized access. In order to comply with the GDPR, you need a way to manage the data requests of data owners without having to access backups. For short-term backups, one solution can be to shorten the backup window to under 30 days, which is the time allowed to complete the data access requests. If longer term backups are required, it is recommended to store only "pseudonymized" data in backups. For example, if data about a person needs to be deleted or updated, it will not require deleting or updating the existing backups. You can find more information about the GDPR best practices in  [Data Governance for GDPR Compliance](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html). 
 
 Because the default PITR retention for any Standard or Premium database in the DTU-based service tiers is 35 days, you must reduce it to be compliant with GDPR. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details. 
