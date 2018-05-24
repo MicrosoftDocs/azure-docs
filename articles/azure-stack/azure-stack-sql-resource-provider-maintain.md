@@ -80,7 +80,7 @@ When using the SQL and MySQL resource providers with Azure Stack integrated syst
 |     |     |
 
 ### Known issues
-Issue: The logs for secrets rotation are not automatically collected when the script is run.
+Issue: The logs for secrets rotation are not automatically collected if the secret rotation custom script fails when it is run.
 
 Workaround: Use the Get-AzsDBAdapterLogs cmdlet to collect all resource provider logs, including AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, under C:\Logs.
 
