@@ -1,28 +1,24 @@
 ---
-title: Get started with Data Lake Analytics using REST API| Microsoft Docs
-description: Use WebHDFS REST APIs to perform operations on Data Lake Analytics
+title: Get started with Azure Data Lake Analytics using REST API
+description: Use WebHDFS REST APIs to create an Azure Data Lake Analytics account and submit a U-SQL job.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-
-ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
 ms.service: data-lake-analytics
-ms.devlang: na
+author: saveenr
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 02/03/2017
-ms.author: jgao
-
 ---
 # Get started with Azure Data Lake Analytics using REST APIs
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Learn how to use WebHDFS REST APIs and Data Lake Analytics REST APIs to manage Data Lake Analytics accounts, jobs, and catalog. 
+This article describes how to use WebHDFS REST APIs and Data Lake Analytics REST APIs to manage Data Lake Analytics accounts, jobs, and catalogs. 
 
 ## Prerequisites
+Before you begin, you need the following items:
+
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Create an Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Analytics application with Azure AD. There are different approaches to authenticate with Azure AD, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Analytics using Azure Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 * [cURL](http://curl.haxx.se/). This article uses cURL to demonstrate how to make REST API calls against a Data Lake Analytics account.
