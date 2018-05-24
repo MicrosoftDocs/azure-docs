@@ -20,15 +20,7 @@ ms.custom: mvc
 ---
 
 # Quickstart: How to use Azure Redis Cache with Java
-> [!div class="op_single_selector"]
-> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-> * [.NET Core](cache-dotnet-core-quickstart.md)
-> * [ASP.NET](cache-web-app-howto.md)
-> * [Node.js](cache-nodejs-get-started.md)
-> * [Java](cache-java-get-started.md)
-> * [Python](cache-python-get-started.md)
-> 
-> 
+
 
 Azure Redis Cache gives you access to a dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
