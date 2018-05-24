@@ -87,7 +87,7 @@ Azure AD sign-in gives the user the option to remain signed in when they close a
 3. Modify the elements you want to customize. All elements are optional.
   
   ![Edit custom branding](./media/customize-branding/edit-branding.png)
-5. When you're done, select **Save**.
+4. When you're done, select **Save**.
 
 It can take up to an hour for any changes you made to the sign-in page branding to appear.
 
@@ -97,8 +97,8 @@ It can take up to an hour for any changes you made to the sign-in page branding 
 2. Select **Azure Active Directory** > **Company branding** > **New language**.
   
   ![Add language-specific branding elements](./media/customize-branding/add-language.png)
-5. Modify the elements you want to customize. All elements are optional.
-6. When you're done, select **Save**.
+3. Modify the elements you want to customize. All elements are optional.
+4. When you're done, select **Save**.
 
 It can take up to an hour for any changes you made to the sign-in page branding to appear.
 
