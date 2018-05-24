@@ -46,7 +46,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 * Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * A Java IDE. This article uses IntelliJ IDEA 18.1.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
 
-## Use Intellij to create application
+## Use IntelliJ to create application
 
 1. Start IntelliJ IDEA, and then create a project. In the **New Project** dialog box, do the following: 
 
