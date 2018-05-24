@@ -12,22 +12,27 @@ ms.date: 05/22/2018
 ---
 # Export or delete your experimentation or model management data in Machine Learning
 
-In Azure Machine Learning, you can export or delete your account data related to experimentation or model management with the authenticated REST API. This article shows you how.
+In Azure Machine Learning, you can export or delete your account data related to experimentation or model management with the authenticated REST API. This article tells you how.
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## Control your account data
-In-product data stored by Azure Machine Learning experimentation and model management is available for exporting and deletion through the Azure portal, CLI, SDK, and authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. In Azure Machine Learning, personal data consists of user information in run history documents and telemetry records of some user interactions with the service.
+In-product data stored by Azure Machine Learning experimentation and model management is available for export and deletion through the Azure portal, CLI, SDK, and authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy portal. 
+
+In Azure Machine Learning, personal data consists of user information in run history documents and telemetry records of some user interactions with the service.
 
 ## Delete account data with the REST API 
 
-In order to delete data, the following API calls can be made with the HTTP DELETE verb.  These are authorized by having an `Authorization: Bearer <arm-token>` header in the request, where `<arm-token>` is the AAD access token for the endpoint `https://management.core.windows.net/` endpoint.  
+In order to delete data, the following API calls can be made with the HTTP DELETE verb. These are authorized by having an `Authorization: Bearer <arm-token>` header in the request, where `<arm-token>` is the AAD access token for the endpoint `https://management.core.windows.net/` endpoint.  
 
 To learn how to get this token and call Azure endpoints, see [Azure REST API documentation](https://docs.microsoft.com/rest/api/azure/).  
 
 In the examples following, replace the text in {} with the instance names that determine the associated resource.
 
 ## Delete from a hosting account
+
     https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.MachineLearningModelManagement/accounts/{account-name}?api-version=2017-09-01-preview		
 
 ## Delete from the model management service
@@ -60,7 +65,7 @@ Individual services can be deleted with:
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{serviceName}?api-version=2017-09-01-preview
 
 ### Image document
-Use this call to get a list of all images and their IDs
+Use this call to get a list of all images and their IDs:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images?api-version=2017-09-01-preview
 
@@ -110,7 +115,7 @@ Individual models can be obtained by:
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models/{modelId}?api-version=2017-09-01-preview	
 
 ### Manifests
-Use this call to get a list of all manifests and their IDs
+Use this call to get a list of all manifests and their IDs:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests?api-version=2017-09-01-preview
 
@@ -119,7 +124,7 @@ Individual manifests can be obtained by:
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests/{manifestId}?api-version=2017-09-01-preview
 
 ### Services
-Use this call to get a list of all services and their IDs
+Use this call to get a list of all services and their IDs:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services?api-version=2017-09-01-preview
 
@@ -128,7 +133,7 @@ Individual services can be obtained by:
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{serviceName}?api-version=2017-09-01-preview
 
 ### Images
-Use this call to get a list of all images and their IDs
+Use this call to get a list of all images and their IDs:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images?api-version=2017-09-01-preview
 
@@ -138,7 +143,7 @@ Individual services can be obtained by:
 
 ## Export compute data
 ### Compute clusters
-Use this call to get a list of all compute clusters and their names
+Use this call to get a list of all compute clusters and their names:
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes?api-version=2018-03-01-preview
 
@@ -147,7 +152,7 @@ Individual clusters can be obtained by:
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{compute-name}?api-version=2018-03-01-preview
 
 ### Operationalization clusters
-Use this call to get a list of all clusters and their names
+Use this call to get a list of all clusters and their names:
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.MachineLearningCompute/operationalizationClusters?api-version=2017-06-01-preview
 
@@ -156,31 +161,31 @@ Individual clusters can be obtained by:
     https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.MachineLearningCompute/operationalizationClusters/{clusterName}?api-version=2017-06-01-preview
 
 ## Export run history data
-Use this call to get a list of all Runs and their IDs:
+Use this call to get a list of all runs and their IDs:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects/{projectName}/runs
 
-Use this call to get a list of all Experiments and their IDs:
+Use this call to get a list of all experiments and their IDs:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects/{projectName}/experiments
 
-Run History Items can be obtained by:
+Run history items can be obtained by:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects/{projectName}/runs/{runId}
 
-Run Metrics Items can be obtained by:
+Run metrics items can be obtained by:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects/{projectName}/runmetrics
 
-Run Experiments can be obtained by:
+Run experiments can be obtained by:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects/{projectName}/experiments/{experimentId}	
 
-Run History Artifacts
+Run history artifacts:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects/{projectName}/runs/{runId}/artifacts
 
-Run History Artifacts URIs
+Run history artifacts URIs:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects/{projectName}/runs/{runId}/artifacturi?name={artifactName}
 
@@ -208,8 +213,8 @@ Use this call to get a list of artifacts and their paths:
 
 ## Export notifications
 
-1. Go to https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/ and select the user of interest. 
-2. Note the Object ID and use in the following call:	 
+1. Go to the [Users section of the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/), and then select a user from the **Name** column. 
+2. Note the **Object ID**, and use it in the following call:	 
 
         https://{location}.experiments.azureml.net/notification/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects/{projectName}/users/{objectId}/jobs
 
@@ -226,3 +231,6 @@ Use this call to get a list of artifacts and their paths:
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects/{projectName}?api-version=2017-05-01-preview
 
+## Next steps
+
+For more information on accessing Machine Learning account data through REST, see [Azure Machine Learning REST API reference](https://docs.microsoft.com/en-us/rest/api/machinelearning/). 
