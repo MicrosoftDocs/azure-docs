@@ -51,7 +51,7 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
 3. Check that you have a valid subscription in your Azure Stack tenant portal, and that you have enough public IP addresses available to add new applications.
 
-    The cluster cannot be deployed to an Azure Stack **Administrator** subscription. You must use a **User** subscription. 
+    The cluster cannot be deployed to an Azure Stack **Administrator** subscription. You must use an **User** subscription. 
 
 ## Create a service principal in Azure AD
 
@@ -63,11 +63,11 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
     b. Enter a **Name** of the application.
 
-    c. Select **Web app / API**
+    c. Select **Web app / API**.
 
     d. Enter `http://localhost` for the **Sign-on URL**.
 
-    c. Click **Create**
+    c. Click **Create**.
 
 4. Make note of the **Application ID**. You will need the ID when creating the cluster. The ID is referenced as **Service Principal Client ID**.
 
@@ -103,7 +103,7 @@ Give the service principal access to your subscription so that the principal can
 
 1. Open the [Azure Stack portal](https://portal.local.azurestack.external).
 
-2. Select **+New** > **Compute** > **Kubernetes Cluster**.
+2. Select **+New** > **Compute** > **Kubernetes Cluster**. Click **Create**.
 
     ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -111,9 +111,9 @@ Give the service principal access to your subscription so that the principal can
 
     ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
-2. Enter the **Linux VM admin username**. User name for the Linux Virtual Machines that are part of the Kubernetes cluster and DVM.
+2. Enter the **Linux VM Admin Username**. User name for the Linux Virtual Machines that are part of the Kubernetes cluster and DVM.
 
-3. Enter the **SSH public key** used for authorization to all Linux machines created as part of the Kubernetes cluster and DVM.
+3. Enter the **SSH Public Key** used for authorization to all Linux machines created as part of the Kubernetes cluster and DVM.
 
 4. Enter the **Master Profile DNS Prefix** that is unique to the region. This must be a region-unique name, such as `k8s-12345`. Try to chose it same as the resource group name as best practice.
 
@@ -122,7 +122,7 @@ Give the service principal access to your subscription so that the principal can
 
 5. Enter the **Agent Pool Profile Count**. The count contains the number of agents in the cluster. There can be from 1 to 32
 
-6. Enter the **Service Principle ClientId** This is used by the Kubernetes Azure cloud provider.
+6. Enter the **Service Principal ClientId** This is used by the Kubernetes Azure cloud provider.
 
 7. Enter the **Service Principal Client Secret** that you created when creating service principal application.
 
@@ -132,7 +132,7 @@ Give the service principal access to your subscription so that the principal can
 
 10. Enter the name of a new resource group or select an existing resource group. The resource name needs to be alphanumeric and lowercase.
 
-11. Enter the **Location** of the resource group, such as **local**.
+11. Select the **Location** of the resource group, such as **local**.
 
 ### Specify the Azure Stack settings
 
