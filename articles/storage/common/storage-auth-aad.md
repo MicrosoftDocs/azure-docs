@@ -39,7 +39,7 @@ Keep in mind the following points about the preview:
 >
 > During the preview, RBAC role assignments may take up to five minutes to propagate.
 
-For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage//).
+For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
 
 ## Next Steps
 
