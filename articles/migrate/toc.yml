@@ -18,13 +18,17 @@
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
-  - name: Migrate your on-premises resources to Azure
+  - name: Get started with migration
     items:
-    - name: Scenario overview - Migrate your on-premises resources to Azure
+    - name: Migration overview
       href: migrate-scenarios-overview.md
-    - name: Scenario 1 - Assess on-premises resources for migration to Azure
+    - name: Set up an Azure infrastructure
+      href: migrate-scenarios-infrastructure.md
+  - name: Rehost (lift-and-shift)
+    items:
+    - name: Rehost: Assess on-premises resources for migration to Azure
       href: migrate-scenarios-assessment.md
-    - name: Scenario 2- Lift and shift migration to Azure
+    - name: Rehost: Migrate to Azure
       href: migrate-scenarios-lift-and-shift.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
