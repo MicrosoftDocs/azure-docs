@@ -46,7 +46,7 @@ Change the URL to use the location where you obtained your subscription keys. Re
 ```json
 @ECHO OFF
 
-curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories&details={string}&language=en"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories&details={string}&language=en"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
@@ -171,7 +171,7 @@ Change the URL to use the location where you obtained your subscription keys, an
 ```json
 @ECHO OFF
 
-curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail?width={number}&height={number}&smartCropping=true"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail?width={number}&height={number}&smartCropping=true"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
@@ -196,7 +196,7 @@ Change the URL to use the location where you obtained your subscription keys, an
 ```json
 @ECHO OFF
 
-curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?language=unk&detectOrientation =true"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr?language=unk&detectOrientation =true"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
