@@ -218,6 +218,17 @@ Conditional access now applies to older Office clients that do not support moder
 It depends on the authentication protocol that EWS is using. If the EWS application is using modern authentication, it will be covered by the "Mobile apps and desktop clients" client app. If the EWS application is using basic authentication, it will be covered by the “Other clients” client app.
 
 
+**What controls can I use for "Other clients**
+
+Any control can be configured for "Other clients". However, the end user experience will be block access for all cases. "Other clients" do not support controls like MFA, compliant device, domain join, etc. 
+ 
+**What conditions can I use for "Other clients?"**
+
+Any conditions can be configured for "Other clients".
+
+**Does Exchange ActiveSync support all conditions and controls?**
+
+No. Here is the summary of Exchange ActiveSync (EAS) support:
 
 ## Next steps
 
