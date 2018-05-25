@@ -16,6 +16,6 @@ ms.reviewer: twounder
 These articles describe the recent features, fixes, and enhacements of Azure SQL Data Warehouse. 
 
 ## What's New
-- [May 2018](release_notes_may_2018.md)
+- [May 2018](release-notes_may_2018.md)
 - April 2018
 - March 2018
