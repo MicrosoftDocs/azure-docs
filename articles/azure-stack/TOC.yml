@@ -52,6 +52,12 @@
         items:
         - name: Publish endpoints
           href: azure-stack-integrate-endpoints.md
+    - name: Identity integration
+      items:    
+      - name: Choose an identity provider
+        href: azure-stack-integrate-identity.md
+      - name: Validate Azure identity
+        href: azure-stack-validate-identity.md
     - name: Azure Stack deployment PKI requirements
       href: azure-stack-pki-certs.md
       items:
@@ -63,20 +69,17 @@
         href: azure-stack-validate-pki-certs.md
       - name: Remediate PKI certificates
         href: azure-stack-remediate-certs.md
-      - name: Deployment resources
-        items:
-        - name: Start-AzsReadiness cmdlet reference
-          href: azure-stack-azsreadiness-cmdlet.md
-        - name: View the readiness report  
-          href: azure-stack-validation-report.md
-      - name: Identity integration
-        items:    
-        - name: Choose an identity provider
-          href: azure-stack-integrate-identity.md
-        - name: Validate Azure identity
-          href: azure-stack-validate-identity.md
+    - name: Deployment resources
+      items:
+      - name: About deployment networking
+        href: deployment-networking.md
     - name: Validate Azure registration
       href: azure-stack-validate-registration.md
+      items:
+      - name: Start-AzsReadiness cmdlet reference
+        href: azure-stack-azsreadiness-cmdlet.md
+      - name: View the readiness report  
+        href: azure-stack-validation-report.md
     - name: External monitoring
       href: azure-stack-integrate-monitor.md
     - name : Security integration
@@ -156,6 +159,8 @@
         href: azure-stack-backup-enable-backup-powershell.md
       - name: Back up Azure Stack
         href: azure-stack-backup-back-up-azure-stack.md
+      - name: Back up files and applications on Azure Stack
+        href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
       - name: Recover from catastrophic data loss
         href: azure-stack-backup-recover-data.md
       - name: Backup best practices
@@ -245,6 +250,8 @@
         href: azure-stack-app-service-configure-deployment-sources.md
       - name: App Service on Azure Stack update 1 release notes
         href: azure-stack-app-service-release-notes-update-one.md
+      - name: App Service on Azure Stack update 2 release notes
+        href: azure-stack-app-service-release-notes-update-two.md
     - name: Populate the marketplace
       items:
       - name: Marketplace overview
