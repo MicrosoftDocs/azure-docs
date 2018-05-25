@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configuring Role claim issued in the SAML token for enterprise applications in Azure Active Directory | Microsoft Docs
 description: Learn how to configure the Role claim issued in the SAML token for enterprise applications in Azure Active Directory
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/25/2018
 ms.author: jeedes
 ms.custom: aaddev
 
@@ -90,7 +90,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	h. You now need to generate new roles for your application. 
 
-	i. Below JSON is an example of appRoles object. Please create a similar object to add the roles you want for your application. 
+	i. Below JSON is an example of appRoles object. Please create a similar object to add the roles you want for your application.
 
 	```
 	{
@@ -121,7 +121,7 @@ If your application expects custom roles to be passed in SAML response, you need
 	}
 	```
 	> [!Note]
-	> You can only add new roles after the **msiam_access** for the patch operation. Also, you can add as many roles as you want per your Organization need. Azure AD will send the **value** of these roles as the claim value in SAML response.
+	> You can only add new roles after the **msiam_access** for the patch operation. Also, you can add as many roles as you want per your Organization need. Azure AD will send the **value** of these roles as the claim value in SAML response. To generate the GUID values for the ID of new roles use the web tools like [this](https://www.guidgenerator.com/)
 	
 	j. Go back to your Graph Explorer and change the method from **GET** to **PATCH**. Patch the service principal object to have desired roles by updating appRoles property similar to the one shown above in the example. Click **Run Query** to execute the patch operation. A success message confirms the creation of the role.
 
