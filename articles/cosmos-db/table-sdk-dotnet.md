@@ -1,15 +1,12 @@
 ---
-title: Azure CosmosDB Table API .NET SDK & Resources | Microsoft Docs
+title: Azure Cosmos DB Table API .NET SDK & Resources | Microsoft Docs
 description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
-documentationcenter: .net
 author: rnagpal
 manager: kfile
 
 ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/26/2018
