@@ -97,6 +97,8 @@
 
 ## SSPR
 ### [Passwords overview](../active-directory/authentication/active-directory-passwords-overview.md)
+## [Reporting](../active-directory/authentication/howto-mfa-reporting.md)
+### [Data collection](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
 ## MFA
 ### [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)

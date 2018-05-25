@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
@@ -34,10 +34,9 @@ Following is an example of the *UpdateSQLProvider.ps1* script that you can run f
 > The update process only applies to integrated systems.
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
