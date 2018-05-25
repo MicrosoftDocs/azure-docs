@@ -52,19 +52,19 @@
     - name: Add utterance to intent and train app
       items: 
       - name: C#
-        href: luis-quickstart-cs-add-utterance.md
+        href: luis-get-started-cs-add-utterance.md
       - name: Java
-        href: luis-quickstart-java-add-utterance.md
+        href: luis-get-started-java-add-utterance.md
       - name: JavaScript
-        href: luis-quickstart-javascript-add-utterance.md
+        href: luis-get-started-javascript-add-utterance.md
       - name: Node.js
-        href: luis-quickstart-node-add-utterance.md
+        href: luis-get-started-node-add-utterance.md
       - name: Python
-        href: luis-quickstart-python-add-utterance.md
+        href: luis-get-started-python-add-utterance.md
       - name: PHP
-        href: luis-quickstart-php-add-utterance.md
+        href: luis-get-started-php-add-utterance.md
       - name: Ruby
-        href: luis-quickstart-ruby-add-utterance.md
+        href: luis-get-started-ruby-add-utterance.md
 - name: Samples
   items:
   - name: Code samples
