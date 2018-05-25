@@ -185,6 +185,11 @@ Applying this condition only to supported platforms is the equivalent to all dev
 - [Azure Active Directory app-based conditional access](active-directory-conditional-access-mam.md) 
 
 
+### Legacy authentication  
+
+Conditional access now applies to older Office clients that do not support modern authentication as well as clients that use mail protocols like POP, IMAP, SMTP, etc. This allows you to configure policies like “block access from other clients”. 
+
+
 ## Next steps
 
 - If you want to know how to configure a conditional access policy, see [get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
