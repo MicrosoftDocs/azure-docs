@@ -39,7 +39,6 @@ Feature characteristics include:
     not decreased. Limited audit logging capabilities are provided in the
     compliance mode to store the policy administration logs for the duration of
     the container.
-    
 
 -  **Container level configurability:** Immutable Blob Storage allows users to configure time-based retention policies and legal hold tags at the container level.  Users can create time-based retention policies, delete policies, lock policies, extend retention intervals, set legal holds, clear legal holds etc. through simple container level settings.  These policies will apply to all the blobs in the container.
  
@@ -61,6 +60,7 @@ When a time-based retention policy or legal hold is applied on a container, the 
 |Append Block     |Append blobs         |Writes a block of data to the end of an append blob         |
 
 ### Note
+
 1. The feature is only available in GPv2 and blob storage accounts. Note that the policy administration is only available through the rSRP/Azure Resource Manager interfaces and so the storage account must be Azure Resource Manager enabled. 
 
 2. Each container contains an audit trail showing up to 5 time-based retention commands for locked time-based retention policies and up to 10 legal hold commands. This log is retained for the lifetime of the container. However, the complete log of all the commands can be found  in the Azure activity log. Refer to the [Azure Activity log documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) for more details
@@ -68,6 +68,7 @@ When a time-based retention policy or legal hold is applied on a container, the 
 3. Page blobs and Append blobs need to be created outside of a protected container, then copied into that container.
 
 ## Getting Started
+
 **Azure portal**
 
 1. Create a container to store the blobs that need to be kept in the immutable state. Click on **Access Policy** in the Container settings and then click on **+ Add Policy** under **Immutable Blob Storage** policy as illustrated in the following image:
@@ -77,7 +78,6 @@ When a time-based retention policy or legal hold is applied on a container, the 
 2. To enable time-based retention, choose Time-Based Retention from the drop-down menu. Enter the desired retention interval in days (minimum is one day)
 
 ![Container Access](media/storage-immutable-blob-storage/portal-image-2.jpg)
-
 
 As you can see in the following image, the state of the policy will initially be unlocked. This will allow you to test the feature with a smaller retention interval, and make changes to the policy before locking it.
 
@@ -97,6 +97,7 @@ Click on Lock Policy and the policy state will now show as locked. Once locked, 
 ![Hold tags](media/storage-immutable-blob-storage/portal-image-set-legal-hold-tags.jpg)
 
  **CLI**
+
  Install the CLI [extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) with `az extension add -n storage-preview`.
 
 If you already have this extension installed, then to enable the Immutable Blob Storage feature, use the command: `az extension update -n storage-preview`
