@@ -146,22 +146,25 @@ You can specify these parameters in the command line. If you do not, or if any p
 >  After the installation script finishes running, you  need to refresh the portal to see the admin blade. 
 
 1. Sign in to the admin portal as the service administrator. 
-2. Verify that the deployment succeeded. Go to **Resource Groups**, and then select the **system.\<location\>.mysqladapter** resource group. Verify that all four deployments succeeded. 
+2. Verify that the deployment succeeded. Go to **Resource Groups**, and then select the **system.\<location\>.mysqladapter** resource group. Verify that all four deployments succeeded:
+
       ![Verify deployment of the MySQL RP](./media/azure-stack-mysql-rp-deploy/mysqlrp-verify.png) 
 
 ## Provide capacity by connecting to a MySQL hosting server 
 1. Sign in to the Azure Stack portal as a service admin. 
 2. Select **ADMINISTRATIVE RESOURCES** > **MySQL Hosting Servers** > **+Add**. 
 On the **MySQL Hosting Servers** blade, you can connect the MySQL Server resource provider to actual instances of MySQL Server that serve as the resource provider’s back end. 
+
 ![Hosting servers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png) 
+
 3. Provide the connection details of your MySQL Server instance. Be sure to provide the fully qualified domain name (FQDN) or a valid IPv4 address, and not the short VM name. This installation no longer provides a default MySQL instance. The size that's provided helps the resource provider manage the database capacity. It should be close to the physical capacity of the database server. 
 
     > [!NOTE] 
     > If the MySQL instance can be accessed by the tenant and admin Azure Resource Manager, it can be placed under control of the resource provider. The MySQL instance *must* be allocated exclusively to the resource provider. 
 
 4. As you add servers, you must assign them to a new or existing SKU to allow differentiation of service offerings. For example, you can have an enterprise instance providing: 
-    - Database capacity 
-    - Automatic backup 
+    - Database capacity
+    - Automatic backup
     - Reserve high-performance servers for individual departments 
 
     > [!IMPORTANT] 
@@ -175,15 +178,19 @@ On the **MySQL Hosting Servers** blade, you can connect the MySQL Server resourc
 1. Sign in to the Azure Stack portal as a service admin. 
 2. Select **+ New** > **Data + Storage** > **MySQL Database**. 
 3. Provide the database details. 
+
     ![Create a test MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
  
 4. Select a SKU. 
+
     ![Select a SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png) 
 
 5. Create a login setting. You can reuse an existing login setting or create a new one. This setting contains the user name and password for the database. 
+
     ![Create a new database login](./media/azure-stack-mysql-rp-deploy/create-new-login.png) 
 
     The connections string includes the real database server name. Copy it from the portal. 
+
     ![Get the connection string for the MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png) 
 
     > [!NOTE] 
@@ -202,7 +209,7 @@ You can modify the password by first changing it on the MySQL server instance. S
 
 ![Update the admin password](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png) 
 
-## Update the MySQL resource provider adapter (multi-node only)
+## Update the MySQL resource provider adapter (integrated systems only)
 A new SQL resource provider adapter might be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible.  
  
 To update of the resource provider you use the **UpdateMySQLProvider.ps1** script. The process is similar to the process used to install a resource provider, as described in the [Deploy the resource provider](#deploy-the-resource-provider) section of this article. The script is included with the download of the resource provider. 
@@ -213,8 +220,8 @@ The script requires use of the same arguments that are described for the DeployM
 
 Following is an example of the *UpdateMySQLProvider.ps1* script that you can run from the PowerShell prompt. Be sure to change the account information and passwords as needed:  
 
-    > [!NOTE] 
-    > The update process only applies to integrated systems. 
+> [!NOTE] 
+> The update process only applies to integrated systems. 
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module and set the profile. 
@@ -267,7 +274,7 @@ You can specify these parameters in the command line. If you don't, or if any pa
 | **VMLocalCredential** |The credentials for the local administrator account of the SQL resource provider VM. | _Required_ | 
 | **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ | 
 | **DependencyFilesLocalPath** | Your certificate .pfx file must be placed in this directory as well. | _Optional_ (_mandatory_ for multi-node) | 
-| **DefaultSSLCertificatePassword** | The password for the .pfx certificate | _Required_ | 
+| **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ | 
 | **MaxRetryCount** | The number of times you want to retry each operation if there is a failure.| 2 | 
 | **RetryDuration** | The timeout interval between retries, in seconds. | 120 | 
 | **Uninstall** | Remove the resource provider and all associated resources (see the following notes). | No | 
@@ -422,13 +429,13 @@ When using the SQL and MySQL resource providers with Azure Stack integrated syst
 ### SecretRotationMySQLProvider.ps1 parameters 
 |Parameter|Description| 
 |-----|-----| 
-|AzCredential|Azure Stack Service Admin account credential| 
+|AzCredential|Azure Stack Service Admin account credential.| 
 |CloudAdminCredential|Azure Stack cloud admin domain account credential.| 
 |PrivilegedEndpoint|Privileged Endpoint to access Get-AzureStackStampInformation.| 
 |DiagnosticsUserPassword|Diagnostics User password.| 
 |VMLocalCredential|The local administrator account of the MySQLAdapter VM.| 
 |DefaultSSLCertificatePassword|Default SSL Certificate (*pfx) Password.| 
-|DependencyFilesLocalPath|Dependency Files Local Path| 
+|DependencyFilesLocalPath|Dependency Files Local Path.| 
 |     |     | 
 
 ### Known issues 
