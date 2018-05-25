@@ -1,5 +1,5 @@
 ---
-title: Export your subscription top level information | Microsoft Docs
+title: Export your Azure subscription top level information | Microsoft Docs
 description: Describes how you can view all Azure subscription IDs associated with your account.
 keywords:
 services: 'billing'
@@ -23,9 +23,9 @@ If you need to view the set of subscription IDs associated with your user creden
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 The downloaded .json file provides the following information:
-- Email: the email address associated with your account
-- Puid: the unique identifier associated with your billing account
-- SubscriptionIds: a list of subscriptions that belong to your account, enumerated by subscription ID
+- Email: The email address associated with your account.
+- Puid: The unique identifier associated with your billing account.
+- SubscriptionIds: A list of subscriptions that belong to your account, enumerated by subscription ID.
 
 ### subscriptions.json sample
 ~~~~
