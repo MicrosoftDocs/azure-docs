@@ -45,8 +45,7 @@ ms.author: jeedes
 
 6. After successfull authentication, user has to accept the consent from consent page and after that, the application homepage will be displayed.
 
-
-    > [!NOTE]
+	> [!NOTE]
     > Customers are allowed to only add one instance of the application. If you have already added one and tried to provide the consent again it will not be added again in the tenant. So logically they can use only one app instance in the tenant.
 
 ## Authentication flow using OpenID Connect
