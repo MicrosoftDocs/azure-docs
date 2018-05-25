@@ -26,7 +26,9 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
 
     The **CDN profile** pane appears.
 
-4. For the profile settings, use the values specified in the following table:
+    ![New CDN profile](./media/cdn-create-profile/cdn-new-profile.png)
+
+4. For the CDN profile settings, use the values specified in the following table:
    
     | Setting  | Value |
     | -------- | ----- |
@@ -36,12 +38,10 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
     | **Resource group location** | Select **Central US** from the drop-down list. |
     | **Pricing tier** | Select **Standard Verizon** from the drop-down list. |
     | **Create a new CDN endpoint now** | Leave unselected. |  
-
-    ![New CDN profile](./media/cdn-create-profile/cdn-new-profile.png)
    
 5. Select **Pin to dashboard** to save the profile to your dashboard after it is created.
     
 6. Select **Create** to create the profile. 
 
-    For **Azure CDN Standard from Microsoft**, profile completion usually completes in two hours. 
+    For **Azure CDN Standard from Microsoft** profiles only, profile completion usually completes in two hours. 
 
