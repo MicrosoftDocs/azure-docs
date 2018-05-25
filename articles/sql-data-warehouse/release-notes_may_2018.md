@@ -16,8 +16,38 @@ ms.reviewer: twounder
 The following new features, enhancements, and changes have been introduced this month.
 
 ## Gen 2 Instances
+![alt](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/2528b41b-f09f-45b1-aa65-fc60d562d3bd.png)
+Azure SQL Data Warehouse Compute Optimized Gen2 tier sets new performance standards for cloud data warehousing. Customers now get up to 5 times better query performance, 4 times more concurrency, and 5 times higher computing power compared to the current generation. It can now serve 128 concurrent queries from a single cluster, the highest of any cloud data warehousing service.
+
+See the [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) blog annoucement from Rohan Kumar, Corporate Vice President, Azure Data.
 
 ## GDPR Compliance
+Azure annouces full compliance and enforcement with the European Union (EU) General Data Protection Regulation (GDPR). 
+
+See the [New capabilities to enable robust GDPR compliance](https://azure.microsoft.com/blog/new-capabilities-to-enable-robust-gdpr-compliance/) blog annoucement by Tom Keane, Head of Global Infrastructure, Azure, for details on how Microsoft supports GDPR.
+
+## Rejected Row Support
+Customers often use [PolyBase (External Tables) to load data](design-elt-data-loading.md) into SQL Data Warehouse due to the high performance, parallel nature of data loading. PolyBase is the default loading model when loading data via [Azure Data Factory](http://azure.com/adf) as well. 
+
+SQL Data Warehouse adds the ability to define a rejected row location via the `REJECTED_ROW_LOCATION` parameter with the [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) statement. After the execution of a [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) from the external table, any rows that could not be loaded will be stored in a file near the source for further investigation. 
+
+See the [Load confidently with SQL Data Warehouse PolyBase Rejected Row Location](https://azure.microsoft.com/blog/load-confidently-with-sql-data-warehouse-polybase-rejected-row-location/) blog for more details on the Rejected Row behavior.
+
+### Examples
+```sql
+CREATE EXTERNAL TABLE [dbo].[Reject_Example]
+(
+    ...
+)
+WITH
+(
+    ...
+    ,REJECTED_ROW_LOCATION=‘/Reject_Directory'
+)
+```
+
+
+
 ## ALTER VIEW
 [ALTER VIEW](https://docs.microsoft.com/sql/t-sql/statements/alter-view-transact-sql) allows a user to modify a previously created view withouth having to DELETE/CREATE the view and reapply permissions. 
 
@@ -39,8 +69,6 @@ The following example shows concatenating a set of mixed data type values with a
 ```sql
 SELECT CONCAT_WS(',', 1, 2, 'String', GETDATE())
 ```
-
-## Rejected Row Support
 
 ## SP_DATATYPE_INFO
 The [sp_datatype_info](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-datatype-info-transact-sql) system stored procedure returns information about the data types supported by the current environment. It is commonly used by tools connecting through ODBC connections for data type investigation.
