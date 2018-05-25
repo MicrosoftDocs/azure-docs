@@ -13,10 +13,9 @@ ms.author: v-jaswel
 
 # Export or delete user data in Custom Vision
 
-Content Moderator keeps user data to operate the service, but customers have full control over viewing, exporting, and deleting their data, using the Custom Vision Service [Training API](https://go.microsoft.com/fwlink/?linkid=865446).
+Content Moderator collects user data to operate the service, but customers have full control over viewing, exporting, and deleting their data, using the Custom Vision Service [Training API](https://go.microsoft.com/fwlink/?linkid=865446).
 
-> [!NOTE]
-> This article provides steps for how to delete personal data from the device or service and can be used to support your obligations under the GDPR. If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 For more information on how to export and delete user data in Custom Vision, see the following table.
 
