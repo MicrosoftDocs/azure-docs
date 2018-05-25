@@ -23,11 +23,11 @@ ms.reviewer: dhanyahk
 # What's new in Azure Active Directory?
 
 
-> Stay up to date with what's new in Azure Active Directory (Azure AD) by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Stay up-to-date with what's new in Azure Active Directory (Azure AD) by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 
 
-Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+Azure AD receives improvements on an ongoing basis. To stay up-to-date with the most recent developments, this article provides you with information about:
 
 -	The latest releases
 -	Known issues
@@ -218,7 +218,7 @@ Go to [Aka.ms/DeploymentPlans](http://Aka.ms/DeploymentPlans) where you can acce
 
 - [How can I get the deployment plans](Aka.ms/DeploymentPlans)? 
 
-- You can provide can feedback [here](http://aka.ms/DeploymentPlanFeedback)
+- You can provide feedback [here](http://aka.ms/DeploymentPlanFeedback)
 
 - Questions? Reach out to: [IDGitDeploy@microsoft.com](mailto:IDGitDeploy@microsoft.com)
 
@@ -539,7 +539,7 @@ For more information, see [Azure AD password reset from the login screen](https:
  
 Azure AD sends a notification when a certificate for a gallery or non-gallery application is about to expire. 
 
-Some users did not receive notifications for enterprise applications configured for SAML-based single sign-on. This issue was resolved. Azure AD sends notification for certificates expiring in 7, 30 and 60 days. You ere able to see this event in the audit logs. 
+Some users did not receive notifications for enterprise applications configured for SAML-based single sign-on. This issue was resolved. Azure AD sends notification for certificates expiring in 7, 30 and 60 days. You are able to see this event in the audit logs. 
 
 For more information, see:
 
@@ -611,7 +611,7 @@ For more information, see [AzureAD](https://docs.microsoft.com/powershell/module
  
 User using Office 365 native clients (version 16.0.8730.xxxx and above) get a silent sign-on experience using Seamless SSO. This support is provided by the addition a non-interactive protocol (WS-Trust) to Azure AD.
 
-For more information, see [How does sign-in on a native client with Seamless SSO work?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work).
+For more information, see [How does sign-in on a native client with Seamless SSO work?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work)
 
  
 ---
@@ -623,7 +623,7 @@ For more information, see [How does sign-in on a native client with Seamless SSO
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
  
-Users get a silent sign-on experience, with Seamless SSO, if an application (for example, `https://contoso.sharepoint.com`) sends sign-in requests to Azure AD's tenanted endpoints - that is, `https://login.microsoftonline.com/contoso.com/<..>` or `https://login.microsoftonline.com/<tenant_ID>/<..>` - instead of Azure AD's common endpoint (`https://login.microsoftonline.com/common/<...>`).
+Users get a silent sign-on experience, with Seamless SSO, if an application (for example, `https://contoso.sharepoint.com`) sends sign-in requests to Azure AD's tenant endpoints - that is, `https://login.microsoftonline.com/contoso.com/<..>` or `https://login.microsoftonline.com/<tenant_ID>/<..>` - instead of Azure AD's common endpoint (`https://login.microsoftonline.com/common/<...>`).
 
 For more information, see [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
 
@@ -934,7 +934,7 @@ This release has the following updates and changes:
 
 **Fixed issues**
 
-- Fix timing window on background tasks for Paritition Filtering page when switching to next page.
+- Fix timing window on background tasks for Partition Filtering page when switching to next page.
 - Fixed a bug that caused Access violation during the ConfigDB custom action.
 - Fixed a bug to recover from sql connection timeout.
 - Fixed a bug where certificates with SAN wildcards fail pre-req check.
