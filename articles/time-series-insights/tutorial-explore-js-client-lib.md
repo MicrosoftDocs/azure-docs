@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/16/2018
 ms.author: bryanla
-# Customer intent: As a developer, I want learn about the TSI JavaScript client library, so I can use the APIs in my own applications.
+# Customer intent: As a developer, I want to learn about the TSI JavaScript Client library, so I can use the APIs in my own applications.
 ---
 
 # Tutorial: Explore the Azure Time Series Insights JavaScript Client library
 
-The Azure Time Series Insights (TSI) JavaScript Client library is a D3-based control library. Developers can use the library to easily query and visualize data that's stored in TSI. This tutorial uses a sample web application to guide you through an exploration of the library and the related programming model.
+To help developers query and visualize data that's stored in Azure Time Series Insights (TSI), we’ve developed a JavaScript D3-based control library that makes this work easy. This tutorial uses a sample web application to guide you through an exploration of the TSI JavaScript Client library and the related programming model.
 
-The topics in this tutorial provide you with opportunities to experiment with the library, to gain an understanding of how to access TSI data and use chart controls to render and visualize data. The goal is to provide you with enough details so you can use the library in your own web application.
+The topics in this tutorial provide you with opportunities to experiment with the library, to gain an understanding of how to access TSI data and use chart controls to render and visualize data. The goal is to provide you with enough details, so that you can use the library in your own web application.
 
 In this tutorial, you learn about:
 
@@ -52,7 +52,7 @@ Throughout this tutorial, the Time Series Insights sample application is used to
 
 ### Page source and structure
 
-First, let's view the HTML and JavaScript source code that's behind the page that's rendered in your browser. In this tutorial, not all of the elements are described - but you learn about the major sections and get a sense of how the page works.
+First, let's view the HTML and JavaScript source code that's behind the page that's rendered in your browser. We don't walk through all of the elements, but you learn about the major sections and you get a sense of how the page works:
 
 1. Open **Developer Tools** in your browser. Inspect the HTML elements that make up the current page (also known as the HTML or DOM tree).
 
@@ -86,13 +86,13 @@ First, let's view the HTML and JavaScript source code that's behind the page tha
 
    ![Body div elements](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
 
-4. Now expand the `<script type="text/javascript">` element that's directly below the `<div class="chartsWrapper">` element. Notice the beginning of the page-level JavaScript section that's used to handle all of the page logic: authentication, calling TSI service APIs, rendering the chart controls, and more:
+4. Now, expand the `<script type="text/javascript">` element that's directly below the `<div class="chartsWrapper">` element. Notice the beginning of the page-level JavaScript section that's used to handle all of the page logic: authentication, calling TSI service APIs, rendering the chart controls, and more:
 
    ![Body script](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)
 
 ## TSI JavaScript Client library concepts
 
-Fundamentally, the TSI Client library **tsclient.js** provides an abstraction for two important categories:
+Although we don't review it in detail, fundamentally, the TSI Client library **tsclient.js** provides an abstraction for two important categories:
 
 - **Wrapper methods for calling the TSI Query APIs**: REST APIs that allow you to query for TSI data by using aggregate expressions. The methods are organized under the `TsiClient.Server` namespace of the library.
 - **Methods for creating and populating several types of charting controls**: Methods that are used for rendering the TSI aggregate data in a web page. The methods are organized under the `TsiClient.UX` namespace of the library.
@@ -105,7 +105,7 @@ As mentioned earlier, this sample is a single-page application that uses the OAu
 
 * When using ADAL for authentication, the client application must register itself in the Azure Active Directory (Azure AD) application registry. As a single-page application, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
 
-* Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions for a specific service/API identifier (https://api.timeseries.azure.com). The service/API identifier is also known as the token "audience." The token permissions are issued on behalf of the signed-in user. The identifier for the service/API is yet another property that's contained in the application's Azure AD registration. After ADAL returns the access token to the application, it's passed as a "bearer token" when accessing the TSI service APIs.
+* Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions for a specific service/API identifier https://api.timeseries.azure.com. The service/API identifier is also known as the token "audience." The token permissions are issued on behalf of the signed-in user. The identifier for the service/API is yet another property that's contained in the application's Azure AD registration. After ADAL returns the access token to the application, it's passed as a "bearer token" when accessing the TSI service APIs.
 
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=145-204&highlight=4-9,36-39)]
 
@@ -185,7 +185,7 @@ The TSI Client library currently exposes eight unique analytics controls: line c
 
 ### Line, bar, pie chart examples
 
-Let's look at the code that's behind some of the standard chart controls that are demonstrated in the application, and the programming model/patterns for creating the controls. Specifically, examine the section of HTML under the `// Example 3/4/5` comment, which renders controls with the ID values `chart3`, `chart4`, and `chart5`.
+Look at the code that's behind some of the standard chart controls that are demonstrated in the application and the programming model/patterns for creating the controls. Specifically, examine the section of HTML under the `// Example 3/4/5` comment, which renders controls with the ID values `chart3`, `chart4`, and `chart5`.
 
 Recall from step #3 in the [Page source and structure section](#page-source-and-structure) that chart controls are arranged in rows on the page, each of which has a descriptive title row. In this example, the three charts that are populated are under the "Multiple Chart Types From the Same Data" title `<div>` element that's bound to the three `<div>` elements beneath it:
 
@@ -207,7 +207,7 @@ The TSI Client library also exposes some optional advanced features that you mig
 
 One example of the advanced functionality that's provided is the ability to add state transitions and discrete events to charts. This feature is useful for highlighting incidents, alerting, and for state switches like on/off.
 
-Let's look at the code that's behind the section of HTML that's under the `// Example 10` comment. The code renders a line control under the "Line Charts with Multiple Series Types" title and binds it to the `<div>` element with the ID value `chart10`.
+Look at the code that's behind the section of HTML that's under the `// Example 10` comment. The code renders a line control under the "Line Charts with Multiple Series Types" title and binds it to the `<div>` element with the ID value `chart10`.
 
 - First, a structure named `events4` is defined, to hold the state-change elements to track. The structure contains:
 
@@ -231,7 +231,7 @@ Visually, the diamond markers/pop-up messages that are used to indicate incident
 
 Another example of advanced functionality is custom context menus (right-click pop-up menus). Custom context menus are useful for enabling actions and logical next steps within the scope of your application.
 
-Let's look at the code that's behind the section of HTML that's under the `// Example 13/14/15` comment. This code initially renders a line chart under the "Line Chart with Context Menu to Create Pie/Bar Chart" title that's bound to the `<div>` element with the ID value `chart13`. By using context menus, the line chart provides the capability to dynamically create a pie and bar chart that are bound to `<div>` elements with the IDs `chart14` and `chart15`. In addition, both the pie and bar charts also use context menus to enable their own features: the ability to copy data from the pie to bar chart, and print the bar chart data to the browser console window, respectively.
+Look at the code that's behind the section of HTML that's under the `// Example 13/14/15` comment. This code initially renders a line chart under the "Line Chart with Context Menu to Create Pie/Bar Chart" title that's bound to the `<div>` element with the ID value `chart13`. By using context menus, the line chart provides the capability to dynamically create a pie and bar chart that are bound to `<div>` elements with the IDs `chart14` and `chart15`. In addition, both the pie and bar charts also use context menus to enable their own features: the ability to copy data from the pie to bar chart, and print the bar chart data to the browser console window, respectively.
 
 - First a series of custom actions are defined. Each action contains an array with one or more elements. Each element defines a single context menu item:
 
