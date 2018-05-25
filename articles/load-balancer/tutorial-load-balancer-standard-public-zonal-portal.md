@@ -20,9 +20,9 @@ ms.author: kumud
 ms.custom: mvc
 ---
 
-# Tutorial: Load balance VMs within an availability zone with Azure Standard Load Balancer by using the Azure portal
+# Tutorial: Load balance VMs within an availability zone with Standard Load Balancer by using the Azure portal
 
-This tutorial creates a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zonal frontend that uses a public IP standard address by using the Azure portal. In this scenario, you specify a particular zone for your frontend and backend instances, to align your data path and resources with a specific zone. You learn how to perform the following functions:
+This tutorial creates a public [Azure Standard Load Balancer instance](https://aka.ms/azureloadbalancerstandard) with a zonal frontend that uses a public IP standard address by using the Azure portal. In this scenario, you specify a particular zone for your frontend and backend instances, to align your data path and resources with a specific zone. You learn how to perform the following functions:
 
 > [!div class="checklist"]
 > * Create Standard Load Balancer with a zonal frontend.
@@ -41,7 +41,7 @@ If you prefer, use the [Azure CLI](load-balancer-standard-public-zonal-cli.md) t
 
 Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 
-## Create a public Standard Load Balancer
+## Create a public Standard Load Balancer instance
 
 Standard Load Balancer only supports a Standard Public IP address. When you create a new public IP while creating the load balancer, it's automatically configured as a Standard SKU version. It's also automatically zone redundant.
 
@@ -54,7 +54,7 @@ Standard Load Balancer only supports a Standard Public IP address. When you crea
     - **westeurope**, for the location.
 3. Select **Create** to create the load balancer.
    
-    ![Create a zonal Standard Load Balancer by using the Azure portal](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
+    ![Create a zonal Standard Load Balancer instance by using the Azure portal](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
 
 
 ## Create backend servers
