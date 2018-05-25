@@ -54,10 +54,10 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Azure&nbsp;SQL&nbsp;Firewall](../sql-database/sql-database-firewall-configure.md)|A network access control feature that protects against network-based attacks to database. |
 |[Azure&nbsp;SQL&nbsp;Cell&nbsp;Level Encryption](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| A database security technology that provides encryption at a granular level.  |
 | [Azure&nbsp;SQL&nbsp;Connection Encryption](../sql-database/sql-database-control-access.md)|To provide security, SQL Database controls access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. |
-| [Azure SQL Authentication](../sql-database/sql-database-control-access.md)|GOES TO THE SAME PAGE AS PRECEDING LINK |
 | [Azure SQL Always Encryption](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure SQL Database or SQL Server databases.  |
 | [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| A database security feature that encrypts the storage of an entire database. |
 | [Azure SQL Database Auditing](../sql-database/sql-database-auditing.md)|A database auditing feature that tracks database events and writes them to an audit log in your Azure storage account.  |
+
 
 ## Identity and access management
 |Service|Description|
