@@ -15,18 +15,19 @@ ms.workload: identity
 ms.date: 04/26/2018
 ms.author: rolyon
 
-#Customer intent: As a dev or devops, I want step-by-step instructions for how to grant permissions for users to particular resources so that they can perform their job.
+#Customer intent: As a dev or devops, I want step-by-step instructions for how to grant permissions for groups to resources so that they can perform their job.
 
 ---
 
 # Tutorial: Assign a role to a group using Azure PowerShell
 
-[Role-based access control (RBAC)](overview.md) is the way that you control access to resources in Azure. In this tutorial, you will assign roles to a group at different scopes using Azure PowerShell.
+[Role-based access control (RBAC)](overview.md) is the way that you control access to resources in Azure. In this tutorial, you assign roles to grant access to a group at different scopes using Azure PowerShell.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Assign roles to a group
+> * Assign the Reader role to a group at the subscription scope
+> * Assign the Contributor role to a group at the resource group scope
 > * List role assignments
 > * Remove role assignments
 
@@ -150,9 +151,9 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
     ObjectId           : 11111111-1111-1111-1111-111111111111
     ObjectType         : Group
     CanDelegate        : False
-        ```
+    ```
 
-1. Assign the [Contributor](built-in-roles.md#contributor) role to the group at the resource group resource scope.
+1. Assign the [Contributor](built-in-roles.md#contributor) role to the group at the resource group scope.
 
     ```azurepowershell
     New-AzureRmRoleAssignment -ObjectId $groupId `
@@ -170,7 +171,7 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
     ObjectId           : 11111111-1111-1111-1111-111111111111
     ObjectType         : Group
     CanDelegate        : False
-        ```
+    ```
 
 ## List role assignments
 
@@ -190,7 +191,7 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
     ObjectId           : 11111111-1111-1111-1111-111111111111
     ObjectType         : Group
     CanDelegate        : False
-        ```
+    ```
 
     In the output, you can see that the Reader role has been assigned to the RBAC Tutorial Group at the rbac-tutorial-resource-group scope.
 
@@ -220,19 +221,19 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
     ObjectId           : 11111111-1111-1111-1111-111111111111
     ObjectType         : Group
     CanDelegate        : False
-        ```
+    ```
 
     In the output, you can see that both the Contributor and Reader roles have been assigned to the RBAC Tutorial Group. The Contributor role is at the rbac-tutorial-resource-group scope and the Reader role is inherited at the subscription scope.
 
 ## (Optional) List role assignments in the Azure portal
 
-1. To see how the role assignments look in the Azure portal, view the **Access control (IAM)** pane for the subscription.
+1. To see how the role assignments look in the Azure portal, view the **Access control (IAM)** blade for the subscription.
+
+    ![Role assignments for a group](./media/tutorial-role-assignments-powershell/role-assignments-subscription.png)
+
+1. Next, view the **Access control (IAM)** blade for the resource group.
 
     ![Role assignments for a group](./media/tutorial-role-assignments-powershell/role-assignments-resource-group.png)
-
-1. Next, view the **Access control (IAM)** pane for the resource group.
-
-    ![Role assignments for a group](./media/tutorial-role-assignments-powershell/role-assignments-storage-account.png)
 
 ## Remove role assignments
 
@@ -258,7 +259,7 @@ To remove a role assignment (revoke access) for users, groups, and applications,
 
 To clean up the resources created by this tutorial, delete the resource group and the group.
 
-1. Delete the resource group and its associated resources using the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command.
+1. Delete the resource group using the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command.
 
     ```azurepowershell
     Remove-AzureRmResourceGroup -Name "rbac-tutorial-resource-group"
