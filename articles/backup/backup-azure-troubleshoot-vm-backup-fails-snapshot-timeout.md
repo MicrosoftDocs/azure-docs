@@ -81,6 +81,16 @@ Per the deployment requirement, the VM doesn't have internet access. Or, it migh
 
 To function correctly, the Backup extension requires connectivity to Azure public IP addresses. The extension sends commands to an Azure storage endpoint (HTTP URL) to manage the snapshots of the VM. If the extension doesn't have access to the public internet, backup eventually fails.
 
+It it possible to deploy a proxy server to route the VM traffic.
+##### Create a path for HTTP traffic
+
+1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
+2. To allow access to the internet from the HTTP proxy server, add rules to the network security group, if you have one.
+
+To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+
+Either the backed up VM or the proxy server through which the traffic is routed requires access to Azure Public IP addresses
+
 ####  Solution
 To resolve the issue, try one of the following methods:
 
@@ -94,13 +104,6 @@ To understand the step by step procedure to configure service tags, watch [this 
 
 > [!WARNING]
 > Storage service tags are in preview. They are available only in specific regions. For a list of regions, see [Service tags for storage](../virtual-network/security-overview.md#service-tags).
-
-##### Create a path for HTTP traffic
-
-1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
-2. To allow access to the internet from the HTTP proxy server, add rules to the network security group, if you have one.
-
-To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
 

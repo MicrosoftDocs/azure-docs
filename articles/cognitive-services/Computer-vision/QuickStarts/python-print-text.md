@@ -34,7 +34,7 @@ To run the sample, do the following steps:
 
 The following code uses the Python `requests` library to call the Computer Vision Analyze Image API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary.
 
-### OCR request
+## OCR request
 
 ```python
 # Replace <Subscription Key> with your valid subscription key.
@@ -94,7 +94,7 @@ for word in word_infos:
 plt.axis("off")
 ```
 
-### OCR response
+## OCR response
 
 A successful response is returned in JSON, for example:
 

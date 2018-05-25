@@ -16,8 +16,7 @@ ms.author: v-gedod
 
 The Bing News Search SDK contains the functionality of the REST API for news queries and parsing results. 
 
-> [!NOTE] 
-> Some SDKs are now in GA and changes to documentation are pending. 
+The [source code for C# Bing News Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) is available on Git Hub.
 
 ## Application dependencies
 
