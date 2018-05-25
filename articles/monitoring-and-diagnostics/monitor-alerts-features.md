@@ -22,13 +22,11 @@ ms.author: vinagara
 ## Overview 
  
 > [!NOTE] 
-> This article describes newer alerts. Older classic Azure Monitor alerts are described in [classic alerts Overview](monitoring-overview-alerts.md).  
-> 
-> 
+> This article describes the new alert experience. Classic alerts in Azure Monitor are described in [classic alerts Overview](monitoring-overview-alerts.md). 
  
-On June 1st 2018, a new alerts user interface was released. The new alerts interface retains the benefits of the [unified alerts experience](monitoring-overview-unified-alerts.md) released March 2018. It also provides better alert state management, alert enumeration, aggregation, and the ability for administrators to change the state of alerts when they have been processed.   
+On June 1st 2018, a new alerts experience was released for Azure Monitor. This experience builds on the benefits of the [unified alerts experience](monitoring-overview-unified-alerts.md) released March 2018 and provides better alert state management, alert enumeration, aggregation, and the ability for administrators to change the state of alerts when they have been processed. 
  
-## Opt-in 
+## Enabling the new alert experience
 You must opt-in to the new experience.  When you go to the alerts page in Azure Monitor, you should see a banner to click. You can go back and forth between the new and old experience by clicking on the banner.  
 
 ## Alert Enumeration and State Management 
