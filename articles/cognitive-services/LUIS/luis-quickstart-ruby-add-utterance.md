@@ -1,18 +1,18 @@
 ---
-title: Add utterances to a LUIS app using Ruby | Microsoft Docs
-description: Learn to call a LUIS app using Ruby in this quickstart.
+title: Tutorial learning how to add utterances to a LUIS app using Ruby | Microsoft Docs
+description: In this tutorial, you learn to call a LUIS app using Ruby in this quickstart.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 12/13/2017
 ms.author: v-geberr
 #Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using Ruby.
 ---
 
-# Quickstart: Add utterances to app using Ruby 
+# Tutorial: Add utterances to app using Ruby 
 In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in Ruby.
 
 For more information, 
@@ -249,6 +249,9 @@ Requested training status.
    }
 ]
 ```
+
+## Clean up resources
+When you are done with the tutorial, remove Visual Studio and the console application if you don't need them anymore.
 
 ## Next steps
 

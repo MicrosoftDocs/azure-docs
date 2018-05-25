@@ -1,19 +1,26 @@
 ---
-title: Add utterances to a LUIS app using Java | Microsoft Docs
-description: Learn to call a LUIS app using Java in this quickstart.
+title: Tutorial learning how to add utterances to a LUIS app using Java | Microsoft Docs
+description: In this tutorial, you learn to call a LUIS app using Java in this quickstart.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 12/13/2017
 ms.author: v-geberr
 #Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using Java. 
 ---
 
-# Quickstart: Add utterances to app using Java 
+# Tutorial: Add utterances to app using Java 
 In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in Java.
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Create Visual Studio console project 
+> * Add method to call LUIS API to add utterance and train app
+> * Add JSON file with example utterances for BookFlight intent
+> * Run console and see training status for utterances
 
 For more information, refer to the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
 
@@ -170,6 +177,9 @@ Call the app with the `-status` argument to check the training status and write 
 ````
 > java -classpath .;gson-2.8.2.jar AddUtterances -status
 ````
+
+## Clean up resources
+When you are done with the tutorial, remove Visual Studio and the console application if you don't need them anymore. 
 
 ## Next steps
 
