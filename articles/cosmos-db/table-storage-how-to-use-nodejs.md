@@ -2,14 +2,11 @@
 title: How to use Azure Table storage or Azure Cosmos DB Table API from Node.js | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 services: cosmos-db
-documentationcenter: nodejs
 author: SnehaGunda
 manager: kfile
 
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/05/2018
