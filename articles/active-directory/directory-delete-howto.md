@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/25/201
+ms.date: 05/25/2018
 ms.author: curtand
 
 ms.reviewer: jeffsta
@@ -27,9 +27,9 @@ Only an Azure Active Directory (Azure AD) global administrator can delete an Azu
 
 You can't delete a tenant in Azure AD until it passes several checks. These checks reduce risk that deleting a tenant negatively impacts user access, such as the ability to sign in to Office 365 or access resources in Azure. For example, if the tenant associated with a subscription is unintentionally deleted, then users can't access the Azure resources for that subscription. The following explains the conditions that are checked:
 
-* The only user in the tenant should be the global administrator who is to delete the tenant. Any other users must be deleted before the tenant can be deleted. If users are synchronized from on-premises, then sync must be turned off, and the users must be deleted in the cloud tenant using the Azure portal or Azure PowerShell cmdlets. There is no requirement to delete groups or contacts.
+* There can be no users in the tenant except one global administrator who is to delete the tenant. Any other users must be deleted before the tenant can be deleted. If users are synchronized from on-premises, then sync must be turned off, and the users must be deleted in the cloud tenant using the Azure portal or Azure PowerShell cmdlets. There is no requirement to delete groups or contacts.
 * There can be no applications in the tenant. Any applications must be deleted before the tenant can be deleted.
-* No multi-factor authentication providers can be linked to the tenant.
+* There can be no multi-factor authentication providers linked to the tenant.
 * There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the tenant. For example, if a default tenant was created for you in Azure, you cannot delete this tenant if your Azure subscription still relies on this tenant for authentication. Similarly, you can't delete a tenant if another user has associated a subscription with it. 
 
 Question: what about service principals or Azure AD Domain Services?
@@ -51,4 +51,4 @@ Question: what about service principals or Azure AD Domain Services?
 5. After you pass all checks, select **Delete** to complete the process.
 
 ## Next steps
-[Azure Active Directory documentations](https://docs.microsoft.com/azure/active-directory/)
+[Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/)
