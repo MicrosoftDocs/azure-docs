@@ -78,7 +78,7 @@ The project template creates a C# project, installs the `Microsoft.NET.Sdk.Funct
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
+* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify app settings for variables required by your functions. Add a new item to the **Values** array for each connection required by the functions bindings in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
 
 For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
 
@@ -90,7 +90,7 @@ The Functions runtime uses an Azure Storage account internally. For all trigger 
 
  To set the storage account connection string:
 
-1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then select **Properties** and copy the **Primary Connection String** value.   
+1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then select **Properties** and copy the **Primary Connection String** value.
 
 2. In your project, open the local.settings.json file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
 
@@ -137,11 +137,11 @@ As with triggers, input and output bindings are added to your function as bindin
 
 1. Make sure you have [configured the project for local development](#configure-the-project-for-local-development).
 
-2. Add the appropriate NuGet extension package for the specific binding. For more information, see [Local C# development using Visual Studio](functions-triggers-bindings.md#local-csharp) in the Triggers and Bindings article. The binding-specific NuGet package requirements are found in the reference article for the binding.
+2. Add the appropriate NuGet extension package for the specific binding. For more information, see [Local C# development using Visual Studio](functions-triggers-bindings.md#local-csharp) in the Triggers and Bindings article. The binding-specific NuGet package requirements are found in the reference article for the binding. For an example, see the [Queue storage bindings article](functions-bindings-storage-queue.md#packages).
 
-3. If there is a service connection string, add it to the **Values** collection in the [local setting file](functions-run-local.md#local-settings-file). These values are used instead of the actual connection strings in your binding attributes. They must also be added to the [function app settings](#function-app-settings) when you publish the project.
+3. If there are app settings that the binding needs, add them to the **Values** collection in the [local setting file](functions-run-local.md#local-settings-file). These values are used when the function runs locally. When the function runs in the function app in Azure, the [function app settings](#function-app-settings) are used.
 
-4. Add the appropriate binding attribute to the method signature. For example, the following example is a Queue storage triggered function with an output queue binding. The function writes the queue message that triggers the function to a new queue message in a different queue.
+4. Add the appropriate binding attribute to the method signature. In the following example, a queue message triggers the function, and the output binding creates a new queue message with the same text in a different queue.
 
     ```csharp
     public static class SimpleExampleWithOutput
@@ -159,7 +159,7 @@ As with triggers, input and output bindings are added to your function as bindin
     ```
 For more information, see the reference article for the specific binding.
 
-[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings-dotnet.md)]
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## Testing functions
 

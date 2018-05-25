@@ -387,7 +387,7 @@ public static class IBinderExampleMultipleAttributes
 
 ## Triggers and bindings 
 
-[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings-dotnet.md)]
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## Next steps
 
