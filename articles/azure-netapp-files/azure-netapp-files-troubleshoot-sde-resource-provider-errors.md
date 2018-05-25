@@ -18,313 +18,313 @@ ms.date: 04/03/2018
 ms.author: b-juche
 ---
 # Troubleshoot SDE Resource Provider errors for Azure NetApp Files
-This article describes common SDE Resource Provider errors, their causes, solutions, and workarounds. 
+This article describes common Service Delivery Engine (SDE) Resource Provider errors, their causes, solutions, and workarounds. 
 
-## <a name="error_01"></a>Azure KeyVault not configured.
+<a name="error_01"></a>***Azure KeyVault not configured.***   
 The KeyVault stores the required credentials for accessing the underlying API. This error indicates that the KeyVault did not receive the complete credentials for accessing the underlying API.
 
-### Cause
+* Cause  
 The KeyVault did not receive the correct credentials, or the credentials are incomplete.  
 
-### Solution
+* Solution   
 Cloud Volumes use a KeyVault. The KeyVault authenticates by using a token from Azure Active Directory. Therefore, the owner of the application must register the application in the Azure Active Directory.
 
-### Workaround
+* Workaround   
 None.  The KeyVault must be set up correctly for using the Cloud Volume service.  
 
-## <a name="error_02"></a>Creation Token cannot be changed.
+<a name="error_02"></a>***Creation Token cannot be changed.***   
 This error occurs when you try to change the creation token after the volume has been created.
 Creation token must be set when the volume is created and cannot be changed later.
 
-### Cause
+* Cause   
 You are trying to change the creation token after the volume has been created, which is not a supported operation.
 
-### Solution
+* Solution   
 After the Volume has been created, consider removing the parameter from the request to dismiss the error message.
 
-### Workaround
+* Workaround   
 If you need to change the creation token, you can create a new volume with a new creation token, and then migrate the data to the new volume.
 
 
-## <a name="error_03"></a>Creation Token must be at least 16 characters long.
+<a name="error_03"></a>***Creation Token must be at least 16 characters long.***   
 This error occurs when the creation token does not meet the length requirement. The length of the creation token must be at least 16 characters.
 
-### Cause
+* Cause   
 The creation token does not meet the length requirement.  When you create a volume by using the API, a creation token is required. If you are using the portal, the token can be generated automatically.
 
-### Solution
+* Solution   
 Increase the length of the creation token. For example, you can add another word at the beginning or the end of the creation token.
 
-### Workaround
+* Workaround   
 The minimum required length of the creation token cannot be bypassed.  You can use a prefix or suffix to increase the creation token length.
 
 
-## <a name="error_04"></a>Error deleting a volume that was not found at NFSaaS.
+<a name="error_04"></a>***Error deleting a volume that was not found at NFSaaS.***   
 This error occurred because the internal registry of resources is out of sync.
 
-### Cause
+* Cause   
 The volume might stay displayed in the portal for some time after it has been deleted. If you delete the volume by using the API, it is possible that the volume was not specified correctly. The error can also be caused by outdated browser cache.
 
-### Solution
+* Solution   
 Clear browser cache if you are using the portal. There is also an internal cache that is refreshed every 10 minutes.  You can try to clear cache again.  If the problem persists after 10 minutes, you can create a support ticket.
 
-### Workaround
+* Workaround   
 Use a different volume in the meantime and ignore the existing one.
 
 
-## <a name="error_05"></a>Error inserting a new Volume found at NFSaaS.
+<a name="error_05"></a>***Error inserting a new Volume found at NFSaaS.***   
 This error occurs because the internal registry of resources is out of sync.
 
-### Cause
+* Cause   
 The volume might remain displayed in the portal for some time after it has been deleted. If you delete the volume by using the API, it is possible that the volume was not specified correctly.
 
-### Solution
+* Solution   
 If you are using the portal, the volume has already been created.  The volume should appear automatically. If the problem persists, you can create a support ticket.
 
-### Workaround
+* Workaround   
 You can create a volume with a different name and a different creation token.
 
 
-## <a name="error_06"></a>The file path name can contain letters, numbers, and hyphens (""-"") only.
+<a name="error_06"></a>***The file path name can contain letters, numbers, and hyphens (""-"") only.***   
 This error occurs when the file path contains unsupported characters, for example, a period ("."), comma (","), underscore ("\_"), or dollar sign ("$").
 
-### Cause
+* Cause   
 The file path contains unsupported characters, for example, a period ("."), comma (","), underscore ("\_"), or dollar sign ("$").
 
-### Solution
+* Solution   
 Remove characters that are not alphabetical letters, numbers, or hyphens ("-") from the file path you entered.
 
-### Workaround
+* Workaround   
 You can replace an underscore with a hyphen or use capitalization instead of spaces to indicate the beginning of new words (for example, using "NewVolume" instead of "new volume").
 
 
-## <a name="error_07"></a>Volume ID cannot be changed.
+<a name="error_07"></a>***Volume ID cannot be changed.***   
 This error occurs when you try to change the volume ID.  Changing the volume ID is not a supported operation.
 
-### Cause
+* Cause   
 The ID of the file system is set when the volume is created. The volume ID cannot be changed subsequently.
 
-### Solution
+* Solution   
 None.
 
-### Workaround
+* Workaround   
 None.  The volume ID is generated when the volume is created and cannot be changed subsequently.
 
 
-## <a name="error_08"></a>An invalid value '{0}' was received for {1}.
+<a name="error_08"></a>***An invalid value '{0}' was received for {1}.***   
 This message indicates an error in the fields for RuleIndex, AllowedClients, UnixReadOnly, UnixReadWrite, Nfsv3, and Nfsv4.
 
-### Cause
+* Cause   
 The input validation request has failed for at least one of the following fields: RuleIndex, AllowedClients, UnixReadOnly, UnixReadWrite, Nfsv3, and Nfsv4.
 
-### Solution
+* Solution   
 Make sure to set all required and non-conflicting parameters on the command line. For example, you cannot set both the UnixReadOnly and UnixReadWrite parameters at the same time.
 
-### Workaround
+* Workaround   
 See the Solution section.  
 
 
-## <a name="error_09"></a>Missing value for '{0}'.
+<a name="error_09"></a>***Missing value for '{0}'.***   
 This error indicates that a required attribute is missing from the request for at least one of the following parameters: RuleIndex, AllowedClients, UnixReadOnly, UnixReadWrite, Nfsv3, and Nfsv4.
 
-### Cause
+* Cause   
 The input validation request has failed for at least one of the following fields: RuleIndex, AllowedClients, UnixReadOnly, UnixReadWrite, Nfsv3, and Nfsv4.
 
-### Solution
+* Solution   
 Make sure to set all required and non-conflicting parameters on the command line. For example, you cannot set both the UnixReadOnly and UnixReadWrite parameters at the same time
 
-### Workaround
+* Workaround   
 See the Solution section.  
 
 
-## <a name="error_10"></a>{0} already in use.
+<a name="error_10"></a> ***{0} already in use.***   
 This error indicates that the name for the resource has already been used.
 
-### Cause
+* Cause   
 You are trying to create a volume with a name that is the same as an existing volume.
 
-### Solution
+* Solution   
 Use a unique name when creating a volume.
 
-### Workaround
+* Workaround   
 If necessary, you can change the name of the existing volume so that the new volume can use the intended name.
 
 
-## <a name="error_11"></a>{0} too short.
+<a name="error_11"></a> ***{0} too short.***   
 This error indicates that the volume name does not meet the minimum length requirement.
 
-### Cause
+* Cause   
 The volume name is too short.
 
-### Solution
+* Solution   
 Increase the length of the volume name.  
 
-### Workaround
+* Workaround   
 You can add a common prefix or suffix to the volume name.
 
 
-## <a name="error_12"></a>NFSaaS API unreachable.
+<a name="error_12"></a>***NFSaaS API unreachable.***   
 The Azure API relies on the NFSaaS API to manage volumes.  This error indicates an issue with the API connection.
 
-### Cause
+* Cause   
 The underlying API is not responding, resulting in an internal error. This error is likely to be temporary.
 
-### Solution
+* Solution   
 The issue is likely to be temporary.  The request should succeed after some time.
 
-### Workaround
+* Workaround   
 None. The underlying API is essential for managing volumes.  
 
 
-## <a name="error_13"></a>No NFS credentials found for subscription '{0}'.
+<a name="error_13"></a>***No NFS credentials found for subscription '{0}'.***   
 This error indicates that the provided credentials are either invalid or have not been set correctly in the subscription.
 
-### Cause
+* Cause   
 Credentials that are invalid or incorrectly set prevent access to the service for managing Cloud Volumes.
 
-### Solution
+* Solution   
 Make sure that the credentials are set and entered correctly on the command line.
 
-### Workaround
+* Workaround   
 None.  Setting credentials correctly is essential for using Cloud Volumes.  
 
 
-## <a name="error_14"></a>No operation result id found for '{0}'.
+<a name="error_14"></a>***No operation result id found for '{0}'.***   
 This error indicates that an internal error is preventing the operation from completing.
 
-### Cause
+* Cause   
 An internal error occurred and prevented the operation from completing.
 
-### Solution
+* Solution   
 This error is likely to be temporary.  Wait a few minutes and try again. If the problem persists, create a ticket to have technical support investigate the issue.
 
-### Workaround
+* Workaround   
 Wait a few minutes and check if the problem persists.
 
 
-## <a name="error_15"></a>Operation '{0}' not supported.
+<a name="error_15"></a>***Operation '{0}' not supported.***   
 This error indicates that the command is not available for the active subscription or resource.
 
-### Cause
+* Cause   
 The operation is not available for the subscription or resource.
 
-### Solution
+* Solution   
 Make sure that the command is entered correctly and available for the resource and subscription that you are using.
 
-### Workaround
+* Workaround   
 See the Solution section.  
 
 
-## <a name="error_16"></a>Patch operation is not supported for this resource type.
+<a name="error_16"></a>***Patch operation is not supported for this resource type.***   
 This error occurs when you try to change the mount target or snapshot.
 
-### Cause
+* Cause   
 The mount target is defined when it is created, and it cannot be changed subsequently.
 
-### Solution
+* Solution   
 None.  The mount target cannot be changed after the volume is created.
 
-### Workaround
+* Workaround   
 None.
 
 
-## <a name="error_17"></a>Received a value for read-only property '{0}'.
+<a name="error_17"></a>***Received a value for read-only property '{0}'.***   
 This error occurs when you define a value for a property that cannot be changed. For example, you cannot change the volume ID.
 
-### Cause
+* Cause   
 You attempted to modify a parameter (such as the volume ID) that cannot be changed.
 
-### Solution
+* Solution   
 None. The parameter for the volume ID cannot be modified.
 
-### Workaround
+* Workaround   
 The volume ID should not require modification.  Therefore, a workaround is not necessary.
 
-## <a name="error_18"></a>The requested {0} was not found.
+<a name="error_18"></a>***The requested {0} was not found.***   
 This error occurs when you try to reference a nonexistent resource, for example, a volume or snapshot. The resource might have been deleted or have a misspelt resource name.
 
-### Cause
+* Cause   
 You are trying to reference a nonexistent resource (for example, a volume or snapshot) that has already been deleted or has an incorrectly spelled resource name.
 
-### Solution
+* Solution   
 Check the request for spelling errors to make sure that it is correctly referenced.
 
-### Workaround
+* Workaround   
 See the Solution section.
 
-## <a name="error_19"></a>Unable to get NFS credentials for subscription '{0}'.
+<a name="error_19"></a>***Unable to get NFS credentials for subscription '{0}'.***   
 This error indicates that the provided credentials are either invalid or incorrectly set in the subscription.
 
-### Cause
+* Cause   
 Credentials that are invalid or incorrectly set in the subscription prevent access to the service for managing Cloud Volumes.
 
-### Solution
+* Solution   
 Make sure that the credentials are set and entered correctly on the command line.
 
-### Workaround
+* Workaround   
 None.  Correctly set credentials are essential for using Cloud Volumes.
 
-## <a name="error_20"></a>Unknown NFSaaS Error.
+<a name="error_20"></a>***Unknown NFSaaS Error.***   
 The Azure API relies on the NFSaaS API to manage volumes. The error indicates an issue in the communication to the API.
 
-### Cause
+* Cause   
 The underlying API is sending an unknown error.  This error is likely to be temporary.
 
-### Solution
+* Solution   
 The issue is likely to be temporary, and the request should succeed after some time. If the problem persists, create a support ticket to have the issue investigated.
 
-### Workaround
+* Workaround   
 None.  The underlying API is essential for managing volumes.
 
-## <a name="error_21"></a>Value received for an unknown property '{0}'.
+<a name="error_21"></a>***Value received for an unknown property '{0}'.***   
 This error occurs when nonexistent properties are provided for a resource such as the volume, snapshot, or mount target.
 
-### Cause
+* Cause   
 The request has a set of properties that can be used with each resource.  You cannot include any nonexistent properties in the request.
 
-### Solution
+* Solution   
 Make sure that all property names are spelled correctly and the properties are available for the subscription and resource.
 
-### Workaround
+* Workaround   
 Reduce the number of properties defined in the request to eliminate the property that is causing the error.
 
 
-## <a name="error_22"></a>Update operation is not supported for this resource type.
+<a name="error_22"></a>***Update operation is not supported for this resource type.***   
 Only volumes can be updated. This error occurs when you try to perform an unsupported update operation, for example, updating a snapshot.
 
-### Cause
+* Cause   
 The resource you are trying to update does not support the update operation.  Only volumes can have their properties modified.
 
-### Solution
+* Solution   
 None.  The resource that you are trying to update does not support the update operation. Therefore, it cannot be changed.
 
-### Workaround
+* Workaround   
 For a volume, create a new resource with the update in place and migrate the data.
 
 
-## <a name="error_23"></a>Number of items: {0} for object: {1} is outside min-max range.
+<a name="error_23"></a>***Number of items: {0} for object: {1} is outside min-max range.***   
 This error occurs when the export policy rules do not meet the minimum or maximum range requirement.  If you define the export policy, it must have one export policy rule at the minimum and five export policy rules at the maximum.
 
-### Cause
+* Cause   
 The export policy you defined does not meet the required range.  
 
-### Solution
+* Solution   
 Make sure that the index is not already used and that is in the range from 1 to 5.
 
-### Workaround
+* Workaround   
 It is not mandatory to use export policy on the volumes. Therefore, you can omit the export policy entirely if you do not need to have export policy rules.
 
 
-## <a name="error_24"></a>Duplicate value error for object {0}.
+<a name="error_24"></a>***Duplicate value error for object {0}.***   
 This error occurs when the export policy is not defined with a unique index.  When you define export policies, all export policy rules must have a unique index between 1 and 5.
 
-### Cause
+* Cause   
 The defined export policy does not meet the requirement for export policy rules. You must have one export policy rule at the minimum and five export policy rules at the maximum.  
 
-### Solution
+* Solution   
 Make sure that the index is not already used and that it is in the range from 1 to 5.
 
-### Workaround
+* Workaround   
 Use a different index for the rule that you are trying to set.
 
 
