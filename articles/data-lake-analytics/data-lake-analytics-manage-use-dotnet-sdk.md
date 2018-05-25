@@ -279,6 +279,8 @@ using (var memstream = new MemoryStream())
    {
       sw.WriteLine("Hello World");
       sw.Flush();
+      
+      memstream.Position = 0;
 
       adlsFileSystemClient.FileSystem.Create(adls, "/Samples/Output/randombytes.csv", memstream);
    }
