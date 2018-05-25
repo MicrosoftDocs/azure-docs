@@ -127,7 +127,7 @@ For more information about policy parameters, see [Resource Policy Overview - Pa
 
 ## Initiative definition
 
-An initiative definition is collection of policy definitions that are tailored towards achieving a
+An initiative definition is a collection of policy definitions that are tailored towards achieving a
 singular overarching goal. Initiative definitions simplify managing and assigning policy
 definitions. They simplify by grouping a set of policies as one single item. For example, you could
 create an initiative titled **Enable Monitoring in Azure Security Center**, with a goal to monitor
