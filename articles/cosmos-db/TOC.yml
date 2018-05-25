@@ -70,6 +70,8 @@ items:
     items:
     - name: Global distribution
       href: distribute-data-globally.md
+    - name: Multi-master setup
+      href: multi-region-writers.md
     - name: Partitioning
       href: partition-data.md
     - name: Throughput
@@ -165,8 +167,6 @@ items:
           href: sql-api-resources.md
         - name: Model document data
           href: modeling-data.md
-        - name: Multi-master setup
-          href: multi-region-writers.md
       - name: How To Guides
         items:
         - name: BulkExecutor - .NET
@@ -397,8 +397,6 @@ items:
           href: table-storage-how-to-use-dotnet.md
         - name: F#
           href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
-        - name: Node.js 
-          href: table-storage-cloud-service-nodejs.md
         - name: Java
           href: table-storage-how-to-use-java.md
         - name: Node.js
@@ -411,8 +409,6 @@ items:
           href: table-storage-how-to-use-python.md
         - name: Ruby
           href: table-storage-how-to-use-ruby.md
-        - name: PowerShell
-          href: table-storage-how-to-use-powershell.md
       - name: Reference
         items:
           - name: .NET
