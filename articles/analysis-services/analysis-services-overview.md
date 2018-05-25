@@ -14,7 +14,7 @@ ms.reviewer: minewiskan
 # What is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services provides enterprise-grade data modeling in the cloud. It is a fully managed platform as a service (PaaS), integrated with Azure data platform services. 
+Azure Analysis Services provides enterprise-grade data modeling in the cloud. It's a fully managed platform as a service (PaaS), integrated with Azure data platform services. 
 
 With Analysis Services, you can mashup and combine data from multiple data sources, define metrics, and secure your data in a single, trusted semantic data model. The data model provides an easier and faster way for your users to browse massive amounts of data with client applications like Power BI, Excel, Reporting Services,  third-party, and custom apps.
 
@@ -33,7 +33,13 @@ Azure Analysis Services integrates with many Azure services enabling you to buil
 ## Get up and running quickly
 In Azure portal, you can [create a server](analysis-services-create-server.md) within minutes. And, with Azure Resource Manager [templates](../azure-resource-manager/resource-manager-create-first-template.md) and PowerShell, you can provision servers using a declarative template. With a single template, you can deploy multiple services along with other Azure components such as storage accounts and Azure Functions. 
 
-Once you have a server created, you can create a tabular model right in Azure portal. With the new (preview) [Web designer feature](analysis-services-create-model-portal.md), you can connect to an Azure SQL Database, Azure SQL Data Warehouse data source, or import a Power BI Desktop .pbix file. Relationships between tables are created automatically, and you can create measures or edit the model.bim file in json format right from your browser.
+
+## Proven Tabular model semantic layer
+
+### In-memory
+
+### DirectQuery
+
 
 ## Scale to your needs
 
@@ -41,20 +47,82 @@ Once you have a server created, you can create a tabular model right in Azure po
 
 Azure Analysis Services is available in Developer, Basic, and Standard tiers. Within each tier, plan costs vary according to processing power, QPUs, and memory size. When you create a server, you select a plan within a tier. You can change plans up or down within the same tier, or upgrade to a higher tier, but you cannot downgrade from a higher tier to a lower tier.
 
+### Developer tier
+This tier is recommended for evaluation, development, and test scenarios. A single plan includes the same functionality of the standard tier, but is limited in processing power, QPUs, and memory size. Query replica scale-out is not available for this tier. This tier does not offer an SLA.
+
+|Plan  |QPUs  |Memory (GB)  |
+|---------|---------|---------|
+|D1    |    20     |    3     |
+
+
+### Basic tier
+The tier is recommended for production solutions with smaller tabular models, limited user concurrency, and simple data refresh requirements. Query replica scale-out is not available for this tier.
+
+|Plan  |QPUs  |Memory (GB)  |
+|---------|---------|---------|
+|B1    |    40     |    10     |
+|B2    |    80     |    20     |
+
+### Standard tier
+This tier is for mission-critical production applications that require elastic user-concurrency, and have rapidly growing data models. It has advanced data refresh capability for near real-time data model updates.
+
+|Plan  |QPUs  |Memory (GB)  |
+|---------|---------|---------|
+|S1    |    40     |    10     |
+|S2    |    100     |    25     |
+|S3    |    200     |    50     |
+|S4    |    400     |    100     |
+|S8*    |    320     |    200     |
+|S9*    |    640    |    400     |
+
+\* Not available in all regions.  
+
+## Scale up\down, pause and resume
 Go up, down, or pause your server. Use the Azure portal or have total control on-the-fly by using PowerShell. You only pay for what you use. To learn more about the different plans and tiers, and use the pricing calculator to determine the right plan for you, see [Azure Analysis Services Pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
 
 ### Scale-out resources for fast query responses
 
-With Azure Analysis Services scale-out, client queries are distributed among multiple *query replicas* in a query pool. Query replicas have synchronized copies of your tabular models. By spreading the query workload, response times during high query workloads can be reduced. Model processing operations can be separated from the query pool, ensuring client queries are not adversely affected by processing operations. You can create a query pool with up to seven additional query replicas (eight total, including your server). 
+With Azure Analysis Services scale-out, client queries are distributed among multiple *query replicas* in a query pool. Query replicas have synchronized copies of your tabular models. By spreading the query workload, response times during high query workloads can be reduced. Model processing operations can be separated from the query pool, ensuring client queries are not adversely affected by processing operations. 
 
-Just like with changing your tier, you can scale-out query replicas according to your needs. Configure scale-out in the portal or by using REST APIs. To learn more, see [Azure Analysis Services scale-out](analysis-services-scale-out.md).
+You can create a query pool with up to seven additional query replicas (eight total, including your server). The number of query replicas you can have in your pool depend on your chosen region. Query replicas cannot be spread outside your server's region. Query replicas are billed at the same rate as your server.
 
-## Keep your data close
-Azure Analysis Services servers can be created in the following [Azure regions](https://azure.microsoft.com/regions/):
+Just like with changing tiers, you can scale-out query replicas according to your needs. Configure scale-out in the portal or by using REST APIs. To learn more, see [Azure Analysis Services scale-out](analysis-services-scale-out.md).
 
-| Americas | Europe | Asia Pacific |
-|----------|--------|--------------|
-|  Brazil South<br> Canada Central<br> East US<br> East US 2<br> North Central US<br> Central US<br> South Central US<br> West Central US<br> West US<br> West US2 | North Europe<br> UK South<br> West Europe |   Australia Southeast<br> Japan East<br> Southeast Asia<br> West India  |
+## Determine your need
+
+### Americas
+|Region  | Supported tiers | Query replicas |
+|---------|---------|---------|
+|Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
+|Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
+|East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|East US 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|North Central US     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Central US     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
+|West US     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|West US2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+
+### Europe
+|Region  | Supported tiers | Query replicas |
+|---------|---------|---------|
+|North Europe     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|UK South   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|West Europe     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+
+### Asia Pacific 
+|Region  | Supported tiers | Query replicas |
+|---------|---------|---------|
+|Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japan East  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|West India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+
+
+## Pricing
+Total cost depends on a number of factors; for example, your chosen region, tier, query replicas, pausing and resuming your server resource, etc.. Use the [Azure Analysis Services Pricing](https://azure.microsoft.com/pricing/details/analysis-services/) calculator to determine typical pricing for your region. This tool calculates pricing for a single server instance for a single region. Keep in mind, each query replica server is billed at the same rate as the server. 
+
 
 New regions are being added all the time, so this list might be incomplete. You choose a location when you create your server in Azure portal or by using Azure Resource Manager templates. To get the best performance, choose a location nearest your largest user base. Assure [high availability](analysis-services-bcdr.md) by deploying your models on redundant servers in multiple regions.
 
