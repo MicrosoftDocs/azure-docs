@@ -21884,6 +21884,16 @@
             "redirect_url": "/azure/application-gateway/application-gateway-web-application-firewall-portal",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/application-gateway/application-gateway-web-application-firewall-powershell.md",
+            "redirect_url": "/azure/application-gateway/tutorial-restrict-web-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-gateway/application-gateway-web-application-firewall-cli.md",
+            "redirect_url": "/azure/application-gateway/tutorial-restrict-web-traffic-cli",
+            "redirect_document_id": false
+        },
 	    {
             "source_path": "articles/active-directory/active-directory-conditional-access-vpn-connectivity-windows10.md",
             "redirect_url": "https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy",
