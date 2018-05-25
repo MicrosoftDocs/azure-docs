@@ -21,7 +21,7 @@ ms.custom: azlog
 # Introduction to Azure Log Integration
 
 >[!IMPORTANT]
-> The Azure Log Integration feature will be deprecated by 5/30/2019.
+> The Azure Log Integration feature will be deprecated by 12/15/2018.
 
 Azure Log Integration was made available to simplify the task of integrating Azure logs with your on-premises Security Information and Event Management (SIEM) system.
 
