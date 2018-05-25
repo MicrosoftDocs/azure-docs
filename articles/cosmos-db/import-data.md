@@ -6,12 +6,9 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 editor: monicar
-documentationcenter: ''
 
 ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018

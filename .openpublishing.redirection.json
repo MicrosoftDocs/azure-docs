@@ -31,6 +31,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/marketplace-consumer/mytemplates-getstarted.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-univ.md",
             "redirect_url": "https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2",
             "redirect_document_id": false
@@ -653,16 +658,6 @@
         {
             "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-nonaad.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad",
-            "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/active-directory/managed-service-identity/tutorial-vm-windows-access-storage.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/managed-service-identity/tutorial-linux-vm-access-storage.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
             "redirect_document_id": true
         },
         {
@@ -2493,6 +2488,11 @@
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
             "redirect_url": "/azure/automation/automation-create-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-alert-activity-log.md",
+            "redirect_url": "/azure/automation/automation-alert-metric",
             "redirect_document_id": false
         },
         {
@@ -4401,6 +4401,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/data-lake-analytics/data-lake-analytics-u-sql-develop-assemblies.md",
+            "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-for-vscode",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-rest-api.md",
+            "redirect_url": "/rest/api/datalakeanalytics/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-java-sdk.md",
+            "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-manage-use-java-sdk",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/dotnet/index.md",
             "redirect_url": "/dotnet/azure/",
             "redirect_document_id": false
@@ -5898,6 +5913,36 @@
         {
             "source_path": "articles/cosmos-db/tutorial-develop-mongodb.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-mongodb-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/lab-services/how-to-manage-classroom-labs.md",
+            "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-classroom-labs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/lab-services/how-to-manage-lab-accounts.md",
+            "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-lab-accounts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/lab-services/how-to-use-classroom-lab.md",
+            "redirect_url": "/azure/lab-services/classroom-labs/how-to-use-classroom-lab",
+            "redirect_document_id": false
+        },                        
+        {
+            "source_path": "articles/lab-services/tutorial-connect-virtual-machine-classroom-lab.md",
+            "redirect_url": "/azure/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/lab-services/tutorial-setup-classroom-lab.md",
+            "redirect_url": "/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/lab-services/tutorial-setup-lab-account.md",
+            "redirect_url": "/azure/lab-services/classroom-labs/tutorial-setup-lab-account",
             "redirect_document_id": false
         },
         {
@@ -8674,6 +8719,56 @@
             "source_path": "articles/cognitive-services/video-indexer/home.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-get-started",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-connecting-devices.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices-linux.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-connecting-devices-linux.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices-node.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-connecting-devices-node.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-custom-rule.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-custom-rule.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-dynamic-telemetry.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-dynamic-telemetry.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-faq.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-faq.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-getstarted-preconfigured-solutions.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-logic-apps-tutorial.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-logic-apps-tutorial.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-permissions.md",
+          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-permissions.md",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
@@ -17862,7 +17957,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/ps-extensions-diagnostics.md",
-            "redirect_url": "/azure/virtual-machines/extensions/diagnostics-powershell",
+            "redirect_url": "/azure/virtual-machines/extensions/diagnostics-windows",
             "redirect_document_id": false
         },
         {
@@ -18084,6 +18179,31 @@
             "source_path": "articles/iot-hub/iot-hub-iot-edge-create-module-java.md",
             "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-java.md",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-python-python-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
@@ -21774,7 +21894,52 @@
             "source_path": "articles/azure-maps/search-categories.md",
             "redirect_url": "/azure/azure-maps/supported-search-categories",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-concept-intro-to-luis.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/home",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/table-storage-how-to-use-powershell.md",
+            "redirect_url": "/azure/storage/tables/table-storage-how-to-use-powershell",
+            "redirect_document_id": true
+        },
+        {   "source_path": "articles/application-gateway/application-gateway-ilb.md",
+            "redirect_url": "/azure/application-gateway/application-gateway-ilb-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-gateway/create-waf-portal.md",
+            "redirect_url": "/azure/application-gateway/application-gateway-web-application-firewall-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-gateway/application-gateway-web-application-firewall-powershell.md",
+            "redirect_url": "/azure/application-gateway/tutorial-restrict-web-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-gateway/application-gateway-web-application-firewall-cli.md",
+            "redirect_url": "/azure/application-gateway/tutorial-restrict-web-traffic-cli",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/active-directory/active-directory-conditional-access-vpn-connectivity-windows10.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy",
+            "redirect_document_id": true
         }
-
+        ,
+        {
+            "source_path": "articles/security/azure-security-architecture-overview.md",
+            "redirect_url": "https://docs.microsoft.com/azure/security",
+            "redirect_document_id": true
+        }
+        ,
+        {
+            "source_path": "articles/security/azure-security-getting-started.md",
+            "redirect_url": "https://docs.microsoft.com/azure/security",
+            "redirect_document_id": true
+        }
     ]
 }

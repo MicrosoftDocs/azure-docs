@@ -1,22 +1,15 @@
 ---
 title: Azure Internet of Things (IoT) technologies and solutions
 description: Presents the collection of PaaS/SaaS techologies and solutions available for building an Azure IoT solution.
-services: iot-fundamentals
-documentationcenter: 
 author: BryanLa
 manager: timlt
-editor: bryanla; v-clay
-
 ms.service: iot-fundamentals
-ms.devlang: na
+services: iot-fundamentals
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/18/2018
-ms.author: bryanla; v-clay
-ms.custom: 
-
+ms.author: bryanla
 ---
+
 # Azure IoT technologies and solutions: PaaS and SaaS
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The Azure IoT product portfolio is an overview of the available PaaS/SaaS technologies and solutions. It presents the two paths that are available for building your own solution:
