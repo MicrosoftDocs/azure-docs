@@ -17,7 +17,7 @@ ms.author: douglasl
 
 This article describes the event-based triggers that you can create in your Data Factory pipelines.
 
-Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption and reaction to events. Data integration scenarios often require Data Factory customers to trigger pipelines based on events.
+Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require Data Factory customers to trigger pipelines based on events.
 
 ## Data Factory UI
 
@@ -29,11 +29,11 @@ A typical event is the arrival of a file, or the deletion of a file, in your Azu
 
 ### Select the event trigger type
 
-As soon as the file arrives in your storage location and the corresponding blob is created, this event triggers and runs your Data Factory pipeline. You can create an trigger that responds to a blob creation event, a blob deletion event, or both events, in your Data Factory pipelines.
+As soon as the file arrives in your storage location and the corresponding blob is created, this event triggers and runs your Data Factory pipeline. You can create a trigger that responds to a blob creation event, a blob deletion event, or both events, in your Data Factory pipelines.
 
 ![Select trigger type as event](media/how-to-create-event-trigger/event-based-trigger-image2.png)
 
-### Configue the event trigger
+### Configure the event trigger
 
 With the **Blob path begins with** and **Blob path ends with** properties, you can specify the containers, folders, and blob names for which you want to receive events. You can use variety of patterns for both **Blob path begins with** and **Blob path ends with** properties, as shown in the examples later in this article. At least one of these properties is required.
 
@@ -45,10 +45,10 @@ The following table provides an overview of the schema elements that are related
 
 | **JSON Element** | **Description** | **Type** | **Allowed Values** | **Required** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | The ARM resource ID of the Storage Account. | String | ARM ID | Yes |
+| **scope** | The Azure Resource Manager resource ID of the Storage Account. | String | Azure Resource Manager ID | Yes |
 | **events** | The type of events that cause this trigger to fire. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Yes, any combination. |
-| **blobPathBeginsWith** | The blob path must begin with the pattern provided for trigger to fire. For example, '/records/blobs/december/' will only fire the trigger for blobs in the december folder under the records container. | String   | | At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith. |
-| **blobPathEndsWith** | The blob path must end with the pattern provided for trigger to fire. For example, 'december/boxes.csv' will only fire the trigger for blobs named boxes in a december folder. | String   | | At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith. |
+| **blobPathBeginsWith** | The blob path must begin with the pattern provided for trigger to fire. For example, '/records/blobs/december/' will only fire the trigger for blobs in the december folder under the records container. | String   | | At least one of these properties must be provided: blobPathBeginsWith, blobPathEndsWith. |
+| **blobPathEndsWith** | The blob path must end with the pattern provided for trigger to fire. For example, 'december/boxes.csv' will only fire the trigger for blobs named boxes in a december folder. | String   | | At least one of these properties must be provided: blobPathBeginsWith, blobPathEndsWith. |
 
 ## Examples of event-based triggers
 
