@@ -148,8 +148,8 @@ As with triggers, input and output bindings are added to your function as bindin
     {
         [FunctionName("CopyQueueMessage")]
         public static void Run(
-            [QueueTrigger("myqueue-items-source")] string myQueueItem, 
-            [Queue("myqueue-items-destination")] out string myQueueItemCopy,
+            [QueueTrigger("myqueue-items-source", Connection = "AzureWebJobsStorage")] string myQueueItem, 
+            [Queue("myqueue-items-destination", Connection = "AzureWebJobsStorage")] out string myQueueItemCopy,
             TraceWriter log)
         {
             log.Info($"CopyQueueMessage function processed: {myQueueItem}");
@@ -157,7 +157,7 @@ As with triggers, input and output bindings are added to your function as bindin
         }
     }
     ```
-For more information, see the reference article for the specific binding.
+The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding.
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
