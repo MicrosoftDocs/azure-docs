@@ -3,7 +3,7 @@ title: Sign-in activity report error codes in the Azure Active Directory portal 
 description: Reference of sign-in activity report error codes. 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 05/22/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
 
 ---
