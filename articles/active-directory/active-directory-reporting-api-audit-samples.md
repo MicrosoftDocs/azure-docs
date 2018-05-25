@@ -13,6 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 05/23/2018
 ms.author: dhanyahk;rolyon
 ms.reviewer: dhanyahk
