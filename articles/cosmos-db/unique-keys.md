@@ -6,12 +6,9 @@ keywords: unique key constraint, violation of unique key constraint
 author: rafats
 manager: kfile
 editor: monicar
-documentationcenter: ''
 
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2018
