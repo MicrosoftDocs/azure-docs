@@ -272,7 +272,7 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### Debug in VS Code or Visual Studio
+### <a name="vs-debug"></a>Debug in VS Code or Visual Studio
 
 To attach a debugger, pass the `--debug` argument. To debug JavaScript functions, use Visual Studio Code. For C# functions, use Visual Studio.
 

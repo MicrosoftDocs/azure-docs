@@ -56,6 +56,8 @@
     href: time-series-insights-how-to-scale-your-environment.md
   - name: Manage resources using templates
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md  
+  - name: Shape JSON for queries
+    href: how-to-shape-query-json.md     
 - name: Reference
   items:
   - name: Query API
@@ -92,6 +94,8 @@
     href: /azure/stream-analytics/
 - name: Resources
   items:
+  - name: Customer data requests
+    href: time-series-insights-customer-data-requests.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=internet-of-things
   - name: Pricing

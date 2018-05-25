@@ -1,28 +1,20 @@
 ---
 title: Connected Factory solution walkthrough - Azure | Microsoft Docs
 description: A description of the Azure IoT solution accelerator Connected Factory and its architecture.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-
 ---
+
 # Connected Factory solution accelerator walkthrough
 
 The Connected Factory [solution accelerator][lnk-preconfigured-solutions] is an implementation of an end-to-end industrial solution that:
 
-* Connects to both simulated industrial devices running OPC UA servers in simulated factory production lines, and real OPC UA server devices. For more information about OPC UA, see the [Connected Factory FAQ](../iot-suite/iot-suite-faq-cf.md).
+* Connects to both simulated industrial devices running OPC UA servers in simulated factory production lines, and real OPC UA server devices. For more information about OPC UA, see the [Connected Factory FAQ](iot-accelerators-faq-cf.md).
 * Shows operational KPIs and OEE of those devices and production lines.
 * Demonstrates how a cloud-based application could be used to interact with OPC UA server systems.
 * Enables you to connect your own OPC UA server devices.
@@ -37,7 +29,7 @@ This article walks you through some of the key elements of the Connected Factory
 * Plan how to customize to the solution to meet your own specific requirements.
 * Design your own IoT solution that uses Azure services.
 
-For more information, see the [Connected Factory FAQ](../iot-suite/iot-suite-faq-cf.md).
+For more information, see the [Connected Factory FAQ](iot-accelerators-faq-cf.md).
 
 ## Logical architecture
 
@@ -235,9 +227,9 @@ You can continue getting started with IoT solution accelerators by reading the f
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png
 
 [lnk-preconfigured-solutions]:iot-accelerators-what-are-solution-accelerators.md
-[lnk-customize]: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-customize]: iot-accelerators-connected-factory-customize.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md
+[lnk-permissions]: iot-accelerators-faq.md

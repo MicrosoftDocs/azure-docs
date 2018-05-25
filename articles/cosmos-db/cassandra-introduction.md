@@ -4,12 +4,9 @@ description: Learn how you can use Azure Cosmos DB to “lift-and-shift” exist
 services: cosmos-db
 author: govindk
 manager: 
-documentationcenter: ''
 
 ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017

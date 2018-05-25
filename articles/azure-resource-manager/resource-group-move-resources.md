@@ -89,6 +89,8 @@ There are some important steps to perform before moving a resource. By verifying
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
 
+5. When possible, break large moves into separate move operations. Resource Manager immediately fails attempts to move more than 800 resources in a single operation. However, moving less than 800 resources may also fail by timing out.
+
 ## When to call support
 
 You can move most resources through the self-service operations shown in this article. Use the self-service operations to:
