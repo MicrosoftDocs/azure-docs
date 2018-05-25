@@ -16,7 +16,7 @@ ms.date: 05/17/2018
 ms.author: spelluru
 
 ---
-# Manage lab accounts in Azure Lab Services (formerly Azure DevTest Labs)
+# Manage lab accounts in Azure Lab Services 
 This article describes how to create a lab account, view all lab accounts, or delete a lab account.
 
 ## Create a lab account
