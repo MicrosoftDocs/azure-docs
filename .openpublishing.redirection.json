@@ -17952,7 +17952,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/ps-extensions-diagnostics.md",
-            "redirect_url": "/azure/virtual-machines/extensions/diagnostics-powershell",
+            "redirect_url": "/azure/virtual-machines/extensions/diagnostics-windows",
             "redirect_document_id": false
         },
         {
