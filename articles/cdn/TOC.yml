@@ -40,11 +40,11 @@
     href: cdn-optimization-overview.md
     items:
     - name: Large file optimization
-        href: cdn-large-file-optimization.md
+      href: cdn-large-file-optimization.md
     - name: Media streaming optimization
-        href: cdn-media-streaming-optimization.md
+      href: cdn-media-streaming-optimization.md
     - name: Dynamic site acceleration
-        href: cdn-dynamic-site-acceleration.md
+      href: cdn-dynamic-site-acceleration.md
   - name: Manage
     items:
     - name: Manage with Azure PowerShell
