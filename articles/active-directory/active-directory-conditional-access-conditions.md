@@ -204,6 +204,19 @@ Conditional access now applies to older Office clients that do not support moder
 4.	Select the access control you want to enforce for "Other clients". (Any control selection will lead to block access since the other clients are not able to enforce controls like MFA, device compliance, etc.).
 
 
+#### Known issues
+
+- Configuring policy for “Other clients” will lead to blocking the entire organization from certain clients like SPConnect. This is due to these older clients authenticating in unexpected ways. This issue does not apply to the major Office applications like the older Office clients. 
+
+- It can take up to 24 hours for the policy to take effect. 
+
+
+#### Frequently asked questions
+
+**Will this block Exchange Web Services (EWS)?**
+
+It depends on the authentication protocol that EWS is using. If the EWS application is using modern authentication, it will be covered by the "Mobile apps and desktop clients" client app. If the EWS application is using basic authentication, it will be covered by the “Other clients” client app.
+
 
 
 ## Next steps
