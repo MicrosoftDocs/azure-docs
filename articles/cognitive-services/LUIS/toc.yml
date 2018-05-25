@@ -29,6 +29,8 @@
         href: luis-quickstart-intent-and-key-phrase.md
       - name: Sentiment analysis
         href: luis-quickstart-intent-and-sentiment-analysis.md
+- name: Tutorials
+  items: 
   - name: Use APIs
     items: 
     - name: Get utterance prediction with endpoint query
@@ -62,8 +64,7 @@
       - name: PHP
         href: luis-quickstart-php-add-utterance.md
       - name: Ruby
-        href: luis-quickstart-ruby-add-utterance.md
-- name: Samples
+        href: luis-quickstart-ruby-add-utterance.md- name: Samples
   items:
   - name: Code samples
     href: https://github.com/Microsoft/LUIS-Samples
