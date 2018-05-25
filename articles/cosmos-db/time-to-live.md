@@ -19,7 +19,7 @@ Applications can produce and store vast amounts of data. Some of this data, like
 
 With "time to live" or TTL, Microsoft Azure Cosmos DB provides the ability to have documents automatically purged from the database after a period of time. The default time to live can be set at the collection level, and overridden on a per-document basis. Once TTL is set, either as a collection default or at a document level, Cosmos DB will automatically remove documents that exist after that period of time, in seconds, since they were last modified.
 
-Time to live in Cosmos DB uses an offset against when the document was last modified. To do this it uses the `_ts` field, which exists on every document. The _ts field is a unix-style epoch timestamp representing the date and time. The `_ts` field is updated every time a document is modified. 
+Time to live in Azure Cosmos DB uses an offset against when the document was last modified. To do this it uses the `_ts` field, which exists on every document. The _ts field is a unix-style epoch timestamp representing the date and time. The `_ts` field is updated every time a document is modified. 
 
 ## TTL behavior
 The TTL feature is controlled by TTL properties at two levels - the collection level and the document level. The values are set in seconds and are treated as a delta from the `_ts` that the document was last modified at.
