@@ -51,3 +51,24 @@ The following example retrieves details for all data types supported by SQL Data
 ```sql
 EXEC sp_datatype_info
 ```
+
+# Behavior Changes
+## SELECT INTO with ORDER BY
+SQL Data Warehouse will now block `SELECT INTO` queries that contain an `ORDER BY` clause. Previously, this operation would succeed by first ordering the data in memory and then inserting into the target table reordering the data to match the table shape.
+
+### Previous Behavior
+The following statement would succeed with additional processing overhead.
+```sql
+SELECT * INTO table2 FROM table1 ORDER BY 1;
+```
+
+### Current Behavior
+The following statement will throw an error indicating the `ORDER BY` clause is not supported in a `SELECT INTO` statement.
+```sql
+SELECT * INTO table2 FROM table1 ORDER BY 1;
+```
+The error statement returned:
+```
+Msg 104381, Level 16, State 1, Line 1
+The ORDER BY clause is invalid in views, CREATE TABLE AS SELECT, INSERT SELECT, SELECT INTO, inline functions, derived tables, subqueries, and common table expressions, unless TOP or FOR XML is also specified. 
+```
