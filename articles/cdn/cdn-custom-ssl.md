@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial - Configure HTTPS on an Azure CDN custom domain | Microsoft Docs
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure CDN endpoint custom domain.
 services: cdn
@@ -122,7 +122,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
     ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-2. In **Select principal**, search, and select **Azure CDN**.
+2. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, and select **Microsoft.Azure.Cdn**.
 
 3. In **Secret permissions**, select **Get** to allow CDN to perform these permissions to get and list the certificates. 
 
