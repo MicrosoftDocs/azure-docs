@@ -190,6 +190,22 @@ Applying this condition only to supported platforms is the equivalent to all dev
 Conditional access now applies to older Office clients that do not support modern authentication as well as clients that use mail protocols like POP, IMAP, SMTP, etc. This allows you to configure policies like “block access from other clients”. 
 
 
+#### How to get started
+
+ To enforce policies for legacy authentication flows, follow the steps below:
+1.	Go to Conditional access and create a new policy.
+
+2.	Select the users and cloud apps and conditions as appropriate. We recommend testing the policy with a small set of users to understand the usage of “Other clients” in your organization.
+
+3.	Navigate to the client app condition and select "Other clients"
+
+ 
+ 
+4.	Select the access control you want to enforce for "Other clients". (Any control selection will lead to block access since the other clients are not able to enforce controls like MFA, device compliance, etc.).
+
+
+
+
 ## Next steps
 
 - If you want to know how to configure a conditional access policy, see [get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
