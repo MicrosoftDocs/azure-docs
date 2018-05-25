@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
-ms.author: luisca
+ms.author: ashmaka
 ---
 
 # Quickstart for Text Analytics API with C# 

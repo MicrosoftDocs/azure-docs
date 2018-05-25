@@ -238,6 +238,8 @@ In C# and C# script, access the message data by using a method parameter such as
 * `byte[]`
 * [CloudQueueMessage]
 
+If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+
 In JavaScript, use `context.bindings.<name>` to access the queue item payload. If the payload is JSON, it's deserialized into an object.
 
 ## Trigger - message metadata
@@ -471,6 +473,8 @@ In C# and C# script, write a single queue message by using a method parameter su
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
+
+If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
 In C# and C# script, write multiple queue messages by using one of the following types: 
 

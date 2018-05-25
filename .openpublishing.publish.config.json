@@ -126,6 +126,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-app-service-multi-container",
+      "url": "https://github.com/Azure-Samples/multicontainerwordpress",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-durable-functions",
       "url": "https://github.com/Azure/azure-functions-durable-extension",
       "branch": "master",
@@ -147,6 +153,12 @@
       "path_to_root": "WebApp-OpenIdConnect-DotNet",
       "url": "https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet",
       "branch": "GuidedSetup",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "iot-samples-node",
+      "url": "https://github.com/Azure-Samples/azure-iot-samples-node",
+      "branch": "master",
       "branch_mapping": {}
     },
     {

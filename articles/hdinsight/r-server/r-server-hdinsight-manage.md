@@ -1,6 +1,6 @@
 ---
-title: Manage R Server cluster on HDInsight - Azure | Microsoft Docs
-description: Learn how to manage an R Server cluster in Azure HDInsight.
+title: Manage ML Services cluster on HDInsight - Azure | Microsoft Docs
+description: Learn how to manage an ML Services cluster in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -11,37 +11,37 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 05/30/2018
 ms.author: nitinme
 
 ---
-# Manage R Server cluster on Azure HDInsight
+# Manage ML Services cluster on Azure HDInsight
 
-In this article, you learn how to manage an existing R Server cluster on Azure HDInsight to perform tasks like adding mulitiple concurrent users, connecting remotely to an R Server (Microsoft ML Server) or client, changing compute context, etc.
+In this article, you learn how to manage an existing ML Services cluster on Azure HDInsight to perform tasks like adding mulitiple concurrent users, connecting remotely to an ML Server (Microsoft ML Server) or client, changing compute context, etc.
 
 ## Prerequisites
 
-* **An R Server cluster on HDInsight**: For instructions, see [Get started with R Server on HDInsight](r-server-get-started.md).
+* **An ML Services cluster on HDInsight**: For instructions, see [Get started with ML Services on HDInsight](r-server-get-started.md).
 
 * **A Secure Shell (SSH) client**: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. For more information, see [Use SSH with HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## Enable multiple concurrent users
 
-You can enable multiple concurrent users for R Server cluster on HDInsight by adding more users for the edge node on which the RStudio community version runs. When you create an HDInsight cluster, you must provide two users, an HTTP user and an SSH user:
+You can enable multiple concurrent users for ML Services cluster on HDInsight by adding more users for the edge node on which the RStudio community version runs. When you create an HDInsight cluster, you must provide two users, an HTTP user and an SSH user:
 
 ![Concurrent user 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
 - **Cluster login username**: an HTTP user for authentication through the HDInsight gateway that is used to protect the HDInsight clusters you created. This HTTP user is used to access the Ambari UI, YARN UI, as well as other UI components.
 - **Secure Shell (SSH) username**: an SSH user to access the cluster through secure shell. This user is a user in the Linux system for all the head nodes, worker nodes, and edge nodes. So you can use secure shell to access any of the nodes in a remote cluster.
 
-The R Studio Server Community version used in the R Server cluster on HDInsight accepts only Linux username and password as a login mechanism. It does not support passing tokens. So, when you try to access R Studio for the first time on an R Server cluster, you need to log in twice.
+The R Studio Server Community version used in the ML Services cluster on HDInsight accepts only Linux username and password as a login mechanism. It does not support passing tokens. So, when you try to access R Studio for the first time on an ML Services cluster, you need to log in twice.
 
 - First log in using the HTTP user credentials through the HDInsight Gateway. 
 
 - Then use the SSH user credentials to log in to RStudio.
   
-Currently, only one SSH user account can be created when provisioning an HDInsight cluster. So to enable multiple users to access R Server cluster on HDInsight, you must create additional users in the Linux system.
+Currently, only one SSH user account can be created when provisioning an HDInsight cluster. So to enable multiple users to access ML Services cluster on HDInsight, you must create additional users in the Linux system.
 
 Because RStudio runs on the cluster’s edge node, there are several steps here:
 
@@ -51,7 +51,7 @@ Because RStudio runs on the cluster’s edge node, there are several steps here:
 
 ### Step 1: Use the created SSH user to log in to the edge node
 
-Follow the instructions at [Connect to HDInsight (Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) to access the edge node. The edge node address for R Server cluster on HDInsight is `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
+Follow the instructions at [Connect to HDInsight (Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) to access the edge node. The edge node address for ML Services cluster on HDInsight is `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
 ### Step 2: Add more Linux users in edge node
 
@@ -103,7 +103,7 @@ You can set up access to the HDInsight Hadoop Spark compute context from a remot
       consoleOutput= TRUE
     )
 
-For more information, see the "Using Microsoft R Server as a Hadoop Client" section in [Creating a Compute Context for Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
+For more information, see the "Using Microsoft Machine Learning Server as a Hadoop Client" section in [How to use RevoScaleR in a Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
 
 ## Use a compute context
 
@@ -226,12 +226,12 @@ A compute context allows you to control whether computation is performed locally
 
 
    > [!NOTE]
-   > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for R Server on HDInsight](r-server-compute-contexts.md).
+   > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md).
 
 
 ## Distribute R code to multiple nodes
 
-With R Server on HDInsight, you can take existing R code and run it across multiple nodes in the cluster by using `rxExec`. This function is useful when doing a parameter sweep or simulations. The following code is an example of how to use `rxExec`:
+With ML Services on HDInsight, you can take existing R code and run it across multiple nodes in the cluster by using `rxExec`. This function is useful when doing a parameter sweep or simulations. The following code is an example of how to use `rxExec`:
 
 	rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
@@ -256,7 +256,7 @@ If you are still using the Spark or MapReduce context, this  command returns the
 
 ## Access data in Hive and Parquet
 
-A feature available in R Server 9.1 allows direct access to data in Hive and Parquet for use by ScaleR functions in the Spark compute context. These capabilities are available through new ScaleR data source functions called RxHiveData and RxParquetData that work through use of Spark SQL to load data directly into a Spark DataFrame for analysis by ScaleR.  
+Microsoft ML Server allows direct access to data in Hive and Parquet for use by ScaleR functions in the Spark compute context. These capabilities are available through new ScaleR data source functions called RxHiveData and RxParquetData that work through use of Spark SQL to load data directly into a Spark DataFrame for analysis by ScaleR.  
 
 The following code provides some sample code on use of the new functions:
 
@@ -304,7 +304,7 @@ If you want to install additional R packages on the edge node, you can use `inst
 To install R packages on the worker nodes of the cluster, you must use a Script Action. Script Actions are Bash scripts that are used to make configuration changes to the HDInsight cluster or to install additional software, such as additional R packages. 
 
 > [!IMPORTANT]
-> Using Script Actions to install additional R packages can only be used after the cluster has been created. Do not use this procedure during cluster creation, as the script relies on R Server being completely installed and configured.
+> Using Script Actions to install additional R packages can only be used after the cluster has been created. Do not use this procedure during cluster creation, as the script relies on ML Server being completely installed and configured.
 >
 >
 
@@ -325,7 +325,7 @@ To install R packages on the worker nodes of the cluster, you must use a Script 
    * Select the check box to **Persist this script action**.  
 
    > [!NOTE]
-   > 1. By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed. If you want to install newer versions of packages, then there is some risk of incompatibility. However this kind of install is possible by specifying `useCRAN` as the first element of the package list, for example `useCRAN bitops, stringr, arules`.  
+   > 1. By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of ML Server that has been installed. If you want to install newer versions of packages, then there is some risk of incompatibility. However this kind of install is possible by specifying `useCRAN` as the first element of the package list, for example `useCRAN bitops, stringr, arules`.  
    > 2. Some R packages require additional Linux system libraries. For convenience, we have pre-installed the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
    >    For more information on developing Script Actions, see [Script Action development](../hdinsight-hadoop-script-actions-linux.md).  
    >
@@ -337,6 +337,6 @@ To install R packages on the worker nodes of the cluster, you must use a Script 
 
 ## Next steps
 
-* [Operationalize R Server cluster on HDInsight](r-server-operationalize.md)
-* [Compute context options for R Server cluster on HDInsight](r-server-compute-contexts.md)
-* [Azure Storage options for R Server cluster on HDInsight](r-server-storage.md)
+* [Operationalize ML Services cluster on HDInsight](r-server-operationalize.md)
+* [Compute context options for ML Service cluster on HDInsight](r-server-compute-contexts.md)
+* [Azure Storage options for ML Services cluster on HDInsight](r-server-storage.md)
