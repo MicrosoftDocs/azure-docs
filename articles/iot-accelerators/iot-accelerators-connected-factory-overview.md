@@ -287,5 +287,5 @@ Now that you’ve deployed a working solution accelerator, you can continue gett
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
-[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md
-[lnk-faq]: ../iot-suite/iot-suite-v1-faq.md
+[lnk-permissions]: iot-accelerators-permissions.md
+[lnk-faq]: iot-accelerators-faq.md

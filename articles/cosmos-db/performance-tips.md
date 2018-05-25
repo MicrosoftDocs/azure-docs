@@ -5,12 +5,9 @@ keywords: how to improve database performance
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
 ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
