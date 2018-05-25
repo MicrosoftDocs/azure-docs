@@ -10,8 +10,9 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: sethm
+#Customer intent: How do I stream data and process telemetry from an event hub?
 
 ---
 
@@ -154,7 +155,7 @@ On the Azure portal, you can view the rate at which events are being processed f
 
    ![][5]
 
-## Clean up deployment
+## Clean up resources
 
 When you've completed the quickstart, you can delete your resource group and the namespace, storage account, and event hub within it. Replace `myResourceGroup` with the name of the resource group you created. 
 
@@ -164,11 +165,12 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-Congratulations! You created an event hub and you sent and received events. To learn more, continue with the following articles:
+In this article, you created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn more, continue with the following tutorial:
+
+> [!div class="nextstepaction"]
+> [Visualize data anomalies on Event Hubs data streams](event-hubs-tutorial-visualize-anomalies.md)
 
 * [Download the PowerShell script for provisioning Event Hubs resources](https://github.com/Azure/azure-event-hubs/blob/master/samples/DotNet/Quickstart_PSsample1.ps1)
-* [Learn about Event Processor Host](event-hubs-dotnet-standard-getstarted-send.md)
-* [Understanding the data streaming world](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps

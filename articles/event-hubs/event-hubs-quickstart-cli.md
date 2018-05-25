@@ -9,8 +9,9 @@ ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/11/2018
+ms.date: 05/24/2018
 ms.author: sethm
+#Customer intent: How do I stream data and process telemetry from an event hub?
 
 ---
 
@@ -120,6 +121,14 @@ If the builds completed successfully, you are ready to send and receive events.
 After running both programs, you can check the Azure portal overview page for the event hub to see the incoming and outgoing message count:
 
 ![send and receive](./media/event-hubs-quickstart-cli/ephjava.png)
+
+## Clean up resources
+
+Run the following command to remove the resource group, namespace, storage account, and all related resources. Replace `myResourceGroup` with the name of the resource group you created:
+
+```azurecli
+az group delete --resource-group myResourceGroup
+```
 
 ## Understand the sample code
 
@@ -265,20 +274,12 @@ public void onEvents(PartitionContext context, Iterable<EventData> events) throw
 }
 ```
 
-## Clean up deployment
-
-Run the following command to remove the resource group, namespace, storage account, and all related resources. Replace `myResourceGroup` with the name of the resource group you created:
-
-```azurecli
-az group delete --resource-group myResourceGroup
-```
-
 ## Next steps
 
-In this article, you created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn more, continue with the following articles.
+In this article, you created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn more, continue with the following tutorial:
 
-* [Send events to your event hub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
-* [Receive events from your event hub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
+> [!div class="nextstepaction"]
+> [Visualize data anomalies on Event Hubs data streams](event-hubs-tutorial-visualize-anomalies.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
