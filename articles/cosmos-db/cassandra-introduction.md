@@ -51,7 +51,7 @@ The Cassandra API enables you to interact with data stored in Azure Cosmos DB us
 
 **Choice of consistency**: Azure Cosmos DB provides the choice of five well-defined consistency levels to achieve optimal trade-off between consistency and performance. These consistency levels are strong, bounded-staleness, session, consistent prefix, and eventual. These granular, well-defined consistency levels allow developer to make sound trade-offs between consistency, availability, and latency. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md). 
 
-**Enterprise grade**: Secure and compliant by default – Azure cosmos DB provides [compliance certifications](https://www.microsoft.com/trustcenter) to ensure users can use the platform without worrying about compliance issues. Azure Cosmos DB also provides encryption at rest and in motion, IP firewall, and audit logs for control plane activities.  
+**Enterprise grade**: Azure cosmos DB provides [compliance certifications](https://www.microsoft.com/trustcenter) to ensure users can use the platform securely. Azure Cosmos DB also provides encryption at rest and in motion, IP firewall, and audit logs for control plane activities.  
 
 <a id="sign-up-now"></a>
 ## Sign up now 
