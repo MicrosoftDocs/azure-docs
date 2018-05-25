@@ -46,6 +46,7 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/iot-hub/tutorial-routing">Configure automated message routing in IoT Hub</a>
+    - html: <a href="/azure/iot-hub/tutorial-device-twins">Configure your devices from a back-end service</a>
 - title: Reference
   items:
   - type: list

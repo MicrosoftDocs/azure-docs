@@ -197,6 +197,8 @@
     href: ./blueprints/azure-health.md
 - name: White papers
   href: security-white-papers.md
+- name: Azure security services
+  href: azure-security-services-technologies.md
 - name: Technical overviews
   href: security-overviews.md
 - name: Best practices
