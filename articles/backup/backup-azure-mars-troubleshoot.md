@@ -1,21 +1,13 @@
 ---
-title: Troubleshoot Azure Backup Agent | Microsoft Docs
+title: Troubleshoot Azure Backup Agent
 description: Troubleshoot installation and registration of Azure Backup Agent
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: ''
-
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/4/2017
-ms.author: saurse;markgal;
-
+ms.author: saurse
 ---
 
 # Troubleshoot Azure Backup Agent configuration and registration issues
