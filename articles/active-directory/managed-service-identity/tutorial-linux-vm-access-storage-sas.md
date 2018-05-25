@@ -8,6 +8,7 @@ manager: mtillman
 editor: daveba
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,7 +18,7 @@ ms.author: daveba
 ---
 
 
-# Use a Linux VM Managed Service Identity to access Azure Storage via a SAS credential
+# Tutorial: Use a Linux VM Managed Service Identity to access Azure Storage via a SAS credential
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -250,10 +251,7 @@ Response:
 
 ## Next steps
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md).
-- To learn how to do this same tutorial using a storage account key, see [Use a Linux VM Managed Service Identity to access Azure Storage](tutorial-linux-vm-access-storage.md)
-- For more information about the Azure Storage account SAS feature, see:
-  - [Using shared access signatures (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Constructing a Service SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+In this tutorial, you learned how to use a Managed Service Identity on a Linux virtual machine to access Azure Storage using a SAS credential.  To learn more about Azure Storage SAS see:
 
-Use the following comments section to provide feedback and help us refine and shape our content.
+> [!div class="nextstepaction"]
+>[Using shared access signatures (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

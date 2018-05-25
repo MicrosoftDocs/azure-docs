@@ -299,7 +299,7 @@ module.exports = function(context) {
 You should define a `package.json` file at the root of your function app. Defining the file lets all functions in the app share the same cached packages, which gives the best performance. If a version conflict arises, you can resolve it by adding a `package.json` file in the folder of a specific function.  
 
 ## Environment variables
-To get an environment variable or an app setting value, use `process.env`, as shown in the following code example:
+To get an environment variable or an app setting value, use `process.env`, as shown here in the `GetEnvironmentVariable` function:
 
 ```javascript
 module.exports = function (context, myTimer) {

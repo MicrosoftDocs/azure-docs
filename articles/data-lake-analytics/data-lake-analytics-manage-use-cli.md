@@ -1,23 +1,16 @@
 ---
-title: Manage Azure Data Lake Analytics using Azure Command-line Interface | Microsoft Docs
-description: Learn how to manage Data Lake Analytics accounts, data sources, jobs and users using Azure CLI
+title: Manage Azure Data Lake Analytics using Azure Command-line Interface
+description: This article describes how to use the Azure CLI to manage Data Lake Analytics jobs, data sources, & users.
 services: data-lake-analytics
-documentationcenter: ''
-author: SnehaGunda
-manager: Kfile
-
-
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: sngun
-
 ---
-# Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI)
+# Manage Azure Data Lake Analytics using the Azure Command-line Interface (CLI)
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 

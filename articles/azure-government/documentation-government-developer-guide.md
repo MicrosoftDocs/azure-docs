@@ -83,9 +83,10 @@ To learn about mapping global Azure and SQL Database endpoints to Azure Governme
 | Active Directory Graph API | https://graph.windows.net/ | https://graph.windows.net/ |
 | Azure API | https://management.usgovcloudapi.net/ | https://management.azure.com/ |
 | SQL Database DNS Suffix | *.database.usgovcloudapi.net | *.database.windows.net |
-| Storage Endpoint Suffix | *.core.usgovcloudapi.net | *.core.windows.net |
+| Storage DNS Suffix | *.core.usgovcloudapi.net | *.core.windows.net |
 | Traffic Manager DNS Suffix | *.usgovtrafficmanager.net | *.trafficmanager.net |
 | Key Vault DNS Suffix | *.vault.usgovcloudapi.net | *.vault.azure.net |
+| Service Bus DNS Suffix | *.servicebus.usgovcloudapi.net | *.servicebus.windows.net |
 | Gallery Url | https://gallery.azure.us/ | https://gallery.azure.com/ |
 | Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
 | Publish Settings File Url | https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |

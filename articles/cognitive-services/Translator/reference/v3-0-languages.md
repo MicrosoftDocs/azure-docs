@@ -277,7 +277,7 @@ The following example shows how to retrieve languages supported for text transla
 # [curl](#tab/curl)
 
 ```
-curl "https://dev.microsofttranslator.com/languages?api-version=3.0&scope=translation"
+curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"
 ```
 
 ---

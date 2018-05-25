@@ -7,6 +7,7 @@ author: daveba
 manager: mtillman
 editor: daveba
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,7 +16,7 @@ ms.date: 04/10/2018
 ms.author: arluca
 ---
 
-# Use a User Assigned Managed Service Identity (MSI) on a Windows VM, to access Azure Resource Manager
+# Tutorial: Use a User Assigned Managed Service Identity (MSI) on a Windows VM, to access Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -166,4 +167,7 @@ The response contains the specific Resource Group information, similar to the fo
 
 ## Next steps
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md).
+In this tutorial, you learned how to create a user assigned identity and attach it to a Azure Virtual Machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
+
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

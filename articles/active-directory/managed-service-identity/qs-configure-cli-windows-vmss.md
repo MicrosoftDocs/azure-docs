@@ -8,6 +8,7 @@ manager: mtillman
 editor: 
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -175,7 +176,7 @@ The response contains details for the user assigned identity created, similar to
 2. Assign the user assigned identity to your VMSS using [az vmss identity assign](/cli/azure/vmss/identity#az_vm_assign_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY ID>` will be the user assigned identity's resource `id` property, as created in the previous step:
 
     ```azurecli-interactive
-    az vmss assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
 ### Remove a user assigned identity from an Azure VMSS

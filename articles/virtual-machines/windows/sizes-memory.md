@@ -7,6 +7,7 @@ author: jonbeck7
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
+keywords: VM isolation,isolated VM,isolation,isolated
 
 ms.assetid: 
 ms.service: virtual-machines-windows

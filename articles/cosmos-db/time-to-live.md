@@ -121,7 +121,7 @@ You can reset the TTL on a document by doing any write operation on the document
     Document readDocument = response.Resource;
     readDocument.TimeToLive = 60 * 30 * 30; // update time to live
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## Removing TTL from a document
 If a TTL has been set on a document and you no longer want that document to expire, then you can retrieve the document, remove the TTL field and replace the document on the server. When the TTL field is removed from the document, the default of the collection will be applied. To stop a document from expiring and not inherit from the collection then you need to set the TTL value to -1.
@@ -133,7 +133,7 @@ If a TTL has been set on a document and you no longer want that document to expi
     Document readDocument = response.Resource;
     readDocument.TimeToLive = null; // inherit the default TTL of the collection
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## Disabling TTL
 To disable TTL entirely on a collection and stop the background process from looking for expired documents the DefaultTTL property on the collection should be deleted. Deleting this property is different from setting it to -1. Setting to -1 means new documents added to the collection will live forever but you can override this on specific documents in the collection. Removing this property entirely from the collection means that no documents will expire, even if there are documents that have explicitly overridden a previous default.

@@ -36,10 +36,6 @@ To complete this tutorial, you need a local Docker installation. Docker provides
 
 Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. Therefore, we recommend a local installation of the Azure CLI and Docker development environment.
 
-> [!IMPORTANT]
-> The geo-replication feature of Azure Container Registry is currently in **preview**. Previews are made available to you on the condition that you agree to the  [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
->
-
 ## Create a container registry
 
 Sign in to the [Azure portal](http://portal.azure.com).

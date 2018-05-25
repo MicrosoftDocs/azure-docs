@@ -42,8 +42,6 @@ By default, snapshots are kept for seven days. This feature allows the restore t
 ## Considerations before upgrade
 * The upgrade of the VM backup stack is one directional. So all backups go into this flow. Because it's enabled at the subscription level, all VMs go into this flow. All new feature additions are based on the same stack. Ability to control this at policy level is coming in future releases.
 
-* For VMs with premium disks, during and until the first backup finishes, make sure there's enough storage space in the storage account. It should be equal to the size of the VM.
-
 * Snapshots are stored locally to boost recovery point creation and also to speed up restore. Therefore, you see storage costs that correspond to snapshots during the seven-day period.
 
 * Incremental snapshots are stored as page blobs. All customers that use unmanaged disks are charged for the seven days the snapshots are stored in the customer's local storage account. According to the current pricing model, there is no cost for customers on managed disks.

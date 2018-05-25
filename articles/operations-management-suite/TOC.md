@@ -32,8 +32,8 @@
 ### [Web baseline assessment](oms-security-web-baseline-assessment.md)
 
 ## Use solutions
-### [Management solutions](operations-management-suite-solutions.md)
-### [Target solutions](operations-management-suite-solution-targeting.md)
+### [Management solutions](../monitoring/monitoring-solutions.md)
+### [Target solutions](../monitoring/monitoring-solution-targeting.md)
 ### Insight & analytics
 #### [AD Assessment](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD Replication Status](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -46,10 +46,10 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric Analytics](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Service Map
-##### [Walkthrough](operations-management-suite-walkthrough-servicemap.md)
-##### [Use](operations-management-suite-service-map.md)
-##### [Configure](operations-management-suite-service-map-configure.md)
-##### [Integration with Operations Manager](operations-management-suite-service-map-scom.md)
+##### [Walkthrough](../monitoring/monitoring-walkthrough-servicemap.md)
+##### [Use](../monitoring/monitoring-service-map.md)
+##### [Configure](../monitoring/monitoring-service-map-configure.md)
+##### [Integration with Operations Manager](../monitoring/monitoring-service-map-scom.md)
 #### [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -62,12 +62,12 @@
 #### [Antimalware Assessment](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Create solutions
-### [Design and build](operations-management-suite-solutions-creating.md)
-### [Solution file](operations-management-suite-solutions-solution-file.md)
-### [Automation resources](operations-management-suite-solutions-resources-automation.md)
-### [Log searches and alerts](operations-management-suite-solutions-resources-searches-alerts.md)
-### [Views](operations-management-suite-solutions-resources-views.md)
-### [Best practices](operations-management-suite-solutions-best-practices.md)
+### [Design and build](../monitoring/monitoring-solutions-creating.md)
+### [Solution file](../monitoring/monitoring-solutions-solution-file.md)
+### [Automation resources](../monitoring/monitoring-solutions-resources-automation.md)
+### [Log searches and alerts](../monitoring/monitoring-solutions-resources-searches-alerts.md)
+### [Views](../monitoring/monitoring-solutions-resources-views.md)
+### [Best practices](../monitoring/monitoring-solutions-best-practices.md)
 
 ## Management scenarios
 ### [Collect analytics data from runbook](operations-management-suite-runbook-datacollect.md)
