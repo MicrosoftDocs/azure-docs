@@ -172,6 +172,10 @@ foreach (Permission perm in permFeed)
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
+## Delete or export user data
+Azure Cosmos DB enables you to search, select, modify and delete any personal data located in collections by using different multi-model API’s. Azure Cosmos DB offers SQL API, MongoDB API, Table API, Graph API, and Cassandra API to take appropriate action on the personal data. Finding and updating inaccurate or incomplete personal data is the responsibility of the customer.
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
 ## Next steps
 * To learn more about Cosmos DB database security, see [Cosmos DB: Database security](database-security.md).
 * To learn about managing master and read-only keys, see [How to manage an Azure Cosmos DB account](manage-account.md#keys).
