@@ -18176,6 +18176,31 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-python-python-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
             "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-gateway-kit-get-started-sensortag.md",
             "redirect_document_id": false
@@ -21871,13 +21896,27 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/application-gateway/application-gateway-ilb.md",
+            "source_path": "articles/cosmos-db/table-storage-how-to-use-powershell.md",
+            "redirect_url": "/azure/storage/tables/table-storage-how-to-use-powershell",
+            "redirect_document_id": true
+        },
+        {   "source_path": "articles/application-gateway/application-gateway-ilb.md",
             "redirect_url": "/azure/application-gateway/application-gateway-ilb-arm",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/application-gateway/create-waf-portal.md",
             "redirect_url": "/azure/application-gateway/application-gateway-web-application-firewall-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-gateway/application-gateway-web-application-firewall-powershell.md",
+            "redirect_url": "/azure/application-gateway/tutorial-restrict-web-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-gateway/application-gateway-web-application-firewall-cli.md",
+            "redirect_url": "/azure/application-gateway/tutorial-restrict-web-traffic-cli",
             "redirect_document_id": false
         },
 	    {
