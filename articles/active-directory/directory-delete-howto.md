@@ -17,22 +17,13 @@ ms.reviewer: jeffsta
 ms.custom: it-pro
 
 ---
+# How to delete an Azure Active Directory tenant
+Only an Azure Active Directory (Azure AD) global administrator can delete an Azure AD tenant directory from the portal. When a tenant is deleted, all resources that are contained in the tenant are also deleted. Your task is to minimize the resources in the tenant before you delete.
 
-# Delete an Azure Active Directory tenant
+* If you are signed in with a work or school account, you can't delete your home directory. For example, if you are signed in as joe@contoso.onmicrosoft.com, you can't delete the tenant that has contoso.onmicrosoft.com as its default domain. 
+* If you are signed in with a Microsoft account, you are authenitacted outside of the tenant directory and thus can delete it.
 
-
-
-All resources
-
-
-
-
-
-## How to prepare to delete an Azure AD directory
-A global administrator can delete an Azure AD directory from the portal. When a directory is deleted, all resources that are contained in the directory are also deleted. Verify that you don’t need the directory before you delete it.
-
-> [!NOTE]
-> If the user is signed in with a work or school account, the user must not be attempting to delete their home directory. For example, if the user is signed in as joe@contoso.onmicrosoft.com, that user cannot delete the directory that has contoso.onmicrosoft.com as its default domain.
+## How to prepare to delete an Azure AD tenant
 
 Azure AD requires that certain conditions are met to delete a directory. This reduces risk that deleting a directory negatively impacts users or applications, such as the ability of users to sign in to Office 365 or access resources in Azure. For example, if a directory for a subscription is unintentionally deleted, then users can't access the Azure resources for that subscription.
 
@@ -42,3 +33,21 @@ The following conditions are checked:
 * There can be no applications in the directory. Any applications must be deleted before the directory can be deleted.
 * No multi-factor authentication providers can be linked to the directory.
 * There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the directory. For example, if a default directory was created for you in Azure, you cannot delete this directory if your Azure subscription still relies on this directory for authentication. Similarly, you can't delete a directory if another user has associated a subscription with it. 
+
+
+
+You are signed in as a user for whom <Your Company Name> is the home directory
+Delete all users except yourself
+Directory has one or more subscriptions to Microsoft Online Services.
+Directory has one or more Azure subscriptions.
+Directory has one or more applications.
+Directory has one or more Multi-Factor Authentication providers.
+Directory is a "Partner" directory.
+Directory contains one or more applications that were added by a user or administrator.# Delete an Azure Active Directory tenant
+
+## To delete an Azure AD tenant directory
+
+sign in to AAD admin center with global admin
+select Azure Active Directory
+select Delete directory
+
