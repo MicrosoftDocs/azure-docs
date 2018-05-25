@@ -34,20 +34,20 @@ The guide covers the following procedures:
 ## Prerequisites
 1. **Self-Registration** - In order to use, virtual machine scale set disk encryption preview requires self-registration
 a. You can self-register your subscription by running the following steps: 
-```Powershell
 
+```Powershell
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
 b. Wait around 10 minutes until the state as 'Registered'. You can check the state by running the following command: 
-```Powershell
 
+```Powershell
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-
 ```
 
 2. **Azure Key Vault** - Create a KeyVault in the same subscription and region as the scale set and set the access policy   'EnabledForDiskEncryption' on the KeyVault using its PS cmdlet. You can also set the policy using the KeyVault UI in the Azure portal: 
+
 ```Powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 ```
@@ -77,7 +77,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncrypti
 
 Use the following commands to create cluster and enable disk encryption using Azure Resource Manager template & self signed certificate.
 
-### log in to Azure.
+### log in to Azure. 
 
 ```Powershell
 
