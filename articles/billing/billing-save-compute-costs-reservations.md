@@ -48,6 +48,14 @@ To better understand how Reserved Instance affects your virtual machine billing,
 ## What happens when the Reserved Instance term expires?
 At the end of the Reserved Instance term, the billing discount expires, and the virtual machine infrastructure is billed at the pay-as-you go price. Reserved Instances do not auto-renew. To continue getting the billing discount, you must buy a new Reserved Instance. 
 
+## Can I exchange Reserved Instances?
+Exchange provides you with a huge amount of flexibility to alter your Reserved Instances if your business requirements change. Exchange allows you to convert any existing Reserved Instance into a new Reserved Instance, including changing the instance type, family, location, and term. The only requirement is the new Reserved Instance must be of equal or greater value and the term will reset to the new Reserved Instance. For example, you could exchange a 1-year D2_v2 Reserved Instance in West Europe for a 3-year F16 reservation in Southeast Asia. In this example, if you make the exchange 6 months into a 1-year RI, the new 3-year reservation will have a full 36-month term. It is not pro-rated based on time remaining from the original reservation.
+
+## Can I cancel Reserved Instances?
+In the event you want to cancel your reservation, you do have this ability with a limit of $50,000 per year. Cancel allows you to return the remaining months of your Reserved Instance back to Microsoft for a small early termination fee of 12%. Refund is calculated based on the lower of the current price of the RI or the purchase price of the RI. The remaining pro-rated balance, minus the fee, will be refunded.
+
+Additionally, you can cancel a reservation within 48 hours with no fee, if that reservation has not been used.
+
 ## Sizes and Regional Availability
 Reserved Instances are available for most VM sizes with some exceptions:
 - VMs in Preview – Any VM-series or size that is in preview are not available for Reserved Instance purchase.
