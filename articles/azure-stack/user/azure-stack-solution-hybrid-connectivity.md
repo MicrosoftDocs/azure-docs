@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/24/2018
+ms.date: 05/25/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
@@ -200,7 +200,7 @@ Use the following steps to create a Site-to-Site VPN connection between your vir
 5. On **Create Connection**, configure the following settings:
 
     - **Connection type**: Select Site-to-site (IPSec).
-    - **Resource Group**: (select your test resource group)
+    - **Resource Group**: Select your test resource group.
     - **Virtual Network Gateway**: Select the Virtual Network gateway you created.
     - **Local Network Gateway**: Select the Local Network Gateway you created.
     - **Connection Name**: This is automatically populated using the values from the two gateways.
