@@ -14,13 +14,11 @@ ms.custom: include file
 
 A CDN profile is a container for CDN endpoints and specifies a pricing tier.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. In the upper-left corner, select **Create a resource**. 
+1. In the Azure portal, in the upper left, select **Create a resource**. 
     
     The **New** pane appears.
    
-3. Select **Web + Mobile**, then select **CDN**.
+2. Select **Web + Mobile**, then select **CDN**.
    
     ![Select CDN resource](./media/cdn-create-profile/cdn-new-resource.png)
 
@@ -28,7 +26,7 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
 
     ![New CDN profile](./media/cdn-create-profile/cdn-new-profile.png)
 
-4. For the CDN profile settings, use the values specified in the following table:
+3. For the CDN profile settings, use the values specified in the following table:
    
     | Setting  | Value |
     | -------- | ----- |
@@ -39,9 +37,9 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
     | **Pricing tier** | Select **Standard Verizon** from the drop-down list. |
     | **Create a new CDN endpoint now** | Leave unselected. |  
    
-5. Select **Pin to dashboard** to save the profile to your dashboard after it is created.
+4. Select **Pin to dashboard** to save the profile to your dashboard after it is created.
     
-6. Select **Create** to create the profile. 
+5. Select **Create** to create the profile. 
 
     For **Azure CDN Standard from Microsoft** profiles only, profile completion usually completes in two hours. 
 

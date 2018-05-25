@@ -19,9 +19,12 @@ ms.custom: mvc
 
 ---
 # Quickstart: Integrate an Azure storage account with Azure CDN
-In this quickstart, you enable Azure Content Delivery Network (CDN) to cache content from Azure storage. Azure CDN offers developers a global solution for delivering high-bandwidth content. It can cache blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia, and South America.
+In this quickstart, you enable [Azure Content Delivery Network (CDN)](cdn-overview.md) to cache content from Azure storage. Azure CDN offers developers a global solution for delivering high-bandwidth content. It can cache blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia, and South America.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## Log in to the Azure portal
+Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create a storage account
 Use the following procedure to create a new storage account for an Azure subscription. A storage account gives access to Azure Storage services. The storage account represents the highest level
@@ -31,16 +34,13 @@ To create a storage account, you must be either the service administrator or a c
 
 You can use several methods to create a storage account, including the Azure portal and PowerShell. This quickstart demonstrates how to use the Azure portal.   
 
-
 **To create a storage account for an Azure subscription**
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. In the upper-left corner, select **Create a resource**. 
+1. In the Azure portal, in the upper left, select **Create a resource**. 
 
     The **New** pane appears.
 
-3. Select **Storage**, then select **Storage account - blob, file, table, queue**.
+2. Select **Storage**, then select **Storage account - blob, file, table, queue**.
 	
     ![Select storage resource](./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png)
 
@@ -48,7 +48,7 @@ You can use several methods to create a storage account, including the Azure por
 
     ![Create storage account pane](./media/cdn-create-a-storage-account-with-cdn/cdn-create-new-storage-account.png)
 
-4. In the **Name** box, enter a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
+3. In the **Name** box, enter a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
    
     This value becomes the host name within the URI that's used to address blob, queue, or table resources for the subscription. To address a container resource in Blob storage, use a URI in the following format:
    
@@ -61,7 +61,7 @@ You can use several methods to create a storage account, including the Azure por
    
     This value is also used as the name of the storage account in the portal or when you're accessing this account programmatically.
     
-5. For the remainder of the settings, use the values specified in the following table:
+4. For the remainder of the settings, use the values specified in the following table:
 
     | Setting  | Value |
     | -------- | ----- |
@@ -75,11 +75,11 @@ You can use several methods to create a storage account, including the Azure por
     | **Resource group** | Select **Create new** and enter *my-resource-group-123* for your resource group name. This name must be globally unique. If it is already in use, you may enter a different name or you can select **Use existing** and select **my-resource-group-123** from the drop-down list. <br />For information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).| 
     | **Configure virtual networks** | Use the default value. |  
     
-6. Select **Pin to dashboard** to save the storage account to your dashboard after it is created.
+5. Select **Pin to dashboard** to save the storage account to your dashboard after it is created.
 
      For information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
     
-7. Select **Create**. Creating the storage account might take several minutes to finish.
+6. Select **Create**. Creating the storage account might take several minutes to finish.
 
 ## Enable Azure CDN for the storage account
 
