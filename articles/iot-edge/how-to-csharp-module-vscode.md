@@ -27,21 +27,18 @@ Since this article uses Visual Studio Code as the main development tool, install
 * [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
 * [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
-To create a module, you need .NET which builds the project folder, and a container registry to hold the module image:
+To create a module, you need .NET which builds the project folder, Docker to build the module image, and a container registry to hold the module image:
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd) 
+* [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
 To test your module on a device, you need an active IoT hub with at least one IoT Edge device. If you want to use your computer as an IoT Edge device, you can do so by following the steps in the tutorials for [Windows](tutorial-simulate-device-windows.md) or [Linux and Mac](tutorial-simulate-device-linux.md). 
-
-> [!NOTE]
-> You can only debug C# module in linux-amd64 containers.
-
 
 <!--- - A local Docker registry running on your development machine. It is suggested to use a local Docker registry for prototype and testing purpose. You can update the container registry in the `module.json` file in each module folder.
 - An Edge runtime running on your development machine.
 --->
 
-## Create a new solution
+## Create a new solution template
 
 The following steps show you how to create an IoT Edge module based on .NET Core 2.0 using Visual Studio Code and the Azure IoT Edge extension. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules. 
 
@@ -54,7 +51,7 @@ The following steps show you how to create an IoT Edge module based on .NET Core
 3. In Visual Studio Code, select **View** > **Command Palette**. 
 4. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge Solution**.
 
-   ![Run New IoT Edge Solution](./media/how-to-vscode-debug-csharp-module/new-solution.png)
+   ![Run New IoT Edge Solution](./media/how-to-csharp-module-vscode/new-solution.png)
 
 5. Browse to the folder where you want to create the new solution, and click **Select folder**. 
 6. Provide a name for your solution. 
@@ -64,15 +61,22 @@ The following steps show you how to create an IoT Edge module based on .NET Core
 
 VS Code takes the information you provided, creates an IoT Edge solution, then loads it in a new window.
 
-![View IoT Edge solution](./media/how-to-debug-csharp-module/view-solution.png)
+![View IoT Edge solution](./media/how-to-csharp-module-vscode/view-solution.png)
 
 Within the solution you have three items: 
 * A **.vscode** folder contains debug configurations.
 * A **modules** folder contains subfolders for each module. Right now you only have one, but you could add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**. 
 * A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data that you can use for testing. For more information about how deployment manifests work, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
+## Build your module for deployment
 
-## Build your IoT Edge C# module for debugging
+
+
+## Build your module for debugging
+
+> [!NOTE]
+> You can only debug C# module in linux-amd64 containers.
+
 1. To start debugging, you need to use the **Dockerfile.amd64.debug** to rebuild your docker image and deploy your Edge solution again. In VS Code explorer, navigate to `deployment.template.json` file. Update your function image URL by adding a `.debug` in the end.
 
 2. Rebuild your solution. In VS Code command palette, type and run the command **Edge: Build IoT Edge solution**.
