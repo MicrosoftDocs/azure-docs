@@ -309,7 +309,7 @@
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
 ##### [Provide terms of use for users and apps](active-directory-tou.md)
-##### [Set up VPN connectivity](active-directory-conditional-access-vpn-connectivity-windows10.md)
+##### [Set up VPN connectivity](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)

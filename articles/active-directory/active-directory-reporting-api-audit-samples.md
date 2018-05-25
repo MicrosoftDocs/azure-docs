@@ -13,8 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: compliance-reports
-ms.date: 05/21/2018
+ms.date: 05/23/2018
 ms.author: dhanyahk;rolyon
 ms.reviewer: dhanyahk
 
@@ -39,49 +38,56 @@ Before you can use the samples in this article, you need to complete the [prereq
 App Auth will not work if your tenant is in the EU region. Please use User Auth for accessing the Audit API as a workaround until we fix the issue. 
 
 ## PowerShell script
-    # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
 
-    # Constants
-    $ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
-    $ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
-    $loginURL       = "https://login.microsoftonline.com"     # AAD Instance; for example https://login.microsoftonline.com
-    $tenantdomain   = "your-tenant-domain.onmicrosoft.com"    # AAD Tenant; for example, contoso.onmicrosoft.com
-    $resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
-    $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
-    Write-Output "Searching for events starting $7daysago"
 
-    # Create HTTP header, get an OAuth2 access token based on client id, secret and tenant domain
-    $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
-    $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
+```powershell
 
-    # Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
-    if ($oauth.access_token -ne $null) {   
-        $i=0
-        $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=activityDate gt ' + $7daysago
+# This script will require the Web Application and permissions setup in Azure Active Directory
+$clientID       = "<appid>"             # ApplicationId
+$clientSecret   = "<key>"         # Should be a ~44 character string insert your info here
+$loginURL       = "https://login.windows.net/"
+$tenantdomain   = "<domain>"            # For example, contoso.onmicrosoft.com
+$msgraphEndpoint = "https://graph.microsoft.com"
+$countOfSignInDocsToBeSavedInAFile = 2000
+	
+# Get an Oauth 2 access token based on client id, secret and tenant domain
+$body       = @{grant_type="client_credentials";resource=$msgraphEndpoint;client_id=$clientID;client_secret=$clientSecret}
+$oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
+	
+if ($oauth.access_token -ne $null) {
+    $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
+	
+    $url = "$msgraphEndpoint/beta/auditLogs/directoryAudits"
+    Write-Output "Fetching data using Uri: $url"
+	$i=0
+	$docCount=0
+	Do{
+		$myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
+		$jsonReport = ($myReport.Content | ConvertFrom-Json).value
+		$fetchedRecordCount = $jsonReport.Count
+		$docCount = $docCount + $fetchedRecordCount
+		$totalFetchedRecordCount = $totalFetchedRecordCount + $fetchedRecordCount
+		Write-Output "Fetched $fetchedRecordCount records and saved into SignIns$i.json"
+		if($docCount -le $countOfSignInDocsToBeSavedInAFile)
+		{
+			$myReport.Content | Out-File -FilePath SignIns$i.json -append  -Force 		
+		}
+		else
+		{			
+			$docCount=0
+			$i = $i+1
+		}
+			
+		#Get url from next link
+		$url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'			
+	}while($url -ne $null)
+	Write-Output "Total Fetched record count is : $totalFetchedRecordCount"
+				
+} else {
+    Write-Host "ERROR: No Access Token"
+}
 
-        # loop through each query page (1 through n)
-        Do{
-            # display each event on the console window
-            Write-Output "Fetching data using Uri: $url"
-            $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
-            foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
-                Write-Output ($event | ConvertTo-Json)
-            }
-
-            # save the query page to an output file
-            Write-Output "Save the output to a file audit$i.json"
-            $myReport.Content | Out-File -FilePath audit$i.json -Force
-            $url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'
-            $i = $i+1
-        } while($url -ne $null)
-    } else {
-        Write-Host "ERROR: No Access Token"
-        }
-
-    Write-Host "Press any key to continue ..."
-    $x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-
+```
 
 ### Executing the PowerShell script
 Once you finish editing the script, run it and verify that the expected data from the Audit logs report is returned.
