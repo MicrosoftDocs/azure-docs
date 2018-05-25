@@ -45,6 +45,9 @@ As the name dictates, this provider does nothing. This provider can be used for 
 
 This provider can be used for storing claims in a session. This provider is typically referenced in a technical profile used for managing local accounts. 
 
+> [!NOTE]
+> When using the DefaultSSOSessionProvider to store claims in a session, you need to ensure that any claims that need to be returned to the application or used by pre-conditions in subsequent steps, are stored in the session or augmented by a read from the users profile in directory. This will ensure that your authentication journey’s will not fail on missing claims.
+
 ```XML
 <TechnicalProfile Id="SM-AAD">
     <DisplayName>Session Mananagement Provider</DisplayName>

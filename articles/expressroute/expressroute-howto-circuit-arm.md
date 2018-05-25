@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Create and modify an ExpressRoute circuit: PowerShell: Azure Resource Manager | Microsoft Docs'
 description: This article describes how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 documentationcenter: na
@@ -39,7 +39,7 @@ This article describes how to create an Azure ExpressRoute circuit by using Powe
 To begin your configuration, sign in to your Azure account. Use the following examples to help you connect:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Check the subscriptions for the account:

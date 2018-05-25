@@ -3,7 +3,6 @@ title: 'Manage Azure Cosmos DB in Azure Storage Explorer'
 description: Learn how to manage Azure Cosmos DB in Azure Storage Explorer.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
-documentationcenter: ''
 author: Jejiang 
 manager: omafnan
 editor: 
@@ -12,15 +11,13 @@ tags: Azure Cosmos DB
 ms.assetid: 
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.author: jejiang 
 
 ---
-# Manage Azure Cosmos DB in Azure Storage Explorer (Preview)
+# Manage Azure Cosmos DB in Azure Storage Explorer
 
 Using Azure Cosmos DB in Azure Storage Explorer enables users to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues. Now you can use the same tool to manage your different Azure entities in one place. At this time, Azure Storage Explorer supports SQL, MongoDB, Graph, and Table accounts.
 
@@ -74,7 +71,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 Use the following steps to connect to an Azure Cosmos DB by Emulator, only support SQL account currently.
 
 1. Install Emulator and launch. For how to install Emulator, see
- [Cosmos DB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+ [Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator)
 
 2. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, choose **Connect to Cosmos DB Emulator...**
 
@@ -208,7 +205,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 ## Troubleshooting
 
-[Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer) is a standalone app that allows you to connect to Azure Cosmos DB accounts hosted on Azure and Sovereign Clouds from Windows, macOS, or Linux. It enables you to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues.
+[Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) is a standalone app that allows you to connect to Azure Cosmos DB accounts hosted on Azure and Sovereign Clouds from Windows, macOS, or Linux. It enables you to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues.
 
 These are solutions for common issues seen for Azure Cosmos DB in Storage Explorer.
 
@@ -220,7 +217,7 @@ Before proceeding further, try restarting your application and see if the proble
 
 There are a few reasons you may be seeing this error, the two most common ones are:
 
-+ You're behind a “transparent proxy”, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
++ You're behind a *transparent proxy*, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
 
 + You're running software, such as anti-virus software, which is injecting a self-signed SSL certificates into the HTTPS messages you receive.
 
@@ -312,5 +309,5 @@ If none of the solutions work for you, send email to Azure Cosmos DB Dev Tooling
 ## Next steps
 
 * Watch the following video to see how to use Azure Cosmos DB in Azure Storage Explorer: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Learn more about Storage Explorer and connect more services in [Get started with Storage Explorer (Preview)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Learn more about Storage Explorer and connect more services in [Get started with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

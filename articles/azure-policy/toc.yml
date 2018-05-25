@@ -1,4 +1,4 @@
-- name: Azure policy documentation
+- name: Azure Policy documentation
   href: index.yml
 - name: Overview
   items:
@@ -17,29 +17,41 @@
   items:
   - name: Create and manage Azure Policy
     href: create-manage-policy.md
+  - name: Exploring Azure Policy (Hands-on Labs)
+    href: https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyId=story://Content-Private/content/sp-azuregovernance/1-azpolicy/a-policy
 - name: Samples
   items:
-  - name: Policy templates
+  - name: Azure Policy samples
     href: json-samples.md
 - name: Concepts
   items:
   - name: Azure Policy definition structure
     href: policy-definition.md
+  - name: Understanding Policy effects
+    href: policy-effects.md
 - name: How-to guides
   items:
   - name: Programmatically create policies
     href: policy-insights.md
+  - name: Gathering compliance data
+    href: policy-compliance.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/policy
   - name: Azure PowerShell
     href: /powershell/module/azurerm.resources/#policies
+  - name: REST API
+    href: /rest/api/policy-insights/
 - name: Resources
   items:
+  - name: GitHub - Azure Policy samples
+    href: https://github.com/Azure/azure-policy
+  - name: Video - Build 2018
+    href: https://channel9.msdn.com/events/Build/2018/THR2030
+  - name: Video - Ignite 2017
+    href: https://myignite.microsoft.com/videos/54781
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/azure-policy/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/

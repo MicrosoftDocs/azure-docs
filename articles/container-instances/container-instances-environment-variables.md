@@ -1,20 +1,20 @@
 ---
 title: Set environment variables in Azure Container Instances
-description: Learn how to set environment variables in Azure Container Instances
+description: Learn how to set environment variables in the containers you run in Azure Container Instances
 services: container-instances
-author: david-stanford
-manager: timlt
+author: mmacy
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/13/2018
-ms.author: dastanfo
+ms.date: 05/16/2018
+ms.author: marsma
 ---
 # Set environment variables
 
-Setting environment variables in your container instances allows you to provide dynamic configuration of the application or script run by the container.
+Setting environment variables in your container instances allows you to provide dynamic configuration of the application or script run by the container. To set environment variables in a container, specify them when you create a container instance. You can set environment variables when you start a container with the [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), and the [Azure portal](#azure-portal-example).
 
-You're currently able to set environment variables from the CLI and PowerShell. In both cases, you would use a flag on the commands to set the environment variables. Setting environment variables in ACI is similar to the `--env` command-line argument to `docker run`. For example, if you use the microsoft/aci-wordcount container image you can modify the behavior by specifying the following environment variables:
+For example, if you run the [microsoft/aci-wordcount][aci-wordcount] container image, you can modify its behavior by specifying the following environment variables:
 
 *NumWords*: The number of words sent to STDOUT.
 
@@ -22,7 +22,7 @@ You're currently able to set environment variables from the CLI and PowerShell. 
 
 ## Azure CLI example
 
-To see the default output of the container run the following command:
+To see the default output of the [microsoft/aci-wordcount][aci-wordcount] container, run it first with this [az container create][az-container-create] command (no environment variables specified):
 
 ```azurecli-interactive
 az container create \
@@ -32,7 +32,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should display different output.
+To modify the output, start a second container with the `--environment-variables` argument added, specifying values for the *NumWords* and *MinLength* variables:
 
 ```azurecli-interactive
 az container create \
@@ -43,47 +43,17 @@ az container create \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-Once the container status shows as *Terminated* (use [az container show][az-container-show] to check its status), display its logs to see the output.  To view the output of the container with no environment variables set --name to be mycontainer1 instead of mycontainer2.
+Once both containers' state shows as *Terminated* (use [az container show][az-container-show] to check state), display their logs with [az container logs][az-container-logs] to see the output.
 
 ```azurecli-interactive
+az container logs --resource-group myResourceGroup --name mycontainer1
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-## Azure PowerShell example
+The output of the containers show how you've modified the second container's script behavior by setting environment variables.
 
-To see the default output of the container run the following command:
-
-```azurecli-interactive
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
-    --restart-policy OnFailure
-```
-
-By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should display different output.
-
-```azurepowershell-interactive
-$envVars = @{NumWord=5;MinLength=8}
-New-AzureRmContainerGroup `
-    -ResourceGroupName myResourceGroup `
-    -Name mycontainer2 `
-    -Image microsoft/aci-wordcount:latest `
-    -RestartPolicy OnFailure `
-    -EnvironmentVariable $envVars
-```
-
-Once the container status is *Terminated* (use [Get-AzureRmContainerInstanceLog][azure-instance-log] to check its status), display its logs to see the output. To view the container logs with no environment variables set ContainerGroupName to be mycontainer1 instead of mycontainer2.
-
-```azurepowershell-interactive
-Get-AzureRmContainerInstanceLog `
-    -ResourceGroupName myResourceGroup `
-    -ContainerGroupName mycontainer2
-```
-
-## Example output without environment variables
-
-```bash
+```console
+azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer1
 [('the', 990),
  ('and', 702),
  ('of', 628),
@@ -94,11 +64,8 @@ Get-AzureRmContainerInstanceLog `
  ('my', 441),
  ('in', 399),
  ('HAMLET', 386)]
-```
 
-## Example output with environment variables
-
-```bash
+azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer2
 [('CLAUDIUS', 120),
  ('POLONIUS', 113),
  ('GERTRUDE', 82),
@@ -106,15 +73,98 @@ Get-AzureRmContainerInstanceLog `
  ('GUILDENSTERN', 54)]
 ```
 
+## Azure PowerShell example
+
+Setting environment variables in PowerShell is similar to the CLI, but uses the `-EnvironmentVariable` command-line argument.
+
+First, launch the [microsoft/aci-wordcount][aci-wordcount] container in its default configuration with this [New-AzureRmContainerGroup][new-azurermcontainergroup] command:
+
+```azurepowershell-interactive
+New-AzureRmContainerGroup `
+    -ResourceGroupName myResourceGroup `
+    -Name mycontainer1 `
+    -Image microsoft/aci-wordcount:latest
+```
+
+Now run the following [New-AzureRmContainerGroup][new-azurermcontainergroup] command. This one specifies the *NumWords* and *MinLength* environment variables after populating an array variable, `envVars`:
+
+```azurepowershell-interactive
+$envVars = @{NumWords=5;MinLength=8}
+New-AzureRmContainerGroup `
+    -ResourceGroupName myResourceGroup `
+    -Name mycontainer2 `
+    -Image microsoft/aci-wordcount:latest `
+    -RestartPolicy OnFailure `
+    -EnvironmentVariable $envVars
+```
+
+Once both containers' state is *Terminated* (use [Get-AzureRmContainerInstanceLog][azure-instance-log] to check state), pull their logs with the [Get-AzureRmContainerInstanceLog][azure-instance-log] command.
+
+```azurepowershell-interactive
+Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
+Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
+```
+
+The output for each container shows how you've modified the script run by the container by setting environment variables.
+
+```console
+PS Azure:\> Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
+[('the', 990),
+ ('and', 702),
+ ('of', 628),
+ ('to', 610),
+ ('I', 544),
+ ('you', 495),
+ ('a', 453),
+ ('my', 441),
+ ('in', 399),
+ ('HAMLET', 386)]
+
+Azure:\
+PS Azure:\> Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
+[('CLAUDIUS', 120),
+ ('POLONIUS', 113),
+ ('GERTRUDE', 82),
+ ('ROSENCRANTZ', 69),
+ ('GUILDENSTERN', 54)]
+
+Azure:\
+```
+
+## Azure portal example
+
+To set environment variables when you start a container in the Azure portal, specify them in the **Configuration** page when you create the container.
+
+When you deploy with the portal, you're currently limited to three variables, and you must enter them in this format: `"variableName":"value"`
+
+To see an example, start the [microsoft/aci-wordcount][aci-wordcount] container with the *NumWords* and *MinLength* variables.
+
+1. In **Configuration**, set the **Restart policy** to *On failure*
+2. Enter `"NumWords":"5"` for the first variable, select **Yes** under **Add additional environment variables**, and enter `"MinLength":"8"` for the second variable. Select **OK** to verify and then deploy the container.
+
+![Portal page showing environment variable Enable button and text boxes][portal-env-vars-01]
+
+To view the container's logs, under **SETTINGS** select **Containers**, then **Logs**. Similar to the output shown in the previous CLI and PowerShell sections, you can see how the script's behavior has been modified by the environment variables. Only five words are displayed, each with a minimum length of eight characters.
+
+![Portal showing container log output][portal-env-vars-02]
+
 ## Next steps
 
-Now that you know how to customize the input to your container, learn how to persist the output of containers that run to completion.
-> [!div class="nextstepaction"]
-> [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md)
+Task-based scenarios, such as batch processing a large dataset with several containers, can benefit from custom environment variables at runtime. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
+
+<!-- IMAGES -->
+[portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png
+[portal-env-vars-02]: ./media/container-instances-environment-variables/portal-env-vars-02.png
+
+<!-- LINKS - External -->
+[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
 
 <!-- LINKS Internal -->
-[azure-cloud-shell]: ../cloud-shell/overview.md
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
-[azure-powershell-install]: /powershell/azure/install-azurerm-ps
 [azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
+[portal]: https://portal.azure.com

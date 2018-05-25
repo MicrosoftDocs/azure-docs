@@ -10,12 +10,11 @@
 ## How to
 ### [HA Setup with STONITH](ha-setup-with-stonith.md)
 ### [OS Backup for Type II SKUs](os-backup-type-ii-skus.md)
+### [OS Upgrade for HANA Large Instances](os-upgrade-hana-large-instance.md)
 # SAP HANA on Azure Virtual Machines
 ## [Single instance SAP HANA installation](hana-get-started.md)
 ## [S/4 HANA or BW/4 HANA SAP CAL deployment guide](cal-s4h.md)
 ## [SAP HANA on Azure operations guide](hana-vm-operations.md)
-### How To
-#### [Azure Write Accelerator for SAP deployments](how-to-enable-write-accelerator.md)
 ## SAP HANA Availability in Azure Virtual Machines
 ### [SAP HANA on Azure Availability overview](sap-hana-availability-overview.md)
 ### [SAP HANA on Azure Availability within one Azure region](sap-hana-availability-one-region.md)

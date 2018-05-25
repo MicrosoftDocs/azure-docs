@@ -3,7 +3,7 @@ title: Operationalize Spark-built machine learning models | Microsoft Docs
 description: How to load and score learning models stored in Azure Blob Storage (WASB) with Python.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Operationalize Spark-built machine learning models

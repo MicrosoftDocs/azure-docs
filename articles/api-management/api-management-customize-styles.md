@@ -3,7 +3,7 @@ title: Customize the page style on the Azure API Management developer portal | M
 description: Follow the steps of this quickstart to customize the styling of elements on the Azure API Management developer portal.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -17,7 +17,6 @@ ms.date: 11/19/2017
 ms.author: apimpm
 
 ---
-
 # Customize the style of the Developer portal pages
 
 There are three most common ways to customize the Developer portal in Azure API Management:
@@ -38,8 +37,6 @@ In this tutorial, you learn how to:
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## Customize the Developer portal
 

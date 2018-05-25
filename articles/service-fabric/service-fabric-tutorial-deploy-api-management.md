@@ -1,4 +1,4 @@
----
+﻿---
 title: Integrate Azure Service Fabric with API Management | Microsoft Docs
 description: In this tutorial, you learn how to quickly get started with Azure API Management and Service Fabric.
 services: service-fabric
@@ -56,7 +56,7 @@ Now that you have a secure [Windows cluster](service-fabric-tutorial-create-vnet
 Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```

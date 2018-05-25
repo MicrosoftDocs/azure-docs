@@ -182,6 +182,9 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | **Australia** | |
 | Australia East | 12076:51015 |
 | Australia Southeast | 12076:51016 |
+| **Australia Government** | |
+| Australia Central | 12076:51032 |
+| Australia Central 2 | 12076:51033 |
 | **India** | |
 | India South | 12076:51019 |
 | India West | 12076:51018 |

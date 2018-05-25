@@ -13,7 +13,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
 

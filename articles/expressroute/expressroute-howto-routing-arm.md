@@ -1,4 +1,4 @@
----
+﻿---
 title: 'How to configure routing (peering) for an ExpressRoute circuit: Resource Manager: PowerShell: Azure | Microsoft Docs'
 description: This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 documentationcenter: na
@@ -83,7 +83,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
   Sign in to your account.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Select the subscription you want to create ExpressRoute circuit.
@@ -210,7 +210,7 @@ This section helps you create, get, update, and delete the Azure private peering
   Sign in to your account.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Select the subscription you want to create ExpressRoute circuit.
@@ -347,7 +347,7 @@ This section helps you create, get, update, and delete the Azure public peering 
   Sign in to your account.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Select the subscription you want to create ExpressRoute circuit.

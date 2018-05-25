@@ -1,11 +1,10 @@
----
+﻿---
 title: Register the ASDK with Azure | Microsoft Docs
 description: Describes how to register Azure Stack with Azure to enable marketplace syndication and usage reporting.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: ''
 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/17/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
-# Register Azure Stack with Azure
-You can register your Azure Stack Development Kit (ASDK) installation with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. Registration is recommended because it enables you to test important Azure Stack functionality like marketplace syndication and usage reporting. After you register Azure Stack, usage is reported to Azure commerce. You can see it under the subscription you used for registration. However, ASDK users aren't charged for any usage they report.
+# Azure Stack registration
+You can register your Azure Stack Development Kit (ASDK) installation with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. Registration is required to support full Azure Stack functionality, including marketplace syndication. Registration is recommended because it enables you to test important Azure Stack functionality like marketplace syndication and usage reporting. After you register Azure Stack, usage is reported to Azure commerce. You can see it under the subscription you used for registration. However, ASDK users aren't charged for any usage they report.
 
+If you do not register your ASDK, you might see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
 
 ## Register Azure Stack with Azure 
 Follow these steps to register the ASDK with Azure.

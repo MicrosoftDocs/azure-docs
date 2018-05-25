@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Best practices for securing administrative access in Azure AD | Microsoft Docs
 description: Ensure that your organization’s administrative access and admin accounts are secure. For system architects and IT pros who configure Azure AD, Azure, and Microsoft Online Services. 
@@ -10,6 +10,7 @@ ms.date: 03/09/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
+ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
 
@@ -117,7 +118,7 @@ Evaluate the accounts that are assigned or eligible for the global admin role. I
 
 #### Turn on multi-factor authentication and register all other highly-privileged single-user non-federated admin accounts 
 
-Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## Stage 2: Mitigate the most frequently used attack techniques
 
@@ -163,8 +164,8 @@ Azure AD recommends that you require multi-factor authentication (MFA) for all y
 
 Turn on:
 
-* [MFA for high-exposure accounts](../multi-factor-authentication/multi-factor-authentication-security-best-practices.md) such as accounts for executive officers in an organization 
-* [MFA for every admin account associated with an individual user](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) for other connected SaaS apps 
+* [MFA for high-exposure accounts](authentication/multi-factor-authentication-security-best-practices.md) such as accounts for executive officers in an organization 
+* [MFA for every admin account associated with an individual user](authentication/howto-mfa-userstates.md) for other connected SaaS apps 
 * MFA for all admins for Microsoft SaaS apps, including administrators in roles managed in Exchange Online and the Office portal
 
 If you use Windows Hello for Business, the MFA requirement can be met using the Windows Hello sign in experience. For more information, see [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
@@ -239,7 +240,7 @@ Require C-suite executives, high-level managers, critical IT and security person
 
 #### Use dedicated workstations for administration for Azure AD
 
-Attackers may attempt to target privileged accounts to gain access to an organization’s data and systems so they can disrupt the integrity and authenticity of data, through malicious code that alters the program logic or snoops the admin entering a credential. Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily use workstations and devices provides very strong protection from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-The-Ticket. By deploying privileged access workstations, you can reduce the risk that admins enter admin credentials except on a desktop environment that has been hardened. For more information, see [Privileged Access Workstations](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Attackers may attempt to target privileged accounts to gain access to an organization’s data and systems so they can disrupt the integrity and authenticity of data, through malicious code that alters the program logic or snoops the admin entering a credential. Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily use workstations and devices provides very strong protection from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-The-Ticket. By deploying privileged access workstations, you can reduce the risk that admins enter admin credentials except on a desktop environment that has been hardened. For more information, see [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### Review National Institute of Standards and Technology recommendations for handling incidents 
 
@@ -281,11 +282,11 @@ The [Azure Security Center](../security-center/security-center-intro.md) provide
 
 #### Inventory your privileged accounts within hosted Virtual Machines
 
-In most cases, you don’t need to give users unrestricted permissions to all your Azure subscriptions or resources. You can use Azure AD admin roles to segregate duties within your organization and grant only the amount of access to users who need to perform specific jobs. For example, use Azure AD administrator roles to let one admin manage only VMs in a subscription, while another can manage SQL databases within the same subscription. For more information, see [Get started with Role-Based Access Control in the Azure portal](role-based-access-control-what-is.md).
+In most cases, you don’t need to give users unrestricted permissions to all your Azure subscriptions or resources. You can use Azure AD admin roles to segregate duties within your organization and grant only the amount of access to users who need to perform specific jobs. For example, use Azure AD administrator roles to let one admin manage only VMs in a subscription, while another can manage SQL databases within the same subscription. For more information, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
 
 #### Implement PIM for Azure AD administrator roles
 
-Use Privileged identity Management with Azure AD administrator roles to manage, control, and monitor access to Azure resources. Using PIM protects privileged accounts from cyber-attacks by lowering the exposure time of privileges and increasing your visibility into their use through reports and alerts. For more information, see [Manage RBAC access to Azure resources with Privileged Identity Management](pim-azure-resource.md).
+Use Privileged identity Management with Azure AD administrator roles to manage, control, and monitor access to Azure resources. Using PIM protects privileged accounts from cyber-attacks by lowering the exposure time of privileges and increasing your visibility into their use through reports and alerts. For more information, see [Manage RBAC access to Azure resources with Privileged Identity Management](../role-based-access-control/pim-azure-resource.md).
 
 #### Use Azure log integrations to send relevant Azure logs to your SIEM systems 
 

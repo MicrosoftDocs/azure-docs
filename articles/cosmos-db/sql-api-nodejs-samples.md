@@ -4,14 +4,11 @@ description: Find Node.js examples on github for common tasks in Azure Cosmos DB
 keywords: node.js examples
 services: cosmos-db
 author: moderakh
-manager: jhubbard
+manager: kfile
 editor: monicar
-documentationcenter: nodejs
 
 ms.assetid: d87d97be-47a5-4928-8d46-a541fbb33213
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017

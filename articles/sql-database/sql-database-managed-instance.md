@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Database Managed Instance Overview | Microsoft Docs
 description: This topic describes an Azure SQL Database Managed Instance and explains how it works and how it is different from a single database in Azure SQL Database.
 services: sql-database
@@ -7,8 +7,8 @@ ms.reviewer: carlrab
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 04/03/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: bonova
 ---
 
@@ -39,8 +39,6 @@ The following table outlines key differences and envisioned usage scenarios betw
 |SQL IaaS virtual machine|For customers needing to customize the operating system or the database server, as well as customers having specific requirements in terms of running third-party apps by side with SQL Server (on the same VM), propose SQL VMs / IaaS as the optimal solution|
 |||
 
-<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
-
 ## How to programmatically identify a Managed Instance
 
 The following table shows several properties, accessible through Transact SQL, that you can use to detect that your application is working with Managed Instance and retrieve important properties.
@@ -65,9 +63,9 @@ The following table shows several properties, accessible through Transact SQL, t
 
 ![single sign-on](./media/sql-database-managed-instance/sso.png) 
 
-## vCore-based purchasing model
+## vCore-based purchasing model (preview)
 
-The vCore-based purchasing model gives your flexibility, control, transparency and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+The vCore-based purchasing model (preview) gives your flexibility, control, transparency and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 A virtual core represents the logical CPU offered with an option to choose between generations of hardware.
 - Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors.
@@ -127,7 +125,7 @@ The following outlines the key features of the General Purpose service tier:
 
 Managed Instance provide additional security isolation from other tenants in the Azure cloud. Security isolation includes: 
 
-- Native virtual network implementation and connectivity to your on-premises environment using Azure Express Route or VPN Gateway 
+- [Native virtual network implementation](sql-database-managed-instance-vnet-configuration.md) and connectivity to your on-premises environment using Azure Express Route or VPN Gateway 
 - SQL endpoint is exposed only through a private IP address, allowing safe connectivity from private Azure or hybrid networks
 - Single-tenant with dedicated underlying infrastructure (compute, storage)
 
@@ -181,7 +179,13 @@ The Azure Database Migration Service is a fully managed service designed to enab
 
 ### Backup and restore  
 
-The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance. 
+The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance. To restore an existing SQL database to a Managed instance, you can:
+
+- Use [Data Migration Service (DMS)](/sql/dma/dma-overview). For a tutorial, see [Migrate to a Managed Instance using the Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file
+- Use the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
+  - For a tutorial showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md). This tutorial shows you have to upload a backup file to Azure blog storage and secure it using a Shared access signature (SAS) key.
+  - For information about restore from URL, see [Native RESTORE from URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- [Import from a BACPAC file](sql-database-import.md)
 
 ## SQL features supported 
 
@@ -213,5 +217,6 @@ Managed Instance enable system administrator to focus on what matters the most f
 ## Next steps
 
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For a tutorial that creates a Managed Instance and restores a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
+- For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
+- For a tutorial that creates a Managed Instance and restores a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).

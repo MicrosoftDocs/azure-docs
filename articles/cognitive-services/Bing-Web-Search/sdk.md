@@ -7,7 +7,7 @@ author: mikedodaro
 manager: rosh
 ms.assetid: 
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 1/11/2018
 ms.author: v-gedod
@@ -26,7 +26,7 @@ The Bing Search SDKs make web search functionality readily accessible in the fol
 * Get started with [Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * See also [Node.js libraries](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/webSearch) for definitions and dependencies.
 * Get started with [Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-    * See also [Java libraries](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-websearch) for definitions and dependencies.
+    * See also [Java libraries](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) for definitions and dependencies.
 * Get started with [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * See also [Python libraries](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch) for definitions and dependencies.
 

@@ -3,14 +3,11 @@ title: Server-side JavaScript programming for Azure Cosmos DB | Microsoft Docs
 description: Learn how to use Azure Cosmos DB to write stored procedures, database triggers, and user defined functions (UDFs) in JavaScript. Get database programing tips and more.
 keywords: Database triggers, stored procedure, stored procedure, database program, sproc, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: aliuy
 manager: kfile
 
 ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
@@ -19,7 +16,7 @@ ms.author: andrl
 ---
 # Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs
 
-Learn how Azure Cosmos DB's language-integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers**, and **user-defined functions (UDFs)** natively in an [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. This Javascript integration enables you to write database program application logic that can be shipped and executed directly on the database storage partitions. 
+Learn how Azure Cosmos DB's language-integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers**, and **user-defined functions (UDFs)** natively in an [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Javascript integration enables you to write program logic that can be shipped and executed directly within the database storage partitions. 
 
 We recommend getting started by watching the following video, where Andrew Liu provides an introduction to Azure Cosmos DB's server-side database programming model. 
 
@@ -55,7 +52,7 @@ The creation and execution of database triggers, stored procedures, and custom q
 This tutorial uses the [Node.js SDK with Q Promises](http://azure.github.io/azure-documentdb-node-q/) to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
 
 ## Stored procedures
-### Example: Write a simple stored procedure
+### Example: Write a stored procedure
 Let’s start with a simple stored procedure that returns a “Hello World” response.
 
     var helloWorldStoredProc = {
@@ -93,7 +90,7 @@ Once the stored procedure is registered, you can execute it against the collecti
         });
 
 
-The context object provides access to all operations that can be performed on Cosmos DB storage, as well as access to the request and response objects. In this case, we used the response object to set the body of the response that was sent back to the client. For more information, see the [Azure Cosmos DB JavaScript server SDK documentation](http://azure.github.io/azure-documentdb-js-server/).  
+The context object provides access to all operations that can be performed on Cosmos DB storage, as well as access to the request and response objects. In this case, you use the response object to set the body of the response that was sent back to the client. For more information, see the [Azure Cosmos DB JavaScript server SDK documentation](http://azure.github.io/azure-documentdb-js-server/).  
 
 Let us expand on this example and add more database-related functionality to the stored procedure. Stored procedures can create, update, read, query, and delete documents and attachments inside the collection.    
 
@@ -119,7 +116,7 @@ The next snippet shows how to use the context object to interact with Cosmos DB 
 
 This stored procedure takes as input documentToCreate, the body of a document to be created in the current collection. All such operations are asynchronous and depend on JavaScript function callbacks. The callback function has two parameters, one for the error object in case the operation fails, and one for the created object. Inside the callback, users can either handle the exception or throw an error. In case a callback is not provided and there is an error, the Azure Cosmos DB runtime throws an error.   
 
-In the example above, the callback throws an error if the operation failed. Otherwise, it sets the id of the created document as the body of the response to the client. Here is how this stored procedure is executed with input parameters.
+In the example above, the callback throws an error if the operation failed. Otherwise, it sets the ID of the created document as the body of the response to the client. Here is how this stored procedure is executed with input parameters.
 
     // register the stored procedure
     client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
@@ -145,16 +142,31 @@ In the example above, the callback throws an error if the operation failed. Othe
     });
 
 
-Note that this stored procedure can be modified to take an array of document bodies as input and create them all in the same stored procedure execution instead of multiple network requests to create each of them individually. This can be used to implement an efficient bulk importer for Cosmos DB (discussed later in this tutorial).   
+This stored procedure can be modified to take an array of document bodies as input and create them all in the same stored procedure execution instead of multiple requests to create each of them individually. This stored procedure can be used to implement an efficient bulk importer for Cosmos DB (discussed later in this tutorial).   
 
-The example described demonstrated how to use stored procedures. We will cover triggers and user-defined functions (UDFs) later in the tutorial.
+The example described demonstrated how to use stored procedures. Next you will learn about triggers and user-defined functions (UDFs) later in the tutorial.
+
+### Known issues
+
+When defining a stored procedure by using Azure portal, input parameters are always sent as a string to the stored procedure. Even if you pass an array of strings as an input, the array is converted to string and sent to the stored procedure. To workaround this issue, you can define a function within your stored procedure to parse the string as an array. The following code is an example to parse the string as an array: 
+
+``` 
+function sample(arr) {
+    if (typeof arr === "string") arr = JSON.parse(arr);
+    
+    arr.forEach(function(a) {
+        // do something here
+        console.log(a);
+    });
+}
+```
 
 ## Database program transactions
 Transaction in a typical database can be defined as a sequence of operations performed as a single logical unit of work. Each transaction provides **ACID guarantees**. ACID is a well-known acronym that stands for four properties -  Atomicity, Consistency, Isolation, and Durability.  
 
 Briefly, atomicity guarantees that all the work done inside a transaction is treated as a single unit where either all of it is committed or none. Consistency makes sure that the data is always in a good internal state across transactions. Isolation guarantees that no two transactions interfere with each other – generally, most commercial systems provide multiple isolation levels that can be used based on the application needs. Durability ensures that any change that’s committed in the database will always be present.   
 
-In Cosmos DB, JavaScript is hosted in the same memory space as the database. Hence, requests made within stored procedures and triggers execute in the same scope of a database session. This enables Cosmos DB to guarantee ACID for all operations that are part of a single stored procedure/trigger. Consider the following stored procedure definition:
+In Cosmos DB, JavaScript is hosted in the same memory space as the database. Hence, requests made within stored procedures and triggers execute in the same scope of a database session. This feature enables Cosmos DB to guarantee ACID for all operations that are part of a single stored procedure/trigger. Consider the following stored procedure definition:
 
     // JavaScript source code
     var exchangeItemsSproc = {
@@ -229,14 +241,14 @@ Transactions are deeply and natively integrated into Cosmos DB’s JavaScript pr
 If there is any exception that’s propagated from the script, Cosmos DB’s JavaScript runtime will roll back the whole transaction. As shown in the earlier example, throwing an exception is effectively equivalent to a “ROLLBACK TRANSACTION” in Cosmos DB.
 
 ### Data consistency
-Stored procedures and triggers are always executed on the primary replica of the Azure Cosmos DB container. This ensures that reads from inside stored procedures offer strong consistency. Queries using user-defined functions can be executed on the primary or any secondary replica, but we ensure to meet the requested consistency level by choosing the appropriate replica.
+Stored procedures and triggers are always executed on the primary replica of the Azure Cosmos DB container. This ensures that reads from inside stored procedures offer strong consistency. Queries using user-defined functions can be executed on the primary or any secondary replica, but you ensure to meet the requested consistency level by choosing the appropriate replica.
 
 ## Bounded execution
 All Cosmos DB operations must complete within the server specified request timeout duration. This constraint also applies to JavaScript functions (stored procedures, triggers, and user-defined functions). If an operation does not complete with that time limit, the transaction is rolled back. JavaScript functions must finish within the time limit or implement a continuation-based model to batch/resume execution.  
 
 In order to simplify development of stored procedures and triggers to handle time limits, all functions under the collection object (for create, read, replace, and delete of documents and attachments) return a Boolean value that represents whether that operation will complete. If this value is false, it is an indication that the time limit is about to expire and that the procedure must wrap up execution.  Operations queued prior to the first unaccepted store operation are guaranteed to complete if the stored procedure completes in time and does not queue any more requests.  
 
-JavaScript functions are also bounded on resource consumption. Cosmos DB reserves throughput per collection based on the provisioned size of a database account. Throughput is expressed in terms of a normalized unit of CPU, memory and IO consumption called request units or RUs. JavaScript functions can potentially use up a large number of RUs within a short time, and might get rate-limited if the collection’s limit is reached. Resource-intensive stored procedures might also be quarantined to ensure availability of primitive database operations.  
+JavaScript functions are also bounded on resource consumption. Cosmos DB reserves throughput per collection or for a set of containers. Throughput is expressed in terms of a normalized unit of CPU, memory and IO consumption called request units or RUs. JavaScript functions can potentially use up a large number of RUs within a short time, and might get rate-limited if the collection’s limit is reached. Resource-intensive stored procedures might also be quarantined to ensure availability of primitive database operations.  
 
 ### Example: Bulk importing data into a database program
 Below is an example of a stored procedure that is written to bulk-import documents into a collection. Note how the stored procedure handles bounded execution by checking the Boolean return value from createDocument, and then uses the count of documents inserted in each invocation of the stored procedure to track and resume progress across batches.
@@ -346,7 +358,7 @@ And the corresponding Node.js client-side registration code for the trigger:
 
 Pre-triggers cannot have any input parameters. The request object can be used to manipulate the request message associated with the operation. Here, the pre-trigger is being run with the creation of a document, and the request message body contains the document to be created in JSON format.   
 
-When triggers are registered, users can specify the operations that it can run with. This trigger was created with TriggerOperation.Create, which means the following is not permitted.
+When triggers are registered, users can specify the operations that it can run with. This trigger was created with TriggerOperation.Create, which means using the trigger in a replace operation as shown in the following code is not permitted.
 
     var options = { preTriggerInclude: "validateDocumentContents" };
 
@@ -431,7 +443,7 @@ The trigger can be registered as shown in the following sample.
 
 This trigger queries for the metadata document and updates it with details about the newly created document.  
 
-One thing that is important to note is the **transactional** execution of triggers in Cosmos DB. This post-trigger runs as part of the same transaction as the creation of the original document. Therefore, if we throw an exception from the post-trigger (say if we are unable to update the metadata document), the whole transaction will fail and be rolled back. No document will be created, and an exception will be returned.  
+One thing that is important to note is the **transactional** execution of triggers in Cosmos DB. This post-trigger runs as part of the same transaction as the creation of the original document. Therefore, if you throw an exception from the post-trigger (say if you are unable to update the metadata document), the whole transaction will fail and be rolled back. No document will be created, and an exception will be returned.  
 
 ## <a id="udf"></a>User-defined functions
 User-defined functions (UDFs) are used to extend the Azure Cosmos DB SQL query language grammar and implement custom business logic. They can only be called from inside queries. They do not have access to the context object and are meant to be used as compute-only JavaScript. Therefore, UDFs can be run on secondary replicas of the Cosmos DB service.  
@@ -476,7 +488,7 @@ The UDF can subsequently be used in queries like in the following sample:
     });
 
 ## JavaScript language-integrated query API
-In addition to issuing queries using Azure Cosmos DB's SQL grammar, the server-side SDK allows you to perform optimized queries using a fluent JavaScript interface without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing predicate functions into chainable function calls, with a syntax familiar to ECMAScript5's Array built-ins and popular JavaScript libraries like lodash. Queries are parsed by the JavaScript runtime to be executed efficiently using Azure Cosmos DB’s indices.
+In addition to issuing queries using Azure Cosmos DB's SQL grammar, the server-side SDK allows you to perform optimized queries using a fluent JavaScript interface without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing predicate functions into chainable function calls, with a syntax familiar to ECMAScript5's Array built-ins and popular JavaScript libraries like Lodash. Queries are parsed by the JavaScript runtime to be executed efficiently using Azure Cosmos DB’s indices.
 
 > [!NOTE]
 > `__` (double-underscore) is an alias to `getContext().getCollection()`.
@@ -500,7 +512,7 @@ Starts a chained call that must be terminated with value().
 <b>filter(predicateFunction [, options] [, callback])</b>
 <ul>
 <li>
-Filters the input using a predicate function that returns true/false in order to filter in/out input documents into the resulting set. This behaves similar to a WHERE clause in SQL.
+Filters the input using a predicate function that returns true/false in order to filter in/out input documents into the resulting set. This function behaves similar to a WHERE clause in SQL.
 </li>
 </ul>
 </li>
@@ -508,7 +520,7 @@ Filters the input using a predicate function that returns true/false in order to
 <b>map(transformationFunction [, options] [, callback])</b>
 <ul>
 <li>
-Applies a projection given a transformation function that maps each input item to a JavaScript object or value. This behaves similar to a SELECT clause in SQL.
+Applies a projection given a transformation function that maps each input item to a JavaScript object or value. This function behaves similar to a SELECT clause in SQL.
 </li>
 </ul>
 </li>
@@ -516,7 +528,7 @@ Applies a projection given a transformation function that maps each input item t
 <b>pluck([propertyName] [, options] [, callback])</b>
 <ul>
 <li>
-This is a shortcut for a map that extracts the value of a single property from each input item.
+This function is a shortcut for a map that extracts the value of a single property from each input item.
 </li>
 </ul>
 </li>
@@ -524,7 +536,7 @@ This is a shortcut for a map that extracts the value of a single property from e
 <b>flatten([isShallow] [, options] [, callback])</b>
 <ul>
 <li>
-Combines and flattens arrays from each input item in to a single array. This behaves similar to SelectMany in LINQ.
+Combines and flattens arrays from each input item in to a single array. This function behaves similar to SelectMany in LINQ.
 </li>
 </ul>
 </li>
@@ -532,7 +544,7 @@ Combines and flattens arrays from each input item in to a single array. This beh
 <b>sortBy([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-Produce a new set of documents by sorting the documents in the input document stream in ascending order using the given predicate. This behaves similar to an ORDER BY clause in SQL.
+Produce a new set of documents by sorting the documents in the input document stream in ascending order using the given predicate. This function behaves similar to an ORDER BY clause in SQL.
 </li>
 </ul>
 </li>
@@ -540,7 +552,7 @@ Produce a new set of documents by sorting the documents in the input document st
 <b>sortByDescending([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-Produce a new set of documents by sorting the documents in the input document stream in descending order using the given predicate. This behaves similar to an ORDER BY x DESC clause in SQL.
+Produce a new set of documents by sorting the documents in the input document stream in descending order using the given predicate. This function behaves similar to an ORDER BY x DESC clause in SQL.
 </li>
 </ul>
 </li>
@@ -645,7 +657,7 @@ The Azure Cosmos DB [JavaScript server side API](http://azure.github.io/azure-do
 JavaScript stored procedures and triggers are sandboxed so that the effects of one script do not leak to the other without going through the snapshot transaction isolation at the database level. The runtime environments are pooled but cleaned of the context after each run. Hence they are guaranteed to be safe of any unintended side effects from each other.
 
 ### Pre-compilation
-Stored procedures, triggers, and UDFs are implicitly precompiled to the byte code format in order to avoid compilation cost at the time of each script invocation. This ensures invocations of stored procedures are fast and have a low footprint.
+Stored procedures, triggers, and UDFs are implicitly precompiled to the byte code format in order to avoid compilation cost at the time of each script invocation. Pre-compilation ensures invocation of stored procedures is fast and have a low footprint.
 
 ## Client SDK support
 In addition to the Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB has [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/), and [Python SDKs](sql-api-sdk-python.md) for the SQL API as well. Stored procedures, triggers, and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
@@ -720,7 +732,7 @@ And the following example shows how to create a user-defined function (UDF) and 
     }
 
 ## REST API
-All Azure Cosmos DB operations can be performed in a RESTful manner. Stored procedures, triggers, and user-defined functions can be registered under a collection by using HTTP POST. The following is an example of how to register a stored procedure:
+All Azure Cosmos DB operations can be performed in a RESTful manner. Stored procedures, triggers, and user-defined functions can be registered under a collection by using HTTP POST. The following example shows how to register a stored procedure:
 
     POST https://<url>/sprocs/ HTTP/1.1
     authorization: <<auth>>
@@ -754,23 +766,23 @@ This stored procedure can then be executed by issuing a POST request against its
     [ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
 
 
-Here, the input to the stored procedure is passed in the request body. Note that the input is passed as a JSON array of input parameters. The stored procedure takes the first input as a document that is a response body. The response we receive is as follows:
+Here, the input to the stored procedure is passed in the request body. The input is passed as a JSON array of input parameters. The stored procedure takes the first input as a document that is a response body. The response you receive is as follows:
 
     HTTP/1.1 200 OK
 
     { 
       name: 'TestDocument',
-      book: ‘Autumn of the Patriarch’,
-      id: ‘V7tQANV3rAkDAAAAAAAAAA==‘,
+      book: 'Autumn of the Patriarch',
+      id: 'V7tQANV3rAkDAAAAAAAAAA==',
       ts: 1407830727,
-      self: ‘dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/’,
-      etag: ‘6c006596-0000-0000-0000-53e9cac70000’,
-      attachments: ‘attachments/’,
+      self: 'dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/',
+      etag: '6c006596-0000-0000-0000-53e9cac70000',
+      attachments: 'attachments/',
       Price: 200
     }
 
 
-Triggers, unlike stored procedures, cannot be executed directly. Instead they are executed as part of an operation on a document. We can specify the triggers to run with a request using HTTP headers. The following code shows the request to create a document.
+Triggers, unlike stored procedures, cannot be executed directly. Instead they are executed as part of an operation on a document. You can specify the triggers to run with a request using HTTP headers. The following code shows the request to create a document.
 
     POST https://<url>/docs/ HTTP/1.1
     authorization: <<auth>>
@@ -778,21 +790,20 @@ Triggers, unlike stored procedures, cannot be executed directly. Instead they ar
     x-ms-documentdb-pre-trigger-include: validateDocumentContents 
     x-ms-documentdb-post-trigger-include: bookCreationPostTrigger
 
-
     {
        "name": "newDocument",
-       “title”: “The Wizard of Oz”,
-       “author”: “Frank Baum”,
-       “pages”: 92
+       "title": "The Wizard of Oz",
+       "author": "Frank Baum",
+       "pages": 92
     }
 
 
 Here the pre-trigger to be run with the request is specified in the x-ms-documentdb-pre-trigger-include header. Correspondingly, any post-triggers are given in the x-ms-documentdb-post-trigger-include header. Both pre- and post-triggers can be specified for a given request.
 
 ## Sample code
-You can find more server-side code examples (including [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), and [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) on our [GitHub repository](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+You can find more server-side code examples (including [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), and [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) in the [GitHub repository](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
-Want to share your awesome stored procedure? Send us a pull-request! 
+Want to share your awesome stored procedure? contribute to the repository and create a pull-request! 
 
 ## Next steps
 Once you have one or more stored procedures, triggers, and user-defined functions created, you can load them and view them in the Azure portal using Data Explorer.

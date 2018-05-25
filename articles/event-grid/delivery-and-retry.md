@@ -6,8 +6,8 @@ author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 01/30/2018
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: tomfitz
 ---
 
@@ -15,7 +15,9 @@ ms.author: tomfitz
 
 This article describes how Azure Event Grid handles events when delivery is not acknowledged.
 
-Event Grid provides durable delivery. It delivers each message at least once for each subscription. Events are sent to the registered webhook of each subscription immediately. If a webhook does not acknowledge receipt of an event within 60 seconds of the first delivery attempt, Event Grid retries delivery of the event.
+Event Grid provides durable delivery. It delivers each message at least once for each subscription. Events are sent to the registered webhook of each subscription immediately. If a webhook does not acknowledge receipt of an event within 60 seconds of the first delivery attempt, Event Grid retries delivery of the event. 
+
+Currently, Event Grid sends each event individually to subscribers. The subscriber receives an array with a single event.
 
 ## Message delivery status
 
@@ -30,7 +32,7 @@ The following HTTP response codes indicate that an event has been delivered succ
 
 ### Failure codes
 
-The following HTTP response codes indicate that an event delivery attempt failed. Event Grid tries again to send the event. 
+The following HTTP response codes indicate that an event delivery attempt failed. 
 
 - 400 Bad Request
 - 401 Unauthorized
@@ -41,9 +43,9 @@ The following HTTP response codes indicate that an event delivery attempt failed
 - 503 Service Unavailable
 - 504 Gateway Timeout
 
-Any other response code or a lack of a response indicates a failure. Event Grid retries delivery. 
+If Event Grid receives an error that indicates the endpoint is unavailable, it tries again to send the event. 
 
-## Retry intervals
+## Retry intervals and duration
 
 Event Grid uses an exponential backoff retry policy for event delivery. If your webhook does not respond or returns a failure code, Event Grid retries delivery on the following schedule:
 
@@ -57,9 +59,7 @@ Event Grid uses an exponential backoff retry policy for event delivery. If your 
 
 Event Grid adds a small randomization to all retry intervals. After one hour, event delivery is retried once an hour.
 
-## Retry duration
-
-Azure Event Grid expires all events that are not delivered within 24 hours.
+Event Grid stops attempting to deliver all events that are not delivered within 24 hours.
 
 ## Next steps
 

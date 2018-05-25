@@ -1,13 +1,12 @@
 ---
-title: Add Bing Spell Check API v7 to LUIS queries | Microsoft Docs 
+title: Add Bing Spell Check API v7 to LUIS queries | Microsoft Docs
 titleSuffix: Azure
 description: Correct misspelled words in utterances by adding Bing Spell Check API V7 to LUIS endpoint queries.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: v-geberr

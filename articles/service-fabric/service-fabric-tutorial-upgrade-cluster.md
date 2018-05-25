@@ -1,4 +1,4 @@
----
+﻿---
 title: Upgrade Azure Service Fabric runtime | Microsoft Docs
 description: In this tutorial, you learn how to use PowerShell to upgrade the runtime of an Azure-hosted Service Fabric cluster.
 services: service-fabric
@@ -52,7 +52,7 @@ Before you begin this tutorial:
 Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -94,7 +94,7 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 > [!IMPORTANT]
 > The cluster runtime upgrade may take a long time to complete. PowerShell is blocked while the upgrade is running. You can use another PowerShell session to check the status of the upgrade.
 
-The status of the upgrade can be monitored with either PowerShell or the `sfctl` CLI.
+The status of the upgrade can be monitored with either PowerShell or the Azure Service Fabric CLI (sfctl).
 
 First connect to the cluster with the SSL certificate created in the first part of the tutorial. Use the `Connect-ServiceFabricCluster` cmdlet or `sfctl cluster upgrade-status`.
 
