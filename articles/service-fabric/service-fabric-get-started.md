@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
-ms.author: ryanwi, mikhegn
+ms.author: ryanwi
 
 ---
 # Prepare your development environment on Windows

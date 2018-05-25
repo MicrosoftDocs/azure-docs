@@ -12,13 +12,15 @@ ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Printed Text (OCR) from an Image with C&#35;
+# Quickstart: Extract Printed Text (OCR) with C&#35;
 
-In this quickstart, you extract printed text from an image using Computer Vision.
+In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
+
+## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## OCR (optical character recognition) request
+## OCR request
 
 With the [OCR method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
@@ -27,7 +29,7 @@ To run the sample, do the following steps:
 1. Create a new Visual C# Console App in Visual Studio.
 2. Replace Program.cs with the following code.
 3. Replace `<Subscription Key>` with your valid subscription key.
-4. Change the `uriBase` value to use the location where you obtained your subscription keys, if necessary.
+4. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
 5. Run the program.
 6. At the prompt, enter the path to an image.
 
@@ -318,7 +320,7 @@ Upon success, the OCR results returned include text, bounding box for regions, l
 
 ## Next steps
 
-Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag and describe visual features, including faces, in an image.
+Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
 
 > [!div class="nextstepaction"]
 > [Computer Vision API C&#35; Tutorial](../Tutorials/CSharpTutorial.md)

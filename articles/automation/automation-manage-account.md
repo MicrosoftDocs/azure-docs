@@ -1,13 +1,13 @@
 ---
 title: Manage Azure Automation account
-description: This article describes how to manage the configuration of your Automation account such as certificate renewal, deletion, and misconfiguration.  
+description: This article describes how to manage the configuration of your Automation account such as certificate renewal, deletion, and misconfiguration.
 services: automation
 ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 
