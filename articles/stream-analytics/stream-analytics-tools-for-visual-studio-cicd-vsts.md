@@ -45,10 +45,10 @@ Share your application source files to a team project in Team Services so you ca
 Create a new local Git repo for your project by selecting **Add to Source Control** -> **Git** on the status bar in the lower right-hand corner of Visual Studio. 
 
 In the **Push** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Visual Studio Team Services**.
-![Push Git repo](./media/stream-analytics-tools-for-vs/publishgitrepo.png)
+![Push Git repo](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/publishgitrepo.png)
 
 Verify your email and select your account in the **Team Services Domain** drop-down. Enter your repository name and select **Publish repository**.
-![Push Git repo](./media/stream-analytics-tools-for-vs/publishcode.png)
+![Push Git repo](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/publishcode.png)
 
 Publishing the repo creates a new team project in your account with the same name as the local repo. To create the repo in an existing team project, click **Advanced** next to **Repository** name and select a team project. You can view your code on the web by selecting **See it on the web**.
 
@@ -61,23 +61,23 @@ A Team Services release definition describes a workflow that deploys an applicat
 Open a web browser and navigate to your new team project.
 
 1. Select the **Build & Release** tab, then **Builds**, then **+New**.  Select **VSTS Git**.
-![Select source](./media/stream-analytics-tools-for-vs/build-select-source.png)
+![Select source](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-select-source.png)
 
 2. In **Select a template**, click **Empty Process** to start with an empty definition. 
-![Choose build template](./media/stream-analytics-tools-for-vs/build-select-template.png) 
+![Choose build template](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-select-template.png) 
 
 3. Under **Triggers**, enable continuous integration by setting **Trigger status**.  Select **Save and queue** to manually start a build.  
-![Trigger](./media/stream-analytics-tools-for-vs/build-trigger.png) 
+![Trigger](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-trigger.png) 
 
 4. Builds also trigger upon push or check-in. To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, define a release definition that deploys your application to a cluster. 
 
 3. In **Tasks**, enter "Hosted" as the **Agent queue**. 
-![Select agent queue](./media/stream-analytics-tools-for-vs/build-agent-queue.png) 
+![Select agent queue](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-agent-queue.png) 
 
 4. In **Phase 1**, click **+** and add a **NuGet** task.
-![Add a NuGet task](./media/stream-analytics-tools-for-vs/build-nuget.png) 
+![Add a NuGet task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-nuget.png) 
 
-![Configure NuGet task](./media/stream-analytics-tools-for-vs/build-nuget-config.png) 
+![Configure NuGet task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-nuget-config.png) 
 
 5. In **Phase 1**, click **+** and add a **MSBuild** task.
    Change the **MSBuild Arguments** to the following:
@@ -85,7 +85,7 @@ Open a web browser and navigate to your new team project.
    ```
    /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="..\Package\build\StreamAnalytics.targets"
    ```
-   ![Add a MSBuild task](./media/stream-analytics-tools-for-vs/build-msbuild.png) 
+   ![Add a MSBuild task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-msbuild.png) 
 
 6. In **Phase 2**, click **+** and add an **Azure Resource Group Deployment** task. 
 
@@ -96,13 +96,13 @@ Open a web browser and navigate to your new team project.
  * For **Template**, enter DeployTest\bin\Debug\Deploy\ASADemo2017.JobTemplate.json.
  * For **Template parameters**, enter DeployTest\bin\Debug\Deploy\ASADemo2017.JobTemplate.parameters.json.
  * The content in **Override template parameters** is filled in automatically, you can click “...” to change the values as needed in the pop up window.
-![Add an Azure Resource Group Deployment task](./media/stream-analytics-tools-for-vs/build-deploy.png)
-![Set properties](./media/stream-analytics-tools-for-vs/build-deploy-2.png)
-![Set override parameters](./media/stream-analytics-tools-for-vs/build-deploy-overrride-parameters.png)
+![Add an Azure Resource Group Deployment task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-deploy.png)
+![Set properties](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-deploy-2.png)
+![Set override parameters](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-deploy-overrride-parameters.png)
 
 
 7. Click **Save & Queue** to test it.
-![Set override parameters](./media/stream-analytics-tools-for-vs/build-save-queue.png)
+![Set override parameters](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-save-queue.png)
 
 
 
@@ -113,11 +113,11 @@ As you write your code, your changes are automatically tracked by Visual Studio.
 
 On the **Changes** view in Team Explorer, add a message describing your update and commit your changes.
 
-![Commit and push changes](./media/stream-analytics-tools-for-vs/build-push-changes.png)
+![Commit and push changes](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-push-changes.png)
 
 Select the unpublished changes status bar icon (![Unpublished changes][unpublished-changes]) or the Sync view in Team Explorer. Select **Push** to update your code in Team Services/TFS.
 
-![Commit and push changes](./media/stream-analytics-tools-for-vs/build-push-changes-2.png)
+![Commit and push changes](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-push-changes-2.png)
 
 Pushing the changes to Team Services automatically triggers a build.  When the build definition successfully completes, a release is automatically created and starts updating the job on the cluster.
 
