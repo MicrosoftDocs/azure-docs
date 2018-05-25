@@ -27,9 +27,9 @@ This article describes the `api-version=2017-11-11-Preview` version of Azure Sea
 
 The following two operations are introduced or modified in the preview REST API. All other REST APIs are the same whether you call the generally available or preview version.
 
-+ [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)
++ [Create Skillset (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 
-+ [Create Indexer (api-version=2017-11-11-Preview)](ref-create-indexer.md)
++ [Create Indexer (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 All other REST APIs are the same whether you call the generally available or preview version. For example, `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11-Preview` and `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11` (without `Preview`) are functionally equivalent.
 

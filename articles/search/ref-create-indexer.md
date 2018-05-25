@@ -37,7 +37,7 @@ For data-platform-specific guidance on creating indexers, start with [Indexers o
 
 ## Request  
 
-A [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), [index](https://docs.microsoft.com/rest/api/searchservice/create-index), and [skillset](ref-create-skillset.md) are part of an [indexer](search-indexer-overview.md) definition, but each is an independent component that can be used in different combinations. For example, you could use the same data source with multiple indexers, or the same index with multiple indexers, or multiple indexers writing to a single index.
+A [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), [index](https://docs.microsoft.com/rest/api/searchservice/create-index), and [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) are part of an [indexer](search-indexer-overview.md) definition, but each is an independent component that can be used in different combinations. For example, you could use the same data source with multiple indexers, or the same index with multiple indexers, or multiple indexers writing to a single index.
 
  The body of the request contains an indexer definition, with the following parts.
 
@@ -83,7 +83,7 @@ An [index schema](https://docs.microsoft.com/rest/api/searchservice/create-index
 
 ### "skillsetName"
 
-[Cognitive search (preview)](cognitive-search-concept-intro.md) refers to natural language and image processing capabilities in Azure Search, applied during data ingestion to extract entities, key phrases, language, information from images, and so forth. Transformations applied to content are through *skills*, which you combine into a single [*skillset*](ref-create-skillset.md), one per indexer. As with data sources and indexes, a skillset is an independent component that you attach to an indexer. You can repurpose a skillset with other indexers, but each indexer can only use one skillset at a time.
+[Cognitive search (preview)](cognitive-search-concept-intro.md) refers to natural language and image processing capabilities in Azure Search, applied during data ingestion to extract entities, key phrases, language, information from images, and so forth. Transformations applied to content are through *skills*, which you combine into a single [*skillset*](https://docs.microsoft.com/rest/api/searchservice/create-skillset, one per indexer. As with data sources and indexes, a skillset is an independent component that you attach to an indexer. You can repurpose a skillset with other indexers, but each indexer can only use one skillset at a time.
  
 <a name="indexer-schedule"></a>
 
@@ -218,7 +218,7 @@ To learn more about when and how to use field mapping functions, see [Field Mapp
 }
 ```
 
-The second example demonstrates a cognitive search operation, indicated by the reference to a skillset and [outputFieldMappings](#output-fieldmappings). [Skillsets](ref-create-skillset.md) are high-level resources, defined separately. This example is an abbreviation of the indexer definition in the [cognitive search tutorial](cognitive-search-tutorial-blob.md).
+The second example demonstrates a cognitive search operation, indicated by the reference to a skillset and [outputFieldMappings](#output-fieldmappings). [Skillsets](https://docs.microsoft.com/rest/api/searchservice/create-skillset) are high-level resources, defined separately. This example is an abbreviation of the indexer definition in the [cognitive search tutorial](cognitive-search-tutorial-blob.md).
 
 ```json
 {
