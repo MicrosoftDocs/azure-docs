@@ -3,7 +3,7 @@ title: Azure Active Directory report retention policies | Microsoft Docs
 description: Retention policies on report data in your Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
 
 ---

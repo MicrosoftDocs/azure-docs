@@ -4,7 +4,7 @@ description: Establish high availability and plan for disaster recovery of SAP H
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: timlt
+manager: jeconnoc
 editor:
 
 ms.service: virtual-machines-linux

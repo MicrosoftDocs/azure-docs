@@ -4,7 +4,7 @@ description: Describes Docker and the Azure Virtual Machines extensions, and how
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 

@@ -19,7 +19,7 @@
     href: quickstarts/python.md
   - name: Ruby
     href: quickstarts/ruby.md
-- name: Bing Search SDK
+- name: SDK Quickstarts
   items:
   - name: SDK samples overview 
     href: sdk.md
