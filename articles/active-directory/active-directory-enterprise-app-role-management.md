@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 05/26/2018
 ms.author: jeedes
 ms.custom: aaddev
 
@@ -90,7 +90,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	h. You now need to generate new roles for your application. 
 
-	i. Below JSON is an example of appRoles object. Please create a similar object to add the roles you want for your application.
+	i. Below JSON is an example of appRoles object. Please create a similar object to add the roles you want for your application. 
 
 	```
 	{
