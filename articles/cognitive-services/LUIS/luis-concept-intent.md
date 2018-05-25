@@ -23,11 +23,12 @@ Travel app intents   |   Example utterances   |
  CheckWeather | "What's the weather like in Boston?" <br/> "Show me the forecast for this weekend" |
  None         | "Get me a cookie recipe"<br>"Did the Lakers win?" |
 
-All applications come with the predefined intent, **"[None](#none-intent-is-fallback-for-app)"**. 
+All applications come with the predefined intent, "[None](#none-intent-is-fallback-for-app)" which is the fallback intent. 
 
 ## Prebuilt domains provide intents
-In addition to intents that you define, you can use prebuilt intents from one of the prebuilt domains. See [Use prebuilt domains in LUIS apps](luis-how-to-use-prebuilt-domains.md) to learn about how to customize intents from a prebuilt domain for use in your app.
+In addition to intents that you define, you can use prebuilt intents from one of the prebuilt domains. For more information, see [Use prebuilt domains in LUIS apps](luis-how-to-use-prebuilt-domains.md) to learn about how to customize intents from a prebuilt domain for use in your app.
 
+## Return all intents' scores
 You assign an utterance to a single intent. When LUIS receives an utterance on the endpoint, it returns the one top intent for that utterance. If you want all intents, you can provide `verbose=true` flag on the query string of the API [endpoint call](https://aka.ms/v1-endpoint-api-docs). 
 
 ## Intent compared to entity
@@ -63,6 +64,9 @@ The **None** intent is created but left empty on purpose. Fill it with utterance
 
 ### None is a required intent
 The **None** intent is a required intent and can't be deleted or renamed.
+
+## Intent limits
+Review [limits](luis-boundaries.md#model-boundaries) to understand how many intents you can add to a model.
 
 ## Negative intentions 
 

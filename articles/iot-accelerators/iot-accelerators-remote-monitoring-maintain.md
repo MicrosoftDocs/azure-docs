@@ -1,17 +1,13 @@
 ---
-title: Troubleshoot devices in Remote Monitoring solution - Azure | Microsoft Docs
-description: This tutorial shows you how to troubleshoot and remediate device issues in the Remote Monitoring solution.
-services: iot-suite
-suite: iot-suite
+title: Troubleshoot devices in remote monitoring solution - Azure | Microsoft Docs
+description: This tutorial shows you how to troubleshoot and remediate device issues in the remote monitoring solution.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
 # Troubleshoot and remediate device issues

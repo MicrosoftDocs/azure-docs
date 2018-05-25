@@ -1,17 +1,13 @@
 ---
-title: Deploy the Remote Monitoring solution locally - Azure | Microsoft Docs 
-description: This tutorial shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development.
-services: iot-suite
-suite: iot-suite
+title: Deploy the remote monitoring solution locally - Azure | Microsoft Docs 
+description: This tutorial shows you how to deploy the remote monitoring solution accelerator to your local machine for testing and development.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 03/07/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
 # Deploy the Remote Monitoring solution accelerator locally

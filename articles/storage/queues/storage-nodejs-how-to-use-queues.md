@@ -73,8 +73,6 @@ var azure = require('azure-storage');
 ## Setup an Azure Storage Connection
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
 
-For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure Website, see [Node.js web app using the Azure Table Service](../../cosmos-db/table-storage-cloud-service-nodejs.md).
-
 ## How To: Create a Queue
 The following code creates a **QueueService** object, which enables you
 to work with queues.
