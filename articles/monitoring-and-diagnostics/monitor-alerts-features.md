@@ -71,6 +71,28 @@ You can filter the alerts shown using the default column headers.
 
 You can configure the columns displayed in the list view by selecting the Columns button in the upper left of the screen. You can then check the columns you want to display. Click *Done* to accept your changes.  Use the reset button to return to the default column selections listed previously.  
 
+## Smart groups landing page  
+
+To get to the smart groups landing page, click on either the banner or the number of smart groups on the alert landing page as shown in the following diagrams.
+
+Smart groups allow you to view alerts group together based on similar properties, historical pattern, or both.  The groups are automatically created based on your particular set of alerts.  You can't create custom groupings.  Click the name of the group to view the individual alerts in that group.
+
+## Alert Detail
+
+### Essentials
+Displays the properties and other significant information about the alert.
+
+### History
+Lists each action taken by the alert and any changes made to the alert.
+
+### Smart Group
+Information about the smart group the alert is included in. The **Alert Count** refers to the number of alerts included in the smart group. This includes the other alerts that are included in the same same smart group that were created in the past 30 days.  This is regardless of the time filter in the alerts list page. Click on an alert to view its detail.
+
+### More Details
+
+
+## Change alert state
+You can change the state of an alert by clicking on **Change alert state** in the detail view for the alert. You can change the state of multiple alerts at one time by selecting them in a list view and clicking **Change State** at the top of the page. In both cases, select a new alert state from the dropdown and optionally provide a comment. If you're changing a single alert, then you also have an option to apply the same changes to all the alerts in the smart group.
 
 ## Next steps
 * Understand [log alerts in Azure](monitor-alerts-unified-log-webhook.md).
