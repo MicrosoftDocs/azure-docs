@@ -15,6 +15,12 @@ ms.author: v-geberr
 # Tutorial: Call a LUIS endpoint using PHP
 Pass utterances to a LUIS endpoint and get intent and entities back.
 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Create LUIS subscription and copy key value for later use
+> * View LUIS endpoint results from browser to public sample IoT app
+> * Create Visual Studio C# console app to make HTTPS call to LUIS endpoint
+
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Create LUIS subscription key
