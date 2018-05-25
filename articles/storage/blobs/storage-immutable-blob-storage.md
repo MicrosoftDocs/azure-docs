@@ -47,16 +47,18 @@ Feature characteristics include:
 
 When a time-based retention policy or legal hold is applied on a container, the following operations will be disallowed for existing blobs and new blobs added to the container. When the retention interval expires, and there are no legal holds set on the container, the delete operations will be enabled. However, if only a legal hold is applied and there is no time-based retention policy on a container, all of the following blob operations will be allowed when all the legal holds are cleared.
  
-**Operation         Resource Type                       Description**
-Delete Container    Container                           Deletes the container and any blobs it contains
-Put Blob            Block, Append, and page blobs        Replace an existing blob within a container
-Set Blob Metadata   Block, Append, and Page blobs        Sets user-defined metadata of an existing blob
-Delete Blob         Block, Append, and Page blobs        Marks a blob for deletion
-Undelete Blob       Block, Append, and Page blobs        Restores the contents and metadata of soft deleted blob and/or all associated soft deleted snapshots
-Put Block           Block blobs                         Creates a new block to be committed as part of a block blob. **Only the first Put block operations for file creation are allowed**
-Put Block list      Block blobs                         Commits a blob by specifying the set of block IDs that comprise the block blob. **Only the first Put Block List operation for file creation is allowed**  
-Put Page            Page blobs                          Writes a range of pages into a page blob
-Append Block        Append blobs                        Writes a block of data to the end of an append blob.
+
+|Operation   |Resource Type  |Description  |
+|---------|---------|---------|
+|Delete Container     |Container         |Deletes the container and any blobs it contains         |
+|Put Blob     |Block, Append, and page blobs         |Replace an existing blob within a container         |
+|Set Blob Metadata     |Block, Append, and Page blobs         |Sets user-defined metadata of an existing blob         |
+|Delete Blob     |Block, Append, and Page blobs         |Marks a blob for deletion         |
+|Undelete Blob     |Block, Append, and Page blobs         |Restores the contents and metadata of soft deleted blob and/or all associated soft deleted snapshots         |
+|Put Block      |Block blobs         |Creates a new block to be committed as part of a block blob. **Only the first Put block operations for file creation are allowed**         |
+|Put Block list     |Block blobs         |Commits a blob by specifying the set of block IDs that comprise the block blob. **Only the first Put Block List operation for file creation is allowed**         |
+|Put Page     |Page blobs         |Writes a range of pages into a page blob         |
+|Append Block     |Append blobs         |Writes a block of data to the end of an append blob         |
 
 ### Note
 1. The feature is only available in GPv2 and blob storage accounts. Note that the policy administration is only available through the rSRP/Azure Resource Manager interfaces and so the storage account must be Azure Resource Manager enabled. 
