@@ -48,55 +48,75 @@ When using the SQL and MySQL resource providers with Azure Stack integrated syst
 
 **Change all secrets at the same time**
 ```powershell
-.\SecretRotationSQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint -CloudAdminCredential $cloudCreds -AzCredential $adminCreds –DiagnosticsUserPassword $passwd -DependencyFilesLocalPath $certPath -DefaultSSLCertificatePassword $certPasswd  -VMLocalCredential $localCreds
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    –DiagnosticsUserPassword $passwd `
+    -DependencyFilesLocalPath $certPath `
+    -DefaultSSLCertificatePassword $certPasswd  `
+    -VMLocalCredential $localCreds
 ```
 
 **Change diagnostic user password only**
 ```powershell
-.\SecretRotationSQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint -CloudAdminCredential $cloudCreds -AzCredential $adminCreds –DiagnosticsUserPassword  $passwd 
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    –DiagnosticsUserPassword  $passwd 
 ```
 
 **Change VM local administrator account password**
 ```powershell
-.\SecretRotationSQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint -CloudAdminCredential $cloudCreds -AzCredential $adminCreds  -VMLocalCredential $localCreds
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -VMLocalCredential $localCreds
 ```
 
 **Change SSL Certificate**
 ```powershell
-.\SecretRotationSQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint -CloudAdminCredential $cloudCreds -AzCredential $adminCreds -DependencyFilesLocalPath $certPath -DefaultSSLCertificatePassword $certPasswd 
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -DependencyFilesLocalPath $certPath `
+    -DefaultSSLCertificatePassword $certPasswd 
 ```
 
 ### SecretRotationSQLProvider.ps1 parameters
 
 |Parameter|Description|
 |-----|-----|
-|AzCredential|Azure Stack Service Admin account credential|
+|AzCredential|Azure Stack Service Admin account credential.|
 |CloudAdminCredential|Azure Stack cloud admin domain account credential.|
 |PrivilegedEndpoint|Privileged Endpoint to access Get-AzureStackStampInformation.|
 |DiagnosticsUserPassword|Diagnostics User password.|
 |VMLocalCredential|The local administrator account of the MySQLAdapter VM.|
 |DefaultSSLCertificatePassword|Default SSL Certificate (*pfx) Password.|
-|DependencyFilesLocalPath|Dependency Files Local Path|
+|DependencyFilesLocalPath|Dependency Files Local Path.|
 |     |     |
 
 ### Known issues
-Issue: The logs for secrets rotation are not automatically collected if the secret rotation custom script fails when it is run.
+**Issue**: The logs for secrets rotation are not automatically collected if the secret rotation custom script fails when it is run.
 
-Workaround: Use the Get-AzsDBAdapterLogs cmdlet to collect all resource provider logs, including AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, under C:\Logs.
+**Workaround**: Use the Get-AzsDBAdapterLogs cmdlet to collect all resource provider logs, including AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, under C:\Logs.
 
 ## Update the virtual machine operating system
 There are several ways to update the Windows Server VM:
-* Install the latest resource provider package using a currently patched Windows Server 2016 Core image
-* Install a Windows Update package during the installation or update of the RP
+- Install the latest resource provider package using a currently patched Windows Server 2016 Core image
+- Install a Windows Update package during the installation or update of the RP
 
 ## Update the virtual machine Windows Defender definitions
 Follow these steps to update the Defender definitions:
 
-1. Download the Windows Defender definitions update from [Windows Defender Definition](https://www.microsoft.com/en-us/wdsi/definitions)
+1. Download the Windows Defender definitions update from [Windows Defender Definition](https://www.microsoft.com/en-us/wdsi/definitions).
 
     On that page, under “Manually download and install the definitions” download “Windows Defender Antivirus for Windows 10 and Windows 8.1” 64-bit file. 
     
-    Direct link: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
+    Direct link: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64.
 
 2. Create a PowerShell session to the SQL RP adapter virtual machine’s maintenance endpoint
 3. Copy the definitions update file to the DB adapter machine using the maintenance endpoint session
@@ -140,10 +160,10 @@ $session | Remove-PSSession
 ## Collect diagnostic logs
 The SQL resource provider is a locked down virtual machine. If it becomes necessary to collect logs from the virtual machine, a PowerShell Just Enough Administration (JEA) endpoint _DBAdapterDiagnostics_ is provided for that purpose. There are two commands available through this endpoint:
 
-* Get-AzsDBAdapterLog - Prepares a zip package containing RP diagnostics logs and puts it on the session user drive. The command can be called with no parameters and will collect the last four hours of logs.
-* Remove-AzsDBAdapterLog - Cleans up existing log packages on the resource provider VM
+- **Get-AzsDBAdapterLog**. Prepares a zip package containing RP diagnostics logs and puts it on the session user drive. The command can be called with no parameters and will collect the last four hours of logs.
+- **Remove-AzsDBAdapterLog**. Cleans up existing log packages on the resource provider VM
 
-A user account called _dbadapterdiag_ is created during RP deployment or update for connecting to the diagnostics endpoint for extracting RP logs. The password of this account is the same as the password provided for the local administrator account during deployment/update.
+A user account called **dbadapterdiag** is created during RP deployment or update for connecting to the diagnostics endpoint for extracting RP logs. The password of this account is the same as the password provided for the local administrator account during deployment/update.
 
 To use these commands, you will need to create a remote PowerShell session to the resource provider virtual machine and invoke the command. You can optionally provide FromDate and ToDate parameters. If you don't specify one or both of these, the FromDate will be four hours before the current time, and the ToDate will be the current time.
 
