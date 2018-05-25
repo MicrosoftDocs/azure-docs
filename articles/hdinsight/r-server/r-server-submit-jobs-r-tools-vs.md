@@ -33,7 +33,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 3. You need to have public and private keys for SSH authentication.
 <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. Install [R Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) on your machine. R Server provides the [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) and `RxSpark` functions.
+4. Install [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) on your machine. ML Server provides the [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) and `RxSpark` functions.
 
 5. Install [PuTTY](http://www.putty.org/) to provide a compute context to run `RevoScaleR` functions from your local client to your HDInsight cluster.
 
@@ -49,7 +49,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
 ## Execute local R methods
 
-1. Create your [R Server HDInsight cluster](r-server-get-started.md).
+1. Create your [HDInsight ML Services cluster](r-server-get-started.md).
 2. Install the [RTVS extension](https://docs.microsoft.com/visualstudio/rtvs/installation).
 3. Download the [samples zip file](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
 4. Open `examples/Examples.sln` to launch the solution in Visual Studio.
@@ -64,7 +64,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
 ## Submit jobs to an HDInsight R cluster
 
-Using a Microsoft R Server/Microsoft R Client from a Windows computer equipped with PuTTY, you can create a compute context that will run distributed `RevoScaleR` functions from your local client to your HDInsight cluster. Use `RxSpark` to create the compute context, specifying your username, the Hadoop cluster's edge node, SSH switches, and so forth.
+Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped with PuTTY, you can create a compute context that will run distributed `RevoScaleR` functions from your local client to your HDInsight cluster. Use `RxSpark` to create the compute context, specifying your username, the Hadoop cluster's edge node, SSH switches, and so forth.
 
 1. To find your edge node's host name, open your HDInsight R cluster pane on Azure, then select **Secure Shell (SSH)** on the top menu of the Overview pane.
 
@@ -140,6 +140,6 @@ Using a Microsoft R Server/Microsoft R Client from a Windows computer equipped w
 
 ## Next steps
 
-* [Compute context options for R Server on HDInsight](r-server-compute-contexts.md)
+* [Compute context options for ML Services on HDInsight](r-server-compute-contexts.md)
 * [Combining ScaleR and SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) provides an example of airline flight delay predictions.
 <!-- * You can also submit R jobs with the [R Studio Server](hdinsight-submit-jobs-from-r-studio-server.md) -->
