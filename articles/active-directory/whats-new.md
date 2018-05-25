@@ -216,7 +216,7 @@ Go to [Aka.ms/DeploymentPlans](http://Aka.ms/DeploymentPlans) where you can acce
 
 
 
-- [How can I get the deployment plans](Aka.ms/DeploymentPlans)? 
+- [How can I get the deployment plans](http://Aka.ms/DeploymentPlans)? 
 
 - You can provide feedback [here](http://aka.ms/DeploymentPlanFeedback)
 
