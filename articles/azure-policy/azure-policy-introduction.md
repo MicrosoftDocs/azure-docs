@@ -218,6 +218,13 @@ assignments by editing the initiative definition or assignment.
 as well. However, if you needed to execute a policy individually, it is better to not include it in
 an initiative.
 
+## Video Overview
+
+The following overview of Azure Policy is from Build 2018. For slides or video download, please
+visit [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9.
+
+> [!VIDEO https://channel9.msdn.com/events/Build/2018/THR2030/player]
+
 ## Next steps
 
 Now that you have an overview of Azure Policy and some of the key concepts, here are the suggested
@@ -227,3 +234,4 @@ next steps:
 - [Assign a policy definition using the Azure CLI](assign-policy-definition-cli.md)
 - [Assign a policy definition using PowerShell](assign-policy-definition-ps.md)
 - Review what a management group is with [Organize your resources with Azure Management Groups](../azure-resource-manager/management-groups-overview.md)
+- View [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9.

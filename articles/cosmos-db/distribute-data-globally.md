@@ -2,7 +2,6 @@
 title: Distribute data globally with Azure Cosmos DB | Microsoft Docs
 description: Learn about planet-scale geo-replication, failover, and data recovery using global databases from Azure Cosmos DB, a globally-distributed, mutli-model database service.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 
@@ -10,8 +9,6 @@ ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/26/2018
 ms.author: sngun
 
