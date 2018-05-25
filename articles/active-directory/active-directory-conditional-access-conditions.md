@@ -230,6 +230,20 @@ Any conditions can be configured for "Other clients".
 
 No. Here is the summary of Exchange ActiveSync (EAS) support:
 
+- EAS only supports user and group targeting. It doesn’t support guest, roles. If guest/role condition is configured, all users will get blocked since we cannot determine if the policy should apply to the user or not.
+
+- EAS only works with Exchange as the cloud app. 
+
+- EAS does not support any condition except client app itself.
+
+- EAS can be configured with any control (all except device compliance will lead to block).
+
+**Do the policies apply to all client apps by default going forward?**
+
+No. There is no change in the default policy behavior. The policies will continue to apply to browser and mobile applications/desktop clients by default.
+
+
+
 ## Next steps
 
 - If you want to know how to configure a conditional access policy, see [get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
