@@ -70,6 +70,8 @@
 ### [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
 ### [Pricing examples](iot-hub-devguide-pricing.md)
 ### [Device and service SDKs](iot-hub-devguide-sdks.md)
+### [Develop for constrained devices](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Develop for mobile devices](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [MQTT support](iot-hub-mqtt-support.md)
 ### [Glossary](iot-hub-devguide-glossary.md)
 
@@ -146,6 +148,8 @@
 ### [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
 #### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
+### [Develop for constrained devices](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Develop for mobile devices](iot-hub-how-to-develop-for-mobile-devices.md)
 ### Routing messages
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)

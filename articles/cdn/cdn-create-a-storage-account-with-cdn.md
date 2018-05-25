@@ -103,7 +103,7 @@ You can enable Azure CDN for your storage account directly from your storage acc
 
 
 ## Enable additional CDN features
-From the storage account **Azure CDN** page, select the CDN endpoint from the list to open the CDN endpoint configuration page. From this page, you can enable additional CDN features for your delivery, such as compression, query string, and geo filtering. You can also add custom domain mapping to your CDN endpoint and enable custom domain HTTPS.
+From the storage account **Azure CDN** page, select the CDN endpoint from the list to open the CDN endpoint configuration page. From this page, you can enable additional CDN features for your delivery, such as [compression](cdn-improve-performance.md), [query string caching](cdn-query-string.md), and [geo filtering](cdn-restrict-access-by-country.md). 
 	
 ![Storage CDN endpoint configuration](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
 
@@ -122,7 +122,7 @@ If you no longer want to cache an object in Azure CDN, you can take one of the f
 * Disable or delete the CDN endpoint by using the Azure portal.
 * Modify your hosted service to no longer respond to requests for the object.
 
-An object that's already cached in Azure CDN remains cached until the time-to-live period for the object expires or until the endpoint is purged. When the time-to-live period expires, Azure CDN determines whether the CDN endpoint is still valid and the object is still anonymously accessible. If they are not, the object will no longer be cached.
+An object that's already cached in Azure CDN remains cached until the time-to-live period for the object expires or until the endpoint is [purged](cdn-purge-endpoint.md). When the time-to-live period expires, Azure CDN determines whether the CDN endpoint is still valid and the object is still anonymously accessible. If they are not, the object will no longer be cached.
 
 ## Clean up resources
 In the preceding steps, you created a CDN profile and an endpoint in a resource group. Save these resources if you want to go to [Next steps](#next-steps) and learn how to add a custom domain to your endpoint. However, if you don't expect to use these resources in the future, you can delete them by deleting the resource group, thus avoiding additional charges:
