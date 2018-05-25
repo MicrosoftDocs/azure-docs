@@ -1,16 +1,13 @@
-﻿---
+---
 title: Perform Azure Cosmos DB Table API operations with PowerShell | Microsoft Docs
 description: How to perform Azure Cosmos DB Table API operations with PowerShell
 services: storage
-documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
 
 ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017

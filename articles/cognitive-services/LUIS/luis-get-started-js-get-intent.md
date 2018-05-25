@@ -1,6 +1,6 @@
 ---
-title: Call a Language Understanding (LUIS) app using Node.js | Microsoft Docs
-description: Learn to call a LUIS app using Node.js in this quickstart.
+title: Tutorial learning how to call a Language Understanding (LUIS) app using Node.js | Microsoft Docs
+description: In this tutorial, you learn to call a LUIS app using Node.js in this quickstart.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -12,12 +12,18 @@ ms.author: v-geberr
 #Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Javascript. 
 ---
 
-# Quickstart: Call a LUIS endpoint using JavaScript
+# Tutorial: Call a LUIS endpoint using JavaScript
 Pass utterances to a LUIS endpoint and get intent and entities back.
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Create LUIS subscription and copy key value for later use
+> * View LUIS endpoint results from browser to public sample IoT app
+> * Create Visual Studio C# console app to make HTTPS call to LUIS endpoint
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
-## Before you begin
+## Create LUIS subscription key
 You need a Cognitive Services API key to make calls to the sample LUIS app used in this walkthrough. 
 
 To get an API key, follow these steps: 
@@ -58,6 +64,9 @@ You can use JavaScript to access the same results you saw in the browser window 
 3. Open the file you saved using a web browser.  An alert window should pop up that says `Detected the following intent: TurnOn`.
 
 ![Popup that says TurnOn](./media/luis-get-started-node-get-intent/popup-turn-on.png)
+
+## Clean up resources
+The two resources created in this tutorial are the LUIS subscription key and the C# project. Delete the LUIS subscription key from the Azure portal. Close the Visual Studio project and remove the directory from the file system. 
 
 ## Next steps
 > [!div class="nextstepaction"]
