@@ -39,12 +39,18 @@ Question: what about service principals or Azure AD Domain Services?
 ## To delete an Azure AD tenant directory
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is the Global admininstrator for the tenant directory.
+
 2. Select **Azure Active Directory**.
+
 3. Switch to the tenant you want to delete.
+  
+  ![delete directory button](./media/directory-delete-howto/delete-directory-command.png)
+
 4. Select **Delete directory**.
+  
+  ![delete directory button](./media/directory-delete-howto/delete-directory-list.png)
+
 5. After you pass all checks, select **Delete** to complete the process.
 
 ## Next steps
 [Azure Active Directory service page](https://azure.microsoft.com/services/active-directory/)
-
-[Azure Active Directory pricing information page](https://azure.microsoft.com/pricing/details/active-directory/)
