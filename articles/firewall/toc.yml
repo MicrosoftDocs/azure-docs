@@ -22,6 +22,12 @@
   items:
   - name: Placeholder
     href: overview.md
+- name: How-to guides
+  items:
+  - name: Troubleshooting
+    items:
+    - name: Diagnostics
+      href: diagnostics.md
 - name: Reference
   items:
   - name: Azure CLI
