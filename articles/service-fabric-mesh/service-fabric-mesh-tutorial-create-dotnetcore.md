@@ -25,15 +25,13 @@ In this tutorial you will create a new Service Fabric Mesh project, add an ASP.N
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
-> * Create a new Service Fabric Mesh project
-> * Deploy the service to the local cluster
-> * Deploy the service to Azure
+> * Create a new Service Fabric Mesh project.
+> * Debug the service locally.
+> * Publish the service to Azure.
 
 If you don’t have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-|     |
-| --- |
-| Service Fabric Mesh is in currently in preview, and only supports the **East US** region. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). |
+[!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 ## Prerequisites
 

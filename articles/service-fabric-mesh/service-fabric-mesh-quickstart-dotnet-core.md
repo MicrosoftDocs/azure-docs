@@ -26,9 +26,7 @@ This quickstart shows how to deploy your first .NET Core application to Service 
 
 You can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
-|     |
-| --- |
-| Service Fabric Mesh is in currently in preview, and only supports the **East US** region. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). |
+[!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
