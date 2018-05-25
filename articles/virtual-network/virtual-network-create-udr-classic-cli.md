@@ -3,7 +3,7 @@ title: Control routing in an Azure Virtual Network - CLI - Classic | Microsoft D
 description: Learn how to control routing in VNets using the Azure CLI in the classic deployment model
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: ''
 tags: azure-service-management

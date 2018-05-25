@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: v-gedod
@@ -14,7 +14,9 @@ ms.author: v-gedod
 
 # Video Search SDK C# quickstart
 
-The Bing Video Search SDK contains the functionality of the REST API for web requests and parsing results. 
+The Bing Video Search SDK contains the functionality of the REST API for web requests and parsing results.
+
+The [source code for C# Bing Video Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) is available on Git Hub.
 
 ## Application dependencies
 

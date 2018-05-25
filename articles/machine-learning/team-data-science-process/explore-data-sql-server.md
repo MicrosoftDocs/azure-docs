@@ -3,7 +3,7 @@ title: Explore data in SQL Server Virtual Machine on Azure | Microsoft Docs
 description: How to explore data that is stored in a SQL Server VM on Azure.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Explore data in SQL Server Virtual Machine on Azure

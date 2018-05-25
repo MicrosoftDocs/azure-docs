@@ -34,6 +34,8 @@ The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](http:/
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## Example
 
 See the language-specific example:
@@ -271,7 +273,7 @@ If you share a Storage account across multiple function apps, make sure that eac
 
 ## Retry behavior
 
-Unlike the queue trigger, the timer trigger doesn't retry after a function fails. When a function fails, it is't called again until the next time on the schedule.
+Unlike the queue trigger, the timer trigger doesn't retry after a function fails. When a function fails, it isn't called again until the next time on the schedule.
 
 ## Next steps
 

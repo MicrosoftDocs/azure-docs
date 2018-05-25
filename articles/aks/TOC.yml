@@ -1,4 +1,4 @@
-- name: Azure Container Service (AKS)
+- name: Azure Kubernetes Service (AKS)
   href: ./index.yml
 - name: Overview
   items:
@@ -25,9 +25,7 @@
     href: tutorial-kubernetes-scale.md
   - name: 6 - Update application
     href: tutorial-kubernetes-app-update.md
-  - name: 7 - Monitor with Log Analytics
-    href: tutorial-kubernetes-monitor.md
-  - name: 8 - Upgrade cluster
+  - name: 7 - Upgrade cluster
     href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concepts
   items:
@@ -47,22 +45,28 @@
       href: delete-cluster.md
   - name: Configure data volumes
     items:
-    - name: Kubernetes Volume - Disks
-      href: azure-disk-volume.md
-    - name: Kubernetes Volume - Files
-      href: azure-files-volume.md
-    - name: Persistent Volume - Disks
+    - name: Azure Disk - Dynamic
       href: azure-disks-dynamic-pv.md
-    - name: Persistent Volume - Files
+    - name: Azure Disk - Static
+      href: azure-disk-volume.md
+    - name: Azure Files - Dynamic
       href: azure-files-dynamic-pv.md
+    - name: Azure Files - Static
+      href: azure-files-volume.md
   - name: Configure networking
     items:
+    - name: Networking overview
+      href: networking-overview.md
     - name: Static IP address
       href: static-ip.md
     - name: Internal load balancer
       href: internal-lb.md
     - name: Ingress and TLS
       href: ingress.md
+    - name: Egress traffic
+      href: egress.md
+    - name: HTTP application routing
+      href: http-application-routing.md
   - name: Security and authentication
     items:
     - name: Create service principal

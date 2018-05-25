@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Quickstart - Back up a VM with PowerShell | Microsoft Docs
 description: Learn how to back up your virtual machines with Azure PowerShell
 services: backup
@@ -28,10 +28,10 @@ This quickstart requires the Azure PowerShell module version 4.4 or later. Run `
 
 
 ## Log in to Azure
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 The first time you use Azure Backup, you must register the Azure Recovery Service provider in your subscription with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider).

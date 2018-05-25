@@ -2,28 +2,29 @@
 title: Computer Vision API cURL quick starts | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Computer Vision API with cURL in Cognitive Services.
 services: cognitive-services
-author: KellyDF
-manager: corncar
+author: easyj2j
 
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: kefre
+ms.date: 5/07/2018
+ms.author: v-johnma
 ---
 
-# Computer Vision cURL Quick Starts
+# Use the Computer Vision API with cURL
 
 This article provides information and code samples to help you quickly get started using the Computer Vision API with cURL to accomplish the following tasks:
 * [Analyze an image](#AnalyzeImage) 
 * [Intelligently generate a thumbnail](#GetThumbnail)
 * [Detect and extract text from an Image](#OCR)
 
-Learn more about obtaining free Subscription Keys [here](../Vision-API-How-to-Topics/HowToSubscribe.md)
+## Prerequisites
+
+To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## Analyze an Image With Computer Vision API Using cURL <a name="AnalyzeImage"> </a>
 
-With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * The category defined in this [taxonomy](../Category-Taxonomy.md). 
 * A detailed list of tags related to the image content. 
 * A description of image content in a complete sentence. 
@@ -45,7 +46,7 @@ Change the URL to use the location where you obtained your subscription keys. Re
 ```json
 @ECHO OFF
 
-curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories&details={string}&language=en"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories&details={string}&language=en"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
@@ -158,7 +159,7 @@ A successful response is returned in JSON. Following is an example of a successf
 
 ## Get a Thumbnail with Computer Vision API Using curl <a name="GetThumbnail"> </a>
 
-Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to  crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
+Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) to  crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
 
 ### Get a Thumbnail curl Example Request
 
@@ -170,7 +171,7 @@ Change the URL to use the location where you obtained your subscription keys, an
 ```json
 @ECHO OFF
 
-curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail?width={number}&height={number}&smartCropping=true"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail?width={number}&height={number}&smartCropping=true"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
@@ -183,7 +184,7 @@ A successful response contains the thumbnail image binary. If the request failed
 
 ## Optical Character Recognition (OCR) with Computer Vision API Using curl <a name="OCR"> </a>
 
-Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
+Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
 
 ### OCR curl Example Request
 
@@ -195,7 +196,7 @@ Change the URL to use the location where you obtained your subscription keys, an
 ```json
 @ECHO OFF
 
-curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?language=unk&detectOrientation =true"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr?language=unk&detectOrientation =true"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 

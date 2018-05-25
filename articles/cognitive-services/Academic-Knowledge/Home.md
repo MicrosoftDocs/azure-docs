@@ -4,12 +4,11 @@ description: Use the Academic Knowledge API to interpret user queries and retrie
 services: cognitive-services
 author: mvorvoreanu
 manager: kuansanw
-
 ms.service: cognitive-services
-ms.technology: academic-knowledge
+ms.component: academic-knowledge
 ms.topic: article
 ms.date: 03/27/2017
-ms.author: mvorvoreanu
+ms.author: mivorvor
 ---
 
 # Academic Knowledge API

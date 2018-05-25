@@ -6,15 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 05/23/2018
 ms.author: raynew
 ms.custom: MVC
 
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs
 
-This tutorial shows you how to set up disaster recovery to Azure for on-premises VMware VMs running
-Windows. In this tutorial, you learn how to:
+This tutorial shows you how to set up disaster recovery to Azure for on-premises VMware VMs running Windows. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Enter the replication source and target.
@@ -22,18 +21,23 @@ Windows. In this tutorial, you learn how to:
 > * Create a replication policy.
 > * Enable replication for a VM.
 
-This tutorial is the third in a series. This tutorial assumes that you finished the tasks in the previous tutorials:
+This tutorial is the third in a series, and assumes that you finished the tasks in the previous tutorials:
 
 * [Prepare Azure](tutorial-prepare-azure.md). This tutorial describes how to set up an Azure storage account and network, make sure your Azure account has the right permissions, and create a Recovery Services vault.
-* [Prepare on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md). In this tutorial you prepare accounts so that Site Recovery can access VMware servers to discover VMs, and to optionally do a push installation of the Site Recovery Mobility service component when you enable replication for a VM. You also make sure that your VMware servers and VMs comply with Site Recovery requirements.
+* [Prepare on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md). In this tutorial you prepare accounts so that Site Recovery can access VMware servers to discover VMs, and to optionally do a push installation of the Site Recovery Mobility service component when you enable replication for a VM. You also make sure that your VMware servers and VMs comply with Site Recovery requirements and prerequisites.
 
-Before you start, it's helpful to [review the architecture](vmware-azure-architecture.md)
-for disaster recovery scenarios.
+Before you start, it's helpful to:
+
+- [Review the architecture](vmware-azure-architecture.md) for this disaster recovery scenario.
+- This tutorial sets up VMware disaster recovery to Azure with the simplest settings. If you want to learn about other options, read through our How To guides:
+    - Set up the [replication source](vmware-azure-set-up-source.md) and [configuration server](vmware-azure-deploy-configuration-server.md).
+    - Set up the [replication target](vmware-azure-set-up-target.md).
+    - Configure a [replication policy](vmware-azure-set-up-replication.md), and [enable replication](vmware-azure-enable-replication.md).
 
 
 ## Select a replication goal
 
-1. In **Recovery Services vaults**, select the vault name, **ContosoVMVault**.
+1. In **Recovery Services vaults**, select the vault name. We're using **ContosoVMVault** for this scenario.
 2. In **Getting Started**, select Site Recovery. Then select **Prepare Infrastructure**.
 3. In **Protection goal** > **Where are your machines located**, select **On-premises**.
 4. In **Where do you want to replicate your machines**, select **To Azure**.
@@ -105,7 +109,7 @@ To add an additional NIC to the configuration server, add it before you register
 
 ### Configure settings and add the VMware server
 
-1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC to receive replication traffic. Then select **Save**. You can't change this setting after it's configured.
+1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC that the process server uses to receive replication traffic from VMs. Then select **Save**. You can't change this setting after it's configured.
 2. In **Select Recovery Services vault**, select your Azure subscription and the relevant resource group and vault.
 3. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server.
 4. Select **Install VMware PowerCLI**. Make sure all browser windows are closed before you do this. Then select **Continue**.
@@ -138,7 +142,7 @@ Select and verify target resources.
 1. Open the [Azure portal](https://portal.azure.com), and select **All resources**.
 2. Select the Recovery Service vault named **ContosoVMVault**.
 3. To create a replication policy, select **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
-4. In **Create replication policy**, enter the policy name **VMwareRepPolicy**.
+4. In **Create replication policy**, enter the policy name. We're using **VMwareRepPolicy** for this scenario.
 5. In **RPO threshold**, use the default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
 6. In **Recovery point retention**, use the default of 24 hours for how long the retention window is for each recovery point. For this tutorial, use 72 hours. Replicated VMs can be recovered to any point in a window.
 7. In **App-consistent snapshot frequency**, use the default of 60 minutes for the frequency that application-consistent snapshots are created. Select **OK** to create the policy.

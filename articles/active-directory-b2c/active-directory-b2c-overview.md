@@ -68,7 +68,7 @@ Each request that is sent to Azure AD B2C specifies a policy. A policy controls 
 
 #### Custom policies 
 
-Custom policies are configuration files that define the behavior of the Identity Experience Framework in your Azure AD B2C tenant. Custom policies can be fully edited to complete many tasks. A custom policy is represented as one or several XML-formatted files that refer to each other in a hierarchical chain. 
+[Custom policies](active-directory-b2c-overview-custom.md) are configuration files that define the behavior of the Identity Experience Framework in your Azure AD B2C tenant. Custom policies can be fully edited to complete many tasks. A custom policy is represented as one or several XML-formatted files that refer to each other in a hierarchical chain. 
 
 Multiple custom policies of different types can be used in your Azure AD B2C tenant as needed and can be reused across applications. This flexibility enables you to define and modify customer identity experiences with minimal or no changes to your code. Policies can be used by adding a special query parameter to HTTP authentication requests.
 

@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/18/2018
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -19,7 +19,7 @@ You can create an Azure Database for MySQL server in one of three different pric
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Memory per vCore | Baseline | 2x Basic | 2x General Purpose |
+| Memory per vCore | 2 GB | 5 GB | 10 GB |
 | Storage size | 5 GB to 1 TB | 5 GB to 2 TB | 5 GB to 2 TB |
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |
@@ -34,13 +34,13 @@ To choose a pricing tier, use the following table as a starting point.
 
 After you create a server, the number of vCores can be changed up or down (within the same pricing tier) within seconds. You also can independently adjust the amount of storage up and the backup retention period up or down with no application downtime. You can't change the pricing tier or the backup storage type after a server is created. For more information, see the [Scale resources](#scale-resources) section.
 
-## Compute generations, vCores, and memory
+## Compute generations and vCores
 
 Compute resources are provided as vCores, which represent the logical CPU of the underlying hardware. Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors. Gen 4 and Gen 5 are available in the following regions ("X" denotes available). 
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Central US |  | X |
+| Central US | X |  |
 | East US | X | X |
 | East US 2 | X | X |
 | North Central US | X |  |
@@ -49,21 +49,21 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | West US 2 |  | X |
 | Canada Central | X | X |
 | Canada East | X | X |
-| Brazil South | X |  |
+| Brazil South | X | X |
 | North Europe | X | X |
-| West Europe | X | X |
+| West Europe |  | X |
 | UK West |  | X |
 | UK South |  | X |
 | East Asia | X |  |
-| Southeast Asia | X |  |
+| Southeast Asia | X | X |
 | Australia East |  | X |
+| Australia Southeast |  | X |
 | Central India | X |  |
 | West India | X |  |
+| South India |  | X |
 | Japan East | X | X |
 | Japan West | X | X |
 | Korea South |  | X |
-
-Depending on the pricing tier, each vCore is provisioned with a specific amount of memory. When you increase or decrease the number of vCores for your server, the memory increases or decreases proportionally. The General Purpose tier provides double the amount of memory per vCore compared to the Basic tier. The Memory Optimized tier provides double the amount of memory compared to the General Purpose tier.
 
 ## Storage
 
@@ -79,6 +79,12 @@ The storage you provision is the amount of storage capacity available to your Az
 You can add additional storage capacity during and after the creation of the server. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
+
+### Reaching the storage limit
+
+The server is marked read-only when the amount of free storage reaches less than 5 GB or 5% of provisioned storage, whichever is less. For example, if you have provisioned 100 GB of storage, and the actual utilization goes over 95 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 250 MB.  
+
+While the service attempts to make the server read-only, all new write transaction requests are blocked and existing active transactions will continue to execute. When the server is set to read-only, all subsequent write operations and transaction commits fail. Read queries will continue to work uninterrupted. After you increase the provisioned storage, the server will be ready to accept write transactions again.
 
 ## Backup
 

@@ -20,7 +20,7 @@ To quickly scan the sections in this article, use the links to the right, under 
 ## Configuring the backup job for Azure Files
 
 ### Why can't I see some of my Storage Accounts I want to protect, that contain valid Azure file shares? <br/>
-During preview, Backup for Azure file Shares does not support all types of Storage Accounts. Refer to the list [here](troubleshoot-azure-files.md#preview-boundaries) to see the list of supported Storage Accounts.
+During preview, Backup for Azure file Shares does not support all types of Storage Accounts. Refer to the list [here](troubleshoot-azure-files.md#preview-boundaries) to see the list of supported Storage Accounts. It is also possible that the Storage Account you are looking for is already protected or registered with another Vault. [Unregister](troubleshoot-azure-files.md#configuring-backup) from the vault to discover the Storage Account in other Vaults for protection.
 
 ### Why can't I see some of my Azure file shares in the Storage Account when I'm trying to configure backup? <br/>
 Check if the Azure file share is already protected in the same Recovery Services vault or if it has been deleted recently.
@@ -49,6 +49,7 @@ Backup for Azure File shares is currently in Preview and is available only in th
 - Japan West (JPW)
 -	India Central (INC) 
 - India South (INS)
+- Korea Central (KRC)
 - Korea South (KRS)
 -	North Central US (NCUS) 
 -	North Europe (NE) 

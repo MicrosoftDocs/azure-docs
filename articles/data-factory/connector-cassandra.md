@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/02/2018
 ms.author: jingwang
 
 ---
@@ -88,7 +88,7 @@ The following properties are supported for Cassandra linked service:
 
 For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Cassandra dataset.
 
-To copy data from Cassandra, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data from Cassandra, set the type property of the dataset to **CassandraTable**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
