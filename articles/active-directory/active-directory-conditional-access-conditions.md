@@ -199,7 +199,7 @@ Conditional access now applies to older Office clients that do not support moder
 
 3.	Navigate to the client app condition and select "Other clients"
 
- 
+     ![Supported platforms](./media/active-directory-conditional-access-conditions/140.png)
  
 4.	Select the access control you want to enforce for "Other clients". (Any control selection will lead to block access since the other clients are not able to enforce controls like MFA, device compliance, etc.).
 
