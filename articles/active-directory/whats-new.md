@@ -943,12 +943,7 @@ This release has the following updates and changes:
 
 **New features and improvements**
 
-- For GDPR, we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to you to change your preferences.  This check-in adds the following:
-    - Data sharing and privacy notification on the clean install EULA page.
 
-    - Data sharing and privacy notification on the upgrade page.
-
-    - A new additional task **Privacy Settings** where the user can change their preferences.
  
 - Application telemetry - Administrators can switch this class of data on/off.
 
