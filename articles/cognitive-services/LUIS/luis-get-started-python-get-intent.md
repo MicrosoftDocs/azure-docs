@@ -69,6 +69,9 @@ You can use Python to access the same results you saw in the browser window in t
 ![Console window displays JSON result from LUIS](./media/luis-get-started-python-get-intent/console-turn-on.png)
 -->
 
+## Clean up resources
+The two resources created in this tutorial are the LUIS subscription key and the C# project. Delete the LUIS subscription key from the Azure portal. Close the Visual Studio project and remove the directory from the file system. 
+
 ## Next steps
 > [!div class="nextstepaction"]
 > [Add utterances](luis-quickstart-python-add-utterance.md)
