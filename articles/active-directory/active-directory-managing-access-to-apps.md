@@ -49,21 +49,8 @@ In this case, all assigned users would be automatically provisioned to Salesforc
 
 Administrators can employ [Azure AD conditional access](active-directory-conditional-access-azure-portal.md) to set access policies for specific roles. These policies can include whether access is permitted outside the corporate environment and even Multi-Factor Authentication or device requirements to achieve access in various cases.
 
-## How can I get started?
-First, if you aren't already using Azure AD and you are an IT admin:
+## Next steps
 
-* [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30-day trial today and deploy your first cloud solution in under 5 minutes using this link
-
-Azure AD features that enable account sharing include:
-
-* [Group assignment](active-directory-accessmanagement-self-service-group-management.md)
-* Adding applications to Azure AD
-* Getting started with assignment
-* Application assignment FAQ
-* [App usage dashboard/reports](active-directory-passwords-get-insights.md)
-
-## Where can I learn more?
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [Protecting apps with conditional access](active-directory-conditional-access-azure-portal.md)
 * [Self-service group management/SSAA](active-directory-accessmanagement-self-service-group-management.md)
-
