@@ -221,12 +221,12 @@ public class ToDoItem
     @com.google.gson.annotations.SerializedName("createdAt")
     private DateTimeOffset mCreatedAt;
     public DateTimeOffset getCreatedAt() { return mCreatedAt; }
-    protected DateTimeOffset setCreatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
+    protected void setCreatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
 
     @com.google.gson.annotations.SerializedName("updatedAt")
     private DateTimeOffset mUpdatedAt;
     public DateTimeOffset getUpdatedAt() { return mUpdatedAt; }
-    protected DateTimeOffset setUpdatedAt(DateTimeOffset updatedAt) { mUpdatedAt = updatedAt; }
+    protected void setUpdatedAt(DateTimeOffset updatedAt) { mUpdatedAt = updatedAt; }
 
     @com.google.gson.annotations.SerializedName("version")
     private String mVersion;

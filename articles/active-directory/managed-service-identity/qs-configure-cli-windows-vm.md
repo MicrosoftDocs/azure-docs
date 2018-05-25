@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to configure system and user assigned identities on an Azure VM using Azure CLI
 description: Step by step instructions for configuring a system and user assigned identities on an Azure VM, using Azure CLI.
 services: active-directory
@@ -8,6 +8,7 @@ manager: mtillman
 editor: 
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -110,10 +111,11 @@ This section walks you through creation of a VM with assignment of a user assign
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Create a user assigned identity using [az identity create](/cli/azure/identity#az_identity_create).  The `-g` parameter specifies the resource group where the user assigned identity is created, and the `-n` parameter specifies its name.
+2. Create a user assigned identity using [az identity create](/cli/azure/identity#az_identity_create).  The `-g` parameter specifies the resource group where the user assigned identity is created, and the `-n` parameter specifies its name.    
     
     > [!IMPORTANT]
-    > Creating user assigned identities with special characters (i.e. underscore) in the name is not currently supported. Please use alphanumeric characters. Check back for updates.  For more information see [FAQs and known issues](known-issues.md)
+    > Creating user assigned identities only supports alphanumeric and hyphen (0-9 or a-z or A-Z or -) characters. Additionally, name should be limited to 24 character length for the assignment to VM/VMSS to work properly. Check back for updates. For more information see [FAQs and known issues](known-issues.md)
+
 
     ```azurecli-interactive
     az identity create -g myResourceGroup -n myUserAssignedIdentity

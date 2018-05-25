@@ -4,8 +4,8 @@ description: "Cross-tenant analytics queries using data extracted from multiple 
 keywords: "sql database tutorial"
 services: "sql-database"
 documentationcenter: ""
-author: "stevestein"
-manager: "jhubbard"
+author: "anumjs"
+manager: "craigg"
 editor: "MightyPen"
 
 ms.service: "sql-database"
@@ -13,9 +13,9 @@ ms.custom: "scale out apps"
 ms.workload: "Inactive"
 ms.tgt_pltfrm: ""
 ms.devlang: ""
-ms.topic: "article"
+ms.topic: conceptual
 ms.date: "11/08/2017"
-ms.author: "anjangsh; billgib; genemi"
+ms.author: "anjangsh"
 ---
 # Explore SaaS analytics with Azure SQL Database, SQL Data Warehouse, Data Factory, and Power BI
 

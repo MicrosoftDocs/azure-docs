@@ -7,6 +7,7 @@ ms.author: daveba
 ms.date: 03/28/2018
 ms.topic: reference
 ms.service: active-directory
+ms.component: msi
 manager: mtillman
 ---
 
@@ -24,6 +25,8 @@ The following Azure services support Managed Service Identity.
 | Azure App Service | Preview | September 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager template](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Functions | Preview | September 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager template](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | Preview | November 2017 | [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
+| Azure API Management | Preview | October 2017 | [Azure Resource Manager template](/azure/api-management/api-management-howto-use-managed-service-identity) |
+| Azure Storage | Preview | May 2018 | [Azure portal](/azure/storage/common/storage-auth-aad.md)<br>[PowerShell](/azure/storage/common/storage-auth-aad.md)<br>[Azure CLI](/azure/storage/common/storage-auth-aad.md) | [REST](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)<br>[.NET](/azure/storage/common/storage-auth-aad-app.md)<br>[Java](/azure/storage/common/storage-auth-aad.md)<br>[Python](/azure/storage/common/storage-auth-aad.md) |
 
 ## Azure services that support Azure AD authentication
 
@@ -31,9 +34,10 @@ The following services support Azure AD authentication, and have been tested wit
 
 | Service | Resource ID | Status | Date | Assign access |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com | Available | September 2017 | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
+| Azure Resource Manager | https://management.azure.com/ | Available | September 2017 | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
 | Azure Key Vault | https://vault.azure.net | Available | September 2017 | |
-| Azure Data Lake | https://datalake.azure.net | Available | September 2017 | |
-| Azure SQL | https://database.windows.net | Available | October 2017 | |
+| Azure Data Lake | https://datalake.azure.net/ | Available | September 2017 | |
+| Azure SQL | https://database.windows.net/ | Available | October 2017 | |
 | Azure Event Hubs | https://eventhubs.azure.net | Available | December 2017 | |
 | Azure Service Bus | https://servicebus.azure.net | Available | December 2017 | |
+| Azure Storage | https://storage.azure.com/ | Preview | May 2018 | |

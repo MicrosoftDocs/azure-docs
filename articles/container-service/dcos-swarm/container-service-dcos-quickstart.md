@@ -3,7 +3,7 @@ title: Azure Container Service Quickstart - Deploy DC/OS Cluster
 description: Azure Container Service Quickstart - Deploy DC/OS Cluster
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart

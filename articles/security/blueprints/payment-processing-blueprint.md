@@ -4,7 +4,7 @@ title: Azure Security and Compliance Blueprint - PCI DSS-compliant Payment Proce
 description: Azure Security and Compliance Blueprint - PCI DSS-compliant Payment Processing environments
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
+ms.author: jomolesk
 
 ---
 
@@ -385,11 +385,3 @@ The solution was reviewed by Coalfire systems, Inc. (PCI-DSS Qualified Security 
 - All customer names, transaction records, and any related data on this page are fictitious, created for the purpose of this foundational architecture and provided for illustration only. No real association or connection is intended, and none should be inferred.  
 - This solution was developed jointly by Microsoft and Avyan Consulting, and is available under the [MIT License](https://opensource.org/licenses/MIT).
 - This solution has been reviewed by Coalfire, Microsoft’s PCI-DSS auditor. The [PCI Compliance Review](https://aka.ms/pciblueprintcrm32) provides an independent, third-party review of the solution, and components that need to be addressed. 
-
-### Document authors
-
-- *Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan Consulting)*
-
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code Repository"

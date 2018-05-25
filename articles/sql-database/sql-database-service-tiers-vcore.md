@@ -5,10 +5,9 @@ services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 04/09/2018
+ms.topic: conceptual
+ms.date: 05/14/2018
 manager: craigg
-ms.topic: article
 ms.author: carlrab
 
 ---
@@ -23,7 +22,7 @@ ms.author: carlrab
 |**Purchasing model**|**Description**|**Best for**|
 |---|---|---|
 |DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-what-is-a-dtu.md)?|Best for customers who want simple, pre-configured resource options.| 
-|vCore-based model|This model allows you to independently scale compute and storage resources. It also allows you to use Azure Hybrid Benefit for SQL Server to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
+|vCore-based model|This model allows you to independently scale compute and storage resources - up to 80 vCores, 4 TB of data storage, and 200000 IOPS. It also allows you to use Azure Hybrid Benefit for SQL Server to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
 ||||  
 
 ![pricing model](./media/sql-database-service-tiers/pricing-model.png)
@@ -45,7 +44,7 @@ In the vCore-based purchasing model (preview) customers pay for:
 \*\* During preview, 7 days of backups and IOs are free
 
 > [!IMPORTANT]
-> Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+> Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges, refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 
 > [!IMPORTANT]
 > Region limitations: 
@@ -55,17 +54,17 @@ In the vCore-based purchasing model (preview) customers pay for:
 
 ## Choosing service tier, compute, memory, storage, and IO resources
 
-Converting to the vCore-based purchasing model (preview) enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU in Standard tier requires at least 1 vCore and each 125 DTU in Premium tier requires at least 1 vCore.
+Converting to the vCore-based purchasing model (preview) enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU in Standard tier requires at least 1 vCore in General Purpose tier; each 125 DTU in Premium tier requires at least 1 vCore in Business Critical tier.
 
 The following table helps you understand the differences between these two tiers:
 
 ||**General Purpose**|**Business Critical**|
 |---|---|---|
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|
-|Compute|1 to 16 vCore|1 to 16 vCore|
+|Compute|1 to 80 vCore, Generation 4 and Generation 5 |1 to 80 vCore, Generation 4 and Generation 5|
 |Memory|7 GB per core |7 GB per core |
-|Storage|Premium remote storage, 5 GB – 4 TB|Local SSD storage, 5 GB – 1 TB|
-|IO throughput (approximate)|500 IOPS per vCore with 7500 maximum IOPS|5000 IOPS per core|
+|Storage|Premium remote storage, 5 GB – 4 TB|Local SSD storage, 5 GB – 4 TB|
+|IO throughput (approximate)|500 IOPS per vCore with 7000 maximum IOPS|5000 IOPS per core with 200000 maximum IOPS|
 |Availability|1 replica, no read-scale|3 replicas, 1 [read-scale](sql-database-read-scale-out.md), zone redundant HA|
 |Backups|RA-GRS, 7-35 days (7 days by default)|RA-GRS, 7-35 days (7 days by default)*|
 |In-Memory|N/A|Supported|

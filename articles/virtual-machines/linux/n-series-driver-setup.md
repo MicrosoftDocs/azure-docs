@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/03/2018
+ms.date: 04/27/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -319,7 +319,7 @@ The decimal BusID can be found by running
 echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
 ```
  
-The BusID can change when a VM gets reallocated or rebooted. Therefore, you may want to use a script to update the BusID in the X11 configuration when a VM is rebooted. For example:
+The BusID can change when a VM gets reallocated or rebooted. Therefore, you may want to create a script to update the BusID in the X11 configuration when a VM is rebooted. For example, create a script named `busidupdate.sh` (or another name you choose) with the following contents:
 
 ```bash 
 #!/bin/bash
@@ -328,7 +328,7 @@ BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 |
 if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
 ```
 
-This file can be invoked as root on boot by creating an entry for it in `/etc/rc.d/rc3.d`.
+Then, create an entry for your update script in `/etc/rc.d/rc3.d` so the script is invoked as root on boot.
 
 ## Troubleshooting
 

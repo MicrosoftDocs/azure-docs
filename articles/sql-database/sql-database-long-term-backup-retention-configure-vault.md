@@ -6,16 +6,19 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-
 
 ---
 # Configure and restore from Azure SQL Database long-term backup retention using Azure Recovery Services Vault
 
 You can configure the Azure Recovery Services vault to store Azure SQL database backups and then recover a database using backups retained in the vault using the Azure portal or PowerShell.
+
+> [!NOTE]
+> As part of the initial release of the preview of long-term backup retention in October 2016, backups were stored in the Azure Services Recovery Service vault. This update removes this dependency, but for backward compatibility the original API is supported until May 31, 2018. If you need to interact with backups in the Azure Services Recovery vault, see [Long-term backup retention using Azure Services Recovery Service vault](sql-database-long-term-backup-retention-configure-vault.md). 
+
 
 ## Azure portal
 

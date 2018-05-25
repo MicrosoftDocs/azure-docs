@@ -41,3 +41,5 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
     
 4. Select **Create** to create the profile. 
 
+    For **Azure CDN Standard from Microsoft**, profile completion usually completes in two hours. 
+

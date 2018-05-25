@@ -6,8 +6,8 @@ author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 04/17/2018
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: tomfitz
 ---
 
@@ -32,7 +32,7 @@ The following HTTP response codes indicate that an event has been delivered succ
 
 ### Failure codes
 
-The following HTTP response codes indicate that an event delivery attempt failed. Event Grid tries again to send the event. 
+The following HTTP response codes indicate that an event delivery attempt failed. 
 
 - 400 Bad Request
 - 401 Unauthorized
@@ -43,9 +43,9 @@ The following HTTP response codes indicate that an event delivery attempt failed
 - 503 Service Unavailable
 - 504 Gateway Timeout
 
-Any other response code or a lack of a response indicates a failure. Event Grid retries delivery. 
+If Event Grid receives an error that indicates the endpoint is unavailable, it tries again to send the event. 
 
-## Retry intervals
+## Retry intervals and duration
 
 Event Grid uses an exponential backoff retry policy for event delivery. If your webhook does not respond or returns a failure code, Event Grid retries delivery on the following schedule:
 
@@ -59,9 +59,7 @@ Event Grid uses an exponential backoff retry policy for event delivery. If your 
 
 Event Grid adds a small randomization to all retry intervals. After one hour, event delivery is retried once an hour.
 
-## Retry duration
-
-Azure Event Grid expires all events that are not delivered within 24 hours.
+Event Grid stops attempting to deliver all events that are not delivered within 24 hours.
 
 ## Next steps
 
