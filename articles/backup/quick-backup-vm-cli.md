@@ -58,7 +58,17 @@ az backup protection enable-for-vm \
     --policy-name DefaultPolicy
 ```
 
+> [!NOTE]
+If the VM is not in the same resource group as that of vault, then myResourceGroup refers to the resource group where vault was created. Instead of VM name, please provide the VM ID.
 
+```azurecli-interactive 
+az backup protection enable-for-vm \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --vm $(az vm show -g VMResourceGroup -n MyVm --query id) \
+    --policy-name DefaultPolicy
+```
+>
 ## Start a backup job
 To start a backup now rather than wait for the default policy to run the job at the scheduled time, use [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_backup_now). This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
