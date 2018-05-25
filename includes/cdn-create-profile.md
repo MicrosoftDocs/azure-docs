@@ -24,8 +24,6 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
 
     The **CDN profile** pane appears.
 
-    ![New CDN profile](./media/cdn-create-profile/cdn-new-profile.png)
-
 3. For the CDN profile settings, use the values specified in the following table:
    
     | Setting  | Value |
@@ -37,6 +35,8 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
     | **Pricing tier** | Select **Standard Verizon** from the drop-down list. |
     | **Create a new CDN endpoint now** | Leave unselected. |  
    
+    ![New CDN profile](./media/cdn-create-profile/cdn-new-profile.png)
+
 4. Select **Pin to dashboard** to save the profile to your dashboard after it is created.
     
 5. Select **Create** to create the profile. 

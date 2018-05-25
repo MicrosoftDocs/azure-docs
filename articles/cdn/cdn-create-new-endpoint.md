@@ -43,9 +43,7 @@ After you've created a CDN profile, you can use it to create an endpoint.
    
     ![CDN profile](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
-    The **Add an endpoint** page appears.
-
-    ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+    The **Add an endpoint** pane appears.
 
 3. For the endpoint settings, use the values specified in the following table:
 
@@ -59,6 +57,8 @@ After you've created a CDN profile, you can use it to create an endpoint.
     | **Protocol** | Leave the default **HTTP** and **HTTPS** options selected. |
     | **Origin port** | Leave the default port values. | 
     | **Optimized for** | Leave the default selection, **General web delivery**. |
+
+    ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
 
 3. Select **Add** to create the new endpoint.
    

@@ -76,8 +76,6 @@ You can use several methods to create a storage account, including the Azure por
     | **Configure virtual networks** | Use the default value. |  
     
 5. Select **Pin to dashboard** to save the storage account to your dashboard after it is created.
-
-     For information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
     
 6. Select **Create**. Creating the storage account might take several minutes to finish.
 
