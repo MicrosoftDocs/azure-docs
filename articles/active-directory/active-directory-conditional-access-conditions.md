@@ -185,6 +185,65 @@ Applying this condition only to supported platforms is the equivalent to all dev
 - [Azure Active Directory app-based conditional access](active-directory-conditional-access-mam.md) 
 
 
+### Legacy authentication  
+
+Conditional access now applies to older Office clients that do not support modern authentication as well as clients that use mail protocols like POP, IMAP, SMTP, etc. This allows you to configure policies like “block access from other clients”. 
+
+
+#### How to get started
+
+ To enforce policies for legacy authentication flows, follow the steps below:
+1.	Go to Conditional access and create a new policy.
+
+2.	Select the users and cloud apps and conditions as appropriate. We recommend testing the policy with a small set of users to understand the usage of “Other clients” in your organization.
+
+3.	Navigate to the client app condition and select "Other clients"
+
+ 
+ 
+4.	Select the access control you want to enforce for "Other clients". (Any control selection will lead to block access since the other clients are not able to enforce controls like MFA, device compliance, etc.).
+
+
+#### Known issues
+
+- Configuring policy for “Other clients” will lead to blocking the entire organization from certain clients like SPConnect. This is due to these older clients authenticating in unexpected ways. This issue does not apply to the major Office applications like the older Office clients. 
+
+- It can take up to 24 hours for the policy to take effect. 
+
+
+#### Frequently asked questions
+
+**Will this block Exchange Web Services (EWS)?**
+
+It depends on the authentication protocol that EWS is using. If the EWS application is using modern authentication, it will be covered by the "Mobile apps and desktop clients" client app. If the EWS application is using basic authentication, it will be covered by the “Other clients” client app.
+
+
+**What controls can I use for "Other clients**
+
+Any control can be configured for "Other clients". However, the end user experience will be block access for all cases. "Other clients" do not support controls like MFA, compliant device, domain join, etc. 
+ 
+**What conditions can I use for "Other clients?"**
+
+Any conditions can be configured for "Other clients".
+
+**Does Exchange ActiveSync support all conditions and controls?**
+
+No. Here is the summary of Exchange ActiveSync (EAS) support:
+
+- EAS only supports user and group targeting. It doesn’t support guest, roles. If guest/role condition is configured, all users will get blocked since we cannot determine if the policy should apply to the user or not.
+
+- EAS only works with Exchange as the cloud app. 
+
+- EAS does not support any condition except client app itself.
+
+- EAS can be configured with any control (all except device compliance will lead to block).
+
+**Do the policies apply to all client apps by default going forward?**
+
+No. There is no change in the default policy behavior. The policies will continue to apply to browser and mobile applications/desktop clients by default.
+
+
+
 ## Next steps
 
 - If you want to know how to configure a conditional access policy, see [get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
