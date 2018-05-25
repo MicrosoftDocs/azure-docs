@@ -19,29 +19,18 @@
 
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Routing messages](tutorial-routing.md)
+## [Configure your devices](tutorial-device-twins.md)
 ## Send cloud-to-device messages
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
 ### [Java](iot-hub-java-java-c2d.md)
 ### [Node.js](iot-hub-node-node-c2d.md)
 ### [Python](iot-hub-python-python-c2d.md)
-## Get started with device twins
-### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
-### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
-### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-getstarted.md)
-### [Java back end/Java device](iot-hub-java-java-twin-getstarted.md)
-### [Python back end/Python device](iot-hub-python-twin-getstarted.md)
 ## Get started with device management
 ### [Node.js back end/Node.js device](iot-hub-node-node-device-management-get-started.md)
 ### [.NET back end/Node.js device](iot-hub-csharp-node-device-management-get-started.md)
 ### [.NET back end/.NET device](iot-hub-csharp-csharp-device-management-get-started.md)
 ### [Java back end/Java device](iot-hub-java-java-device-management-getstarted.md)
 ### [Python back end/Python device](iot-hub-python-python-device-management-get-started.md)
-## How to use twin properties
-### [Node.js back end/Node.js device](iot-hub-node-node-twin-how-to-configure.md)
-### [.NET back end/Node.js device](iot-hub-csharp-node-twin-how-to-configure.md)
-### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-how-to-configure.md)
-### [Java back end/Java device](iot-hub-java-java-twin-how-to-configure.md)
-### [Python back end/Python device](iot-hub-python-python-twin-how-to-configure.md)
 ## Use device jobs to update device firmware
 ### [Node back end/Node device](iot-hub-node-node-firmware-update.md)
 ### [.NET back end/Node.js device](iot-hub-csharp-node-firmware-update.md)
@@ -168,6 +157,12 @@
 #### [Node.js](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 #### [iOS](iot-hub-ios-swift-c2d.md)
+### Get started with device twins
+#### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
+#### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java back end/Java device](iot-hub-java-java-twin-getstarted.md)
+#### [Python back end/Python device](iot-hub-python-twin-getstarted.md)
 ### Upload files from devices
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/21/2018
-ms.author: TomSh
+ms.date: 05/24/2018
+ms.author: barclayn
 ms.custom: azlog
 
 ---
 # Azure Log Integration with Azure Diagnostics logging and Windows event forwarding
 
 >[!IMPORTANT]
-> The Azure Log integration feature will be deprecated by 5/30/2019.  Please read about this in the [Introduction to Azure Log Integration](security-azure-log-integration-overview.md) topic before proceeding.
+> The Azure Log integration feature will be deprecated by 12/15/2018.  Please read about this in the [Introduction to Azure Log Integration](security-azure-log-integration-overview.md) topic before proceeding.
 
 You should only use Azure log integration if an [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector isn't available from your Security Incident and Event Management (SIEM) vendor.
 

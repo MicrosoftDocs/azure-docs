@@ -289,7 +289,7 @@ To further explore the capabilities of IoT Hub, see:
 [img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
 [img-service-key]: media/iot-hub-operations-monitoring/service-key.png
 
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-accelerators-with-azure-monitor-and-azure-resource-health
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
 [lnk-monitor]: iot-hub-monitor-resource-health.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-diagnostic-metrics]: iot-hub-metrics.md
