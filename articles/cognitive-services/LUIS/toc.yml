@@ -64,7 +64,8 @@
       - name: PHP
         href: luis-quickstart-php-add-utterance.md
       - name: Ruby
-        href: luis-quickstart-ruby-add-utterance.md- name: Samples
+        href: luis-quickstart-ruby-add-utterance.md
+- name: Samples
   items:
   - name: Code samples
     href: https://github.com/Microsoft/LUIS-Samples

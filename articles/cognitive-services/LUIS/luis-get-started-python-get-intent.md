@@ -1,23 +1,23 @@
 ---
-title: Call a Language Understanding (LUIS) app using Python | Microsoft Docs
-description: Learn to call a LUIS app using Python in this quickstart.
+title: Tutorial learning how to call a Language Understanding (LUIS) app using Python | Microsoft Docs
+description: In this tutorial, you learn to call a LUIS app using Python in this quickstart.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 12/13/2017
 ms.author: v-geberr
 #Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Python. 
 ---
 
-# Quickstart: Call a LUIS endpoint using Python
+# Tutorial: Call a LUIS endpoint using Python
 Pass utterances to a LUIS endpoint and get intent and entities back.
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
-## Before you begin
+## Create LUIS subscription key
 You need a Cognitive Services API key to make calls to the sample LUIS app used in this walkthrough. 
 
 To get an API key, follow these steps: 
