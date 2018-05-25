@@ -66,9 +66,9 @@ The **Required Permissions** windows now shows that your Azure AD application ha
 The code example shows how to get an access token from Azure AD. The access token is used to authenticate the specified user and then authorize a request to create a block blob. To get this sample working, first follow the steps outlined in the preceding sections.
 
 > [!NOTE]
-> As the owner of your Azure Storage account, you are not automatically assigned permissions to your own container and queue objects. You must explicitly assign yourself an RBAC role for Azure Storage. You can assign it at the level of your subscription, resource group, or account for convenience. 
+> As an owner of your Azure Storage account, you are not automatically assigned permissions to access data. You must explicitly assign yourself an RBAC role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container or queue. 
 >
-> For example, to run the sample code on your own storage account and under your own user identity, you must assign the RBAC role for Blob Data Contributor to yourself. Otherwise, the call to create the blob will fail with HTTP status code 403 (Forbidden). For more information, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
+> For example, to run the sample code on a storage account where you are an owner and under your own user identity, you must assign the RBAC role for Blob Data Contributor to yourself. Otherwise, the call to create the blob will fail with HTTP status code 403 (Forbidden). For more information, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
 
 ### Well-known values for authentication with Azure AD
 
