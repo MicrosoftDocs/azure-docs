@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Load Balancer VMs within a zone--Azure portal | Microsoft Docs"
-description: This tutorial demonstrates how to create a Standard Load Balancer with zonal front end to load balance VMs within an availability zone by using Azure portal
+description: This tutorial demonstrates how to create a Standard Load Balancer with zonal frontend to load balance VMs within an availability zone by using Azure portal
 services: load-balancer
 documentationcenter: na
 author: KumudD 
@@ -22,10 +22,10 @@ ms.custom: mvc
 
 # Tutorial: Load balance VMs within an availability zone with Azure Standard Load Balancer by using the Azure portal
 
-This tutorial creates a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zonal front end that uses a public IP standard address by using the Azure portal. In this scenario, you specify a particular zone for your front-end and back-end instances. This zone aligns your data path and resources with a specific zone. You learn how to perform the following functions:
+This tutorial creates a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zonal frontend that uses a public IP standard address by using the Azure portal. In this scenario, you specify a particular zone for your frontend and backend instances, to align your data path and resources with a specific zone. You learn how to perform the following functions:
 
 > [!div class="checklist"]
-> * Create Standard Load Balancer with a zonal front end.
+> * Create Standard Load Balancer with a zonal frontend.
 > * Create network security groups to define incoming traffic rules.
 > * Create zonal virtual machines (VMs) and attach them to a load balancer.
 > * Create a load balancer health probe.
@@ -43,7 +43,7 @@ Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
 ## Create a public Standard Load Balancer
 
-Standard Load Balancer only supports a standard public IP address. When you create a new public IP while creating the load balancer, it's automatically configured as a standard SKU version. It's also automatically zone redundant.
+Standard Load Balancer only supports a Standard Public IP address. When you create a new public IP while creating the load balancer, it's automatically configured as a Standard SKU version. It's also automatically zone redundant.
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Create load balancer** page, enter these values for the load balancer:
@@ -57,9 +57,9 @@ Standard Load Balancer only supports a standard public IP address. When you crea
     ![Create a zonal Standard Load Balancer by using the Azure portal](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
 
 
-## Create back-end servers
+## Create backend servers
 
-In this section, you create a virtual network. You also create two virtual machines in same zone (namely, zone 1) for the region to add to the back-end pool of your load balancer. Then you install IIS on the virtual machines to help test the zone-redundant load balancer. If one VM fails, the health probe for the VM in the same zone fails. Traffic continues to be served by other VMs within the same zone.
+In this section, you create a virtual network. You also create two virtual machines in same zone (namely, zone 1) for the region to add to the backend pool of your load balancer. Then you install IIS on the virtual machines to help test the zone-redundant load balancer. If one VM fails, the health probe for the VM in the same zone fails. Traffic continues to be served by other VMs within the same zone.
 
 ### Create a virtual network
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Virtual network**.  Enter these values for the virtual network:
@@ -108,7 +108,7 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
     - *myRDPRule*, for name.
     - *Allow RDP*, for description.
 
-    ![Create an RDP rule](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
+    ![Create a RDP rule](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### Create virtual machines
 
@@ -151,23 +151,23 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
 
 ## Create load balancer resources
 
-In this section, you configure load balancer settings for a back-end address pool and a health probe. You also specify load balancer and network address translation rules.
+In this section, you configure load balancer settings for a backend address pool and a health probe. You also specify load balancer and network address translation rules.
 
 
-### Create a back-end address pool
+### Create a backend address pool
 
-To distribute traffic to the VMs, a back-end address pool contains the IP addresses of the virtual network interface cards that are connected to the load balancer. Create the back-end address pool *myBackendPool* to include *VM1* and *VM2*.
+To distribute traffic to the VMs, a backend address pool contains the IP addresses of the virtual network interface cards that are connected to the load balancer. Create the backend address pool *myBackendPool* to include *VM1* and *VM2*.
 
 1. Select **All resources** in the left-hand menu. Then select **myLoadBalancer* from the resources list.
 2. Under **Settings**, select **Backend pools**. Then select **Add**.
 3. On the **Add a backend pool** page, take the following actions:
-    - For name, enter *myBackEndPool* as the name for your back-end pool.
+    - For name, enter *myBackEndPool* as the name for your backend pool.
     - For **Virtual network**, in the drop-down menu, select *myVNet*. 
     - For **Virtual machine** and **IP address**, add *myVM1* and *myVM2* and their corresponding public IP addresses.
 4. Select **Add**.
-5. Check to make sure your load balancer back-end pool setting displays both the VMs: **myVM1** and **myVM2**.
+5. Check to make sure your load balancer backend pool setting displays both the VMs: **myVM1** and **myVM2**.
  
-    ![Create a back-end pool](./media/tutorial-load-balancer-standard-zonal-portal/create-backend-pool.png) 
+    ![Create a backend pool](./media/tutorial-load-balancer-standard-zonal-portal/create-backend-pool.png) 
 
 ### Create a health probe
 
@@ -187,7 +187,7 @@ Use a health probe so the load balancer can monitor the status of your app. The 
 
 ### Create a load balancer rule
 
-A load balancer rule defines how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb*, for listening to port 80 in the front-end *FrontendLoadBalancer*. The rule sends load-balanced network traffic to the back-end address pool *myBackEndPool*, also by using port 80. 
+A load balancer rule defines how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb*, for listening to port 80 in the frontend *FrontendLoadBalancer*. The rule sends load-balanced network traffic to the backend address pool *myBackEndPool*, also by using port 80. 
 
 1. Select **All resources** in the left-hand menu. Then select **myLoadBalancer** from the resources list.
 2. Under **Settings**, select **Load balancing rules**. Then select **Add**.
@@ -195,8 +195,8 @@ A load balancer rule defines how traffic is distributed to the VMs. You define t
     - *myHTTPRule*, for the name of the load balancing rule.
     - **TCP**, for the protocol type.
     - *80*, for the port number.
-    - *80*, for the back-end port.
-    - *myBackendPool*, for the name of the back-end pool.
+    - *80*, for the backend port.
+    - *myBackendPool*, for the name of the backend pool.
     - *myHealthProbe*, for the name of the health probe.
 4. Select **OK**.
     
