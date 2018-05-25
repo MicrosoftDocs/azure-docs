@@ -83,7 +83,7 @@ If your database is encrypted with TDE, the backups are automatically encrypted 
 
 ## How do automated backups impact my compliance?
 
-When you migrate your database from a DTU-based service tier with the default PITR retention of 35 days, to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy is not compromized. If your keeping the backups for 35 days does not meet your compliance rules, you can use change the PITR retention period using PowerShell or REST API. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
+When you migrate your database from a DTU-based service tier with the default PITR retention of 35 days, to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy is not compromized. If the default retention doesn't meet your compliance requirements, you can change the PITR retention period using PowerShell or REST API. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -93,14 +93,14 @@ You can change the default retention using REST API or PowerShell. The supported
 > [!NOTE]
 > Thes APIs will only impact the PITR retention period. If you configured LTR for your database, it will not be impacted. See [Long-term backup retention](sql-database-long-term-retention.md) for details of how to change the LTR retention period(s).
 
-### Set PITR backup retention period using PowerShell
+### Change PITR backup retention period using PowerShell
 ```powershell
 Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 > [!IMPORTANT]
 > This APIs is included in Azure PowerShell starting from version 4.6.0-preview. 
 
-## Change PTR retention period using REST API
+### Change PTR retention period using REST API
 **Sample Request**
 ```http
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
