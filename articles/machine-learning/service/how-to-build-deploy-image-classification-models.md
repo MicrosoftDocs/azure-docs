@@ -223,7 +223,6 @@ else:
 ## Define DNN models
 
 The following pretrained Deep Neural Network models are supported with this package: 
-+ AlexNet
 + Resnet-18
 + Resnet-34
 + Resnet-50
@@ -440,13 +439,9 @@ Using an [Azure](https://azure.microsoft.com/) account with a valid subscription
 + To see the current model management account, use the command:
   <br>`az ml account modelmanagement show`
 
-**Create and set your deployment environment**
+**Create and set your cluster deployment environment**
 
 You only need to set your deployment environment once. If you don't have one yet, set up your deployment environment now using [these instructions](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
-
-Follow either the local or the cluster deployment setup steps correctly based on your need.
-+ Local deployments are supported for Linux and Windows 10 machines, but not for the Windows Data Science VM or the Deep Learning VM. 
-+ Cluster environment deployments are supported for both Linux and Windows. 
 
 To see your active deployment environment, use the following CLI command:
 <br>`az ml env show`
