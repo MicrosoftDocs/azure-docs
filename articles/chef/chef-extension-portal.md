@@ -76,25 +76,25 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
 
 1. On the **Install extension** tab, specify the following values, and then select **OK**.
 
-    - **Chef Server URL** - Enter the Chef Server URL that includes the organization name. I used *https://api.chef.io/organization/hessco* for the demo.
+    - **Chef Server URL** - Enter the Chef Server URL that includes the organization name, for example, *https://api.chef.io/organization/hessco*.
     - **Chef Node Name** - Enter the Chef Node name. This can be any value.
-    - **Run List** - Enter the Chef run list that is added to the machine. This can be blank.
-    - **Validation Client Name** - Enter the Chef Validation Client Name. I used *tarcher-validator* for the demo.
+    - **Run List** - Enter the Chef run list that is added to the machine. This can be left blank.
+    - **Validation Client Name** - Enter the Chef Validation Client Name. for example, *tarcher-validator*.
     - **Validation Key** - Select a file containing the validation key used when bootstrapping your machines. 
-    - **Client Configuration File** - Select a configuration file for chef-client. This can be blank.
-    - **Chef Client version** - Enter the version of the chef client to install. A blank value will cause the latest version to be installed. This can be blank.
-    - **SSL Verification Mode** - Select either **None** or **Peer**. I selected *None* for the demo.
-    - **Chef Environment** - Enter the Chef environment this node should be a member of. This can be blank.
-    - **Encrypted Databag Secret** - Select a file containing the secret for the Encrypted Databag this machine should have access to. This can be blank.
-    - **Chef Server SSL Certificate** - Select the SSL Certificate assigned to your Chef Server. This can be blank.
+    - **Client Configuration File** - Select a configuration file for chef-client. This can be left blank.
+    - **Chef Client version** - Enter the version of the chef client to install. This can be left blank. A blank value will cause the latest version to be installed. 
+    - **SSL Verification Mode** - Select either **None** or **Peer**. *None* was selected for the demo.
+    - **Chef Environment** - Enter the Chef environment this node should be a member of. This can be left blank.
+    - **Encrypted Databag Secret** - Select a file containing the secret for the Encrypted Databag this machine should have access to. This can be left blank.
+    - **Chef Server SSL Certificate** - Select the SSL Certificate assigned to your Chef Server. This can be left blank.
 
     ![Installing the Chef Server on a Linux virtual machine](./media/chef-extension-portal/install-extension.png)
 
-1. When returned to the **Extensions** tab, select **OK**.
+1. When returning to the **Extensions** tab, select **OK**.
 
-1. When returned to the **Settings** tab, select **OK**.
+1. When returning to the **Settings** tab, select **OK**.
 
-1. When returned to the **Create** tab (that represents a summary of the options you selected and entered), verify the information as well as the **Terms of use**, and select **Create**.
+1. When returning to the **Create** tab (this represents a summary of the options you selected and entered), verify the information as well as the **Terms of use**, and select **Create**.
 
 When the process of creating and deploying the virtual machine with the Chef Extension is complete, a notification indicates the success or failure of the operation. In addition, the resource page for the new virtual machine automatically opens in the Azure portal once it's been created.
 
