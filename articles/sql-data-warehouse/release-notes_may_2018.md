@@ -70,5 +70,8 @@ SELECT * INTO table2 FROM table1 ORDER BY 1;
 The error statement returned:
 ```
 Msg 104381, Level 16, State 1, Line 1
-The ORDER BY clause is invalid in views, CREATE TABLE AS SELECT, INSERT SELECT, SELECT INTO, inline functions, derived tables, subqueries, and common table expressions, unless TOP or FOR XML is also specified. 
+The ORDER BY clause is invalid in views, CREATE TABLE AS SELECT, INSERT SELECT, SELECT INTO, inline functions, derived tables, subqueries, and common table expressions, unless TOP or FOR XML is also specified.
 ```
+
+## SET PARSEONLY ON query status
+Using the `SET PARSEONLY ON` syntax allows a user to have the SQL Data Warehouse engine examine the syntax of each T-SQL statement and return any error messages without compiling or executing the statement. Previously, in the [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) system view, the status for these statements would remain in the `Running` state. The `sys.dm_pdw_exec_requests` view will now return the status as `Complete`.
