@@ -115,7 +115,7 @@ For example, provide a string description for how many cars of the same make pas
         TumblingWindow(second, 10)
 
 **Explanation**:
-The **CASE** clause allows us to provide a different computation, based on some criteria (in our case, the count of the cars in the aggregate window).
+The **CASE** clause allows us to provide a different computation, based on some criteria (in this case, the count of the cars in the aggregate window).
 
 ## Query example: Send data to multiple outputs
 **Description**: Send data to multiple output targets from a single job.
@@ -585,6 +585,47 @@ WHERE
 The first query `max_power_during_last_3_mins`, uses the [Sliding window](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) to find the max value of the power sensor for every device, during the last 3 minutes. 
 The second query is joined to the first query to find the power value in the most recent window relevant for the current event. 
 And then, provided the conditions are met, an alert is generated for the device.
+
+## Query example: Process events independent of Device Clock Skew (substreams)
+**Description**: Clock skews between event producers, clock skews between partitions, and network latency can all cause events to arrive late or out of order. In the following example, the device clock for TollID 2 is ten seconds behind TollID 1, and the device clock for TollID 3 is five seconds behind TollID 1. 
+
+
+**Input**:
+| LicensePlate | Make | Time | TollID |
+| --- | --- | --- | --- |
+| DXE 5291 |Honda |2015-07-27T00:00:00.0000000Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:00:02.0000000Z | 2 |
+| QYF 9358 |Honda |2015-07-27T00:00:05.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:07.0000000Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+
+**Output**:
+| TollID | Count |
+| --- | --- |
+| 1 | 1 |
+| 2 | 1 |
+| 2 | 2 |
+| 1 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+
+**Solution**:
+
+````
+SELECT
+      TollId,
+      COUNT(*) AS Count
+FROM input
+      TIMESTAMP BY Time OVER TollId
+GROUP BY TUMBLINGWINDOW(second, 5), TollId
+
+````
+
+**Explanation**:
+The [TIMESTAMP BY OVER](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) clause looks at each device timeline separately using substreams. The output events for each TollID are generated as they are computed, meaning that the events are in order with respect to each TollID instead of being reordered as if all devices were on the same clock.
 
 
 ## Get help
