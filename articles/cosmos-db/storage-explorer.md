@@ -217,7 +217,7 @@ Before proceeding further, try restarting your application and see if the proble
 
 There are a few reasons you may be seeing this error, the two most common ones are:
 
-+ You're behind a “transparent proxy”, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
++ You're behind a *transparent proxy*, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
 
 + You're running software, such as anti-virus software, which is injecting a self-signed SSL certificates into the HTTPS messages you receive.
 
