@@ -14,7 +14,7 @@ ms.date: 05/24/2018
 
 ## Adding a user in the Azure portal
 
-## Start with the Add User Wizard
+## Start the Add User Wizard
 * Open your Azure Data Lake Analytics via https://portal.azure.com 
 * Click **Add User Wizard**
 * In the **Select user** step, find the user you want to add. Click **Select**.
