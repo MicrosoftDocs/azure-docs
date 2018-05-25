@@ -1,17 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Deploy Azure Machine Learning with Azure IoT Edge | Microsoft Docs
 description: Deploy Azure Machine Learning as a module to an edge device
-services: iot-edge
-keywords:
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 03/12/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Deploy Azure Machine Learning as an IoT Edge module - preview

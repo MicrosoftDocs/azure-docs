@@ -6,7 +6,6 @@ author: kanshiG
 manager: kfile
 
 ms.service: cosmos-db
-ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: govindk
