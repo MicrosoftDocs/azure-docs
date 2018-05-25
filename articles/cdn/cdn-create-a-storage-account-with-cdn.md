@@ -36,13 +36,19 @@ You can use several methods to create a storage account, including the Azure por
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the upper-left corner, select **Create a resource**. In the **New** pane, select **Storage**, and then select **Storage account - blob, file, table, queue**.
+2. In the upper-left corner, select **Create a resource**. 
+
+    The **New** pane appears.
+
+3. Select **Storage**, then select **Storage account - blob, file, table, queue**.
 	
+    ![Select storage resource](./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png)
+
 	The **Create storage account** pane appears.   
 
     ![Create storage account pane](./media/cdn-create-a-storage-account-with-cdn/cdn-create-new-storage-account.png)
 
-3. In the **Name** box, enter a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
+4. In the **Name** box, enter a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
    
     This value becomes the host name within the URI that's used to address blob, queue, or table resources for the subscription. To address a container resource in Blob storage, use a URI in the following format:
    
@@ -55,7 +61,7 @@ You can use several methods to create a storage account, including the Azure por
    
     This value is also used as the name of the storage account in the portal or when you're accessing this account programmatically.
     
-4. For the remainder of the settings, use the values specified in the following table.
+5. For the remainder of the settings, use the values specified in the following table:
 
     | Setting  | Value |
     | -------- | ----- |
@@ -69,11 +75,11 @@ You can use several methods to create a storage account, including the Azure por
     | **Resource group** | Select **Create new** and enter *my-resource-group-123* for your resource group name. This name must be globally unique. If it is already in use, you may enter a different name or you can select **Use existing** and select **my-resource-group-123** from the drop-down list. <br />For information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).| 
     | **Configure virtual networks** | Use the default value. |  
     
-5. Select **Pin to dashboard** to save the storage account to your dashboard after it is created.
+6. Select **Pin to dashboard** to save the storage account to your dashboard after it is created.
 
      For information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
     
-6. Select **Create**. Creating the storage account might take several minutes to finish.
+7. Select **Create**. Creating the storage account might take several minutes to finish.
 
 ## Enable Azure CDN for the storage account
 
@@ -85,7 +91,7 @@ You can enable Azure CDN for your storage account directly from your storage acc
 
 	![Create CDN endpoint](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png)
 	
-2. Create a new endpoint by entering the required information specified in the following table.
+2. Create a new endpoint by entering the required information specified in the following table:
 
     | Setting  | Value |
     | -------- | ----- |
@@ -119,6 +125,17 @@ If you no longer want to cache an object in Azure CDN, you can take one of the f
 * Modify your hosted service to no longer respond to requests for the object.
 
 An object that's already cached in Azure CDN remains cached until the time-to-live period for the object expires or until the endpoint is purged. When the time-to-live period expires, Azure CDN determines whether the CDN endpoint is still valid and the object is still anonymously accessible. If they are not, the object will no longer be cached.
+
+## Clean up resources
+In the preceding steps, you created a CDN profile and an endpoint in a resource group. Save these resources if you want to go to [Next steps](#next-steps) and learn how to add a custom domain to your endpoint. However, if you don't expect to use these resources in the future, you can delete them by deleting the resource group, thus avoiding additional charges:
+
+1. From the left-hand menu in the Azure portal, select **Resource groups** and then select **my-resource-group-123**.
+
+2. On the **Resource group** page, select **Delete resource group**, enter *my-resource-group-123* in the text box, then select **Delete**.
+
+    This action will delete the resource group, profile, and endpoint that you created in this quickstart.
+
+3. To delete your storage account, select it from the dashboard, then select **Delete** from the top menu.
 
 ## Next steps
 To learn about adding a custom domain to your CDN endpoint, see the following tutorial:

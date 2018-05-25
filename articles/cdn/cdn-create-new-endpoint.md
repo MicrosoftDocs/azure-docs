@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create an Azure CDN profile and endpoint | Microsoft Docs
-description: This quickstart shows how to enable Azure CDN by creating a new CDN profile and endpoint.
+description: This quickstart shows how to enable Azure CDN by creating a new CDN profile and CDN endpoint.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -24,7 +24,7 @@ In this quickstart, you enable Azure Content Delivery Network (CDN) by creating 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
-For the purposes of this quickstart, you must have created a storage account named *mystorageacct123*, which you use for the origin hostname. For more information, see [Integrate an Azure storage account with Azure CDN](cdn-create-a-storage-account-with-cdn.md)
+For the purposes of this quickstart, you must have created a storage account named *mystorageacct123*, which you use for the origin hostname. For more information, see [Integrate an Azure storage account with Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
 ## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
@@ -45,9 +45,7 @@ After you've created a CDN profile, you can use it to create an endpoint.
    
     The **Add an endpoint** page appears.
 
-    Use the settings specified in the table following the image.
-   
-    ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+3. For the endpoint settings, use the values specified in the following table:
 
     | Setting | Value |
     | ------- | ----- |
@@ -60,6 +58,8 @@ After you've created a CDN profile, you can use it to create an endpoint.
     | **Origin port** | Leave the default port values. | 
     | **Optimized for** | Leave the default selection, **General web delivery**. |
     
+     ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+
 3. Select **Add** to create the new endpoint.
    
    After the endpoint is created, it appears in the list of endpoints for the profile.
