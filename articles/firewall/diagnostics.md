@@ -18,7 +18,7 @@ You can monitor Azure Firewall resources in the following ways:
 
 * [Logs](#diagnostic-logging): You can save performance logs, access logs, and other data. You can then use this data for monitoring purposes.
 
-* [Metrics](#metrics): Azure Firewall currently has seven metrics to view performance counters.
+* [Metrics](#metrics): Azure Firewall currently has xxx  metrics to view performance counters.
 
 
 ## <a name="diagnostic-logging"></a>Diagnostic logs
@@ -26,8 +26,9 @@ You can monitor Azure Firewall resources in the following ways:
 You can use different types of logs in Azure to manage and troubleshoot Azure Firewalls. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
 * **Activity log**: You can use [Azure activity logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
-* **Access log**: You can use this log to view Firewall access patterns and analyze important information, including the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 300 seconds. This log contains one record per instance of Firewall. The Firewall instance can be identified by the instanceId property.
-* **Performance log**: You can use this log to view how Firewall instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds.
+
+* **Application rule log**:
+* **Network rule log**:
 
 
 > [!NOTE]
@@ -90,87 +91,44 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
 Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../monitoring-and-diagnostics/insights-debugging-with-events.md) article.
 
-### Access log
+### Application rule log
 
-The access log is generated only if you've enabled it on each Firewall instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Firewall is logged in JSON format, as shown in the following example:
-
-
-|Value  |Description  |
-|---------|---------|
-|instanceId     | Firewall instance that served the request.        |
-|clientIP     | Originating IP for the request.        |
-|clientPort     | Originating port for the request.       |
-|httpMethod     | HTTP method used by the request.       |
-|requestUri     | URI of the received request.        |
-|RequestQuery     | **Server-Routed**: Back-end pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br>**SERVER-STATUS**: HTTP response code that Firewall received from the back end.       |
-|UserAgent     | User agent from the HTTP request header.        |
-|httpStatus     | HTTP status code returned to the client from Firewall.       |
-|httpVersion     | HTTP version of the request.        |
-|receivedBytes     | Size of packet received, in bytes.        |
-|sentBytes| Size of packet sent, in bytes.|
-|timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Firewall receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
-|sslEnabled| Whether communication to the back-end pools used SSL. Valid values are on and off.|
-```json
-{
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
-    "operationName": "ApplicationGatewayAccess",
-    "time": "2017-04-26T19:27:38Z",
-    "category": "ApplicationGatewayAccessLog",
-    "properties": {
-        "instanceId": "ApplicationGatewayRole_IN_0",
-        "clientIP": "191.96.249.97",
-        "clientPort": 46886,
-        "httpMethod": "GET",
-        "requestUri": "/phpmyadmin/scripts/setup.php",
-        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
-        "userAgent": "-",
-        "httpStatus": 404,
-        "httpVersion": "HTTP/1.0",
-        "receivedBytes": 65,
-        "sentBytes": 553,
-        "timeTaken": 205,
-        "sslEnabled": "off"
-    }
-}
-```
-
-### Performance log
-
-The performance log is generated only if you have enabled it on each Firewall instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. The following data is logged:
+Application rule log overview. Each application rule access is logged in JSON format, as shown in the following example:
 
 
 |Value  |Description  |
 |---------|---------|
-|instanceId     |  Firewall instance for which performance data is being generated. For a multiple-instance Firewall, there is one row per instance.        |
-|healthyHostCount     | Number of healthy hosts in the back-end pool.        |
-|unHealthyHostCount     | Number of unhealthy hosts in the back-end pool.        |
-|requestCount     | Number of requests served.        |
-|latency | Latency (in milliseconds) of requests from the instance to the back end that serves the requests. |
-|failedRequestCount| Number of failed requests.|
-|throughput| Average throughput since the last log, measured in bytes per second.|
+|msg     | Need description|
 
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
-    "operationName": "ApplicationGatewayPerformance",
-    "time": "2016-04-09T00:00:00Z",
-    "category": "ApplicationGatewayPerformanceLog",
-    "properties":
-    {
-        "instanceId":"ApplicationGatewayRole_IN_1",
-        "healthyHostCount":"4",
-        "unHealthyHostCount":"0",
-        "requestCount":"185",
-        "latency":"0",
-        "failedRequestCount":"0",
-        "throughput":"119427"
-    }
+     "category": "AzureFirewallApplicationRule",
+     "time": "2018-04-16T23:45:04.8295030Z",
+     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/SECUREGATEWAYS/{resourceName}",
+     "operationName": "AzureFirewallApplicationRuleLog",
+     "properties": "{\"msg\":\"HTTPS request from 10.1.0.5 to mydestination.com was allowed. Action: Allow. Rule Collection: collection1000. Rule: rule1002\"}",
+     "Tenant": "REPLACE_ME",
+     "Role": "sgw",
+     "RoleInstance": "gsa-a88322d6-8879000002"
 }
+
 ```
 
-> [!NOTE]
-> Latency is calculated from the time when the first byte of the HTTP request is received to the time when the last byte of the HTTP response is sent. It's the sum of the Firewall processing time plus the network cost to the back end, plus the time that the back end takes to process the request.
+### Network rule log
 
+Network rule log description. The following data is logged:
+
+
+|Value  |Description  |
+|---------|---------|
+|xxx     | xxx|
+
+
+```json
+{
+xxx
+}
+```
 
 
 ### View and analyze the activity log
@@ -195,30 +153,14 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 Metrics are a feature for certain Azure resources where you can view performance counters in the portal. For Firewall, the following metrics are available:
 
-- **Current Connections**
-- **Failed Requests**
-- **Healthy Host Count**
-
-   You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
+- **xxx**
+- **yyy**
+- **zzz**
 
 
-- **Response Status**
-
-   The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.
-
-- **Throughput**
-- **Total Requests**
-- **Unhealthy Host count**
-
-   You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
 
 Browse to a Firewall, under **Monitoring** click **Metrics**. To view the available values, select the **METRIC** drop-down list.
 
-In the following image, you see an example with three metrics displayed for the last 30 minutes:
-
-[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
-
-To see a current list of metrics, see [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
 ### Alert rules
 
