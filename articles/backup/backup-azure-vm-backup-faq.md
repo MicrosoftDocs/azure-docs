@@ -1,23 +1,14 @@
-
 ---
-title: Azure VM Backup FAQ | Microsoft Docs
+title: Azure VM Backup FAQ
 description: 'Answers to common questions about: how Azure VM backup works, limitations and what happens when changes to policy occur'
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
 keywords: azure vm backup, azure vm restore, backup policy
-
-ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
-
+ms.author: trinadhk
 ---
 # Questions about the Azure VM Backup service
 This article has answers to common questions to help you quickly understand the Azure VM Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).

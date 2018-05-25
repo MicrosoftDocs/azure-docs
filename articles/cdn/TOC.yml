@@ -10,6 +10,8 @@
   items:
   - name: Create a profile and endpoint
     href: cdn-create-new-endpoint.md
+  - name: Integrate a storage account
+    href: cdn-create-a-storage-account-with-cdn.md    
 - name: Tutorials
   items:
   - name: Add Azure CDN to a web app
@@ -32,16 +34,6 @@
     href: cdn-china-delivery.md    
 - name: How-to guides
   items:
-  - name: Integrate
-    items:
-    - name: Storage
-      items:
-      - name: Integrate a storage account
-        href: cdn-create-a-storage-account-with-cdn.md
-      - name: SAS storage support
-        href: cdn-sas-storage-support.md
-    - name: Cross-origin resource sharing
-      href: cdn-cors.md
   - name: Optimize content
     items:
     - name: Optimization overview
@@ -85,6 +77,10 @@
         href: cdn-manage-expiration-of-blob-content.md
     - name: Token authentication
       href: cdn-token-auth.md
+    - name: SAS storage support
+      href: cdn-sas-storage-support.md
+    - name: Cross-origin resource sharing
+      href: cdn-cors.md      
     - name: Monitor resources
       href: cdn-resource-health.md
     - name: Override behavior with rules

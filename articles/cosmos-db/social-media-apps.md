@@ -5,12 +5,9 @@ keywords: social media apps
 services: cosmos-db
 author: ealsur
 manager: kfile
-documentationcenter: ''
 
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
