@@ -83,14 +83,17 @@ Sharepointserviceaccount can be the SPS machine account or a service account und
 
 ## SSO for non-Windows apps
 
-The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). In the next phase, a request is sent to the backend application with this Kerberos ticket. There are several protocols that define how to send such requests. Most non-Windows servers expect to negotiate with SPNEGO. This protocol is supported on Azure AD Application Proxy, but is disabled by default.
+The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). In the next phase, a request is sent to the backend application with this Kerberos ticket. 
 
-For applications that require SPNEGO, use dedicated proxy connectors. 
+There are several protocols that define how to send such requests. Most non-Windows servers expect to negotiate with SPNEGO. This protocol is supported on Azure AD Application Proxy, but is disabled by default. A server can be configured for SPNEGO or standard KCD, but not both.
+
+If you configure a connector machine for SPNEGO, make sure that all other connectors in that Connector group are also configured with SPNEGO. Applications expecting standard KCD should be routed through other connectors that are not configured for SPNEGO.
+ 
 
 To enable SPNEGO:
 
 1. Open an command prompt that runs as administrator.
-2. From the command prompt, run the commands on the dedicated connector servers.
+2. From the command prompt, run the following commands on the connector servers that need SPNEGO.
 
     ```
     REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
