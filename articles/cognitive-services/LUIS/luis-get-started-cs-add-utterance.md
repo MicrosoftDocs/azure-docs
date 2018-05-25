@@ -307,11 +307,7 @@ Requested training status.
 When you are done with the tutorial, remove Visual Studio and the console application if you don't need them anymore. 
 
 ## Next steps
-
- 
 > [!div class="nextstepaction"] 
 > [Build a LUIS app programmatically](luis-tutorial-node-import-utterances-csv.md) 
-
-> [Authoring APIs](https://aka.ms/luis-authoring-api)
 
 [LUIS]: luis-reference-regions.md#luis-website
