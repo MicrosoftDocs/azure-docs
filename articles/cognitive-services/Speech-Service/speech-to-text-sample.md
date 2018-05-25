@@ -73,9 +73,10 @@ fill in your CRIS subscription key and your own deployment ID before running it.
 
 - - -
 
-## Downloading the sample
+## Sample Source Code
 
-The samples in this article are contained in the sample package; please download from [here](https://aka.ms/csspeech/winsample).
+The latest version of the samples in this article and even more advanced samples are in a dedicated [GitHub repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+
 
 ## Next steps
 
