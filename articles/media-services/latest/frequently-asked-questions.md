@@ -49,7 +49,7 @@ This allows you to either get a small sample of items using $top (for example, t
 
 Media Services does not support paging through the data with a user specified page size.
 
-## How to retrieve an entity based on its GUID, what used to be ID in v2?
+## How to retrieve an entity in Media Services v3?
 
 v3 is based on a unified API surface, which exposes both management and operations functionality built on **Azure Resource Manager**. In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
 
