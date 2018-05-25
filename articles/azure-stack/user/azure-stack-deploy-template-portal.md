@@ -37,4 +37,4 @@ You can use the portal to deploy Azure Resource Manager templates to Azure Stack
 
 ## Next steps
 
-[Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
+* [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
