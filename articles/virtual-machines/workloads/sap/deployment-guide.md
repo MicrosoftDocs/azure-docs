@@ -4,7 +4,7 @@ description: Learn how to deploy SAP software on Linux virtual machines in Azure
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
