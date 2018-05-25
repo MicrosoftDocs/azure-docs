@@ -1,5 +1,5 @@
 metadata:
-  experimental: true
+  experimental: false
   experiment_id: "d1c17cc0-2ae0-4b"
 items:
   - name: Azure Cosmos DB Documentation
@@ -476,10 +476,10 @@ items:
       href: storage-explorer.md
   - name: Resources
     items:
-    - name: Manage using Storage Explorer
-      href: storage-explorer.md 
     - name: Query cheat sheet
       href: query-cheat-sheet.md
+    - name: Manage using Storage Explorer
+      href: storage-explorer.md 
     - name: 20 days of tips
       href: 20-days-of-tips.md
     - name: Videos
