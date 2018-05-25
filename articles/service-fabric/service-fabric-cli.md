@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 05/23/2018
 ms.author: bikang
 
 ---
