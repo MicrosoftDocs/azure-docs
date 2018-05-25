@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 05/25/2018
 ms.author: jeedes
 
 ---
@@ -115,9 +115,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Single sign-on dialog box](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_singlesign-onforjira5.2_samlbase.png)
 
-3. On the **JIRA SAML SSO by Microsoft (v 5.2) Domain and URLs** section, perform the following steps:
+3. On the **JIRA SAML SSO by Microsoft Domain and URLs** section, perform the following steps:
 
-	![JIRA SAML SSO by Microsoft (v 5.2) Domain and URLs single sign-on information](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_singlesign-onforjira5.2_url.png)
+	![JIRA SAML SSO by Microsoft Domain and URLs single sign-on information](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_singlesign-onforjira5.2_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<domain:port>/plugins/servlet/saml/auth`
 
@@ -219,7 +219,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Create a JIRA SAML SSO by Microsoft (v 5.2) test user
 
-To enable Azure AD users to log in to JIRA on-premise server, they must be provisioned into JIRA SAML SSO by Microsoft (v 5.2). For JIRA SAML SSO by Microsoft (v 5.2), provisioning is a manual task.
+To enable Azure AD users to log in to JIRA on-premise server, they must be provisioned into JIRA on-premises server.
 
 **To provision a user account, perform the following steps:**
 
