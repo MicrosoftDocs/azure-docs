@@ -1,21 +1,14 @@
 ---
-title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable | Microsoft Docs'
+title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable'
 description: 'Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.'
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
-keywords: Azure backup; VM agent; Network connectivity; 
-
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
+keywords: Azure backup; VM agent; Network connectivity;
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
+ms.author: genli
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension

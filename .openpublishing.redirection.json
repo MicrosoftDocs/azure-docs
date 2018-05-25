@@ -2491,6 +2491,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-alert-activity-log.md",
+            "redirect_url": "/azure/automation/automation-alert-metric",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-remove-hrw.md",
             "redirect_url": "/azure/automation/automation-hybrid-runbook-worker",
             "redirect_document_id": false
@@ -17952,7 +17957,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/ps-extensions-diagnostics.md",
-            "redirect_url": "/azure/virtual-machines/extensions/diagnostics-powershell",
+            "redirect_url": "/azure/virtual-machines/extensions/diagnostics-windows",
             "redirect_document_id": false
         },
         {
@@ -18174,6 +18179,31 @@
             "source_path": "articles/iot-hub/iot-hub-iot-edge-create-module-java.md",
             "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-java.md",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-python-python-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",

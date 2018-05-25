@@ -1,22 +1,14 @@
-﻿---
-title: Deploy and manage backups for Resource Manager-deployed VMs using PowerShell | Microsoft Docs
+---
+title: Deploy and manage backups for Resource Manager-deployed VMs using PowerShell
 description: Use PowerShell to deploy and manage backups in Azure for Resource Manager-deployed VMs
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
-
-ms.assetid: 68606e4f-536d-4eac-9f80-8a198ea94d52
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk;pullabhk
+ms.author: markgal
 ms.custom: H1Hack27Feb2017
-
 ---
 # Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines
 
