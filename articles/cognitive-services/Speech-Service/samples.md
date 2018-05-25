@@ -18,6 +18,8 @@ You can download compressed archives of the Windows and Linux samples and tutori
 
 - [Download samples for Windows](https://aka.ms/csspeech/winsample)
 - [Download samples for Linux](https://aka.ms/csspeech/linuxsample)
+- [Sample Source Code GitHub Repository for Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
 - [Download sample for Android (only for the Speech Devices SDK)](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
 
 All samples are provided under the MIT License.
