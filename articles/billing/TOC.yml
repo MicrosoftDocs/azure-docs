@@ -41,9 +41,9 @@
     href: billing-how-to-switch-azure-offer.md
   - name: Pay by invoice
     href: billing-how-to-pay-by-invoice.md 
-  - name: Create management group
+  - name: Create management groups
     href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json  
-  - name: Move resources
+  - name: Move Azure resources
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: Create Enterprise subscriptions
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
@@ -97,14 +97,14 @@
       href: billing-manage-reserved-vm-instance.md
 - name: Troubleshoot
   items:
-  - name: Sign-up issues
-    href: https://support.microsoft.com/en-us/help/4042959
-  - name: Declined card
-    href: https://support.microsoft.com/en-us/help/4042960
-  - name: Sign-in issues
-    href: https://support.microsoft.com/en-us/help/4042961
   - name: No subscriptions found
     href: billing-no-subscriptions-found.md
+  - name: Declined card
+    href: https://support.microsoft.com/en-us/help/4042960
+  - name: Sign up issues
+    href: https://support.microsoft.com/en-us/help/4042959
+  - name: Sign in issues
+    href: https://support.microsoft.com/en-us/help/4042961
   - name: Enterprise cost view disabled
     href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
   - name: Contact support

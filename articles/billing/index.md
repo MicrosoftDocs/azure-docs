@@ -145,10 +145,10 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Organize resources</h3>
+                        <h3>Organize Azure resources</h3>
                         <p>
                         <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Use resource tags</a><br/>
-                        <a href="/azure/azure-resource-manager/management-groups-overview?toc=/azure/billing/TOC.json">Management groups</a><br/>
+                        <a href="/azure/azure-resource-manager/management-groups-overview?toc=/azure/billing/TOC.json">Create management groups</a><br/>
                         <a href="/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/billing/TOC.json">Move Azure resources</a><br/>
                         <a href="/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment?toc=/azure/billing/TOC.json">Deploy Azure resources</a>
                         </p>
@@ -166,8 +166,8 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <p>
                         <a href="/azure/billing/billing-no-subscriptions-found">'No subscription found'</a><br/>
                         <a href="https://support.microsoft.com/help/4042960/troubleshoot-why-your-debit-card-or-credit-card-is-declined-at-azure-s">Declined card</a><br/>
-                        <a href="https://support.microsoft.com/help/4042959/troubleshoot-why-you-can-t-sign-up-for-azure">Sign up</a><br/>
-                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">Sign in</a>
+                        <a href="https://support.microsoft.com/help/4042959/troubleshoot-why-you-can-t-sign-up-for-azure">Sign up issues</a><br/>
+                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">Sign in issues</a>
                         </p>
                     </div>
                 </div>
