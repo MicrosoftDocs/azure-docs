@@ -51,19 +51,20 @@ as the first step in your logic app
   must start with a trigger and have any actions 
   that create the outputs you're working on.
 
-All the examples in this article For all the examples in this article, 
+All the examples in this article use the Recurrence trigger.....
+
 
 ## Create tables from output
 
 <a name="create-csv-table"></a>
 
-### Create CSV table from output
+### Create CSV table from array
 
 1. In the Azure portal or Visual Studio, 
 open your logic app in Logic App Designer. 
 
-   This example uses the Azure portal 
-   and a logic app with an existing trigger.
+   This example uses the Azure portal and a 
+   logic app that already has a trigger.
 
 2. In your logic app where you want to create the CSV table, 
 follow one of these steps: 
@@ -84,15 +85,16 @@ From the actions list, select **Data Operations - Create CSV table**.
 When the dynamic content list opens, select the item to use as the 
 source for the CSV table.
 
-   To manually create columns and column headers from JSON properties, 
-   choose **Show advanced options**.
+   To manually create columns and column headers from the properties 
+   in the JSON content, choose **Show advanced options**.
 
-5. 
+Now, 
 
 If you switch from the designer to the code view editor, 
 this example shows the way this action appears in your logic app definition. 
 Here, the action passes in the **Attachments** array and 
-creates columns for each item with the item properties as column headers.
+creates columns for each attachment. Each column contains 
+the values for each attachment's properties.
 
 ```json
 {
