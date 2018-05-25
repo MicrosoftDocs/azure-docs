@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/29/2018
 ms.author: dobett
 
 ---
@@ -24,9 +24,11 @@ Use IoT Hub messaging to communicate with your devices by:
 * Sending [device-to-cloud][lnk-d2c] messages from your devices to your solution back end.
 * Sending [cloud-to-device][lnk-c2d] messages from the solution back end to your devices.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
 Core properties of IoT Hub messaging functionality are the reliability and durability of messages. These properties enable resilience to intermittent connectivity on the device side, and to load spikes in event processing on the cloud side. IoT Hub implements *at least once* delivery guarantees for both device-to-cloud and cloud-to-device messaging.
 
-For an introduction to the capabilities of IoT Hub, see the articles [Azure and Internet of Things][lnk-azure-iot] and [Overview of the Azure IoT Hub service][lnk-iot-hub-overview].
+For an introduction to the capabilities of IoT Hub, see the [Overview of the Azure IoT Hub service][lnk-iot-hub-overview].
 
 ## When to use IoT Hub messaging
 
@@ -40,7 +42,7 @@ Use device-to-cloud messages for sending time series telemetry and alerts from y
 * Learn about IoT Hub [device-to-cloud messaging][lnk-d2c].
 * Learn about IoT Hub [cloud-to-device messaging][lnk-c2d].
 
-[lnk-azure-iot]: iot-hub-what-is-azure-iot.md
+[lnk-azure-iot]: ../iot-fundamentals/index.yml
 [lnk-iot-hub-overview]: iot-hub-what-is-iot-hub.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md

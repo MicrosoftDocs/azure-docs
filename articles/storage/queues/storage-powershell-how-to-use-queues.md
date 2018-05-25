@@ -1,4 +1,4 @@
----
+﻿---
 title: Perform operations on Azure Queue storage with PowerShell | Microsoft Docs
 description: How to perform operations on Azure Queue storage with PowerShell
 services: storage
@@ -35,10 +35,10 @@ There are no PowerShell cmdlets for the data plane for queues. To perform data p
 
 ## Sign in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## Retrieve list of locations
@@ -168,7 +168,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 
 ## Clean up resources
 
-To remove all of the assets you have created in this exercise, remove the resource group, This also deletes all resources contained within the group. In this case, it removes the storage account created and the resource group itself.
+To remove all of the assets you have created in this exercise, remove the resource group. This also deletes all resources contained within the group. In this case, it removes the storage account created and the resource group itself.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup

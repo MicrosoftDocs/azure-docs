@@ -3,7 +3,7 @@ title: Build and deploy a machine learning model using SQL Server on an Azure VM
 description: Advanced Analytics Process and Technology in Action
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: fashah;bradsev
+ms.author: deguhath
 
 ---
 # The Team Data Science Process in action: using SQL Server
@@ -581,7 +581,6 @@ In this exercise, we have already explored and engineered the data in SQL Server
 3. Enter the database DNS name in the **Database server name** field. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Enter the **Database name** in the corresponding field.
 5. Enter the **SQL user name** in the **Server user aqccount name, and the password in the **Server user account password**.
-6. Check **Accept any server certificate** option.
 7. In the **Database query** edit text area, paste the query which extracts the necessary database fields (including any computed fields such as the labels) and down samples the data to the desired sample size.
 
 An example of a binary classification experiment reading data directly from the SQL Server database is in the figure below. Similar experiments can be constructed for multiclass classification and regression problems.

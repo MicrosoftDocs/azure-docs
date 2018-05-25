@@ -3,8 +3,8 @@ title: Capacity planning for Azure App Service server roles in Azure Stack | Mic
 description: Capacity planning for Azure App Service server roles in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,11 +13,12 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: anwestg
-
+ms.date: 01/29/2018
+ms.author: brenduns
+ms.reviewer: anwestg
 ---
 # Capacity planning for Azure App Service server roles in Azure Stack
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 To provision a production ready deployment of Azure App Service on Azure Stack, you must plan for the capacity you expect the system to support.  Here is guidance on the minimum number of instances and compute SKUs you should use for any production deployment.
 
@@ -85,9 +86,7 @@ When deciding on the number of shared Web Worker roles to use, review these cons
 
 ## File server role
 
-For the File Server role, you can use the Standalone file server for development and testing. For production purposes, you should use a pre-configured Windows File Server, or a pre-configured non-Windows file server.
-
-The Standalone file server is included as part of the default Windows Azure Pack: Web Sites installation. The Standalone installation provisions the File Server role on a single machine, places ACLs for the appropriate accounts, and creates the necessary network shares.
+For the File Server role, you can use a Standalone file server for development and testing, for example when deploying Azure App Service on the Azure Stack Development Kit you can use this template - https://aka.ms/appsvconmasdkfstemplate. For production purposes, you should use a pre-configured Windows File Server, or a pre-configured non-Windows file server.
 
 In production environments, the File Server role experiences intensive disk I/O. Because it houses all of the content and application files for user web sites, you should pre-configure one of the following for this role:
 - a Windows File Server
@@ -95,7 +94,7 @@ In production environments, the File Server role experiences intensive disk I/O.
 - a non-Windows file server
 - file server cluster
 - NAS (Network Attached Storage) device
-For more information, see [provision a file server]().
+For more information, see [provision a file server](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Use your phone to sign in to your Microsoft account instead of typi
 services: multi-factor-authentication
 documentationcenter: ''
 author: barlanmsft
-manager: femila
+manager: mtillman
 
 ms.assetid: ''
 ms.service: multi-factor-authentication

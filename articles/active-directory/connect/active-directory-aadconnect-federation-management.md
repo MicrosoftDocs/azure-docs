@@ -1,11 +1,11 @@
 ---
-title: Active Directory Federation Services management and customization with Azure AD Connect | Microsoft Docs
+title: Azure AD Connect - AD FS management and customization | Microsoft Docs
 description: AD FS management with Azure AD Connect and customization of user AD FS sign-in experience with Azure AD Connect and PowerShell.
 keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, O365, federation, relying party
 services: active-directory
 documentationcenter: ''
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-
+ms.custom: seohack1
 ---
 # Manage and customize Active Directory Federation Services by using Azure AD Connect
 This article describes how to manage and customize Active Directory Federation Services (AD FS) by using Azure Active Directory (Azure AD) Connect. It also includes other common AD FS tasks that you might need to do for a complete configuration of an AD FS farm.
@@ -167,7 +167,7 @@ It's easy to add a domain to be federated with Azure AD by using Azure AD Connec
 
    ![Azure AD domain](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
-    After you choose the domain, the wizard provides you with appropriate information about further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that isn't yet verified in Azure AD, the wizard provides you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](../active-directory-add-domain.md) for more details.
+    After you choose the domain, the wizard provides you with appropriate information about further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that isn't yet verified in Azure AD, the wizard provides you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md) for more details.
 
 5. Click **Next**. The **Ready to configure** page shows the list of actions that Azure AD Connect will perform. Click **Install** to finish the configuration.
 

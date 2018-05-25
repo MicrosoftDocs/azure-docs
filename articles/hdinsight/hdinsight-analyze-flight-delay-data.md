@@ -9,10 +9,8 @@ editor: cgronlun
 
 ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
@@ -134,7 +132,7 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
         $acct = Get-AzureRmSubscription
     }
     catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
     Select-AzureRmSubscription -SubscriptionID $subscriptionID
 
@@ -261,6 +259,7 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
     <tr><td>Filter Period</td><td>January</td></tr>
     <tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</td></tr>
     </table>
+
 3. Click **Download**.
 4. Unzip the file to the **C:\Tutorials\FlightDelay\2013Data** folder. Each file is a CSV file and is approximately 60GB in size.
 5. Rename the file to the name of the month that it contains data for. For example, the file containing the January data would be named *January.csv*.
@@ -275,6 +274,7 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
     <tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the data to.</td></tr>
     <tr><td>$blobContainerName</td><td>The Blob container where you want to upload the data to.</td></tr>
     </table>
+    
 2. Open Azure PowerShell ISE.
 3. Paste the following script into the script pane:
 
@@ -299,7 +299,7 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
@@ -383,8 +383,10 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     <tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the HiveQL script to.</td></tr>
     <tr><td>$blobContainerName</td><td>The Blob container where you want to upload the HiveQL script to.</td></tr>
     </table>
-2. Open Azure PowerShell ISE.
-3. Copy and paste the following script into the script pane:
+    
+2. Open Azure PowerShell ISE.  
+
+3. Copy and paste the following script into the script pane:  
 
     ```powershell
     [CmdletBinding()]
@@ -418,7 +420,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
@@ -574,8 +576,10 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     <tr><td>$sqlDatabaseLocation</td><td>This value is used only when you're creating a new Azure database server.</td></tr>
     <tr><td>$sqlDatabaseName</td><td>The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays. </td></tr>
     </table>
+    
 2. Open Azure PowerShell ISE.
-3. Copy and paste the following script into the script pane:
+
+3. Copy and paste the following script into the script pane:  
 
     ```powershell
     [CmdletBinding()]
@@ -636,7 +640,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #region - Create and validate Azure resouce group
@@ -729,14 +733,14 @@ Now you understand how to upload a file to Azure Blob storage, how to populate a
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
+[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 [hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html

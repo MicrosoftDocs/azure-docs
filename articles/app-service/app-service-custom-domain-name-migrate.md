@@ -48,7 +48,7 @@ When you finally migrate your custom DNS name from the old site to the App Servi
 
 To verify domain ownership, Add a TXT record. The TXT record maps from _awverify.&lt;subdomain>_ to _&lt;appname>.azurewebsites.net_. 
 
-The TXT record you need depends on the DNS record you want to migrate. For examples, see the following table (`@` typically represents the root domain):  
+The TXT record you need depends on the DNS record you want to migrate. For examples, see the following table (`@` typically represents the root domain):
 
 | DNS record example | TXT Host | TXT Value |
 | - | - | - |

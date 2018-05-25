@@ -30,12 +30,6 @@ These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorial
 | Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
 | Adafruit Feather M0             | [Arduino][M0_Ard]              |
 
-In addition, you can use an IoT Edge gateway to enable devices to connect to your IoT hub.
-
-| Gateway device               | Programming language | Platform         |
-|------------------------------|----------------------|------------------|
-| Intel NUC (model DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
-
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
 
@@ -48,4 +42,3 @@ In addition, you can use an IoT Edge gateway to enable devices to connect to you
 [Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
 [Th_Ard]: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
 [M0_Ard]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
-[NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md

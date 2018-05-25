@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 22/01/2018
 ms.author: byvinyal
 
 ---
@@ -49,12 +49,12 @@ App Service plan that hosts it. This way, an App Service plan
 can be scaled to 10 instances, but an app can be set to use only five.
 
    >[!NOTE]
-   >Per app scaling is available only for **Premium** SKU App Service plans
+   >Per-app-scaling, is available only for **Standard**, **Premium**, **Premium V2** and **Isolated** SKU App Service plans
    >
 
 ### Per app scaling using PowerShell
 
-You can create a plan configured as a *Per app scaling* plan 
+Create a plan configured as a *Per app scaling* plan 
 by passing in the ```-perSiteScaling $true``` attribute to the 
 ```New-AzureRmAppServicePlan``` commandlet
 
@@ -84,7 +84,7 @@ $newASP
 Set-AzureRmAppServicePlan $newASP
 ```
 
-At the app level, we need to configure the number of instances the app can use in the app service plan.
+At the app level, configure the number of instances the app can use in the app service plan.
 
 In the example below, the app is limited to two instances regardless 
 of how many instances the underlying app service plan scales out to.
@@ -101,7 +101,7 @@ Set-AzureRmWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> $newapp.SiteConfig.NumberOfWorkers is different form $newapp.MaxNumberOfWorkers. Per app scaling uses $newapp.SiteConfig.NumberOfWorkers to determine the scale characteristics of the app.
+> $newapp.SiteConfig.NumberOfWorkers is different from $newapp.MaxNumberOfWorkers. Per app scaling uses $newapp.SiteConfig.NumberOfWorkers to determine the scale characteristics of the app.
 
 ### Per app scaling using Azure Resource Manager
 

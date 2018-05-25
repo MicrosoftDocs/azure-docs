@@ -1,29 +1,22 @@
----
+﻿---
 title: Azure SQL Database connectivity architecture | Microsoft Docs
-description: This document explains the Azure SQLDB connectivity architecture from within Azure or from outside of Azure. 
+description: This document explains the Azure SQLDB connectivity architecture from within Azure or from outside of Azure.
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: monicar
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 06/05/2017
+ms.topic: conceptual
+ms.date: 01/24/2018
 ms.author: carlrab
-
 ---
 # Azure SQL Database Connectivity Architecture 
 
-This article explains the Azure SQL Database connectivity architecture and explains how the different components function to direct traffic to your instance of Azure SQL Database. These Azure SQL Database connectivity components function to direct network traffic to the Azure database with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings. If there are any questions after reading this article, please contact Dhruv at dmalik@microsoft.com. 
+This article explains the Azure SQL Database connectivity architecture and explains how the different components function to direct traffic to your instance of Azure SQL Database. These Azure SQL Database connectivity components function to direct network traffic to the Azure database with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings. 
 
 ## Connectivity architecture
 
-The following diagram provides a high-level overview of the Azure SQL Database connectivity architecture. 
+The following diagram provides a high-level overview of the Azure SQL Database connectivity architecture.
 
 ![architecture overview](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
@@ -61,14 +54,14 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 | --- | --- |--- |
 | Australia East | 191.238.66.109 | 13.75.149.87 |
 | Australia South East | 191.239.192.109 | 13.73.109.251 |
-| Brazil South | 104.41.11.5 | |	
-| Canada Central | 40.85.224.249 | |	
+| Brazil South | 104.41.11.5 | |
+| Canada Central | 40.85.224.249 | |
 | Canada East | 40.86.226.166 | |
 | Central US | 23.99.160.139 | 13.67.215.62 |
 | East Asia | 191.234.2.139 | 52.175.33.150 |
 | East US 1 | 191.238.6.43 | 40.121.158.30 |
-| East US 2 | 191.239.224.107 | 40.79.84.180 |
-| India Central | 104.211.96.159  | |	
+| East US 2 | 191.239.224.107 | 40.79.84.180 * |
+| India Central | 104.211.96.159  | |
 | India South | 104.211.224.146	 | |
 | India West | 104.211.160.80 | |
 | Japan East | 191.237.240.43 | 13.78.61.196 |
@@ -80,7 +73,7 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 | South Central US | 23.98.162.75 | 13.66.62.124 |
 | South East Asia | 23.100.117.95 | 104.43.15.0 |
 | UK North | 13.87.97.210 | |
-| UK South 1 | 51.140.184.11 | |	
+| UK South 1 | 51.140.184.11 | |
 | UK South 2 | 13.87.34.7 | |
 | UK West | 51.141.8.11	 | |
 | West Central US | 13.78.145.25 | |
@@ -89,14 +82,16 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 | West US 2 | 13.66.226.202	 | |
 ||||
 
+\* **NOTE:** *East US 2* has also a tertiary IP address of `52.167.104.0`.
+
 ## Change Azure SQL Database connection policy
 
-To change the Azure SQL Database connection policy for an Azure SQL Database server, use the [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+To change the Azure SQL Database connection policy for an Azure SQL Database server, use the [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) command.
 
-- If your connection policy is set to **Proxy**, all network packets flow via the Azure SQL Database gateway. For this setting, you need to allow outbound to only the Azure SQL Database gateway IP. Using a setting of **Proxy** has more latency than a setting of **Redirect**. 
-- If your connection policy is setting **Redirect**, all network packets flow directly to the middleware proxy. For this setting, you need to allow outbound to multiple IPs. 
+- If your connection policy is set to **Proxy**, all network packets flow via the Azure SQL Database gateway. For this setting, you need to allow outbound to only the Azure SQL Database gateway IP. Using a setting of **Proxy** has more latency than a setting of **Redirect**.
+- If your connection policy is setting **Redirect**, all network packets flow directly to the middleware proxy. For this setting, you need to allow outbound to multiple IPs.
 
-## Script to change connection settings via PowerShell 
+## Script to change connection settings via PowerShell
 
 > [!IMPORTANT]
 > This script requires the [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
@@ -105,7 +100,7 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 The following PowerShell script shows how to change the connection policy.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <Subscription Name>
 
 # Azure Active Directory ID
@@ -136,7 +131,7 @@ $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationCo
 $result = $AuthContext.AcquireToken(
 "https://management.core.windows.net/",
 $clientId,
-[Uri]$uri, 
+[Uri]$uri,
 [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
 )
 
@@ -156,34 +151,31 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## Script to change connection settings via Azure CLI 2.0 
+## Script to change connection settings via Azure CLI 2.0
 
 > [!IMPORTANT]
-> This script requires the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> This script requires the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 The following CLI script shows how to change the connection policy.
 
 <pre>
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 
 ## Next steps
 
-- For information on how to change the Azure SQL Database connection policy for an Azure SQL Database server, see [Create or Update Server Connection Policy using the REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+- For information on how to change the Azure SQL Database connection policy for an Azure SQL Database server, see [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - For information about Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version, see [Ports beyond 1433 for ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - For general application development overview information, see [SQL Database Application Development Overview](sql-database-develop-overview.md).

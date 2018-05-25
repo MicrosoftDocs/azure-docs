@@ -1,21 +1,14 @@
 ---
-title: Restore files to a VM with Azure Backup | Microsoft Docs
+title: Restore files to a VM with Azure Backup
 description: Learn how to perform file-level restores on an Azure VM with Backup and Recovery Services.
-services: backup, virtual-machines
-documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
-editor:
+services: backup
+author: markgalioto
+manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-
-ms.assetid: 
-ms.service: backup, virtual-machines
-ms.devlang: na
+ms.service: backup
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 09/29/2017
-ms.author: iainfou
+ms.date: 2/14/2018
+ms.author: markgal
 ms.custom: mvc
 ---
 

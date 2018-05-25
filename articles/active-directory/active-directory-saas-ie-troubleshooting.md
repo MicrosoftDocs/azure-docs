@@ -4,7 +4,7 @@ description: How to use group policy to deploy the Internet Explorer add-on for 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: f56b3230-26fd-42ec-9e3d-2c12daf15479
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
@@ -89,6 +89,6 @@ If you encounter issues uninstalling the extension, you can also remove it using
 
 ## Related Articles
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [Application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
 

@@ -4,20 +4,24 @@ description: This article explains how you can scale out a data management gatew
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/17/2017
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: abnarain
 
 robots: noindex
 ---
 # Data Management Gateway - high availability and scalability (Preview)
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in version 2](../create-self-hosted-integration-runtime.md). 
+
+
 This article helps you configure high availability and scalability solution with Data Management Gateway/ Integration.    
 
 > [!NOTE]

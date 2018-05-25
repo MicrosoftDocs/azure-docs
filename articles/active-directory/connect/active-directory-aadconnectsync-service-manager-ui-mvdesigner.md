@@ -3,8 +3,8 @@ title: Azure AD Connect MV Designer | Microsoft Docs'
 description: Understand the Metaverse Designer tab in the Synchronization Service Manager for Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: abaa9eb2-f105-42d1-b00a-2a63129a8ffb

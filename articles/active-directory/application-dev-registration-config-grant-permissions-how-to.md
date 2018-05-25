@@ -4,7 +4,7 @@ description: How to grant permissions to your custom-developed application using
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -37,8 +37,8 @@ Alternatively, you can construct a request to *login.microsoftonline.com* with y
 
 ## Next steps
 
-[Consent and Integrating Apps to AzureAD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+[Consent and Integrating Apps to AzureAD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
-[Consent and Permissioning for AzureAD v2.0 converged Apps](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Consent and Permissioning for AzureAD v2.0 converged Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

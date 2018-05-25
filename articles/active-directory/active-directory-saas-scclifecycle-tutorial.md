@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 9748bf38-ffc3-4d51-a1ae-207ce57104fa
 ms.service: active-directory
@@ -26,7 +26,7 @@ Integrating SCC LifeCycle with Azure AD provides you with the following benefits
 - You can enable your users to automatically get signed-on to SCC LifeCycle (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -131,10 +131,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. To configure single sign-on on **SCC LifeCycle** side, you need to send the downloaded **Metadata XML** to [SCC LifeCycle support team](mailto:lifecycle.support@scc.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-	 >[!NOTE]
-   >Single sign-on has to be enabled by the SCC LifeCycle support team.
-   > 
-   > 
+  >[!NOTE]
+  >Single sign-on has to be enabled by the SCC LifeCycle support team.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -178,7 +176,7 @@ In order to enable Azure AD users to log into SCC LifeCycle, they must be provis
 When an assigned user tries to log into SCC LifeCycle, an SCC LifeCycle account is automatically created if necessary.
 
 > [!NOTE]
-    > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
+> The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
 
 ### Assigning the Azure AD test user
 
@@ -220,7 +218,7 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

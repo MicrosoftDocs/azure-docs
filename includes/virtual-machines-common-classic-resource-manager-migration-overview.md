@@ -1,3 +1,16 @@
+---
+title: include file
+description: include file
+services: virtual-machines
+author: jpconnock
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jeconnoc
+ms.custom: include file
+
+---
+
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager
 In this article, we describe how we're enabling migration of infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models. You can read more about [Azure Resource Manager features and benefits](../articles/azure-resource-manager/resource-group-overview.md). We detail how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways.
 
@@ -16,12 +29,12 @@ These classic IaaS resources are supported during migration
 * Virtual Networks
 * VPN Gateways
 * Express Route Gateways _(in the same subscription as Virtual Network only)_
-* Network Security Groups 
-* Route Tables 
-* Reserved IPs 
+* Network Security Groups
+* Route Tables
+* Reserved IPs
 
 ## Supported scopes of migration
-There are 4 different ways to complete migration of compute, network, and storage resources. These are 
+There are 4 different ways to complete migration of compute, network, and storage resources. These are
 
 * Migration of virtual machines (NOT in a virtual network)
 * Migration of virtual machines (in a virtual network)
@@ -77,7 +90,7 @@ The following features are not currently supported. You can optionally remove th
 | Compute | Virtual machine images. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
 | Network | Endpoint ACLs. | Remove Endpoint ACLs and retry migration. |
 | Network | Application Gateway | Remove the Application Gateway before beginning migration and then recreate the Application Gateway once migration is complete. |
-| Network | Virtual networks using VNet Peering. | Migrate Virtual Network to Resource Manager, then peer. Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). | 
+| Network | Virtual networks using VNet Peering. | Migrate Virtual Network to Resource Manager, then peer. Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### Unsupported configurations
 The following configurations are not currently supported.
@@ -85,7 +98,7 @@ The following configurations are not currently supported.
 | Service | Configuration | Recommendation |
 | --- | --- | --- |
 | Resource Manager |Role Based Access Control (RBAC) for classic resources |Because the URI of the resources is modified after migration, it is recommended that you plan the RBAC policy updates that need to happen after migration. |
-| Compute |Multiple subnets associated with a VM |Update the subnet configuration to reference only subnets. |
+| Compute |Multiple subnets associated with a VM |Update the subnet configuration to reference only one subnet. This may require you to remove a secondary NIC (that is referring to another subnet) from the VM and reattach it after migration has completed. |
 | Compute |Virtual machines that belong to a virtual network but don't have an explicit subnet assigned |You can optionally delete the VM. |
 | Compute |Virtual machines that have alerts, Autoscale policies |The migration goes through and these settings are dropped. It is highly recommended that you evaluate your environment before you do the migration. Alternatively, you can reconfigure the alert settings after migration is complete. |
 | Compute |XML VM extensions (BGInfo 1.*, Visual Studio Debugger, Web Deploy, and Remote Debugging) |This is not supported. It is recommended that you remove these extensions from the virtual machine to continue migration or they will be dropped automatically during the migration process. |
@@ -93,7 +106,7 @@ The following configurations are not currently supported.
 | Compute | Cloud services that contain web/worker roles | This is currently not supported. |
 | Compute | Cloud services that contain more than one availability set or multiple availability sets. |This is currently not supported. Please move the Virtual Machines to the same availability set before migrating. |
 | Compute | VM with Azure Security Center extension | Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. To migrate the Virtual Machines, please disable the security center policy on the subscription which will remove the Security Center monitoring extension from the Virtual Machines. |
-| Compute | VM with backup or snapshot extension | These extensions are installed on a Virtual Machine configured with the Azure Backup service. To migrate these Virtual Machines, follow the guidance [here](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault).  |
+| Compute | VM with backup or snapshot extension | These extensions are installed on a Virtual Machine configured with the Azure Backup service. While the migration of these VMs is not supported, follow the guidance [here](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault) to keep backups that were taken prior to migration.  |
 | Network |Virtual networks that contain virtual machines and web/worker roles |This is currently not supported. Please move the Web/Worker roles to their own Virtual Network before migrating. Once the classic Virtual Network is migrated, the migrated Azure Resource Manager Virtual Network can be peered with the classic Virtual Network to achieve similar configuration as before.|
 | Network | Classic Express Route circuits |This is currently not supported. These circuits need to be migrated to Azure Resource Manager before beginning IaaS migration. To learn more about this see [Moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-move.md).|
 | Azure App Service |Virtual networks that contain App Service environments |This is currently not supported. |

@@ -3,18 +3,19 @@ title: Manage access to cloud apps by restricting tenants - Azure | Microsoft Do
 description: How to use Tenant Restrictions to manage which users can access apps based on their Azure AD tenant.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: barbkess
+manager: mtillman
 editor: yossib
 
-ms.assetid:
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: kgremban
+ms.date: 05/15/2018
+ms.author: barbkess
+ms.reviewer: richagi
 
 ---
 # Use Tenant Restrictions to manage access to SaaS cloud applications
@@ -25,7 +26,7 @@ Azure Active Directory's solution to this challenge is a feature called Tenant R
 
 Tenant Restrictions gives organizations the ability to specify the list of tenants that their users are permitted to access. Azure AD then only grants access to these permitted tenants.
 
-This article focuses on Tenant Restrictions for Office 365, but the feature should work with any SaaS cloud app that uses modern authentication protocols with Azure AD for single sign-on. If you use SaaS apps with a different Azure AD tenant from the tenant used by Office 365, make sure that all required tenants are permitted. For more information about SaaS cloud apps, see the [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/).
+This article focuses on Tenant Restrictions for Office 365, but the feature should work with any SaaS cloud app that uses modern authentication protocols with Azure AD for single sign-on. If you use SaaS apps with a different Azure AD tenant from the tenant used by Office 365, make sure that all required tenants are permitted. For more information about SaaS cloud apps, see the [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 ## How it works
 
@@ -109,7 +110,9 @@ Refer to [Updated Office 365 modern authentication](https://blogs.office.com/201
 
 Tenant Restrictions is currently supported by Office 365 browser-based applications (the Office Portal, Yammer, SharePoint sites, Outlook on the Web, etc.). For thick clients (Outlook, Skype for Business, Word, Excel, PowerPoint, etc.) Tenant Restrictions can only be enforced when modern authentication is used.  
 
-Outlook and Skype for Business clients that support modern authentication are still able to use legacy protocols against tenants where modern authentication is not enabled, effectively bypassing Tenant Restrictions. For Outlook on Windows, customers may choose to implement restrictions preventing end users from adding non-approved mail accounts to their profiles. For example, see the [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) group policy setting. For Outlook on non-Windows platforms, and for Skype for Business on all platforms, full support for Tenant Restrictions is not currently available.
+Outlook and Skype for Business clients that support modern authentication may still able to use legacy protocols against tenants where modern authentication is not enabled, effectively bypassing Tenant Restrictions. Applications that use legacy protocols may be blocked by Tenant Restrictions if they contact login.microsoftonline.com, login.microsoft.com, or login.windows.net during authentication.
+
+For Outlook on Windows, customers may choose to implement restrictions preventing end users from adding non-approved mail accounts to their profiles. For example, see the [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) group policy setting. For Outlook on non-Windows platforms, and for Skype for Business on all platforms, full support for Tenant Restrictions is not currently available.
 
 ## Testing
 

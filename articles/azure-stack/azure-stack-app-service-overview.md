@@ -3,8 +3,8 @@ title: 'App Service overview: Azure Stack | Microsoft Docs'
 description: Overview of App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,12 +13,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: anwestg
+ms.date: 01/29/2018
+ms.author: brenduns
+ms.reviewer: anwestg
 
 ---
 
 # App Service on Azure Stack overview
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 Azure App Service on Azure Stack is a platform-as-a-service (PaaS) offering of Microsoft Azure available to Azure Stack. The service lets your customers - internal or external - create web, API, and Azure Functions applications for any platform or device. They can integrate your apps with on-premises applications and automate their business processes. Azure Stack cloud operators can run customer apps on fully managed virtual machines (VMs), with their choice of shared VM resources or dedicated VMs.
 
@@ -35,8 +37,8 @@ Here are some key features and capabilities of App Service:
 
 App Service offers several app types, each of which is intended to host a specific workload:
 
-- [Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) for hosting websites and web applications.
-- [API Apps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) for hosting RESTful APIs.
+- [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) for hosting websites and web applications.
+- [API Apps](https://docs.microsoft.com/azure/app-service-api/app-service-api-apps-why-best-platform) for hosting RESTful APIs.
 - Azure Functions for hosting event driven, serverless workloads.
 
 The word app here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a web app is the compute resources that Azure Stack provides for hosting your application code.

@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: LinkedIn configuration | Microsoft Docs'
 description: Provide sign-up and sign-in to consumers with LinkedIn accounts in your applications that are secured by Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: davidmu1
+manager: mtillman
+editor: ''
 
-ms.assetid: fa51a16b-9ce9-4e27-9eff-0869b4c4f0ef
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with LinkedIn accounts
@@ -35,7 +32,7 @@ To use LinkedIn as an identity provider in Azure Active Directory (Azure AD) B2C
    > **Client Secret** is an important security credential.
    > 
    > 
-6. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized Redirect URLs** field (under **OAuth 2.0**). Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). Click **Add**, and then click **Update**. The **{tenant}** value is case-sensitive.
+6. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized Redirect URLs** field (under **OAuth 2.0**). Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). Click **Add**, and then click **Update**. The **{tenant}** value should be lowercase.
    
     ![LinkedIn - Setup app](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 

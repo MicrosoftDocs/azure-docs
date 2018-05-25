@@ -3,8 +3,8 @@ title: Manage Windows Azure Pack virtual machines from Azure Stack | Microsoft D
 description: Learn how to manage Windows Azure Pack (WAP) VMs from the user portal in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: walterov
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: walterov
+ms.date: 02/28/2018
+ms.author: mabrigg
 
 ---
 # Manage Windows Azure Pack virtual machines from Azure Stack

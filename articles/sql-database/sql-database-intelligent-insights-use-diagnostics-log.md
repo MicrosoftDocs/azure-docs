@@ -2,19 +2,13 @@
 title: Intelligent Insights performance diagnostics log - Azure SQL Database | Microsoft Docs
 description: Intelligent Insights provides a diagnostics log of Azure SQL Database performance issues
 services: sql-database
-documentationcenter: ''
 author: danimir
-manager: drasumic
-editor: carlrab
-
-ms.assetid: 
+manager: craigg
+ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: NA
-ms.date: 09/25/2017
+ms.topic: conceptual
+ms.date: 04/04/2018
 ms.author: v-daljep
 
 ---
@@ -80,7 +74,7 @@ Depending on the performance issue detected, the details outputted in the diagno
 
 | Detectable performance patterns | Details outputted |
 | :------------------- | ------------------- |
-| Reaching Resource Limits | <li>Resources affected</li><li>Query hashes</li><li>Resource consumption percentage</li> |
+| Reaching resource limits | <li>Resources affected</li><li>Query hashes</li><li>Resource consumption percentage</li> |
 | Workload Increase | <li>Number of queries whose execution increased</li><li>Query hashes of queries with the largest contribution to the workload increase</li> |
 | Memory Pressure | <li>Memory clerk</li> |
 | Locking | <li>Affected query hashes</li><li>Blocking query hashes</li> |
@@ -137,13 +131,13 @@ The last part of the Intelligent Insights performance log pertains to the automa
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-You can use the Intelligent Insights performance log with [Azure Log Analytics]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) or a third-party solution for custom DevOps alerting and reporting capabilities.
+You can use the Intelligent Insights performance log with [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) or a third-party solution for custom DevOps alerting and reporting capabilities.
 
 ## Next steps
 - Learn about [Intelligent Insights](sql-database-intelligent-insights.md) concepts.
 - Learn how to [troubleshoot Azure SQL Database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Learn how to [monitor Azure SQL Database by using Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
-- Learn how to [collect and consume log data from your Azure resources](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Learn how to [monitor Azure SQL Database by using Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Learn how to [collect and consume log data from your Azure resources](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

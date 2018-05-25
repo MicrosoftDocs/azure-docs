@@ -574,7 +574,7 @@ and allows for additional customization.
 
    * Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The
      format should be https://login.microsoftonline.com/contoso.onmicrosoft.com. This value can be copied from the Domain
-     tab in your Azure Active Directory in the [Azure classic portal].
+     tab in your Azure Active Directory in the [Azure portal].
    * Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the
      client ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
    * Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
@@ -904,7 +904,7 @@ Google SDK in the future.
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-
+[Azure portal]: https://portal.azure.com/
 [Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx

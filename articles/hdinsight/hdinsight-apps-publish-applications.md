@@ -12,10 +12,8 @@ ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 09/21/2017
+ms.topic: conceptual
+ms.date: 05/14/2018
 ms.author: jgao
 
 ---
@@ -43,8 +41,7 @@ Two steps are involved in publishing applications in the Marketplace. First, def
     "version": "0.0.1-preview",
     "clusterFilters": {
         "types": ["Hadoop", "HBase", "Storm", "Spark"],
-        "tiers": ["Standard", "Premium"],
-        "versions": ["3.4"]
+        "versions": ["3.6"]
     }
 }
 ```
@@ -52,7 +49,6 @@ Two steps are involved in publishing applications in the Marketplace. First, def
 | Field | Description | Possible values |
 | --- | --- | --- |
 | types |The cluster types that the application is compatible with. |Hadoop, HBase, Storm, Spark (or any combination of these) |
-| tiers |The cluster tiers that the application is compatible with. |Standard, Premium (or both) |
 | versions |The HDInsight cluster types that the application is compatible with. |3.4 |
 
 ## Application installation script

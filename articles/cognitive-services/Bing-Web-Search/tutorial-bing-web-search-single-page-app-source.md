@@ -2,11 +2,10 @@
 title: Bing Web Search single-page Web app (source code) | Microsoft Docs
 description: Source code for tutorial showing how to use the Bing Web Search API in a single-page Web application.
 services: cognitive-services
-author: jerrykindall
+author: v-jerkin
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: v-jerkin
@@ -473,7 +472,7 @@ function doPrevSearchPage() {
 // --></script>
 
 </head>
-<body onload="document.forms.bing.query.focus(); getSubscriptionKey();">
+<body onload="document.forms.bing.query.focus();">
 
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
     bingSearchOptions(this), getSubscriptionKey())">

@@ -4,7 +4,7 @@ description: Learn how to license yourself and your users in Azure Active Direct
 services: active-directory
 documentationcenter: ''
 author: jeffgilb
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78

@@ -3,20 +3,23 @@ title: Release notes for Data Management Gateway | Microsoft Docs
 description: Data Management Gateway tory release notes
 services: data-factory
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/19/2017
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: abnarain
 
 robots: noindex
 ---
 # Release notes for Data Management Gateway
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in V2](../create-self-hosted-integration-runtime.md).
+
 One of the challenges for modern data integration is to move data to and from on-premises to cloud. Data Factory makes this integration with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
 
 See the following articles for detailed information about Data Management Gateway and how to use it:
