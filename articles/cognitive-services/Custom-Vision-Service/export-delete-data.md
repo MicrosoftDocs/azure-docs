@@ -7,7 +7,7 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 05/25/2018
 ms.author: v-jaswel
 ---
 
