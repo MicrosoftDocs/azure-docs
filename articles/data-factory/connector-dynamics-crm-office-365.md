@@ -1,4 +1,4 @@
-﻿---
+---
 title: Copy data from and to Dynamics CRM or Dynamics 365 (Common Data Service) by using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 (Common Data Service) to supported sink data stores, or from supported source data stores to Dynamics CRM or Dynamics 365, by using a copy activity in a data factory pipeline.
 services: data-factory
@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/20/2018
+ms.topic: conceptual
+ms.date: 05/02/2018
 ms.author: jingwang
 
 ---
@@ -273,7 +273,11 @@ To copy data to Dynamics, set the sink type in the copy activity to **DynamicsSi
 | ignoreNullValues | Indicates whether to ignore null values from input data (except key fields) during a write operation.<br/>Allowed values are **true** and **false**.<br>- **True**: Leave the data in the destination object unchanged when you do an upsert/update operation. Insert a defined default value when you do an insert operation.<br/>- **False**: Update the data in the destination object to NULL when you do an upsert/update operation. Insert a NULL value when you do an insert operation. | No (default is false) |
 
 >[!NOTE]
->The default value of the sink writeBatchSize and the copy activity [parallelCopies](copy-activity-performance.md#parallel-copy) for the Dynamics sink are both 10. Therefore, 100 records are submitted to Dynamics concurrently.
+>The default value of the sink "**writeBatchSize**" and the copy activity "**[parallelCopies](copy-activity-performance.md#parallel-copy)**" for the Dynamics sink are both 10. Therefore, 100 records are submitted to Dynamics concurrently.
+
+For Dynamics 365 online, there is a limit of [2 concurrent batch calls per organization](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). If that limit is exceeded, a "Server Busy" fault is thrown before the first request is ever executed. Keeping "writeBatchSize" less or equal to 10 would avoid such throttling of concurrent calls.
+
+The optimal combination of "**writeBatchSize**" and "**parallelCopies**" depends on the schema of your entity e.g. number of columns, row size, number of plugins/workflows/workflow activities hooked up to those calls, etc. The default setting of 10 writeBatchSize * 10 parallelCopies is the recommendation according to Dynamics service, which would work for most Dynamics entities though may not be best performance. You can tune the performance by adjusting the combination in your copy activity settings.
 
 **Example:**
 
@@ -317,23 +321,24 @@ Configure the corresponding Data Factory data type in a dataset structure based 
 
 | Dynamics data type | Data Factory interim data type | Supported as source | Supported as sink |
 |:--- |:--- |:--- |:--- |
-| AttributeTypeCode.BigInt | Long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.DateTime | Datetime | ✓ | ✓ |
-| AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | String | ✓ | ✓ |
-| AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | |
-| AttributeType.ManagedProperty | Boolean | ✓ | |
-| AttributeType.Memo | String | ✓ | ✓ |
-| AttributeType.Money | Decimal | ✓ | ✓ |
-| AttributeType.Owner | Guid | ✓ | |
-| AttributeType.Picklist | Int32 | ✓ | ✓ |
-| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | String | ✓ | ✓ |
-| AttributeType.State | Int32 | ✓ | ✓ |
-| AttributeType.Status | Int32 | ✓ | ✓ |
+| AttributeTypeCode.BigInt | Long | ? | ? |
+| AttributeTypeCode.Boolean | Boolean | ? | ? |
+| AttributeType.Customer | Guid | ? | |	
+| AttributeType.DateTime | Datetime | ? | ? |
+| AttributeType.Decimal | Decimal | ? | ? |
+| AttributeType.Double | Double | ? | ? |
+| AttributeType.EntityName | String | ? | ? |
+| AttributeType.Integer | Int32 | ? | ? |
+| AttributeType.Lookup | Guid | ? | ? |
+| AttributeType.ManagedProperty | Boolean | ? | |
+| AttributeType.Memo | String | ? | ? |
+| AttributeType.Money | Decimal | ? | ? |
+| AttributeType.Owner | Guid | ? | |
+| AttributeType.Picklist | Int32 | ? | ? |
+| AttributeType.Uniqueidentifier | Guid | ? | ? |
+| AttributeType.String | String | ? | ? |
+| AttributeType.State | Int32 | ? | ? |
+| AttributeType.Status | Int32 | ? | ? |
 
 
 > [!NOTE]

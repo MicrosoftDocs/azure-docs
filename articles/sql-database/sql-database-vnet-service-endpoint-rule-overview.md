@@ -6,7 +6,7 @@ ms.service: sql-database
 author: MightyPen
 manager: craigg
 ms.custom: "VNet Service endpoints"
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
@@ -314,7 +314,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
-[expressroute-indexmd-744v]: ../expressroute/index.md
+[expressroute-indexmd-744v]: ../expressroute/index.yml
 
 [rbac-what-is-813s]:../role-based-access-control/overview.md
 
@@ -330,7 +330,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 
 [vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
 
-[vpn-gateway-indexmd-608y]: ../vpn-gateway/index.md
+[vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 
 

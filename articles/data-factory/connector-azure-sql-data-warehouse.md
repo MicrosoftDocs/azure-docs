@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/13/2018
+ms.topic: conceptual
+ms.date: 05/05/2018
 ms.author: jingwang
 
 ---
@@ -101,7 +101,7 @@ To use service principal based AAD application token authentication, follow thes
     - Application key
     - Tenant ID
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** for your Azure SQL Server on Azure portal if you haven't done so. The AAD administrator can be an AAD user or AAD group. If you grant the group with MSI an admin role, skip step 3 and 4 below as the administrator would have full access to the DB.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL Server on Azure portal if you haven't done so. The AAD administrator can be an AAD user or AAD group. If you grant the group with MSI an admin role, skip step 3 and 4 below as the administrator would have full access to the DB.
 
 3. **Create a contained database user for the service principal**, by connecting to the data warehouse from/to which you want to copy data using tools like SSMS, with an AAD identity having at least ALTER ANY USER permission, and executing the following T-SQL. Learn more on contained database user from [here](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -112,7 +112,7 @@ To use service principal based AAD application token authentication, follow thes
 4. **Grant the service principal needed permissions** as you normally do for SQL users, e.g. by executing below:
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. In ADF, configure an Azure SQL Data Warehouse linked service.
@@ -149,6 +149,9 @@ To use service principal based AAD application token authentication, follow thes
 
 A data factory can be associated with a [managed service identity (MSI)](data-factory-service-identity.md), which represents this specific data factory. You can use this service identity for Azure SQL Data Warehouse authentication, which allows this designated factory to access and copy data from/to your data warehouse.
 
+> [!IMPORTANT]
+> Note PolyBase is currently not supported for MSI authentcation.
+
 To use MSI based AAD application token authentication, follow these steps:
 
 1. **Create a group in Azure AD and make the factory MSI a member of the group**.
@@ -161,7 +164,7 @@ To use MSI based AAD application token authentication, follow these steps:
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** for your Azure SQL Server on Azure portal if you haven't done so.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL Server on Azure portal if you haven't done so.
 
 3. **Create a contained database user for the AAD group**, by connecting to the data warehouse from/to which you want to copy data using tools like SSMS, with an AAD identity having at least ALTER ANY USER permission, and executing the following T-SQL. Learn more on contained database user from [here](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -172,7 +175,7 @@ To use MSI based AAD application token authentication, follow these steps:
 4. **Grant the AAD group needed permissions** as you normally do for SQL users, e.g. by executing below:
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. In ADF, configure an Azure SQL Data Warehouse linked service.
@@ -379,7 +382,7 @@ Using **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/
 * If your source data store and format is not originally supported by PolyBase, you can use the **[Staged Copy using PolyBase](#staged-copy-using-polybase)** feature instead. It also provides you better throughput by automatically converting the data into PolyBase-compatible format and storing the data in Azure Blob storage. It then loads data into SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Note PolyBase only support Azure SQL Data Warehouse SQL authentcation but not Azure Active Directory authentication.
+> Note PolyBase is currently not supported for Managed Service Identity (MSI) based AAD Application token authentcation.
 
 ### Direct copy using PolyBase
 

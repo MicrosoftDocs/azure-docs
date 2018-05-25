@@ -3,11 +3,11 @@ title: Deploy multi-container groups in Azure Container Instances
 description: Learn how to deploy a container group with multiple containers in Azure Container Instances.
 services: container-instances
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -31,7 +31,15 @@ In this sample, a container group with two containers, a public IP address, and 
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+    "containerGroupName": {
+      "type": "string",
+      "defaultValue": "myContainerGroup",
+      "metadata": {
+        "description": "Container Group name."
+      }
+    }
+  },
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
@@ -40,7 +48,7 @@ In this sample, a container group with two containers, a public IP address, and 
   },
   "resources": [
     {
-      "name": "myContainerGroup",
+      "name": "[parameters('containerGroupName')]",
       "type": "Microsoft.ContainerInstance/containerGroups",
       "apiVersion": "2018-04-01",
       "location": "[resourceGroup().location]",
@@ -99,7 +107,7 @@ In this sample, a container group with two containers, a public IP address, and 
   "outputs": {
     "containerIPv4Address": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', parameters('containerGroupName'))).ipAddress.ip]"
     }
   }
 }
@@ -128,7 +136,7 @@ az group create --name myResourceGroup --location eastus
 Deploy the template with the [az group deployment create][az-group-deployment-create] command.
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --name myContainerGroup --template-file azuredeploy.json
+az group deployment create --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
 Within a few seconds, you should receive an initial response from Azure.

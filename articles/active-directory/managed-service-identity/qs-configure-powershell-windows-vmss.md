@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to configure MSI on an Azure VMSS using PowerShell
 description: Step by step instructions for configuring a system and user assigned identities on an Azure VMSS, using PowerShell.
 services: active-directory
@@ -8,6 +8,7 @@ manager: mtillman
 editor: 
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -118,7 +119,8 @@ To assign a user assigned identity to an existing Azure VMSS:
 2. First retrieve the VM properties using the `Get-AzureRmVM` cmdlet. Then to assign a user assigned identity to the Azure VMSS, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet. Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` with your own values.
 
    > [!IMPORTANT]
-   > Creating user assigned identities with special characters (i.e. underscore) in the name is not currently supported. Please use alphanumeric characters. Check back for updates.  For more information see [FAQs and known issues](known-issues.md)
+   > Creating user assigned identities only supports alphanumeric and hyphen (0-9 or a-z or A-Z or -) characters. Additionally, name should be limited to 24 character length for the assignment to VM/VMSS to work properly. Check back for updates. For more information, see [FAQs and known issues](known-issues.md)
+
 
    ```powershell
    $vmss = Get-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME>

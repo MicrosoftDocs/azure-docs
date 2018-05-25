@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
 
 ---
@@ -130,7 +130,7 @@ To copy data from OData, set the type property of the dataset to **ODataResource
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **ODataResource** | Yes |
-| path | Path to the OData resource. | No |
+| path | Path to the OData resource. | Yes |
 
 **Example**
 

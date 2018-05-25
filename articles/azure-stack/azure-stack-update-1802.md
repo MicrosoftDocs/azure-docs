@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 05/24/2018
 ms.author: brenduns
 ms.reviewer: justini
-
+  
 ---
-
+  
 # Azure Stack 1802 update
 
 *Applies to: Azure Stack integrated systems*
@@ -83,6 +83,8 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - **Support is added for multiple fault domains**.  For more information, see [High availability for Azure Stack](azure-stack-key-features.md#high-availability-for-azure-stack).
 
+- **Support for physical memory upgrades** - You can now expand the memory capacity of Azure Stack integrated system after your initial deployment. For more information, see [Manage physical memory capacity for Azure Stack](azure-stack-manage-storage-physical-memory-capacity.md).
+
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
 <!--
@@ -112,8 +114,6 @@ The following are post-installation known issues for build  **20180302.1**
 
 - You might see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
 
-- When you view the properties of a resource or resource group, the **Move** button is disabled. This behavior is expected. Moving resources or resource groups between resource groups or subscriptions is not currently supported.
-
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
 - You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
@@ -135,7 +135,22 @@ The following are post-installation known issues for build  **20180302.1**
 
 
 #### Health and monitoring
-There are no known issues after updating to 1802.
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+  Alert #1:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+
+  Alert #2:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+
+  Both alerts can be safely ignored. They will close automatically over time.  
+
 
 #### Marketplace
 - Users can browse the full marketplace without a subscription and can see administrative items like plans and offers. These items are non-functional to users.
@@ -153,7 +168,7 @@ There are no known issues after updating to 1802.
 
 - When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
-- When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
+- When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a D series VM. All supported D series VMs can accommodate as many data disks as the Azure configuration.
 
 - When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
 
@@ -258,6 +273,7 @@ There are no known issues after updating to 1802.
 
 - Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > After you update to Azure Stack 1802, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1710, first apply version 1711, then 1712, and then update to 1802.      
@@ -274,6 +290,8 @@ There are no known issues after updating to 1802.
 <!--
 #### Identity
 -->
+
+
 
 #### Downloading Azure Stack Tools from GitHub
 - When using the *invoke-webrequest* PowerShell cmdlet to download the Azure Stack tools from Github, you receive an error:     

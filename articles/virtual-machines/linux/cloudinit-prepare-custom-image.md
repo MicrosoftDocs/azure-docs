@@ -133,7 +133,7 @@ All Azure platform images have the Azure Linux Agent installed, regardless if it
 sudo waagent -deprovision+user -force
 ```
 
-For more information about the Azure Linux Agent deprovision commands, see the [Azure Linux Agent](agent-user-guide.md) for more details.
+For more information about the Azure Linux Agent deprovision commands, see the [Azure Linux Agent](../extensions/agent-linux.md) for more details.
 
 Exit the SSH session, then from your bash shell, run the following AzureCLI commands to deallocate, generalize and create a new Azure VM image.  Replace `myResourceGroup` and `sourceVmName` with the appropriate information reflecting your sourceVM.
 

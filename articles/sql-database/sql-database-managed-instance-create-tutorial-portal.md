@@ -8,7 +8,7 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
 
@@ -103,7 +103,7 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route.
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
    |**Resource Group**|Select the resource group you created in the previous procedure|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Location**|Select the location you specified in the previous procedure| For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
-   |**Disable BCP route propagation**|Disabled||
+   |**Disable BCP route propagation**|Enabled||
    ||||
 
    ![route table create form](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
