@@ -3,12 +3,12 @@ title: Azure Immutable Blob Storage (WORM) | Microsoft Docs
 description: Azure Storage now offers WORM support for Blob object storage that allows you to store data in a non-erasable, non-modifiable state for a user-specified interval of time. This feature enables organizations in many regulated industries, particularly broker-dealer organizations to store data in a manner compliant with SEC 17a-4(f) and other regulations.
 services: storage
 author: 
-manager: jeconnoc
+manager: twooley
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/04/2018
+ms.date: 05/25/2018
 ms.author: sangsinh
 ---
 
@@ -113,6 +113,13 @@ The feature is included in the following command groups (run “-h” on them to
 6. For a given container, the maximum number of allowable retention interval extensions for locked immutable policies is 5
 7. For a given container with a locked immutable policy, there is a maximum of 5 time-based retention  policy logs and a maximum of 10 legal hold policy logs that are retained for the duration of the container. 
 
+### Pricing
+
+There is no additional charge for using this feature. You will get billed for
+the underlying storage (container, blob) capacity and data access and
+transactions, but not incur any additional charges for immutable policy
+administration.
+
 ### Access 
 
 The feature will be enabled in all Azure public regions. 
@@ -124,13 +131,6 @@ The following restrictions apply during public preview:
 -   **Do not store production or business critical data**
 
 -    All  preview/NDA restrictions apply
-
-## Client Libraries and Tools 
-
-The Immutable Blob Storage feature is supported in the following client libraries:-
-[.net](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
-[node.js](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
-[Python](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/storageManagement2)
 
 ## Sample PowerShell script
 
@@ -349,9 +349,10 @@ Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount \$accountObject
 Remove-AzureRmStorageContainerImmutabilityPolicy -Container \$containerObject
 -Etag \$policy.Etag
 ```
-### Pricing
 
-There is no additional charge for using this feature. You will get billed for
-the underlying storage (container, blob) capacity and data access and
-transactions, but not incur any additional charges for immutable policy
-administration.
+## Client Libraries and Tools 
+
+The Immutable Blob Storage feature is supported in the following client libraries:-
+[.net](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
+[node.js](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
+[Python](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/storageManagement2)
