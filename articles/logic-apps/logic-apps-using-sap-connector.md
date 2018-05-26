@@ -56,8 +56,8 @@ or <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb3159
 
 * Download and install the latest 
 [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) 
-on any on-premises computer. You must also set up your 
-gateway in the Azure portal before you can continue. 
+on any on-premises computer. Make sure that you set up 
+your gateway in the Azure portal before you continue. 
 The gateway helps you securely access data and 
 resources are on premises. For more information, see 
 [Install on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps/logic-apps-gateway-install.md).
@@ -74,7 +74,7 @@ Install this SAP NCo on the same computer where you installed the on-premises da
 
   * Make sure you select the SAP NCo for Windows 64-bit. 
   The on-premises data gateway runs only on 64-bit systems. 
-  Otherwise, you get an "bad image" error because the data 
+  Otherwise, you get a "bad image" error because the data 
   gateway host service doesn't support 32-bit assemblies.
 
   * Make sure you select the SAP NCo for .NET Framework 4.0. 
