@@ -60,7 +60,7 @@ on any on-premises computer. Make sure that you set up
 your gateway in the Azure portal before you continue. 
 The gateway helps you securely access data and 
 resources are on premises. For more information, see 
-[Install on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps/logic-apps-gateway-install.md).
+[Install on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
 
 * Download and install the latest SAP client library, which is currently 
 <a href="https://softwaredownloads.sap.com/file/0020000000086282018" target="_blank">SAP Connector (NCo) 3.0.20.0 for Microsoft .NET Framework 4.0 and Windows 64bit (x64)</a>. 
