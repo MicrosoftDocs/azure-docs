@@ -25,7 +25,7 @@ This tutorial shows you how to:
 > * Create a Media Services account
 > * Access the Media Services API
 > * Configure the sample app
-> * Examine the sample code in detail
+> * Examine the code that analyzes the specified video
 > * Run the app
 > * Examine the output
 > * Clean up resources
@@ -50,18 +50,18 @@ Clone a GitHub repository that contains the .NET sample to your machine using th
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## Examine the sample code in detail
+## Examine the code that analyzes the specified video
 
 This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) file of the *AnalyzeVideos* project.
 
 The sample performs the following actions:
 
-1. Creates a new Transform (first, checks if the specified Transform exists). 
-2. Creates an output Asset that is used as the encoding Job's output.
-3. Create an input Asset and uploads the specified local video file into it. The Asset is used as the Job's input. 
-4. Submits the encoding Job using the input and output that was created.
-5. Checks the Job's status.
-6. Downloads the encoded files.
+1. Creates a transform and a job that analyzes your video.
+2. Creates an input asset and uploads the video into it. The asset is used as the job's input.
+3. Creates an output asset that stores the job's output. 
+4. Submits the job.
+5. Checks the job's status.
+6. Downloads the files that resulted from running the job. 
 
 ### Start using Media Services APIs with .NET SDK
 
@@ -83,7 +83,7 @@ The following function performs these actions:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
 
-### Create an output asset to store the result of a job 
+### Create an output asset to store the result of the job 
 
 The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your job. The project defines the **DownloadResults** function that downloads the results from this output asset into the "output" folder, so you can see what you got.
 
