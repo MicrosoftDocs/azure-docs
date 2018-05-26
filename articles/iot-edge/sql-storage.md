@@ -1,16 +1,14 @@
 ---
 title: Azure IoT Edge SQL module | Microsoft Docs 
 description: Store data at the edge with Microsoft SQL modules, with Azure Functions to format the data. 
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.reviewer: ebertrams
 ms.date: 02/21/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
+services: iot-edge
 ---
 
 # Store data at the edge with SQL Server databases
