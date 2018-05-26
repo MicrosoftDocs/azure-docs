@@ -221,9 +221,9 @@
     href: /rest/api/searchservice
   - name: REST (Management)
     href: /rest/api/searchmanagement
-  - name: REST (Preview - cognitive search)
+  - name: REST (Preview)
     href: search-api-preview.md
-  - name: Predefined skills (Preview - cognitive search) 
+  - name: Predefined skills (Preview) 
     href: cognitive-search-predefined-skills.md
     items:
     - name: Key Phrase Extraction 
