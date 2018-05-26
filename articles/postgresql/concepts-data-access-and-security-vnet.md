@@ -142,4 +142,4 @@ To allow communication from your circuit to Azure Database for PostgreSQL, you m
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
-[expressroute-indexmd-744v]: ../expressroute/index.md
+[expressroute-indexmd-744v]: ../expressroute/index.yml
