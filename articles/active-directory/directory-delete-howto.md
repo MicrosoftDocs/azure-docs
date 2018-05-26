@@ -18,10 +18,9 @@ ms.custom: it-pro
 
 ---
 # How to delete an Azure Active Directory tenant
-Only an Azure Active Directory (Azure AD) global administrator can delete an Azure AD tenant from the portal. When a tenant is deleted, all resources that are contained in the tenant are also deleted. Your task is to minimize the resources in the tenant before you delete.
+When a tenant is deleted, all resources that are contained in the tenant are also deleted. You're required to minimize the resources in the tenant before you delete. Only an Azure Active Directory (Azure AD) global administrator can delete an Azure AD tenant from the portal. 
 
-* If you are signed in with a work or school account, you can't delete your home tenant. For example, if you are signed in as joe@contoso.onmicrosoft.com, you can't delete the tenant that has contoso.onmicrosoft.com as its default domain. 
-* If you are signed in with a Microsoft account, you are authenticated outside of the tenant and can delete it.
+If you are signed in with a work or school account, you can't delete your home tenant. For example, if you are signed in as joe@contoso.onmicrosoft.com, you can't delete the tenant that has contoso.onmicrosoft.com as its default domain. 
 
 ## Prepare the tenant for deletion
 
