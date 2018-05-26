@@ -53,7 +53,7 @@ This version provides the following capabilities:
 
 * **Transforms** that help you define simple workflows of media processing or analytics tasks. Transform is a recipe for processing your video and audio files. You can then apply it repeatedly to process all the files in your content library, by submitting jobs to the Transform.
 * **Jobs** to process (encode or analyze) your videos. An input content can be specified on a job using HTTP(s) URLs, SAS URLs, or paths to files located in Azure Blob storage. 
-* **Notifications** that monitor job progress or states, or Live Channel start/stop and error events. Notivications are integrated with the Azure Event Grid notification system. You can easily subscribe to events on several resources in Azure Media Services. 
+* **Notifications** that monitor job progress or states, or Live Channel start/stop and error events. Notifications are integrated with the Azure Event Grid notification system. You can easily subscribe to events on several resources in Azure Media Services. 
 * **Azure Resource Management** templates can be used to create and deploy Transforms, Streaming Endpoints, Channels, and more.
 * **Role-based access control** can be set at the resource level, allowing you to lock down access to specific resources like Transforms, Channels, and more.
 * **Client SDKs** in multiple languages: .NET, .NET core, Python, Go, Java, and Node.js.
