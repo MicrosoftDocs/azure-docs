@@ -29,7 +29,6 @@ To run the sample, do the following steps:
 1. Replace `<Subscription Key>` with your valid subscription key.
 1. Change the Request URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) to use the location where you obtained your subscription keys, if necessary.
 1. Optionally, change the image (`{\"url\":\"...`) to analyze.
-1. Optionally, change the response language (`language=en`).
 1. Open a command window on a computer with cURL installed.
 1. Paste the code in the window and run the command.
 
