@@ -35,7 +35,7 @@ To complete this tutorial, you need:
 * A PC with [Visual Studio Community 2015][2] or later
 * [Visual Studio Tools for Apache Cordova][4]
 * An [active Azure account][3]
-* A completed [Apache Cordova quick start][5] project
+* A completed [Apache Cordova quickstart][5] project
 * (Android) A [Google account][6] with a verified email address
 * (iOS) An [Apple Developer Program membership][7] and an iOS device (iOS Simulator does not support push notifications)
 * (Windows) A [Microsoft Store Developer Account][8] and a Windows 10 device
