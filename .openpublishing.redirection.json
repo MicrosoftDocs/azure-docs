@@ -21950,6 +21950,41 @@
             "source_path": "articles/security/azure-security-getting-started.md",
             "redirect_url": "https://docs.microsoft.com/azure/security",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-quickstart-cs-add-utterance.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-cs-add-utterance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-quickstart-java-add-utterance.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-java-add-utterance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-quickstart-javascript-add-utterance.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-javascript-add-utterance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-quickstart-node-add-utterance.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-node-add-utterance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-quickstart-php-add-utterance.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-php-add-utterance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-quickstart-python-add-utterance.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-python-add-utterance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-quickstart-ruby-add-utterance.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-ruby-add-utterance",
+            "redirect_document_id": true
         }
     ]
 }

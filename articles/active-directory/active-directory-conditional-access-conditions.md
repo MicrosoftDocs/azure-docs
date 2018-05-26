@@ -146,7 +146,7 @@ The client apps condition allows you to apply a policy to different types of app
 - Web sites and services
 - Mobile apps and desktop applications. 
 
-![Conditions](./media/active-directory-conditional-access-conditions/04.png)
+
 
 An application is classified as:
 
