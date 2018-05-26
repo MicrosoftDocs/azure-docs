@@ -29,7 +29,7 @@ This tutorial shows you how to:
 > * Create a Media Services account
 > * Access the Media Services API
 > * Configure the sample app
-> * Examine the code in detail
+> * Examine the code that uploads, encodes, and streams
 > * Run the app
 > * Test the streaming URL
 > * Clean up resources
@@ -54,7 +54,7 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## Examine the code
+## Examine the code that uploads, encodes, and streams
 
 This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) file of the *UploadEncodeAndStreamFiles* project.
 
