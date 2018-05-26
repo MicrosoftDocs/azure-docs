@@ -27,8 +27,8 @@ workflows for managing data and resources in your SAP systems.
 This example uses a logic app that you can trigger with 
 an HTTP request. The logic app sends the request for an 
 Intermediate Document (IDoc) action to an SAP server. 
-The logic app then returns an HTTP response with the 
-results to the initial requestor that called the logic app.
+The logic app then returns the results in an HTTP response 
+to the initial requestor that called the logic app.
 
 The current SAP connectors have actions, 
 but not triggers, so this example uses the 
@@ -99,13 +99,12 @@ the Logic Apps engine creates a logic app instance
 and starts running your app's workflow.
 
 In this example, you create a logic app with an endpoint in 
-Azure so that you can send *POST requests* to your logic app. 
+Azure so that you can send *HTTP POST requests* to your logic app. 
 When your logic app receives these HTTP requests, 
 the trigger fires and runs the next step in your workflow.
 
-1. In the Azure portal or Visual Studio, 
-open your logic app in Logic App Designer. 
-This example uses the Azure portal.
+1. In the Azure portal, create a blank logic app, 
+which opens in the Logic App Designer. 
 
 2. In the search box, enter "HTTP request" as your filter. 
 From the triggers list, select this trigger: 
@@ -113,13 +112,14 @@ From the triggers list, select this trigger:
 
    ![Add HTTP Request trigger](./media/logic-apps-using-sap-connector/add-trigger.png)
 
-3. Now save your logic app so you can generate a HTTP POST URL for your endpoint.
+3. Now save your logic app so you can 
+generate an endpoint URL for your logic app.
 On the designer toolbar, choose **Save**. 
 
-   The URL now appears in your trigger, for example:
+   The endpoint URL now appears in your trigger, 
+   for example:
 
    ![Generate URL for endpoint](./media/logic-apps-using-sap-connector/generate-http-endpoint-url.png)
-
 
 <a name="add-action"></a>
 
@@ -130,21 +130,12 @@ is a step in your workflow that follows a trigger or another action.
 If you haven't added a trigger to your logic app yet and want to follow 
 this example, [add the trigger described in this section](#add-trigger).
 
-1. In the Azure portal or Visual Studio, 
-open your logic app in Logic App Designer. 
-This example uses the Azure portal.
-
-2. In the Logic App Designer, under the trigger, 
+1. In the Logic App Designer, under the trigger, 
 choose **New step** > **Add an action**.
 
    ![Add an action](./media/logic-apps-using-sap-connector/add-action.png) 
 
-   To add an action between existing steps, 
-   move your mouse over the connecting arrow. 
-   Choose the plus sign (**+**) that appears, 
-   and then choose **Add an action**.
-
-3. In the search box, enter "sap server" as your filter. 
+2. In the search box, enter "sap server" as your filter. 
 From the actions list, select the action for your SAP server: 
 
    * **SAP Application Server - Send to SAP**
@@ -155,99 +146,83 @@ From the actions list, select the action for your SAP server:
 
    ![Select "SAP Application Server" or "SAP Message Server"](media/logic-apps-using-sap-connector/select-sap-action.png)
 
-4. If you're prompted for connection details, 
-create your SAP connection now. 
-Otherwise, if your connection already exists, 
-continue with the next step so you can provide 
-the necessary information for your SAP action. 
+3. If you're prompted for connection details, create your SAP connection now. 
+Otherwise, if your connection already exists, continue with the next step 
+so you can set up your SAP action. 
 
    **Create on-premises SAP connection**
 
    1. For **Gateways**, select **Connect via on-premise data gateway** 
    so that the on-premises connection properties appear.
 
-   2. Provide the connection information for your SAP server:
+   2. Provide the connection information for your SAP server. 
+   For the **gateway** property, select the data gateway you created 
+   in the Azure portal for your gateway installation, for example:
 
       **SAP Application Server**
 
-      | Property | Required | Value | Description | 
-      |----------|----------|-------|-------------| 
-      | SAP Client Number | Yes | | | 
-      | Application Server Host Address | Yes | | | 
-      | System Number | Yes | | | 
-      | SAP Gateway Host| No | | | 
-      | SAP Gateway Server | No | | | 
-      | Authentication Type | Yes | Basic | The authentication type that your server uses, which defaults to Basic | 
-      | SAP Username | Yes | | | 
-      | SAP Password | Yes | | | 
-      | gateway | Yes | <*data-gateway*> | Select the gateway you created in the Azure portal. | 
-      ||||| 
-
-      ![Create SAP app server connection](./media/logic-apps-using-sap-connector/create-SAP-app-server-connection.png)  
+      ![Create SAP application server connection](./media/logic-apps-using-sap-connector/create-SAP-app-server-connection.png)  
 
       **SAP Message Server**
 
-      | Property | Required | Value | Description | 
-      |----------|----------|-------|-------------| 
-      | SAP Client Number | Yes | | | 
-      | Host Address | Yes | | | 
-      | R3 System Name | Yes | | | 
-      | Message Server Group | No | | | 
-      | Message Server Service | No | | | 
-      | Authentication Type | Yes | Basic | The authentication type that your server uses, which defaults to Basic | 
-      | SAP Username | Yes | | | 
-      | SAP Password | Yes | | | 
-      | gateway | Yes | <*data-gateway*> | Select the gateway you created in the Azure portal. | 
-      ||||| 
-
-      ![Create SAP message server connection](media/logic-apps-using-sap-connector/picture2.png) 
+      ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
 
    2. When you're done, choose **Create**.
 
       Logic Apps sets up and tests your connection, 
       making sure that the connection works properly.
 
-5. Now select the IDoc action from your SAP server: 
+4. Now find and select an action from your SAP server. 
 
    1. In the **SAP action** box, choose the folder icon. 
-   From the folder list, select **IDOC** so you can find 
-   and select the IDoc action. 
+   From the folder list, find and select the action you want to use. 
 
-      ![Specify or select SAP action for IDoc action](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
+      This example selects the **IDOC** folder for the IDoc action. 
 
-      The list might not show all available fields. 
-      If this scenario happens, you can manually enter a path, 
+      ![Find and select IDoc action](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
+
+      If you can't find the action you want, you can manually enter a path, 
       for example:
 
       ![Manually provide path to IDoc action](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
 
-   2. In the **Input Message** box, 
-   select the HTTP request **Body** field. 
+   2. Click inside the **Input Message** box so that the dynamic content list appears. 
+   In that list, under **When a HTTP request is received**, select the **Body** field. 
 
-      ![Select "Body" field](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
+      This step includes the body content from your HTTP request 
+      trigger and sends that output to your SAP server.
 
-      This step sends the message output from the 
-      HTTP request trigger to your SAP server.
+      ![Select "Body" field](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
 
-6. Save your logic app. On the designer toolbar, 
-choose **Save**.
+      When you're done, your SAP action looks like this example:
+
+      ![Complete SAP action](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
+
+6. Save your logic app. On the designer toolbar, choose **Save**.
 
 <a name="add-response"></a>
 
 ## Add HTTP response action
 
-Now add the response action so your logic app can return the 
+Now add the response action and include the body output 
+from the SAP action so your logic app can return the 
 results from your SAP server back to the original requestor. 
 
-1. Under the SAP action, add an HTTP response that 
-includes the **Body** output from the SAP action.
+1. In the Logic App Designer, under the SAP action, 
+choose **New step** > **Add an action**.
 
-2. 
+2. In the search box, enter "response" as your filter. 
+From the actions list, select this action: **Request - Response**
 
-3. Save your logic app. 
+3. Click inside the **Body** box so that the dynamic content list appears. 
+From that list, under **Send to SAP**, select the **Body** field. 
 
-3. To test your logic app, send an HTTP POST request to the URL 
-that you created in the HTTP request trigger. 
+   ![Complete SAP action](./media/logic-apps-using-sap-connector/select-sap-body-for-response-action.png)
+
+4. Save your logic app. 
+
+5. To test your logic app, send an IDoc file with an HTTP 
+POST request to the URL you created in the HTTP request trigger. 
 Wait for a response from your logic app.
 
 > [!NOTE]
