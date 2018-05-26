@@ -7,8 +7,8 @@ ms.author: mbolz
 manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 5/23/2018
+ms.topic: conceptual
+ms.date: 5/25/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL
 
@@ -47,11 +47,11 @@ A virtual network rule tells your Azure Database for PostgreSQL server to accept
 
 Until you take action, the VMs on your subnets cannot communicate with your Azure Database for PostgreSQL server. One action that establishes the communication is the creation of a virtual network rule. The rationale for choosing the VNet rule approach requires a compare-and-contrast discussion involving the competing security options offered by the firewall.
 
-#### A. Allow access to Azure services
+### A. Allow access to Azure services
 
 The Connection security pane has an **ON/OFF** button that is labeled **Allow access to Azure services**. The **ON** setting allows communications from all Azure IP addresses and all Azure subnets. These Azure IPs or subnets might not be owned by you. This **ON** setting is probably more open than you want your Azure Database for PostgreSQL Database to be. The virtual network rule feature offers much finer granular control.
 
-#### B. IP rules
+### B. IP rules
 
 The Azure Database for PostgreSQL firewall allows you to specify IP address ranges from which communications are accepted into the Azure Database for PostgreSQL Database. This approach is fine for stable IP addresses that are outside the Azure private network. But many nodes inside the Azure private network are configured with *dynamic* IP addresses. Dynamic IP addresses might change, such as when your VM is restarted. It would be folly to specify a dynamic IP address in a firewall rule, in a production environment.
 
@@ -59,7 +59,7 @@ You can salvage the IP option by obtaining a *static* IP address for your VM. Fo
 
 However, the static IP approach can become difficult to manage, and it is costly when done at scale. Virtual network rules are easier to establish and to manage.
 
-#### C. Cannot yet have Azure Database for PostgreSQL on a subnet without defining a service endpoint
+### C. Cannot yet have Azure Database for PostgreSQL on a subnet without defining a service endpoint
 
 If your **Microsoft.Sql** server was a node on a subnet in your virtual network, all nodes within the virtual network could communicate with your Azure Database for PostgreSQL server. In this case, your VMs could communicate with Azure Database for PostgreSQL without needing any virtual network rules or IP rules.
 
@@ -71,13 +71,13 @@ However as of May 2018, the Azure Database for PostgreSQL service is not yet amo
 
 This section describes several details about virtual network rules.
 
-#### Only one geographic region
+### Only one geographic region
 
 Each Virtual Network service endpoint applies to only one Azure region. The endpoint does not enable other regions to accept communication from the subnet.
 
 Any virtual network rule is limited to the region that its underlying endpoint applies to.
 
-#### Server-level, not database-level
+### Server-level, not database-level
 
 Each virtual network rule applies to your whole Azure Database for PostgreSQL server, not just to one particular database on the server. In other words, virtual network rule applies at the server-level, not at the database-level.
 
@@ -119,7 +119,7 @@ For Azure Database for PostgreSQL, the virtual network rules feature has the fol
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
     - On-premises via [ExpressRoute][expressroute-indexmd-744v]
 
-#### ExpressRoute
+## ExpressRoute
 
 If your network is connected to the Azure network through use of [ExpressRoute][expressroute-indexmd-744v], each circuit is configured with two public IP addresses at the Microsoft Edge. The two IP addresses are used to connect to Microsoft Services, such as to Azure Storage, by using Azure Public Peering.
 
