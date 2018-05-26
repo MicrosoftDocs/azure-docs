@@ -104,7 +104,7 @@ When your logic app receives these HTTP requests,
 the trigger fires and runs the next step in your workflow.
 
 1. In the Azure portal, create a blank logic app, 
-which opens in the Logic App Designer. 
+which opens the Logic App Designer. 
 
 2. In the search box, enter "HTTP request" as your filter. 
 From the triggers list, select this trigger: 
@@ -204,9 +204,10 @@ so you can set up your SAP action.
 
 ## Add HTTP response action
 
-Now add the response action and include the body output 
-from the SAP action so your logic app can return the 
-results from your SAP server back to the original requestor. 
+Now add a response action to your logic app's 
+workflow and include the output from the SAP action. 
+That way, your logic app returns the results 
+from your SAP server to the original requestor. 
 
 1. In the Logic App Designer, under the SAP action, 
 choose **New step** > **Add an action**.
@@ -251,14 +252,12 @@ see these reference pages:
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
-
-## Next steps
-
-- Learn how to validate, transform, and other BizTalk-like functions in the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). 
-- 
+* To submit or vote on feature ideas, visit the 
+[Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
 
 * [Connect to on-premises systems](../logic-apps/logic-apps-gateway-connection.md) from logic apps
+* Learn how to validate, transform, and other message operations with the 
+[Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
