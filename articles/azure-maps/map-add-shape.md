@@ -1,7 +1,7 @@
 ---
 title: Add a shape with Azure Maps | Microsoft Docs
 description: How to add a shape to a Javascript map
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
