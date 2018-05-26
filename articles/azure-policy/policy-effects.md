@@ -343,6 +343,36 @@ not, then a deployment to enable it is executed.
 }
 ```
 
+## Layering policies
+
+As multiple policies (each with a different effect) can be assigned to resources at multiple levels
+of scope (management group, subscription, resource group), it is possible to have a match for a
+resource at different scope levels for the same condition, but in different policies. Each
+conditional is evaluated and acted upon as defined by the effect in the policy or initiative. For
+example, if policy 1 that restricts location for subscription A resources to 'westus' with an
+effect of deny and policy 2 that restricts location for resource group B (as part of subscription
+A) resources to 'eastus' with an effect of audit are assigned, the resulting outcome would be:
+
+- Any resource already in resource group B in 'eastus' is compliant to policy 2, but marked as non-compliant to policy 1.
+- Any resource already in resource group B not in 'eastus' will be marked as non-compliant to policy 2, and would also be marked not-compliant to policy 1 if not 'westus'.
+- Any new resource in subscription A not in 'westus' would be denied by policy 1.
+- Any new resource in subscription A / resource group B in 'westus' would be marked as non-compliant on policy 2, but would be created (compliant to policy 1 and policy 2 is audit and not deny).
+
+If both policy 1 and policy 2 had effect of deny, the situation would change to:
+
+- Any resource already in resource group B not in 'eastus' will be marked as non-compliant to policy 2.
+- Any resource already in resource group B not in 'westus' will be marked as non-compliant to policy 1.
+- Any new resource in subscription A not in 'westus' would be denied by policy 1.
+- Any new resource in subscription A / resource group B would be denied (since its location could never satisfy both policy 1 and policy 2).
+
+As each assignment is individually evaluated, there isn't an opportunity for a resource to slip
+through a gap due to differences in scope. Therefore, the net result of layering policies or policy
+overlap is considered to be **cumulative most restrictive**. In other words, a resource you want
+created could be blocked due to overlapping and conflicting policies (in the example: if policy 1
+and policy 2 are both deny and a new resource is to be created in resource group B). If you still need the
+resource to be created in the target scope, review the exclusions on each assignment to ensure the
+right policies are affecting the right scopes.
+
 ## Next steps
 
 Now that you have a deeper understanding of policy definition effects, review the policy samples:
