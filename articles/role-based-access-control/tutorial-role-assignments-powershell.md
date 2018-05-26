@@ -26,8 +26,7 @@ ms.author: rolyon
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Assign the Reader role to a group at the subscription scope
-> * Assign the Contributor role to a group at the resource group scope
+> * Assign roles to a group at different scopes
 > * List role assignments
 > * Remove role assignments
 
@@ -55,7 +54,7 @@ A role assignment consists of three elements: security principal, role definitio
 
 To assign a role, you need a user, group, or service principal.
 
-- Create a new group using the [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command with a name of your choice.
+- In Azure Cloud Shell or Azure PowerShell, create a new group using the [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command.
 
    ```azurepowershell
    New-AzureADGroup -DisplayName "RBAC Tutorial Group" `
@@ -120,7 +119,7 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. Get the ID of the subscription using the [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) command.
+1. Get the ID of your subscription using the [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) command.
 
     ```azurepowershell
     Get-AzureRmSubscription
@@ -133,12 +132,18 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
     State    : Enabled
     ```
 
+1. Save the subscription scope in a variable.
+
+    ```azurepowershell
+    $subScope = "/subscriptions/00000000-0000-0000-0000-000000000000"
+    ```
+
 1. Assign the [Reader](built-in-roles.md#reader) role to the group at the subscription scope.
 
     ```azurepowershell
     New-AzureRmRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Reader" `
-      -Scope "/subscription/00000000-0000-0000-0000-000000000000"
+      -Scope $subScope
     ```
 
     ```Example
@@ -178,7 +183,7 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
 1. To verify the role assignments for the subscription, use the [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) command.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -ObjectId $groupId -ResourceGroupName "/subscriptions/00000000-0000-0000-0000-000000000000"
+    Get-AzureRmRoleAssignment -ObjectId $groupId -Scope $subScope
     ```
 
     ```Example
@@ -231,7 +236,7 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
 
     ![Role assignments for a group](./media/tutorial-role-assignments-powershell/role-assignments-subscription.png)
 
-1. Next, view the **Access control (IAM)** blade for the resource group.
+1. View the **Access control (IAM)** blade for the resource group.
 
     ![Role assignments for a group](./media/tutorial-role-assignments-powershell/role-assignments-resource-group.png)
 
@@ -252,7 +257,7 @@ To remove a role assignment (revoke access) for users, groups, and applications,
     ```azurepowershell
     Remove-AzureRmRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Reader" `
-      -Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
+      -Scope $subScope
     ```
 
 ## Clean up resources
