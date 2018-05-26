@@ -88,7 +88,7 @@ To keep document size down, remember to exclude non-queryable data from the requ
 
 Basic services created after late 2017 have an increased limit of 15 indexes, data sources, skillsets, and indexers.
 
-Resource-intensive operations, such as image analysis in Azure blob indexing or natural language processing in cognitive search, have shorter maximum limits so that other indexing jobs can be accommodated. If an indexing job cannot complete within the maximum limit, try running it on a schedule. The scheduler keeps track of indexing status. If a scheduled indexing job is interrupted due to a maximum limit, the indexer can pick up where it last left off at the next scheduled run.
+Resource-intensive operations, such as image analysis in Azure blob indexing or natural language processing in cognitive search, have shorter maximum running times so that other indexing jobs can be accommodated. If an indexing job cannot complete within the maximum time allowed, try running it on a schedule. The scheduler keeps track of indexing status. If a scheduled indexing job is interrupted for any reason, the indexer can pick up where it last left off at the next scheduled run.
 
 | Resource | Free&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
@@ -109,7 +109,7 @@ Resource-intensive operations, such as image analysis in Azure blob indexing or 
 
 <sup>4</sup> Maximum of 30 skills per skillset.
 
-<sup>5</sup> When a scheduled indexing job is interrupted due to reaching its running time quota, the indexer picks up where it left off the next time it runs according to the schedule. 
+<sup>5</sup> Cognitive search workloads and image analysis in Azure blob indexing have shorter running times than regular text indexing. Image analysis and natural language processing are computationally intensive and consume disproportionate amounts of available processing power. Running time was reduced to give other jobs in the queue an opportunity to run.  
 
 ## Queries per second (QPS)
 
