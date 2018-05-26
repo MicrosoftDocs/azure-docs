@@ -34,7 +34,7 @@ Here is a detailed comparison of the various cloud-to-device communication optio
 | Data flow | Two-way. The device app can respond to the method right away. The solution back end receives the outcome contextually to the request. | One-way. The device app receives a notification with the property change. | One-way. The device app receives the message
 | Durability | Disconnected devices are not contacted. The solution back end is notified that the device is not connected. | Property values are preserved in the device twin. Device will read it at next reconnection. Property values are retrievable with the [IoT Hub query language][lnk-query]. | Messages can be retained by IoT Hub for up to 48 hours. |
 | Targets | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device by **deviceId**. |
-| Size | Up to 8 KB requests and 8 KB responses. | Maximum desired properties size is 8 KB. | Up to 64 KB messages. |
+| Size | Maximum direct method payload size is 128 KB. | Maximum desired properties size is 8 KB. | Up to 64 KB messages. |
 | Frequency | High. For more information, see [IoT Hub limits][lnk-quotas]. | Medium. For more information, see [IoT Hub limits][lnk-quotas]. | Low. For more information, see [IoT Hub limits][lnk-quotas]. |
 | Protocol | Available using MQTT or AMQP. | Available using MQTT or AMQP. | Available on all protocols. Device must poll when using HTTPS. |
 

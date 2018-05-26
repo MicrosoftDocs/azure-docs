@@ -1,5 +1,7 @@
 - name: Data Factory V2 Documentation
   href: index.yml
+- name: Switch to version 1 documentation
+  href: v1/data-factory-introduction.md
 - name: Overview
   items:
   - name: Introduction to Data Factory

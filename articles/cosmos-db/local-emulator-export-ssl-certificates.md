@@ -2,7 +2,6 @@
 title: Export the Azure Cosmos DB Emulator certificates | Microsoft Docs
 description: When developing in languages and runtimes that do not use the Windows Certificate Store you will need to export and manage the SSL certificates. This post gives step by step instructions.
 services: cosmos-db
-documentationcenter: ''
 keywords: Azure Cosmos DB Emulator
 author: voellm
 manager: kfile
@@ -12,8 +11,6 @@ ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
