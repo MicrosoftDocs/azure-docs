@@ -25,7 +25,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/app-service-mobile.svg" alt="Mobile Apps" />
+                            <img src="https://docs.microsoft.com/en-us/media/common/i_learn-about.svg" alt="Mobile Apps" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -43,7 +43,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="Videos" />
+                            <img src="https://docs.microsoft.com/en-us/media/common/i_video.svg" alt="Videos" />
                         </div>
                     </div>
                     <div class="cardText">
