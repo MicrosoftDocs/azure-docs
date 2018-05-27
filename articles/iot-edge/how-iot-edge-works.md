@@ -1,21 +1,15 @@
 ---
 title: What is Azure IoT Edge | Microsoft Docs
 description: Overview of the Azure IoT Edge service
-services: iot-Edge
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: chipalost
-
-ms.assetid:
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+# this is the PM responsible
+ms.reviewer: chipalost
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: 
 ---
 
 # What is Azure IoT Edge - preview

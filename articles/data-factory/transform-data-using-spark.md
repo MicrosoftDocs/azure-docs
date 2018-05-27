@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
 
@@ -47,7 +47,6 @@ Here is the sample JSON definition of a Spark Activity:
         },
         "rootPath": "adfspark\\pyFiles",
         "entryFilePath": "test.py",
-        "arguments": [ "arg1", "arg2" ],
         "sparkConfig": {
             "ConfigItem1": "Value"
         },

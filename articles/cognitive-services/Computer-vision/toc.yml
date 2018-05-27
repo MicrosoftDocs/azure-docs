@@ -50,10 +50,22 @@
 #    items:
 #    - name: Summary
 #      href: QuickStarts/PHP.md
-#  - name: Python
-#    items:
-#    - name: Summary
-#      href: QuickStarts/Python.md
+  - name: Python
+    items:
+    - name: Summary
+      href: QuickStarts/Python.md
+    - name: Analyze an image
+      href: QuickStarts/python-analyze.md
+    - name: Use a domain model
+      href: QuickStarts/python-domain.md
+    - name: Generate a thumbnail
+      href: QuickStarts/python-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/python-print-text.md
+    - name: Extract handwritten text
+      href: QuickStarts/python-hand-text.md
+    - name: Analyze a disk image
+      href: QuickStarts/python-disk.md
 #  - name: Ruby
 #    items:
 #    - name: Summary
@@ -66,8 +78,6 @@
       href: QuickStarts/curl.md
     - name: PHP
       href: QuickStarts/PHP.md
-    - name: Python
-      href: QuickStarts/Python.md
     - name: Ruby
       href: QuickStarts/Ruby.md
   - name: First Computer Vision apps

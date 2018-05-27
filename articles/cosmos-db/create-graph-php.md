@@ -2,7 +2,6 @@
 title: 'Quickstart: Graph API with PHP - Azure Cosmos DB | Microsoft Docs'
 description: This quickstart shows how to use the Azure Cosmos DB Graph API to create a console application with the Azure portal and PHP
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
 
