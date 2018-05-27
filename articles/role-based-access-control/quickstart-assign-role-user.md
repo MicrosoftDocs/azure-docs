@@ -19,7 +19,7 @@ ms.author: rolyon
 
 ---
 
-# Quickstart: Assign a role to a user in the Azure portal
+# Quickstart: Assign a role to a user in the Azure Portal
 
 Role-based access control (RBAC) is the way that you control access to resources in Azure. In this quickstart, you will grant a user access to manage virtual machines in a resource group, but not have access to the virtual machines.
 
@@ -37,7 +37,7 @@ Sign in to the Azure portal at http://portal.azure.com.
 
    ![Add a new resource group](./media/quickstart-assign-role-user/resource-group.png)
 
-1. For **Resource group name** enter **rbac-quickstart-resource-group**.
+1. For **Resource group name**, enter **rbac-quickstart-resource-group**.
 
 1. Select a subscription and a location.
 
@@ -45,13 +45,15 @@ Sign in to the Azure portal at http://portal.azure.com.
 
 1. Choose **Refresh** to refresh the list of resource groups.
 
-   The new resource group appears int the resource groups list.
+   The new resource group appears in your resource groups list.
+
+   ![Resource group list](./media/quickstart-assign-role-user/resource-group-list.png)
 
 ## Grant access
 
 In RBAC, to grant access, you create a role assignment.
 
-1. In the list of **Resource groups**, choose the new resource group.
+1. In the list of **Resource groups**, choose the new **rbac-quickstart-resource-group** resource group.
 
 1. Choose **Access control (IAM)** to see the current list of role assignments.
 
@@ -69,7 +71,7 @@ In RBAC, to grant access, you create a role assignment.
 
 1. Choose **Save** to create the role assignment.
 
-   After a few moments, you see the user with the Virtual Machine Contributor role assignment.
+   After a few moments, the user is assigned the Virtual Machine Contributor role for the rbac-quickstart-resource-group resource group.
 
    ![Virtual Machine Contributor role assignment](./media/quickstart-assign-role-user/vm-contributor-assignment.png)
 
@@ -83,7 +85,21 @@ In RBAC, to remove access, you remove a role assignment.
 
    ![Remove role assignment message](./media/quickstart-assign-role-user/remove-role-assignment.png)
 
-1. In the remove role assignment message that appears, click **Yes**.
+1. In the remove role assignment message that appears, choose **Yes**.
+
+## Clean up
+
+1. In the navigation list, choose **Resource groups**.
+
+1. Add a checkmark next to **rbac-quickstart-resource-group**.
+
+1. At the end of the row, choose the ellipsis (**...**) to open the context menu and then choose **Delete resource group**.
+
+   ![Delete resource group context menu](./media/quickstart-assign-role-user/delete-resource-group-context.png)
+
+1. On the **Are you sure you want to delete** blade, type the resource group name: **rbac-quickstart-resource-group**.
+
+1. Choose **Delete** to delete the resource group.
 
 ## Next steps
 
