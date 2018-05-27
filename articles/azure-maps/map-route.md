@@ -40,5 +40,5 @@ Learn more about the classes and methods used in this article:
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
 
 For more code examples to add to your maps, see the following articles: 
-* [Show traffic](./map-show-traffic.md)
+* [Show traffic on the map](./map-show-traffic.md)
 * [Interacting with the map - mouse events](./map-events.md)
