@@ -6,6 +6,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-analytics.md",
+            "redirect_url": "/azure/cognitive-services/custom-decision-service",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Computer-vision/Research.md",
             "redirect_url": "/azure/cognitive-services/Computer-vision",
             "redirect_document_id": false
@@ -5929,7 +5934,7 @@
             "source_path": "articles/lab-services/how-to-use-classroom-lab.md",
             "redirect_url": "/azure/lab-services/classroom-labs/how-to-use-classroom-lab",
             "redirect_document_id": false
-        },                        
+        },
         {
             "source_path": "articles/lab-services/tutorial-connect-virtual-machine-classroom-lab.md",
             "redirect_url": "/azure/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab",
@@ -21924,7 +21929,7 @@
             "redirect_url": "/azure/application-gateway/tutorial-restrict-web-traffic-cli",
             "redirect_document_id": false
         },
-	    {
+            {
             "source_path": "articles/active-directory/active-directory-conditional-access-vpn-connectivity-windows10.md",
             "redirect_url": "https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy",
             "redirect_document_id": true
