@@ -3,7 +3,7 @@ title: Azure Active Directory Reporting FAQ | Microsoft Docs
 description: Azure Active Directory reporting FAQ.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
 
 ---

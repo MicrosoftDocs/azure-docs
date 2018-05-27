@@ -1,18 +1,14 @@
----  
-title: Upgrade to the Azure Resource Manager deployment model for Azure VM backup stack | Microsoft Docs 
-description: Upgrade process and FAQs for VM backup stack, Resource Manager deployment model 
-services: backup, virtual-machines 
-documentationcenter: '' 
-author: trinadhk  
-manager: vijayts 
-tags: azure-resource-manager, virtual-machine-backup 
-ms.assetid:  
-ms.service: backup, virtual-machines 
-ms.devlang: na 
-ms.topic: article 
-ms.workload: storage-backup-recovery 
-ms.date: 03/08/2018 
-ms.author: trinadhk, sogup
+---
+title: Upgrade to the Azure Resource Manager deployment model for Azure VM backup stack
+description: Upgrade process and FAQs for VM backup stack, Resource Manager deployment model
+services: backup, virtual-machines
+author: trinadhk
+manager: vijayts
+tags: azure-resource-manager, virtual-machine-backup
+ms.service: backup, virtual-machines
+ms.topic: conceptual
+ms.date: 03/08/2018
+ms.author: trinadhk
 --- 
 
 # Upgrade to the Azure Resource Manager deployment model for Azure VM backup stack

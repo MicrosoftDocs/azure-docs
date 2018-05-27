@@ -53,7 +53,7 @@ Connected Factory includes the following features:
 
 ## Customizability
 
-- [Customize](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) the solution to meet specific business requirements.
+- Customize the solution to meet specific business requirements.
 - Full solution source-code available on GitHub. See the [Connected Factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory) repository.
 
 ## Next steps

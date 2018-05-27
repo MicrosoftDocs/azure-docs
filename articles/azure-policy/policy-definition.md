@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -58,7 +58,7 @@ For example, the following JSON shows a policy that limits where resources are d
 }
 ```
 
-All Azure Policy template samples are at [Templates for Azure Policy](json-samples.md).
+All Azure Policy samples are at [Policy samples](json-samples.md).
 
 ## Mode
 
@@ -246,6 +246,8 @@ The value can be either a string or a JSON format object.
 With **AuditIfNotExists** and **DeployIfNotExists** you can evaluate the existence of a related resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks.
 For an example of auditing when a virtual machine extension is not deployed, see [Audit if extension does not exist](scripts/audit-ext-not-exist.md).
 
+For complete details on each effect, order of evaluation, properties, and examples, see [Understanding Policy Effects](policy-effects.md).
+
 ## Aliases
 
 You use property aliases to access specific properties for a resource type. Aliases enable you to restrict what values or conditions are permitted for a property on a resource. Each alias maps to paths in different API versions for a given resource type. During policy evaluation, the policy engine gets the property path for that API version.
@@ -386,4 +388,4 @@ The following example illustrates how to create an initiative for handling two t
 
 ## Next steps
 
-- Review the Azure Policy template samples at [Templates for Azure Policy](json-samples.md).
+- Review more examples at [Azure Policy samples](json-samples.md).
