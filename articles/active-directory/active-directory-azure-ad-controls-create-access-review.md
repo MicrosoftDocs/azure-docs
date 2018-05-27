@@ -47,7 +47,7 @@ Access assignments become "stale" when users have access they don't need any mor
 
 2.	In cases where users were not reviewed by the reviewer within the review period, you can have the access review either take the system's recommendation (if enabled) on denying/approving the user's continued access, leave their access unchanged, or remove their access. This will not impact users who have been reviewed by the reviewers manually –if the final reviewer’s decision is Deny, then the user’s access will be removed.
 
-3.	To enable the option to take recommendations should reviewers not respond, expand Advanced settings and enable enable Show recommendations.
+3.	To enable the option to take recommendations should reviewers not respond, expand Advanced settings and enable Show recommendations.
  
 4.	Finally, click **Start**.
 
