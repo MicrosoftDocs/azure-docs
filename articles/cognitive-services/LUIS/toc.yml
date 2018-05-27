@@ -29,6 +29,8 @@
         href: luis-quickstart-intent-and-key-phrase.md
       - name: Sentiment analysis
         href: luis-quickstart-intent-and-sentiment-analysis.md
+- name: Tutorials
+  items: 
   - name: Use APIs
     items: 
     - name: Get utterance prediction with endpoint query
@@ -50,29 +52,27 @@
     - name: Add utterance to intent and train app
       items: 
       - name: C#
-        href: luis-quickstart-cs-add-utterance.md
+        href: luis-get-started-cs-add-utterance.md
       - name: Java
-        href: luis-quickstart-java-add-utterance.md
+        href: luis-get-started-java-add-utterance.md
       - name: JavaScript
-        href: luis-quickstart-javascript-add-utterance.md
+        href: luis-get-started-javascript-add-utterance.md
       - name: Node.js
-        href: luis-quickstart-node-add-utterance.md
+        href: luis-get-started-node-add-utterance.md
       - name: Python
-        href: luis-quickstart-python-add-utterance.md
+        href: luis-get-started-python-add-utterance.md
       - name: PHP
-        href: luis-quickstart-php-add-utterance.md
+        href: luis-get-started-php-add-utterance.md
       - name: Ruby
-        href: luis-quickstart-ruby-add-utterance.md
+        href: luis-get-started-ruby-add-utterance.md
 - name: Samples
   items:
   - name: Code samples
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
-  - name: Developing a LUIS app
-    href: luis-concept-intro-to-luis.md
-  - name: Authoring and endpoint keys
-    href: luis-concept-keys.md
+  - name: Best practices
+    href: luis-concept-best-practices.md
   - name: Author App
     items: 
     - name: Authoring cycle
@@ -123,8 +123,8 @@
     items:
     - name: App access
       href: luis-concept-security.md
-  - name: Best practices
-    href: luis-concept-best-practices.md
+    - name: Authoring and endpoint keys
+      href: luis-concept-keys.md
 - name: How-to guides
   items: 
   - name: Plan your app
@@ -221,7 +221,7 @@
     href: luis-tutorial-node-import-utterances-csv.md
 - name: Reference
   items: 
-  - name: GDPR
+  - name: User privacy
     href: luis-reference-gdpr.md
   - name: Regions
     href: luis-reference-regions.md

@@ -1,28 +1,24 @@
 ---
 title: Device schema in remote monitoring solution - Azure | Microsoft Docs
 description: This article describes the JSON schema that defines a simulated device in the remote monitoring solution.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
 # Understand the device model schema
 
-You can use simulated devices in the remote monitoring solution to test its behavior. When you deploy the remote monitoring solution, a collection of simulated devices is provisioned automatically. You can customize the existing simulated devices or create your own.
+You can use simulated devices in the Remote Monitoring solution to test its behavior. When you deploy the Remote Monitoring solution, a collection of simulated devices is provisioned automatically. You can customize the existing simulated devices or create your own.
 
 This article describes the device model schema that specifies the capabilities and behavior of a simulated device. The device model is stored in a JSON file.
 
 The following articles are related to the current article:
 
-* [Implement the device model behavior](../iot-suite/iot-suite-remote-monitoring-device-behavior.md) describes the JavaScript files you use to implement the behavior of a simulated device.
+* [Implement the device model behavior](iot-accelerators-remote-monitoring-device-behavior.md) describes the JavaScript files you use to implement the behavior of a simulated device.
 * [Create a new simulated device](iot-accelerators-remote-monitoring-test.md) puts it all together and shows you how to deploy a new simulated device type to your solution.
 
 In this article, you learn how to:
@@ -35,7 +31,7 @@ In this article, you learn how to:
 
 ## The parts of the device model schema
 
-Each device model, such as a chiller or truck, defines a type of simulated device to connect to the remote monitoring solution. Each device model is stored in a JSON file with the following top-level schema:
+Each device model, such as a chiller or truck, defines a type of simulated device to connect to the Remote Monitoring solution. Each device model is stored in a JSON file with the following top-level schema:
 
 ```json
 {
@@ -199,12 +195,12 @@ To send telemetry messages at different intervals, add multiple telemetry types 
 
 ## CloudToDeviceMethods
 
-A simulated device can respond to cloud-to-device methods called from the remote monitoring solution. The `CloudToDeviceMethods` section in the device model schema file:
+A simulated device can respond to cloud-to-device methods called from the Remote Monitoring solution. The `CloudToDeviceMethods` section in the device model schema file:
 
 * Defines the methods the simulated device can respond to.
 * Identifies the JavaScript file that contains the logic to execute.
 
-The simulated device sends the list of methods it supports to the remote monitoring solution.
+The simulated device sends the list of methods it supports to the Remote Monitoring solution.
 
 To learn more about the JavaScript file that implements the behavior of the device, see [Understand the device model behavior](iot-accelerators-remote-monitoring-device-behavior.md).
 
@@ -242,7 +238,7 @@ This article described how to create your own custom simulated device model. Thi
 
 Now you have learned about the JSON schema, the suggested next step is to learn how to [implement the behavior of your simulated device](iot-accelerators-remote-monitoring-device-behavior.md).
 
-For more developer information about the remote monitoring solution, see:
+For more developer information about the Remote Monitoring solution, see:
 
 * [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
