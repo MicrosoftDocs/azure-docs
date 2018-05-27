@@ -30,12 +30,10 @@ A new alerts experience was released for Azure Monitor on June 1, 2018. This exp
 
 The new experience provides the following features that aren't available in the classic experience:
 
-    - View and manage individual alerts across multiple subscriptions.
-    - Aggregate all alerts into single view organized by alert severity. 
-    - Change the state of alerts to reflect where it current is in the resolution process. 
-    - Organize alerts by smart groups which are automatically generated with machine learning algorithms.
-
-
+- View and manage individual alerts across multiple subscriptions.
+- Aggregate all alerts into single view organized by alert severity. 
+- Change the state of alerts to reflect where it current is in the resolution process. 
+- Organize alerts by smart groups which are automatically generated with machine learning algorithms.
 
 
 ## Accessing the new alert experience
@@ -59,14 +57,12 @@ Note that once an alert has been closed, you can reopen it my changing it to ano
 ### Changing the state of an alert or smart group
 You can change the state of an alert by clicking on **Change alert state** in the detail view for the alert or **Change smart group state** in the detail view for the smart group. You can change the state of multiple items at one time by selecting them in a list view and clicking **Change State** at the top of the page. In both cases, select a new state from the dropdown and optionally provide a comment. If you're changing a single item, then you also have an option to apply the same changes to all the alerts in the smart group.
 
-## Smart groups 
+![Change state](media/monitoring-alerts-new-experience/change-tate.png)
 
-Smart groups are aggregations of alerts grouped by similarity, historical patterns, or both. They are created automatically based on machine learning algorithms. When you view smart groups, each alert is included in one and only one group.
-
-The number of smart groups formed, along with a number showing percentage of noise reduction due to grouping, is shown on the alert landing page. Clicking on the number takes you to a dedicated smart group list view page.
-
-# Default alerts page
+## Alerts page
 The default Alerts page provides a quick summary of alerts within a particular tine window. It displays the total alerts for each severity with columns identifying the total number of alerts in each state for each severity. Click any of the severities to open the **All Alerts** view filtered by that severity.
+
+![Alerts page](media/monitoring-alerts-new-experience/alerts-page.png)
 
 You can filter the view by selecting values in the dropdowns at the top of the page.
 
@@ -85,8 +81,10 @@ The default alerts view displays the following values.
 | Total Alert Rules | Total number of alert rules in the selected subscription and resource group. Click this value to open the Rules view filtered on the selected subscriptions and resource group.
 
 
-## Total alerts page 
+## All Alerts page 
 The Total Alerts page allows you to view all alerts that were created within the selected time window. You can either view a list of the individual alerts or a list of the smart groups containing the alerts. Click the banner at the top of the page to toggle between views.
+
+![All Alerts page](media/monitoring-alerts-new-experience/all-alerts-page.png)
 
 You can filter the view by selecting values in the dropdowns at the top of the page.
 
@@ -102,14 +100,9 @@ You can filter the view by selecting values in the dropdowns at the top of the p
 | Monitor Service | Select a service or select *All* to include all services. Only alerts created by rules using that service as a target are included. | 
 | Time Range | Only alerts fired within the selected time window will be included in the view. Supported values are past hour, past 24 hours, past 7 days, and past 30 days. |
 
-   
-## Smart groups landing page  
 
-To get to the smart groups landing page, click on either the banner or the number of smart groups on the alert landing page as shown in the following diagrams.
 
-Smart groups allow you to view alerts group together based on similar properties, historical pattern, or both.  The groups are automatically created based on your particular set of alerts.  You can't create custom groupings.  Click the name of the group to view the individual alerts in that group.
-
-### Alert Detail page
+### Alert detail page
 When you click on an alert, the Alert Detail page is displayed that includes the following sections.
 
 | Section | Description |
@@ -119,6 +112,8 @@ When you click on an alert, the Alert Detail page is displayed that includes the
 | Smart Group | Information about the smart group the alert is included in. The **Alert Count** refers to the number of alerts included in the smart group. This includes the other alerts that are included in the same same smart group that were created in the past 30 days.  This is regardless of the time filter in the alerts list page. Click on an alert to view its detail. |S
 | More Details | Displays granular data for the alert. This information is typically specific to the type of source that created the alert. |
 
+![Alert Detail](media/monitoring-alerts-new-experience/alert-detail.png)
+
 ### Smart Group detail page
 When you click on a smart group, the Smart Group Detail page is  displayed that includes the following sections.
 
@@ -127,10 +122,8 @@ When you click on a smart group, the Smart Group Detail page is  displayed that 
 | Alerts | Lists the individual alerts that are included in the smart group. Click on an alert to open its Alert Detail page. |
 | History | Lists each action taken by the smart group and any changes made to it. |
 
+![Smart Group Detail](media/monitoring-alerts-new-experience/smart-group-detail.png)
 
-
-
-## API
 
 
 ## Next steps
