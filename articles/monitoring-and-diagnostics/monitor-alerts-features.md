@@ -22,77 +22,116 @@ ms.author: vinagara
 ## Overview 
  
 > [!NOTE] 
-> This article describes the new alert experience. Classic alerts in Azure Monitor are described in [classic alerts Overview](monitoring-overview-alerts.md). 
+> This article describes the new alert experience in Azure Monitor. Classic alerts are described in [classic alerts Overview](monitoring-overview-alerts.md). 
  
-On June 1st 2018, a new alerts experience was released for Azure Monitor. This experience builds on the benefits of the [unified alerts experience](monitoring-overview-unified-alerts.md) released March 2018 and provides better alert state management, alert enumeration, aggregation, and the ability for administrators to change the state of alerts when they have been processed. 
- 
-## Enabling the new alert experience
-You must opt-in to the new experience.  When you go to the alerts page in Azure Monitor, you should see a banner to click. You can go back and forth between the new and old experience by clicking on the banner.  
+A new alerts experience was released for Azure Monitor on June 1, 2018. This experience builds on the benefits of the [unified alerts experience](monitoring-overview-unified-alerts.md) released March 2018 and provides the ability to manage and aggregate individual alerts in addition to modifying alert state.
 
-## Alert Enumeration and State Management 
+## Features in the new alert experience
 
-The new experience allows you to 
+The new experience provides the following features that aren't available in the classic experience:
 
-- Aggregate all alerts into single view organized by alert severity. You can select up to 5 subscriptions.  
-- Select multiple subscriptions and view the alerts across all of them 
-- Change the state and comment on individual or groups of alerts. You can change the state to *acknowledged* or *closed* to let others know an alert has been processed by an admin. Text comments up to (how big?) can be stored along with the state change. The state changes and comments are viewable in the alert history.   
-- View smart groups of alerts. Smart groups are collections of alerts automatically groups by similarity using machine learning algorithms.  
+    - View and manage individual alerts across multiple subscriptions.
+    - Aggregate all alerts into single view organized by alert severity. 
+    - Change the state of alerts to reflect where it current is in the resolution process. 
+    - Organize alerts by smart groups which are automatically generated with machine learning algorithms.
 
-The alert landing page allows admins to see a consolidated view of alerts across multiple subscriptions. Select the subscriptions you want to view and the time period window. The time period filters alerts based on their creation time. The Resource group drop down allows you to further filter alerts based on a single resource group.
+
+
+
+## Accessing the new alert experience
+Access the new alert experience by clicking on the banner at the top of the Alerts page. You can switch back and forth between the new and old experience by clicking on the banner. 
+
+![Banner](media/monitoring-alerts-new-experience/opt-in-banner.png)
 
 
 ## Alert States 
+The state of an alert specifies where it is in the resolution process.  When an alert is created, it has a status of *New*. You can change the status when you've acknowledged an alert and when you've closed it.  The following alert states are supported.
 
-You can see the distribution of alerts fired across alert severities. The three state columns (New, Acknowledged, Closed) tell you the state of the alerts. These three states are user configurable. All alerts are marked *New* when first fired. You can choose to view and change an alert state to *Acknowledged* and adding a comment if desired, which will tell other admins what action has been taken on an alert. Similarly, you can choose mark the state as *Closed* to tell other administrators that the alert is no longer important.  
+| State | Description |
+|:---|:---|
+| New | The issue has just been detected and not yet reviewed. |
+| Acknowledged | An administrator has reviewed the alert and started working on it. |
+| Closed | The issue has been resolved. |
 
+Note that once an alert has been closed, you can reopen it my changing it to another state.
+
+
+### Changing the state of an alert or smart group
+You can change the state of an alert by clicking on **Change alert state** in the detail view for the alert or **Change smart group state** in the detail view for the smart group. You can change the state of multiple items at one time by selecting them in a list view and clicking **Change State** at the top of the page. In both cases, select a new state from the dropdown and optionally provide a comment. If you're changing a single item, then you also have an option to apply the same changes to all the alerts in the smart group.
 
 ## Smart groups 
 
-Smart groups are aggregations of alerts grouped by similarity, historical patterns, or both. The number of smart groups formed, along with a number showing percentage of noise reduction due to grouping, is shown on the alert landing page. Clicking on the number takes you to a dedicated smart group list view page.   
+Smart groups are aggregations of alerts grouped by similarity, historical patterns, or both. They are created automatically based on machine learning algorithms. When you view smart groups, each alert is included in one and only one group.
 
- 
+The number of smart groups formed, along with a number showing percentage of noise reduction due to grouping, is shown on the alert landing page. Clicking on the number takes you to a dedicated smart group list view page.
+
+# Default alerts page
+The default Alerts page provides a quick summary of alerts within a particular tine window. It displays the total alerts for each severity with columns identifying the total number of alerts in each state for each severity. Click any of the severities to open the **All Alerts** view filtered by that severity.
+
+You can filter the view by selecting values in the dropdowns at the top of the page.
+
+| Column | Description |
+|:---|:---|
+| Subscription | Select up to 5 Azure subscriptions. Only alerts in the selected subscriptions are included in the view. |
+| Resource Group | Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
+| Time Range | Only alerts fired within the selected time window will be included in the view. Supported values are past hour, past 24 hours, past 7 days, and past 30 days. |
+
+The default alerts view displays the following values.
+
+| Value | Description |
+|:---|:---|
+| Total Alerts | Displays the total number of alerts that match the selected criteria. Click this value to open the All Alerts view with no filter. |
+| Smart Groups | Displays the total number of smart groups created from the alerts that match the selected criteria. Click this value to open the Smart Groups list in the All Alerts view.
+| Total Alert Rules | Total number of alert rules in the selected subscription and resource group. Click this value to open the Rules view filtered on the selected subscriptions and resource group.
+
 
 ## Total alerts page 
- 
+The Total Alerts page allows you to view all alerts that were created within the selected time window. You can either view a list of the individual alerts or a list of the smart groups containing the alerts. Click the banner at the top of the page to toggle between views.
 
-Clicking on *Total Alerts* or any of the severity rows takes you to the list view for alerts. If you click on the Total Alerts in the alerts overview page, you see a list of all the alerts generated in the time period chosen in *Time Period* column in the upper right. If you click one of the severities in the alerts overview page, you will see a similar view but only with the alerts of that severity listed  
+You can filter the view by selecting values in the dropdowns at the top of the page.
 
-You can filter the alerts shown using the default column headers.  
+| Column | Description |
+|:---|:---|
+| Subscription | Select up to 5 Azure subscriptions. Only alerts in the selected subscriptions are included in the view. |
+| Resource Group | Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
+| Resource Type | Select one or more resource types. Only alerts with targets of the selected type are included in the view. This column is only available once a resource group has been specified. |
+| Resource | Select a resource. Only alerts with that resources as a target are included in the view. This column is only available once a resource group has been specified. |
+| Severity | Select an alert severity or select *All* to include alerts of all severities. |
+| Monitor Condition | Select a monitor condition or select *All* to include alerts of conditions. |
+| Alert State | Select an alert state or select *All* to include alerts of states. |
+| Monitor Service | Select a service or select *All* to include all services. Only alerts created by rules using that service as a target are included. | 
+| Time Range | Only alerts fired within the selected time window will be included in the view. Supported values are past hour, past 24 hours, past 7 days, and past 30 days. |
 
-**Subscription** - Select up to 5 subscriptions  
-**Resource Group** - Single select.  
-**Resource Type** - Selectable once a resource group has been specified.  
-**Resource** - Selectable once a resource group has been specified. 
-**Severity** - Filter on severity.  
-**Monitor Condition** - Filter on *Fired* or *Resolved*.  
-**Alert State** - Filter on *New*, *Acknowledged* or *Closed*.  
-**Monitor Service** - Multi-select. Filter by Azure service. For example, Log Analytics or Application Insights.  
-**Time Range** -  Filter based on alerts that fired in the last hour, 24 hours, 7 days, or 30 days. 
-
-You can configure the columns displayed in the list view by selecting the Columns button in the upper left of the screen. You can then check the columns you want to display. Click *Done* to accept your changes.  Use the reset button to return to the default column selections listed previously.  
-
+   
 ## Smart groups landing page  
 
 To get to the smart groups landing page, click on either the banner or the number of smart groups on the alert landing page as shown in the following diagrams.
 
 Smart groups allow you to view alerts group together based on similar properties, historical pattern, or both.  The groups are automatically created based on your particular set of alerts.  You can't create custom groupings.  Click the name of the group to view the individual alerts in that group.
 
-## Alert Detail
+### Alert Detail page
+When you click on an alert, the Alert Detail page is displayed that includes the following sections.
 
-### Essentials
-Displays the properties and other significant information about the alert.
+| Section | Description |
+|:---|:---|
+| Essentials | Displays the properties and other significant information about the alert. |
+| History | Lists each action taken by the alert and any changes made to the alert. |
+| Smart Group | Information about the smart group the alert is included in. The **Alert Count** refers to the number of alerts included in the smart group. This includes the other alerts that are included in the same same smart group that were created in the past 30 days.  This is regardless of the time filter in the alerts list page. Click on an alert to view its detail. |S
+| More Details | Displays granular data for the alert. This information is typically specific to the type of source that created the alert. |
 
-### History
-Lists each action taken by the alert and any changes made to the alert.
+### Smart Group detail page
+When you click on a smart group, the Smart Group Detail page is  displayed that includes the following sections.
 
-### Smart Group
-Information about the smart group the alert is included in. The **Alert Count** refers to the number of alerts included in the smart group. This includes the other alerts that are included in the same same smart group that were created in the past 30 days.  This is regardless of the time filter in the alerts list page. Click on an alert to view its detail.
+| Section | Description |
+|:---|:---|
+| Alerts | Lists the individual alerts that are included in the smart group. Click on an alert to open its Alert Detail page. |
+| History | Lists each action taken by the smart group and any changes made to it. |
 
-### More Details
 
 
-## Change alert state
-You can change the state of an alert by clicking on **Change alert state** in the detail view for the alert. You can change the state of multiple alerts at one time by selecting them in a list view and clicking **Change State** at the top of the page. In both cases, select a new alert state from the dropdown and optionally provide a comment. If you're changing a single alert, then you also have an option to apply the same changes to all the alerts in the smart group.
+
+## API
+
 
 ## Next steps
 * Understand [log alerts in Azure](monitor-alerts-unified-log-webhook.md).
