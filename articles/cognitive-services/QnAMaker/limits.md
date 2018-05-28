@@ -44,6 +44,7 @@ Overall limits on the content in the knowledge base:
 * Length of file name: 200
 * Supported file formats: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Maximum number of alternate questions: 100
+* Maximum number of question-answer pairs: Depends on the [Azure Search tier](https://docs.microsoft.com/en-in/azure/search/search-limits-quotas-capacity#document-limits) chosen 
 
 ## Create Knowledge base call limits:
 These represent the limits for each create knowledge base action; that is, clicking *Create KB* or calling the CreateKnowledgeBase API.
