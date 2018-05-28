@@ -30,6 +30,9 @@ Automatic device configurations work by updating a set of device twins with desi
 
 * The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on device twin reported properties.  System metrics are default metrics that measure twin update status, such as the number of device twins that are targeted and the number of twins that have been successfully updated. 
 
+> [!Note]
+> During preview, this feature is not available for IoT Hubs in East US, West US, North Europe, and West Europe regions.
+
 ## Implement device twins to configure devices
 
 Automatic device configurations require the use of device twins to synchronize state between the cloud and devices.  Refer to [Understand and use device twins in IoT Hub][lnk-device-twin] for guidance on using device twins.
@@ -50,7 +53,7 @@ Before you can create a configuration, you must specify which devices you want t
 ## Create a configuration
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **Device configuration (preview)**.
+1. Select **IoT device configuration (preview)**.
 1. Select **Add Configuration**.
 
 There are five steps to create a configuration. The following sections walk through each one. 
@@ -84,7 +87,7 @@ Metrics provide summary counts of the various states that a device may report ba
 
 For example: `SELECT deviceId FROM devices WHERE properties.reported.chillerWaterSettings.status='pending'`
 
-You can include a clause that the configuration was applied, for example: `SELECT deviceId FROM devices WHERE configurations.yourconfigname.status='Applied'`
+You can include a clause that the configuration was applied, for example: `SELECT deviceId FROM devices WHERE configurations.[[yourconfigname]].status='Applied'` including the double brackets.
 
 
 ### Step 4: Target Devices
@@ -106,7 +109,7 @@ Review your configuration information, then select **Submit**.
 To view the details of a configuration and monitor the devices running it, use the following steps:
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **Device configuration (preview)**.
+1. Select **IoT device configuration (preview)**.
 1. Inspect the configuration list. For each configuration, you can view the following details:
    * **ID** - the name of the configuration.
    * **Target condition** - the query used to define targeted devices.
@@ -134,7 +137,7 @@ If you update the target condition, the following updates occur:
 To modify a configuration, use the following steps: 
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **Device configuration (preview)**. 
+1. Select **IoT device configuration (preview)**. 
 1. Select the configuration that you want to modify. 
 1. Make updates to the following fields: 
    * Target condition 
@@ -149,7 +152,7 @@ To modify a configuration, use the following steps:
 When you delete a configuration, any device twins take on their next highest priority configuration. If device twins don't meet the target condition of any other configuration, then no other settings are applied. 
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **Device configuration (preview)**. 
+1. Select **IoT device configuration (preview)**. 
 1. Use the checkbox to select the configuration that you want to delete. 
 1. Select **Delete**.
 1. A prompt will ask you to confirm.

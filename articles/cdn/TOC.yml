@@ -10,6 +10,8 @@
   items:
   - name: Create a profile and endpoint
     href: cdn-create-new-endpoint.md
+  - name: Integrate a storage account
+    href: cdn-create-a-storage-account-with-cdn.md    
 - name: Tutorials
   items:
   - name: Add Azure CDN to a web app
@@ -29,30 +31,20 @@
   - name: How caching works
     href: cdn-how-caching-works.md
   - name: China content delivery
-    href: cdn-china-delivery.md    
+    href: cdn-china-delivery.md   
+  - name: HTTP/2 support
+    href: cdn-http2.md     
 - name: How-to guides
   items:
-  - name: Integrate
-    items:
-    - name: Storage
-      items:
-      - name: Integrate a storage account
-        href: cdn-create-a-storage-account-with-cdn.md
-      - name: SAS storage support
-        href: cdn-sas-storage-support.md
-    - name: Cross-origin resource sharing
-      href: cdn-cors.md
   - name: Optimize content
+    href: cdn-optimization-overview.md
     items:
-    - name: Optimization overview
-      href: cdn-optimization-overview.md
-      items:
-      - name: Large file optimization
-        href: cdn-large-file-optimization.md
-      - name: Media streaming optimization
-        href: cdn-media-streaming-optimization.md
-      - name: Dynamic site acceleration
-        href: cdn-dynamic-site-acceleration.md
+    - name: Large file optimization
+      href: cdn-large-file-optimization.md
+    - name: Media streaming optimization
+      href: cdn-media-streaming-optimization.md
+    - name: Dynamic site acceleration
+      href: cdn-dynamic-site-acceleration.md
   - name: Manage
     items:
     - name: Manage with Azure PowerShell
@@ -63,8 +55,6 @@
       href: cdn-improve-performance.md
     - name: Control caching behavior
       items:
-      - name: How caching works
-        href: cdn-how-caching-works.md
       - name: Control caching behavior with caching rules
         href: cdn-caching-rules.md
       - name: Cache content by query strings
@@ -85,35 +75,35 @@
         href: cdn-manage-expiration-of-blob-content.md
     - name: Token authentication
       href: cdn-token-auth.md
+    - name: SAS storage support
+      href: cdn-sas-storage-support.md
+    - name: Cross-origin resource sharing
+      href: cdn-cors.md      
     - name: Monitor resources
       href: cdn-resource-health.md
     - name: Override behavior with rules
       href: cdn-rules-engine.md
-    - name: Get real-time alerts
-      href: cdn-real-time-alerts.md
-    - name: HTTP/2 support
-      href: cdn-http2.md
   - name: Analyze
+    href: cdn-log-analysis.md
     items:
-    - name: Analyze Azure CDN usage patterns
-      href: cdn-log-analysis.md
+    - name: Azure diagnostics logs
+      href: cdn-azure-diagnostic-logs.md
+    - name: Analytics tools for Azure CDN from Verizon
       items:
-      - name: Azure diagnostics logs
-        href: cdn-azure-diagnostic-logs.md
-      - name: Analytics tools for Azure CDN from Verizon
-        items:
-        - name: Core reports from Verizon
-          href: cdn-analyze-usage-patterns.md
-        - name: Custom reports from Verizon
-          href: cdn-verizon-custom-reports.md
-      - name: Analytics tools for Azure CDN Premium from Verizon
-        items:
-        - name: Generate advanced HTTP reports
-          href: cdn-advanced-http-reports.md
-        - name: View real-time statistics
-          href: cdn-real-time-stats.md
-        - name: Analyze edge node performance
-          href: cdn-edge-performance.md
+      - name: Core reports from Verizon
+        href: cdn-analyze-usage-patterns.md
+      - name: Custom reports from Verizon
+        href: cdn-verizon-custom-reports.md
+    - name: Analytics tools for Azure CDN Premium from Verizon
+      items:
+      - name: Generate advanced HTTP reports
+        href: cdn-advanced-http-reports.md
+      - name: View real-time statistics
+        href: cdn-real-time-stats.md
+      - name: Analyze edge node performance
+        href: cdn-edge-performance.md
+      - name: Get real-time alerts
+        href: cdn-real-time-alerts.md        
   - name: Develop
     items:
     - name: .NET
