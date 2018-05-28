@@ -56,36 +56,32 @@ or <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb3159
 
 * Download and install the latest 
 [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) 
-on any on-premises computer. Make sure that you set up 
+on any on-premises computer. Make sure you set up 
 your gateway in the Azure portal before you continue. 
 The gateway helps you securely access data and 
 resources are on premises. For more information, see 
 [Install on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
 
 * Download and install the latest SAP client library, which is currently 
-<a href="https://softwaredownloads.sap.com/file/0020000000086282018" target="_blank">SAP Connector (NCo) 3.0.20.0 for Microsoft .NET Framework 4.0 and Windows 64bit (x64)</a>. 
-Install this SAP NCo on the same computer where you installed the on-premises data gateway. 
+<a href="https://softwaredownloads.sap.com/file/0020000000086282018" target="_blank">SAP Connector (NCo) 3.0.20.0 for Microsoft .NET Framework 4.0 and Windows 64bit (x64)</a>, 
+on the same computer as the on-premises data gateway. Install this version or later 
+for these reasons:
 
-  * Make sure you install at least SAP NCo 3.0.20.0. 
-  Earlier SAP NCo versions can become deadlocked when 
+  * Earlier SAP NCo versions can become deadlocked when 
   more than one IDoc messages are sent at the same time. 
   This condition blocks all later messages that are sent 
   to the SAP destination, causing the messages to time out.
 
-  * Make sure you select the SAP NCo for Windows 64-bit. 
-  The on-premises data gateway runs only on 64-bit systems. 
+  * The on-premises data gateway runs only on 64-bit systems. 
   Otherwise, you get a "bad image" error because the data 
   gateway host service doesn't support 32-bit assemblies.
 
-  * Make sure you select the SAP NCo for .NET Framework 4.0. 
-  Both the data gateway host service and the Microsoft SAP 
-  Adapter use .NET Framework 4.5. 
-  
-    The SAP NCo for .NET Framework 4.0 works with processes 
-    that use .NET runtime 4.0 to 4.7.1, while the SAP 
-    NCo for .NET Framework 2.0 works with processes 
-    that use .NET runtime 2.0 to 3.5 and no longer 
-    works with the latest on-premises data gateway.
+  * Both the data gateway host service and the Microsoft SAP Adapter 
+  use .NET Framework 4.5. The SAP NCo for .NET Framework 4.0 
+  works with processes that use .NET runtime 4.0 to 4.7.1, 
+  while the SAP NCo for .NET Framework 2.0 works with processes 
+  that use .NET runtime 2.0 to 3.5 and no longer works with the 
+  latest on-premises data gateway.
 
 <a name="add-trigger"></a>
 
@@ -106,7 +102,7 @@ the trigger fires and runs the next step in your workflow.
 1. In the Azure portal, create a blank logic app, 
 which opens the Logic App Designer. 
 
-2. In the search box, enter "HTTP request" as your filter. 
+2. In the search box, enter "http request" as your filter. 
 From the triggers list, select this trigger: 
 **Request - When a HTTP request is received**
 
@@ -229,10 +225,9 @@ From that list, under **Send to SAP**, select the **Body** field.
 
 To trigger your logic app, send an HTTP POST request that includes 
 an IDoc file to the URL you created in the HTTP request trigger. 
-
-* Your IDoc file must be in XML format and includes the 
-namespace from your SAP action. So, for this article's example, 
-the namespace in the IDoc looks like this example:
+Your IDoc file must be in XML format and include the namespace 
+for your SAP action. So, for this article, the namespace in the 
+IDoc looks like this example:
 
   ``` xml
   <?xml version="1.0" encoding="UTF-8" ?>
@@ -256,10 +251,10 @@ tool such as [Postman](https://www.getpostman.com/apps).
 > To help you diagnose problems, learn how you can 
 > [check and monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
-Congratulations, you've now created a logic app that communicates 
-and retrieves data from your SAP server. Now that you've set up 
+Congratulations, you've now created a logic app that can 
+communicate with your SAP server. Now that you've set up 
 an SAP connection for your logic app, you can explore other 
-available file paths, such as BAPI, RFC, and TRFC.
+available SAP actions, such as BAPI and RFC.
 
 ## Connector reference
 
