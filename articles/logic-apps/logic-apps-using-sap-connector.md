@@ -231,10 +231,19 @@ To trigger your logic app, send an HTTP POST request that includes
 an IDoc file to the URL you created in the HTTP request trigger. 
 
 * Your IDoc file must be in XML format and includes the 
-namespace from your SAP action. So for this example, 
-"Microsoft.LobServices.Sap" is the namespace.
+namespace from your SAP action. So, for this article's example, 
+the namespace in the IDoc looks like this example:
 
-* To send your POST request, you can use a tool such as Postman.
+  ``` xml
+  <?xml version="1.0" encoding="UTF-8" ?>
+  <Send xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//620/Send">
+      <idocData>
+         <...>
+      </idocData>
+  </Send>
+  ```
+* To send your HTTP POST request, you can use a 
+tool such as [Postman](https://www.getpostman.com/apps).
 
 6. Wait for a response from your logic app.
 
