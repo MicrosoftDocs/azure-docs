@@ -5,7 +5,6 @@ services: cosmos-db
 author: luisbosquez
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: article

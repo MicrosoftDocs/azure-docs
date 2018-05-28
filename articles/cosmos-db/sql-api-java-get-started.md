@@ -6,7 +6,6 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: article

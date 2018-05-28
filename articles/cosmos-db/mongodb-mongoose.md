@@ -5,7 +5,6 @@ services: cosmos-db
 author: romitgirdhar
 manager: kfile
 
-ms.assetid: de5eea58-ee7c-4609-b1c9-4af3e61a5883
 ms.service: cosmos-db
 ms.devlang: nodejs
 ms.topic: tutorial

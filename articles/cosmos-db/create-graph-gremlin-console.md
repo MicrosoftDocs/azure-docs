@@ -5,7 +5,6 @@ services: cosmos-db
 author: luisbosquez
 manager: kfile
 
-ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
 ms.service: cosmos-db
 ms.devlang: terminal
 ms.topic: quickstart

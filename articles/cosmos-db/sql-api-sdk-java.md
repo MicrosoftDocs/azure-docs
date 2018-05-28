@@ -6,7 +6,6 @@ author: rnagpal
 manager: kfile
 editor: cgronlun
 
-ms.assetid: 7861cadf-2a05-471a-9925-0fec0599351b
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: article

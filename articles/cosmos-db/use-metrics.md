@@ -7,7 +7,6 @@ author: gnot
 manager: kfile
 editor: ''
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article

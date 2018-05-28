@@ -6,7 +6,6 @@ services: cosmos-db
 author: rafats
 manager: kfile
 
-ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article

@@ -6,7 +6,6 @@ author: robinsh
 manager: timlt
 editor: tysonn
 
-ms.assetid: 
 ms.service: storage
 ms.devlang: na
 ms.topic: how-to

@@ -6,7 +6,6 @@ author: yarong
 manager: kfile
 editor: ''
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: article

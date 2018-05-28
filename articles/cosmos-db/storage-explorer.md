@@ -8,7 +8,6 @@ manager: omafnan
 editor: 
 tags: Azure Cosmos DB
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
 ms.devlang: na

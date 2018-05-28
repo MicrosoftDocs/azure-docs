@@ -6,7 +6,6 @@ services: cosmosdb
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect
 ms.devlang: gremlin

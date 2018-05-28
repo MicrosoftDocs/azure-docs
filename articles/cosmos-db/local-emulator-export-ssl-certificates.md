@@ -7,7 +7,6 @@ author: voellm
 manager: kfile
 editor: ''
 
-ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article

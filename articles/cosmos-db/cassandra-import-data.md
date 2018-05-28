@@ -5,7 +5,6 @@ services: cosmos-db
 author: govindk
 manager: kfile
 
-ms.assetid: eced5f6a-3f56-417a-b544-18cf000af33a
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article

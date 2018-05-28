@@ -6,7 +6,6 @@ author: SnehaGunda
 manager: kfile
 editor: ''
 
-ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: article

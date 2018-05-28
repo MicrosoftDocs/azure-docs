@@ -5,7 +5,6 @@ services: cosmos-db
 author: vidhoonv
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.custom:
 ms.devlang: 

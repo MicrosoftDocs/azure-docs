@@ -6,7 +6,6 @@ author: orestis-ms
 manager: kfile
 editor: ''
 
-ms.assetid: daacbabf-1bb5-497f-92db-079910703047
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart

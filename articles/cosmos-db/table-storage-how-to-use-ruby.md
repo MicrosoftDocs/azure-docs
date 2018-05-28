@@ -6,7 +6,6 @@ author: SnehaGunda
 manager: kfile
 editor: ''
 
-ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
 ms.devlang: ruby
 ms.topic: article

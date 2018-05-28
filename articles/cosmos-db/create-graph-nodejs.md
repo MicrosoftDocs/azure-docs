@@ -5,7 +5,6 @@ services: cosmos-db
 author: luisbosquez
 manager: kfile
 
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
 ms.devlang: dotnet

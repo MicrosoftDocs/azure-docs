@@ -7,7 +7,6 @@ author: David-Noble-at-work
 manager: kfile
 editor: ''
 
-ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article

@@ -6,7 +6,6 @@ services: cosmos-db
 author: dennyglee
 manager: kfile
 
-ms.assetid: c4f46007-2606-4273-ab16-29d0e15c0736
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article

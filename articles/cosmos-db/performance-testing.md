@@ -7,7 +7,6 @@ author: SnehaGunda
 manager: kfile
 editor: ''
 
-ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article

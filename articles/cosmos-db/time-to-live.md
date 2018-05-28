@@ -6,7 +6,6 @@ keywords: time to live
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article

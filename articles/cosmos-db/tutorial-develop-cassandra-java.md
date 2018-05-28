@@ -7,7 +7,6 @@ manager: kfile
 editor: ''
 tags: ''
 
-ms.assetid: 6732d883-835c-481f-98e1-287893530948
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
