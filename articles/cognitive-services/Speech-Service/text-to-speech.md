@@ -12,9 +12,9 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
-# About Text to Speech API
+# About the text to speech API
 
-The **Text to Speech** (TTS) API of the Speech service converts input text into natural-sounding speech (also called *speech synthesis*).
+The **Text-to-Speech** (TTS) API of the Speech service converts input text into natural-sounding speech (also called *speech synthesis*).
 
 To generate speech, your application sends HTTP POST requests to the Speech service. There, text is synthesized into human-sounding speech and returned as an audio file. A variety of voices and languages are supported.
 

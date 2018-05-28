@@ -14,7 +14,7 @@ ms.author: v-jerkin
 ---
 # Try the Speech service for free
 
-Getting started with the Speech service is easy and affordable. A 30 day free trial lets you discover the capabilities of the service and decide whether it's right for your application's needs. 
+Getting started with the Speech service is easy and affordable. A 30 day free trial lets you discover the capabilities of the service and decide whether it's right for your application's needs.
 
 If you need more time, sign up for a Microsoft Azure account—it comes with $200 in service credit that you can apply toward a paid Speech service subscription for up to 30 days. 
 
@@ -65,7 +65,7 @@ To sign up for a new Azure account, follow these steps.
 
 Your free Azure account is created. Follow the steps in the next section to start a subscription to the Speech service.
 
-## Create a Speech resource in Azure
+## Create a speech resource in Azure
 
 To add a Speech service resource to your Azure account, follow these steps.
 
@@ -73,7 +73,7 @@ To add a Speech service resource to your Azure account, follow these steps.
 
 1. Click **Create a resource** (the green **+** icon) at the top left of the portal.
 
-1. In the New window, search for Speech.
+1. In the new window, search for Speech.
 
 1. In the search results, click "Speech (preview)." 
 
