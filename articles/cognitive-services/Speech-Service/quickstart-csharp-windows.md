@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech using the Cognitice Services Speech C# SDK for Windows | Microsoft Docs'
+title: 'Quickstart: Recognize speech using the Cognitive Services Speech C# SDK for Windows | Microsoft Docs'
 description: Learn how to recognize speech using the C# SDK for Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
@@ -14,7 +14,7 @@ ms.author: wolfma
 ---
 # Quickstart: Recognize speech using the Cognitive Services Speech C# SDK
 
-In this article, you learn how to create a C# console application in Windows using the Cognitive Services Speech SDK to transcribe Speech to Text.
+In this article, you learn how to create a C# console application in Windows using the Cognitive Services Speech SDK to transcribe speech to text.
 
 ## Prerequisites
 

@@ -65,7 +65,7 @@ To sign up for a new Azure account, follow these steps.
 
 Your free Azure account is created. Follow the steps in the next section to start a subscription to the Speech service.
 
-## Create a speech resource in Azure
+## Create a Speech resource in Azure
 
 To add a Speech service resource to your Azure account, follow these steps.
 

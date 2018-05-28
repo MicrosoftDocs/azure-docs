@@ -23,7 +23,7 @@ With one subscription, the unified Speech service gives developers an easy way t
 
 |Function|Description|
 |-|-|
-|Speech to Text|Converts continuous human Speech to Text that can be used as input to your application. Can integrate with the [Language Understanding service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from utterances.|
+|Speech to Text|Converts continuous human speech to text that can be used as input to your application. Can integrate with the [Language Understanding service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from utterances.|
 |Text to Speech|Converts text to audio files of natural-sounding synthesized speech.|
 |Speech&nbsp;Translation|Provide translations of speech to other languages, with text or speech output.|
 
@@ -36,22 +36,22 @@ The Speech service is made available in two ways. [The SDK](speech-sdk.md) abstr
 |[SDKs](speech-sdk.md)|Yes|No|Yes|Libraries for specific programming languages that simplify development.|
 |[REST](rest-apis.md)|Yes|Yes|No|A simple HTTP-based API that makes it easy to add speech to your application.|
 
-## Speech to text
+## Speech to Text
 
 The [Speech to Text](speech-to-text.md) (STT), or speech recognition, API transcribes audio streams into text that your application can accept as input. Your application can then, for example, enter the text into a document or act upon it as a command.
 
 Speech to Text has been separately optimized for interactive, conversation, and dictation scenarios. The following are common use cases for the Speech to Text API. 
 
- * Recognize brief a utterance, such as a command, without interim results
- * Transcribe a long, previously-recorded utterance, such as a voicemail message
- * Transcribe streaming speech in real-time, with partial results, for dictation
- * Determine what users want to do based on a spoken natural-language request
+* Recognize brief a utterance, such as a command, without interim results
+* Transcribe a long, previously-recorded utterance, such as a voicemail message
+* Transcribe streaming speech in real-time, with partial results, for dictation
+* Determine what users want to do based on a spoken natural-language request
 
 The Speech to Text API supports interactive speech transcription with real-time continuous recognition and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.
 
 You can customize Speech to Text acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
 
-## Text to speech
+## Text to Speech
 
 The [Text to Speech](text-to-speech.md) (TTS), or speech synthesis, API converts plain text to natural-sounding speech, delivered to your application in an audio file. Multiple voices, varying in gender or accent, are available for many supported languages.
 
@@ -65,7 +65,7 @@ The following are common use cases for the Text to Speech API.
 
 If you need to an unsupported dialect or just want a unique voice for your application, the Text to Speech API supports custom voice models.
 
-## Speech translation
+## Speech Translation
 
 The [Speech Translation](speech-translation.md) API can be used either to translate streaming audio in near-real-time or to process recorded speech. In streaming translation, the service returns interim results that can be displayed to the user to indicate translation progress. The results may be returned either as text or as voice.
 
@@ -73,7 +73,7 @@ Use cases for Speech Translation include the following.
 
 * Implement a "conversational" translation mobile app or device for travelers 
 * Provide automatic translations for subtitling of audio and video recordings
- 
+
 ## Speech Devices SDK
 
 With the introduction of the unified Speech service, Microsoft and its partners offer an integrated hardware/software platform optimized for developing speech-enabled devices: the [Speech Devices SDK](speech-devices-sdk.md). This SDK is suitable for developing smart speech devices for all types of applications.
