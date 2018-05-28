@@ -79,7 +79,7 @@ Install this SAP NCo on the same computer where you installed the on-premises da
 
   * Make sure you select the SAP NCo for .NET Framework 4.0. 
   Both the data gateway host service and the Microsoft SAP 
-  adapter use .NET Framework 4.5. 
+  Adapter use .NET Framework 4.5. 
   
     The SAP NCo for .NET Framework 4.0 works with processes 
     that use .NET runtime 4.0 to 4.7.1, while the SAP 
@@ -186,6 +186,9 @@ so you can set up your SAP action.
 
       ![Manually provide path to IDoc action](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
 
+      For more informationa about IDoc operations, see 
+      [Message schemas for IDOC operations](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
+
    2. Click inside the **Input Message** box so that the dynamic content list appears. 
    In that list, under **When a HTTP request is received**, select the **Body** field. 
 
@@ -222,9 +225,18 @@ From that list, under **Send to SAP**, select the **Body** field.
 
 4. Save your logic app. 
 
-5. To test your logic app, send an IDoc file with an HTTP 
-POST request to the URL you created in the HTTP request trigger. 
-Wait for a response from your logic app.
+## Test your logic app
+
+To trigger your logic app, send an HTTP POST request that includes 
+an IDoc file to the URL you created in the HTTP request trigger. 
+
+* Your IDoc file must be in XML format and includes the 
+namespace from your SAP action. So for this example, 
+"Microsoft.LobServices.Sap" is the namespace.
+
+* To send your POST request, you can use a tool such as Postman.
+
+6. Wait for a response from your logic app.
 
 > [!NOTE]
 > Your logic app might time out if all the steps 
