@@ -7,7 +7,7 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: python
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
 

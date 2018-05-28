@@ -9,7 +9,7 @@ editor: monicar
 
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 05/23/2017
 ms.author: moderakh
 
