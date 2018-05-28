@@ -8,7 +8,7 @@ editor: cgronlun
 
 ms.service: cosmos-db
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/07/2018
 ms.author: ramkris
 

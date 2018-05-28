@@ -8,7 +8,7 @@ editor: cgronlun
 
 ms.service: cosmos-db
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: reference
 ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017

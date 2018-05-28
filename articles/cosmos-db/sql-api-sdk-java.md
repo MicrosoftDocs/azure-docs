@@ -8,7 +8,7 @@ editor: cgronlun
 
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: article
+ms.topic: reference
 ms.date: 05/16/2018
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
