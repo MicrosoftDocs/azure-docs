@@ -49,7 +49,7 @@ In the **New Project** dialog box, take the following steps:
 2. Select **Cloud**.
 3. Select **ASP.NET Web Application**.
 4. Ensure that **.NET Framework 4.5.2** or higher is selected
-5. In the **Name** box, give the project a name. For this example, we've used **ContosoTeamStats**.
+5. In the **Name** box, give the project a name. For this example, we used **ContosoTeamStats**.
 6. Select **OK**.
 
 You are presented with a new ASP.NET Web Application screen:
@@ -58,7 +58,7 @@ You are presented with a new ASP.NET Web Application screen:
 
 7. Select **MVC** as the project type.
 
-8. Ensure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default might be set to something else. To change it, select **Change Authentication** and then **No Authentication**.
+8. Ensure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default **Authentication** setting might be set to something else. To change it, select **Change Authentication** and then **No Authentication**.
 
 9. Select **OK** to create the project.
 
@@ -248,7 +248,7 @@ In Visual Studio, select **Debug** > **Start Debugging** to build and start the 
 
 In the browser, select **Azure Redis Cache Test** on the navigation bar.
 
-In the following example, you can see that the `Message` key previously had a cached value, which was set using the Redis console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+In the following example, you can see that the `Message` key previously had a cached value, which was set by using the Redis console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
 ![Simple test completed local](./media/cache-web-app-howto/cache-simple-test-complete-local.png)
 
@@ -270,7 +270,7 @@ In the **Create App Service** dialog box, make the following changes:
 
 | Setting | Recommended Value | Description |
 | ------- | :---------------: | ----------- |
-| **App Name** | Use default | The app name is the host name for the app when it's to Azure. The name might have a timestamp suffix added to it to make it unique if necessary. |
+| **App Name** | Use default | The app name is the host name for the app when it's deployed to Azure. The name might have a timestamp suffix added to it to make it unique if necessary. |
 | **Subscription** | Choose your Azure subscription | This subscription is charged for any related hosting costs. If you have multiple Azure subscriptions, verify that the desired subscription is selected.|
 | **Resource Group** | Use the same resource group where you created the cache (for example, *TestResourceGroup*). | The resource group helps you manage all resources as a group. Later, when you want to delete the app, you can just delete the group. |
 | **App Service plan** | Select **New** and create a new App Service plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
@@ -310,10 +310,11 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. When you delete a resource group, all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
 >
+### To delete a resource group
 
-Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource groups**.
 
-In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...**, and then select **Delete resource group**.
+2. In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...**, and then select **Delete resource group**.
 
 ![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
