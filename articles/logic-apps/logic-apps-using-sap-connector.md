@@ -20,15 +20,13 @@ tags: connectors
 
 This article shows how you can connect to on-premises SAP systems from inside a 
 logic app by using the SAP Application Server and SAP Message Server connectors. 
-That way, you can create logic apps that automate tasks and workflows for accessing 
-and managing data and resources in your SAP systems. 
+That way, you can automate tasks, processes, and workflows that access and manage 
+resources in your SAP systems. 
 
-This example uses a logic app that you can trigger with 
-an HTTP request. The logic app sends an Intermediate 
-Document (IDoc) to an SAP server, and then returns an 
-HTTP response to the requestor that called the logic app.
-The current SAP connectors have actions, 
-but not triggers, so this example uses the 
+This example uses a logic app that you can trigger with an HTTP request. 
+The logic app sends an Intermediate Document (IDoc) to an SAP server, 
+and returns a response to the requestor that called the logic app.
+The current SAP connectors have actions, but not triggers, so this example uses the 
 [HTTP request trigger](../connectors/connectors-native-reqres.md) 
 as the first step in the logic app's workflow. For SAP 
 connector-specific technical information, see these reference articles: 
@@ -80,9 +78,10 @@ for these reasons:
   that use .NET runtime 2.0 to 3.5 and no longer works 
   with the latest on-premises data gateway.
 
-* To follow along in this article, you'll need content that you 
-can send to your SAP server, such as a sample IDoc file in XML format 
-with the namespace for the SAP action you want to use.
+* To follow along in this article, you'll need content you 
+can send to your SAP server, such as a sample IDoc file. 
+This content must be in XML format and include the namespace 
+for the SAP action you want to use.
 
 <a name="add-trigger"></a>
 
