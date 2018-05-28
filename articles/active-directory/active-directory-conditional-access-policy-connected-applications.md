@@ -47,7 +47,7 @@ To get a device registered with Azure AD, you have three options:
 
 - **[Azure AD registered devices](device-management-introduction.md#azure-ad-registered-devices)** - to get a personal device registered with Azure AD
 
-- **[Azure AD joined devices](device-management-introduction.md#azure-ad-joined-devices)** - to get an organizational Windows 10 device that is not joined to an on-premises AD registered with Azure AD registered. 
+- **[Azure AD joined devices](device-management-introduction.md#azure-ad-joined-devices)** - to get an organizational Windows 10 device that is not joined to an on-premises AD registered with Azure AD. 
 
 - **[Hybrid Azure AD joined devices](device-management-introduction.md#hybrid-azure-ad-joined-devices)** - to get a Windows 10 device that is joined to an on-premises AD registered with Azure AD.
 
