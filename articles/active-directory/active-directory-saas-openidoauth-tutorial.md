@@ -41,9 +41,9 @@ ms.author: jeedes
 
     ![Add button](./media/active-directory-saas-openidoauth-tutorial/addbutton.png)
 
-5. When you click on **sign up** link you will be redirected to Azure AD page for login credentials.
+5. When you click on sign up link, you are redirected to Azure AD page for login credentials.
 
-6. After successfull authentication, user has to accept the consent from consent page and after that, the application homepage will be displayed.
+6. After successful authentication, user has to accept the consent from consent page and after that, the application homepage will be displayed.
 
 	> [!NOTE]
     > Customers are allowed to only add one instance of the application. If you have already added one and tried to provide the consent again it will not be added again in the tenant. So logically they can use only one app instance in the tenant.
@@ -54,7 +54,7 @@ The most basic sign-in flow contains the following steps - each of them is descr
 
 ![Authentication flow using OpenID Connect](./media/active-directory-saas-openidoauth-tutorial/authenticationflow.png)
 
-* **Multi-tenant application** - A multi-tenant application is intended for use in many organizations, not just one organization. These are typically software-as-a-service (SaaS) applications written by an independent software vendor (ISV). Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them. This consent process starts when an application has been registered in the directory and is given access to the Graph API or perhaps another web API. When a user or administrator from a different organization signs up to use the application, they are presented with a dialog that displays the permissions the application requires. The user or administrator can then consent to the application, which gives the application access to the stated data, and finally registers the application in their directory.
+* **Multi-tenant application** - A multi-tenant application is intended for use in many organizations, not just one organization. These are typically software-as-a-service (SaaS) applications written by an independent software vendor (ISV). Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them. This consent process starts when an application has been registered in the directory and is given access to the Graph API or perhaps another web API. When a user or administrator from a different organization sign up to use the application, they are presented with a dialog that displays the permissions the application requires. The user or administrator can then consent to the application, which gives the application access to the stated data, and finally registers the application in their directory.
 
     > [!NOTE]
     > If you are making your application available to users in multiple directories, you need a mechanism to determine which tenant they’re in. A single tenant application only needs to look in its own directory for a user, while a multi-tenant application needs to identify a specific user from all the directories in Azure AD. To accomplish this task, Azure AD provides a common authentication endpoint where any multi-tenant application can direct sign-in requests, instead of a tenant-specific endpoint. This endpoint is [https://login.microsoftonline.com/common](https://login.microsoftonline.com/common) for all directories in Azure AD, whereas a tenant-specific endpoint might be [https://login.microsoftonline.com/contoso.onmicrosoft.com](https://login.microsoftonline.com/contoso.onmicrosoft.com). The common endpoint is especially important to consider when developing your application because you’ll need the necessary logic to handle multiple tenants during sign-in, sign-out, and token validation.
@@ -79,7 +79,7 @@ The following steps show you how the consent experience works for both the appli
 
     ![Authentication](./media/active-directory-saas-openidoauth-tutorial/authentication.png)
 
-4. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD prompts the user for consent and displays the required permissions it needs to function. The set of permissions that are displayed in the consent dialog match the ones selected in the Delegated Permissions in the Azure portal.
+4. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD prompts the user for consent and displays the required permissions it needs to function. The set of permissions that is displayed in the consent dialog match the ones selected in the Delegated Permissions in the Azure portal.
 
     ![Consent page](./media/active-directory-saas-openidoauth-tutorial/consentpage.png)
 
@@ -100,4 +100,4 @@ If your application uses permissions that require admin consent, you need to hav
 
 The prompt=admin_consent parameter can also be used by applications that request permissions that do not require admin consent. An example of when this would be used is if the application requires an experience where the tenant admin “signs up” one time, and no other users are prompted for consent from that point on.
 
-If an application requires admin consent and an admin signs in without the prompt=admin_consent parameter being sent, when the admin successfully consents to the application it will apply only for their user account. Regular users will still not be able to sign in or consent to the application. This feature is useful if you want to give the tenant administrator the ability to explore your application before allowing other users access.
+If an application requires admin consent and an admin signs in without the prompt=admin_consent parameter being sent, when the admin successfully consents to the application it applies only for their user account. Regular users will still not be able to sign in or consent to the application. This feature is useful if you want to give the tenant administrator the ability to explore your application before allowing other users access.
