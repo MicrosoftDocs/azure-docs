@@ -274,9 +274,9 @@ To connect their two regions, Contoso has decided to implement a hub-to-hub netw
 
 Azure provides network peering to connect VNets and hubs. Global peering allows connections between VNets/hubs in different regions. Local peering connects VNets in the same region. VNet peering provide a number of advantages:
 
-    - Network traffic between peered VNets is private.
-    - Traffic between the VNets is kept on the Microsoft backbone network. No public Internet, gateways, or encryption is required in the communication between the virtual networks.
-    - Peering provides a default, low-latency, high-bandwidth connection between resources in different virtual networks.
+- Network traffic between peered VNets is private.
+- Traffic between the VNets is kept on the Microsoft backbone network. No public Internet, gateways, or encryption is required in the communication between the virtual networks.
+- Peering provides a default, low-latency, high-bandwidth connection between resources in different virtual networks.
 
 [Learn more](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) about network peering.
 
@@ -338,7 +338,7 @@ East US 2 is the primary region that Contoso will use to deploy resources and se
     - In addition, the production network has a subnet for domain controllers.
 
 
-**East US 2 VNets**
+##### East US 2 VNets
 
 **VNet** | **Range** | **Peer**
 --- | --- | ---
@@ -348,21 +348,21 @@ East US 2 is the primary region that Contoso will use to deploy resources and se
 
 ![Hub/spoke in primary region](./media/migrate-scenarios-infrastructure/primary-hub-peer.png) 
 
-##### Subnets in East US 2 
+#### Subnets in East US 2 
 
 
 Contoso is designing subnets in the dev and production networks for app tiering.
 
-**Hub (VNET-HUB-EUS2) subnets**
+##### Hub (VNET-HUB-EUS2) subnets**
 
-**Subnet** | **CIDR** | **Usable IP addresses**
+**Subnet** | **CIDR** | **Usable IP addresses
 --- | --- | ---
 **IB-UntrustZone** | 10.250.0.0/24 | 251
 **IB-TrustZone** | 10.250.1.0/24 | 251
 **GatewaySubnet** | 10.250.2.0/24 | 251
 
 
-**Dev network (VNET-DEV-EUS2) subnets**
+##### Dev network (VNET-DEV-EUS2) subnets
 
 **Subnet** | **CIDR** | **Addresses** | **In subnet**
 --- | --- | --- | ---
@@ -371,7 +371,8 @@ Contoso is designing subnets in the dev and production networks for app tiering.
 **DEV-DB-EUS2** | 10.245.24.0/23 | 507 | Database VMs
 
 
-**Production network (VNET-PROD-EUS2) subnets**
+##### Production network (VNET-PROD-EUS2) subnets
+
 **Subnet** | **CIDR** | **Addresses** | **In subnet**
 --- | --- | --- | ---
 **PROD-FE-EUS2** | 10.245.32.0/22 | 1019 | Frontends/web tier VMs
@@ -395,8 +396,7 @@ Central US is Contoso's secondary region. Here's how they're going to architect 
 - **Subnets**: The subnets will be architected in a similar way to those in East US 2. The exception is that they don't need a subnet for domain controllers.
 - **Peering**: 
 
-
-**Central US VNets**
+##### Central US VNets
 
 **VNet** | **Range** | **Peer**
 --- | --- | ---
@@ -407,10 +407,10 @@ Central US is Contoso's secondary region. Here's how they're going to architect 
 
 ![Hub/spoke in paired region](./media/migrate-scenarios-infrastructure/paired-hub-peer.png)
 
-##### Subnets in Central US
+#### Subnets in Central US
 
 
-**Hub network (VNET-HUB-CUS) subnets**
+##### Hub network (VNET-HUB-CUS) subnets
 
 **Subnet** | **CIDR** | **Usable IP addresses**
 --- | --- | ---
@@ -420,9 +420,7 @@ Central US is Contoso's secondary region. Here's how they're going to architect 
 **OB-TrustZone** | 10.250.3.0/24 | 251
 
 
-
-**Production network (VNET-PROD-CUS) subnets**
-
+##### Production network (VNET-PROD-CUS) subnets
 
 **Subnet** | **CIDR** | **Addresses** | **In subnet**
 --- | --- | --- | ---
@@ -431,7 +429,7 @@ Central US is Contoso's secondary region. Here's how they're going to architect 
 **PROD-DB-CUS** | 10.255.40.0/23 | 507 | Database VMs
 **PROD-DC-CUS** | 10.255.42.0/24 | 251 | Domain controller VMs
 
-**ASR network (VNET-ASR_CUS) subnets**
+##### ASR network (VNET-ASR_CUS) subnets
 --- | --- | --- | ---
 **ASR-FE-CUS** | 10.255.16.0/22 | 1019 | Frontends/web tier VMs
 **ASR-APP-CUS** | 10.255.20.0/22 | 1019 | App-tier VMs
@@ -439,7 +437,7 @@ Central US is Contoso's secondary region. Here's how they're going to architect 
 
 ![Hub network architecture](./media/migrate-scenarios-infrastructure/azure-networks-cus.png)
 
-##### Configure peered connections
+#### Configure peered connections
 
 The hub in each region will be peered to the hub in the other region, and to all VNets within the hub region. This allows for hubs to communicate, and to view all VNets within a region.
 
