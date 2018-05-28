@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/9/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -16,7 +16,7 @@ manager: femila
 
 You can use Azure Blockchain Workbench to create blockchain applications that represent multi-party workflows defined by configuration and smart contract code.
 
-You'll learn how to:
+You learn how to:
 
 > [!div class="checklist"]
 > * Configure a blockchain application
@@ -30,8 +30,12 @@ You'll learn how to:
 * Azure Active Directory users in the tenant associated with Blockchain Workbench. For more information, see [add Azure AD users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#add-azure-ad-users).
 * A Blockchain Workbench administrator account. For more information, see add [Blockchain Workbench administrators in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 
+## Hello, Blockchain!
+
 Let's build a basic application in which a requestor sends a request and a responder send a response to the request. 
 For example, a request can be, "Hello, how are you?", and the response can be, "I'm great!". Both the request and the response are recorded on the underlying blockchain. 
+
+Follow the steps to create the application files or you can [download the sample from GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
 
 ## Configuration file
 
@@ -230,7 +234,7 @@ Add the following version pragma at the top of `HelloBlockchain.sol` smart contr
 
 ### Base class
 
-**WorkbenchBase** base class enables Blockchain Workbench to create an update the contract. The base class is required for Blockchain Workbench specific smart contract code. Your contract needs to inherit from the **WorkbenchBase** base class.
+**WorkbenchBase** base class enables Blockchain Workbench to create and update the contract. The base class is required for Blockchain Workbench specific smart contract code. Your contract needs to inherit from the **WorkbenchBase** base class.
 
 In `HelloBlockchain.sol` smart contract code file, add the **WorkbenchBase** class at the beginning of the file. 
 
@@ -395,4 +399,7 @@ For more information about managing users in Blockchain Workbench, see [managing
 
 ## Next steps
 
-Now that you have created an application, try [using a blockchain application](blockchain-workbench-use.md).
+In this how-to article, you've created a basic request and response application. To learn how to use the application, continue to the next how-to article.
+
+> [!div class="nextstepaction"]
+> [Using a blockchain application](blockchain-workbench-use.md)

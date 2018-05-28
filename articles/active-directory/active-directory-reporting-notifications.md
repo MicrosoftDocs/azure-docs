@@ -3,7 +3,7 @@ title: Azure Active Directory Reporting Notifications
 description: How to use the Azure Active Directory reporting notifications for suspicious sign ins.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 01/03/2018
-ms.author: dhanyahk;markvi
+ms.author: dhanyahk;rolyon
 ms.custom: oldportal
 ms.reviewer: dhanyahk
 
@@ -36,7 +37,7 @@ The email is sent if 10 new irregular sign-in activities occur in the last 30 da
 When you click on the link, you will be redirected to the report page within the Azure portal. In order to access the report, you need to be both:
 
 * An admin or co-admin of your Azure subscription
-* A global administrator in the directory, and assigned an Active Directory Premium license. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+* A global administrator in the directory, and assigned an Active Directory Premium license. For more information, see [Azure Active Directory editions](active-directory-whatis.md).
 
 ## Can I turn off these emails?
 Yes, to turn off notifications related to anomalous sign-ins within the Azure portal, click **Configure**, and then select **Disabled** under the **Notifications** section.

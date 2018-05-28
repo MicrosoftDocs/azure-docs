@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/16/2018
+ms.date: 05/18/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -18,9 +18,9 @@ To get their feet wet and better understand the technologies involved, they're a
 
 **Technology** | **Description** | **Cost**
 --- | --- | ---
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA assesses and detects compatibility issues that can impact database functionality in Azure. In addition it assesses and feature parity between your SQL Server source and target, and recommends performance and reliability improvements for your target environment. | It's a downloadable tool free of charge. 
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA assesses and detects compatibility issues that can impact database functionality in Azure. In addition it assesses and feature parity between your SQL Server source and target, and recommends performance and reliability improvements for your target environment. | It's a downloadable tool free of charge.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | The  service helps you to assess on-premises machines for migration to Azure. It assesses the migration suitability of the machines, and provides sizing and cost estimations for running in Azure. Currently, the Azure Migrate service can assess on-premises VMware VMs for migration to Azure. | There's currently (April 2018) no charge for using this service.
-[Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate uses Service Map to show dependencies between machines you want to migrate. |  Service Map is part of Azure Log Analytics. It can currently be used for 180 days without incurring charges. 
+[Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate uses Service Map to show dependencies between machines you want to migrate. |  Service Map is part of Azure Log Analytics. It can currently be used for 180 days without incurring charges.
 
 In this scenario, we'll download and run the DMA to assess the on-premises SQL Server database for our travel app. We'll use Azure migrate with dependency mapping to assess the app VMs, before we migrate them to Azure.
 
@@ -46,7 +46,7 @@ In this scenario:
 Here's what you need to deploy this scenario:
 
 - An on-premises vCenter server running version 5.5, 6.0, or 6.5.
-- A read-only account in vCenter server, or permissions to create one. 
+- A read-only account in vCenter server, or permissions to create one.
 - Permissions to create a VM on the vCenter server, using an .OVA template.
 - At least one ESXi host running version 5.0 or higher.
 - At least two on-premises VMware VMs, one running a SQL Server database.
@@ -102,15 +102,15 @@ Run an assessment to analyze your source SQL Server instance, against a specifie
       At present DMA doesn't support assessment for migrating to a SQL Managed Instance. As a workaround, we're using SQL Server on Azure VM as our supposed target for the assessment.
 
 1.  In **Select Target Version**, specify the target version of SQL Server that you want to run in Azure, and what you want to discover in the assessment:
-    - **Compatibility Issues** tells you about changes that might break migration, or that require a minor adjustment before migration. It also tells you about any features you're currently using that have been deprecated. Issues are organized by compatibility level. 
-    - **New features' recommendation** let's you know about new features in the target SQL Server platform that can be used for your database after migration. These are organized by Performance, Security, and Storage. 
+    - **Compatibility Issues** tells you about changes that might break migration, or that require a minor adjustment before migration. It also tells you about any features you're currently using that have been deprecated. Issues are organized by compatibility level.
+    - **New features' recommendation** let's you know about new features in the target SQL Server platform that can be used for your database after migration. These are organized by Performance, Security, and Storage.
 
     ![Select target](./media/migrate-scenarios-assessment/dma-assessment-2.png)
 
 2. In **Connect to a server**, specify the name of the machine running the SQL Server instance, the authentication type, and connection details. Then click **Connect**.
 
     ![Select target](./media/migrate-scenarios-assessment/dma-assessment-3.png)
-    
+
 3. In **Add source**, select the database you want to assess, and click **Add**.
 4. An assessment with the name you specified is created.
 
@@ -122,7 +122,7 @@ Run an assessment to analyze your source SQL Server instance, against a specifie
 
 ### Analyze the database assessment
 
-Results are displayed in the Assistant as soon as they're available. 
+Results are displayed in the Assistant as soon as they're available.
 
 1. In the **Compatibility Issues** report, check whether your database has issues for each compatibility level, and if so,  how to fix them. Compatibility levels map to SQL Server versions as follows:
     - 100: SQL Server 2008/Azure SQL Database
@@ -137,7 +137,7 @@ Results are displayed in the Assistant as soon as they're available.
 
     ![Feature recommendations](./media/migrate-scenarios-assessment/dma-assessment-6.png)
 
-3. If fix any issues, click **Restart Assessment** to rerun it. 
+3. If fix any issues, click **Restart Assessment** to rerun it.
 4. Click **Export report** to get the assessment report in JSON or CSV format.
 
 If you're running a larger scale assessment:
@@ -178,8 +178,8 @@ Before you start the deployment, the statistics settings for the vCenter Server 
     - For storage, Azure Migrate recommends a standard disk in Azure, with the same size as the on-premises disk.
     - For networking, for each on-premises network adapter, a network adapter will be recommended in Azure.
     - For compute, Azure Migrate will look at the VM cores and memory size, and recommends an Azure VM with the same configuration. If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
-   
-    
+
+
 [Learn more](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing) about sizing with level 3.
 
 Set the level as follows:
@@ -211,7 +211,7 @@ Create an Azure Migrate project, download and set up the collector VM. Then, run
     ![Azure Migrate](./media/migrate-scenarios-assessment/project-1.png)
 
 
-    
+
 
 ### Download the collector appliance
 
@@ -221,7 +221,7 @@ Azure Migrate creates an on-premises VM known as the collector appliance. This V
 2. In **Discover machines**, click **Download**, to download the .OVA file.
 3. In **Copy project credentials**, copy the project ID and key. You need these when you configure the collector.
 
-    ![Download .ova file](./media/migrate-scenarios-assessment/download-ova.png) 
+    ![Download .ova file](./media/migrate-scenarios-assessment/download-ova.png)
 
 ### Verify the collector appliance
 
@@ -231,14 +231,14 @@ Check that the .OVA file is secure, before you deploy it.
 2. Run the following command to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. The generated hash should match these settings (version 1.0.9.7)
-	
+3. The generated hash should match these settings (version 1.0.9.8)
+
     **Algorithm** | **Hash value**
     --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-	
+    MD5 | b5d9f0caf15ca357ac0563468c2e6251
+    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+
 
 ### Create the collector appliance
 
@@ -246,14 +246,14 @@ Import the downloaded file to the vCenter Server.
 
 1. In the vSphere Client console, click **File** > **Deploy OVF Template**.
 
-    ![Deploy OVF](./media/migrate-scenarios-assessment/vcenter-wizard.png) 
+    ![Deploy OVF](./media/migrate-scenarios-assessment/vcenter-wizard.png)
 
 2. In the Deploy OVF Template Wizard > **Source**, specify the location of the .OVA file, and click **Next**.
 3. In **OVF Template Details**, click **Next**. In **End User License Agreement**, click **Accept** to accept the agreement, and click **Next**.
 4. In **Name and Location**, specify a friendly name for the collector VM, and the inventory location in which the VM will be hosted, and click **Next**. Specify the host or cluster on which the collector appliance will run.
 5. In **Storage**, specify where you want to store files for the appliance, and click **Next**.
 6. In **Disk Format**, specify how you want to provision the storage.
-7. In **Network Mapping**, specify the network to which the collector VM will connect. The network needs internet connectivity, to send metadata to Azure. 
+7. In **Network Mapping**, specify the network to which the collector VM will connect. The network needs internet connectivity, to send metadata to Azure.
 8. In **Ready to Complete**, review the settings, select **Power on after deployment**, and then click **Finish**.
 
 A message confirming successful completion is issued after the appliance is created.
@@ -266,22 +266,22 @@ Before you start, note that the collector currently only supports "English (Unit
 2. Provide the language, time zone, and password preferences for the appliance.
 3. On the desktop, click the **Run collector** shortcut.
 
-    ![Collector shortcut](./media/migrate-scenarios-assessment/collector-shortcut.png) 
-    
+    ![Collector shortcut](./media/migrate-scenarios-assessment/collector-shortcut.png)
+
 4. In the Azure Migrate Collector, open **Set up prerequisites**.
     - Accept the license terms, and read the third-party information.
-    - The collector checks that the VM has internet access, the time is synchronized, that the collector service is running (it's installed by default on the VM). It also installs VMWare PowerCLI is installed. 
-    
+    - The collector checks that the VM has internet access, the time is synchronized, that the collector service is running (it's installed by default on the VM). It also installs VMWare PowerCLI is installed.
+
     > [!NOTE]
     > We're presuming that the VM has direct access to the internet, without a proxy.
 
     ![Verify prerequisites](./media/migrate-scenarios-assessment/collector-verify-prereqs.png)
-    
+
 
 5. In **Specify vCenter Server details**, do the following:
     - Specify the name (FQDN) or IP address of the vCenter server.
     - In **Username** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the vCenter server.
-    - In **Select scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1500 VMs. 
+    - In **Select scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1500 VMs.
 
 	![Connect to vCenter](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 
@@ -292,7 +292,7 @@ Before you start, note that the collector currently only supports "English (Unit
 7. In **View collection progress**, monitor discovery, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
 
     ![Collection in progress](./media/migrate-scenarios-assessment/collector-collection-process.png)
-   
+
 
 
 ### Verify VMs in the portal
@@ -305,7 +305,7 @@ After collection completes, check that the VMs appear in the portal.
     ![Discovered machines](./media/migrate-scenarios-assessment/discovery-complete.png)
 
 3. Note that the machines currently don't have the Azure Migrate agents installed. We need to install these so that we can view dependencies.
-	
+
 	![Discovered machines](./media/migrate-scenarios-assessment/machines-no-agent.png)
 
 
@@ -318,7 +318,7 @@ To view dependencies between VMs we want to assess, we download and install agen
 
 If you want to have a copy of your VM before modifying it, take a snapshot before you install the agents.
 
-![Machine snapshot](./media/migrate-scenarios-assessment/snapshot-vm.png) 
+![Machine snapshot](./media/migrate-scenarios-assessment/snapshot-vm.png)
 
 
 ### Download and install the VM agents
@@ -327,7 +327,7 @@ If you want to have a copy of your VM before modifying it, take a snapshot befor
 2.	On the **Discover Machines** page, for each VM, download and install the Microsoft Monitoring Agent (MMA), and the Dependency agent.
 3.	Copy the workspace ID and key. You need these when you install the MMA.
 
-    ![Agent download](./media/migrate-scenarios-assessment/download-agents.png) 
+    ![Agent download](./media/migrate-scenarios-assessment/download-agents.png)
 
 
 
@@ -335,12 +335,12 @@ If you want to have a copy of your VM before modifying it, take a snapshot befor
 
 1. Double-click the downloaded agent.
 2. On the **Welcome** page, click **Next**. On the **License Terms** page, click **I Agree** to accept the license.
-3. In **Destination Folder**, keep the default installation folder > **Next**. 
-4. In **Agent Setup Options**, select **Connect the agent to Azure Log Analytics** > **Next**. 
+3. In **Destination Folder**, keep the default installation folder > **Next**.
+4. In **Agent Setup Options**, select **Connect the agent to Azure Log Analytics** > **Next**.
 
-    ![MMA installation](./media/migrate-scenarios-assessment/mma-install.png) 
+    ![MMA installation](./media/migrate-scenarios-assessment/mma-install.png)
 5. In **Azure Log Analytics**, paste in the workspace ID and key that you copied from the portal. Click **Next**.
-    ![MMA installation](./media/migrate-scenarios-assessment/mma-install2.png) 
+    ![MMA installation](./media/migrate-scenarios-assessment/mma-install2.png)
 
 6. In **Ready to Install**, install the MMA.
 
@@ -352,10 +352,10 @@ If you want to have a copy of your VM before modifying it, take a snapshot befor
 2.	On the **License Terms** page, click **I Agree to accept the license**.
 3.	In **Installing**, wait for the installation to finish. Then click **Next**.
 
-    ![Dependency agent](./media/migrate-scenarios-assessment/dependency-agent.png) 
+    ![Dependency agent](./media/migrate-scenarios-assessment/dependency-agent.png)
 
 
-       
+
 ## Step 7: Run and analyze the VM assessment
 
 Verify machine dependencies and create a group. Then, run the assessment.
@@ -364,7 +364,7 @@ Verify machine dependencies and create a group. Then, run the assessment.
 
 1.	On the **Machines** page, for the VMs you want to analyze, click **View Dependencies**.
 
-    ![View machine dependencies](./media/migrate-scenarios-assessment/view-machine-dependencies.png) 
+    ![View machine dependencies](./media/migrate-scenarios-assessment/view-machine-dependencies.png)
 
 2. For the SQLVM, the dependency map shows the following details:
 
@@ -372,8 +372,8 @@ Verify machine dependencies and create a group. Then, run the assessment.
     - Inbound (client) and outbound (server) TCP connections to and from all dependent machines.
     - Dependent machines with the Azure Migrate agents installed are shown as separate boxes
     - Machines without the agents installed show port and IP address information.
-    
- 3. For machines with the agent installed (WEBVM), click on the machine box to view more information, including FQDN, operating system, MAC address. 
+
+ 3. For machines with the agent installed (WEBVM), click on the machine box to view more information, including FQDN, operating system, MAC address.
 
     ![View group dependencies](./media/migrate-scenarios-assessment/sqlvm-dependencies.png)
 
@@ -381,7 +381,7 @@ Verify machine dependencies and create a group. Then, run the assessment.
 5. Click **Create Group**, and specify a name (smarthotelapp).
 
 > [!NOTE]
-    > To view more granular dependencies, you can expand the time range. You can select a specific duration, or start and end dates. 
+    > To view more granular dependencies, you can expand the time range. You can select a specific duration, or start and end dates.
 
 
 ### Run an assessment
@@ -405,7 +405,7 @@ For this tutorial we've used the default assessment settings, but you can custom
     **Setting** | **Details** | **Default**
     --- | --- | ---
     **Target location** | The Azure location to which you want to migrate | No default.
-    **Storage redundancy** | The type of storage redundancy that the Azure VMs will use after migration. | [Locally redundant storage (LRS)](../storage/common/storage-redundancy-lrs.md) is the default value. Azure Migrate only supports managed disks-based assessments and managed disks only support LRS, hence the LRS option. 
+    **Storage redundancy** | The type of storage redundancy that the Azure VMs will use after migration. | [Locally redundant storage (LRS)](../storage/common/storage-redundancy-lrs.md) is the default value. Azure Migrate only supports managed disks-based assessments and managed disks only support LRS, hence the LRS option.
     **Sizing criterion** | The criterion to be used by Azure Migrate to right-size VMs for Azure. You can do either do *performance-based* sizing or size the VMs *as on-premises*, without considering the performance history. | Performance-based sizing is the default option.
     **Performance history** | The duration to consider for evaluating the performance of the VMs. This property is only applicable when sizing criterion is *performance-based sizing*. | Default is one day.
     **Percentile utilization** | The percentile value of the performance sample set to be considered for right-sizing. This property is only applicable when sizing criterion is *performance-based sizing*.  | Default is 95th percentile.
@@ -421,7 +421,7 @@ For this tutorial we've used the default assessment settings, but you can custom
 
 ### Analyze the VM assessment
 
-An Azure Migrate assessment includes information about whether the on-premises VMs are compatible for Azure, suggested right-sizing for the Azure VM, and estimated monthly Azure costs. 
+An Azure Migrate assessment includes information about whether the on-premises VMs are compatible for Azure, suggested right-sizing for the Azure VM, and estimated monthly Azure costs.
 
 ![Assessment report](./media/migrate-scenarios-assessment/assessment-overview.png)
 
@@ -466,12 +466,12 @@ The assessment report shows the information summarized in the table. Note that t
 
 #### Review monthly cost estimates
 
-This view shows the total compute and storage cost of running the VMs in Azure, along with the details for each machine. 
+This view shows the total compute and storage cost of running the VMs in Azure, along with the details for each machine.
 
-![Assessment readiness](./media/migrate-scenarios-assessment/azure-costs.png) 
+![Assessment readiness](./media/migrate-scenarios-assessment/azure-costs.png)
 
 - Cost estimates are calculated using the size recommendations for a machine.
-- Estimated monthly costs for compute and storage are aggregated for all VMs in the group. 
+- Estimated monthly costs for compute and storage are aggregated for all VMs in the group.
 
 
 ## Conclusion
@@ -486,6 +486,3 @@ In this scenario we've:
 ## Next steps
 
 Let's continue with the next scenario, to do a [lift-and-shift migration](migrate-scenarios-lift-and-shift.md) of the on-premises VMs and database to Azure.
-
-
-

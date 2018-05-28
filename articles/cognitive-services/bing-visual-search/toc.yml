@@ -4,7 +4,7 @@
   items:
     - name: What is Bing Visual Search API?
       href: overview.md
-- name: Quickstarts
+- name: REST API Quickstarts
   expanded: true
   items:
   - name: First query in C#
@@ -21,6 +21,10 @@
     href: tutorial-bing-visual-search-single-page-app.md
   - name: Single-page Web app (source code)
     href: tutorial-bing-visual-search-single-page-app-source.md
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search
 - name: Concepts
   items:
     - name: Default image insights
@@ -33,6 +37,8 @@
       href: bing-visual-search-stats.md
 - name: How-to guides
   items:
+  - name: Get insights using token
+    href: use-insights-token.md
   - name: Use and display results
     href: use-and-display-requirements.md
   - name: Resize and crop thumbnails

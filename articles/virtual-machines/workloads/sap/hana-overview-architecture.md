@@ -4,7 +4,7 @@ description: Architectural overview of how to deploy SAP HANA on Azure (Large In
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-linux
@@ -301,6 +301,8 @@ This list assembles requirements for running SAP HANA on Azure (Larger Instances
    - For Red Hat Linux, you need to have the correct subscription levels that include support and service updates to the operating systems of HANA Large Instance. Red Hat recommends the Red Hat Enterprise Linux for [SAP Solutions](https://access.redhat.com/solutions/3082481 subscription. 
 
 For the support matrix of the different SAP HANA versions with the different Linux versions, see [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+
+For the compatibility matrix of the operating system and HLI firmware/driver versions, refer [OS Upgrade for HLI](os-upgrade-hana-large-instance.md).
 
 
 **Database**

@@ -3,7 +3,7 @@ title: Azure Active Directory Reporting FAQ | Microsoft Docs
 description: Azure Active Directory reporting FAQ.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 05/10/2018
+ms.author: rolyon
 ms.reviewer: dhanyahk
 
 ---
@@ -23,7 +24,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: I am using the https://graph.windows.net/&lt;tenant-name&gt;/reports/ endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?**
 
-**A:** Look up our [API reference documentation](https://developer.microsoft.com/graph/) to see how you can use the new APIs to access [activity reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). This endpoint has two reports (Audit and Sign-ins) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
+**A:** Look up the [API reference documentation](https://developer.microsoft.com/graph/) to see how you can use the new APIs to access [activity reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). This endpoint has two reports (Audit and Sign-ins) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
 
 
 --- 
@@ -36,7 +37,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: What is the data retention for activity logs (Audit and Sign-ins) in the Azure portal?** 
 
-**A:** We provide 7 days of data for our free customers, or you can access data for up to 30 days by purchasing an Azure AD Premium 1 or Premium 2 license. For more information on report retention, see [Azure Active Directory report retention policies](active-directory-reporting-retention.md).
+**A:** See [for how long is the collected data stored?](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) for an answer to this question.
 
 --- 
 
@@ -73,7 +74,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How many records can I query through the activities API?**
 
-**A:** You can query up to 1 million records (if you don’t use the top operator, which sorts the record by most recent). If you do use the “top” operator, you can query up to 500K records. You can find sample queries on how to use the API here [here](active-directory-reporting-api-getting-started.md).
+**A:** You can query up to 1 million records (if you don’t use the top operator, which sorts the record by most recent). If you do use the “top” operator, you can query up to 500K records. You can find sample queries on how to use the API [here](active-directory-reporting-api-getting-started.md).
 
 ---
 
@@ -97,7 +98,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: There is a risk event in Identity Protection but I’m not seeing corresponding sign-in in the all sign-ins. Is this expected?**
 
-**A:** Yes, Identity Protection evaluates risk for all authentication flows whether if be interactive or non-interactive. However, all sign-ins only report shows only the interactive sign-ins.
+**A:** Yes, Identity Protection evaluates risk for all authentication flows whether interactive or non-interactive. However, all sign-ins only report shows only the interactive sign-ins.
 
 ---
 
@@ -121,6 +122,6 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: What does the risk event "Sign-in with additional risk detected" signify?**
 
-**A:** To give you an insight into all the risky sign-ins in your environment we show the risk event "Sign-in with additional risk detected" for sign-ins considered risky because of detections exclusive to Azure AD Identity Protection subscribers.
+**A:** To give you an insight into all the risky sign-ins in your environment, "Sign-in with additional risk detected" functions as placeholder for sign-ins for detections that are exclusive to Azure AD Identity Protection subscribers.
 
 ---

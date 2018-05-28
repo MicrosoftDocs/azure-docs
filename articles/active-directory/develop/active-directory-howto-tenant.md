@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -20,7 +21,7 @@ ms.custom: aaddev
 ---
 # How to get an Azure Active Directory tenant
 
-In Azure Active Directory (Azure AD), a [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#Anchor_0) is representative of an organization. It is a dedicated instance of the Azure AD service that an organization receives and owns when it creates a relationship with Microsoft, such as by signing up for a Microsoft cloud service like Azure, Microsoft Intune, or Office 365. Each Azure AD tenant is distinct and separate from other Azure AD tenants.  
+In Azure Active Directory (Azure AD), a [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#Anchor_0) is representative of an organization. It is a dedicated instance of the Azure AD service that an organization receives and owns when it creates a relationship with Microsoft, such as by signing up for a Microsoft cloud service like Azure, Microsoft Intune, or Office 365. Each Azure AD tenant is distinct and separate from other Azure AD tenants. 
 
 A tenant houses the users in a company and the information about them--their passwords, user profile data, permissions, and so on. It also contains groups, applications, and other information pertaining to an organization and its security.
 
@@ -37,4 +38,4 @@ If you don't have an existing tenant associated with your account, you'll see a 
 
 ## Create a new Azure AD tenant
 
-If you don't already have an Azure AD tenant or want to create a new one, you can do so using the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) in the [Azure portal](https://portal.azure.com).  The process will take about a minute, and in the end you'll be promted to navigate to your newly created tenant.
+If you don't already have an Azure AD tenant or want to create a new one, you can do so using the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) in the [Azure portal](https://portal.azure.com). The process will take about a minute, and in the end you'll be prompted to navigate to your newly created tenant.
