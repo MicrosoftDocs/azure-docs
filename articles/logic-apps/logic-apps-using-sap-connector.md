@@ -5,7 +5,7 @@ description: Learn how to access SAP systems with automated workflows in Azure L
 author: ecfan
 manager: cfowler
 ms.author: estfan
-ms.date: 05/27/2018
+ms.date: 05/29/2018
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
@@ -19,8 +19,8 @@ tags: connectors
 # Access resources in SAP systems by automating workflows in Azure Logic Apps
 
 This article shows how you can connect to on-premises SAP systems 
-from inside a logic app so you can access resources by using 
-the SAP Application Server and SAP Message Server connectors. 
+from inside a logic app so you can access data and other resources 
+by using the SAP Application Server and SAP Message Server connectors. 
 That way, you can create logic apps that automate tasks and 
 workflows for managing data and resources in your SAP systems. 
 
