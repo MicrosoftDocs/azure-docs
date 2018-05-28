@@ -20,12 +20,12 @@ ms.custom: mvc
 #Customer intent: As an ASP.NET developer, new to Azure Redis Cache, I want to create a new ASP.NET Web app that uses Redis Cache.
 
 ---
-# Quickstart: Create a ASP.NET Web App with Redis Cache
+# Quickstart: Create an ASP.NET Web App with Redis Cache
 
 
 ## Introduction
 
-This quickstart shows how to create and deploy an ASP.NET web application to Azure App Service using Visual Studio 2017. The sample application connects to an Azure Redis Cache to store and retrieve data from the cache. When you complete the quickstart you have a running web app, hosted in Azure, that reads and writes to an Azure Redis Cache.
+This quickstart shows how to create and deploy an ASP.NET web application to Azure App Service by using Visual Studio 2017. The sample application connects to an Azure Redis Cache to store and retrieve data from the cache. When you complete the quickstart, you have a running web app, hosted in Azure, that reads and writes to an Azure Redis Cache.
 
 ![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -33,36 +33,36 @@ This quickstart shows how to create and deploy an ASP.NET web application to Azu
 
 ## Prerequisites
 
-To complete the quickstart, you must have the following prerequisites:
+To complete the quickstart, you need the following prerequisites:
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-    * ASP.NET and web development
-    * Azure Development
+Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+* ASP.NET and web development
+* Azure development
 
 ## Create the Visual Studio project
 
-Open Visual Studio and click **File**, **New**, **Project**.
+Open Visual Studio, and then and select **File** >**New** > **Project**.
 
 ![Create project](./media/cache-web-app-howto/cache-create-project.png)
 
-In the New Project dialog, take the following steps:
+In the **New Project** dialog box, take the following steps:
 
-1. Expand the **Visual C#** node in the **Templates** list
-1. Select **Cloud**
-1. Click **ASP.NET Web Application**
-1. Ensure that **.NET Framework 4.5.2** or higher is selected
-1. Give the project a name in the **Name** textbox, for this example we've used **ContosoTeamStats**
-1. Click **OK**.
+1. Expand the **Visual C#** node in the **Templates** list.
+2. Select **Cloud**.
+3. Select **ASP.NET Web Application**.
+4. Ensure that **.NET Framework 4.5.2** or higher is selected
+5. In the **Name** box, give the project a name. For this example, we've used **ContosoTeamStats**
+6. Select **OK**.
 
-You will be presented with a New ASP.NET Web Application screen:
+You are presented with a new ASP.NET Web Application screen:
 
-![Select project template](./media/cache-web-app-howto/cache-select-template.png)
+    ![Select project template](./media/cache-web-app-howto/cache-select-template.png)
 
-Select **MVC** as the project type.
+7. Select **MVC** as the project type.
 
-Ensure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default may be set to something else. To change it, click **Change Authentication** and select **No Authentication**.
+8. Ensure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default might be set to something else. To change it, select **Change Authentication** and then **No Authentication**.
 
-Click **OK** to create the project.
+9. Select **OK** to create the project.
 
 ## Create a cache
 
@@ -72,29 +72,28 @@ Next, you create the cache for the app.
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Create a file on your computer named *CacheSecrets.config* and place it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located here, *C:\AppSecrets\CacheSecrets.config*.
+1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
 
-Edit the *CacheSecrets.config* file and add the following contents:
+2. Edit the *CacheSecrets.config* file. Then add the following contents:
 
-```xml
-<appSettings>
-    <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<access-key>"/>
-</appSettings>
-```
+    ```xml
+    <appSettings>
+        <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<access-key>"/>
+    </appSettings>
+    ```
 
-Replace `<cache-name>` with your cache host name.
+3. Replace `<cache-name>` with your cache host name.
 
-Replace `<access-key>` with the primary key for your cache.
+4. Replace `<access-key>` with the primary key for your cache.
 
-> [!TIP]
-> The secondary access key is used during key rotation as an alternate key while you regenerate the primary access key.
+    > [!TIP]
+    > The secondary access key is used during key rotation as an alternate key while you regenerate the primary access key.
 >
-
-Save the file.
+5. Save the file.
 
 ## Update the MVC application
 
-In this section, you update the application to support a new view that will display a simple test against an Azure Redis Cache.
+In this section, you update the application to support a new view that displays a simple test against an Azure Redis Cache.
 
 * [Update the web.config file with an app setting for the cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * [Configure the application to use the StackExchange.Redis client](#configure-the-application-to-use-stackexchangeredis)
@@ -103,30 +102,32 @@ In this section, you update the application to support a new view that will disp
 
 ### Update the web.config file with an app setting for the cache
 
-When you run the application locally, the information in *CacheSecrets.config* is used to connect to your Azure Redis Cache instance. Later you'll deploy this application to Azure. At that time, you will configure an app setting in Azure that the application will use to retrieve the cache connection information instead of this file. Since *CacheSecrets.config* is not deployed to Azure with your application, you only use it while testing the application locally. You want to keep this information as secure as possible to prevent malicious access to your cache data.
+When you run the application locally, the information in *CacheSecrets.config* is used to connect to your Azure Redis Cache instance. Later you deploy this application to Azure. At that time, you configure an app setting in Azure that the application uses to retrieve the cache connection information instead of this file. 
+
+Because the file *CacheSecrets.config* is not deployed to Azure with your application, you only use it while testing the application locally. Keep this information as secure as possible to prevent malicious access to your cache data.
 
 In **Solution Explorer**, double-click the *web.config* file to open it.
 
 ![Web.config](./media/cache-web-app-howto/cache-web-config.png)
 
-In the *web.config* file, find the `<appSetting>` element, and add the following `file` attribute. If you used a different file name or location, substitute those values for the ones shown in the example.
+In the *web.config* file, find the `<appSetting>` element. Then add the following `file` attribute. If you used a different file name or location, substitute those values for the ones that are shown in the example.
 
 * Before: `<appSettings>`
 * After: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
-The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file cannot be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the *CacheSecrests.config* file won't be deployed.
+The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file can't be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the *CacheSecrests.config* file isn't deployed.
 
 ### Configure the application to use StackExchange.Redis
 
-To configure the app to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet package for Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**.
+1. To configure the app to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet package for Visual Studio, select **Tools > NuGet Package Manager > Package Manager Console**.
 
-Run the following command from the `Package Manager Console` window:
+2. Run the following command from the `Package Manager Console` window:
 
-```powershell
-Install-Package StackExchange.Redis
-```
+    ```powershell
+    Install-Package StackExchange.Redis
+    ```
 
-The NuGet package downloads and adds the required assembly references for your client application to access Azure Redis Cache with the StackExchange.Redis cache client. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis.StrongName` package.
+3. The NuGet package downloads and adds the required assembly references for your client application to access Azure Redis Cache with the StackExchange.Redis cache client. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis.StrongName` package.
 
 ### Update the HomeController and Layout
 
@@ -139,7 +140,7 @@ using System.Configuration;
 using StackExchange.Redis;
 ```
 
-Add the following method to the `HomeController` class to support a new `RedisCache` action that executes some commands against the new cache.
+Add the following method to the `HomeController` class to support a new `RedisCache` action that runs some commands against the new cache.
 
 ```csharp
     public ActionResult RedisCache()
@@ -183,7 +184,7 @@ Add the following method to the `HomeController` class to support a new `RedisCa
     }
 ```
 
-In **Solution Explorer**, expand **Views**>**Shared** folder, and open the *_Layout.cshtml* file.
+In **Solution Explorer**, expand the **Views** > **Shared** folder. Then open the *_Layout.cshtml* file.
 
 Replace:
 
@@ -191,7 +192,7 @@ Replace:
 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 ```
 
-With:
+with:
 
 ```csharp
 @Html.ActionLink("Azure Redis Cache Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
@@ -201,7 +202,7 @@ With:
 
 In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder. Choose **Add** > **View...**.
 
-In the Add View dialog, enter **RedisCache** for the View Name, and click **Add**.
+In the Add View dialog box, enter **RedisCache** for the View Name. Then select **Add**.
 
 Replace the code in the *RedisCache.cshtml* file with the following code:
 
@@ -243,88 +244,88 @@ Replace the code in the *RedisCache.cshtml* file with the following code:
 
 ## Run the app locally
 
-By default the project is configured to host the app locally in [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) for testing and debugging.
+By default, the project is configured to host the app locally in [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) for testing and debugging.
 
-In Visual Studio on the menu, click **Debug** > **Start Debugging** to build and start the app locally for testing and debugging.
+In Visual Studio, select **Debug** > **Start Debugging** to build and start the app locally for testing and debugging.
 
-In the browser, click **Azure Redis Cache Test** on the navigation bar.
+In the browser, select **Azure Redis Cache Test** on the navigation bar.
 
-In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+In the following example, you can see that the `Message` key previously had a cached value, which was set using the Redis console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
 ![Simple test completed local](./media/cache-web-app-howto/cache-simple-test-complete-local.png)
 
 ## Publish and run in Azure
 
-Once you have successfully tested the app locally, you will deploy the app to Azure and run it in the cloud.
+After successfully test the app locally, you deploy the app to Azure and run it in the cloud.
 
 ### Publish the app to Azure
 
-In Visual Studio, right-click the project node in Solution Explorer, and choose **Publish**.
+In Visual Studio, right-click the project node in Solution Explorer. Then select **Publish**.
 
 ![Publish](./media/cache-web-app-howto/cache-publish-app.png)
 
-Click **Microsoft Azure App Service**, choose **Create New**, and click **Publish**.
+Select **Microsoft Azure App Service**, select **Create New**, and then select **Publish**.
 
 ![Publish to app service](./media/cache-web-app-howto/cache-publish-to-app-service.png)
 
-In the **Create App Service** dialog, make the following changes:
+In the **Create App Service** dialog box, make the following changes:
 
 | Setting | Recommended Value | Description |
 | ------- | :---------------: | ----------- |
-| **App Name** | Use default | The app name will be the host name for the app when deployed to Azure. The name may have a timestamp suffix added to it if necessary to make it unique. |
-| **Subscription** | Choose your Azure subscription | This subscription will be charged for any related hosting charges. If you have multiple Azure subscriptions, Verify the desired subscription is selected.|
-| **Resource Group** | Use the same resource group where you created the cache. For example, *TestResourceGroup*. | The resource group helps you want to manage all resources as a group. Later when you want to delete the app, you can just delete the group. |
-| **App Service Plan** | Click **New** and create a new App Service Plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
+| **App Name** | Use default | The app name is the host name for the app when it's to Azure. The name might have a timestamp suffix added to it to make it unique if necessary. |
+| **Subscription** | Choose your Azure subscription | This subscription is charged for any related hosting costs. If you have multiple Azure subscriptions, verify that the desired subscription is selected.|
+| **Resource Group** | Use the same resource group where you created the cache (for example, *TestResourceGroup*). | The resource group helps you manage all resources as a group. Later, when you want to delete the app, you can just delete the group. |
+| **App Service Plan** | Select **New** and create a new App Service Plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
 
 ![App Service Dialog](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 
-Once you have the App Service hosting settings configured, click **Create** to create a new App Service for your app.
+After you have the App Service hosting settings configured, select **Create** to create a new App Service for your app.
 
-Monitor the **Output** window in Visual Studio to see the status of the publish to Azure. When publishing has successfully completed, the URL for the App Service is logged as shown below:
+Monitor the **Output** window in Visual Studio to see the status of the publish to Azure. After publishing has successfully finished, the URL for the App Service is logged as shown below:
 
 ![Publishing Output](./media/cache-web-app-howto/cache-publishing-output.png)
 
 ### Add the app setting for the cache
 
-Once publishing has completed for the new App Service, add a new app setting. This setting will be used to store the cache connection information. Type the app name in the search bar at the top of the Azure portal to find the new App Service you just created.
+After publishing has finished for the new App Service, add a new app setting. This setting is used to store the cache connection information. Type the app name in the search bar at the top of the Azure portal to find the new App Service you just created.
 
 ![Find App Service](./media/cache-web-app-howto/cache-find-app-service.png)
 
 Add a new app setting named **CacheConnection** for the app to use to connect to the cache. Use the same value you configured for `CacheConnection` in your *CacheSecrets.config* file. The value contains the cache host name and access key.
 
-![Add App Setting](./media/cache-web-app-howto/cache-add-app-setting.png)
+![Add app setting](./media/cache-web-app-howto/cache-add-app-setting.png)
 
 ### Run the app in Azure
 
-In your browser, browse to the URL for the App Service. The URL is shown in the results of the publishing operation in the Output window in Visual Studio. It is also provided in the Azure portal on the Overview page of the App Service you created.
+In your browser, go to the URL for the App Service. The URL is shown in the results of the publishing operation in the output window in Visual Studio. It is also provided in the Azure portal on the overview page of the App Service you created.
 
-Click **Azure Redis Cache Test** on the navigation bar to test cache access.
+Select **Azure Redis Cache Test** on the navigation bar to test cache access.
 
 ![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
 ## Clean up resources
 
-If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
+If you are continuing to the next tutorial, you can keep the resources that you created in this quickstart and reuse them.
 
-Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
+Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources that you created in this quickstart to avoid charges. 
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
+> Deleting a resource group is irreversible. When you delete a resource group, all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
 >
 
-Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource groups**.
 
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...**, and then select **Delete resource group**.
 
 ![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
-You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
+You are asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and then select **Delete**.
 
-After a few moments, the resource group and all of its contained resources are deleted.
+After a few moments, the resource group and all of the resources it contains are deleted.
 
 ## Next steps
 
-In this next tutorial, you will use Azure Redis Cache in a more real-world scenario to improve performance of an app. You will update this application to cache leaderboard results using the cache-aside pattern with ASP.NET and a database.
+In this next tutorial, you use Azure Redis Cache in a more realistic scenario to improve performance of an app. You update this application to cache leaderboard results using the cache-aside pattern with ASP.NET and a database.
 
 > [!div class="nextstepaction"]
 > [Create a cache-aside leaderboard on ASP.NET](cache-web-app-cache-aside-leaderboard.md)
