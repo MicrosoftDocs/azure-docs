@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: cosmos-db
 ms.devlang: cpp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/25/2016
 ms.author: aasthan
 

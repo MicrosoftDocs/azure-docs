@@ -9,7 +9,7 @@ editor: monicar
 
 ms.service: cosmos-db
 ms.devlang: node
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/14/2017
 ms.author: sngun
 

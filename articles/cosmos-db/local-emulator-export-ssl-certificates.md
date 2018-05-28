@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: cosmos-db
 ms.devlang: multiple
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
