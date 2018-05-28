@@ -25,10 +25,10 @@ That way, you can create logic apps that automate tasks and
 workflows for managing data and resources in your SAP systems. 
 
 This example uses a logic app that you can trigger with 
-an HTTP request. The logic app sends the request for an 
-Intermediate Document (IDoc) action to an SAP server. 
-The logic app then returns the results in an HTTP response 
-to the original requestor that called the logic app.
+an HTTP request. The logic app sends an Intermediate 
+Document (IDoc) to an SAP server. The logic app then 
+returns an HTTP response to the original requestor 
+that called the logic app.
 
 The current SAP connectors have actions, 
 but not triggers, so this example uses the 
