@@ -7,7 +7,7 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
 

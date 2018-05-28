@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
 

@@ -7,7 +7,7 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: nodejs
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: rogirdh
 

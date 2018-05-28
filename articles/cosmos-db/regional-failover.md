@@ -7,7 +7,7 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017

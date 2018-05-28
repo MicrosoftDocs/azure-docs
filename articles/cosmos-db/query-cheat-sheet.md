@@ -8,7 +8,7 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
 

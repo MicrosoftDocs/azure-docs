@@ -8,7 +8,7 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: 
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
 

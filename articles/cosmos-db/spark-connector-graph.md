@@ -9,7 +9,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.custom: quick start connect
 ms.devlang: gremlin
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: sngun
 

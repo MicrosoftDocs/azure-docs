@@ -11,7 +11,7 @@ tags: Azure Cosmos DB
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang 
 

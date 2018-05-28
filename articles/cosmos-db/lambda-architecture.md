@@ -8,7 +8,7 @@ manager: kfile
 editor: ''
 
 ms.service: cosmos-db
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: denlee
 
