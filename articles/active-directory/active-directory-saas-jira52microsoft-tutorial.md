@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with JIRA SAML SSO by Microsoft (v 5.2) | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and JIRA SAML SSO by Microsoft (v 5.2).
+title: 'Tutorial: Azure Active Directory integration with JIRA SAML SSO by Microsoft (V5.2) | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and JIRA SAML SSO by Microsoft (V5.2).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,14 +17,14 @@ ms.date: 05/25/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with JIRA SAML SSO by Microsoft (v 5.2)
+# Tutorial: Azure Active Directory integration with JIRA SAML SSO by Microsoft (V5.2)
 
-In this tutorial, you learn how to integrate JIRA SAML SSO by Microsoft (v 5.2) with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate JIRA SAML SSO by Microsoft (V5.2) with Azure Active Directory (Azure AD).
 
-Integrating JIRA SAML SSO by Microsoft (v 5.2) with Azure AD provides you with the following benefits:
+Integrating JIRA SAML SSO by Microsoft (V5.2) with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to JIRA SAML SSO by Microsoft (v 5.2).
-- You can enable your users to automatically get signed-on to JIRA SAML SSO by Microsoft (v 5.2) (Single Sign-On) with their Azure AD accounts.
+- You can control in Azure AD who has access to JIRA SAML SSO by Microsoft (V5.2).
+- You can enable your users to automatically get signed-on to JIRA SAML SSO by Microsoft (V5.2) (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -35,7 +35,7 @@ Use your Microsoft Azure Active Directory account with Atlassian JIRA server to 
 
 ## Prerequisites
 
-To configure Azure AD integration with JIRA SAML SSO by Microsoft (v 5.2), you need the following items:
+To configure Azure AD integration with JIRA SAML SSO by Microsoft (V5.2), you need the following items:
 
 - An Azure AD subscription
 - JIRA Core and Software 5.2 should installed and configured on Windows 64-bit version
@@ -63,13 +63,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding JIRA SAML SSO by Microsoft (v 5.2) from the gallery
+1. Adding JIRA SAML SSO by Microsoft (V5.2) from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding JIRA SAML SSO by Microsoft (v 5.2) from the gallery
-To configure the integration of JIRA SAML SSO by Microsoft (v 5.2) into Azure AD, you need to add JIRA SAML SSO by Microsoft (v 5.2) from the gallery to your list of managed SaaS apps.
+## Adding JIRA SAML SSO by Microsoft (V5.2) from the gallery
+To configure the integration of JIRA SAML SSO by Microsoft (V5.2) into Azure AD, you need to add JIRA SAML SSO by Microsoft (V5.2) from the gallery to your list of managed SaaS apps.
 
-**To add JIRA SAML SSO by Microsoft (v 5.2) from the gallery, perform the following steps:**
+**To add JIRA SAML SSO by Microsoft (V5.2) from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
@@ -83,31 +83,31 @@ To configure the integration of JIRA SAML SSO by Microsoft (v 5.2) into Azure AD
 
 	![The New application button][3]
 
-4. In the search box, type **JIRA SAML SSO by Microsoft (v 5.2)**, select **JIRA SAML SSO by Microsoft (v 5.2)** from result panel then click **Add** button to add the application.
+4. In the search box, type **JIRA SAML SSO by Microsoft (V5.2)**, select **JIRA SAML SSO by Microsoft (V5.2)** from result panel then click **Add** button to add the application.
 
-	![JIRA SAML SSO by Microsoft (v 5.2) in the results list](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_singlesign-onforjira5.2_addfromgallery.png)
+	![JIRA SAML SSO by Microsoft (V5.2) in the results list](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_singlesign-onforjira5.2_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft (v 5.2) based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft (V5.2) based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in JIRA SAML SSO by Microsoft (v 5.2) is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in JIRA SAML SSO by Microsoft (v 5.2) needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in JIRA SAML SSO by Microsoft (V5.2) is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in JIRA SAML SSO by Microsoft (V5.2) needs to be established.
 
-To configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft (v 5.2), you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft (V5.2), you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a JIRA SAML SSO by Microsoft (v 5.2) test user](#create-a-jira-saml-sso-by-microsoft-v-52-test-user)** - to have a counterpart of Britta Simon in JIRA SAML SSO by Microsoft (v 5.2) that is linked to the Azure AD representation of user.
+3. **[Create a JIRA SAML SSO by Microsoft (V5.2) test user](#create-a-jira-saml-sso-by-microsoft-v52-test-user)** - to have a counterpart of Britta Simon in JIRA SAML SSO by Microsoft (V5.2) that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your JIRA SAML SSO by Microsoft (v 5.2) application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your JIRA SAML SSO by Microsoft (V5.2) application.
 
-**To configure Azure AD single sign-on with JIRA SAML SSO by Microsoft (v 5.2), perform the following steps:**
+**To configure Azure AD single sign-on with JIRA SAML SSO by Microsoft (V5.2), perform the following steps:**
 
-1. In the Azure portal, on the **JIRA SAML SSO by Microsoft (v 5.2)** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **JIRA SAML SSO by Microsoft (V5.2)** application integration page, click **Single sign-on**.
 
 	![Configure single sign-on link][4]
 
@@ -163,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In **Metadata URL** textbox, paste **App Federation Metadata Url** value which you have copied from the Azure portal and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
 
-	b. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **JIRA SAML SSO by Microsoft (v 5.2) Domain and URLs** section on Azure portal.
+	b. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **JIRA SAML SSO by Microsoft (V5.2) Domain and URLs** section on Azure portal.
 
 	c. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
 
@@ -217,7 +217,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
 
-### Create a JIRA SAML SSO by Microsoft (v 5.2) test user
+### Create a JIRA SAML SSO by Microsoft (V5.2) test user
 
 To enable Azure AD users to log in to JIRA on-premise server, they must be provisioned into JIRA on-premises server.
 
@@ -253,19 +253,19 @@ To enable Azure AD users to log in to JIRA on-premise server, they must be provi
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to JIRA SAML SSO by Microsoft (v 5.2).
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to JIRA SAML SSO by Microsoft (V5.2).
 
 ![Assign the user role][200]
 
-**To assign Britta Simon to JIRA SAML SSO by Microsoft (v 5.2), perform the following steps:**
+**To assign Britta Simon to JIRA SAML SSO by Microsoft (V5.2), perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201]
 
-2. In the applications list, select **JIRA SAML SSO by Microsoft (v 5.2)**.
+2. In the applications list, select **JIRA SAML SSO by Microsoft (V5.2)**.
 
-	![The JIRA SAML SSO by Microsoft (v 5.2) link in the Applications list](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_singlesign-onforjira5.2_app.png)
+	![The JIRA SAML SSO by Microsoft (V5.2) link in the Applications list](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_singlesign-onforjira5.2_app.png)
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -285,7 +285,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the JIRA SAML SSO by Microsoft (v 5.2) tile in the Access Panel, you should get automatically signed-on to your JIRA SAML SSO by Microsoft (v 5.2) application.
+When you click the JIRA SAML SSO by Microsoft (V5.2) tile in the Access Panel, you should get automatically signed-on to your JIRA SAML SSO by Microsoft (V5.2) application.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
