@@ -186,7 +186,7 @@ so you can set up your SAP action.
 
       ![Manually provide path to IDoc action](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
 
-      For more informationa about IDoc operations, see 
+      For more information about IDoc operations, see 
       [Message schemas for IDOC operations](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
 
    2. Click inside the **Input Message** box so that the dynamic content list appears. 
