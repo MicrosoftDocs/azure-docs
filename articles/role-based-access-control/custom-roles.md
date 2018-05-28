@@ -18,11 +18,40 @@ ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ---
 
-# Create custom roles in Azure
+# Custom roles in Azure
 
-If the [built-in roles](built-in-roles.md) don't meet your specific access needs, you can create your own custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes. Custom roles are stored in an Azure Active Directory (Azure AD) tenant and can be shared across subscriptions. Each tenant can have up to 2000 custom roles. Custom roles can be created using Azure PowerShell, Azure CLI, or the REST API.
+If the [built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes. Custom roles are stored in an Azure Active Directory (Azure AD) tenant and can be shared across subscriptions. Each tenant can have up to 2000 custom roles. Custom roles can be created using Azure PowerShell, Azure CLI, or the REST API.
 
-This article describes an example of how to get started creating custom roles using PowerShell and Azure CLI.
+## Steps to create a custom role
+
+1. Identify the relevant operations you want to include in the custom role
+
+    When you create a custom role, you'll need to know the resource provider operations that are available. You can view the list of operations or you can use the Get-AzureRMProviderOperation or az provider operation list commands.
+
+2. Determine the effective permissions
+
+    You'll need to determine the effective permissions you want to achieve. You do this by adding operations to the `actions` and `notActions` sections of the [role definition](role-definitions.md).
+
+3. Create the custom role
+
+    Depending on the language that you use, there are different ways to create a custom role. Typically, you start with a built-in role and then modify it for your needs. Whe you can use PowerShell, you can also create a custom role from scratch.
+
+4. Test the custom role and update as needed
+
+    Once you created the custom role, you need to test the custom role works as you expect. If adjustments need to be made, you can update the custom role.
+
+## How are custom roles different than built-in roles?
+
+Custom roles are the same as built-in roles, but there are a couple of differences. Just like built-in roles, the `assignableScopes` section specifies the scopes that the role is available for assignment. However, You can't use the root scope (`"/"`) in your own custom roles. If you try, you will get an authorization error. The `assignableScopes` section for a custom role also controls who can create, delete, modify, or view the custom role.
+
+<!-- Do custom roles support management groups? -->
+
+| Task | Operation | Description |
+| --- | --- | --- |
+| Create/delete a custom role | `Microsoft.Authorization/ roleDefinition/write` | Users that are granted this operation on all the `assignableScopes` of the custom role can create (or delete) custom roles for use in those scopes. For example, [Owners](built-in-roles.md#owner) and [User Access Administrators](built-in-roles.md#user-access-administrator) of subscriptions, resource groups, and resources. |
+| Modify a custom role | `Microsoft.Authorization/ roleDefinition/write` | Users that are granted this operation on all the `assignableScopes` of the custom role can modify custom roles in those scopes. For example, [Owners](built-in-roles.md#owner) and [User Access Administrators](built-in-roles.md#user-access-administrator) of subscriptions, resource groups, and resources. |
+| View a custom role | `Microsoft.Authorization/ roleDefinition/read` | Users that are granted this operation at a scope can view the custom roles that are available for assignment at that scope. All built-in roles allow custom roles to be available for assignment. |
+
 
 ## Create a custom role to open support requests using PowerShell
 

@@ -226,9 +226,7 @@ The `notDataActions` permission specifies the data operations that are excluded 
 
 The `assignableScopes` section specifies the scopes (management groups (currently in preview), subscriptions, resource groups, or resources) that the role is available for assignment. You can make the role available for assignment in only the subscriptions or resource groups that require it, and not the clutter user experience for the rest of the subscriptions or resource groups. You must use at least one management group, subscription, resource group, or resource ID.
 
-Built-in roles have `assignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes. You can't use the root scope in your own custom roles. If you try, you will get an authorization error.
-
-Examples of valid assignable scopes include:
+Built-in roles have `assignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes. Examples of valid assignable scopes include:
 
 | Scenario | Example |
 |----------|---------|
@@ -237,15 +235,7 @@ Examples of valid assignable scopes include:
 | Role is available for assignment only in the Network resource group | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | Role is available for assignment in all scopes | `"/"` |
 
-## assignableScopes and custom roles
-
-The `assignableScopes` section for a custom role also controls who can create, delete, modify, or view the custom role.
-
-| Task | Operation | Description |
-| --- | --- | --- |
-| Create/delete a custom role | `Microsoft.Authorization/ roleDefinition/write` | Users that are granted this operation on all the `assignableScopes` of the custom role can create (or delete) custom roles for use in those scopes. For example, [Owners](built-in-roles.md#owner) and [User Access Administrators](built-in-roles.md#user-access-administrator) of subscriptions, resource groups, and resources. |
-| Modify a custom role | `Microsoft.Authorization/ roleDefinition/write` | Users that are granted this operation on all the `assignableScopes` of the custom role can modify custom roles in those scopes. For example, [Owners](built-in-roles.md#owner) and [User Access Administrators](built-in-roles.md#user-access-administrator) of subscriptions, resource groups, and resources. |
-| View a custom role | `Microsoft.Authorization/ roleDefinition/read` | Users that are granted this operation at a scope can view the custom roles that are available for assignment at that scope. All built-in roles allow custom roles to be available for assignment. |
+For how `assignableScopes` is different for custom roles, see [Custom roles](custom-roles.md).
 
 ## Role definition examples
 
