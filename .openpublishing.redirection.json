@@ -7001,6 +7001,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/search/ref-create-indexer.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/searchservice/create-indexer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/search/ref-create-skillset.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/searchservice/create-skillset",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/search/search-api-2017-11-11-preview.md",
             "redirect_url": "/azure/search/search-api-preview",
             "redirect_document_id": true
