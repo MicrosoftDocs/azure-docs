@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create a DNS zone and record using the Azure Portal
+title: Quickstart - Create a DNS zone and record using the Azure Portal
 description: Learn how to create a DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first DNS zone and record using the Azure portal.
 services: dns
 author: KumudD
