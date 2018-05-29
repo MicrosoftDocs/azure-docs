@@ -77,7 +77,7 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
     b. Select **Never expires** for **Expires**.
 
-    c. Select **Save**. Make note the key string. You will need the key string when creating the cluster. The key is references as the **Service Principal Client Secret**.
+    c. Select **Save**. Make note the key string. You will need the key string when creating the cluster. The key is referenced as the **Service Principal Client Secret**.
 
 
 
