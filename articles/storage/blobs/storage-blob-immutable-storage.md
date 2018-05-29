@@ -41,7 +41,7 @@ The Immutable  Storage feature enables:
 
  The feature is enabled in all Azure public regions.
 
-### How does it work?
+## How does it work?
 
 The Immutable Storage for Azure Blobs supports two types of WORM or immutable policies: time-based retention and legal holds. Refer to the Getting Started section (link here) below for details on how to create these immutable policies. 
 When a time-based retention policy or legal hold is applied on a container, all existing blobs will move to the immutable (write and delete protected) state.  All new blobs uploaded to the container will also move to the immutable state.
@@ -78,7 +78,7 @@ Refer to [Azure Blob Service API](https://docs.microsoft.com/en-us/rest/api/stor
 
 ### Note:  The Immutable Storage feature is only available in GPv2 and blob storage accounts and must be created through the [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
 
-### Pricing
+## Pricing
 There is no additional charge for using this feature and Immutable data is priced in the same way as normal, mutable data. Refer to the [Azure Storage Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) for the related pricing details.  
 
 ### Restrictions
