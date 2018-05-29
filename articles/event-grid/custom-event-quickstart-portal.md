@@ -6,7 +6,7 @@ keywords:
 author: tfitzmac
 ms.author: tomfitz
 ms.date: 04/05/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: event-grid
 ---
 # Create and route custom events with the Azure portal and Event Grid

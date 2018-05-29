@@ -4,12 +4,9 @@ description: Learn how you can use Azure Cosmos DB to store and query massive vo
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
 ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017

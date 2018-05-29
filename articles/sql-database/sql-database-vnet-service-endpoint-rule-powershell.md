@@ -3,10 +3,10 @@ title: "PowerShell for Virtual Network service endpoints and rules in SQL | Micr
 description: "Provides PowerShell scripts to create and manage Virtual Service endpoints for your Azure SQL Database."
 services: sql-database
 author: MightyPen
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: "VNet Service endpoints"
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.reviewer: genemi
 ms.author: dmalik

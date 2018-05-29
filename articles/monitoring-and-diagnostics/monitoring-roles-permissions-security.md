@@ -122,7 +122,7 @@ All three of these data types can be stored in a storage account or streamed to 
 
 * Use a single, dedicated storage account for monitoring data. If you need to separate monitoring data into multiple storage accounts, never share usage of a storage account between monitoring and non-monitoring data, as this may inadvertently give those who only need access to monitoring data (for example, a third-party SIEM) access to non-monitoring data.
 * Use a single, dedicated Service Bus or Event Hub namespace across all diagnostic settings for the same reason as above.
-* Limit access to monitoring-related storage accounts or event hubs by keeping them in a separate resource group, and [use scope](../role-based-access-control/overview.md#basics-of-access-management-in-azure) on your monitoring roles to limit access to only that resource group.
+* Limit access to monitoring-related storage accounts or event hubs by keeping them in a separate resource group, and [use scope](../role-based-access-control/overview.md#scope) on your monitoring roles to limit access to only that resource group.
 * Never grant the ListKeys permission for either storage accounts or event hubs at subscription scope when a user only needs access to monitoring data. Instead, give these permissions to the user at a resource or resource group (if you have a dedicated monitoring resource group) scope.
 
 ### Limiting access to monitoring-related storage accounts

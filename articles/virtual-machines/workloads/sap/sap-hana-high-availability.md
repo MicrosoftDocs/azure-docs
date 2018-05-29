@@ -4,7 +4,7 @@ description: Establish High Availability of SAP HANA on Azure Virtual Machines (
 services: virtual-machines-linux
 documentationcenter: 
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor:
 
 ms.service: virtual-machines-linux
@@ -230,10 +230,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
        sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
        </code></pre>
        
-       Create the logical volumes
+        Create the logical volumes. Linear volume will be created when using lvcreate without -i switch. We suggest to create striped volume for better IO performance, the -i argument should be same as the number of underlying physical volume. In this document, 2 physical volumes are used for data volume, so the -i switch argument is 2. 1 physical volume is used for log volume so no -i switch is used explicitly. Please use -i switch and replace the number to same underlying physical volume number when you are using more than 1 physical volume for each data, log or shared volumes.
 
        <pre><code>
-       sudo lvcreate -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
        sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data

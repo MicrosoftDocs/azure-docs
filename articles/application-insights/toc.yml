@@ -268,6 +268,8 @@
       href: app-insights-export-power-bi.md
   - name: Secure
     items:
+    - name: Personal data handling
+      href: app-insights-customer-data.md
     - name: Data collection, retention, and storage
       href: app-insights-data-retention-privacy.md
     - name: Resources, roles, and access control
