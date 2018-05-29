@@ -149,7 +149,7 @@ To learn about limits when creating application security groups and specifying t
 Application security groups have the following constraints:
 
 -	All network interfaces assigned to an application security group must exist in the same virtual network that the first network interface assigned to the application security group is in. For example, if the first network interface assigned to an application security group named *ASG1* is in the virtual network named *VNet1*, then all subsequent network interfaces assigned to *ASG1* must exist in *VNet1*. You cannot add network interfaces from different virtual networks to the same application security group.
-- If you specify application security groups as the source and destination in a security rule, the network interfaces in both application security groups must exist in the same virtual network. For example, if ASG1 contained network interfaces from VNet1, and ASG2 contained network interfaces from VNet2, you could not assign ASG1 as the source and ASG2 as the destination in a rule, all network interfaces need to exist in VNet1.
+- If you specify an application security group as the source and destination in a security rule, the network interfaces in both application security groups must exist in the same virtual network. For example, if ASG1 contained network interfaces from VNet1, and ASG2 contained network interfaces from VNet2, you could not assign ASG1 as the source and ASG2 as the destination in a rule. All network interfaces need to exist in VNet1.
 
 ## Azure platform considerations
 
