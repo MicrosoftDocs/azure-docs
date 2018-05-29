@@ -15,4 +15,18 @@ ms.author: wolfma
 
 # Release Notes
 
-This is the initial public preview release of the Speech SDK. As new versions are released, we will update this page with information about improvements to the SDK.
+## Cognitive Services Speech SDK 0.4.0
+
+*Release June 2018*
+
+Changes in this release:
+
+- list element 1
+
+- list element 2
+
+## Cognitive Services Speech SDK 0.3.0
+
+*Release May 2018*
+
+This is the initial public preview release of the Speech SDK.
