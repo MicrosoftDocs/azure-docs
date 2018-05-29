@@ -115,7 +115,7 @@ For example, provide a string description for how many cars of the same make pas
         TumblingWindow(second, 10)
 
 **Explanation**:
-The **CASE** clause allows us to provide a different computation, based on some criteria (in this example, the count of the cars in the aggregate window).
+The **CASE** expression compares an expression to a set of simple expressions to determine the result. In this example, vehicle makes with a count of 1 returned a different string description than vehicle makes with a count other than 1. 
 
 ## Query example: Send data to multiple outputs
 **Description**: Send data to multiple output targets from a single job.
@@ -172,7 +172,7 @@ For example, analyze data for a threshold-based alert and archive all events to 
 
 **Explanation**:
 The **INTO** clause tells Stream Analytics which of the outputs to write the data to from this statement.
-The first query is a pass-through of the data we received to an output that we named **ArchiveOutput**.
+The first query is a pass-through of the data received to an output that named **ArchiveOutput**.
 The second query does some simple aggregation and filtering, and it sends the results to a downstream alerting system.
 
 Note that you can also reuse the results of the common table expressions (CTEs) (such as **WITH** statements) in multiple output statements. This option has the added benefit of opening fewer readers to the input source.
@@ -421,7 +421,7 @@ Use the **LAST** function to retrieve the last **TIME** value when the event typ
 
 ## Query example: Detect the duration of a condition
 **Description**: Find out how long a condition occurred.
-For example, suppose that a bug resulted in all cars having an incorrect weight (above 20,000 pounds). We want to compute the duration of the bug.
+For example, suppose that a bug resulted in all cars having an incorrect weight (above 20,000 pounds), and the duration of that bug must be computed.
 
 **Input**:
 
@@ -511,8 +511,8 @@ This query generates events every 5 seconds and outputs the last event that was 
 
 
 ## Query example: Correlate two event types within the same stream
-**Description**: Sometimes we need to generate alerts based on multiple event types that occurred in a certain time range.
-For example, in IoT scenario for home ovens, we want to raise an alert when fan temperature is less than 40 and maximum power during the last 3 minutes was less than 10.
+**Description**: Sometimes alerts need to be generated based on multiple event types that occurred in a certain time range.
+For example, in an IoT scenario for home ovens, an alert must be generated when the fan temperature is less than 40 and the maximum power during the last 3 minutes is less than 10.
 
 **Input**:
 
