@@ -85,11 +85,11 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
 
 1. In the Azure portal, select **All resources** in the leftmost menu. Then search for and select **myNetworkSecurityGroup**. It's located in the **myResourceGroupZLB** resource group.
 2. Under **Settings**, select **Inbound security rules**. Then select **Add**.
-3. Enter these values for the inbound security rule named *myHTTPRule* to allow for inbound HTTP connections that use port 80:
+3. Enter these values for the inbound security rule named **myHTTPRule** to allow for inbound HTTP connections that use port 80:
     - **Service Tag**, for **Source**.
     - **Internet**, for **Source service tag**.
     - **80**, for **Destination port ranges**.
-    - *vTCP**, for **Protocol**.
+    - **vTCP**, for **Protocol**.
     - **Allow**, for **Action**.
     - **100**, for **Priority**.
     - **myHTTPRule**, for **Name**.
