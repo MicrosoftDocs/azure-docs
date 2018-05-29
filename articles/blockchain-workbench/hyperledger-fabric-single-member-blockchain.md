@@ -45,7 +45,7 @@ By default, most subscription types support a small deployment topology without 
 - 1 load balancer
 - 1 public IP address
 
-Once you have a subscription, go to the [Azure portal](https://portal.azure.com). Select **+**, select Blockchain, and select **Hyperledger Fabric Single Member Blockchain**.
+Once you have a subscription, go to the [Azure portal](https://portal.azure.com). Select **+**, select **Blockchain**, and select **Hyperledger Fabric Single Member Blockchain**.
 
 ![Hyperledger Fabric Single Member Blockchain Marketplace template](./media/hyperledger-fabric-single-member-blockchain/marketplace-template.png)
 
