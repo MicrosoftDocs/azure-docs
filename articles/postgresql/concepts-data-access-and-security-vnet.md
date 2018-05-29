@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/25/2018
+ms.date: 5/29/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL
 
@@ -111,7 +111,7 @@ For Azure Database for PostgreSQL, the virtual network rules feature has the fol
 
 - Turning ON virtual network service endpoints to Azure Database for PostgreSQL using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure SQL Data Warehouse.
 
-- At the time of public preview, there is no support for VNet move operations. To move a virtual network rule, drop and recreate it. Future versions of VNet service endpoints will support moves.
+- At the time of public preview, there is no support for VNet move operations. To move a virtual network rule, drop and recreate it.
 
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
@@ -128,6 +128,12 @@ To allow communication from your circuit to Azure Database for PostgreSQL, you m
 ## Related articles
 - [Azure virtual networks][vm-virtual-network-overview]
 - [Azure virtual network service endpoints][vm-virtual-network-service-endpoints-overview-649d]
+
+## Next steps
+For articles on creating VNet rules, see:
+- [Create and manage Azure Database for PostgreSQL VNet rules using the Azure portal](howto-manage-vnet-using-portal.md)
+- [Create and manage Azure Database for PostgreSQL VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
+
 
 <!-- Link references, to text, Within this same Github repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
