@@ -48,7 +48,7 @@ Before you start with this tutorial, make sure to meet the following requirement
 - Create a database master key for the Azure SQL Data Warehouse. Follow the instructions at [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 - Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. Follow the instructions at [Quickstart: Create an Azure Blog storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-## Log in to the Azure portal
+## Log in to the Azure Portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
