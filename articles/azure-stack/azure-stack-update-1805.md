@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2018
+ms.date: 05/31/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -70,9 +70,9 @@ This update includes the following improvements for Azure Stack.
 ### Known issues (post-installation)
 The following are post-installation known issues for build  **201805xx.x**.
 
-#### Portal
-- <!-- 1781729  -  IS ASDK -->The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
-    - For Azure Stack integrated systems, use https://aka.ms/newsupportrequest.
+#### Portal  
+
+- <!-- TBD - IS ASDK --> Some administrative subscription types are not available.  When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](azure-stack-update-1804.md#new-features) are not visible in the console. This is expected. The unavailable subscription types are *Metering subscription*, and *Consumption subscription*. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
 
 - <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
   ![Breadcrumb](media/azure-stack-update-1804/breadcrumb.png) 
