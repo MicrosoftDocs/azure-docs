@@ -3,7 +3,7 @@ title: Identify scenarios and plan your analytics process - Azure | Microsoft Do
 description: Plan for advanced analytics by considering a series of key questions.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # How to identify scenarios and plan for advanced analytics data processing

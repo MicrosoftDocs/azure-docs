@@ -2,19 +2,12 @@
 title: Azure SQL Database - automatic tuning | Microsoft Docs
 description: Azure SQL Database analyzes SQL query and automatically adapts to user workload.
 services: sql-database
-documentationcenter: ''
 author: jovanpop-msft
-manager: drasumic
-editor: danimir
-
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: "On Demand"
-ms.date: 11/08/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: jovanpop
 
 ---
@@ -45,7 +38,7 @@ Automatic tuning mechanisms are mature and have been perfected on hundreds of th
 
 ![How does automatic tuning work](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Azure SQL Database Automatic tuning is sharing its core logic with the SQL Server automatic tuning engine. For additional technical information on the built-in intelligence mechanism, see [SQL Server automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+Azure SQL Database Automatic tuning is sharing its core logic with the SQL Server automatic tuning engine. For additional technical information on the built-in intelligence mechanism, see [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 ## Use Automatic tuning
 
@@ -64,17 +57,20 @@ For an overview of how automatic tuning works and for typical usage scenarios, s
 ## Automatic tuning options
 
 Automatic tuning options available in Azure SQL Database are:
- 1. **CREATE INDEX** that identifies the indexes that may improve performance of your workload, creates the indexes, and verifies that they improve performance of the queries.
- 2. **DROP INDEX** that identifies redundant and duplicate indexes, and indexes that were not used in the long period of time.
- 3. **FORCE LAST GOOD PLAN** that identifies SQL queries that are using execution plan that are slower than previous good plan, and uses the last known good plan instead of the regressed plan.
+ 1. **CREATE INDEX** - identifies indexes that may improve performance of your workload, creates indexes, and automatically verifies that performance of queries has improved.
+ 2. **DROP INDEX** - identifies redundant and duplicate indexes, and indexes that were not used for a very long period of time. Please note that this option is not compatible with applications using partition switching and index hints.
+ 3. **FORCE LAST GOOD PLAN** - identifies SQL queries using execution plan that is slower than the previous good plan, and queries using the last known good plan instead of the regressed plan.
 
-Azure SQL Database identifies **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST GOOD PLAN** recommendations that can optimize your database and shows them in Azure portal. Find more information about identification of indexes that should be changed at [Find index recommendations in Azure portal](sql-database-advisor-portal.md). You can either manually apply recommendations using the portal or you can let Azure SQL Database to automatically apply recommendations, monitor workload after the change, and verify that the recommendation improved the performance of your workload.
+Azure SQL Database identifies **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST GOOD PLAN** recommendations that can optimize your database and shows them in Azure portal. Find more information about identification of indexes that should be changed at [Find index recommendations in Azure portal](sql-database-advisor-portal.md). You can either manually apply recommendations using the portal or you can let Azure SQL Database to automatically apply recommendations, monitor workload after the change, and verify that the recommendation improved the performance of your workload. 
 
-Automatic tuning options can be independently turned on or off per database, or they can be configured on logical server and applied on every database that inherits settings from the server. Configuring Automatic tuning options on the server and inheriting settings on the databases in the server is recommended method for configuring automatic tuning because it simplifies management of automatic tuning options on a large number of databases.
+Automatic tuning options can be independently enabled or disabled per database, or they can be configured on logical servers and applied on every database that inherits settings from the server. Logical servers can inherit Azure defaults for Automatic tuning settings. Azure defaults at this time are set to FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
+
+Configuring Automatic tuning options on a server and inheriting settings for databases belonging to the parent server is a recommended method for configuring automatic tuning as it simplifies management of automatic tuning options for a large number of databases.
 
 ## Next steps
 
 - To enable automatic tuning in Azure SQL Database to manage your workload, see [Enable automatic tuning](sql-database-automatic-tuning-enable.md).
 - To manually review and apply Automatic tuning recommendations, see [Find and apply performance recommendations](sql-database-advisor-portal.md).
-- To learn more about built-in intelligence used in Automatic tuning, see [Artificial Intelligence tunes Azure SQL Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
-- To learn more about how Automatic tuning works in Azure SQL Database and SQL server 2017, see [SQL Server automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+- To learn about building email notifications for Automatic tuning recommendations, see [Email notifications for automatic tuning](sql-database-automatic-tuning-email-notifications.md)
+- To learn about built-in intelligence used in Automatic tuning, see [Artificial Intelligence tunes Azure SQL Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
+- To learn about how Automatic tuning works in Azure SQL Database and SQL server 2017, see [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

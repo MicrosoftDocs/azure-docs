@@ -3,8 +3,8 @@ title: Manage updates in Azure Stack overview | Microsoft Docs
 description: Learn about update management for Azure Stack integrated systems.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 9b0781f4-2cd5-4619-a9b1-59182b4a6e43
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 # Manage updates in Azure Stack overview
 
 *Applies to: Azure Stack integrated systems*
 
-Microsoft will release update packages for Azure Stack integrated systems on a regular basis. Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can easily import, install, and monitor the installation progress of these update packages from the administrator portal. 
+Microsoft will release update packages for Azure Stack integrated systems on a regular cadence that will typically fall on the fourth Tuesday of every month, starting at general availability. Ask your OEM about their specific notification process to ensure update notifications reach your organization, or check here under Overview\Release Notes\Integrated Systems release notes for more information about specific releases.
+
+Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can easily import, install, and monitor the installation progress of these update packages from the administrator portal. 
 
 Your original equipment manufacturer (OEM) hardware vendor will also release updates, such as driver and firmware updates. These updates are delivered as separate packages by your OEM hardware vendor, and are managed separately from Microsoft updates.
 

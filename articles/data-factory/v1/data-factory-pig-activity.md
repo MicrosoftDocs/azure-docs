@@ -4,16 +4,16 @@ description: Learn how you can use the Pig Activity in an Azure data factory to 
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/01/2017
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: shlo
 
 robots: noindex

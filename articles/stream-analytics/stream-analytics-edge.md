@@ -1,21 +1,14 @@
 ---
-title: 'Azure Stream Analytics on IoT Edge (preview)'
+title: Azure Stream Analytics on IoT Edge (preview)
 description: Create edge jobs in Azure Stream Analytics and deploy them to devices runnning Azure IoT Edge.
-keywords: data stream, iot, edge
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: jhubbard
-
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 11/15/2017
 ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 01/16/2017
 ---
 
 # Azure Stream Analytics on IoT Edge (preview)
@@ -23,17 +16,17 @@ ms.author: jeanb
 > [!IMPORTANT]
 > This functionality is in preview. We do not recommend use in production.
  
-Azure Stream Analytics (ASA) on IoT Edge empowers developers to deploy near-real-time analytical intelligence closer to IoT devices so that they can unlock the full value of device-generated data. Designed for customers requiring low latency, resiliency, efficient use of bandwidth and compliance, enterprises can now deploy control logic close to the industrial operations and complement Big Data analytics done in the cloud.  
-Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework, and deployment and management of ASA jobs can be done using IoT Hub once the job is created in ASA.
+Azure Stream Analytics (ASA) on IoT Edge empowers developers to deploy near-real-time analytical intelligence closer to IoT devices so that they can unlock the full value of device-generated data. Designed for low latency, resiliency, efficient use of bandwidth and compliance, enterprises can now deploy control logic close to the industrial operations, and complement Big Data analytics done in the cloud.  
+Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Once the job is created in ASA, deploym and manage ASA jobs using IoT Hub.
 This feature is in preview, if you have any question or feedback you can use [this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) to contact the product team. 
 
 ## Scenarios
 ![High-level diagram](media/stream-analytics-edge/ASAedge_highlevel.png)
-Here's few typical scenarios for which running ASA on the edge is particularly interesting:
-* **Low-latency command and control**: For example, manufacturing safety systems are required to respond to operational data with ultra-low latency. With ASA on IoT Edge, you can analyze sensor data in near real time and issue commands when you detect anomalies to stop a machine or trigger alerts.
+
+* **Low-latency command and control**: For example, manufacturing safety systems must respond to operational data with ultra-low latency. With ASA on IoT Edge, you can analyze sensor data in near real-time, and issue commands when you detect anomalies to stop a machine or trigger alerts.
 *	**Limited connectivity to the cloud**: Mission critical systems, such as remote mining equipment, connected vessels or offshore drilling, need to analyze and react to data even when cloud connectivity is intermittent. With ASA, your streaming logic runs independently of the network connectivity and you can choose what you send to the cloud for further processing or storage.
 * **Limited bandwidth**: The volume of data produced by jet engines or connected cars can be so large that data must be filtered or pre-processed before sending it to the cloud. Using ASA, you can filter or aggregate the data that need to be sent to the cloud.
-* **Compliance**: Regulatory compliance may require some data to be locally anonymized or aggregated before being sent to the cloud. With ASA, you 
+* **Compliance**: Regulatory compliance may require some data to be locally anonymized or aggregated before being sent to the cloud.
 
 ## Edge jobs in Azure Stream Analytics
 ### What is an "edge" job?
@@ -55,10 +48,19 @@ The high-level steps are described in the following table. More details are give
 | 2   | **Create a storage container**   | Azure portal       | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.     |
 | 3   | **Set up your IoT Edge environment on your device(s)**   | Device(s)      | Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Deploy ASA on your IoT Edge device(s)**   | Azure portal      |  ASA job definition is exported to the storage container created earlier.       |
-You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) to deploy your first ASA job on IoT Edge.
+You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) to deploy your first ASA job on IoT Edge. The following video should help you understand the process to run a Stream Analytics job on an IoT edge device:  
+
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
+
+
 
 #### Create an ASA Edge job
+> [!Note]
+> This tutorial focuses on ASA job creation using Azure portal. You can also [use Visual Studio plugin to create an ASA Edge job](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+
 1. From the Azure portal, create a new "Stream Analytics job". [Direct link to create a new ASA job here](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
+
 2. In the creation screen, select **Edge** as **hosting environment** (see the following picture)
 ![Job creation](media/stream-analytics-edge/ASAEdge_create.png)
 3. Job Definition
@@ -142,7 +144,6 @@ However the following features are not yet supported for edge jobs:
 * Azure ML functions.
 * Using more than 14 aggregates in a single step.
 * AVRO format for input/output. At this time only CSV and JSON are supported.
-* Compression of JSON input.
 * The following  SQL operators:
     * AnomalyDetection
     * Geospatial operators:
@@ -198,7 +199,7 @@ For more information, see [Docker documentation for Windows here](https://docs.d
 * [Third-party notice for Azure Stream Analytics on IoT Edge preview](https://go.microsoft.com/fwlink/?linkid=862828).
 
 ## Get help
-For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 
 ## Next steps
@@ -206,6 +207,7 @@ For further assistance, try the [Azure Stream Analytics forum](https://social.ms
 * [More information on Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA on IoT Edge tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Develop Stream Analytics Edge jobs using Visual Studio tools](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

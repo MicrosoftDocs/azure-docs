@@ -1,10 +1,11 @@
+
 ---
 title: 'Azure AD Connect: Version release history | Microsoft Docs'
 description: This article lists all releases of Azure AD Connect and Azure AD Sync
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -12,24 +13,245 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 05/15/2018
 ms.author: billmath
 
 ---
 # Azure AD Connect: Version release history
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
 
+
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
 This is a list of related topics:
-
 
 Topic |  Details
 --------- | --------- |
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
+
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.819.0
+
+### Release status
+
+5/14/2018: Released for auto upgrade and download.
+
+### New features and improvements
+
+New features and improvements
+
+- This release includes the public preview of the integration of PingFederate in Azure AD Connect. With this release customers can easily and reliable configure their Azure Active Directory environment to leverage PingFederate as their federation provider. To learn more about how to use this new feature, please visit our [online documentation](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
+- We updated the Azure AD Connect Wizard Troubleshooting Utility, where we now analyze more error scenario’s, such as Linked Mailboxes and AD Dynamic Groups. Read more about the troubleshooting utility [here](active-directory-aadconnect-troubleshoot-objectsync.md).
+- Device Writeback configuration is now managed solely within the Azure AD Connect Wizard.
+- A new PowerShell Module called ADSyncTools.psm1 is added that can be used to troubleshoot SQL Connectivity issues and various other troubleshooting utilities. Read more about the ADSyncTools module [here](active-directory-aadconnect-tshoot-sql-connectivity.md). 
+- A new additional task “Configure device options” has been added. You can use the task to configure the following two operations: 
+    -	**Hybrid Azure AD join**: If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These are devices that are both, joined to your on-premises Active Directory and your Azure Active Directory.
+    -	**Device writeback**: Device writeback is used to enable conditional access based on devices to AD FS (2012 R2 or higher) protected devices
+
+   >[!NOTE] 
+   > - The option to enable device writeback from Customize synchronization options will be greyed out. 
+   > -	The PowerShell module for ADPrep is deprecated with this release.
+
+
+
+### Fixed issues 
+
+- This release updates the SQL Server Express installation to SQL Server 2012 SP4, which, among others, provides fixes for several security vulnerabilities.  Please see [here](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) for more information about SQL Server 2012 SP4.
+- Sync Rule Processing:  outbound Join sync rules with no Join Condition should be de-applied if the parent syncrule is no longer applicable
+- Several accessibility fixes have been applied to the Synchronization Service Manager UI and the Sync Rules Editor
+- Azure AD Connect Wizard: Error creating AD Connector account when Azure AD Connect is in a workgroup
+- Azure AD Connect Wizard: On the Azure AD Sign-in page display the verification checkbox whenever there is any mismatch in AD domains and Azure AD Verified domains
+- Auto-upgrade PowerShell fix to set auto upgrade state correctly in certain cases after auto upgrade attempted.
+- Azure AD Connect Wizard: Updated telemetry to capture previously missing information
+- Azure AD Connect Wizard: The following changes have been made when you use the **Change user sign-in** task to switch from AD FS to Pass-through Authentication:
+    - The Pass-through Authentication Agent is installed on the Azure AD Connect server and the Pass-through Authentication feature is enabled, before we convert domain(s) from federated to managed.
+    - Users are no longer converted from federated to managed. Only domain(s) are converted.
+- Azure AD Connect Wizard: AD FS Multi Domain Regex is not correct when user UPN has ' special character Regex update to support special characters
+- Azure AD Connect Wizard: Remove spurious "Configure source anchor attribute" message when no change 
+- Azure AD Connect Wizard: AD FS support for the dual federation scenario
+- Azure AD Connect Wizard: AD FS Claims are not updated for added domain when converting a managed domain to federated
+- Azure AD Connect Wizard: During detection of installed packages, we find stale Dirsync/Azure AD Sync/Azure AD Connect related products. We will now attempt to uninstall the stale products.
+- Azure AD Connect Wizard: Correct Error Message Mapping when installation of passthrough authentication agent fails
+- Azure AD Connect Wizard: Removed "Configuration" container from Domain OU Filtering page
+- Sync Engine install: remove unnecessary legacy logic that occasionally failed from Sync Engine install msi
+- Azure AD Connect Wizard: Fix popup help text on Optional Features page for Password Hash Sync
+- Sync Engine runtime: Fix the scenario where a CS object has an imported delete and Sync Rules attempt to re-provision the object.
+- Sync Engine runtime: Add help link for Online connectivity troubleshooting guide to the event log for an Import Error
+- Sync Engine runtime: Reduced memory usage of Sync Scheduler when enumerating Connectors
+- Azure AD Connect Wizard: Fix an issue resolving a custom Sync Service Account which has no AD Read privileges
+- Azure AD Connect Wizard: Improve logging of Domain and OU filtering selections
+- Azure AD Connect Wizard: AD FS Add default claims to federation trust created for MFA scenario
+- Azure AD Connect Wizard: AD FS Deploy WAP: Adding server fails to use new certificate
+- Azure AD Connect Wizard: DSSO exception when onPremCredentials aren't initialized for a domain 
+- Preferentially flow the AD distinguishedName attribute from the Active User object.
+- Fixed a cosmetic bug where the Precedence of the first OOB Sync Rule was set to 99 instead of 100
+
+
+
+## 1.1.751.0
+Status 4/12/2018: Released for download only
+
+>[!NOTE]
+>This is a hotfix for Azure AD Connect
+
+### Azure AD Connect sync
+#### Fixed issues
+Corrected an issue where automatic Azure instance discovery for China tenants was occasionally failing.  
+
+### AD FS Management
+#### Fixed issues
+
+There was a problem in the configuration retry logic that would result in an ArgumentException stating “an item with the same key has already been added.”  This would cause all retry operations to fail.
+
+## 1.1.750.0
+Status 3/22/2018: Released for auto-upgrade and download.
+>[!NOTE]
+>When the upgrade to this new version completes, it will automatically trigger a full sync and full import for the Azure AD connector and a full sync for the AD connector. Since this may take some time, depending on the size of your Azure AD Connect environment, make sure that you have taken the necessary steps to support this or hold off on upgrading until you have found a convenient moment to do so.
+
+>[!NOTE]
+>“AutoUpgrade functionality was incorrectly disabled for some tenants who deployed builds later than 1.1.524.0. To ensure that your Azure AD Connect instance is still eligible for AutoUpgrade, run the following PowerShell cmdlet:
+“Set-ADSyncAutoUpgrade -AutoupGradeState Enabled”
+
+
+### Azure AD Connect
+#### Fixed issues
+
+* Set-ADSyncAutoUpgrade cmdlet would previously block Autoupgrade if auto-upgrade state is set to Suspended. This is now changed so it does not block AutoUpgrade of future builds.
+* Changed the **User Sign-in** page option "Password Synchronization" to "Password Hash Synchronization".  Azure AD Connect synchronizes password hashes, not passwords, so this aligns with what is actually occurring.  For more information see [Implement password hash synchronization with Azure AD Connect sync](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
+
+## 1.1.749.0
+Status: Released to select customers
+
+>[!NOTE]
+>When the upgrade to this new version completes, it will automatically trigger a full sync and full import for the Azure AD connector and a full sync for the AD connector. Since this may take some time, depending on the size of your Azure AD Connect environment, please make sure that you have taken the necessary steps to support this or hold off on upgrading until you have found a convenient moment to do so.
+
+### Azure AD Connect
+#### Fixed issues
+* Fix timing window on background tasks for Partition Filtering page when switching to next page.
+
+* Fixed a bug that caused Access violation during the ConfigDB custom action.
+
+* Fixed a bug to recover from SQL connection timeout.
+
+* Fixed a bug where certificates with SAN wildcards failed a prerequisite check.
+
+* Fixed a bug which causes miiserver.exe to crash during an Azure AD connector export.
+
+* Fixed a bug which bad password attempt logged on DC when running the Azure AD Connect wizard to change configuration.
+
+
+#### New features and improvements
+
+* Adding Privacy Settings for the General Data Protection Regulation (GDPR).  For GDPR we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to our customers to change their preferences.  This check-in adds the following:
+
+
+	- Data sharing and privacy notification on the clean install EULA page.
+	- Data sharing and privacy notification on the upgrade page.
+	- A new additional task "Privacy Settings" where the user can change their preferences.
+
+* application telemetry - admin can switch this class of data on/off at will
+
+* Azure AD Health data - admin must visit the health portal to control their health settings.
+   Once the service policy has been changed, the agents will read and enforce it.
+
+* Added device write-back configuration actions and a progress bar for page initialization
+
+* Improved General Diagnostics with HTML report and full data collection in a ZIP-Text / HTML Report
+
+* Improved the reliability of auto upgrade and added additional telemetry to ensure the health of the server can be determined
+
+* Restrict permissions available to privileged accounts on AD Connector account
+
+  * For new installations, the wizard will restrict the permissions that privileged accounts have on the MSOL account after creating the MSOL account.
+
+The changes will take care of following:
+1. Express Installations
+2. Custom Installations with Auto-Create account
+3. Changed the installer so it doesn't require SA privilege on clean install of Azure AD Connect
+
+* Added a new utility to troubleshoot synchronization issues for a specific object. It is available under 'Troubleshoot Object Synchronization' option of Azure AD Connect Wizard Troubleshoot Additional Task. Currently, the utility checks for the following:
+
+  * UserPrincipalName mismatch between synchronized user object and the user account in Azure AD Tenant.
+  * If the object is filtered from synchronization due to domain filtering
+  * If the object is filtered from synchronization due to organizational unit (OU) filtering
+
+* Added a new utility to synchronize the current password hash stored in the on-premises Active Directory for a specific user account.
+
+The utility does not require a password change. It is available under 'Troubleshoot Password Hash Synchronization' option of Azure AD Connect Wizard Troubleshoot Additional Task.
+
+
+
+
+
+
+## 1.1.654.0
+Status: December 12th, 2017
+
+>[!NOTE]
+>This is a security related hotfix for Azure AD Connect
+
+### Azure AD Connect
+An improvement has been added to Azure AD Connect version 1.1.654.0 (and after) to ensure that the recommended permission changes described under section [Lock down access to the AD DS account](#lock) are automatically applied when Azure AD Connect creates the AD DS account. 
+
+- When setting up Azure AD Connect, the installing administrator can either provide an existing AD DS account, or let Azure AD Connect automatically create the account. The permission changes are automatically applied to the AD DS account that is created by Azure AD Connect during setup. They are not applied to existing AD DS account provided by the installing administrator.
+- For customers who have upgraded from an older version of Azure AD Connect to 1.1.654.0 (or after), the permission changes will not be retroactively applied to existing AD DS accounts created prior to the upgrade. They will only be applied to new AD DS accounts created after the upgrade. This occurs when you are adding new AD forests to be synchronized to Azure AD.
+
+>[!NOTE]
+>This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For existing installations, or in cases where you provide the account yourself, you should ensure that this vulnerability does not exist.
+
+#### <a name="lock"></a> Lock down access to the AD DS account
+Lock down access to the AD DS account by implementing the following permission changes in the on-premises AD:  
+
+*	Disable inheritance on the specified object
+*	Remove all ACEs on the specific object, except ACEs specific to SELF. We want to keep the default permissions intact when it comes to SELF.
+*	Assign these specific permissions:
+
+Type     | Name                          | Access               | Applies To
+---------|-------------------------------|----------------------|--------------|
+Allow    | SYSTEM                        | Full Control         | This object  |
+Allow    | Enterprise Admins             | Full Control         | This object  |
+Allow    | Domain Admins                 | Full Control         | This object  |
+Allow    | Administrators                | Full Control         | This object  |
+Allow    | Enterprise Domain Controllers | List Contents        | This object  |
+Allow    | Enterprise Domain Controllers | Read All Properties  | This object  |
+Allow    | Enterprise Domain Controllers | Read Permissions     | This object  |
+Allow    | Authenticated Users           | List Contents        | This object  |
+Allow    | Authenticated Users           | Read All Properties  | This object  |
+Allow    | Authenticated Users           | Read Permissions     | This object  |
+
+To tighten the settings for the AD DS account you can run [this PowerShell script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). The PowerShell script will assign the permissions mentioned above to the AD DS account.
+
+#### PowerShell script to tighten a pre-existing service account
+
+To use the PowerShell script, to apply these settings, to a pre-existing AD DS account, (ether provided by your organization or created by a previous installation of Azure AD Connect, please download the script from the provided link above.
+
+##### Usage:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+Where 
+
+**$ObjectDN** = The Active Directory account whose permissions need to be tightened.
+
+**$Credential** = Administrator credential that has the necessary privileges to restrict the permissions on $ObjectDN account. This is typically the Enterprise or Domain administrator. Use the fully qualified domain name of the administrator account to avoid account lookup failures. Example: contoso.com\admin.
+
+>[!NOTE] 
+>$credential.UserName should be in FQDN\username format. Example: contoso.com\admin 
+
+##### Example:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### Was this vulnerability used to gain unauthorized access?
+
+To see if this vulnerability was used to compromise your Azure AD Connect configuration you should verify the last password reset date of the service account.  If the timestamp in unexpected, further investigation, via the event log, for that password reset event, should be undertaken.
+
+For more information, see [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## 1.1.649.0
 Status: October 27 2017
@@ -402,11 +624,11 @@ Azure AD Connect sync
   * Updated default sync rule set to not export attributes **userCertificate** and **userSMIMECertificate** if the attributes have more than 15 values.
   * AD attributes **employeeID** and **msExchBypassModerationLink** are now included in the default sync rule set.
   * AD attribute **photo** has been removed from default sync rule set.
-  * Added **preferredDataLocation** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so. To find out more about the attribute, refer to article section [Azure AD Connect sync: How to make a change to the default configuration - Enable synchronization of PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Added **preferredDataLocation** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so. 
   * Added **userType** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so.
 
 * Azure AD Connect now automatically enables the use of ConsistencyGuid attribute as the Source Anchor attribute for on-premises AD objects. Further, Azure AD Connect populates the ConsistencyGuid attribute with the objectGuid attribute value if it is empty. This feature is applicable to new deployment only. To find out more about this feature, refer to article section [Azure AD Connect: Design concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
-* New troubleshooting cmdlet Invoke-ADSyncDiagnostics has been added to help diagnose Password Hash Synchronization related issues. For information about using the cmdlet, refer to article [Troubleshoot password synchronization with Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization).
+* New troubleshooting cmdlet Invoke-ADSyncDiagnostics has been added to help diagnose Password Hash Synchronization related issues. For information about using the cmdlet, refer to article [Troubleshoot password hash synchronization with Azure AD Connect sync](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 * Azure AD Connect now supports synchronizing Mail-Enabled Public Folder objects from on-premises AD to Azure AD. You can enable the feature using Azure AD Connect wizard under Optional Features. To find out more about this feature, refer to article [Office 365 Directory Based Edge Blocking support for on-premises Mail Enabled Public Folders](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect requires an AD DS account to synchronize from on-premises AD. Previously, if you installed Azure AD Connect using the Express mode, you could provide the credentials of an Enterprise Admin account and Azure AD Connect would create the AD DS account required. However, for a custom installation and adding forests to an existing deployment, you were required to provide the AD DS account instead. Now, you also have the option to provide the credentials of an Enterprise Admin account during a custom installation and let Azure AD Connect create the AD DS account required.
 * Azure AD Connect now supports SQL AOA. You must enable SQL AOA before installing Azure AD Connect. During installation, Azure AD Connect  detects whether the SQL instance provided is enabled for SQL AOA or not. If SQL AOA is enabled, Azure AD Connect further figures out if SQL AOA is configured to use synchronous replication or asynchronous replication. When setting up the Availability Group Listener, it is recommended that you set the RegisterAllProvidersIP property to 0. This is because Azure AD Connect currently uses SQL Native Client to connect to SQL and SQL Native Client does not support the use of MultiSubNetFailover property.
@@ -596,7 +818,7 @@ Released: June 2016
 **Fixed issues and improvements:**
 
 * Azure AD Connect can now be installed on a FIPS-compliant server.
-  * For password synchronization, see [Password sync and FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips).
+  * For password synchronization, see [Password hash sync and FIPS](active-directory-aadconnectsync-implement-password-hash-synchronization.md#password-hash-synchronization-and-fips).
 * Fixed an issue where a NetBIOS name could not be resolved to the FQDN in the Active Directory Connector.
 
 ## 1.1.180.0
@@ -650,8 +872,8 @@ Released: February 2016
 
 * [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) feature for Express settings customers.
 * Support for the global admin by using Azure Multi-Factor Authentication and Privileged Identity Management in the installation wizard.
-  * You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use Multi-Factor Authentication.
-  * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for Multi-Factor Authentication to properly work.
+  * You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use Multi-Factor Authentication.
+  * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for Multi-Factor Authentication to properly work.
 * Allow changing the user's sign-in method after initial installation.
 * Allow [Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
 * [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) is built in to the sync engine.

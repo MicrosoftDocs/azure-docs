@@ -4,9 +4,8 @@ description: Protocol documentation for Speech Service based on WebSockets
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
@@ -26,7 +25,7 @@ GET /speech/recognition/interactive/cognitiveservices/v1 HTTP/1.1
 Host: speech.platform.bing.com
 Upgrade: websocket
 Connection: Upgrade
-ProtoSec-WebSocket-Key: wPEE5FzwR6mxpsslyRRpgP==
+Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
 Sec-WebSocket-Version: 13
 Authorization: t=EwCIAgALBAAUWkziSCJKS1VkhugDegv7L0eAAJqBYKKTzpPZOeGk7RfZmdBhYY28jl&p=
 X-ConnectionId: A140CAF92F71469FA41C72C7B5849253

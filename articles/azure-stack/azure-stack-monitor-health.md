@@ -3,8 +3,8 @@ title: Monitor health and alerts in Azure Stack | Microsoft Docs
 description: Learn how to monitor health and alerts in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 69901c7b-4673-4bd8-acf2-8c6bdd9d1546
@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 # Monitor health and alerts in Azure Stack

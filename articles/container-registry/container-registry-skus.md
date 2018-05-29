@@ -1,102 +1,104 @@
 ---
 title: Azure Container Registry SKUs
-description: Comparisons between the different service tiers available in Azure Container Registry
+description: Compare the different service tiers available in Azure Container Registry.
 services: container-registry
-documentationcenter: ''
-author: stevelas
-manager: balans
-editor: mmacy
+author: mmacy
+manager: jeconnoc
 
 ms.service: container-registry
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/16/2017
-ms.author: stevelas
-
+ms.date: 03/15/2018
+ms.author: marsma
 ---
+
 # Azure Container Registry SKUs
 
-Azure Container Registry (ACR) is available in multiple service tiers, known as SKUs. These SKUs provide predictable pricing and several options for how you wish to use your private Docker registry in Azure. Choosing a higher-level SKU provides more performance and scale. However, all SKUs provide the same programmatic capabilities, enabling a developer to get started with Basic, and convert to Standard and Premium as registry usage increases.
+Azure Container Registry (ACR) is available in multiple service tiers, known as SKUs. These SKUs provide predictable pricing and several options for aligning to the capacity and usage patterns of your private Docker registry in Azure.
 
-## Basic
-A cost-optimized entry point for developers learning about Azure Container Registry. Basic registries have the same programmatic capabilities as Standard and Premium (Azure Active Directory authentication integration, image deletion, and web hooks), however, there are size and usage constraints.
+| SKU | Managed | Description |
+| --- | :-------: | ----------- |
+| **Basic** | Yes | A cost-optimized entry point for developers learning about Azure Container Registry. Basic registries have the same programmatic capabilities as Standard and Premium (Azure Active Directory authentication integration, image deletion, and web hooks), however, there are size and usage constraints. |
+| **Standard** | Yes | Standard registries offer the same capabilities as Basic, with increased storage limits and image throughput. Standard registries should satisfy the needs of most production scenarios. |
+| **Premium** | Yes | Premium registries provide higher limits on constraints such as storage and concurrent operations, enabling high-volume scenarios. In addition to higher image throughput capacity, Premium adds features like [geo-replication][container-registry-geo-replication] for managing a single registry across multiple regions, maintaining a network-close registry to each deployment. |
+| Classic | No | The Classic registry SKU enabled the initial release of the Azure Container Registry service in Azure. Classic registries are backed by a storage account that Azure creates in your subscription, which limits the ability for ACR to provide higher-level capabilities such as increased throughput and geo-replication. Because of its limited capabilities, we plan to deprecate the Classic SKU in the future. |
 
-## Standard
-Standard registries offer the same capabilities as Basic, with increased storage limits and image throughput. Standard registries should satisfy the needs of most production scenarios.
-
-## Premium
-Premium registries provide higher limits on constraints such as storage and concurrent operations, enabling high-volume scenarios. In addition to higher image throughput capacity, Premium adds features like [geo-replication](container-registry-geo-replication.md) for managing a single registry across multiple regions, maintaining a network-close registry to each deployment.
-
-## Classic
-The Classic registry SKU enabled the initial release of the Azure Container Registry service in Azure. Classic registries are backed by a storage account that Azure creates in your subscription, which limits the ability for ACR to provide higher-level capabilities such as increased throughput and geo-replication. Because of its limited capabilities, we plan to deprecate the Classic SKU in the future.
+Choosing a higher-level SKU provides more performance and scale, however, all managed SKUs provide the same programmatic capabilities. With multiple service tiers, you can get started with Basic, then convert to Standard and Premium as your registry usage increases.
 
 > [!NOTE]
-> Because of the planned deprecation of the Classic registry SKU, we recommend you use Basic, Standard, or Premium for all new registries. For information about converting your existing Classic registry, see [Changing SKUs](#changing-skus).
+> Because of the planned deprecation of the Classic registry SKU, we recommend you use Basic, Standard, or Premium for all new registries. For information about converting your existing Classic registry, see [Upgrade a Classic registry][container-registry-upgrade].
 >
 
-## Registry SKU feature matrix
+## Managed vs. unmanaged
+
+The Basic, Standard, and Premium SKUs are collectively known as *managed* registries, and Classic registries as *unmanaged*. The primary difference between the two is how your container images are stored.
+
+### Managed (Basic, Standard, Premium)
+
+Managed registries benefit from image storage managed entirely by Azure. That is, a storage account that stores your images does not appear within your Azure subscription. There are several benefits gained by using one of the managed registry SKUs, discussed in-depth in [Container image storage in Azure Container Registry][container-registry-storage]. This article focuses on the managed registry SKUs and their capabilities.
+
+### Unmanaged (Classic)
+
+Classic registries are "unmanaged" in the sense that the storage account that backs a Classic registry resides within *your* Azure subscription. As such, you are responsible for the management of the storage account in which your container images are stored. With unmanaged registries, you can't switch between SKUs as your needs change (other than [upgrading][container-registry-upgrade] to a managed registry), and several features of managed registries are unavailable (for example, container image deletion, [geo-replication][container-registry-geo-replication], and [webhooks][container-registry-webhook]).
+
+For more information about upgrading a Classic registry to one of the managed SKUs, see [Upgrade a Classic registry][container-registry-upgrade].
+
+## SKU feature matrix
 
 The following table details the features and limits of the Basic, Standard, and Premium service tiers.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
-## Manage registry size
-The storage constraints of each SKU are intended to align with a typical scenario: Basic for getting started, Standard for the majority of production apps, and Premium for hyper-scale performance and [geo-replication](container-registry-geo-replication.md). Throughout the life of your registry, you should manage its size by periodically deleting unused content.
-
-You can find the current usage of a registry in the container registry **Overview** in the Azure portal:
-
-![Registry usage information in the Azure portal](media/container-registry-skus/registry-overview-quotas.png)
-
-You can manage the size of your registry by deleting repositories in the Azure portal.
-
-Under **SERVICES**, select **Repositories**, then right-click the repository you want to delete, then select **Delete**.
-
-![Delete a repository in the Azure portal](media/container-registry-skus/delete-repository-portal.png)
-
 ## Changing SKUs
 
-You can change a registry's SKU in the Azure portal.
+You can change a registry's SKU with the Azure CLI or in the Azure portal. You can move freely between managed SKUs as long as the SKU you're switching to has the required maximum storage capacity. If you switch to one of the managed SKUs from Classic, you cannot move back to Classic--it is a one-way conversion.
 
-In the registry **Overview** in the Azure portal, select **Update**, then select a new **SKU** from the SKU drop-down.
+### Azure CLI
 
-![Update container registry SKU in Azure portal](media/container-registry-skus/update-registry-sku.png)
+To move between SKUs in the Azure CLI, use the [az acr update][az-acr-update] command. For example, to switch to Premium:
+
+```azurecli
+az acr update --name myregistry --sku Premium
+```
+
+### Azure portal
+
+In the container registry **Overview** in the Azure portal, select **Update**, then select a new **SKU** from the SKU drop-down.
+
+![Update container registry SKU in Azure portal][update-registry-sku]
+
+If you have a Classic registry, you can't select a managed SKU within the Azure portal. Instead, you must first [upgrade][container-registry-upgrade] to a managed registry (see [Changing from Classic](#changing-from-classic)).
 
 ## Changing from Classic
-When you change a Classic registry to Basic, Standard, or Premium, Azure copies existing container images from the associated storage account in your subscription to a storage account managed by Azure. This process can take some time.
 
-During conversion, `docker pull` continues to function, however, `docker push` is blocked until conversion is complete.
+There are additional considerations to take into account when migrating an unmanaged Classic registry to one of the managed Basic, Standard, or Premium SKUs. If your Classic registry contains a large number of images and is many gigabytes in size, the migration process can take some time. Additionally, `docker push` operations are disabled until the migration is complete.
 
-Once completed, the subscription storage account is no longer used by ACR.
-
-### Why change from Classic to Basic, Standard, or Premium?
-
-Because of the limited capabilities of Classic registries, we recommend that you change your Classic registries to Basic, Standard, or Premium tiers. These higher-level SKUs more deeply integrate the registry into the capabilities of Azure. Some of these capabilities include:
-
-* Azure Active Directory integration for individual authentication (see [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login))
-* Image and tag deletion support
-* [Geo-replication](container-registry-geo-replication.md)
-* [Webhooks](container-registry-webhook.md)
-
-Most of all, a Classic registry depends on the storage account that Azure automatically provisioned in your Azure subscription when you created the registry. By contrast, the Basic, Standard, and Premium SKUs take advantage of *managed storage*. That is, Azure transparently manages the storage of your images for you--a separate storage account is not created in your own subscription.
-
-Some of the benefits of managed storage provided by Basic, Standard, and Premium registries:
-
-* Container images are [encrypted at rest](../storage/common/storage-service-encryption.md).
-* Images are stored using [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage), assuring backup of your images with multi-region replication.
-* Ability to [move to between SKUs](#changing-skus), enabling higher throughput when you choose a higher-level SKU. With each SKU, ACR can meet your throughput requirements as your needs increase. The underlying implementation of how ACR achieves the desired throughput is expressed as *intent* (by selecting higher SKUs), without you having to manage the details of the implementation.
+For details on upgrading your Classic registry to one of the managed SKUs, see [Upgrade a Classic container registry][container-registry-upgrade].
 
 ## Pricing
 
-For pricing information on each of the Azure Container Registry SKUs, see [Container Registry pricing](https://azure.microsoft.com/pricing/details/container-registry/).
+For pricing information on each of the Azure Container Registry SKUs, see [Container Registry pricing][container-registry-pricing].
 
 ## Next steps
 
 **Azure Container Registry Roadmap**
 
-Visit the [ACR Roadmap](https://aka.ms/acr/roadmap) on GitHub to find information about upcoming features in the service.
+Visit the [ACR Roadmap][acr-roadmap] on GitHub to find information about upcoming features in the service.
 
 **Azure Container Registry UserVoice**
 
-Submit and vote on new feature suggestions in [ACR UserVoice](https://feedback.azure.com/forums/903958-azure-container-registry).
+Submit and vote on new feature suggestions in [ACR UserVoice][container-registry-uservoice].
+
+<!-- IMAGES -->
+[update-registry-sku]: ./media/container-registry-skus/update-registry-sku.png
+
+<!-- LINKS - External -->
+[acr-roadmap]: https://aka.ms/acr/roadmap
+[container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry/
+[container-registry-uservoice]: https://feedback.azure.com/forums/903958-azure-container-registry
+
+<!-- LINKS - Internal -->
+[az-acr-update]: /cli/azure/acr#az_acr_update
+[container-registry-geo-replication]: container-registry-geo-replication.md
+[container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
+[container-registry-webhook]: container-registry-webhook.md

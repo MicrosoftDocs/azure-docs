@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an Azure IoT Hub using a template (PowerShell) | Microsoft Docs
 description: How to use an Azure Resource Manager template to create an IoT Hub with PowerShell.
 services: iot-hub
@@ -39,7 +39,7 @@ To complete this tutorial, you need the following:
 In a PowerShell command prompt, enter the following command to sign in to your Azure subscription:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the following command to list the Azure subscriptions available for you to use:
@@ -154,7 +154,7 @@ To learn more about developing for IoT Hub, see the following articles:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -168,4 +168,4 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

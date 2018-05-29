@@ -87,7 +87,7 @@ In this tutorial, you will:
             }
      ```
 
-    The completed service principal should use the `id` field for **Subscription ID**, the `appId` value for **Client ID**, `password` for **Client Secret**, and a URL for **OAuth 2.0 Token Endpoint** of `https://login.windows.net/<tenant_value>`. Select **Add** to add the service principal and then configure the plugin to use the newly created credential.
+    The completed service principal should use the `id` field for **Subscription ID**, the `appId` value for **Client ID**, `password` for **Client Secret**, and `tenant` for **Tenant ID**. Select **Add** to add the service principal and then configure the plugin to use the newly created credential.
 
     ![Configure Azure Service Principal](./media/jenkins-azure-vm-agents/new-service-principal.png)
 

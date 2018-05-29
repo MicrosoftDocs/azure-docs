@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/28/2017
 ms.author: sethm
 
 ---
@@ -34,7 +34,7 @@ Brewer's theorem defines consistency and availability as follows:
 Event Hubs is built on top of a partitioned data model. You can configure the number of partitions in your event hub during setup, but you cannot change this value later. Since you must use partitions with Event Hubs, you have to make a decision about availability and consistency for your application.
 
 ## Availability
-The simplest way to get started with Event Hubs is to use the default behavior. If you create a new `EventHubClient` object and use the `Send` method, your events are automatically distributed between partitions in your event hub. This behavior allows for the greatest amount of up time.
+The simplest way to get started with Event Hubs is to use the default behavior. If you create a new **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** object and use the **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** method, your events are automatically distributed between partitions in your event hub. This behavior allows for the greatest amount of up time.
 
 For use cases that require the maximum up time, this model is preferred.
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Delete a virtual network gateway: PowerShell: Azure Resource Manager | Microsoft Docs'
 description: Delete a virtual network gateway using PowerShell in the Resource Manager deployment model. 
 services: vpn-gateway
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/20/2017
+ms.date: 03/26/2018
 ms.author: cherylmc
 
 ---
@@ -43,7 +43,7 @@ Download and install the latest version of the Azure Resource Manager PowerShell
 Open your PowerShell console and connect to your account. Use the following example to help you connect:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Check the subscriptions for the account.
@@ -71,7 +71,7 @@ The following steps apply to the Resource Manager deployment model.
 ### 1. Get the virtual network gateway that you want to delete.
 
 ```powershell
-$Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### 2. Check to see if the virtual network gateway has any connections.
@@ -154,7 +154,7 @@ The following steps apply to the Resource Manager deployment model.
 ### 1. Get the virtual network gateway that you want to delete.
 
 ```powershell
-$Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### 2. Check to see if the virtual network gateway has any connections.
@@ -248,7 +248,7 @@ The following steps apply to the Resource Manager deployment model.
 ### 1. Get the virtual network gateway that you want to delete.
 
 ```powershell
-$Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### 2. Delete the virtual network gateway.

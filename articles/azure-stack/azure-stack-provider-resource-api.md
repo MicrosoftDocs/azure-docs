@@ -3,18 +3,18 @@ title: Provider resource usage API | Microsoft Docs
 description: Reference for the resource usage API, which retrieves Azure Stack usage information
 services: azure-stack
 documentationcenter: ''
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid: b6055923-b6a6-45f0-8979-225b713150ae
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
-ms.author: alfredop
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
 
 ---
 # Provider resource usage API
@@ -86,6 +86,18 @@ meterID1",
 | *instanceData* |Key-value pairs of instance details (in a new format):<br> *resourceUri*: Fully qualified resource ID, which includes the resource groups and the instance name. <br> *location*: Region in which this service was run. <br> *tags*: Resource tags that are specified by the user. <br> *additionalInfo*: More details about the resource that was consumed, for example, the OS version or image type. |
 | *quantity* |Amount of resource consumption that occurred in this time frame. |
 | *meterId* |Unique ID for the resource that was consumed (also called *ResourceID*). |
+
+
+## Retrieve usage information
+
+To generate the usage data, you should have resources that are running and actively using the system, For example, an active virtual machine, or a storage account containing some data etc. If you’re not sure whether you have any resources running in Azure Stack Marketplace, deploy a virtual machine (VM), and verify the VM monitoring blade to make sure it’s running. Use the following PowerShell cmdlets to view the usage data:
+
+1. [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
+2. [Configure the Azure Stack user's](user/azure-stack-powershell-configure-user.md) or the [Azure Stack operator's](azure-stack-powershell-configure-admin.md) PowerShell environment 
+3. To retrieve the usage data, use the [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell cmdlet:
+```powershell
+Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+```
 
 ## Next steps
 [Tenant resource usage API reference](azure-stack-tenant-resource-usage-api.md)

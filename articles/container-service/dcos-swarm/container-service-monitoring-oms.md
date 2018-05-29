@@ -1,29 +1,22 @@
 ---
-title: Monitor Azure DC/OS cluster - Operations Management | Microsoft Docs
-description: Monitor an Azure Container Service DC/OS cluster with Microsoft Operations Management Suite.
+title: Monitor Azure DC/OS cluster - Operations Management
+description: Monitor an Azure Container Service DC/OS cluster with Log Analytics.
 services: container-service
-documentationcenter: ''
 author: keikhara
-manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: ''
+manager: jeconnoc
 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service DC/OS cluster with Operations Management Suite
+# Monitor an Azure Container Service DC/OS cluster with Log Analytics
 
-Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT
+Log Analytics is Microsoft's cloud-based IT
 management solution that helps you manage and protect your on-premises
-and cloud infrastructure. Container Solution is a solution in OMS Log
+and cloud infrastructure. Container Solution is a solution in Log
 Analytics, which helps you view the container inventory, performance,
 and logs in a single location. You can audit, troubleshoot containers by
 viewing the logs in centralized location, and find noisy consuming
@@ -35,7 +28,7 @@ For more information about Container Solution, please refer to the
 [Container Solution Log
 Analytics](../../log-analytics/log-analytics-containers.md).
 
-## Setting up OMS from the DC/OS universe
+## Setting up Log Analytics from the DC/OS universe
 
 
 This article assumes that you have set up an DC/OS and
@@ -43,7 +36,7 @@ have deployed simple web container applications on the cluster.
 
 ### Pre-requisite
 - [Microsoft Azure Subscription](https://azure.microsoft.com/free/) - You can get this for free.  
-- Microsoft OMS Workspace Setup - see "Step 3" below
+- Log Analytics Workspace Setup - see "Step 3" below
 - [DC/OS CLI](https://dcos.io/docs/1.8/usage/cli/install/) installed.
 
 1. In the DC/OS dashboard, click on Universe and search
@@ -51,7 +44,7 @@ for ‘OMS’ as shown below.
 
 ![](media/container-service-monitoring-oms/image2.png)
 
-2. Click **Install**. You will see a pop up with the OMS version
+2. Click **Install**. You will see a pop up with the version
 information and an **Install Package** or **Advanced Installation**
 button. When you click **Advanced Installation**, which leads you to the **OMS specific configuration
 properties** page.
@@ -60,15 +53,15 @@ properties** page.
 
 ![](media/container-service-monitoring-oms/image4.png)
 
-3. Here, you will be asked to enter the `wsid` (the OMS workspace ID)
-and `wskey` (the OMS primary key for the workspace id). To get both `wsid` and
-`wskey` you need to create an OMS account at <https://mms.microsoft.com>.
+3. Here, you will be asked to enter the `wsid` (the Log Analytics workspace ID)
+and `wskey` (the primary key for the workspace id). To get both `wsid` and
+`wskey` you need to create an account at <https://mms.microsoft.com>.
 Please follow the steps to create an account. Once you are done creating
 the account, you need to obtain your `wsid` and `wskey` by clicking **Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-4. Select the number you OMS instances that you want and click the ‘Review and Install’ button. Typically, you will want to have the number of OMS instances equal to the number of VM’s you have in your agent cluster. OMS Agent for Linux is installs as individual containers on each VM that it wants to collect information for monitoring and logging information.
+4. Select the number of instances that you want and click the ‘Review and Install’ button. Typically, you will want to have the number of instances equal to the number of VM’s you have in your agent cluster. OMS Agent for Linux installs as individual containers on each VM that it wants to collect information for monitoring and logging information.
 
 ## Setting up a simple OMS dashboard
 
@@ -110,7 +103,7 @@ Once you’ve selected your workspace, click **Create**.
 
 ![](media/container-service-monitoring-oms/image11.png)
 
-For more information about the OMS Container Solution, please refer to the
+For more information about the Log Analytics Container Solution, please refer to the
 [Container Solution Log
 Analytics](../../log-analytics/log-analytics-containers.md).
 
@@ -140,4 +133,4 @@ What works? What is missing? What else do you need for this to be useful for you
 
 ## Next steps
 
- Now that you have set up OMS to monitor your containers,[see your container dashboard](../../log-analytics/log-analytics-containers.md).
+ Now that you have set up Log Analytics to monitor your containers,[see your container dashboard](../../log-analytics/log-analytics-containers.md).

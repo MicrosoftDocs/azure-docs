@@ -1,45 +1,36 @@
 ---
-title: Scale an Azure Container Service (AKS) cluster | Microsoft Docs
-description: Scale an Azure Container Service (AKS) cluster.
+title: Scale an Azure Kubernetes Service (AKS) cluster
+description: Scale an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-documentationcenter: ''
 author: gabrtv
-manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: Kubernetes, Docker, Containers, Microservices, Azure
+manager: jeconnoc
 
-ms.assetid:
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-
 ---
 
-# Scale an Azure Container Service (AKS) cluster
+# Scale an Azure Kubernetes Service (AKS) cluster
 
-It is easy to scale an AKS cluster to a different number of nodes.  Select the desired number of nodes and run the `az aks scale` command.  When scaling down, nodes will be carefully [cordoned and drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) to minimize disruption to running applications.  When scaling up, the `az` command waits until nodes are marked `Ready` by the Kubernetes cluster.
+It is easy to scale an AKS cluster to a different number of nodes.  Select the desired number of nodes and run the `az aks scale` command.  When scaling down, nodes will be carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.  When scaling up, the `az` command waits until nodes are marked `Ready` by the Kubernetes cluster.
 
 ## Scale the cluster nodes
 
-Use the `az aks scale` command to scale the cluster nodes. The following example scales a cluster named *myK8SCluster* to a single node.
+Use the `az aks scale` command to scale the cluster nodes. The following example scales a cluster named *myAKSCluster* to a single node.
 
 ```azurecli-interactive
-az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
+az aks scale --name myAKSCluster --resource-group myResourceGroup --node-count 1
 ```
 
 Output:
 
 ```json
 {
-  "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
   "location": "eastus",
-  "name": "myK8sCluster",
+  "name": "myAKSCluster",
   "properties": {
     "accessProfiles": {
       "clusterAdmin": {
@@ -54,7 +45,7 @@ Output:
         "count": 1,
         "dnsPrefix": null,
         "fqdn": null,
-        "name": "myK8sCluster",
+        "name": "myAKSCluster",
         "osDiskSizeGb": null,
         "osType": "Linux",
         "ports": null,
@@ -94,4 +85,10 @@ Output:
 Learn more about deploying and managing AKS with the AKS tutorials.
 
 > [!div class="nextstepaction"]
-> [AKS Tutorial](./tutorial-kubernetes-prepare-app.md)
+> [AKS Tutorial][aks-tutorial]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md

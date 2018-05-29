@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
 ---
 
@@ -22,7 +22,7 @@ Durable Function orchestrations are implemented in code and can use the error-ha
 
 ## Errors in activity functions
 
-Any exception that is thrown in an activity function is marshalled back to the orchestrator function and thrown as a `TaskFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
+Any exception that is thrown in an activity function is marshalled back to the orchestrator function and thrown as a `FunctionFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
 
 For example, consider the following orchestrator function which transfers funds from one account to another:
 
@@ -76,7 +76,7 @@ public static async Task Run(DurableOrchestrationContext context)
         firstRetryInterval: TimeSpan.FromSeconds(5),
         maxNumberOfAttempts: 3);
 
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions);
+    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
     
     // ...
 }
@@ -123,6 +123,9 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
     }
 }
 ```
+
+> [!NOTE]
+> This mechanism does not actually terminate in-progress activity function execution. Rather, it simply allows the orchestrator function to ignore the result and move on. See the [Timers](durable-functions-timers.md#usage-for-timeout) documentation for more information.
 
 ## Unhandled exceptions
 

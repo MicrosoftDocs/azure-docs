@@ -1,45 +1,16 @@
 ---
-title: Troubleshoot backup errors with Azure virtual machine | Microsoft Docs
+title: Troubleshoot backup errors with Azure virtual machine
 description: Troubleshoot backup and restore of Azure virtual machines
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-
-ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/17/2017
-ms.author: trinadhk;markgal;jpallavi;
-
+ms.topic: conceptual
+ms.date: 01/21/2018
+ms.author: trinadhk
 ---
 # Troubleshoot Azure virtual machine backup
-> [!div class="op_single_selector"]
-> * [Recovery services vault](backup-azure-vms-troubleshoot.md)
-> * [Backup vault](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
-
-## Backup
-
-### Error: The specified Disk Configuration is not supported
-
-> [!NOTE]
-> We have a private preview to support backups for VMs with >1TB unmanaged disks. For details refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
->
->
-
-Currently Azure Backup doesn’t support disk sizes [greater than 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- If you have disks greater than 1 TB , [attach new disks](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) which are less than 1 TB <br>
-- Then, copy the data from disk greater than 1TB into newly created disk(s) of size less than 1TB. <br>
-- Ensure that all data has been copied and remove the disks greater than 1TB
-- Initiate the backup.
 
 | Error details | Workaround |
 | --- | --- |
@@ -48,13 +19,13 @@ Currently Azure Backup doesn’t support disk sizes [greater than 1023GB](https:
 | VM agent is unable to communicate with the Azure Backup Service. - Ensure the VM has network connectivity and the VM agent is latest and running. For more information, please refer to  http://go.microsoft.com/fwlink/?LinkId=800034 |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. [Learn more](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) about debugging up VM snapshot issues.<br> If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues, and restarting the VM resets this "bad state". |
 | VM is in Failed Provisioning State - Please restart the VM and make sure that the VM is in Running or Shut-down state for backup | This occurs when one of the extension failures leads VM state to be in failed provisioning state. Go to extensions list and see if there is a failed extension, remove it and try restarting the virtual machine. If all extensions are in running state, check if VM agent service is running. If not, restart the VM agent service. | 
 | VMSnapshot extension operation failed for managed disks - Please retry the backup operation. If the issue repeats, follow the instructions at 'http://go.microsoft.com/fwlink/?LinkId=800034'. If it fails further, please contact Microsoft support | This error when Azure Backup service fails to trigger a snapshot. [Learn more](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) about debugging VM snapshot issues. |
-| Could not copy the snapshot of the virtual machine, due to insufficient free space in the storage account - Ensure that storage account has free space equivalent to the data present on the premium storage disks attached to the virtual machine | In case of premium VMs, we copy the snapshot to storage account. This is to make sure that backup management traffic, which works on snapshot, doesn't limit the number of IOPS available to the application using premium disks. Microsoft recommends you allocate only 50% of the total storage account space so the Azure Backup service can copy the snapshot to storage account and transfer data from this copied location in storage account to the vault. | 
+| Could not copy the snapshot of the virtual machine, due to insufficient free space in the storage account - Ensure that storage account has free space equivalent to the data present on the premium storage disks attached to the virtual machine | In case of premium VMs on VM backup stack V1, we copy the snapshot to storage account. This is to make sure that backup management traffic, which works on snapshot, doesn't limit the number of IOPS available to the application using premium disks. Microsoft recommends you allocate only 50% (17.5 TB) of the total storage account space so the Azure Backup service can copy the snapshot to storage account and transfer data from this copied location in storage account to the vault. | 
 | Unable to perform the operation as the VM agent is not responsive |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. For Windows VMs, check the VM agent service status in services and whether the agent appears in programs in control panel. Try removing the program from control panel and re-installing the agent as mentioned [below](#vm-agent). After re-installing the agent, trigger an adhoc backup to verify. |
 | Recovery services extension operation failed. - Please make sure that latest virtual machine agent is present on the virtual machine and agent service is running. Please retry backup operation and if it fails, contact Microsoft support. |This error is thrown when VM agent is out of date. Refer “Updating the VM Agent” section below to update the VM agent. |
 | Virtual machine doesn't exist. - Please make sure that virtual machine exists or select a different virtual machine. |This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: <ol><li> Recreate the virtual machine with the same name and same resource group name [cloud service name],<br>(OR)<br></li><li>Stop protecting the virtual machine without deleting the backup data. [More details](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Command execution failed. - Another operation is currently in progress on this item. Please wait until the previous operation is completed, and then retry |An existing backup on the VM is running, and a new job cannot be started while the existing job is running. |
 | Copying VHDs from the backup vault timed out - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support. | This happens if there is a transient error on storage side or if backup service is not getting sufficient IOPS from storage account hosting the VM in order to transfer data within timeout period to vault. Make sure that you followed [Best practices](backup-azure-vms-introduction.md#best-practices) while setting up backup. Try moving VM to a different storage account which is not loaded and retry backup.|
-| Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support |You can get this error for 2 reasons: <ol><li> There is a transient issue in accessing the VM storage. Please check [Azure Status](https://azure.microsoft.com/en-us/status/) to see if there is any on-going issue related to compute, storage, or networking in the region. Then retry the backup job once the issue is resolved. <li>The original VM has been deleted and therefore, the recovery point cannot be taken. To keep the backup data for a deleted VM, but remove the backup errors: Unprotect the VM and choose the option to keep the data. This action stops the scheduled backup job and the recurring error messages. |
+| Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support |You can get this error for 2 reasons: <ol><li> There is a transient issue in accessing the VM storage. Please check [Azure Status](https://azure.microsoft.com/status/) to see if there is any on-going issue related to compute, storage, or networking in the region. Then retry the backup job once the issue is resolved. <li>The original VM has been deleted and therefore, the recovery point cannot be taken. To keep the backup data for a deleted VM, but remove the backup errors: Unprotect the VM and choose the option to keep the data. This action stops the scheduled backup job and the recurring error messages. |
 | Failed to install the Azure Recovery Services extension on the selected item - The VM agent is a prerequisite for the Azure Recovery Services Extension. Install the Azure VM agent and restart the registration operation |<ol> <li>Check if the VM agent has been installed correctly. <li>Ensure the flag on the VM config is set correctly.</ol> [Read more](#validating-vm-agent-installation) about installing the VM agent, and how to validate the VM agent installation. |
 | Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator |This usually means that the COM+ service is not running. Contact Microsoft support for help on fixing this issue. |
 | Snapshot operation failed with the VSS operation error "This drive is locked by BitLocker Drive Encryption. You must unlock this drive from the Control Panel. |Turn off BitLocker for all drives on the VM and observe if the VSS issue is resolved |
@@ -63,10 +34,9 @@ Currently Azure Backup doesn’t support disk sizes [greater than 1023GB](https:
 | Virtual machine agent is not present on the virtual machine - Please install any prerequisite and the VM agent, and then restart the operation. |[Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
 | Snapshot operation failed due to VSS Writers in bad state |You need to restart VSS(Volume Shadow copy Service) writers that are in bad state. To achieve this, from an elevated command prompt, run _vssadmin list writers_. Output contains all VSS writers and their state. For every VSS writer whose state is not "[1] Stable", restart VSS writer by running following commands from an elevated command prompt:<br> _net stop serviceName_ <br> _net start serviceName_|
 | Snapshot operation failed due to a parsing failure of the configuration |This happens due to changed permissions on the MachineKeys directory: _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Please run below command and verify that permissions on MachineKeys directory are default-ones:<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> Default permissions are:<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>If you see permissions on MachineKeys directory different than default, please follow below steps to correct permissions, delete the certificate and trigger the backup.<ol><li>Fix permissions on MachineKeys directory.<br>Using Explorer Security Properties and Advanced Security Settings on the directory, reset permissions back to the default values, remove any extra (than default) user object from the directory, and ensure that the ‘Everyone’ permissions had special access for:<br>-List folder / read data <br>-Read attributes <br>-Read extended attributes <br>-Create files / write data <br>-Create folders / append data<br>-Write attributes<br>-Write extended attributes<br>-Read permissions<br><br><li>Delete all certificates with field ‘Issued To’ = "Windows Azure Service Management for Extensions" or "Windows Azure CRP Certificate Generator”.<ul><li>[Open Certificates(Local computer) console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Delete all certificates (under Personal -> Certificates) with field ‘Issued To’ = "Windows Azure Service Management for Extensions" or "Windows Azure CRP Certificate Generator”.</ul><li>Trigger VM backup. </ol>|
-| Validation failed as virtual machine is encrypted with BEK alone. Backups can be enabled only for virtual machines encrypted with both BEK and KEK. |Virtual machine should be encrypted using both BitLocker Encryption Key and Key Encryption Key. After that, backup should be enabled. |
 | Azure Backup Service does not have sufficient permissions to Key Vault for Backup of Encrypted Virtual Machines. |Backup service should be provided these permissions in PowerShell using steps mentioned in **Enable Backup** section of [PowerShell documentation](backup-azure-vms-automation.md). |
 |Installation of snapshot extension failed with error - COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator | Please try to start windows service "COM+ System Application" (from an elevated command prompt - _net start COMSysApp_). <br>If it fails while starting, please follow below steps:<ol><li> Validate that the Logon account of service "Distributed Transaction Coordinator" is "Network Service". If it is not, please change it to "Network Service", restart this service and then try to start service "COM+ System Application".'<li>If it still fails to start, uninstall/install service "Distributed Transaction Coordinator" by following below steps:<br> - Stop the MSDTC service<br> - Open a command prompt (cmd) <br> - Run command “msdtc -uninstall” <br> - Run command “msdtc -install” <br> - Start the MSDTC service<li>Start windows service "COM+ System Application" and after it is started, trigger backup from portal.</ol> |
-|  Snapshot operation failed due to COM+ error | The recommended action is to restart windows service "COM+ System Application" (from an elevated command prompt - _net start COMSysApp_). If the issue persists, restart the VM. If restarting the VM doesn't help, try [removing the VMSnapshot Extension](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load) and trigger the backup manually. |
+|  Snapshot operation failed due to COM+ error | The recommended action is to restart windows service "COM+ System Application" (from an elevated command prompt - _net start COMSysApp_). If the issue persists, restart the VM. If restarting the VM doesn't help, try [removing the VMSnapshot Extension](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load) and trigger the backup manually. |
 | Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot | Use the following steps: <ol><li>Check the file-system state of all mounted devices using _'tune2fs'_ command.<br> Eg: tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>Unmount the devices for which filesystem state is not clean using _'umount'_ command <li> Run FileSystemConsistency Check on these devices using _'fsck'_ command <li> Mount the devices again and try backup.</ol> |
 | Snapshot operation failed due to failure in creating secure network communication channel | <ol><Li> Open Registry Editor by running regedit.exe in an elevated mode. <li> Identify all versions of .NetFramework present in system. They are present under the hierarchy of registry key "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" <li> For each .NetFramework present in registry key, add following key: <br> "SchUseStrongCrypto"=dword:00000001 </ol>|
 | Snapshot operation failed due to failure in installation of Visual C++ Redistributable for Visual Studio 2012 | Navigate to C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2012_x64. Make sure that registry key value for allowing this service installation is set to correct value i.e. value of registry key  _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ is set to 3 and not 4. If you are still facing issues with installation, restart installation service by running _MSIEXEC /UNREGISTER_ followed by _MSIEXEC /REGISTER_ from an elevated command prompt.  |
@@ -134,7 +104,7 @@ How to check for the VM Agent version on Windows VMs:
 VM backup relies on issuing snapshot commands to underlying storage. Not having access to storage, or delays in a snapshot task execution can cause the backup job to fail. The following can cause snapshot task failure.
 
 1. Network access to Storage is blocked using NSG<br>
-    Learn more on how to [enable network access](backup-azure-vms-prepare.md#network-connectivity) to Storage using either WhiteListing of IPs or through proxy server.
+    Learn more on how to [enable network access](backup-azure-arm-vms-prepare.md#establish-network-connectivity) to Storage using either WhiteListing of IPs or through proxy server.
 2. VMs with Sql Server backup configured can cause snapshot task delay <br>
    By default VM backup issues VSS Full backup on Windows VMs. On VMs that are running Sql Servers and if Sql Server backup is configured, this might cause delay in snapshot execution. Please set following registry key if you are experiencing backup failures because of snapshot issues.
 
@@ -166,7 +136,7 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
    * Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
    * Add rules to the NSG (if you have one in place) to allow access to the IPs.
 2. Create a path for HTTP traffic to flow
-   * If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy an HTTP Proxy server can found [here](backup-azure-vms-prepare.md#network-connectivity).
+   * If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy an HTTP Proxy server can found [here](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    * Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.
 
 > [!NOTE]

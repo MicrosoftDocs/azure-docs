@@ -1,25 +1,24 @@
 ---
 title: How to scale your Azure Time Series Insights environment | Microsoft Docs
 description: This article describes how to scale your Azure Time Series Insights environment. Use the Azure portal to add or subtract capacity within a pricing SKU. 
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ---
 # How to scale your Time Series Insights environment
 
-This article describes how to change the capacity of your environment your Time Series Insights environment using the Azure portal. Capacity is the multiplier applied to the ingress rate, storage capacity, and cost associated with your selected Sku. 
+This article describes how to change the capacity of your environment your Time Series Insights environment using the Azure portal. Capacity is the multiplier applied to the ingress rate, storage capacity, and cost associated with your selected SKU. 
 
-You can use the Azure portal to increase or decrease capacity within a given pricing Sku. 
+You can use the Azure portal to increase or decrease capacity within a given pricing SKU. 
 
-However, changing the pricing tier SKU is not allowed. For example, an environment with a S1 pricing SKU cannot be converted into an S2, or vice versa. 
+However, changing the pricing tier SKU is not allowed. For example, an environment with an S1 pricing SKU cannot be converted into an S2, or vice versa. 
 
 
 ## S1 SKU ingress rates and capacities
@@ -41,7 +40,7 @@ Capacities scale linearly, so an S1 SKU with capacity 2 supports 2 GB (2 million
 ## Change the capacity of your environment
 1. In the Azure portal, locate and select your Time Series Insights environment. 
 
-2. Under the **Settings** heading, select **Configure**.
+2. In the menu for your Time Series Insighs environment, select **Configure**.
 
    ![configure.png](media/scale-your-environment/configure.png)
 

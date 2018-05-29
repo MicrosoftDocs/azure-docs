@@ -1,21 +1,13 @@
 ---
 title: Language filters in Azure Search | Microsoft Docs
 description: Filter criteria by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: 
 ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.date: 10/23/2017
 ms.author: heidist
-
 ---
 
 # How to filter by language in Azure Search 
@@ -37,7 +29,7 @@ In Azure Search, queries target a single index. Developers who want to provide l
 
 In our samples, including the [real-estate sample](search-get-started-portal.md) shown below, you might have seen field definitions similar to the following screenshot. Notice how this example shows the language analyzer assignments for the fields in this index. Fields that contain strings perform better in full text search when paired with an analyzer engineered to handle the linguistic rules of the target language.
 
-  ![](./media/search-filters/lang-fields.png)
+  ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > For code examples showing field definitions with languages analyzers, see [Define an index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) and [Define an index (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).

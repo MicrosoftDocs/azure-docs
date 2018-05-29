@@ -4,14 +4,12 @@ description: Troubleshooting tips for dynamic membership for groups in Azure AD.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
-ms.assetid: 89bb04b6-a379-49c2-8465-fe386641816a
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand

@@ -4,7 +4,7 @@ description: Learn about how permissions requests work for client and resource a
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

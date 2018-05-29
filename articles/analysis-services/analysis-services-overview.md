@@ -1,21 +1,14 @@
 ---
-title: What is Azure Analysis Services | Microsoft Docs
+title: Azure Analysis Services overview| Microsoft Docs
 description: Get the big picture of Analysis Services in Azure.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 83d7a29c-57ae-4aa0-8327-72dd8f00247d
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 11/07/2017
+ms.topic: overview
+ms.date: 05/16/2018
 ms.author: owend
+ms.reviewer: minewiskan
+#Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for out organization.
 
 ---
 # What is Azure Analysis Services?
@@ -23,7 +16,7 @@ ms.author: owend
 
 Azure Analysis Services provides enterprise-grade data modeling in the cloud. It is a fully managed platform as a service (PaaS), integrated with Azure data platform services. 
 
-With Analysis Services, you can mashup and combine data from multiple sources, define metrics, and secure your data in a single, trusted semantic data model. The data model provides an easier and faster way for your users to browse massive amounts of data with client applications like Power BI, Excel, Reporting Services,  third-party, and custom apps.
+With Analysis Services, you can mashup and combine data from multiple data sources, define metrics, and secure your data in a single, trusted semantic data model. The data model provides an easier and faster way for your users to browse massive amounts of data with client applications like Power BI, Excel, Reporting Services,  third-party, and custom apps.
 
 ![Data sources](./media/analysis-services-overview/aas-overview-data-sources.png)
 
@@ -61,7 +54,7 @@ Azure Analysis Services servers can be created in the following [Azure regions](
 
 | Americas | Europe | Asia Pacific |
 |----------|--------|--------------|
-|  Brazil South<br> Canada Central<br> East US 2<br> North Central US<br> South Central US<br> West Central US<br> West US | North Europe<br> UK South<br> West Europe |   Australia Southeast<br> Japan East<br> Southeast Asia<br> West India  |
+|  Brazil South<br> Canada Central<br> East US<br> East US 2<br> North Central US<br> Central US<br> South Central US<br> West Central US<br> West US<br> West US2 | North Europe<br> UK South<br> West Europe |   Australia Southeast<br> Japan East<br> Southeast Asia<br> West India  |
 
 New regions are being added all the time, so this list might be incomplete. You choose a location when you create your server in Azure portal or by using Azure Resource Manager templates. To get the best performance, choose a location nearest your largest user base. Assure [high availability](analysis-services-bcdr.md) by deploying your models on redundant servers in multiple regions.
 
@@ -100,7 +93,7 @@ Azure Analysis Services utilizes Azure Blob storage to persist storage and metad
 
 #### Firewall
 
-Azure Analysis Services Firewall blocks all client connections other than those specified in rules. Configure rules specifying allowed IP addresses by individual client IPs or by range. Power BI (service) connections can also be allowed or blocked allowed. 
+Azure Analysis Services Firewall blocks all client connections other than those specified in rules. Configure rules specifying allowed IP addresses by individual client IPs or by range. Power BI (service) connections can also be allowed or blocked. 
 
 #### On-premises data sources
 Secure access to data residing on-premises in your organization is achieved by installing and configuring an [On-premises data gateway](analysis-services-gateway.md). Gateways provide access to data for both Direct Query and in-memory modes. When an Azure Analysis Services model connects to an on-premises data source, a query is created along with the encrypted credentials for the on-premises data source. The gateway cloud service analyzes the query and pushes the request to an Azure Service Bus. The on-premises gateway polls the Azure Service Bus for pending requests. The gateway then gets the query, decrypts the credentials, and connects to the data source for execution. The results are then sent from the data source, back to the gateway and then on to the Azure Analysis Services database.
@@ -113,7 +106,7 @@ To learn more about Azure Security, see the [Microsoft Trust Center](https://www
 ## Supports the latest client tools
 ![Data visualizations](./media/analysis-services-overview/aas-overview-clients.png)
 
-Modern data exploration and visualization tools like Power BI, Excel, and  third-party tools provide users with highly interactive and visually rich insights into your model data.
+Modern data exploration and visualization tools like Power BI, Excel, SQL Server 2017 Reporting Services, and third-party tools are all supported, providing users with highly interactive and visually rich insights into your model data. 
 
 Clients use MSOLAP, AMO, or ADOMD [client libraries](analysis-services-data-providers.md) to connect to Analysis Services servers. Microsoft client applications like Power BI Desktop and Excel install all three client libraries. But keep in mind, depending on the version or frequency of updates, client libraries may not be the latest versions required by Azure Analysis Services. The same applies to custom applications or other interfaces such as AsCmd, TOM, ADOMD.NET. These applications typically require manually installing the libraries as part of a package.
 
@@ -121,7 +114,7 @@ Clients use MSOLAP, AMO, or ADOMD [client libraries](analysis-services-data-prov
 ## Get help
 
 #### Documentation
-Azure Analysis Services is simple to set up and to manage. You can find all the info you need to create and manage your server services here. When creating a data model to deploy to your server, it's much the same as it is for creating a data model you deploy to an on-premises server. There's an extensive library of conceptual, procedural, tutorials, and reference articles at [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
+Azure Analysis Services is simple to set up and to manage. You can find all the info you need to create and manage your server services here. When creating a data model to deploy to your server, it's much the same as it is for creating a data model you deploy to an on-premises server. There's an extensive library of conceptual, procedural, tutorials, and reference articles at [SQL Server Analysis Services help](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
 #### Videos
 Check out helpful videos at [Azure Analysis Services on Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
@@ -138,4 +131,5 @@ Have suggestions or feature requests? Be sure to leave your comments on [Azure A
 Have suggestions about the documentation? You can add comments using Livefyre at the bottom of each article.
 
 ## Next steps
-Now that you know more about Azure Analysis Services, it's time to get started. Learn how to [create a server](analysis-services-create-server.md) in Azure. When your server is ready, step through the [Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md) to learn how to create a fully functional tabular model and deploy it to your server.
+Learn how to [create a server](analysis-services-create-server.md) in Azure.   
+Once you have a server created, [add a sample model](analysis-services-create-sample-model.md).   

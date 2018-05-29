@@ -1,23 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Quickstart Azure IoT Edge + Windows | Microsoft Docs 
 description: Try out Azure IoT Edge by running analytics on a simulated edge device
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
-ms.date: 11/15/2017
-ms.topic: article
+ms.date: 05/03/2018
+ms.topic: quickstart
 ms.service: iot-edge
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
@@ -34,10 +25,10 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
    * Windows 10 
    * Windows Server
 2. Install [Docker for Windows][lnk-docker] and make sure it's running.
-3. Install [Python 2.7 on Windows][lnk-python] and make sure you can use the pip command.
+3. Install [Python on Windows][lnk-python] and make sure you can use the pip command. This quickstart was tested with Python versions >=2.7.9 and >=3.5.4.  
 4. Run the following command to download the IoT Edge control script.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -48,7 +39,7 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
 >    * Windows IoT Core (Build 16299) on a x64-based device
 >
 > For Windows IoT Core, follow the instructions in [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore]. Otherwise, simply [configure Docker to use Windows containers][lnk-docker-containers], and optionally validate your prerequisites with the following powershell command:
->    ```
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -83,21 +74,23 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modul
 
 Configure the runtime with your IoT Edge device connection string from the previous section.
 
-```
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```cmd
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Start the runtime.
 
-```
+```cmd
 iotedgectl start
 ```
 
 Check Docker to see that the IoT Edge agent is running as a module.
 
-```
+```cmd
 docker ps
 ```
+
+![See edgeAgent in Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
 
 ## Deploy a module
 
@@ -107,14 +100,30 @@ docker ps
 
 In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to push an IoT Edge module to run on the device without having to make changes to the device itself. In this case, the module that you pushed creates environmental data that you can use for the tutorials. 
 
-View the messages being sent from the tempSensor module:
+Open the command prompt on the computer running your simulated device again. Confirm that the module deployed from the cloud is running on your IoT Edge device. 
 
-```cmd/sh
+```cmd
+docker ps
+```
+
+![View three modules on your device](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+View the messages being sent from the tempSensor module to the cloud. 
+
+```cmd
 docker logs -f tempSensor
 ```
 
+![View the data from your module](./media/tutorial-simulate-device-windows/docker-logs.png)
+
 You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer]. 
 ## Clean up resources
+
+If you want to remove the simulated device that you created, along with the Docker containers that were started for each module, use the following command: 
+
+```cmd
+iotedgectl uninstall
+```
 
 When you no longer need the IoT Hub you created, you can use the [az iot hub delete][lnk-delete] command to remove the resource and any devices associated with it:
 
@@ -143,6 +152,7 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-install-iotcore]: how-to-install-iot-core.md
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

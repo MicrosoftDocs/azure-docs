@@ -2,21 +2,13 @@
 title: Apply performance recommendations - Azure SQL Database | Microsoft Docs
 description: Use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database.
 services: sql-database
-documentationcenter: ''
 author: stevestein
-manager: jhubbard
-editor: monicar
-
-ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 07/05/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: sstein
-
 
 ---
 # Find and apply performance recommendations
@@ -25,12 +17,12 @@ You can use the Azure portal to find performance recommendations that can optimi
 
 ## Viewing recommendations
 
-To view and apply performance recommendations, you need the correct [role-based access control](../active-directory/role-based-access-control-what-is.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
+To view and apply performance recommendations, you need the correct [role-based access control](../role-based-access-control/overview.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
 
 Use the following steps to find performance recommendations on Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Go to **More services** > **SQL databases**, and select your database.
+2. Go to **All services** > **SQL databases**, and select your database.
 3. Navigate to **Performance recommendation** to view available recommendations for the selected database.
 
 Performance recommendations are shown in the table similar to the one shown on the following figure:
@@ -50,7 +42,7 @@ Recommendations are sorted by their potential impact on performance into the fol
 > Azure SQL Database needs to monitor activities at least for a day in order to identify some recommendations. The Azure SQL Database can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not currently available, the **Performance recommendation** page provides a message explaining why.
 > 
 
-You can also view the status of the historical operations. Select a recommendation or status to see  more details.
+You can also view the status of the historical operations. Select a recommendation or status to see  more information.
 
 Here is an example of "Create index" recommendation in the Azure portal.
 
@@ -89,6 +81,10 @@ If desired, you can add discarded items back to the **Recommendations** list:
 2. Select a discarded item from the list to view its details.
 3. Optionally, click **Undo Discard** to add the index back to the main list of **Recommendations**.
 
+> [!NOTE]
+> Please note that if SQL Database [Automatic tuning](sql-database-automatic-tuning.md) is enabled, and if you have manually discarded a recommendation from the list, such recommendation will never be applied automatically. Discarding a recommendation is a handy way for users to have Automatic tuning enabled in cases when requiring that a specific recommendation shouldn’t be applied.
+> You can revert this behavior by adding discarded recommendations back to the Recommendations list by selecting the Undo Discard option.
+> 
 
 ### Enable automatic tuning
 You can set the Azure SQL Database to implement recommendations automatically. As recommendations become available, they are automatically applied. As with all recommendations managed by the service, if the performance impact is negative, the recommendation is reverted.
@@ -98,7 +94,13 @@ You can set the Azure SQL Database to implement recommendations automatically. A
     ![Advisor settings](./media/sql-database-advisor-portal/settings.png)
 2. Select actions to automate:
    
-    ![Recommended Indexes](./media/sql-database-advisor-portal/automation.png)
+    ![Recommended Indexes](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Please note that **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases.
+>
+
+Once you have selected your desired configuration, click Apply.
 
 ### Manually run the recommended T-SQL script
 Select any recommendation and then click **View script**. Run this script against your database to manually apply the recommendation.
@@ -124,7 +126,7 @@ Applying a recommendation might not happen instantaneously. The portal provides 
 | Reverting |The recommendation was applied, but has been deemed non-performant and is being automatically reverted. |
 | Reverted |The recommendation was reverted. |
 
-Click an in-process recommendation from the list to see more details:
+Click an in-process recommendation from the list to see more information:
 
 ![Recommended Indexes](./media/sql-database-advisor-portal/operations.png)
 
@@ -154,5 +156,5 @@ Monitor your recommendations and continue to apply them to refine performance. D
 ## Additional resources
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Role-based access control](../active-directory/role-based-access-control-what-is.md)
+* [Role-based access control](../role-based-access-control/overview.md)
 

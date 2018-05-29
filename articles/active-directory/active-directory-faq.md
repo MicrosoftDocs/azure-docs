@@ -1,10 +1,10 @@
 ---
 title: Azure Active Directory FAQ | Microsoft Docs
-description: Azure Active Directory FAQ answers questions about how to access Azure and Azure Active Directory, password management, and application access.
+description: Azure Active Directory FAQ answers common questions about Azure and Azure Active Directory, password management, and application access.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
 
 ---
@@ -24,9 +24,9 @@ For more information, see [What is Azure Active Directory?](active-directory-wha
 
 
 ## Access Azure and Azure Active Directory
-**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure classic portal?**
+**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure portal?**
 
-**A:** To access the Azure classic portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a free [Azure account](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription.
+**A:** To access the Azure portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to [https://aka.ms/accessAAD](https://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a free [Azure account](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription.
 
 For more information, see:
 
@@ -41,11 +41,9 @@ For more information, see:
 All users who are set up to use web services are defined as user accounts in one or more Azure AD instances. You can set up these accounts for free Azure AD capabilities like cloud application access.
 
 Azure AD paid services like Enterprise Mobility + Security complement other web services like Office 365 and Microsoft Azure with comprehensive enterprise-scale management and security solutions.
-- - -
-**Q:  Why can I sign in to the Azure portal but not the Azure classic portal?**
 
-**A:**  The Azure portal does not require a valid subscription, and the classic portal does require a valid subscription.  If you do not have a subscription, you can't sign in to the classic portal.
 - - -
+
 **Q:  What are the differences between Subscription Administrator and Directory Administrator?**
 
 **A:** By default, you are assigned the Subscription Administrator role when you sign up for Azure. A subscription admin can use either a Microsoft account or a work or school account from the directory that the Azure subscription is associated with.  This role is authorized to manage services in the Azure portal.
@@ -53,7 +51,7 @@ Azure AD paid services like Enterprise Mobility + Security complement other web 
 If others need to sign in and access services by using the same subscription, you can add them as co-admins. This role has the same access privileges as the service admin, but can’t change the association of subscriptions to Azure directories.  For additional information on subscription admins, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) and [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure classic portal. The admin's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure portal. The admin's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Additionally, Azure AD paid services like Enterprise Mobility + Security complement other web services, such as Office 365 and Microsoft Azure, with comprehensive enterprise-scale management and security solutions.
 
@@ -111,18 +109,18 @@ For more information, see [Monitor your on-premises identity infrastructure and 
 
 **A:** Password write-back operates in real time.
 
-For more information, see [Getting started with password management](active-directory-passwords-getting-started.md).
+For more information, see [Getting started with password management](authentication/quickstart-sspr.md).
 
 - - -
 **Q: Can I use password write-back with passwords that are managed by an admin?**
 
 **A:** Yes, if you have password write-back enabled, the password operations performed by an admin are written back to your on-premises environment.  
 
-For more answers to password-related questions, see [Password management frequently asked questions](active-directory-passwords-faq.md).
+For more answers to password-related questions, see [Password management frequently asked questions](authentication/active-directory-passwords-faq.md).
 - - -
 **Q:  What can I do if I can't remember my existing Office 365/Azure AD password while trying to change my password?**
 
-**A:** For this type of situation, there are a couple of options.  Use self-service password reset (SSPR) if it's available.  Whether SSPR works depends on how it's configured.  For more information, see [How does the password reset portal work](active-directory-passwords-best-practices.md).
+**A:** For this type of situation, there are a couple of options.  Use self-service password reset (SSPR) if it's available.  Whether SSPR works depends on how it's configured.  For more information, see [How does the password reset portal work](authentication/howto-sspr-deployment.md).
 
 For Office 365 users, your admin can reset the password by using the steps outlined in [Reset user passwords](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
@@ -134,16 +132,20 @@ For Azure AD accounts, admins can reset passwords by using one of the following:
 
 - - -
 ## Security
-**Q: Are accounts locked after a specific number of failed attempts or is there a more sophisticated strategy used?**</br>
+**Q: Are accounts locked after a specific number of failed attempts or is there a more sophisticated strategy used?**
+
 We use a more sophisticated strategy to lock accounts.  This is based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it is an attack.  
 
-**Q:  Certain (common) passwords get rejected with the messages ‘this password has been used to many times’, does this refer to passwords used in the current active directory?**</br>
+**Q:  Certain (common) passwords get rejected with the messages ‘this password has been used to many times’, does this refer to passwords used in the current active directory?**
+
 This refers to passwords that are globally common, such as any variants of “Password” and “123456”.
 
-**Q: Will a sign-in request from dubious sources (botnets, tor endpoint) be blocked in a B2C tenant or does this require a Basic or Premium edition tenant?**</br>
+**Q: Will a sign-in request from dubious sources (botnets, tor endpoint) be blocked in a B2C tenant or does this require a Basic or Premium edition tenant?**
+
 We do have a gateway that filters requests and provides some protection from botnets, and is applied for all B2C tenants.
 
 ## Application access
+
 **Q: Where can I find a list of applications that are pre-integrated with Azure AD and their capabilities?**
 
 **A:** Azure AD has more than 2,600 pre-integrated applications from Microsoft, application service providers, and partners. All pre-integrated applications support single sign-on (SSO). SSO lets you use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning.
@@ -170,7 +172,7 @@ For more information, see:
 * Direct sign-in to federated apps
 * Deep links to federated, password-based, or existing apps
 
-For more information, see [Deploying Azure AD integrated applications to users](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+For more information, see [Deploying Azure AD integrated applications to users](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 
 - - -
 **Q: What are the different ways Azure AD enables authentication and single sign-on to applications?**
@@ -181,14 +183,14 @@ For more information, see:
 
 * [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md)
 * [Active Directory authentication protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [How does single sign-on with Azure Active Directory work?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [How does single sign-on with Azure Active Directory work?](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 **Q: Can I add applications I’m running on-premises?**
 
 **A:** Azure AD Application Proxy provides you with easy and secure access to on-premises web applications that you choose. You can access these applications in the same way that you access your software as a service (SaaS) apps in Azure AD. There is no need for a VPN or to change your network infrastructure.  
 
-For more information, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+For more information, see [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
 
 - - -
 **Q: How do I require multi-factor authentication for users who access a particular application?**

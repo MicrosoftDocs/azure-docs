@@ -4,11 +4,12 @@ description: Create an Organizational Unit (OU) on Azure AD Domain Services mana
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

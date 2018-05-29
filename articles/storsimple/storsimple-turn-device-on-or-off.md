@@ -4,7 +4,7 @@ description: Explains how to turn on a new StorSimple device, turn on a device t
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 
@@ -144,16 +144,16 @@ A running StorSimple device may need to be shut down if it is being moved, taken
 * [Device with EBOD enclosure](#8600a)
 
 ### Device with primary enclosure <a name="8100a">
-To shut down the device in an orderly and controlled manner, you can do it through the Azure classic portal or via the Windows PowerShell for StorSimple. 
+To shut down the device in an orderly and controlled manner, you can do it through the Azure portal or via the Windows PowerShell for StorSimple. 
 
 > [!IMPORTANT]
 > Do not shut down a running device by using the power button on the back of the device.
 > 
-> Before shutting down the device, make sure that all the device components are healthy. In the Azure classic portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that status of all the components is green. This is true only for a healthy system. If the system is being shut down to replace a malfunctioning component, you will see a failed (red) or degraded (yellow) status for the respective component in the **Hardware Status**.
+> Before shutting down the device, make sure that all the device components are healthy. In the Azure portal, navigate to **Devices** > **Monitor** > **Hardware health**, and verify that status of all the components is green. This is true only for a healthy system. If the system is being shut down to replace a malfunctioning component, you will see a failed (red) or degraded (yellow) status for the respective component in the **Hardware Status**.
 > 
 > 
 
-After you access the Windows PowerShell for StorSimple or the Azure classic portal, follow the steps in [shut down a StorSimple device](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
+After you access the Windows PowerShell for StorSimple or the Azure portal, follow the steps in [shut down a StorSimple device](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### Device with EBOD enclosure <a name="8600a">
 > [!IMPORTANT]

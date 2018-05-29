@@ -1,12 +1,12 @@
 ---
-title: Manage Azure disks with the Azure CLI | Microsoft Docs
-description: Tutorial - Manage Azure disks with the Azure CLI 
+title: Tutorial - Manage Azure disks with the Azure CLI | Microsoft Docs
+description: In this tutorial, you learn how to use the Azure CLI 2.0 to create and manage Azure disks for virtual machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -15,11 +15,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
+
+#Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Linux VMs in Azure.
 ---
 
-# Manage Azure disks with the Azure CLI
+# Tutorial - Manage Azure disks with the Azure CLI 2.0
 
 Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks. You learn about:
 
@@ -32,10 +34,9 @@ Azure virtual machines use disks to store the VMs operating system, applications
 > * Resizing disks
 > * Disk snapshots
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Default Azure disks
 
@@ -58,7 +59,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ## Azure data disks
 
-Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 1 terabyte. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, two data disks can be attached. 
+Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 1 terabyte. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM vCPU, two data disks can be attached. 
 
 ### Max data disks per VM
 
@@ -105,21 +106,22 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
+Create a VM using the [az vm create]( /cli/azure/vm#az_vm_create) command. The following example creates a VM named *myVM*, adds a user account named *azureuser*, and generates SSH keys if they do not exist. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroupDisk \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --data-disk-sizes-gb 128 128 \
-  --generate-ssh-keys
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --data-disk-sizes-gb 128 128
 ```
 
 ### Attach disk to existing VM
 
-To create and attach a new disk to an existing virtual machine, use the [az vm disk attach](/cli/azure/vm/disk#attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
+To create and attach a new disk to an existing virtual machine, use the [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
 
 ```azurecli-interactive 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
@@ -182,10 +184,10 @@ The output displays the UUID of the drive, `/dev/sdc1` in this case.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Add a line similar to the following to the */etc/fstab* file. Also note that write barriers can be disabled using *barrier=0*, this configuration can improve disk performance. 
+Add a line similar to the following to the */etc/fstab* file.
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,barrier=0   1  2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
 ```
 
 Now that the disk has been configured, close the SSH session.
@@ -204,13 +206,13 @@ Before increasing disk size, the Id or name of the disk is needed. Use the [az d
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-The VM must also be deallocated. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM.
+The VM must also be deallocated. Use the [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) command to stop and deallocate the VM.
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-Use the [az disk update](/cli/azure/vm/disk#update) command to resize the disk. This example resizes a disk named *myDataDisk* to 1 terabyte.
+Use the [az disk update](/cli/azure/vm/disk#az_vm_disk_update) command to resize the disk. This example resizes a disk named *myDataDisk* to 1 terabyte.
 
 ```azurecli-interactive 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
@@ -222,7 +224,7 @@ Once the resize operation has completed, start the VM.
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-If you’ve resized the operating system disk, the partition is automatically be expanded. If you have resized a data disk, any current partitions need to be expanded in the VMs operating system.
+If you’ve resized the operating system disk, the partition is automatically expanded. If you have resized a data disk, any current partitions need to be expanded in the VMs operating system.
 
 ## Snapshot Azure disks
 
@@ -230,7 +232,7 @@ Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azur
 
 ### Create snapshot
 
-Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. Use the [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) command to return the disk id. In this example, the disk id is stored in a variable so that it can be used in a later step.
+Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. Use the [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) command to return the disk id. In this example, the disk id is stored in a variable so that it can be used in a later step.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)

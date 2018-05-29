@@ -4,7 +4,7 @@ description: Describes Docker and the Azure Virtual Machines extensions, and how
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -18,7 +18,7 @@ ms.date: 05/27/2016
 ms.author: rasquill
 
 ---
-# Using the Docker VM Extension with the Azure classic portal
+# Using the Docker VM Extension with the Azure portal
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -151,7 +151,7 @@ You are ready to go to the [Docker User Guide] and use your Docker VM. If you wa
 
 <!--Link references-->
 [How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Azure Linux Agent]:../agent-user-guide.md
+[Azure Linux Agent]:../../extensions/agent-linux.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
 
 [Running Docker with https]:http://docs.docker.com/articles/https/

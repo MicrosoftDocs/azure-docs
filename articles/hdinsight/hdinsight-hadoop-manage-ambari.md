@@ -12,10 +12,8 @@ ms.assetid: 4787f3cc-a650-4dc3-9d96-a19a67aad046
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/11/2017
+ms.topic: conceptual
+ms.date: 03/23/2018
 ms.author: larryfr
 
 ---
@@ -29,7 +27,7 @@ In this document, you learn how to use the Ambari Web UI with an HDInsight clust
 
 ## <a id="whatis"></a>What is Ambari?
 
-[Apache Ambari](http://ambari.apache.org) simplifies Hadoop management by providing an easy-to-use web UI. You can use Ambari create, manage, and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the [Ambari REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) simplifies Hadoop management by providing an easy-to-use web UI. You can use Ambari to manage and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the [Ambari REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 The Ambari Web UI is provided by default with HDInsight clusters that use the Linux operating system.
 
@@ -38,7 +36,7 @@ The Ambari Web UI is provided by default with HDInsight clusters that use the Li
 
 ## Connectivity
 
-The Ambari Web UI is available on your HDInsight cluster at HTTPS://CLUSTERNAME.azurehdidnsight.net, where **CLUSTERNAME** is the name of your cluster.
+The Ambari Web UI is available on your HDInsight cluster at HTTPS://CLUSTERNAME.azurehdinsight.net, where **CLUSTERNAME** is the name of your cluster.
 
 > [!IMPORTANT]
 > Connecting to Ambari on HDInsight requires HTTPS. When prompted for authentication, use the admin account name and password you provided when the cluster was created.

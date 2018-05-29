@@ -32,13 +32,13 @@ provider "azurerm" {
 }
 ```
 
-The Cloud Shell passes required values for the `azurerm` provider to through environment variables when using any of the `terraform` CLI commands.
+The Cloud Shell passes required values for the `azurerm` provider through environment variables when using any of the `terraform` CLI commands.
 
 ## Other Cloud Shell developer tools
 
 Files and shell states persist in Azure Storage between Cloud Shell sessions. Use [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) to copy and upload files to the Cloud Shell from your local computer.
 
-The Azure CLI 2.0 is available in the Cloud Shell and is  a great tool for testing configurations and checking your work after a `terraform apply` or `terraform destroy` completes.
+The Azure CLI 2.0 is available in the Cloud Shell and is a great tool for testing configurations and checking your work after a `terraform apply` or `terraform destroy` completes.
 
 
 ## Next steps

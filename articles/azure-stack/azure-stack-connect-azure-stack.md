@@ -3,8 +3,8 @@ title: Connect to Azure Stack | Microsoft Docs
 description: Learn how to connect to Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 # Connect to Azure Stack
