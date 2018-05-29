@@ -12,7 +12,7 @@ ms.date: 05/29/2018
 ms.author: sangsinh
 ---
 
-# Overview
+# Immutable Storage (WORM) for Azure Blob Storage (Preview)
 
 The Immutable Storage  for Azure Blobs feature allows users to store business-critical data in Azure blob storage in a WORM (Write Once Read Many) state that makes it non-erasable, and non-modifiable for a user-specified interval of time. Blobs can be created and read, but not modified or deleted for the duration of the retention interval. This feature enables organizations in many regulated industries, particularly broker-dealer organizations to store data in a manner compliant with SEC 17a-4(f) and other regulations.
 
@@ -35,16 +35,16 @@ The Immutable  Storage feature enables:
 
 -   **Container level configuration:** The immutable  Storage feature  allows users to configure time-based retention policies and legal hold tags at the container level.  Users can create, and lock time-based retention policies, extend retention intervals, set, and clear legal holds etc. through simple container level settings.  These policies will apply to all the blobs in the container, both existing and new.
 
- - **Audit Logging support:** Each container contains an audit log showing up to five time-based retention commands for locked time-based retention policies and up to 10 legal hold commands.  For time-based retention, the log contains the user ID, command type, timestamps, and the retention interval. For legal holds, the log contains the user ID, command type, timestamps, and the legal hold tags. This log is retained for the life time of the container per the SEC 17a-4(f) regulatory guidelines. A more comprehensive log of all the control plane activities can be found in the [Azure Activity log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). It is the user’s responsibility to store those logs persistently as may be required for regulatory or other purposes.
+- **Audit Logging support:** Each container contains an audit log showing up to five time-based retention commands for locked time-based retention policies and up to 10 legal hold commands.  For time-based retention, the log contains the user ID, command type, timestamps, and the retention interval. For legal holds, the log contains the user ID, command type, timestamps, and the legal hold tags. This log is retained for the life time of the container per the SEC 17a-4(f) regulatory guidelines. A more comprehensive log of all the control plane activities can be found in the [Azure Activity log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). It is the user’s responsibility to store those logs persistently as may be required for regulatory or other purposes.
 
  The feature is enabled in all Azure public regions.
 
 ### How does it work?
 
-The Immutable Storage for Azure Blobs supports two types of WORM or immutable policies: time-based retention and legal holds. Refer to the Getting Started section below for details on how to create these immutable policies. 
+The Immutable Storage for Azure Blobs supports two types of WORM or immutable policies: time-based retention and legal holds. Refer to the Getting Started section (link here) below for details on how to create these immutable policies. 
 When a time-based retention policy or legal hold is applied on a container, all existing blobs will move to the immutable (write and delete protected) state.  All new blobs uploaded to the container will also move to the immutable state.
 
-[!NOTE]A time-based retention policy must be *locked* for the blob to be in an immutable (write and delete-protected) state for SEC 17a-4(f) and other regulatory compliance. It is recommended that the policy be locked within a reasonable amount of time, typically within 24 hours. We do not recommend using the *unlocked* state for any purpose other than short-term feature trials.
+[!NOTE] A time-based retention policy must be *locked* for the blob to be in an immutable (write and delete-protected) state for SEC 17a-4(f) and other regulatory compliance. It is recommended that the policy be locked within a reasonable amount of time, typically within 24 hours. We do not recommend using the *unlocked* state for any purpose other than short-term feature trials.
 
  When a time-based retention policy is applied on a container, all blobs in the container will remain in the immutable state for the duration of the *effective* retention period. The effective retention period for existing blobs is equal to the difference between the blob creation time and the user-specified retention interval. For new blobs, the effective retention period is equal to the user-specified retention interval. Since users can change the retention interval, the most recent value of the user-specified retention interval will be used for calculating the effective retention period.
 
@@ -74,10 +74,10 @@ Refer to [Azure Blob Service API](https://docs.microsoft.com/en-us/rest/api/stor
 
 *Note: The first Put Blob, and the Put Block List and Put Block operations necessary to create a blob are allowed in scenarios 1 and 2 in the above table  all subsequent operations are disallowed.*
 
-### Note:  The Immutable Storage feature is only available in GPv2 and blob storage accounts and must be created through the Azure Resource Manager (Text to display: Azure Resource Manager, link: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+### Note:  The Immutable Storage feature is only available in GPv2 and blob storage accounts and must be created through the [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
 
 ### Pricing
-There is no additional charge for using this feature and Immutable data is priced in the same way as normal, mutable data. Refer to the Azure Storage Pricing page(Text to display: Azure Storage Pricing page link: https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) for the related pricing details.  
+There is no additional charge for using this feature and Immutable data is priced in the same way as normal, mutable data. Refer to the [Azure Storage Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) for the related pricing details.  
 
 ### Restrictions
 
@@ -132,7 +132,7 @@ The Immutable  Storage feature is supported on the [PowerShell version 4.4.0-pre
 To enable the feature, please follow the following steps:
 
 1.	 Ensure that you have the latest version of PowerShellGet installed
-PS C:\> Install-Module PowerShellGet –Repository PSGallery –Force
+PS C:\> `Install-Module PowerShellGet –Repository PSGallery –Force`
 2.	Remove any previous installation of Azure PowerShell
 3.	Install AzureRM (Azure can be installed similarly from this repository)
 PS C:\> Install-Module AzureRM –Repository PSGallery –AllowClobber
@@ -142,9 +142,9 @@ A sample PowerShell code illustrating the feature usage is provided below.
 
 **Client Libraries**
 The Immutable Storage for Azure blobs feature is supported in the following client library releases
-[.net Client Library (version 7.2.0-preview and higher](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
-[node.js Client Library (version 4.0.0 and higher)](https://www.npmjs.com/package/azure-arm-storage)
-[Python Client Library (version 2.0.0 Release Candidate 2 and higher)](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/) 
+- [.net Client Library (version 7.2.0-preview and higher](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
+- [node.js Client Library (version 4.0.0 and higher)](https://www.npmjs.com/package/azure-arm-storage)
+- [Python Client Library (version 2.0.0 Release Candidate 2 and higher)](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/) 
 
 ## Supported Values
 
