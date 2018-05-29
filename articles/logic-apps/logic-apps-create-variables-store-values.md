@@ -7,7 +7,7 @@ author: ecfan
 manager: cfowler
 ms.author: estfan
 ms.topic: article
-ms.date: 05/26/2018
+ms.date: 05/29/2018
 ms.service: logic-apps
 
 # optional metadata
@@ -19,19 +19,20 @@ ms.suite: integration
 
 This article shows how you can store and work with values 
 throughout your logic app by creating variables. 
-For example, variables can help count the number 
-of times that a loop runs. You can use a variable 
-as the index value for each item in an array when 
-checking that array for a specific item. 
+For example, variables can help you count the number 
+of times that a loop runs. When iterating over an array 
+or checking an array for a specific item, you can use a 
+variable to reference the index number for each array item. 
 
-You can create variables for data types such as integer, 
-float, boolean, string, array, and object. 
+You can create variables for data types such as 
+integer, float, boolean, string, array, and object. 
 After you create a variable, you can perform other tasks, 
 for example:
 
-* Increase or decrease the value for a variable.
-* Assign a different value to a variable.
-* Add a value as the last item in a variable for a string or array.
+* Increase or decrease the variable by a constant value, 
+also known as *increment* and *decrement*.
+* Assign a different value to the variable.
+* Insert or *append* the variable's value as the last time in a string or array.
 * Get the value from a variable.
 
 Variables exist only within the logic app instance that creates them. 
@@ -58,7 +59,7 @@ If you don't have an Azure subscription yet,
 ## Create variable
 
 You can declare a variable along with its data 
-type and its starting value - all inside one action. 
+type and initial value - all within one action. 
 
 1. In the Azure portal or Visual Studio, 
 open your logic app in Logic App Designer. 
@@ -196,8 +197,8 @@ Here are examples for a few other variable types:
 
 ## Increment variable 
 
-To increase a variable by a specific value, add the 
-**Variables - Increment variable** action to your logic app. 
+To increase or *increment* a variable by a constant value, 
+add the **Variables - Increment variable** action to your logic app. 
 This action works only with integer and float variables.
 
 1. In Logic App Designer, under the step where 
@@ -283,24 +284,10 @@ Create an integer variable named **Count** with a zero start value.
 
    ![Add action for "Initialize variable"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
-4. To cycle through each attachment, add a *for each* loop. 
+4. To cycle through each attachment, add a *for each* loop 
+by choosing **New step** > **More** > **Add a for each**.
 
-   1. Choose **New step** > **More** > **Add a for each**.
-
-      ![Add a "for each" loop](./media/logic-apps-create-variables-store-values/add-loop.png)
-
-   2. Now make your loop run sequentially. In your loop's upper-right corner, 
-   choose the ellipsis (...) button, and then choose **Settings**.
-
-      By default, your loop's cycles all run at the same time in parallel, 
-      which might cause problems when counting attachments.
-
-   3. Under **Concurrency Control**, change **Override Default** to **On**. 
-   Drag the **Degree of Parallelism** slider to **1**.
-   
-      ![Set loop to run sequentially](./media/logic-apps-create-variables-store-values/set-sequential.png)
-
-   4. When you're ready, choose **Done**.
+   ![Add a "for each" loop](./media/logic-apps-create-variables-store-values/add-loop.png)
 
 5. In the loop, click inside the **Select an output from previous steps** box. 
 When the dynamic content list appears, select **Attachments**. 
@@ -380,9 +367,9 @@ which is in JSON format.
 
 ## Decrement variable
 
-To decrease a variable by a specific value, you can follow the steps 
-for [increasing a variable](#increment-value) except that you find 
-and select the **Variables - Decrement variable** action instead. 
+To decrease or *decrement* a variable by a constant value, follow the 
+steps for [increasing a variable](#increment-value) except that you 
+find and select the **Variables - Decrement variable** action instead. 
 This action works only with integer and float variables.
 
 Here are the properties for the **Decrement variable** action:
@@ -412,19 +399,18 @@ inside your logic app definition, which is in JSON format.
 
 <a name="assign-value"></a>
 
-## Assign new value
+## Set variable
 
 To assign a different value to an existing variable, 
-you can follow the steps for [increasing a variable](#increment-value) 
-except that you use these steps instead:
+follow the steps for [increasing a variable](#increment-value) 
+except that you: 
 
-1. Find and select the **Variables - Set variable** action. 
+1. Find and select the **Variables - Set variable** action instead. 
 
-2. Provide the value you want to assign the variable. 
+2. Provide the variable name and value you want to assign. 
+Both the new value and the variable must have the same data type.
+The value is required because this action doesn't have a default value. 
 
-   Both the new value and the variable must have the same data type.
-   This value is required because this action doesn't have a default value. 
-   
 Here are the properties for the **Set variable** action:
 
 | Property | Required | Value |  Description | 
@@ -432,6 +418,20 @@ Here are the properties for the **Set variable** action:
 | Name | Yes | <*variable-name*> | The name for the variable to change | 
 | Value | Yes | <*new-value*> | The value you want to assign the variable. Both must have the same data type. | 
 ||||| 
+
+> [!NOTE]
+> Unless you're incrementing or decrementing variables, changing variables 
+> inside loops *might* create unexpected results because loops run in parallel, 
+> or concurrently, by default. For these cases, try setting your loop to run sequentially. 
+> For example, when you want to reference the variable value inside the loop and expect 
+> same value at the start and end of that loop instance, follow these steps to change how the loop runs: 
+>
+> 1. In your loop's upper-right corner, choose the ellipsis (...) button, 
+> and then choose **Settings**.
+> 
+> 2. Under **Concurrency Control**, change the **Override Default** setting to **On**.
+>
+> 3. Drag the **Degree of Parallelism** slider to **1**.
 
 If you switch from the designer to the code view editor, 
 here is the way the **Set variable** action appears 
@@ -468,10 +468,10 @@ This example changes the "Count" variable's current value to another value.
 
 ## Append to variable
 
-For variables that store strings or arrays, you can 
-add a value as the last item in those strings or arrays. 
+For variables that store strings or arrays, you can insert or 
+*append* a variable's value as the last item in those strings or arrays. 
 You can follow the steps for [increasing a variable](#increment-value) 
-except that you use these steps instead: 
+except that you follow these steps instead: 
 
 * Find and select one of these actions based on 
 whether your variable is a string or an array: 
