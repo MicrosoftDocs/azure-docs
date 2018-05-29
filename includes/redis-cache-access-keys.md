@@ -10,15 +10,15 @@ ms.author: wesmc
 ms.custom: "include file"
 ---
 
-### Retrieve host name, ports, and access keys using the Azure Portal
+### Retrieve host name, ports, and access keys by using the Azure Portal
 
-When connecting to an Azure Redis Cache instance, cache clients need the host name, ports, and a key for the cache. Some clients may refer to these items by slightly different names. You can retrieve this information in the Azure portal.
+When connecting to an Azure Redis Cache instance, cache clients need the host name, ports, and a key for the cache. Some clients might refer to these items by slightly different names. You can retrieve this information in the Azure portal.
 
-To retrieve the access keys using the [Azure portal](https://portal.azure.com), browse to your cache and click **Access keys**. 
+To retrieve the access keys by using the [Azure portal](https://portal.azure.com), browse to your cache and select **Access keys**. 
 
 ![Redis cache keys](media/redis-cache-access-keys/redis-cache-keys.png)
 
-To retrieve host name, ports, click **Properties**.
+To retrieve the host name and ports, select **Properties**.
 
 ![Redis cache properties](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

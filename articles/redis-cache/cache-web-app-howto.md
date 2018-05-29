@@ -44,12 +44,13 @@ To complete the quickstart, you need to install [Visual Studio 2017](https://www
     ![Create project](./media/cache-web-app-howto/cache-create-project.png)
 
 2. In the **New Project** dialog box, take the following steps:
-    1 . In the **Templates** list, expand the **Visual C#** node.
-    2. Select **Cloud**.
-    3. Select **ASP.NET Web Application**.
-    4. Verify that **.NET Framework 4.5.2** or higher is selected
-    5. In the **Name** box, give the project a name. For this example, we used **ContosoTeamStats**.
-    6. Select **OK**.
+   
+    a . In the **Templates** list, expand the **Visual C#** node.
+    b. Select **Cloud**.
+    c. Select **ASP.NET Web Application**.
+    d. Verify that **.NET Framework 4.5.2** or higher is selected
+    e. In the **Name** box, give the project a name. For this example, we used **ContosoTeamStats**.
+    f. Select **OK**.
 
     You're presented with a new ASP.NET Web Application screen:
 
@@ -69,9 +70,9 @@ Next, you create the cache for the app.
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
+3. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
 
-2. Edit the *CacheSecrets.config* file. Then add the following content:
+4. Edit the *CacheSecrets.config* file. Then add the following content:
 
     ```xml
     <appSettings>
@@ -79,14 +80,14 @@ Next, you create the cache for the app.
     </appSettings>
     ```
 
-3. Replace `<cache-name>` with your cache host name.
+5. Replace `<cache-name>` with your cache host name.
 
-4. Replace `<access-key>` with the primary key for your cache.
+6. Replace `<access-key>` with the primary key for your cache.
 
     > [!TIP]
-    > The secondary access key is used during key rotation as an alternate key while you regenerate the primary access key.
+    > You can use the secondary access key during key rotation as an alternate key while you regenerate the primary access key.
 >
-5. Save the file.
+7. Save the file.
 
 ## Update the MVC application
 
@@ -190,13 +191,13 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
         @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         ```
 
-        with:
+    with:
 
         ```csharp
         @Html.ActionLink("Azure Redis Cache Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
         ```
 
-### To add dd a new RedisCache view
+### To add a new RedisCache view
 
 1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder. Choose **Add** > **View...**.
 
@@ -269,20 +270,20 @@ After you successfully test the app locally, you can deploy the app to Azure and
 
 3. In the **Create App Service** dialog box, make the following changes:
 
-    | Setting | Recommended Value | Description |
+    | Setting | Recommended value | Description |
     | ------- | :---------------: | ----------- |
     | **App Name** | Use default | The app name is the host name for the app when it's deployed to Azure. The name might have a timestamp suffix added to it to make it unique if necessary. |
     | **Subscription** | Choose your Azure subscription | This subscription is charged for any related hosting costs. If you have multiple Azure subscriptions, verify that the subscription that you want is selected.|
     | **Resource Group** | Use the same resource group where you created the cache (for example, *TestResourceGroup*). | The resource group helps you manage all resources as a group. Later, when you want to delete the app, you can just delete the group. |
-    | **App Service plan** | Select **New** and create a new App Service plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
+    | **App Service plan** | Select **New**, and then create a new App Service plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
 
     ![App Service dialog box](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 
 4. After you configure the App Service hosting settings, select **Create** to create a new App Service for your app.
 
-5. Monitor the **Output** window in Visual Studio to see the status of the publish to Azure. After publishing has successfully finished, the URL for the App Service is logged as shown below:
+5. Monitor the **Output** window in Visual Studio to see the publishing status. After publishing has successfully finished, the URL for the App Service is logged as shown below:
 
-![Publishing Output](./media/cache-web-app-howto/cache-publishing-output.png)
+![Publishing output](./media/cache-web-app-howto/cache-publishing-output.png)
 
 ### Add the app setting for the cache
 
@@ -310,7 +311,7 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. When you delete a resource group, all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
->
+
 ### To delete a resource group
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource groups**.
@@ -325,7 +326,7 @@ After a few moments, the resource group and all of its resources are deleted.
 
 ## Next steps
 
-In this next tutorial, you use Azure Redis Cache in a more realistic scenario to improve performance of an app. You update this application to cache leaderboard results using the cache-aside pattern with ASP.NET and a database.
+In the next tutorial, you use Azure Redis Cache in a more realistic scenario to improve performance of an app. You update this application to cache leaderboard results using the cache-aside pattern with ASP.NET and a database.
 
 > [!div class="nextstepaction"]
 > [Create a cache-aside leaderboard on ASP.NET](cache-web-app-cache-aside-leaderboard.md)
