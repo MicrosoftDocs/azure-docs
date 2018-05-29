@@ -2,23 +2,14 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Azure IoT Edge C# module | Microsoft Docs 
 description: Create an IoT Edge module with C# code and deploy it to an edge device
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
-
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Develop and deploy a C# IoT Edge module to your simulated device - preview
@@ -121,9 +112,10 @@ The following steps show you how to create an IoT Edge module based on .NET core
     // Read TemperatureThreshold from Module Twin Desired Properties
     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
     var moduleTwinCollection = moduleTwin.Properties.Desired;
-    if (moduleTwinCollection["TemperatureThreshold"] != null)
-    {
+    try {
         temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    } catch(ArgumentOutOfRangeException e) {
+        Console.WriteLine("Property TemperatureThreshold not exist");
     }
 
     // Attach callback for Twin desired properties updates
@@ -229,6 +221,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
+   To find the user name, password and login server to use in this command, go to the [Azure portal] (https://portal.azure.com). From **All resources**, click the tile for your Azure container registry to open its properties, then click **Access keys**. Copy the values in the **Username**, **password**, and **Login server** fields. 
 
 2. In VS Code explorer, Right-click the **module.json** file and click **Build and Push IoT Edge module Docker image**. In the pop-up dropdown box at the top of the VS Code window, select your container platform, either **amd64** for Linux container or **windows-amd64** for Windows container. VS Code then builds your code, containerize the `FilterModule.dll` and push it to the container registry you specified.
 

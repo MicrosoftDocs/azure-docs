@@ -84,8 +84,8 @@ This topic provides a reference for the following API Management policies. For i
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
-    <api name="name" calls="number" renewal-period="seconds">  
-        <operation name="name" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </rate-limit>  
 ```  
@@ -109,8 +109,8 @@ This topic provides a reference for the following API Management policies. For i
 |Name|Description|Required|  
 |----------|-----------------|--------------|  
 |set-limit|Root element.|Yes|  
-|api|Add one  or more of these elements to impose a call rate limit on APIs within the product. Product and API call rate limits are applied independently.|No|  
-|operation|Add one  or more of these elements to impose a call rate limit on operations within an API. Product, API, and operation call rate limits are applied independently.|No|  
+|api|Add one  or more of these elements to impose a call rate limit on APIs within the product. Product and API call rate limits are applied independently. API can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.|No|  
+|operation|Add one  or more of these elements to impose a call rate limit on operations within an API. Product, API, and operation call rate limits are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.|No|  
   
 ### Attributes  
   
@@ -239,8 +239,8 @@ This topic provides a reference for the following API Management policies. For i
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="name" calls="number" bandwidth="kilobytes">  
-        <operation name="name" calls="number" bandwidth="kilobytes" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </quota>  
 ```  
@@ -264,8 +264,8 @@ This topic provides a reference for the following API Management policies. For i
 |Name|Description|Required|  
 |----------|-----------------|--------------|  
 |quota|Root element.|Yes|  
-|api|Add one  or more of these elements to impose a quota on APIs within the product. Product and API quotas are applied independently.|No|  
-|operation|Add one  or more of these elements to impose a quota on operations within an API. Product, API, and operation quotas are applied independently.|No|  
+|api|Add one  or more of these elements to impose call quota on APIs within the product. Product and API call quotas are applied independently. API can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.|No|  
+|operation|Add one  or more of these elements to impose call quota on operations within an API. Product, API, and operation call quotas are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.|No|  
   
 ### Attributes  
   

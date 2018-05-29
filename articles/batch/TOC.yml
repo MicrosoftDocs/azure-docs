@@ -43,6 +43,8 @@
     href: batch-apis-tools.md
   - name: Quotas and limits
     href: batch-quota-limit.md
+  - name: Supported VM sizes
+    href: batch-pool-vm-sizes.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -108,10 +110,13 @@
       href: batch-rendering-service.md
     - name: Data processing with Batch and Data Factory
       href: ../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json
-  - name: Monitor resources
+  - name: Monitor Batch solutions
+    href: monitoring-overview.md
     items:
-    - name: Diagnostic logging
+    - name: Use metrics and diagnostic logs
       href: batch-diagnostics.md
+    - name: Monitor with Application Insights
+      href: monitor-application-insights.md
     - name: Efficient list queries
       href: batch-efficient-list-queries.md
   - name: Use developer tools

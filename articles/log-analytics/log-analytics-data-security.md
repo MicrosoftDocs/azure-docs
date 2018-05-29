@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 04/16/2018
 ms.author: magoedte
 
 ---
@@ -151,9 +151,9 @@ The Windows or management server agent cached data is protected by the operating
 As described above, data from the management server or direct-connected agents is sent over SSL to Microsoft Azure datacenters. Optionally, you can use ExpressRoute to provide additional security for the data. ExpressRoute is a way to directly connect to Azure from your existing WAN network, such as a multi-protocol label switching (MPLS) VPN, provided by a network service provider. For more information, see [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## 3. The Log Analytics service receives and processes data
-TThe Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored in an Azure Event Hub in the region the data will eventually be stored at rest. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Log Analytics service processes the raw data and ingests it into the database.
+The Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored in an Azure Event Hub in the region the data will eventually be stored at rest. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Log Analytics service processes the raw data and ingests it into the database.
 
-The retention period of collected data stored in the database depends on the plan selected when the workspace was created.  For the paid tier, collected data is available for 31 days by default, but can be extended to 365 days.  This data is not yet encrypted at rest and is planned for mid-2018. 
+The retention period of collected data stored in the database depends on the selected pricing plan. For the *Free* tier, collected data is available for 7 days. For the *Paid* tier, collected data is available for 31 days by default, but can be extended to 720 days. Data is stored encrypted at rest in Azure storage, to ensure data confidentiality. The last two weeks of data are also stored in SSD-based cache and this cache is currently not encrypted.  We plan to support such encryption in the later half of 2018.  
 
 ## 4. Use Log Analytics to access the data
 To access your Log Analytics workspace, you sign into the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Log Analytics service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.

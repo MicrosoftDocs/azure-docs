@@ -4,7 +4,7 @@ description: Learn how to create and use an HPC Pack cluster in Azure for Linux 
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 

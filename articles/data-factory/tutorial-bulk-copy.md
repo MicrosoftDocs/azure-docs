@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Copy data in bulk using Azure Data Factory | Microsoft Docs'
 description: 'Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.'
 services: data-factory
@@ -77,7 +77,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
     Run the following command to view all the subscriptions for this account:
 

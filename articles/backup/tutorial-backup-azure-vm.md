@@ -1,23 +1,15 @@
 ---
-title: Back up Azure VMs in Azure at scale | Microsoft Docs
+title: Back up Azure VMs in Azure at scale
 description: This tutorial details backing up multiple Azure virtual machines to a Recovery Services vault.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: virtual machine backup; back up virtual machine; backup and disaster recovery
-
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/06/2017
-ms.author: trinadhk;jimpark;markgal;
+ms.author: trinadhk
 ms.custom: mvc
-
 ---
 # Back up Azure virtual machines in Azure at scale
 
@@ -43,7 +35,7 @@ Create a Recovery Services vault with **New-AzureRmRecoveryServicesVault**. Be s
 New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable. Then use **Set-AzureRmRecoveryServicesBackupProperties** to set the **-BackupStorageRedundancy** option to [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). 
+Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable. Then use **Set-AzureRmRecoveryServicesBackupProperties** to set the **-BackupStorageRedundancy** option to [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy-grs.md). 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault

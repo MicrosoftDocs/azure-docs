@@ -4,7 +4,7 @@ description: Create a MariaDB + Galera MySQL cluster on Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: sabbour
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -23,7 +23,7 @@ ms.author: asabbour
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) and classic. This article covers the classic deployment model. Microsoft recommends that most new deployments use the Azure Resource Manager model.
 
 > [!NOTE]
-> MariaDB Enterprise cluster is now available in the Azure Marketplace. The new offering will automatically deploy a MariaDB Galera cluster on Azure Resource Manager. You should use the new offering from [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/).
+> MariaDB Enterprise cluster is now available in the Azure Marketplace. The new offering will automatically deploy a MariaDB Galera cluster on Azure Resource Manager. You should use the new offering from [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/mariadb/cluster-maxscale/).
 >
 >
 

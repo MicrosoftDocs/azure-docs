@@ -1,22 +1,18 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Azure IoT EdgeAgent and EdgeHub reference | Microsoft Docs 
 description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-
+services: iot-edge
 ---
 
 # Properties of the Edge agent and Edge hub module twins
 
-The Edge agent and Edge hub are two modules that make up the IoT Edge runtime. For more information about what duties each module performs, see [Understand the Azure IoT Edge runtime and its architecture]](iot-edge-runtime.md). 
+The Edge agent and Edge hub are two modules that make up the IoT Edge runtime. For more information about what duties each module performs, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md). 
 
 This article provides the desired properties and reported properties of the runtime module twins. See [Deployment and monitoring][lnk-deploy] for more information on how to deploy modules on IoT Edge devices.
 

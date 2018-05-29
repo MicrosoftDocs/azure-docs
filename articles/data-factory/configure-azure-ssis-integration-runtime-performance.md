@@ -3,7 +3,7 @@ title: Configure the Azure-SSIS Integration Runtime for high performance | Micro
 description: Learn how to configure the properties of the Azure-SSIS Integration Runtime for high performance
 services: data-factory
 ms.date: 01/10/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: data-factory
 ms.workload: data-services
 author: douglaslMS
@@ -44,7 +44,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>"
 ```

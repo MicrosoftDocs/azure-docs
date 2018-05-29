@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Stack 1802 Update | Microsoft Docs
 description: Learn about what's in the 1802 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/24/2018
 ms.author: brenduns
 ms.reviewer: justini
-
+  
 ---
-
+  
 # Azure Stack 1802 update
 
 *Applies to: Azure Stack integrated systems*
@@ -54,7 +54,10 @@ The Azure Stack 1802 update build number is **20180302.1**.
 
 
 ### Post-update steps
-*There are no post-update steps for update 1802.*
+After the installation of 1802, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md). 
+- Azure Stack hotfix **1.0.180302.4**. [KB 4131152 - Existing Virtual Machine Scale Sets may become unusable]( https://support.microsoft.com/help/4131152) 
+
+  This fix also resolves the issues detailed in  [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/help/4103348).
 
 
 ### New features and fixes
@@ -80,7 +83,9 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - **Support is added for multiple fault domains**.  For more information, see [High availability for Azure Stack](azure-stack-key-features.md#high-availability-for-azure-stack).
 
-- **Various fixes** for performance, stability, security, and the operating system that is used by Azure stack.
+- **Support for physical memory upgrades** - You can now expand the memory capacity of Azure Stack integrated system after your initial deployment. For more information, see [Manage physical memory capacity for Azure Stack](azure-stack-manage-storage-physical-memory-capacity.md).
+
+- **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
 <!--
 #### New features
@@ -109,8 +114,6 @@ The following are post-installation known issues for build  **20180302.1**
 
 - You might see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
 
-- When you view the properties of a resource or resource group, the **Move** button is disabled. This behavior is expected. Moving resources or resource groups between resource groups or subscriptions is not currently supported.
-
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
 - You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
@@ -128,9 +131,26 @@ The following are post-installation known issues for build  **20180302.1**
 
   As a workaround, use PowerShell to run the **Start-ResourceSynchronization.ps1** script to restore access to the storage account details. [The script is available from GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), and must run with service administrator credentials on the privileged endpoint. 
 
+- The **Service Health** blade fails to load. When you open the Service Health blade in either the admin or user portal, Azure Stack displays an error and does not load information. This is expected behavior. Although you can select and open Service Health, this feature is not yet available but will be implemented in a future version of Azure Stack.
+
 
 #### Health and monitoring
-There are no known issues after updating to 1802.
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+  Alert #1:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+
+  Alert #2:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+
+  Both alerts can be safely ignored. They will close automatically over time.  
+
 
 #### Marketplace
 - Users can browse the full marketplace without a subscription and can see administrative items like plans and offers. These items are non-functional to users.
@@ -138,13 +158,17 @@ There are no known issues after updating to 1802.
 #### Compute
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  This issue is resolved in version 1803. To resolve this issue for version 1802, install Azure Stack hotfix **1.0.180302.4**. For more information, see [KB 4131152: Existing Virtual Machine Scale Sets may become unusable]( https://support.microsoft.com/help/4131152). 
+
 - Azure Stack supports using only Fixed type VHDs. Some images offered through the marketplace on Azure Stack use dynamic VHDs but those have been removed. Resizing a virtual machine (VM) with a dynamic disk attached to it leaves the VM in a failed state.
 
   To mitigate this issue, delete the VM without deleting the VM’s disk, a VHD blob in a storage account. Then convert the VHD from a dynamic disk to a fixed disk, and then re-create the virtual machine.
 
 - When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
-- When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
+- When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a D series VM. All supported D series VMs can accommodate as many data disks as the Azure configuration.
 
 - When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
 
@@ -249,6 +273,7 @@ There are no known issues after updating to 1802.
 
 - Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > After you update to Azure Stack 1802, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1710, first apply version 1711, then 1712, and then update to 1802.      
@@ -265,6 +290,8 @@ There are no known issues after updating to 1802.
 <!--
 #### Identity
 -->
+
+
 
 #### Downloading Azure Stack Tools from GitHub
 - When using the *invoke-webrequest* PowerShell cmdlet to download the Azure Stack tools from Github, you receive an error:     

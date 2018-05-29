@@ -1,35 +1,35 @@
 ---
 title: Restrict network access to PaaS resources - Azure CLI | Microsoft Docs
-description: Learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using the Azure CLI.
+description: In this article, you learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic:
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom:
+ms.custom: 
 ---
 
 # Restrict network access to PaaS resources with virtual network service endpoints using the Azure CLI
 
 Virtual network service endpoints enable you to limit network access to some Azure service resources to a virtual network subnet. You can also remove internet access to the resources. Service endpoints provide direct connection from your virtual network to supported Azure services, allowing you to use your virtual network's private address space to access the Azure services. Traffic destined to Azure resources through service endpoints always stays on the Microsoft Azure backbone network. In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a virtual network with one subnet
-> * Add a subnet and enable a service endpoint
-> * Create an Azure resource and allow network access to it from only a subnet
-> * Deploy a virtual machine (VM) to each subnet
-> * Confirm access to a resource from a subnet
-> * Confirm access is denied to a resource from a subnet and the internet
+* Create a virtual network with one subnet
+* Add a subnet and enable a service endpoint
+* Create an Azure resource and allow network access to it from only a subnet
+* Deploy a virtual machine (VM) to each subnet
+* Confirm access to a resource from a subnet
+* Confirm access is denied to a resource from a subnet and the internet
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -79,7 +79,7 @@ az network vnet subnet create \
   --service-endpoints Microsoft.Storage
 ```
 
-## Restrict network access to and from subnet
+## Restrict network access for a subnet
 
 Create a network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNsgPrivate*.
 
@@ -308,7 +308,7 @@ Create a directory for a mount point:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Attempt to mount the Azure file share to the directory you created. This tutorial assumes you deployed the latest version of Ubuntu. If you are using earlier versions of Ubuntu, see [Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for additional instructions about mounting file shares. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account):
+Attempt to mount the Azure file share to the directory you created. This article assumes you deployed the latest version of Ubuntu. If you are using earlier versions of Ubuntu, see [Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for additional instructions about mounting file shares. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account):
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -338,9 +338,6 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-In this tutorial, you enabled a service endpoint for a virtual network subnet. You learned that service endpoints can be enabled for resources deployed with multiple Azure services. You created an Azure Storage account and limited network access to the storage account to only resources within a virtual network subnet. Before creating service endpoints in production virtual networks, it's recommended that you thoroughly familiarize yourself with [service endpoints](virtual-network-service-endpoints-overview.md).
+In this article, you enabled a service endpoint for a virtual network subnet. You learned that service endpoints can be enabled for resources deployed with multiple Azure services. You created an Azure Storage account and limited network access to the storage account to only resources within a virtual network subnet. To learn more about service endpoints, see [Service endpoints overview](virtual-network-service-endpoints-overview.md) and [Manage subnets](virtual-network-manage-subnet.md).
 
-If you have multiple virtual networks in your account, you may want to connect two virtual networks together so the resources within each virtual network can communicate with each other. Advance to the next tutorial to learn how to connect virtual networks.
-
-> [!div class="nextstepaction"]
-> [Connect virtual networks](./tutorial-connect-virtual-networks-cli.md)
+If you have multiple virtual networks in your account, you may want to connect two virtual networks together so the resources within each virtual network can communicate with each other. To learn how, see [Connect virtual networks](tutorial-connect-virtual-networks-cli.md).

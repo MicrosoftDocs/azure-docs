@@ -92,6 +92,16 @@ ssh userName@masterFQDN –A –p 22 
 
 For more information, see [Connect to an Azure Container Service cluster](../articles/container-service/kubernetes/container-service-connect.md).
 
+### My DNS name resolution isn't working on Windows. What should I do?
+
+There are some known DNS issues on Windows whose fixes are still actively being phased out. Please ensure you are using the most updated acs-engine and Windows version (with [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) and [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installed) so that your environment can benefit from this. Otherwise, please see the table below for mitigation steps:
+
+| DNS Symptom | Workaround  |
+|-------------|-------------|
+|When workload container is unstable and crashes, the network namespace is cleaned up | Redeploy any affected services |
+| Service VIP access is broken | Configure a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) to always keep one normal (non-privileged) pod running |
+|When node on which container is running becomes unavailable, DNS queries may fail resulting in a "negative cache entry" | Run the following inside affected containers: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> If this still doesn't resolve the problem, then try to disable DNS caching completely: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
+
 ## Next steps
 
 * [Learn more](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) about Azure Container Service.

@@ -4,7 +4,7 @@ description: Learn how to open a port / create an endpoint to your Linux VM usin
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-linux
@@ -78,9 +78,9 @@ azure network vnet subnet set \
 ```
 
 ## More information on Network Security Groups
-The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. You can read more about [creating a Network Security Group and ACL rules here](../../virtual-network/virtual-networks-create-nsg-arm-cli.md).
+The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. You can read more about [creating a Network Security Group and ACL rules here](../../virtual-network/tutorial-filter-network-traffic-cli.md).
 
-You can define Network Security Groups and ACL rules as part of Azure Resource Manager templates. Read more about [creating Network Security Groups with templates](../../virtual-network/virtual-networks-create-nsg-arm-template.md).
+You can define Network Security Groups and ACL rules as part of Azure Resource Manager templates. Read more about [creating Network Security Groups with templates](../../virtual-network/template-samples.md).
 
 If you need to use port-forwarding to map a unique external port to an internal port on your VM, use a load balancer and Network Address Translation (NAT) rules. For example, you may want to expose TCP port 8080 externally and have traffic directed to TCP port 80 on a VM. You can learn about [creating an Internet-facing load balancer](../../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
@@ -88,6 +88,6 @@ If you need to use port-forwarding to map a unique external port to an internal 
 In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
 
 * [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
-* [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)
+* [What is a Network Security Group (NSG)?](../../virtual-network/security-overview.md)
 * [Azure Resource Manager Overview for Load Balancers](../../load-balancer/load-balancer-arm.md)
 

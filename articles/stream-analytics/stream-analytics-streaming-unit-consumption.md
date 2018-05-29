@@ -1,42 +1,34 @@
 ---
-title: 'Azure Stream Analytics: Understand and adjust Streaming Units | Microsoft Docs'
-description: Understand what factors impact performance in Azure Stream Analytics.
-keywords: streaming unit, query performance
+title: Understand and adjust Streaming Units in Azure Stream Analytics
+description: This article describes the Streaming Units setting and other factors that impact performance in Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/12/2018
 ---
 
 # Understand and adjust Streaming Units
 
-Azure Stream Analytics aggregates the performance "weight" of running a job into Streaming Units (SUs). SUs represent the computing resources that are consumed to execute a job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. This capacity lets you focus on the query logic and removes you from needing to know storage tier performance considerations, allocate memory for your job manually, and approximate the CPU core-count needed to run your job in a timely manner.
+Azure Stream Analytics aggregates the performance "weight" of running a job into Streaming Units (SUs). SUs represent the computing resources that are consumed to execute a job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. This capacity lets you focus on the query logic and abstracts the need to manage the hardware to run your Stream Analytics job in a timely manner.
 
 In order to achieve low latency streaming processing, Azure Stream Analytics jobs perform all processing in memory. When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there is enough resource allocated in order to keep the jobs running 24/7.
 
-The metric is a percentage number ranging from 0% to 100%. For a streaming job with minimal footprint, the SU % Utilization metric is usually between 10% to 20%. It’s best to keep the metric below 80% to account for occasional spikes.  You can set an alert on the metric (see [here to set up metric alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)).
-
-
+The metric is a percentage number ranging from 0% to 100%. For a streaming job with minimal footprint, the SU % Utilization metric is usually between 10% to 20%. It’s best to keep the metric below 80% to account for occasional spikes. Microsoft recommends setting an alert on 80% SU Utilization metric to prevent resource exhaustion. For more information, see [Tutorial: Set up alerts for Azure Stream Analytics jobs](stream-analytics-set-up-alerts.md).
 
 ## Configure Stream Analytics Streaming Units (SUs)
 1. Sign in to [Azure portal](http://portal.azure.com/)
+
 2. In the list of resources, find the Stream Analytics job that you want to scale and then open it. 
-3. In the job page, under Configure, click **Scale**. 
+
+3. In the job page, under the **Configure** heading, select **Scale**. 
 
     ![Azure portal Stream Analytics job configuration][img.stream.analytics.preview.portal.settings.scale]
     
 4. Use the slider to set the SUs for the job. Notice that you are limited to specific SU settings. 
-
 
 ## Monitor job performance
 Using the Azure portal, you can track the throughput of a job:
@@ -44,7 +36,6 @@ Using the Azure portal, you can track the throughput of a job:
 ![Azure Stream Analytics monitor jobs][img.stream.analytics.monitor.job]
 
 Calculate the expected throughput of the workload. If the throughput is less than expected, tune the input partition, tune the query, and add SUs to your job.
-
 
 ## How many SUs are required for a job?
 
@@ -57,71 +48,92 @@ For more information about choosing the right number of SUs, see this page: [Sca
 > [!Note]
 > Choosing how many SUs are required for a particular job depends on the partition configuration for the inputs and on the query defined for the job. You can select up to your quota in SUs for a job. By default, each Azure subscription has a quota of up to 200 SUs for all the analytics jobs in a specific region. To increase SUs for your subscriptions beyond this quota, contact [Microsoft Support](http://support.microsoft.com). Valid values for SUs per job are 1, 3, 6, and up in increments of 6.
 
+## Factors that increase SU% utilization 
+
+Temporal (time-oriented) query elements are the core set of stateful operators provided by Stream Analytics. Stream Analytics manages the state of these operations internally on user’s behalf, by managing memory consumption, checkpointing for resiliency, and state recovery during service upgrades. Even though Stream Analytics fully manages the states, there are a number of best practice recommendations that users should consider.
+
+## Stateful query logic in temporal elements
+One of the unique capability of Azure Stream Analytics job is to perform stateful processing, such as windowed aggregates, temporal joins, and temporal analytic functions. Each of these operators keeps state information. The maximum window size for these query elements is seven days. 
+
+The temporal window concept appears in several Stream Analytics query elements:
+1. Windowed aggregates: GROUP BY of Tumbling, Hopping, and Sliding windows
+
+2. Temporal joins: JOIN with DATEDIFF function
+
+3. Temporal analytic functions: ISFIRST, LAST, and LAG with LIMIT DURATION
+
+The following factors influence the memory used (part of streaming units metric) by Stream Analytics jobs:
+
+## Windowed aggregates
+The memory consumed (state size) for a windowed aggregate is not always directly proportional to the window size. Instead, the memory consumed is proportional to the cardinality of the data, or the number of groups in each time window.
 
 
-## Factors increasing SU% utilization 
-### Stateful query logic 
-One of the unique capability of Azure Stream Analytics job is to perform stateful processing, such as windowed aggregates, temporal joins, and temporal analytic functions. Each of these operators keeps some states. 
-#### Windowed aggregates
-The state size of a windowed aggregate is proportional to the number of groups (cardinality) in the group by operator. 
-For example, in the following query, the number associated with clusterid is the cardinality of the query. 
+For example, in the following query, the number associated with `clusterid` is the cardinality of the query. 
 
-    SELECT count(*)
-    FROM input 
-    GROUP BY  clusterid, tumblingwindow (minutes, 5)
+   ```sql
+   SELECT count(*)
+   FROM input 
+   GROUP BY  clusterid, tumblingwindow (minutes, 5)
+   ```
 
+In order to ameliorate issues caused by high cardinality in the previous query, you can send events to Event Hub partitioned by `clusterid`, and scale out the query by allowing the system to process each input partition separately using **PARTITION BY** as shown in the example below:
 
-In order to ameliorate issues caused by high cardinality in the previous query, you can send events to Event Hub partitioned by ''clusterid'', and scale out the query by allowing the system to process each input partition separately using **PARTITION BY** as shown in the example below:
+   ```sql
+   SELECT count(*) 
+   FROM PARTITION BY PartitionId
+   GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
+   ```
 
+Once the query is partitioned out, it is spread out over multiple nodes. As a result, the number of `clusterid` values coming into each node is reduced thereby reducing the cardinality of the group by operator. 
 
-    SELECT count(*) 
-    FROM PARTITION BY PartitionId
-    GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
+Event Hub partitions should be partitioned by the grouping key to avoid the need for a reduce step. For more information, see [Event Hubs overview](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
-Once the query is partitioned out, it is spread out over multiple nodes. As a result, the number of clusterid coming into each node is reduced thereby reducing the cardinality of the group by operator. 
-
-Event Hub partitions should be partitioned by the grouping key to avoid the need for a reduce step. Additional details are covered [here](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview). 
-#### Temporal join
-The state size of a temporal join is proportional to the number of events in the temporal wiggle room of the join, which is event input rate multiply by the wiggle room size. 
+## Temporal joins
+The memory consumed (state size) of a temporal join is proportional to the number of events in the temporal wiggle room of the join, which is event input rate multiply by the wiggle room size. In other words, the memory consumed by joins is proportional to the DateDiff time range multiplied by average event rate.
 
 The number of unmatched events in the join affect the memory utilization for the query. The following query is looking to find the ad impressions that generate clicks:
 
-    SELECT clicks.id
-    FROM clicks 
-    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+   ```sql
+   SELECT clicks.id
+   FROM clicks 
+   INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+   ```
 
 In this example, it is possible that lots of ads are shown and few people click on it and it is required to keep all the events in the time window. Memory consumed is proportional to the window size and event rate. 
 
 To remediate this, send events to Event Hub partitioned by the join keys (id in this case), and scale out the query by allowing the system to process each input partition separately using  **PARTITION BY** as shown:
 
-    SELECT clicks.id
-    FROM clicks PARTITION BY PartitionId
-    INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
-</code>
+   ```sql
+   SELECT clicks.id
+   FROM clicks PARTITION BY PartitionId
+   INNER JOIN impressions PARTITION BY PartitionId 
+   ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+   ```
 
 Once the query is partitioned out, it is spread out over multiple nodes. As a result the number of events coming into each node is reduced thereby reducing the size of the state kept in the join window. 
-#### Temporal analytic function
-The state size of a temporal analytic function is proportional to the event rate multiply by the duration. 
+
+## Temporal analytic functions
+The memory consumed (state size) of a temporal analytic function is proportional to the event rate multiply by the duration. The memory consumed by analytic functions is not proportional to the window size, but rather partition count in each time window.
+
 The remediation is similar to temporal join. You can scale out the query using **PARTITION BY**. 
 
-### Out of order buffer 
+## Out of order buffer 
 User can configure the out of order buffer size in the Event Ordering configuration pane. The buffer is used to hold inputs for the duration of the window, and reorder them. The size of the buffer is proportional to the event input rate multiply by the out of order window size. The default window size is 0. 
 
-To remediate this, scale out query using **PARTITION BY**. Once the query is partitioned out, it is spread out over multiple nodes. As a results the number of events coming into each node is reduced thereby reducing the number of events in each reorder buffer. 
+To remediate overflow of the out of order buffer, scale out query using **PARTITION BY**. Once the query is partitioned out, it is spread out over multiple nodes. As a result, the number of events coming into each node is reduced thereby reducing the number of events in each reorder buffer. 
 
-### Input partition count 
-Each input partition of a job input has a buffer. The larger number of input partitions, the more resource the job consumes. For each SU, Azure Stream Analytics can process roughly 1 MB/s of input, so you may want to match ASA SU number with the number of partition of your Event Hub. Typically, 1SU job is sufficient for an Event Hub with 2 partitions (which is the minimum for Event Hub). If the Event Hub has more partitions, your ASA job consumes more resources, but not necessarily uses the extra throughput provided by Event Hub. For a 6SU job, you may need 4 or 8 partitions from the Event Hub. Using an Event Hub with 16 partitions or larger in an 1SU job often contributes to excessive resource usage, and should be avoided. 
+## Input partition count 
+Each input partition of a job input has a buffer. The larger number of input partitions, the more resource the job consumes. For each streaming unit, Azure Stream Analytics can process roughly 1 MB/s of input. Therefore, you can optimize by matching the number of Stream Analytics streaming units with the number of partitions in your Event Hub. 
 
-### Reference data 
+Typically, a job configured with one streaming unit is sufficient for an Event Hub with two partitions (which is the minimum for Event Hub). If the Event Hub has more partitions, your Stream Analytics job consumes more resources, but not necessarily uses the extra throughput provided by Event Hub. 
+
+For a job with 6 streaming units, you may need 4 or 8 partitions from the Event Hub. However, avoid too many unnecessary partitions since that causes excessive resource usage. For example, an Event Hub with 16 partitions or larger in a Stream Analytics job that has 1 streaming unit. 
+
+## Reference data 
 Reference data in ASA are loaded into memory for fast lookup. With the current implementation, each join operation with reference data keeps a copy of the reference data in memory, even if you join with the same reference data multiple times. For queries with **PARTITION BY**, each partition has a copy of the reference data, so the partitions are fully decoupled. With the multiplier effect, memory usage can quickly get very high if you join with reference data multiple times with multiple partitions.  
 
-#### Use of UDF functions
+### Use of UDF functions
 When you add a UDF function, Azure Stream Analytics loads the JavaScript runtime into memory. This will affect the SU%.
-
-
-## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)

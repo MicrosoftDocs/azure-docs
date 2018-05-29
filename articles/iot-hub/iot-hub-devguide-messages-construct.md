@@ -19,7 +19,11 @@ ms.author: dobett
 ---
 # Create and read IoT Hub messages
 
-To support seamless interoperability across protocols, IoT Hub defines a common message format for all device-facing protocols. This message format is used for both [device-to-cloud][lnk-d2c] and [cloud-to-device][lnk-c2d] messages. An [IoT Hub message][lnk-messaging] consists of:
+To support seamless interoperability across protocols, IoT Hub defines a common message format for all device-facing protocols. This message format is used for both [device-to-cloud][lnk-d2c] and [cloud-to-device][lnk-c2d] messages. 
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+An [IoT Hub message][lnk-messaging] consists of:
 
 * A set of *system properties*. Properties that IoT Hub interprets or sets. This set is predetermined.
 * A set of *application properties*. A dictionary of string properties that the application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties.

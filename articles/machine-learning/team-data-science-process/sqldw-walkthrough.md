@@ -3,7 +3,7 @@ title: 'The Team Data Science Process in action: using SQL Data Warehouse | Micr
 description: Advanced Analytics Process and Technology in Action
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # The Team Data Science Process in action: using SQL Data Warehouse

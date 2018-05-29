@@ -4,7 +4,7 @@ description: Learn how to prepare the Azure infrastructure for SAP HA by using a
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -565,7 +565,7 @@ Then, add this Windows registry entry on both Windows cluster nodes for SAP ASCS
 | Variable name |`KeepAliveInterval` |
 | Variable type |REG_DWORD (Decimal) |
 | Value |120000 |
-| Link to documentation |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Link to documentation |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 **Table 4:** Change the second TCP/IP parameter
 

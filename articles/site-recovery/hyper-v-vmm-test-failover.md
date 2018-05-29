@@ -48,11 +48,17 @@ When you run a test failover, you're asked to select network settings for test r
 ### Best practices
 
 - Testing a production network causes downtime for production workloads. Ask your users not to use related apps when the disaster recovery drill is in progress.
+
 - The test network doesn't need to match the VMM logical network type used for test failover. But, some combinations don't work:
-        - If the replica uses DHCP and VLAN-based isolation, the VM network for the replica doesn't need a static IP address pool. So using Windows Network Virtualization for the test failover won't work because no address pools are available. 
-        - Test failover won't work if the replica network uses no isolation, and the test network uses Windows Network Virtualization. This is because the no-isolation network doesn't have the subnets required to create a Windows Network Virtualization network.
+
+     - If the replica uses DHCP and VLAN-based isolation, the VM network for the replica doesn't need a static IP address pool. So using Windows Network Virtualization for the test failover won't work because no address pools are available. 
+        
+     - Test failover won't work if the replica network uses no isolation, and the test network uses Windows Network Virtualization. This is because the no-isolation network doesn't have the subnets required to create a Windows Network Virtualization network.
+        
 - We recommend that you don't use the network you selected for network mapping, for test failover.
+
 - How replica virtual machines are connected to mapped VM networks after failover depends on how the VM network is configured in the VMM console.
+
 
 ### VM network configured with no isolation or VLAN isolation
 

@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-suite
+ author: dominicbetts
+ ms.service: iot-suite
+ ms.topic: include
+ ms.date: 04/24/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 # Internet of Things security architecture
 
 When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning.
@@ -160,11 +172,11 @@ In each of the categories outlined in the Azure IoT architecture, this example t
 | **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
 | --- | --- | --- | --- | --- |
 | Device |S |Assigning identity to the device and authenticating the device |Replacing device or part of the device with some other device. How do you know you are talking to the right device? |Authenticating the device, using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
-| TRID |Apply tamperproof mechanisms to the device, for example,  by making it hard to impossible to extract keys and other cryptographic material from the device. |The risk is if someone is tampering the device (physical interference). How are you sure, that device has not been tampered with. |The most effective mitigation is a trusted platform module (TPM) capability that allows storing keys in special on-chip circuitry from which the keys cannot be read, but can only be used for cryptographic operations that use the key but never disclose the key. Memory encryption of the device. Key management for the device. Signing the code. | |
-| E |Having access control of the device. Authorization scheme. |If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it allows the attack to perform operations not otherwise accessible. |Having authorization scheme for the device | |
+|| TRID |Apply tamperproof mechanisms to the device, for example,  by making it hard to impossible to extract keys and other cryptographic material from the device. |The risk is if someone is tampering the device (physical interference). How are you sure, that device has not been tampered with. |The most effective mitigation is a trusted platform module (TPM) capability that allows storing keys in special on-chip circuitry from which the keys cannot be read, but can only be used for cryptographic operations that use the key but never disclose the key. Memory encryption of the device. Key management for the device. Signing the code. | |
+|| E |Having access control of the device. Authorization scheme. |If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it allows the attack to perform operations not otherwise accessible. |Having authorization scheme for the device | |
 | Field Gateway |S |Authenticating the Field gateway to Cloud Gateway (such as cert based, PSK, or Claim based.) |If someone can spoof Field Gateway, then it can present itself as any device. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). All the same key storage and attestation concerns of devices in general – best case is use TPM. 6LowPAN extension for IPSec to support Wireless Sensor Networks (WSN). |
-| TRID |Protect the Field Gateway against tampering (TPM?) |Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPM’s, authentication. | |
-| E |Access control mechanism for Field Gateway | | | |
+|| TRID |Protect the Field Gateway against tampering (TPM?) |Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPM’s, authentication. | |
+|| E |Access control mechanism for Field Gateway | | | |
 
 Here are some examples of threats in this category:
 

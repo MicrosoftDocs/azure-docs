@@ -11,7 +11,7 @@ tags:
 ms.assetid:
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 03/20/2018
@@ -19,7 +19,7 @@ ms.author: jdial
 
 ---
 
-# Filter inbound and outbound VM network traffic
+# Filter inbound and outbound VM network traffic script sample
 
 This script sample creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, HTTPS, and SSH, while outbound traffic to the internet from the back-end subnet is not permitted. After running the script, you will have one virtual machine with two NICs. Each NIC is connected to a different subnet.
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Perform operations on Azure Queue storage with PowerShell | Microsoft Docs
 description: How to perform operations on Azure Queue storage with PowerShell
 services: storage
@@ -35,10 +35,10 @@ There are no PowerShell cmdlets for the data plane for queues. To perform data p
 
 ## Sign in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## Retrieve list of locations

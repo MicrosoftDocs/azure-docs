@@ -7,18 +7,18 @@ manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/22/2018
 ms.author: cshoe
 ---
 
 # Azure Storage security guide
 
-## Overview
-
 Azure Storage provides a comprehensive set of security capabilities that together enable developers to build secure applications:
 
 - All data written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For more information, see [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
-- The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. 
+- Azure Active Directory (Azure AD) and Role-Based Access Control (RBAC) are supported for Azure Storage for both resource management operations and data operations, as follows:   
+    - You can assign RBAC roles scoped to the storage account to security principals and use Azure AD to authorize resource management operations such as key management.
+    - Azure AD integration is supported in preview for data operations on the Blob and Queue services. You can assign RBAC roles scoped to a subscription, resource group, storage account, or an individual container or queue to a security principal or a managed service identity. For more information, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).   
 - Data can be secured in transit between an application and Azure by using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0.  
 - OS and data disks used by Azure virtual machines can be encrypted using [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](../storage-dotnet-shared-access-signature-part-1.md).
@@ -82,16 +82,16 @@ Here are the main points that you need to know about using RBAC to access the ma
 * You can create a report of who granted/revoked what kind of access to/from whom and on what scope using PowerShell or the Azure CLI.
 
 #### Resources
-* [Azure Active Directory Role-based Access Control](../../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory Role-based Access Control](../../role-based-access-control/role-assignments-portal.md)
 
   This article explains the Azure Active Directory Role-based Access Control and how it works.
-* [RBAC: Built in Roles](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md)
 
   This article details all of the built-in roles available in RBAC.
 * [Understanding Resource Manager deployment and classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups. It explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
-* [Managing Role-Based Access Control with the REST API](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [Managing Role-Based Access Control with the REST API](../../role-based-access-control/role-assignments-rest.md)
 
   This article shows how to use the REST API to manage RBAC.
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/azure/mt163683.aspx)
@@ -157,12 +157,15 @@ Note: it is recommended to use only one of the keys in all of your applications 
 ## Data Plane Security
 Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage – the blobs, queues, tables, and files. We've seen methods to encrypt the data and security during transit of the data, but how do you go about controlling access to the objects?
 
-There are two methods for authorizing access to the data objects themselves. These include controlling access to the storage account keys and using Shared Access Signatures to grant access to specific data objects for a specific amount of time.
+You have three options for authorizing access to data objects in Azure Storage, including:
+
+- Using Azure AD to authorize access to containers and queues (Preview). Azure AD provides advantages over other approaches to authorization, including removing the need to store secrets in your code. For more information, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md). 
+- Using your storage account keys to authorize access via Shared Key. Authorizing via Shared Key requires storing your storage account keys in your application, so Microsoft recommends using Azure AD instead where possible. For production applications, or for authorizing access to Azure tables and files, continue using Shared Key while Azure AD integration is in preview.
+- Using Shared Access Signatures to grant controlled permissions to specific data objects for a specific amount of time.
 
 In addition, for Blob Storage, you can allow public access to your blobs by setting the access level for the container that holds the blobs accordingly. If you set access for a container to Blob or Container, it will allow public read access for the blobs in that container. This means anyone with a URL pointing to a blob in that container can open it in a browser without using a Shared Access Signature or having the storage account keys.
 
 In addition to limiting access through authorization, you can also use [Firewalls and Virtual Networks](storage-network-security.md) to limit access to the storage account based on network rules.  This approach enables you deny access to public internet traffic, and to grant access only to specific Azure Virtual Networks or public internet IP address ranges.
-
 
 ### Storage Account Keys
 Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account.
@@ -291,7 +294,7 @@ While you can use Client-side Encryption to encrypt the data in transit (which i
 
 SSE is enabled for all storage accounts and cannot be disabled. SSE automatically encrypts your data when writing it to Azure Storage. When you read data from Azure Storage, it is decrypted by Azure Storage before being returned. SSE enables you to secure your data without having to modify code or add code to any applications.
 
-The keys used for SSE are managed by Microsoft. Microsoft generates the keys originally, and manages their secure storage as well as their regular rotation, as defined by internal Microsoft policy. Customer-managed keys will eventually be available, along with a migration path from Microsoft-managed keys to customer-managed keys.
+You can use either Microsoft-managed keys or your own custom keys. Microsoft generates managed keys and handles their secure storage as well as their regular rotation, as defined by internal Microsoft policy. For more information about using custom keys, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). 
 

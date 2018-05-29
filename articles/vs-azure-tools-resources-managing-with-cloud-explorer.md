@@ -2,17 +2,13 @@
 title: Managing Azure resources with Cloud Explorer | Microsoft Docs
 description: Learn how to use Cloud Explorer to browse and manage Azure resources within Visual Studio.
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-
-ms.assetid: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/25/2017
 ms.author: ghogen
 
@@ -20,7 +16,7 @@ ms.author: ghogen
 # Manage the resources associated with your Azure accounts in Visual Studio Cloud Explorer
 Cloud Explorer enables you to view your Azure resources and resource groups, inspect their properties, and perform key developer diagnostics actions from within Visual Studio. 
 
-Like the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer is built on the Azure Resource Manager stack. Therefore, Cloud Explorer understands resources such as Azure resource groups and Azure services such as Logic apps and API apps, and it supports [role-based access control](active-directory/role-based-access-control-configure.md) (RBAC). 
+Like the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer is built on the Azure Resource Manager stack. Therefore, Cloud Explorer understands resources such as Azure resource groups and Azure services such as Logic apps and API apps, and it supports [role-based access control](role-based-access-control/role-assignments-portal.md) (RBAC). 
 
 ## Prerequisites
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **Azure workload** selected, or an earlier version of Visual Studio with the [Microsoft Azure SDK for .NET 2.9](https://www.microsoft.com/en-us/download/details.aspx?id=51657).

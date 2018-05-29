@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/01/2018
 ms.author: shlo
 
 ---
@@ -75,6 +75,16 @@ linkedServices | List of linked services passed to endpoint. | Array of linked s
 
 > [!NOTE]
 > REST endpoints that the web activity invokes must return a response of type JSON. The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint.
+
+The following table shows the requirements for JSON content:
+
+| Value type | Request body | Response body |
+|---|---|---|
+|JSON object | Supported | Supported |
+|JSON array | Supported <br/>(At present, JSON arrays don't work as a result of a bug. A fix is in progress.) | Unsupported |
+| JSON value | Supported | Unsupported |
+| Non-JSON type | Unsupported | Unsupported |
+||||
 
 ## Authentication
 

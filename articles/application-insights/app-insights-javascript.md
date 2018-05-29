@@ -23,7 +23,7 @@ Application Insights can be used with any web pages - you just add a short piece
 
 ![In portal.azure.com, open your app's resource and click Browser](./media/app-insights-javascript/03.png)
 
-You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it. Development and small-scale use won't cost anything.
+You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it.
 
 ## Set up Application Insights for your web page
 Add the loader code snippet to your web pages, as follows.
@@ -110,11 +110,8 @@ The [available parameters](https://github.com/Microsoft/ApplicationInsights-JS/b
     // Time page load up to execution of first trackPageView().
     overridePageViewDuration: boolean,
 
-    // Set these dynamically for an authenticated user.
-    appUserId: string,
+    // Set dynamically for an authenticated user.
     accountId: string,
-
-
 
 ## <a name="run"></a>Run your app
 Run your web app, use it a while to generate telemetry, and wait a few seconds. You can either run it using the **F5** key on your development machine, or publish it and let users play with it.

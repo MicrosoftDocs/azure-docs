@@ -3,7 +3,7 @@ title: SQL Server Business Intelligence | Microsoft Docs
 description: This topic uses resources created with the classic deployment model, and describes the Business Intelligence (BI) features available for SQL Server running on Azure Virtual Machines (VMs).
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
-ms.author: asaxton
+ms.author: maghan
 
 ---
 # SQL Server Business Intelligence in Azure Virtual Machines

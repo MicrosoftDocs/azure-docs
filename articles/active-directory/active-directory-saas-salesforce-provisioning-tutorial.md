@@ -24,9 +24,13 @@ The objective of this tutorial is to show the steps required to perform in Sales
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-*   An Azure Active directory tenant.
-*   You must have a valid tenant for Salesforce for Work or Salesforce for Education. You may use a free trial     account for either service.
-*   A user account in Salesforce with Team Admin permissions.
+*   An Azure Active directory tenant
+*   A Salesforce.com tenant
+
+>[!IMPORTANT] 
+>If you are using a Salesforce.com trial account, then you will be unable to configure automated user provisioning. Trial accounts do not have the necessary API access enabled until they are purchased. You can get around this limitation by using a free [developer account](https://developer.salesforce.com/signup) to complete this tutorial.
+
+If you are using a Salesforce Sandbox environment, please see the [Salesforce Sandbox integration tutorial](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ## Assigning users to Salesforce
 
@@ -109,5 +113,5 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

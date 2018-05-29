@@ -102,7 +102,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, and **Admin Password** of your BlueJeans account. Examples of these values are:
 
-	*   In the **Admin Username** field, populate the username of the admin account on your BlueJeans Tenant. Example: admin@contoso.com.
+	*   In the **Admin Username** field, populate the username of the admin account on your BlueJeans tenant. Example: admin@contoso.com.
 
 	*   In the **Admin Password** field, populate the password corresponding to the admin username.
 
@@ -110,7 +110,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![BlueJeans Provisioning](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
-7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
+7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
 	![BlueJeans Provisioning](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
@@ -142,10 +142,14 @@ This operation starts the initial synchronization of all users and/or groups def
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](./active-directory-saas-provisioning-reporting.md).
 
+## Connector Limitations
+
+* Bluejeans does not allow usernames that exceed 30 characters.
+
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

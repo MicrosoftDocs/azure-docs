@@ -7,8 +7,8 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
-ms.date: 11/30/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: genemi
 ---
 # Deploy and explore a standalone single-tenant application that uses Azure SQL Database

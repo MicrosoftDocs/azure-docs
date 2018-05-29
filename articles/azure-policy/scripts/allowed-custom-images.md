@@ -3,7 +3,7 @@ title: Azure Policy json sample - Approved VM images  | Microsoft Docs
 description: This json sample policy requires that only approved custom images are deployed in your environment.
 services: azure-policy
 documentationcenter:
-author: bandersmsft
+author: DCtheGeek
 manager: carmonm
 editor:
 ms.assetid:
@@ -13,7 +13,7 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload:
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
 ---
 
@@ -72,4 +72,5 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-- Additional Azure Policy template samples are at [Templates for Azure Policy](../json-samples.md).
+- Review more examples at [Azure Policy samples](../json-samples.md).
+- Additional Azure Policy examples for Virtual Machines at [Apply policies to Windows VMs](../../virtual-machines/windows/policy.md).

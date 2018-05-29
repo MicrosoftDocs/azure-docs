@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 
@@ -28,7 +28,7 @@ Azure Monitor provides base level infrastructure metrics and logs for most servi
 
 * Save them to a **Storage Account** for auditing or manual inspection. You can specify the retention time (in days) using the diagnostic settings.
 * Stream them to **Event Hubs** for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze them with **Operations Management Suite (OMS) Log Analytics**
+* Analyze them with **Log Analytics**
 
 You can use a storage account or event hub namespace that is not in the same subscription as the resource that is emitting logs. The user who configures the setting must have the appropriate role-based access control (RBAC) access to both subscriptions.
 
@@ -37,11 +37,11 @@ You can use a storage account or event hub namespace that is not in the same sub
 ### Diagnostic Settings
 Diagnostic Logs for non-compute resources are configured using diagnostic settings. Diagnostic settings for a resource control:
 
-* Where diagnostic logs are sent (Storage Account, Event Hubs, and/or OMS Log Analytics).
+* Where diagnostic logs are sent (Storage Account, Event Hubs, and/or Log Analytics).
 * Which log categories are sent.
 * How long each log category should be retained in a storage account
 * A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
-* If retention policies are set but storing logs in a storage account is disabled (for example, only Event Hubs or OMS options are selected), the retention policies have no effect.
+* If retention policies are set but storing logs in a storage account is disabled (for example, only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
 * Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 
 ### Enable diagnostic logs via REST APIs
@@ -66,7 +66,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "properties": {
         "storageAccountId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>",
         "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.EventHub/namespaces/<eventHubName>/authorizationrules/RootManageSharedAccessKey",
-        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<OMSName>",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<LogAnalyticsName>",
         "metrics": [
         ],
         "logs": [
@@ -103,7 +103,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | Property | Type | Description |
 | --- | --- | --- |
 | storageAccountId |String | The resource ID of the storage account to which you would like to send Diagnostic Logs |
-| serviceBusRuleId |String | The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming Diagnostic Logs. The rule ID is of the format: ‚Äú{service bus resource ID}/authorizationrules/{key name}‚Äù.|
+| serviceBusRuleId |String | The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming Diagnostic Logs. The rule ID is of the format: ì{service bus resource ID}/authorizationrules/{key name}î.|
 | workspaceId | Complex Type | Array of metric time grains and their retention policies. Currently, this property is empty. |
 |metrics| Parameter values of the pipeline run to be passed to the invoked pipeline| A JSON object mapping parameter names to argument values | 
 | logs| Complex Type| Name of a Diagnostic Log category for a resource type. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation. |
@@ -120,7 +120,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```json
 {
-    "id": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
+    "id": "/subscriptions/<subID>/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
     "type": null,
     "name": "service",
     "location": null,
@@ -129,7 +129,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "properties": {
         "storageAccountId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.Storage/storageAccounts/<storageAccountName>",
         "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.EventHub/namespaces/<eventHubName>/authorizationrules/RootManageSharedAccessKey",
-        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.OperationalInsights/workspaces/<OMSName>",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.OperationalInsights/workspaces/<LogAnalyticsName>",
         "eventHubAuthorizationRuleId": null,
         "eventHubName": null,
         "metrics": [],
@@ -184,16 +184,16 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```json
 {
-    "id": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
+    "id": "/subscriptions/<subID>/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
     "type": null,
     "name": "service",
     "location": null,
     "kind": null,
     "tags": null,
     "properties": {
-        "storageAccountId": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourceGroups/shloprivate/providers/Microsoft.Storage/storageAccounts/azmonlogs",
-        "serviceBusRuleId": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourceGroups/shloprivate/providers/Microsoft.EventHub/namespaces/shloeventhub/authorizationrules/RootManageSharedAccessKey",
-        "workspaceId": "/subscriptions/0ee78edb-a0ad-456c-a0a2-901bf542c102/resourceGroups/ADF/providers/Microsoft.OperationalInsights/workspaces/mihaipie",
+        "storageAccountId": "/subscriptions/<subID>/resourceGroups/shloprivate/providers/Microsoft.Storage/storageAccounts/azmonlogs",
+        "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/shloprivate/providers/Microsoft.EventHub/namespaces/shloeventhub/authorizationrules/RootManageSharedAccessKey",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/ADF/providers/Microsoft.OperationalInsights/workspaces/mihaipie",
         "eventHubAuthorizationRuleId": null,
         "eventHubName": null,
         "metrics": [],
@@ -227,7 +227,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-More info here](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+[More info here](https://msdn.microsoft.com/library/azure/dn931932.aspx)
 
 ## Schema of Logs & Events
 

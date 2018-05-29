@@ -13,10 +13,8 @@ ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/26/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
 
 ---
@@ -42,11 +40,11 @@ Use the following table to discover the different ways to use Hive with HDInsigh
 
 | **Use this method** if you want... | ...**interactive** queries | ...**batch** processing | ...with this **cluster operating system** | ...from this **client operating system** |
 |:--- |:---:|:---:|:--- |:--- |
+| [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X, or Windows |
+| [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux or Windows* |Windows |
 | [Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Any (browser based) |
 | [Beeline client](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux or Windows* |Linux, Unix, Mac OS X, or Windows |
-| [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X, or Windows |
-| [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux or Windows* |Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux or Windows* |Windows |
 
 > [!IMPORTANT]
