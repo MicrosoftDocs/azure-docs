@@ -35,4 +35,4 @@ The entity and role are surrounded in parentheses, `{}`. The entity and the role
 
 ## Next steps
 
-* Learn how to add [roles](add-entities.md#add-role-to-pattern-based-entity)
+* Learn how to add [roles](luis-how-to-add-entities.md#add-role-to-pattern-based-entity)
