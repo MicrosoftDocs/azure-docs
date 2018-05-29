@@ -125,7 +125,7 @@
     items:
     - name: Azure CLI
       href: howto-manage-vnet-using-cli.md
-      name: Azure portal
+    - name: Azure portal
       href: howto-manage-vnet-using-portal.md
 - name: Reference
   items:
