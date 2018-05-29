@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/27/2018
 ms.author: magoedte
 ---
 
@@ -33,7 +33,7 @@ The cost of data can be considerable depending on the following factors:
 > [!NOTE]
 > Refer to the documentation for each solution as it provides an estimate of how much data it collects.   
 
-If you are on the *Free* plan, data is limited to 7 days retention. For the *Standalone* or *Paid* tier, data collected is available for the last 31 days. The *Free* plan has 500 MB daily ingestion limit, and if you find that you consistently exceed the amounts allowed volume, you can change your workspace to a paid plan to collect data beyond this limit. 
+Customers with an Enterprise Agreement signed prior to July 1, 2018 or who already created a Log Analytics workspace in a subscription, you still have access to the *Free* plan. If your subscription is not tied to an existing EA enrollment, the *Free* tier is not available when you create a workspace in a new subscription after April 2, 2018.  Data is limited to 7 days retention for the *Free* tier.  For the *Standalone* or *Paid* tier, data collected is available for the last 31 days. The *Free* tier has 500 MB daily ingestion limit, and if you find that you consistently exceed the amounts allowed volume, you can change your workspace to a paid plan to collect data beyond this limit. 
 
 > [!NOTE]
 > Charges apply if you choose to select a longer retention period for the paid tier. You can change your plan type at any time and for more information on pricing, see [pricing details](https://azure.microsoft.com/pricing/details/log-analytics/). 
