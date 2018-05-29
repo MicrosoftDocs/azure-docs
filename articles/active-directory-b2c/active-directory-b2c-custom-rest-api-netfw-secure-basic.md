@@ -1,17 +1,15 @@
 ---
 title: 'Azure Active Directory B2C: Secure your RESTful services by using HTTP basic authentication'
-description: Secure your custom REST API claims exchanges in your Azure AD B2C by using HTTP basic authentication
-services: active-directory-b2c
-documentationcenter: ''
+description: Secure your custom REST API claims exchanges in your Azure AD B2C by using HTTP basic authentication.
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
+ms.component: B2C
 ---
 
 # Secure your RESTful services by using HTTP basic authentication

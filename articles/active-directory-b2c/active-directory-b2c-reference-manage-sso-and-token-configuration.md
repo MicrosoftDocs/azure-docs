@@ -1,19 +1,17 @@
 ---
-title: 'Manage SSO and token customization with custom policies | Microsoft Docs'
+title: Manage SSO and token customization with custom policies | Microsoft Docs
 description: Learn about managing SSO and token customization with custom policies.
-services: active-directory-b2c
-documentationcenter: ''
-author: davidmu
+author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Manage SSO and token customization with custom policies
 Using custom policies provides you the same control over your token, session and single sign-on (SSO) configurations as through built-in policies.  To learn what each setting does, please see the documentation [here](#active-directory-b2c-token-session-sso).
 

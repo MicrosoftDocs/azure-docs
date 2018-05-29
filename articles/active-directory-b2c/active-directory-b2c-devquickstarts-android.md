@@ -1,20 +1,17 @@
 ---
 title: 'Azure Active Directory B2C: Acquiring a token using an Android application | Microsoft Docs'
 description: This article will show you how to create an Android app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
-services: active-directory-b2c
-documentationcenter: android
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: mobile-android
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure AD B2C: Sign-in using an Android application
 
 The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. This allows developers to leverage any library they wish to integrate with our services. To aid developers in using our platform with other libraries, we've written a few walkthroughs like this one to demonstrate how to configure 3rd party libraries to connect to the Microsoft identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) will be able to connect to the Microsoft Identity platform.

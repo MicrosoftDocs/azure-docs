@@ -1,19 +1,17 @@
----
-title: 'Azure Active Directory B2C: Custom Policies | Microsoft Docs'
-description: A topic on Azure Active Directory B2C custom policies
-services: active-directory-b2c
-documentationcenter: ''
+﻿---
+title: Azure Active Directory B2C: Custom Policies | Microsoft Docs
+description: A topic on Azure Active Directory B2C custom policies.
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]

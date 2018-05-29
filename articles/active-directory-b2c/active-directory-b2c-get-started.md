@@ -1,19 +1,17 @@
 ---
 title: 'Create an Azure Active Directory B2C tenant | Microsoft Docs'
-description: A topic on how to create an Azure Active Directory B2C tenant
-services: active-directory-b2c
-documentationcenter: ''
+description: A topic on how to create an Azure Active Directory B2C tenant.
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Create an Azure Active Directory B2C tenant in the Azure portal
 
 This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B2C tenant in just a few minutes. When you're finished, you have a B2C tenant (also known as a directory) to use for registering B2C applications.
