@@ -1,17 +1,13 @@
 ---
 title: Add custom html in Azure Maps | Microsoft Docs
 description: How to add custom html to a Javascript map
-services: azure-maps
-keywords: 
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: 
 ms.custom: codepen
 ---
 
@@ -35,3 +31,8 @@ The last block of code uses [addHtml](https://docs.microsoft.com/javascript/api/
 Learn more about the classes and methods used in this article: 
 * [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addhtml)
+    
+For more code examples to add to your maps, see the following articles: 
+* [Show search results](./map-search-location.md)
+* [Get information from a coordinate](./map-get-information-from-coordinate.md)
+

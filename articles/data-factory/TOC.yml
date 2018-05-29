@@ -1,5 +1,7 @@
 - name: Data Factory V2 Documentation
   href: index.yml
+- name: Switch to version 1 documentation
+  href: v1/data-factory-introduction.md
 - name: Overview
   items:
   - name: Introduction to Data Factory
@@ -394,6 +396,8 @@
       href: how-to-create-schedule-trigger.md
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
+    - name: Create an event-based trigger
+      href: how-to-create-event-trigger.md
 - name: Reference
   items:
   - name: .NET

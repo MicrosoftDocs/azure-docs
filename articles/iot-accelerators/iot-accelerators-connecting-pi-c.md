@@ -1,23 +1,15 @@
 ---
 title: Provision Raspberry Pi to Remote Monitoring using C - Azure | Microsoft Docs
 description: Describes how to connect a Raspberry Pi device to the Remote Monitoring solution accelerator using an application written in C.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
-
 ---
+
 # Connect your Raspberry Pi device to the Remote Monitoring solution accelerator (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
@@ -72,6 +64,18 @@ The following steps show you how to prepare your Raspberry Pi for building a C a
     ./build.sh --no-make
     cd ../../cmake/iotsdk_linux
     make
+    sudo make install
+    ```
+
+1. Use the following commands to download, build, and install the Azure shared C library on your Raspberry Pi:
+
+    ```sh
+    cd ~
+    git clone --recursive https://github.com/Azure/azure-c-shared-utility.git
+    cd azure-c-shared-utility
+    mkdir cmake
+    cd cmake
+    cmake ..
     sudo make install
     ```
 

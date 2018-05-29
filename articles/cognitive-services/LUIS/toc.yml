@@ -29,6 +29,8 @@
         href: luis-quickstart-intent-and-key-phrase.md
       - name: Sentiment analysis
         href: luis-quickstart-intent-and-sentiment-analysis.md
+- name: Tutorials
+  items: 
   - name: Use APIs
     items: 
     - name: Get utterance prediction with endpoint query
@@ -50,19 +52,19 @@
     - name: Add utterance to intent and train app
       items: 
       - name: C#
-        href: luis-quickstart-cs-add-utterance.md
+        href: luis-get-started-cs-add-utterance.md
       - name: Java
-        href: luis-quickstart-java-add-utterance.md
+        href: luis-get-started-java-add-utterance.md
       - name: JavaScript
-        href: luis-quickstart-javascript-add-utterance.md
+        href: luis-get-started-javascript-add-utterance.md
       - name: Node.js
-        href: luis-quickstart-node-add-utterance.md
+        href: luis-get-started-node-add-utterance.md
       - name: Python
-        href: luis-quickstart-python-add-utterance.md
+        href: luis-get-started-python-add-utterance.md
       - name: PHP
-        href: luis-quickstart-php-add-utterance.md
+        href: luis-get-started-php-add-utterance.md
       - name: Ruby
-        href: luis-quickstart-ruby-add-utterance.md
+        href: luis-get-started-ruby-add-utterance.md
 - name: Samples
   items:
   - name: Code samples
@@ -136,7 +138,7 @@
     - name: Add utterances
       href: Add-example-utterances.md
     - name: Add entities
-      href: Add-entities.md
+      href: luis-how-to-add-entities.md
     - name: Use composite entity to extract grouped data
       href: luis-tutorial-composite-entity.md
     - name: Use list entity to match exact text using Node.js
@@ -219,7 +221,7 @@
     href: luis-tutorial-node-import-utterances-csv.md
 - name: Reference
   items: 
-  - name: GDPR
+  - name: User privacy
     href: luis-reference-gdpr.md
   - name: Regions
     href: luis-reference-regions.md

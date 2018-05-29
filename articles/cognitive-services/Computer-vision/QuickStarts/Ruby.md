@@ -44,7 +44,7 @@ require 'net/http'
 # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
 #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
 #   URL below with "westus".
-uri = URI('https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze')
+uri = URI('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze')
 uri.query = URI.encode_www_form({
     # Request parameters
     'visualFeatures' => 'Categories',
@@ -186,7 +186,7 @@ require 'net/http'
 # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
 #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
 #   URL below with "westus".
-uri = URI('https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail')
+uri = URI('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail')
 uri.query = URI.encode_www_form({
     # Request parameters
     'width' => '{number}',
@@ -227,7 +227,7 @@ require 'net/http'
 # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
 #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
 #   URL below with "westus".
-uri = URI('https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr')
+uri = URI('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr')
 uri.query = URI.encode_www_form({
     # Request parameters
     'language' => 'unk',

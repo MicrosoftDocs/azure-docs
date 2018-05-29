@@ -6,12 +6,9 @@ services: cosmos-db
 author: gnot
 manager: kfile
 editor: ''
-documentationcenter: ''
 
 ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017

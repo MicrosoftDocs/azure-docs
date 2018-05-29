@@ -2,16 +2,14 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Manage multiple Azure IoT Edge modules in VS Code | Microsoft Docs 
 description: Use Visual Studio Code to develop IoT Edge solutions that use multiple modules.
-services: iot-edge
-keywords: 
 author: shizn
-manager: timlt
-
+manager: 
 ms.author: xshi
 ms.date: 03/18/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Develop an IoT Edge solution with multiple modules in Visual Studio Code - preview

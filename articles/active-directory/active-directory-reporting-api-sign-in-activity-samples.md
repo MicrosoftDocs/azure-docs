@@ -3,7 +3,7 @@ title: Azure Active Directory sign-in activity report API samples | Microsoft Do
 description: How to get started with the Azure Active Directory Reporting API
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 05/21/2018
-ms.author: dhanyahk;markvi
+ms.author: dhanyahk;rolyon
 ms.reviewer: dhanyahk 
 
 ---
@@ -33,44 +34,55 @@ See:
 Before you can use the samples in this article, you need to complete the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md).  
 
 ## PowerShell script
-    # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID       = "<clientId>"             # Should be a ~35 character string insert your info here
-    $ClientSecret   = "<clientSecret>"         # Should be a ~44 character string insert your info here
-    $loginURL       = "https://login.microsoftonline.com/"
-    $tenantdomain   = "<tenantDomain>"
-    $daterange            # For example, contoso.onmicrosoft.com
 
-    $7daysago = "{0:s}" -f (get-date).AddDays(-7) + "Z"
-    # or, AddMinutes(-5)
+```powershell
 
-    Write-Output $7daysago
-
-    # Get an Oauth 2 access token based on client id, secret and tenant domain
-    $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
-
-    $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
-
-    if ($oauth.access_token -ne $null) {
+# This script will require the Web Application and permissions setup in Azure Active Directory
+$clientID       = "<appid>"             # ApplicationId
+$clientSecret   = "<key>"         # Should be a ~44 character string insert your info here
+$loginURL       = "https://login.windows.net/"
+$tenantdomain   = "<domain>"            # For example, contoso.onmicrosoft.com
+$msgraphEndpoint = "https://graph.microsoft.com"
+$countOfSignInDocsToBeSavedInAFile = 2000
+	
+# Get an Oauth 2 access token based on client id, secret and tenant domain
+$body       = @{grant_type="client_credentials";resource=$msgraphEndpoint;client_id=$clientID;client_secret=$clientSecret}
+$oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
+	
+if ($oauth.access_token -ne $null) {
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
+	
+    $url = "$msgraphEndpoint/beta/auditLogs/signIns"
+    Write-Output "Fetching data using Uri: $url"
+	$i=0
+	$docCount=0
+	Do{
+		$myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
+		$jsonReport = ($myReport.Content | ConvertFrom-Json).value
+		$fetchedRecordCount = $jsonReport.Count
+		$docCount = $docCount + $fetchedRecordCount
+		$totalFetchedRecordCount = $totalFetchedRecordCount + $fetchedRecordCount
+		Write-Output "Fetched $fetchedRecordCount records and saved into SignIns$i.json"
+		if($docCount -le $countOfSignInDocsToBeSavedInAFile)
+		{
+			$myReport.Content | Out-File -FilePath SignIns$i.json -append  -Force 		
+		}
+		else
+		{			
+			$docCount=0
+			$i = $i+1
+		}
+			
+		#Get url from next link
+		$url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'			
+	}while($url -ne $null)
+	Write-Output "Total Fetched record count is : $totalFetchedRecordCount"
+				
+} else {
+    Write-Host "ERROR: No Access Token"
+}
 
-    $url = "https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&`$filter=signinDateTime ge $7daysago"
-
-    $i=0
-
-    Do{
-        Write-Output "Fetching data using Uri: $url"
-        $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
-        Write-Output "Save the output to a file SigninActivities$i.json"
-        Write-Output "---------------------------------------------"
-        $myReport.Content | Out-File -FilePath SigninActivities$i.json -Force
-        $url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'
-        $i = $i+1
-    } while($url -ne $null)
-
-    } else {
-
-        Write-Host "ERROR: No Access Token"
-    }
+```
 
 
 

@@ -1,23 +1,14 @@
-
 ---
-title: Azure Backup agent FAQ | Microsoft Docs
+title: Azure Backup agent FAQ
 description: 'Answers to common questions about: how the Azure backup agent works, backup and retention limits.'
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
 keywords: backup and disaster recovery; backup service
-
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
-
+ms.author: trinadhk
 ---
 
 # Questions about the Azure Backup agent

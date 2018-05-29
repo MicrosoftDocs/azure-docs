@@ -219,6 +219,8 @@
     href: ../desktop-workbench/frequently-asked-questions.md
   - name: Issues and troubleshooting
     href: known-issues-and-troubleshooting-guide.md
+  - name: Export or delete account data
+    href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
   - name: Support and training
     href: support-for-aml-services.md
   - name: Azure roadmap

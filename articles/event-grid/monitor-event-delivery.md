@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
 ---
 
@@ -15,7 +15,7 @@ ms.author: tomfitz
 
 This article describes how to use the portal to see the status of event deliveries.
 
-Event Grid provides durable delivery. It delivers each message at least once for each subscription. Events are sent to the registered webhook of each subscription immediately. If a webhook does not acknowledge receipt of an event within 60 seconds of the first delivery attempt, Event Grid retries delivery of the event.
+Event Grid provides durable delivery. It delivers each message at least once for each subscription. Events are sent to the registered webhook of each subscription immediately. If a webhook doesn't acknowledge receipt of an event within 60 seconds of the first delivery attempt, Event Grid retries delivery of the event.
 
 For information about event delivery and retries, [Event Grid message delivery and retry](delivery-and-retry.md).
 
@@ -38,9 +38,15 @@ For subscriptions, the metrics are:
 
 ## Event subscription status
 
-To see metrics for an event subscription, search for **Event Grid Subscriptions** in the available services, and select it.
+To see metrics for an event subscription, you can either search by subscription type or by subscriptions for a specific resource.
 
-![Search for event subscriptions](./media/monitor-event-delivery/select-event-subscriptions.png)
+To search by event subscription type, select **All services**.
+
+![Select all services](./media/monitor-event-delivery/all-services.png)
+
+Search for **event grid** and select **Event Grid Subscriptions** from the available options.
+
+![Search for event subscriptions](./media/monitor-event-delivery/search-and-select.png)
 
 Filter by the type of event, the subscription, and location. Select **Metrics** for the subscription to view.
 
@@ -50,9 +56,15 @@ View the metrics for the event topic and subscription.
 
 ![View event metrics](./media/monitor-event-delivery/subscription-metrics.png)
 
+To find the metrics for a specific resource, select that resource. Then, select **Events**.
+
+![Select events for a resource](./media/monitor-event-delivery/select-events.png)
+
+You see the metrics for subscriptions for that resource.
+
 ## Custom event status
 
-If you have published a custom topic, you can view the metrics for it. Select the resource group containing the topic, and select the topic.
+If you've published a custom topic, you can view the metrics for it. Select the resource group for the topic, and select the topic.
 
 ![Select custom topic](./media/monitor-event-delivery/select-custom-topic.png)
 
