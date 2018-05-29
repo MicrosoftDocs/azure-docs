@@ -13,7 +13,7 @@ ms.date: 05/07/2018
 ms.author: wolfma
 ---
 
-# Sample for Intent Recognition
+# Sample for intent recognition
 
 > [!NOTE]
 > For instructions to download this sample and others, see [Samples for Speech SDK](samples.md).
@@ -28,7 +28,7 @@ ms.author: wolfma
 >
 > - - -
 
-## Intent Recognition Using Microphone
+## Intent recognition using microphone
 
 The code snippet below shows how to recognize intent from microphone input in the default language (`en-US`).
 
@@ -36,7 +36,7 @@ The code snippet below shows how to recognize intent from microphone input in th
 
 - - -
 
-## Intent Recognition Using Microphone In a Specified Language
+## Intent recognition using microphone in a specified language
 
 The code snippet below shows how to recognize intent from microphone input in a specified language, in this case in German (`de-de`).
 
@@ -44,7 +44,7 @@ The code snippet below shows how to recognize intent from microphone input in a 
 
 - - -
 
-## Intent Recognition From a File
+## Intent recognition from a file
 
 The following code snippet recognizes intent from an audio file in the default language (`en-US`), the supported format is single-channel (mono) WAV / PCM with a sampling rate of 16 KHz.
 
@@ -54,7 +54,7 @@ The following code snippet recognizes intent from an audio file in the default l
 
 - - -
 
-## Intent Recognition Using Events
+## Intent recognition using events
 
 The code snippet shows how to recognize intent in a continuous way. This code allows access to additional information, like intermediate results. 
 
@@ -62,11 +62,11 @@ The code snippet shows how to recognize intent in a continuous way. This code al
 
 - - -
 
-## Sample Source Code
+## Sample source code
 
 The latest version of the samples and even more advanced samples are in a dedicated [GitHub repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
 
-## Next Steps
+## Next steps
 
 - [Speech Recognition](./speech-to-text-sample.md)
 
