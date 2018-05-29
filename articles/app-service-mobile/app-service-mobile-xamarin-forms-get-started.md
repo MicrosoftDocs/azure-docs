@@ -85,7 +85,7 @@ The Visual Studio Tools for Xamarin are required to open the solution, see the [
 
 In this section, you run the Xamarin.Android project. You can skip this section if you are not working with Android devices.
 
-# [Visual Studio](#tab/windows)
+### Visual Studio
 
 1. Right-click the Android (Droid) project, and then select **Set as StartUp Project**.
 
@@ -95,7 +95,7 @@ In this section, you run the Xamarin.Android project. You can skip this section 
 
 4. To build the project and start the app in an Android emulator, press the **F5** key or click the **Start** button.
 
-# [Visual Studio for Mac](#tab/macos)
+### Visual Studio for Mac
 
 1. Right-click the Android project, and then select **Set As Startup Project**.
 
