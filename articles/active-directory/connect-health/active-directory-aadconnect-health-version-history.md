@@ -20,6 +20,22 @@ ms.author: billmath
 # Azure AD Connect Health: Version Release History
 The Azure Active Directory team regularly updates Azure AD Connect Health with new features and functionality. This article lists the versions and features that have been released.
 
+## May 2018
+**Agent Update:**
+*	Azure AD Connect Health agent for AD DS (version 3.0.244.0)
+ 1. Agent privacy improvement  
+ 2. Bug fixes and general improvements
+
+*	Azure AD Connect Health agent for AD FS (version 3.0.244.0)
+ 1. Agent Diagnostics Service and related PowerShell module improvements
+ 2. Agent privacy improvement  
+ 3. Bug fixes and general improvements
+
+* Azure AD Connect Health agent for Sync (version 3.0.244.0)
+ 1. Agent privacy improvement  
+ 2. Bug fixes and general improvements
+
+
 ## March 2018
 **New preview features:**
 * Azure AD Connect Health for AD FS - Risky IP report and alert.
