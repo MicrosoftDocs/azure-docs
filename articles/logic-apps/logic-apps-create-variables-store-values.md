@@ -55,14 +55,12 @@ If you don't have an Azure subscription yet,
 
 ## Initialize variable
 
-You can create a variable and declare its data type and initial value 
-- all within one action in your logic app. You can only declare and 
-initialize variables at the global scope level, not within scopes, 
-including conditions and loops. 
-
-Variables exist and are global only within the logic app instance that creates them. 
+You can create a variable and declare its data type and initial 
+value - all within one action in your logic app. You can only 
+declare variables at the global level, not within scopes, conditions, and loops. 
+Variables are global and exist only within the logic app instance that creates them. 
 Also, they persist across any loop iterations inside a logic app instance. 
-To reference a variable, use the variable's name as the token, 
+When referencing a variable, use the variable's name as the token, 
 not the action's name, which is the usual way to reference an action's outputs.
 
 1. In the Azure portal or Visual Studio, 
@@ -531,7 +529,9 @@ variable that contains this array: `[1,2,3,"red"]`
 
 ## Get value from variable
 
-To retrieve or reference a variable's contents, you can use the 
+When referencing a variable, use the variable's name as the token, 
+not the action's name, which is the usual way to reference an action's outputs. 
+To retrieve or reference a variable's contents, you can also use the 
 [variables() function](../logic-apps/workflow-definition-language-functions-reference.md#variables) 
 in the Logic App Designer and the code view editor.
 
