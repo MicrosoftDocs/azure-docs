@@ -12,8 +12,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 05/10/2018
 ms.author: shlo
 
 ---
@@ -34,6 +34,9 @@ The following functionality is available in the control flow:
 ## Supported capabilities
 
 The GetMetadata Activity takes a dataset as a required input, and outputs metadata information available as activity output. Currently, the following connectors with corresponding retrievable meatadata are supported:
+
+>[!NOTE]
+>If you run GetMetadata activity on a Self-hosted Integration Runtime, the latest capability is supported on version 3.6 or above. 
 
 ### Supported connectors
 
@@ -71,7 +74,10 @@ The following metadata types can be specified in the GetMetadata activity field 
 | contentMD5 | MD5 of the file. Applicable to file only. |
 | structure | Data structure inside the file or relational database table. Output value is a list of column name and column type. |
 | columnCount | Number of columns inside the file or relational table. |
-| exists| Whether a file/folder/table exists or not. Note as long as "exists" is specified in the GetaMetadata field list, the activity won't fail even when the item (file/folder/table) doesn't exists; instead, it returns `exists: false` in the output. |
+| exists| Whether a file/folder/table exists or not. Note if "exists" is specified in the GetaMetadata field list, the activity won't fail even when the item (file/folder/table) doesn't exists; instead, it returns `exists: false` in the output. |
+
+>[!TIP]
+>When you want to validate if a file/folder/table exists or not, specify `exists` in the GetMetadata activity field list, then you can check the `exists: true/false` result from the activity output. If `exists` is not configured in the field list, the GetMetadata activity will fail when the object is not found.
 
 ## Syntax
 
@@ -104,10 +110,9 @@ The following metadata types can be specified in the GetMetadata activity field 
 		},
 		"typeProperties": {
 			"folderPath":"container/folder",
-			"Filename": "file.json",
+			"filename": "file.json",
 			"format":{
 				"type":"JsonFormat"
-				"nestedSeperator": ","
 			}
 		}
 	}
@@ -120,12 +125,12 @@ Currently GetMetadata activity can fetch the following types of metadata informa
 
 Property | Description | Required
 -------- | ----------- | --------
-fieldList | Lists the types of metadata information required. See details in [Metadata options](#metadata-options) section on supported metadata. | No 
+fieldList | Lists the types of metadata information required. See details in [Metadata options](#metadata-options) section on supported metadata. | Yes 
 dataset | The reference dataset whose metadata activity is to be retrieved by the GetMetadata Activity. See [Supported capabilities](#supported-capabilities) section on supported connectors, and refer to connector topic on dataset syntax details. | Yes
 
 ## Sample output
 
-The GetMetadata result is shown in activity output. Below are two samples with exhaustive metadata options selected in field list as reference:
+The GetMetadata result is shown in activity output. Below are two samples with exhaustive metadata options selected in field list as reference. To use the result in subsequent activity, use the pattern of `@{activity('MyGetMetadataActivity').output.itemName}`.
 
 ### Get a file's metadata
 

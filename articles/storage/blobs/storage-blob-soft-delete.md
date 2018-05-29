@@ -279,6 +279,19 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+### Azure CLI 
+To enable soft delete, update a blob client’s service properties:
+
+```azurecli-interactive
+az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
+```
+
+To verify soft delete is turned on, use the following command: 
+
+```azurecli-interactive
+az storage blob service-properties delete-policy show --account-name mystorageaccount 
+```
+
 ### Python Client Library
 
 To enable soft delete, update a blob client’s service properties:
@@ -383,7 +396,7 @@ No, if you delete an entire account or container, all associated blobs will
 be permanently deleted. To learn how to protect a storage account from
 accidental deletes, please see the Azure Resource Manager article [Lock
 Resources to Prevent Unexpected
-Changes](/azure-resource-manager/resource-group-lock-resources.md).
+Changes](../../azure-resource-manager/resource-group-lock-resources.md).
 
 **Can I view capacity metrics for deleted data?**
 

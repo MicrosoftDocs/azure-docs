@@ -216,7 +216,7 @@ See the logs from the function that you created in the Azure portal.
         "functionName": "Sample",
         "instanceId": "055d045b1c8a415b94f7671d8df693a6",
         "reason": "",
-        "eventType": 0
+        "runtimeStatus": "Running"
     },
     "eventType": "orchestratorEvent",
     "eventTime": "2018-04-20T09:28:19.6492068Z",
@@ -235,7 +235,7 @@ See the logs from the function that you created in the Azure portal.
         "functionName": "Sample",
         "instanceId": "055d045b1c8a415b94f7671d8df693a6",
         "reason": "",
-        "eventType": 1
+        "runtimeStatus": "Completed"
     },
     "eventType": "orchestratorEvent",
     "eventTime": "2018-04-20T09:28:36.5061317Z",
@@ -257,7 +257,7 @@ The following list explains the lifecycle events schema:
     * **functionName**: Orchestrator function name.
     * **instanceId**: Durable Functions instanceId.
     * **reason**: Additional data associated with the tracking event. For more information, see [Diagnostics in Durable Functions (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-diagnostics)
-    * **eventType**: Orchestration Runtime Status. 0: Running, 1: Completed, 2: ContinuedAsNew, 3: Failed, 4: Canceled, 5: Terminated, 6: Pending. 
+    * **runtimeStatus**: Orchestration Runtime Status. Running, Completed, Failed, Canceled. 
 * **eventType**: "orchestratorEvent"
 * **eventTime**: Event time (UTC).
 * **dataVersion**: Version of the lifecycle event schema.

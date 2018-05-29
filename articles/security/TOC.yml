@@ -95,11 +95,11 @@
       href: security-internet-of-things-overview.md
       items:
       - name: IoT security best practices
-        href: ../iot-suite/iot-security-best-practices.md
+        href: ../iot-accelerators/iot-security-best-practices.md
       - name: IoT security
-        href: ../iot-suite/iot-security-architecture.md#security-in-iot
+        href: ../iot-accelerators/iot-security-architecture.md#security-in-iot
       - name: Secure your IoT deployment
-        href: ../iot-suite/iot-suite-security-deployment.md
+        href: ../iot-accelerators/iot-accelerators-security-deployment.md
   - name: Azure Service Fabric security
     href: azure-service-fabric-security-overview.md
     items:
@@ -143,63 +143,22 @@
     href: ./blueprints/financial-services-regulated-workloads.md
   - name: GDPR
     items:
-    - name: Manage personal data
-      href: manage-personal-data-azure.md
-    - name: Discover, identify, classify personal data
-      href: how-to-discover-classify-personal-data-azure.md
-    - name: Protect personal data in Azure
-      href: protect-personal-data-azure.md
-    - name: Protect personal data with Security Center
-      href: protect-personal-data-azure-security-center.md
-    - name: Protect personal data with Application Gateway
-      href: protect-personal-data-network-security.md
-    - name: Protect personal data by using identity and access controls
-      href: protect-personal-data-identity-access-controls.md
-    - name: Protect personal data at rest by using encryption
-      href: protect-personal-data-at-rest.md
-    - name: Protect personal data in transit by using encryption
-      href: protect-personal-data-in-transit-encryption.md
-    - name: Protect personal data by using Azure reporting tools
-      href: protection-personal-data-azure-reporting-tools.md
-  - name: FEDRAMP
-    href: ./blueprints/fedramp.md
+    - name: Data analytics
+      href: ./blueprints/gdpr-analytics-overview.md
+    - name: Data warehouse
+      href: ./blueprints/gdpr-datawarehouse-overview.md
+    - name: IaaS web application
+      href: ./blueprints/gdpr-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/gdpr-paaswa-overview.md  
+  - name: FedRAMP
     items:
-    - name: Security controls overview
-      href: ./blueprints/fedramp-controls-overview.md
-    - name: Access control
-      href: ./blueprints/fedramp-access-controls.md
-    - name: Audit and accountability
-      href: ./blueprints/fedramp-audit-accountability-controls.md
-    - name: Awareness and training
-      href: ./blueprints/fedramp-awareness-training-controls.md
-    - name: Configuration management
-      href: ./blueprints/fedramp-configuration-manager-controls.md
-    - name: Contingency planning
-      href: ./blueprints/fedramp-contingency-planning-controls.md
-    - name: Identification and authentication
-      href: ./blueprints/fedramp-identification-authentication-controls.md
-    - name: Incident response
-      href: ./blueprints/fedramp-incident-response-controls.md
-    - name: Maintenance
-      href: ./blueprints/fedramp-maintenance-controls.md
-    - name: Media protection
-      href: ./blueprints/fedramp-media-protection-controls.md
-    - name: Personnel security
-      href: ./blueprints/fedramp-personnel-security-controls.md
-    - name: Physical and environmental protection
-      href: ./blueprints/fedramp-physical-environmental-protection-controls.md
-    - name: Planning
-      href: ./blueprints/fedramp-planning-controls.md
-    - name: Risk assessment
-      href: ./blueprints/fedramp-risk-assessment-controls.md
-    - name: Security assessment and authorization
-      href: ./blueprints/fedramp-security-assessment-authorization-controls.md
-    - name: System and communications protection
-      href: ./blueprints/fedramp-system-communications-protection-controls.md
-    - name: System and information integrity
-      href: ./blueprints/fedramp-system-information-integrity-controls.md
-    - name: System and services acquisition
-      href: ./blueprints/fedramp-system-services-acquisition-controls.md
+    - name: Data analytics
+      href: ./blueprints/fedramp-analytics-overview.md
+    - name: Data warehouse
+      href: ./blueprints/fedramp-datawarehouse-overview.md
+    - name: IaaS web application
+      href: ./blueprints/fedramp-iaaswa-overview.md  
   - name: PCI DSS
     href: ./blueprints/payment-processing-blueprint.md
     items:
@@ -238,6 +197,8 @@
     href: ./blueprints/azure-health.md
 - name: White papers
   href: security-white-papers.md
+- name: Azure security services
+  href: azure-security-services-technologies.md
 - name: Technical overviews
   href: security-overviews.md
 - name: Best practices

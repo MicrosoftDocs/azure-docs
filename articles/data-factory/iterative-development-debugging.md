@@ -4,8 +4,8 @@ description: Learn how to develop and debug Data Factory pipelines iteratively i
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/16/2018
-ms.topic: article
+ms.date: 05/14/2018
+ms.topic: conceptual
 ms.service: data-factory
 
 services: data-factory
@@ -17,6 +17,10 @@ ms.devlang: na
 # Iterative development and debugging with Azure Data Factory
 
 Azure Data Factory lets you iteratively develop and debug Data Factory pipelines.
+
+For an eight-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
 
 ## Iterative debugging features
 Create pipelines and do test runs using the **Debug** capability in the pipeline canvas without writing a single line of code.

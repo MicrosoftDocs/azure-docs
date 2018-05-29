@@ -2,17 +2,14 @@
 title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources | Microsoft Docs'
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
 services: cosmos-db
-documentationcenter: .net
 author: ealsur
 manager: kfile
 
 ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 05/21/2018
 ms.author: maquaran
 
 ---
@@ -28,6 +25,8 @@ ms.author: maquaran
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -40,11 +39,16 @@ ms.author: maquaran
 
 ### Stable builds
 
+### <a name="1.3.3"/>1.3.3
+* Added more logging.
+* Fixed a DocumentClient leak when calling the pending work estimation multiple times.
+
 ### <a name="1.3.2"/>1.3.2
 * Fixes in the pending work estimation.
 
 ### <a name="1.3.1"/>1.3.1
 * Stability improvements.
+  * Fix for handling cancelled tasks issue that might lead to stopped observers on some partitions.
 * Support for manual checkpointing.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
 
@@ -67,7 +71,14 @@ ms.author: maquaran
 
 ### Pre-release builds
 
+### <a name="2.0.2-prerelease"/>2.0.2-prerelease
+* Minor API changes:
+  * Removed ChangeFeedProcessorOptions.IsAutoCheckpointEnabled that was marked as obsolete.
+
 ### <a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Stability improvements:
+  * Better handling of lease store initialization. When lease store is empty, only one instance of processor can initialize it, the others will wait.
+  * More stable/efficient lease renewal/release. Renewing and releasing a lease one partition is independent from renewing others. In v1 that was done sequentially for all partitions.
 * New v2 API:
   * Builder pattern for flexible construction of the processor: the ChangeFeedProcessorBuilder class.
     * Can take any combination of parameters.
@@ -80,6 +91,7 @@ ms.author: maquaran
     * IPartitionProcessor - for custom processing changes on a partition.
 * Logging - uses [LibLog](https://github.com/damianh/LibLog) library.
 * 100% backward compatible with v1 API.
+* New code base.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21.1 and above.
 
 ## Release & Retirement dates
@@ -93,6 +105,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.3.3](#1.3.3) |May 08, 2018 |--- |
 | [1.3.2](#1.3.2) |April 18, 2018 |--- |
 | [1.3.1](#1.3.1) |March 13, 2018 |--- |
 | [1.2.0](#1.2.0) |October 31, 2017 |--- |

@@ -3,17 +3,17 @@ title: Azure Active Directory Application Proxy and Tableau | Microsoft Docs
 description: Learn how to use Azure Active Directory (Azure AD) Application Proxy to provide remote access for your Tableau deployment.  .
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 
-ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
-ms.author: markvi
+ms.date: 05/24/2018
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
 
@@ -28,9 +28,9 @@ Azure Active Directory Application Proxy and Tableau have partnered to ensure yo
 
 The scenario in this article assumes that you have:
 
-- [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#reverse-proxy-server) configured. 
+- [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure) configured. 
 
-- An [Application Proxy connector](active-directory-application-proxy-enable.md) installed. 
+- An [Application Proxy connector](manage-apps/application-proxy-enable.md) installed. 
 
  
 
@@ -42,7 +42,7 @@ In your email:
 -	Use Enable Application Proxy for Tableau as subject
 -	Include your tenant ID in the body    
 
-You get a confirmation when you are ready to use the application. Typically, this takes about a week. However, you can finish the configurations while waiting for the confirmation.
+You get a confirmation when you are ready to use the application. You can finish the configurations while waiting for the confirmation.
 
 
  
@@ -53,7 +53,7 @@ To publish Tableau, you need to publish an application in the Azure Portal.
 
 For:
 
-- Detailed instructions of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
+- Detailed instructions of steps 1-8, see [Publish applications using Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md). 
 - Information about how to find Tableau values for the App Proxy fields, please see the Tableau documentation.  
 
 **To publish your app**: 
@@ -91,5 +91,5 @@ Your application is now ready to test. Access the external URL you used to publi
 
 ## Next steps
 
-For more information about Azure AD Application Proxy, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+For more information about Azure AD Application Proxy, see [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
 

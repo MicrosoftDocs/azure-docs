@@ -47,7 +47,7 @@ For more information about setting parameters, see [SAS parameter considerations
 
 ### Option 1: Using SAS with pass-through to blob storage from Azure CDN
 
-This option is the simplest and uses a single SAS token, which is passed from Azure CDN to the origin server. It's supported by **Azure CDN from Verizon** and **Azure CDN from Akamai**. 
+This option is the simplest and uses a single SAS token, which is passed from Azure CDN to the origin server. It's supported by **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles. 
  
 1. Select an endpoint, select **Caching rules**, then select **Cache every unique URL** from the **Query string caching** list.
 

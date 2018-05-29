@@ -4,15 +4,12 @@ description: Learn about how to understand, specify, and estimate request unit r
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: rimman
 
 ---
@@ -29,9 +26,9 @@ To provide predictable performance, you need to reserve throughput in units of 1
 After reading this article, you'll be able to answer the following questions:  
 
 * What are request units and request charges in Azure Cosmos DB?
-* How do I specify request unit capacity for a container in Azure Cosmos DB?
+* How do I specify request unit capacity for a container or set of containers in Azure Cosmos DB?
 * How do I estimate my application's request unit needs?
-* What happens if I exceed request unit capacity for a container in Azure Cosmos DB?
+* What happens if I exceed request unit capacity for a container or set of containers in Azure Cosmos DB?
 
 As Azure Cosmos DB is a multi-model database; it is important to note that this article is applicable to all data models and APIs in Azure Cosmos DB. This article uses generic terms such as *container* and an *item* to refer generically to a collection, graph, or a table and a document, a node, or an entity, respectively.
 
@@ -46,67 +43,26 @@ We recommend getting started by watching the following video, where Azure Cosmos
 > 
 > 
 
-## Specifying request unit capacity in Azure Cosmos DB
-When starting a new container you specify the number of request units per second (RU per second) you want reserved. Based on the provisioned throughput, Azure Cosmos DB allocates physical partitions to host your container and splits/rebalances data across partitions as it grows.
-
-Azure Cosmos DB containers can be created as fixed or unlimited. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create an unlimited container you must specify a minimum throughput of 1,000 RU/s and a [partition key](partition-data.md). Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values you ensure that your container/table/graph and requests can be scaled uniformly by Azure Cosmos DB. 
-
-> [!NOTE]
-> A partition key is a logical boundary, and not a physical one. Therefore, you do not need to limit the number of distinct partition key values. It is in fact better to have more distinct partition key values than less, as Azure Cosmos DB has more load balancing options.
-
-Here is a code snippet for creating a container with 3,000 request units per second using the .NET SDK:
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-Azure Cosmos DB operates on a reservation model for throughput. That is, you are billed for the amount of throughput *reserved*, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through SDKs or using the [Azure Portal](https://portal.azure.com).
-
-Each container is mapped to an `Offer` resource in Azure Cosmos DB, which has metadata about the provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a container, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a container to 5,000 request units per second using the .NET SDK:
-
-```csharp
-// Fetch the resource to be updated
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-There is no impact to the availability of your container when you change the throughput. Typically the new reserved throughput is effective within seconds on application of the new throughput.
-
 ## Throughput isolation in globally distributed databases
 
-When you have replicated your database to more than one region, Azure Cosmos DB provides throughput isolation to ensure that RU usage in one region does not impact RU usage in another region. For example, if you write data to one region, and read data from another region, the RUs used to perform the write operation in region *A* do not take away from the RUs used for the read operation in region *B*. RUs are not split across the regions in which you've deployed. Each region in which the database is replicated has the full amount of RUs provisioned. For more information about global replication, see [How to distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
+When you have replicated your database to more than one region, Azure Cosmos DB provides throughput isolation to ensure that RU usage in one region does not impact RU usage in another region. For example, if you write data to one region, and read data from another region, the RUs used to perform the write operation in region *A* do not take away from the RUs used for the read operation in region *B*. RUs are not split across the regions in which you've deployed. Each region in which the database is replicated has the full number of RUs provisioned. For more information about global replication, see [How to distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
 
 ## Request unit considerations
-When estimating the number of request units to provision for your Azure Cosmos DB container, it is important to take the following variables into consideration:
+When estimating the number of request units to provision, it is important to take the following variables into consideration:
 
 * **Item size**. As size increases the number of request units consumed to read or write the data also increases.
 * **Item property count**. Assuming default indexing of all properties, the units consumed to write a document/node/entity increase as the property count increases.
 * **Data consistency**. When using data consistency models such as Strong or Bounded Staleness, additional request units are consumed to read items.
-* **Indexed properties**. An index policy on each container determines which properties are indexed by default. You can reduce your request unit consumption by limiting the number of indexed properties or by enabling lazy indexing.
+* **Indexed properties**. An index policy on each container determines which properties are indexed by default. You can reduce your request unit consumption for write operations by limiting the number of indexed properties or by enabling lazy indexing.
 * **Document indexing**. By default each item is automatically indexed. You consume fewer request units if you choose to not index some of your items.
-* **Query patterns**. The complexity of a query impacts how many request units are consumed for an operation. The number of predicates, nature of the predicates, projections, number of UDFs, and the size of the source data - all influence the cost of query operations.
+* **Query patterns**. The complexity of a query impacts how many request units are consumed for an operation. The number of query results, number of predicates, nature of the predicates, projections, number of UDFs, and the size of the source data - all influence the cost of query operations.
 * **Script usage**.  As with queries, stored procedures and triggers consume request units based on the complexity of the operations being performed. As you develop your application, inspect the request charge header to better understand how each operation is consuming request unit capacity.
 
 ## Estimating throughput needs
 A request unit is a normalized measure of request processing cost. A single request unit represents the processing capacity required to read (via self link or id) a single 1 KB item consisting of 10 unique property values (excluding system properties). A request to create (insert), replace or delete the same item will consume more processing from the service and thereby more request units.   
 
 > [!NOTE]
-> The baseline of 1 request unit for a 1 KB item corresponds to a simple GET by self link or id of the item.
+> The baseline of 1 request unit for a 1-KB item corresponds to a simple GET by self link or id of the item.
 > 
 > 
 
@@ -171,11 +127,11 @@ The tool also includes support for estimating data storage needs based on the sa
 
 Using the tool is simple:
 
-1. Upload one or more representative items (e.g., a sample JSON document).
+1. Upload one or more representative items (for example, a sample JSON document).
    
     ![Upload items to the request unit calculator][2]
-2. To estimate the data storage requirements, enter the total number of items (e.g., documents, tables or graphs) you expect to store.
-3. Enter the number of create, read, update, and delete operations you require (on a per-second basis). To estimate the request unit charges of item update operations, upload a copy of the sample item from step 1 above that includes typical field updates.  For example, if item updates typically modify two properties named *lastLogin* and *userVisits*, then simply copy a sample item, update the values for those two properties, and upload the copied item.
+2. To estimate the data storage requirements, enter the total number of items (for example, documents, rows, or vertices) you expect to store.
+3. Enter the number of create, read, update, and delete operations you require (on a per-second basis). To estimate the request unit charges of item update operations, upload a copy of the sample item from step 1 above that includes typical field updates.  For example, if item updates typically modify two properties named *lastLogin* and *userVisits*, then copy a sample item, update the values for those two properties, and upload the copied item.
    
     ![Enter throughput requirements in the request unit calculator][3]
 4. Click calculate and examine the results.
@@ -207,7 +163,7 @@ For example:
 6. Calculate the required request units given the estimated number of operations you anticipate to run each second.
 
 ## A request unit estimate example
-Consider the following ~1 KB document:
+Consider the following ~1-KB document:
 
 ```json
 {
@@ -296,7 +252,7 @@ With this information, you can estimate the RU requirements for this application
 | Select by food group |10 |700 |
 | Select top 10 |15 |150 Total |
 
-In this case, you expect an average throughput requirement of 1,275 RU/s.  Rounding up to the nearest 100, you would provision 1,300 RU/s for this application's container.
+In this case, you expect an average throughput requirement of 1,275 RU/s.  Rounding up to the nearest 100, you would provision 1,300 RU/s for this application's container (or set of containers).
 
 ## <a id="RequestRateTooLarge"></a> Exceeding reserved throughput limits in Azure Cosmos DB
 Recall that request unit consumption is evaluated at a rate per second. For applications that exceed the provisioned request unit rate, requests will be rate-limited until the rate drops below the provisioned throughput level. When a request gets rate-limited, the server preemptively ends the request with `RequestRateTooLargeException` (HTTP status code 429) and returns the `x-ms-retry-after-ms` header indicating the amount of time, in milliseconds, that the user must wait before retrying the request.
@@ -307,9 +263,14 @@ Recall that request unit consumption is evaluated at a rate per second. For appl
 
 If you are using the .NET Client SDK and LINQ queries, then most of the time you never have to deal with this exception, as the current version of the .NET Client SDK implicitly catches this response, respects the server-specified retry-after header, and retries the request automatically. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 
-If you have more than one client cumulatively operating above the request rate, the default retry behavior may not suffice, and the client will throw a `DocumentClientException` with status code 429 to the application. In cases like this, you may want to consider handling the retry behavior and logic in your application's error handling routines or increase the provisioned throughput for the container.
+If you have more than one client cumulatively operating above the request rate, the default retry behavior may not suffice, and the client will throw a `DocumentClientException` with status code 429 to the application. In cases like this, you may want to consider handling the retry behavior and logic in your application's error handling routines or increase the throughput provisioned for the container (or the set of containers).
 
 ## Next steps
+ 
+To learn about how to set and get throughput by using Azure portal and SDK's see:
+
+* [Set and get throughput in Azure Cosmos DB](set-throughput.md)
+
 To learn more about reserved throughput with Azure Cosmos DB databases, explore these resources:
 
 * [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/)
@@ -323,3 +284,4 @@ To get started with scale and performance testing with Azure Cosmos DB, see [Per
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+

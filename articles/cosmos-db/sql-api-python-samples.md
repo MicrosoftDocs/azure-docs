@@ -5,12 +5,9 @@ keywords: python examples
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: python
 
 ms.assetid: 7f4f8db3-e9db-4645-92ef-7819d486a349
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 03/14/2018

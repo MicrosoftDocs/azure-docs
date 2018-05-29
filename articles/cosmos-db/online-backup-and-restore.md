@@ -3,14 +3,11 @@ title: Online backup and restore with Azure Cosmos DB | Microsoft Docs
 description: Learn how to perform automatic backup and restore on an Azure Cosmos DB database.
 keywords: backup and restore, online backup
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 
 ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
@@ -47,7 +44,11 @@ The following image illustrates periodic full backups of all Cosmos DB entities 
 ## Backup retention period
 As described above, Azure Cosmos DB takes snapshots of your data every four hours at the partition level. At any given time, only the last two snapshots are retained. However, if the collection/database is deleted, we retain the existing snapshots for all of the deleted partitions within the given collection/database for 30 days.
 
-If you want to maintain your own snapshots, you can use the export to JSON option in the Azure Cosmos DB [Data Migration tool](import-data.md#export-to-json-file) to schedule additional backups.
+For SQL API, If you want to maintain your own snapshots, you can use the export to JSON option in the Azure Cosmos DB [Data Migration tool](import-data.md#export-to-json-file) to schedule additional backups.
+
+> [!NOTE]
+> If you “Provision throughput for a set of containers at Database level” – Please remember the restore happens at full Database account level. You also need to ensure to reach out within 8 hours to our support if you accidently deleted your container - collection/table/graph if you use this new capability. 
+
 
 ## Restoring a database from an online backup
 If you accidentally delete your database or collection, you can [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call Azure support](https://azure.microsoft.com/support/options/) to restore the data from the last automatic backup. If you need to restore your database because of data corruption issue (includes cases where documents within a collection are deleted), see [Handling data corruption](#handling-data-corruption) as you need to take additional steps to prevent the corrupted data from overwriting the existing backups. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was available for the duration of the backup cycle for that snapshot.

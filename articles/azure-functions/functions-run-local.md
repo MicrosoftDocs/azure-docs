@@ -232,13 +232,13 @@ func new
 For example, to create a JavaScript HTTP trigger, run:
 
 ```
-func new --language JavaScript --template "HttpTrigger" --name MyHttpTrigger
+func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
 To create a queue-triggered function, run:
 
 ```
-func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
+func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
 ```
 <a name="start"></a>
 ## Run functions locally
@@ -272,7 +272,7 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### Debug in VS Code or Visual Studio
+### <a name="vs-debug"></a>Debug in VS Code or Visual Studio
 
 To attach a debugger, pass the `--debug` argument. To debug JavaScript functions, use Visual Studio Code. For C# functions, use Visual Studio.
 

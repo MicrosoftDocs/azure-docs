@@ -21,7 +21,7 @@ ms.custom: aaddev
 
 # Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
 
-This guide demonstrates how a native Universal Windows Platform (XAML) application can get an access token and then use this access toke to call Microsoft Graph API, or other APIs that require access tokens from Azure Active Directory v2 endpoint.
+This guide demonstrates how a native Universal Windows Platform (XAML) application can get an access token and then use this access token to call Microsoft Graph API, or other APIs that require access tokens from Azure Active Directory v2 endpoint.
 
 At the end of this guide, your application will be able to call a protected API using personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has Azure Active Directory.  
 
@@ -31,7 +31,7 @@ At the end of this guide, your application will be able to call a protected API 
 
 ![How this guide works](media/active-directory-mobileanddesktopapp-windowsuniversalplatform-introduction/uwp-intro.png)
 
-The sample application created by this guide enables a Universal Windows Platform application to query Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Token acquisition and renewal are handled by the Microsoft Authentication Library (MSAL).
+The sample application created by this guide enables a UWP app to query Microsoft Graph API or a Web API that accepts tokens from the Azure Active Directory v2 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Token acquisitions and renewals are handled by the Microsoft Authentication Library (MSAL).
 
 ### NuGet Packages
 
@@ -44,9 +44,9 @@ This guide uses the following NuGet packages:
 
 ## Set up your project
 
-This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate a Windows Desktop .NET application (XAML) with *Sign-In with Microsoft* so it can query Web APIs that require a token.
+This section provides step-by-step instructions for how to integrate a Windows Desktop .NET application (XAML) with *Sign-In with Microsoft* so it can query Web APIs that require a token, such as Microsoft Graph API.
 
-The application created by this guide exposes a button to graph and show results on screen and a sign-out button.
+The application created by this guide displays a button used to query Graph API, a sign-out button, and text boxes that display the results of the calls.
 
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip) and skip to the [application registration](#register-your-application "application registration step") step to configure the code sample before executing.
 
@@ -59,7 +59,7 @@ The application created by this guide exposes a button to graph and show results
 5. If prompted, fell free to select any version for *Target* and *Minimum* version and click 'Ok':<br/><br/>![Minimum and Target versions](media/active-directory-uwp-v2.md/vs-minimum-target.png)
 
 ## Add the Microsoft Authentication Library (MSAL) to your project
-1. In Visual Studio: **Tools** > **Nuget Package Manager** > **Package Manager Console**
+1. In Visual Studio: **Tools** > **NuGet Package Manager** > **Package Manager Console**
 2. Copy/paste the following command in the Package Manager Console window:
 
     ```powershell
@@ -81,8 +81,8 @@ This step helps you create a class to handle interaction with MSAL Library, such
 2. Add the following two lines to the App's class (inside <code>sealed partial class App : Application</code> block):
 
     ```csharp
-    //Below is the clientId of your app registration. 
-    //You have to replace the below with the Application Id for your app registration
+    // Below is the clientId of your app registration. 
+    // You have to replace the below with the Application Id for your app registration
     private static string ClientId = "your_client_id_here";
     
     public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
@@ -118,15 +118,15 @@ This section shows how to use MSAL to get a token for the Microsoft Graph API.
     ```csharp
     using Microsoft.Identity.Client;
     ```
-2. Replace the code of your <code>MainPage</code> class with the following:
+2. Replace the code of your <code>MainPage</code> class with:
 
     ```csharp
     public sealed partial class MainPage : Page
     {
-        //Set the API Endpoint to Graph 'me' endpoint
+        // Set the API Endpoint to Graph 'me' endpoint
         string graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
     
-        //Set the scope for API call to user.read
+        // Set the scope for API call to user.read
         string[] scopes = new string[] { "user.read" };
     
         public MainPage()
@@ -186,7 +186,7 @@ The `AcquireTokenSilentAsync` method handles token acquisitions and renewals wit
 
 Eventually, the `AcquireTokenSilentAsync` method will fail. Reasons for failure might be that the user has either signed out or changed their password on another device. When MSAL detects that the issue can be resolved by requiring an interactive action, it fires an `MsalUiRequiredException` exception. Your application can handle this exception in two ways:
 
-* It can make a call against `AcquireTokenAsync` immediately. This call results in prompting the user to sign in. This pattern is usually used in online applications where there is no available offline content for the user. The sample generated by this guided setup follows this pattern, which you can see in action the first time you execute the sample. 
+* It can make a call against `AcquireTokenAsync` immediately. This call results in prompting the user to sign in. This pattern is normally used in online applications where there is no available offline content for the user. The sample generated by this guided setup follows this pattern, which you can see in action the first time you execute the sample. 
     * Because no user has used the application, `PublicClientApp.Users.FirstOrDefault()` contains a null value, and an `MsalUiRequiredException` exception is thrown. 
     * The code in the sample then handles the exception by calling `AcquireTokenAsync`, which results in prompting the user to sign in.
 
@@ -210,7 +210,7 @@ Eventually, the `AcquireTokenSilentAsync` method will fail. Reasons for failure 
         try
         {
             var request = new System.Net.Http.HttpRequestMessage(System.Net.Http.HttpMethod.Get, url);
-            //Add the token in Authorization header
+            // Add the token in Authorization header
             request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
             response = await httpClient.SendAsync(request);
             var content = await response.Content.ReadAsStringAsync();
@@ -283,7 +283,7 @@ Although the application in this sample supports a single user, MSAL supports sc
 
 ### More Information
 
-Id tokens acquired via *OpenID Connect* also contain a small subset of information pertinent to the user. `DisplayBasicTokenInfo` displays basic information contained in the token: for example, the user's display name and ID, as well as the token expiration date and the string representing the access token itself. This information is displayed for you to see. You can hit the **Call Microsoft Graph API** button multiple times and see that the same token was reused for subsequent requests. You can also see the expiration date being extended when MSAL decides it is time to renew the token.
+ID tokens acquired via *OpenID Connect* also contain a small subset of information pertinent to the user. `DisplayBasicTokenInfo` displays basic information contained in the token: for example, the user's display name and ID, as well as the token expiration date and the string representing the access token itself. This information is displayed for you to see. You can hit the **Call Microsoft Graph API** button multiple times and see that the same token was reused for subsequent requests. You can also see the expiration date being extended when MSAL decides it is time to renew the token.
 
 ## Register your application
 
@@ -302,30 +302,30 @@ Now you need to register your application in the *Microsoft Application Registra
 
 To enable Windows Integrated Authentication when used with a federated Azure Active Directory domain, the application manifest must enable additional capabilities:
 
-1. Double click **Package.appxmanifest**
+1. Double-click **Package.appxmanifest**
 2. Select **Capabilities** tab and make sure that the following settings are enabled:
 
     - Enterprise Authentication
     - Private Networks (Client & Server)
     - Shared User Certificates 
 
-3. Then, open **App.xaml.cs**, and add the following in the App constructor:
+3. Then, open **App.xaml.cs**, and add the following line in the App constructor:
 
     ```csharp
     App.PublicClientApp.UseCorporateNetwork = true;
     ```
 
 > [!IMPORTANT]
-> Windows Integrated Authentication is not configured by default for this sample because applications requesting the *Enterprise Authentication* or *Shared User Certificates* capabilities require a higher level of verificationby the Windows Store and not all developers wish to perform the higher level of verification. Please enable this setting only if you need Windows Integrated Authentication with a federated Azure Active Directory domain.
+> Windows Integrated Authentication is not configured by default for this sample because applications requesting the *Enterprise Authentication* or *Shared User Certificates* capabilities require a higher level of verification by the Windows Store and not all developers wish to perform the higher level of verification. Please enable this setting only if you need Windows Integrated Authentication with a federated Azure Active Directory domain.
 
 
 ## Test your code
 
-In order to test your application, press `F5` to run your project in Visual Studio. Your Main Window should appear:
+To test your application, press `F5` to run your project in Visual Studio. Your Main Window should appear:
 
 ![Application's user interface](media/active-directory-uwp-v2.md/testapp-ui.png)
 
-When you're ready to test, click *Call Microsoft Graph API* and use a Microsoft Azure Active Directory (organizational account) or a Microsoft Account (live.com, outlook.com) account to sign in. If it is the first time, you will see a window asking user to sign in:
+When you're ready to test, click *Call Microsoft Graph API* and use a Microsoft Azure Active Directory (organizational account) or a Microsoft Account (live.com, outlook.com) account to sign in. If it is your first time, you will see a window asking the user to sign in:
 
 ![Sign-in page](media/active-directory-uwp-v2.md/sign-in-page.png)
 
@@ -363,18 +363,18 @@ To access the user’s calendars in the context of an application, add the *Cale
 
 ### Issue 1:
 You may receive one of the following errors when sign-in on your application on a federated Azure Active Directory Domain:
- - 'No valid client certificate found in the request.
+ - No valid client certificate found in the request.
  - No valid certificates found in the user's certificate store.
- - Please try again choosing a different authentication method.'
+ - Try again choosing a different authentication method.
 
 **Cause:** Enterprise and certificates capabilities are not enabled
 
 **Solution:** follow the steps in [integrated authentication on federated domains](#enable-integrated-authentication-on-federated-domains-optional)
 
 ### Issue 2:
-Ater you enable [integrated authentication on federated domains](#enable-integrated-authentication-on-federated-domains-optional) and try to use Windows Hello on a Windows 10 computer to sign-in on a an environment with Multi-factor-authentication configured, the list of certificates is presented, however if you choose to use your PIN, the PIN window is never presented.
+After you enable [integrated authentication on federated domains](#enable-integrated-authentication-on-federated-domains-optional) and try to use Windows Hello on a Windows 10 computer to sign in on an environment with Multi-factor-authentication configured, the list of certificates is presented, however if you choose to use your PIN, the PIN window is never presented.
 
-**Cause:** This is a known limitation with Web authentication broker in UWP applications running on Windows 10 desktop (works fine on Windows 10 Mobile)
+**Cause:** Known limitation with Web authentication broker in UWP applications running on Windows 10 desktop (works fine on Windows 10 Mobile)
 
-**Workaround:** as workaround, users need to select to sign in with other options, and then choose *Sign-in with a username and password* instead, select provide your password and then go through the phone authentication.
+**Workaround:** Users need to select to sign in with other options, and then choose *Sign-in with a username and password* instead, select provide your password and then go through the phone authentication.
 

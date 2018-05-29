@@ -14,7 +14,9 @@ ms.author: v-gedod
 
 # Web Search SDK Node quickstart
 
-The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
+The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results.
+
+The [source code for Node Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/webSearch.js) is available on Git Hub.
 
 ## Application dependencies
 
@@ -53,7 +55,9 @@ The code prints `result.value` items to the console without parsing any text.  T
 - _type: 'WebPage'
 - _type: 'VideoObjectElementType'
 
+<!-- Remove until this can be replaced with a sanitized version.
 ![Video results](media/web-search-sdk-node-results.png)
+-->
 
 ## Next steps
 

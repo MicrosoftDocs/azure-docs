@@ -1,15 +1,14 @@
 ---
 title: Deploy Azure Stream Analytics with Azure IoT Edge | Microsoft Docs 
 description: Deploy Azure Stream Analytics as a module to an edge device
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
-ms.date: 11/28/2017
-ms.topic: article
+ms.date: 05/18/2018
+ms.topic: tutorial
 ms.service: iot-edge
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Deploy Azure Stream Analytics as an IoT Edge module - preview
@@ -54,7 +53,7 @@ An Azure Storage account is required to provide an endpoint to be used as an out
 
 1. In the Azure portal, go to **Create a resource**, enter **Storage account** in the search box, and then select **Storage account - blob, file, table, queue**.
 
-2. In the **Create storage account** pane, enter a name for your storage account, select the same location where your IoT hub is stored, and then select **Create**. Note the name for later use.
+2. In the **Create storage account** pane, enter a name for your storage account, select the same location where your IoT hub is stored, select the same resource group as your IoT hub, and then select **Create**. Note the name for later use.
 
     ![Create a storage account][1]
 
@@ -81,32 +80,25 @@ An Azure Storage account is required to provide an endpoint to be used as an out
 
 3. Select **Create**.
 
-4. In the created job, under **Job Topology**, select **Inputs**, and then select **Add**.
-
-5. In the **New input** pane, do the following:
-
-    a. In the **Input alias** box, enter **temperature**.
-    
-    b. In the **Source Type** box, select **Data stream**.
-    
-    c. In the remaining fields, use the default values.
+4. In the created job, under **Job Topology**, open **Inputs**.
 
    ![Azure Stream Analytics input](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. Select **Create**.
+5. Select **Add stream input**, then select **Edge Hub**.
 
-7. Under **Job Topology**, select **Outputs**, and then select **Add**.
+5. In the **New input** pane, enter **temperature** as the input alias. 
 
-8. In the **New output** pane, do the following:
+6. Select **Save**.
 
-    a. In the **Output alias** box, type **alert**.
-    
-    b. In the remaining fields, use the default values. 
-    
-    c. Select **Create**.
+7. Under **Job Topology**, open **Outputs**.
 
    ![Azure Stream Analytics output](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
+8. Select **Add**, then select **Edge Hub**.
+
+8. In the **New output** pane, enter **alert** as the output alias. 
+
+9. Select **Create**.
 
 9. Under **Job Topology**, select **Query**, and then replace the default text with the following query:
 

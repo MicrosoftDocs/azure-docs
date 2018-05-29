@@ -1,21 +1,14 @@
 ---
-title: 'Azure Backup: Recover files and folders from an Azure VM backup | Microsoft Docs'
+title: 'Azure Backup: Recover files and folders from an Azure VM backup'
 description: Recover files from an Azure virtual machine recovery point
 services: backup
-documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
 keywords: item level recovery; file recovery from Azure VM backup; restore files from Azure VM
-
-ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: pullabhk;markgal
-
+ms.author: pullabhk
 ---
 # Recover files from Azure virtual machine backup
 

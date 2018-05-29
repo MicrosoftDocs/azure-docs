@@ -1,7 +1,7 @@
 - name: Content Moderator Documentation
 - name: Overview
   items: 
-  - name: What is Content Moderator
+  - name: What is Content Moderator?
     href: overview.md
 - name: Samples
   items:
@@ -117,6 +117,8 @@
     href: FAQs.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
+  - name: Export or delete account data
+    href: ./export-delete-data.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/559960-content-moderator
   - name: Stack Overflow

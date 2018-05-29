@@ -7,6 +7,7 @@ author: daveba
 manager: mtillman
 editor: daveba
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,7 +17,7 @@ ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# Use a user assigned identity on a Linux VM, to access Azure Resource Manager
+# Tutorial: Use a user assigned identity on a Linux VM, to access Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -187,5 +188,8 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     
 ## Next steps
 
-- For an overview of Managed Service Identity, see [overview](overview.md).
+In this tutorial, you learned how to create a user assigned identity and attach it to a Linux virtual machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
+
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
 
