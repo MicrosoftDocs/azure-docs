@@ -306,7 +306,8 @@ or other HTTP requests, come from IP addresses in this list.
 The calls that [connectors](../connectors/apis-list.md) 
 make come from the outbound IP addresses in this list. 
 
-> [!IMPORANT]
+> [!IMPORTANT]
+>
 > On September 1, 2018, [new IP addresses](#new-p) are replacing the [older IP addresses](#current-ip). 
 > Although both sets work now, only the new IP addresses work after this date.
 > 
