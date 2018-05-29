@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
-ms.date: 05/25/2018
+ms.date: 05/29/2018
 ms.author: rolyon
 ms.reviewer: dhanyahk
 
@@ -95,7 +95,7 @@ The following section provides you with a complete overview of all possible erro
 |50085|Refresh token needs social IDP login. Please have user try signing-in again with username -password|
 |50089|Flow token expired - Authentication Failed. Please have user try signing-in again with username -password|
 |50097|Device Authentication Required - DeviceId -DeviceAltSecId claims are null OR no device corresponding to the device identifier exists|
-|50099|JWT signature is invalid|
+|50099|JWT signature is invalid. Contact the application owner.|
 |50105|The signed in user is not assigned to a role for the signed in application. Please assign the user  to the application. For more information: [https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
 |50107|Requested federation realm object does not exist. Contact the tenant admin.|
 |50120|Issue with JWT header. Contact the tenant admin.|
@@ -167,7 +167,6 @@ The following section provides you with a complete overview of all possible erro
 |80012|The users attempted to log on outside of the allowed hours (this is specified in AD)|
 |80013|The authentication attempt could not be completed due to time skew between the machine running the authentication agent and AD. Fix time sync issues|
 |80014|Authentication agent timed out. Please file a support ticket with the error code, correlation ID and Datetime to get more details on this error|
-|80015|Internal server error. Request budget exceeded|
 |81001|User's Kerberos ticket is too large. This can happen if the user is in too many groups and thus the Kerberos ticket contains too many group memberships. Reduce the user's group memberships and try again.|
 |81005|Authentication Package Not Supported|
 |81007|Tenant is not enabled for Seamless SSO|
