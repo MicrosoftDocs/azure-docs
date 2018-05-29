@@ -241,10 +241,9 @@ With port forwarding, you can create a remote desktop connection using the IP ad
 1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**. Copy the load balancer's public IP address.
 2. Use the following command to create a remote desktop session with the *myVM2* VM from your local computer. Replace `<publicIpAddress>` with the IP address returned from the previous command.
 
-```
-  mstsc /v:<publicIpAddress>:4222
-```
-
+    ```
+    mstsc /v:<publicIpAddress>:4222
+    ```
 3. Open the downloaded RDP file. If prompted, select **Connect**.
 
 4. Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
