@@ -73,10 +73,9 @@ The **Cognitive Insights** widget can interact with a video on your application.
 To get Video Indexer widgets to communicate with other components, the Video Indexer service does the following:
 
 - Uses the cross-origin communication HTML5 method **postMessage** and 
-- Validates the message across videobreakdown.com origin. 
+- Validates the message across VideoIndexer.ai origin. 
 
-If you choose to implement your own player code and do the integration with **Cognitive Insights** widgets, it is your responsibility to validate the origin of the message that comes from videobreakdown.com.
-
+If you choose to implement your own player code and do the integration with **Cognitive Insights** widgets, it is your responsibility to validate the origin of the message that comes from VideoIndexer.ai.
 
 ### Embed both types of widgets in your application / blog (recommended) 
 
