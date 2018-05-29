@@ -1,5 +1,5 @@
 ---
-title: "Create a Kubernetes Node.js development environment in the cloud with VS Code | Microsoft Docs"
+title: "Create a Kubernetes Node.js dev space in the cloud with VS Code | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -18,12 +18,12 @@ manager: "douge"
 
 [!INCLUDE[](includes/see-troubleshooting.md)]
 
-You're now ready to create a Kubernetes-based development environment in Azure.
+You're now ready to create a Kubernetes-based dev space in Azure.
 
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
 ## Install the Azure CLI
-Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 > [!IMPORTANT]
 > If you already have the Azure CLI installed, make sure you are using version 2.0.33 or higher.
@@ -115,7 +115,7 @@ But there is an even *faster method* for developing code, which you'll explore i
 ### Debug the container in Kubernetes
 Hit **F5** to debug your code in Kubernetes!
 
-Similar to the `up` command, code is synced to the development environment when you start debugging, and a container is built and deployed to Kubernetes. This time, the debugger is attached to the remote container.
+Similar to the `up` command, code is synced to the dev space when you start debugging, and a container is built and deployed to Kubernetes. This time, the debugger is attached to the remote container.
 
 [!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
 
@@ -169,7 +169,7 @@ You should already have the sample code for `mywebapi` for this guide under a fo
 ### Run *mywebapi*
 1. Open the folder `mywebapi` in a *separate VS Code window*.
 1. Hit F5, and wait for the service to build and deploy. You'll know it's ready when the VS Code debug bar appears.
-1. Take note of the endpoint URL, it will look something like http://localhost:\<portnumber\>. **Tip: The VS Code status bar will display a clickable URL.** It may seem like the container is running locally, but actually it is running in your development environment in Azure. The reason for the localhost address is because `mywebapi` has not defined any public endpoints and can only be accessed from within the Kubernetes instance. For your convenience, and to facilitate interacting with the private service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure.
+1. Take note of the endpoint URL, it will look something like http://localhost:\<portnumber\>. **Tip: The VS Code status bar will display a clickable URL.** It may seem like the container is running locally, but actually it is running in your dev space in Azure. The reason for the localhost address is because `mywebapi` has not defined any public endpoints and can only be accessed from within the Kubernetes instance. For your convenience, and to facilitate interacting with the private service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure.
 1. When `mywebapi` is ready, open your browser to the localhost address. You should see a response from the `mywebapi` service ("Hello from mywebapi").
 
 
@@ -195,7 +195,7 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`.
     });
     ```
 
-Note how Kubernetes' DNS service discovery is employed to refer to the service as `http://mywebapi`. **Code in your development environment is running the same way it will run in production**.
+Note how Kubernetes' DNS service discovery is employed to refer to the service as `http://mywebapi`. **Code in your dev space is running the same way it will run in production**.
 
 The code example above uses a helper module named `propagateHeaders`. This helper was added to your code folder at the time you ran `azds prep`. The `propagateHeaders.from()` function propagates specific headers from an existing http.IncomingMessage object into a headers object for an outgoing request. You'll see later how this helps teams with collaborative development.
 

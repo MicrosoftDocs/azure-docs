@@ -1,5 +1,5 @@
 ---
-title: "Create a Kubernetes development environment in the cloud using .NET Core and VS Code| Microsoft Docs"
+title: "Create a Kubernetes dev space in the cloud using .NET Core and VS Code| Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -18,12 +18,12 @@ manager: "douge"
 
 [!INCLUDE[](includes/see-troubleshooting.md)]
 
-You're now ready to create a Kubernetes-based development environment in Azure.
+You're now ready to create a Kubernetes-based dev space in Azure.
 
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
 ## Install the Azure CLI
-Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
 > If you already have the Azure CLI installed, make sure you are using version 2.0.33 or higher.
@@ -91,7 +91,7 @@ But there is an even *faster method* for developing code, which you'll explore i
 ### Debug the container in Kubernetes
 Hit **F5** to debug your code in Kubernetes.
 
-As with the `up` command, code is synced to the development environment, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
+As with the `up` command, code is synced to the dev space, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
 
 [!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
 
@@ -132,7 +132,7 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 ### Run *mywebapi*
 1. Open the folder `mywebapi` in a *separate VS Code window*.
 1. Hit F5, and wait for the service to build and deploy. You'll know it's ready when the VS Code debug bar appears.
-1. Take note of the endpoint URL, it will look something like http://localhost:\<portnumber\>. **Tip: The VS Code status bar will display a clickable URL.** It might seem like the container is running locally, but actually it is running in our development environment in Azure. The reason for the localhost address is because `mywebapi` has not defined any public endpoints and can only be accessed from within the Kubernetes instance. For your convenience, and to facilitate interacting with the private service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure.
+1. Take note of the endpoint URL, it will look something like http://localhost:\<portnumber\>. **Tip: The VS Code status bar will display a clickable URL.** It might seem like the container is running locally, but actually it is running in our dev space in Azure. The reason for the localhost address is because `mywebapi` has not defined any public endpoints and can only be accessed from within the Kubernetes instance. For your convenience, and to facilitate interacting with the private service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure.
 1. When `mywebapi` is ready, open your browser to the localhost address. Append `/api/values` to the URL to invoke the default GET API for the `ValuesController`. 
 1. If all the steps were successful, you should be able to see a response from the `mywebapi` service.
 
@@ -159,7 +159,7 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`.
     }
     ```
 
-Note how Kubernetes' DNS service discovery is employed to refer to the service as `http://mywebapi`. **Code in your development environment is running the same way it will run in production**.
+Note how Kubernetes' DNS service discovery is employed to refer to the service as `http://mywebapi`. **Code in your dev space is running the same way it will run in production**.
 
 The code example above also makes use of a `HeaderPropagatingHttpClient` class. This helper class was added to your code folder at the time you ran `azds prep`. `HeaderPropagatingHttpClient` is derived from the well-known `HttpClient` class, and it adds functionality to propagate specific headers from an existing ASP.NET HttpRequest object into an outgoing HttpRequestMessage object. We'll see later how using this derived class facilitates a more productive development experience in team scenarios.
 

@@ -1,5 +1,5 @@
 ---
-title: "Create a Kubernetes development environment in the cloud | Microsoft Docs"
+title: "Create a Kubernetes dev space in the cloud | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 author: "ghogen"
 services: azure-dev-spaces
@@ -14,9 +14,9 @@ manager: "douge"
 ---
 # Quickstart: Create a Kubernetes dev space with Azure Dev Spaces (.NET Core and VS Code)
 
-In this guide, you will learn how to:
+In this guide, you will learn how to.
 
-- Create a Kubernetes-based environment in Azure that is optimized for development.
+- Create a Kubernetes-based dev space in Azure that is optimized for development.
 - Iteratively develop code in containers using VS Code and the command line.
 - Productively develop and test your code in a team environment.
 
@@ -94,7 +94,7 @@ azds up
 ```
 
 Keep an eye on the command's output, you'll notice several things as it progresses:
-- Source code is synced to the development environment in Azure.
+- Source code is synced to the dev space in Azure.
 - A container image is built in Azure, as specified by the Docker assets in your code folder.
 - Kubernetes objects are created that utilize the container image as specified by the Helm chart in your code folder.
 - Information about the container's endpoint(s) is displayed. In our case, we're expecting a public HTTP URL.
@@ -106,7 +106,7 @@ Keep an eye on the command's output, you'll notice several things as it progress
 ## Test the web app
 Scan the console output for information about the public URL that was created by the `up` command. It will be in the form: 
 
-`Running at public URL: http://<servicename>-<environmentname>.<guid>.<region>.aksapp.io` 
+`Running at public URL: http://<servicename>-<cluster-name>.<guid>.<region>.aksapp.io` 
 
 Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the terminal window.
 
@@ -138,7 +138,7 @@ In this section, you'll use VS Code to directly debug our container running in A
 ![](../media/common/edit-refresh-see.png)
 
 ## Initialize debug assets with the VS Code extension
-You first need to configure your code project so VS Code will communicate with our development environment in Azure. The VS Code extension for Azure Dev Spaces provides a helper command to set up debug configuration. 
+You first need to configure your code project so VS Code will communicate with our dev space in Azure. The VS Code extension for Azure Dev Spaces provides a helper command to set up debug configuration. 
 
 Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Create configuration files for connected development`. 
 
@@ -162,7 +162,7 @@ This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
 ### Debug the container in Kubernetes
 Hit **F5** to debug your code in Kubernetes.
 
-As with the `up` command, code is synced to the development environment, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
+As with the `up` command, code is synced to the dev space, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
 
 > [!Tip]
 > The VS Code status bar will display a clickable URL.

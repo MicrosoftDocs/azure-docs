@@ -1,5 +1,5 @@
 ---
-title: "Create a Kubernetes development environment in the cloud| Microsoft Docs"
+title: "Create a Kubernetes dev space in the cloud| Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 author: "ghogen"
 services: azure-dev-spaces
@@ -16,7 +16,7 @@ manager: "douge"
 
 In this guide, you will learn how to:
 
-- Create a Kubernetes-based environment in Azure that is optimized for development.
+- Create a Kubernetes-based dev space in Azure that is optimized for development.
 - Iteratively develop code in containers using Visual Studio.
 
 > [!Note]
