@@ -237,7 +237,7 @@ The following table shows the operation progress that occurs when you enable HTT
 | | The certificate has been successfully deployed to CDN network. |
 | 4 Complete | HTTPS has been successfully enabled on your domain. |
 
-\* This message does not appear unless an error has occurred. 
+\* This message doesn't appear unless an error has occurred. 
 
 If an error occurs before the request is submitted, the following error message is displayed:
 
@@ -289,7 +289,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 2. Do you use IP-based or SNI TLS/SSL?
 
-    **Azure CDN from Verizon** uses IP-based TLS/SSL. **Azure CDN Standard from Microsoft** used SNI TLS/SSL.
+    **Azure CDN from Verizon** uses IP-based TLS/SSL. **Azure CDN Standard from Microsoft** uses SNI TLS/SSL.
 
 3. *What if I don't receive the domain verification email from DigiCert?*
 
