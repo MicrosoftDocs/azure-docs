@@ -1,18 +1,10 @@
 ﻿---
 title: Explore the Time Series Insights JavaScript client library
 description: Learn about the Time Series Insights JavaScript client library and related programming model.
-documentationcenter: ''
-services: time-series-insights
 author: BryanLa
 manager: timlt
-editor: ''
-tags:
-
-ms.assetid:
 ms.service: time-series-insights
-ms.workload: na
-ms.tgt_pltfrm:
-ms.devlang: na
+services: time-series-insights
 ms.topic: tutorial
 ms.date: 05/16/2018
 ms.author: bryanla

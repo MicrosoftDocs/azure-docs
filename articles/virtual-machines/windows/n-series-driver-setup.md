@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 05/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -63,6 +63,6 @@ The RDMA network supports Message Passing Interface (MPI) traffic for applicatio
 
 ## Next steps
 
-* Developers building GPU-accelerated applications for the NVIDIA Tesla GPUs can also download and install the [CUDA Toolkit 9.1](https://developer.nvidia.com/cuda-downloads). For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
+* Developers building GPU-accelerated applications for the NVIDIA Tesla GPUs can also download and install the latest [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads). For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 
 

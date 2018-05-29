@@ -2,7 +2,6 @@
 title: 'Quickstart: Graph API with Python - Azure Cosmos DB | Microsoft Docs'
 description: This quickstart shows how to use the Azure Cosmos DB Graph API to create a console application with the Azure portal and Python
 services: cosmos-db
-documentationcenter: python
 author: luisbosquez
 manager: kfile
 
@@ -76,7 +75,7 @@ This step is optional. If you're interested in learning how the database resourc
 
     ```python
     ...
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ...
@@ -101,7 +100,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 2. Open the connect.py file and in line 104 paste the URI value over `<YOUR_ENDPOINT>` in here:
 
     ```python
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
@@ -109,14 +108,12 @@ Now go back to the Azure portal to get your connection information and copy it i
     The URI portion of the client object should now look similar to this code:
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
 
-3. Change `graphs.azure.com` in the client name to `gremlin.cosmosdb.azure.com`. (If your graph database account was created before December 20th, 2017, make no change and go to the next step.)
-
-4. Change the second parameter of the `client` object to replace the `<YOUR_DATABASE>` and `<YOUR_COLLECTION_OR_GRAPH>` strings. If you used the suggested values, the parameter should look like this code:
+3. Change the second parameter of the `client` object to replace the `<YOUR_DATABASE>` and `<YOUR_COLLECTION_OR_GRAPH>` strings. If you used the suggested values, the parameter should look like this code:
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
@@ -128,7 +125,7 @@ Now go back to the Azure portal to get your connection information and copy it i
         password="<YOUR_PASSWORD>")
     ```
 
-5. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `<YOUR_PASSWORD>` in the `password=<YOUR_PASSWORD>` parameter.
+4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `<YOUR_PASSWORD>` in the `password=<YOUR_PASSWORD>` parameter.
 
     The entire `client` object definition should now look like this code:
     ```python

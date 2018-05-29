@@ -11,8 +11,6 @@ ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: database
 ms.date: 10/16/2017
 ms.author: sngun
 ---
