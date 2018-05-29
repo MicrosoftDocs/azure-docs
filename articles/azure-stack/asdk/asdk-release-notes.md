@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 05/31/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -30,15 +30,6 @@ These release notes provide information about improvements, fixes, and known iss
 ### New features 
 This build includes the following improvements and fixes for Azure Stack.  
 
-- <!-- 1759172 - IS, ASDK --> **New administrative subscriptions**. With 1804 there are two new subscription types available in the portal. These new subscription types are in addition to the Default Provider subscription and visible with new Azure Stack installations beginning with version 1804. *Do not use these new subscription types with this version of Azure Stack*. We will announce the availability to use these subscription types in with a future update. 
-
-  These new subscription types are visible, but part of a larger change to secure the Default Provider subscription, and to make it easier to deploy shared resources, like SQL Hosting servers. 
-
-  The three subscription types now available are:  
-  - Default Provider subscription:  Continue to use this subscription type. 
-  - Metering subscription: *Do not use this subscription type.*
-  - Consumption subscription: *Do not use this subscription type*
-
 
 
 ### Fixed issues
@@ -55,10 +46,7 @@ This build includes the following improvements and fixes for Azure Stack.
 ### Known issues
  
 #### Portal
-- <!-- TBD - IS ASDK --> Do not use the new administrative subscription types of *Metering subscription*, and *Consumption subscription*. These new subscription types are [introduced with version 1804](#new-features) but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
-
-- <!-- TBD - IS ASDK --> The ability [to open a new support request from the dropdown](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
-    - For Azure Stack Development Kit, use https://aka.ms/azurestackforum.    
+- <!-- TBD - IS ASDK --> Do not use the new administrative subscription types of *Metering subscription*, and *Consumption subscription*. These new subscription types were introduced with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
 
 - <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
   ![Breadcrumb](media/asdk-release-notes/breadcrumb.png)
@@ -151,11 +139,14 @@ This build includes the following improvements and fixes for Azure Stack.
 ### New features 
 This build includes the following improvements and fixes for Azure Stack.  
 
-- <!-- 1759172 - IS, ASDK --> **More granular administrative subscriptions**. With version 1804 and later, the Default Provider subscription is now complemented with two additional subscriptions. The additions facilitate separating the management of core infrastructure, additional resource providers, and workloads. The following three subscriptions are available:
-  - *Default Provider subscription*. Use this subscription for core infrastructure only. Do not deploy resources or resource providers on this subscription.
-  - *Metering subscription*. Use this subscription for resource provider deployment. Resources deployed on this subscription are not charged.
-  - *Consumption subscription*. Use this subscription for any other workload that you want to deploy. Resources deployed here are charged normal usage prices.
+- <!-- 1759172 - IS, ASDK --> **New administrative subscriptions**. With 1804 there are two new subscription types available in the portal. These new subscription types are in addition to the Default Provider subscription and visible with new Azure Stack installations beginning with version 1804. *Do not use these new subscription types with this version of Azure Stack*. We will announce the availability to use these subscription types in with a future update. 
 
+  These new subscription types are visible, but part of a larger change to secure the Default Provider subscription, and to make it easier to deploy shared resources, like SQL Hosting servers. 
+
+  The three subscription types now available are:  
+  - Default Provider subscription:  Continue to use this subscription type. 
+  - Metering subscription: *Do not use this subscription type.*
+  - Consumption subscription: *Do not use this subscription type*
 
 ### Fixed issues
 - <!-- IS, ASDK -->  In the admin portal, you no longer have to refresh the Update tile before it displays information. 
