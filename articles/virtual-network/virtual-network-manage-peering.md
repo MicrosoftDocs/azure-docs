@@ -158,6 +158,6 @@ If your account is not assigned to one of the previous roles, it must be assigne
     |One Resource Manager, one classic  |[Same](create-peering-different-deployment-models.md)|
     |                                   |[Different](create-peering-different-deployment-models-subscriptions.md)|
 
-* Learn how to create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-peering)
+* Learn how to create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * Create a virtual network peering using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager templates](template-samples.md)
 * Create and apply [Azure policy](policy-samples.md) for virtual networks
