@@ -23,7 +23,7 @@ ms.custom:
 ## Overview
 
 > [!NOTE]
->  A new unified alert experience that provides enhanced management of alerts and introduces alert states is currently available in public preview. See the [last section of this article](#enhanced-unified-alerts-experience-public-preview) for a description of this enhanced experience and the process to enabled it.
+>  A new unified alert experience that allows you to manage alerts from multiple subscriptions and introduces alert states and smart groups is currently available in public preview. See the [last section of this article](#enhanced-unified-alerts-experience-public-preview) for a description of this enhanced experience and the process to enabled it.
 
 > [!NOTE]
 > This article describes the unified alert experience in Azure Monitor. Classic alerts are described in [classic alerts Overview](monitoring-overview-alerts.md).
@@ -125,11 +125,12 @@ The new experience provides the following features that aren't available in the 
 - Organize alerts by smart groups which are automatically generated with machine learning algorithms.
 
 ### Enable the new alert experience
-Enable the new alert experience by clicking on the banner at the top of the Alerts page. This process creates an alert store that includes the past 30 days of fired alerts across supported monitor services. It may take a few minutes for the new experience to be initially enabled.
+Enable the new alert experience by clicking on the banner at the top of the Alerts page. This process creates an alert store that includes the past 30 days of fired alerts across supported monitor services. Once the new experience is enabled, you can switch back and forth between the new and old experience by clicking on the banner.
+
+> [!NOTE]
+>  It may take a few minutes for the new experience to be initially enabled.
 
 ![Banner](media/monitoring-overview-unified-alerts/opt-in-banner.png)
-
-Once the new experience is enabled, you can switch back and forth between the new and old experience by clicking on the banner.
 
 All subscriptions that you have access to will be enrolled when you enable the new experience. Although the entire subscription is enabled, only users that selected the new experience will be able to view it. Other users with access to the subscription must enable the experience separately.
 
@@ -138,9 +139,10 @@ Enabling the new alert experience does not impact the configuration of action gr
 ### Smart Groups
 Smart groups reduce noise by allowing you to manage related alerts as a single unit rather than managing the individual alerts. You can view the details of smart groups and set the state similar to an alert. Each alert is a member of one and only one smart group. 
 
-Smart Groups are automatically created using machine learning by combining alerts that represent a single issue. Alerts are evaluated on the basis of similar properties, historical patterns, or both. The algorithm considers when an alert is created and looks for similarity based on such properties as alert name, description, and subscription. The algorithm currently only considers alerts from the same service in the same subscription.
+Smart Groups are automatically created using machine learning to combine alerts that represent a single issue. Alerts are evaluated on the basis of similar properties, historical patterns, or both. The algorithm considers when an alert is created and looks for similarity based on such properties as alert name, description, and subscription. The algorithm currently only considers alerts from the same service in the same subscription. You can view the reason that alerts were included in a group in the Smart Group detail page.
 
-You can't create custom smart groups.
+The name of a smart group is the name of its first alert. You can't create or rename a smart group.
+
 
 ### Alert States
 The new unified alert experience introduces the concept of alert state. The state of an alert specifies where it is in the resolution process.  When an alert is created, it has a status of *New*. You can change the status when you've acknowledged an alert and when you've closed it.  The following alert states are supported.
@@ -213,7 +215,7 @@ The Alert Detail page includes the following sections.
 | Section | Description |
 |:---|:---|
 | Essentials | Displays the properties and other significant information about the alert. |
-| History | Lists each action taken by the alert and any changes made to the alert. |
+| History | Lists each action taken by the alert and any changes made to the alert. This is currently limited to state changes. |
 | Smart Group | Information about the smart group the alert is included in. The **Alert Count** refers to the number of alerts included in the smart group. This includes the other alerts that are included in the same same smart group that were created in the past 30 days.  This is regardless of the time filter in the alerts list page. Click on an alert to view its detail. |
 | More Details | Displays granular data for the alert. This information is typically specific to the type of source that created the alert. |
 
@@ -229,7 +231,7 @@ The Smart Group Detail page includes the following sections.
 | Section | Description |
 |:---|:---|
 | Alerts | Lists the individual alerts that are included in the smart group. Click on an alert to open its Alert Detail page. |
-| History | Lists each action taken by the smart group and any changes made to it. |
+| History | Lists each action taken by the smart group and any changes made to it. This is currently limited to state changes and alert membership changes. |
 
 ## Next steps
 - [Learn how to use the new Alerts experience to create, view, and manage alerts](monitor-alerts-unified-usage.md)
