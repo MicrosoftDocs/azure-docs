@@ -145,7 +145,7 @@ Here are the steps to follow.
   ```
 
 2. Use [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet). Default Service Endpoint Resource name used is "ServiceEndpointV2" and must be defined in Service Manifest.
-
+For Stateless Services
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -159,7 +159,20 @@ Here are the steps to follow.
         };
     }
   ```
+For Stateful Services
+```csharp
+ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+        {
+            return new[]
+            {
+                 new ServiceReplicaListener((c) =>
+                 {
+                     return new FabricTransportServiceRemotingListener(c, this);
 
+                 })
+            };
+        }
+ ```
 3. Use V2 [Client Factory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
   ```csharp
   var proxyFactory = new ServiceProxyFactory((c) =>
