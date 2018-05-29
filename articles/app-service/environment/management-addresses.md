@@ -54,7 +54,7 @@ There is an API call that can be made to obtain the list of management addresses
 
 This call returns a JSON document that includes all of the inbound addresses for your ASE which includes the management addresses, the VIP used by your ASE and the ASE subnet itself.  
 
-An easy way to use this API is with the [armclient](http://github.com/projectkudu/ARMClient) tool. If you use that client then the syntax to call it is:
+To call the API with the [armclient](http://github.com/projectkudu/ARMClient) use the following commands but substitue in your subscription ID, resource group and ASE name.  
 
     armclient login
     armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
