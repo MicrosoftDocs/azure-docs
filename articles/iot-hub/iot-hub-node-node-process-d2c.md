@@ -1,22 +1,16 @@
 ---
 title: Routing messages with Azure IoT Hub (Node) | Microsoft Docs
 description: How to process Azure IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
-services: iot-hub
-documentationcenter: node
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: bd9af5f9-a740-4780-a2a6-8c0e2752cf48
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 10/17/2017
-ms.author: v-masebo;dobett
-
+ms.author: dobett
 ---
+
 # Routing messages with IoT Hub (Node)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
