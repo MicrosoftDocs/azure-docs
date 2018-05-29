@@ -1,6 +1,6 @@
 ---
 title: Tutorial learning how to add utterances to a LUIS app using Node.js | Microsoft Docs
-description: In this tutorial, you learn to call a LUIS app using Node.js in this quickstart.
+description: In this tutorial, you learn to call a LUIS app using Node.js.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -13,7 +13,7 @@ ms.author: v-geberr
 ---
 
 # Tutorial: Add utterances app using Node.js 
-In this quickstart, you write a program to add an utterance to an intent using the Authoring APIs in Node.js.
+In this tutorial, you write a program to add an utterance to an intent using the Authoring APIs in Node.js.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -30,7 +30,7 @@ For this article, you need a free [LUIS][LUIS] account in order to author your L
 ## Prerequisites
 
 * Latest [**Node.js**](https://nodejs.org/en/download/) with NPM.
-* NPM dependencies for this quickstart: [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra).  
+* NPM dependencies for this article: [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra).  
 * **[Recommended]** [Visual Studio Code](https://code.visualstudio.com/) for IntelliSense and debugging.
 * Your LUIS **[authoring key](luis-concept-keys.md#authoring-key)**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
 * Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard. The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.js`. The code in this article will not create the intents and entities. It will only add the utterances for existing intents and entities. 
