@@ -475,13 +475,13 @@ For variables that store strings or arrays, you can insert or
 You can follow the steps for [increasing a variable](#increment-value) 
 except that you follow these steps instead: 
 
-* Find and select one of these actions based on 
+1. Find and select one of these actions based on 
 whether your variable is a string or an array: 
 
   * **Variables - Append to string variable**
   * **Variables - Append to array variable** 
 
-* Provide the value you want to add as the last item in the string or array. 
+2. Provide the value to append as the last item in the string or array. 
 This value is required. 
 
 Here are the properties for the **Append to...** actions:
