@@ -1,22 +1,15 @@
 ---
 title: Monitor the health of your Azure IoT Hub | Microsoft Docs
 description: Use Azure Monitor and Azure Resource Health to monitor your IoT Hub and diagnose problems quickly
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/09/2017
 ms.author: kgremban
-
 ---
+
 
 # Monitor the health of Azure IoT Hub and diagnose problems quickly
 
