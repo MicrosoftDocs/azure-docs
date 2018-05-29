@@ -59,7 +59,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.datalakestore/accounts
 |Executed Checks|
 |---|
-|<ul><li>Have users experienced problems uploading data to Data Lake Store?</li></li>Have users experienced problems downloading data from Data Lake Store?</li></ul>|
+|<ul><li>Have users experienced problems uploading data to Data Lake Store?</li><li>Have users experienced problems downloading data from Data Lake Store?</li></ul>|
 
 ## Microsoft.devices/iothubs
 
