@@ -81,12 +81,11 @@ The concept of creating secure clusters is the same, whether they are Linux or W
 
 In this document, we would use the service fabric RM powershell and CLI module to deploy a cluster, the powershell or the CLI module command allows for multiple scenarios. Let us go through each of the them. Pick the scenario that you feel best meets your needs. 
 
-- Create a new cluster - using a system generated self signed certificate
-	- Use a default cluster template
-	- use a template that you already have
-- Create a new cluster - using a certificate you already own
-	- Use a default cluster template
-	- use a template that you already have
+- Create a new cluster 
+	- using a system generated self signed certificate
+	- using a certificate you already own
+
+You can use Use a default cluster template or a template that you already have
 
 ### Create new cluster  - using a system generated self signed certificate
 
@@ -581,16 +580,16 @@ The following diagram illustrates where your key vault and Azure AD configuratio
 ![Resource Manager dependency map][cluster-security-arm-dependency-map]
 
 
-## Azure Disk Encryption for Windows virtual machine scale set
+## Encrypting the disks attached to your windows cluster node/virtual machine instances
 
-Azure Disk Encryption is a new capability that helps you [encrypt your Windows virtual machine disks](service-fabric-enable-azure-disk-encryption-for-windows.md). 
+For encrypting the disks (OS drive and other managed disks ) attached to your nodes, we leverage the Azure Disk Encryption. Azure Disk Encryption is a new capability that helps you [encrypt your Windows virtual machine disks](service-fabric-enable-azure-disk-encryption-for-windows.md). 
 Azure Disk Encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows to provide volume encryption for the OS volume. 
 The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. 
 The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage. 
 
-## Azure Disk Encryption for Linux virtual machine scale set
+## Encrypting the disks attached to your Linux cluster node/virtual machine instances
 
-Azure Disk Encryption is a new capability that helps you [encrypt your Linux virtual machine disks](service-fabric-enable-azure-disk-encryption-for-linux.md). 
+For encrypting the disks (Data drive and other managed disks) attached to your nodes, we leverage the Azure Disk Encryption. Azure Disk Encryption is a new capability that helps you [encrypt your Linux virtual machine disks](service-fabric-enable-azure-disk-encryption-for-linux.md). 
 Azure Disk Encryption leverages the industry standard [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the data disks. 
 The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. 
 The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage. 

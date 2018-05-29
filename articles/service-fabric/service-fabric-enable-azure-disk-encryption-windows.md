@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Disk Encryption for Windows Virtual Machines | Microsoft Docs
+title: Enable Disk encryption for service fabric Windows clusters | Microsoft Docs
 description: This article describes how to enable disk encryption for Service Fabric cluster nodes in Azure by using Azure Resource Manager, Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
@@ -15,14 +15,14 @@ ms.date: 05/23/2018
 ms.author: v-viban
 
 ---
-# Enable Azure Disk Encryption for Windows virtual machine scale set 
+# Enable Disk encryption for service fabric Windows cluster nodes 
 > [!div class="op_single_selector"]
-> * [Azure Disk Encryption for Windows](service-fabric-enable-azure-disk-encryption-for-windows.md)
-> * [Azure Disk Encryption for Linux](service-fabric-enable-azure-disk-encryption-for-linux.md)
+> * [Disk Encryption for Windows](service-fabric-enable-azure-disk-encryption-windows.md)
+> * [Disk Encryption for Linux](service-fabric-enable-azure-disk-encryption-linux.md)
 >
 >
 
-This step-by-step guide walks you through setting up a secure Azure Service Fabric Windows cluster in Azure by using Azure Resource Manager template and enable disk encryption.
+Follow the steps below to enable disk encryption on Service Fabric Windows Cluster Nodes. You will need to do these for each of the node types/virtual machine scale sets. For encrypting the nodes, we will leverage the Azure Disk Encryption capability on virtual machine scale sets.
 
 The guide covers the following procedures:
 
@@ -33,26 +33,26 @@ The guide covers the following procedures:
 
 ## Prerequisites
 1. **Self-Registration** - In order to use, virtual machine scale set disk encryption preview requires self-registration
-a. You can self-register your subscription by running the following steps: 
+2. You can self-register your subscription by running the following steps: 
 
 ```Powershell
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-b. Wait around 10 minutes until the state as 'Registered'. You can check the state by running the following command: 
+3. Wait around 10 minutes until the state as 'Registered'. You can check the state by running the following command: 
 
 ```Powershell
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-2. **Azure Key Vault** - Create a KeyVault in the same subscription and region as the scale set and set the access policy   'EnabledForDiskEncryption' on the KeyVault using its PS cmdlet. You can also set the policy using the KeyVault UI in the Azure portal: 
+4. **Azure Key Vault** - Create a KeyVault in the same subscription and region as the scale set and set the access policy   'EnabledForDiskEncryption' on the KeyVault using its PS cmdlet. You can also set the policy using the KeyVault UI in the Azure portal: 
 
 ```Powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 ```
 
-3. Install the latest version of [Azure SDK from Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. Following are the virtual machine scale set ADE cmdlets to enable ([Set](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) encryption, retrieve ([Get](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) encryption status and remove ([disable](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) encryption on scale set instance.
+5. Install the latest version of [Azure SDK from Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. Following are the virtual machine scale set ADE cmdlets to enable ([Set](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) encryption, retrieve ([Get](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) encryption status and remove ([disable](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) encryption on scale set instance.
 
 | Command | Version |  Source  |
 | ------------- |-------------| ------------|
@@ -64,10 +64,10 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncrypti
 | Set-AzureRmVmssDiskEncryptionExtension   | 3.4.0 or above | AzureRM.Compute |
 
 
-4. Install latest [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) , which has the new encryption commands.
+6. Install latest [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) , which has the new encryption commands.
 
 
-## Supported Scenarios for Windows virtual machine scale set
+## Supported scenarios for disk encryption
 1. virtual machine scale set encryption is supported only for scale sets created with managed disks, and not supported for native (or unmanaged) disk scale sets
 2. virtual machine scale set encryption is supported for OS and Data volumes for Windows VMSS. Disable encryption is supported for OS and Data volumes for Windows scale set
 3. virtual machine scale set VM re-image and upgrade operations are not supported in current preview 
@@ -77,7 +77,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncrypti
 
 Use the following commands to create cluster and enable disk encryption using Azure Resource Manager template & self signed certificate.
 
-### log in to Azure. 
+### Log in to Azure 
 
 ```Powershell
 
@@ -214,5 +214,5 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 
 
 ## Next steps
-At this point, you have a secure cluster with how to enable/disable disk encryption for Service Fabric Cluster virtual machine scale set. Next, [Azure Disk Encryption for Linux](service-fabric-enable-azure-disk-encryption-for-linux.md) 
+At this point, you have a secure cluster with how to enable/disable disk encryption for Service Fabric Cluster virtual machine scale set. Next, [Azure Disk Encryption for Linux](service-fabric-enable-azure-disk-encryption-inux.md) 
 
