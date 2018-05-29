@@ -46,14 +46,16 @@ The Immutable  Storage feature enables:
 The Immutable Storage for Azure Blobs supports two types of WORM or immutable policies: time-based retention and legal holds. Refer to the Getting Started section (link here) below for details on how to create these immutable policies. 
 When a time-based retention policy or legal hold is applied on a container, all existing blobs will move to the immutable (write and delete protected) state.  All new blobs uploaded to the container will also move to the immutable state.
 
-[!NOTE] A time-based retention policy must be *locked* for the blob to be in an immutable (write and delete-protected) state for SEC 17a-4(f) and other regulatory compliance. It is recommended that the policy be locked within a reasonable amount of time, typically within 24 hours. We do not recommend using the *unlocked* state for any purpose other than short-term feature trials.
+> [!NOTE]
+> A time-based retention policy must be *locked* for the blob to be in an immutable (write and delete-protected) state for SEC 17a-4(f) and other regulatory compliance. It is recommended that the policy be locked within a reasonable amount of time, typically within 24 hours. We do not recommend using the *unlocked* state for any purpose other than short-term feature trials.
 
  When a time-based retention policy is applied on a container, all blobs in the container will remain in the immutable state for the duration of the *effective* retention period. The effective retention period for existing blobs is equal to the difference between the blob creation time and the user-specified retention interval. For new blobs, the effective retention period is equal to the user-specified retention interval. Since users can change the retention interval, the most recent value of the user-specified retention interval will be used for calculating the effective retention period.
 
-*Example:*
-*User creates a time-based retention policy with a retention interval of five years.* 
-*There is an existing blob, testblob1, in that container that was created one year ago. The effective retention period for testblob1 will be four years.*
-*A new blob, testblob2, is now uploaded to the container. The effective retention period for this new blob will be five years.*
+> [!TIP]
+> *Example:*
+> *User creates a time-based retention policy with a retention interval of five years.* 
+> *There is an existing blob, testblob1, in that container that was created one year ago. The effective retention period for testblob1 will be four years.*
+> *A new blob, testblob2, is now uploaded to the container. The effective retention period for this new blob will be five years.*
 
 **Legal holds**
 In case of legal holds, all existing and new blobs will remain in the immutable state until the legal hold is cleared.
@@ -73,10 +75,9 @@ Refer to [Azure Blob Service API](https://docs.microsoft.com/en-us/rest/api/stor
 |No WORM policy created (time-based retention or legal hold)     |Mutable         |None         |
 
 
-
-*Note: The first Put Blob, and the Put Block List and Put Block operations necessary to create a blob are allowed in scenarios 1 and 2 in the above table  all subsequent operations are disallowed.*
-
-### Note:  The Immutable Storage feature is only available in GPv2 and blob storage accounts and must be created through the [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+> [!NOTE]
+> The first Put Blob, and the Put Block List and Put Block operations necessary to create a blob are allowed in scenarios 1 and 2 in the above table  all subsequent operations are disallowed.
+> The Immutable Storage feature is only available in GPv2 and blob storage accounts and must be created through the [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
 
 ## Pricing
 There is no additional charge for using this feature and Immutable data is priced in the same way as normal, mutable data. Refer to the [Azure Storage Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) for the related pricing details.  
@@ -133,13 +134,13 @@ The feature is included in the following command groups (run “-h” on them to
 The Immutable  Storage feature is supported on the [PowerShell version 4.4.0-preview](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May20180).
 To enable the feature, please follow the following steps:
 
-1.	 Ensure that you have the latest version of PowerShellGet installed
-PS C:\> `Install-Module PowerShellGet –Repository PSGallery –Force`
+1.	 Ensure that you have the latest version of PowerShellGet installed using `Install-Module PowerShellGet –Repository PSGallery –Force`
 2.	Remove any previous installation of Azure PowerShell
 3.	Install AzureRM (Azure can be installed similarly from this repository)
-PS C:\> Install-Module AzureRM –Repository PSGallery –AllowClobber
+`Install-Module AzureRM –Repository PSGallery –AllowClobber`
 4.	Install the preview version of Storage management  plane cmdlets
-PS C:\>Install-Module -Name AzureRM.Storage -AllowPrerelease -Repository PSGallery -AllowClobber
+`Install-Module -Name AzureRM.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`
+
 A sample PowerShell code illustrating the feature usage is provided below.
 
 **Client Libraries**
@@ -174,8 +175,8 @@ Yes, you can use the Set Blob Tier command to move data across the blob tiers wh
 In case of non-payment, normal data retention policies will apply as stipulated grace specified in the terms and conditions of your contract with Microsoft.
 7.	Do you offer a trial or grace period for just trying out the feature?  
 Yes, when a time-based retention policy is first created, it will be in an *unlocked* state. In this state, you can make any desired change to the retention interval such as increase or decrease and even delete the policy. Once the policy is locked, it remains locked forever preventing deletion. Also, the retention interval can no longer be decreased when the policy is locked. We strongly recommend that you use the *unlocked* state only for trial purposes and lock the policy within a 24-hour period, so as not to risk noncompliance with SEC 17a-4(f) and other regulations.
-8. Is the feature available in national and sovereign clouds?
-The Immutable Storage feature is currently available only in Azure public regions. Support for national government clouds will be added soon. Email azurestoragefeedback@microsoft.com for specific national clouds of interest.
+8. Is the feature available in national and government clouds?
+The Immutable Storage feature is currently available only in Azure public regions. Support for national and government clouds will be added soon. Email azurestoragefeedback@microsoft.com for specific national clouds of interest.
 
 
 ## Sample Code
