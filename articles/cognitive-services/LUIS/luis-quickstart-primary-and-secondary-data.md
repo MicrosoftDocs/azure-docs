@@ -16,14 +16,14 @@ ms.author: v-geberr
 # Tutorial: Create app that uses simple entity
 In this tutorial, create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
 
-+<!-- green checkmark -->
-+> [!div class="checklist"]
-+> * Understand simple entities 
-+> * Create new LUIS app for the communication domain with SendMessage intent
-+> * Add _None_ intent and add example utterances
-+> * Add simple entity to extract message contents from utterance
-+> * Train, and publish app
-+> * Query endpoint of app to see LUIS JSON response
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Understand simple entities 
+> * Create new LUIS app for the communication domain with SendMessage intent
+> * Add _None_ intent and add example utterances
+> * Add simple entity to extract message contents from utterance
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
