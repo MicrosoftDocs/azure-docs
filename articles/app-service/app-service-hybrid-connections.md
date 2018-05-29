@@ -62,6 +62,7 @@ There are a few things you cannot do with Hybrid Connections, including:
 - Accessing TCP-based services that use dynamic ports, such as FTP Passive Mode or Extended Passive Mode.
 - Supporting LDAP, because it sometimes requires UDP.
 - Supporting Active Directory.
+- Windows Authentication to on-prem SQL Server (Windows Authentication requires domain join which is not applicable in App Service, use SQL Authentication instead).
 
 ## Add and Create Hybrid Connections in your app ##
 
