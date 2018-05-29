@@ -29,7 +29,11 @@ In this guide, you will learn how to:
 - A Kubernetes cluster running Kubernetes 1.9.6, in the EastUS or CanadaEast region, with Http Application Routing enabled.
 - Visual Studio Code, which you can download [here](https://code.visualstudio.com/download).
 
-## Install the Azure CLI
+## Install tools and configure a cluster
+
+Follow these steps to install the tools and configure a Kubernetes cluster for Azure Dev Spaces.
+
+### Install the Azure CLI
 Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
@@ -41,7 +45,7 @@ You'll need to sign in to Azure to create our dev space. Type the following comm
 az login
 ```
 
-## Configure your AKS cluster to use Azure Dev Spaces
+### Configure your AKS cluster to use Azure Dev Spaces
 
 Open a command window and enter the following Azure CLI command, using the resource group that contains your AKS cluster, and your AKS cluster name. The command configures your cluster with support for Azure Dev Spaces.
 
@@ -49,7 +53,7 @@ Open a command window and enter the following Azure CLI command, using the resou
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS
 ```
 
-## Get Kubernetes debugging for VS Code
+### Get Kubernetes debugging for VS Code
 Rich features like Kubernetes debugging are available for .NET Core and Node.js developers using VS Code.
 
 1. Download the [VS Azure Dev Spaces extension](https://aka.ms/get-azds-code).
@@ -61,7 +65,7 @@ Rich features like Kubernetes debugging are available for .NET Core and Node.js 
 
 While you're waiting for the cluster to be created, you can start developing code.
 
-## Create a Node.js container in Kubernetes
+### Create a Node.js container in Kubernetes
 
 In this section, you'll create a Node.js web app and get it running in a container in Kubernetes.
 
@@ -168,7 +172,7 @@ In this section, you'll use VS Code to directly debug our container running in A
 
 ![](./media/common/edit-refresh-see.png)
 
-## Initialize debug assets with the VS Code extension
+### Initialize debug assets with the VS Code extension
 You first need to configure your code project so VS Code will communicate with our dev space in Azure. The VS Code extension for Azure Dev Spaces provides a helper command to set up debug configuration. 
 
 Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Create configuration files for connected development`. 

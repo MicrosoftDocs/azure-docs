@@ -31,7 +31,11 @@ In this guide, you will learn how to:
 
 Install the [Visual Studio extension for Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
 
-## Create an ASP.NET web app
+## Connect a project to a Kubernetes cluster configured for Azure Dev Spaces
+
+Next, you'll create and configure a project for Azure Dev Spaces.
+
+### Create an ASP.NET web app
 
 From within Visual Studio 2017, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project **webfrontend**.
 
@@ -39,7 +43,7 @@ Select the **Web Application (Model-View-Controller)** template and be sure you'
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
 
-## Create a dev space in Azure
+### Create a dev space in Azure
 
 With the project you just created open, select **Azure Dev Spaces** from the launch settings dropdown, as shown below.
 
@@ -61,7 +65,7 @@ If you choose a cluster that hasn't been configured to work with Azure Dev Space
 
 Choose **OK**. 
 
-## Look at the files added to project
+### Look at the files added to project
 While you wait for the dev space to be created, look at the files that have been added to your project when you chose to use Azure Dev Spaces.
 
 - A folder named `charts` has been added and within this folder a [Helm chart](https://docs.helm.sh) for your application has been scaffolded. These files are used to deploy your application into the dev space.
