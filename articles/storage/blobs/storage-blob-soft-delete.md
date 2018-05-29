@@ -201,7 +201,7 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
-See the [Next steps](#Next steps) section for a pointer to the application that produced this output.
+See the [Next steps](#next-steps) section for a pointer to the application that produced this output.
 
 ## Pricing and billing
 
