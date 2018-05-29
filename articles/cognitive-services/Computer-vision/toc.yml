@@ -18,10 +18,16 @@
       href: QuickStarts/CSharp-print-text.md
     - name: Extract handwritten text
       href: QuickStarts/CSharp-hand-text.md
-#  - name: cURL
-#    items:
-#    - name: Summary
-#      href: QuickStarts/curl.md
+  - name: cURL
+    items:
+    - name: Summary
+      href: QuickStarts/curl.md
+    - name: Analyze an image
+      href: QuickStarts/curl-analyze.md
+    - name: Generate a thumbnail
+      href: QuickStarts/curl-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/curl-print-text.md
   - name: Java
     items:
     - name: Summary
@@ -74,8 +80,6 @@
   items:
   - name: Try Computer Vision 
     items:
-    - name: cURL
-      href: QuickStarts/curl.md
     - name: PHP
       href: QuickStarts/PHP.md
     - name: Ruby
