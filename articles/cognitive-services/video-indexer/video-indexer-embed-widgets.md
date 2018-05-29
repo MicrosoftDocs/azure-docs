@@ -209,7 +209,7 @@ If you embed Video Indexer insights with your own AMP player, you can use the **
 ### Cognitive insights widget
 You can choose the types of insights you want by specifying them as a value to the following URL parameter added to the embed code you get (from API or from the web application):
 
-**&widgets=**<list of wanted widgets>
+**&widgets=**\<list of wanted widgets>
 
 The possible values are: people, keywords, sentiments, transcript, search.
 
