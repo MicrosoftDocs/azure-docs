@@ -21,12 +21,17 @@ ms.author: sethm
 2. Click **Internet of Things**, and then click **Event Hubs**.
    
     ![](./media/event-hubs-create/create-event-hub9.png)
-3. In **Create namespace**, enter a namespace name. The system immediately checks to see if the name is available.
-   
-    ![](./media/event-hubs-create/create-event-hub1.png)
-4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. 
+
+3. In **Create namespace**, enter a namespace name. The system immediately checks to see if the name is available.  
+
+4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource.
+ 
 5. Click **Create** to create the namespace. You may have to wait a few minutes for the system to fully provision the resources.
+
+    ![](./media/event-hubs-create/create-event-hub1.png)
+
 6. In the portal list of namespaces, click the newly created namespace.
+
 7. Click **Shared access policies**, and then click **RootManageSharedAccessKey**.
     
     ![](./media/event-hubs-create/create-event-hub7.png)
