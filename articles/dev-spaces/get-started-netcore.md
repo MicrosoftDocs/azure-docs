@@ -36,7 +36,11 @@ Azure Dev Spaces requires minimal local machine setup. Most of your dev space's 
 
 While you're waiting for the cluster to be created, you can start developing code.
 
-## Create an ASP.NET Core web app
+## Create a web app running in a container
+
+In this section, you'll create a ASP.NET Core web app and get it running in a container in Kubernetes.
+
+### Create an ASP.NET Core web app
 If you have [.NET Core](https://www.microsoft.com/net) installed, you can quickly create an ASP.NET Core Web App in a folder named `webfrontend`.
     
 ```cmd
@@ -49,7 +53,7 @@ Or, **download sample code from GitHub** by navigating to https://github.com/Azu
 
 [!INCLUDE[](includes/build-run-k8s-cli.md)]
 
-## Update a content file
+### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
 
 1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change line 70 that reads `<h2>Application uses</h2>` to something like: `<h2>Hello k8s in Azure!</h2>`
@@ -58,7 +62,7 @@ Azure Dev Spaces isn't just about getting code running in Kubernetes - it's abou
 
 What happened? Edits to content files, like HTML and CSS, don't require recompilation in a .NET Core web app, so an active `azds up` command automatically syncs any modified content files into the running container in Azure, so you can see your content edits right away.
 
-## Update a code file
+### Update a code file
 Updating code files requires a little more work, because a .NET Core app needs to rebuild and produce updated application binaries.
 
 1. In the terminal window, press `Ctrl+C` (to stop `azds up`).

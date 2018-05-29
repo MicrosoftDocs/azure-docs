@@ -21,7 +21,7 @@ In this guide, you will learn how to.
 - Productively develop and test your code in a team environment.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page. You can also try the more detailed [tutorial](get-started-netcore.md).
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ In this guide, you will learn how to.
 - A Kubernetes cluster running Kubernetes 1.9.6, in the EastUS or CanadaEast region, with Http Application Routing enabled.
 - Visual Studio Code, which you can download [here](https://code.visualstudio.com/download).
 
-## Install Tools and Configure your Cluster
+## Install tools and configure a cluster
 
 Follow these steps to get your tools and cluster set up for Azure Dev Spaces.
 

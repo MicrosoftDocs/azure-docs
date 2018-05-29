@@ -20,7 +20,7 @@ In this guide, you will learn how to:
 - Iteratively develop code in containers using Visual Studio.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page. You can also try the more detailed [tutorial](get-started-netcore-visualstudio.md).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ In this guide, you will learn how to:
 
 Install the [Visual Studio extension for Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
 
-## Connect a project to a Kubernetes cluster configured for Azure Dev Spaces
+## Connect to a cluster
 
 Next, you'll create and configure a project for Azure Dev Spaces.
 
