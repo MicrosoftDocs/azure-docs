@@ -49,6 +49,6 @@ To use Azure AD to authorize access to storage resources in your applications, y
 
 Azure CLI and PowerShell now support logging in with an Azure AD identity. After you log in with an Azure AD identity, your session runs under that identity. To learn more, see [Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)](storage-auth-aad-script.md).
 
-## Next Steps
+## Next steps
 
 For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
