@@ -214,5 +214,5 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 
 
 ## Next steps
-At this point, you have a secure cluster with how to enable/disable disk encryption for Service Fabric Cluster virtual machine scale set. Next, [Azure Disk Encryption for Linux](service-fabric-enable-azure-disk-encryption-inux.md) 
+At this point, you have a secure cluster with how to enable/disable disk encryption for Service Fabric Cluster virtual machine scale set. Next, [Azure Disk Encryption for Linux](service-fabric-enable-azure-disk-encryption-linux.md) 
 
