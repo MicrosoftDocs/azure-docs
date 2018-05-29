@@ -115,7 +115,7 @@ For example, provide a string description for how many cars of the same make pas
         TumblingWindow(second, 10)
 
 **Explanation**:
-The **CASE** clause allows us to provide a different computation, based on some criteria (in this case, the count of the cars in the aggregate window).
+The **CASE** clause allows us to provide a different computation, based on some criteria (in this example, the count of the cars in the aggregate window).
 
 ## Query example: Send data to multiple outputs
 **Description**: Send data to multiple output targets from a single job.
@@ -587,16 +587,16 @@ The second query is joined to the first query to find the power value in the mos
 And then, provided the conditions are met, an alert is generated for the device.
 
 ## Query example: Process events independent of Device Clock Skew (substreams)
-**Description**: Clock skews between event producers, clock skews between partitions, and network latency can all cause events to arrive late or out of order. In the following example, the device clock for TollID 2 is ten seconds behind TollID 1, and the device clock for TollID 3 is five seconds behind TollID 1. 
+**Description**: Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency. In the following example, the device clock for TollID 2 is ten seconds behind TollID 1, and the device clock for TollID 3 is five seconds behind TollID 1. 
 
 
 **Input**:
 | LicensePlate | Make | Time | TollID |
 | --- | --- | --- | --- |
-| DXE 5291 |Honda |2015-07-27T00:00:00.0000000Z | 1 |
-| YHN 6970 |Toyota |2015-07-27T00:00:02.0000000Z | 2 |
-| QYF 9358 |Honda |2015-07-27T00:00:05.0000000Z | 2 |
-| GXF 9462 |BMW |2015-07-27T00:00:07.0000000Z | 2 |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
 | VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
 | RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
 | MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
@@ -605,12 +605,12 @@ And then, provided the conditions are met, an alert is generated for the device.
 **Output**:
 | TollID | Count |
 | --- | --- |
-| 1 | 1 |
-| 2 | 1 |
+| 1 | 2 |
 | 2 | 2 |
 | 1 | 1 |
 | 3 | 1 |
 | 2 | 1 |
+| 3 | 1 |
 
 **Solution**:
 
