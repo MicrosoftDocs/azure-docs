@@ -25,7 +25,12 @@ With the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/
 
 To run the sample, do the following steps:
 
-Change the REST URL to use the location where you obtained your subscription keys, replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, and add a URL to a photograph of a celebrity to the `body` variable.
+1. Copy the following code into an editor, such as Notepad.
+1. Replace `<Subscription Key>` with your valid subscription key.
+1. Change the `uri` value to the location where you obtained your subscription keys, if necessary.
+1. Optionally, change the image (`{\"url\":\"...`) to analyze.
+1. Save the file with an `.rb` extension.
+1. Open the Ruby Command Prompt and run the file, for example: `ruby myfile.rb`.
 
 ```ruby
 require 'net/http'

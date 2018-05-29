@@ -39,7 +39,7 @@ To run the sample, do the following steps:
 1. Optionally, change the response language (`'language' => 'en'`).
 1. Optionally, change the image (`{\"url\":\"...`) to analyze.
 1. Save the file with an `.rb` extension.
-1. Open the Ruby Command Prompt and run the file: `ruby myfile.rb`.
+1. Open the Ruby Command Prompt and run the file, for example: `ruby myfile.rb`.
 
 ```ruby
 require 'net/http'
