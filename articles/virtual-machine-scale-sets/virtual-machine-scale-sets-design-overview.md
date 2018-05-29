@@ -37,9 +37,6 @@ Generally, scale sets are useful for deploying highly available infrastructure w
 
 Some features are currently only available in VMs:
 
-- You can attach data disks to specific individual VMs, but attached data disks are configured for all VMs in a scale set.
-- You can attach non-empty data disks to individual VMs but not VMs in a scale set.
-- You can snapshot an individual VM but not a VM in a scale set.
 - You can capture an image from an individual VM but not from a VM in a scale set.
 - You can migrate an individual VM from native disks to managed disks, but you cannot do this for VMs in a scale set.
 - You can assign IPv6 public IP addresses to individual VM nics but cannot do so for VMs in a scale set. You can assign IPv6 public IP addresses to load balancers in front of either individual VMs or scale set VMs.
