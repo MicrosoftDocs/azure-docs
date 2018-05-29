@@ -29,7 +29,7 @@ Keep in mind the following points about the preview:
 - Azure Storage supports both built-in and custom RBAC roles. You can assign roles scoped to the subscription, the resource group, the storage account, or an individual container or queue.
 - The Azure Storage client libraries that currently support Azure AD integration include:
     - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0-Preview)
-    - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)(use 7.1.0-Preview)
+    - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) (use 7.1.0-Preview)
     - Python
         - [Blob](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-blob)
         - [Queue](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-queue)
@@ -41,14 +41,14 @@ Keep in mind the following points about the preview:
 >
 > Azure AD integration with Azure Storage requires that you use HTTPS for Azure Storage operations.
 
+## Get started with Azure AD for Storage
 
-For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
+The first step in using Azure AD integration with Azure Storage is to assign RBAC roles for storage data to your service principal (a user, group, or application service principal) or Managed Service Identity (MSI). RBAC roles encompass common sets of permissions for containers and queues. To learn more about RBAC roles for Azure Storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
+
+To use Azure AD to authorize access to storage resources in your applications, you need to request an OAuth 2.0 access token from your code. To learn how to request an access token and use it to authorize requests to Azure Storage, see [Authenticate with Azure AD from an Azure Storage application (Preview)](storage-auth-aad-app.md). If you are using an Azure Managed Service Identity (MSI), see [Authenticate with Azure AD from an Azure VM Managed Service Identity (Preview)](storage-auth-aad-msi.md).
+
+Azure CLI and PowerShell now support logging in with an Azure AD identity. After you log in with an Azure AD identity, your session runs under that identity. To learn more, see [Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)](storage-auth-aad-script.md).
 
 ## Next Steps
 
-- To learn more about RBAC roles for Azure Storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
-- To learn how to authenticate with Azure AD from your Azure Storage applications, see [Authenticate with Azure AD from an Azure Storage application (Preview)](storage-auth-aad-app.md)
-- To learn how to authenticate with Azure AD from an Azure VM Managed Service Identity (MSI), see [Authenticate with Azure AD from an Azure VM Managed Service Identity (Preview)](storage-auth-aad-msi.md).
-- To learn how to log into Azure CLI and PowerShell with an Azure AD identity, see [Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)](storage-auth-aad-script.md).
-
-
+For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
