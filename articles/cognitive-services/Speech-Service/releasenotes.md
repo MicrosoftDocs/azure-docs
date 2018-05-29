@@ -25,6 +25,7 @@ Changes in this release:
 
 - list element 2
 
+- list element 3
 ## Cognitive Services Speech SDK 0.3.0
 
 *Release May 2018*
