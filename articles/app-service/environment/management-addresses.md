@@ -26,6 +26,8 @@ This document lists the App Service source addresses for management traffic to t
 
 All ASEs have a public VIP which management traffic comes into. The incoming management traffic from these addresses comes in from to ports 454 and 455 on the public VIP of your ASE.  
 
+## List of management addresses ##
+
 | Region | Addresses |
 |--------|-----------|
 | South Central US & North Central US | 70.37.57.58, 157.55.208.185, 52.174.22.21,13.94.149.179,13.94.143.126,13.94.141.115, 52.178.195.197, 52.178.190.65, 52.178.184.149, 52.178.177.147, 13.75.127.117, 40.83.125.161, 40.83.121.56, 40.83.120.64, 52.187.56.50, 52.187.63.37, 52.187.59.251, 52.187.63.19, 52.165.158.140, 52.165.152.214, 52.165.154.193, 52.165.153.122, 104.44.129.255, 104.44.134.255, 104.44.129.243, 104.44.129.141, 23.102.188.65, 191.236.154.88, 13.64.115.203, 65.52.193.203, 70.37.89.222, 52.224.105.172,	23.102.135.246 |
@@ -44,6 +46,18 @@ All ASEs have a public VIP which management traffic comes into. The incoming man
 | West India & South India | 70.37.57.58, 157.55.208.185, 52.174.22.21,13.94.149.179,13.94.143.126,13.94.141.115, 52.178.195.197, 52.178.190.65, 52.178.184.149, 52.178.177.147, 13.75.127.117, 40.83.125.161, 40.83.121.56, 40.83.120.64, 52.187.56.50, 52.187.63.37, 52.187.59.251, 52.187.63.19, 52.165.158.140, 52.165.152.214, 52.165.154.193, 52.165.153.122, 104.44.129.255, 104.44.134.255, 104.44.129.243, 104.44.129.141, 23.102.188.65, 191.236.154.88, 13.64.115.203, 65.52.193.203, 70.37.89.222, 52.224.105.172,	23.102.135.246 |
 | Fairfax | 23.97.29.209, 13.72.53.37, 13.72.180.105, 23.97.0.17, 23.97.16.184 |
 
+## Getting your management addresses from API ##
+
+There is an API call that can be made to obtain the list of management addresses that match to your ASE.  The call is:
+
+    get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
+
+This call returns a JSON document that includes all of the inbound addresses for your ASE which includes the management addresses, the VIP used by your ASE and the ASE subnet itself.  
+
+An easy way to use this API is with the [armclient](http://github.com/projectkudu/ARMClient) tool. If you use that client then the syntax to call it is:
+
+    armclient login
+    armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
 
 
 <!-- LINKS -->
