@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure IoT options | Microsoft Docs
-description: Choose how to implement your Azure IoT solution using Azure IoT Central, IoT Suite, or IoT Hub.
+description: Choose how to implement your Azure IoT solution using Azure IoT Central, IoT solution accelerators, or IoT Hub.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
@@ -21,18 +21,18 @@ To implement an IoT solution, Microsoft Azure IoT Central and Azure IoT offer se
 
 ## Azure IoT Hub
 
-Azure IoT Hub is the core Azure PaaS that both Azure IoT Central and Azure IoT Suite use. IoT Hub enables reliable and secure bidirectional communications between millions of IoT devices and a cloud solution. IoT Hub helps you meet IoT implementation challenges such as:
+Azure IoT Hub is the core Azure PaaS that both Azure IoT Central and Azure IoT solution accelerators use. IoT Hub enables reliable and secure bidirectional communications between millions of IoT devices and a cloud solution. IoT Hub helps you meet IoT implementation challenges such as:
 
 * High-volume device connectivity and management.
 * High-volume telemetry ingestion.
 * Command and control of devices.
 * Device security enforcement.
 
-## Compare Azure IoT Central and Azure IoT Suite
+## Compare Azure IoT Central and Azure IoT solution accelerators
 
-Choosing your Azure IoT product is a critical part of planning your IoT solution. IoT Hub is an individual Azure service that doesn't, by itself, provide an end-to-end IoT solution. IoT Hub can be used as a starting point for any IoT solution, and you don’t need to use Azure IoT Suite or Azure IoT Central to use it. Both IoT Suite and Azure IoT Central use IoT Hub along with other Azure services. The following table summarizes the key differences between IoT Suite and Azure IoT Central to help you choose the correct one for your requirements:
+Choosing your Azure IoT product is a critical part of planning your IoT solution. IoT Hub is an individual Azure service that doesn't, by itself, provide an end-to-end IoT solution. IoT Hub can be used as a starting point for any IoT solution, and you don’t need to use Azure IoT solution accelerators or Azure IoT Central to use it. Both IoT solution accelerators and Azure IoT Central use IoT Hub along with other Azure services. The following table summarizes the key differences between IoT solution accelerators and Azure IoT Central to help you choose the correct one for your requirements:
 
-|     | Azure IoT Central | Azure IoT Suite |
+|     | Azure IoT Central | Azure IoT solution accelerators |
 | --- | ----------- | --------- |
 | Primary usage                      | To accelerate time to market for straightforward IoT solutions that don’t require deep service customization.                                                    | To accelerate development of a custom IoT solution that needs maximum flexibility.                                                                                                                             |
 | Access to underlying PaaS services | SaaS. Fully managed solution, the underlying services aren't exposed.                                                                                            | You have access to the underlying Azure services to manage them, or replace them as needed.                                                                                                                    |
