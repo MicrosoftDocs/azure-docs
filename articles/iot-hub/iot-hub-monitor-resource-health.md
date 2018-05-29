@@ -25,7 +25,7 @@ Businesses that implement Azure IoT Hub expect reliable performance from their r
 Azure Monitor is a single source of monitoring and logging for all your Azure services. You can send the diagnostic logs that Azure Monitor generates to Log Analytics, Event Hubs, or Azure Storage for custom processing. Azure Monitor's metrics and diagnostics settings give you visibility into the performance of your resources. Continue reading this article to learn how to [Use Azure Monitor](#use-azure-monitor) with your IoT hub. 
 
 > [!IMPORTANT]
-> IoT Hub and Azure Monitor diagnostic logs do not guarantee reliable or ordered delivery of events. Depending on IoT Hub underlying infrastructure, some events might be lost or delivered out of order. Diagnostic logs also aren't meant to be real-time, and it may take several minutes for events to be logged to your choice of destination.
+> The events emitted by the IoT Hub service using Azure Monitor diagnostic logs are not guaranteed to be reliable or ordered. Some events might be lost or delivered out of order. Diagnostic logs also aren't meant to be real-time, and it may take several minutes for events to be logged to your choice of destination.
 
 Azure Resource Health helps you diagnose and get support when an Azure issues impacts your resources. A personalized dashboard provides current and past health status for your IoT Hubs. Continue reading this article to learn how to [Use Azure Resource Health](#use-azure-resource-health) with your IoT hub. 
 
