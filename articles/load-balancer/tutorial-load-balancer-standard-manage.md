@@ -29,10 +29,13 @@ Load balancing provides a higher level of availability and scale by spreading in
 > * Create an Azure load balancer
 > * Create a load balancer health probe
 > * Create load balancer traffic rules
-> * Use the Custom Script Extension to create a basic IIS site
-> * Create virtual machines and attach to a load balancer
+> * Create virtual machines and install IIS server
+> * Attach virtual machines to a load balancer
 > * View a load balancer in action
 > * Add and remove VMs from a load balancer
+> * Create load balancer inbound NAT rules for port forwarding
+> * View port forwarding in action
+
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
@@ -52,9 +55,9 @@ In this section, you create a public load balancer that helps load balance virtu
     - *myResourceGroupSLB* -  for the name of the **New** resource group that you select to create.
     - **westeurope** - for the location.
 3. Click **Create** to create the load balancer.
-   
-    ![Create a load balancer](./media/load-balancer-standard-public-portal/1a-load-balancer.png)
 
+![Create a load balancer](./media/load-balancer-standard-public-portal/1a-load-balancer.png)
+   
 ## Create load balancer resources
 
 In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer and NAT rules.
@@ -71,10 +74,6 @@ To distribute traffic to the VMs, a backend address pool contains the IP address
     - For **Availability set**, click, **myAvailabilitySet**.
     - Click **Add a target network IP configuration** to add each virtual machine (*myVM1* & *myVM2*) that you created to the backend pool.
     - Click **OK**.
-
-    ![Adding to the backend address pool - ](./media/load-balancer-standard-public-portal/3-load-balancer-backend-02.png)
-
-3. Check to make sure your load balancer backend pool setting displays both the VMs **VM1** and **VM2**.
 
 ### Create a health probe
 
@@ -107,8 +106,6 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
     - *myHealthProbe* - for the name of the health probe.
 4. Click **OK**.
     
-    ![Adding a load balancing rule](./media/load-balancer-standard-public-portal/5-load-balancing-rules.png)
-
 ## Create backend servers
 
 In this section, you create a virtual network, create two virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.
@@ -201,16 +198,14 @@ To distribute traffic to the VMs, add virtual machines *VM1* and *VM2* to the pr
     - Click **Add a target network IP configuration** to add each virtual machine (*myVM1*, *myVM2*, & *myVM3*) that you created to the backend pool.
     - Click **OK**.
 
-    ![Adding to the backend address pool - ](./media/load-balancer-standard-public-portal/3-load-balancer-backend-02.png)
-
-3. Check to make sure your load balancer backend pool setting displays all the VMs **VM1**, **VM2**, and **myVM3**.
+4. Check to make sure your load balancer backend pool setting displays all the VMs **VM1**, **VM2**, and **myVM3**.
 
 ## Test the load balancer
 1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**.
 
 2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
-      ![IIS Web server](./media/load-balancer-standard-public-portal/9-load-balancer-test.png)
+      ![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 To see the load balancer distribute traffic across the three VMs running your app, you can force-refresh your web browser.
 
@@ -224,6 +219,30 @@ You may need to perform maintenance on the VMs running your app, such as install
 With *myVM1* no longer in the backend address pool, you can perform any maintenance tasks on *myVM1*, such as installing software updates. In the absence of *VM1**, the load is now balanced across *myVM2* and *myVM3*. 
 
 To add *myVM1* back to the backend pool, follow the procedure in the *Add VMs to the backend pool* section of this article.
+
+## Create inbound NAT rules for port forwarding
+With Load Balancer, you can create an inbound NAT rule to port forward traffic from a specific port of a frontend IP address to a specific port of a backend instance inside the virtual network.
+
+Create inbound NAT rule to port forward traffic from load balancer's frontend ports to port 3389 for the backend VMs.
+
+1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
+2. Under **Settings**, click **Inbound NAT rules**, then within the backend pool's list, click **myBackendPool**.
+3. In the **Add inbound NAT rule** page, enter the following values:
+    a. For the name of the NAT rule, type *myNATRuleRDPVM1*,
+    b. For port, type *4221*.
+    c. For **Target virtual machine**, from the drop-down, select *myVM1*.
+    d. For **Port mapping**, click custom, anf then for **Target port**, type **3389**.
+    e. Click **OK**.
+4. Repeat step 2 & 3 to create inbound NAT rules named *myNATRuleRDPVM2* and *myNATRuleRDPVM2* for virutal machines *myVM2* & *myVM3* using frontend ports *4222* & *4223*.
+
+## Test port forwarding
+With port forwarding, you can create a remote desktop connection using the IP address of the load balancer and the frontend port value that were defined in the preceding step.
+
+1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**. Copy the public IP address.
+2. On your computer, open **Remote Desktop Connection**.
+3. In **Remote Desktop Connection**, enter the following to connect to *myVM2*:
+    a. For computer, type *<LoadBalancerIPAddress>:4222*
+    b. Enter the credentials to log in to *myVM2*.
 
 ## Clean up resources
 
