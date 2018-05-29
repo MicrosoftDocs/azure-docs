@@ -16,7 +16,7 @@ ms.author: v-geberr
 
 Utterances are examples of user questions or commands. To teach Language Understanding (LUIS), you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
 
-Generally, you add an utterance first, and then you create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](Add-entities.md).
+Generally, you add an utterance first, and then you create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
 
 ## Add an utterance
 On an intent page, enter a relevant utterance you expect from your users, such as `book 2 adult business tickets to Paris tomorrow on Air France` in the text box below the intent name, and then press Enter. 
@@ -75,7 +75,7 @@ For example, if you wanted to create a list of types of drink and you selected t
 
     ![Screenshot of What type of entity do you want to create dialog box](./media/add-example-utterances/drink-list-ddl.png)
 
-    This list of drinks has only one drink type, water. You can add more drink types by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. [Editing](add-entities.md#add-list-entities) the entities gives you the options of entering additional items with corresponding synonyms or [importing](add-entities.md#import-list-entity-values) a list. 
+    This list of drinks has only one drink type, water. You can add more drink types by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. [Editing](luis-how-to-add-entities.md#add-list-entities) the entities gives you the options of entering additional items with corresponding synonyms or [importing](luis-how-to-add-entities.md#import-list-entity-values) a list. 
 
     See [Data Extraction](luis-concept-data-extraction.md#list-entity-data) to learn more about extracting list entities from the endpoint JSON query response. Try the [quickstart](luis-quickstart-intent-and-list-entity.md) to learn more about how to use a list entity.
 
@@ -102,7 +102,7 @@ Composite entities are created from **Entities**. You can't create a composite e
 
 Assuming the utterance, `book 2 tickets from Seattle to Cairo`, a composite utterance can return entity information of the count of tickets (2), the origin (Seattle), and destination (Cairo) locations in a single parent entity. 
 
-Follow these [steps](Add-entities.md#add-prebuilt-entity) to add the **number** prebuilt entity. After the entity is created, the `2` in the utterance is blue, indicating it is a labeled entity. Prebuilt entities are labeled by LUIS. You can't add or remove the prebuilt entity label from a single utterance. You can only add or remove all the prebuilt labels by adding or removing the prebuilt entity from the application.
+Follow these [steps](luis-how-to-add-entities.md#add-prebuilt-entity) to add the **number** prebuilt entity. After the entity is created, the `2` in the utterance is blue, indicating it is a labeled entity. Prebuilt entities are labeled by LUIS. You can't add or remove the prebuilt entity label from a single utterance. You can only add or remove all the prebuilt labels by adding or removing the prebuilt entity from the application.
 
 Follow these [steps](#add-hierarchical-entity-and-label) to create a **Location** hierarchical entity. Label the origin and destination locations in the example utterance. 
 
@@ -161,16 +161,16 @@ To remove a machine-learned entity label from an utterance, select the entity in
 ![Screenshot of Intents details page, with Remove Label highlighted](./media/add-example-utterances/remove-label.png) 
 
 ## Add prebuilt entity label
-If you add the prebuilt entities to your LUIS app, you don't need to label utterances with these entities. To learn more about prebuilt entities and how to add them, see [Add entities](Add-entities.md#add-prebuilt-entity).
+If you add the prebuilt entities to your LUIS app, you don't need to label utterances with these entities. To learn more about prebuilt entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-prebuilt-entity).
 
 ## Add regular expression entity label
-If you add the regular expression entities to your LUIS app, you don't need to label utterances with these entities. To learn more about regular expression entities and how to add them, see [Add entities](Add-entities.md#add-regular-expression-entities).
+If you add the regular expression entities to your LUIS app, you don't need to label utterances with these entities. To learn more about regular expression entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-regular-expression-entities).
 
 ## Create a pattern from an utterance
 See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 ## Add pattern.any entity label
-If you add the pattern.any entities to your LUIS app, you can't label utterances with these entities. They are only valid in patterns. To learn more about pattern.any entities and how to add them, see [Add entities](Add-entities.md#add-patternany-entities).
+If you add the pattern.any entities to your LUIS app, you can't label utterances with these entities. They are only valid in patterns. To learn more about pattern.any entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-patternany-entities).
 
 <!--
 Fix this - moved to add-intents.md - how ?
@@ -190,4 +190,4 @@ After you add, edit, or remove utterances, [train](luis-how-to-train.md) and [pu
 
 ## Next steps
 
-After labeling utterances in your intents, you can now create a [composite entity](Add-entities.md).
+After labeling utterances in your intents, you can now create a [composite entity](luis-how-to-add-entities.md).

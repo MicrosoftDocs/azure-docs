@@ -1,18 +1,11 @@
 ---
 title: Configure message routing with Azure IoT Hub (.NET) | Microsoft Docs
 description: Configure message routing with Azure IoT Hub 
-services: iot-hub
-documentationcenter: .net
 author: robinsh
 manager: timlt
-editor: tysonn
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: dotnet
+services: iot-hub
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
@@ -596,6 +589,6 @@ In this tutorial, you learned how to use message routing to route IoT Hub messag
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
 > [!div class="nextstepaction"]
-[Get started with Azure IoT Hub device twins](iot-hub-node-node-twin-getstarted.md)
+[Configure your devices from a back-end service](tutorial-device-twins.md)
 
  <!--  [Manage the state of a device](./tutorial-manage-state.md) -->
