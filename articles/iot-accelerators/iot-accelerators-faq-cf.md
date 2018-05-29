@@ -1,23 +1,15 @@
 ---
 title: Connected Factory solution FAQ - Azure | Microsoft Docs
 description: Frequently asked questions for the Connected Factory solution accelerator
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-
 ---
+
 # Frequently asked questions for Connected Factory solution accelerator
 
 See also, the general [FAQ](iot-accelerators-faq.md) for IoT solution accelerators.
@@ -209,6 +201,6 @@ To send telemetry data from non OPC UA devices to Connected Factory:
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Predictive Maintenance solution accelerator overview](../iot-suite/iot-suite-predictive-overview.md)
+* [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
 * [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
-* [IoT security from the ground up](../iot-suite/securing-iot-ground-up.md)
+* [IoT security from the ground up](securing-iot-ground-up.md)

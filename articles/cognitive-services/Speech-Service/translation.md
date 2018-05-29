@@ -21,7 +21,7 @@ ms.author: wolfma
 [!include[Get a Subscription Key](includes/get-subscription-key.md)]
 
 > [!NOTE]
-> For all samples below, we assume the following top-level declarations are in place:
+> For all samples below the following top-level declarations should be in place:
 >
 > [!code-csharp [Using Statements](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/translation_samples.cs#toplevel)]
 >
@@ -43,3 +43,13 @@ It uses file as input.
 [!code-csharp[Translation Using File Input](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/translation_samples.cs#TranslationWithFileAsync)]
 
 - - -
+
+## Sample Source Code
+
+The latest version of the samples and even more advanced samples are in a dedicated [GitHub repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+
+## Next Steps
+
+- [Speech Recognition](./speech-to-text-sample.md)
+
+- [Intent Recognition](./intent.md)

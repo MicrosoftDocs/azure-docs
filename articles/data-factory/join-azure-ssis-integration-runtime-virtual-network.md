@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: douglasl
 
 ---
@@ -85,7 +85,7 @@ If you need to implement a network security group (NSG) in a virtual network joi
 
 | Direction | Transport protocol | Source | Source Port range | Destination | Destination Port range | Comments |
 |---|---|---|---|---|---|---|
-| Inbound | TCP | Internet | * | VirtualNetwork | 29876, 29877 (if you join the IR to an Azure Resource Manager virtual network) <br/><br/>10100, 20100, 30100 (if you join the IR to a classic virtual network)| The Data Factory service uses these ports to communicate with the nodes of your Azure-SSIS integration runtime in the virtual network. |
+| Inbound | TCP | Internet | * | VirtualNetwork | 29876, 29877 (if you join the IR to an Azure Resource Manager virtual network) <br/><br/>10100, 20100, 30100 (if you join the IR to a classic virtual network)| The Data Factory service uses these ports to communicate with the nodes of your Azure-SSIS integration runtime in the virtual network. <br/><br/> Whether you specify an NSG or not, Data Factory always configures an NSG at the level of the network interface cards (NICs) attached to the virtual machines that host the Azure-SSIS IR. Only inbound traffic from Data Factory IP addresses is allowed. Even if you open these ports to Internet traffic, traffic from IP addresses that are not Data Factory IP addresses is blocked at the NIC level. |
 | Outbound | TCP | VirtualNetwork | * | Internet | 443 | The nodes of your Azure-SSIS integration runtime in the virtual network use this port to access Azure services, such as Azure Storage and Azure Event Hubs. |
 | Outbound | TCP | VirtualNetwork | * | Internet or Sql | 1433, 11000-11999, 14000-14999 | The nodes of your Azure-SSIS integration runtime in the virtual network use these ports to access SSISDB hosted by your Azure SQL Database server. (This purpose is not applicable to SSISDB hosted by SQL Database Managed Instance (Preview).) |
 ||||||||

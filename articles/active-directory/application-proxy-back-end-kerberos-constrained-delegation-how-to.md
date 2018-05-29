@@ -3,17 +3,18 @@ title: Troubleshoot Kerberos Constrained Delegation Configurations for Applicati
 description: Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: markvi
+ms.date: 05/24/2018
+ms.author: barbkess
 ms.reviewer: harshja
 
 ---
@@ -172,9 +173,9 @@ If you’re still unable to progress your issue, support would be more than happ
 
 ## Other scenarios
 
--   Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some third-party applications such as Tableau Server do not like this method of authenticating, and rather expects the more conventional negotiations to take place. The first request is anonymous, allowing the application to respond with the authentication types that it supports through a 401.
+- Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some third-party applications such as Tableau Server do not like this method of authenticating, and expect the more conventional negotiations to take place. The first request is anonymous, allowing the application to respond with the authentication types that it supports through a 401.
 
--   Double hop authentication - Commonly used in scenarios where an application is tiered, with a backend and front end, both requiring authentication, such as SQL Reporting Services.
+- Multi-hop authentication is commonly used in scenarios where an application is tiered, with a backend and front end, and both require authentication, such as SQL Reporting Services. To configure the multi-hop scenario, see the support article [Kerberos Constrained Delegation May Require Protocol Transition in Multi-hop Scenarios](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## Next steps
 [Configure kerberos constrained delegation (KCD) on a managed domain](../active-directory-domain-services/active-directory-ds-enable-kcd.md)

@@ -78,7 +78,7 @@ Now that you have a Batch account, create a sample pool of Linux compute nodes u
 az batch pool create \
     --id mypool --vm-size Standard_A1_v2 \
     --target-dedicated-nodes 2 \
-    --image canonical:ubuntuserver:16.04.0-LTS \
+    --image canonical:ubuntuserver:16.04-LTS \
     --node-agent-sku-id "batch.node.ubuntu 16.04" 
 ```
 
