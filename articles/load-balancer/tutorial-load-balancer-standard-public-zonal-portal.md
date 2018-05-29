@@ -105,8 +105,8 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
     - **TCP**, for **Protocol**.
     - **Allow**, for **Action**.
     - **200**, for **Priority**.
-    - **myRDPRule**, for name.
-    - **Allow RDP**, for description.
+    - **myRDPRule**, for **Name**.
+    - **Allow RDP**, for **Description**.
 
     ![Create a RDP rule](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
@@ -161,7 +161,7 @@ To distribute traffic to the VMs, a backend address pool contains the IP address
 1. Select **All resources** in the leftmost menu. Then select **myLoadBalancer** from the resources list.
 2. Under **Settings**, select **Backend pools**. Then select **Add**.
 3. On the **Add a backend pool** page, take the following actions:
-    - For name, enter *myBackEndPool* as the name for your backend pool.
+    - For name, enter **myBackEndPool** as the name for your backend pool.
     - For **Virtual network**, in the drop-down menu, select **myVNet**. 
     - For **Virtual machine** and **IP address**, add **myVM1** and **myVM2** and their corresponding public IP addresses.
 4. Select **Add**.
