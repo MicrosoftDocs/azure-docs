@@ -44,7 +44,7 @@ Keep in mind the following points about the preview:
 
 For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
 
-## Next Steps
+## Next steps
 
 - To learn more about RBAC roles for Azure Storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
 - To learn how to authenticate with Azure AD from your Azure Storage applications, see [Authenticate with Azure AD from an Azure Storage application (Preview)](storage-auth-aad-app.md)
