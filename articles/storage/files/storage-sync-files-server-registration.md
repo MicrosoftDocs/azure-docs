@@ -18,7 +18,7 @@ ms.author: wgries
 ---
 
 # Manage registered servers with Azure File Sync (preview)
-Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
+Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure file share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
 The following article illustrates how to register and manage a server with a Storage Sync Service. See [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) for information on how to deploy Azure File Sync end-to-end.
 
@@ -112,7 +112,7 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 There are several steps that are required to unregister a server with a Storage Sync Service. Let's take a look at how to properly unregister a server.
 
 #### (Optional) Recall all tiered data
-When enabled for a server endpoint, cloud tiering will *tier* files to your Azure File shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, if a server endpoint is removed with tiered files still locally on the server, those files will become unaccessible. Therefore, if continued file access is desired, you must recall all tiered files from Azure Files before continuing with deregistration. 
+When enabled for a server endpoint, cloud tiering will *tier* files to your Azure file shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, if a server endpoint is removed with tiered files still locally on the server, those files will become unaccessible. Therefore, if continued file access is desired, you must recall all tiered files from Azure Files before continuing with deregistration. 
 
 This can be done with the PowerShell cmdlet as shown below:
 

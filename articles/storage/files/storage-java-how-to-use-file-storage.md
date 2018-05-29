@@ -25,13 +25,13 @@ ms.author: renash
 ## About this tutorial
 This tutorial will demonstrate the basics of using Java to develop applications or services that use Azure Files to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with Java and Azure Files:
 
-* Create and delete Azure File shares
+* Create and delete Azure file shares
 * Create and delete directories
-* Enumerate files and directories in an Azure File share
+* Enumerate files and directories in an Azure file share
 * Upload, download, and delete a file
 
 > [!Note]  
-> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard Java I/O classes. This article will describe how to write applications that use the Azure Storage Java SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files.
+> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard Java I/O classes. This article will describe how to write applications that use the Azure Storage Java SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files.
 
 ## Create a Java application
 To build the samples, you will need the Java Development Kit (JDK) and the [Azure Storage SDK for Java][]. You should also have created an Azure storage account.
@@ -75,7 +75,7 @@ try {
 
 **CloudStorageAccount.parse** throws an InvalidKeyException so you'll need to put it inside a try/catch block.
 
-## Create an Azure File share
+## Create an Azure file share
 All files and directories in Azure Files reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use an Azure Files client.
 
 ```java
@@ -100,7 +100,7 @@ if (share.createIfNotExists()) {
 
 At this point, **share** holds a reference to a share named **sampleshare**.
 
-## Delete an Azure File share
+## Delete an Azure file share
 Deleting a share is done by calling the **deleteIfExists** method on a CloudFileShare object. Here's sample code that does that.
 
 ```java
@@ -156,7 +156,7 @@ if ( containerDir.deleteIfExists() ) {
 }
 ```
 
-## Enumerate files and directories in an Azure File share
+## Enumerate files and directories in an Azure file share
 Obtaining a list of files and directories within a share is easily done by calling **listFilesAndDirectories** on a CloudFileDirectory reference. The method returns a list of ListFileItem objects which you can iterate on. As an example, the following code will list files and directories inside the root directory.
 
 ```java
@@ -169,7 +169,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 ```
 
 ## Upload a file
-An Azure File share contains at the very least, a root directory where files can reside. In this section, you'll learn how to upload a file from local storage onto the root directory of a share.
+An Azure file share contains at the very least, a root directory where files can reside. In this section, you'll learn how to upload a file from local storage onto the root directory of a share.
 
 The first step in uploading a file is to obtain a reference to the directory where it should reside. You do this by calling the **getRootDirectoryReference** method of the share object.
 

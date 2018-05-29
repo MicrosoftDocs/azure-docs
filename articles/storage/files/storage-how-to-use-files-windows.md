@@ -1,6 +1,6 @@
 ---
-title: Mount an Azure File share and access the share in Windows | Microsoft Docs
-description: Mount an Azure File share and access the share in Windows.
+title: Mount an Azure file share and access the share in Windows | Microsoft Docs
+description: Mount an Azure file share and access the share in Windows.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
@@ -17,12 +17,12 @@ ms.date: 04/11/2018
 ms.author: renash
 ---
 
-# Mount an Azure File share and access the share in Windows
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure File share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
+# Mount an Azure file share and access the share in Windows
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure file share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
 
-In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
+In order to mount an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
 
-You can mount Azure File shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support mounting file shares in which environment:
+You can mount Azure file shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support mounting file shares in which environment:
 
 | Windows Version        | SMB Version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
@@ -43,10 +43,10 @@ You can mount Azure File shares on a Windows installation that is running either
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
 
-## </a>Prerequisites for Mounting Azure File Share with Windows 
-* **Storage Account Name**: To mount an Azure File share, you will need the name of the storage account.
+## </a>Prerequisites for Mounting Azure file share with Windows 
+* **Storage account name**: To mount an Azure file share, you will need the name of the storage account.
 
-* **Storage Account Key**: To mount an Azure File share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
+* **Storage account key**: To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
 * **Ensure port 445 is open**: Azure Files uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine. You can use Portqry to check whether the TCP port 445 is open. If the TCP port 445 is displayed as filtered, the TCP port is blocked. Here is an example query:
 
@@ -84,7 +84,7 @@ User: AZURE\<yourstorageaccountname>
 ```
 Once the credentials have been persisted, you no longer have to supply them when connecting to your share. Instead you can connect without specifying any credentials.
 
-## Mount the Azure File share with File Explorer
+## Mount the Azure file share with File Explorer
 > [!Note]  
 > Note that the following instructions are shown on Windows 10 and may differ slightly on older releases. 
 
@@ -106,14 +106,14 @@ Once the credentials have been persisted, you no longer have to supply them when
     
     ![A screenshot of the network credential dialog](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
-6. **Use Azure File share as desired**.
+6. **Use Azure file share as desired**.
     
-    ![Azure File share is now mounted](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
+    ![Azure file share is now mounted](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. **When you are ready to dismount (or disconnect) the Azure File share, you can do so by right-clicking on the entry for the share under the "Network locations" in File Explorer and selecting "Disconnect"**.
+7. **When you are ready to dismount (or disconnect) the Azure file share, you can do so by right-clicking on the entry for the share under the "Network locations" in File Explorer and selecting "Disconnect"**.
 
-## Mount the Azure File share with PowerShell
-1. **Use the following command to mount the Azure File share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` with the proper information.
+## Mount the Azure file share with PowerShell
+1. **Use the following command to mount the Azure file share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` with the proper information.
 
     ```PowerShell
     $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
@@ -121,34 +121,34 @@ Once the credentials have been persisted, you no longer have to supply them when
     New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<share-name>" -Credential $credential
     ```
 
-2. **Use the Azure File share as desired**.
+2. **Use the Azure file share as desired**.
 
-3. **When you are finished, dismount the Azure File share using the following command**.
+3. **When you are finished, dismount the Azure file share using the following command**.
 
     ```PowerShell
     Remove-PSDrive -Name <desired-drive-letter>
     ```
 
 > [!Note]  
-> You may use the `-Persist` parameter on `New-PSDrive` to make the Azure File share visible to the rest of the OS while mounted.
+> You may use the `-Persist` parameter on `New-PSDrive` to make the Azure file share visible to the rest of the OS while mounted.
 
-## Mount the Azure File share with Command Prompt
-1. **Use the following command to mount the Azure File share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` with the proper information.
+## Mount the Azure file share with Command Prompt
+1. **Use the following command to mount the Azure file share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` with the proper information.
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
     ```
 
-2. **Use the Azure File share as desired**.
+2. **Use the Azure file share as desired**.
 
-3. **When you are finished, dismount the Azure File share using the following command**.
+3. **When you are finished, dismount the Azure file share using the following command**.
 
     ```
     net use <desired-drive-letter>: /delete
     ```
 
 > [!Note]  
-> You can configure the Azure File share to automatically reconnect on reboot by persisting the credentials in Windows. The following command will persist the credentials:
+> You can configure the Azure file share to automatically reconnect on reboot by persisting the credentials in Windows. The following command will persist the credentials:
 >   ```
 >   cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 >   ```

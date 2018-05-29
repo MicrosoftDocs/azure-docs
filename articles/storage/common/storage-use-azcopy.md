@@ -285,7 +285,7 @@ Let's look at several ways to download files using AzCopy.
 AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 ```
 
-If the specified source is an Azure File share, then you must either specify the exact file name, (*e.g.* `abc.txt`) to download a single file, or specify option `/S` to download all files in the share recursively. Attempting to specify both a file pattern and option `/S` together results in an error.
+If the specified source is an Azure file share, then you must either specify the exact file name, (*e.g.* `abc.txt`) to download a single file, or specify option `/S` to download all files in the share recursively. Attempting to specify both a file pattern and option `/S` together results in an error.
 
 ### Download all files in a directory
 
@@ -295,7 +295,7 @@ AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myf
 
 Note that empty folders are not downloaded.
 
-## Upload files to an Azure File share
+## Upload files to an Azure file share
 
 Let's look at several ways to upload files using AzCopy.
 
@@ -321,7 +321,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfiles
 
 ## Copy files in File storage
 
-Let's look at several ways to copy files in an Azure File share using AzCopy.
+Let's look at several ways to copy files in an Azure file share using AzCopy.
 
 ### Copy from one file share to another
 
@@ -330,14 +330,14 @@ AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:http
 ```
 When you copy a file across file shares, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
-### Copy from an Azure File share to Blob storage
+### Copy from an Azure file share to Blob storage
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
 When you copy a file from file share to blob, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
-### Copy a blob from Blob storage to an Azure File share
+### Copy a blob from Blob storage to an Azure file share
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S

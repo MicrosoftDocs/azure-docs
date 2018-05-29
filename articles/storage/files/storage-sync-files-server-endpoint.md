@@ -18,7 +18,7 @@ ms.author: wgries
 ---
 
 # Add/remove an Azure File Sync (preview) server endpoint
-Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
+Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure file share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
 A *server endpoint* represents a specific location on a *registered server*, such as a folder on a server volume or the root of the volume. Multiple server endpoints can exist on the same volume if their namespaces are not overlapping (for example, F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each server endpoint. If you add a server location with an existing set of files as a server endpoint to a sync group, those files will be merged with any other files already on other endpoints in the sync group.
 
@@ -41,12 +41,12 @@ The following information is required under **Add server endpoint**:
 - **Registered server**: The name of the server or cluster to create the server endpoint on.
 - **Path**: The path on the Windows Server to be synchronized as part of the sync group.
 - **Cloud Tiering**: A switch to enable or disable cloud tiering, which enables infrequently used or access files to be tiered to Azure Files.
-- **Volume Free Space**: the amount of free space to reserve on the volume which the server endpoint resides. For example, if the volume free space is set to 50% on a volume with a single server endpoint, roughly half the amount of data will be tiered to Azure Files. Regardless of whether cloud tiering is enabled, your Azure File share always has a complete copy of the data in the sync group.
+- **Volume Free Space**: the amount of free space to reserve on the volume which the server endpoint resides. For example, if the volume free space is set to 50% on a volume with a single server endpoint, roughly half the amount of data will be tiered to Azure Files. Regardless of whether cloud tiering is enabled, your Azure file share always has a complete copy of the data in the sync group.
 
 Select **Create** to add the server endpoint. The files within a namespace of a sync group will now be kept in sync. 
 
 ## Remove a server endpoint
-When enabled for a server endpoint, cloud tiering will *tier* files to your Azure File shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, **if a server endpoint is removed with tiered files still locally on the server, those files will become inaccessible**. Therefore, if continued file access is desired on on-premises file shares, you must recall all tiered files from Azure Files before continuing with deleting the server endpoint. 
+When enabled for a server endpoint, cloud tiering will *tier* files to your Azure file shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, **if a server endpoint is removed with tiered files still locally on the server, those files will become inaccessible**. Therefore, if continued file access is desired on on-premises file shares, you must recall all tiered files from Azure Files before continuing with deleting the server endpoint. 
 
 This can be done with the PowerShell cmdlet as shown below:
 

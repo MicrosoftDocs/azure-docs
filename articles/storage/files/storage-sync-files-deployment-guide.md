@@ -105,7 +105,7 @@ In the pane that opens, enter the following information to create a sync group w
 - **Sync group name**: The name of the sync group to be created. This name must be unique within the Storage Sync Service, but can be any name that is logical for you.
 - **Subscription**: The subscription where you deployed the Storage Sync Service in [Deploy the Storage Sync Service](#deploy-the-storage-sync-service).
 - **Storage account**: If you select **Select storage account**, another pane appears in which you can select the storage account that has the Azure file share that you want to sync with.
-- **Azure File Share**: The name of the Azure file share with which you want to sync.
+- **Azure file share**: The name of the Azure file share with which you want to sync.
 
 To add a server endpoint, go to the newly created sync group and then select **Add server endpoint**.
 
