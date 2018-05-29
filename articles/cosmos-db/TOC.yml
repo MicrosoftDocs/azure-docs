@@ -1,3 +1,6 @@
+metadata:
+  experimental: true
+  experiment_id: "d1c17cc0-2ae0-4b"
 items:
   - name: Azure Cosmos DB Documentation
     href: index.yml

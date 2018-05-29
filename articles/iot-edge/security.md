@@ -1,16 +1,13 @@
 ---
 title: Security in Azure IoT Edge | Microsoft Docs 
 description: Security, authentication, and authorization of IoT Edge devices
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-
+services: iot-edge
 ---
 
 # Securing Azure IoT Edge - preview
