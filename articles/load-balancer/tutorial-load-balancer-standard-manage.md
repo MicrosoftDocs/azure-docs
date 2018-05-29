@@ -239,16 +239,17 @@ To add *myVM1* back to the backend pool, follow the procedure in the *Add VMs to
 With port forwarding, you can create a remote desktop connection using the IP address of the load balancer and the frontend port value that were defined in the preceding step.
 
 1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**. Copy the load balancer's public IP address.
-2. Use the following command to create a remote desktop session with the *myVmMgmt* VM from your local computer. Replace `<publicIpAddress>` with the IP address returned from the previous command.
+2. Use the following command to create a remote desktop session with the *myVM2* VM from your local computer. Replace `<publicIpAddress>` with the IP address returned from the previous command.
 
- ```
+```
   mstsc /v:<publicIpAddress>:4222
- ```
+```
 
-Open the downloaded RDP file. If prompted, select **Connect**.
+3. Open the downloaded RDP file. If prompted, select **Connect**.
 
-Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
-The RDP connection succeeds, as per the inbound NAT rule *myNATRuleRDPVM2*, traffic from the load balancer's Frontend port **4222** is configured to redirect to port 3389 of the virtual machine *myVM1*.
+4. Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
+ 
+   The RDP connection succeeds, as per the inbound NAT rule *myNATRuleRDPVM2*, traffic from the load balancer's Frontend port **4222** is configured to redirect to port 3389 of the virtual machine *myVM2*.
 
 ## Clean up resources
 
