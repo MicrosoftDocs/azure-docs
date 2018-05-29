@@ -35,9 +35,6 @@ also known as *increment* and *decrement*.
 * Insert or *append* the variable's value as the last time in a string or array.
 * Get the value from a variable.
 
-Variables exist only within the logic app instance that creates them. 
-Also, they persist across any loop iterations inside a logic app instance. 
-
 If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
@@ -56,10 +53,17 @@ If you don't have an Azure subscription yet,
 
 <a name="create-variable"></a>
 
-## Create variable
+## Initialize variable
 
-You can declare a variable along with its data 
-type and initial value - all within one action. 
+You can create a variable and declare its data type and initial value 
+- all within one action in your logic app. You can only declare and 
+initialize variables at the global scope level, not within scopes, 
+including conditions and loops. 
+
+Variables exist and are global only within the logic app instance that creates them. 
+Also, they persist across any loop iterations inside a logic app instance. 
+To reference a variable, use the variable's name as the token, 
+not the action's name, which is the usual way to reference an action's outputs.
 
 1. In the Azure portal or Visual Studio, 
 open your logic app in Logic App Designer. 
