@@ -6,7 +6,7 @@ author: SnehaGunda
 manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: multiple
+ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun

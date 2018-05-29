@@ -7,7 +7,7 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.devlang: dotnet
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq

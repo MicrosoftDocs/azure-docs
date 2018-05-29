@@ -7,6 +7,7 @@ author: tknandu
 manager: kfile
 
 ms.service: cosmos-db
+ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris

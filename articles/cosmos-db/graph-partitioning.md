@@ -6,7 +6,7 @@ author: luisbosquez
 manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: dotnet
+ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq

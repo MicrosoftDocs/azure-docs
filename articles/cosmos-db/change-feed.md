@@ -7,7 +7,7 @@ author: rafats
 manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: 
+ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats

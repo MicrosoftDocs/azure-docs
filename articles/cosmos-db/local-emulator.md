@@ -8,7 +8,7 @@ manager: kfile
 editor: ''
 
 ms.service: cosmos-db
-ms.devlang: multiple
+ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble

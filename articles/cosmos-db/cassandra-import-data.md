@@ -6,7 +6,7 @@ author: govindk
 manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk

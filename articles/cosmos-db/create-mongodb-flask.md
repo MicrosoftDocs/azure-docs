@@ -7,7 +7,7 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.devlang: dotnet
+ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro

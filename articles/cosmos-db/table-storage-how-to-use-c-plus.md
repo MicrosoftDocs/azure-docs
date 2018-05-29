@@ -6,7 +6,7 @@ author: SnehaGunda
 manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
+ms.devlang: cpp
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun

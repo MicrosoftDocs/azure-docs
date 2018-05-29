@@ -7,7 +7,7 @@ manager: kfile
 editor: ''
 
 ms.service: cosmos-db
-ms.devlang: javascript
+ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak

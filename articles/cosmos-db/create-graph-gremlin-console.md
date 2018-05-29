@@ -6,7 +6,7 @@ author: luisbosquez
 manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: terminal
+ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq

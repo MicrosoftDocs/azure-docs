@@ -7,7 +7,7 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.devlang: ''
+ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq

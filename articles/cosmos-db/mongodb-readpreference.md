@@ -7,7 +7,7 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.custom:
-ms.devlang: 
+ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: viviswan
