@@ -56,13 +56,13 @@ The following section provides you with a complete overview of all possible erro
 
 |Error|Description|
 |---|---|
-|20001|There is an issue with your federated Identity Provider|
-|20012|There is an issue with your federated Identity Provider|
-|20033|There is an issue with your federated Identity Provider|
-|40008|There is an issue with your federated Identity Provider|
-|40009|There is an issue with your federated Identity Provider|
-|40014|There is an issue with your federated Identity Provider|
-|50000|There is an issue with our sign-in service.|
+|20001|There is an issue with your federated Identity Provider. Please contact your IDP to resolve this issue.|
+|20012|There is an issue with your federated Identity Provider. Please contact your IDP to resolve this issue.|
+|20033|There is an issue with your federated Identity Provider. Please contact your IDP to resolve this issue.|
+|40008|There is an issue with your federated Identity Provider. Please contact your IDP to resolve this issue.|
+|40009|There is an issue with your federated Identity Provider. Please contact your IDP to resolve this issue.|
+|40014|There is an issue with your federated Identity Provider. Please contact your IDP to resolve this issue.|
+|50000|There is an issue with our sign-in service. Please file a support ticket to resolve this issue.|
 |50001|The service principal name was not found in this tenant. This can happen if the application has not been installed by the administrator of the tenant. Or Resource principal was not found in the directory or is invalid.|
 |50002|Sign-in failed due to restricted proxy access on tenant. If it's your own tenant policy, you can change your restricted tenant settings to fix this issue|
 |50003|Sign-in failed due to missing signing key or certificate. This might be because there was no signing key configured in the application. Check out the resolutions outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). If you still see issues, please contact the application owner or the application admin|
@@ -73,15 +73,14 @@ The following section provides you with a complete overview of all possible erro
 |50010|Audience URI validation for the application failed since no token audiences were configured. Please contact the application owner|
 |50011|The reply address is missing, misconfigured or does not match reply addresses configured for the application. Try out the resolution listed at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). If you still see issues, please contact the application owner or app admin|
 |50013|Assertion is invalid because of various reasons - The token issuer doesn't match the api version within its valid time range -expired -malformed - Refresh token in the assertion is not a primary refresh token.|
-|50017|Certification validation failed, reasons for the following reasons:<ul><li>Cannot find issuing certificate in trusted certificates list</li><li>Unable to find expected CrlSegment</li><li>Cannot find issuing certificate in trusted certificates list.</li><li>Delta CRL distribution point is configured without a corresponding CRL distribution point.</li><li>Unable to retrieve valid CRL segments due to timeout issue.</li><li>Unable to download CRL</li></ul>|
+|50017|Certification validation failed, reasons for the following reasons:<ul><li>Cannot find issuing certificate in trusted certificates list</li><li>Unable to find expected CrlSegment</li><li>Cannot find issuing certificate in trusted certificates list</li><li>Delta CRL distribution point is configured without a corresponding CRL distribution point</li><li>Unable to retrieve valid CRL segments due to timeout issue</li><li>Unable to download CRL</li></ul>Contact the tenant admin.|
 |50020|User is unauthorized - unable to issue tokens because of version issue - issuer name is not specified - problems with issuer name (null -max length). Please contact the app owner|
 |50027|Invalid JWT token due to the following reasons:<ul><li>doesn't contain nonce claim, sub claim</li><li>subject identifier mismatch</li><li>duplicate claim in idToken claims</li><li>unexpected issuer</li><li>unexpected audience</li><li>not within its valid time range </li><li>token format is not proper</li><li>External ID token from issuer failed signature verification.</li></ul>Please contact the application owner|
-|50029|Invalid URI - domain name contains invalid characters.|
-|50033|Please have the user try again later. |
-|50034|User account not found - could not create remote sign in session|
-|50042|The salt required to generate a pairwise identifier is missing in principal.|
-|50048|Subject mismatches Issuer claim in the client assertion|
-|50050|Request is malformed|
+|50029|Invalid URI - domain name contains invalid characters. Contact the tenant admin.|
+|50034|User does not exist in directory. Contact your tenant admin.|
+|50042|The salt required to generate a pairwise identifier is missing in principal. Contact the tenant admin.|
+|50048|Subject mismatches Issuer claim in the client assertion. Contact the tenant admin.|
+|50050|Request is malformed. Contact the application owner.|
 |50053|Account is locked because user tried to sign in too many times with an incorrect user ID or password.|
 |50055|Invalid password, entered expired password.|
 |50056|Invalid or null password -Password does not exist in store for this user|
@@ -97,10 +96,10 @@ The following section provides you with a complete overview of all possible erro
 |50089|Flow token expired - Authentication Failed. Please have user try signing-in again with username -password|
 |50097|Device Authentication Required - DeviceId -DeviceAltSecId claims are null OR no device corresponding to the device identifier exists|
 |50099|JWT signature is invalid|
-|50105|The signed in user is not assigned to a role for the signed in application|
-|50107|Requested federation realm object does not exist|
-|50120|Issue with JWT header|
-|50124|Claims Transformation contains invalid input parameter|
+|50105|The signed in user is not assigned to a role for the signed in application. Please assign the user  to the application. For more information: [https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50107|Requested federation realm object does not exist. Contact the tenant admin.|
+|50120|Issue with JWT header. Contact the tenant admin.|
+|50124|Claims Transformation contains invalid input parameter. Contact the tenant admin to update the policy.|
 |50125|Sign-in was interrupted due to a password reset or password registration entry|
 |50126|Invalid username or password or Invalid on-premise username or password.|
 |50127|User needs to install a broker app to gain access to this content.|
@@ -108,12 +107,12 @@ The following section provides you with a complete overview of all possible erro
 |50129|Device is not Workplace joined - Workplace join is required to register the device.|
 |50130|Claim value can not be interpreted as known auth method|
 |50131|Used in various conditional access errors. E.g. Bad Windows device state, request blocked due to suspicious activity, access policy and security policy decisions.|
-|50132|SSO Artifact is invalid or expired - Session not fresh enough for application -A silent sign-in request was sent but the user's session with Azure AD is invalid or has expired.|
+|50132|Credentials have been revoked due to the following reasons:<ul><li>SSO Artifact is invalid or expired</li><li>Session not fresh enough for application</li><li>A silent sign-in request was sent but the user's session with Azure AD is invalid or has expired.</li></ul>|
 |50133|Session is invalid due to expiration or recent password change.|
 |50135|Password change is required due to account risk|
 |50136|Redirect msa session to app - Single MSA session detected |
 |50140|This error occurred due to "Keep me signed in" interrupt when the user was signing-in. Please file a support ticket with Correlation ID, Request ID and Error code to get more details. |
-|50143|Session mismatch - Session is invalid because user tenant does not match the domain hint due to different resource|
+|50143|Session mismatch - Session is invalid because user tenant does not match the domain hint due to different resource. Please file a support ticket with Correlation ID, Request ID and Error code to get more details.|
 |50144|User's Active Directory password has expired. Please generate a new password for the user or have the end user using self-service reset tool|
 |50146|This application is required to be configured with an application-specific signing key. It is either not configured with one, or the key has expired or is not yet valid. Please contact the application owner|
 |50148|The code_verifier does not match the code_challenge supplied in the authorization request for PKCE. Contact the application developer. |
