@@ -1,21 +1,13 @@
 ---
 title: Deploy Modbus on Azure IoT Edge | Microsoft Docs
 description: Allow devices that use Modbus TCP to communicate with Azure IoT Hub by creating an IoT Edge gateway device
-services: iot-Edge
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: chrisgmsft
-
-ms.assetid:
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: kgremban
-ms.custom: 
 ---
 
 # Connect Modbus TCP devices through an IoT Edge device gateway - preview
