@@ -21,7 +21,7 @@ Video Indexer supports embedding two types of widgets into your application: **C
 
     |Name|Definition|Description|
     |---|---|---|
-    |widgets|Strings seperated by comma|Allows you to control the insights you want to render. <br/>Example: **widgets=people,brands** will render only people and brands ui insights<br/>Available options:  People, Keywords, Annotations, Brands, Sentiments,Transcript, Search | 
+    |widgets|Strings separated by comma|Allows you to control the insights you want to render. <br/>Example: **widgets=people,brands** will render only people and brands ui insights<br/>Available options:  People, Keywords, Annotations, Brands, Sentiments, Transcript, Search | 
 * A **Player** widget enables you to stream the video using adaptive bit rate.
 
     The player widget supports the following optional URL params:
@@ -60,7 +60,7 @@ If you want to embed a **Private** video, you have to pass an access token in th
     
 Use the [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API to get the Cognitive Insights widget content, Or use [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) and add that as a query param to the url as shown above. Specify this URL as the **iframe**'s **src** value.
 
-If you want to provide editing insights capabilities (like we have in our web application) in your embedded widget, you will have to pass an access token with editing premissions. Use [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?)  or [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) with **&allowEdit=true**. 
+If you want to provide editing insights capabilities (like we have in our web application) in your embedded widget, you will have to pass an access token with editing permissions. Use [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?)  or [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) with **&allowEdit=true**. 
 
 ## Widgets interaction
 
@@ -207,7 +207,7 @@ If you embed Video Indexer insights with your own AMP player, you can use the **
 ## Customizing embeddable widgets
 
 ### Cognitive insights widget
-You can choose the types of insights you want by specifying them as a value to the following URL parameter added to the the embed code you get (from API or from the web application):
+You can choose the types of insights you want by specifying them as a value to the following URL parameter added to the embed code you get (from API or from the web application):
 
 **&widgets=**<list of wanted widgets>
 
@@ -239,7 +239,7 @@ Auto play – by default the player will start playing the video. you can choose
 
 ## Next steps
 
-For information about how to view and edit Video Indexer insights, see [this](video-indexer-view-edit.md) topic.
+For information about how to view and edit Video Indexer insights, see [this](video-indexer-view-edit.md) article.
 
 ## See also
 
