@@ -175,7 +175,7 @@ In case of non-payment, normal data retention policies will apply as stipulated 
 7.	Do you offer a trial or grace period for just trying out the feature?  
 Yes, when a time-based retention policy is first created, it will be in an *unlocked* state. In this state, you can make any desired change to the retention interval such as increase or decrease and even delete the policy. Once the policy is locked, it remains locked forever preventing deletion. Also, the retention interval can no longer be decreased when the policy is locked. We strongly recommend that you use the *unlocked* state only for trial purposes and lock the policy within a 24-hour period, so as not to risk noncompliance with SEC 17a-4(f) and other regulations.
 8. Is the feature available in national and sovereign clouds?
-The Immutable Storage feature is currently available only in Azure public regions. Support for national and sovereign clouds will be added soon. Email azurestoragefeedback@microsoft.com for specific national clouds of interest.
+The Immutable Storage feature is currently available only in Azure public regions. Support for national government clouds will be added soon. Email azurestoragefeedback@microsoft.com for specific national clouds of interest.
 
 
 ## Sample Code
