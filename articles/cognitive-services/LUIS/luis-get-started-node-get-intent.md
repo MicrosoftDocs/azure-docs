@@ -1,6 +1,6 @@
 ---
 title: Tutorial learning how to call a Language Understanding Intelligent Services (LUIS) app using Node.js | Microsoft Docs
-description: In this tutorial, you learn to call a LUIS app using Node.js in this quickstart.
+description: In this tutorial, you learn to call a LUIS app using Node.js.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -73,6 +73,6 @@ The two resources created in this tutorial are the LUIS subscription key and the
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Add utterances](luis-quickstart-node-add-utterance.md)
+> [Add utterances](luis-get-started-node-add-utterance.md)
 
 [LUIS]: luis-reference-regions.md#luis-website
