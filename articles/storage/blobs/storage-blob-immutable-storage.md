@@ -101,26 +101,26 @@ Azure Immutable Storage for Azure Blobs is supported on the most recent releases
   
 **Step 2:** To enable time-based retention, choose Time-Based Retention from the drop-down menu. Enter the desired retention interval in days (minimum is one day)
  
-![Retention](\media\storage-immutable-blob-storage\portal-image-2.JPG)
+![Retention](/media/storage-immutable-blob-storage/portal-image-2.JPG)
 
-![Time-Based Retention](\media\storage-immutable-blob-storage\portal-image-3-time-based-retention.JPG)
+![Time-Based Retention](/media/storage-immutable-blob-storage/portal-image-3-time-based-retention.JPG)
 
  As you can see above, the state of the policy will initially be unlocked. This will allow you to test the feature with a smaller retention interval, and make changes to the policy before locking it.
  Locking is essential for SEC 17a-4 etc. regulatory compliance.
 
  **Step 3:** Lock the policy by right-clicking on the ..., and the following menu will appear:-
 
-![Lock Policy](\media\storage-immutable-blob-storage\portal-image-4-lock-policy.jpg)
+![Lock Policy](/media/storage-immutable-blob-storage/portal-image-4-lock-policy.jpg)
  
 Click on Lock Policy and the policy state will now show as locked. Once locked, the policy can longer be deleted and only extensions of the retention interval will be allowed.
 
  **Step 4:** To enable legal holds, click on + Add Policy and  choose Legal hold from the drop-down menu
 
-![Legal Hold](\media\storage-immutable-blob-storage\portal-image-legal-hold-selection.jpg)
+![Legal Hold](/media/storage-immutable-blob-storage/portal-image-legal-hold-selection.jpg)
  
 Create a legal hold with one or more tags
 
-![Set legal hold tags](\media\storage-immutable-blob-storage\portal-image-set-legal-hold-tags.jpg)
+![Set legal hold tags](/media/storage-immutable-blob-storage/portal-image-set-legal-hold-tags.jpg)
 
  **CLI 2.0**
 
