@@ -193,10 +193,12 @@
           href: automation-migrate-account-subscription.md
     - name: Troubleshoot
       items:
+        - name: Onboarding
+          href: troubleshoot/onboarding.md
         - name: Troubleshoot common errors
           href: automation-troubleshooting-automation-errors.md
         - name: Troubleshoot Hybrid Runbook Worker
-          href: automation-troubleshooting-hybrid-runbook-worker.md
+          href: troubleshoot/hybrid-runbook-worker.md
 - name: Reference
   items:
   - name: Azure PowerShell
