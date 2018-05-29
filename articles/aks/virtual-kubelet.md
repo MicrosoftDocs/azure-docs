@@ -35,9 +35,10 @@ To install Virtual Kubelet for an AKS cluster, run the following command. Replac
 - resource-group - the resource group of the AKS cluster.
 - name - the name of the AKS cluster.
 - connector-name - the name given to the Virtual Kubelet.
+- os-type - select the OS type for the container instance. This value can be `Linux`, `Windows`, or `Both`. If omitted, `Linux` is selected by default.
 
 ```azurecli-interactive
-az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
+az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet --os-type linux
 ```
 
 Output:
@@ -109,7 +110,7 @@ spec:
         image: microsoft/aci-helloworld
         ports:
         - containerPort: 80
-      nodeName: virtual-kubelet-virtual-kubelet-linux
+      nodeSelector: kubernetes.io/hostname=virtual-kubelet-virtual-kubelet-linux
 ```
 
 Run the application with the [kubectl create][kubectl-create] command.
@@ -141,7 +142,7 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 ## Next steps
 
-Read more about Virtual Kublet at the [Virtual Kubelet Github projet][vk-github].
+Read more about Virtual Kubelet at the [Virtual Kubelet Github projet][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
