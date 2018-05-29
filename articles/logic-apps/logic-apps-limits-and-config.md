@@ -304,17 +304,23 @@ or other HTTP requests, come from IP addresses in this list.
 ### Connectors
 
 The calls that [connectors](../connectors/apis-list.md) 
-make come from the IP addresses in this list. 
+make come from the outbound IP addresses in this list. 
 
-> [!NOTE]
-> Many of these outbound IP addresses are changing on September 1, 2018. 
-> So make sure you update any affected configurations that use these IP 
-> addresses before this date.
+> [!IMPORANT]
+> On September 1, 2018, [new IP addresses](#new-p) are replacing the [older IP addresses](#current-ip). 
+> Although both sets work now, only the new IP addresses work after this date.
+> 
+> * If you have firewall configurations affected by this change, 
+> update your configurations to the new IP addresses *as soon as possible before the changeover date*.
+> 
+> * If you haven't configured your firewall yet, use the new IP addresses instead.
 
-**After September 1, 2018**
+<a name="new-ip"></a>
+
+**After September 1**
 
 | Logic Apps region | Outbound IP | 
-|-------------------|-------------| 
+|-------------------|-------------|  
 | Australia East | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
 | Australia Southeast | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
 | Brazil South | 191.233.203.192 - 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
@@ -340,6 +346,8 @@ make come from the IP addresses in this list.
 | UK South | 51.140.148.0 - 51.140.148.15, 51.140.80.51, 51.140.80.51 | 
 | UK West | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.47.105 | 
 | | | 
+
+<a name="current-ip"></a>
 
 **Before September 1, 2018**
 
