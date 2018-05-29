@@ -202,7 +202,7 @@
   - name: Manage your LUIS app
     items: 
     - name: Monitor your app using the dashboard
-      href: App-Dashboard.md
+      href: luis-how-to-use-dashboard.md
     - name: Manage LUIS keys
       href: Manage-Keys.md
     - name: Manage Azure endpoint keys
