@@ -253,9 +253,9 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 
 [Learn how to add a hierarchical entity](luis-quickstart-intent-and-hier-entity.md). 
 
-Add the **number** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
+Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
 
-Add the **dimension** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the volume for each drink type such as liters or gallons.
+Add the **dimension** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the volume for each drink type such as liters or gallons.
 
 
 <!--References-->
