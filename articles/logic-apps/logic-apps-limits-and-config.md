@@ -307,8 +307,9 @@ The calls that [connectors](../connectors/apis-list.md)
 make come from the IP addresses in this list. 
 
 > [!NOTE]
-> Some of these outbound IP addresses are changing, so make sure that you update any 
-> affected configurations that use these IP addrsses before September 1, 2018.
+> Many of these outbound IP addresses are changing on September 1, 2018. 
+> So make sure you update any affected configurations that use these IP 
+> addresses before this date.
 
 **After September 1, 2018**
 
