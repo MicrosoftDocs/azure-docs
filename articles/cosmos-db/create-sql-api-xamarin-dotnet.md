@@ -10,7 +10,7 @@ ms.service: cosmos-db
 ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 05/29/2018
 ms.author: sngun
 
 ---
@@ -72,7 +72,7 @@ Now let's clone the Xamarin SQL API app from github, review the code, obtain the
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
     ```
 
-3. Then open the ToDoItems.sln file from the samples/xamarin/ToDoItems folder in Visual Studio.
+4. Then open the ToDoItems.sln file from the samples/xamarin/ToDoItems folder in Visual Studio.
 
 ## Obtain your API keys
 
@@ -91,6 +91,9 @@ Go back to the Azure portal to get your API key information and copy it into the
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the `Cosmos Auth Key` in APIKeys.cs.
 
     `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
+
+> [!IMPORTANT]
+> This quick start hard codes the Cosmos DB authentication key for the sake of demonstrating the Cosmos DB SQL API. **Do not** hard code the authentication key in a production app. To learn how to access Cosmos DB in a securely from a Xamarin app, view this [article](https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/cosmosdb/authentication)
 
 ## Review the code
 
