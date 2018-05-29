@@ -74,19 +74,18 @@ Any number of additional certificates can be specified for Admin or user client 
 The concept of creating secure clusters is the same, whether they are Linux or Windows clusters. This guide covers the use of azure powershell or  azure CLI to create new clusters. The prerequisites are either 
 
 -  [Azure PowerShell 4.1 and above][azure-powershell] or [Azure CLI 2.0 and above][azure-CLI].
--  you can find details on the service fabic modules here - [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)  and [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
+-  you can find details on the service fabric modules here - [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)  and [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
 
 ## Use service fabric RM module to deploy a cluster
 
 In this document, we would use the service fabric RM powershell and CLI module to deploy a cluster, the powershell or the CLI module command allows for multiple scenarios. Let us go through each of the them. Pick the scenario that you feel best meets your needs. 
 
-- Create a new cluster - using a system generated self signed certificate
-	- Use a default cluster template
-	- use a template that you already have
-- Create a new cluster - using a certificate you already own
-	- Use a default cluster template
-	- use a template that you already have
+- Create a new cluster 
+	- using a system generated self signed certificate
+	- using a certificate you already own
+
+You can use Use a default cluster template or a template that you already have
 
 ### Create new cluster  - using a system generated self signed certificate
 
@@ -103,7 +102,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 azure login
 az account set --subscription $subscriptionId
 ```
-#### Use the default 5 Node 1 nodetype template that ships in the module to set up the cluster
+#### Use the default 5 Node 1 node type template that ships in the module to set up the cluster
 
 Use the following command to create a cluster quickly, by specifying minimal parameters
 
@@ -203,7 +202,7 @@ Use the following command to create cluster, if you have a certificate that you 
 If this is a CA signed certificate that you will end up using for other purposes as well, then it is recommended that you provide a distinct resource group specifically for your key vault. We recommend that you put the key vault into its own resource group. This action lets you remove the compute and storage resource groups, including the resource group that contains your Service Fabric cluster, without losing your keys and secrets. **The resource group that contains your key vault _must be in the same region_ as the cluster that is using it.**
 
 
-#### Use the default 5 Node 1 nodetype template that ships in the module
+#### Use the default 5 Node 1 node type template that ships in the module
 The template that is used is available on the [azure samples : windows template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
  and [Ubuntu template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
@@ -360,8 +359,8 @@ The script prints the JSON required by the Azure Resource Manager template when 
 
 <a id="customize-arm-template" ></a>
 
-## Create a Service Fabric cluster Resource Manager template
-This section is for users who want to custom author a Service Fabric cluster Resource Manager template. once you have a template, you can still go back and use the powershell or CLI modules to deploy it. 
+## Create a Service Fabric cluster resource manager template
+This section is for users who want to custom author a Service Fabric cluster resource manager template. once you have a template, you can still go back and use the powershell or CLI modules to deploy it. 
 
 Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template.
 
@@ -369,7 +368,7 @@ Sample Resource Manager templates are available in the [Azure samples on GitHub]
 This guide uses the [5-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype] example template and template parameters. Download `azuredeploy.json` and `azuredeploy.parameters.json` to your computer and open both files in your favorite text editor.
 
 ### Add certificates
-You add certificates to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those key-vault parameters and values in a Resource Manager template parameters file (azuredeploy.parameters.json). 
+You add certificates to a cluster resource manager template by referencing the key vault that contains the certificate keys. Add those key-vault parameters and values in a Resource Manager template parameters file (azuredeploy.parameters.json). 
 
 #### Add all certificates to the virtual machine scale set osProfile
 Every certificate that's installed in the cluster must be configured in the osProfile section of the scale set resource (Microsoft.Compute/virtualMachineScaleSets). This action instructs the resource provider to install the certificate on the VMs. This installation includes both the cluster certificate and any application security certificates that you plan to use for your applications:
@@ -579,6 +578,22 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templa
 The following diagram illustrates where your key vault and Azure AD configuration fit into your Resource Manager template.
 
 ![Resource Manager dependency map][cluster-security-arm-dependency-map]
+
+
+## Encrypting the disks attached to your windows cluster node/virtual machine instances
+
+For encrypting the disks (OS drive and other managed disks ) attached to your nodes, we leverage the Azure Disk Encryption. Azure Disk Encryption is a new capability that helps you [encrypt your Windows virtual machine disks](service-fabric-enable-azure-disk-encryption-windows.md). 
+Azure Disk Encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows to provide volume encryption for the OS volume. 
+The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. 
+The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage. 
+
+## Encrypting the disks attached to your Linux cluster node/virtual machine instances
+
+For encrypting the disks (Data drive and other managed disks) attached to your nodes, we leverage the Azure Disk Encryption. Azure Disk Encryption is a new capability that helps you [encrypt your Linux virtual machine disks](service-fabric-enable-azure-disk-encryption-linux.md). 
+Azure Disk Encryption leverages the industry standard [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the data disks. 
+The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. 
+The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage. 
+
 
 ## Create the cluster using Azure resource template 
 
