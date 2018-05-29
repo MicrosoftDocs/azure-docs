@@ -16,7 +16,7 @@ manager: "douge"
 
 In this guide, you will learn how to:
 
-- Create a Kubernetes-based dev space in Azure that is optimized for development.
+- Create a Kubernetes-based environment in Azure that is optimized for development - a _dev space_.
 - Iteratively develop code in containers using Visual Studio.
 
 > [!Note]

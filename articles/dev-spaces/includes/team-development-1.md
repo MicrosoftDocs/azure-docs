@@ -12,7 +12,7 @@ ms.topic: "include"
 manager: "douge"
 ---
 So far you've been running your application's code as if you were the only developer working on the app. In this section, you'll learn how Azure Dev Spaces streamlines team development:
-* Enable a team of developers to work in the same dev space.
+* Enable a team of developers to work in the same environment, by working in a shared dev space or in distinct dev spaces as needed..
 * Supports each developer iterating on their code in isolation and without fear of breaking others.
 * Test code end-to-end, prior to code commit, without having to create mocks or simulate dependencies.
 

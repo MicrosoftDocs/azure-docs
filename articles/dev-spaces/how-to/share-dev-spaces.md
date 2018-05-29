@@ -22,6 +22,6 @@ To set up a dev space for multiple developers:
 1. Configure the Azure Dev Space's **resource group** to [grant Contributor access](/azure/active-directory/role-based-access-control-configure) for each team member. You can check a dev space's resource group by running this command: `azds resource list`
 1. Ask team members to **select the dev space** in order to develop in it.
      * **Command line or VS Code**: To see existing Azure Dev Spacess you have access to: `azds resource list`. To select a dev space: `azds resource select`.
-     * **Visual Studio IDE**: Open a project in Visual Studio, select **Azure Dev Spaces** from the launch settings drop-down. In the dialog that opens, select an existing dev space.
+     * **Visual Studio IDE**: Open a project in Visual Studio, select **Azure Dev Spaces** from the launch settings drop-down. In the dialog that opens, select an existing cluster.
 
 ![Visual Studio launch settings drop-down](../media/get-started-netcore-visualstudio/LaunchSettings.png)

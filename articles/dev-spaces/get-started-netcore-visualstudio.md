@@ -16,7 +16,7 @@ manager: "douge"
 
 In this guide, you will learn how to:
 
-- Create a Kubernetes-based dev space in Azure that is optimized for development.
+- Create a Kubernetes-based environment in Azure that is optimized for development - a _dev space_.
 - Iteratively develop code in containers using Visual Studio.
 - Independently develop two separate services, and used Kubernetes' DNS service discovery to make a call to another service.
 - Productively develop and test your code in a team environment.
@@ -101,7 +101,7 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 
 ## Run *mywebapi*
 1. Open the project `mywebapi` in a *separate Visual Studio window*.
-1. Select **Azure Dev Spaces** from the launch settings dropdown as you did previously for the `webfrontend` project. Rather than create a new dev space this time, select the same one you already created. As before, leave the Space defaulted to `default` and click **OK**. In the Output window, you may notice Visual Studio starts to "warm up" this new service in your dev space in order to speed things up when you start debugging.
+1. Select **Azure Dev Spaces** from the launch settings dropdown as you did previously for the `webfrontend` project. Rather than creating a new AKS cluster this time, select the same one you already created. As before, leave the Space defaulted to `default` and click **OK**. In the Output window, you may notice Visual Studio starts to "warm up" this new service in your dev space in order to speed things up when you start debugging.
 1. Hit F5, and wait for the service to build and deploy. You'll know it's ready when the Visual Studio status bar turns orange
 1. Take note of the endpoint URL displayed in the **Azre Dev Spaces for AKS** pane in the **Output** window. It will look something like http://localhost:\<portnumber\>. It might seem like the container is running locally, but actually it's running in the dev space in Azure.
 2. When `mywebapi` is ready, open your browser to the localhost address and append `/api/values` to the URL to invoke the default GET API for the `ValuesController`. 
@@ -149,7 +149,7 @@ Well done! You now have a multi-container application where each container can b
 ## Learn about team development
 
 So far you've run your application's code as if you were the only developer working on the app. In this section, you'll learn how Azure Dev Spaces streamlines team development:
-* Enable a team of developers to work in the same dev space.
+* Enable a team of developers to work in the same environment, by working in a shared dev space or in distinct dev spaces as needed..
 * Supports each developer iterating on their code in isolation and without fear of breaking others.
 * Test code end-to-end, prior to code commit, without having to create mocks or simulate dependencies.
 
@@ -160,7 +160,7 @@ Picture yourself working on a service that interacts with dozens of other servic
 
 - It can become unrealistic to run everything locally for development. Your dev machine may not have enough resources to run the entire app. Or, perhaps your app has endpoints that need to be publicly reachable (for example, your app responds to a webhook from a SaaS app).
 - You can try to only run the services that you depend on, but this means you'd need know the full closure of dependencies (for example, dependencies of dependencies). Or, it's a matter of not easily knowing how to build and run your dependencies because you didn't work on them.
-- Some developers resort to simulating, or mocking up, many of their service dependencies. This can help sometimes, but managing those mocks can soon take on its own development effort. Plus, this leads to your dev space looking different to production, and subtle bugs can creep in.
+- Some developers resort to simulating, or mocking up, many of their service dependencies. This can help sometimes, but managing those mocks can soon take on its own development effort. Plus, this leads to your dev environment looking different from production, and subtle bugs can creep in.
 - It follows that doing any type of end-to-end testing becomes difficult. Integration testing can only realistically happen after a commit, which means you see problems later in the development cycle.
 
     ![](media/common/microservices-challenges.png)
@@ -171,7 +171,7 @@ With Azure Dev Spaces, you can set up a *shared* dev space in Azure. Each develo
 ### Work in your own space
 As you develop code for your service, and before you're ready to check it in, code often won't be in a good state. You're still iteratively shaping it, testing it, and experimenting with solutions. Azure Dev Spaces provides the concept of a **space**, which allows you to work in isolation, and without the fear of breaking your team members.
 
-Do the following to make sure both your `webfrontend` and `mywebapi` services are running in your dev space **and in the `default` space**.
+Do the following to make sure both your `webfrontend` and `mywebapi` services are running **in the `default` dev space**.
 1. Close any F5/debug sessions for both services, but keep the projects open in their Visual Studio windows.
 2. Switch to the Visual Studio window with the `mywebapi` project and press Ctrl+F5 to run the service without the debugger attached
 3. Switch to the Visual Studio window with the `webfrontend` project and press Ctrl+F5 to run it as well.
@@ -198,7 +198,7 @@ Do the following to create a new space:
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 
-7. You should now see your dev space and new Space selected on the project properties page.
+7. You should now see your AKS cluster and new Space selected on the project properties page.
 
     ![](media/get-started-netcore-visualstudio/Settings2.png)
 
@@ -215,7 +215,7 @@ Do the following to create a new space:
     ```
 
 2. Set a breakpoint in this updated block of code (you may already have one set from before).
-3. Hit F5 to start the `mywebapi` service. This will start the service in your dev space using the selected space, which in this case is `scott`.
+3. Hit F5 to start the `mywebapi` service. This will start the service in your cluster using the selected space, which in this case is `scott`.
 
 Here is a diagram that will help you understand how the different spaces work. The blue path shows a request via the `default` space, which is the default path used if no space is prepended to the URL. The green path shows a request via the `scott` space.
 
