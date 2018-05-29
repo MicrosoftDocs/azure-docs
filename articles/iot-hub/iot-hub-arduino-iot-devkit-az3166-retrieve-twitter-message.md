@@ -30,7 +30,7 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 
 An active Azure subscription. If you don't have one, you can register via one of these methods:
 
-* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/en-us/free/)
+* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/free/)
 * Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are MSDN or Visual Studio subscriber
 
 ## Open the project folder
@@ -41,10 +41,6 @@ An active Azure subscription. If you don't have one, you can register via one of
 - Start VS Code.
 - Connect the DevKit to your computer.
 
-VS Code automatically finds your DevKit and displays an introduction page:
-
-![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_start.png)
-
 > [!NOTE]
 > When launching VS Code, you may receive an error message that the Arduino IDE or related board package can't be found. If this error occurs, close VS Code and launch the Arduino IDE again. VS Code should now locate the Arduino IDE path correctly.
 
@@ -54,7 +50,8 @@ Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP A
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
+> [!NOTE]
+> You can also open example from command palette. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
 ## Provision Azure services
 
@@ -65,7 +62,7 @@ In the VS Code terminal, an interactive command line guides you through provisio
 ![cloud-provision](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
-> If the page hangs in the loading status when trying to sign in to Azure, refer to this [FAQ step]({{"/docs/faq/#page-hangs-when-log-in-azure" | 
+> If the page hangs in the loading status when trying to sign in to Azure, refer to this [FAQ step](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
  
 ## Modify the #hashtag
 
@@ -192,6 +189,6 @@ If you experience other problems, refer to [FAQs](https://microsoft.github.io/az
 
 ## Next steps
 
-Now that you have learned how to connect a DevKit device to your Azure IoT Suite and retrieve a tweet, here are the suggested next steps:
+Now that you have learned how to connect a DevKit device to your Azure IoT Remote Monitoring solution accelerator and retrieve a tweet, here are the suggested next steps:
 
-* [Azure IoT Suite overview](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IoT Remote Monitoring solution accelerator overview](https://docs.microsoft.com/azure/iot-suite/)

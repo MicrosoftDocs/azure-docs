@@ -57,9 +57,11 @@ NPM for ExpressRoute offers comprehensive ExpressRoute monitoring for private pe
 
 * Auto-detection of ER circuits associated with your subscription
 * Detection of network topology  from on-premises to your cloud applications
-* Capacity planning, utilization analysis
+* Capacity planning, utilization analysis, bandwidth utilization per Virtual Network
 * Monitoring and alerting on both primary and secondary paths
 * Detect degradation of connectivity to VNets
+
+![Geo-map showing traffic across regions](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 For more information, see the following articles:
 

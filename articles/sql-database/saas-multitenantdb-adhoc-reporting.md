@@ -10,8 +10,8 @@ ms.custom: scale out apps
 ms.workload: "Inactive"
 ms.tgt_pltfrm: na
 ms.devlang:
-ms.topic: article
-ms.date: 11/13/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: AyoOlubeko
 
 ---

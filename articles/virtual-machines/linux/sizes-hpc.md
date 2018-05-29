@@ -4,7 +4,7 @@ description: Lists the different sizes available for Linux high performance comp
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -72,7 +72,7 @@ Additional system configuration is needed to run MPI jobs on clustered VMs. For 
 - [Memory optimized](sizes-memory.md)
 - [Storage optimized](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
 

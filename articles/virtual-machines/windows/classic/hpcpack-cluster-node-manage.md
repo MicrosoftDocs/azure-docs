@@ -4,7 +4,7 @@ description: Learn about PowerShell script tools to add, remove, start, and stop
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,hpc-pack
 

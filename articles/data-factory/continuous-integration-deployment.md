@@ -10,8 +10,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/29/2018
+ms.topic: conceptual
+ms.date: 04/30/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -19,6 +19,10 @@ ms.author: douglasl
 Continuous Integration is the practice of testing each change done to your codebase automatically and as early as possible. Continuous Deployment follows the testing that happens during Continuous Integration and pushes changes to a staging or production system.
 
 For Azure Data Factory, continuous integration & deployment means moving Data Factory pipelines from one environment (development, test, production) to another. To do continuous integration & deployment, you can use Data Factory UI integration with Azure Resource Manager templates. The Data Factory UI can generate a Resource Manager template when you select the **ARM template** options. When you select **Export ARM template**, the portal generates the Resource Manager template for the data factory and a configuration file that includes all your connections strings and other parameters. Then you have to create one configuration file for each environment (development, test, production). The main Resource Manager template file remains the same for all the environments.
+
+For a nine-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 ## Create a Resource Manager template for each environment
 Select **Export ARM template** to export the Resource Manager template for your data factory in the development environment.
@@ -59,6 +63,8 @@ that you can use after you enable VSTS GIT integration in the Data Factory UI:
 
 Here are the steps to set up a VSTS Release so you can automate the deployment of a data factory to multiple environments.
 
+![Diagram of continuous integration with VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+
 ### Requirements
 
 -   An Azure subscription linked to Team Foundation Server or VSTS using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
@@ -87,34 +93,34 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
     a.  Add the secrets to parameters file:
 
-        -   Create a copy of the parameters file that is uploaded to the publish branch and set the values of the parameters you want to get from key vault with the following format:
+       -   Create a copy of the parameters file that is uploaded to the publish branch and set the values of the parameters you want to get from key vault with the following format:
 
         ```json
         {
 	        "parameters": {
 		        "azureSqlReportingDbPassword": {
-			        "reference": {
-				        "keyVault": {
+	    		    "reference": {
+    				    "keyVault": {
 					        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-				        },
-				        "secretName": " &lt secret - name &gt "
-			        }
-        		}        
-        	}
+			        	},
+        				"secretName": " < secret - name > "
+		        	}
+		        }
+	        }
         }
         ```
 
-        -   When you use this method, the secret is pulled from the key vault automatically.
+       -   When you use this method, the secret is pulled from the key vault automatically.
 
-        -   The parameters file needs to be in the publish branch as well.
+       -   The parameters file needs to be in the publish branch as well.
 
     b.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
 
-        -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
+       -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
 
-        -   In the Key Vault task, choose the subscription in which you created the key vault, provide credentials if necessary, and then choose the key vault.
+       -   In the Key Vault task, choose the subscription in which you created the key vault, provide credentials if necessary, and then choose the key vault.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Add an Azure Resource Manager Deployment task:
 

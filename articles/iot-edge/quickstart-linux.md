@@ -1,17 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Quickstart Azure IoT Edge + Linux | Microsoft Docs 
 description: Try out Azure IoT Edge by running analytics on a simulated edge device
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 01/11/2018
-ms.topic: article
+ms.topic: quickstart
 ms.service: iot-edge
-
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Quickstart: Deploy your first IoT Edge module to a Linux or Mac device - preview
@@ -26,6 +23,15 @@ This quickstart uses your computer or virtual machine like an Internet of Things
 
 * Python pip, to install the IoT Edge runtime.
    * Linux: `sudo apt-get install python-pip`.
+      
+      > [!Note]
+      > On certain distributions (such as Raspbian), you might also need to upgrade certain pip packages and install additional dependencies:
+      
+        ```
+        sudo pip install --upgrade setuptools pip
+        sudo apt-get install python2.7-dev libffi-dev libssl-dev
+        ```
+        
    * MacOS: `sudo easy_install pip`.
 * Docker, to run the IoT Edge modules
    * [Install Docker for Linux][lnk-docker-ubuntu] and make sure that it's running. 

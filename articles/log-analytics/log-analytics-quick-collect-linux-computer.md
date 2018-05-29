@@ -20,7 +20,7 @@ ms.custom: mvc
 # Collect data from Linux computer hosted in your environment
 [Azure Log Analytics](log-analytics-overview.md) can collect data directly from your physical or virtual Linux computer and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Linux computer with a few easy steps.  For Azure Linux VMs, see the following topic [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md).  
 
-To understand the network and system requirements to deploy the Linux agent, review [prerequisites for Linux operating system](log-analytics-concept-hybrid.md#prerequisites).
+To understand the supported configuration, review [supported Linux operating systems](log-analytics-concept-hybrid.md#supported-linux-operating-systems) and [network firewall configuration](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

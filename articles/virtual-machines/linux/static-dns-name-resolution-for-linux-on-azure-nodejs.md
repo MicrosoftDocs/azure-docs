@@ -4,7 +4,7 @@ description: Using internal DNS for VM name resolution on Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

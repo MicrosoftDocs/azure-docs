@@ -4,12 +4,13 @@ description: "Cross-tenant analytics queries using data extracted from multiple 
 keywords: "sql tutorial"
 services: "sql-database"
 author: "stevestein"
-manager: "jhubbard"
+manager: craigg
 ms.service: "sql-database"
 ms.custom: "scale out apps"
-ms.topic: "article"
-ms.date: "11/08/2017"
-ms.author: "anjangsh; billgib; genemi"
+ms.topic: conceptual
+ms.date: 04/01/2018
+ms.author: anjangsh
+ms.reviewer: billgib, genemi
 ---
 # Cross-tenant analytics using extracted data
 

@@ -25,7 +25,7 @@ ms.author: ellacroi
 After you've developed the technical assets for your Azure Marketplace listing, you can increase the number of users coming to your app and the growth in usage of your product by following marketing best practices. 
 
 >[!NOTE]
->To learn about the publishing process and technical requirements, read the [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide).
+>To learn about the publishing process and technical requirements, read the [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 
 ## How marketing helps
 
@@ -51,6 +51,24 @@ Your listing in the Marketplace can sometimes be your first interaction with a p
 - **Provide an experience:** Customers like to try before they buy. Leads generated from demos, trials, and test drives result in more customer deals. The stronger the trial experience you can provide, the stronger the lead you'll generate. We've found that test drive leads result (on average) in 40 percent closed deals.
 - **Help your audience learn:** Though we encourage you to keep your overview space clear and simple, there's plenty of room to point to additional resources about your product. Use this space to deliver the concise message about what your product does and how it's a fit for your customers' needs. Don't be afraid to direct them to additional materials to learn more. It's a bonus if these learning materials or links can track into your content marketing strategy, so you can be consistently nurturing leads.
 - **Take advantage of ratings and reviews:** Let your customers sell your product for you. Customer advocacy can be the biggest driver of sales and is often where buyers go before they learn more about your product. Having multiple strong reviews also helps bump up your offer in search results and into key featured areas.
+
+### All Listing Requirement
+
+|**Listing Element**  |**Base Requirements**  |**Optimal Requirements**  |
+|-------------|-------------|-------|
+| **1. Lead Destination** |<ul><li>Have a Lead Destination Configured</li></ul>| OCP Catalog has the lead destination CRM info also listed in partner solution tab     |
+|**2. Offer Title**     | <ul><li>Descriptive of solution offering</li></ul><ul><li>Matches online promotion of solution in partner’s website</li></ul>   | Contains key search words |
+|**3. Logo**     |  <ul><li>Logo Displays Correctly</li></ul> | Logo displays correctly and includes “hero image,” which is the large-format image in the Azure Portal <ul><li>[Hero Image Requirements](https://cloudpartner.azure.com/#documentation/publish-solution-template)</ul></li>|
+|**4. Offer Description**     |   <ul><li>2-3 paragraphs</li></ul><ul><li>Solution offering is easily understood at a glance</li></ul><ul><li>Offer description is free of spelling & grammar mistakes</li></ul><ul><li>Offer description is comprehensive and captures: target audience, type of user, why it’s valuable (value prop)</li></ul><ul><li>Offer description is in paragraph narrative form with short sentences that is easy to comprehend</li></ul>    | <ul><li>Target industry is outlined (if relevant)</li></ul><ul><li>Good style formatting with each paragraph header having a one-sentence or phrase summarizing content that follows and inclusive of bullet points (when appropriate) to emphasize key benefits. The objective here is for the reader to understand the offering at a glance in an easy to view format and not have to read paragraphs. </li></ul><ul><li>There is spacing between each paragraph and reads like a car brochure Meaning not technical features or code lingo but descriptive of the offering in simple terms and is comprehensive</li></ul><ul><li>Offer description is comprehensive and captures: target audience, type of user, why it’s valuable (value prop)</li></ul><ul><li>Offer description is in paragraph narrative form with short sentences that is easy to comprehend</li></ul>   |
+|**5. Categories & Industries**     |  <ul><li>Categories match solution offering</li></ul><ul><li>Do not extend to categories that solution does not fit</li></ul><ul><li>Optimal industry, or all industries selected (if not optimal industries)</li></ul>      |  <ul><li>Max. 3 categories</li></ul><ul><li>Max. 3 industries</li></ul>   |
+|**6. Images**     |  <ul><li>No image required, but if provided must display and a high-resolution image</li></ul><ul><li>Image requirements are listed in CPP</li></ul><ul><li>Text included in the screenshot is legible with clear image</li></ul>      |  <ul><li>Solution offering is easily understood at a glance</li></ul>   |
+|**7. Videos**     |  <ul><li>No videos required, but if provided must playback without any errors</li></ul><ul><li>If provided, may not refer to competitor companies UNLESS demonstrating a migration solution</li></ul>     |  <ul><li>Ideally less than 3 minutes</li></ul><ul><li>Solution offering easily understood through video content</li></ul><ul><li>Demo of solution capabilities</li></ul>    |
+|**8. List Status (Call To Action)**     | Must be labeled one of the following:<ul><li>Contact Me</li></ul><ul><li>Trial/Get Trial Now/Start Trial/Test Drive</li></ul><ul><li>Buy Now/Get It Now</li></ul>     | Customer can readily understand what next steps available are:<ul><li>Try the Trial</li></ul><ul><li>Buy Now</li></ul><ul><li>Contact via e-mail or phone number to arrange for PoC, Assessment, or Briefing</li></ul>    |
+|**9. Solution Pricing**     | Must have solution pricing tab/details and in the local currency of the partner solution offering   |  Multiple billing options available with tier-pricing for customer to have options    |
+|**10. Learn More**     | Links at the bottom (under the description, not the marketplace links on the left) leads to more information about the solution and are publicly available and displaying correctly  | Links to specific items (e.g. spec pages on partner site) and not just partner homepage site    |
+|**11. Solution Support & Help**     |  Link to at least one of the following:<ul><li>Telephone Numbers</li></ul><ul><li>Email Support</li></ul><ul><li>Chat agents</ul></li><ul><li>Community forums</ul></li>   |  <ul><li>All support methods listed: telephone & email support</li></ul><ul><li>Paid support offered free during trial or test drive period</ul></li>    |
+|**12. Privacy Policy & Terms Of Use Available**     | Policies or terms available via a public URL  |  Verify all hyperlinks in description lead to listed source and credible sites    |
+
 
 ### Build a great landing page
 A landing page on your company website is a gateway from your demand generation activities to your listing in the Azure Marketplace. 
@@ -129,8 +147,7 @@ To maximize the impact of these activities, we encourage you to have your launch
 >[!NOTE]
 >One Commercial Partner Catalog (OCP Catalog) is a benefit of membership in the Microsoft Partner Network. 
 
-[Marketplace GTM Benefits](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
-
+![Marketplace GTM Benefits](./media/marketplace-publishers-guide/gtmmay2018.png)
 
 For support, visit [Microsoft Go To Market](https://www.microsoftgotomarket.com). There, you can find templates, web content, training, and tools to promote your business.
 

@@ -5,7 +5,7 @@
  author: dlepow
  ms.service: virtual-machines-windows
  ms.topic: include
- ms.date: 04/03/2018
+ ms.date: 05/18/2018
  ms.author: danlep
  ms.custom: include file
 ---
@@ -22,8 +22,8 @@ Driver download links in the following table are current at time of publication.
 
 | OS | Driver |
 | -------- |------------- |
-| Windows Server 2016 | [390.85](http://us.download.nvidia.com/Windows/Quadro_Certified/390.85/390.85-tesla-desktop-winserver2016-international.exe) (.exe) |
-| Windows Server 2012 R2 | [390.85](http://us.download.nvidia.com/Windows/Quadro_Certified/390.85/390.85-tesla-desktop-winserver2008-2012r2-64bit-international.exe) (.exe) |
+| Windows Server 2016 | [397.44](http://us.download.nvidia.com/Windows/Quadro_Certified/397.44/397.44-tesla-desktop-winserver2016-international.exe) (.exe) |
+| Windows Server 2012 R2 | [397.44](http://us.download.nvidia.com/Windows/Quadro_Certified/397.44/397.44-tesla-desktop-winserver2008-2012r2-64bit-international.exe) (.exe) |
 
 ### NV-series - NVIDIA GRID drivers
 
@@ -31,5 +31,5 @@ Microsoft redistributes NVIDIA GRID driver installers for NV VMs. Install only t
 
 | OS | Driver |
 | -------- |------------- |
-| Windows Server 2016<br/><br/>Windows 10 | [GRID 6.0 (391.03)](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
-| Windows Server 2012 R2 | [GRID 6.0 (391.03)](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
+| Windows Server 2016<br/><br/>Windows 10 | [GRID 6.1 (391.58)](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
+| Windows Server 2012 R2 | [GRID 6.1 (391.58)](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |

@@ -1,22 +1,15 @@
 ---
-title: 'Azure Data Lake Tools: Use Azure Data Lake Tools for Visual Studio Code | Microsoft Docs'
-description: 'Learn how to use Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts. '
-Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
+title: Use Azure Data Lake Tools for Visual Studio Code
+description: Learn how to use Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts.
 services: data-lake-analytics
-documentationcenter: ''
-author: jejiang
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
+author: Jejiang
+ms.author: jejiang
+manager: kfile
+editor: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/09/2018
-ms.author: jejiang
 ---
 
 # Use Azure Data Lake Tools for Visual Studio Code
@@ -143,9 +136,6 @@ You need open either a U-SQL file or a folder to work with U-SQL.
 Azure Data Lake Tool supports multiple custom codes, the instructions see [Develop U-SQL with Python, R, and CSharp for Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
 ## Use assemblies
-
-For information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md).
-
 You can use Data Lake Tools to register custom code assemblies in the Data Lake Analytics catalog.
 
 **To register an assembly**
@@ -353,13 +343,13 @@ The status displays on the bottom of the status bar when completed downloading a
 
 **Azure Integration** 
 
-- Before login to Azure, you can always expand **DATALAKE EXPLORER**, then click **Sign in to Azur** to login to Azure. After login, you will see all the subscriptions under your Azure account are listed in the left panel of the **DATALAKE EXPLORER**. 
+- Before login to Azure, you can always expand **AZURE DATALAKE**, then click **Sign in to Azure** to login to Azure. After login, you will see all the subscriptions under your Azure account are listed in the left panel of the **AZURE DATALAKE**. 
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**ADLA Metadata Navigation** 
+**ADLA Metadata Navigation**
 
 - Expand your Azure subscription, you can navigate your U-SQL database, view the **Schemas**, **Credentials**, **Assemblies**, **Table**, **Index**, and so on, under the U-SQL Databases node.
 
@@ -379,11 +369,31 @@ The status displays on the bottom of the status bar when completed downloading a
 
 **ADLS Integration** 
 
- - Navigate to **Storage Account**, you can **Preview**, **Download**, **Delete**, **Copy Relative Path**, **Copy Full Path** by the context menu on the file node. You can **Refresh**, **Upload**, **Upload Folder**, **Delete** by right-clicking the context menu on the folder node.
+Navigate to **Data Lake Store**
+
+ - On the folder node, you can **Refresh**, **Delete**, **Upload**, **Upload Folder**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu.
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
+ - On the file node, you can **Download**, **Preview**, **Delete**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu. 
+
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+**WASB Integration**
+
+Navigate to **Blob Storage**
+
+- On the blob container node, you can **Refresh**, **Delete Blob Container**, **Upload Blob** in the right-click context menu.
+
+    ![Blob Storage blob container node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- On the folder node, you can **Refresh**, **Upload Blob** in the right-click context menu.
+
+    ![Blob Storage folder node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
+
+- On the file node, you can **Preview/Edit**, **Download**, **Delete**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu.
+
+    ![Blob Storage file node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## Open ADL storage explorer in portal
 1. Select Ctrl+Shift+P to open the command palette.
@@ -426,13 +436,12 @@ Data Lake Tools for VS Code supports the following features:
 
     ![Data Lake Tools for Visual Studio Code syntax highlights](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
+   >[!NOTE]
+   >In preparation for the new General Data Protection Regulation (GDPR) going into effect on May 25, 2018, it is recommended that users of Azure Data Lake Tools for Visual Studio Code upgrade to version 0.2.13 or later. This version includes changes based on the most recent data protection requirements. Note that previous versions are not available for download and are deprecated. 
+ 
+   
 ## Next steps
 - [Develop U-SQL with Python, R, and CSharp for Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
 - [Tutorial: Get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)
 - [Tutorial: Develop U-SQL scripts by using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-- [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md)
-
-
-
-

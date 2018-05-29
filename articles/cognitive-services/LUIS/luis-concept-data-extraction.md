@@ -4,11 +4,10 @@ description: Learn what kind of data can be extracted from Language Understandin
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 05/07/2018
 ms.author: v-geberr;
 ---
 
@@ -18,7 +17,7 @@ LUIS gives you the ability to get information from a user's natural language utt
 In the following sections, learn what data is returned from intents and entities with examples of JSON. The hardest data to extract is the machine-learned data because it is not an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you are confident you receive the data you expect. 
 
 ## Data location and key usage
-LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. You do not have to URL-encode utterances at the endpoint. 
+LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. 
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
@@ -304,7 +303,7 @@ Another example utterance, using a synonym for Paris:
 ```
 
 ## Prebuilt entity data
-[Prebuilt](luis-concept-entity-types.md) entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following is an example utterance with the returned prebuilt entities:
+[Prebuilt](luis-concept-entity-types.md) entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following text is an example utterance with the returned prebuilt entities:
 
 `Dec 5th send to +1 360-555-1212`
 
@@ -388,7 +387,7 @@ Another example utterance, using a synonym for Paris:
 ``` 
 
 ## Regular expression entity data
-[Regular expression](luis-concept-entity-types.md) entities are discovered based on a regular expression match using an expression you provide when you create the entity. When using `kb[0-9]{6}` as the regular expression entity definition, the following is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
+[Regular expression](luis-concept-entity-types.md) entities are discovered based on a regular expression match using an expression you provide when you create the entity. When using `kb[0-9]{6}` as the regular expression entity definition, the following JSON response is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
 
 ```JSON
 {
@@ -416,6 +415,160 @@ Another example utterance, using a synonym for Paris:
     }
   ]
 }
+```
+
+## Extracting names
+Getting names from an utterance is difficult because a name can be almost any combination of letters and words. Depending on what type of name you are extracting, you have several options. These are not rules but more guidelines. 
+
+### Names of people
+People's name can have some slight format depending on language and culture. Use either a hierarchical entity with first and last names as children or use a simple entity with roles of first and last name. Make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](label-suggested-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
+
+### Names of places
+Location names are set and known such as cities, counties, states, provinces, and countries. If your app uses a know set of locations, consider a list entity. If you need to find all place names, create a simple entity, and provide a variety of examples. Add a phrase list of place names to reinforce what place names look like in your app. [Review](label-suggested-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
+
+### New and emerging names
+Some apps need to be able to find new and emerging names such as products or companies. This is the most difficult type of data extraction. Begin with a simple entity and add a phrase list. [Review](label-suggested-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
+
+## Pattern roles data
+Roles are contextual differences of entities. 
+
+```JSON
+{
+  "query": "move bob jones from seattle to redmond",
+  "topScoringIntent": {
+    "intent": "MoveAssetsOrPeople",
+    "score": 0.9999998
+  },
+  "intents": [
+    {
+      "intent": "MoveAssetsOrPeople",
+      "score": 0.9999998
+    },
+    {
+      "intent": "None",
+      "score": 1.02040713E-06
+    },
+    {
+      "intent": "GetEmployeeBenefits",
+      "score": 6.12244548E-07
+    },
+    {
+      "intent": "GetEmployeeOrgChart",
+      "score": 6.12244548E-07
+    },
+    {
+      "intent": "FindForm",
+      "score": 1.1E-09
+    }
+  ],
+  "entities": [
+    {
+      "entity": "bob jones",
+      "type": "Employee",
+      "startIndex": 5,
+      "endIndex": 13,
+      "score": 0.922820568,
+      "role": ""
+    },
+    {
+      "entity": "seattle",
+      "type": "Location",
+      "startIndex": 20,
+      "endIndex": 26,
+      "score": 0.948008537,
+      "role": "Origin"
+    },
+    {
+      "entity": "redmond",
+      "type": "Location",
+      "startIndex": 31,
+      "endIndex": 37,
+      "score": 0.7047979,
+      "role": "Destination"
+    }
+  ]
+}
+```
+
+## Pattern.any entity data
+Pattern.any entities are variable-length entities used in template utterances of a [pattern](luis-concept-patterns.md). 
+
+```JSON
+{
+  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
+  "topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.999999464
+  },
+  "intents": [
+    {
+      "intent": "FindForm",
+      "score": 0.999999464
+    },
+    {
+      "intent": "GetEmployeeBenefits",
+      "score": 4.883697E-06
+    },
+    {
+      "intent": "None",
+      "score": 1.02040713E-06
+    },
+    {
+      "intent": "GetEmployeeOrgChart",
+      "score": 9.278342E-07
+    },
+    {
+      "intent": "MoveAssetsOrPeople",
+      "score": 9.278342E-07
+    }
+  ],
+  "entities": [
+    {
+      "entity": "understand your responsibilities as a member of the community",
+      "type": "FormName",
+      "startIndex": 18,
+      "endIndex": 78,
+      "role": ""
+    }
+  ]
+}
+```
+
+
+## Sentiment analysis
+If Sentiment analysis is configured, the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) documentation.
+
+### Sentiment data
+Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
+
+When culture is `en-us`, the response is:
+
+```JSON
+"sentimentAnalysis": {
+  "label": "positive",
+  "score": 0.9163064
+}
+```
+
+For all other cultures, the response is:
+
+```JSON
+"sentimentAnalysis": {
+  "score": 0.9163064
+}
+```
+
+
+### Key phrase extraction entity data
+The key phrase extraction entity returns key phrases in the utterance, provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+
+<!-- TBD: verify JSON-->
+```JSON
+"keyPhrases": [
+    "places",
+    "beautiful views",
+    "favorite trail"
+]
 ```
 
 ## Data matching multiple entities
