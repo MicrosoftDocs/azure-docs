@@ -1,24 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Check device connectivity to IoT Hub tutorial
 description: Use IoT Hub tools to troubleshoot, during development, device connectivity issues to your IoT hub.
 services: iot-hub
-# keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: dominicbetts
+manager: timlt
 ms.author: dobett
-ms.date: 04/10/2018
+ms.custom: mvc
+ms.date: 05/29/2018
 ms.topic: tutorial
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
 ms.service: iot-hub
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-# manager: MSFT-alias-manager-or-PM-counterpart
 
 # As a developer, I want to know what tools I can use to verify connectivity between my IoT devices and my IoT hub.
 ---
