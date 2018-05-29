@@ -136,7 +136,7 @@ provide the necessary information for the action.
   
       ![Select folder](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
-   2. Browse until you find the file that you want and select that file.
+   2. Browse until you find the file that you want and select that file. For the selected file, please use the **Id** field from the   blob metadata that was returned from the previous blob storage trigger.
 
 5. When you're done, on the designer toolbar, choose **Save**.
 To test your logic app, make sure that the selected folder contains a blob.
