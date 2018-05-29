@@ -135,7 +135,7 @@ You cannot remove the default rules, but you can override them by creating rules
 
 Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. This feature allows you to reuse your security policy at scale without manual maintenance of explicit IP addresses. The platform handles the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your business logic.
 
-You can specify an application security group as the source and destination in a security rule. Once your security policy is defined, you can create virtual machines and assign the network interfaces in the virtual machine to an application security group. The policy is applied based on the application security group membership of each network interface within a virtual machine. The following example illustrates how you might use an application security group for all web servers in your subscription:
+You can specify one application security group as the source and destination in a security rule. You cannot specify multiple application security groups in the source and destination. Once your security policy is defined, you can create virtual machines and assign the network interfaces in the virtual machine to an application security group. The policy is applied based on the application security group membership of each network interface within a virtual machine. The following example illustrates how you might use an application security group for all web servers in your subscription:
 
 1. Create an application security group named *WebServers*.
 2. Create a network security group named *MyNSG*.
