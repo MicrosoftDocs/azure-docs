@@ -1,20 +1,18 @@
 ---
+# required metadata
 title: Limits and configuration - Azure Logic Apps | Microsoft Docs
 description: Service limits and configuration values for Azure Logic Apps
 services: logic-apps
-documentationcenter: 
 author: ecfan
 manager: cfowler
-editor: 
-
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.topic: article
-ms.date: 05/14/2018
 ms.author: estfan
+ms.topic: article
+ms.date: 05/30/2018
+ms.service: logic-apps
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -276,7 +274,7 @@ or other HTTP requests, come from IP addresses in this list.
 | | |
 
 | Logic Apps region | Inbound IP |
-|-------------------|-------------|
+|-------------------|------------|
 | Australia East | 3.75.153.66, 104.210.89.222, 104.210.89.244 |
 | Australia Southeast | 13.73.115.153, 40.115.78.70, 40.115.78.237 |
 | Brazil South | 191.235.86.199, 191.235.95.229, 191.235.94.220 |
@@ -306,7 +304,43 @@ or other HTTP requests, come from IP addresses in this list.
 ### Connectors
 
 The calls that [connectors](../connectors/apis-list.md) 
-make come from the IP addresses in this list.
+make come from the IP addresses in this list. 
+
+> [!NOTE]
+> Some of these outbound IP addresses are changing, so make sure that you update any 
+> affected configurations that use these IP addrsses before September 1, 2018.
+
+**After September 1, 2018**
+
+| Logic Apps region | Outbound IP | 
+|-------------------|-------------| 
+| Australia East | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
+| Australia Southeast | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
+| Brazil South | 191.233.203.192 - 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
+| Canada Central | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 | 
+| Canada East | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 | 
+| Central India | 104.211.81.192 - 104.211.81.207, 52.172.211.12, 104.211.98.164 | 
+| Central US | 13.89.171.80 - 13.89.171.95, 52.173.245.164, 40.122.49.51 | 
+| East Asia | 13.75.36.64 - 13.75.36.79, 52.175.23.169, 23.99.116.181 | 
+| East US | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 | 
+| East US 2 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100 | 
+| Japan East | 13.78.108.0 - 13.78.108.15, 13.71.153.19, 40.115.186.96 | 
+| Japan West | 40.74.100.224 - 40.74.100.239, 104.215.61.248, 40.74.130.77 | 
+| North Central US | 52.162.107.160 - 52.162.107.175, 52.162.242.161, 65.52.218.230 | 
+| North Europe | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9 | 
+| South Central US | 104.214.19.48 - 104.214.19.63, 13.65.86.57, 104.214.70.191 | 
+| South India | 40.78.194.240 - 40.78.194.255, 13.71.125.22, 104.211.227.225 | 
+| Southeast Asia | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
+| West Central US | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212 | 
+| West Europe | 13.69.64.208 - 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
+| West India | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
+| West US | 40.112.243.160 - 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
+| West US 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14 | 
+| UK South | 51.140.148.0 - 51.140.148.15, 51.140.80.51, 51.140.80.51 | 
+| UK West | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.47.105 | 
+| | | 
+
+**Before September 1, 2018**
 
 | Logic Apps region | Outbound IP |
 |-------------------|-------------|
