@@ -56,7 +56,7 @@ Parameters are case-sensitive.
 {
     "skills": [
       {
-        "description": "Extracts text (plain and structured) from image."
+        "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
         "defaultLanguageCode": null,
@@ -181,16 +181,14 @@ The following example skillset creates a *merged_text* field to contain the text
 The above skillset example assumes that a normalized-images field exists. To generate this field, set the *imageAction* configuration in your indexer definition to *generateNormalizedImages* as shown below:
 
 ```json
-{
-  //...rest of your indexer definition goes here ...
-  "parameters":
-  {
-  	"configuration": 
-    {
-    	"dataToExtract": "contentAndMetadata",
-     	"imageAction": "generateNormalizedImages"
-		}
-  }
+{  
+   //...rest of your indexer definition goes here ... 
+  "parameters":{  
+      "configuration":{  
+         "dataToExtract":"contentAndMetadata",
+         "imageAction":"generateNormalizedImages"
+      }
+   }
 }
 ```
 
@@ -198,3 +196,4 @@ The above skillset example assumes that a normalized-images field exists. To gen
 + [Predefined skills](cognitive-search-predefined-skills.md)
 + [TextMerger skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
++ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

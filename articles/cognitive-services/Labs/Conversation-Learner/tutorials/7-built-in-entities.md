@@ -12,7 +12,7 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to add re-built entities
+# How to add pre-built entities
 This tutorial shows how to add "pre-built" entities to your Conversation Learner application.
 
 ## Requirements
@@ -52,7 +52,7 @@ Then create the second action:
 
 1. Click Actions, then New Action to create a second action.
 3. In Response, type 'What's the date?'.
-4. In Expected Entities, enter $luis-datetimev2.
+4. In Disqualifying Entities, enter 'luis-datetimev2'.
 4. Click Create
 
 ![](../media/tutorial7_actions2.PNG)

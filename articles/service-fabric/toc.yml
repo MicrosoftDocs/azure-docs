@@ -433,6 +433,8 @@
       href: service-fabric-visualstudio-configure-secure-connections.md
     - name: Debug a .NET service in VS
       href: service-fabric-debugging-your-application.md
+    - name: Debug Windows containers with Service Fabric and VS
+      href: service-fabric-how-to-debug-windows-containers.md
     - name: Common errors and exceptions
       href: service-fabric-errors-and-exceptions.md
     - name: Monitor and diagnose locally
@@ -521,12 +523,18 @@
           href: service-fabric-cluster-creation-via-arm.md
         - name: Cluster using certificate common name
           href: service-fabric-create-cluster-using-cert-cn.md
+        - name: Enable Disk Encryption for Windows
+          href: service-fabric-enable-azure-disk-encryption-windows.md
+        - name: Enable Disk Encryption for Linux
+          href: service-fabric-enable-azure-disk-encryption-linux.md
       - name: Scale
         items:
-        - name: Manually
+        - name: Manually scale out
           href: service-fabric-cluster-scale-up-down.md
-        - name: Programmatically
+        - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
+        - name: Scale up the primary node type VMs
+          href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
       - name: Upgrade
         href: service-fabric-cluster-upgrade.md
       - name: Set access control
@@ -543,6 +551,8 @@
         href: service-fabric-cluster-delete.md
       - name: Remote connect to cluster node VM
         href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+      - name: Upgrade/migrate VMSS SKU 
+        href: service-fabric-update-vmss-sku.md
     - name: Standalone clusters
       items:
       - name: Create
@@ -597,10 +607,10 @@
         href: service-fabric-diagnostics-event-analysis-oms.md  
     - name: Monitor infrastructure
       items:
-      - name: Performance monitoring with WAD
-        href: service-fabric-diagnostics-perf-wad.md
       - name: Performance monitoring with the OMS Agent
         href: service-fabric-diagnostics-oms-agent.md
+      - name: Performance monitoring with WAD
+        href: service-fabric-diagnostics-perf-wad.md     
     - name: Monitor health
       items:
       - name: Report and check health
@@ -611,6 +621,8 @@
         href: service-fabric-view-entities-aggregated-health.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
+    - name: Diagnose common scenarios
+      href: service-fabric-diagnostics-common-scenarios.md
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -656,6 +668,17 @@
     href: service-fabric-cluster-fabric-settings.md
   - name: Service model XML schema
     href: service-fabric-service-model-schema.md
+    items:
+    - name: Elements
+      href: service-fabric-service-model-schema-elements.md
+    - name: Complex types
+      href: service-fabric-service-model-schema-complex-types.md
+    - name: Attribute groups
+      href: service-fabric-service-model-schema-attribute-groups.md
+    - name: Simple types
+      href: service-fabric-service-model-schema-simple-types.md
+    - name: Element groups
+      href: service-fabric-service-model-schema-element-groups.md
   - name: Environment variables
     href: service-fabric-environment-variables-reference.md
 - name: Resources

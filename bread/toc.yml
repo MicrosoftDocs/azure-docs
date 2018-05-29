@@ -286,7 +286,7 @@
   - name: Event Hubs
     tocHref: /azure/event-hubs/
     topicHref: /azure/event-hubs/
-  - name: Expressroute
+  - name: ExpressRoute
     tocHref: /azure/expressroute/
     topicHref: /azure/expressroute/
   - name: Guidance
@@ -339,6 +339,9 @@
     - name: IoT solution accelerators
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/   
+    - name: IoT Central
+      tocHref: /azure/iot-central/
+      topicHref: /azure/iot-central/         
     - name: Maps
       tocHref: /azure/azure-maps/
       topicHref: /azure/azure-maps/
@@ -518,6 +521,9 @@
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
+      - name: Tables
+        tocHref: /azure/storage/tables/
+        topicHref: /azure/storage/tables/table-storage-overview
   - name: StorSimple
     tocHref: /azure/storsimple/
     topicHref: /azure/storsimple/

@@ -1,23 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Deploy Azure Function with Azure IoT Edge | Microsoft Docs 
 description: Deploy Azure Function as a module to an edge device
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
-
-# Optional fields. Don't forget to remove # if you need a field.
+services: iot-edge
 ms.custom: mvc
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
 ---
 
 # Deploy Azure Function as an IoT Edge module - preview

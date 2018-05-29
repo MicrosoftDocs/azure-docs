@@ -27,7 +27,7 @@ This article applies to StorSimple 8000 series devices running Update 3.0 or lat
 
 RBAC can be assigned based on the roles. The roles ensure certain permission levels based on the available resources in the environment. There are two types of roles that StorSimple users can choose from: built-in or custom.
 
-* **Built-in roles** - The built-in roles can be owner, contributor, reader, or user access administrator. For more information, see [Built-in roles for Azure Role-based Access Control](../role-based-access-control/overview.md#built-in-roles).
+* **Built-in roles** - The built-in roles can be owner, contributor, reader, or user access administrator. For more information, see [Built-in roles for Azure Role-based Access Control](../role-based-access-control/built-in-roles.md).
 
 * **Custom roles** - If the built-in roles do not suit your needs, you can create custom RBAC roles for StorSimple. To create a custom RBAC role, start with a built-in role, edit it, and then import it back in the environment. The download and upload of the role are managed using either Azure PowerShell or the Azure CLI. For more information, see [Create custom roles for Role-based Access Control](../role-based-access-control/custom-roles.md).
 
@@ -150,7 +150,7 @@ PS C:\WINDOWS\system32>
 
 ## Add users to the custom role
 
-You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [Resource heirarchy and access inheritance](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance).
+You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [role-based access control](../role-based-access-control/overview.md).
 
 1. Go to **Access control (IAM)**. Click **+ Add** on the Access control blade.
 

@@ -5,10 +5,10 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: 'kgremban'
+editor: ''
 
 ms.assetid:
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm:

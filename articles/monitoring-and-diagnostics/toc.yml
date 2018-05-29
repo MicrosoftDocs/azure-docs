@@ -129,6 +129,8 @@
       href: monitoring-rest-api-walkthrough.md
     - name: Azure PowerShell samples
       href: insights-powershell-samples.md
+    - name: Azure CLI samples
+      href: insights-cli-samples.md
   - name: Use Azure Diagnostics extension
     items:
     - name: Send to Azure Storage

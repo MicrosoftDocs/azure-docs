@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: tomfitz
 ---
 
 # Event handlers in Azure Event Grid
 
-An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any webhook for handling events. The webhook does not need to be hosted in Azure to handle events.
+An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any webhook for handling events. The webhook does not need to be hosted in Azure to handle events. Event Grid only supports HTTPS webhook endpoints.
 
 This article provides links to content for each event handler.
 
@@ -28,6 +28,8 @@ Use Azure Automation to process events with automated runbooks.
 ## Azure Functions
 
 Use Azure Functions for serverless response to events.
+
+When using Azure Functions as the handler, use the Event Grid trigger instead of generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](security-authentication.md#webhook-event-delivery).
 
 |Title  |Description  |
 |---------|---------|

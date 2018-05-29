@@ -16,8 +16,21 @@
     href: billing-use-existing-azure-account-for-office-365-subscription.md
   - name: Organize resources with management groups
     href: billing-enterprise-mgmt-group-overview.md
-  - name: Save money with Reserved VM Instances
+  - name: Save with Azure Reserved Instances
     href: billing-save-compute-costs-reservations.md
+    items:
+      - name: Prepay for Virtual Machines with Reserved Instances
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: Manage Reserved Instances
+        href: billing-manage-reserved-vm-instance.md
+      - name: Understand Reserved Instance discount application
+        href: billing-understand-vm-reservation-charges.md
+      - name: Understand Reserved Instance usage for Pay-As-You-Go
+        href: billing-understand-reserved-instance-usage.md
+      - name: Understand Reserved Instance usage for Enterprise
+        href: billing-understand-reserved-instance-usage-ea.md
+      - name: Reserve Instances Windows costs
+        href: billing-reserved-instance-windows-software-costs.md
   - name: Limits and quotas
     href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: How to
@@ -38,20 +51,12 @@
       href: billing-understand-your-azure-marketplace-charges.md
     - name: Understand free service meter mapping
       href: billing-understand-free-service-meter-mapping.md
-    - name: Reserve VM Instances Windows costs
-      href: billing-reserved-instance-windows-software-costs.md
-    - name: Understand Reserved VM Instance discount application
-      href: billing-understand-vm-reservation-charges.md
     - name: Understand spending limit
       href: billing-spending-limit.md
     - name: Set up billing alerts
       href: billing-set-up-alerts.md
     - name: Resolve past due balance
       href: billing-azure-subscription-past-due-balance.md
-    - name: Understand Reserved Instance usage for Pay-As-You-Go
-      href: billing-understand-reserved-instance-usage.md
-    - name: Understand Reserved Instance usage for Enterprise
-      href: billing-understand-reserved-instance-usage-ea.md
   - name: Manage subscriptions
     items:
     - name: Find subscription or management group
@@ -70,6 +75,8 @@
       href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
     - name: Cancel subscription
       href: billing-how-to-cancel-azure-subscription.md
+    - name: Export top-level subscription information
+      href: billing-export-subscriptions.md
   - name: Manage account
     items:
     - name: Edit profile
@@ -82,8 +89,6 @@
       href: billing-partner-admin-link-started.md
     - name: View billing accounts
       href: billing-view-all-accounts.md
-  - name: Manage Reserved VM Instances
-    href: billing-manage-reserved-vm-instance.md
   - name: Troubleshoot
     items:
     - name: Sign-up issues
@@ -98,16 +103,34 @@
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
 - name: Reference
   items:
-  - name: API Overview
+  - name: Azure Billing API Overview
     href: billing-usage-rate-card-overview.md
-  - name: Enterprise Reporting API Overview
+    items:
+    - name: Azure Billing REST API
+      href: https://docs.microsoft.com/rest/api/billing
+    - name: Partner solution – Cloud Cruiser
+      href: billing-usage-rate-card-partner-solution-cloudcruiser.md
+  - name: Azure Consumption API
+    items:
+    - name: Azure Consumption REST API
+      href: https://docs.microsoft.com/rest/api/consumption
+    - name: RateCard REST API
+      href: https://msdn.microsoft.com/library/azure/mt219005.aspx
+    - name: Usage REST API
+      href: https://msdn.microsoft.com/library/azure/mt219003.aspx
+  - name: Enterprise Reporting Overview
     href: billing-enterprise-api.md
-  - name: Invoice REST
-    href: /rest/api/billing
-  - name: Usage and RateCard REST
-    href: https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c
-  - name: 'Partner solution: Cloud Cruiser'
-    href: billing-usage-rate-card-partner-solution-cloudcruiser.md
+    items:
+      - name: Enterprise Reporting REST API
+        href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
+  - name: Billing code samples
+    items: 
+      - name: Invoice API code sample
+        href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
+      - name: Usage API code sample
+        href: https://github.com/Azure-Samples/billing-dotnet-usage-api
+      - name: RateCard API code sample
+        href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
 - name: Resources
   items:
   - name: Azure Roadmap

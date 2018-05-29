@@ -181,4 +181,8 @@ az group delete --name <resource_group_name>
 
 ## Next steps
 
-[Reacting to events](reacting-to-media-services-events.md)
+[Reacting to events](reacting-to-media-services-events.md)## See also
+
+## See also
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

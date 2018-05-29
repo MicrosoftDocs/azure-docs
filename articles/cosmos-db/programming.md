@@ -3,14 +3,11 @@ title: Server-side JavaScript programming for Azure Cosmos DB | Microsoft Docs
 description: Learn how to use Azure Cosmos DB to write stored procedures, database triggers, and user defined functions (UDFs) in JavaScript. Get database programing tips and more.
 keywords: Database triggers, stored procedure, stored procedure, database program, sproc, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: aliuy
 manager: kfile
 
 ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
@@ -151,9 +148,7 @@ The example described demonstrated how to use stored procedures. Next you will l
 
 ### Known issues
 
-When defining a stored procedure by using Azure portal or the SDK, input parameters are always sent as a string to the stored procedure. So if you are planning to pass an array of strings as an input for the stored procedure, the arrary is converted to string and sent to the stored procedure. 
-
-To workaround this issue, you can add few lines of code to the stored procedure to parse the string as an array. For example add the following code block to your stored procedure to workaround this issue: 
+When defining a stored procedure by using Azure portal, input parameters are always sent as a string to the stored procedure. Even if you pass an array of strings as an input, the array is converted to string and sent to the stored procedure. To workaround this issue, you can define a function within your stored procedure to parse the string as an array. The following code is an example to parse the string as an array: 
 
 ``` 
 function sample(arr) {
@@ -777,12 +772,12 @@ Here, the input to the stored procedure is passed in the request body. The input
 
     { 
       name: 'TestDocument',
-      book: ‘Autumn of the Patriarch’,
-      id: ‘V7tQANV3rAkDAAAAAAAAAA==‘,
+      book: 'Autumn of the Patriarch',
+      id: 'V7tQANV3rAkDAAAAAAAAAA==',
       ts: 1407830727,
-      self: ‘dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/’,
-      etag: ‘6c006596-0000-0000-0000-53e9cac70000’,
-      attachments: ‘attachments/’,
+      self: 'dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/',
+      etag: '6c006596-0000-0000-0000-53e9cac70000',
+      attachments: 'attachments/',
       Price: 200
     }
 
@@ -795,12 +790,11 @@ Triggers, unlike stored procedures, cannot be executed directly. Instead they ar
     x-ms-documentdb-pre-trigger-include: validateDocumentContents 
     x-ms-documentdb-post-trigger-include: bookCreationPostTrigger
 
-
     {
        "name": "newDocument",
-       “title”: “The Wizard of Oz”,
-       “author”: “Frank Baum”,
-       “pages”: 92
+       "title": "The Wizard of Oz",
+       "author": "Frank Baum",
+       "pages": 92
     }
 
 

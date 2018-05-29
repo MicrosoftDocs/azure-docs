@@ -1,18 +1,11 @@
 ---
 title: Configure message routing with Azure IoT Hub (.NET) | Microsoft Docs
 description: Configure message routing with Azure IoT Hub 
-services: iot-hub
-documentationcenter: .net
 author: robinsh
 manager: timlt
-editor: tysonn
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: dotnet
+services: iot-hub
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
@@ -472,7 +465,7 @@ To set up the PowerBI report, you need data, so you'll set up PowerBI after crea
 
 Earlier in the script setup section, you set up a device to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT hub. This application sends messages for each of the different routing methods. 
 
-Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). This downloads a repo with several applications in it; the solution you are looking for is in Tutorials/Routing/SimulatedDevice/.
+Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). This downloads a repo with several applications in it; the solution you are looking for is in iot-hub/Tutorials/Routing/SimulatedDevice/.
 
 Double-click on the solution file (SimulatedDevice.sln) to open the code in Visual Studio, then open Program.cs. Substitute `{iot hub hostname}` with the IoT hub host name. The format of the IoT hub host name is **{iot-hub-name}.azure-devices.net**. For this tutorial, the hub host name is **ContosoTestHub.azure-devices.net**. Next, substitute `{device key}` with the device key you saved earlier when setting up the simulated device. 
 
@@ -596,6 +589,6 @@ In this tutorial, you learned how to use message routing to route IoT Hub messag
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
 > [!div class="nextstepaction"]
-[Get started with Azure IoT Hub device twins](iot-hub-node-node-twin-getstarted.md)
+[Configure your devices from a back-end service](tutorial-device-twins.md)
 
  <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: heidist
 
 ---
@@ -40,10 +40,13 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |
 | Maximum fields per index |1000 |100 |1000 |1000 |1000 |1000 |
-| Maximum scoring profiles per index |100 |100 |100 |100 |100 |100 |
+| Maximum [suggesters](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |
+| Maximum [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5. Basic tier is the only SKU with a lower limit of 100 fields per index.
+
+<a name="document-limits"></a>
 
 ## Document limits 
 
@@ -85,13 +88,16 @@ To keep document size down, remember to exclude non-queryable data from the requ
 
 Basic services created after late 2017 have an increased limit of 15 indexes, data sources, skillsets, and indexers.
 
+Resource-intensive operations, such as image analysis in Azure blob indexing or natural language processing in cognitive search, have shorter maximum running times so that other indexing jobs can be accommodated. If an indexing job cannot complete within the maximum time allowed, try running it on a schedule. The scheduler keeps track of indexing status. If a scheduled indexing job is interrupted for any reason, the indexer can pick up where it last left off at the next scheduled run.
+
 | Resource | Free&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximum indexers |3 |5 or 15|50 |200 |200 |N/A |
 | Maximum datasources |3 |5 or 15 |50 |200 |200 |N/A |
-| Maximum skillsets |3 |5 or 15 |50 |200 |200 |N/A |
+| Maximum skillsets <sup>4</sup> |3 |5 or 15 |50 |200 |200 |N/A |
 | Maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A |
-| Maximum running time | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |
+| Maximum running time <sup>5</sup> | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |
+| Maximum running time for cognitive search skillsets or blob indexing with image analysis <sup>5</sup> | 3-10 minutes |2 hours |2 hours |2 hours |2 hours |N/A  |
 | Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A  |
 | Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 million |4 million |4 million |N/A |
 
@@ -100,6 +106,10 @@ Basic services created after late 2017 have an increased limit of 15 indexes, da
 <sup>2</sup> Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5.
 
 <sup>3</sup> S3 HD services do not include indexer support.
+
+<sup>4</sup> Maximum of 30 skills per skillset.
+
+<sup>5</sup> Cognitive search workloads and image analysis in Azure blob indexing have shorter running times than regular text indexing. Image analysis and natural language processing are computationally intensive and consume disproportionate amounts of available processing power. Running time was reduced to give other jobs in the queue an opportunity to run.  
 
 ## Queries per second (QPS)
 
@@ -114,7 +124,7 @@ Estimates are more predictable when calculated on services running on dedicated 
 * Maximum 32 fields in $orderby clause
 * Maximum search term size is 32,766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
 
-<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions).
+<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
 
 ## API Response limits
 * Maximum 1000 documents returned per page of search results
