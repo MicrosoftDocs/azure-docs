@@ -9,6 +9,7 @@
 ## [Docker VM extension](/azure/virtual-machines/linux/dockerextension)
 ## [Docker Machine](/azure/virtual-machines/linux/docker-machine)
 ## [Docker container registry](/azure/container-registry/container-registry-get-started-portal)
+## [Publish Docker container to ACR](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Docker Azure driver](https://docs.docker.com/machine/drivers/azure/)
