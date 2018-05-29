@@ -21,7 +21,7 @@ In this guide, you will learn how to.
 - Productively develop and test your code in a team environment.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](../troubleshooting.md) section, or post a comment on this page.
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
 
 ## Prerequisites
 
@@ -135,7 +135,7 @@ But there is an even *faster method* for developing code, which you'll explore i
 
 In this section, you'll use VS Code to directly debug our container running in Azure. You'll also learn how to get a faster edit-run-test loop.
 
-![](../media/common/edit-refresh-see.png)
+![](./media/common/edit-refresh-see.png)
 
 ## Initialize debug assets with the VS Code extension
 You first need to configure your code project so VS Code will communicate with our dev space in Azure. The VS Code extension for Azure Dev Spaces provides a helper command to set up debug configuration. 
@@ -144,7 +144,7 @@ Open the **Command Palette** (using the **View | Command Palette** menu), and us
 
 This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
 
-![](../media/common/command-palette.png)
+![](./media/common/command-palette.png)
 
 > [!Important]
 > Due to a bug, please close and re-open VS Code before proceeding.
@@ -167,7 +167,7 @@ As with the `up` command, code is synced to the dev space, and a container is bu
 > [!Tip]
 > The VS Code status bar will display a clickable URL.
 
-![](../media/common/vscode-status-bar-url.png)
+![](./media/common/vscode-status-bar-url.png)
 
 Set a breakpoint in a server-side code file, for example within the `Index()` function in the `Controllers/HomeController.cs` source file. Refreshing the browser page causes the breakpoint to hit.
 
