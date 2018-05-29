@@ -21987,6 +21987,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-scaling-app-template.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-linux",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Add-entities.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
             "redirect_document_id": true
