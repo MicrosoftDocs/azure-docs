@@ -3,7 +3,7 @@ title: Query Avro data from an Azure IoT Hub route | Microsoft Docs
 description: how to efficiently route data from Azure IoT Hub to Azure services.
 services: iot-hub
 documentationcenter: 
-author: v-clay
+author: ClareMSYanGit
 manager: Olivier.Bloch
 editor: ''
 
