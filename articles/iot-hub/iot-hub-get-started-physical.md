@@ -1,22 +1,16 @@
 ---
-title: 'Get started connecting physical devices to Azure IoT Hub | Microsoft Docs'
-description: 'Learn how to connect physical devices and boards to Azure IoT Hub. Your devices can send telemetry to IoT Hub and IoT Hub can monitor and manage your devices.'
-services: iot-hub
-documentationcenter: ''
+title: Get started connecting physical devices to Azure IoT Hub | Microsoft Docs
+description: Learn how to connect physical devices and boards to Azure IoT Hub. Your devices can send telemetry to IoT Hub and IoT Hub can monitor and manage your devices.
 author: dominicbetts
 manager: timlt
-editor: ''
-keywords: 'azure iot hub tutorial'
-
+keywords: azure iot hub tutorial
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: dobett
-
 ---
+
 # Azure IoT Hub get started with physical devices tutorials
 
 These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorials cover common IoT scenarios to demonstrate the capabilities of IoT Hub. The tutorials also illustrate how to combine IoT Hub with other Azure services and tools to build more powerful IoT solutions. The tutorials listed in the following table show you how to create physical IoT devices.

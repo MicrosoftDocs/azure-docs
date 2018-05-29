@@ -1,23 +1,15 @@
 ---
 title: Understand the Azure IoT SDKs | Microsoft Docs
 description: Developer guide - information about and links to the various Azure IoT device and service SDKs that you can use to build device apps and back-end apps.
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: c5c9a497-bb03-4301-be2d-00edfb7d308f
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
-
 ---
+
 # Understand and use Azure IoT Hub SDKs
 
 There are two categories of software development kits (SDKs) for working with IoT Hub:
