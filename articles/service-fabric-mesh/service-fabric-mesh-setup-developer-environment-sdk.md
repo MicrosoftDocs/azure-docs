@@ -92,14 +92,14 @@ Restart your computer.
 
 ## SDK and tools
 
-Install the SDK and Visual Studio tools to create new Service Fabric Applications.
+Install the Service Fabric runtime, SDK, and tools.
 
 1. Install the [Service Fabric Runtime][download-runtime] with the **/AcceptEULA** flag on the command line.
 2. Install the [Service Fabric SDK][download-sdk].
 3. Install the [Service Fabric Mesh SDK][download-sdkmesh].
 4. Install the [Visual Studio Service Fabric Tools (preview)][download-tools].
 
-# Build a cluster
+## Build a cluster
 
 To create and run Service Fabric applications, you must have a single-node local development cluster. This cluster must be running whenever you use Visual Studio with a Service Fabric Mesh project. 
 
