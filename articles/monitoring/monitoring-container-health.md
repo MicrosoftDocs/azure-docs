@@ -36,7 +36,7 @@ Before starting, review the following details so you can understand the supporte
 - The following versions of AKS cluster are supported: 1.7.7 to 1.9.6.
 - A containerized OMS agent for Linux version microsoft/oms:ciprod04202018 and later. This agent is installed automatically during onboarding of container health.  
 - A Log Analytics workspace.  It can be created when you enable monitoring of your new AKS cluster, or you can create one through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or from the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
-- Member of the Log Analytics contributor role in order to enable container monitoring.  For more information on how to control access to a Log Analytics workspace, see [Manage workspaces](log-analytics-manage-access.md).
+- Member of the Log Analytics contributor role in order to enable container monitoring.  For more information on how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
 ## Components 
 
