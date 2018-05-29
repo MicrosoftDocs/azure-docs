@@ -39,7 +39,7 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
     * `clientId` and `secret`: The client ID and secret for the Azure AD service principal that Kubernetes uses to communicate with Azure Government (for example, to create load balancers, request public IPs and access Azure storage). 
     
         > [!NOTE]
-        > Make sure this service principal is setup with the correct scope. See [ACS-Engine: Service Principals](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md).
+        > Make sure this service principal is set up with the correct scope. See [ACS-Engine: Service Principals](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md).
         >
 
 ## Deploy your Kubernetes cluster using acs-engine
@@ -53,7 +53,7 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
     az account list
     ```
 
-1. Use acs-engine to deploy your template to Azure Government. This operation takes up to 30 minutes for 3 nodes.
+1. Use acs-engine to deploy your template to Azure Government. This operation takes up to 30 minutes for three nodes.
 
     ```bash
     acs-engine deploy --azure-env AzureUSGovernmentCloud --location usgovvirginia --subscription-id <YOUR_SUBSCRIPTION_ID> --api-model apimodel.json
@@ -92,4 +92,4 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
-* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
+* Give feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
