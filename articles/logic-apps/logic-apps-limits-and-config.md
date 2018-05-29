@@ -308,7 +308,7 @@ make come from the outbound IP addresses in this list.
 
 > [!IMPORTANT]
 >
-> On September 1, 2018, new IP addresses are replacing the current IP addresses. 
+> On September 1, 2018, new IP addresses are replacing the existing IP addresses. 
 > Although you can use both sets now, only the new IP addresses work after this date.
 > 
 > * If you haven't configured your firewall yet, use the new IP addresses instead.
@@ -318,7 +318,7 @@ make come from the outbound IP addresses in this list.
 > *as soon as possible before the changeover date*.
 
 The new IP addresses appear in bold, 
-while the current IP addresses appear in regular type. 
+while the existing IP addresses appear in regular type. 
 
 | Logic Apps region | Outbound IP | 
 |-------------------|-------------|  
