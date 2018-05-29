@@ -51,7 +51,7 @@ To configure the server project to use either the Node.js or .NET back end, do t
 
 The Visual Studio Tools for Xamarin are required to open the solution, see the [Xamarin installation instructions][Install Xamarin]. If the tools are already installed, follow these steps to download and open the solution:
 
-# [Visual Studio](#tab/windows)
+### Visual Studio
 
 1. Go to the [Azure portal].
 
@@ -65,7 +65,7 @@ The Visual Studio Tools for Xamarin are required to open the solution, see the [
 
 4. Follow the instructions below to run the Android or Windows projects; and if there is a networked Mac computer available, the iOS project.
 
-# [Visual Studio for Mac](#tab/macos)
+### Visual Studio for Mac
 
 1. Go to the [Azure portal].
 
@@ -79,7 +79,7 @@ The Visual Studio Tools for Xamarin are required to open the solution, see the [
 
 4. Follow the instructions below to run the Android or iOS projects.
 
------
+
 
 ## (Optional) Run the Android project
 
@@ -101,7 +101,7 @@ In this section, you run the Xamarin.Android project. You can skip this section 
 
 2. To build the project and start the app in an Android emulator, select the **Run** menu, then **Start Debugging**.
 
------
+
 
 In the app, type meaningful text, such as *Learn Xamarin*, and then select the plus sign (**+**).
 
@@ -117,7 +117,7 @@ This action sends a post request to the new Mobile Apps back end that's hosted i
 
 In this section, you run the Xamarin.iOS project for iOS devices. You can skip this section if you are not working with iOS devices.
 
-# [Visual Studio](#tab/windows)
+### Visual Studio
 
 1. Right-click the iOS project, and then select **Set as StartUp Project**.
 
@@ -127,13 +127,13 @@ In this section, you run the Xamarin.iOS project for iOS devices. You can skip t
 
 4. To build the project and start the app in the iPhone emulator, select the **F5** key.
 
-# [Visual Studio for Mac](#tab/macos)
+### Visual Studio for Mac
 
 1. Right-click the iOS project, and then select **Set As Startup Project**.
 
 2. On the **Run** menu, select **Start Debugging** to build the project and start the app in the iPhone emulator.
 
------
+
 
 In the app, type meaningful text, such as *Learn Xamarin*, and then select the plus sign (**+**).
 
@@ -149,7 +149,7 @@ This action sends a post request to the new Mobile Apps back end that's hosted i
 
 In this section, you run the Xamarin.Forms Universal Windows Platform (UWP) project for Windows devices. You can skip this section if you are not working with Windows devices.
 
-# [Visual Studio](#tab/windows)
+### Visual Studio
 
 1. Right-click any the UWP project, and then select **Set as StartUp Project**.
 
@@ -159,11 +159,10 @@ In this section, you run the Xamarin.Forms Universal Windows Platform (UWP) proj
 
 4. To build the project and start the app in a Windows emulator, press the **F5** key or click the **Start** button (which should read **Local Machine**).
 
-# [Visual Studio for Mac](#tab/macos)
+> [!NOTE]
+> The Windows project cannot be run on macOS.
 
-The Windows project cannot be run on macOS.
 
------
 
 In the app, type meaningful text, such as *Learn Xamarin*, and then select the plus sign (**+**).
 
