@@ -1,5 +1,5 @@
 ---
-title: "Data science code testing on Azure with UCI adult income prediction dataset - Team Data Science Process (TDSP) and Visual Studio Team Services (VSTS)"
+title: "Data science code testing on Azure with UCI adult income prediction dataset - Team Data Science Process and Visual Studio Team Services"
 description: Data science code testing with UCI adult income prediction data
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -27,13 +27,12 @@ This article replaces the term "unit testing" with "code testing". It refers to 
 This article provides references as useful resources.
 
 ## Visual Studio Team Services for the testing framework
-Tis article describes how to perform and automate testing by using Visual Studio Team Services (VSTS). You might decide to use alternative tools. We also show how to set up an automatic build by using VSTS and build agents. For build agents, we have used Azure Data Science Virtual Machines (DSVM).
+This article describes how to perform and automate testing by using Visual Studio Team Services (VSTS). You might decide to use alternative tools. We also show how to set up an automatic build by using VSTS and build agents. For build agents, we use Azure Data Science Virtual Machines (DSVMs).
 
 ## Overall flow of code testing
 The overall workflow of testing code in a data science project looks like this: 
 
-   <img src="./media/code-test/test-flow-chart.PNG" width="900" height="400">
-
+![Flow chart of code testing](./media/code-test/test-flow-chart.PNG)
 
     
 ## Detailed steps
@@ -42,13 +41,13 @@ Use the following steps to set up and run code testing and an automated build by
 
 1. Create a project in the Visual Studio desktop application:
 
-    <img src="./media/code-test/create_project.PNG" width="900" height="700">
+    !["Create new project" screen in Visual Studio](./media/code-test/create_project.PNG)
 
    After you create your project, you'll find it in Solution Explorer in the right pane:
 	
     ![Steps for creating a project](./media/code-test/create_python_project_in_vs.PNG)
 
-    ![Solution explorer](./media/code-test/solution_explorer_in_vs.PNG)
+    ![Solution Explorer](./media/code-test/solution_explorer_in_vs.PNG)
 
 3. Feed your project code into the VSTS project code repository: 
 
@@ -90,7 +89,7 @@ Use the following steps to set up and run code testing and an automated build by
 
 7. After the test codes are prepared, you can set up the testing environment in Visual Studio.
 
-   Create a Python file called **test1.py**. Within this file, create a class that includes all the tests you want to do. The following example shows six tests prepared:
+   Create a Python file called **test1.py**. In this file, create a class that includes all the tests you want to do. The following example shows six tests prepared:
 	
 	![Python file with a list of tests in a class](./media/code-test/create_file_test1_class.PNG)
 
@@ -118,17 +117,17 @@ Use the following steps to set up and run code testing and an automated build by
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-	d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to finish the build process. For more inforation about setting agents, see [Build and release agents](https://docs.microsoft.com/en-us/vsts/build-release/concepts/agents/agents?view=vsts).
+	d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to finish the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/en-us/vsts/build-release/concepts/agents/agents?view=vsts).
 	
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
-	e. Select **+** on the left pane, to add a task for this build phase. Because we're going to run the Python script **test1.py** to finish all the checks, this task is using a PowerShell command to run Python code.
+	e. Select **+** in the left pane, to add a task for this build phase. Because we're going to run the Python script **test1.py** to finish all the checks, this task is using a PowerShell command to run Python code.
 	
        !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
 
-	f. In the PowerShell details, fill in the required information, such as name and version of PowerShell. Choose **Inline Script** as the type. 
+	f. In the PowerShell details, fill in the required information, such as the name and version of PowerShell. Choose **Inline Script** as the type. 
     
-       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of python, you can explicitly specify the path as shown in the figure: 
+       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
 	
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
@@ -138,14 +137,14 @@ Use the following steps to set up and run code testing and an automated build by
 
 Now every time a new commit is pushed to the code repository, the build process will start automatically. (Here we use master as the repository, but you can define any branch.) The process runs the **test1.py** file in the agent machine to make sure that everything defined in the code runs correctly. 
 
-If alerts are set up correctly, you'll be notified in email when the build is finished. You can also check build status in VSTS. If it failed, you can check the details of build and find out which piece is broken.
+If alerts are set up correctly, you'll be notified in email when the build is finished. You can also check the build status in VSTS. If it failed, you can check the details of build and find out which piece is broken.
 
 ![Email notification of build success](./media/code-test/email_build_succeed.PNG)
 
 ![VSTS notification of build success](./media/code-test/vs_online_build_succeed.PNG)
 
 ## Next steps
-* See the [UCI Income prediction repository](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) concrete examples of unit tests for data science scenarios.
+* See the [UCI Income prediction repository](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) for concrete examples of unit tests for data science scenarios.
 * Follow the preceding outline and examples from the UCI Income prediction scenario in your own data science projects.
 
 ## References
