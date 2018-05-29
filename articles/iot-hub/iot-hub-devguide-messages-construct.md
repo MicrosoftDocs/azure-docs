@@ -1,22 +1,15 @@
 ---
 title: Understand Azure IoT Hub message format | Microsoft Docs
 description: Developer guide - descibes the format and expected content of IoT Hub messages.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: dobett
-
 ---
+
 # Create and read IoT Hub messages
 
 To support seamless interoperability across protocols, IoT Hub defines a common message format for all device-facing protocols. This message format is used for both [device-to-cloud][lnk-d2c] and [cloud-to-device][lnk-c2d] messages. 

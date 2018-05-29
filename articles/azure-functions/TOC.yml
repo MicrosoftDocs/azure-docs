@@ -142,6 +142,8 @@
        href: functions-run-local.md
      - name: Visual Studio development
        href: functions-develop-vs.md
+     - name: Manage connections
+       href: manage-connections.md
      - name: Error handling
        href: functions-bindings-error-pages.md 
   - name: Deploy

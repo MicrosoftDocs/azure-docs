@@ -2,23 +2,14 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Azure IoT Edge C# module | Microsoft Docs 
 description: Create an IoT Edge module with C# code and deploy it to an edge device
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
-
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Develop and deploy a C# IoT Edge module to your simulated device - preview
