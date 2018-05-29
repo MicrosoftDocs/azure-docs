@@ -1,5 +1,5 @@
 ---
-title: Quickstart:Create and manage a Standard Load Balancer - Azure portal | Microsoft Docs
+title: Tutorial:Create and manage a Standard Load Balancer - Azure portal | Microsoft Docs
 description: This tutorial shows how to create and manage a Standard Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
@@ -12,7 +12,7 @@ Customer intent: I want to create and Standard Load balancer so that I can load 
 ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: quickstart
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/18
@@ -20,7 +20,7 @@ ms.author: kumud
 ms.custom: mvc
 ---
 
-# Quickstart: Create and manage Standard Load Balancer using the Azure portal
+# Tutorial: Create and manage Standard Load Balancer using the Azure portal
 
 Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure Standard Load Balancer that distribute traffic and provide high availability. You learn how to:
 
