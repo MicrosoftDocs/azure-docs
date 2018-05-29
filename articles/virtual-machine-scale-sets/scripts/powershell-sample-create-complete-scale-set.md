@@ -52,8 +52,8 @@ This script uses the following commands to create the deployment. Each item in t
 | [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) | Creates a load balancer. |
 | [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/new-azurermloadbalancerprobeconfig) | Creates a probe configuration for a load balancer. |
 | [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/new-azurermloadbalancerruleconfig) | Creates a rule configuration for a load balancer. |
-| [Set-AzureRmLoadBalancer](powershell/module/AzureRM.Network/Set-AzureRmLoadBalancer) | Update the load balancer with the provided information. |
-| [New-AzureRmVmssIpConfig](powershell/module/AzureRM.Compute/New-AzureRmVmssIpConfig) | Create an IP configuration for the scale set VM instances. The VM instances are connected to the load balancer backend pool, NAT pool, and virtual network subnet. |
+| [Set-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Set-AzureRmLoadBalancer) | Update the load balancer with the provided information. |
+| [New-AzureRmVmssIpConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssIpConfig) | Create an IP configuration for the scale set VM instances. The VM instances are connected to the load balancer backend pool, NAT pool, and virtual network subnet. |
 | [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig) | Creates a scale set configuration. This configuration includes information such as number of VM instances to create, the VM SKU (size), and upgrade policy mode. The configuration is added to by additional cmdlets, and is used during scale set creation. |
 | [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) | Define the image to be used for the VM instances, and add it to the scale set config. |
 | [Set-AzureRmVmssOsProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile)  Define the administrative username and password credentials, and VM naming prefix. Add these values to the scale set config. |
