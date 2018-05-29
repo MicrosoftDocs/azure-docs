@@ -2,15 +2,12 @@
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
-  document_id: 
   title: Azure IoT Edge - Tutorials, API Reference
-  meta.description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge.
-  services: iot-edge
+  description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge.
   author: kgremban
   manager: timlt
   ms.service: iot-edge
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  services: iot-edge
   ms.topic: landing-page
   ms.date: 01/08/2018
   ms.author: kgremban

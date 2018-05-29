@@ -1,5 +1,5 @@
 ---
-title: Speech service sample code | Microsoft Docs
+title: Cognitive Services Speech SDK sample code | Microsoft Docs
 description: Code samples for using the Microsoft Speech service
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
-# Samples for Speech SDK
+# Samples for the Cognitive Services Speech SDK
 
 You can download compressed archives of the Windows and Linux samples and tutorials.
 
@@ -24,7 +24,7 @@ You can download compressed archives of the Windows and Linux samples and tutori
 
 All samples are provided under the MIT License.
 
-* [Sign up for the Speech Devices SDK](get-speech-devices-sdk.md)
+- [Sign up for the Speech Devices SDK](get-speech-devices-sdk.md)
 
 ## Next steps
 
