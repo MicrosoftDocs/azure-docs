@@ -209,14 +209,14 @@ If you embed Video Indexer insights with your own AMP player, you can use the **
 ### Cognitive insights widget
 You can choose the types of insights you want by specifying them as a value to the following URL parameter added to the embed code you get (from API or from the web application):
 
-**&widgets=**\<list of wanted widgets>
+**&widgets=** \<list of wanted widgets>
 
 The possible values are: people, keywords, sentiments, transcript, search.
 
 For example, if you want to embed a widget containing only people and search insights the iframe embed URL will look like this:
 https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?widgets=people,search
 
-The title of the iframe window can also be customized by providing **&title=**<YourTitle> to the iframe url. (It will customize the html <title> value ).
+The title of the iframe window can also be customized by providing **&title=**<YourTitle> to the iframe url. (It will customize the html \<title> value ).
 For example, if you want to give your iframe window the title "MyInsights", the url will look like this:
 https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?title=MyInsights. 
 Notice that this option is relevant only in cases when you need to open the insights in a new window.
