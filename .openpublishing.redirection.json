@@ -22032,6 +22032,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cognitive-services/LUIS/Add-intents.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-intents",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Add-example-utterances.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-example-utterances",
             "redirect_document_id": true
@@ -22039,11 +22044,6 @@
         {
             "source_path": "articles/cognitive-services/LUIS/Add-Features.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-features",
-            "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/cognitive-services/LUIS/Add-intents.md",
-            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-intents",
             "redirect_document_id": true
         }
     ]
