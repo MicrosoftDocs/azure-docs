@@ -58,10 +58,10 @@
     href: iot-edge-glossary.md
 - name: How-to guides
   items:
-  - name: Develop and debug modules
+  - name: Develop and test modules
     items:
     - name: C#
-      href: how-to-csharp-module-vscode.md
+      href: how-to-develop-csharp-module-vscode.md
     - name: Azure Functions
       href: how-to-vscode-debug-azure-function.md
   - name: Use Edge devices as gateways

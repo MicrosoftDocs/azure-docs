@@ -752,7 +752,7 @@
         },
         {
             "source_path": "articles/iot-edge/how-to-vscode-debug-csharp-module.md",
-            "redirect_url": "/azure/iot-edge/how-to-csharp-module-vscode",
+            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module-vscode",
             "redirect_document_id": false
         },
         {
