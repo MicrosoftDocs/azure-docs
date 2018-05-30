@@ -31,9 +31,9 @@ Load balancing provides a higher level of availability and scale by spreading in
 > * Create load balancer traffic rules
 > * Create virtual machines and install IIS server
 > * Attach virtual machines to a load balancer
+> * Create load balancer inbound NAT rules
 > * View a load balancer in action
 > * Add and remove VMs from a load balancer
-> * Create load balancer inbound NAT rules for port forwarding
 > * View port forwarding in action
 
 
@@ -200,7 +200,7 @@ To distribute traffic to the VMs, add virtual machines *VM1* and *VM2* to the pr
 
 4. Check to make sure your load balancer backend pool setting displays all the VMs **VM1**, **VM2**, and **myVM3**.
 
-## Create inbound NAT rules for port forwarding
+## Create inbound NAT rules
 With Load Balancer, you can create an inbound NAT rule to port forward traffic from a specific port of a frontend IP address to a specific port of a backend instance inside the virtual network.
 
 Create inbound NAT rule to port forward traffic from load balancer's frontend ports to port 3389 for the backend VMs.
