@@ -16,9 +16,9 @@ ms.author: douglasl
 ---
 # Enable Azure Active Directory Authentication for the Azure-SSIS Integration Runtime
 
-Azure Active Directory Authentication with the MSI for the Azure-SSIS integration runtime lets you use ADF MSI instead of SQL authentication to create an Azure-SSIS integration runtime.
+This article shows you how to create an Azure-SSIS IR with Azure data factory service identity. Azure Active Directory Authentication with the MSI for the Azure-SSIS integration runtime lets you use ADF MSI instead of SQL authentication to create an Azure-SSIS integration runtime.
 
-In this article, we show you how to create an Azure-SSIS IR with Azure data factory service identity. For more info about the ADF MSI, see [Azure Data Factory service identity](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity).
+For more info about the ADF MSI, see [Azure Data Factory service identity](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 > If you have already created an Azure-SSIS integration runtime with SQL authentication, you can't reconfigure the IR to use AAD authentication with PowerShell at this time.
@@ -35,7 +35,7 @@ You can use an existing Azure AD group, or create a new one using Azure AD Power
     $Group = New-AzureADGroup -DisplayName "SSISIrGroup" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     ```
 
-    The output looks like the following, which also examines the value of the variable:
+    The output looks like the following example, which also examines the value of the variable:
 
     ```powershell
     $Group
@@ -45,7 +45,7 @@ You can use an existing Azure AD group, or create a new one using Azure AD Power
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIr Group
     ```
 
-3.  Add the ADF MSI to the group. You can follow [Azure Data Factory service identity](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity) to get the service identity id (for example,     765ad4ab-XXXX-XXXX-XXXX-51ed985819dc).
+3.  Add the ADF MSI to the group. You can follow [Azure Data Factory service identity](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity) to get the service identity ID (for example, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
