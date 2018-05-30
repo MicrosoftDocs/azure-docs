@@ -23,7 +23,7 @@ This article describes how to create a lab account, view all lab accounts, or de
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. From the main menu on the left side, select **Create a resource**.
 3. Search for **Lab Services** in the Azure Marketplace, and select **Lab Services** in the drop-down list. 
-4. Select **Lab Sercices (Preview)** in the flitered list of services. 
+4. Select **Lab Services (Preview)** in the filtered list of services. 
 5. In the **Create a lab account** window, select **Create**.
 7. In the **Lab account** window, do the following actions: 
     1. For **Lab account name**, enter a name. 
