@@ -108,7 +108,6 @@ Docker **must** be running before you can build a cluster. Test that Docker is r
 After you install the SDK and Visual Studio tools, create a development cluster. Open a **new**, **elevated**, PowerShell window and run the following PowerShell commands:
 
 ```powershell
-# Create a single-node local cluster
 . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
 ```
 
