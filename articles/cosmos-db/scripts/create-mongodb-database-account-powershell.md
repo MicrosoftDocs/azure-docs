@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script-Create an Azure Cosmos DB Gremlin API account | Microsoft Docs
-description: Azure PowerShell Script Sample - Create an Azure Cosmos DB Gremlin API account
+title: Azure PowerShell Script-Create an Azure Cosmos DB MongoDB API account | Microsoft Docs
+description: Azure PowerShell Script Sample - Create an Azure Cosmos DB MongoDB API account
 services: cosmos-db
 documentationcenter: cosmosdb
 author: SnehaGunda
@@ -18,15 +18,15 @@ ms.date: 05/29/2018
 ms.author: sngun
 ---
 
-# Azure Cosmos DB: Create a Gremlin API account using PowerShell
+# Azure Cosmos DB: Create a MongoDB API account using PowerShell
 
-This sample PowerShell script creates an Azure Cosmos DB Gremlin API account. 
+This sample PowerShell script creates an Azure Cosmos DB MongoDB API account. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-and-configure-graph-database/create-and-configure-graph-database.ps1?highlight=9,12-15,18,21-23,26-29,32-37 "Create an Azure Cosmos DB account")]
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-and-configure-mongodb-database/create-and-configure-mongodb-database.ps1?highlight=9,12-15,18,21-23,26-29,32-37 "Create an Azure Cosmos DB account")]
 
 ## Clean up deployment
 
