@@ -1,5 +1,5 @@
 ---
-title: Get started With custom policies in Azure Active Directory B2C | Microsoft Docs
+title: Get started with custom policies in Azure Active Directory B2C | Microsoft Docs
 description: How to get started with Azure Active Directory B2C custom policies.
 services: active-directory-b2c
 author: davidmu1
