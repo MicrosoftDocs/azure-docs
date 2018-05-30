@@ -146,14 +146,19 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`.
     {
         ViewData["Message"] = "Hello from webfrontend";
         
-        // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
-        // headers in the incoming request to any outgoing requests
-        using (var client = new HeaderPropagatingHttpClient(this.Request))
-        {
-            // Call *mywebapi*, and display its response in the page
-            var response = await client.GetAsync("http://mywebapi/api/values/1");
-            ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-        }
+        using (var client = new System.Net.Http.HttpClient())
+            {
+                // Call *mywebapi*, and display its response in the page
+                var request = new System.Net.Http.HttpRequestMessage();
+                request.RequestUri = new Uri("http://mywebapi/api/values/1");
+                if (this.Request.Headers.ContainsKey("azds-route-as"))
+                {
+                    // Propagate the dev space routing header
+                    request.Headers.Add("azds-route-as", this.Request.Headers["azds-route-as"] as IEnumerable<string>);
+                }
+                var response = await client.SendAsync(request);
+                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
+            }
 
         return View();
     }
@@ -161,7 +166,7 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`.
 
 Note how Kubernetes' DNS service discovery is employed to refer to the service as `http://mywebapi`. **Code in your development environment is running the same way it will run in production**.
 
-The code example above also makes use of a `HeaderPropagatingHttpClient` class. This helper class was added to your code folder at the time you ran `azds prep`. `HeaderPropagatingHttpClient` is derived from the well-known `HttpClient` class, and it adds functionality to propagate specific headers from an existing ASP.NET HttpRequest object into an outgoing HttpRequestMessage object. We'll see later how using this derived class facilitates a more productive development experience in team scenarios.
+The "azds-route-as" key signals whether headers must be propagated to handle routing to a dev space. If it's present, we add code to propagate specific headers from an existing ASP.NET HttpRequest object into an outgoing HttpRequestMessage object. We'll see later how using this derived class facilitates a more productive development experience in team scenarios.
 
 
 ### Debug across multiple services

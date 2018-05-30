@@ -76,7 +76,7 @@ While you wait for the development environment to be created, look at the files 
 
 First, you can see a folder named `charts` has been added and within this folder a [Helm chart](https://docs.helm.sh) for your application has been scaffolded. These files are used to deploy your application into the development environment.
 
-You will see a file named `Dockerfile` has been added. This file has information needed to package your application in the standard Docker format. A `HeaderPropagation.cs` file is also created, we will discuss this file later in the walkthrough. 
+You will see a file named `Dockerfile` has been added. This file has information needed to package your application in the standard Docker format. 
 
 Lastly, you will see a file named `azds.yaml`, which contains configuration information that is needed by the development environment, such as whether the application should be accessible via a public endpoint.
 
