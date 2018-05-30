@@ -155,7 +155,7 @@ Learn more about [Bot Framework](https://dev.botframework.com/) and the [3.x](ht
 Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, and **Greeting** intents. Remember to train, publish and to [build](#build-the-bot) the web app bot. Both LUIS and the bot should have the same intents.
 
 > [!div class="nextstepaction"]
-> [Add intents](./add-intents.md)
+> [Add intents](./luis-how-to-add-intents.md)
 > [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
 <!-- Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
