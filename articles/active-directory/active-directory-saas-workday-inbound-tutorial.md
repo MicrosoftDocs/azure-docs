@@ -443,7 +443,6 @@ After installing agent, run the Powershell commands below to configure the agent
 **Command #1**
 
 > cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent"
-Agent\\Modules\\AADSyncAgent
 
 > Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
