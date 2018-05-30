@@ -70,6 +70,8 @@ Next, you create the cache for the app.
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
+#### To edit the *CacheSecrets.config* file
+
 3. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
 
 4. Edit the *CacheSecrets.config* file. Then add the following content:
