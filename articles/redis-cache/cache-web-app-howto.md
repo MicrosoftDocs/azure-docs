@@ -45,7 +45,7 @@ To complete the quickstart, you need to install [Visual Studio 2017](https://www
 
 2. In the **New Project** dialog box, take the following steps:
    
-    a . In the **Templates** list, expand the **Visual C#** node.
+    a. In the **Templates** list, expand the **Visual C#** node.
     b. Select **Cloud**.
     c. Select **ASP.NET Web Application**.
     d. Verify that **.NET Framework 4.5.2** or higher is selected
@@ -128,7 +128,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 
 3. The NuGet package downloads and adds the required assembly references for your client application to access Azure Redis Cache with the StackExchange.Redis cache client. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis.StrongName` package.
 
-### To uupdate the HomeController and Layout
+### To update the HomeController and Layout
 
 1. In **Solution Explorer**, expand the **Controllers** folder, and open the *HomeController.cs* file.
 
