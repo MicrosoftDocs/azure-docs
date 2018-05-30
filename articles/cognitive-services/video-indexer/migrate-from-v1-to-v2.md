@@ -15,9 +15,9 @@ ms.author: juliako
 # Migrate from the Video Indexer API v1 to v2
 
 > [!Note]
-> The Video Indexer v1 API is going to be deprecated on August 1, 2018.
-
-The latest release of Video Indexer introduces Video Indexer API v2. To avoid service disruptions, we recommend that you to migrate your code to the latest API.
+> The Video Indexer V1 APIs are now deprecated, and will be removed on Aug 1st 2018. You should start using the Video Indexer v2 APIs to avoid disruptions.
+>
+> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
 
 This article describes changes that were introduced in v2.  
 
