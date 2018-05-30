@@ -15,7 +15,7 @@ ms.author: tamram
 
 Azure Storage provides preview extensions for Azure CLI and PowerShell that enable you to log in and run scripting commands under an Azure Active Directory (Azure AD) identity. The Azure AD identity can be a user, group, or application service principal, or it can be a [managed service identity](../../active-directory/managed-service-identity/overview.md). You can assign permissions to access storage resources to the Azure AD identity via role-based access control (RBAC). For more information about RBAC roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
 
-When you log in to Azure CLI or PowerShell with an Azure AD identity, an access token is returned for accessing Azure Storage under that identity. That token is then automatically used by CLI or PowerShell to authorize operations against Azure Storage. 
+When you log in to Azure CLI or PowerShell with an Azure AD identity, an access token is returned for accessing Azure Storage under that identity. That token is then automatically used by CLI or PowerShell to authorize operations against Azure Storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
 > [!IMPORTANT]
 > This preview is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications. For additional information about the preview, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
@@ -26,9 +26,9 @@ When you log in to Azure CLI or PowerShell with an Azure AD identity, an access 
 
 ## Supported operations
 
-The preview extensions are supported for operations on containers and queues. For supported operations, you no longer need to pass an account key or SAS token with the command.
+The preview extensions are supported for operations on containers and queues. Which operations you may call depends on the permissions granted to the Azure AD identity with which you log in to Azure CLI or PowerShell. Permissions to Azure Storage containers or queues are assigned via role-based access control (RBAC). For example, if a Data Reader role is assigned to the identity, then you can run scripting commands that read data from a container or queue. If a Data Contributer role is assigned to the identity, then you can run scripting commands that read, write, or delete a container or queue or the data they contain. 
 
-Which operations are supported depends on the permissions granted to the Azure AD identity with which you log in to Azure CLI or PowerShell. Permissions to storage resources are assigned via role-based access control (RBAC). For example, if a Data Reader role is assigned to the identity, then you can run scripting commands that read data from a container or queue. If a Data Contributer role is assigned to the identity, then you can run scripting commands that read, write, or delete a container or queue or the data they contain. For details about which permissions are required for which Azure Storage operations, see [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
+For details about the permissions required for each Azure Storage operation on a container or queue, see [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
 ## Call CLI commands with an Azure AD identity
 
