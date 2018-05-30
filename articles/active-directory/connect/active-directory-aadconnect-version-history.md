@@ -43,8 +43,8 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 
 New features and improvements
 
-- This release includes the public preview of the integration of PingFederate in Azure AD Connect. With this release customers can easily and reliable configure their Azure Active Directory environment to leverage PingFederate as their federation provider. To learn more about how to use this new feature, please visit our [online documentation](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
-- We updated the Azure AD Connect Wizard Troubleshooting Utility, where we now analyze more error scenario’s, such as Linked Mailboxes and AD Dynamic Groups. Read more about the troubleshooting utility [here](active-directory-aadconnect-troubleshoot-objectsync.md).
+- This release includes the public preview of the integration of PingFederate in Azure AD Connect. With this release, customers can easily, and reliably configure their Azure Active Directory environment to leverage PingFederate as their federation provider. To learn more about how to use this new feature, please visit our [online documentation](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
+- Updated the Azure AD Connect Wizard Troubleshooting Utility, where it now analyzes more error scenario’s, such as Linked Mailboxes and AD Dynamic Groups. Read more about the troubleshooting utility [here](active-directory-aadconnect-troubleshoot-objectsync.md).
 - Device Writeback configuration is now managed solely within the Azure AD Connect Wizard.
 - A new PowerShell Module called ADSyncTools.psm1 is added that can be used to troubleshoot SQL Connectivity issues and various other troubleshooting utilities. Read more about the ADSyncTools module [here](active-directory-aadconnect-tshoot-sql-connectivity.md). 
 - A new additional task “Configure device options” has been added. You can use the task to configure the following two operations: 
@@ -78,7 +78,7 @@ New features and improvements
 - Azure AD Connect Wizard: Removed "Configuration" container from Domain OU Filtering page
 - Sync Engine install: remove unnecessary legacy logic that occasionally failed from Sync Engine install msi
 - Azure AD Connect Wizard: Fix popup help text on Optional Features page for Password Hash Sync
-- Sync Engine runtime: Fix the scenario where a CS object has an imported delete and Sync Rules attempt to re-provision the object.
+- Sync Engine runtime: Fix the scenario were a CS object has an imported delete and Sync Rules attempt to re-provision the object.
 - Sync Engine runtime: Add help link for Online connectivity troubleshooting guide to the event log for an Import Error
 - Sync Engine runtime: Reduced memory usage of Sync Scheduler when enumerating Connectors
 - Azure AD Connect Wizard: Fix an issue resolving a custom Sync Service Account which has no AD Read privileges
@@ -87,7 +87,7 @@ New features and improvements
 - Azure AD Connect Wizard: AD FS Deploy WAP: Adding server fails to use new certificate
 - Azure AD Connect Wizard: DSSO exception when onPremCredentials aren't initialized for a domain 
 - Preferentially flow the AD distinguishedName attribute from the Active User object.
-- Fixed a cosmetic bug where the Precedence of the first OOB Sync Rule was set to 99 instead of 100
+- Fixed a cosmetic bug were the Precedence of the first OOB Sync Rule was set to 99 instead of 100
 
 
 
@@ -99,7 +99,7 @@ Status 4/12/2018: Released for download only
 
 ### Azure AD Connect sync
 #### Fixed issues
-Corrected an issue where automatic Azure instance discovery for China tenants was occasionally failing.  
+Corrected an issue were automatic Azure instance discovery for China tenants was occasionally failing.  
 
 ### AD FS Management
 #### Fixed issues
@@ -299,7 +299,7 @@ Status: October 19 2017
 
 * Fixed an issue that caused Azure AD Connect wizard to always show the “*Configure Source Anchor*” prompt on the *Ready to Configure* page, even if no changes related to Source Anchor were made.
 
-* When performing manual in-place upgrade of Azure AD Connect, the customer is required to provide the Global Administrator credentials of the corresponding Azure AD tenant. Previously, upgrade could proceed even though the Global Administrator credentials provided belongs to a different Azure AD tenant. While upgrade appears to complete successfully, certain configurations are not correctly persisted with the upgrade. With this change, the wizard will not allow upgrade to proceed if the credentials provided do not match the Azure AD tenant.
+* When performing manual in-place upgrade of Azure AD Connect, the customer is required to provide the Global Administrator credentials of the corresponding Azure AD tenant. Previously, upgrade could proceed even though the Global Administrator's credentials belonged to a different Azure AD tenant. While upgrade appears to complete successfully, certain configurations are not correctly persisted with the upgrade. With this change, the wizard will not allow upgrade to proceed if the credentials provided do not match the Azure AD tenant.
 
 * Removed redundant logic that unnecessarily restarted Azure AD Connect Health service at the beginning of a manual upgrade.
 
