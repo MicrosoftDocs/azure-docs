@@ -23,7 +23,7 @@ ms.author: daveba
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you learn how to perform the following Managed Service Identity operations on an Azure Virtual Machine Scale Set (VMSS), using PowerShell:
+In this article, you learn how to perform the Managed Service Identity operations on a Virtual Machine Scale Set (VMSS), using PowerShell:
 - Enable and disable the system assigned identity on an Azure VMSS
 - Add and remove a user assigned identity on an Azure VMSS
 
@@ -104,7 +104,7 @@ In this section, you learn how to add and remove a user assigned identity from a
 
 ### Assign a user assigned identity during creation of an Azure VMSS
 
-Creating a new VMSS with a user assigned identity is not currently supported via PowerShell. See the next section on how to add a user assigned identity to an existing VMSS. Check back for updates.
+Creating a new VMSS with a user assigned identity isn't currently supported via PowerShell. See the next section on how to add a user assigned identity to an existing VMSS. Check back for updates.
 
 ### Assign a user identity to an existing Azure VMSS
 
