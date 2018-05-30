@@ -11,44 +11,44 @@ ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: ghogen
 ---
-# Connecting to Bing News Search API by using Connected Services in Visual Studio
+# Connect to Bing News Search API by using Connected Services in Visual Studio
 
-By using Bing News Search, you can enable apps and services to harness the power of an ad-free search engine scoped to the web. Bing News Search is one of the search services available with Azure Intelligent Search, one of many Cognitive Services offered in Azure.
+By using Bing News Search, you can enable apps and services to harness the power of an ad-free search engine scoped to the web. Bing News Search is one of the search services available with Cognitive Services.
 
 This article provides details for using the Visual Studio Connected Service feature for Bing News Search. The capability is available in Visual Studio 2017 15.7 or later, with the Cognitive Services extension installed.
 
 ## Prerequisites
 
-- **An Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- An Azure subscription. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
+- Visual Studio 2017 version 15.7, with the Web Development workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../includes/vs-install-cognitive-services-vsix.md)]
 
-## Add support to your project for Cognitive Services Bing News Search API
+## Add support to your project for Bing News Search API
 
-1. Create a new ASP.NET Core web project named MyWebApplication. Use the **Web Application (Model-View-Controller)** project template with all the default settings. It’s important to name the project MyWebApplication so the namespace will match when you copy code into the project. 
+1. Create a new ASP.NET Core web project named MyWebApplication. Use the **Web Application (Model-View-Controller)** project template, with all the default settings. It’s important to name the project MyWebApplication, so the namespace matches when you copy code into the project. 
 
 1. In **Solution Explorer**, choose **Add** > **Connected Service**.
-   The Connected Service page appears with services you can add to your project.
+   The Connected Service page appears, with services you can add to your project.
 
-   ![Add Connected Service menu item](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Screenshot of Add Connected Service menu item](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. In the menu of available services, choose **Bring Intelligent Search To Your Apps**.
 
-   ![Choose the service to connect to](./media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-0.PNG)
+   ![Screenshot of list of connected services](./media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-0.PNG)
 
-   If you've signed into Visual Studio, and have an Azure subscription associated with your account, a page appears with a dropdown list with your subscriptions.
+   If you've signed into Visual Studio, and have an Azure subscription associated with your account, a page appears with a dropdown list with your subscriptions. Select the subscription you want to use, and then choose a name for the Bing News Search API. You can also choose **Edit** to modify the automatically generated name.
 
-   ![Select your subscription](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
+   ![Screenshot of subscription and name fields](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
 
-1. Select the subscription you want to use, and then choose a name for the Bing News Search API, or choose the **Edit** link to modify the automatically generated name, choose the resource group, and the Pricing Tier.
+1. Choose the resource group, and the pricing tier.
 
-   ![Edit connected service details](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
+   ![Screenshot of resource group and pricing tier fields](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
 
-   Follow the link for details on the pricing tiers.
+   If you want more details about the pricing tiers, select **Review pricing**.
 
 1. Choose **Add** to add support for the Connected Service.
-   Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection the Bing News Search API. The Output shows the log of what is happening to your project. You should see something like the following:
+   Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection to the Bing News Search API. The output shows the log of what is happening to your project. You should see something like the following:
 
    ```output
    [5/4/2018 12:41:21.084 PM] Adding Intelligent Search to the project.
@@ -65,7 +65,7 @@ This article provides details for using the Visual Studio Connected Service feat
    [5/4/2018 12:42:10.217 PM] Successfully added Intelligent Search to the project.
    ```
 
-   The appsettings.json file now contains the following new settings.
+   The appsettings.json file now contains the following new settings:
 
    ```json
    "CognitiveServices": {
