@@ -17,7 +17,7 @@ ms.author: spelluru
 
 ---
 # Compare managed and DevTest labs in Azure Lab Services
-You can create two types of labs, **managed labs** with Azure Lab Services, and **custom labs** with Azure DevTest Labs. If you want to just input what you need in a lab and let the service set up and manage infrastructure required for the lab, choose from one of the **managed labs**. Currently, **classroom lab** is the only type of managed lab that you can create with Azure Lab Services. If you want to manage your own infrastructure, create a **custom lab** by using Azure DevTest Labs.
+You can create two types of labs, **managed labs** with Azure Lab Services, and **custom labs** with Azure DevTest Labs. If you want to just input what you need in a lab and let the service set up and manage infrastructure required for the lab, choose from one of the **managed labs**. Currently, **classroom lab** is the only type of managed lab that you can create with Azure Lab Services. If you want to manage your own infrastructure, create a lab by using Azure DevTest Labs.
 
 The following sections provide more details about these labs. 
 
@@ -35,7 +35,7 @@ Here are some of the **use cases for managed labs**:
 
 
 ## DevTest labs
-You may have scenarios where you want to manage all infrastructure and configuration yourself, within your own subscription. To do so, you can create a custom lab with Azure DevTest Labs in the Azure portal. For these labs, you do not need to create a lab account. These labs do not show up in the lab account (which exists for the managed labs).  
+You may have scenarios where you want to manage all infrastructure and configuration yourself, within your own subscription. To do so, you can create a lab with Azure DevTest Labs in the Azure portal. For these labs, you do not need to create a lab account. These labs do not show up in the lab account (which exists for the managed labs).  
 
 Here are some of the **use cases for using DevTest labs**: 
 
@@ -61,4 +61,4 @@ The following table compares two types of labs that are supported by Azure Lab S
 Get started with setting up a lab using Azure Lab Services:
 
 - [Set up a classroom lab](classroom-labs/tutorial-setup-classroom-lab.md)
-- [Set up a custom lab](tutorial-create-custom-lab.md)
+- [Set up a lab](tutorial-create-custom-lab.md)

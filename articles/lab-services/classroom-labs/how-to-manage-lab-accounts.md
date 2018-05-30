@@ -69,4 +69,4 @@ Follow instructions from the previous section that displays lab accounts in a li
 Get started with setting up a lab using Azure Lab Services:
 
 - [Set up a classroom lab](tutorial-setup-classroom-lab.md)
-- [Set up a custom lab](../tutorial-create-custom-lab.md)
+- [Set up a lab](../tutorial-create-custom-lab.md)
