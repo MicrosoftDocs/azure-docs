@@ -1,6 +1,6 @@
 ---
-title: Create an ASP.NET Web App with Redis Cache | Microsoft Docs
-description: In this quickstart, you learn how to create an ASP.NET Web App with Redis Cache
+title: Create an ASP.NET Web App with Azure Redis Cache | Microsoft Docs
+description: In this quickstart, you learn how to create an ASP.NET Web App with Azure Redis Cache
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -20,7 +20,7 @@ ms.custom: mvc
 #Customer intent: As an ASP.NET developer, new to Azure Redis Cache, I want to create a new ASP.NET Web app that uses Redis Cache.
 
 ---
-# Quickstart: Create an ASP.NET Web App with Redis Cache
+# Quickstart: Create an ASP.NET Web App with Azure Redis Cache
 
 
 ## Introduction
@@ -102,7 +102,7 @@ When you run the application locally, the information in *CacheSecrets.config* i
 
 Because the file *CacheSecrets.config* isn't deployed to Azure with your application, you only use it while testing the application locally. Keep this information as secure as possible to prevent malicious access to your cache data.
 
-#### To update the *web.config* file.
+#### To update the *web.config* file
 1. In **Solution Explorer**, double-click the *web.config* file to open it.
 
     ![Web.config](./media/cache-web-app-howto/cache-web-config.png)
@@ -128,7 +128,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 
 ### To update the HomeController and Layout
 
-1. In **Solution Explorer**, expand the **Controllers** folder, and open the *HomeController.cs* file.
+1. In **Solution Explorer**, expand the **Controllers** folder, and then open the *HomeController.cs* file.
 
 2. Add the following two `using` statements at the top of the file to support the cache client and app settings.
 
@@ -248,7 +248,7 @@ By default, the project is configured to host the app locally in [IIS Express](h
 
 2. In the browser, select **Azure Redis Cache Test** on the navigation bar.
 
-3. In the following example, the `Message` key previously had a cached value, which was set by using the Redis console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+3. In the following example, the `Message` key previously had a cached value, which was set by using the Azure Redis Cache console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
 ![Simple test completed local](./media/cache-web-app-howto/cache-simple-test-complete-local.png)
 
