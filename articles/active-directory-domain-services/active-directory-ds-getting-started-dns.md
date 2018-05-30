@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/23/2018
+ms.date: 05/30/2018
 ms.author: maheshu
 
 ---
@@ -24,6 +24,11 @@ ms.author: maheshu
 In the preceding configuration tasks, you have successfully enabled Azure Active Directory Domain Services for your directory. Next, enable computers within the virtual network to connect and consume these services. In this article, you update the DNS server settings for your virtual network to point to the two IP addresses where Azure Active Directory Domain Services is available on the virtual network.
 
 To update the DNS server settings for the virtual network in which you have enabled Azure Active Directory Domain Services, complete the following steps:
+
+> [!TIP]
+> If the DNS server settings for your virtual network are up to date, you will not see the 'Update DNS server settings for your virtual network' tile on the Overview tab.
+>
+>
 
 1. The **Overview** tab lists a set of **Required configuration steps** to be performed after your managed domain is fully provisioned. The first configuration step is **Update DNS server settings for your virtual network**.
 
