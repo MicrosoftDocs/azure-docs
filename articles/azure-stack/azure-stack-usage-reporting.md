@@ -3,7 +3,7 @@ title: Report Azure Stack usage data to Azure | Microsoft Docs
 description: Learn how to set up usage data reporting in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: mabrigg
+ms.date: 05/30/2018
+ms.author: brenduns
 ms.reviewer: alfredop
 
 ---
@@ -66,7 +66,7 @@ If you registered your Azure Stack using any other subscription type, for exampl
 
    ![billing flow](media/azure-stack-usage-reporting/pricing-details.png)
 
-For the Azure Stack Development Kit, Azure Stack resources are not charged so, the price is shown as $0.00. When Azure Stack multi-node becomes generally available, you can see the actual cost for each of these resources.
+For the Azure Stack Development Kit, Azure Stack resources are not charged so, the price is shown as $0.00.
 
 ## Which Azure Stack deployments are charged?
 
@@ -99,7 +99,7 @@ Users can see the Azure Stack usage data in the usage details file. To know abou
 
 ## Why doesn’t the usage reported in Azure Stack match the report generated from Azure Account Center?
 
-There is always a delaybetween the usage data reported by the Azure Stack usage APIs and the usage data reported  by the Azure Account Center.. This delay is the time required to upload usage data from Azure Stack to Azure commerce. Due to this delay, usage that occurs shortly before midnight may show up in Azure the following day. If you use the [Azure Stack Usage APIs](azure-stack-provider-resource-api.md), and compare the results to the usage reported in the Azure billing portal, you can see a difference.
+There is always a delay between the usage data reported by the Azure Stack usage APIs and the usage data reported  by the Azure Account Center.. This delay is the time required to upload usage data from Azure Stack to Azure commerce. Due to this delay, usage that occurs shortly before midnight may show up in Azure the following day. If you use the [Azure Stack Usage APIs](azure-stack-provider-resource-api.md), and compare the results to the usage reported in the Azure billing portal, you can see a difference.
 
 ## Next steps
 
