@@ -138,7 +138,7 @@
     - name: Add intents
       href: Add-intents.md
     - name: Add utterances
-      href: Add-example-utterances.md
+      href: luis-how-to-add-example-utterances.md
     - name: Add entities
       href: luis-how-to-add-entities.md
     - name: Use composite entity to extract grouped data
