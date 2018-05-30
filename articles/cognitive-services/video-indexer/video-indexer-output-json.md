@@ -8,14 +8,14 @@ manager: cflower
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/30/2018
 ms.author: juliako
 
 ---
 # Examine the Video Indexer output produced by v1 API
 
 > [!Note]
-> The Video Indexer V1 APIs are now deprecated, and will be removed on Aug 1st 2018. You should start using the Video Indexer v2 APIs to avoid disruptions.
+> The Video Indexer V1 APIs are now deprecated, and will be removed on August 1st, 2018. You should start using the Video Indexer v2 APIs to avoid disruptions.
 >
 > To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
 
