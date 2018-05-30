@@ -119,6 +119,10 @@ An enhanced unified alerts experience was released in public preview for Azure M
 
 The new experience provides the following features that aren't available in the classic unified experience:
 
+- **View alerts across subscriptions** - You can now view and manage individual instances of alerts across multiple subscriptions in a single view.
+- **Manage the state of alerts** - Alerts now have a state that indicates whether its been acknowledged for closed.
+- **Organize alerts with Smart Groups** - Smart Groups automatically group together related alerts so you can manage them as a set instead of individually.
+
 - View and manage individual alerts.
 - Aggregate alerts across multiple subscriptions into single view organized by alert severity. 
 - Change the state of alerts to reflect where it current is in the resolution process. 
