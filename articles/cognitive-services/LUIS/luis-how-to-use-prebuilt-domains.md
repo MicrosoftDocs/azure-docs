@@ -34,7 +34,7 @@ In the **Prebuilt domains** tab, find the RestaurantReservation domain and click
 When using prebuilt domains in your LUIS app, you can customize an entire prebuilt domain, or just start with a few of its intents and entities.
 
 ## Customizing an entire prebuilt domain
-Prebuilt domains are designed to be general. They contain many intents and entities, that you can choose from to customize an app to your needs. If you start from customizing an entire prebuilt domain, delete the intents and entities that your app doesn't need to use. You can also add some intents or entities to the set that the prebuilt domain already provides. For example, if you are using the **Events** prebuilt domain for a sports event app, you can to add entities for sports teams. When you start [providing utterances](Add-example-utterances.md) to LUIS, include terms that are specific to your app. LUIS learns to recognize them and tailors the prebuilt domain's intents and entities to your app's needs. 
+Prebuilt domains are designed to be general. They contain many intents and entities, that you can choose from to customize an app to your needs. If you start from customizing an entire prebuilt domain, delete the intents and entities that your app doesn't need to use. You can also add some intents or entities to the set that the prebuilt domain already provides. For example, if you are using the **Events** prebuilt domain for a sports event app, you can to add entities for sports teams. When you start [providing utterances](luis-how-to-add-example-utterances.md) to LUIS, include terms that are specific to your app. LUIS learns to recognize them and tailors the prebuilt domain's intents and entities to your app's needs. 
 
 > [!TIP]
 > The intents and entities in a prebuilt domain work best together. It's better to combine intents and entities from the same domain when possible.
@@ -53,7 +53,7 @@ You might find that a prebuilt domain contains an intent that is similar to an i
 Customize a prebuilt domain by adding more example utterances to it.
 
 > [!div class="nextstepaction"]
-> [Add example utterances](./Add-example-utterances.md)
+> [Add example utterances](./luis-how-to-add-example-utterances.md)
 
 ## Additional resources
 
