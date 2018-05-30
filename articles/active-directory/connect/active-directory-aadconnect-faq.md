@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -20,13 +20,13 @@ ms.author: billmath
 
 ## General installation
 **Q: Will installation work if the Azure AD Global Admin has 2FA enabled?**  
-With the builds from February 2016, this is supported.
+With the builds from February 2016, this scenario is supported.
 
 **Q: Is there a way to install Azure AD Connect unattended?**  
 It is only supported to install Azure AD Connect using the installation wizard. An unattended and silent installation is not supported.
 
 **Q: I have a forest where one domain cannot be contacted. How do I install Azure AD Connect?**  
-With the builds from February 2016, this is supported.
+With the builds from February 2016, this scenario is supported.
 
 **Q: Does the AD DS health agent work on server core?**  
 Yes. After installing the agent, you can complete the registration process using the following PowerShell cmdlet: 
@@ -34,13 +34,13 @@ Yes. After installing the agent, you can complete the registration process using
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
 **Q: Does AADConnect support syncing from two domains to on Azure AD?**</br>
-Yes, this is supported. Refer to [Multiple Domains](active-directory-aadconnect-multiple-domains.md)
+Yes, this scenario is supported. Refer to [Multiple Domains](active-directory-aadconnect-multiple-domains.md)
  
 **Q: Do we support having multiple connectors for same Active Directory domain in Azure AD connect?**</br> 
 No, this is not supported 
 
 ## Network
-**Q: I have a firewall, network device, or something else that limits the maximum time connections can stay open on my network. How long should my client side timeout threshold be when using Azure AD Connect?**  
+**Q: I have a firewall, network device, or something else that limits the maximum time connections can stay open on my network. How long should my client-side timeout threshold be when using Azure AD Connect?**  
 All networking software, physical devices, or anything else that limits the maximum time connections can remain open should use a threshold of at least 5 minutes (300 seconds) for connectivity between the server where the Azure AD Connect client is installed and Azure Active Directory. This also applies to all previously released Microsoft Identity synchronization tools.
 
 **Q: Are SLDs (Single Label Domains) supported?**  
@@ -57,7 +57,7 @@ No, Azure AD Connect does not support pure IPv6 environment.
 
 ## Federation
 **Q: What do I do if I receive an email that asking me to renew my Office 365 certificate**  
-Use the guidance that is outlined in the [renew certificates](active-directory-aadconnect-o365-certs.md) topic on how to renew the certificate.
+Use the guidance that is outlined in the [renew certificates](active-directory-aadconnect-o365-certs.md) document on how to renew the certificate.
 
 **Q: I have "Automatically update relying party" set for O365 relying party. Do I have to take any action when my token signing certificate automatically rolls over?**  
 Use the guidance that is outlined in the article [renew certificates](active-directory-aadconnect-o365-certs.md).
@@ -130,12 +130,12 @@ To verify which version of Azure AD Connect is installed on your server, please 
 This [article](active-directory-aadconnect-upgrade-previous-version.md) explains how to upgrade to a newer version. 
 
 **Q: We already upgraded to the latest version of AADConnect last year, do we need to upgrade again?**</br>	
-The Azure AD Connect teams makes frequent updates to the service, and it is important that your server is up to date with the latest version to benefit from bug fixes and security updates as well as new features. If you enable auto upgrade your software version will be updated automatically. To find the version release history of Azure AD Connect, please follow this [link](active-directory-aadconnect-version-history.md).
+The Azure AD Connect teams makes frequent updates to the service, and it is important that your server is up-to-date with the latest version to benefit from bug fixes and security updates as well as new features. If you enable auto upgrade your software version will be updated automatically. To find the version release history of Azure AD Connect, please follow this [link](active-directory-aadconnect-version-history.md).
 
 **Q: How long will it take to perform the upgrade and what is the impact on my users?**</br>	
 The time needed to upgrade depends on your tenant size and for larger organizations it may be best to do this in the evening or weekend. Note that during the upgrade no synchronization activity takes place.
 
-**Q: I believe I upgraded to AADConnect but in the Office portal it still mentions DirSync.  Wny is this?**</br>	
+**Q: I believe I upgraded to AADConnect but in the Office portal it still mentions DirSync.  Why is this?**</br>	
 The Office team is working to get the Office portal updates to reflect the current product name – it does not reflect which sync tool you are using.
 
 **Q: I checked my Auto-Upgrade status and it says “suspended ". Why is it suspended? Should I enable it?**</br> 	
@@ -156,7 +156,7 @@ Auto-upgrade is the first step in our release process of a newer version, so whe
 No, you can not auto-upgrade an Azure AD Connect server that is in staging mode.
 
 **Q: If Auto-Upgrade fails and my AAD Connect server does not start, what should I do?**</br> 	
-In rare cases, the Azure AD Connect service does not start after performing the upgrade. In those case, please reboot the server, which usually fixes the issue. If the Azure AD Connect service still does not start,  please open a support ticket. Here is a [link](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) that explains how to do that. 
+In rare cases, the Azure AD Connect service does not start after performing the upgrade. In these cases, please reboot the server, which usually fixes the issue. If the Azure AD Connect service still does not start,  please open a support ticket. Here is a [link](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) that explains how to do that. 
 
 **Q: I’m not sure what the risks are when upgrading to a newer version of Azure AD Connect. Can you call me to help me with the upgrade?**</br>
 If you need help upgrading to a newer version of Azure AD Connect, please open a support ticket, here is a [link](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) that shows how to do that.
@@ -174,5 +174,6 @@ If you need help upgrading to a newer version of Azure AD Connect, please open a
 
 [How to get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
-* Use this link to get support through the Azure portal.
+* Use 
+* this link to get support through the Azure portal.
 
