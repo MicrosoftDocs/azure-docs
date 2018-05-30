@@ -746,6 +746,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-edge/tutorial-create-deployment-with-cli-iot-extension.md",
+            "redirect_url": "/azure/iot-edge/how-to-register-device-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
             "redirect_document_id": false
