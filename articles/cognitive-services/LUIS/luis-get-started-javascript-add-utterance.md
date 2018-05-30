@@ -1,6 +1,6 @@
 ---
 title: Tutorial learning how to add utterances to a LUIS app using JavaScript | Microsoft Docs
-description: In this tutorial, you learn to call a LUIS app using JavaScript in this quickstart.
+description: In this tutorial, you learn to call a LUIS app using JavaScript.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -12,7 +12,7 @@ ms.author: v-geberr
 #Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using Javascript. 
 ---
 # Tutorial: Add utterances to app using JavaScript
-In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in Javascript.
+In this tutorial, write a program to add an utterance to an intent using the Authoring APIs in Javascript.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
