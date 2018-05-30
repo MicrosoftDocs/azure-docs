@@ -28,7 +28,7 @@ ms.custom: include file
     | **Subscription** | Choose your subscription | The Azure subscription to use. |
     | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Name of the resource group in which to create your function app. Choose **New** to create a new resource group.|
     | **[App Service Plan](../articles/azure-functions/functions-scale.md)** | Consumption plan | Make sure to choose the **Consumption** under **Size** after you click **New** to create a plan. Also, choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access.  |
-    | **[Storage Account](../storage/common/storage-create-storage-account.md#create-a-storage-account)** | General purpose storage account | An Azure storage account is required by the Functions runtime. Click **New** to create a general purpose storage account, or use an existing one.  |
+    | **[Storage Account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** | General purpose storage account | An Azure storage account is required by the Functions runtime. Click **New** to create a general purpose storage account, or use an existing one.  |
 
 4. Click **Create** to create a function app and related resources in Azure with these settings and deploy your function project code. 
 
