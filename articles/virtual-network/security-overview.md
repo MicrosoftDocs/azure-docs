@@ -135,7 +135,7 @@ You cannot remove the default rules, but you can override them by creating rules
 
 Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. This feature allows you to reuse your security policy at scale without manual maintenance of explicit IP addresses. The platform handles the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your business logic.
 
-You can specify an application security group as the source and destination in a security rule. Once your security policy is defined, you can create virtual machines and assign the network interfaces in the virtual machine to an application security group. The policy is applied based on the application security group membership of each network interface within a virtual machine. The following example illustrates how you might use an application security group for all web servers in your subscription:
+You can specify one application security group as the source and destination in a security rule. You cannot specify multiple application security groups in the source and destination. Once your security policy is defined, you can create virtual machines and assign the network interfaces in the virtual machine to an application security group. The policy is applied based on the application security group membership of each network interface within a virtual machine. The following example illustrates how you might use an application security group for all web servers in your subscription:
 
 1. Create an application security group named *WebServers*.
 2. Create a network security group named *MyNSG*.
@@ -149,7 +149,7 @@ To learn about limits when creating application security groups and specifying t
 Application security groups have the following constraints:
 
 -	All network interfaces assigned to an application security group must exist in the same virtual network that the first network interface assigned to the application security group is in. For example, if the first network interface assigned to an application security group named *ASG1* is in the virtual network named *VNet1*, then all subsequent network interfaces assigned to *ASG1* must exist in *VNet1*. You cannot add network interfaces from different virtual networks to the same application security group.
-- If you specify application security groups as the source and destination in a security rule, the network interfaces in both application security groups must exist in the same virtual network. For example, if ASG1 contained network interfaces from VNet1, and ASG2 contained network interfaces from VNet2, you could not assign ASG1 as the source and ASG2 as the destination in a rule, all network interfaces need to exist in VNet1.
+- If you specify an application security group as the source and destination in a security rule, the network interfaces in both application security groups must exist in the same virtual network. For example, if ASG1 contained network interfaces from VNet1, and ASG2 contained network interfaces from VNet2, you could not assign ASG1 as the source and ASG2 as the destination in a rule. All network interfaces need to exist in VNet1.
 
 ## Azure platform considerations
 

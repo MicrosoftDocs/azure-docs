@@ -118,7 +118,7 @@ Create a [new LUIS app](LUIS-get-started-create-app.md).
 [azure-portal]:https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account
 [publish-app]:PublishApp.md#test-your-published-endpoint-in-a-browser
 [luis-concept-entity-types]:luis-concept-entity-types.md
-[add-example-utterances]: add-example-utterances.md
+[add-example-utterances]: luis-how-to-add-example-utterances.md
 [prebuilt-entities]: pre-builtentities.md
 [prebuilt-domains]: luis-how-to-use-prebuilt-domains.md
 [label-suggested-utterances]: label-suggested-utterances.md
@@ -128,7 +128,7 @@ Create a [new LUIS app](LUIS-get-started-create-app.md).
 [flow]:https://docs.microsoft.com/connectors/luis/
 [entity-concept]:luis-concept-entity-types.md
 [add-intents]:Add-intents.md
-[add-entities]:Add-entities.md
+[add-entities]:luis-how-to-add-entities.md
 [authoring-apis]:https://aka.ms/luis-authoring-api
 [endpoint-apis]:https://aka.ms/luis-endpoint-apis
 [LUIS]:luis-reference-regions.md
