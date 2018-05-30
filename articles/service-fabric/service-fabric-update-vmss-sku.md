@@ -22,7 +22,7 @@ This article describes how to upgrade/migrate the SKU of Primary Node Type of se
 
 ## Add a new virtual machine scale set
 
-Deploy a new virtual machine scale set and Load Balancer. The Service Fabric extension configuration (especially the node type) of new virtual machine scale set should be same as the old scale set you're trying to upgrade. Verify in the SF explorer that your new nodes are available
+Deploy a new virtual machine scale set and Load Balancer. The Service Fabric extension configuration (especially the node type) of new virtual machine scale set should be same as the old scale set you're trying to upgrade. Verify in the Service Fabric explorer that your new nodes are available
 
 #### Azure PowerShell
 
