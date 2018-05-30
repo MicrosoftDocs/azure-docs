@@ -91,9 +91,10 @@ The following restrictions apply during public preview:
 
 Azure Immutable Storage for Azure Blobs is supported on the most recent releases of [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), and Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
 
-**Azure portal**
- **Step 1:** Create a new container or select an existing container to store the blobs that need to be kept in the immutable state.  
- The container must be in a blob or GPv2 storage account. 
+### Azure portal
+
+**Step 1:** Create a new container or select an existing container to store the blobs that need to be kept in the immutable state.  
+ The container must be in a blob or GPv2 storage account.
  Click on Access Policy in the Container settings and then click on **+ Add Policy** under **Immutable blob storage** policy as illustrated below.
 
 ![Portal](media/storage-immutable-blob-storage/portal-image-1.jpg)
@@ -121,7 +122,7 @@ Create a legal hold with one or more tags
 
 ![Set legal hold tags](media/storage-immutable-blob-storage/portal-image-set-legal-hold-tags.jpg)
 
- **CLI 2.0**
+### CLI 2.0
 
  Install the [CLI extension](http://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  with `az extension add -n storage-preview`
 
@@ -129,7 +130,8 @@ If you already have this extension installed, then to enable the Immutable Stora
 The feature is included in the following command groups (run “-h” on them to see the commands):
 `az storage container immutability-policy`  and `az storage container legal-hold`.
 
-**PowerShell**
+### PowerShell
+
 The Immutable  Storage feature is supported on the [PowerShell version 4.4.0-preview](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May20180).
 To enable the feature, please follow the following steps:
 
@@ -140,7 +142,8 @@ To enable the feature, please follow the following steps:
 
 A sample PowerShell code illustrating the feature usage is provided below.
 
-**Client Libraries**
+## Client Libraries
+
 The Immutable Storage for Azure blobs feature is supported in the following client library releases
 
 - [.net Client Library (version 7.2.0-preview and higher](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
