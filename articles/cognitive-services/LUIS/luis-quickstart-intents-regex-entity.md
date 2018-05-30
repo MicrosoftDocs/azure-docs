@@ -192,7 +192,8 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 
 ## Next steps
 
-[Learn about the KeyPhrase entity](luis-quickstart-intent-and-key-phrase.md). 
+> [!div class="nextstepaction"]
+> [Learn about the KeyPhrase entity](luis-quickstart-intent-and-key-phrase.md)
 
 Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
 
