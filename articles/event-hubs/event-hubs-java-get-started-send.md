@@ -31,7 +31,7 @@ In order to complete this tutorial, you will need the following:
 * A Java development environment. For this tutorial, we assume [Eclipse](https://www.eclipse.org/).
 * An active Azure account. If you do not have an Azure subscription, create a [free account][] before you begin.
 
-The code in this tutorial is based on the [Send GitHub sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/Send), which you can examine to see the full working application.
+The code in this tutorial is based on the [Send GitHub sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), which you can examine to see the full working application.
 
 ## Send events to Event Hubs
 
