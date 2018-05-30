@@ -16,7 +16,7 @@ To connect to Azure Media Services APIs, you use the Azure AD service principal 
 
 Before running the script, you can replace the `amsaccount` and `amsResourceGroup` with the names you chose when creating these resources. `amsaccount` is the name of the Azure Media Services account where to attach the service principal.
 
-The following command returns a `json` ouput:
+The following command returns a `json` output:
 
 ```azurecli-interactive
 az ams account sp create --account-name amsaccount --resource-group amsResourceGroup
