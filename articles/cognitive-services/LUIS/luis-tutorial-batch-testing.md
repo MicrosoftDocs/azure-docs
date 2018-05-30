@@ -378,6 +378,6 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about example utterances](Add-example-utterances.md)
+> [Learn more about example utterances](luis-how-to-add-example-utterances.md)
 
 [LUIS]: luis-reference-regions.md

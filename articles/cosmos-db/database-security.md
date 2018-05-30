@@ -5,14 +5,10 @@ keywords: nosql database security, information security, data security, database
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: a02a6a82-3baf-405c-9355-7a00aaa1a816
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
 
@@ -71,10 +67,10 @@ Let's dig into each one in detail.
 |Local replication|Even within a single data center, Azure Cosmos DB automatically replicates data for high availability giving you the choice of [consistency levels](consistency-levels.md). This guarantees a 99.99% [availability SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts.|
 |Automated online backups|Azure Cosmos DB databases are backed up regularly and stored in a georedundant store. <br><br>Learn more in [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md).|
 |Restore deleted data|The automated online backups can be used to recover data you may have accidentally deleted up to ~30 days after the event. <br><br>Learn more in [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md)|
-|Protect and isolate sensitive data|All data in the regions listed in [What's new?](#whats-new) is now encrypted at rest.<br><br>PII and other confidential data can be isolated to specific collections and read-write, or read-only access can be limited to specific users.|
+|Protect and isolate sensitive data|All data in the regions listed in [What's new?](#whats-new) is now encrypted at rest.<br><br>Personal data and other confidential data can be isolated to specific collections and read-write, or read-only access can be limited to specific users.|
 |Monitor for attacks|By using [audit logging and activity logs](logging.md), you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources, who initiated the operation, when the operation occurred, the status of the operation, and much more as shown in the screenshot following this table.|
 |Respond to attacks|Once you have contacted Azure support to report a potential attack, a 5-step incident response process is kicked off. The goal of the 5-step process is to restore normal service security and operations as quickly as possible after an issue is detected and an investigation is started.<br><br>Learn more in [Microsoft Azure Security Response in the Cloud](https://aka.ms/securityresponsepaper).|
-|Geo-fencing|Azure Cosmos DB ensures data governance and compliance for sovereign regions (for example, Germany, China, US Gov).|
+|Geo-fencing|Azure Cosmos DB ensures data governance for sovereign regions (for example, Germany, China, US Gov).|
 |Protected facilities|Data in Azure Cosmos DB is stored on SSDs in Azure's protected data centers.<br><br>Learn more in [Microsoft global datacenters](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |HTTPS/SSL/TLS encryption|All client-to-service Azure Cosmos DB interactions are SSL/TLS 1.2 capable. Also, all intra datacenter and cross datacenter replication is SSL/TLS 1.2 enforced.|
 |Encryption at rest|All data stored into Azure Cosmos DB is encrypted at rest. Learn more in [Azure Cosmos DB encryption at rest](.\database-encryption-at-rest.md)|

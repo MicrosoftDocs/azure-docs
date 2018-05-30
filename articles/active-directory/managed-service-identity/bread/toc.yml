@@ -4,8 +4,8 @@
   items:
   - name: Active Directory
     tocHref: /azure/active-directory/
-    topicHref: /azure/active-directory/index
+    topicHref: /azure/active-directory/index/
     items:
-      - name: Managed Service Identity
-        tocHref: /azure/active-directory/managed-service-identity/
-        topicHref: /azure/active-directory/managed-service-identity/index
+    - name: Managed Service Identity
+      tocHref: /azure/active-directory/managed-service-identity/
+      topicHref: /azure/active-directory/managed-service-identity/index/
