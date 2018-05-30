@@ -30,7 +30,7 @@ ms.custom: "include file"
 
 3. After the new cache settings are configured, select **Create**. 
 
-    It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the dashboard. After the cache has been created, it shows the status**Running**, and is ready for use.
+    It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the dashboard. After the cache has been created, it shows the status **Running**, and is ready for use.
 
     ![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
 

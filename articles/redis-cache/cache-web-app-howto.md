@@ -44,18 +44,14 @@ To complete the quickstart, you need to install [Visual Studio 2017](https://www
     ![Create project](./media/cache-web-app-howto/cache-create-project.png)
 
 2. In the **New Project** dialog box, take the following steps:
+
+    1. In the **Templates** list, expand the **Visual C#** node.
+    2. Select **Cloud**.
+    3. Select **ASP.NET Web Application**.
+    4. Verify that **.NET Framework 4.5.2** or higher is selected.
+    5. In the **Name** box, give the project a name. For this example, we used **ContosoTeamStats**.
+    6. Select **OK**.
    
-    a. In the **Templates** list, expand the **Visual C#** node.
-    b. Select **Cloud**.
-    c. Select **ASP.NET Web Application**.
-    d. Verify that **.NET Framework 4.5.2** or higher is selected
-    e. In the **Name** box, give the project a name. For this example, we used **ContosoTeamStats**.
-    f. Select **OK**.
-
-    You're presented with a new ASP.NET Web Application screen:
-
-    ![Select project template](./media/cache-web-app-howto/cache-select-template.png)
-
 3. Select **MVC** as the project type.
 
 4. Make sure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default **Authentication** setting might be set to something else. To change it, select **Change Authentication** and then **No Authentication**.
@@ -322,7 +318,7 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource groups**.
 
-2. In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...**, and then select **Delete resource group**.
+2. In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group, in the results list, select **...**, and then select **Delete resource group**.
 
 ![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
