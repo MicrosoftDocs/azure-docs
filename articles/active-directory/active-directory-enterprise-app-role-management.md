@@ -50,7 +50,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
 5. After the application is added, go to the **Properties** page and copy the object ID.
 
-    <!-- ![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png) Note: Image is missing. -->
+    ![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
 6. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window and take the following steps:
 
@@ -121,7 +121,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 	  ```
       
 	  > [!Note]
-      > You can only add new roles after msiam_access for the patch operation. Also, you can add as many roles as your organization needs. Azure AD will send the value of these roles as the claim value in the SAML response.
+      > You can only add new roles after msiam_access for the patch operation. Also, you can add as many roles as your organization needs. Azure AD will send the value of these roles as the claim value in the SAML response. To generate the GUID values for the ID of new roles use the web tools like [this](https://www.guidgenerator.com/)
 	
 	i. Go back to Graph Explorer and change the method from **GET** to **PATCH**. Patch the service principal object to have the desired roles by updating the **appRoles** property like the one shown in the preceding example. Select **Run Query** to execute the patch operation. A success message confirms the creation of the role.
 
