@@ -36,9 +36,9 @@ To start the iterative process, you first need to train your LUIS app at least o
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 
 >[!NOTE]
->If you have one or more intents in your app that do not contain example utterances, you cannot train your app. Add utterances for all your intents. For more information, see [Add example utterances](Add-example-utterances.md).
+>If you have one or more intents in your app that do not contain example utterances, you cannot train your app. Add utterances for all your intents. For more information, see [Add example utterances](luis-how-to-add-example-utterances.md).
 
 ## Next steps
 
 * [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
-* [Use features to improve your LUIS app's performance](Add-Features.md) 
+* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 
