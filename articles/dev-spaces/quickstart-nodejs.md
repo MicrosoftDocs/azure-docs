@@ -72,7 +72,7 @@ In this section, you'll create a Node.js web app and get it running in a contain
 ### Create a Node.js Web App
 Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
 
-## Preparing code for Docker and Kubernetes development
+## Preparing your code
 So far, you have a basic web app that can run locally. You'll now containerize it by creating assets that define the app's container and how it will deploy to Kubernetes. This is easy to do with Azure Dev Spaces: 
 
 1. Launch VS Code and open the `webfrontend` folder. (You can ignore any default prompts to add debug assets or restore the project.)
@@ -109,7 +109,7 @@ Keep an eye on the command's output, you'll notice several things as it progress
 > [!Note]
 > These steps will take longer the first time the `up` command is run, but subsequent runs should be quicker.
 
-## Test the web app
+### Test the web app
 Scan the console output for information about the public URL that was created by the `up` command. It will be in the form: 
 
 `Running at public URL: http://<servicename>-<cluster-name>.<guid>.<region>.aksapp.io` 

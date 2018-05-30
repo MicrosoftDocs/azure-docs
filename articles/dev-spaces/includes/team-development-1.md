@@ -16,7 +16,7 @@ So far you've been running your application's code as if you were the only devel
 * Supports each developer iterating on their code in isolation and without fear of breaking others.
 * Test code end-to-end, prior to code commit, without having to create mocks or simulate dependencies.
 
-## Challenges with developing microservices
+### Challenges with developing microservices
 Your sample application isn't very complex at the moment. But in real-world development, challenges soon emerge as you add more services and the development team grows.
 
 Picture yourself working on a service that interacts with dozens of other services.
@@ -30,10 +30,10 @@ Picture yourself working on a service that interacts with dozens of other servic
 ![](../media/common/microservices-challenges.png)
 
 
-## Work in a shared dev space
+### Work in a shared dev space
 With Azure Dev Spaces, you can set up a *shared* dev space in Azure. Each developer can focus on just their part of the application, and can iteratively develop *pre-commit code* in a dev space that already contains all the other services and cloud resources that their scenarios depend on. Dependencies are always up-to-date, and developers are working in a way that mirrors production.
 
-## Work in your own space
+### Work in your own space
 As you develop code for your service, and before you're ready to check it in, code often won't be in a good state. You're still iteratively shaping it, testing it, and experimenting with solutions. Azure Dev Spaces provides the concept of a **space**, which allows you to work in isolation, and without the fear of breaking your team members.
 
 > [!Note]
@@ -50,7 +50,7 @@ webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-c
 
 The Space column shows that both services are running in a space named `default`. Anyone who opens the public URL and navigates to the web app will invoke the code path you previously wrote that runs through both services. Now suppose you want to continue developing `mywebapi`. How can you make code changes and test them and not interrupt other developers who are using the dev environment? To do that, you'll set up your own space.
 
-## Create a space
+### Create a space
 To run your own version of `mywebapi` in a space other than `default`, you can create your own space by using the following command:
 
 ``` 
