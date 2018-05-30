@@ -16,9 +16,9 @@ ms.date: 01/26/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Configure Google Apps for automatic user provisioning
+# Tutorial: Configure G Suite for automatic user provisioning
 
-The objective of this tutorial is to show you how to automatically provision and de-provision user accounts from Azure Active Directory (Azure AD) to Google Apps.
+The objective of this tutorial is to show you how to automatically provision and de-provision user accounts from Azure Active Directory (Azure AD) to G Suite.
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./active-directory-saas-app-provisioning.md).
@@ -43,7 +43,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD are synchronized.
 
-Before you configure and enable the provisioning service, you need to decide which users or groups in Azure AD need access to your app. After you've made this decision, you can assign these users to your Google Apps app by following the instructions in
+Before you configure and enable the provisioning service, you need to decide which users or groups in Azure AD need access to your app. After you've made this decision, you can assign these users to your app by following the instructions in
 [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 > [!IMPORTANT]
@@ -53,10 +53,10 @@ Before you configure and enable the provisioning service, you need to decide whi
 
 ## Enable automated user provisioning
 
-This section guides you through the process of connecting your Azure AD to the user account provisioning API of G Suite. It also helps you configure the provisioning service to create, update, and disable assigned user accounts in Google Apps based on user and group assignment in Azure AD.
+This section guides you through the process of connecting your Azure AD to the user account provisioning API of G Suite. It also helps you configure the provisioning service to create, update, and disable assigned user accounts in G Suite based on user and group assignment in Azure AD.
 
 >[!TIP]
->You might also choose to enable SAML-based single sign-on for Google Apps, by following the instructions in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+>You might also choose to enable SAML-based single sign-on for G Suites, by following the instructions in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### Configure automatic user account provisioning
 
@@ -76,7 +76,7 @@ This section guides you through the process of connecting your Azure AD to the u
     ![Select API Reference.][16]
 
     > [!IMPORTANT]
-    > For every user that you intend to provision to Google Apps, their user name in Azure Active Directory *must* be tied to a custom domain. For example, user names that look like bob@contoso.onmicrosoft.com are not accepted by G Suite. On the other hand, bob@contoso.com is accepted. You can change an existing user's domain by editing their properties in Azure AD. We've included instructions for how to set a custom domain for both Azure Active Directory and G Suite in the following steps.
+    > For every user that you intend to provision to G Suite, their user name in Azure Active Directory *must* be tied to a custom domain. For example, user names that look like bob@contoso.onmicrosoft.com are not accepted by G Suite. On the other hand, bob@contoso.com is accepted. You can change an existing user's domain by editing their properties in Azure AD. We've included instructions for how to set a custom domain for both Azure Active Directory and G Suite in the following steps.
       
 4. If you haven't added a custom domain name to your Azure Active Directory yet, then take the following steps:
   
@@ -88,7 +88,7 @@ This section guides you through the process of connecting your Azure AD to the u
 
      ![Domain add](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_2.png)
 
-    c. Type your domain name into the **Domain name** field. This domain name should be the same domain name that you intend to use for Google Apps. Then select the **Add Domain** button.
+    c. Type your domain name into the **Domain name** field. This domain name should be the same domain name that you intend to use for G Suite. Then select the **Add Domain** button.
      
      ![Domain name](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_3.png)
 
@@ -101,10 +101,10 @@ This section guides you through the process of connecting your Azure AD to the u
     e. Repeat the preceding steps for all the domains that you intend to add to your directory.
 
 	> [!NOTE]
-	For user provisioning, the Google Apps custom domain must match the domain name of the source Azure AD. If they do not match, you may be able to solve the problem by implementing attribute mapping customization.
+	For user provisioning, the custom domain must match the domain name of the source Azure AD. If they do not match, you may be able to solve the problem by implementing attribute mapping customization.
 
 
-5. Now that you have verified all your domains with Azure AD, you must verify them again with Google Apps. For each domain that isn't already registered with Google Apps, take the following steps:
+5. Now that you have verified all your domains with Azure AD, you must verify them again with Google Apps. For each domain that isn't already registered with Google, take the following steps:
    
     a. In the [Google Apps Admin Console](http://admin.google.com/), select **Domains**.
      
@@ -134,11 +134,11 @@ This section guides you through the process of connecting your Azure AD to the u
      ![Select Google Apps][27]
    
     > [!NOTE]
-    > If you are configuring a production environment, the best practice is to create an admin account in Google Apps specifically for this step. These accounts must have an admin role associated with them that has the necessary API privileges.
+    > If you are configuring a production environment, the best practice is to create an admin account in G Suite specifically for this step. These accounts must have an admin role associated with them that has the necessary API privileges.
      
 8. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory** > **Enterprise Apps** > **All applications** section.
 
-9. If you have already configured Google Apps for single sign-on, search for your instance of Google Apps by using the search field. Otherwise, select **Add**, and then search for **G Suite** or **Google Apps** in the application gallery. Select your app from the search results, and then add it to your list of applications.
+9. If you have already configured G Suite for single sign-on, search for your instance of G Suite by using the search field. Otherwise, select **Add**, and then search for **G Suite** or **Google Apps** in the application gallery. Select your app from the search results, and then add it to your list of applications.
 
 10. Select your instance of G Suite, and then select the **Provisioning** tab.
 
