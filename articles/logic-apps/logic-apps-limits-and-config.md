@@ -62,7 +62,7 @@ Here are the limits for a single logic app run:
 
 ### Change run duration and storage retention
 
-You can change this limit to a value between seven days and 90 days. 
+You can change this limit to a value between 7 days and 90 days. 
 However, to exceed the maximum limit, 
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
@@ -85,7 +85,7 @@ Here are the limits for a single logic app run:
 | ---- | ----- | ----- | 
 | Until iterations | 5,000 | | 
 | ForEach items | 100,000 | You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed. | 
-| ForEach Parallelism | 50 | The default is 20. <p>To set a specific level of parallelism in a ForEach loop, set the `runtimeConfiguration` property in the `foreach` action. <p>To sequentially run a ForEach loop, set the `operationOptions` property to "Sequential" in the `foreach` action. | 
+| ForEach Parallelism | 50 | The default is 20. <p>To change this default level in a ForEach loop, set the `runtimeConfiguration` property in the `foreach` action. <p>To sequentially run a ForEach loop, set the `operationOptions` property to "Sequential" in the `foreach` action. | 
 | SplitOn items | 100,000 | | 
 |||| 
 
@@ -104,8 +104,8 @@ Here are the limits for a single logic app run:
 | Runtime endpoint: Invoke calls per 5 minutes| 45,000 |Can distribute workload across multiple apps as needed. | 
 |||| 
 
-To exceed these limits in normal processing, 
-or run load testing that might exceed these limits, 
+To go above these limits in normal processing, 
+or run load testing that might go above these limits, 
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
 
@@ -131,7 +131,7 @@ Some connector operations make asynchronous calls or listen for webhook requests
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
 | Message size | 100 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
-| Message size with chunking | 1 GB | This limit applies to actions that either natively support chunking or can have chunking support enabled in their runtime configuration. For more information, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). | 
+| Message size with chunking | 1 GB | This limit applies to actions that natively support chunking or let you enable chunking in their runtime configuration. For more information, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). | 
 | Expression evaluation limit | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. | 
 |||| 
 
@@ -217,10 +217,10 @@ This tier restricts throughput and usage, and has no service-level agreement (SL
 | ---- | ----- | ----- | 
 | Schema | 8 MB | To upload files larger than 2 MB, use the [blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Map (XSLT file) | 2 MB | | 
-| Runtime endpoint: Read calls per 5 minutes | 60,000 | You can distribute the workload across multiple accounts as necessary. | 
-| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | You can distribute the workload across multiple accounts as necessary. | 
-| Runtime endpoint: Tracking calls per 5 minutes | 45,000 | You can distribute the workload across multiple accounts as necessary. | 
-| Runtime endpoint: Blocking concurrent calls | ~1,000 | You can decrease the number of concurrent requests or reduce the duration as necessary. | 
+| Runtime endpoint: Read calls per 5 minutes | 60,000 | You can distribute the workload across more than one account as necessary. | 
+| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. | 
+| Runtime endpoint: Tracking calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. | 
+| Runtime endpoint: Blocking concurrent calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
