@@ -214,8 +214,6 @@
         href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
       - name: Logic Apps B2B custom tracking schema
         href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
-    - name: Malware Assessment
-      href: log-analytics-malware.md
     - name: Networking Analytics
       href: log-analytics-azure-networking-analytics.md
     - name: Network Performance Monitor
@@ -235,7 +233,7 @@
     - name: SCOM Health Check
       href: log-analytics-scom-assessment.md
     - name: Security Audit
-      href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
+      href: ../security-center/security-center-intro.md
     - name: Service Fabric with Azure PowerShell
       href: log-analytics-service-fabric.md
       items:
