@@ -21,7 +21,7 @@ ms.author: rolyon
 
 # Quickstart: Assign a role to a user in the Azure Portal
 
-Role-based access control (RBAC) is the way that you control access to resources in Azure. In this quickstart, you will grant a user access to manage virtual machines in a resource group, but not have access to the virtual machines.
+Role-based access control (RBAC) is the way that you control access to resources in Azure. In this quickstart, you grant a user access to create and manage virtual machines in a resource group.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -71,7 +71,7 @@ In RBAC, to grant access, you create a role assignment.
 
 1. Choose **Save** to create the role assignment.
 
-   After a few moments, the user is assigned the Virtual Machine Contributor role for the rbac-quickstart-resource-group resource group.
+   After a few moments, the user is assigned the Virtual Machine Contributor role at the rbac-quickstart-resource-group resource group scope.
 
    ![Virtual Machine Contributor role assignment](./media/quickstart-assign-role-user/vm-contributor-assignment.png)
 
@@ -91,11 +91,11 @@ In RBAC, to remove access, you remove a role assignment.
 
 1. In the navigation list, choose **Resource groups**.
 
-1. Add a checkmark next to **rbac-quickstart-resource-group**.
+1. Choose **rbac-quickstart-resource-group** to open the resource group.
 
-1. At the end of the row, choose the ellipsis (**...**) to open the context menu and then choose **Delete resource group**.
+1. Choose **Delete resource group** to delete the resource group.
 
-   ![Delete resource group context menu](./media/quickstart-assign-role-user/delete-resource-group-context.png)
+   ![Delete resource group](./media/quickstart-assign-role-user/delete-resource-group.png)
 
 1. On the **Are you sure you want to delete** blade, type the resource group name: **rbac-quickstart-resource-group**.
 
