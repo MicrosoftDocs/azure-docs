@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-accelerators
+ author: dominicbetts
+ ms.service: iot-accelerators
+ ms.topic: include
+ ms.date: 05/30/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ## Provision the solution
 
 If you haven't already provisioned the remote monitoring preconfigured solution in your account:
