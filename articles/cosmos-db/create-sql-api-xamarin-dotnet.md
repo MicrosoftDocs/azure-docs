@@ -69,7 +69,7 @@ Now let's clone the Xamarin SQL API app from github, review the code, obtain the
 3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
-    git clone https://github.com/Azure/azure-documentdb-dotnet.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started.git
     ```
 
 4. Then open the ToDoItems.sln file from the samples/xamarin/ToDoItems folder in Visual Studio.
