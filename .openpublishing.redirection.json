@@ -5771,6 +5771,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/sql-api-index.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/mongodb-index.md",
+            "redirect_url": "/azure/cosmos-db/mongodb-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/documentdb-index.md",
             "redirect_url": "/azure/cosmos-db/sql-api-index",
             "redirect_document_id": true
@@ -6989,6 +6999,16 @@
             "source_path": "articles/search/search-get-started-scoring-profiles.md",
             "redirect_url": "https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/search/ref-create-indexer.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/searchservice/create-indexer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/search/ref-create-skillset.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/searchservice/create-skillset",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/search/search-api-2017-11-11-preview.md",
@@ -21974,6 +21994,11 @@
         {
             "source_path": "articles/cognitive-services/LUIS/luis-quickstart-ruby-add-utterance.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-ruby-add-utterance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/Add-entities.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
             "redirect_document_id": true
         }
     ]

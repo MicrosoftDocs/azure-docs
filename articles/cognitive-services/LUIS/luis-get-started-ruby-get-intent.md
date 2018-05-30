@@ -1,6 +1,6 @@
 ---
 title:  Tutorial learning how to call a Language Understanding (LUIS) app using Ruby | Microsoft Docs
-description: In this tutorial, you earn to call a LUIS app using Ruby in this quickstart.
+description: In this tutorial, you earn to call a LUIS app using Ruby.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -67,6 +67,6 @@ The two resources created in this tutorial are the LUIS subscription key and the
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances](luis-quickstart-ruby-add-utterance.md)
+> [Add utterances](luis-get-started-ruby-add-utterance.md)
 
 [LUIS]: luis-reference-regions.md#luis-website
