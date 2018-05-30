@@ -50,11 +50,9 @@ To change the settings on your token lifetimes, you need to add a `<ClaimsProvid
 <Item Key="allow_infinite_rolling_refresh_token">True</Item>
 ```
 
-**Issuer (iss) claim**
-If you want to change the Issuer (iss) claim, modify the value inside the `<Item>` with the Key="IssuanceClaimPattern".  The applicable values are `AuthorityAndTenantGuid` and `AuthorityWithTfp`.
+**Issuer (iss) claim** - If you want to change the Issuer (iss) claim, modify the value inside the `<Item>` with the Key="IssuanceClaimPattern".  The applicable values are `AuthorityAndTenantGuid` and `AuthorityWithTfp`.
 
-**Setting claim representing policy ID**
-The options for setting this value are TFP (trust framework policy) and ACR (authentication context reference).  
+**Setting claim representing policy ID** - The options for setting this value are TFP (trust framework policy) and ACR (authentication context reference).  
 We recommend setting this to TFP, to do this, ensure the `<Item>` with the Key="AuthenticationContextReferenceClaimPattern" exists and the value is `None`.
 In your `<OutputClaims>` item, add this element:
 ```XML
@@ -62,8 +60,7 @@ In your `<OutputClaims>` item, add this element:
 ```
 For ACR, remove the `<Item>` with the Key="AuthenticationContextReferenceClaimPattern".
 
-**Subject (sub) claim**
-This option is defaulted to ObjectID, if you would like to switch this to `Not Supported`, do the following:
+**Subject (sub) claim** - This option is defaulted to ObjectID, if you would like to switch this to `Not Supported`, do the following:
 
 Replace this line 
 ```XML
@@ -84,11 +81,11 @@ To change your session behavior and SSO configurations, you need to add a `<User
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
-**Single sign-on (SSO) configuration**
+**Single sign on (SSO) configuration**
 To change the single sign-on configuration, you need to modify the value of `<SingleSignOn>`.  The applicable values are `Tenant`, `Application`, `Policy` and `Disabled`. 
 
 **Web app session lifetime (minutes)**
-To change the the web app session lifetime, you need to modify value of the `<SessionExpiryInSeconds>` element.  The default value in built-in policies is 86400 seconds (1440 minutes).
+To change the web app session lifetime, you need to modify value of the `<SessionExpiryInSeconds>` element.  The default value in built-in policies is 86400 seconds (1440 minutes).
 
-**Web app session timeout**
+**Web app session time out**
 To change the web app session timeout, you need to modify the value of `<SessionExpiryType>`.  The applicable values are `Absolute` and `Rolling`.
