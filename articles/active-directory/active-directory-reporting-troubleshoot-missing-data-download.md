@@ -4,7 +4,7 @@ title: 'Troubleshooting: Missing data in the downloaded Azure Active Directory a
 description: Provides you with a resolution to missing data in downloaded Azure Active Directory activity logs.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
 ---
 

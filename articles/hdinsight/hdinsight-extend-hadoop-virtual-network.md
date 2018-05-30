@@ -87,7 +87,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        For more information, see the [Troubleshoot network security groups](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) document.
+        For more information, see the [Troubleshoot network security groups](../virtual-network/diagnose-network-traffic-filter-problem.md) document.
 
         > [!IMPORTANT]
         > Network security group rules are applied in order based on rule priority. The first rule that matches the traffic pattern is applied, and no others are applied for that traffic. Order rules from most permissive to least permissive. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
