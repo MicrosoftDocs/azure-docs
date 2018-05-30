@@ -117,7 +117,7 @@ Click on Lock Policy and the policy state will now show as locked. Once locked, 
 
  **Step 4:** To enable legal holds, click on + Add Policy and  choose Legal hold from the drop-down menu
 
-![Legal Hold](media/storage-immutable-blob-storage/portal-image-legal-hold-selection.jpg)
+![Legal Hold](media/storage-immutable-blob-storage/portal-image-legal-hold-selection-7.jpg)
  
 Create a legal hold with one or more tags
 
