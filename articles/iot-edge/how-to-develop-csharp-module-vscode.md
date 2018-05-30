@@ -16,7 +16,7 @@ ms.service: iot-edge
 
 # Develop, build, and deploy a C# module with Azure IoT Edge for Visual Studio Code
 
-You can send your business logic to operate at the edge by turning it into modules for Azure IoT Edge. This article provides detailed instructions for using [Visual Studio (VS) Code](https://code.visualstudio.com/) as the main development tool to develop C# modules.
+You can send your business logic to operate at the edge by turning it into modules for Azure IoT Edge. This article provides detailed instructions for using Visual Studio Code (VS Code) as the main development tool to develop C# modules.
 
 ## Prerequisites
 This article assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device, or you can simulate your IoT Edge device on your development machine.

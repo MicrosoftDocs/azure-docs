@@ -51,5 +51,5 @@ You can check your container status in the VS Code Docker explorer or by running
 ## Next steps
 
 
-[Use Visual Studio Code to debug a C# module with Azure IoT Edge](how-to-csharp-module-vscode.md)
+[Use Visual Studio Code to debug a C# module with Azure IoT Edge](how-to-develop-csharp-module-vscode.md)
 
