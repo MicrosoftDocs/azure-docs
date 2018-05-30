@@ -7,8 +7,9 @@ manager: jeconnoc
 
 ms.service: dns
 ms.topic: quickstart
-ms.date: 5/29/2018
+ms.date: 5/30/2018
 ms.author: kumud
+#Customer intent: As an administrator, I want learn how to create a DNS zone and record so that I understand how to perform basic functions in Azure DNS.
 ---
 
 # Quickstart: Create a DNS zone and record using the Azure Portal
