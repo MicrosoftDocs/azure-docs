@@ -6,10 +6,9 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
 ms.service: cosmos-db
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: sngun
 

@@ -1,6 +1,6 @@
 ---
 title: Call a Language Understanding (LUIS) app using PHP | Microsoft Docs
-description: In this tutorial, you learn to call a LUIS app using PHP in this quickstart.
+description: In this tutorial, you learn to call a LUIS app using PHP.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -66,6 +66,6 @@ The two resources created in this tutorial are the LUIS subscription key and the
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances](luis-quickstart-php-add-utterance.md)
+> [Add utterances](luis-get-started-php-add-utterance.md)
 
 [LUIS]: luis-reference-regions.md#luis-website

@@ -7,10 +7,9 @@ manager: kfile
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid:
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: dimakwan
 
