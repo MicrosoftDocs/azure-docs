@@ -61,7 +61,7 @@
   - name: Register an Edge device
     items: 
     - name: Azure CLI
-      href: how-to-register-cli.md
+      href: how-to-register-device-cli.md
   - name: Use Edge devices as gateways
     items:
     - name: Transparent gateway
