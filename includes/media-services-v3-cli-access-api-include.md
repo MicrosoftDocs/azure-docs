@@ -37,7 +37,7 @@ This command produces a response similar to this:
   "ResourceGroup": "amsResourceGroup2",
   "SubscriptionId": "f7f09258-6753-4ca2-b1ae-193798e2c9d8"
 }
-``
+```
 
 If you would like to get an `xml` in the response, use the following command:
 
