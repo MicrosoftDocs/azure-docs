@@ -170,7 +170,7 @@
     - name: Add Phrase list
       items: 
       - name: How to add
-        href: Add-Features.md
+        href: luis-how-to-add-features.md
       - name: How to use
         href: luis-tutorial-interchangeable-phrase-list.md
     - name: Add Patterns
