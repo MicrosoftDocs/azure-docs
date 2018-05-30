@@ -17,8 +17,6 @@
       href: luis-quickstart-intents-only.md
     - name: Get data from entity
       items: 
-      - name: List entity
-        href: luis-quickstart-intent-and-list-entity.md
       - name: KeyPhrase entity
         href: luis-quickstart-intent-and-key-phrase.md
       - name: Sentiment analysis
@@ -31,6 +29,8 @@
         href: luis-quickstart-primary-and-secondary-data.md
       - name: Hierarchical entity
         href: luis-quickstart-intent-and-hier-entity.md
+      - name: List entity
+        href: luis-quickstart-intent-and-list-entity.md
       - name: Regular expresion entity
         href: luis-quickstart-intents-regex-entity.md
   - name: Use APIs
