@@ -137,9 +137,7 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`. Switch
    }
    ```
 
-Note how Kubernetes' DNS service discovery is employed to refer to the service as `http://mywebapi`. **Code in your dev space is running the same way it will run in production**.
-
-The "azds-route-as" key signals whether headers must be propagated to handle routing to a dev space. If it's present, your code should propagate specific headers from an existing ASP.NET HttpRequest object into an outgoing HttpRequestMessage object. You'll see later how this facilitates a more productive development experience in team scenarios.
+The preceding code example forwards the `azds-route-as` header from the incoming request to the outgoing request. You'll see later how this facilitates a more productive development experience in team scenarios.
 
 ### Debug across multiple services
 1. At this point, `mywebapi` should still be running with the debugger attached. If it is not, hit F5 in the `mywebapi` project.
