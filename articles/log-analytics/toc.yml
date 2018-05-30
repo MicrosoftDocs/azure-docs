@@ -141,6 +141,12 @@
       href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md
     - name: Create log alert
       href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
+    - name: Webhook actions for log alerts
+      href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md
+    - name: Create a log alert with a Resource Manager template
+      href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md
+    - name: Copy alerts from Log Analytics to Azure Alerts
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md
   - name: Manage
     items:
     - name: Personal data handling
