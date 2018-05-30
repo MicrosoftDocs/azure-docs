@@ -17,7 +17,7 @@ ms.date: 05/22/2018
 ms.author: jeedes
 
 ---
-# FAQ for the Azure Active Directory SSO plug-in 
+# FAQ for the Azure Active Directory SSO plug-in
 
 ## What does the plug-in do?
 
@@ -35,8 +35,8 @@ No. The plug-in supports only on-premises versions of Jira and Confluence.
 
 The plug-in supports these versions:
 
-* Jira Core and Software: 6.0 to 7.2.2 
-* Jira Service Desk: 3.0 to 3.2 
+* Jira Core and Software: 6.0 to 7.8
+* Jira Service Desk: 3.0 to 3.2
 * Confluence: 5.0 to 5.10
 
 ## Is the plug-in free or paid?
