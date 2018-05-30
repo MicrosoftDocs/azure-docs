@@ -102,7 +102,11 @@ The HTTPS protocol provides server authentication and is also used for encryptin
 > [!NOTE]
 > A service’s protocol cannot be changed during application upgrade. If it is changed during upgrade, it is a breaking change.
 > 
-> 
+
+> [!WARNING] 
+> Do not use the same port and certificate for different instances of the same application when using HTTPS. Upgrading two different services using the same port in different application instances will result in an upgrade failure.  For more information, see [Upgrading multiple applications with HTTPS endpoints
+](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+>
 
 Here is an example ApplicationManifest that you need to set for HTTPS. The thumbprint for your certificate must be provided. The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one EndpointCertificate.  
 
