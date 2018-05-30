@@ -268,38 +268,42 @@ After you successfully test the app locally, you can deploy the app to Azure and
 
 2. Select **Microsoft Azure App Service**, select **Create New**, and then select **Publish**.
 
-    ![Publish to app service](./media/cache-web-app-howto/cache-publish-to-app-service.png)
+    ![Publish to App Service](./media/cache-web-app-howto/cache-publish-to-app-service.png)
 
 3. In the **Create App Service** dialog box, make the following changes:
 
     | Setting | Recommended value | Description |
     | ------- | :---------------: | ----------- |
-    | **App Name** | Use default | The app name is the host name for the app when it's deployed to Azure. The name might have a timestamp suffix added to it to make it unique if necessary. |
+    | **App name** | Use default | The app name is the host name for the app when it's deployed to Azure. The name might have a timestamp suffix added to it to make it unique if necessary. |
     | **Subscription** | Choose your Azure subscription | This subscription is charged for any related hosting costs. If you have multiple Azure subscriptions, verify that the subscription that you want is selected.|
-    | **Resource Group** | Use the same resource group where you created the cache (for example, *TestResourceGroup*). | The resource group helps you manage all resources as a group. Later, when you want to delete the app, you can just delete the group. |
+    | **Resource group** | Use the same resource group where you created the cache (for example, *TestResourceGroup*). | The resource group helps you manage all resources as a group. Later, when you want to delete the app, you can just delete the group. |
     | **App Service plan** | Select **New**, and then create a new App Service plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
 
     ![App Service dialog box](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 
-4. After you configure the App Service hosting settings, select **Create** to create a new App Service for your app.
+4. After you configure the App Service hosting settings, select **Create**.
 
-5. Monitor the **Output** window in Visual Studio to see the publishing status. After publishing has successfully finished, the URL for the App Service is logged as shown below:
+5. Monitor the **Output** window in Visual Studio to see the publishing status. After the app has been published, the URL for the app is logged as shown below:
 
 ![Publishing output](./media/cache-web-app-howto/cache-publishing-output.png)
 
 ### Add the app setting for the cache
 
-After publishing has finished for the new App Service, add a new app setting. This setting is used to store the cache connection information. Type the app name in the search bar at the top of the Azure portal to find the new App Service you created.
+After the new app has been published, add a new app setting. This setting is used to store the cache connection information. 
 
-![Find App Service](./media/cache-web-app-howto/cache-find-app-service.png)
+#### To add the app setting 
 
-Add a new app setting named **CacheConnection** for the app to use to connect to the cache. Use the same value you configured for `CacheConnection` in your *CacheSecrets.config* file. The value contains the cache host name and access key.
+1. Type the app name in the search bar at the top of the Azure portal to find the new app you created.
 
-![Add app setting](./media/cache-web-app-howto/cache-add-app-setting.png)
+    ![Find app](./media/cache-web-app-howto/cache-find-app-service.png)
+
+2. Add a new app setting named **CacheConnection** for the app to use to connect to the cache. Use the same value you configured for `CacheConnection` in your *CacheSecrets.config* file. The value contains the cache host name and access key.
+
+    ![Add app setting](./media/cache-web-app-howto/cache-add-app-setting.png)
 
 ### Run the app in Azure
 
-In your browser, go to the URL for the App Service. The URL appears in the results of the publishing operation in the Visual Studio output window. It's also provided in the Azure portal on the overview page of the App Service you created.
+In your browser, go to the URL for the app. The URL appears in the results of the publishing operation in the Visual Studio output window. It's also provided in the Azure portal on the overview page of the app you created.
 
 Select **Azure Redis Cache Test** on the navigation bar to test cache access.
 
