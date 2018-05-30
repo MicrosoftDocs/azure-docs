@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C: Add an Azure AD provider using built-in policies | Microsoft Docs
+title: Add an Azure AD provider using built-in policies in Azure Active Directory B2C | Microsoft Docs
 description: Learn how to add an Open ID Connect identity provider (Azure AD).
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

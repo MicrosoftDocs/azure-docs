@@ -1,6 +1,7 @@
 ---
-title: Authentication, sign-up, edit profile .NET Azure Active Directory B2C | Microsoft Docs
+title: Authentication, sign-up, edit profile in Azure Active Directory B2C | Microsoft Docs
 description: How to build a Windows desktop application that includes sign-in, sign-up, and profile management by using Azure Active Directory B2C.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

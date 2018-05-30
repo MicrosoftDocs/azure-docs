@@ -1,6 +1,7 @@
 ---
-title: Language customization in Azure AD B2C| Microsoft Docs
+title: Language customization in Azure Active Directory B2C | Microsoft Docs
 description: Learn about customizing the language experience.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

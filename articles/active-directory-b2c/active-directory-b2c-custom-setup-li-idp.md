@@ -1,6 +1,7 @@
 ---
-title: 'Azure Active Directory B2C: Add LinkedIn as an OAuth2 identity provider by using custom policies'
+title: Add LinkedIn as an OAuth2 identity provider by using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: A How-To article about setting up a LinkedIn application by using the OAuth2 protocol and custom policies.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

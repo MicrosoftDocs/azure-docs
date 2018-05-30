@@ -1,6 +1,7 @@
 ﻿---
-title: 'Azure Active Directory B2C: Add your own attributes to custom policies and use in Profile Edit| Microsoft Docs'
+title: Add your own attributes to custom policies in Azure Active Directory B2C | Microsoft Docs
 description: A Walkthrough on using extension properties, custom attributes, and including them in the user interface.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

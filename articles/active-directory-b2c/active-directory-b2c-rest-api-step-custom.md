@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C: REST API claims exchanges as an orchestration step | Microsoft Docs
+title: REST API claims exchanges as an orchestration step in Azure Active Directory B2C | Microsoft Docs
 description: A topic on Azure Active Directory B2C custom policies that integrate with an API.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

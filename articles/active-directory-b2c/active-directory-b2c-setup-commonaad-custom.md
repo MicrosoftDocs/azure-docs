@@ -1,6 +1,7 @@
 ﻿---
-title: Add a multi-tenant Azure AD identity provider using custom policies - Azure Active Directory B2C | Microsoft Docs
+title: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Add a multi-tenant Azure AD identity provider using custom policies - Azure Active Directory B2C.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

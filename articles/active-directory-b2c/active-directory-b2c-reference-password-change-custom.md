@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C: Self-service password change| Microsoft Docs
+title: Self-service password change in Azure Active Directory B2C | Microsoft Docs
 description: A topic demonstrating how to set up self-service password change for your consumers in Azure Active Directory B2C.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

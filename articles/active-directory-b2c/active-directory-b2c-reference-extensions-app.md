@@ -1,10 +1,11 @@
 ﻿---
-title: Extensions app - Azure AD B2C | Microsoft Docs
+title: Extensions app in Azure Active Directory B2C | Microsoft Docs
 description: Restoring the b2c-extensions-app.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 9/06/2017

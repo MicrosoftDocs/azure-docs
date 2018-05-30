@@ -1,6 +1,7 @@
 ---
-title: Customize a UI by using custom policies - Azure AD B2C | Microsoft Docs
+title: Customize a UI by using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Learn about customizing a user interface (UI) while you use custom policies in Azure AD B2C.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

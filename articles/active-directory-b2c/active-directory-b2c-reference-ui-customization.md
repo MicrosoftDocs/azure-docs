@@ -1,6 +1,7 @@
 ﻿---
-title: User interface (UI) customization - Azure AD B2C | Microsoft Docs
+title: User interface (UI) customization in Azure Active Directory B2C | Microsoft Docs
 description: A topic on the user interface (UI) customization features in Azure Active Directory B2C.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

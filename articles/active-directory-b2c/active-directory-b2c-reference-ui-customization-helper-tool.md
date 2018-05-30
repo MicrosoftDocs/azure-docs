@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C: Page UI customization helper tool | Microsoft Docs
+title: Page UI customization helper tool in Azure Active Directory B2C | Microsoft Docs
 description: A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

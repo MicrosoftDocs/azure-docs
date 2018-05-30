@@ -1,6 +1,7 @@
 ---
-title: Adding OpenID Connect identity providers in built-in policies - Azure AD B2C | Microsoft Docs
+title: Adding OpenID Connect identity providers in built-in policies in Azure Active Directory B2C | Microsoft Docs
 description: Overview guide on how to add OpenID Connect providers in built-in policies within Azure AD B2C.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

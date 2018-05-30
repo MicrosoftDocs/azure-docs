@@ -1,13 +1,12 @@
 ---
-title: Types of Applications - Azure AD B2C | Microsoft Docs
+title: Types of Applications in Azure Active Directory B2C | Microsoft Docs
 description: The types of applications you can build in the Azure Active Directory B2C.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: davidmu1

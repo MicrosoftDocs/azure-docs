@@ -1,9 +1,9 @@
 ---
-title: Track user behavior by using events in Application Insights from Azure AD B2C | Microsoft Docs
+title: Track user behavior by using events in Application Insights from Azure Active Directory B2C | Microsoft Docs
 description: Step-by-step guide to enable event logs in Application Insights from Azure AD B2C user journeys by using custom policies (preview)
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-
 
 ms.service: active-directory
 ms.topic: article

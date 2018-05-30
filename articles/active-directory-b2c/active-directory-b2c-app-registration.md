@@ -1,6 +1,7 @@
 ﻿---
-title: Application registration - Azure Active Directory B2C 
+title: Application registration in Azure Active Directory B2C | Microsoft Docs 
 description: How to register your application with Azure Active Directory B2C
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

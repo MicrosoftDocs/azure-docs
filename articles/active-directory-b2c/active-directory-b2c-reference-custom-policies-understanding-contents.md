@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C: Understanding custom policies of the starter pack | Microsoft Docs
+title: Understanding custom policies of the starter pack in Azure Active Directory B2C | Microsoft Docs
 description: A topic on Azure Active Directory B2C custom policies.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

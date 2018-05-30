@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C: Support | Microsoft Docs
+title: Support for Azure Active Directory B2C | Microsoft Docs
 description: How to file support requests for Azure Active Directory B2C.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

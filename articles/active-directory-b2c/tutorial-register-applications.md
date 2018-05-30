@@ -1,6 +1,7 @@
 ﻿---
 title: Tutorial - Register an application to enable sign-up and sign-in using Azure Active Directory B2C | Microsoft Docs
 description: Use the Azure portal to create an Azure AD B2C tenant and register an application with it.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

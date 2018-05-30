@@ -1,6 +1,7 @@
 ---
-title: 'Create an Azure Active Directory B2C tenant | Microsoft Docs'
+title: Create an Azure Active Directory B2C tenant | Microsoft Docs
 description: A topic on how to create an Azure Active Directory B2C tenant.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

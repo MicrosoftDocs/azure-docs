@@ -1,6 +1,7 @@
 ﻿---
-title: Authentication, sign-up, password reset ASP.NET Azure Active Directory B2C
+title: Authentication, sign-up, password reset in Azure Active Directory B2C | Microsoft Docs
 description: How to build a web application that has sign-up/sign-in, profile edit, and password reset using Azure Active Directory B2C.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

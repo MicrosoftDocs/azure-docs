@@ -1,6 +1,7 @@
 ---
-title: Password complexity - Azure AD B2C | Microsoft Docs
+title: Password complexity in Azure Active Directory B2C | Microsoft Docs
 description: How to configure complexity requirements for passwords supplied by consumers in Azure Active Directory B2C.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

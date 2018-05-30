@@ -1,6 +1,7 @@
 ﻿---
-title: 'Azure Active Directory B2C: Developer notes on using custom policies | Microsoft Docs'
+title: Developer notes on using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Notes for developers on configuring and maintaining Azure AD B2C with custom policies.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 

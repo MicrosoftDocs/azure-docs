@@ -1,6 +1,7 @@
 ---
-title: Application Insights to troubleshoot Custom Policies - Azure AD B2C | Microsoft Docs
+title: Application Insights to troubleshoot Custom Policies in Azure Active Directory B2C | Microsoft Docs
 description: how to setup Application Insights to trace the execution of custom policies.
+services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 
