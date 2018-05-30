@@ -1,5 +1,5 @@
 ---
-title: Immutable Storage (WORM) for Azure Blob Storage (Preview) | Microsoft Docs
+title: Immutable storage feature of Azure Blob storage (Preview) | Microsoft Docs
 description: Azure Storage now offers WORM support for Blob object storage that allows you to store data in a non-erasable, non-modifiable state for a user-specified interval of time. This feature enables organizations in many regulated industries, particularly broker-dealer organizations to store data in a manner compliant with SEC 17a-4(f) and other regulations.
 services: storage
 author: sangsinh
@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
 ---
-# Immutable Storage (WORM) for Azure Blob Storage (Preview)
+# Immutable storage feature of Azure Blob storage (Preview)
 
 ## Overview
 
-The Immutable Storage  for Azure Blobs feature allows users to store business-critical data in Azure blob storage in a WORM (Write Once Read Many) state that makes it non-erasable, and non-modifiable for a user-specified interval of time. Blobs can be created and read, but not modified or deleted for the duration of the retention interval. This feature enables organizations in many regulated industries, particularly broker-dealer organizations to store data in a manner compliant with SEC 17a-4(f) and other regulations.
+The Immutable Storage feature for Azure Blobs feature allows users to store business-critical data in Azure blob storage in a WORM (Write Once Read Many) state that makes it non-erasable, and non-modifiable for a user-specified interval of time. Blobs can be created and read, but not modified or deleted for the duration of the retention interval. This feature enables organizations in many regulated industries, particularly broker-dealer organizations to store data in a manner compliant with SEC 17a-4(f) and other regulations.
 
 Typical applications include:
 
