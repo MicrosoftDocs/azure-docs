@@ -23,12 +23,12 @@ This tutorial shows how to send events to an event hub by using a console applic
 
 ## Prerequisites
 
-In order to complete this tutorial, you will need the following prerequisites:
+In order to complete this tutorial, you need the following prerequisites:
 
 * A Java development environment. This tutorial uses [Eclipse](https://www.eclipse.org/).
 * An active Azure account. If you do not have an Azure subscription, create a [free account][] before you begin.
 
-The code in this tutorial is based on the [Send GitHub sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), which you can examine to see the full working application.
+The code in this tutorial is based on the [SimpleSend GitHub sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), which you can examine to see the full working application.
 
 ## Send events to Event Hubs
 
@@ -89,7 +89,7 @@ Use the ConnectionStringBuilder class to construct a connection string value to 
 
 ### Send events
 
-Then, create a singular event by transforming a string into its UTF-8 byte encoding. Then, create a new Event Hubs client instance from the connection string and send the message.   
+Create a singular event by transforming a string into its UTF-8 byte encoding. Then, create a new Event Hubs client instance from the connection string and send the message:   
 
 ```java 
 byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
