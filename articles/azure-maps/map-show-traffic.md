@@ -1,7 +1,7 @@
 ---
 title: Show traffic with Azure Maps | Microsoft Docs
 description: How to display traffic data on a Javascript map
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
@@ -29,3 +29,9 @@ The second block of code uses [setTraffic](https://docs.microsoft.com/javascript
 Learn more about the classes and methods used in this article: 
 * [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic)
+
+For more code examples to add to your maps, see the following articles: 
+* [Interacting with the map – mouse events](./map-events.md)
+* [Building an accessible map](./map-accessibility.md)
+
+Check out our [code sample page](http://aka.ms/AzureMapsSamples) for more mapping scenarios.

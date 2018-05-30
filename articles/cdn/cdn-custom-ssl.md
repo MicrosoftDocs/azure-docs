@@ -120,9 +120,9 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
     ![Create new access policy](./media/cdn-custom-ssl/cdn-new-access-policy.png)
 
-    ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
+2. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, and choose **Microsoft.Azure.Cdn**. Click **Select**.
 
-2. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, and select **Microsoft.Azure.Cdn**.
+    ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
 3. In **Secret permissions**, select **Get** to allow CDN to perform these permissions to get and list the certificates. 
 
@@ -237,7 +237,7 @@ The following table shows the operation progress that occurs when you enable HTT
 | | The certificate has been successfully deployed to CDN network. |
 | 4 Complete | HTTPS has been successfully enabled on your domain. |
 
-\* This message does not appear unless an error has occurred. 
+\* This message doesn't appear unless an error has occurred. 
 
 If an error occurs before the request is submitted, the following error message is displayed:
 
@@ -289,7 +289,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 2. Do you use IP-based or SNI TLS/SSL?
 
-    **Azure CDN from Verizon** uses IP-based TLS/SSL. **Azure CDN Standard from Microsoft** used SNI TLS/SSL.
+    **Azure CDN from Verizon** uses IP-based TLS/SSL. **Azure CDN Standard from Microsoft** uses SNI TLS/SSL.
 
 3. *What if I don't receive the domain verification email from DigiCert?*
 

@@ -5,7 +5,6 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: overview
