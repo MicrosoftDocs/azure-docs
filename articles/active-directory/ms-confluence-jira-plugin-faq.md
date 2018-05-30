@@ -35,7 +35,7 @@ No. The plug-in supports only on-premises versions of Jira and Confluence.
 
 The plug-in supports these versions:
 
-* Jira Core and Software: 6.0 to 7.2.2 
+* Jira Core and Software: 6.0 to 7.8 
 * Jira Service Desk: 3.0 to 3.2 
 * Confluence: 5.0 to 5.10
 

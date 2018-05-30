@@ -57,7 +57,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 **Supported Versions:**
 
 *	JIRA Core and Software: 5.2
-*   JIRA also supports 6.0 and 7.2.0. For more details, click [JIRA SAML SSO by Microsoft](./active-directory-saas-jiramicrosoft-tutorial.md)
+*   JIRA also supports 6.0 and 7.8. For more details, click [JIRA SAML SSO by Microsoft](./active-directory-saas-jiramicrosoft-tutorial.md)
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment.
