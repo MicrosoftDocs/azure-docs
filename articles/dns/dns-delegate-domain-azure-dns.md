@@ -167,8 +167,6 @@ If you want to set up a separate child zone, you can delegate a subdomain in Azu
 1. Sign in to the Azure portal.
 1. On the **Hub** menu, select **New** > **Networking** > **DNS zone** to open the **Create DNS zone** page.
 
-   ![DNS zone](./media/dns-domain-delegation/dns.png)
-
 1. On the **Create DNS zone** page, enter the following values, and then select **Create**:
 
    | **Setting** | **Value** | **Details** |
@@ -206,96 +204,6 @@ Azure DNS automatically creates authoritative NS records in your zone for the as
    |**NAME SERVER**|{name servers from partners.contoso.net zone}|Enter all four of the name servers from the partners.contoso.net zone. |
 
    ![Values for the name server record](./media/dns-domain-delegation/partnerzone.png)
-
-
-### Delegate subdomains in Azure DNS by using other tools
-
-The following examples provide the steps to delegate subdomains in Azure DNS by using PowerShell and Azure CLI.
-
-#### PowerShell
-
-The following PowerShell example demonstrates how this works. You can complete the same steps via the Azure portal, or via the cross-platform Azure CLI tool.
-
-```powershell
-# Create the parent and child zones. These can be in the same resource group or different resource groups, because Azure DNS is a global service.
-$parent = New-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
-$child = New-AzureRmDnsZone -Name partners.contoso.net -ResourceGroupName contosoRG
-
-# Retrieve the authoritative NS records from the child zone as shown in the next example. This information contains the name servers assigned to the child zone.
-$child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
-
-# Create the corresponding NS record set in the parent zone to complete the delegation. The record set name in the parent zone matches the child zone name (in this case, "partners").
-$parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
-$parent_ns_recordset.Records = $child_ns_recordset.Records
-Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
-```
-
-Use `nslookup` to verify that everything is set up correctly by looking up the SOA record of the child zone.
-
-```
-nslookup -type=SOA partners.contoso.com
-```
-
-```
-Server: ns1-08.azure-dns.com
-Address: 208.76.47.8
-
-partners.contoso.com
-    primary name server = ns1-08.azure-dns.com
-    responsible mail addr = msnhst.microsoft.com
-    serial = 1
-    refresh = 900 (15 mins)
-    retry = 300 (5 mins)
-    expire = 604800 (7 days)
-    default TTL = 300 (5 mins)
-```
-
-#### Azure CLI
-
-```azurecli
-#!/bin/bash
-
-# Create the parent and child zones. These can be in the same resource group or different resource groups, because Azure DNS is a global service.
-az network dns zone create -g contosoRG -n contoso.net
-az network dns zone create -g contosoRG -n partners.contoso.net
-```
-
-Retrieve the name servers for the `partners.contoso.net` zone from the output.
-
-```
-{
-  "etag": "00000003-0000-0000-418f-250de2b2d201",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Network/dnszones/partners.contoso.net",
-  "location": "global",
-  "maxNumberOfRecordSets": 5000,
-  "name": "partners.contoso.net",
-  "nameServers": [
-    "ns1-09.azure-dns.com.",
-    "ns2-09.azure-dns.net.",
-    "ns3-09.azure-dns.org.",
-    "ns4-09.azure-dns.info."
-  ],
-  "numberOfRecordSets": 2,
-  "resourceGroup": "contosorg",
-  "tags": {},
-  "type": "Microsoft.Network/dnszones"
-}
-```
-
-Create the record set and NS records for each name server.
-
-```azurecli
-#!/bin/bash
-
-# Create the record set
-az network dns record-set ns create --resource-group contosorg --zone-name contoso.net --name partners
-
-# Create an NS record for each name server.
-az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns1-09.azure-dns.com.
-az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns2-09.azure-dns.net.
-az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns3-09.azure-dns.org.
-az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns4-09.azure-dns.info.
-```
 
 ## Clean up resources
 
