@@ -13,12 +13,8 @@
     items:
     - name: Use prebuilt domain
       href: luis-get-started-create-app.md
-    - name: Find user intention
+    - name: Use custom domain
       href: luis-quickstart-intents-only.md
-    - name: Get data from entity
-      items: 
-      - name: Sentiment analysis
-        href: luis-quickstart-intent-and-sentiment-analysis.md
 - name: Tutorials
   items: 
   - name: Get data from entity
@@ -33,6 +29,8 @@
         href: luis-quickstart-intents-regex-entity.md
       - name: KeyPhrase entity
         href: luis-quickstart-intent-and-key-phrase.md
+      - name: Sentiment analysis
+        href: luis-quickstart-intent-and-sentiment-analysis.md
   - name: Use APIs
     items: 
     - name: Get utterance prediction with endpoint query
@@ -136,7 +134,7 @@
   - name: Build Model
     items: 
     - name: Add intents
-      href: Add-intents.md
+      href: luis-how-to-add-intents.md
     - name: Add utterances
       href: luis-how-to-add-example-utterances.md
     - name: Add entities
@@ -172,7 +170,7 @@
     - name: Add Phrase list
       items: 
       - name: How to add
-        href: Add-Features.md
+        href: luis-how-to-add-features.md
       - name: How to use
         href: luis-tutorial-interchangeable-phrase-list.md
     - name: Add Patterns
