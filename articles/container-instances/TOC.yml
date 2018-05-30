@@ -78,7 +78,7 @@
   - name: PowerShell
     href: /powershell/module/azurerm.containerinstance#container_instances
   - name: .NET
-    href: /dotnet/api/overview/azure/containerinstances
+    href: /dotnet/api/overview/azure/containerinstance
   - name: Python
     href: /python/api/overview/azure/containerinstance
   - name: Java
