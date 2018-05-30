@@ -55,7 +55,8 @@ When a time-based retention policy or legal hold is applied on a container, all 
 > *There is an existing blob, testblob1, in that container that was created one year ago. The effective retention period for testblob1 will be four years.*
 > *A new blob, testblob2, is now uploaded to the container. The effective retention period for this new blob will be five years.*
 
-**Legal holds**
+### Legal holds
+
 In case of legal holds, all existing and new blobs will remain in the immutable state until the legal hold is cleared.
 For more information on how to set and clear legal holds, please refer to the Getting Started (Roy: please add link to the section) section below.
 
