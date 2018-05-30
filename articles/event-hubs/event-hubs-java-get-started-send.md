@@ -2,16 +2,11 @@
 title: Send events to Azure Event Hubs using Java | Microsoft Docs
 description: Get started sending to Event Hubs using Java
 services: event-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: ''
 
-ms.assetid: 
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: sethm
@@ -31,7 +26,7 @@ In order to complete this tutorial, you will need the following:
 * A Java development environment. For this tutorial, we assume [Eclipse](https://www.eclipse.org/).
 * An active Azure account. If you do not have an Azure subscription, create a [free account][] before you begin.
 
-The code in this tutorial is based on the [Send GitHub sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/Send), which you can examine to see the full working application.
+The code in this tutorial is based on the [Send GitHub sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), which you can examine to see the full working application.
 
 ## Send events to Event Hubs
 
