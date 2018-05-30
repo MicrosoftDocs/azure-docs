@@ -1,5 +1,5 @@
 ---
-title: "Data science code testing on Azure with UCI adult income prediction dataset - Team Data Science Process and Visual Studio Team Services"
+title: "Data science code testing on Azure with the UCI adult income prediction dataset - Team Data Science Process and Visual Studio Team Services"
 description: Data science code testing with UCI adult income prediction data
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -16,20 +16,25 @@ ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
 ---
-# Data science code testing with UCI adult income prediction dataset
+# Data science code testing with the UCI adult income prediction dataset
 This article gives preliminary guidelines for testing code in a data science workflow. Such testing gives data scientists a systematic and efficient way to check the quality and expected outcome of their code. We use a Team Data Science Process (TDSP) [project that uses the UCI Adult Income dataset](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) that we published earlier to show how code testing can be done. 
 
 ## Introduction on code testing
-"Unit testing" is a longstanding practice for software development. But for data science, it's often not clear what that means and how you should test code for different stages of a data science lifecycle, such as data preparation, data quality examination, modeling, and model deployment. 
+"Unit testing" is a longstanding practice for software development. But for data science, it's often not clear what that means and how you should test code for different stages of a data science lifecycle, such as:
 
-This article replaces the term "unit testing" with "code testing". It refers to testing as the functions that help to assess if code for a certain step of a data science lifecycle is producing results "as expected." The person who's writing the test defines what's "as expected," depending on the outcome of the function--for example, data quality check or modeling.
+* Data preparation
+* Data quality examination
+* Modeling
+* Model deployment 
+
+This article replaces the term "unit testing" with "code testing." It refers to testing as the functions that help to assess if code for a certain step of a data science lifecycle is producing results "as expected." The person who's writing the test defines what's "as expected," depending on the outcome of the function--for example, data quality check or modeling.
 
 This article provides references as useful resources.
 
 ## Visual Studio Team Services for the testing framework
 This article describes how to perform and automate testing by using Visual Studio Team Services (VSTS). You might decide to use alternative tools. We also show how to set up an automatic build by using VSTS and build agents. For build agents, we use Azure Data Science Virtual Machines (DSVMs).
 
-## Overall flow of code testing
+## Flow of code testing
 The overall workflow of testing code in a data science project looks like this: 
 
 ![Flow chart of code testing](./media/code-test/test-flow-chart.PNG)
@@ -72,7 +77,7 @@ Use the following steps to set up and run code testing and an automated build by
       ![Code for missing rate](./media/code-test/check_missing_rate.PNG)
 
 
-5. After you've done the data processing and feature engineering work, and you've trained a good model, make sure that the model you trained can score new data sets correctly. You can use the following two tests to check the prediction levels and distribution of label values:
+5. After you've done the data processing and feature engineering work, and you've trained a good model, make sure that the model you trained can score new datasets correctly. You can use the following two tests to check the prediction levels and distribution of label values:
 
 	* Check prediction levels:
 	
@@ -113,7 +118,7 @@ Use the following steps to set up and run code testing and an automated build by
 	
        ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
 
-	c. Select a template. Because there is no Python project template, start by selecting **Empty process**. 
+	c. Select a template. Because there's no Python project template, start by selecting **Empty process**. 
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
@@ -137,15 +142,15 @@ Use the following steps to set up and run code testing and an automated build by
 
 Now every time a new commit is pushed to the code repository, the build process will start automatically. (Here we use master as the repository, but you can define any branch.) The process runs the **test1.py** file in the agent machine to make sure that everything defined in the code runs correctly. 
 
-If alerts are set up correctly, you'll be notified in email when the build is finished. You can also check the build status in VSTS. If it failed, you can check the details of build and find out which piece is broken.
+If alerts are set up correctly, you'll be notified in email when the build is finished. You can also check the build status in VSTS. If it fails, you can check the details of the build and find out which piece is broken.
 
 ![Email notification of build success](./media/code-test/email_build_succeed.PNG)
 
 ![VSTS notification of build success](./media/code-test/vs_online_build_succeed.PNG)
 
 ## Next steps
-* See the [UCI Income prediction repository](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) for concrete examples of unit tests for data science scenarios.
-* Follow the preceding outline and examples from the UCI Income prediction scenario in your own data science projects.
+* See the [UCI income prediction repository](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) for concrete examples of unit tests for data science scenarios.
+* Follow the preceding outline and examples from the UCI income prediction scenario in your own data science projects.
 
 ## References
 * [Team Data Science Process](https://aka.ms/tdsp)
