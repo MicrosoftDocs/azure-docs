@@ -16,9 +16,11 @@ Azure Dev Spaces helps you develop with speed on Kubernetes. With Azure Dev Spac
 
 ## How Azure Dev Spaces simplifies Kubernetes development 
 
+A _dev space_ is the complete virtual infrastructure, hosted in the Azure cloud, required to build and run your set of related web apps and services. Azure Dev Spaces deploys a controller on your cluster which can manage multiple dev spaces that your team can use for different code branches.
+
 This approach carries several benefits:
 
-* Get an infrastructure-less development environment that is representative of production, with full access to cloud resources.
+* Get an infrastructure-less dev space that is representative of production, with full access to cloud resources.
 * Debug Node.js and .NET Core containers directly in Kubernetes with VS Code or Visual Studio. All other languages can be developed with the command-line interface.
 * Share a Kubernetes instance across your development team to save costs and to minimize local machine setup for new team members.
 * Develop your code in isolation, and do end-to-end testing with other components without replicating or mocking up dependencies.
