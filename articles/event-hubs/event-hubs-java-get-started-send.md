@@ -21,9 +21,11 @@ For more information, see the [Event Hubs overview][Event Hubs overview].
 
 This tutorial shows how to send events to an event hub by using a console application in Java. To receive events using the Java Event Processor Host library, see [this article](event-hubs-java-get-started-receive-eph.md), or click the appropriate receiving language in the left-hand table of contents.
 
-In order to complete this tutorial, you will need the following:
+## Prerequisites
 
-* A Java development environment. For this tutorial, we assume [Eclipse](https://www.eclipse.org/).
+In order to complete this tutorial, you will need the following prerequisites:
+
+* A Java development environment. This tutorial uses [Eclipse](https://www.eclipse.org/).
 * An active Azure account. If you do not have an Azure subscription, create a [free account][] before you begin.
 
 The code in this tutorial is based on the [Send GitHub sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), which you can examine to see the full working application.
