@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/28/2018
+ms.date: 05/31/2018
 ms.author: nepeters
 ---
 
@@ -91,7 +91,7 @@ virtual-kubelet-virtual-kubelet-linux   Ready     agent     42s       v1.8.3
 
 ## Schedule a pod in ACI
 
-Create a file named `virtual-kubelete-test.yaml` and copy in the following YAML. Replace the `nodeName` value with the name given to the Virtual Kubelet node.
+Create a file named `virtual-kubelete-test.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name given to the Virtual Kubelet node.
 
 ```yaml
 apiVersion: apps/v1beta1
