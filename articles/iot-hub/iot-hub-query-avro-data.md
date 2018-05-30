@@ -16,7 +16,7 @@ ms.author: Kevin.Saye; v-clay
 
 ---
 
-# Query Avro data from an Azure IoT Hub route
+# Query Avro data from an Azure IoT Hub route using Azure Data Lake Analytics
 
 This article is about how to efficiently route data from Azure IoT Hub to Azure services.  Following the blog post announcement—[Azure IoT Hub message routing: now with routing on message body], IoT Hub supports routing on either properties or the message body.
 
@@ -58,7 +58,7 @@ The section walks you through querying Avro data and exporting it to a CSV file,
     
     ![Screen capture for step 7a][img-query-avro-data-7a]
 
-    Running the script shown below, ADLA took 5 minutes when limited to 10 Analytic Units and processed 177 files, summarizing the output to a CSV file.
+    Running the script shown below, ADLA took 5 minutes when limited to 10 Analytic Units and processed 177 files, summarizing   the output to a CSV file.
     
     ![Screen capture for step 7b][img-query-avro-data-7b]
 
@@ -68,68 +68,67 @@ The section walks you through querying Avro data and exporting it to a CSV file,
 
     Actual U-SQL script for simple output to CSV:
     
-```
-    DROP ASSEMBLY IF EXISTS [Avro];
-    CREATE ASSEMBLY [Avro] FROM @"/Assemblies/Avro/Avro.dll";
-    DROP ASSEMBLY IF EXISTS [Microsoft.Analytics.Samples.Formats];
-    CREATE ASSEMBLY [Microsoft.Analytics.Samples.Formats] FROM @"/Assemblies/Avro/Microsoft.Analytics.Samples.Formats.dll";
-    DROP ASSEMBLY IF EXISTS [Newtonsoft.Json];
-    CREATE ASSEMBLY [Newtonsoft.Json] FROM @"/Assemblies/Avro/Newtonsoft.Json.dll";
-    DROP ASSEMBLY IF EXISTS [log4net];
-    CREATE ASSEMBLY [log4net] FROM @"/Assemblies/Avro/log4net.dll";
-    
-    REFERENCE ASSEMBLY [Newtonsoft.Json];
-    REFERENCE ASSEMBLY [log4net];
-    REFERENCE ASSEMBLY [Avro];
-    REFERENCE ASSEMBLY [Microsoft.Analytics.Samples.Formats];
+    ```
+        DROP ASSEMBLY IF EXISTS [Avro];
+        CREATE ASSEMBLY [Avro] FROM @"/Assemblies/Avro/Avro.dll";
+        DROP ASSEMBLY IF EXISTS [Microsoft.Analytics.Samples.Formats];
+        CREATE ASSEMBLY [Microsoft.Analytics.Samples.Formats] FROM @"/Assemblies/Avro/Microsoft.Analytics.Samples.Formats.dll";
+        DROP ASSEMBLY IF EXISTS [Newtonsoft.Json];
+        CREATE ASSEMBLY [Newtonsoft.Json] FROM @"/Assemblies/Avro/Newtonsoft.Json.dll";
+        DROP ASSEMBLY IF EXISTS [log4net];
+        CREATE ASSEMBLY [log4net] FROM @"/Assemblies/Avro/log4net.dll";
 
-    // Blob container storage account filenames, with any path
-    DECLARE @input_file string = @"wasb://hottubrawdata@kevinsayazstorage/kevinsayIoT/{*}/{*}/{*}/{*}/{*}/{*}";
-    DECLARE @output_file string = @"/output/output.csv";
-    
-    @rs =
-    EXTRACT
-    EnqueuedTimeUtc string,
-    Body byte[]
-    FROM @input_file
-    
-    USING new Microsoft.Analytics.Samples.Formats.ApacheAvro.AvroExtractor(@"
-    {
-    ""type"":""record"",
-    ""name"":""Message"",
-    ""namespace"":""Microsoft.Azure.Devices"",
-    ""fields"":[{
-    ""name"":""EnqueuedTimeUtc"",
-    ""type"":""string""
-    },
-    {
-    ""name"":""Properties"",
-    ""type"":{
-    ""type"":""map"",
-    ""values"":""string""
-    }
-    },
-    {
-    ""name"":""SystemProperties"",
-    ""type"":{
-    ""type"":""map"",
-    ""values"":""string""
-    }
-    },
-    {
-    ""name"":""Body"",
-    ""type"":[""null"",""bytes""]
-    }
-    ]
-    }");
-    
-    @cnt =
-    SELECT EnqueuedTimeUtc AS time, Encoding.UTF8.GetString(Body) AS jsonmessage
-    FROM @rs;
-    
-    OUTPUT @cnt TO @output_file USING Outputters.Text(); 
-```
+        REFERENCE ASSEMBLY [Newtonsoft.Json];
+        REFERENCE ASSEMBLY [log4net];
+        REFERENCE ASSEMBLY [Avro];
+        REFERENCE ASSEMBLY [Microsoft.Analytics.Samples.Formats];
 
+        // Blob container storage account filenames, with any path
+        DECLARE @input_file string = @"wasb://hottubrawdata@kevinsayazstorage/kevinsayIoT/{*}/{*}/{*}/{*}/{*}/{*}";
+        DECLARE @output_file string = @"/output/output.csv";
+
+        @rs =
+        EXTRACT
+        EnqueuedTimeUtc string,
+        Body byte[]
+        FROM @input_file
+
+        USING new Microsoft.Analytics.Samples.Formats.ApacheAvro.AvroExtractor(@"
+        {
+        ""type"":""record"",
+        ""name"":""Message"",
+        ""namespace"":""Microsoft.Azure.Devices"",
+        ""fields"":[{
+        ""name"":""EnqueuedTimeUtc"",
+        ""type"":""string""
+        },
+        {
+        ""name"":""Properties"",
+        ""type"":{
+        ""type"":""map"",
+        ""values"":""string""
+        }
+        },
+        {
+        ""name"":""SystemProperties"",
+        ""type"":{
+        ""type"":""map"",
+        ""values"":""string""
+        }
+        },
+        {
+        ""name"":""Body"",
+        ""type"":[""null"",""bytes""]
+        }
+        ]
+        }");
+
+        @cnt =
+        SELECT EnqueuedTimeUtc AS time, Encoding.UTF8.GetString(Body) AS jsonmessage
+        FROM @rs;
+
+        OUTPUT @cnt TO @output_file USING Outputters.Text(); 
+    ```
 8. Most IoT messages are in JSON format.  Adding the following lines, you can parse the message into JSON, so you can add the WHERE clauses and only output the needed data.
     ![Screen capture for step 8a][img-query-avro-data-8a]
 
