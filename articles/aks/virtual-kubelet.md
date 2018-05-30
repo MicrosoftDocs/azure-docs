@@ -110,7 +110,11 @@ spec:
         image: microsoft/aci-helloworld
         ports:
         - containerPort: 80
-      nodeSelector: kubernetes.io/hostname=virtual-kubelet-virtual-kubelet-linux
+      nodeSelector:
+        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-linux
+      tolerations:
+      - key: azure.com/aci
+        effect: NoSchedule
 ```
 
 Run the application with the [kubectl create][kubectl-create] command.
