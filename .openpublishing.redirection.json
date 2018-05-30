@@ -8817,7 +8817,7 @@
         },
         {
             "source_path": "articles/iot-hub/iot-hub-what-is-azure-iot.md",
-            "redirect_url": "/azure/iot/",
+            "redirect_url": "/azure/iot-fundamentals/iot-introduction",
             "redirect_document_id": false
         },
         {
@@ -22009,6 +22009,16 @@
         {
             "source_path": "articles/cognitive-services/LUIS/luis-quickstart-ruby-add-utterance.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-ruby-add-utterance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-scaling-app-template.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-linux",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/App-Dashboard.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-use-dashboard",
             "redirect_document_id": true
         },
         {
