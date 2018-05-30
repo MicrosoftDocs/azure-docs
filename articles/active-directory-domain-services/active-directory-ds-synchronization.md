@@ -21,7 +21,7 @@ ms.author: maheshu
 # Synchronization in an Azure AD Domain Services managed domain
 The following diagram illustrates how synchronization works in Azure AD Domain Services managed domains.
 
-![Synchronization topology in Azure AD Domain Services](./media/active-directory-domain-services-design-guide/sync-topology.png)
+![Synchronization in Azure AD Domain Services](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
 ## Synchronization from your on-premises directory to your Azure AD tenant
 Azure AD Connect sync is used to synchronize user accounts, group memberships, and credential hashes to your Azure AD tenant. Attributes of user accounts such as the UPN and on-premises SID (security identifier) are synchronized. If you use Azure AD Domain Services, legacy credential hashes required for NTLM and Kerberos authentication are also synchronized to your Azure AD tenant.
@@ -41,7 +41,7 @@ The synchronization process is also one-way/unidirectional in nature. Your manag
 ## Synchronization from a multi-forest on-premises environment
 Many organizations have a fairly complex on-premises identity infrastructure consisting of multiple account forests. Azure AD Connect supports synchronizing users, groups, and credential hashes from multi-forest environments to your Azure AD tenant.
 
-In contrast, your Azure AD tenant is a much simpler and flat namespace. To enable users to reliably access applications secured by Azure AD, resolve UPN conflicts across user accounts in different forests. Your Azure AD Domain Services managed domain bears close resemblance to your Azure AD tenant. Therefore, you see a flat OU structure in your managed domain. All users and groups are stored within the 'AADDC Users' container, regardless of the on-premises domain or forest from which they were synced in. You may have configured a hierarchical OU structure on-premises. However, your managed domain still has a simple flat OU structure.
+In contrast, your Azure AD tenant is a much simpler and flat namespace. To enable users to reliably access applications secured by Azure AD, resolve UPN conflicts across user accounts in different forests. Your Azure AD Domain Services managed domain bears close resemblance to your Azure AD tenant. Therefore, you see a flat OU structure in your managed domain. All user accounts and groups are stored within the 'AADDC Users' container, regardless of the on-premises domain or forest from which they were synced in. You may have configured a hierarchical OU structure on-premises. However, your managed domain still has a simple flat OU structure.
 
 ## Exclusions - what isn't synchronized to your managed domain
 The following objects or attributes are not synchronized to your Azure AD tenant or to your managed domain:
@@ -112,7 +112,7 @@ The following table illustrates how specific attributes for group objects in you
 | securityEnabled |groupType |
 
 ## Password hash synchronization and security considerations
-When you enable Azure AD Domain Services for your Azure AD directory, your directory is configured to start generating and storing password hashes in NTLM & Kerberos compatible formats. 
+When you enable Azure AD Domain Services, your Azure AD directory generates and stores password hashes in NTLM & Kerberos compatible formats. 
 
 For existing cloud user accounts, since Azure AD never stores their clear-text passwords, these hashes cannot be automatically generated. Therefore, Microsoft requires [cloud-users to reset/change their passwords](active-directory-ds-getting-started-password-sync.md) in order for their password hashes to be generated and stored in Azure AD. For any cloud user account created in Azure AD after enabling Azure AD Domain Services, the password hashes are generated and stored in the NTLM and Kerberos compatible formats. 
 
