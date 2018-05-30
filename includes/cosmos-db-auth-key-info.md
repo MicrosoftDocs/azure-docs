@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> This quick start hard codes the Cosmos DB authentication key for the sake of demonstrating the Cosmos DB SQL API. **Do not** hard code the authentication key in a production app. To learn how to access Cosmos DB in a securely via a broker and resource tokens, view this [article](https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/cosmosdb/authentication)
