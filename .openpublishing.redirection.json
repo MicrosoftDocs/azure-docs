@@ -3831,6 +3831,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/user/azure-stack-powershell-install.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-powershell-install",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-stack/azure-stack-create-vpn-connection-one-node-tp2.md",
             "redirect_url": "/azure/azure-stack/azure-stack-create-vpn-connection-one-node",
             "redirect_document_id": false
@@ -8802,7 +8807,7 @@
         },
         {
             "source_path": "articles/iot-hub/iot-hub-what-is-azure-iot.md",
-            "redirect_url": "/azure/iot/",
+            "redirect_url": "/azure/iot-fundamentals/iot-introduction",
             "redirect_document_id": false
         },
         {
@@ -21994,6 +21999,11 @@
         {
             "source_path": "articles/cognitive-services/LUIS/luis-quickstart-ruby-add-utterance.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-ruby-add-utterance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/App-Dashboard.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-use-dashboard",
             "redirect_document_id": true
         },
         {

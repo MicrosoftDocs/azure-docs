@@ -103,7 +103,7 @@ With the introduction of a field called **Client App** in the Sign-in activity l
 **Product capability:** GoLocal
  
 
-Customers in Europe requires their data to stay in Europe and not replicated outside of European datacenters for meeting privacy and European laws. This [article](https://go.microsoft.com/fwlink/?linkid=872328%20) provides the specific details on what identity information will be stored within Europe and also provide details on information that will be stored outside European datacenters. 
+Customers in Europe requires their data to stay in Europe and not replicated outside of European datacenters for meeting privacy and European laws. This [article](https://go.microsoft.com/fwlink/?linkid=872328) provides the specific details on what identity information will be stored within Europe and also provide details on information that will be stored outside European datacenters. 
 
  
 
