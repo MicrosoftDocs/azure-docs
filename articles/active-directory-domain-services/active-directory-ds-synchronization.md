@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 05/30/2018
 ms.author: maheshu
 
 ---
@@ -110,6 +110,15 @@ The following table illustrates how specific attributes for group objects in you
 | objectid |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | securityEnabled |groupType |
+
+## Password hash synchronization and security considerations
+When you enable Azure AD Domain Services for your Azure AD directory, your directory is configured to start generating and storing password hashes in NTLM & Kerberos compatible formats. 
+
+For existing cloud user accounts, since Azure AD never stores their clear-text passwords, these hashes cannot be automatically generated. Therefore, Microsoft requires [cloud-users to reset/change their passwords](active-directory-ds-getting-started-password-sync.md) in order for their password hashes to be generated and stored in Azure AD. For any cloud user account created in Azure AD after enabling Azure AD Domain Services, the password hashes are generated and stored in the NTLM and Kerberos compatible formats. 
+
+For user accounts synced from on-premises AD using Azure AD Connect Sync, you need to [configure Azure AD Connect to synchronize password hashes in the NTLM and Kerberos compatible formats](active-directory-ds-getting-started-password-sync-synced-tenant.md).
+
+The NTLM and Kerberos compatible password hashes are always stored in an encrypted manner in Azure AD. These hashes are encrypted such that only Azure AD Domain Services has access to the decryption keys. No other service or component in Azure AD has access to the decryption keys. The encryption keys are unique per-Azure AD tenant. Azure AD Domain Services synchronizes the password hashes into the domain controllers for your managed domain. These password hashes are stored and secured on these domain controllers similar to how passwords are stored and secured on Windows Server AD domain controllers. The disks for these managed domain controllers are encrypted at rest.
 
 ## Objects that are not synchronized to your Azure AD tenant from your managed domain
 As described in a preceding section of this article, there is no synchronization from your managed domain back to your Azure AD tenant. You may choose to [create a custom Organizational Unit (OU)](active-directory-ds-admin-guide-create-ou.md) in your managed domain. Further, you can create other OUs, users, groups, or service accounts within these custom OUs. None of the objects created within custom OUs are synchronized back to your Azure AD tenant. These objects are available for use only within your managed domain. Therefore, these objects are not visible using Azure AD PowerShell cmdlets, Azure AD Graph API or using the Azure AD management UI.
