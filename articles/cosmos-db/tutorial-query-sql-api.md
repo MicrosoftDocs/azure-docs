@@ -7,7 +7,6 @@ manager: kfile
 editor: ''
 tags: ''
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.devlang: na

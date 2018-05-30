@@ -31,7 +31,7 @@ If you don’t have an account, you can create a free trial account in just a co
 
 Before you deploy the solution to your Azure subscription, you must choose some configuration options:
 
-1. Sign in to [azureiotsuite.com](https://www.azureiotsuite.com) using your Azure account credentials, and click **+** to create a new solution:
+1. Sign in to [azureiotsuite.com](https://www.azureiotsolutions.com) using your Azure account credentials, and click **+** to create a new solution:
 
     ![Create a new solution](./media/iot-accelerators-device-simulation-deploy/createnewsolution.png)
 

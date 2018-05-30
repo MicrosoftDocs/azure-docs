@@ -5,7 +5,6 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 4ebc883e-c512-4e34-bd10-19f048661159
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
 ms.devlang: python
