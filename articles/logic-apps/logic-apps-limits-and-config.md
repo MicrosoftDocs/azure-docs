@@ -165,9 +165,12 @@ Here are the limits for custom connectors that you can create from web APIs.
 ### Artifact limits per integration account
 
 Here are the limits on the number of artifacts for each integration account. 
-For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 *Free tier*
+
+Use the free tier only for exploratory scenarios, not production scenarios. 
+This tier restricts throughput and usage, and has no service-level agreement (SLA).
 
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
