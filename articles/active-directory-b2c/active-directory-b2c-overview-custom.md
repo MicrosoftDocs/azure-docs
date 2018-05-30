@@ -5,7 +5,6 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 
-ms.topic: article
 ms.service: active-directory
 ms.workload: identity
 ms.date: 04/04/2017
@@ -23,9 +22,9 @@ Custom policies are configuration files that define the behavior of your Azure A
 
 ## Comparing built-in policies and custom policies
 
-| | Built in policies | Custom policies |
+| | Built-in policies | Custom policies |
 |-|-------------------|-----------------|
-|Target users | All app developers with or without identity expertise | Identity pros: systems integrators, consultants and in-house identity teams. They are comfortable with OpenIDConnect flows, and understand identity providers and claims-based authentication |
+|Target users | All app developers with or without identity expertise | Identity pros: systems integrators, consultants, and in-house identity teams. They are comfortable with OpenIDConnect flows, and understand identity providers and claims-based authentication |
 |Configuration method | Azure portal with a user-friendly UI | Directly editing XML files and then uploading to the Azure portal |
 |UI customization | Full UI customization, including HTML, CSS, and javascript support(requires custom domain)<br><br>Multilanguage support with Custom strings | Same |
 | Attribute customization | Standard and custom attributes | Same |
@@ -35,16 +34,16 @@ Custom policies are configuration files that define the behavior of your Azure A
 
 ## Policy files
 
-A custom policy is represented as one or several XML-formatted files which refer to each other in a hierarchical chain. The XML elements define: Claims schema, claims transformations, content definitions, claims providers/technical profiles, and User journey orchestration steps, among other elements.
+A custom policy is represented as one or several XML-formatted files that refer to each other in a hierarchical chain. The XML elements define: Claims schema, claims transformations, content definitions, claims providers/technical profiles, and User journey orchestration steps, among other elements.
 
 We recommend the use of three types of policy files:
 
 - **A BASE file**, which contains most of the definitions and for which Azure provides a complete sample.  We recommend you make a minimum number of changes to this file to help with troubleshooting, and long-term maintenance of your policies
 - **an EXTensions file** that holds the unique configuration changes for your tenant
-- **a Relying Party (RP) file** which is the single task-focused file that is invoked directly by the application or service (aka Relying Party).  Read the article on Policy file definitions for more information.  Each unique task requires its own RP and depending on branding requirements the number might be "total of applications x total number of use cases".
+- **a Relying Party (RP) file** that is the single task-focused file that is invoked directly by the application or service (aka Relying Party).  Read the article on Policy file definitions for more information.  Each unique task requires its own RP and depending on branding requirements the number might be "total of applications x total number of use cases."
 
 
-Built-in policies in Azure AD B2C follow the 3-file pattern depicted above, but the developer only sees the Relying Party (RP) file, while the portal makes changes in the background to the EXTensions file.
+Built-in policies in Azure AD B2C follow the three-file pattern depicted above, but the developer only sees the Relying Party (RP) file, while the portal makes changes in the background to the EXTensions file.
 
 ## Core concepts you should know when using custom policies
 
@@ -53,10 +52,10 @@ Built-in policies in Azure AD B2C follow the 3-file pattern depicted above, but 
 Azure’s customer identity and access management (CIAM) service. The service includes:
 
 1. A user directory in the form of a special-purpose Azure Active Directory accessible via Microsoft Graph and which holds user data for both local accounts and federated accounts 
-2. Access to the **Identity Experience Framework** which orchestrates trust between users and entities and passes claims between them to complete an identity/access management task 
+2. Access to the **Identity Experience Framework** that orchestrates trust between users and entities and passes claims between them to complete an identity/access management task 
 3. A security token service (STS) issuing ID tokens, refresh tokens, and access tokens (and equivalent SAML assertions) and validating them to protect resources.
 
-Azure AD B2C interacts with identity providers, users, other systems, and with the local user directory in sequence to achieve an identity task (for example login a user, register a new user, reset a password). The underlying platform which establishes multi-party trust and executes these steps is called the Identity Experience Framework and a policy (also called a user journey or a Trust framework policy) explicitly defines the actors, the actions, the protocols, and the sequence of steps to complete.
+Azure AD B2C interacts with identity providers, users, other systems, and with the local user directory in sequence to achieve an identity task (for example login a user, register a new user, reset a password). The underlying platform that establishes multi-party trust and executes these steps is called the Identity Experience Framework and a policy (also called a user journey or a Trust framework policy) explicitly defines the actors, the actions, the protocols, and the sequence of steps to complete.
 
 ### Identity Experience Framework
 
@@ -64,12 +63,12 @@ A fully configurable, policy-driven, cloud-based Azure platform that orchestrate
 
 ### Built-in policies
 
-Predefined configuration files that direct the behavior of Azure AD B2C to perform the most commonly used identity tasks (i.e. user registration, sign in, password reset) and interact with trusted parties whose relationship is also predefined in Azure AD B2C (for example Facebook identity provider, LinkedIn, Microsoft Account, Google accounts).  In the future, built-in policies may also provide for customization of identity providers that are typically in the enterprise realm such as Azure Active Directory Premium, Active Directory/ADFS, Salesforce ID Provider etc.
+Predefined configuration files that direct the behavior of Azure AD B2C to perform the most commonly used identity tasks (that is, user registration, sign in, password reset) and interact with trusted parties whose relationship is also predefined in Azure AD B2C (for example Facebook identity provider, LinkedIn, Microsoft Account, Google accounts).  In the future, built-in policies may also provide for customization of identity providers that are typically in the enterprise realm such as Azure Active Directory Premium, Active Directory/ADFS, Salesforce ID Provider etc.
 
 
 ### Custom policies
 
-Configuration files that define the behavior of Identity Experience Framework in your Azure AD B2C tenant. A custom policy is accessible as one or several XML files (see Policy Files definitions) that are executed by the Identity Experience Framework when invoked by a relying party (for example an application). Custom policies can be directly edited by an identity developer to complete a near unlimited number of tasks. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys and certificates as needed by each identity provider.
+Configuration files that define the behavior of Identity Experience Framework in your Azure AD B2C tenant. A custom policy is accessible as one or several XML files (see Policy Files definitions) that are executed by the Identity Experience Framework when invoked by a relying party (for example an application). Custom policies can be directly edited by an identity developer to complete a near unlimited number of tasks. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys, and certificates as needed by each identity provider.
 
 ## Policy File Definitions for Identity Experience Framework trust frameworks
 

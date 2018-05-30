@@ -14,10 +14,10 @@ ms.component: B2C
 ---
 
 # Azure Active Directory B2C: Manage SSO and token customization with custom policies
-Using custom policies provides you the same control over your token, session and single sign-on (SSO) configurations as through built-in policies.  To learn what each setting does, please see the documentation [here](#active-directory-b2c-token-session-sso).
+Using custom policies provides you the same control over your token, session and single sign-on (SSO) configurations as through built-in policies.  To learn what each setting does, see the documentation [here](#active-directory-b2c-token-session-sso).
 
 ## Token lifetimes and claims configuration
-To change the settings on your token lifetimes, you need to add a `<ClaimsProviders>` element in the relying party file of the policy you want to impact.  The `<ClaimsProviders>` element is a child of the `<TrustFrameworkPolicy>`.  Inside you'll need to put the information that affects your token lifetimes.  The XML looks like this:
+To change the settings on your token lifetimes, you need to add a `<ClaimsProviders>` element in the relying party file of the policy you want to impact.  The `<ClaimsProviders>` element is a child of the `<TrustFrameworkPolicy>`.  Inside, you'll need to put the information that affects your token lifetimes.  The XML looks like this example:
 
 ```XML
 <ClaimsProviders>
@@ -72,6 +72,7 @@ with this line:
 ```
 
 ## Session behavior and SSO
+
 To change your session behavior and SSO configurations, you need to add a `<UserJourneyBehaviors>` element inside of the `<RelyingParty>` element.  The `<UserJourneyBehaviors>` element must immediately follow the `<DefaultUserJourney>`.  The inside of your `<UserJourneyBehavors>` element should look like this:
 
 ```XML
@@ -81,11 +82,8 @@ To change your session behavior and SSO configurations, you need to add a `<User
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
-**Single sign on (SSO) configuration**
-To change the single sign-on configuration, you need to modify the value of `<SingleSignOn>`.  The applicable values are `Tenant`, `Application`, `Policy` and `Disabled`. 
+**Single sign on (SSO) configuration** - To change the single sign-on configuration, you need to modify the value of `<SingleSignOn>`.  The applicable values are `Tenant`, `Application`, `Policy` and `Disabled`. 
 
-**Web app session lifetime (minutes)**
-To change the web app session lifetime, you need to modify value of the `<SessionExpiryInSeconds>` element.  The default value in built-in policies is 86400 seconds (1440 minutes).
+**Web app session lifetime (minutes)** - To change the web app session lifetime, you need to modify value of the `<SessionExpiryInSeconds>` element.  The default value in built-in policies is 86400 seconds (1440 minutes).
 
-**Web app session time out**
-To change the web app session timeout, you need to modify the value of `<SessionExpiryType>`.  The applicable values are `Absolute` and `Rolling`.
+**Web app session time-out** - To change the web app session timeout, you need to modify the value of `<SessionExpiryType>`.  The applicable values are `Absolute` and `Rolling`.
