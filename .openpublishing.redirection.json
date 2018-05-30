@@ -8452,13 +8452,13 @@
         },
         {
             "source_path": "articles/virtual-network/virtual-network-nsg-troubleshoot-portal.md",
-            "redirect_url": "/azure/networking/diagnose-network-traffic-filter-problem",
+            "redirect_url": "/azure/virtual-network/diagnose-network-traffic-filter-problem",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-network/virtual-network-nsg-troubleshoot-powershell.md",
-            "redirect_url": "/azure/networking/diagnose-network-traffic-filter-problem",
-            "redirect_document_id": false
+            "redirect_url": "/azure/virtual-network/diagnose-network-traffic-filter-problem",
+            "redirect_document_id": true
         },        
         {
             "source_path": "articles/virtual-network/resource-groups-networking.md",
