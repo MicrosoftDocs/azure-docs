@@ -14,7 +14,7 @@ ms.date: 05/07/2018
 
 # What is a field programmable gate array (FPGA)?
 
-Field programmable gate arrays (FPGA) are integrated circuits that can be reconfigured as needed. You can change an FPGA as needed to implement new logic. Azure Machine Learning Hardware Accelerated Models allow you to deploy trained models to FPGAs in the Azure cloud.
+Field programmable gate arrays (FPGA) are integrated circuits that can be reconfigured as needed. You can modify an FPGA device to implement new logic, as opposed to application specific integrated circuits (ASICs). Azure Machine Learning Hardware Accelerated Models allow you to deploy trained models to FPGAs in the Azure cloud.
 
 This functionality is powered by Project Brainwave, which handles translating deep neural networks (DNN) into an FPGA program. 
 
