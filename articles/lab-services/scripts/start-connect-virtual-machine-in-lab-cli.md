@@ -17,7 +17,7 @@ ms.author: spelluru
 ms.custom: mvc
 ---
 
-# Use Azure CLI to start a virtual machine in a lab in Azure DevTest labs
+# Use Azure CLI to start a virtual machine in a lab in Azure DevTest Labs
 
 This Azure CLI script starts a virtual machine (VM) in a lab. 
 
