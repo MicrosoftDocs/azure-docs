@@ -146,4 +146,4 @@ A few things to keep in mind when reviewing the list of routes returned:
   * If a default route is advertised over BGP
 * For VNet peering traffic to work correctly, a system route with **nextHopType** *VNetPeering* must exist for the peered VNet’s prefix range. If such a route doesn’t exist and the VNet peering link looks OK:
   * Wait a few seconds and retry if it's a newly established peering link. It occasionally takes longer to propagate routes to all the network interfaces in a subnet.
-  * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](virtual-network-nsg-troubleshoot-portal.md) article.
+  * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](diagnose-network-traffic-filter-problem.md) article.
