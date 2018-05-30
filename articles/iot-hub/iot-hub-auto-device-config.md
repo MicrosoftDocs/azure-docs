@@ -1,19 +1,13 @@
 ---
 title: Configure and monitor IoT devices at scale with Azure IoT Hub | Microsoft Docs
 description: Use Azure IoT Hub automatic device configurations to assign a configuration to multiple devices
-services: iot-hub
-documentationcenter: ''
 author: ChrisGMsft
-manager: timlt
-editor: ''
-
+manager: bruz
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-
 ---
 
 # Configure and monitor IoT devices at scale - preview
