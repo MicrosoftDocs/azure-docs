@@ -17,7 +17,7 @@ ms.author: sngun
 
 # Azure PowerShell samples for Azure Cosmos DB
 
-The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB. At this time you can only manage the Azure Cosmos DB accountlayer via PowerShell; other resources such as databases and collections cannot be managed via PowerShell.
+The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB. At this time, you can only manage the Azure Cosmos DB account via PowerShell; other resources such as databases and collections cannot be managed via PowerShell.
 
 | |  |
 |---|---|
@@ -32,6 +32,6 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | [Get MongoDB connection string](scripts/secure-mongo-connection-string-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Gets the connection string to connect your MongoDB app to your Azure Cosmos DB account.|
 |[Regenerate account keys](scripts/secure-regenerate-key-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Regenerates the master or read-only key for the account.|
 |[Create a firewall](scripts/create-firewall-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an inbound IP access control policy to limit access to the account from an approved set of machines and/or cloud services.|
-|**High availability, disaster recovery, backup and restore**||
+|**High availability, disaster recovery, backup, and restore**||
 |[Configure failover policy](scripts/ha-failover-policy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Sets the failover priority of each region in which the account is replicated.|
 |||
