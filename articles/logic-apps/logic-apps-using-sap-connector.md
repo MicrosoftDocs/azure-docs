@@ -1,11 +1,11 @@
 ---
 # required metadata
 title: Connect to SAP systems - Azure Logic Apps | Microsoft Docs
-description: Learn how to access SAP systems with automated workflows in Azure Logic Apps
+description: How to access SAP systems with automated workflows in Azure Logic Apps
 author: ecfan
 manager: cfowler
 ms.author: estfan
-ms.date: 05/29/2018
+ms.date: 05/31/2018
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
@@ -26,8 +26,8 @@ resources in your SAP systems.
 This example uses a logic app that you can trigger with an HTTP request. 
 The logic app sends an Intermediate Document (IDoc) to an SAP server, 
 and returns a response to the requestor that called the logic app.
-The current SAP connectors have actions, but not triggers, so this example uses the 
-[HTTP request trigger](../connectors/connectors-native-reqres.md) 
+The current SAP connectors have actions, but not triggers, so this 
+example uses the [HTTP request trigger](../connectors/connectors-native-reqres.md) 
 as the first step in the logic app's workflow. For SAP 
 connector-specific technical information, see these reference articles: 
 
@@ -39,8 +39,10 @@ If you don't have an Azure subscription yet,
 
 ## Prerequisites
 
-* The logic app where you want to access your SAP system 
-and a trigger that starts your logic app's workflow. 
+To follow along with this article, you need these items:
+
+* The logic app from where you want to access your SAP 
+system and a trigger that starts your logic app's workflow. 
 The SAP connectors currently provide only actions. 
 If you're new to logic apps, review 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and 
@@ -267,7 +269,7 @@ available SAP actions, such as BAPI and RFC.
 
 For technical details about the connector 
 as described by the connectors' Swagger files, 
-see these reference pages: 
+see these reference articles: 
 
 * [SAP Application Server](/connectors/sapapplicationserver/)
 * [SAP Message Server](/connectors/sapmessageserver/)
