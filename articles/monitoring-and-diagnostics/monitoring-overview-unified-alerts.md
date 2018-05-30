@@ -1,6 +1,6 @@
 ﻿---
 title: Unified alerts in Azure Monitor| Microsoft Docs
-description: Understand how the new simple and scalable alerts experience in Azure makes authoring, viewing and managing alerts easier.
+description: Description of unified alerts in Azure that allow you to manage alerts and alerts rules across Azure services.
 author: manishsm-msft
 manager: kmadnani1
 editor: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2018
+ms.date: 05/30/2018
 ms.author: mamit,bwren
 ms.custom:
 
@@ -25,16 +25,14 @@ ms.custom:
 > [!NOTE]
 >  A new unified alert experience that allows you to manage alerts from multiple subscriptions and introduces alert states and smart groups is currently available in public preview. See the [last section of this article](#enhanced-unified-alerts-experience-public-preview) for a description of this enhanced experience and the process to enabled it.
 
-> [!NOTE]
-> This article describes the unified alert experience in Azure Monitor. Classic alerts are described in [classic alerts Overview](monitoring-overview-alerts.md).
 
 This article describes the unified alert experience in Azure Monitor. The [previous alert experience](monitoring-overview-alerts.md) is available from the **Alerts (Classic)** option in the Azure Monitor menu. 
 
-## Benefits of unified alert experience
+## Features of the unified alert experience
 
 The unified experience has the following benefits over the classic experience:
 
--	**Better notification system**: Unified alerts use [action groups]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), which are named groups of notifications and actions that can be reused in multiple alerts.  Classic metric alerts and older Log Analytics alerts do not use action groups.
+-	**Better notification system**: Unified alerts use [action groups]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), which are named groups of notifications and actions that can be reused in multiple alerts. 
 - **Unified authoring experience**  - You can manage alerts and alert rules for metrics, logs and activity log across Azure Monitor, Log Analytics, and Application Insights in one place. 
 - **View fired Log Analytics alerts in Azure portal** - View alerts from Log Analytics with other alerts from other sources in the Azure portal. Previously these were in a separate portal.
 - **Separation of Fired alerts and Alert Rules** - Alert rules are now distinguished from alerts. An alert rule is the definitions of a condition that triggers an alert. An alert is an instance of an alert rule firing.
@@ -49,13 +47,13 @@ Metric alerts have the following improvements over classic metric alerts:
 -	**Metrics from Logs** (limited public preview): Some log data going into Log Analytics can now be extracted and converted into Azure Monitor metrics and then alerted on just like other metrics. 
 
 
-## Alert rule terminology
-The unified alerts experience uses the following concepts to separate the alert rules from alerts while unifying the authoring experience across different alert types.
+## Alert rules
+The unified alerts experience uses the following concepts to separate alert rules from alerts while unifying the authoring experience across different alert types.
 
 | Item | Definition |
 |:---|:---|
 | Alert rule | Definition of the condition to create an alert. Composed of a _target resource_, _signal_, _criteria_, and _logic_. An alert rule is only active if it's in an _enabled_ state.
-| Target Resource | Defines the scope and signals available for alerting. A target can be any Azure resource.<br>Examples: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace, or an Application Insights resource. |
+| Target Resource | Defines the specific resources and signals available for alerting. A target can be any Azure resource.<br>Examples: virtual machine, storage account, virtual machine scale set, Log Analytics workspace, Application Insights resource |
 | Signal | Source of data emitted by the Target resource. Supported signal types are *Metric*, *Activity log*, *Application Insights*, and *Log*. |
 | Criteria | Combination of _signal_ and _logic_ applied on a target resource.<br>Examples: Percentage CPU > 70%, Server Response Time > 4 ms, Result count of a log query > 100 etc. |
 | Logic | User-defined logic to check if the signal is within expected range/values. |
@@ -63,59 +61,48 @@ The unified alerts experience uses the following concepts to separate the alert 
 
 
 ## Alert pages
-The goal of the Alerts experience is to be the single place to view and manage all your Azure alerts. The following sections describe the functions of each individual page of the unified experience.
+Unified alerts provide a single place to view and manage all your Azure alerts. The following sections describe the functions of each individual page of the unified experience.
 
 ### Alerts overview page
-**Monitor - Alerts** overview page shows an aggregated summary of all the fired alerts, and total configured/enabled alert rules. It also shows a list of all fired alerts. Changing the subscriptions or filter parameters updates the aggregates and the alerts fired list.
-
-> [!NOTE]
-> Fired Alerts shown in Alerts are limited to supported metric and activity log alerts. Azure Monitor Overview shows count of fired alerts including those in classic Azure Alerts.
+**Alerts** overview page shows an aggregated summary of all fired alerts, and the total enabled alert rules. Changing the subscriptions or filter parameters updates the aggregates and the alerts fired list.
 
  ![alerts-overview](./media/monitoring-overview-unified-alerts/alerts-preview-overview2.png) 
 
 ### Alert rules management
-**Monitor - Alerts>Rules** is a single page to manage all alert rules across your Azure subscriptions. It lists all the alert rules (enabled or disabled) and can be sorted based on target resources, resource groups, rule name, or status. Alert rules can also be disabled/enabled or edited from this page.  
+**Rules** is a single page to manage all alert rules across your Azure subscriptions. It lists all alert rules and can be sorted based on target resources, resource groups, rule name, or status. Alert rules can also be edited nd enabled or disabled from this page.
 
  ![alerts-rules](./media/monitoring-overview-unified-alerts/alerts-preview-rules.png)
 
 
 ## Creating an alert rule
-In the unified alerts experience, alerts can be authored in a consistent manner regardless of the monitoring service or signal type. All fired alerts and related details are available in single page.
+Alerts can be authored in a consistent manner regardless of the monitoring service or signal type. All fired alerts and related details are available in single page.
  
 You create a new alert rule with the following three steps:
 1. Pick the _target_ for the alert.
 1. Select the _signal_ from the available signals for the target.
 1. Specify the _logic_ to be applied to data from the signal.
  
-This simplified authoring process no longer requires the user to know the monitoring source or signals supported before selecting an Azure resource. The common authoring experience automatically filters the list of available signals based on target resource selected and guides the creation of alert logic
+This simplified authoring process no longer requires the user to know the monitoring source or signals supported before selecting an Azure resource. The list of available signals are automatically filtered based on target resource selected and guides you through defining the logic of the alert rule.
 
-You can learn more on how to create following alert types [here](monitor-alerts-unified-usage.md).
-- Metric Alerts
-- Log alerts (Log Analytics)
-- Log alerts (Activity Logs)
-- Log alerts (Application Insights)
+You can learn more on how to create alert rules in [Create, view, and manage alerts using Azure Monitor](monitor-alerts-unified-usage.md).
 
- 
 Alerts are available across several Azure monitoring services. For information on how and when to use each of these services, see [Monitoring Azure applications and resources](./monitoring-overview.md). The following table provides a listing of the types of alert rules available across Azure and what's currently supported by the unified alert experience.
 
-
-| **Signal Type** | **Monitor Source** | **Description** | 
+| **Monitor Source** | **Signal Type**  | **Description** | 
 |-------------|----------------|-------------|
-| Metric | Azure monitor | Also called [near-real-time metric alerts](monitoring-near-real-time-metric-alerts.md), they support evaluating metric conditions as frequently as 1 minute and allow for multi-metric and multi-dimensional metric rules. A list of supported resource types is available [here](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported). |
-| Metric | Azure monitor | [Older classic metric alerts](monitoring-overview-alerts.md) are not supported in the new alerts experience. You can find them under Alerts (Classic) in the Azure portal. The classic alerts support some metrics types that have not yet been moved to the newer alerts. For a full list, see [supported metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
-| Logs  | Log Analytics | Receive notifications or run automated actions when a Log search query over metric and/or event data meets certain criteria. Older Log Analytics alerts are still available, but are [being copied into the new experience](monitoring-alerts-extend.md). In addition, a [preview of *Log Analytics logs as metrics*](monitoring-alerts-extend-tool.md) is available. The preview allows you to take some types of logs and convert them to metrics, where you can then alert on them using the new alerting experience. The preview is useful if you have non-Azure logs that you want to get alongside native Azure Monitor metrics. |
-| Activity Log | Activity Logs (general) | Contains the records of all Create, Update, and Delete actions performed through the selected target (resource/resource group/subscription). |
-| Activity Log  | Service Health | Not supported in new alerts experience. See [Create activity log alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md).  |
-| Logs  | Application Insights | Contains logs with the performance details of your application. Using analytics query, you can define the conditions for the actions to be taken - based on the application data. |
-| Metric | Application Insights | Not supported in new alerts experience. See [Metric alerts](../application-insights/app-insights-alerts.md) |
-| Web Availability Tests | Application Insights | Not supported in Alerts experience.  See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md). Available to any website instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
+| Azure monitor | Metric  | Also called [near-real-time metric alerts](monitoring-near-real-time-metric-alerts.md), they support evaluating metric conditions as frequently as 1 minute and allow for multi-metric and multi-dimensional metric rules. A list of supported resource types is available in [Newer metric alerts for Azure services in the Azure portal](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).<br>[Classic metric alerts](monitoring-overview-alerts.md) are not supported in the new alerts experience. You can find them under Alerts (Classic) in the Azure portal. The classic alerts support some metrics types that have not yet been moved to the newer alerts. For a full list, see [supported metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics). |
+| Log Analytics | Logs  | Receive notifications or run automated actions when a Log search query meets certain criteria. Alerts in Log Analytics are [being copied into the new experience](monitoring-alerts-extend.md). A [preview of *Log Analytics logs as metrics*](monitoring-alerts-extend-tool.md) is available. The preview allows you to take some types of logs and convert them to metrics, where you can then alert on them using the new alerting experience. The preview is useful if you have non-Azure logs that you want to get alongside native Azure Monitor metrics. |
+| Activity Logs | Activity Log | Contains the records of all Create, Update, and Delete actions created by the selected target. |
+| Service Health | Activity Log  | Not supported in unified alerts. See [Create activity log alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md).  |
+| Application Insights | Logs  | Contains logs with the performance details of your application. Using analytics query, you can define the conditions for the actions to be taken based on application data. |
+| Application Insights | Metric | Not supported in unified alerts. See [Metric alerts].(../application-insights/app-insights-alerts.md) |
+| Application Insights | Web Availability Tests | Not supported in unified alerts.  See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md). Available to any website instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
 
+## Enhanced unified alerts (Public Preview)
 
-## Enhanced unified alerts experience (Public Preview)
+An enhanced unified alerts experience was released in public preview for Azure Monitor on June 1, 2018. This experience builds on the benefits of [unified alerts](#overview) released March 2018 and provides the ability to manage and aggregate individual alerts in addition to modifying alert state. This section describes the new features and how to navigate the new alert pages in the Azure portal.
 
-An enhanced unified alerts experience was released in public preview for Azure Monitor on June 1, 2018. This experience builds on the benefits of the [unified alerts experience](#overview) released March 2018 and provides the ability to manage and aggregate individual alerts in addition to modifying alert state. This section describes the new features and how to navigate the new alert pages in the Azure portal.
-
-### Features in the new alert experience
+### Features enhanced unified alerts
 
 The new experience provides the following features that aren't available in the classic unified experience:
 
@@ -123,13 +110,8 @@ The new experience provides the following features that aren't available in the 
 - **Manage the state of alerts** - Alerts now have a state that indicates whether its been acknowledged for closed.
 - **Organize alerts with Smart Groups** - Smart Groups automatically group together related alerts so you can manage them as a set instead of individually.
 
-- View and manage individual alerts.
-- Aggregate alerts across multiple subscriptions into single view organized by alert severity. 
-- Change the state of alerts to reflect where it current is in the resolution process. 
-- Organize alerts by smart groups which are automatically generated with machine learning algorithms.
-
-### Enable the new alert experience
-Enable the new alert experience by clicking on the banner at the top of the Alerts page. This process creates an alert store that includes the past 30 days of fired alerts across supported monitor services. Once the new experience is enabled, you can switch back and forth between the new and old experience by clicking on the banner.
+### Enable enhanced unified alerts
+Enable the new unified alert experience by clicking on the banner at the top of the Alerts page. This process creates an alert store that includes the past 30 days of fired alerts across supported services. Once the new experience is enabled, you can switch back and forth between the new and old experience by clicking on the banner.
 
 > [!NOTE]
 >  It may take a few minutes for the new experience to be initially enabled.
@@ -141,33 +123,33 @@ All subscriptions that you have access to will be enrolled when you enable the n
 Enabling the new alert experience does not impact the configuration of action groups or notifications in your alert rules. It only changes the way that you view and manage fired instances of the alerts in the Azure portal.
 
 ### Smart Groups
-Smart groups reduce noise by allowing you to manage related alerts as a single unit rather than managing the individual alerts. You can view the details of smart groups and set the state similar to an alert. Each alert is a member of one and only one smart group. 
+Smart groups reduce noise by allowing you to manage related alerts as a single unit rather than managing individual alerts. You can view the details of smart groups and set the state similar to an alert. Each alert is a member of one and only one smart group.
 
-Smart Groups are automatically created using machine learning to combine alerts that represent a single issue. Alerts are evaluated on the basis of similar properties, historical patterns, or both. The algorithm considers when an alert is created and looks for similarity based on such properties as alert name, description, and subscription. The algorithm currently only considers alerts from the same service in the same subscription. You can view the reason that alerts were included in a group in the Smart Group detail page.
+Smart Groups are automatically created using machine learning to combine alerts that represent a single issue. The algorithm considers when an alert is created and looks for similarity based on such properties as alert name, description, subscription, and historical patterns. The algorithm currently only considers alerts from the same service in the same subscription. You can view the reason that alerts were included in a group in the Smart Group detail page.
 
 The name of a smart group is the name of its first alert. You can't create or rename a smart group.
 
 
 ### Alert States
-The new unified alert experience introduces the concept of alert state. The state of an alert specifies where it is in the resolution process.  When an alert is created, it has a status of *New*. You can change the status when you've acknowledged an alert and when you've closed it.  The following alert states are supported.
+Enhanced unified alerts introduce the concept of alert state. You can set the state of an alert to specify where it is in the resolution process.  When an alert is created, it has a status of *New*. You can change the status when you've acknowledged an alert and when you've closed it.  The following alert states are supported.
 
 | State | Description |
 |:---|:---|
 | New | The issue has just been detected and not yet reviewed. |
 | Acknowledged | An administrator has reviewed the alert and started working on it. |
-| Closed | The issue has been resolved. Note that once an alert has been closed, you can reopen it my changing it to another state. |
+| Closed | The issue has been resolved. Once an alert has been closed, you can reopen it my changing it to another state. |
 
 The state of an alert is different than the monitor condition. Metric alert rules can set an alert to a condition of _resolved_ when the error condition is no longer met. Alert state is set by the user and is independent of the monitor condition. Even though the system may set the monitor condition to resolved, the alert state isn't changed until the user changes it.
 
 #### Changing the state of an alert or smart group
-You can change the state of an individual alert or managed multiple alerts together by setting the state of a smart group.
+You can change the state of an individual alert or manage multiple alerts together by setting the state of a smart group.
 
-You can change the state of an alert by clicking on **Change alert state** in the detail view for the alert or **Change smart group state** in the detail view for the smart group. You can change the state of multiple items at one time by selecting them in a list view and clicking **Change State** at the top of the page. In both cases, select a new state from the dropdown and optionally provide a comment. If you're changing a single item, then you also have an option to apply the same changes to all the alerts in the smart group.
+Change the state of an alert by clicking on **Change alert state** in the detail view for the alert, or change the state for a smart group by clicking **Change smart group state** in its detail view. You can change the state of multiple items at one time by selecting them in a list view and clicking **Change State** at the top of the page. In both cases, select a new state from the dropdown and optionally provide a comment. If you're changing a single item, then you also have an option to apply the same changes to all the alerts in the smart group.
 
 ![Change state](media/monitoring-overview-unified-alerts/change-tate.png)
 
 ### Alerts page
-The default Alerts page provides a quick summary of alerts that are created within a particular time window. It displays the total alerts for each severity with columns identifying the total number of alerts in each state for each severity. Click any of the severities to open the [All Alerts](#all-alerts-page) page filtered by that severity.
+The default Alerts page provides a summary of alerts that are created within a particular time window. It displays the total alerts for each severity with columns identifying the total number of alerts in each state for each severity. Click any of the severities to open the [All Alerts](#all-alerts-page) page filtered by that severity.
 
 ![Alerts page](media/monitoring-overview-unified-alerts/alerts-page.png)
 
@@ -179,7 +161,7 @@ You can filter this view by selecting values in the dropdowns at the top of the 
 | Resource Group | Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
 | Time Range | Only alerts fired within the selected time window will be included in the view. Supported values are past hour, past 24 hours, past 7 days, and past 30 days. |
 
-The Alerts page displays the following values. You can click on each to open another page.
+Click on the following values at the top of the Alerts page to open another page.
 
 | Value | Description |
 |:---|:---|
