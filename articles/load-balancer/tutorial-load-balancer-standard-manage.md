@@ -238,11 +238,13 @@ To add *myVM1* back to the backend pool, follow the procedure in the *Add VMs to
 ## Test port forwarding
 With port forwarding, you can create a remote desktop connection to the VMs in the backend address pool using the IP address of the load balancer and the frontend port value that were defined in the preceding step.
 
-1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM2** that is located in the *myResourceGroupLB* resource group.
-2. On the **Overview** page, click **Connect**. This launches the **Connect to virtual machine window** that includes the public IP address of the Load balancer and the associated port number *4222* for *myVM2*. 
-3. In **Connect to virtual machine window**, click **Download RDP file**.
+1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**.
+2. Use the following command to create a remote desktop session with the *myVM2* VM from your local computer. Replace `<publicIpAddress>` with the IP address returned from the previous step.
 
-      ![RDP connection with port forwarding](./media/tutorial-load-balancer-standard-manage/load-balancer-port-forwarding.png)    
+    ```
+    mstsc /v:<publicIpAddress>:4222
+    ```
+  
 4. Open the downloaded RDP file. If prompted, select **Connect**.
 
 4. Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
