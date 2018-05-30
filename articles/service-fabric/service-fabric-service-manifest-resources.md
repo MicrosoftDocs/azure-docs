@@ -155,11 +155,11 @@ For Linux clusters, the **MY** store defaults to the folder **/var/lib/sfcerts**
 
 ## Overriding Endpoints in ServiceManifest.xml
 
-In the ApplicationManifest add a ResourceOverrides section which will be a sibling to ConfigOverrides section. In this section you can specify the override for the Endpoints section in the resources section specified in the Service manifest. Overriding endpoints is supported in runtime 5.7.217/SDK 2.7.217 and higher.
+In the ApplicationManifest add a ResourceOverrides section, which will be a sibling to ConfigOverrides section. In this section, you can specify the override for the Endpoints section in the resources section specified in the Service manifest. Overriding endpoints is supported in runtime 5.7.217/SDK 2.7.217 and higher.
 
 In order to override EndPoint in ServiceManifest using ApplicationParameters change the ApplicationManifest as following:
 
-In the ServiceManifestImport section add a new section "ResourceOverrides"
+In the ServiceManifestImport section, add a new section "ResourceOverrides".
 
 ```xml
 <ServiceManifestImport>
@@ -189,13 +189,13 @@ In the Parameters add below:
   </Parameters>
 ```
 
-While deploying the application now you can pass in these values as ApplicationParameters for example:
+While deploying the application you can pass in these values as ApplicationParameters.  For example:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Note: If the values provide for the ApplicationParameters is empty we go back to the default value provided in the ServiceManifest for the corresponding EndPointName.
+Note: If the values provide for the ApplicationParameters is empty, we go back to the default value provided in the ServiceManifest for the corresponding EndPointName.
 
 For example:
 
