@@ -36,6 +36,7 @@ In this tutorial, you learn how to:
 > * View simulated state
 > * Use device properties
 > * Use device settings
+> * Use commands
 
 ## Prerequisites
 
@@ -213,6 +214,9 @@ Properties, device properties, and settings are different values defined in a de
 * You use _settings_ to send configuration data to a device from your application. For example, an operator could use a setting to change the device's telemetry interval from two seconds to five seconds. When an operator changes a setting, the setting is marked as pending in the UI until the device acknowledges that it has actioned the setting change.
 * You use _properties_ to record information about your device in your application. For example, you can use properties to record a device's serial number or the device manufacturer's phone number. Properties are stored in the application and do not synchronize with the device. An operator can assign values to properties.
 * You use _device properties_ to enable a device to send property values to your application. These properties can only be changed by the device. For an operator, device properties are read-only.
+* You use _commands_ to remotely manage your device from your application. You can directly run commands on the device from the cloud to control the devices.
+ For example, an operator can run commands such as reboot, to instantly reboot the device.
+
 
 ## Use settings
 
@@ -293,6 +297,38 @@ You use _properties_ to store information about your device in the application. 
 1. You can customize the layout of the **Properties** page by moving and resizing properties tiles:
 
     ![Customize properties layout](media/tutorial-define-device-type/propertieslayout.png)
+
+
+## Use commands
+
+You use _commands_ to enable an operator to run commands directly on the device. In this section, you add a command to your **Connected Air Conditioner** device template that enables an operator to turn off the connected air conditioner.
+
+1. Navigate to the **Commands** page for your **Connected Air Conditioner** device template:
+
+    ![Prepare to add a setting](media/tutorial-define-device-type/deviceaddsetting.png)
+
+    You can create commands of different types based on your requirements. 
+
+1. Click **New Command** to add a command to your device.
+
+1. To configure your new command, use the information in the following table:
+
+    | Field                | Value           |
+    | -------------------- | -----------     |
+    | Display Name         | Reboot          |
+    | Field Name           | reboot          |
+    | Default Timeout      | 30              |
+
+You can add additional inputs to the command by clicking **+** for inputs.
+
+Then choose **Save**.
+
+1. You can customize the layout of the **Commands** page by moving and resizing commands tiles:
+
+    ![Customize settings layout](media/tutorial-define-device-type/settingslayout.png)
+
+
+
 
 ## View your simulated device
 

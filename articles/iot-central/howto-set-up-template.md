@@ -157,6 +157,38 @@ After choosing **Save**, device location appears as a tile:
 > [!NOTE]
 > After creating a new tile, you can change the property value. First, switch off design mode at the top right of the screen.
 
+
+## Commands
+
+Commands are used to remotely manage a device. They enable operators of your application to instantaneously run commands on the device. You can add multiple commands to your device template that appear as tiles on the **Commands** tab for operators to use. As the Builder of the device you have the flexibility to define your command as per your requirements.
+
+> [!NOTE]
+> How is a **Command** different from a **Setting** ?
+> 
+
+Commands when executed can be in one of three states, depending on whether the device received the command, 
+
+/* THIS NEEDS DETAILS, ADD MORE DETAILS ABOUT THE MESSAGE WINDOW */
+- **Delivered**: the command was successfully delivered to the device and the device is executing the command.
+
+- **Pending**: the device could not be reached, retrying to send the command.
+
+- **Error/Timeout**: the device could not be reached and has timed out.
+
+For example, you can add a new restart command:
+
+![Settings form](./media/howto-set-up-template/settingsform.png)
+
+After choosing **Save**, the **restart** command appears as a tile and is ready for to be used to restart the device.
+
+
+
+> [!NOTE]
+> After you create a new tile, you can try out your new command. First, switch off design mode at the top right of the screen:
+
+![Settings tile](./media/howto-set-up-template/settingstile.png)
+
+
 ## Rules
 
 Rules enable operators to monitor devices in near real time. Rules automatically invoke **Actions** such as sending an email when the rule triggers. There is one type of rule available today:
