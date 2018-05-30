@@ -8782,7 +8782,7 @@
         },
         {
             "source_path": "articles/iot-hub/iot-hub-what-is-azure-iot.md",
-            "redirect_url": "/azure/iot/",
+            "redirect_url": "/azure/iot-fundamentals/iot-introduction",
             "redirect_document_id": false
         },
         {
