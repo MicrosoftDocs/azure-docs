@@ -58,7 +58,7 @@ Select **Review + create** and then **Create** when complete.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/aks-portal-3.png)
 
-After a short wait, the ASK cluster is deployed and ready to use. Browse to the AKS cluster resource group, select the AKS resource, and you should see the AKS cluster dashboard.
+After a short wait, the AKS cluster is deployed and ready to use. Browse to the AKS cluster resource group, select the AKS resource, and you should see the AKS cluster dashboard.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/aks-portal-5.png)
 

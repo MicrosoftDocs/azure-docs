@@ -1,6 +1,6 @@
 ---
 title: Tutorial learning how to call a Language Understanding (LUIS) app using C# | Microsoft Docs
-description: In this tutorial, you learn to call a LUIS app using C# in this quickstart.
+description: In this tutorial, you learn to call a LUIS app using C#.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -69,6 +69,6 @@ The two resources created in this tutorial are the LUIS subscription key and the
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Add utterances](luis-quickstart-cs-add-utterance.md)
+> [Add utterances](luis-get-started-cs-add-utterance.md)
 
 [LUIS]: luis-reference-regions.md#luis-website
