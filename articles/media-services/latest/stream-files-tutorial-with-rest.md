@@ -11,13 +11,15 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/20/2018
+ms.date: 05/30/2018
 ms.author: juliako
 ---
 
 # Tutorial: Upload, encode, and stream videos with REST
 
-This tutorial shows you how to upload, encode and stream video files with Azure Media Services. You would want to stream your content in Apple's HLS, MPEG DASH, or CMAF formats so it can be played on a wide variety of browsers and devices. Your video needs to be encoded and packaged appropriately before you can stream it.
+This tutorial shows you how to upload, encode, and stream video files with Azure Media Services.
+
+Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encoding-concept.md).
 
 ![Play the video](./media/stream-files-tutorial-with-api/final-video.png)
 

@@ -123,10 +123,10 @@
       href: howto-alert-on-metric.md
   - name: Virtual Network
     items:
+    - name: Azure portal
+      href: howto-manage-vnet-using-portal.md
     - name: Azure CLI
       href: howto-manage-vnet-using-cli.md
-      name: Azure portal
-      href: howto-manage-vnet-using-portal.md
 - name: Reference
   items:
   - name: Azure CLI
