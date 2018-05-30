@@ -205,11 +205,7 @@
   - name: Troubleshoot
     items:
     - name: Network security groups
-      items:
-      - name: Azure portal
-        href: virtual-network-nsg-troubleshoot-portal.md
-      - name: Azure PowerShell
-        href: virtual-network-nsg-troubleshoot-powershell.md
+      href: diagnose-network-traffic-filter-problem.md
     - name: Routes
       items:
       - name: Azure portal

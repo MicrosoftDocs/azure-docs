@@ -67,7 +67,7 @@ Though the portal provides the option to create two public IP address resources 
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## View, change settings for, or delete a public IP address
@@ -86,7 +86,7 @@ Though the portal provides the option to create two public IP address resources 
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip-list](/cli/azure/network/public-ip#az_network_public_ip_list) to list public IP addresses, [az network public-ip-show](/cli/azure/network/public-ip#az_network_public_ip_show) to show settings; [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) to update; [az network public-ip delete](/cli/azure/network/public-ip#az_network_public_ip_delete) to delete|
+|CLI|[az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list) to list public IP addresses, [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to show settings; [az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) to update; [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) to delete|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) to retrieve a public IP address object and view its settings, [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress) to update settings; [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) to delete|
 
 ## Permissions

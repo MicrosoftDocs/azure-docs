@@ -30,7 +30,7 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 | Log Analytics Contributor | The Log Analytics Contributor role allows you to read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs, reading storage account keys to be able to configure collection of logs from Azure storage, creating and configuring Automation accounts, adding solutions, and configuring Azure diagnostics on all Azure resources.|
 | Log Analytics Reader | The Log Analytics Reader role allows you to view and search all monitoring data as well as view monitoring settings. This includes viewing the configuration of Azure diagnostics on all Azure resources. |
 | Monitoring Contributor | The Monitoring Contributor role allows you to read all monitoring data and update monitoring settings.|
-| Monitoring Reader | The Montioring Reader role allows you to read all monitoring data. |
+| Monitoring Reader | The Monitoring Reader role allows you to read all monitoring data. |
 | User Access Administrator |The User Access Administrator role allows you to manage user access to Azure Automation accounts. |
 
 ## Role permissions
