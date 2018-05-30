@@ -12,7 +12,7 @@ ms.topic: "include"
 manager: "douge"
 ---
 ## Sign in to Azure CLI
-We'll need to sign in to Azure to create our development environment. Type the following command in a terminal window:
+You'll need to sign in to Azure to create our development environment. Type the following command in a terminal window:
 
 ```cmd
 az login
