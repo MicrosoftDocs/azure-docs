@@ -12,9 +12,11 @@ manager: carmonm
 ---
 # Troubleshoot Hybrid Runbook Workers
 
+This article provides information on troubleshooting issues with Hybrid Runbook Workers.
+
 ## General
 
-The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows this agent is the Microsoft Monitoring Agent. For Linux it is the OMS Agent for Linux. If registration of the worker fails, here are some possible causes for the error:
+The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Microsoft Monitoring Agent. For Linux, it is the OMS Agent for Linux. If registration of the worker fails, here are some possible causes for the error:
 
 ### The hybrid worker is behind a proxy or firewall
 
@@ -32,7 +34,7 @@ The Linux Hybrid Runbook Worker depends on the OMS Agent for Linux to communicat
 
 ### The OMS Agent for Linux is not running
 
-If the OMS Agent for Linux is not running, this prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. Verify the agent is running by entering the following command: `ps -ef | grep python`. You should see output similar to the following, the python processes with **nxautomation** user account. If the Update Management or Azure Automation solutions are not enabled, none of the following processes will be running.
+If the OMS Agent for Linux is not running, this prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. Verify the agent is running by entering the following command: `ps -ef | grep python`. You should see output similar to the following, the python processes with **nxautomation** user account. If the Update Management or Azure Automation solutions are not enabled, none of the following processes are running.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -44,7 +46,7 @@ The following list shows the processes that are started for a Linux Hybrid Runbo
 
 * **oms.conf** - This is the worker manager process, this is started directly from DSC.
 
-* **worker.conf** - This process is the Auto Registered Hybrid worker process, it is started by the worker manager. This process is used by Update Management and is transparent to the user. This process is not be present if the Update Management solution is not enabled on the machine.
+* **worker.conf** - This process is the Auto Registered Hybrid worker process, it is started by the worker manager. This process is used by Update Management and is transparent to the user. This process is not present if the Update Management solution is not enabled on the machine.
 
 * **diy/worker.conf** - This process is the DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto registered Hybrid worker process in the key detail that is uses a different configuration. This process is not be present if the Azure Automation solution is not enabled, and the DIY Linux Hybrid Worker is not registered.
 
@@ -52,7 +54,7 @@ If the OMS Agent for Linux is not running, run the following command to start th
 
 ### The specified class does not exist
 
-If you see the error **The specified class does not exists..** in the  `/var/opt/microsoft/omsconfig/omsconfig.log` then the OMS Agent for Linux needs to be updated. Run the following command to re-install the OMS Agent:
+If you see the error: **The specified class does not exists..** in the  `/var/opt/microsoft/omsconfig/omsconfig.log` then the OMS Agent for Linux needs to be updated. Run the following command to reinstall the OMS Agent:
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -60,7 +62,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## Windows
 
-The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error:
+The Windows Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error:
 
 ### The Microsoft Monitoring Agent is not running
 
@@ -73,4 +75,3 @@ In the **Application and Services Logs\Operations Manager** event log, you see e
 This can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify the computer has outbound access to *.azure-automation.net on ports 443.
 
 Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue affecting onboarding of the role to Azure Automation or issue while performing normal operations.
-

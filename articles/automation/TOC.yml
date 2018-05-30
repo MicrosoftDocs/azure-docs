@@ -195,10 +195,12 @@
       items:
         - name: Onboarding
           href: troubleshoot/onboarding.md
-        - name: Troubleshoot common errors
+        - name: Common errors
           href: automation-troubleshooting-automation-errors.md
-        - name: Troubleshoot Hybrid Runbook Worker
+        - name: Hybrid Runbook Worker
           href: troubleshoot/hybrid-runbook-worker.md
+        - name: Update Management
+          href: troubleshoot/update-management.md
 - name: Reference
   items:
   - name: Azure PowerShell

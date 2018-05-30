@@ -138,19 +138,9 @@ In addition to the standard addresses and ports that the Hybrid Runbook Worker r
 
 ## Troubleshooting
 
-The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows this agent is the Microsoft Monitoring Agent. For Linux it is the OMS Agent for Linux. If registration of the worker fails, here are some possible causes for the error:
 
-### The hybrid worker is behind a proxy or firewall
 
-Verify the computer has outbound access to *.azure-automation.net on port 443.
 
-### The computer the hybrid worker is running on has less than the minimum hardware requirements
-
-Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before designating it to host this feature. Otherwise, depending on the resource utilization of other background processes and contention caused by runbooks during execution, the computer becomes over utilized and cause runbook job delays or timeouts.
-
-Confirm the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. If there is memory or CPU pressure, this may indicate the need to upgrade or add additional processors, or increase memory to address the resource bottleneck and resolve the error. Alternatively, select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
-
-For additional information on troubleshooting for a specific OS, see [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#troubleshooting) or [Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#troubleshooting)
 
 ## Next steps
 
