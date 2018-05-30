@@ -1,13 +1,13 @@
 ---
 # required metadata
-title: Save values as variables - Azure Logic Apps | Microsoft Docs
-description: Create variables for saving and changing values in Azure Logic Apps
+title: Create variables for saving values - Azure Logic Apps | Microsoft Docs
+description: Save and manage values by creating variables in Azure Logic Apps
 services: logic-apps
 author: ecfan
 manager: cfowler
 ms.author: estfan
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 05/30/2018
 ms.service: logic-apps
 
 # optional metadata
@@ -15,7 +15,7 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Save and manage values as variables in Azure Logic Apps
+# Create variables for saving and managing values in Azure Logic Apps
 
 This article shows how you can store and work with values 
 throughout your logic app by creating variables. 
@@ -31,14 +31,21 @@ for example:
 
 * Increase or decrease the variable by a constant value, 
 also known as *increment* and *decrement*.
+* Get the value from the variable.
 * Assign a different value to the variable.
 * Insert or *append* the variable's value as the last time in a string or array.
-* Get the value from a variable.
+
+Variables exist and are global only within the logic app instance that creates them. 
+Also, they persist across any loop iterations inside a logic app instance. 
+When referencing a variable, use the variable's name as the token, 
+not the action's name, which is the usual way to reference an action's outputs.
 
 If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
 ## Prerequisites
+
+To follow this article, here are the items you need:
 
 * The logic app where you want to create a variable 
 
@@ -58,13 +65,9 @@ If you don't have an Azure subscription yet,
 You can create a variable and declare its data type and initial 
 value - all within one action in your logic app. You can only 
 declare variables at the global level, not within scopes, conditions, and loops. 
-Variables are global and exist only within the logic app instance that creates them. 
-Also, they persist across any loop iterations inside a logic app instance. 
-When referencing a variable, use the variable's name as the token, 
-not the action's name, which is the usual way to reference an action's outputs.
 
-1. In the Azure portal or Visual Studio, 
-open your logic app in Logic App Designer. 
+1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+or Visual Studio, open your logic app in Logic App Designer. 
 
    This example uses the Azure portal 
    and a logic app with an existing trigger.
@@ -121,7 +124,7 @@ which is in JavaScript Object Notation (JSON) format:
 },
 ```
 
-Here are examples for a few other variable types:
+Here are examples for some other variable types:
 
 *String variable*
 
@@ -195,6 +198,24 @@ Here are examples for a few other variable types:
 },
 ```
 
+<a name="get-value"></a>
+
+## Get value from variable
+
+When referencing a variable, use the variable's name as the token, 
+not the action's name, which is the usual way to reference an action's outputs. 
+To retrieve or reference a variable's contents, you can also use the 
+[variables() function](../logic-apps/workflow-definition-language-functions-reference.md#variables) 
+in the Logic App Designer and the code view editor.
+
+For example, this expression gets the items from the array variable 
+[created previously in this article](#append-value) by using the **variables()** function. 
+The **string()** function returns the variable's contents in string format: `"1, 2, 3, red"`
+
+```json
+@{string(variables('myArrayVariable'))}
+```
+
 <a name="increment-value"></a>
 
 ## Increment variable 
@@ -254,9 +275,9 @@ inside your logic app definition, which is in JSON format:
 },
 ```
 
-### Example: Count loop cycles
+## Example: Create loop counter
 
-Variables often perform the work for counting how often a loop runs. 
+Variables are commonly used for counting the number of times that a loop runs. 
 This example shows how you create and use variables for this task 
 by creating a loop that counts the attachments in an email.
 
@@ -523,24 +544,6 @@ variable that contains this array: `[1,2,3,"red"]`
       }
    }
 },
-```
-
-<a name="get-value"></a>
-
-## Get value from variable
-
-When referencing a variable, use the variable's name as the token, 
-not the action's name, which is the usual way to reference an action's outputs. 
-To retrieve or reference a variable's contents, you can also use the 
-[variables() function](../logic-apps/workflow-definition-language-functions-reference.md#variables) 
-in the Logic App Designer and the code view editor.
-
-For example, this expression gets the items from the array variable 
-[created previously in this article](#append-value) by using the **variables()** function. 
-The **string()** function returns the variable's contents in string format: `"1, 2, 3, red"`
-
-```json
-@{string(variables('myArrayVariable'))}
 ```
 
 ## Get support
