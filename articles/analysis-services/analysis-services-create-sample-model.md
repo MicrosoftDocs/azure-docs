@@ -3,7 +3,7 @@ title: Tutorial - Add a basic sample model to your Azure Analysis Services serve
 description: In this tutorial lesson, learn how to add a sample model in Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: tutorial
 ms.date: 05/23/2018
 ms.author: owend

@@ -6,10 +6,9 @@ author: asthana86
 manager: kfile
 editor: ''
 
-ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
 ms.service: cosmos-db
 ms.devlang: cpp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/25/2016
 ms.author: aasthan
 
