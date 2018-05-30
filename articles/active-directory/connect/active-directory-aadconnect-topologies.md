@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 # Topologies for Azure AD Connect

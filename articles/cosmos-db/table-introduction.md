@@ -5,10 +5,9 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
 
