@@ -1,20 +1,30 @@
 ---
-title: Create a LUIS app to get regular-expression matched data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and a regular expression entity to extract data in this quickstart. 
+title: Tutorial creating a LUIS app to get regular-expression matched data - Azure | Microsoft Docs 
+description: In this tutorial, learn how to create a simple LUIS app using intents and a regular expression entity to extract data. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
 
-# Quickstart: Use regular expression entity
-In this quickstart, you create an app that demonstrates how to extract consistently formatted data from an utterance using the **Regular Expression** entity.
+# Tutorial: Use regular expression entity
+In this tutorial, you create an app that demonstrates how to extract consistently formatted data from an utterance using the **Regular Expression** entity.
+
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Understand regular expression entities 
+> * Create new LUIS app for a knowledge base domain with FindKnowledgeBase intent
+> * Add _None_ intent and add example utterances
+> * Add regular expression entity to extract KB article number from utterance
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
@@ -182,7 +192,8 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 
 ## Next steps
 
-[Learn about the KeyPhrase entity](luis-quickstart-intent-and-key-phrase.md). 
+> [!div class="nextstepaction"]
+> [Learn about the KeyPhrase entity](luis-quickstart-intent-and-key-phrase.md)
 
 Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
 
