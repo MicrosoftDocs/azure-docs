@@ -102,6 +102,10 @@
     items:
     - name: Storage
       href: cyclecloud-storage.md
+    - name: Mount Volumes
+      href: cyclecloud-storage-mount-volumes.md
+    - name: Configure NFS Mounts and Exports
+      href: cyclecloud-storage-nfs-mounts.md
     - name: Blobs
       href: cyclecloud-blobs.md
   - name: User Creation and RBAC
