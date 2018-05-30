@@ -1,7 +1,7 @@
----
+--
 # required metadata
 title: Create variables for saving values - Azure Logic Apps | Microsoft Docs
-description: Save and manage values by creating variables in Azure Logic Apps
+description: How to save and manage values by creating variables in Azure Logic Apps
 services: logic-apps
 author: ecfan
 manager: cfowler
@@ -29,9 +29,9 @@ integer, float, boolean, string, array, and object.
 After you create a variable, you can perform other tasks, 
 for example:
 
+* Get or reference the variable's value.
 * Increase or decrease the variable by a constant value, 
 also known as *increment* and *decrement*.
-* Get the value from the variable.
 * Assign a different value to the variable.
 * Insert or *append* the variable's value as the last time in a string or array.
 
@@ -200,13 +200,13 @@ Here are examples for some other variable types:
 
 <a name="get-value"></a>
 
-## Get value from variable
+## Get the variable's value
 
-When referencing a variable, use the variable's name as the token, 
-not the action's name, which is the usual way to reference an action's outputs. 
 To retrieve or reference a variable's contents, you can also use the 
 [variables() function](../logic-apps/workflow-definition-language-functions-reference.md#variables) 
 in the Logic App Designer and the code view editor.
+When referencing a variable, use the variable's name as the token, 
+not the action's name, which is the usual way to reference an action's outputs. 
 
 For example, this expression gets the items from the array variable 
 [created previously in this article](#append-value) by using the **variables()** function. 
@@ -419,6 +419,7 @@ inside your logic app definition, which is in JSON format.
    }
 },
 ```
+
 
 <a name="assign-value"></a>
 
