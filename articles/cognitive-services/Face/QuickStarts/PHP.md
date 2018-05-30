@@ -1,5 +1,5 @@
 ---
-title: Face API C# quickstart | Microsoft Docs
+title: Face API PHP quickstart | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: In this quickstart, you detect faces from an image using the Face API with PHP in Cognitive Services.
 services: cognitive-services
