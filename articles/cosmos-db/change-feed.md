@@ -5,14 +5,10 @@ keywords: change feed
 services: cosmos-db
 author: rafats
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: 
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
 
