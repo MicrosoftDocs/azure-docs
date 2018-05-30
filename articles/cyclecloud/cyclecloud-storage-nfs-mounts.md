@@ -52,48 +52,28 @@ Azure CycleCloud NFS mounts may be disabled by setting the `disabled` attribute 
     [[[configuration cyclecloud.mounts.shared]]]
     disabled = true
 
-# Export Configuration Options
+## Export Configuration Options
 
-
-+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Option     | Definition                                                                                                                                                |
-+==============+===========================================================================================================================================================+
-| type         | *REQUIRED* The type attribute must be set to `nfs` for all NFS exports.  This is required in order to differentiate from other shared filesystem types. |
-+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| export_path  | The local path to export as an NFS filesystem.  If the directory does not exist already, it will be created.                                              |
-+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| owner        | The user account that should own the exported directory.                                                                                                  |
-+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| group        | The group of the user that should own the exported directory.                                                                                             |
-+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| mode         | The default filesystem permissions on the exported directory.                                                                                             |
-+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Option       | Definition                                                                                                                                              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | *REQUIRED* The type attribute must be set to `nfs` for all NFS exports to differentiate from other shared filesystem types. |
+| export_path  | The local path to export as an NFS filesystem.  If the directory does not exist already, it will be created.                                            |
+| owner        | The user account that should own the exported directory.                                                                                                |
+| group        | The group of the user that should own the exported directory.                                                                                           |
+| mode         | The default filesystem permissions on the exported directory.                                                                                           |
 | network      | The network interface on which the directory is exported.  Defaults to all: `*`.                                                                        |
-+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | sync         | Synchronous/asynchronous export option.  Defaults to `true`.                                                                                            |
-+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| writable     | The ro/rw export option for the filesystem.  Defaults to `true`.                                                                                        |
-+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| options      | Any non-default options to use when exporting the filesystem.                                                                                             |
-+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| writable     | The ro/rw export option for the filesystem. Defaults to `true`.                                                                                         |
+| options      | Any non-default options to use when exporting the filesystem.                                                                                           |
 
-Mount Configuration Options
-***************************
+## Mount Configuration Options
 
-+---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Option        | Definition                                                                                                                                                                 |
-+===============+============================================================================================================================================================================+
-| type          | *REQUIRED* The type attribute must be set to `nfs` for all NFS mounts.  This is required in order to differentiate from volume mounts and other shared filesystem types. |
-+---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| export_path   | The location of the export on the NFS filer.  If an export_path is not specified, the  mountpoint of the mount will be used as the export_path.                            |
-+---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| mountpoint    | The location where the filesystem will be mounted after any additional configuration is applied.  If the directory does not already exist, it will be created.             |
-+---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| cluster_name  | The name of the CycleCloud cluster which exports the filesystem.  If not set, the node's local cluster is assumed.                                                         |
-+---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| address       | The explicit hostname or IP address of the filesystem.  If not set, search will attempt to find the filesystem in a CycleCloud cluster.                                    |
-+---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| options       | Any non-default options to use when mounting the filesystem.                                                                                                               |
-+---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| disabled      | If set to `true`, the node will not mount the filesystem.                                                                                                                |
-+---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Option        | Definition                                                                                                                                                     |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type          | *REQUIRED* The type attribute must be set to `nfs` for all NFS exports to differentiate from volume mounts and other shared filesystem types.                  |
+| export_path   | The location of the export on the NFS filer.  If an export_path is not specified, the  mountpoint of the mount will be used as the export_path.                |
+| mountpoint    | The location where the filesystem will be mounted after any additional configuration is applied.  If the directory does not already exist, it will be created. |
+| cluster_name  | The name of the CycleCloud cluster which exports the filesystem.  If not set, the node's local cluster is assumed.                                             |
+| address       | The explicit hostname or IP address of the filesystem.  If not set, search will attempt to find the filesystem in a CycleCloud cluster.                        |
+| options       | Any non-default options to use when mounting the filesystem.                                                                                                   |
+| disabled      | If set to `true`, the node will not mount the filesystem.                                                                                                      || Option
