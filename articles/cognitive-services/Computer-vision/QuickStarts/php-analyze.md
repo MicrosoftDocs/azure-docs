@@ -8,7 +8,7 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/27/2018
+ms.date: 05/30/2018
 ms.author: nolachar
 ---
 # Quickstart: Analyze an Image with PHP
@@ -33,54 +33,74 @@ With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/
 
 To run the sample, do the following steps:
 
-Change the REST URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+1. Copy the following code into an editor.
+1. Replace `<Subscription Key>` with your valid subscription key.
+1. Change `uriBase` to use the location where you obtained your subscription keys, if necessary.
+1. Optionally, set `imageUrl` to the image you want to analyze.
+1. Optionally, change the response language (`'language' => 'en'`).
+1. Save the file with an `.php` extension.
+1. Open the file in a browser window with PHP support.
 
 ```php
+<html>
+<head>
+    <title>Analyze Image Sample</title>
+</head>
+<body>
 <?php
-// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
+// Replace <Subscription Key> with a valid subscription key.
+$ocpApimSubscriptionKey = '<Subscription Key>';
+
+// You must use the same location in your REST call as you used to obtain
+// your subscription keys. For example, if you obtained your subscription keys
+// from westus, replace "westcentralus" in the URL below with "westus".
+$uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/';
+
+$imageUrl = 'http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
+
+// This sample uses the PHP5 HTTP_Request2 package
+// (http://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
-// NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-//   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
-//   URL below with "westus".
-$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze');
+$request = new Http_Request2($uriBase . '/analyze');
 $url = $request->getUrl();
 
 $headers = array(
     // Request headers
     'Content-Type' => 'application/json',
-
-    // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-    'Ocp-Apim-Subscription-Key' => '13hc77781f7e4b19b5fcdd72a8df7156',
+    'Ocp-Apim-Subscription-Key' => $ocpApimSubscriptionKey
 );
-
 $request->setHeader($headers);
 
 $parameters = array(
     // Request parameters
-    'visualFeatures' => 'Categories',
-    'details' => '{string}',
-    'language' => 'en',
+    'visualFeatures' => 'Categories,Description',
+    'details' => '',
+    'language' => 'en'
 );
-
 $url->setQueryVariables($parameters);
 
 $request->setMethod(HTTP_Request2::METHOD_POST);
 
+// Request body parameters
+$body = json_encode(array('url' => $imageUrl));
+
 // Request body
-$request->setBody("{body}");  // Replace with the body, for example, "{"url": "http://www.example.com/images/image.jpg"}
+$request->setBody($body);
 
 try
 {
     $response = $request->send();
-    echo $response->getBody();
+    echo "<pre>" .
+        json_encode(json_decode($response->getBody()), JSON_PRETTY_PRINT) . "</pre>";
 }
 catch (HttpException $ex)
 {
-    echo $ex;
+    echo "<pre>" . $ex . "</pre>";
 }
-
 ?>
+</body>
+</html>
 ```
 
 ## Analyze Image response
@@ -91,97 +111,54 @@ A successful response is returned in JSON, for example:
 {
   "categories": [
     {
-      "name": "abstract_",
-      "score": 0.00390625
-    },
-    {
-      "name": "people_",
-      "score": 0.83984375,
+      "name": "outdoor_water",
+      "score": 0.9921875,
       "detail": {
-        "celebrities": [
-          {
-            "name": "Satya Nadella",
-            "faceRectangle": {
-              "left": 597,
-              "top": 162,
-              "width": 248,
-              "height": 248
-            },
-            "confidence": 0.999028444
-          }
-        ]
+        "landmarks": []
       }
-    }
-  ],
-  "adult": {
-    "isAdultContent": false,
-    "isRacyContent": false,
-    "adultScore": 0.0934349000453949,
-    "racyScore": 0.068613491952419281
-  },
-  "tags": [
-    {
-      "name": "person",
-      "confidence": 0.98979085683822632
-    },
-    {
-      "name": "man",
-      "confidence": 0.94493889808654785
-    },
-    {
-      "name": "outdoor",
-      "confidence": 0.938492476940155
-    },
-    {
-      "name": "window",
-      "confidence": 0.89513939619064331
     }
   ],
   "description": {
     "tags": [
-      "person",
-      "man",
+      "nature",
+      "water",
+      "waterfall",
       "outdoor",
-      "window",
-      "glasses"
+      "rock",
+      "mountain",
+      "rocky",
+      "grass",
+      "hill",
+      "covered",
+      "hillside",
+      "standing",
+      "side",
+      "group",
+      "walking",
+      "white",
+      "man",
+      "large",
+      "snow",
+      "grazing",
+      "forest",
+      "slope",
+      "herd",
+      "river",
+      "giraffe",
+      "field"
     ],
     "captions": [
       {
-        "text": "Satya Nadella sitting on a bench",
-        "confidence": 0.48293603002174407
+        "text": "a large waterfall over a rocky cliff",
+        "confidence": 0.916458423253597
       }
-    ]  },
-  "requestId": "0dbec5ad-a3d3-4f7e-96b4-dfd57efe967d",
+    ]
+  },
+  "requestId": "ebf5a1bc-3ba2-4c56-99b4-bbd20ba28705",
   "metadata": {
-    "width": 1500,
-    "height": 1000,
+    "height": 959,
+    "width": 1280,
     "format": "Jpeg"
-  },
-  "faces": [
-    {
-      "age": 44,
-      "gender": "Male",
-      "faceRectangle": {
-        "left": 593,
-        "top": 160,
-        "width": 250,
-        "height": 250
-      }
-    }
-  ],
-  "color": {
-    "dominantColorForeground": "Brown",
-    "dominantColorBackground": "Brown",
-    "dominantColors": [
-      "Brown",
-      "Black"
-    ],
-    "accentColor": "873B59",
-    "isBWImg": false
-  },
-  "imageType": {
-    "clipArtType": 0,
-    "lineDrawingType": 0
   }
 }
 ```

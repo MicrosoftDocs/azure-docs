@@ -8,12 +8,12 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/27/2018
+ms.date: 05/30/2018
 ms.author: nolachar
 ---
 # Quickstart: Use a Domain Model with PHP
 
-In this quickstart, you use a domain model to identify landmarks in an image using Computer Vision.
+In this quickstart, you use a domain model to identify landmarks or celebrities in an image using Computer Vision.
 
 ## Prerequisites
 
@@ -25,58 +25,70 @@ With the [Recognize Domain Specific Content method](https://westus.dev.cognitive
 
 To run the sample, do the following steps:
 
-The following example identifies a landmark in an image.
+1. Copy the following code into an editor.
+1. Replace `<Subscription Key>` with your valid subscription key.
+1. Change `uriBase` to use the location where you obtained your subscription keys, if necessary.
+1. Optionally, set `imageUrl` to the image you want to analyze.
+1. Optionally, set `domain` to `celebrities` to use the Celebrities model.
+1. Save the file with an `.php` extension.
+1. Open the file in a browser window with PHP support.
 
-Change the REST URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+The following example identifies a landmark in an image.
 
 ```php
 <html>
 <head>
-    <title>PHP Sample</title>
+    <title>Analyze Domain Model Sample</title>
 </head>
 <body>
 <?php
-// This sample uses PEAR (https://pear.php.net/package/HTTP_Request2/download)
+// Replace <Subscription Key> with a valid subscription key.
+$ocpApimSubscriptionKey = '<Subscription Key>';
+
+// You must use the same location in your REST call as you used to obtain
+// your subscription keys. For example, if you obtained your subscription keys
+// from westus, replace "westcentralus" in the URL below with "westus".
+$uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/';
+
+// Change 'landmarks' to 'celebrities' to use the Celebrities model.
+$domain = 'landmarks';
+
+$imageUrl =
+    'https://upload.wikimedia.org/wikipedia/commons/2/23/Space_Needle_2011-07-04.jpg';
+
+// This sample uses the PHP5 HTTP_Request2 package
+// (http://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
-// NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-//   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
-//   URL below with "westus".
-//
-// Also, change "landmarks" to "celebrities" in the url to use the Celebrities model.
-$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/models/landmarks/analyze');
+$request = new Http_Request2($uriBase . 'models/' . $domain . '/analyze');
 $url = $request->getUrl();
 
 $headers = array(
     // Request headers
     'Content-Type' => 'application/json',
-
-    // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-    'Ocp-Apim-Subscription-Key' => '13hc77781f7e4b19b5fcdd72a8df7156',
+    'Ocp-Apim-Subscription-Key' => $ocpApimSubscriptionKey
 );
-
 $request->setHeader($headers);
 
 $parameters = array(
     // Request parameters
-    'model' => 'landmarks',   // Use 'model' => 'celebrities' to use the Celebrities model.
+    'model' => $domain
 );
-
 $url->setQueryVariables($parameters);
 
 $request->setMethod(HTTP_Request2::METHOD_POST);
 
+// Request body parameters
+$body = json_encode(array('url' => $imageUrl));
+
 // Request body
-$body = json_encode(array(
-    // Request body parameters
-    'url' => 'https://upload.wikimedia.org/wikipedia/commons/2/23/Space_Needle_2011-07-04.jpg',
-));
 $request->setBody($body);
 
 try
 {
     $response = $request->send();
-    echo "<pre>" . json_encode(json_decode($response->getBody()), JSON_PRETTY_PRINT) . "</pre>";
+    echo "<pre>" .
+        json_encode(json_decode($response->getBody()), JSON_PRETTY_PRINT) . "</pre>";
 }
 catch (HttpException $ex)
 {
@@ -93,19 +105,19 @@ A successful response is returned in JSON, for example:
 
 ```json
 {
-    "requestId": "0663b074-8eb3-4fab-a72e-4c31a49bd22e",
-    "metadata": {
-        "width": 2096,
-        "height": 4132,
-        "format": "Jpeg"
-    },
     "result": {
         "landmarks": [
             {
                 "name": "Space Needle",
-                "confidence": 0.9998178
+                "confidence": 0.9998177886009216
             }
         ]
+    },
+    "requestId": "4d26587b-b2b9-408d-a70c-1f8121d84b0d",
+    "metadata": {
+        "height": 4132,
+        "width": 2096,
+        "format": "Jpeg"
     }
 }
 ```

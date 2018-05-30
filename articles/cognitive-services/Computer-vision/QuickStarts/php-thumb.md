@@ -8,7 +8,7 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/27/2018
+ms.date: 05/30/2018
 ms.author: nolachar
 ---
 # Quickstart: Generate a Thumbnail with PHP
@@ -25,54 +25,74 @@ With the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/
 
 To run the sample, do the following steps:
 
-Change the REST URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+1. Copy the following code into an editor.
+1. Replace `<Subscription Key>` with your valid subscription key.
+1. Change `uriBase` to use the location where you obtained your subscription keys, if necessary.
+1. Optionally, set `imageUrl` to the image you want to analyze.
+1. Save the file with an `.php` extension.
+1. Open the file in a browser window with PHP support.
 
 ```php
+<html>
+<head>
+    <title>Get Thumbnail Sample</title>
+</head>
+<body>
 <?php
-// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
+// Replace <Subscription Key> with a valid subscription key.
+$ocpApimSubscriptionKey = '<Subscription Key>';
+
+// You must use the same location in your REST call as you used to obtain
+// your subscription keys. For example, if you obtained your subscription keys
+// from westus, replace "westcentralus" in the URL below with "westus".
+$uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/';
+
+$imageUrl =
+    'https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg';
+
+// This sample uses the PHP5 HTTP_Request2 package
+// (http://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
-// NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-//   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
-//   URL below with "westus".
-$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail');
+$request = new Http_Request2($uriBase . 'generateThumbnail');
 $url = $request->getUrl();
 
 $headers = array(
     // Request headers
     'Content-Type' => 'application/json',
-
-    // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-    'Ocp-Apim-Subscription-Key' => '13hc77781f7e4b19b5fcdd72a8df7156',
+    'Ocp-Apim-Subscription-Key' => $ocpApimSubscriptionKey
 );
-
 $request->setHeader($headers);
 
 $parameters = array(
     // Request parameters
-    'width' => '{number}',      // Replace "{number}" with the desired width of your thumbnail.
-    'height' => '{number}',     // Replace "{number}" with the desired height of your thumbnail.
+    'width' => '100',  // Width of the thumbnail.
+    'height' => '100', // Height of the thumbnail.
     'smartCropping' => 'true',
 );
-
 $url->setQueryVariables($parameters);
 
 $request->setMethod(HTTP_Request2::METHOD_POST);
 
+// Request body parameters
+$body = json_encode(array('url' => $imageUrl));
+
 // Request body
-$request->setBody("{body}");    // Replace "{body}" with the body. For example, '{"url": "http://www.example.com/images/image.jpg"}'
+$request->setBody($body);
 
 try
 {
     $response = $request->send();
-    echo $response->getBody();
+    echo "<pre>" .
+        json_encode(json_decode($response->getBody()), JSON_PRETTY_PRINT) . "</pre>";
 }
 catch (HttpException $ex)
 {
-    echo $ex;
+    echo "<pre>" . $ex . "</pre>";
 }
-
 ?>
+</body>
+</html>
 ```
 
 ## Get Thumbnail response

@@ -8,7 +8,7 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/27/2018
+ms.date: 05/30/2018
 ms.author: nolachar
 ---
 # Quickstart: Extract Printed Text (OCR) with Ruby
@@ -25,119 +25,176 @@ With the [OCR method](https://westus.dev.cognitive.microsoft.com/docs/services/5
 
 To run the sample, do the following steps:
 
-Change the REST URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+1. Copy the following code into an editor.
+1. Replace `<Subscription Key>` with your valid subscription key.
+1. Change `uriBase` to use the location where you obtained your subscription keys, if necessary.
+1. Optionally, set `imageUrl` to the image you want to analyze.
+1. Save the file with an `.php` extension.
+1. Open the file in a browser window with PHP support.
 
 ```php
 <?php
-// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
+<html>
+<head>
+    <title>OCR Sample</title>
+</head>
+<body>
+<?php
+// Replace <Subscription Key> with a valid subscription key.
+$ocpApimSubscriptionKey = '<Subscription Key>';
+
+// You must use the same location in your REST call as you used to obtain
+// your subscription keys. For example, if you obtained your subscription keys
+// from westus, replace "westcentralus" in the URL below with "westus".
+$uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/';
+
+$imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/' .
+    'Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png';
+
+// This sample uses the PHP5 HTTP_Request2 package
+// (http://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
-$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr');
+$request = new Http_Request2($uriBase . 'ocr');
 $url = $request->getUrl();
 
 $headers = array(
     // Request headers
     'Content-Type' => 'application/json',
-
-    // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-    'Ocp-Apim-Subscription-Key' => '13hc77781f7e4b19b5fcdd72a8df7156',
+    'Ocp-Apim-Subscription-Key' => $ocpApimSubscriptionKey
 );
-
 $request->setHeader($headers);
 
 $parameters = array(
     // Request parameters
     'language' => 'unk',
-    'detectOrientation ' => 'true',
+    'detectOrientation ' => 'true'
 );
-
 $url->setQueryVariables($parameters);
 
 $request->setMethod(HTTP_Request2::METHOD_POST);
 
+// Request body parameters
+$body = json_encode(array('url' => $imageUrl));
+
 // Request body
-$request->setBody("{body}");    // Replace "{body}" with the body. For example, '{"url": "http://www.example.com/images/image.jpg"}'
+$request->setBody($body);
 
 try
 {
     $response = $request->send();
-    echo $response->getBody();
+    echo "<pre>" .
+        json_encode(json_decode($response->getBody()), JSON_PRETTY_PRINT) . "</pre>";
 }
 catch (HttpException $ex)
 {
-    echo $ex;
+    echo "<pre>" . $ex . "</pre>";
 }
-
 ?>
+</body>
+</html>
 ```
 
 ## OCR response
 
 Upon success, the OCR results returned include text, bounding box for regions, lines, and words, for example:
 
-```json 
+```json
 {
-  "language": "en",
-  "textAngle": -2.0000000000000338,
-  "orientation": "Up",
-  "regions": [
-    {
-      "boundingBox": "462,379,497,258",
-      "lines": [
+    "language": "en",
+    "orientation": "Up",
+    "textAngle": 0,
+    "regions": [
         {
-          "boundingBox": "462,379,497,74",
-          "words": [
-            {
-              "boundingBox": "462,379,41,73",
-              "text": "A"
-            },
-            {
-              "boundingBox": "523,379,153,73",
-              "text": "GOAL"
-            },
-            {
-              "boundingBox": "694,379,265,74",
-              "text": "WITHOUT"
-            }
-          ]
-        },
-        {
-          "boundingBox": "565,471,289,74",
-          "words": [
-            {
-              "boundingBox": "565,471,41,73",
-              "text": "A"
-            },
-            {
-              "boundingBox": "626,471,150,73",
-              "text": "PLAN"
-            },
-            {
-              "boundingBox": "801,472,53,73",
-              "text": "IS"
-            }
-          ]
-        },
-        {
-          "boundingBox": "519,563,375,74",
-          "words": [
-            {
-              "boundingBox": "519,563,149,74",
-              "text": "JUST"
-            },
-            {
-              "boundingBox": "683,564,41,72",
-              "text": "A"
-            },
-            {
-              "boundingBox": "741,564,153,73",
-              "text": "WISH"
-            }
-          ]
+            "boundingBox": "21,16,304,451",
+            "lines": [
+                {
+                    "boundingBox": "28,16,288,41",
+                    "words": [
+                        {
+                            "boundingBox": "28,16,288,41",
+                            "text": "NOTHING"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "27,66,283,52",
+                    "words": [
+                        {
+                            "boundingBox": "27,66,283,52",
+                            "text": "EXISTS"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "27,128,292,49",
+                    "words": [
+                        {
+                            "boundingBox": "27,128,292,49",
+                            "text": "EXCEPT"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "24,188,292,54",
+                    "words": [
+                        {
+                            "boundingBox": "24,188,292,54",
+                            "text": "ATOMS"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "22,253,297,32",
+                    "words": [
+                        {
+                            "boundingBox": "22,253,105,32",
+                            "text": "AND"
+                        },
+                        {
+                            "boundingBox": "144,253,175,32",
+                            "text": "EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "21,298,304,60",
+                    "words": [
+                        {
+                            "boundingBox": "21,298,304,60",
+                            "text": "SPACE."
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "26,387,294,37",
+                    "words": [
+                        {
+                            "boundingBox": "26,387,210,37",
+                            "text": "Everything"
+                        },
+                        {
+                            "boundingBox": "249,389,71,27",
+                            "text": "else"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "127,431,198,36",
+                    "words": [
+                        {
+                            "boundingBox": "127,431,31,29",
+                            "text": "is"
+                        },
+                        {
+                            "boundingBox": "172,431,153,36",
+                            "text": "opinion."
+                        }
+                    ]
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
 ```
 
