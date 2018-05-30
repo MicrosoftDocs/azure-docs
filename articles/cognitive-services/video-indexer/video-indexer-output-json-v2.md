@@ -111,6 +111,7 @@ This section shows the summary of the insights.
 |externalId|The video's external id (if specified by the user).|
 |externalUrl|The video's external url (if specified by the user).|
 |metadata|The video's external metadata (if specified by the user).|
+|isAdult|Whether the video was manually reviewed and identified as an adult video.|
 |insights|The insights object.|
 |thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').|
 |publishedUrl|A url to stream the video.|
