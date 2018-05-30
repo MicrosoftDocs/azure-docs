@@ -8451,6 +8451,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-network-nsg-troubleshoot-portal.md",
+            "redirect_url": "/azure/virtual-network/diagnose-network-traffic-filter-problem",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-nsg-troubleshoot-powershell.md",
+            "redirect_url": "/azure/virtual-network/diagnose-network-traffic-filter-problem",
+            "redirect_document_id": true
+        },        
+        {
             "source_path": "articles/virtual-network/resource-groups-networking.md",
             "redirect_url": "/azure/networking/networking-overview",
             "redirect_document_id": false
@@ -22002,6 +22012,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-scaling-app-template.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-linux",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/App-Dashboard.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-use-dashboard",
             "redirect_document_id": true
@@ -22009,6 +22024,11 @@
         {
             "source_path": "articles/cognitive-services/LUIS/Add-entities.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/java-add-certificate-ca-store.md",
+            "redirect_url": "/java/azure/java-sdk-add-certificate-ca-store",
             "redirect_document_id": true
         }
     ]
