@@ -19071,37 +19071,37 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/operations-management-suite/oms-security-getting-started",
+            "source_path": "articles/operations-management-suite/oms-security-getting-started.md",
             "redirect_url": "/azure/security-center/security-center-intro",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/operations-management-suite/oms-security-monitoring-resources",
+            "source_path": "articles/operations-management-suite/oms-security-monitoring-resources.md",
             "redirect_url": "/azure/security-center/security-center-monitoring",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/operations-management-suite/oms-security-responding-alerts",
+            "source_path": "articles/operations-management-suite/oms-security-responding-alerts.md",
             "redirect_url": "/azure/security-center/security-center-managing-and-responding-alerts",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/operations-management-suite/oms-security-baseline",
+            "source_path": "articles/operations-management-suite/oms-security-baseline.md",
             "redirect_url": "/azure/security-center/security-center-customize-os-security-config",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/log-analytics/log-analytics-malware",
+            "source_path": "articles/log-analytics/log-analytics-malware.md",
             "redirect_url": "/azure/security-center/security-center-install-endpoint-protection",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/operations-management-suite/oms-security-connect-products",
+            "source_path": "articles/operations-management-suite/oms-security-connect-products.md",
             "redirect_url": "/azure/security-center/quick-security-solutions",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/operations-management-suite/oms-security-web-baseline-assessment",
+            "source_path": "articles/operations-management-suite/oms-security-web-baseline-assessment.md",
             "redirect_url": "/azure/security-center/security-center-customize-os-security-config ",
             "redirect_document_id": false
         },
