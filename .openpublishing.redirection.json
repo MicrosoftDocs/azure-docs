@@ -3831,6 +3831,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/user/azure-stack-powershell-install.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-powershell-install",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-stack/azure-stack-create-vpn-connection-one-node-tp2.md",
             "redirect_url": "/azure/azure-stack/azure-stack-create-vpn-connection-one-node",
             "redirect_document_id": false
@@ -6999,6 +7004,16 @@
             "source_path": "articles/search/search-get-started-scoring-profiles.md",
             "redirect_url": "https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/search/ref-create-indexer.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/searchservice/create-indexer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/search/ref-create-skillset.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/searchservice/create-skillset",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/search/search-api-2017-11-11-preview.md",
