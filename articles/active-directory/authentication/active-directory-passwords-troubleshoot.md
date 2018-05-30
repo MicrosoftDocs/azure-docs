@@ -70,6 +70,8 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 | The user is prevented from attempting a password reset too many times in a day. | We implement an automatic throttling mechanism to block users from attempting to reset their passwords too many times in a short period of time. Throttling occurs when: <br><ul><li>The user attempts to validate a phone number 5 times in one hour.</li><li>The user attempts to use the security questions gate 5 times in one hour.</li><li>The user attempts to reset a password for the same user account 5 times in one hour.</li></ul>To fix this problem, instruct the user to wait 24 hours after the last attempt. The user can then reset their password. |
 | The user sees an error when validating their phone number. | This error occurs when the phone number entered does not match the phone number on file. Make sure the user is entering the complete phone number, including the area and country code, when they attempt to use a phone-based method for password reset. |
 | There is an error processing the request. | This can be caused by many issues, but generally this error is caused by either a service outage or a configuration issue. If you see this error and it affects your business, contact Microsoft support for additional assistance. |
+| On-premises policy violation | The password does not meet the on-premises Acitive Directory password policy. |
+| Password does not comply fuzzy policy | The password that was used appears in the banned password list and may not be used. |
 
 ## Troubleshoot password writeback
 
