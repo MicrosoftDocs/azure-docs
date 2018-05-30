@@ -102,11 +102,11 @@ This example assumes the cold CycleCloud's `C:\Program Files` is mounted as `Z:`
 
 1. Synchronize the static content:
 
-      robocopy "C:\Program Files\CycleCloud" Z:\CycleCloud /COPYALL /SL /PURGE /XD data logs /XF license.dat /E
+    robocopy "C:\Program Files\CycleCloud" Z:\CycleCloud /COPYALL /SL /PURGE /XD data logs /XF license.dat /E
 
 2. Synchronize the backups of the dynamic data store content:
 
-  robocopy "C:\Program Files\CycleCloud\data\backups" Z:\CycleCloud\data\backups /COPYAL /SL /PURGE /E
+    robocopy "C:\Program Files\CycleCloud\data\backups" Z:\CycleCloud\data\backups /COPYAL /SL /PURGE /E
 
 These two commands can be combined in to a single batch script.
 
