@@ -5,10 +5,9 @@ services: cosmos-db
 author: LuisBosquez
 manager: kfile
 
-ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
 experimental: true

@@ -219,41 +219,31 @@
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html
   - name: REST
     href: /rest/api/searchservice
-    items:
-    - name: 2017-11-11-Preview
-      href: search-api-preview.md
   - name: REST (Management)
     href: /rest/api/searchmanagement
-  - name: Cognitive search (Preview)
+  - name: REST (Preview)
+    href: search-api-preview.md
+  - name: Predefined skills (Preview) 
+    href: cognitive-search-predefined-skills.md
     items:
-    - name: 2017-11-11-Preview (REST)
-      href: search-api-preview.md
-      items:
-      - name: Create Skillset (Preview)
-        href: ref-create-skillset.md
-      - name: Create Indexer (Preview)
-        href: ref-create-indexer.md
-    - name: Predefined skills 
-      href: cognitive-search-predefined-skills.md
-      items:
-      - name: Key Phrase Extraction 
-        href: cognitive-search-skill-keyphrases.md
-      - name: Language Detection
-        href: cognitive-search-skill-language-detection.md
-      - name: Named Entity Recognition
-        href: cognitive-search-skill-named-entity-recognition.md
-      - name: Text Merger
-        href: cognitive-search-skill-textmerger.md
-      - name: Text Split
-        href: cognitive-search-skill-textsplit.md 
-      - name: Sentiment
-        href: cognitive-search-skill-sentiment.md
-      - name: Image Analysis
-        href: cognitive-search-skill-image-analysis.md
-      - name: Ocr
-        href: cognitive-search-skill-ocr.md
-      - name: Shaper
-        href: cognitive-search-skill-shaper.md
+    - name: Key Phrase Extraction 
+      href: cognitive-search-skill-keyphrases.md
+    - name: Language Detection
+      href: cognitive-search-skill-language-detection.md
+    - name: Named Entity Recognition
+      href: cognitive-search-skill-named-entity-recognition.md
+    - name: Text Merger
+      href: cognitive-search-skill-textmerger.md
+    - name: Text Split
+      href: cognitive-search-skill-textsplit.md 
+    - name: Sentiment
+      href: cognitive-search-skill-sentiment.md
+    - name: Image Analysis
+      href: cognitive-search-skill-image-analysis.md
+    - name: Ocr
+      href: cognitive-search-skill-ocr.md
+    - name: Shaper
+      href: cognitive-search-skill-shaper.md
 - name: Resources
   items:
   - name: FAQ - Frequently Asked Questions
