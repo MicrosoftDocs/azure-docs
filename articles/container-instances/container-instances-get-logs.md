@@ -2,7 +2,7 @@
 title: Get container logs and events with Azure Container Instances
 description: Learn how to debug with container logs and events with Azure Container Instances
 services: container-instances
-author: juluk
+author: jluk
 manager: jeconnoc
 
 ms.service: container-instances
