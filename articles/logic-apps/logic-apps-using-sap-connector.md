@@ -80,8 +80,7 @@ for these reasons:
   that use .NET runtime 2.0 to 3.5 and no longer works 
   with the latest on-premises data gateway.
 
-* To follow along in this article, you'll need content you 
-can send to your SAP server, such as a sample IDoc file. 
+* Message content you can send to your SAP server, such as a sample IDoc file. 
 This content must be in XML format and include the namespace 
 for the SAP action you want to use.
 
