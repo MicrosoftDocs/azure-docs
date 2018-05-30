@@ -92,7 +92,7 @@ Go back to the Azure portal to get your API key information and copy it into the
 
     `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
 
-[!INCLUDE [cosmos-db-auth-key-info](../../cosmos-db-auth-key-info.md)]
+[!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 
 ## Review the code
 
