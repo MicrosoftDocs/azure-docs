@@ -2,7 +2,7 @@
 
 # Overview
 
-## [What is authenticaion](../active-directory/authentication/overview-authentication.md)
+## [What is authentication](../active-directory/authentication/overview-authentication.md)
 
 # Quickstarts
 
