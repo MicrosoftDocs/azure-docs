@@ -1,6 +1,6 @@
 ﻿---
 title: Azure Active Directory B2C custom policies | Microsoft Docs
-description: A topic on Azure Active Directory B2C custom policies.
+description: Learn about Azure Active Directory B2C custom policies.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -35,7 +35,7 @@ Custom policies are configuration files that define the behavior of your Azure A
 
 ## Policy files
 
-A custom policy is represented as one or several XML-formatted files which refer to each other in a hierarchical chain. The XML elements define: Claims schema, claims transformations, content definitions, claims providers/technical profiles, and Userjourney orchestration steps, among other elements.
+A custom policy is represented as one or several XML-formatted files which refer to each other in a hierarchical chain. The XML elements define: Claims schema, claims transformations, content definitions, claims providers/technical profiles, and User journey orchestration steps, among other elements.
 
 We recommend the use of three types of policy files:
 
@@ -54,7 +54,7 @@ Azure’s customer identity and access management (CIAM) service. The service in
 
 1. A user directory in the form of a special-purpose Azure Active Directory accessible via Microsoft Graph and which holds user data for both local accounts and federated accounts 
 2. Access to the **Identity Experience Framework** which orchestrates trust between users and entities and passes claims between them to complete an identity/access management task 
-3. A security token service (STS) issuing id tokens, refresh tokens, and access tokens (and equivalent SAML assertions) and validating them to protect resources.
+3. A security token service (STS) issuing ID tokens, refresh tokens, and access tokens (and equivalent SAML assertions) and validating them to protect resources.
 
 Azure AD B2C interacts with identity providers, users, other systems, and with the local user directory in sequence to achieve an identity task (for example login a user, register a new user, reset a password). The underlying platform which establishes multi-party trust and executes these steps is called the Identity Experience Framework and a policy (also called an user journey or a Trust framework policy) explicitly defines the actors, the actions, the protocols, and the sequence of steps to complete.
 
@@ -71,7 +71,7 @@ Predefined configuration files that direct the behavior of Azure AD B2C to perfo
 
 Configuration files that define the behavior of Identity Experience Framework in your Azure AD B2C tenant. A custom policy is accessible as one or several XML files (see Policy Files definitions) that are executed by the Identity Experience Framework when invoked by a relying party (for example an application). Custom policies can be directly edited by an identity developer to complete a near unlimited number of tasks. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys and certificates as needed by each identity provider.
 
-## Policy File Definitions for Identity Experience Framework Trustframeworks
+## Policy File Definitions for Identity Experience Framework trust frameworks
 
 ### Policy Files
 

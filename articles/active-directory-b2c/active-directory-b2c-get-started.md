@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Create an Azure Active Directory B2C tenant in the Azure portal
+# Create an Azure Active Directory B2C tenant
 
 This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B2C tenant in just a few minutes. When you're finished, you have a B2C tenant (also known as a directory) to use for registering B2C applications.
 
@@ -31,7 +31,7 @@ B2C features can't be enabled in your existing tenants. You need to create an Az
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
-Congratulations, you have created an Azure Active Directory B2C tenant. You are a Global Administrator of the tenant. You can add other Global Administrators as required. To switch to your new tenant, click the *manage your new tenant link*.
+Congratulations, you have created an Azure Active Directory B2C tenant. You are a Global Administrator of the tenant. You can add other Global Administrators as required. To switch to your new tenant, click *manage your new tenant*.
 
 ![Manage your new tenant link](./media/active-directory-b2c-get-started/manage-new-b2c-tenant-link.png)
 

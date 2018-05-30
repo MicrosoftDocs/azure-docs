@@ -39,17 +39,13 @@ To change the settings on your token lifetimes, you need to add a `<ClaimsProvid
 </ClaimsProviders>
 ```
 
-**Access token lifetimes**
-The access token lifetime can be changed by modifying the value inside the `<Item>` with the Key="token_lifetime_secs" in seconds.  The default value in built-in is 3600 seconds (60 minutes).
+**Access token lifetimes** - The access token lifetime can be changed by modifying the value inside the `<Item>` with the Key="token_lifetime_secs" in seconds.  The default value in built-in is 3600 seconds (60 minutes).
 
-**ID token lifetime**
-The ID token lifetime can be changed by modifying the value inside the `<Item>` with the Key="id_token_lifetime_secs" in seconds.  The default value in built-in is 3600 seconds (60 minutes).
+**ID token lifetime** - The ID token lifetime can be changed by modifying the value inside the `<Item>` with the Key="id_token_lifetime_secs" in seconds.  The default value in built-in is 3600 seconds (60 minutes).
 
-**Refresh token lifetime**
-The refresh token lifetime can be changed by modifying the value inside the `<Item>` with the Key="refresh_token_lifetime_secs" in seconds.  The default value in built-in is 1209600 seconds (14 days).
+**Refresh token lifetime** - The refresh token lifetime can be changed by modifying the value inside the `<Item>` with the Key="refresh_token_lifetime_secs" in seconds.  The default value in built-in is 1209600 seconds (14 days).
 
-**Refresh token sliding window lifetime**
-If you would like to set a sliding window lifetime to your refresh token, modify the value inside `<Item>` with the Key="rolling_refresh_token_lifetime_secs" in seconds.  The default value in built-in is 7776000 (90 days).  If you don't want to enfore a sliding window lifetime, replace this line with:
+**Refresh token sliding window lifetime** - If you would like to set a sliding window lifetime to your refresh token, modify the value inside `<Item>` with the Key="rolling_refresh_token_lifetime_secs" in seconds.  The default value in built-in is 7776000 (90 days).  If you don't want to enforce a sliding window lifetime, replace this line with:
 ```XML
 <Item Key="allow_infinite_rolling_refresh_token">True</Item>
 ```

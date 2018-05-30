@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author:davidmu
+ms.author: davidmu
 ms.component: B2C
 ---
 
