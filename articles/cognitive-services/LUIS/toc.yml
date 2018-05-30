@@ -17,8 +17,6 @@
       href: luis-quickstart-intents-only.md
     - name: Get data from entity
       items: 
-      - name: KeyPhrase entity
-        href: luis-quickstart-intent-and-key-phrase.md
       - name: Sentiment analysis
         href: luis-quickstart-intent-and-sentiment-analysis.md
 - name: Tutorials
@@ -33,6 +31,8 @@
         href: luis-quickstart-intent-and-list-entity.md
       - name: Regular expresion entity
         href: luis-quickstart-intents-regex-entity.md
+      - name: KeyPhrase entity
+        href: luis-quickstart-intent-and-key-phrase.md
   - name: Use APIs
     items: 
     - name: Get utterance prediction with endpoint query
