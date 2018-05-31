@@ -39,7 +39,7 @@ The Immutable  Storage feature enables:
 
  The feature is enabled in all Azure public regions.
 
-## How does it work?
+## How it works
 
 The Immutable Storage for Azure Blobs supports two types of WORM or immutable policies: time-based retention and legal holds. Refer to the Getting Started section (link here) below for details on how to create these immutable policies. 
 When a time-based retention policy or legal hold is applied on a container, all existing blobs will move to the immutable (write and delete protected) state.  All new blobs uploaded to the container will also move to the immutable state.
@@ -77,7 +77,7 @@ Refer to [Azure Blob Service API](https://docs.microsoft.com/en-us/rest/api/stor
 
 ## Pricing
 
-There is no additional charge for using this feature and Immutable data is priced in the same way as normal, mutable data. Refer to the [Azure Storage Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) for the related pricing details.  
+There is no additional charge for using this feature and Immutable data is priced in the same way as normal, mutable data. Refer to the [Azure Storage Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) for the related pricing details.
 
 ### Restrictions
 
@@ -97,30 +97,30 @@ Azure Immutable Storage for Azure Blobs is supported on the most recent releases
  The container must be in a blob or GPv2 storage account.
  Click on Access Policy in the Container settings and then click on **+ Add Policy** under **Immutable blob storage** policy as illustrated below.
 
-![Portal](media/storage-immutable-blob-storage/portal-image-1.jpg)
+![Portal](media/storage-blob-immutable-storage/portal-image-1.jpg)
   
 **Step 2:** To enable time-based retention, choose Time-Based Retention from the drop-down menu. Enter the desired retention interval in days (minimum is one day)
  
-![Retention](media/storage-immutable-blob-storage/portal-image-2.JPG)
+![Retention](media/storage-blob-immutable-storage/portal-image-2.JPG)
 
-![Time-Based Retention](media/storage-immutable-blob-storage/portal-image-3-time-based-retention.JPG)
+![Time-Based Retention](media/storage-blob-immutable-storage/portal-image-3-time-based-retention.JPG)
 
  As you can see above, the state of the policy will initially be unlocked. This will allow you to test the feature with a smaller retention interval, and make changes to the policy before locking it.
  Locking is essential for SEC 17a-4 etc. regulatory compliance.
 
  **Step 3:** Lock the policy by right-clicking on the ..., and the following menu will appear:-
 
-![Lock Policy](media/storage-immutable-blob-storage/portal-image-4-lock-policy.JPG)
+![Lock Policy](media/storage-blob-immutable-storage/portal-image-4-lock-policy.JPG)
  
 Click on Lock Policy and the policy state will now show as locked. Once locked, the policy can longer be deleted and only extensions of the retention interval will be allowed.
 
  **Step 4:** To enable legal holds, click on + Add Policy and  choose Legal hold from the drop-down menu
 
-![Legal Hold](media/storage-immutable-blob-storage/portal-image-legal-hold-selection-7.jpg)
+![Legal Hold](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.jpg)
  
 Create a legal hold with one or more tags
 
-![Set legal hold tags](media/storage-immutable-blob-storage/portal-image-set-legal-hold-tags.jpg)
+![Set legal hold tags](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.jpg)
 
 ### CLI 2.0
 
