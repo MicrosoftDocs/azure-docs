@@ -9,6 +9,7 @@ manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
