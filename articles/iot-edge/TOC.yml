@@ -58,22 +58,28 @@
     href: iot-edge-glossary.md
 - name: How-to guides
   items:
+  - name: Register an Edge device
+    items: 
+    - name: Azure CLI
+      href: how-to-register-device-cli.md
   - name: Develop and test modules
     items:
     - name: C#
       href: how-to-develop-csharp-module-vscode.md
     - name: Azure Functions
       href: how-to-vscode-debug-azure-function.md
+  - name: Deploy modules
+    items:
+    - name: Azure CLI
+      href: how-to-deploy-modules-cli.md
+  - name: Deploy and monitor at scale
+    href: how-to-deploy-monitor.md
   - name: Use Edge devices as gateways
     items:
     - name: Transparent gateway
       href: how-to-create-transparent-gateway.md
     - name: Modbus gateway
       href: deploy-modbus-gateway.md
-  - name: Use the IoT extension for Azure CLI 2.0
-    href: tutorial-create-deployment-with-cli-iot-extension.md
-  - name: Deploy and monitor at scale
-    href: how-to-deploy-monitor.md
   - name: Provision an IoT Core device
     href: how-to-install-iot-core.md
   - name: Work with multiple modules
@@ -88,7 +94,7 @@
   items:
   - name: Solutions
     items:
-    - name: IoT Suite Preconfigured Solutions
+    - name: IoT solution accelerators
       href: /azure/iot-suite
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
