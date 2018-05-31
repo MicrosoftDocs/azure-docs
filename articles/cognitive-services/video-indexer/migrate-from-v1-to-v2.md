@@ -34,6 +34,8 @@ The **Authorization** API is used to obtain access tokens for calling the **Oper
 
 Once you [subscribe](video-indexer-get-started.md) to the **Authorization** API, you will be able to obtain access tokens by passing your subscription key (just like you did in v1.)
 
+## Getting and using the access token for operations APIs
+
 When calling the **Operations** APIs, the subscription key won't be used anymore. Instead, you will pass the access tokens obtained by the **Authorization** API. 
 
 Each request should have a valid token, matching the access level of the API you are calling. For example, operations on your user, such as getting your accounts, require a user access token. Operations on the account level, such as list all videos, require an account access token. Operations on videos, such as reindex video, require a video access token.
@@ -77,13 +79,13 @@ https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns?name=some
 1. Get an access token for the upload request:
 
   ```
-  https://api.videoindexer.ai/auth/westus2/Accounts/00000000-c48b-4703-a5d6-2d3fd810ff9c/AccessToken?allowEdit=true
+  https://api.videoindexer.ai/auth/westus2/Accounts/YOUR_ACCOUNT_ID/AccessToken?allowEdit=true
   ```
   
 2. Upload a video:
 
   ```
-  https://api.videoindexer.ai/westus2/Accounts/00000000-c48b-4703-a5d6-2d3fd810ff9c/Videos?accessToken=YOUR_ACCESS_TOKEN&name=my-video&description=my-video-description&language=English&videoUrl=http://url-to-the-video&indexingPreset=Default&streamingPreset=Default&privacy=Private
+  https://api.videoindexer.ai/westus2/Accounts/YOUR_ACCOUNT_ID/Videos?accessToken=YOUR_ACCESS_TOKEN&name=my-video&description=my-video-description&language=English&videoUrl=http://url-to-the-video&indexingPreset=Default&streamingPreset=Default&privacy=Private
   ```
   
 
