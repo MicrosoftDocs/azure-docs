@@ -112,7 +112,7 @@ az group create --name $resourceGroup \
 
 # The IoT hub name must be globally unique, so add a random number to the end.
 iotHubName=ContosoTestHub$RANDOM
-echo "IoT Hub Name = " $iotHubName
+echo "IoT hub name = " $iotHubName
 
 # Create the IoT hub.
 az iot hub create --name $iotHubName \
@@ -151,16 +151,16 @@ az storage container create --name $containerName \
 
 # The Service Bus namespace must be globally unique, so add a random number to the end.
 sbNameSpace=ContosoSBNamespace$RANDOM
-echo "Service bus namespace = " $sbNameSpace
+echo "Service Bus namespace = " $sbNameSpace
 
 # Create the Service Bus namespace.
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
 	
-# The service bus queue name must be globally unique, so add a random number to the end.
+# The Service Bus queue name must be globally unique, so add a random number to the end.
 sbQueueName=ContosoSBQueue$RANDOM
-echo "Service bus queue name = " $sbQueueName
+echo "Service Bus queue name = " $sbQueueName
 
 # Create the Service Bus queue to be used as a routing destination.
 az servicebus queue create --name $sbQueueName \
@@ -202,7 +202,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 # The IoT hub name must be globally unique,so add a random number to the end.
 $iotHubName = "ContosoTestHub$(Get-Random)"
-Write-Host "IoT Hub Name is " $iotHubName
+Write-Host "IoT hub name is " $iotHubName
 
 # Create the IoT hub.
 New-AzureRmIotHub -ResourceGroupName $resourceGroup `
@@ -235,10 +235,10 @@ $storageContext = $storageAccount.Context
 New-AzureStorageContainer -Name $containerName `
     -Context $storageContext
 
-# The service bus namespace must be globally unique,
+# The Service Bus namespace must be globally unique,
 #   so add a random number to the end.
 $serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
-Write-Host "serviceBusNamespace is " $serviceBusNamespace
+Write-Host "Service Bus namespace is " $serviceBusNamespace
 
 # Create the Service Bus namespace.
 New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
@@ -248,7 +248,7 @@ New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
 # The Service Bus queue name must be globally unique,
 #  so add a random number to the end.
 $serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
-Write-Host "Service Bus Queue Name is " $serviceBusQueueName 
+Write-Host "Service Bus queue name is " $serviceBusQueueName 
 
 # Create the Service Bus queue to be used as a routing destination.
 New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
@@ -293,7 +293,7 @@ Now set up the routing for the storage account. Define an endpoint, and then set
    
    **Endpoint Type**: Select **Azure Storage Container** from the dropdown list.
 
-   Click **Pick a container** to see the list of storage accounts. Select your storage account. This tutorial uses **contosostorage**. Next, select the container. This tutorial uses **contosoresults**. Click **Select**, which returns you to the Add endpoint pane. 
+   Click **Pick a container** to see the list of storage accounts. Select your storage account. This tutorial uses **contosostorage**. Next, select the container. This tutorial uses **contosoresults**. Click **Select**, which returns you to the **Add endpoint** pane. 
    
    ![Screenshot showing adding an endpoint.](./media/tutorial-routing/add-endpoint-storage-account.png)
    
