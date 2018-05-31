@@ -1,6 +1,6 @@
 ---
 title: Tutorial learning how to call a Language Understanding (LUIS) app using Java | Microsoft Docs
-description: In this tutorial, you learn to call a LUIS app using Java in this quickstart.
+description: In this tutorial, you learn to call a LUIS app using Java.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -69,6 +69,6 @@ The two resources created in this tutorial are the LUIS subscription key and the
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Add utterances](luis-quickstart-java-add-utterance.md)
+> [Add utterances](luis-get-started-java-add-utterance.md)
 
 [LUIS]: luis-reference-regions.md#luis-website

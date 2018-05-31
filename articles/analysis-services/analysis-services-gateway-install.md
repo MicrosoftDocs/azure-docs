@@ -3,7 +3,7 @@ title: Install On-premises data gateway | Microsoft Docs
 description: Learn how to install and configure an On-premises data gateway.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
