@@ -108,10 +108,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<yourserverurl>/moconavi-saml2`
 
-	C. In the **Reply URL** textbox, type a URL using the following pattern: `https://<yourserverurl>/moconavi-saml2`
+	C. In the **Reply URL** textbox, type a URL using the following pattern: `https://<yourserverurl>/moconavi-saml2/saml/SSO`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [moconavi Client support team](mailto:support@recomot.co.jp) to get these values.
+	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [moconavi Client support team](mailto:support@recomot.co.jp) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -195,19 +195,25 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. Start moconavi.
 
-3. Push **Connect setting** button.
+3. Click **Connect setting** button.
 
 	![Testing single sign-on](./media/active-directory-saas-moconavi-tutorial/testing1.png)
 
-4. Enter the `https://mcs-admin.moconavi.biz/gateway` into **Connect to URL** then push **Done** button.
+4. Enter `https://mcs-admin.moconavi.biz/gateway` into **Connect to URL** then click **Done** button.
 
 	![Testing single sign-on](./media/active-directory-saas-moconavi-tutorial/testing2.png)
 
-5. Enter **Input Authentication Key**:`azureAD` and **Input User ID**: `your ad account` into the textboxes and then push **LOGIN** button.
+5. On the following screenshot, perform the following steps:
 
 	![Testing single sign-on](./media/active-directory-saas-moconavi-tutorial/testing3.png)
 
-6. Input your ad password to **Password** then push **Login** button.
+	a. Enter **Input Authentication Key**:`azureAD` into **Input Authentication Key** textbox.
+
+	b. Enter **Input User ID**: `your ad account` into **Input User ID** textbox.
+
+	c. Click **LOGIN**.
+
+6. Input your Azure AD password to **Password** then click **Login** button.
 
 	![Testing single sign-on](./media/active-directory-saas-moconavi-tutorial/testing4.png)
 
