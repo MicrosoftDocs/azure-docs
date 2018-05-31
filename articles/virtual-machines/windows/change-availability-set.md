@@ -27,9 +27,9 @@ The following script provides an example of gathering the required information, 
 
 ```powershell
 # Set variables
-    $resourceGroup = "AVTest"
-    $vmName = "AVTest"
-    $newAvailSetName = "AVTest7"
+    $resourceGroup = "myResourceGroup"
+    $vmName = "myVM"
+    $newAvailSetName = "myAvailabilitySet"
 
 # Get VM Details
     $originalVM = get-azurermvm `
