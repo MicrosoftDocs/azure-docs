@@ -4,7 +4,7 @@ description: Learn about the Azure Time Series Insights JavaScript client librar
 author: BryanLa
 manager: timlt
 ms.service: time-series-insights
-serices: time-series-insights
+services: time-series-insights
 ms.topic: tutorial
 ms.date: 05/16/2018
 ms.author: bryanla
@@ -92,7 +92,7 @@ The following concepts are universal and applicable to the TSI Client library AP
 
 ### Authentication
 
-As mentioned earlier, this sample is a SPA that uses the OAuth 2.0 support in ADAL for user authentication. Here are some points of interest in this section of the script:
+As mentioned earlier, this sample is an SPA that uses the OAuth 2.0 support in ADAL for user authentication. Here are some points of interest in this section of the script:
 
 1. When using ADAL for authentication, the client application must register itself in the Azure Active Directory (Azure AD) application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
 
@@ -182,7 +182,7 @@ Recall from step #3 in the [Page source and structure section](#page-source-and-
 
 [!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
-The following section of JavaScript code uses the patterns that were outlined earlier: build TSI aggregate expressions, use them to query for TSI data, and render the three charts. Notice the three types that are used from the `tsiClient.ux` namespace: `LineChart`, `BarChart`, and `PieChart`, to create and render the respective charts. Also note that all three charts are able to use the same aggregate expression data `transformedResult`:
+The following section of JavaScript code uses the pattern that was outlined earlier: build TSI aggregate expressions, use them to query for TSI data, and render the three charts. Notice the three types that are used from the `tsiClient.ux` namespace: `LineChart`, `BarChart`, and `PieChart`, to create and render the respective charts. Also note that all three charts are able to use the same aggregate expression data `transformedResult`:
 
 [!code-javascript[code-sample2-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=241-262&highlight=13-14,16-17,19-20)]
 
