@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Integrate Azure Active Directory with Azure Kubernetes Service
+# Integrate Azure Active Directory with AKS
 
 ## Create server application
 

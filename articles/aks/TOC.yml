@@ -38,7 +38,7 @@
     - name: Create an AKS cluster
       href: create-cluster.md
     - name: Create an AAD enable AKS cluster
-      href: integrate-aad.md
+      href: aad-integration.md
     - name: Scale an AKS cluster
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
