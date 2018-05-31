@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 06/04/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -40,7 +40,9 @@ The following administrator roles are available:
   
 * **Dynamics 365 service administrator**: Users with this role have global permissions within Microsoft CRM Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Device Administrators**: Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
+* **Device Adm
+
+inistrators**: Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
 
 * **Directory Readers**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](active-directory-integrating-applications.md). It should not be assigned to any users.
 
@@ -64,6 +66,8 @@ The following administrator roles are available:
 * **Intune Service Administrator**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups.
 
 * **Mailbox Administrator**: This role is only used as part of Exchange Online email support for RIM Blackberry devices. If your organization does not use Exchange Online email on RIM Blackberry devices, do not use this role.
+
+* **Message Center Reader**:  Users in this role can monitor changes to the service and can view all posts to the [Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093), receive a weekly email digest of posts and email notification of major updates, and share message center posts with others through email. Users assigned this role also have read-only access to some admin center services, such as users and groups. 
 
 * **Partner Tier 1 Support**: Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 
