@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -78,7 +79,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 ### Step 1. Get list of AD forests where Seamless SSO has been enabled
 
 1. First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 3. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
 4. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
 5. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.

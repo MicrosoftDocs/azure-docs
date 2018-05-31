@@ -17,7 +17,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: https://review.docs.microsoft.com/azure/active-directory-b2c/media/index/active-directory-b2c-video.PNG
+      src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/active-directory-b2c-video.PNG
       width: 250  
     title: Business-to-Consumer Identity Management with Azure Active Directory B2C (12:56)
     href: https://azure.microsoft.com/resources/videos/build-2016-business-to-consumer-identity-management-with-azure-active-directory-b2c/
@@ -31,15 +31,15 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://review.docs.microsoft.com/azure/active-directory-b2c/media/index/logo_NET.svg
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_NET.svg
       text: .NET
       href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app
     - image: 
-        src: https://review.docs.microsoft.com/azure/active-directory-b2c/media/index/logo_windows.svg
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_windows.svg
       text: Desktop
       href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app
     - image: 
-        src: https://review.docs.microsoft.com/azure/active-directory-b2c/media/index/logo_nodejs.svg
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_nodejs.svg
       text: Single-page
       href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-spa
 - title: Step-by-Step Tutorials
@@ -56,30 +56,6 @@ sections:
         html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Grant API access</a></p>
       - title: Single-page
         html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Grant API access</a></p>
-- title: Free Pluralsight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsF
-    items:
-    - title: Manage identity, application, and network services
-      href: https://www.pluralsight.com/courses/microsoft-azure-identity-application-network-services
-      html: <p>In module 6, see the creation of a tenant, registering of an app, and creation of policies.</p>
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/microsoft-azure-identity-application-network-services 
-    - title: Secure a serverless application
-      href: https://www.pluralsight.com/courses/azure-serverless-applications  
-      html: <p>In module 6, hear why you should use Azure AD B2C to secure a serverless app.</p>
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/azure-serverless-applications
-    - title: ASP.NET Core 2 and Azure AD B2C
-      href: https://www.pluralsight.com/courses/aspnet-core-identity-management-playbook
-      html: <p>In module 8, see how to add sign-up, sign-in, and profile editing to an ASP.NET Core 2 app.</p>
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/aspnet-core-identity-management-playbook 
 - title: Samples
   items:
   - type: paragraph

@@ -4,7 +4,7 @@ description: Track resource consumption and index size for Azure Search, a hoste
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
-
+services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual

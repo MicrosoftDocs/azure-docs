@@ -4,10 +4,9 @@ description: Shows how to page through all of the news articles that Bing can re
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: EA388F72-FA43-493B-967C-9560B3243C62
 ms.service: cognitive-services
-ms.technology: bing-news-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi

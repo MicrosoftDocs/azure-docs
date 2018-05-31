@@ -10,9 +10,7 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/02/2018
+ms.date: 05/25/2018
 ms.author: sachins
 
 ---
@@ -64,9 +62,9 @@ POSIX permissions and auditing in Data Lake Store comes with an overhead that be
 * Faster copying/replication
 * Fewer files to process when updating Data Lake Store POSIX permissions 
 
-Depending on what services and workloads are using the data, a good range to consider for file sizes is 256 MB to 1 GB, ideally not going below 100 MB or above 2 GB. If the file sizes cannot be batched when landing in Data Lake Store, you can have a separate compaction job that combines these files into larger ones. For more information and recommendation on file sizes and organizing the data in Data Lake Store, see [Structure your data set](data-lake-store-performance-tuning-guidance.md#structure-your-data-set). 
+Depending on what services and workloads are using the data, a good size to consider for files is 256 MB or greater. If the file sizes cannot be batched when landing in Data Lake Store, you can have a separate compaction job that combines these files into larger ones. For more information and recommendation on file sizes and organizing the data in Data Lake Store, see [Structure your data set](data-lake-store-performance-tuning-guidance.md#structure-your-data-set).
 
-### Large file sizes and potential performance impact 
+### Large file sizes and potential performance impact
 
 Although Data Lake Store supports large files up to petabytes in size, for optimal performance and depending on the process reading the data, it might not be ideal to go above 2 GB on average. For example, when using **Distcp** to copy data between locations or different storage accounts, files are the finest level of granularity used to determine map tasks. So, if you are copying 10 files that are 1 TB each, at most 10 mappers are allocated. Also, if you have lots of files with mappers assigned, initially the mappers work in parallel to move large files. However, as the job starts to wind down only a few mappers remain allocated and you can be stuck with a single mapper assigned to a large file. Microsoft has submitted improvements to Distcp to address this issue in future Hadoop versions.  
 

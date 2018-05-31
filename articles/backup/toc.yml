@@ -29,6 +29,8 @@
   items:
   - name: Azure PowerShell
     href: powershell-backup-samples.md
+  - name: Resource Manager templates
+    href: backup-rm-template-samples.md
 - name: Concepts
   items:
   - name: FAQ
@@ -47,6 +49,8 @@
     href: backup-azure-security-feature.md
   - name: Configure offline-backup
     href: backup-azure-backup-import-export.md
+  - name: Offline backup for DPM and Azure Backup Server
+    href: backup-azure-backup-server-import-export-.md
   - name: Replace your tape library
     href: backup-azure-backup-cloud-as-tape.md
 - name: How to
@@ -59,6 +63,8 @@
       items:
       - name: Prepare Azure Backup Server workloads in Azure portal
         href: backup-azure-microsoft-azure-backup.md
+      - name: Install Azure Backup Server on Azure Stack
+        href: backup-mabs-install-azure-stack.md        
       - name: Add storage to Azure Backup Server
         href: backup-mabs-add-storage.md
       - name: Upgrade Azure Backup Server to v.2
@@ -67,16 +73,18 @@
         href: backup-mabs-unattended-install.md
     - name: Protect workloads
       items:
-      - name: Use Azure Backup Server to back up a VMware server
+      - name: VMware server
         href: backup-azure-backup-server-vmware.md
-      - name: Use Azure Backup Server to back up Exchange
+      - name: Exchange
         href: backup-azure-exchange-mabs.md
-      - name: Use Azure Backup Server to back up a SharePoint farm
+      - name: SharePoint farm
         href: backup-azure-backup-sharepoint-mabs.md
-      - name: Use Azure Backup Server to back up SQL
+      - name: SQL Server
         href: backup-azure-sql-mabs.md
       - name: Protect system state and bare metal recovery
         href: backup-mabs-system-state-and-bmr.md
+      - name: Files and Applications on Azure Stack
+        href: backup-mabs-files-applications-azure-stack.md 
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
   - name: Azure File shares
@@ -100,7 +108,7 @@
     - name: Back up VMs
       items:
       - name: Back up Azure VMs to Recovery Services vault
-        href: backup-azure-arm-vms.md
+        href: backup-azure-vms-first-look-arm.md
       - name: Back up encrypted VMs
         href: backup-azure-vms-encryption.md
       - name: Enable VM backup during VM creation

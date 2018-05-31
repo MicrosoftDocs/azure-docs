@@ -3,7 +3,7 @@ title: Azure Active Directory report retention policies | Microsoft Docs
 description: Retention policies on report data in your Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 12/15/2017
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 05/10/2018
+ms.author: rolyon
 ms.reviewer: dhanyahk
 
 ---
@@ -23,7 +24,7 @@ ms.reviewer: dhanyahk
 
 This topic provides you with answers to the most common questions in conjunction with the data retention for the different activity reports in Azure Active Directory. 
 
-**Q: How can you get the collection of activity data started?**
+### Q: How can you get the collection of activity data started?
 
 **A:**
 
@@ -33,7 +34,7 @@ This topic provides you with answers to the most common questions in conjunction
 | Azure AD Free | The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](https://aka.ms/aadreports)  |
 
 ---
-**Q: When is your activity data available in the Azure portal?**
+### Q: When is your activity data available in the Azure portal?
 
 **A:**
 
@@ -41,13 +42,15 @@ This topic provides you with answers to the most common questions in conjunction
 - **Within 2 hours** - If you haven’t turned reporting on in the Azure portal
 
 ---
-**Q: How can you get the collection of security signals started?**  
+
+### Q: How can you get the collection of security signals started?  
 
 **A:** For security signals, the collection process starts when you opt-in to use the Identity Protection Center. 
 
 
 ---
-**Q: For how long is the collected data stored?**
+
+### Q: For how long is the collected data stored?
 
 **A:**
 

@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) about Azure Search | Microsoft Docs
 description: Get answers to common questions about Microsoft Azure Search Service
 author: HeidiSteen
 manager: cgronlun
-
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017

@@ -8,6 +8,7 @@ manager: mtillman
 editor: daveba
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,17 +17,20 @@ ms.date: 04/12/2018
 ms.author: daveba
 ---
 
-# Use a Windows VM Managed Service Identity to access Azure Storage
+# Tutorial: Use a Windows VM Managed Service Identity to access Azure Storage
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and use the identity to access Azure Storage.
-
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and use that identity to access Azure Storage.  You learn how to:
 
 > [!div class="checklist"]
-> * Enable the Managed Service Identity (MSI) on a Windows Virtual Machine (VM) 
+> * Enable Managed Service Identity (MSI) on a Windows Virtual Machine (VM)
+> * Create a blob container in a storage account
 > * Grant your Virtual Machine Identity access to a storage account 
 > * Get an access token using your Virtual Machine's identity, and use it to access Azure Storage 
+
+> [!NOTE]
+> Azure Active Directory authentication for Azure Storage is in public preview.
 
 ## Prerequisites
 
@@ -179,13 +183,12 @@ The response contains the contents of the file:
 
 `Hello world! :)`
 
-## Related content
+## Next steps
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md).
-- To learn how to do this same tutorial using a storage SAS credential, see [Use a Windows VM Managed Service Identity to access Azure Storage via a SAS credential](tutorial-windows-vm-access-storage-sas.md)
-- For more information about the Azure Storage account SAS feature, see:
-  - [Using shared access signatures (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Constructing a Service SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+In this tutorial, you learned how enable a Linux virtual machine Managed Service Identity to access Azure Storage.  To learn more about Azure Storage see:
+
+> [!div class="nextstepaction"]
+> [Azure Storage](/azure/storage/common/storage-introduction)
 
 
 

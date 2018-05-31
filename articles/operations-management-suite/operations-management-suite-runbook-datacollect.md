@@ -1,4 +1,4 @@
----
+﻿---
 title: Collecting Log Analytics data with a runbook in Azure Automation | Microsoft Docs
 description: Step by step tutorial that walks through creating a runbook in Azure Automation to collect data into the OMS repository for analysis by Log Analytics.  
 services: log-analytics
@@ -94,7 +94,7 @@ Azure Automation has an editor in the portal where you can edit and test your ru
 		# Code copied from the runbook AzureAutomationTutorial.
 		$connectionName = "AzureRunAsConnection"
 		$servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-		Add-AzureRmAccount `
+		Connect-AzureRmAccount `
 		    -ServicePrincipal `
 		    -TenantId $servicePrincipalConnection.TenantId `
 		    -ApplicationId $servicePrincipalConnection.ApplicationId `

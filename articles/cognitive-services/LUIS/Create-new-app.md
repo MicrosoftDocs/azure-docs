@@ -1,12 +1,11 @@
 ---
 title: Create a new app with LUIS | Microsoft Docs
-description: Create and manage your applications on the Language Understanding (LUIS) webpage. 
+description: Create and manage your applications on the Language Understanding (LUIS) webpage.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-geberr
@@ -83,4 +82,4 @@ text i'm driving and will be 30 minutes late to the meeting,02/13/2018 15:18:43,
 
 ## Next steps
 
-Your first task in the app is to [add intents](Add-intents.md).
+Your first task in the app is to [add intents](luis-how-to-add-intents.md).

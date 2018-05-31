@@ -31,6 +31,14 @@ This article is designed to help you troubleshoot and resolve issues that you mi
 If you do a resource move from one subscription to another subscription, file sync (Storage Sync Service) resources will be blocked from being moved. 
 
 ## Agent installation and server registration
+### During server registration, get the error "The term 'find-AzureRMResource' is not recognized as the name..."
+The issue is that the cmdlet find-AzureRMResource was changed in AzureRM v6.  The next version of the Sync agent will be fixed to support AzureRM v6.  Until then, you can work around this issue by:
+1. Stop the current ServerRegistration.exe via taskmgr
+2. Bring up a PowerShell command prompt as Administrator
+3. PS C:\> Uninstall-Module AzureRM
+4. PS C:\> install-module -name AzureRM -RequiredVersion 5.7.0
+5. Start C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+
 <a id="agent-installation-failures"></a>**Troubleshoot agent installation failures**  
 If the Azure File Sync agent installation fails, at an elevated command prompt, run the following command to turn on logging during agent installation:
 
@@ -145,7 +153,7 @@ If sync fails on a server:
     2. Verify that the Azure File Sync service is running on the server. To do this, open the Services MMC snap-in and verify that the Storage Sync Agent service (FileSyncSvc) is running.
 
 <a id="replica-not-ready"></a>**Sync fails, with this error: "0x80c8300f - The replica is not ready to perform the required operation"**  
-This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. When the change detection job finishes running on the Azure file share (it might take up to 24 hours), sync should start working correctly.
+This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. The change detection job that scans for changes in the Azure File Share is scheduled for once every 24 hours.  The time to complete is dependent on the size of the namespace in the Azure File Share.  This error should go away once complete.
 
 
     > [!NOTE]

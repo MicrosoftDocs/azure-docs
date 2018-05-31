@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -25,6 +26,7 @@ If you’re already familiar with the Azure AD identity model and want to learn 
 * [Password hash synchronization](#password-hash-synchronization) with [Seamless Single Sign-on (SSO)](active-directory-aadconnect-sso.md)
 * [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md) with [Seamless Single Sign-on (SSO)](active-directory-aadconnect-sso.md)
 * [Federated SSO (with Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [Federation with PingFederate](#federation-with-pingfederate)
 
 > [!NOTE] 
 > It is important to remember that by configuring federation for Azure AD, you establish trust between your Azure AD tenant and your federated domains. With this trust federated domain users will have access to Azure AD cloud resources within the tenant.  
@@ -43,6 +45,8 @@ Ensure that no passwords are stored in the cloud.||x*|x|
 Enable on-premises multi-factor authentication solutions.|||x|
 
 *Through a lightweight agent.
+
+For detailed information on choosing an authentication method, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../../security/azure-ad-choose-authn.md)
 
 ### Password hash synchronization
 With password hash synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new password hashes are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password hash synchronization together with password write-back to enable self-service password reset in Azure AD.
@@ -85,6 +89,13 @@ If you're deploying a new farm or using an existing farm, you need:
 * The machine that you run the wizard on to be able to connect to any other machines that you want to install AD FS or Web Application Proxy on by using Windows Remote Management.
 
 For more information, see [Configuring SSO with AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
+
+### Federation with PingFederate
+With federated sign-in, your users can sign in to Azure AD-based services with their on-premises passwords. While they're on the corporate network, they don't even have to enter their passwords.
+
+For more information on configuring PingFederate for use with Azure Active Directory, see [PingFederate Integration with Azure Active Directory and Office 365](https://www.pingidentity.com/AzureADConnect)
+
+For information on setting up Azure AD Connect using PingFederate, see [Azure AD Connect custom installation](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-pingfederate)
 
 #### Sign in by using an earlier version of AD FS or a third-party solution
 If you've already configured cloud sign-in by using an earlier version of AD FS (such as AD FS 2.0) or a third-party federation provider, you can choose to skip user sign-in configuration through Azure AD Connect. This will enable you to get the latest synchronization and other capabilities of Azure AD Connect while still using your existing solution for sign-in.

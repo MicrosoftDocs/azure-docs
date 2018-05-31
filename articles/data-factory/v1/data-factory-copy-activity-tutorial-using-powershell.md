@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Create a pipeline to move data by using Azure PowerShell | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with Copy Activity by using Azure PowerShell.
 services: data-factory
@@ -77,7 +77,7 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
 	Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
 
 	```PowerShell
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```   
    
 	Run the following command to view all the subscriptions for this account:

@@ -4,9 +4,8 @@ description: View languages supported by the Microsoft Translator Speech API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
-
 ms.service: cognitive-services
-ms.technology: translator
+ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jansko
@@ -57,6 +56,7 @@ The Microsoft Translator Speech API supports the following languages as a target
 | Hindi      | `hi`          |
 | Hmong Daw      | `mww`          |
 | Hungarian      | `hu`          |
+|Icelandic|`is`          |
 | Indonesian      | `id`          |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
@@ -96,13 +96,11 @@ The Microsoft Translator Speech API supports the following languages as a target
 
 ## Access the list programmatically
 
-You can access the list of supported languages programmatically using the Languages resource. The list provides the language code as well as the language name in English, or any other supported language. This list is automatically updated by the Microsoft Translator service as new languages become available.
+You can access the list of supported languages programmatically using the languages resource. The list provides the language code as well as the language name in English, or any other supported language. This list is automatically updated by the Microsoft Translator service as new languages become available.
 
-The Languages resource returns the list of supported languages for text and speech translation. The Languages resource does not require authentication.
+The Languages resource returns the list of supported languages for speech, text, and text to speech. The Languages resource does not require authentication.
 
-To access the list, add 'text' in the 'Scope' parameter of the Languages resource reference page. After you have entered the scope parameter, select the **Try it out!** button. The service returns the supported languages in JSON format. The response is visible in the 'Response Body' section. 
-
-[Visit the API reference to try out the languages method](http://docs.microsofttranslator.com/languages.html)
+[Visit the API reference to try out the languages method](languages-reference.md)
 
 ## Access the list on the Microsoft Translator website
 

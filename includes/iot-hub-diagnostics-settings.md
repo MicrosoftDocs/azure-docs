@@ -1,7 +1,19 @@
+﻿---
+ title: include file
+ description: include file
+ services: iot-hub
+ author: dominicbetts
+ ms.service: iot-hub
+ ms.topic: include
+ ms.date: 05/17/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ### Enable logging with diagnostics settings
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT Hub.
-1. Select **Diagnostic settings**.
+1. Select **Diagnostics settings**.
 1. Select **Turn on diagnostics**.
 
    ![Turn on diagnostics][1]
@@ -27,8 +39,8 @@
 
 If you want to turn on diagnostics settings with PowerShell, use the following code:
 
-```
-Login-AzureRmAccount
+```azurepowershell
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```

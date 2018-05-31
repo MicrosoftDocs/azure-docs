@@ -1,22 +1,15 @@
 ---
 title: Understand Azure IoT Hub endpoints | Microsoft Docs
 description: Developer guide - reference information about IoT Hub device-facing and service-facing endpoints.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 57ba52ae-19c6-43e4-bc6c-d8a5c2476e95
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-
 ---
+
 # Reference - IoT Hub endpoints
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
@@ -85,7 +78,7 @@ IoT Hub only supports writing data to Azure Storage containers as blobs in the [
 * The batch reaches a certain size.
 * Or a certain amount of time has elapsed.
 
-IoT Hub will does write an empty blob if there is no data to write.
+IoT Hub will write to an empty blob if there is no data to write.
 
 IoT Hub defaults to the following file naming convention:
 

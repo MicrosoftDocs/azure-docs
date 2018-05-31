@@ -30,6 +30,7 @@ Enabling Azure AD Domain Services (AAD-DS) is a prerequisite before you can crea
 > Only the tenant administrators have the privileges to create an AAD-DS instance. If you use Azure Data Lake Storage (ADLS) as the default storage for HDInsight, then make sure the default Azure AD tenant for ADLS is same as the domain for the HDInsight cluster. Sincde Hadoop relies on Kerberos and basic auth, multi-factor authentication needs to be disabled for users that will have access to the cluster.
 
 After the AAD-DS instance has been provisioned, you need to create a service account in AAD (which will be synced to AAD-DS) with the right permissions. If this service account already exists, you need to reset its password and wait until it syncs to AAD-DS (This reset will result in creation of the kerberos password hash and it could take up to 30 min to sync to AAD-DS). This service account should have the following privileges:
+
 - Join machines to the domain and place machine principals within the OU that you specify during cluster creation.
 - Create service principals within the OU that you specify during cluster creation.
 

@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Docker
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 

@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.custom: load & move data
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.topic: article
+ms.topic: conceptual
 
 ---
 # Import a BACPAC file to a new Azure SQL Database
@@ -99,6 +99,9 @@ $importStatus
 > [!TIP]
 For another script example, see [Import a database from a BACPAC file](scripts/sql-database-import-from-bacpac-powershell.md).
 
+## Limitations
+- Import to a database in elastic pool is not supported. You can import data into a singleton database and then move the database to a pool.
+
 ## Import using other methods
 
 You can also use these wizards:
@@ -110,6 +113,8 @@ You can also use these wizards:
 * To learn how to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md).
 * For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * For a discussion of the entire SQL Server database migration process, including performance recommendations, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
+* To learn how to manage and share storage keys and shared access signitures securely, see [Azure Storage Security Guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide). 
 
 
+  
 

@@ -119,6 +119,8 @@
       href: security-center-just-in-time.md
     - name: Adaptive application controls
       href: security-center-adaptive-application.md
+    - name: File integrity monitoring
+      href: security-center-file-integrity-monitoring.md
   
   - name: Manage security solutions
     href: security-center-partner-integration.md
@@ -157,6 +159,8 @@
       href: security-center-threat-intel.md
     - name: Investigation
       href: security-center-investigation.md
+    - name: Manage investigation user data
+      href: security-center-investigation-user-data.md
   
   - name: Automate security workflows
     items:
@@ -166,6 +170,8 @@
       href: security-center-events-dashboard.md
     - name: Search
       href: security-center-search.md
+    - name: Review compliance (REST)
+      href: security-center-review-policy-compliance.md
 
  
   - name: Scenarios
@@ -185,6 +191,8 @@
 
 - name: Resources
   items:
+  - name: Manage user data
+    href: security-center-privacy.md
   - name: FAQ
     href: security-center-faq.md
   - name: Supported platforms

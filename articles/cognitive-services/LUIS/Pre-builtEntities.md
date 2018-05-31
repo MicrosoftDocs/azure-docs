@@ -1,15 +1,15 @@
-﻿---
+---
 title: Prebuilt entities in LUIS | Microsoft Docs
 description: This article contains lists of the prebuilt entities that are included in Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: cahann
 manager: hsalama
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: cahann;v-geberr;
+ms.author: cahann
+ms.reviewer: v-geberr
 ---
 
 # Prebuilt entities
@@ -35,7 +35,7 @@ The behavior of prebuilt entities is pre-trained and **cannot** be modified. Fol
 
 1. Add a **number** entity to your app, then [Train](Train-test.md) and [publish](PublishApp.md) the app.
 2. Click on the endpoint URL in the **Publish App** page to open the LUIS endpoint in a web browser. 
-3. Append an utterance to the URL that contains an numerical expression. For example, you can type in `buy two plane ticktets`, and see that LUIS identifies `two` as a `builtin.number` entity, and identifies `2` as its value in the `resolution` field. The `resolution` field helps you resolve numbers and dates to a canonical form that's easier for your client application to use. 
+3. Append an utterance to the URL that contains a numerical expression. For example, you can type in `buy two plane ticktets`, and see that LUIS identifies `two` as a `builtin.number` entity, and identifies `2` as its value in the `resolution` field. The `resolution` field helps you resolve numbers and dates to a canonical form that's easier for your client application to use. 
 
     ![utterance in browser containing a number entity](./media/luis-use-prebuilt-entity/browser-query.png)
 

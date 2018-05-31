@@ -1,33 +1,74 @@
 ---
-title: Getting started improve your classifier using Custom Vision Service machine learning | Microsoft Docs
-description: Improve your classifier.
+title: Improve your classifier using Custom Vision Service - Azure Cognitive Services | Microsoft Docs
+description: Learn how to improve the quality of your Custom Vision Service classifier.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.component: custom-vision
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 05/03/2018
 ms.author: anroth
 ---
 
-# Getting Started: Improving your classifier
+# How to improve your classifier
 
-The quality of your classifier is foremost dependent on the quality of the labeled data you provide to it. 
+Learn how to improve the quality of your Custom Vision Service classifier. The quality of your classifier is dependent on the quality of the labeled data you provide to it. 
 
-1. The best way to have a quality classifier is to add more varied tagged images (different backgrounds, angles, object size, groups of photos, and variants of types.) Remember to train your classifier after you have added more images. Include images that are representative of what your classifier will encounter in the real world. Photos in context are better than photos of objects in front of neutral backgrounds, for example.
+## Train more varied images
 
-2. A core feature of Custom Vision Service is that images sent to your prediction endpoint are stored for you in the **Predictions** tab, so you can label them and use them to improve your classifier. Select an iteration from the left rail to see the images from that iteration. These images are ranked, so that the images that can bring the most gains to the classifier are at the top. Hover over an image to see predicted tags from your classifier. To tag an image, select one or more images and click "tag images". The images you have tagged will be moved to your **Training Images** tab. Remember to train after you are done tagging. 
+Providing tagged images with different angles, backgrounds, object size, groups of photos and other variants improves the classifier. Photos in context are better than photos in front of neutral backgrounds. Include images that are representative of what will be submitted to the classifier during normal use.
 
-   **Note:** The default view shows you images from the current iteration. You can drop down to find images submitted during previous iterations. 
+For more information on adding images, see the [Build a classifier](getting-started-build-a-classifier.md) document.
 
-   Tagging images from the **Predictions** tab is one of the best ways to improve your classifier. It is important to have your labeled training data to have similar properties to the data your classifier will encounter in the real world. Over time, consistent image tagging can help you improve your classifier.
+> [!IMPORTANT]
+> Remember to train the classifier after you have added images.
 
-3. Sometimes you can get a sense of how to improve your classifier by inspection. On the **Training Images** tab, you can see all your tagged images. On the left-rail if you select "Iteration History" and select an iteration, you can see a visual representation of which images were predicted correctly, and which were predicted incorrectly. Incorrect images (at your given Probability Threshold) and outlined with a red box to highlight them. Sometimes, by visual inspection, you can identify patterns that suggest what additional data you might want to label. For example, when building a “roses” vs “daises” classifier, if you notice all your white roses are labeled as daisies, your classifier may need more white roses in its training images. If artificially colored daises are labeled as roses, consider adding more of these daisies. 
+## Use images submitted for prediction
 
-4. Your classifier will learn characteristics that your photos have in common, not necessarily the characteristics you are thinking of. For example, if all your tulips were photographed outdoors in a field, and all the roses were photographed in front of a blue wall in a red vase, you have likely trained a field vs wall+vase classifier, not roses vs tulips. 
+The Custom Vision Service stores images submitted to the prediction endpoint. To use these images to improve the classifier, use the following steps:
 
-5. Custom Vision Service supports some automatic negative image handling. If you are building a “cat” vs “dog” classifier, and you submit an image of a shoe for prediction, Custom Vision Service should score that image as close to 0% for “cat” and 0% for “dog”. 
+1. To view images submitted to the classifier, open the [Custom Vision web page](https://customvision.ai) and select the __Predictions__ tab.
 
-   **Note:** The automatic approach works for clearly negative images. It may not work well in cases where the negative images are just a variation of the images used in training. For example, if you have a “husky” vs “corgi” classifier, and you feed in an image of a Pomeranian, Custom Vision Service may score the Pomeranian as a Husky. If your negative images are of this nature, we recommend you create a new tag, such as “Other”, and apply it to your training images that are negative.
+    ![Image of the predictions tab](./media/getting-started-improving-your-classifier/predictions-tab.png)
+
+    > [!TIP]
+    > The default view shows images from the current iteration. You can use the __Iteration__ drop down field to view images submitted during previous iterations.
+
+2. Hover over an image to see the tags that were predicted by the classifier.
+
+    > [!TIP]
+    > Images are ranked, so that the images that can bring the most gains to the classifier are at the top. To select a different sorting, use the __Sort__ section.
+
+    To add an image to your training data, select the image, select the tag, and then select __Save and close__. The image is removed from __Predictions__ and added to the training images. You can view it by selecting the __Training Images__ tab.
+
+    ![Image of the tagging page](./media/getting-started-improving-your-classifier/tag-image.png)
+
+3. Use the __Train__ button to retrain the classifier.
+
+## Visually inspect predictions
+
+To inspect image predictions, select the __Training Images__ tab and then select __Iteration History__. Images that are outlined with a red box were predicted incorrectly.
+
+![Image of the iteration history](./media/getting-started-improving-your-classifier/iteration-history.png)
+
+Sometimes visual inspection can identify patterns that you can then correct by adding additional training data. For example, a classifier for roses vs. daises may incorrectly label all white roses as daises. You may be able to correct this problem by adding and providing training data that contains tagged images of white roses.
+
+## Unexpected classification
+
+Sometimes the classifier learns characteristics that your images have in common. For example, you want to create a classifier for roses vs. tulips. You supply images of tulips in fields, and of roses in a red vase in front of a blue wall. Given this data, the classifier may train for field vs. wall + vase instead of roses vs. tulips.
+
+To correct this problem, use the guidance on training with more varied images: provide images with different angles, backgrounds, object size, groups, and other variants.
+
+## Negative image handling
+
+The Custom Vision Service supports some automatic negative image handling. If you are building a cat vs. dog classifier and you submit an image of a shoe for prediction, the classifier should score that image as close to 0% for both cat and dog. 
+
+> [!WARNING]
+> The automatic approach works for clearly negative images. It may not work well in cases where the negative images are just a variation of the images used in training. 
+>
+> For example, if you have a husky vs. corgi classifier, and you feed in an image of a Pomeranian, it may score the Pomeranian as a Husky. If your negative images are of this nature, create a new tag (such as “Other”), and apply it to the negative training images.
+
+## Next steps
+
+[Use the prediction API](use-prediction-api.md)
