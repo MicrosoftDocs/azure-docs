@@ -27,7 +27,7 @@ If you are signed in with a work or school account, you can't delete your home t
 You can't delete a tenant in Azure AD until it passes several checks. These checks reduce risk that deleting a tenant negatively impacts user access, such as the ability to sign in to Office 365 or access resources in Azure. For example, if the tenant associated with a subscription is unintentionally deleted, then users can't access the Azure resources for that subscription. The following explains the conditions that are checked:
 
 * There can be no users in the tenant except one global administrator who is to delete the tenant. Any other users must be deleted before the tenant can be deleted. If users are synchronized from on-premises, then sync must be turned off, and the users must be deleted in the cloud tenant using the Azure portal or Azure PowerShell cmdlets. There is no requirement to delete groups or contacts.
-* There can be no applications in the tenant. Any applications must be deleted before the tenant can be deleted.
+* There can be no applications in the tenant. Any applications must be removed before the tenant can be deleted.
 * There can be no multi-factor authentication providers linked to the tenant.
 * There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the tenant. For example, if a default tenant was created for you in Azure, you cannot delete this tenant if your Azure subscription still relies on this tenant for authentication. Similarly, you can't delete a tenant if another user has associated a subscription with it. 
 
