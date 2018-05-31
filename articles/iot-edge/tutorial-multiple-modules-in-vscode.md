@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Work with multiple IoT Edge modules in Visual Studio Code | Microsoft Docs 
-description: Deploy Azure Machine Learning as a module to an edge device
+title: Work with multiple Azure IoT Edge modules in VS Code | Microsoft Docs 
+description: Use the IoT extension for Visual Studio Code to develop multiple modules at once for Azure IoT Edge
 services: iot-edge
 keywords: 
 author: shizn
