@@ -45,6 +45,7 @@ In this guide, you will learn how to:
 1. Launch VS Code and open the `webfrontend` folder. (You can ignore any default prompts to add debug assets or restore the project.)
 1. Open the Integrated Terminal in VS Code (using the **View > Integrated Terminal** menu).
 1. Add necessary support files by running this command (be sure that **webfrontend** is your current folder): `azds prep --public`
+
    This includes `Dockerfile`, a [Helm chart](https://docs.helm.sh), and the `azds.yaml` config file.
 
 ## Build and run code in Kubernetes
@@ -142,7 +143,7 @@ Refresh the web app in the browser, and go to the About page. You should see you
 
 ## Next steps
 
-With dev spaces, you can manage multiple containers and simplify collaborative development by isolating different running instances of your code in different spaces. 
+Learn how Azure Dev Spaces helpls you develop more complex apps across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces. 
 
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](get-started-netcore.md#call-a-service-running-in-a-separate-container)
