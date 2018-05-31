@@ -27,8 +27,8 @@ If the LUIS endpoint query uses the correct subscription key and app ID but the 
 
 |Response code|Parameters|
 |--|--|
-|2xx LUIS query response|correct subscription key<br>correct app ID<br>correct host region|
-|4xx LUIS query response|correct subscription key<br>correct app ID<br>_incorrect_ host region|
+|2xx|correct subscription key<br>correct app ID<br>correct host region|
+|401|correct subscription key<br>correct app ID<br>_incorrect_ host region|
 
 ## C# class code to find region
 The console application takes the LUIS app ID and the subscription key and returns all regions associated with it. Currently, a subscription key is created by region so only one region should return.
