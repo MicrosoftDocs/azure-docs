@@ -61,7 +61,7 @@ Get-AzureRmEffectiveRouteTable `
   | Format-Table
 ```
 
-If there are multiple network interfaces attached to the VM, you can review the effective routes for each network interface. Since each network interface can be in a different subnet, each network interface can have different effective routes. To understand the information returned in the output, see [Routing overview](virtual-networks-udr-overview.md). Output is only returned if the VM is in the running state. If you're still having a communication problem, see [additional diagnosis](#additional-diagnosis) and [considerations](#considerations).
+To understand the information returned in the output, see [Routing overview](virtual-networks-udr-overview.md). Output is only returned if the VM is in the running state. If there are multiple network interfaces attached to the VM, you can review the effective routes for each network interface. Since each network interface can be in a different subnet, each network interface can have different effective routes. If you're still having a communication problem, see [additional diagnosis](#additional-diagnosis) and [considerations](#considerations).
 
 If you don't know the name of a network interface, but do know the name of the VM the network interface is attached to, the following commands return the IDs of all network interfaces attached to a VM:
 
@@ -93,7 +93,7 @@ az network nic show-effective-route-table \
   --resource-group myResourceGroup
 ```
 
-If there are multiple network interfaces attached to the VM, you can review the effective routes for each network interface. Since each network interface can be in a different subnet, each network interface can have different effective routes. Output is returned in json format. To understand the information returned in the output, see [Routing overview](virtual-networks-udr-overview.md). Output is only returned if the VM is in the running state. If you're still having a communication problem, see [additional diagnosis](#additional-diagnosis) and [considerations](#considerations).
+To understand the information returned in the output, see [Routing overview](virtual-networks-udr-overview.md). Output is only returned if the VM is in the running state. If there are multiple network interfaces attached to the VM, you can review the effective routes for each network interface. Since each network interface can be in a different subnet, each network interface can have different effective routes. If you're still having a communication problem, see [additional diagnosis](#additional-diagnosis) and [considerations](#considerations).
 
 If you don't know the name of a network interface, but do know the name of the VM the network interface is attached to, the following commands return the IDs of all network interfaces attached to a VM:
 
