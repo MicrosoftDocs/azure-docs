@@ -87,7 +87,7 @@ Applications that support the SCIM profile described in this article can be conn
 Once the initial synchronization has started, you can use the **Audit logs** tab to monitor progress, which shows all actions performed by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
->The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. 
+>The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. 
 
 
 ## Building your own provisioning solution for any application
@@ -246,7 +246,7 @@ This service must have an HTTP address and server authentication certificate of 
 * GeoTrust
 * GlobalSign
 * Go Daddy
-* Verisign
+* VeriSign
 * WoSign
 
 A server authentication certificate can be bound to a port on a Windows host using the network shell utility: 
@@ -361,7 +361,7 @@ Group resources are identified by the schema identifier, http://schemas.microsof
 | mailNickname |externalId |
 | manager |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
-| objectId |id |
+| objectId |ID |
 | postalCode |addresses[type eq "work"].postalCode |
 | proxy-Addresses |emails[type eq "other"].Value |
 | physical-Delivery-OfficeName |addresses[type eq "other"].Formatted |
@@ -377,7 +377,7 @@ Group resources are identified by the schema identifier, http://schemas.microsof
 | mail |emails[type eq "work"].value |
 | mailNickname |displayName |
 | members |members |
-| objectId |id |
+| objectId |ID |
 | proxyAddresses |emails[type eq "other"].Value |
 
 ## User provisioning and de-provisioning
@@ -532,18 +532,18 @@ The following illustration shows the messages that Azure Active Directory sends 
     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq 2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
     Authorization: Bearer ...
   ````
-  The value of the attributes query parameter, "id", signifies that if a user object exists that satisfies the expression provided as the value of the filter query parameter, then the service is expected to respond with an "urn:ietf:params:scim:schemas:core:2.0:User" or "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" resource, including only the value of that resource’s "id" attribute.  The value of the **id** attribute is known to the requestor. It is included in the value of the filter query parameter; the purpose of asking for it is actually to request a minimal representation of a resource that satisfying the filter expression as an indication of whether or not any such object exists.   
+  The value of the attributes query parameter, "ID", signifies that if a user object exists that satisfies the expression provided as the value of the filter query parameter, then the service is expected to respond with an "urn:ietf:params:scim:schemas:core:2.0:User" or "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" resource, including only the value of that resource’s "ID" attribute.  The value of the **ID** attribute is known to the requestor. It is included in the value of the filter query parameter; the purpose of asking for it is actually to request a minimal representation of a resource that satisfying the filter expression as an indication of whether or not any such object exists.   
 
   If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
   
   * parameters.AlternateFilters.Count: 2
-  * parameters.AlternateFilters.ElementAt(x).AttributePath: "id"
+  * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
   * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
   * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-  * parameters.RequestedAttributePaths.ElementAt(0): "id"
+  * parameters.RequestedAttributePaths.ElementAt(0): "ID"
   * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
   Here, the value of the index x may be 0 and the value of the index y may be 1, or the value of x may be 1 and the value of y may be 0, depending on the order of the expressions of the filter query parameter.   
