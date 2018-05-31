@@ -175,7 +175,7 @@ If you still can't make progress, Microsoft support can assist you. Create a sup
 
 - Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some third-party applications like Tableau Server don't like this method of authenticating. These applications expect the more conventional negotiations to take place. The first request is anonymous, which allows the application to respond with the authentication types that it supports through a 401.
 
-- Multi-hop authentication is commonly used in scenarios where an application is tiered, with a back end and front end, where both require authentication, such as SQL Reporting Services. To configure the multihop scenario, see the support article [Kerberos Constrained Delegation May Require Protocol Transition in Multi-hop Scenarios](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
+- Multi-hop authentication is commonly used in scenarios where an application is tiered, with a back end and front end, where both require authentication, such as SQL Server Reporting Services. To configure the multihop scenario, see the support article [Kerberos Constrained Delegation May Require Protocol Transition in Multi-hop Scenarios](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## Next steps
 [Configure KCD on a managed domain](../active-directory-domain-services/active-directory-ds-enable-kcd.md).
