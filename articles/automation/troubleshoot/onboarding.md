@@ -15,21 +15,29 @@ When onboarding solutions you may encounter errors. The following is a listing o
 
 ## ComputerGroupQueryFormatError
 
-**Reason for the error:**
+### Issue
 
-This error code means that the saved search computer group query used to target the solution was not formatted correctly. You may have altered the query, or it may have been altered by the system.
+This error code means that the saved search computer group query used to target the solution was not formatted correctly. 
 
-**Troubleshooting tips:**
+### Cause
+
+You may have altered the query, or it may have been altered by the system.
+
+### Resolution
 
 You can delete the query for this solution, and reonboard the solution, which recreates the query. The query can be found within your workspace, under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the solution associated with this query. If multiple solutions are enabled, the **MicrosoftDefaultComputerGroup** shows multiple times under **Saved Searches**.
 
 ## PolicyViolation
 
-**Reason for the error:**
+### Issue
 
 This error code means that the deployment failed due to violation of one or more policies.
 
-**Troubleshooting tips:**
+### Cause 
+
+A policy is in place that is blocking the operation from completing.
+
+### Resolution
 
 In order to successfully deploy the solution, you need to consider altering the indicated policy. As there are many different types of policies that can be defined, the specific changes required depend on the policy that is violated. For example, if a policy was defined on a resource group that denied permission to change the contents of certain types of resources within that resource group, you could, for example, do any of the following:
 
@@ -49,13 +57,13 @@ Installation of MMA can fail for a variety of reasons, and the steps to take to 
 
 The following section describes various issues that you can encounter when onboarding that cause a failure in the deployment of the MMA extension.
 
-### Guest Agent Connectivity
+### An exception occurred during a WebClient request
 
-When onboarding the MMA extension, if the Guest Agent on the virtual machine is unable to communicate with external resources deployment fails.
+The MMA extension on the virtual machine is unable to communicate with external resources and deployment fails.
 
-**Reason for the error:**
+#### Issue
 
-You receive one of the following messages:
+The following are examples of error messages that are returned:
 
 ```
 Please verify the VM has a running VM agent, and can establish outbound connections to Azure storage.
@@ -65,21 +73,25 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 'Manifest download error from https://<endpoint>/<endpointId>/Microsoft.EnterpriseCloud.Monitoring_MicrosoftMonitoringAgent_australiaeast_manifest.xml. Error: UnknownError. An exception occurred during a WebClient request.
 ```
 
-**Troubleshooting tips:**
+#### Cause
 
-These errors could occur due to one or more of the following reasons:
+Some potential causes to this error are:
 
 * There is a proxy configured in the VM, that only allows specific ports.
 
-* A firewall setting has blocked access to the required ports and addresses. For a list of ports and addresses, see [planning your network](../automation-hybrid-runbook-worker.md#network-planning).
+* A firewall setting has blocked access to the required ports and addresses.
 
-### Transient MMA State Conflict
+#### Resolution
 
-When onboarding the MMA extension, there is a transient error that makes the deployment fail.
+Ensure that you have the proper ports and addresses open for communication. For a list of ports and addresses, see [planning your network](../automation-hybrid-runbook-worker.md#network-planning).
 
-**Reason for the error:**
+### Install failed due to transient environment issues
 
-When deploying the MMA extension you may receive one of the following messages:
+The installation of the Microsoft Monitoring Agent extension failed during deployment due to another installation or action blocking the installation
+
+#### Identifing the Error
+
+The following are examples of error messages may be returned:
 
 ```
 The Microsoft Monitoring Agent failed to install on this machine. Please try to uninstall and reinstall the extension. If the issue persists, please contact support.
@@ -93,11 +105,33 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 'Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.2) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.2\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 1601'
 ```
 
-**Troubleshooting tips:**
+#### Understand the Cause
 
-When errors of this type occur, they are normally due to transient environment issues (such as when a domain join extension triggers a reboot, and in the meantime the guest agent happens to start trying to install the MMA extension as the machine is shutting down), simply retrying to deploy the solution addresses the issue.
+Some potential causes to this error are:
 
-### MMA Extension Installation Timeout
+* Another installation is in progress
+* The system is was triggered to reboot during template deployment
 
+#### How to Resolve
 
-### VMExtensionProvisioningTimeout
+This error is a transient error in nature. Retry the deployment to install the extension.
+
+### Installation timeout
+
+The installation of the MMA extension did not complete due to a timeout.
+
+#### Identifing the Error
+
+The following is an example of an error message that may be returned:
+
+```
+Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
+```
+
+#### Understand the Cause
+
+This error is due to the virtual machine being under a heavy load during installation.
+
+### How to Resolve
+
+Attempt to install the MMA extension when the VM is under a lower load.
