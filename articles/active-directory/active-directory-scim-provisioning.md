@@ -22,7 +22,7 @@ ms.custom: aaddev;it-pro;seohack1
 
 
 ---
-# Using System for Cross-Domain Identity Management to automatically provision users and groups from Azure Active Directory to applications
+# Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications
 
 ## Overview
 Azure Active Directory (Azure AD) can automatically provision users and groups to any application or identity store that is fronted by a web service with the interface defined in the [System for Cross-Domain Identity Management (SCIM) 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory can send requests to create, modify, or delete assigned users and groups to the web service. The web service can then translate those requests into operations on the target identity store. 
@@ -109,7 +109,6 @@ To make this process easier, a set of [code samples](https://github.com/Azure/Az
 * [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
 * Windows machine that supports the ASP.NET framework 4.5 to be used as the SCIM endpoint. This machine must be accessible from the cloud
 * [An Azure subscription with a trial or licensed version of Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
-* The Amazon AWS sample requires libraries from the [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). For more information, see the README file included with the sample.
 
 ### Getting Started
 The easiest way to implement a SCIM endpoint that can accept provisioning requests from Azure AD is to build and deploy the code sample that outputs the provisioned users to a comma-separated value (CSV) file.
@@ -118,19 +117,16 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 
 1. Download the code sample package at [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Unzip the package and place it on your Windows machine at a location such as C:\AzureAD-BYOA-Provisioning-Samples\.
-3. In this folder, launch the FileProvisioningAgent solution in Visual Studio.
-4. Select **Tools > Library Package Manager > Package Manager Console**, and execute the following commands for the FileProvisioningAgent project to resolve the solution references:
+3. In this folder, launch the FileProvisioning\Host\FileProvisioningService.csproj project in Visual Studio.
+4. Select **Tools > NuGet Package Manager > Package Manager Console**, and execute the following commands for the FileProvisioningService project to resolve the solution references:
   ```` 
-   Install-Package Microsoft.SystemForCrossDomainIdentityManagement
-   Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-   Install-Package Microsoft.Owin.Diagnostics
-   Install-Package Microsoft.Owin.Host.SystemWeb
+   Update-Package -Reinstall
   ````
-5. Build the FileProvisioningAgent project.
-6. Launch the Command Prompt application in Windows (as an Administrator), and use the **cd** command to change the directory to your **\AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug** folder.
+5. Build the FileProvisioningService project.
+6. Launch the Command Prompt application in Windows (as an Administrator), and use the **cd** command to change the directory to your **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug** folder.
 7. Run the following command, replacing <ip-address> with the IP address or domain name of the Windows machine:
   ````   
-   FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
+   FileSvc.exe http://<ip-address>:9000 TargetFile.csv
   ````
 8. In Windows under **Windows Settings > Network & Internet Settings**, select the **Windows Firewall > Advanced Settings**, and create an **Inbound Rule** that allows inbound access to port 9000.
 9. If the Windows machine is behind a router, the router needs to be configured to perform Network Access Translation between its port 9000 that is exposed to the internet, and port 9000 on the Windows machine. This configuration is required for Azure AD to be able to access this endpoint in the cloud.
