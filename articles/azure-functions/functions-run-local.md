@@ -99,7 +99,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
   sudo apt-get update
   ```
 
-  | Linux distribution | `<version>` |
+  | Linux distribution | Version |
   | --------------- | ----------- |
   | Ubuntu 17.10    | `artful`    |
   | Ubuntu 17.04    | `zesty`     |
