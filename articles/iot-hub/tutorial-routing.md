@@ -14,9 +14,9 @@ ms.custom: mvc
 
 # Tutorial: Configure message routing with IoT Hub
 
-Message Routing enables sending telemetry data from your IoT devices to built-in Event Hub-compatible endpoints or custom endpoints such as blob storage, Service Bus Queue, Service Bus Topic, and Event Hubs. While configuring Message Routing, you can create routing rules to customize the route that matches a certain rule. Once set up, the incoming data is automatically routed to the endpoints by the IoT Hub. 
+Message routing enables sending telemetry data from your IoT devices to built-in Event Hub-compatible endpoints or custom endpoints such as blob storage, Service Bus Queue, Service Bus Topic, and Event Hubs. While configuring message routing, you can create routing rules to customize the route that matches a certain rule. Once set up, the incoming data is automatically routed to the endpoints by the IoT Hub. 
 
-In this tutorial, you learn how to set up and use routing rules with IoT Hub. You will route messages from an IoT device to one of multiple services, including blob storage and a Service Bus queue. Messages to the Service Bus queue will be picked up by a Logic App and sent via e-mail. Messages that do not have routing specifically set up are sent to the default endpoint, and viewed in a PowerBI visualization.
+In this tutorial, you learn how to set up and use routing rules with IoT Hub. You will route messages from an IoT device to one of multiple services, including blob storage and a Service Bus queue. Messages to the Service Bus queue will be picked up by a Logic App and sent via e-mail. Messages that do not have routing specifically set up are sent to the default endpoint, and viewed in a Power BI visualization.
 
 In this tutorial, you perform the following tasks:
 
@@ -25,11 +25,11 @@ In this tutorial, you perform the following tasks:
 > * Configure endpoints and routes in IoT hub for the storage account and Service Bus queue.
 > * Create a Logic App that is triggered and sends e-mail when a message is added to the Service Bus queue.
 > * Download and run an app that simulates an IoT Device sending messages to the hub for the different routing options.
-> * Create a PowerBI visualization for data sent to the default endpoint.
+> * Create a Power BI visualization for data sent to the default endpoint.
 > * View the results ...
 > * ...in the Service Bus queue and e-mails.
 > * ...in the storage account.
-> * ...in the PowerBI visualization.
+> * ...in the Power BI visualization.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ In this tutorial, you perform the following tasks:
 
 - Install [Visual Studio for Windows](https://www.visualstudio.com/). 
 
-- A PowerBI account to analyze the default endpoint's stream analytics. ([Try PowerBI for free](https://app.powerbi.com/signupredirect?pbi_source=web))
+- A Power BI account to analyze the default endpoint's stream analytics. ([Try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).)
 
 - An Office 365 account to send notification e-mails. 
 
@@ -200,7 +200,7 @@ $iotDeviceName = "Contoso-Test-Device"
 #   for all resources for this tutorial.
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
-# The IoT hub name must be globally unique,so add a random number to the end.
+# The IoT hub name must be globally unique, so add a random number to the end.
 $iotHubName = "ContosoTestHub$(Get-Random)"
 Write-Host "IoT hub name is " $iotHubName
 
@@ -217,7 +217,7 @@ Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
   -EventHubConsumerGroupName $iotHubConsumerGroup `
   -EventHubEndpointName "events"
 
-# The storage account name must be globally unique,so add a random number to the end.
+# The storage account name must be globally unique, so add a random number to the end.
 $storageAccountName = "contosostorage$(Get-Random)"
 Write-Host "storage account name is " $storageAccountName
 
@@ -281,7 +281,7 @@ You are going to route messages to different resources based on properties attac
 |------|------|
 |level="storage" |Write to Azure Storage.|
 |level="critical" |Write to a Service Bus queue. A Logic App retrieves the message from the queue and uses Office 365 to e-mail the message.|
-|default |Display this data using PowerBI.|
+|default |Display this data using Power BI.|
 
 ### Routing to a storage account 
 
@@ -405,7 +405,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
 ## Set up Azure Stream Analytics
 
-To see the data in a PowerBI visualization, first set up a Stream Analytics job to retrieve the data. Remember that only the messages where the **level** is **normal** are sent to the default endpoint, and will be retrieved by the Stream Analytics job for the PowerBI visualization.
+To see the data in a Power BI visualization, first set up a Stream Analytics job to retrieve the data. Remember that only the messages where the **level** is **normal** are sent to the default endpoint, and will be retrieved by the Stream Analytics job for the Power BI visualization.
 
 ### Create the Stream Analytics job
 
@@ -451,17 +451,17 @@ To see the data in a PowerBI visualization, first set up a Stream Analytics job 
 
 1. Under **Job Topology**, click **Outputs**.
 
-2. In the **Outputs** pane, click **Add**, and then select **PowerBI**. On the screen that comes up, fill in the following fields:
+2. In the **Outputs** pane, click **Add**, and then select **Power BI**. On the screen that comes up, fill in the following fields:
 
    **Output alias**: The unique alias for the output. This tutorial uses **contosooutputs**. 
 
-   **Dataset name**: Name of the dataset to be used in PowerBI. This tutorial uses **contosodataset**. 
+   **Dataset name**: Name of the dataset to be used in Power BI. This tutorial uses **contosodataset**. 
 
-   **Table name**: Name of the table to be used in PowerBI. This tutorial uses **contosotable**.
+   **Table name**: Name of the table to be used in Power BI. This tutorial uses **contosotable**.
 
    Accept the defaults for the rest of the fields.
 
-3. Click **Authorize**, and sign into your PowerBI account.
+3. Click **Authorize**, and sign into your Power BI account.
 
    ![Screenshot showing how to set up the outputs for the stream analytics job.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
@@ -485,7 +485,7 @@ To see the data in a PowerBI visualization, first set up a Stream Analytics job 
 
 In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
 
-To set up the PowerBI report, you need data, so you'll set up PowerBI after creating the device and running the device simulation application.
+To set up the Power BI report, you need data, so you'll set up Power BI after creating the device and running the device simulation application.
 
 ## Run Simulated Device app
 
@@ -529,11 +529,11 @@ This means the following:
 
    * The routing to the storage account is working correctly.
 
-Now with the application still running, set up the PowerBI visualization to see the messages coming through the default routing. 
+Now with the application still running, set up the Power BI visualization to see the messages coming through the default routing. 
 
-## Set up the PowerBI Visualizations
+## Set up the Power BI Visualizations
 
-1. Sign in to your [PowerBI](https://powerbi.microsoft.com/) account.
+1. Sign in to your [Power BI](https://powerbi.microsoft.com/) account.
 
 2. Go to **Workspaces** and select the workspace that you set when you created the output for the Stream Analytics job. This tutorial uses **My Workspace**. 
 
@@ -543,7 +543,7 @@ Now with the application still running, set up the PowerBI visualization to see 
 
 4. Under **ACTIONS**, click the first icon to create a report.
 
-   ![Screenshot showing PowerBI workspace with Actions and report icon highlighted.](./media/tutorial-routing/power-bi-actions.png)
+   ![Screenshot showing Power BI workspace with Actions and report icon highlighted.](./media/tutorial-routing/power-bi-actions.png)
 
 5. Create a line chart to show real-time temperature over time.
 
@@ -561,7 +561,7 @@ Now with the application still running, set up the PowerBI visualization to see 
 
 7. Create another line chart to show real-time humidity over time. To set up the second chart, follow the same steps above and place **EventEnqueuedUtcTime** on the x-axis and **humidity** on the y-axis.
 
-   ![Screenshot showing the final PowerBI report with the two charts.](./media/tutorial-routing/power-bi-report.png)
+   ![Screenshot showing the final Power BI report with the two charts.](./media/tutorial-routing/power-bi-report.png)
 
 8. Click **Save** to save the report.
 
@@ -569,17 +569,17 @@ You should be able to see data on both charts. This means the following:
 
    * The routing to the default endpoint is working correctly.
    * The Azure Stream Analytics job is streaming correctly.
-   * The PowerBI Visualization is set up correctly.
+   * The Power BI Visualization is set up correctly.
 
-You can refresh the charts to see the most recent data by clicking the Refresh button on the top of the PowerBI window. 
+You can refresh the charts to see the most recent data by clicking the Refresh button on the top of the Power BI window. 
 
 ## Clean up resources 
 
 If you want to remove all of the resources you've created, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Service Bus namespace and queue, the Logic App, the storage account, and the resource group itself. 
 
-### Clean up resources in the PowerBI visualization
+### Clean up resources in the Power BI visualization
 
-Log into your [PowerBI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the PowerBI visualization, go to DataSets and click the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
+Log into your [Power BI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the Power BI visualization, go to DataSets and click the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
 
 ### Clean up resources using Azure CLI
 
@@ -606,11 +606,11 @@ In this tutorial, you learned how to use message routing to route IoT Hub messag
 > * Configure endpoints and routes in IoT hub for the storage account and Service Bus queue.
 > * Create a Logic App that is triggered and sends e-mail when a message is added to the Service Bus queue.
 > * Download and run an app that simulates an IoT Device sending messages to the hub for the different routing options.
-> * Create a PowerBI visualization for data sent to the default endpoint.
+> * Create a Power BI visualization for data sent to the default endpoint.
 > * View the results ...
 > * ...in the Service Bus queue and e-mails.
 > * ...in the storage account.
-> * ...in the PowerBI visualization.
+> * ...in the Power BI visualization.
 
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
