@@ -5,12 +5,9 @@ services: cosmos-db
 author: heatherbshapiro
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro

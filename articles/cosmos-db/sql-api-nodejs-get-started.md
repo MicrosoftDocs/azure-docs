@@ -7,10 +7,9 @@ author: SnehaGunda
 manager: kfile
 editor: monicar
 
-ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
 ms.service: cosmos-db
-ms.devlang: node
-ms.topic: article
+ms.devlang: nodejs
+ms.topic: tutorial
 ms.date: 08/14/2017
 ms.author: sngun
 
