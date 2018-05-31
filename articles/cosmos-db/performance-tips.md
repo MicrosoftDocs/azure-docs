@@ -46,31 +46,12 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
      When using Gateway mode, Azure Cosmos DB uses port 443 and MongoDB API uses 10250, 10255 and 10256 ports. The 10250 port maps to a default Mongodb instance without  geo-replication and 10255/10256 ports map to the Mongodb instance with geo-replication functionality. When using TCP in Direct Mode, in addition to the Gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. If these ports are not open and you attempt to use TCP, you receive a 503 Service Unavailable error. The following table shows connectivity modes available for different APIs and the service ports user for each API:
 
-     <table>
-     <tr>
-     <th>Connection mode</th>
-     <th>Supported protocol</th>
-     <th>Supported SDKs</th>
-     <th>API/Service port</th>
-     </tr>
-     <tr>
-     <td>Gateway</td>
-     <td>HTTPS</td>
-     <td>All SDKS</td>
-     <td>SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)</td>
-     </tr>
-     <tr>
-     <td rowspan = "2" >Direct</td>
-     <td>HTTPS</td>
-     <td>.Net and Java SDK</td>
-     <td>SQL(443)</td>
-     </tr>
-     <tr>
-     <td>TCP</td>
-     <td>.Net SDK</td>
-     <td> Ports within 10,000-20,000 range</td>
-     </tr>
-     </table>
+
+     |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
+     |---------|---------|---------|---------|
+     |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
+     |Direct    |    HTTPS     |  .Net and Java SDK    |    SQL(443)   |
+     |Direct    |     TCP    |  .Net SDK    | Ports within 10,000-20,000 range |
 
      Azure Cosmos DB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
 
