@@ -34,7 +34,7 @@ In this guide, you will learn how to:
 
 1. Install the Azure CLI (version 2.0.33 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Download the [VS Azure Dev Spaces extension](https://aka.ms/get-azds-code).
+1. Download the [Azure Dev Spaces extension](https://aka.ms/get-azds-code).
 1. Install the extension: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
 
 ## Prepare your code
