@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a custom role using Azure PowerShell | Microsoft Docs
-description: Get started creating a custom role using Azure PowerShell.
+title: Tutorial - Create a custom role using Azure CLI | Microsoft Docs
+description: Get started creating a custom role using Azure CLI.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -18,7 +18,7 @@ ms.author: rolyon
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant custom permissions because the current built-in roles do not meet my permission needs.
 
 ---
-# Tutorial: Create a custom role using Azure PowerShell
+# Tutorial: Create a custom role using Azure CLI
 
 If the [built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets. It allows the user to view everything in the subscription and also open support tickets.
 
@@ -35,29 +35,53 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The easiest way to create a custom role is to start with a built-in role, edit it, and then create a new role.
 
-1. In PowerShell, use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command to get the list of operations for the Microsoft.Support resource provider.
+1. Review the list of operations for the [Microsoft.Support resource provider](resource-provider-operations.md#microsoftsupport).
 
-    It's helpful to know the operations that are available to create your permissions. You can also see a list of all the operations at [Azure Resource Manager resource provider operations](resource-provider-operations.md#microsoftsupport).
+    It's helpful to know the operations that are available to create your permissions.
+
+    | Operation | Description |
+    | --- | --- |
+    | Microsoft.Support/register/action | Registers to Support Resource Provider |
+    | Microsoft.Support/supportTickets/read | Gets Support Ticket details (including status, severity, contact details and communications) or gets the list of Support Tickets across subscriptions. |
+    | Microsoft.Support/supportTickets/write | Creates or Updates a Support Ticket. You can create a Support Ticket for Technical, Billing, Quotas or Subscription Management related issues. You can update severity, contact details and communications for existing support tickets. |
+
+1. Use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command to output the [Reader](built-in-roles.md#reader) role in JSON format.
 
     ```azurepowershell
-    Get-AzureRMProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
+    az role definition list --name "Reader"
+    ```
+
+    The following shows the JSON output. For information about the different sections, see [Understand role definitions](role-definitions.md).
+
+    ```json
+    [
+      {
+        "additionalProperties": {},
+        "assignableScopes": [
+          "/"
+        ],
+        "description": "Lets you view everything, but not make any changes.",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+        "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+        "permissions": [
+          {
+            "actions": [
+              "*/read"
+            ],
+            "additionalProperties": {},
+            "dataActions": [],
+            "notActions": [],
+            "notDataActions": []
+          }
+        ],
+        "roleName": "Reader",
+        "roleType": "BuiltInRole",
+        "type": "Microsoft.Authorization/roleDefinitions"
+      }
+    ]
     ```
     
-    ```Output
-    Operation                              Description
-    ---------                              -----------
-    Microsoft.Support/register/action      Registers to Support Resource Provider
-    Microsoft.Support/supportTickets/read  Gets Support Ticket details (including status, severity, contact ...
-    Microsoft.Support/supportTickets/write Creates or Updates a Support Ticket. You can create a Support Tic...
-    ```
-
-1. Use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command to output the [Reader](built-in-roles.md#reader) role in JSON format.
-
-    ```azurepowershell
-    Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
-    ```
-
-1. Open the ReaderSupportRole.json file.
+1. Create a new file named ReaderSupportRole.json.
 
     The following shows the JSON output. For information about the different sections, see [Understand role definitions](role-definitions.md).
 
