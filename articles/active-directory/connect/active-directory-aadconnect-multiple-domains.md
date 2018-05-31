@@ -164,7 +164,6 @@ Use the following steps to add a custom claim to support sub-domains.
 5. Click Ok.  Click Apply.  Click Ok.  Close AD FS Management.
 
 ## Next steps
-## Next steps
 Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](active-directory-aadconnect-whats-next.md).
 
 Learn more about these features, which were enabled with the installation: [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md), [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md), and [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
