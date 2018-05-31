@@ -51,4 +51,4 @@ Learn [best practices](luis-concept-best-practices.md).
 
 ## Next steps
 
-See [Add Features](Add-Features.md) to learn more about how to add features to your LUIS app.
+See [Add Features](luis-how-to-add-features.md) to learn more about how to add features to your LUIS app.
