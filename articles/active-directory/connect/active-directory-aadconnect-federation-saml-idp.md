@@ -17,7 +17,7 @@ ms.author: billmath
 
 #  Use a SAML 2.0 Identity Provider (IdP) for Single Sign On
 
-This document contains information on using a SAML 2.0 compliant SP-Lite profile-based Identity Provider as the preferred Security Token Service (STS) / identity provider. This is useful where you already have a user directory and password store on-premises that can be accessed using SAML 2.0. This existing user directory can be used for sign-on to Office 365 and other Azure AD-secured resources. The SAML 2.0 SP-Lite profile is based on the widely used Security Assertion Markup Language (SAML) federated identity standard to provide a sign-on and attribute exchange framework.
+This document contains information on using a SAML 2.0 compliant SP-Lite profile-based Identity Provider as the preferred Security Token Service (STS) / identity provider. This scenario is useful when you already have a user directory and password store on-premises that can be accessed using SAML 2.0. This existing user directory can be used for sign-on to Office 365 and other Azure AD-secured resources. The SAML 2.0 SP-Lite profile is based on the widely used Security Assertion Markup Language (SAML) federated identity standard to provide a sign-on and attribute exchange framework.
 
 >[!NOTE]
 >For a list of 3rd party Idps that have been tested for use with Azure AD see the [Azure AD federation compatibility list](active-directory-aadconnect-federation-compatibility.md)
@@ -64,7 +64,7 @@ Within the SAML Response message the Signature node contains information about t
       `<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## Supported bindings
-Bindings are the transport related communications parameters that are required. The following requirements apply to the bindings
+Bindings are the transport-related communications parameters that are required. The following requirements apply to the bindings
 
 1. HTTPS is the required transport.
 2.	Azure AD will require HTTP POST for token submission during logon
@@ -145,7 +145,7 @@ This is a sample response message that is sent from the sample SAML 2.0 complian
     </samlp:Response>`
 
 ## Configure your SAML 2.0 compliant identity provider
-This topic contains guidelines on how to configure your SAML 2.0 identity provider to federate with Azure AD to enable single sign-on access to one or more Microsoft cloud services (such as Office 365) using the SAML 2.0 protocol. The SAML 2.0 relying party for a Microsoft cloud service used in this scenario is Azure AD.
+This section contains guidelines on how to configure your SAML 2.0 identity provider to federate with Azure AD to enable single sign-on access to one or more Microsoft cloud services (such as Office 365) using the SAML 2.0 protocol. The SAML 2.0 relying party for a Microsoft cloud service used in this scenario is Azure AD.
 
 ## Add Azure AD metadata
 Your SAML 2.0 identity provider needs to adhere to information about the Azure AD relying party. Azure AD publishes metadata at https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
@@ -262,8 +262,8 @@ To verify that single sign-on has been set up correctly, complete the following 
 
 
 1. On a domain-joined computer, sign-in to your cloud service using the same logon name that you use for your corporate credentials.
-2.	Click inside the password box. If single sign-on is set up, the password box will be shaded, and you will see the following message: “You are now required to sign-in at <your company>.”
-3.	Click the Sign-in at <your company> link. If you are able to sign-in, then single sign-on has been set up.
+2.	Click inside the password box. If single sign-on is set up, the password box will be shaded, and you will see the following message: “You are now required to sign-in at &lt;your company&gt;.”
+3.	Click the Sign-in at &lt;your company&gt; link. If you are able to sign-in, then single sign-on has been set up.
 
 ## Next Steps
 
