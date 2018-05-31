@@ -50,9 +50,13 @@ Once you subscribed to the Authorization API, you will be able to obtain access 
 
 Each call to the Operations API should be associated with an access token, matching the authorization scope of the call.
 
-- User level -  user level access tokens let you perform operations on the user level. For example,  get associated accounts.
-- Account level – account level access tokens let you perform operations on the account level. for example, Upload video, list all videos, create a language model, etc.
-- Video level – video level access tokens let you perform operations on specific videos. for example, get video insights, download captions, get widgets, etc. 
+- User level -  user level access tokens let you perform operations on the **user** level. For example, get associated accounts.
+- Account level – account level access tokens let you perform operations on the **account** level or the **video** level. For example, Upload video, list all videos, get video insights, etc.
+- Video level – video level access tokens let you perform operations on a specific **video**. For example, get video insights, download captions, get widgets, etc. 
+
+You can control whether these tokens are readonly or they allow editing by specifying **allowEdit=true/false**.
+
+For most server-to-server scenarios, you will probably use the same **account** token since it covers both **account** operations and **video** operations. However, if you are planning to make client side calls to Video Indexer (e.g. from javascript), you would want to use a **video** access token, to prevent clients from getting access to the entire account. That is also the reason that when embedding VideoIndexer client code in your client (e.g. using **Get Insights Widget** or **Get Player Widget**) you must provide a **video** access token.
 
 To make things easier, you can use the **Authorization** API > **GetAccounts** to get your accounts without obtaining a user token first. You can also ask to get the accounts with valid tokens, enabling you to skip an additional call to get an account token.
 
