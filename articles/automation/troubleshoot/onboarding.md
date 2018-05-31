@@ -51,6 +51,8 @@ The following section describes various issues that you can encounter when onboa
 
 ### Guest Agent Connectivity
 
+When onboarding the MMA extension, if the Guest Agent on the virtual machine is unable to communicate with external resources deployment fails.
+
 **Reason for the error:**
 
 You receive one of the following messages:
@@ -73,9 +75,11 @@ These errors could occur due to one or more of the following reasons:
 
 ### Transient MMA State Conflict
 
+When onboarding the MMA extension, there is a transient error that makes the deployment fail.
+
 **Reason for the error:**
 
-You receive one of the following messages:
+When deploying the MMA extension you may receive one of the following messages:
 
 ```
 The Microsoft Monitoring Agent failed to install on this machine. Please try to uninstall and reinstall the extension. If the issue persists, please contact support.
@@ -84,7 +88,10 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 ```
 'Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 1618'
 ```
-As errors of this sort are commonly (when they occur) due to transient environment issues (such as when a domain join extension triggers a reboot, and in the meantime the guest agent happens to start trying to install the MMA extension as the machine is shutting down), simply retrying to deploy the solution addresses the issue.
+
+```
+'Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.2) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.2\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 1601'
+```
 
 **Troubleshooting tips:**
 
@@ -92,8 +99,5 @@ When errors of this type occur, they are normally due to transient environment i
 
 ### MMA Extension Installation Timeout
 
-Error code 15614, 
-**Reason for the error:**
-The virtual machine may be under heavy load at the time the Guest Agent attempted to install the MMA extension, and that installation timed out.
 
 ### VMExtensionProvisioningTimeout
