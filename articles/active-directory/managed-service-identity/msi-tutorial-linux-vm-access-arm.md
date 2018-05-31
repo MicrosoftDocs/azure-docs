@@ -71,6 +71,7 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
     
     [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
+
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```

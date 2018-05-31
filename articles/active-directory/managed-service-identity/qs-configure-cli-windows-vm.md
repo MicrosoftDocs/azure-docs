@@ -113,7 +113,7 @@ This section walks you through creation of a VM with assignment of a user assign
 
 2. Create a user assigned identity using [az identity create](/cli/azure/identity#az_identity_create).  The `-g` parameter specifies the resource group where the user assigned identity is created, and the `-n` parameter specifies its name.    
     
-    [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
     ```azurecli-interactive
