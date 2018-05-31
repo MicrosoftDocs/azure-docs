@@ -104,7 +104,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        For more information, see the [Troubleshoot routes](../virtual-network/virtual-network-routes-troubleshoot-portal.md) document.
+        For more information, see the [Troubleshoot routes](../virtual-network/diagnose-network-routing-problem.md) document.
 
 4. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
 
