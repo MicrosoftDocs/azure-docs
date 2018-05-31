@@ -13,7 +13,7 @@ ms.date: 05/31/2018
 # What is an FPGA and what is it used for in Azure Machine learning?
 ---
 
-# What is FPGA and Project Bainwave?
+# What is FPGA and Project Brainwave?
 
 This article provides an introduction to field-programmable gate arrays (FPGA) and how FPGA is integrated with Azure machine learning to provide real-time AI.
 
