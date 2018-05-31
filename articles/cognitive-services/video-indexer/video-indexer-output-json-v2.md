@@ -605,6 +605,10 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 
 #### visualContentModeration
 
+The visualContentModeration block contains time ranges which Video Indexer found to potentially have adult content. If visualContentModeration is empty, there is no adult content that was identified.
+
+Videos that are found to contain adult or racy content might be available for private view only. Users have the option to submit a request for a human review of the content, in which case the IsAdult attribute will contain the result of the human review.
+
 |Name|Description|
 |---|---|
 |id|The visual content moderation ID.|
