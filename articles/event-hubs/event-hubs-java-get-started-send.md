@@ -2,18 +2,13 @@
 title: Send events to Azure Event Hubs using Java | Microsoft Docs
 description: Get started sending to Event Hubs using Java
 services: event-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: ''
 
-ms.assetid: 
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/30/2018
 ms.author: sethm
 
 ---
@@ -26,12 +21,14 @@ For more information, see the [Event Hubs overview][Event Hubs overview].
 
 This tutorial shows how to send events to an event hub by using a console application in Java. To receive events using the Java Event Processor Host library, see [this article](event-hubs-java-get-started-receive-eph.md), or click the appropriate receiving language in the left-hand table of contents.
 
-In order to complete this tutorial, you will need the following:
+## Prerequisites
 
-* A Java development environment. For this tutorial, we assume [Eclipse](https://www.eclipse.org/).
+In order to complete this tutorial, you need the following prerequisites:
+
+* A Java development environment. This tutorial uses [Eclipse](https://www.eclipse.org/).
 * An active Azure account. If you do not have an Azure subscription, create a [free account][] before you begin.
 
-The code in this tutorial is based on the [Send GitHub sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/Send), which you can examine to see the full working application.
+The code in this tutorial is based on the [SimpleSend GitHub sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), which you can examine to see the full working application.
 
 ## Send events to Event Hubs
 
@@ -92,7 +89,7 @@ Use the ConnectionStringBuilder class to construct a connection string value to 
 
 ### Send events
 
-Then, create a singular event by transforming a string into its UTF-8 byte encoding. Then, create a new Event Hubs client instance from the connection string and send the message.   
+Create a singular event by transforming a string into its UTF-8 byte encoding. Then, create a new Event Hubs client instance from the connection string and send the message:   
 
 ```java 
 byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");

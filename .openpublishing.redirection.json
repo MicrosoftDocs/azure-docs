@@ -8451,6 +8451,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-network-routes-troubleshoot-portal.md",
+            "redirect_url": "/azure/virtual-network/diagnose-network-routing-problem",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-routes-troubleshoot-powershell.md",
+            "redirect_url": "/azure/virtual-network/diagnose-network-routing-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-nsg-troubleshoot-portal.md",
+            "redirect_url": "/azure/virtual-network/diagnose-network-traffic-filter-problem",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-nsg-troubleshoot-powershell.md",
+            "redirect_url": "/azure/virtual-network/diagnose-network-traffic-filter-problem",
+            "redirect_document_id": true
+        },        
+        {
             "source_path": "articles/virtual-network/resource-groups-networking.md",
             "redirect_url": "/azure/networking/networking-overview",
             "redirect_document_id": false
@@ -8744,56 +8764,6 @@
             "source_path": "articles/cognitive-services/video-indexer/home.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-get-started",
             "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices.md",
-          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-connecting-devices.md",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices-linux.md",
-          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-connecting-devices-linux.md",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices-node.md",
-          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-connecting-devices-node.md",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/iot-suite/iot-suite-v1-custom-rule.md",
-          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-custom-rule.md",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/iot-suite/iot-suite-v1-dynamic-telemetry.md",
-          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-dynamic-telemetry.md",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/iot-suite/iot-suite-v1-faq.md",
-          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-faq.md",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md",
-          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-getstarted-preconfigured-solutions.md",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md",
-          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/iot-suite/iot-suite-v1-logic-apps-tutorial.md",
-          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-logic-apps-tutorial.md",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/iot-suite/iot-suite-v1-permissions.md",
-          "redirect_url": "https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Tutorials/iot-suite-v1-permissions.md",
-          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
@@ -19061,6 +19031,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/operations-management-suite/oms-security-getting-started.md",
+            "redirect_url": "/azure/security-center/security-center-intro",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-monitoring-resources.md",
+            "redirect_url": "/azure/security-center/security-center-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-responding-alerts.md",
+            "redirect_url": "/azure/security-center/security-center-managing-and-responding-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-baseline.md",
+            "redirect_url": "/azure/security-center/security-center-customize-os-security-config",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-malware.md",
+            "redirect_url": "/azure/security-center/security-center-install-endpoint-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-connect-products.md",
+            "redirect_url": "/azure/security-center/quick-security-solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-web-baseline-assessment.md",
+            "redirect_url": "/azure/security-center/security-center-customize-os-security-config ",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-data-security.md",
+            "redirect_url": "/azure/security-center/security-center-data-security ",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-functions/durable-functions-counter.md",
             "redirect_url": "/azure/azure-functions/durable-functions-monitor",
             "redirect_document_id": true
@@ -22002,8 +22012,38 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-scaling-app-template.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-linux",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/App-Dashboard.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-use-dashboard",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Add-entities.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/java-add-certificate-ca-store.md",
+            "redirect_url": "/java/azure/java-sdk-add-certificate-ca-store",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/Add-intents.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-intents",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/Add-example-utterances.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-example-utterances",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/Add-Features.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-features",
             "redirect_document_id": true
         }
     ]
