@@ -70,7 +70,7 @@ When you delete a user, any entities that the user has access to remain intact. 
 
 ## Delete or export personal data
 
-If you want to delete or export personal data from Cloudyn, you need to create a support ticket. When the support ticket is created, it acts as formal request - a Data Subject Request. Microsoft then takes prompt action to remove the account and delete any customer or personal data. To learn about how you can request to have your data deleted or exported, see [Cloudyn GDPR requests](https://www.cloudyn.com/cloudyn-gdpr-requests).
+If you want to delete or export personal data from Cloudyn, you need to create a support ticket. When the support ticket is created, it acts as formal request - a Data Subject Request. Microsoft then takes prompt action to remove the account and delete any customer or personal data. To learn about how you can request to have your data deleted or exported, see [Data Subject Requests of Cloudyn Data](https://www.cloudyn.com/cloudyn-gdpr-requests).
 
 ## Create and manage entities
 
@@ -120,7 +120,7 @@ In this tutorial, you learned how to:
 > * Create a user with admin access
 > * Create a user with user access
 > * Delete a user
-> * Delete or export personal data 
+> * Delete or export personal data
 > * Create and manage entities
 
 
