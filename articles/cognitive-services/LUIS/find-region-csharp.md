@@ -13,6 +13,9 @@ ms.author: v-geberr
 # Region can be determined from API call 
 If you have the LUIS app ID and the LUIS subscription ID, you can use LUIS to find which region to use for endpoint queries.
 
+> [!NOTE] 
+> The complete C# solution is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
+
 ## LUIS endpoint query strategy
 The LUIS endpoint query requires:
 
@@ -37,15 +40,15 @@ The console application takes the LUIS app ID and the subscription key and retur
 
 Include the .Net library dependencies:
 
-/// top using
+[!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/find-region/csharp/ConsoleAppLUISRegion/Program.cs?range=1-6 "Add the dependencies")]
 
-Replace the variable values for `luisAppId` and `luisSubscriptionKey` with your own values. 
+Add the LUIS class. Replace the variable values for `luisAppId` and `luisSubscriptionKey` with your own values. 
 
-/// insert code snippet here
+[!code-csharp[Add the LUIS class](~/samples-luis/documentation-samples/find-region/csharp/ConsoleAppLUISRegion/Program.cs?range=10-83 "Add the LUIS class")]
 
 This is an example of calling the class:
 
-/// insert code snippet here
+[!code-csharp[Call the LUIS class](~/samples-luis/documentation-samples/find-region/csharp/ConsoleAppLUISRegion/Program.cs?range=85-101 "Call the LUIS class")]
 
 
 
