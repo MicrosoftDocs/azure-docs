@@ -48,6 +48,12 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by W
 | M128s | 16 | 8000 |
 | M64ms | 8 | 4000 |
 | M64s | 8 | 4000 | 
+| M32ms | 4 | 2000 | 
+| M32s | 4 | 2000 | 
+| M16ms | 2 | 1000 | 
+| M16s | 2 | 1000 | 
+| M8ms | 1 | 500 | 
+| M8s | 1 | 500 | 
 
 ## Enabling Write Accelerator on a specific disk
 The next few sections will describe how Write Accelerator can be enabled on Azure Premium Storage VHDs.
