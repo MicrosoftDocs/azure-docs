@@ -4,7 +4,7 @@ description: Learn about the scalability and performance targets for Azure Files
 services: storage
 documentationcenter: na
 author: wmgries
-manager: klaasl
+manager: aungoo
 editor: tamram
 ms.service: storage
 ms.devlang: na

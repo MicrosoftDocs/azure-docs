@@ -4,8 +4,8 @@ description: Learn how to use Azure CLI to manage Azure Files.
 services: storage
 documentationcenter: na
 author: wmgries
-manager: jeconnoc
-editor: 
+manager: aungoo
+editor: tamram
 
 ms.service: storage
 ms.workload: storage

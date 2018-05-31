@@ -4,7 +4,7 @@ description: Azure File Sync on-premises network configuration
 services: storage
 documentationcenter: ''
 author: fauhse
-manager: klaasl
+manager: aungoo
 editor: tamram
 
 ms.assetid: 
