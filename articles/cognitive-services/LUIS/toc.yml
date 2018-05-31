@@ -134,7 +134,7 @@
   - name: Build Model
     items: 
     - name: Add intents
-      href: Add-intents.md
+      href: luis-how-to-add-intents.md
     - name: Add utterances
       href: luis-how-to-add-example-utterances.md
     - name: Add entities
