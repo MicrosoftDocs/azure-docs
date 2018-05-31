@@ -14,31 +14,27 @@ ms.author: juliako
 ---
 # Create a Video Indexer account connected to Azure
 
-Customers who have a Video Indexer free trial account are limited by the quota and the number of videos they can index. Video Indexer now enables customers to create a new Video Indexer account that is connected to their Azure subscriptions, which does not have these limitations and offers a pay as you go pricing.
-
-This article shows how to create a Video Indexer account connected to Azure.
+When using a Video Indexer free trial account, you're limited by the quota and number of videos you can index. This article shows how to create a Video Indexer account that's linked to an Azure subscription, which frees you from these limits and uses pay-as-you-go pricing.
 
 ## Prerequisites
 
-1. An Azure subscription. 
+* An Azure subscription. 
 
-    If you don't have an account, you can create a free trial subscription in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/).
+    If you don't have an Azure subscription yet, sign up for [Azure Free Trial](https://azure.microsoft.com/free/).
 
-2. An Azure Active Directory domain. 
+* An Azure Active Directory (AD) domain. 
 
-    If you don't have an Azure Active Directory, you can create it in your subscription.
+    If you don't have an Azure AD domain, create this domain with your Azure subscription.
 
-3. A user in the Azure Active Directory, that will be used when connecting your Video Indexer account to Azure.
+* A user and member in your Azure AD domain. You'll use this member when connecting your Video Indexer account to Azure.
 
-    This user should:
+    This user should meet these criteria:
 
-    * Be a member of your Azure Active Directory domain.
-
-        Non-Azure AD users, such as outlook.com, live.com or hotmail.com users cannot be used for connecting to Azure.
+    * Be an Azure AD user with a work or school account, not a personal account, such as outlook.com, live.com, or hotmail.com.
         
         ![all AAD users](./media/create-account/all-aad-users.png)
 
-    * Be a member of your subscription, with either an Owner role, or both Contributor and User Access Administrator roles.
+    *  Be a member in your Azure subscription with either an Owner role, or both Contributor and User Access Administrator roles.
 
         ![access control](./media/create-account/access-control-iam.png)
 
@@ -102,7 +98,7 @@ The following Azure Media Services related considerations apply:
 
 You can programmatically interact with your trial account and/or with your Video Indexer accounts that are connected to azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).
 
-You should use the same Azure Active Directory user you used when connecting to Azure.
+You should use the same Azure AD user you used when connecting to Azure.
 
 ## Next steps
 
