@@ -312,12 +312,12 @@ make come from the outbound IP addresses in this list.
 > [!IMPORTANT]
 >
 > On September 1, 2018, new IP addresses are replacing the existing IP addresses. 
-> Although you can use both sets now, only the new IP addresses work after this date.
+> Although you can use both sets now, only the new IP addresses will work after this date.
 > 
-> * If you haven't configured your firewall yet, use the new IP addresses instead.
+> * If you haven't configured your firewall yet, use the new IP addresses.
 >
 > * If you have firewall configurations affected by this change, 
-> update your configurations to the new IP addresses 
+> update your configurations to use the new IP addresses 
 > *as soon as possible before the changeover date*.
 
 The new IP addresses appear in bold, 
