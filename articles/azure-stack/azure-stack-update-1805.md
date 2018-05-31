@@ -39,7 +39,7 @@ This update includes the following improvements for Azure Stack.
 
 
 
-## Fixed issues
+### Fixed issues
 
 <!-- # - applicability -->
 
@@ -67,10 +67,10 @@ This update includes the following improvements for Azure Stack.
 *There are no post-update steps for update 1805.*
 
 
-### Known issues (post-installation)
-The following are post-installation known issues for build  **201805xx.x**.
+## Known issues (post-installation)
+The following are post-installation known issues for this build version. 
 
-#### Portal  
+### Portal  
 - <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
   Workaround:  To resolve this issue after you install this update, use step 3 from the [Trigger automation to configure claims provider trust in Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedure to reset the owner of the default provider subscription.   
 
@@ -92,7 +92,7 @@ The following are post-installation known issues for build  **201805xx.x**.
 
   This alert can be safely ignored. 
 
-#### Health and monitoring
+### Health and monitoring
 - <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
 
    Alert #1:
@@ -110,7 +110,7 @@ The following are post-installation known issues for build  **201805xx.x**.
   Both alerts can be safely ignored. They will close automatically over time.  
 
 
-#### Compute
+### Compute
 - <!-- TBD - IS --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
   As a workaround, use one of the following methods to deploy a VM. In each method, you need to specify the VM size you want to use.
 
@@ -144,7 +144,7 @@ The following are post-installation known issues for build  **201805xx.x**.
 - <!-- 1662991 IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
 
 
-#### Networking
+### Networking
 - <!-- 1766332 - IS ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
 
 - <!-- 2388980 - IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
@@ -230,7 +230,7 @@ The following are post-installation known issues for build  **201805xx.x**.
         ```
 
 
-#### SQL and MySQL
+### SQL and MySQL
 
 - <!-- TBD - IS --> Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
 
@@ -245,7 +245,7 @@ The following are post-installation known issues for build  **201805xx.x**.
 
 
 
-#### App Service
+### App Service
 - <!-- 2352906 - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
 
 - <!-- 2489178 - IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
@@ -253,7 +253,7 @@ The following are post-installation known issues for build  **201805xx.x**.
 - <!-- TBD - IS ASDK --> App Service can only be deployed into the *Default Provider subscription* at this time. In a future update, App Service will deploy into the new *Metering subscription* that was introduced in Azure Stack 1804. When Metering is supported for use, all existing deployments will be migrated to this new subscription type.
 
 
-#### Usage  
+### Usage  
 - <!-- TBD - IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 
