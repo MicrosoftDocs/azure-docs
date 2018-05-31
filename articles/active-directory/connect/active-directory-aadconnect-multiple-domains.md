@@ -24,7 +24,7 @@ The following documentation provides guidance on how to use multiple top-level d
 ## Multiple top-level domain support
 Federating multiple, top-level domains with Azure AD requires some additional configuration that is not required when federating with one top-level domain.
 
-When a domain is federated with Azure AD, several properties are set on the domain in Azure.  One important one is IssuerUri.  This is a URI that is used by Azure AD to identify the domain that the token is associated with.  The URI doesn’t need to resolve to anything but it must be a valid URI.  By default, Azure AD sets this to the value of the federation service identifier in your on-premises AD FS configuration.
+When a domain is federated with Azure AD, several properties are set on the domain in Azure.  One important one is IssuerUri.  This property is a URI that is used by Azure AD to identify the domain that the token is associated with.  The URI doesn’t need to resolve to anything but it must be a valid URI.  By default, Azure AD sets this to the value of the federation service identifier in your on-premises AD FS configuration.
 
 > [!NOTE]
 > The federation service identifier is a URI that uniquely identifies a federation service.  The federation service is an instance of AD FS that functions as the security token service.
@@ -35,7 +35,7 @@ You can view the IssuerUri by using the PowerShell command `Get-MsolDomainFedera
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
-A problem arises when you add more than one top-level domain.  For example, let's say you have set up federation between Azure AD and your on-premises environment.  For this document I am using bmcontoso.com.  Now I have added a second, top-level domain, bmfabrikam.com.
+A problem arises when you add more than one top-level domain.  For example, let's say you have set up federation between Azure AD and your on-premises environment.  For this document, the domain, bmcontoso.com is being used.  Now a second, top-level domain, bmfabrikam.com has been added.
 
 ![Domains](./media/active-directory-multiple-domains/domains.png)
 
@@ -44,13 +44,13 @@ When you attempt to convert the bmfabrikam.com domain to be federated, an error 
 ![Federation error](./media/active-directory-multiple-domains/error.png)
 
 ### SupportMultipleDomain Parameter
-To work around this, you need to add a different IssuerUri which can be done by using the `-SupportMultipleDomain` parameter.  This parameter is used with the following cmdlets:
+To work around this constraint, you need to add a different IssuerUri, which can be done by using the `-SupportMultipleDomain` parameter.  This parameter is used with the following cmdlets:
 
 * `New-MsolFederatedDomain`
 * `Convert-MsolDomaintoFederated`
 * `Update-MsolFederatedDomain`
 
-This parameter makes Azure AD configure the IssuerUri so that it is based on the name of the domain.  This will be unique across directories in Azure AD.  Using the parameter allows the PowerShell command to complete successfully.
+This parameter makes Azure AD configure the IssuerUri so that it is based on the name of the domain.  The IssuerUri will be unique across directories in Azure AD.  Using the parameter allows the PowerShell command to complete successfully.
 
 ![Federation error](./media/active-directory-multiple-domains/convert.png)
 
@@ -58,13 +58,13 @@ Looking at the settings of our new bmfabrikam.com domain you can see the followi
 
 ![Federation error](./media/active-directory-multiple-domains/settings.png)
 
-Note that `-SupportMultipleDomain` does not change the other endpoints which are still configured to point to our federation service on adfs.bmcontoso.com.
+Be aware that, `-SupportMultipleDomain` does not change the other endpoints which are still configured to point to the federation service on adfs.bmcontoso.com.
 
 Another thing that `-SupportMultipleDomain` does is that it ensures that the AD FS system includes the proper Issuer value in tokens issued for Azure AD. It does this by taking the domain portion of the users UPN and setting this as the domain in the IssuerUri, i.e. https://{upn suffix}/adfs/services/trust.
 
 Thus during authentication to Azure AD or Office 365, the IssuerUri element in the user’s token is used to locate the domain in Azure AD.  If a match cannot be found the authentication will fail.
 
-For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in the token AD FS issues will be set to http://bmcontoso.com/adfs/services/trust. This will match the Azure AD configuration, and authentication will succeed.
+For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in the token, AD FS issues, will be set to http://bmcontoso.com/adfs/services/trust. This element will match the Azure AD configuration, and authentication will succeed.
 
 The following is the customized claim rule that implements this logic:
 
@@ -77,7 +77,7 @@ The following is the customized claim rule that implements this logic:
 >
 
 ## How to update the trust between AD FS and Azure AD
-If you did not set up the federated trust between AD FS and your instance of Azure AD, you may need to re-create this trust.  This is because, when it is originally set up without the `-SupportMultipleDomain` parameter, the IssuerUri is set with the default value.  In the screenshot below you can see the IssuerUri is set to https://adfs.bmcontoso.com/adfs/services/trust.
+If you did not set up the federated trust between AD FS and your instance of Azure AD, you may need to re-create this trust.  The reason is, when it is originally set up without the `-SupportMultipleDomain` parameter, the IssuerUri is set with the default value.  In the screenshot below you can see the IssuerUri is set to https://adfs.bmcontoso.com/adfs/services/trust.
 
 If you have successfully added a new domain in the Azure AD portal and then attempt to convert it using `Convert-MsolDomaintoFederated -DomainName <your domain>`, we get the following error.
 
@@ -100,9 +100,9 @@ Use the following steps to remove the Microsoft Online trust and update your ori
 3. On the right, delete the **Microsoft Office 365 Identity Platform** entry.
    ![Remove Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
 4. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
-5. Enter the username and password of a global administrator for the Azure AD domain you are federating with
+5. Enter the username and password of a global administrator for the Azure AD domain you are federating with.
 6. In PowerShell enter `Connect-MsolService -Credential $cred`
-7. In PowerShell enter `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  This is for the original domain.  So using the above domains it would be:  `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
+7. In PowerShell enter `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  This update is for the original domain.  So using the above domains it would be:  `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
 
 Use the following steps to add the new top-level domain using PowerShell
 
@@ -122,11 +122,11 @@ Use the following steps to add the new top-level domain using Azure AD Connect.
 5. Click Install
 
 ### Verify the new top-level domain
-By using the PowerShell command `Get-MsolDomainFederationSettings -DomainName <your domain>`you can view the updated IssuerUri.  The screenshot below shows the federation settings were updated on our original domain http://bmcontoso.com/adfs/services/trust
+By using the PowerShell command `Get-MsolDomainFederationSettings -DomainName <your domain>`you can view the updated IssuerUri.  The screenshot below shows the federation settings were updated on the original domain http://bmcontoso.com/adfs/services/trust
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
-And the IssuerUri on our new domain has been set to https://bmfabrikam.com/adfs/services/trust
+And the IssuerUri on the new domain has been set to https://bmfabrikam.com/adfs/services/trust
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/settings2.png)
 
