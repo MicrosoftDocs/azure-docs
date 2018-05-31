@@ -82,7 +82,7 @@ A new switch parameter, "OsDiskWriteAccelerator" was added to the following cmdl
 
 - [Set-AzureRmVmssStorageProfile](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile?view=azurermps-6.0.0)
 
-Not giving the paramenter sets the property to false and will deliver disks that do not leverage Write Accelerator.
+Not giving the parameter sets the property to false and will deliver disks that do not leverage Write Accelerator.
 
 A new optional Boolean (non-nullable) parameter, "OsDiskWriteAccelerator" got added to the following cmdlets: 
 
@@ -160,11 +160,11 @@ You need to adapt the names of VM, disk, and resource group. The script above ad
 > [!Note]
 > Executing the script above will detach the disk specified, enable Write Accelerator against the disk, and then attach the disk again
 
-### Enabling Azure Write Accelerator using the Azure Portal
+### Enabling Azure Write Accelerator using the Azure portal
 
-You can enable Write Accelerator via the Portal where you specify your disk caching settings: 
+You can enable Write Accelerator via the portal where you specify your disk caching settings: 
 
-![Write Accelerator on the Azure Portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
+![Write Accelerator on the Azure portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
 ## Enabling through Azure CLI
 You can use the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) to enable Write Accelerator. 
