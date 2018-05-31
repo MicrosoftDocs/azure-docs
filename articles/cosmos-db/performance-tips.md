@@ -39,19 +39,40 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
    2. Direct Mode
 
-     Direct mode supports connectivity through TCP and HTTPS protocols. Currently, direct is supported in .NET Standard 2.0 for Windows platform only.
-      
-<a id="use-tcp"></a>
-2. **Connection policy: Use the TCP protocol**
+     Direct mode supports connectivity through TCP and HTTPS protocols. Currently, direct is supported in .NET Standard 2.0 for Windows platform only. When using Direct Mode, there are two protocol options available:
 
-    When using Direct Mode, there are two protocol options available:
+     * TCP
+     * HTTPS
 
-   * TCP
-   * HTTPS
+     When using Gateway mode, Azure Cosmos DB uses port 443 and MongoDB API uses 10250, 10255 and 10256 ports. The 10250 port maps to a default Mongodb instance without  geo-replication and 10255/10256 ports map to the Mongodb instance with geo-replication functionality. When using TCP in Direct Mode, in addition to the Gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. If these ports are not open and you attempt to use TCP, you receive a 503 Service Unavailable error. The following table shows connectivity modes available for different APIs and the service ports user for each API:
+
+     <table>
+     <tr>
+     <th>Connection mode</th>
+     <th>Supported protocol</th>
+     <th>Supported SDKs</th>
+     <th>API/Service port</th>
+     </tr>
+     <tr>
+     <td>Gateway</td>
+     <td>HTTPS</td>
+     <td>All SDKS</td>
+     <td>SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)</td>
+     </tr>
+     <tr>
+     <td rowspan = "2" >Direct</td>
+     <td>HTTPS</td>
+     <td>.Net and Java SDK</td>
+     <td>SQL(443)</td>
+     </tr>
+     <tr>
+     <td>TCP</td>
+     <td>.Net SDK</td>
+     <td> Port within 10,000-20,000 range</td>
+     </tr>
+     </table>
 
      Azure Cosmos DB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
-
-     When using TCP in Gateway Mode, TCP Port 443 is the Azure Cosmos DB port, and 10255 is the MongoDB API port. When using TCP in Direct Mode, in addition to the Gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. If these ports are not open and you attempt to use TCP, you receive a 503 Service Unavailable error.
 
      The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
 
@@ -70,19 +91,19 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/connection-policy.png)
 
-3. **Call OpenAsync to avoid startup latency on first request**
+2. **Call OpenAsync to avoid startup latency on first request**
 
     By default, the first request has a higher latency because it has to fetch the address routing table. To avoid this startup latency on the first request, you should call OpenAsync() once during initialization as follows.
 
         await client.OpenAsync();
    <a id="same-region"></a>
-4. **Collocate clients in same Azure region for performance**
+3. **Collocate clients in same Azure region for performance**
 
     When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos DB database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
-5. **Increase number of threads/tasks**
+4. **Increase number of threads/tasks**
 
     Since calls to Azure Cosmos DB are made over the network, you may need to vary the degree of parallelism of your requests so that the client application spends very little time waiting between requests. For example, if you're using .NET's [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create in the order of 100s of Tasks reading or writing to Azure Cosmos DB.
 
