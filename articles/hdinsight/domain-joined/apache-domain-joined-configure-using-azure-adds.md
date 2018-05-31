@@ -52,14 +52,16 @@ When you create a domain-joined HDInsight cluster, you must supply the following
 - **Domain user name**: The service account in the managed domain that is created in the previous section. For example, hdiadmin@contoso.onmicrosoft.com. This domain user will be the administrator of this HDInsight cluster.
 - **Domain password**: The password of the service account.
 - **Organization Unit**: The distinguished name of the OU that you want to use with HDInsight cluster. For example: OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. If this OU does not exist, HDInsight cluster attempts to create the OU using the privileges the service account has. (For example, if the service account is in AAD-DS Administrators Group, it has the right permissions to create an OU, otherwise you might need to create the OU first and give the service acccount full control over that OU first - see [Create an OU on an AAD-DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)).
-> [!IMPORTANT]
-> It's important to include all of the DCs sepearated by comma after the OU (e.g. OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com).
-- **LDAPS URL**: For example, ldaps://contoso.onmicrosoft.com:636
-> [!IMPORTANT]
-> Please enter the complete url including the ldaps and port number (636)
-- **Access user group**: The security groups whose users you want to sync to the cluster. For example, HiveUsers. If you want to specify multiple user groups, separate them by comma ‘,’.
- 
 
+    > [!IMPORTANT]
+    > It's important to include all of the DCs sepearated by comma after the OU (e.g. OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com).
+
+- **LDAPS URL**: For example, ldaps://contoso.onmicrosoft.com:636
+
+    > [!IMPORTANT]
+    > Please enter the complete url including the ldaps:// and port number (:636)
+
+- **Access user group**: The security groups whose users you want to sync to the cluster. For example, HiveUsers. If you want to specify multiple user groups, separate them by comma ‘,’.
  
 The following screenshot shows the configurations in the Azure portal:
 
