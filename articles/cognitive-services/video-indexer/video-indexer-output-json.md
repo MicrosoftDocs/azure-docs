@@ -244,7 +244,7 @@ Describes at what point in the video the text content was found.
 Attribute | Description 
 ---|---
 timeRange|The time range in the original video.
-adjustedTimeRange|AdjustedTimeRange is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a 1-hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjustedTimeRange is 00:00-00:15.
+adjustedTimeRange|AdjustedTimeRange is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a one hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjustedTimeRange is 00:00-00:15.
 lines|May contain one or more [lines](#lines).
 
 ## lines
@@ -257,7 +257,7 @@ Attribute | Description
 ---|---
 id| The ID of the line.
 timeRange|The time range in the original video.
-adjustedTimeRange|AdjustedTimeRange is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a 1-hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjustedTimeRange is 00:00-00:15.
+adjustedTimeRange|AdjustedTimeRange is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a one hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjustedTimeRange is 00:00-00:15.
 participantID| The id of the speaker of this line.
 text| The transcript.
 isIncluded| In base breakdowns always true. In derived playlists, the lines that were included in the source video, are set to isIncluded=true. All other lines are false.
