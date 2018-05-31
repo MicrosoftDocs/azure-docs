@@ -20,6 +20,7 @@
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Routing messages](tutorial-routing.md)
 ## [Configure your devices](tutorial-device-twins.md)
+## [Test device connectivity](tutorial-connectivity.md)
 ## Send cloud-to-device messages
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
 ### [Java](iot-hub-java-java-c2d.md)
@@ -70,6 +71,8 @@
 ### [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
 ### [Pricing examples](iot-hub-devguide-pricing.md)
 ### [Device and service SDKs](iot-hub-devguide-sdks.md)
+### [Develop for constrained devices](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Develop for mobile devices](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [MQTT support](iot-hub-mqtt-support.md)
 ### [Glossary](iot-hub-devguide-glossary.md)
 
@@ -146,6 +149,8 @@
 ### [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
 #### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
+### [Develop for constrained devices](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Develop for mobile devices](iot-hub-how-to-develop-for-mobile-devices.md)
 ### Routing messages
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
@@ -212,13 +217,6 @@
 ### [Java](iot-hub-java-java-file-upload.md)
 ### [Node.js](iot-hub-node-node-file-upload.md)
 ### [Python](iot-hub-python-python-file-upload.md)
-
-## Schedule and broadcast jobs
-### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
-### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
-### [.NET back end/.NET device](iot-hub-csharp-csharp-schedule-jobs.md)
-### [Java back end/Java device](iot-hub-java-java-schedule-jobs.md)
-### [Python back end/Python device](iot-hub-python-python-schedule-jobs.md)
 
 ## Create an IoT hub 
 ### [Use Azure portal](iot-hub-create-through-portal.md)

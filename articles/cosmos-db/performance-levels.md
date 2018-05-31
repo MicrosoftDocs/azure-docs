@@ -4,14 +4,10 @@ description: Learn about the S1, S2, and S3 performance levels previously availa
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
