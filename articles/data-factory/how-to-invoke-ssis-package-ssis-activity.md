@@ -90,7 +90,7 @@ In this step, you use the Data Factory UI to create a pipeline. You add an Execu
 
 ### Optionally, parameterize the activity
 
-Optionally, assign values, expressions, or functions, which can refer to Data Factory system variables, to your project or package parameters in JSON format on the **Advanced** tab. For example, you can assign Data Factory pipeline parameters to your SSIS project or package parameters as show in the following screenshot:
+Optionally, assign values, expressions, or functions, which can refer to Data Factory system variables, to your project or package parameters in JSON format on the **Advanced** tab. For example, you can assign Data Factory pipeline parameters to your SSIS project or package parameters as shown in the following screenshot:
 
 ![Add parameters to the Execute SSIS Package activity](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
 
@@ -102,15 +102,16 @@ In this section, you trigger a pipeline run and then monitor it.
     ![Trigger now](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
 
 2. In the **Pipeline Run** window, select **Finish**. 
+
 3. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
 
     ![Pipeline runs](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-3. Click **View Activity Runs** link in the **Actions** column. You see only one activity run as the pipeline has only one activity (the Execute SSIS Package activity).
+4. Click **View Activity Runs** link in the **Actions** column. You see only one activity run as the pipeline has only one activity (the Execute SSIS Package activity).
 
     ![Activity runs](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
-4. You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
+5. You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
 
     ```sql
     select * from catalog.executions
@@ -118,6 +119,9 @@ In this section, you trigger a pipeline run and then monitor it.
 
     ![Verify package executions](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
+6. You can also get the SSISDB execution ID from the output of the pipeline activity run, and use the ID to check more comprehensive execution logs and error messages in SSMS.
+
+    ![Get the execution ID.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
 > [!NOTE]
 > You can also create a scheduled trigger for your pipeline so that the pipeline runs on a schedule (hourly, daily, etc.). For an example, see [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).

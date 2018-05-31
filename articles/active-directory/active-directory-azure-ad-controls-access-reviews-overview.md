@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/02/2018
-ms.author: billmath
+ms.author: rolyon
 ---
 
 # Azure AD access reviews
