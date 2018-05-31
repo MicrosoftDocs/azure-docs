@@ -18,7 +18,7 @@ ms.author: ryanwi
 
 ---
 # sfctl container
-Run container related commands on a cluster node.
+Run container-related commands on a cluster node.
 
 ## Commands
 
@@ -36,8 +36,8 @@ Invoke container REST API.
 | --- | --- |
 | --application-id           [Required] | Application identity. |
 | --code-package-instance-id [Required] | Code package instance ID, which can be retrieved by 'service code-package-list'. |
-| --code-package-name        [Required] | Code packge name. |
-| --container-api-uri-path   [Required] | Container REST API URI path, use '{id}' in place of container name/id. |
+| --code-package-name        [Required] | Code package name. |
+| --container-api-uri-path   [Required] | Container REST API URI path, use '{ID}' in place of container name/id. |
 | --node-name                [Required] | The name of the node. |
 | --service-manifest-name    [Required] | Service manifest name. |
 | --container-api-body | HTTP request body for container REST API. |
@@ -52,7 +52,7 @@ Invoke container REST API.
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
+| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl container logs
@@ -64,7 +64,7 @@ Retrieving container logs.
 | --- | --- |
 | --application-id           [Required] | Application identity. |
 | --code-package-instance-id [Required] | Code package instance ID, which can be retrieved by 'service code-package-list'. |
-| --code-package-name        [Required] | Code packge name. |
+| --code-package-name        [Required] | Code package name. |
 | --node-name                [Required] | The name of the node. |
 | --service-manifest-name    [Required] | Service manifest name. |
 | --tail | Only return this number of log lines from the end of the logs. Specify as an integer or all to output all log lines. Defaults to 'all'. |
@@ -77,7 +77,7 @@ Retrieving container logs.
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
+| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## Next steps

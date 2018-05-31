@@ -21,16 +21,16 @@ ms.author: ryanwi
 # sfctl
 Commands for managing Service Fabric clusters and entities. This version is compatible with Service Fabric 6.2 runtime.
 
-Commands follow the noun-verb pattern. See subgroups for more information.
+Commands follow the noun-verb pattern. For more information, see subgroups.
 
 ## Subgroups
 |Subgroup|Description|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md) | Create, delete, and manage applications and application types. |
-| [chaos](service-fabric-sfctl-chaos.md) | Start, stop and report on the chaos test service. |
-| [cluster](service-fabric-sfctl-cluster.md) | Select, manage and operate Service Fabric clusters. |
-| [compose](service-fabric-sfctl-compose.md) | Create, delete and manage Docker Compose applications. |
-| [container](service-fabric-sfctl-container.md) | Run container related commands on a cluster node. |
+| [chaos](service-fabric-sfctl-chaos.md) | Start, stop, and report on the chaos test service. |
+| [cluster](service-fabric-sfctl-cluster.md) | Select, manage, and operate Service Fabric clusters. |
+| [compose](service-fabric-sfctl-compose.md) | Create, delete, and manage Docker Compose applications. |
+| [container](service-fabric-sfctl-container.md) | Run container-related commands on a cluster node. |
 | [is](service-fabric-sfctl-is.md) | Query and send commands to the infrastructure service. |
 | [node](service-fabric-sfctl-node.md) | Manage the nodes that form a cluster. |
 | [partition](service-fabric-sfctl-partition.md) | Query and manage partitions for any service. |

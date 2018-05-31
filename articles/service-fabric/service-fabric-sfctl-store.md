@@ -31,7 +31,7 @@ Perform basic file level operations on the cluster image store.
 ## sfctl store delete
 Deletes existing image store content.
 
-Deletes existing image store content being found within the given image store relative path. This can be used to delete uploaded application packages once they are provisioned.
+Deletes existing image store content being found within the given image store relative path. This command can be used to delete uploaded application packages once they are provisioned.
 
 ### Arguments
 
@@ -47,7 +47,7 @@ Deletes existing image store content being found within the given image store re
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
+| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl store root-info
@@ -68,13 +68,13 @@ Returns the information about the image store content at the root of the image s
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
+| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl store stat
 Gets the image store content information.
 
-Returns the information about the image store content at the specified contentPath relative to the root of the image store.
+Returns the information about the image store content at the specified contentPath. The contentPath is relative to the root of the image store.
 
 ### Arguments
 
@@ -90,7 +90,7 @@ Returns the information about the image store content at the specified contentPa
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
+| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## Next steps
