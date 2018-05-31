@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/16/2018
-ms.author: billmath
+ms.author: rolyon
 ---
 
 # Manage user access with Azure AD access reviews
@@ -28,10 +28,6 @@ With Azure Active Directory (Azure AD), you can easily ensure that users have ap
 
 
 Access reviews are available with the Premium P2 edition of Azure AD, which is included in Microsoft Enterprise Mobility + Security, E5. For more information, see [Azure Active Directory editions](active-directory-editions.md). Each user who interacts with this feature, including to create a review, fill out a review or confirm their access, requires a license. 
-
-Access reviews are available with the Premium P2 edition of Azure AD, which is included in Microsoft Enterprise Mobility + Security, E5. For more information, see [Azure Active Directory editions](active-directory-whatis.md). Each user who interacts with this feature to create a review, access a review, or apply a review requires a license.
-
-
 
 ## Create and perform an access review
 

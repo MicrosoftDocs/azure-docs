@@ -19,7 +19,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 
 |Area|Limit|
 |--|:--|--|
-| [App name][luis-get-started-create-app] | 50 characters |
+| [App name][luis-get-started-create-app] | *Default character max |
 | [Batch testing][batch-testing]| 10 datasets, 1000 utterances per dataset|
 | **[Composite](./luis-concept-entity-types.md)|100 with up to 10 children |
 | Explicit list | 50 per application|
@@ -35,6 +35,8 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Utterance][utterances] | 500 characters|
 | [Utterances][utterances] | 15,000 per application|
 | [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanumeric and period (.) |
+
+*Default character max is 50 characters. This limit is for many names in LUIS such as list entity name, list entity item name. 
 
 **The total count of simple, hierarchical, and composite entities can't exceed 100. The total count of hierarchical entities, composite entities, simple entities, and hierarchical children entities can't exceed 330. 
 

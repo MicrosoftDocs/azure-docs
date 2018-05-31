@@ -10,7 +10,7 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 01/03/2017
 ms.author: curtand
