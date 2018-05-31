@@ -6,7 +6,7 @@ author: mmacy
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 04/10/2018
+ms.date: 05/29/2018
 ms.author: marsma
 ms.custom: include file
 ---
@@ -14,6 +14,7 @@ ms.custom: include file
 | Resource | Basic | Standard | Premium |
 |---|---|---|---|---|
 | Storage | 10 GiB | 100 GiB| 500 GiB |
+| Max image layer size | 20 GiB | 20 GiB | 50 GiB |
 | ReadOps per minute<sup>1, 2</sup> | 1000 | 3000 | 10000 |
 | WriteOps per minute<sup>1, 3</sup> | 100 | 500 | 2000 |
 | Download bandwidth MBps<sup>1</sup> | 30 | 60 | 100 |
