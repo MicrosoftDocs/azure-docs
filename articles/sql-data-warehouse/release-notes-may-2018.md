@@ -12,28 +12,31 @@ ms.author: twounder
 ms.reviewer: twounder
 ---
 
-# Release Notes May 2018
-The following new features, enhancements, and changes have been introduced this month.
+# What's new in Azure SQL Data Warehouse (May 2018)?
+Azure SQL Data Warehouse receives improvements continually. This article describes the new features and changes that have been introduced in May 2018. 
 
 ## Gen 2 Instances
 ![alt](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/2528b41b-f09f-45b1-aa65-fc60d562d3bd.png)
-Azure SQL Data Warehouse Compute Optimized Gen2 tier sets new performance standards for cloud data warehousing. Customers now get up to 5 times better query performance, 4 times more concurrency, and 5 times higher computing power compared to the current generation. It can now serve 128 concurrent queries from a single cluster, the highest of any cloud data warehousing service.
+Azure SQL Data Warehouse Compute Optimized Gen2 tier sets new performance standards for cloud data warehousing. Customers now get up to five times better query performance, four times more concurrency, and five times higher computing power compared to the current generation. It can now serve 128 concurrent queries from a single cluster, the highest of any cloud data warehousing service.
 
-See the [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) blog annoucement from Rohan Kumar, Corporate Vice President, Azure Data.
+See the [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) blog announcement from Rohan Kumar, Corporate Vice President, Azure Data.
 
-## GDPR Compliance
+## Features
+
+### GDPR Compliance
 Azure annouces full compliance and enforcement with the European Union (EU) General Data Protection Regulation (GDPR). 
 
-See the [New capabilities to enable robust GDPR compliance](https://azure.microsoft.com/blog/new-capabilities-to-enable-robust-gdpr-compliance/) blog annoucement by Tom Keane, Head of Global Infrastructure, Azure, for details on how Microsoft supports GDPR.
+See the [New capabilities to enable robust GDPR compliance](https://azure.microsoft.com/blog/new-capabilities-to-enable-robust-gdpr-compliance/) blog announcement by Tom Keane, Head of Global Infrastructure, Azure, for details on how Microsoft supports GDPR.
 
-## Rejected Row Support
-Customers often use [PolyBase (External Tables) to load data](design-elt-data-loading.md) into SQL Data Warehouse due to the high performance, parallel nature of data loading. PolyBase is the default loading model when loading data via [Azure Data Factory](http://azure.com/adf) as well. 
+### Rejected Row Support
+Customers often use [PolyBase (External Tables) to load data](design-elt-data-loading.md) into SQL Data Warehouse because of the high performance, parallel nature of data loading. PolyBase is the default loading model when loading data via [Azure Data Factory](http://azure.com/adf) as well. 
 
 SQL Data Warehouse adds the ability to define a rejected row location via the `REJECTED_ROW_LOCATION` parameter with the [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) statement. After the execution of a [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) from the external table, any rows that could not be loaded will be stored in a file near the source for further investigation. 
 
 See the [Load confidently with SQL Data Warehouse PolyBase Rejected Row Location](https://azure.microsoft.com/blog/load-confidently-with-sql-data-warehouse-polybase-rejected-row-location/) blog for more details on the Rejected Row behavior.
 
-### Examples
+The following example shows the new syntax for specifying Rejected Rows.
+
 ```sql
 CREATE EXTERNAL TABLE [dbo].[Reject_Example]
 (
@@ -46,21 +49,17 @@ WITH
 )
 ```
 
+### ALTER VIEW
+[ALTER VIEW](https://docs.microsoft.com/sql/t-sql/statements/alter-view-transact-sql) allows a user to modify a previously created view without having to DELETE/CREATE the view and reapply permissions. 
 
-
-## ALTER VIEW
-[ALTER VIEW](https://docs.microsoft.com/sql/t-sql/statements/alter-view-transact-sql) allows a user to modify a previously created view withouth having to DELETE/CREATE the view and reapply permissions. 
-
-### Examples
 The following example modifies a previously created view.
 ```sql
 ALTER VIEW test_view AS SELECT 1 [data];
 ```
 
-## CONCAT_WS
-[The CONCAT_WS()](https://docs.microsoft.com/sql/t-sql/functions/concat-ws-transact-sql) function resturns a string resulting from the concatenation of two or more values in an end-to-end manner. It separates the concatenated values with the delimiter specified in the first argument. The `CONCAT_WS` function is useful for generating Comma Separated Value (CSV) output.
+### CONCAT_WS
+[The CONCAT_WS()](https://docs.microsoft.com/sql/t-sql/functions/concat-ws-transact-sql) function returns a string resulting from the concatenation of two or more values in an end-to-end manner. It separates the concatenated values with the delimiter specified in the first argument. The `CONCAT_WS` function is useful for generating Comma-Separated Value (CSV) output.
 
-### Examples
 The following example shows concatenating a set of int values with a comma.
 ```sql
 SELECT CONCAT_WS(',', 1, 2, 3);
@@ -70,27 +69,26 @@ The following example shows concatenating a set of mixed data type values with a
 SELECT CONCAT_WS(',', 1, 2, 'String', GETDATE())
 ```
 
-## SP_DATATYPE_INFO
+### SP_DATATYPE_INFO
 The [sp_datatype_info](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-datatype-info-transact-sql) system stored procedure returns information about the data types supported by the current environment. It is commonly used by tools connecting through ODBC connections for data type investigation.
 
-### Examples
 The following example retrieves details for all data types supported by SQL Data Warehouse.
 
 ```sql
 EXEC sp_datatype_info
 ```
 
-# Behavior Changes
-## SELECT INTO with ORDER BY
+## Behavior Changes
+### SELECT INTO with ORDER BY
 SQL Data Warehouse will now block `SELECT INTO` queries that contain an `ORDER BY` clause. Previously, this operation would succeed by first ordering the data in memory and then inserting into the target table reordering the data to match the table shape.
 
-### Previous Behavior
+#### Previous Behavior
 The following statement would succeed with additional processing overhead.
 ```sql
 SELECT * INTO table2 FROM table1 ORDER BY 1;
 ```
 
-### Current Behavior
+#### Current Behavior
 The following statement will throw an error indicating the `ORDER BY` clause is not supported in a `SELECT INTO` statement.
 ```sql
 SELECT * INTO table2 FROM table1 ORDER BY 1;
@@ -101,5 +99,5 @@ Msg 104381, Level 16, State 1, Line 1
 The ORDER BY clause is invalid in views, CREATE TABLE AS SELECT, INSERT SELECT, SELECT INTO, inline functions, derived tables, subqueries, and common table expressions, unless TOP or FOR XML is also specified.
 ```
 
-## SET PARSEONLY ON query status
+### SET PARSEONLY ON query status
 Using the `SET PARSEONLY ON` syntax allows a user to have the SQL Data Warehouse engine examine the syntax of each T-SQL statement and return any error messages without compiling or executing the statement. Previously, in the [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) system view, the status for these statements would remain in the `Running` state. The `sys.dm_pdw_exec_requests` view will now return the status as `Complete`.
