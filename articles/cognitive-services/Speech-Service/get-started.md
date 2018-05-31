@@ -32,11 +32,11 @@ The 30-day free trial gives you access to the S0 standard pricing tier for a lim
 ![Speech Services tab](.media/index/try-speech-api-free-trial1.png)
 ![API key](.media/index/try-speech-api-free-trial2.png)
 
-1. Agree to the terms and select your locale from the drop-down menu.
+3. Agree to the terms and select your locale from the drop-down menu.
 
 ![Agree to terms](.media/index/try-speech-api-free-trial3.png)
 
-1. Sign in using your Microsoft, Facebook, LinkedIn, or GitHub account. Or you may sign up for a free Microsoft account:
+4. Sign in using your Microsoft, Facebook, LinkedIn, or GitHub account. Or you may sign up for a free Microsoft account:
 
     * Go to the [Microsoft account portal](https://account.microsoft.com/account).
     * Click **Sign in with Microsoft**.
@@ -66,7 +66,7 @@ To sign up for a new Azure account, follow these steps.
 
 ![Start free](.media/index/try-speech-api-new-azure1.png)
 
-1. Sign in with your Microsoft account. If you don't have one:
+3. Sign in with your Microsoft account. If you don't have one:
 
     * Go to the [Microsoft account portal](https://account.microsoft.com/account).
     * Click **Sign in with Microsoft**.
@@ -93,17 +93,17 @@ To add a Speech service resource to your Azure account, follow these steps.
 
 ![Create resource](.media/index/try-speech-api-create-speech1.png)
 
-1. In the New window, search for Speech.
+3. In the New window, search for Speech.
 
 1. In the search results, click "Speech (preview)."
 
 ![Click Speech](.media/index/try-speech-api-create-speech2.png)
 
-1. Click the **Create** button at the bottom of the Speech service panel.
+5. Click the **Create** button at the bottom of the Speech service panel.
 
 ![Click create](.media/index/try-speech-api-create-speech3.png)
 
-1. In the Create panel, enter:
+6. In the Create panel, enter:
 
     * A name for the new resource. The name helps you keep track of all your subscriptions to the same service.
     * Choose the Azure subscription that the new resource is associated with to determine how the fees are billed.
