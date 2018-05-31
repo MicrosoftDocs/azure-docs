@@ -30,6 +30,9 @@ All servers that are registered to the same vault can recover the data backed up
 ### Can I “migrate” my backup data or vault between subscriptions? <br/>
 No. The vault is created at a subscription level and cannot be reassigned to another subscription once it’s created.
 
+### Can I change from GRS to LRS after a backup? <br/>
+No. A Recovery Services vault can only change storage options before any backups have been stored. 
+
 ### Recovery Services vaults are Resource Manager based. Are Backup vaults still supported? <br/>
 Backup vaults have been converted to Recovery Services vaults. If you did not convert the Backup vault to a Recovery Services vault, then the Backup vault was converted to a Recovery Services vault for you. 
 
