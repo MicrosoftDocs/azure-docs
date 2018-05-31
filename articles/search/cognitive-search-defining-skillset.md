@@ -47,7 +47,7 @@ In the diagram, the *document cracking* step happens automatically. Essentially,
 
 ## Skillset definition in REST
 
-A skillset is defined as an array of skills. Each skill defines the source of its inputs and the name of the outputs produced. Using the [Create Skillset REST API](ref-create-skillset.md), you can define a skillset that corresponds to the previous diagram: 
+A skillset is defined as an array of skills. Each skill defines the source of its inputs and the name of the outputs produced. Using the [Create Skillset REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset), you can define a skillset that corresponds to the previous diagram: 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
