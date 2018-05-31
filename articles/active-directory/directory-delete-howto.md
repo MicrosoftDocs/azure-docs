@@ -47,7 +47,7 @@ Question: what about service principals or Azure AD Domain Services?
   
   ![delete directory button](./media/directory-delete-howto/delete-directory-list.png)
 
-5. After you pass all checks, select **Delete** to complete the process.
+5. If your tenant does not pass one or more check, you're provided with a link to more information on how to pass. After you pass all checks, select **Delete** to complete the process.
 
 ## Next steps
 [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/)
