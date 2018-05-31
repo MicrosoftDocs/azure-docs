@@ -194,10 +194,10 @@ You can create up to 50 application gateways per subscription, and each applicat
 
 The following table shows an average performance throughput for each application gateway instance with SSL offload enabled:
 
-| Back-end page response | Small | Medium | Large |
+| Average back-end page response size | Small | Medium | Large |
 | --- | --- | --- | --- |
-| 6K |7.5 Mbps |13 Mbps |50 Mbps |
-| 100K |35 Mbps |100 Mbps |200 Mbps |
+| 6KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100KB |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
 > These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests. These values are only provided for capacity planning guidance.

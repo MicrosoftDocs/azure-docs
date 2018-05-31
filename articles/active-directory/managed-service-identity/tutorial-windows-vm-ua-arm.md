@@ -75,8 +75,7 @@ New-AzureRmVm `
 
 A user assigned identity is created as a standalone Azure resource. Using the [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity),  Azure creates an identity in your Azure AD tenant that can be assigned to one or more Azure service instances.
 
-> [!IMPORTANT]
-> Creating user assigned identities only supports alphanumeric and hyphen (0-9 or a-z or A-Z or -) characters. Additionally, name should be limited to 24 character length for the assignment to VM/VMSS to work properly. Check back for updates. For more information see [FAQs and known issues](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
