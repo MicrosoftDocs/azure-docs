@@ -68,7 +68,7 @@ Learn how to use Azure NetApp Files to create and manage volumes, create a mount
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Azure NetApp Files using the Azure portal</h3>
+                        <h3>Get Started with Azure NetApp Files using Azure Portal</h3>
                     </div>
                 </div>
             </div>
