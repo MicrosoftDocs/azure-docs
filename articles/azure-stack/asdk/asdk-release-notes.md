@@ -27,9 +27,9 @@ These release notes provide information about improvements, fixes, and known iss
 
 ## Build 1.1805.1.42
 
-### New features 
+<!-- ### New features 
 This build includes the following improvements and fixes for Azure Stack.  
-
+-->
 
 
 ### Fixed issues
