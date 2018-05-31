@@ -64,14 +64,14 @@ name|The name of the video. For example, Azure Monitor.
 shortId|The ID of the video. For example, 63c6d532ff.
 privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.
 duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.
-thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
+thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...." Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
 faces|May contain one or more [faces](#faces)
 topics|May contain one or more [topics](#topics)
 sentiments|May contain one or more [sentiments](#sentiments)
 audioEffects| May contain one or more [audioEffects](#audioEffects)
 brands| May contain zero or more [brands](#brands)
 Statistics|For more information, see [Statistics](#Statistics)
-
+.
 ### Statistics
 
 |Name|Description|
@@ -80,7 +80,7 @@ Statistics|For more information, see [Statistics](#Statistics)
 |WordCount|The number of words per speaker.|
 |SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
-|SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the 3rd decimal point.|
+|SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
 
 ## breakdowns
 
@@ -91,7 +91,7 @@ Attribute | Description
 id|The breakdown ID. For example, 63c6d532ff.
 state|The processing state of the given breakdown id. Could be one of the following: Uploaded, Processing, Processed, Failed.
 processingProgress|The progress. For example, 10%.
-externalId| You can set externalId during upload. For example, "4f9c3500-eca7-4ab3-987e-a745017af698". You can later search for your videos by this external ID.
+externalId| You can set externalId during upload. For example, "4f9c3500-eca7-4ab3-987e-a745017af698." You can later search for your videos by this external ID.
 externalUrl|You can set externalUrl during upload. 
 metadata|You can set metadata during upload. 
 insights|May contain one or more [insights](#insights)
@@ -122,10 +122,10 @@ Attribute | Description
 ---|---
 id|The ID of a person. For example, 11775.
 shortId|The short ID. Because a playlist may be derived from several breakdowns, this ID is needed to find out which of these breakdowns is the origin of each face.  
-name|If the face is recognized, the name of the person is added. For example, "Scott Hanselman". If the face is unknown, "Unknown #" is added. 
+name|If the face is recognized, the name of the person is added. For example, "Scott Hanselman." If the face is unknown, "Unknown #" is added. 
 description|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the description is **null**.
 title|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the title is **null**.
-thumbnailFullUrl|The face's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
+thumbnailFullUrl|The face's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...." Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
 appearances|May contain one or more [appearances](#appearances)
 seenDuration|For how long the face was seen (in seconds).
 seenDurationRatio|Presence relative to the video duration (0-1).
@@ -310,7 +310,7 @@ adjustedTimeRange|AdjustedTimeRange is the time range relative to the current pl
 
 ## annotations
 
-Returns tags based on recognizable objects, living beings, scenery, actions and visual patterns.
+Returns tags based on recognizable objects, living beings, scenery, actions, and visual patterns.
 
 |Attribute|Description|
 |---|---|
