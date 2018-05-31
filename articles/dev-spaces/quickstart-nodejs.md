@@ -140,8 +140,6 @@ Similar to the `up` command, code is synced to the dev space when you start debu
 > [!Tip]
 > The VS Code status bar will display a clickable URL.
 
-![](./media/common/vscode-status-bar-url.png)
-
 Set a breakpoint in a server-side code file, for example within the `app.get('/api'...` in  `server.js`. Refresh the browser page, or press the 'Say It Again' button, and you should hit the breakpoint and be able to step through code.
 
 You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, etc.

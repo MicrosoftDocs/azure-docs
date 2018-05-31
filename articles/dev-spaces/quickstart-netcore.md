@@ -115,8 +115,6 @@ As with the `up` command, code is synced to the dev space, and a container is bu
 > [!Tip]
 > The VS Code status bar will display a clickable URL.
 
-![](./media/common/vscode-status-bar-url.png)
-
 Set a breakpoint in a server-side code file, for example within the `Index()` function in the `Controllers/HomeController.cs` source file. Refreshing the browser page causes the breakpoint to be hit.
 
 You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, etc.
