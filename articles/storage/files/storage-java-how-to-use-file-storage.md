@@ -23,7 +23,7 @@ ms.author: renash
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## About this tutorial
-This tutorial will demonstrate the basics of using Java to develop applications or services that use Azure Files to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with Java and Azure Files:
+This tutorial will demonstrate the basics of using Java to develop applications or services that use Azure Files to store file data. In this tutorial, we will create a console application and show how to perform basic actions with Java and Azure Files:
 
 * Create and delete Azure file shares
 * Create and delete directories
@@ -31,10 +31,10 @@ This tutorial will demonstrate the basics of using Java to develop applications 
 * Upload, download, and delete a file
 
 > [!Note]  
-> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard Java I/O classes. This article will describe how to write applications that use the Azure Storage Java SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files.
+> Because Azure Files may be accessed over SMB, it is possible to write applications that access the Azure file share using the standard Java I/O classes. This article will describe how to write applications that use the Azure Storage Java SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files.
 
 ## Create a Java application
-To build the samples, you will need the Java Development Kit (JDK) and the [Azure Storage SDK for Java][]. You should also have created an Azure storage account.
+To build the samples, you will need the Java Development Kit (JDK) and the [Azure Storage SDK for Java](https://github.com/Azure/azure-storage-java). You should also have created an Azure storage account.
 
 ## Set up your application to use Azure Files
 To use the Azure storage APIs, add the following statement to the top of the Java file where you intend to access the storage service from.
@@ -124,7 +124,7 @@ try
 ```
 
 ## Create a directory
-You can also organize storage by putting files inside sub-directories instead of having all of them in the root directory. Azure Files allows you to create as many directories as your account will allow. The code below will create a sub-directory named **sampledir** under the root directory.
+You can also organize storage by putting files inside subdirectories instead of having all of them in the root directory. Azure Files allows you to create as many directories as your account will allow. The code below will create a subdirectory named **sampledir** under the root directory.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -141,7 +141,7 @@ if (sampleDir.createIfNotExists()) {
 ```
 
 ## Delete a directory
-Deleting a directory is a fairly simple task, although it should be noted that you cannot delete a directory that still contains files or other directories.
+Deleting a directory is a straightforward task, although it should be noted that you cannot delete a directory that still contains files or other directories.
 
 ```java
 // Get a reference to the root directory for the share.
@@ -169,7 +169,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 ```
 
 ## Upload a file
-An Azure file share contains at the very least, a root directory where files can reside. In this section, you'll learn how to upload a file from local storage onto the root directory of a share.
+In this section, you'll learn how to upload a file from local storage onto the root directory of a share.
 
 The first step in uploading a file is to obtain a reference to the directory where it should reside. You do this by calling the **getRootDirectoryReference** method of the share object.
 
