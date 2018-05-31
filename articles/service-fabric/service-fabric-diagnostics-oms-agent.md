@@ -71,7 +71,11 @@ You can download and modify this template to deploy a cluster that best suits yo
 
 Now that you have added the OMS agent, head on over to the Log Analytics portal to choose which performance counters you'd like to collect. 
 
-1. In the Azure portal, go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfOMSWorkspace\>** and go to its overview page. At the top, click the link to go to the OMS Portal.
+1. In the Azure portal, go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfOMSWorkspace\>** and go to its overview page.
+
+2. Click **OMS Workspace**.
+
+3. Click **Advanced Settings**.
 
 2. Once you're in the portal, you will see a tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click this to continue to the Service Fabric Analytics solution. 
 
