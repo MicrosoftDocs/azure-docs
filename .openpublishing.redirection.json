@@ -8451,6 +8451,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-network-nsg-troubleshoot-portal.md",
+            "redirect_url": "/azure/virtual-network/diagnose-network-traffic-filter-problem",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-nsg-troubleshoot-powershell.md",
+            "redirect_url": "/azure/virtual-network/diagnose-network-traffic-filter-problem",
+            "redirect_document_id": true
+        },        
+        {
             "source_path": "articles/virtual-network/resource-groups-networking.md",
             "redirect_url": "/azure/networking/networking-overview",
             "redirect_document_id": false
@@ -19061,6 +19071,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/operations-management-suite/oms-security-getting-started.md",
+            "redirect_url": "/azure/security-center/security-center-intro",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-monitoring-resources.md",
+            "redirect_url": "/azure/security-center/security-center-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-responding-alerts.md",
+            "redirect_url": "/azure/security-center/security-center-managing-and-responding-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-baseline.md",
+            "redirect_url": "/azure/security-center/security-center-customize-os-security-config",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-malware.md",
+            "redirect_url": "/azure/security-center/security-center-install-endpoint-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-connect-products.md",
+            "redirect_url": "/azure/security-center/quick-security-solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-web-baseline-assessment.md",
+            "redirect_url": "/azure/security-center/security-center-customize-os-security-config ",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-data-security.md",
+            "redirect_url": "/azure/security-center/security-center-data-security ",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-functions/durable-functions-counter.md",
             "redirect_url": "/azure/azure-functions/durable-functions-monitor",
             "redirect_document_id": true
@@ -22002,6 +22052,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-scaling-app-template.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-linux",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/App-Dashboard.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-use-dashboard",
             "redirect_document_id": true
@@ -22009,6 +22064,16 @@
         {
             "source_path": "articles/cognitive-services/LUIS/Add-entities.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/java-add-certificate-ca-store.md",
+            "redirect_url": "/java/azure/java-sdk-add-certificate-ca-store",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/Add-intents.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-intents",
             "redirect_document_id": true
         }
     ]
