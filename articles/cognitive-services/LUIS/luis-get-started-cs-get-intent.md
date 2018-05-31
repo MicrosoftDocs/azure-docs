@@ -30,7 +30,7 @@ For this article, you need a free [LUIS][LUIS] account in order to author your L
 
 2. Log in to the Azure portal at https://portal.azure.com. 
 
-3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
+3. Follow the steps in [Creating Subscription Keys using Azure](./luis-how-to-azure-subscription.md) to get a key.
 
 4. Go back to the [LUIS](luis-reference-regions.md) website. Log in using your Azure account. 
 
