@@ -102,7 +102,7 @@ As mentioned earlier, this sample is an SPA that uses the OAuth 2.0 support in A
 
 ### Control identification
 
-As discussed earlier, the `<div>` elements within the `<body>` element provide the layout for all of the chart controls that are demonstrated on the page. Each <div> element specifies properties for the placement and visual attributes of the chart control, including an `id` property. The `id` property provides a unique identifier that's used in the JavaScript code to identify and bind to each control for rendering and updating.
+As discussed earlier, the `<div>` elements within the `<body>` element provide the layout for all of the chart controls that are demonstrated on the page. Each `<div>` element specifies properties for the placement and visual attributes of the chart control, including an `id` property. The `id` property provides a unique identifier that's used in the JavaScript code to identify and bind to each control for rendering and updating.
 
 ### Aggregate expressions
 
