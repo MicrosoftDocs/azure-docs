@@ -28,7 +28,7 @@ This article shows how to create a Video Indexer account connected to Azure.
 
     If you don't have an Azure Active Directory, you can create it in your subscription.
 
-3. A user in that Azure Active Directory, that will be used when connecting your Video Indexer account to Azure.
+3. A user in the Azure Active Directory, that will be used when connecting your Video Indexer account to Azure.
 
     This user should:
 
@@ -56,22 +56,22 @@ A dialog with a list of user subscriptions appears.
 2. Select the Azure region, which you want to use.
 
     Currently supported locations are: West US 2, North Europe, and East Asia.
-3. Choose if you to use an existing Media Services resource or provision a new Media Services resource into your Azure subscription.
+3. Choose if you to use an existing Media Services account or provision a new Media Services account into your Azure subscription.
 
-    * If you prefer a new Media Services resource provisioned to your Azure subscription, click on **Create a new resource group** and provide a name for the resource group to be created. 
+    * If you prefer a new Media Services account provisioned to your Azure subscription, click on **Create a new resource group** and provide a name for the resource group to be created. 
 
-        The new Media services resource will be created with a new storage account and with a default initial configuration of a streaming endpoint and 10 S3 Reserved Units.     
-    * If you prefer to use an existing Media Services resource, it must reside in the same region as the Video Indexer account that you selected.
+        The new Media services account will be created with a new Storage account and with a default initial configuration of a Streaming Endpoint and 10 S3 Reserved Units.     
+    * If you prefer to use an existing Media Services account, it must reside in the same region as the Video Indexer account.
 
-        It is recommended to adjust the type and number of reserved units of your Media Services resource to "10 S3 Reserved Units", otherwise indexing might run for a long duration and with a low throughput.
+        It is recommended to adjust the type and number of Reserved Units of your Media Services account to "10 S3 Reserved Units", otherwise indexing might run for a long duration and with a low throughput.
         
-You may also connect to an existing Media Services resource using the manual configuration, by clicking on **Switch to manual configuration**, where you can provide the following necessary information:
+You may also connect to an existing Media Services account using the manual configuration, by clicking on "Switch to manual configuration", where you can provide the following necessary information:
 
 ![connect Video Indexer to Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
 
 To connect to Azure, click **Connect**. This operation may take up to a few minutes.
 
-After you connected to Azure, you will  see your new account in the accounts drop down:
+Once you connect to Azure, you see your new Video Indexer account in the accounts drop down:
 
 ![new account](./media/create-account/new-account.png)
 
@@ -83,28 +83,25 @@ Navigate to your new account:
 
 The following Azure Media Services related considerations apply:
 
-* If you connected to a new media services resource, you will see a new resource group, media services resource, and a storage resource in your Azure subscription.
-* Media reserved units
-
-    If you connected to a new media services resource, Video Indexer will set the media reserved units to 10 S3 units:
+* If you connected to a new Media Services account, you will see a new Resource Group, Media Services account, and a Storage account in your Azure subscription.
+* If you connected to a new Media Services account, Video Indexer will set the media **Reserved Units** to 10 S3 units:
 
     ![Media Services reserved units](./media/create-account/ams-reserved-units.png)
 
-* If you connected to an existing media services resource, video indexer does not change the existing media reserved units configuration.
+* If you connected to an existing Media Services account, Video Indexer does not change the existing media **Reserved Units** configuration.
 
-    You can might need to adjust the type and number of media reserved units, according to your planned load. Keep in mind that if your load is high and you don’t have enough units or speed, videos processing can result in timeout failures.
+    You might need to adjust the type and number of media **Reserved Units**, according to your planned load. Keep in mind that if your load is high and you don’t have enough units or speed, videos processing can result in timeout failures.
 
-* Streaming endpoint
-
-    If you connected to a new media services resource, Video Indexer automatically starts a streaming endpoint in it:
+* If you connected to a new Media Services account, Video Indexer automatically starts a **Streaming Endpoint** in it:
 
     ![Media Services streaming endpoint](./media/create-account/ams-streaming-endpoint.png)
 
-    If you connected to an existing media services resource, Video Indexer does not change the streaming endpoints configuration. If there is no running streaming endpoint, you will not be able to watch videos from this media services resource or in VI.
+* If you connected to an existing Media Services account, Video Indexer does not change the streaming endpoints configuration. If there is no running **Streaming Endpoint**, you will not be able to watch videos from this Media Services account or in Video Indexer.
 
 ## Use Video Indexer APIs v2
 
 You can programmatically interact with your trial account and/or with your Video Indexer accounts that are connected to azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).
+
 You should use the same Azure Active Directory user you used when connecting to Azure.
 
 ## Next steps
