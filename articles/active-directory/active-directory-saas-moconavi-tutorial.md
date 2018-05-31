@@ -108,6 +108,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<yourserverurl>/moconavi-saml2`
 
+	C. In the **Reply URL** textbox, type a URL using the following pattern: `https://<yourserverurl>/moconavi-saml2`
+
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [moconavi Client support team](mailto:support@recomot.co.jp) to get these values.
 
@@ -197,13 +199,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Testing single sign-on](./media/active-directory-saas-moconavi-tutorial/testing1.png)
 
-4. Input text to **Connect to URL** than push **Done** button. Input string:`https://mcs-admin.moconavi.biz/gateway`
+4. Enter the `https://mcs-admin.moconavi.biz/gateway` into **Connect to URL** than push **Done** button.
 
 	![Testing single sign-on](./media/active-directory-saas-moconavi-tutorial/testing2.png)
 
-5. Input text than push **LOGIN** button.
-	Input string1:`azureAD`
-	Input string2: `your ad account`
+5. Enter **Input Authentication Key**:`azureAD` and **Input User ID**: `your ad account` into the textboxes and then push **LOGIN** button.
 
 	![Testing single sign-on](./media/active-directory-saas-moconavi-tutorial/testing3.png)
 
