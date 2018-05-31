@@ -19,7 +19,7 @@ This article provides information about how you can manage user access to your a
 
 - Identifying minors and controlling access to use your application
 - Requiring parental consent for minors to use your applications
-- Gathering data of birth and country data from the user
+- Gathering date of birth and country data from the user
 - Capturing terms of use agreement and gating access
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
