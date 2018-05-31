@@ -58,14 +58,20 @@
     href: iot-edge-glossary.md
 - name: How-to guides
   items:
+  - name: Register an Edge device
+    items: 
+    - name: Azure CLI
+      href: how-to-register-device-cli.md
   - name: Use Edge devices as gateways
     items:
     - name: Transparent gateway
       href: how-to-create-transparent-gateway.md
     - name: Modbus gateway
       href: deploy-modbus-gateway.md
-  - name: Use the IoT extension for Azure CLI 2.0
-    href: tutorial-create-deployment-with-cli-iot-extension.md
+  - name: Deploy modules
+    items:
+    - name: Azure CLI
+      href: how-to-deploy-modules-cli.md
   - name: Deploy and monitor at scale
     href: how-to-deploy-monitor.md
   - name: Provision an IoT Core device
