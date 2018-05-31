@@ -7,10 +7,9 @@ author: SnehaGunda
 manager: kfile
 tags: ''
 
-ms.assetid: 7f765c17-8549-4509-9475-46394fc3a218
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
 ---

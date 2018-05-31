@@ -1,21 +1,15 @@
 ﻿---
 title: Create an Azure IoT Hub using a PowerShell cmdlet | Microsoft Docs
 description: How to use a PowerShell cmdlet to create an IoT hub.
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-
 ---
+
 # Create an IoT hub using the New-AzureRmIotHub cmdlet
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]

@@ -4,7 +4,7 @@ description: Troubleshoot and monitor SAP HANA on an Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor:
 
 ms.service: virtual-machines-linux
