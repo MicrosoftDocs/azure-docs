@@ -314,7 +314,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Automation limits
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
-### Managed identity limits
+### Managed Identity limits
 [!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
 
 ### Role-based access control limits
