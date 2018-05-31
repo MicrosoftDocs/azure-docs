@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 05/31/2018
 ms.author: mamit,bwren
 ms.custom:
 
@@ -125,13 +125,15 @@ Enabling the new alert experience does not impact the configuration of action gr
 ### Smart Groups
 Smart groups reduce noise by allowing you to manage related alerts as a single unit rather than managing individual alerts. You can view the details of smart groups and set the state similar to an alert. Each alert is a member of one and only one smart group.
 
-Smart Groups are automatically created using machine learning to combine alerts that represent a single issue. The algorithm considers when an alert is created and looks for similarity based on such properties as alert name, description, subscription, and historical patterns. The algorithm currently only considers alerts from the same service in the same subscription. You can view the reason that alerts were included in a group in the Smart Group detail page.
+Smart Groups are automatically created using machine learning to combine related alerts that represent a single issue. When an alert is created, the algorithm adds it to a new smart group or an existing smart group based on such information as historical patterns, similarity of properties, and similarity of structure. Currently, the algorithm only considers alerts from the same monitor service within a subscription. Smart groups can reduce up to 99% of alert noise through this consolidation. You can view the reason that alerts were included in a group in the Smart Group detail page.
 
 The name of a smart group is the name of its first alert. You can't create or rename a smart group.
 
 
 ### Alert States
-Enhanced unified alerts introduce the concept of alert state. You can set the state of an alert to specify where it is in the resolution process.  When an alert is created, it has a status of *New*. You can change the status when you've acknowledged an alert and when you've closed it.  The following alert states are supported.
+Enhanced unified alerts introduce the concept of alert state. You can set the state of an alert to specify where it is in the resolution process.  When an alert is created, it has a status of *New*. You can change the status when you've acknowledged an alert and when you've closed it. Any state changes are stored in the history of the alert.
+
+The following alert states are supported.
 
 | State | Description |
 |:---|:---|
@@ -203,7 +205,7 @@ The Alert Detail page includes the following sections.
 | Essentials | Displays the properties and other significant information about the alert. |
 | History | Lists each action taken by the alert and any changes made to the alert. This is currently limited to state changes. |
 | Smart Group | Information about the smart group the alert is included in. The **Alert Count** refers to the number of alerts included in the smart group. This includes the other alerts that are included in the same same smart group that were created in the past 30 days.  This is regardless of the time filter in the alerts list page. Click on an alert to view its detail. |
-| More Details | Displays granular data for the alert. This information is typically specific to the type of source that created the alert. |
+| More Details | Displays further contextual information for the alert which is typically specific to the type of source that created the alert. |
 
 
 ### Smart Group detail page
