@@ -37,7 +37,7 @@ Include the .Net library dependencies:
 
 [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/find-region/csharp/ConsoleAppLUISRegion/Program.cs?range=1-6 "Add the dependencies")]
 
-Add this custom LUIS class built to find the region. Replace the variable values for `luisAppId` and `luisSubscriptionKey` with your own values. 
+Add this custom LUIS class built to find the region. Replace the variable values for `luisAppId` and `luisSubscriptionKey` with your own values. All regions that return 401 will be written to the debug console. 
 
 [!code-csharp[Add the LUIS class](~/samples-luis/documentation-samples/find-region/csharp/ConsoleAppLUISRegion/Program.cs?range=10-83 "Add the LUIS class")]
 
@@ -45,5 +45,8 @@ This is an example of calling the custom LUIS class in the console application's
 
 [!code-csharp[Call the LUIS class](~/samples-luis/documentation-samples/find-region/csharp/ConsoleAppLUISRegion/Program.cs?range=85-101 "Call the LUIS class")]
 
+When the application is run, the console shows the region for the app ID and subscription key.
+
+![Screenshot of console app showing LUIS region](./media/find-region-csharp/console.png)
 
 
