@@ -47,7 +47,7 @@ This article examines the JSON content returned by the  **Get Video Index** API.
 |isEditable|Whether the current user is authorized to edit the playlist.|
 |isBase|Whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
 |durationInSeconds|The total duration of the playlist.|
-|summarizedInsights|Contains one [summarizedInsights](#summarizedInsights).
+|summarizedInsights|Contains one [summarizedInsights](#summarizedinsights).
 |videos|A list of [videos](#videos) constructing the playlist.<br/>If this playlist of constructed of time ranges of other videos (derived), the videos in this list will contain only data from the included time ranges.|
 
 ```json
@@ -111,6 +111,7 @@ This section shows the summary of the insights.
 |externalId|The video's external id (if specified by the user).|
 |externalUrl|The video's external url (if specified by the user).|
 |metadata|The video's external metadata (if specified by the user).|
+|isAdult|Whether the video was manually reviewed and identified as an adult video.|
 |insights|The insights object.|
 |thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').|
 |publishedUrl|A url to stream the video.|
@@ -166,8 +167,8 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |brands|The [brands](#brands) dimension.|
 |audioEffects|The [audioEffects](#audioEffects) dimension.|
 |sentiments|The [sentiments](#sentiments) dimension.|
-|visualContentModeration|The [visualContentModeration](#visualContentModeration) dimension.|
-|textualConentModeration|The [textualConentModeration](#textualConentModeration) dimension.|
+|visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
+|textualConentModeration|The [textualConentModeration](#textualconentmoderation) dimension.|
 
 Example:
 
@@ -326,13 +327,13 @@ Example:
 |id|The face id.|
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
-|description|In case of a celebrity, its description ("Satya Nadella was born at..."). |
+|description|If it is a celebrity, its description might be: "Satya Nadella was born at...". |
 |thumbnalId|The id of the thumbnail of that face.|
-|knownPersonId|In case of a known person, its internal id.|
-|referenceId|In case of a Bing celebrity, its Bing id.|
+|knownPersonId|If it is a known person, its internal id.|
+|referenceId|If it is a Bing celebrity, its Bing id.|
 |referenceType|Currently just Bing.|
-|title|In case of a celebrity, its title (for example "Microsoft's CEO").|
-|imageUrl|In case of a celebrity, its image url.|
+|title|If it is a celebrity, its title (for example "Microsoft's CEO").|
+|imageUrl|If it is a celebrity, its image url.|
 |instances|These are instances of where the face appeared in the given time range. Each instance also has a thumbnailsId. |
 
 ```json
@@ -493,7 +494,7 @@ Business and product brand names detected in the speech to text transcript and/o
 |description|The brands description.|
 |tags|A list of predefined tags that were associated with this brand.|
 |confidence|The confidence value of the Video Indexer brand detector (0-1).|
-|instances|A list of time ranges of this brand. Each instance has a brandType which indicates whether this brand appeared in the transcript or in OCR.|
+|instances|A list of time ranges of this brand. Each instance has a brandType, which indicates whether this brand appeared in the transcript or in OCR.|
 
 ```json
 "brands": [
