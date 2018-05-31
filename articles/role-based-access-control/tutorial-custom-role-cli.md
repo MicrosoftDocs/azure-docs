@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a custom role
 
-The easiest way to create a custom role is to start with a built-in role, edit it, and then create a new role.
+The easiest way to create a custom role is to start with a JSON template, add your changes, and then create a new role.
 
 1. Review the list of operations for the [Microsoft.Support resource provider](resource-provider-operations.md#microsoftsupport).
 
@@ -44,55 +44,20 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     | Microsoft.Support/register/action | Registers to Support Resource Provider |
     | Microsoft.Support/supportTickets/read | Gets Support Ticket details (including status, severity, contact details and communications) or gets the list of Support Tickets across subscriptions. |
     | Microsoft.Support/supportTickets/write | Creates or Updates a Support Ticket. You can create a Support Ticket for Technical, Billing, Quotas or Subscription Management related issues. You can update severity, contact details and communications for existing support tickets. |
-
-1. Use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command to output the [Reader](built-in-roles.md#reader) role in JSON format.
-
-    ```azurepowershell
-    az role definition list --name "Reader"
-    ```
-
-    The following shows the JSON output. For information about the different sections, see [Understand role definitions](role-definitions.md).
-
-    ```json
-    [
-      {
-        "additionalProperties": {},
-        "assignableScopes": [
-          "/"
-        ],
-        "description": "Lets you view everything, but not make any changes.",
-        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-        "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-        "permissions": [
-          {
-            "actions": [
-              "*/read"
-            ],
-            "additionalProperties": {},
-            "dataActions": [],
-            "notActions": [],
-            "notDataActions": []
-          }
-        ],
-        "roleName": "Reader",
-        "roleType": "BuiltInRole",
-        "type": "Microsoft.Authorization/roleDefinitions"
-      }
-    ]
-    ```
     
 1. Create a new file named ReaderSupportRole.json.
 
-    The following shows the JSON output. For information about the different sections, see [Understand role definitions](role-definitions.md).
+1. Add the following JSON template to ReaderSupportRole.json.
+
+    For information about the different sections, see [Understand role definitions](role-definitions.md).
 
     ```json
     {
-        "Name":  "Reader",
-        "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-        "IsCustom":  false,
-        "Description":  "Lets you view everything, but not make any changes.",
+        "Name":  "",
+        "IsCustom":  true,
+        "Description":  "",
         "Actions":  [
-                        "*/read"
+    
                     ],
         "NotActions":  [
     
@@ -104,24 +69,27 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     
                            ],
         "AssignableScopes":  [
-                                 "/"
+                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
                              ]
     }
     ```
     
-1. Edit the JSON file to add the `"Microsoft.Support/*"` operation to the `Actions` section. This action will allow the user to create support tickets.
+1. Add the following operations to the `Actions` section. These actions allow the user to view everything in the subscription and create support tickets.
 
-1. Get the ID of your subscription using the [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) command.
-
-    ```azurepowershell
-    Get-AzureRmSubscription
+    ```
+    "*/read",
+    "Microsoft.Support/*"
     ```
 
-1. In `AssignableScopes`, add your subscription ID with the following format: `"/subscriptions/00000000-0000-0000-0000-000000000000"`
+1. Get the ID of your subscription using the [az account list](/cli/azure/account#az-account-list) command.
+
+    ```azurecli
+    az account list --output table
+    ```
+
+1. In `AssignableScopes`, add your subscription ID.
 
     You must add explicit subscription IDs, otherwise you won't be allowed to import the role into your subscription.
-
-1. Delete the `Id` property line and change the `IsCustom` property to `true`.
 
 1. Change the `Name` and `Description` properties to "Reader Support Tickets" and "View everything in the subscription and also open support tickets."
 
@@ -151,38 +119,49 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     }
     ```
     
-1. To create the new custom role, use the [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) command and specify the JSON role definition file.
+1. To create the new custom role, use the [az role definition create](/cli/azure/role/definition#az-role-definition-create) command and specify the JSON role definition file.
 
-    ```azurepowershell
-    New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole.json"
+    ```azurecli
+    az role definition create --role-definition "~/CustomRoles/ReaderSupportRole.json"
     ```
 
     ```Output
-    Name             : Reader Support Tickets
-    Id               : 22222222-2222-2222-2222-222222222222
-    IsCustom         : True
-    Description      : View everything in the subscription and also open support tickets.
-    Actions          : {*/read, Microsoft.Support/*}
-    NotActions       : {}
-    DataActions      : {}
-    NotDataActions   : {}
-    AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
+    {
+      "additionalProperties": {},
+      "assignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ],
+      "description": "View everything in the subscription and also open support tickets.",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/22222222-2222-2222-2222-222222222222",
+      "name": "22222222-2222-2222-2222-222222222222",
+      "permissions": [
+        {
+          "actions": [
+            "*/read",
+            "Microsoft.Support/*"
+          ],
+          "additionalProperties": {},
+          "dataActions": [],
+          "notActions": [],
+          "notDataActions": []
+        }
+      ],
+      "roleName": "Reader Support Tickets",
+      "roleType": "CustomRole",
+      "type": "Microsoft.Authorization/roleDefinitions"
+    }
     ```
         
-    After running [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition), the new custom role is available in the Azure portal and can be assigned to users just like built-in roles.
+    The new custom role is available in the Azure portal and can be assigned to users just like built-in roles.
     
-    ![screenshot of custom role imported in the Azure portal](./media/tutorial-custom-role-powershell/custom-role-reader-support-tickets.png)
+    ![screenshot of custom role imported in the Azure portal](./media/tutorial-custom-role-cli/custom-role-reader-support-tickets.png)
 
 ## Update the custom role
 
-To update the custom role, you can update the JSON file or use the `PSRoleDefinition` object.
+To update the custom role, update the JSON file and then update the custom role.
 
-1. To update the JSON file, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command to output the custom role in JSON format.
+1. Open the ReaderSupportRole.json file.
 
-    ```azurepowershell
-    Get-AzureRmRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
-    ```
-    
 1. In `Actions`, add the operation to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`. Be sure to include a comma after the first previous operation.
 
     Your updated JSON file should look like the following:
@@ -190,7 +169,6 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
     ```json
     {
         "Name":  "Reader Support Tickets",
-        "Id":  "22222222-2222-2222-2222-222222222222",
         "IsCustom":  true,
         "Description":  "View everything in the subscription and also open support tickets.",
         "Actions":  [
@@ -213,76 +191,47 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
     }
     ```
         
-1. To update the custom role, use the [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) command and specify the updated JSON file.
+1. To update the custom role, use the [az role definition update](/cli/azure/role/definition#az-role-definition-update) command and specify the updated JSON file.
 
-    ```azurepowershell
-    Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole2.json"
+    ```azurecli
+    az role definition update --role-definition "~/CustomRoles/ReaderSupportRole.json"
     ```
 
     ```Output
-    Name             : Reader Support Tickets
-    Id               : 22222222-2222-2222-2222-222222222222
-    IsCustom         : True
-    Description      : View everything in the subscription and also open support tickets.
-    Actions          : {*/read, Microsoft.Support/*, Microsoft.Resources/deployments/*}
-    NotActions       : {}
-    DataActions      : {}
-    NotDataActions   : {}
-    AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
-    ```
-
-1. To use the `PSRoleDefintion` object to update your custom role, first use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command to get the role.
-
-    ```azurepowershell
-    $role = Get-AzureRmRoleDefinition "Reader Support Tickets"
-    ```
-    
-1. Add the operation to read diagnostic settings.
-
-    ```azurepowershell
-    $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*/read")
-    ```
-
-1. Use the [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) to update the role.
-
-    ```azurepowershell
-    Set-AzureRmRoleDefinition -Role $role
-    ```
-    
-    ```Output
-    Name             : Reader Support Tickets
-    Id               : 22222222-2222-2222-2222-222222222222
-    IsCustom         : True
-    Description      : View everything in the subscription and also open support tickets.
-    Actions          : {*/read, Microsoft.Support/*, Microsoft.Resources/deployments/*,
-                       Microsoft.Insights/diagnosticSettings/*/read}
-    NotActions       : {}
-    DataActions      : {}
-    NotDataActions   : {}
-    AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
+    {
+      "additionalProperties": {},
+      "assignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ],
+      "description": "View everything in the subscription and also open support tickets.",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/22222222-2222-2222-2222-222222222222",
+      "name": "22222222-2222-2222-2222-222222222222",
+      "permissions": [
+        {
+          "actions": [
+            "*/read",
+            "Microsoft.Support/*",
+            "Microsoft.Resources/deployments/*"
+          ],
+          "additionalProperties": {},
+          "dataActions": [],
+          "notActions": [],
+          "notDataActions": []
+        }
+      ],
+      "roleName": "Reader Support Tickets",
+      "roleType": "CustomRole",
+      "type": "Microsoft.Authorization/roleDefinitions"
+    }
     ```
     
 ## Delete the custom role
 
-1. Use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command to get the ID of the custom role.
+- Use the [az role definition delete](/cli/azure/role/definition#az-role-definition-delete) command and specify the role name or role ID to delete the custom role.
 
-    ```azurepowershell
-    Get-AzureRmRoleDefinition "Reader Support Tickets"
+    ```azurecli
+    az role definition delete --name "Reader Support Tickets"
     ```
-
-1. Use the [Remove-AzureRmRoleDefinition](/powershell/module/azurerm.resources/remove-azurermroledefinition) command and specify the role ID to delete the custom role.
-
-    ```azurepowershell
-    Remove-AzureRmRoleDefinition -Id "22222222-2222-2222-2222-222222222222"
-    ```
-
-    ```Output
-    Confirm
-    Are you sure you want to remove role definition with id '22222222-2222-2222-2222-222222222222'.
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-    ```
-
-1. When asked to confirm, type **Y**.
 
 ## Next steps
 

@@ -145,7 +145,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
         
-    After running [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition), the new custom role is available in the Azure portal and can be assigned to users just like built-in roles.
+    The new custom role is available in the Azure portal and can be assigned to users just like built-in roles.
     
     ![screenshot of custom role imported in the Azure portal](./media/tutorial-custom-role-powershell/custom-role-reader-support-tickets.png)
 
