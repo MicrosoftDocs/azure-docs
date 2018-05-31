@@ -19,12 +19,16 @@ This article shows how to troubleshoot common issues for managing or deploying c
 ## Naming conventions
 
 When defining your container specification, certain parameters require adherence to naming restrictions. Below is a table with specific requirements for container group properties.
-Read more about general Azure naming conventions [here](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).
+For more information on Azure naming conventions, see [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) in the Azure Architecture Center.
 
-| Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
+| Scope | Length | Casing | Valid characters | Suggested pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-| Container Group name | 1-64 |Case insensitive |Alphanumeric and hyphen |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| DNS name label | 1-63 |Case insensitive |Alphanumeric and hyphen anywhere except the first or last character |`<name>.region.azurecontainer.io` |`frontend-site1.westus.azurecontainer.io` |
+| Container Group name | 1-64 |Case insensitive |Alphanumeric and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Container name | 1-64 |Case insensitive |Alphanumeric and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Container ports | Between 1 and 65535 |Integer |Integer between 1 and 65535 |`<port-number>` |`443` |
+| DNS name label | 5-63 |Case insensitive |Alphanumeric and hyphen anywhere except the first or last character |`<name>` |`frontend-site1` |
+| Environment variable | 1-63 |Case insensitive |Alphanumeric and the '_' chracter anywhere except the first or last character |`<name>` |`MY_VARIABLE` |
+| Volume name | 5-63 |Case insensitive |Lowercase letters, numbers, and hyphens anywhere except the first or last character. Cannot contain two consecutive hyphens. |`<name>` |`batch-output-volume` |
 
 ## Image version not supported
 
