@@ -23,11 +23,6 @@ See the [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azur
 
 ## Features
 
-### GDPR Compliance
-Azure annouces full compliance and enforcement with the European Union (EU) General Data Protection Regulation (GDPR). 
-
-See the [New capabilities to enable robust GDPR compliance](https://azure.microsoft.com/blog/new-capabilities-to-enable-robust-gdpr-compliance/) blog announcement by Tom Keane, Head of Global Infrastructure, Azure, for details on how Microsoft supports GDPR.
-
 ### Rejected Row Support
 Customers often use [PolyBase (External Tables) to load data](design-elt-data-loading.md) into SQL Data Warehouse because of the high performance, parallel nature of data loading. PolyBase is the default loading model when loading data via [Azure Data Factory](http://azure.com/adf) as well. 
 
