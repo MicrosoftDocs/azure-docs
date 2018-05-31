@@ -4,8 +4,8 @@ description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 05/31/2018
 ms.author: wgries
 ---
 
@@ -40,22 +40,25 @@ The following information is required under **Add server endpoint**:
 
 - **Registered server**: The name of the server or cluster to create the server endpoint on.
 - **Path**: The path on the Windows Server to be synchronized as part of the sync group.
-- **Cloud Tiering**: A switch to enable or disable cloud tiering, which enables infrequently used or access files to be tiered to Azure Files.
+- **Cloud Tiering**: A switch to enable or disable cloud tiering. When enabled, cloud tiering will *tier* files to your Azure file shares. This converts on-premises file shares into a cache, rather than a complete copy of the dataset, to help you manage space efficiency on your server.
 - **Volume Free Space**: the amount of free space to reserve on the volume which the server endpoint resides. For example, if the volume free space is set to 50% on a volume with a single server endpoint, roughly half the amount of data will be tiered to Azure Files. Regardless of whether cloud tiering is enabled, your Azure file share always has a complete copy of the data in the sync group.
 
 Select **Create** to add the server endpoint. The files within a namespace of a sync group will now be kept in sync. 
 
 ## Remove a server endpoint
-When enabled for a server endpoint, cloud tiering will *tier* files to your Azure file shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, **if a server endpoint is removed with tiered files still locally on the server, those files will become inaccessible**. Therefore, if continued file access is desired on on-premises file shares, you must recall all tiered files from Azure Files before continuing with deleting the server endpoint. 
+If you desire to discontinue using Azure File Sync for a given server endpoint, you can remove the server endpoint. 
 
-This can be done with the PowerShell cmdlet as shown below:
+> [!Warning]  
+> Do not attempt to troubleshoot issues with sync, cloud tiering, or any other aspect of Azure File Sync by removing and recreating the server endpoint unless explicitly instructed to by a Microsoft engineer. Removing a server endpoint is a destructive operation, and tiered files within the server endpoint will not be "reconnected" to their locations on the Azure file share after the server endpoint is recreated, which will result in sync errors. Also note, tiered files that exist outside of the server endpoint namespace may be permanently lost. Tiered files may exist within your server endpoint even if cloud tiering was never enabled.
+
+To ensure that all tiered files are recalled before removing the server endpoint, disable cloud tiering on the server endpoint, and then execute the following PowerShell cmdlet to recall all tiered files within your server endpoint namespace:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 
-> [!Warning]  
+> [!Note]  
 > If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
 
 To remove the server endpoint:

@@ -4,8 +4,8 @@ description: Learn how to register and unregister a Windows Server with an Azure
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
 ---
 
@@ -111,14 +111,15 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 ### Unregister the server with Storage Sync Service
 There are several steps that are required to unregister a server with a Storage Sync Service. Let's take a look at how to properly unregister a server.
 
-#### (Optional) Recall all tiered data
-When enabled for a server endpoint, cloud tiering will *tier* files to your Azure file shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, if a server endpoint is removed with tiered files still locally on the server, those files will become unaccessible. Therefore, if continued file access is desired, you must recall all tiered files from Azure Files before continuing with deregistration. 
+> [!Warning]  
+> Do not attempt to troubleshoot issues with sync, cloud tiering, or any other aspect of Azure File Sync by unregistering and registering a server, or removing and recreating the server endpoints unless explicitly instructed to by a Microsoft engineer. Unregistering a server and removing server endpoints is a destructive operation, and tiered files on the volumes with server endpoints will not be "reconnected" to their locations on the Azure file share after the registered server and server endpoints are recreated, which will result in sync errors. Also note, tiered files that exist outside of a server endpoint namespace may be permanently lost. Tiered files may exist within server endpoints even if cloud tiering was never enabled.
 
-This can be done with the PowerShell cmdlet as shown below:
+#### (Optional) Recall all tiered data
+If you would like files that are currently tiered to be available after removing Azure File Sync (i.e. this is a production, not a test, environment), recall all files on each volume containing server endpoints. Disable cloud tiering for all server endpoints, and then run the following PowerShell cmdlet:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  
