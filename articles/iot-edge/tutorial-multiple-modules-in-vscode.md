@@ -69,5 +69,5 @@ To complete all the steps in this article, have the following prerequisites in p
 
 Learn about other scenarios for developing Azure IoT Edge in Visual Studio Code:
 
-* [Debug a C# module in VS Code](how-to-vscode-debug-csharp-module.md)
+* [Develop and debug a C# module in VS Code](how-to-develop-csharp-module-vscode.md)
 * [Debug a C# Function in VS Code](how-to-vscode-debug-azure-function.md)

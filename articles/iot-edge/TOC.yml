@@ -62,28 +62,28 @@
     items: 
     - name: Azure CLI
       href: how-to-register-device-cli.md
-  - name: Use Edge devices as gateways
+  - name: Develop and test modules
     items:
-    - name: Transparent gateway
-      href: how-to-create-transparent-gateway.md
-    - name: Modbus gateway
-      href: deploy-modbus-gateway.md
+    - name: C#
+      href: how-to-develop-csharp-module-vscode.md
+    - name: Azure Functions
+      href: how-to-vscode-debug-azure-function.md
   - name: Deploy modules
     items:
     - name: Azure CLI
       href: how-to-deploy-modules-cli.md
   - name: Deploy and monitor at scale
     href: how-to-deploy-monitor.md
+  - name: Use Edge devices as gateways
+    items:
+    - name: Transparent gateway
+      href: how-to-create-transparent-gateway.md
+    - name: Modbus gateway
+      href: deploy-modbus-gateway.md
   - name: Provision an IoT Core device
     href: how-to-install-iot-core.md
-  - name: Use VS Code to develop IoT Edge solutions
-    items:
-      - name: Work with multiple modules
-        href: tutorial-multiple-modules-in-vscode.md
-      - name: Debug C# module
-        href: how-to-vscode-debug-csharp-module.md
-      - name: Debug Azure Functions
-        href: how-to-vscode-debug-azure-function.md
+  - name: Work with multiple modules
+    href: tutorial-multiple-modules-in-vscode.md
   - name: CI/CD in VSTS
     href: how-to-ci-cd.md
   - name: Store data at the edge
