@@ -54,14 +54,12 @@ A preview of Project Brainwave integrated with Azure Machine Learning is current
 
 In current preview, Brainwave is limited for the TensorFlow deployment and the ResNet50-based neural networks on Intel FPGA hardware for image classification and recognition. There are plans to support more gallery models and other frameworks.
 
-## Usage scenarios
-
 The following scenarios are two real-world Brainwave:
 
 - Automated optical inspection system. See [Real-time AI: Microsoft announces preview of Project Brainwave](https://blogs.microsoft.com/ai/build-2018-project-brainwave/).
 - Land cover mapping. See [How to Use FPGAs for Deep Learning Inference to Perform Land Cover Mapping on Terabytes of Aerial Images](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/).
 
-## How to create an FPGA service
+## How to create an FPGA service?
 
 The following is the high-level flow of creating an image recognition service using ResNet50 as a featurizer:
 
