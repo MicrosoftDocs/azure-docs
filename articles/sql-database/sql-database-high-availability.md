@@ -5,8 +5,8 @@ services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
 ---
@@ -25,7 +25,7 @@ Customers are most interested in the resiliency of their own databases and are l
 
 For data, SQL Database uses both local storage (LS) based on direct attached disks/VHDs and remote storage (RS) based on Azure Premium Storage page blobs. 
 - Local storage is used in the Premium or Business Critical (preview) databases and elastic pools, which are designed for mission critical OLTP applications with high IOPS requirements. 
-- Remote storage is used for Basic and Standard service tiers, designed for budget oriented business workloads that require storage and compute power to scale independently. They use a single page blob for database and log files, and built-in storage replication and failover mechanisms.
+- Remote storage is used in Basic, Standard and General Purpose service tiers, which are designed for budget oriented business workloads that require storage and compute power to scale independently. They use a single page blob for database and log files, and built-in storage replication and failover mechanisms.
 
 In both cases, the replication, failure detection, and failover mechanisms of SQL Database are fully automated and operate without human intervention. This architecture is designed to ensure that committed data is never lost and that data durability takes precedence over all else.
 
@@ -41,7 +41,7 @@ Key benefits:
 
 ## Data redundancy
 
-The high availability solution in SQL Database is based on [Always ON Availability Groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology from SQL Server and makes it work for both LS and RS databases with minimal differences. In LS configuration, the Always ON availability group technology is used for persistence while in RS it is used for availability (low RTO). 
+The high availability solution in SQL Database is based on [Always ON Availability Groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology from SQL Server and makes it work for both LS and RS databases with minimal differences. In LS configuration, the Always ON availability group technology is used for persistence while in RS it is used for availability (low RTO by Active geo-replication). 
 
 ## Local storage configuration
 
@@ -51,7 +51,7 @@ The [Service Fabric](../service-fabric/service-fabric-overview.md) failover syst
 
 ## Remote storage configuration
 
-For remote storage configurations (Basic and Standard tiers), exactly one copy is maintained in remote blob storage, using the storage systems capabilities for durability, redundancy, and bit-rot detection. 
+For remote storage configurations (Basic, Standard or General Purpose tiers), exactly one copy is maintained in remote blob storage, using the storage systems capabilities for durability, redundancy, and bit-rot detection. 
 
 The high availability architecture is illustrated by following diagram:
  
@@ -82,9 +82,14 @@ The zone redundant version of the high availability architecture is illustrated 
 ## Read scale-out
 As described, Premium and Business Critical (preview) service tiers leverage quorum-sets and AlwaysON technology for High Availability both in single zone and zone redundant configurations. One of the benefits of AlwasyON is that the replicas are always in the transactionally consistent state. Because the replicas have the same performance level as the primary, the application can take advantage of that extra capacity for servicing the read-only workloads at no extra cost (read scale-out). This way the read-only queries will be isolated from the main read-write workload and will not affect its performance. Read scale-out feature is intended for the applications that include logically separated read-only workloads such as analytics, and therefore could leverage this additional capacity without connecting to the primary. 
 
-To use the Read Scale-Out feature with a particular database, you must explicitly enable it when creating the database or afterwards by altering its configuration using PowerShell by invoking the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) or the [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets or through the Azure Resource Manager REST API using the [Databases - Create or Update](/rest/api/sql/databases/createorupdate) method.
+To use the Read Scale-Out feature with a particular database, you must explicitly activate it when creating the database or afterwards by altering its configuration using PowerShell by invoking the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) or the [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets or through the Azure Resource Manager REST API using the [Databases - Create or Update](/rest/api/sql/databases/createorupdate) method.
 
-After Read Scale-Out is enabled for a database, applications connecting to that database will be directed to either the read-write replica or to a read-only replica of that database according to the `ApplicationIntent` property configured in the application’s connection string. For information on the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) 
+After Read Scale-Out is enabled for a database, applications connecting to that database will be directed to either the read-write replica or to a read-only replica of that database according to the `ApplicationIntent` property configured in the application’s connection string. For information on the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
+
+If Read Scale-Out is disabled or you set the ReadScale property in an unsupported service tier, all connections are directed to the read-write replica, independent of the `ApplicationIntent` property.  
+
+> [!NOTE]
+> It is possible to activate Read Scale-out on a Standard or a General Purpose database, even though it will not result in routing the  read-only intended session to a separate replica. This is done to support existing applications that scale up and down between Standard/General Purpose and Premium/Business Critical tiers.  
 
 The Read Scale-Out feature supports session level consistency. If the read-only session reconnects after a connection error cause by replica unavailability, it can be redirected to a different replica. While unlikely, it can result in processing the data set that is stale. Likewise, if an application writes data using a read-write session and immediately reads it using the read-only session, it is possible that the new data is not immediately visible.
 

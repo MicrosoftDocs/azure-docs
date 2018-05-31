@@ -1,13 +1,12 @@
 ---
-title: Use batch testing to improve LUIS predictions  | Microsoft Docs 
+title: Use batch testing to improve LUIS predictions  | Microsoft Docs
 titleSuffix: Azure
 description: Load batch test, review results, and improve LUIS predictions with changes.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
@@ -379,6 +378,6 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about example utterances](Add-example-utterances.md)
+> [Learn more about example utterances](luis-how-to-add-example-utterances.md)
 
 [LUIS]: luis-reference-regions.md

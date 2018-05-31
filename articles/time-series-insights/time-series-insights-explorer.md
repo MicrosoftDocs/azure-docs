@@ -1,16 +1,15 @@
 ---
 title: Explore data using the Azure Time Series Insights explorer | Microsoft Docs
 description: This article describes how to use the Azure Time Series Insights explorer in your web browser to quickly see a global view of your big data and validate your IoT environment.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/30/2017
 ---
 # Azure Time Series Insights explorer

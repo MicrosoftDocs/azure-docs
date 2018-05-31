@@ -1,24 +1,17 @@
 ---
-title: Using U-SQL Cognitive capabilities in Azure Data Lake Analytics | Microsoft Docs
-description: 'Learn how to use the intelligence of Cognitive capabilities in U-SQL'
+title: Using U-SQL Cognitive capabilities in Azure Data Lake Analytics
+description: Learn how to use the intelligence of Cognitive capabilities in U-SQL
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: jhubbard
-editor: cgronlun
-
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
 ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/05/2016
-ms.author: saveenr
-
 ---
-
-# Tutorial: Get started with the Cognitive capabilities of U-SQL
+# Get started with the Cognitive capabilities of U-SQL
 
 ## Overview
 Cognitive capabilities for U-SQL enable developers to use put intelligence in their big data programs. 
@@ -35,8 +28,8 @@ The following cognitive capabilities are available:
 
 The overall process is simple:
 
-* Use the REFERENCE ASSEMBLY statement to enable the cognitive features for the U-SQL Script
-* Use the PROCESS on an input Rowset using a Cognitive UDO, to generate an output RowSet
+* Use the `REFERENCE ASSEMBLY` statement to enable the cognitive features for the U-SQL Script
+* Use the `PROCESS` on an input Rowset using a Cognitive UDO, to generate an output RowSet
 
 ### Detecting objects in images
 

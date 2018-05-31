@@ -1,4 +1,4 @@
----
+﻿---
 title: Add an Azure Stack marketplace item from a local source| Microsoft Docs
 description: Describes how to add a local operating system image to the Azure Stack Marketplace.
 services: azure-stack
@@ -11,10 +11,10 @@ ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 04/20/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -45,85 +45,82 @@ You can publish the Windows Server 2016 image to the Azure Stack marketplace by 
 
 Use this option if you have deployed Azure Stack in a disconnected scenario or in scenarios with limited connectivity.
 
-1. Import the Azure Stack `Connect` and `ComputeAdmin` PowerShell modules included in the Azure Stack tools directory by using the following commands:
+1. [Install PowerShell for Azure Stack](../azure-stack-powershell-install.md).
 
-   ```powershell
-   Set-ExecutionPolicy RemoteSigned
+  ```PowerShell  
+    # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+    Add-AzureRMEnvironment `
+      -Name "AzureStackAdmin" `
+      -ArmEndpoint $ArmEndpoint
 
-   # Import the Connect and ComputeAdmin modules.   
-   Import-Module .\Connect\AzureStack.Connect.psm1
-   Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
+    Set-AzureRmEnvironment `
+      -Name "AzureStackAdmin" `
+      -GraphAudience $GraphAudience
 
-   ```
+    $TenantID = Get-AzsDirectoryTenantId `
+      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+      -EnvironmentName AzureStackAdmin
 
-2. Run one of the following scripts on to your ASDK host computer depending on whether you deployed your Azure Stack environment by using Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS):
+    Add-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID
+  ```
 
-  - Commands for **Azure AD deployments**: 
+2. If using **Active Directory Federation Services**, use the following cmdlet:
 
-      ```PowerShell
-      # To get this value for Azure Stack integrated systems, contact your service provider.
-      $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
+  ```PowerShell
+  # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-      # To get this value for Azure Stack integrated systems, contact your service provider.
-      $GraphAudience = "https://graph.windows.net/"
-      
-      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-      Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" `
-        -ArmEndpoint $ArmEndpoint
+  # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+  $GraphAudience = "<GraphAuidence endpoint for your environment>"
 
-      Set-AzureRmEnvironment `
-        -Name "AzureStackAdmin" `
-        -GraphAudience $GraphAudience
-
-      $TenantID = Get-AzsDirectoryTenantId `
-      # Replace the AADTenantName value to reflect your Azure AD tenant name.
-        -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-        -EnvironmentName AzureStackAdmin
-
-      Login-AzureRmAccount `
-        -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID 
-      ```
-
-  - Commands for **AD FS deployments**:
-      
-      ```PowerShell
-      # To get this value for Azure Stack integrated systems, contact your service provider.
-      $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
-
-      # To get this value for Azure Stack integrated systems, contact your service provider.
-      $GraphAudience = "https://graph.local.azurestack.external/"
-
-      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-      Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" `
-        -ArmEndpoint $ArmEndpoint
-
-      Set-AzureRmEnvironment `
-        -Name "AzureStackAdmin" `
-        -GraphAudience $GraphAudience `
-        -EnableAdfsAuthentication:$true
-
-      $TenantID = Get-AzsDirectoryTenantId `
-      -ADFS `
-      -EnvironmentName "AzureStackAdmin" 
-
-      Login-AzureRmAccount `
-        -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID 
-      ```
-   
-3. Add the Windows Server 2016 image to the Azure Stack marketplace. (Replace *fully_qualified_path_to_ISO* with the path to the Windows Server 2016 ISO that you downloaded.)
-
-    ```PowerShell
-    $ISOPath = "<fully_qualified_path_to_ISO>"
-
-    # Add a Windows Server 2016 Evaluation VM image.
-    New-AzsServer2016VMImage `
-      -ISOPath $ISOPath
-
+  # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+  Add-AzureRMEnvironment `
+    -Name "AzureStackAdmin" `
+    -ArmEndpoint $ArmEndpoint
     ```
+
+3. Sign in to Azure Stack as an operator. For instructions, see [Sign in to Azure Stack as an operator](../azure-stack-powershell-configure-admin.md).
+
+   ````PowerShell  
+    Add-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID
+  ````
+
+4. Add the Windows Server 2016 image to the Azure Stack marketplace.
+
+    The **Add-AzsPlatformimage** cmdlet used to add the image specifies values used by the Azure Resource Manager templates to reference the VM image.
+    
+    The values include:
+    
+  - **publisher**  
+    For example: `Microsoft`  
+    The publisher name segment of the VM image that users use when they deploy the image. An example is **Microsoft**. Do not include a space or other special characters in this field.  
+  - **offer**  
+    For example: `WindowsServer`  
+    The offer name segment of the VM image that users use when they deploy the VM image. An example is **WindowsServer**. Do not include a space or other special characters in this field.  
+  - **sku**  
+    For example: `Datacenter2016`  
+    The SKU name segment of the VM Image that users use when they deploy the VM image. An example is **Datacenter2016**. Do not include a space or other special characters in this field.  
+  - **version**  
+    For example: `1.0.0`  
+    The version of the VM Image that users use when they deploy the VM image. This version is in the format *\#.\#.\#*. An example is **1.0.0**. Do not include a space or other special characters in this field.  
+  - **osType**  
+    For example: `Windows`  
+    The osType of the image must be either **Windows** or **Linux**. Replace *fully_qualified_path_to_ISO* with the path to the Windows Server 2016 ISO that you downloaded. 
+  - **OSUri**  
+    For example: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
+    You can specify a blob storage URI for an `osDisk`. In his case, you will specify the location where you stored the image that you downloaded.
+
+    For more information, see the PowerShell reference for the [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet.
+
+    Open PowerShell with an elevated prompt, and run:
+
+      ````PowerShell  
+        Add-AzsPlatformimage -publisher "Microsoft" -offer "WindowsServer" -sku "Datacenter2016" -version "1.0.0” -OSType "Windows" -OSUri "<fully_qualified_path_to_ISO>"
+      ````  
 
 ## Verify the marketplace item is available
 Use these steps to verify that the new VM image is available in the Azure Stack marketplace.

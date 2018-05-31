@@ -4,9 +4,8 @@ description: LUIS apps require design iterations to train LUIS to get the best d
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-geberr
@@ -45,6 +44,6 @@ Batch testing is a way to see how many example utterances are scored by LUIS. Th
 
 ## Next steps
 
-See [Intents in LUIS](luis-concept-intent.md) to learn more about intents in your LUIS app.
+Learn concepts about [collaboration](luis-concept-collaborator.md).
 
 [luis-reference-prebuilt-domains]:luis-reference-prebuilt-domains.md

@@ -1,22 +1,15 @@
 ---
 title: Concepts of Azure IoT Hub X.509 security | Microsoft Docs
 description: Concept - understanding the value X.509 certificate authority certificates in IoT device manufacturing, and authentication . 
-services: iot-hub
-documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: ''
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-
 ---
+
 # Conceptual understanding of X.509 CA certificates in the IoT industry
 
 This article describes the value of using X.509 certificate authority (CA) certificates in IoT device manufacturing and authentication to IoT Hub.  It includes information about supply chain setup and highlight advantages.

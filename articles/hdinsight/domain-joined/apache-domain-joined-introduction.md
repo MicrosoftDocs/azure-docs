@@ -51,3 +51,4 @@ Protecting data is important for meeting organizational security and compliance 
 * [Manage Domain-joined HDInsight clusters](apache-domain-joined-manage.md).
 * [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md).
 * [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+

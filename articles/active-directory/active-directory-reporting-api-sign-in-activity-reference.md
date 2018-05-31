@@ -3,7 +3,7 @@ title: Azure Active Directory sign-in activity report API reference | Microsoft 
 description: Reference for the Azure Active Directory sign-in activity report API
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -13,15 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
-ms.author: dhanyahk;markvi
+ms.component: compliance-reports
+ms.date: 05/08/2018
+ms.author: dhanyahk;rolyon
 ms.reviewer: dhanyahk 
 
 ---
 # Azure Active Directory sign-in activity report API reference
-This topic is part of a collection of topics about the Azure Active Directory reporting API.  
-Azure AD reporting provides you with an API that enables you to access sign-in activity report data using code or related tools.
-The scope of this topic is to provide you with reference information about the **sign-in activity report API**.
+
+> [!TIP] 
+> Check out the new Microsoft Graph API for [reporting](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), which will eventually replace this API. 
+
+This article is part of a collection of articles about the Azure Active Directory (Azure AD) reporting API. Azure AD reporting provides you with an API that enables you to access audit data using code or related tools.
+The scope of this article is to provide you with reference information about the **audit API**.
 
 See:
 
@@ -32,9 +36,9 @@ See:
 ## Who can access the API data?
 * Users and Service Principals in the Security Admin or Security Reader role
 * Global Admins
-* Any app that has authorization to access the API (app authorization can be setup only based on Global Admin’s permission)
+* Any app that has authorization to access the API (app authorization can be set up only based on Global Admin’s permission)
 
-To configure access for an application to access security APIs such as signin events, use the following PowerShell to add the applications Service Principal into the Security Reader role
+To configure access for an application to access security APIs such as sign-in events, use the following PowerShell to add the applications Service Principal into the Security Reader role
 
 ```PowerShell
 Connect-MsolService
@@ -46,11 +50,11 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ## Prerequisites
 To access this report through the reporting API, you must have:
 
-* An [Azure Active Directory Premium P1 or P2 edition](active-directory-editions.md)
+* An [Azure Active Directory Premium P1 or P2 edition](active-directory-whatis.md)
 * Completed the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md). 
 
 ## Accessing the API
-You can either access this API through the [Graph Explorer](https://graphexplorer2.cloudapp.net) or programmatically using, for example, PowerShell. In order for PowerShell to correctly interpret the OData filter syntax used in AAD Graph REST calls, you must use the backtick (aka: grave accent) character to “escape” the $ character. The backtick character serves as [PowerShell’s escape character](https://technet.microsoft.com/library/hh847755.aspx), allowing PowerShell to do a literal interpretation of the $ character, and avoid confusing it as a PowerShell variable name (ie: $filter).
+You can either access this API through the [Graph Explorer](https://graphexplorer2.cloudapp.net) or programmatically using, for example, PowerShell. Use the backtick (aka: grave accent) character to “escape” the $ character to ensure that PowerShell can interpret the OData filter syntax used in AAD Graph REST calls. The backtick character serves as [PowerShell’s escape character](https://technet.microsoft.com/library/hh847755.aspx), allowing PowerShell to do a literal interpretation of the $ character, and avoid confusing it as a PowerShell variable name (for example, $filter).
 
 The focus of this topic is on the Graph Explorer. For a PowerShell example, see this [PowerShell script](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
@@ -61,19 +65,18 @@ You can access this API using the following base URI:
 
 
 
-Due to the volume of data, this API has a limit of one million returned records. 
+Due to the volume of data, this API has a limit of 1,000,000 returned records. 
 
-This call returns the data in batches. Each batch has a maximum of 1000 records.  
-To get the next batch of records, use the Next link. Get the [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) information from the first set of returned records. The skip token will be at the end of the result set.  
+This call returns the data in batches. Each batch has a maximum of 1000 records. To get the next batch of records, use the Next link. Get the [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) information from the first set of returned records. The skip token will be at the end of the result set.  
 
     https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
 
 
 ## Supported filters
 You can narrow down the number of records that are returned by an API call in form of a filter.  
-For sign-in API related data, the following filters are supported:
+For sign-in API-related data, the following filters are supported:
 
-* **$top=\<number of records to be returned\>** - to limit the number of returned records. This is an expensive operation. You should not use this filter if you want to return thousands of objects.  
+* **$top=\<number of records to be returned\>** - to limit the number of returned records. This is an expensive operation. Don't use this filter if you want to return thousands of objects.  
 * **$filter=\<your filter statement\>** - to specify, on the basis of supported filter fields, the type of records you care about
 
 ## Supported filter fields and operators
@@ -91,7 +94,7 @@ To specify the type of records you care about, you can build a filter statement 
 > 
 > 
 
-To narrow down the scope of the returned data, you can build combinations of the supported filters and filter fields. For example, the following statement returns the top 10 records between July 1st 2016 and July 6th 2016:
+To narrow down the scope of the returned data, you can build combinations of the supported filters and filter fields. For example, the following statement returns the top 10 records between July 1 2016 and July 6 2016:
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta&$top=10&$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T00:00:00Z
 

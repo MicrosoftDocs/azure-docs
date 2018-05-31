@@ -1,4 +1,4 @@
----
+﻿---
 title: Managing Azure file shares with Azure PowerShell
 description: Learn to manage Azure file shares using Azure PowerShell.
 services: storage
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, you can create a [free account](https:/
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If would like to install and use the PowerShell locally, this guide requires the Azure PowerShell module version 5.1.1 or later. To find out which version of the Azure PowerShell module you are running, execute `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+If would like to install and use the PowerShell locally, this guide requires the Azure PowerShell module version 5.1.1 or later. To find out which version of the Azure PowerShell module you are running, execute `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Create a resource group
 A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can create a new one with the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet. 

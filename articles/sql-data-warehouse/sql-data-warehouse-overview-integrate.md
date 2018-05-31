@@ -2,13 +2,13 @@
 title: Build integrated solutions with SQL Data Warehouse | Microsoft Docs
 description: 'Tools and partners with solutions that integrate with SQL Data Warehouse. '
 services: sql-data-warehouse
-author: ronortloff
+author: kavithaj
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-ms.date: 04/13/2018
-ms.author: rortloff
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
 ms.reviewer: igorstan
 ---
 

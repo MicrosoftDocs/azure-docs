@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-news-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: v-gedod
@@ -15,6 +15,8 @@ ms.author: v-gedod
 # News Search SDK C# quickstart
 
 The Bing News Search SDK contains the functionality of the REST API for news queries and parsing results. 
+
+The [source code for C# Bing News Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) is available on Git Hub.
 
 ## Application dependencies
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
 ---
 
@@ -116,7 +116,7 @@ Review [detailed discussion of HA Ports](load-balancer-ha-ports-overview.md).
 
 Standard Load Balancer is fully onboarded to the virtual network.  The virtual network is a private, closed network.  Because Standard Load Balancers and Standard public IP addresses are designed to allow this virtual network to be accessed from outside of the virtual network, these resources now default to closed unless you open them. This means Network Security Groups (NSGs) are now used to explicitly permit and whitelist allowed traffic.  You can create your entire virtual data center and decide through NSG what and when it should be available.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, we will not permit traffic to reach this resource.
 
-To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
+To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/security-overview.md).
 
 ### <a name="outbound"></a> Outbound connections
 
@@ -215,11 +215,14 @@ Standard Load Balancer is a charged product based on number of load balancing ru
 
 ## Limitations
 
-- Load Balancer backend instances cannot be located in peered virtual networks at this time. All back-end instances must be in the same region.
 - SKUs are not mutable. You may not change the SKU of an existing resource.
 - A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
-- [Azure Monitor Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) are not supported at this time.
+- A Load Balancer rule cannot span two virtual networks.  Frontends and their related backend instances must be located in the same virtual network.  
+- Load Balancer frontends are not accessible across global virtual network peering.
 - [Move subscription operations](../azure-resource-manager/resource-group-move-resources.md) are not supported for Standard SKU LB and PIP resources.
+- Web Worker Roles without a VNet and other Microsoft platform services can be accessible when only an internal Standard Load Balancer is used due to a side effect from how pre-VNet services and other platform services function. You must not rely on this as the respective service itself or the underlying platform can change without notice. You must always assume you need to create [outbound connectivity](load-balancer-outbound-connections.md) explicitly if desired when using an internal Standard Load Balancer only.
+- Load Balancer is a TCP or UDP product for load balancing and port forwarding for these specific IP protocols.  Load balancing rules and inbound NAT rules are supported for TCP and UDP and not supported for other IP protocols including ICMP. Load Balancer does not terminate, respond, or otherwise interact with the payload of a UDP or TCP flow. It is not a proxy. Successful validation of connectivity to a front-end must take place in-band with the same protocol used in a load balancing or inbound NAT rule (TCP or UDP) _and_ at least one of your virtual machines must generate a response for a client to see a response from a front-end.  Not receiving an in-band response from the Load Balancer front-end indicates no virtual machines were able to respond.  It is not possible to interact with a Load Balancer front-end without a virtual machine able to respond.  This also applies to outbound connections where [port masquerade SNAT](load-balancer-outbound-connections.md#snat) is only supported for TCP and UDP; any other IP protocols including ICMP  will also fail.  Assign an instance-level Public IP address to mitigate.
+- Unlike public Load Balancers which provide [outbound connections](load-balancer-outbound-connections.md) when transitioning from private IP addresses inside the virtual network to public IP addresses, internal Load Balancers do not translate outbound originated connections to the front-end of an internal Load Balancer as both are in private IP address space.  This avoids potential for SNAT exhaustion inside unique internal IP address space where translation is not required.  The side effect is that if an outbound flow from a VM in the back-end pool attempts a flow to front-end of the internal Load Balancer in which pool it resides _and_ is mapped back to itself, both legs of the flow don't match and the flow will fail.  If the flow did not map back to the same VM in the back-end pool which created the flow to the front-end, the flow will succeed.   When the flow maps back to itself the outbound flow appears to originate from the VM to the front-end and the corresponding inbound flow appears to originate from the VM to itself. From the guest OS's point of view, the inbound and outbound parts of the same flow don't match inside the virtual machine. The TCP stack will not recognize these halves of the same flow as being part of the same flow as the source and destination don't match.  When the flow maps to to any other VM in the back-end pool, the halves of the flow will match and the VM can successfully respond to the flow.  The symptom for this scenario is intermittent connection timeouts. There are several common workarounds for reliably achieving this scenario (originating flows from a back-end pool to the back-end pools respective internal Load Balancer front-end) which include either insertion of a third party proxy behind the internal Load Balancer or [using DSR style rules](load-balancer-multivip-overview.md).  While you could use a public Load Balancer to mitigate, the resulting scenario is prone to [SNAT exhaustion](load-balancer-outbound-connections.md#snat) and should be avoided unless carefully managed.
 
 ## Next steps
 
@@ -231,7 +234,7 @@ Standard Load Balancer is a charged product based on number of load balancing ru
 - Learn about [Standard Load Balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md)
 - Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md)
 - Learn about [Virtual Networks](../virtual-network/virtual-networks-overview.md).
-- Learn more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
+- Learn more about [Network Security Groups](../virtual-network/security-overview.md).
 - Learn about [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
 - Learn more about [Load Balancer](load-balancer-overview.md).

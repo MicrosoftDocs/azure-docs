@@ -1,10 +1,10 @@
----
+﻿---
 title: Azure Virtual Machines planning and implementation for SAP NetWeaver | Microsoft Docs
 description: Azure Virtual Machines planning and implementation for SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -233,7 +233,7 @@ ms.custom: H1Hack27Feb2017
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -257,8 +257,8 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
-[virtual-machines-linux-agent-user-guide]:../../linux/agent-user-guide.md
-[virtual-machines-linux-agent-user-guide-command-line-options]:../../linux/agent-user-guide.md#command-line-options
+[virtual-machines-linux-agent-user-guide]:../../extensions/agent-linux.md
+[virtual-machines-linux-agent-user-guide-command-line-options]:../../extensions/agent-windows.md#command-line-options
 [virtual-machines-linux-capture-image]:../../linux/capture-image.md
 [virtual-machines-linux-capture-image-resource-manager]:../../linux/capture-image.md
 [virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
@@ -295,7 +295,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics-windows]:../../windows/multiple-nics.md
 [virtual-networks-multiple-nics-linux]:../../linux/multiple-nics.md
-[virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
+[virtual-networks-nsg]:../../../virtual-network/security-overview.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
@@ -973,7 +973,7 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 
 **Powershell**
 
-* Log in to your subscription with *Login-AzureRmAccount*
+* Log in to your subscription with *Connect-AzureRmAccount*
 * Set the subscription of your context with *Set-AzureRmContext* and parameter SubscriptionId or SubscriptionName - see <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Upload the VHD with *Add-AzureRmVhd* to an Azure Storage Account - see <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Optional) Create a Managed Disk from the VHD with *New-AzureRmDisk*  - see <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
@@ -1000,7 +1000,7 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 To upload an existing VM or VHD from the on-premises network in order to use it as an Azure VM image such a VM or VHD need to meet the requirements listed in chapter [Preparation for deploying a VM with a customer-specific image for SAP][planning-guide-5.2.2] of this document.
 
 * Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
-* Log in to your subscription with *Login-AzureRmAccount*
+* Log in to your subscription with *Connect-AzureRmAccount*
 * Set the subscription of your context with *Set-AzureRmContext* and parameter SubscriptionId or SubscriptionName - see <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Upload the VHD with *Add-AzureRmVhd* to an Azure Storage Account - see <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Optional) Create a Managed Disk Image from the VHD with *New-AzureRmImage*  - see <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>

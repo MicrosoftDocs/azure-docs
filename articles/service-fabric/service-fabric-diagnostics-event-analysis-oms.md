@@ -10,11 +10,11 @@ editor: ''
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
-ms.author: dekapur; srrengar
+ms.date: 05/29/2018
+ms.author: srrengar
 
 ---
 
@@ -34,13 +34,11 @@ After data is received by Log Analytics, Azure has several *Management Solutions
 
 ## Access the Service Fabric Analytics solution
 
-1. Go to the resource group in which you created the Service Fabric Analytics solution. Select the resource**ServiceFabric\<nameOfOMSWorkspace\>** and go to its overview page.
+1. In Azure Portal, go to the resource group in which you created the Service Fabric Analytics solution.
 
-2. In the overview page, click the link near the top to go to the OMS portal
+2. Select the resource **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-    ![OMS Portal link](media/service-fabric-diagnostics-event-analysis-oms/oms-portal-link.png)
-
-3. You're now in the OMS portal and can see the solutions you have enabled. Click on the graph titled Service Fabric (first image below) to get taken to the Service Fabric solution (second image below)
+2. In Summary, you will see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph (first image below) to continue to the Service Fabric Analytics solution (second image below).
 
     ![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/oms-workspace-all-solutions.png)
 
@@ -55,9 +53,9 @@ The image above is the home page of the Service Fabric Analytics solution. This 
 >[!NOTE]
 >In addition to the operational channel, more detailed system events can be collected by [updating the config of your diagnostics extension](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
 
-### View operational events including actions on nodes
+### View Service Fabric Events including actions on nodes
 
-1. On the Service Fabric Analytics page on the OMS portal, click on the graph for Operational Channel
+1. On the Service Fabric Analytics page, click on the graph for **Service Fabric Events**.
 
     ![OMS SF Solution Operational Channel](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new-operational.png)
 
@@ -66,17 +64,18 @@ Once here you will see all the system events that have been collected. For refer
     
     ![OMS Query Operational Channel](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
 
-Alternatively you can click the magnifying glass on the left and use the Kusto query language to find what you're looking for. For example, to find all events related to actions taken on nodes by the cluster, you can use the following query. The event IDs used below are found in the [operational channel events reference](service-fabric-diagnostics-event-generation-operational.md)
+Alternatively you can click the magnifying glass on the left and use the Kusto query language to find what you're looking for. For example, to find all actions taken on nodes in the cluster, you can use the following query. The event IDs used below are found in the [operational channel events reference](service-fabric-diagnostics-event-generation-operational.md)
 
 ```kusto
 ServiceFabricOperationalEvent
-| where EventId < 29627 and EventId > 29619 
+| where EventId < 25627 and EventId > 25619 
 ```
-You can query on many more fields such as the specific nodes (Computer) the system service (TaskName) and more
+
+You can query on many more fields such as the specific nodes (Computer) the system service (TaskName).
 
 ### View Service Fabric Reliable Service and Actor events
 
-1. On the Service Fabric Analytics page on the OMS portal, click the graph for Reliable Services
+1. On the Service Fabric Analytics page, click the graph for **Reliable Services**.
 
     ![OMS SF Solution Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-reliable-services.png)
 

@@ -3,19 +3,20 @@ title: Update Management solution in Azure
 description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
 services: automation
 ms.service: automation
+ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2018
-ms.topic: article
+ms.date: 04/23/2018
+ms.topic: conceptual
 manager: carmonm
 ---
 # Update Management solution in Azure
 
-The Update Management solution in Azure automation allows you to manage operating system security updates for your Windows and Linux computers deployed in Azure, on-premises environments, or other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
+The Update Management solution in Azure automation allows you to manage operating system updates for your Windows and Linux computers deployed in Azure, on-premises environments, or other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
-You can enable Update management for virtual machines directly from your [Azure Automation](automation-offering-get-started.md) account.
+You can enable Update management for virtual machines directly from your Azure Automation account.
 To learn how to enable update management for virtual machines from your Automation account, see
-[Manage updates for multiple virtual machines](manage-update-multi.md).
+[Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a single virtual machine from the virtual machine page in the Azure portal. This scenario is available to both [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
 
 ## Solution overview
 
@@ -34,6 +35,9 @@ After a computer performs a scan for update compliance, the agent forwards the i
 
 The solution reports how up-to-date the computer is based on what source you are configured to synchronize with. If the Windows computer is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results may differ from what Microsoft Updates shows. This is the same for Linux computers that are configured to report to a local repo versus a public repo.
 
+> [!NOTE]
+> Update Management requires certain URLs and ports to be enabled to properly report to the service, see [Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning) to learn more about these requirements.
+
 You can deploy and install software updates on computers that require the updates by creating a scheduled deployment. Updates classified as *Optional* are not included in the deployment scope for Windows computers, only required updates. The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or selecting a [computer group](../log-analytics/log-analytics-computer-groups.md) that is based off of log searches of a particular set of computers. You also specify a schedule to approve and designate a period of time when updates are allowed to be installed within. Updates are installed by runbooks in Azure Automation. You cannot view these runbooks, and they don’t require any configuration. When an Update Deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included computers. This master runbook starts a child runbook on each agent that performs installation of required updates.
 
 At the date and time specified in the update deployment, the target computers executes the deployment in parallel. A scan is first performed to verify the updates are still required and installs them. For WSUS client computers, if the updates are not approved in WSUS, the update deployment fails.
@@ -42,16 +46,16 @@ At the date and time specified in the update deployment, the target computers ex
 
 ### Supported client types
 
-The following table shows a list of supported operating systems: 
+The following table shows a list of supported operating systems:
 
 |Operating System  |Notes  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Only supports update assessments         |
-|Windows Server 2008 R2 SP1 and higher     |Windows PowerShell 4.0 or higher is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
+|Windows Server 2008 R2 SP1 and higher     |Windows PowerShell 4.0 or higher is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
 |CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 12.04 LTS and newer x86/x64       |Linux agents must have access to an update repository.         |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
 ### Unsupported client types
 
@@ -118,7 +122,7 @@ Heartbeat
 
 On a Windows computer, you can review the following to verify agent connectivity with Log Analytics:
 
-1. Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to Log Analytics**.   
+1. Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to Log Analytics**.
 2. Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector. These events indicate the computer has registered with the Log Analytics workspace and is receiving configuration.
 
 If the agent is not able to communicate with Log Analytics and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-agent-windows.md) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md).
@@ -130,7 +134,7 @@ If the agent is not able to communicate with Log Analytics and it is configured 
 
 Newly added Linux agents will show a status of **Updated** after an assessment has been performed. This process can take up to 6 hours.
 
-To confirm an Operations Manager management group is communicating with Log Analytics, see [Validate Operations Manager Integration with Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+To confirm an Operations Manager management group is communicating with Log Analytics, see [Validate Operations Manager Integration with Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## Data collection
 
@@ -142,7 +146,7 @@ The following table describes the connected sources that are supported by this s
 | --- | --- | --- |
 | Windows agents |Yes |The solution collects information about system updates from Windows agents and initiates installation of required updates. |
 | Linux agents |Yes |The solution collects information about system updates from Linux agents and initiates installation of required updates on supported distros. |
-| Operations Manager management group |Yes |The solution collects information about system updates from agents in a connected management group.<br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the Log Analytics workspace. |
+| Operations Manager management group |Yes |The solution collects information about system updates from agents in a connected management group.</br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the Log Analytics workspace. |
 
 ### Collection frequency
 
@@ -193,6 +197,42 @@ Create a new Update Deployment by clicking the **Schedule update deployment** bu
 |Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
 | Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
 
+## Update classifications
+
+The following tables provide a listing of the Update classifications in Update Management along with a definition for each classification.
+
+### Windows
+
+|Classification  |Description  |
+|---------|---------|
+|Critical updates     | An update for a specific problem that addresses a critical, non-security-related bug.        |
+|Security updates     | An update for a product-specific, security-related issue.        |
+|Update rollups     | A cumulative set of hotfixes that are packaged together for easy deployment.        |
+|Feature packs     | New product features that are distributed outside of a product release.        |
+|Service packs     | A cumulative set of hotfixes that are applied to an application.        |
+|Definition updates     | An update to virus or other definition files.        |
+|Tools     | A utility or feature that helps to complete one or more tasks.        |
+|Updates     | An update to an application or file that is currently installed.        |
+
+### Linux
+
+|Classification  |Description  |
+|---------|---------|
+|Critical and security updates     | Updates for a specific problem or a product-specific, security-related issue.         |
+|Other updates     | All other updates that are not critical in nature or security updates.        |
+
+## Ports
+
+The following addresses are required specifically for Update Management. Communication to these addresses is done over port 443.
+
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+
+For additional information on ports that the Hybrid Runbook Worker requires, [Hybrid Worker role ports](automation-hybrid-runbook-worker.md#hybrid-worker-role)
+
 ## Search logs
 
 In addition to the details that are provided in the portal, searches can be done against the logs. With the **Change Tracking** page open, click **Log Analytics**, this opens the **Log Search** page
@@ -203,13 +243,13 @@ The following table provides sample log searches for update records collected by
 
 | Query | Description |
 | --- | --- |
-|Update<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |All computers with missing updates<br>Add one of the following to limit the OS:<br>OSType = "Windows"<br>OSType == "Linux" |
-| Update<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Missing updates for a specific computer (replace value with your own computer name)|
-| Event<br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")<br>&#124; where UpdateState == "Needed" and Optional == false <br>&#124; distinct Computer)) |Error events for machines that have missing critical or security required updates |
-| Update<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; distinct Title |Distinct missing updates across all computers |
-| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Computers with updates that failed in an update run<br>Add one of the following to limit the OS:<br>OSType = "Windows"<br>OSType == "Linux" |
-| Update<br>&#124; where OSType == "Linux"<br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")<br>&#124; summarize AggregatedValue = count() by Computer |List of all the Linux machines, which have a package update available, which addresses Critical or Security vulnerability | 
-| UpdateRunProgress<br>&#124; where UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|Computers that were updated in this update run (replace value with your Update Deployment name | 
+|Update</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; project Computer, Title, KBID, Classification, PublishedDate |All computers with missing updates</br>Add one of the following to limit the OS:</br>OSType = "Windows"</br>OSType == "Linux" |
+| Update</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; where Computer == "ContosoVM1.contoso.com"</br>&#124; project Computer, Title, KBID, Product, PublishedDate |Missing updates for a specific computer (replace value with your own computer name)|
+| Event</br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")</br>&#124; where UpdateState == "Needed" and Optional == false </br>&#124; distinct Computer)) |Error events for machines that have missing critical or security required updates |
+| Update</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; distinct Title |Distinct missing updates across all computers |
+| UpdateRunProgress</br>&#124; where InstallationStatus == "failed" </br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Computers with updates that failed in an update run</br>Add one of the following to limit the OS:</br>OSType = "Windows"</br>OSType == "Linux" |
+| Update</br>&#124; where OSType == "Linux"</br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")</br>&#124; summarize AggregatedValue = count() by Computer |List of all the Linux machines, which have a package update available, which addresses Critical or Security vulnerability |
+| UpdateRunProgress</br>&#124; where UpdateRunName == "DeploymentName"</br>&#124; summarize AggregatedValue = count() by Computer|Computers that were updated in this update run (replace value with your Update Deployment name |
 
 ## Integrate with System Center Configuration Manager
 
@@ -242,22 +282,22 @@ Deploying updates by update classification may not work on openSUSE Linux due to
 
 This section provides information to help troubleshoot issues with the Update Management solution.
 
-If you encounter issues while attempting to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log for events with  event ID 4502 and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each.
+If you encounter issues while attempting to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log on the local machine for events with  event ID 4502 and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each.
 
 | Message | Reason | Solution |
 |----------|----------|----------|
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.InvalidOperationException: {"Message":"Machine is already<br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the hybrid runbook group](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
-| Unable to  Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---><br>System.Net.WebException: The underlying connection<br>was closed: An unexpected error<br>occurred on a receive. ---> System.ComponentModel.Win32Exception:<br>The client and server cannot communicate,<br>because they do not possess a common algorithm | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-offering-get-started.md#network-planning)|
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-offering-get-started.md#network-planning)|
-| The certificate presented by the service <wsid>.oms.opinsights.azure.com<br>was not issued by a certificate authority<br>used for Microsoft services. Contact<br>your network administrator to see if they are running a proxy that intercepts<br>TLS/SSL communication. |Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-offering-get-started.md#network-planning)|
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Failed to create a self-signed certificate. ---><br>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure | Verify system account has<br>read access to folder:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>System.InvalidOperationException: {"Message":"Machine is already</br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the hybrid runbook group](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Unable to Register Machine for Patch Management, Registration Failed with Exception</br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---></br>System.Net.WebException: The underlying connection</br>was closed: An unexpected error</br>occurred on a receive. ---> System.ComponentModel.Win32Exception:</br>The client and server cannot communicate,</br>because they do not possess a common algorithm | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
+| The certificate presented by the service \<wsid\>.oms.opinsights.azure.com</br>was not issued by a certificate authority</br>used for Microsoft services. Contact</br>your network administrator to see if they are running a proxy that intercepts</br>TLS/SSL communication. |Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Failed to create a self-signed certificate. ---></br>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure | Verify system account has</br>read access to folder:</br>**C:\ProgramData\Microsoft\**</br>**Crypto\RSA**|
 
 ## Next steps
 
 Continue to the tutorial to learn how to manage updates for your Windows VMs.
 
 > [!div class="nextstepaction"]
-> [Manage updates and patches for your Azure Windows VMs](automation-tutorial-troubleshoot-changes.md)
+> [Manage updates and patches for your Azure Windows VMs](automation-tutorial-update-management.md)
 
 * Use Log Searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
 * [Create alerts](../log-analytics/log-analytics-alerts.md) when critical updates are detected as missing from computers or a computer has automatic updates disabled.

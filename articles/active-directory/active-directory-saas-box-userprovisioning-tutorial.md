@@ -20,13 +20,23 @@ ms.author: jeedes
 
 The objective of this tutorial is to show the steps you need to perform in Box and Azure AD to automatically provision and de-provision user accounts from Azure AD to Box.
 
+> [!NOTE]
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./active-directory-saas-app-provisioning.md).
+
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you already have the following items:
+To configure Azure AD integration with Box, you need the following items:
 
-*   An Azure Active directory tenant.
-*   A Box single-sign on enabled subscription.
-*   A user account in Box with Team Admin permissions.
+- An Azure AD tenant
+- A Box Business plan or better
+
+> [!NOTE]
+> When you test the steps in this tutorial, we recommend that you do *not* use a production environment.
+
+To test the steps in this tutorial, follow these recommendations:
+
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Assigning users to Box 
 
@@ -40,7 +50,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 The **Box > Users and Groups** tab in the Azure portal allows you to specify which users and groups should be granted access to Box. Assignment of a user or group causes the following things to occur:
 
 * Azure AD permits the assigned user (either by direct assignment or group membership) to authenticate to Box. If a user is not assigned, then Azure AD does not permit them to sign in to Box and returns an error on the Azure AD sign-in page.
-* An app tile for Box is added to the user's [application launcher](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+* An app tile for Box is added to the user's [application launcher](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 * If automatic provisioning is enabled, then the assigned users and/or groups are added to the provisioning queue to be automatically provisioned.
   
   * If only user objects were configured to be provisioned, then all directly assigned users are placed in the provisioning queue, and all users that are members of any assigned groups are placed in the provisioning queue. 
@@ -117,5 +127,5 @@ In your Box tenant, synchronized users are listed under **Managed Users** in the
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure Single Sign-on](active-directory-saas-box-tutorial.md)

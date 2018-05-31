@@ -41,11 +41,6 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 ## Bash troubleshooting
 
-### Cannot run az login
-
-- **Details**: Running `az login` will not work as you are already authenticated under the account used to sign into Cloud Shell or Azure portal.
-- **Resolution**: Utilize your account used to sign in or sign out and reauthenticate with your intended Azure account.
-
 ### Cannot run the docker daemon
 
 - **Details**: Cloud Shell utilizes a container to host your shell environment, as a result running the daemon is disallowed.
@@ -146,7 +141,7 @@ Using PowerShell cmdlets, users can not create files under the Azure drive. When
 
 ### GUI applications are not supported
 
-If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Login-AzureRMAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Connect-AzureRmAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ## GDPR compliance for Cloud Shell
 

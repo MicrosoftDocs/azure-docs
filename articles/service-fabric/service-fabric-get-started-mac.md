@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
@@ -59,7 +59,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >
     >We recommend increasing the resources allocated to Docker when testing large applications. This can be done by selecting the **Docker Icon**, then selecting **Advanced** to adjust the number of cores and memory.
 
-2. In a new directory create a file called `.Dockerfile` to build your Service Fabric Image:
+2. In a new directory create a file called `Dockerfile` to build your Service Fabric Image:
 
     ```dockerfile
     FROM microsoft/service-fabric-onebox
@@ -83,7 +83,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!TIP]
     > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page
 
-3. To build your reusable image from the `.Dockerfile` open a terminal and `cd` to the directly holding your `.Dockerfile` then run:
+3. To build your reusable image from the `Dockerfile` open a terminal and `cd` to the directly holding your `Dockerfile` then run:
 
     ```bash 
     docker build -t mysfcluster .
@@ -120,6 +120,11 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     docker rm -f sftestcluster
     ```
 
+### Known Limitations 
+ 
+ The following are known limitations of the local cluster running in a container for Mac's: 
+ 
+ * DNS service does not run and is not supported [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
 
 ## Set up the Service Fabric CLI (sfctl) on your Mac
 
