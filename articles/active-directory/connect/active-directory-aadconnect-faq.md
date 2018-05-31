@@ -36,12 +36,12 @@ Yes. After installing the agent, you can complete the registration process using
 **Q: Does AADConnect support syncing from two domains to on Azure AD?**</br>
 Yes, this scenario is supported. Refer to [Multiple Domains](active-directory-aadconnect-multiple-domains.md)
  
-**Q: Do we support having multiple connectors for same Active Directory domain in Azure AD connect?**</br> 
-No, this is not supported 
+**Q: Can you have multiple connectors for the same Active Directory domain in Azure AD connect?**</br> 
+No, multiple connectors for the same AD domain is not supported. 
 
 ## Network
 **Q: I have a firewall, network device, or something else that limits the maximum time connections can stay open on my network. How long should my client-side timeout threshold be when using Azure AD Connect?**  
-All networking software, physical devices, or anything else that limits the maximum time connections can remain open should use a threshold of at least 5 minutes (300 seconds) for connectivity between the server where the Azure AD Connect client is installed and Azure Active Directory. This also applies to all previously released Microsoft Identity synchronization tools.
+All networking software, physical devices, or anything else that limits the maximum time connections can remain open should use a threshold of at least 5 minutes (300 seconds) for connectivity between the server where the Azure AD Connect client is installed and Azure Active Directory. This recommendation also applies to all previously released Microsoft Identity synchronization tools.
 
 **Q: Are SLDs (Single Label Domains) supported?**  
 No, Azure AD Connect does not support on-premises forests/domains using SLDs.
@@ -76,10 +76,10 @@ See these articles:
 You can also configure Azure AD to allow the sync engine to update the userPrincipalName as described in [Azure AD Connect sync service features](active-directory-aadconnectsyncservice-features.md).
 
 **Q: Is it supported to soft match on-premises AD Group/Contact objects with existing Azure AD Group/Contact objects?**  
-Yes, this will be based on the proxyAddress.  Soft matching is not supported for groups that are not mail-enabled.
+Yes, this soft match will be based on the proxyAddress.  Soft matching is not supported for groups that are not mail-enabled.
 
 **Q: Is it supported to manually set ImmutableId attribute on existing Azure AD Group/Contact objects to hard match it to on-premises AD Group/Contact objects?**  
-No, this is currently not supported.
+No, manually setting the ImmutableId attribute on an existing Azure AD Group/Contact object to hard match it is currently not supported.
 
 ## Custom configuration
 **Q: Where are the PowerShell cmdlets for Azure AD Connect documented?**  
@@ -89,7 +89,7 @@ With the exception of the cmdlets documented on this site, other PowerShell cmdl
 No. This option will not retrieve all configuration settings and should not be used. You should instead use the wizard to create the base configuration on the second server and use the sync rule editor to generate PowerShell scripts to move any custom rule between servers. See [Swing migration](active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
 
 **Q: Can passwords be cached for the Azure sign-in page and can this be prevented since it contains a password input element with the autocomplete = "false" attribute?**</br>
-We currently do not support modifying the HTML attributes of the Password input field, including the autocomplete tag. We are currently working on a feature that will allow for custom Javascript which will allow you to add any attribute to the password field. This should be available later part of 2017.
+We currently do not support modifying the HTML attributes of the Password input field, including the autocomplete tag. We are currently working on a feature that will allow for custom Javascript which will allow you to add any attribute to the password field.
 
 **Q: On the Azure sign-in page, usernames for users who have previously signed in successfully are shown.  Can this behavior be turned off?**</br>
 We currently do not support modifying the HTML attributes of the sign-in page. We are currently working on a feature that will allow for custom Javascript which will allow you to add any attribute to the password field. This should be available later part of 2017.
@@ -102,7 +102,7 @@ No.
 **Q: What are the advantages and consequences of using auto upgrade?**</br>
 We advise all customers to enable auto upgrade for their Azure AD Connect installation. The benefits are that they will always receive the latest patches, including security updates for vulnerabilities that we found in Azure AD Connect. The upgrade process is painless and will happen automatically as soon as a new version is available. We serve many thousands of Azure AD Connect customers through auto upgrade with every new release.
 
-The auto upgrade process will always first establish whether an installation is eligible for auto upgrade (this includes looking for custom changes to rules, specific environmental factors etc.) and if so, the upgrade is performed and tested. If the tests show that an upgrade was not successful, the previous version will automatically get restored.
+The auto upgrade process will always first establish whether an installation is eligible for auto upgrade (this process includes looking for custom changes to rules, specific environmental factors etc.) and if so, the upgrade is performed and tested. If the tests show that an upgrade was not successful, the previous version will automatically get restored.
 
 Depending on the size of the environment, the process can take a couple of hours, and while the upgrade happens, no sync between Windows Server AD and Azure AD will happen.
 
@@ -142,10 +142,10 @@ The Office team is working to get the Office portal updates to reflect the curre
 A bug was introduced in a previous version that, under certain circumstances, would leave the auto upgrade status set to “suspended”. Manually enabling it is technically possible but would require several complex steps, so the best thing you can do is install the latest version of Azure AD Connect
 
 **Q:  My company has strict change management requirements and I want to control when it’s pushed out. Can I control when Auto-Upgrade is launched?**</br> 
-No, there is no such feature today, this is something we’re evaluating for a future release.
+No, there is no such feature today, this feature is something we’re evaluating for a future release.
 
 **Q: Will I get an email if the auto-upgrade failed? How will I know that it was successful?**</br>  	
-You will not be notified as to the result of the upgrade, this is something we’re evaluating for a future release.
+You will not be notified as to the result of the upgrade, this feature is something we’re evaluating for a future release.
 
 **Q:Do you publish a time-line as to when you plan to push out auto-upgrades?**</br>  	
 Auto-upgrade is the first step in our release process of a newer version, so whenever there is a new release we will push auto-upgrades. Newer versions of Azure AD Connect are pre-announced in the [Azure AD Roadmap](../../active-directory/whats-new.md).
@@ -153,7 +153,7 @@ Auto-upgrade is the first step in our release process of a newer version, so whe
 **Q: Does auto-upgrade upgrade AAD Connect Health?**</br>  	Yes, auto upgrade also upgrades AAD Connect Health
 
 **Q: Do you also auto-upgrade AAD Connect servers in Staging Mode?**</br> 	
-No, you can not auto-upgrade an Azure AD Connect server that is in staging mode.
+No, you cannot auto-upgrade an Azure AD Connect server that is in staging mode.
 
 **Q: If Auto-Upgrade fails and my AAD Connect server does not start, what should I do?**</br> 	
 In rare cases, the Azure AD Connect service does not start after performing the upgrade. In these cases, please reboot the server, which usually fixes the issue. If the Azure AD Connect service still does not start,  please open a support ticket. Here is a [link](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) that explains how to do that. 
@@ -174,6 +174,5 @@ If you need help upgrading to a newer version of Azure AD Connect, please open a
 
 [How to get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
-* Use 
-* this link to get support through the Azure portal.
+
 
