@@ -30,17 +30,16 @@ Azure Active Directory (Azure AD) can automatically provision users and groups t
 ![][0]
 *Figure 1: Provisioning from Azure Active Directory to an identity store via a web service*
 
-This capability can be used in conjunction with the “bring your own app” capability in Azure AD to enable single sign-on and automatic user provisioning for applications that provide or are fronted by a SCIM web service.
+This capability can be used in conjunction with the “bring your own app” capability in Azure AD. This capability enables single sign-on and automatic user provisioning for applications that are fronted by a SCIM web service.
 
 There are two use cases for using SCIM in Azure Active Directory:
 
-* **Provisioning users and groups to applications that support SCIM** 
-  Applications that support SCIM 2.0 and use OAuth bearer tokens for authentication works with Azure AD without configuration.
-* **Building your own provisioning solution for applications that support other API-based provisioning**
-  For non-SCIM applications, you can create a SCIM endpoint to translate between the Azure AD SCIM endpoint and any API the application supports for user provisioning. To help you develop a SCIM endpoint, there are Common Language Infrastructure (CLI) libraries along with code samples that show you how to do provide a SCIM endpoint and translate SCIM messages.  
+* **Provisioning users and groups to applications that support SCIM** - Applications that support SCIM 2.0 and use OAuth bearer tokens for authentication works with Azure AD without configuration.
+  
+* **Building your own provisioning solution for applications that support other API-based provisioning** - For non-SCIM applications, you can create a SCIM endpoint to translate between the Azure AD SCIM endpoint and any API the application supports for user provisioning. To help you develop a SCIM endpoint, there are Common Language Infrastructure (CLI) libraries along with code samples that show you how to do provide a SCIM endpoint and translate SCIM messages.  
 
 ## Provisioning users and groups to applications that support SCIM
-Azure AD can be configured to automatically provision assigned users and groups to applications that implement a [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) web service and accept OAuth bearer tokens for authentication. Within the SCIM 2.0 specification, applications must meet these requirements:
+Azure AD can be configured to automatically provision assigned users and groups to applications that implement a [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) web service, and accept OAuth bearer tokens for authentication. Within the SCIM 2.0 specification, applications must meet these requirements:
 
 * Supports creating users and/or groups, as per section 3.3 of the SCIM protocol.  
 * Supports modifying users and/or groups with patch requests as per section 3.5.2 of the SCIM protocol.  
@@ -53,7 +52,7 @@ Azure AD can be configured to automatically provision assigned users and groups 
 Check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
 
 ### Getting started
-Applications that support the SCIM profile described in this article can be connected to Azure Active Directory using the "non-gallery application" feature in the Azure AD application gallery. Once connected, Azure AD runs a synchronization process every 20 minutes where it queries the application's SCIM endpoint for assigned users and groups, and creates or modifies them according to the assignment details.
+Applications that support the SCIM profile described in this article can be connected to Azure Active Directory using the "non-gallery application" feature in the Azure AD application gallery. Once connected, Azure AD runs a synchronization process every 40 minutes where it queries the application's SCIM endpoint for assigned users and groups, and creates or modifies them according to the assignment details.
 
 **To connect an application that supports SCIM:**
 
@@ -98,10 +97,10 @@ Here’s how it works:
 1. Azure AD provides a common language infrastructure library named [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/). System integrators and developers can use this library to create and deploy a SCIM-based web service endpoint capable of connecting Azure AD to any application’s identity store.
 2. Mappings are implemented in the web service to map the standardized user schema to the user schema and protocol required by the application.
 3. The endpoint URL is registered in Azure AD as part of a custom application in the application gallery.
-4. Users and groups are assigned to this application in Azure AD. Upon assignment, they are put into a queue to be synchronized to the target application. The synchronization process handling the queue runs every 20 minutes.
+4. Users and groups are assigned to this application in Azure AD. Upon assignment, they are put into a queue to be synchronized to the target application. The synchronization process handling the queue runs every 40 minutes.
 
 ### Code Samples
-To make this process easier, a set of [code samples](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) are provided that create a SCIM web service endpoint and demonstrate automatic provisioning. One sample is of a provider that maintains a file with rows of comma-separated values representing users and groups.  The other is of a provider that operates on the Amazon Web Services Identity and Access Management service.  
+To make this process easier, [code samples](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) are provided that create a SCIM web service endpoint and demonstrate automatic provisioning. One sample is of a provider that maintains a file with rows of comma-separated values representing users and groups.  The other is of a provider that operates on the Amazon Web Services Identity and Access Management service.  
 
 **Prerequisites**
 
