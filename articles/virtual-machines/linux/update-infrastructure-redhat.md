@@ -25,9 +25,11 @@ Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG) images come preconfigured t
 ## Important information about Azure RHUI
 * Azure RHUI currently supports only the latest minor release in each RHEL family (RHEL6 or RHEL7). To upgrade an RHEL VM instance connected to RHUI to the latest minor version, run `sudo yum update`.
 
-    For example, if you provision a VM from an RHEL 7.2 PAYG image and run `sudo yum update`, you end up with an RHEL 7.4 VM (the latest minor version in the RHEL7 family).
+    For example, if you provision a VM from an RHEL 7.2 PAYG image and run `sudo yum update`, you end up with an RHEL 7.5 VM (the latest minor version in the RHEL7 family).
 
-    To avoid this behavior, you need to build your own image as described in the [Create and upload a Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article. Then you need to connect it to a different update infrastructure ([directly to Red Hat content delivery servers](https://access.redhat.com/solutions/253273) or a [Red Hat Satellite server](https://access.redhat.com/products/red-hat-satellite)).
+    To avoid this behavior, you have two options:
+    1. You may configure your image to lock to a minor release. This means that your image will contain Extended Update SUpport (EUS) repositories and will then receive updates for a specific minor release. Instructions for this are described below in [Locking to a minor release](#locking-to-a-minor-release).
+    1. You may build your own image as described in the [Create and upload a Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article. You then need to connect it to a different update infrastructure ([directly to Red Hat content delivery servers](https://access.redhat.com/solutions/253273) or a [Red Hat Satellite server](https://access.redhat.com/products/red-hat-satellite)).
 
 * Access to the Azure-hosted RHUI is included in the RHEL PAYG image price. If you unregister a PAYG RHEL VM from the Azure-hosted RHUI that does not convert the virtual machine into a bring-your-own-license (BYOL) type of VM. If you register the same VM with another source of updates, you might incur _indirect_ double charges. You're charged the first time for the Azure RHEL software fee. You're charged the second time for Red Hat subscriptions that were purchased previously. If you consistently need to use an update infrastructure other than Azure-hosted RHUI, consider creating and deploying your own (BYOL-type) images. This process is described in [Create and upload a Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -63,6 +65,63 @@ In September 2016, we deployed an updated Azure RHUI. In April 2017, we shut dow
 
 The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, a single endpoint (rhui-1.microsoft.com) can be used by any VM, regardless of region. 
 
+### Locking to a minor release
+You may want to lock your RHEL version to a specific minor release. For example, you may not want to upgrade a RHEL 7.4 installation to RHEL 7.5 yet. Follow the instructions below to lock your RHEL version to a specific minor release. Note that this is only supported in Public and Germany clouds. 
+
+#### To lock your RHEL version to a specific minor release, do the following (RHEL 7.4 used as an example):
+1. Disable non-EUS repositories from RHUI
+   ```bash
+   sudo yum-config-manager --disable rhui-rhel-7-server-rhui-* --save
+   ```
+1. Add EUS repositories
+   ```bash
+   sudo yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
+   ```
+   Your repository list will look like this:
+   ```bash
+   [user@host ~]$ sudo yum repolist enabled
+   Loaded plugins: langpacks, product-id, search-disabled-repos
+   repo id                                                              repo name  status
+   rhui-microsoft-azure-rhel7                                           Microsoft       3
+   rhui-microsoft-azure-rhel7-eus                                       Microsoft       1
+   rhui-rhel-7-server-dotnet-rhui-debug-rpms/7Server/x86_64             dotNET on      36
+   rhui-rhel-7-server-dotnet-rhui-rpms/7Server/x86_64                   dotNET on      81
+   rhui-rhel-7-server-dotnet-rhui-source-rpms/7Server/x86_64            dotNET on      41
+   rhui-rhel-7-server-rhui-eus-debug-rpms/7Server/x86_64                Red Hat En  6,568
+   rhui-rhel-7-server-rhui-eus-optional-debug-rpms/7Server/x86_64       Red Hat En  4,416
+   rhui-rhel-7-server-rhui-eus-optional-rpms/7Server/x86_64             Red Hat En 13,551
+   rhui-rhel-7-server-rhui-eus-optional-source-rpms/7Server/x86_64      Red Hat En  3,049
+   rhui-rhel-7-server-rhui-eus-rh-common-debug-rpms/7Server/x86_64      Red Hat En      0
+   rhui-rhel-7-server-rhui-eus-rh-common-rpms/7Server/x86_64            Red Hat En      0
+   rhui-rhel-7-server-rhui-eus-rh-common-source-rpms/7Server/x86_64     Red Hat En      0
+   rhui-rhel-7-server-rhui-eus-rpms/7Server/x86_64                      Red Hat En 18,547
+   rhui-rhel-7-server-rhui-eus-source-rpms/7Server/x86_64               Red Hat En  5,303
+   rhui-rhel-7-server-rhui-eus-supplementary-debuginfo/7Server/x86_64   Red Hat En      0
+   rhui-rhel-7-server-rhui-eus-supplementary-rpms/7Server/x86_64        Red Hat En    205
+   rhui-rhel-7-server-rhui-eus-supplementary-source-rpms/7Server/x86_64 Red Hat En      8
+   rhui-rhel-server-rhui-rhscl-7-debug-rpms/7Server/x86_64              Red Hat So    677
+   rhui-rhel-server-rhui-rhscl-7-rpms/7Server/x86_64                    Red Hat So  9,971
+   rhui-rhel-server-rhui-rhscl-7-source-rpms/7Server/x86_64             Red Hat So  4,118
+   repolist: 66,575
+   ```
+1. Get updates for a specific release (7.4 in this example)
+   ```bash
+   yum --releasever=7.4 --disablerepo=* --enablerepo=*-eus-* update
+   ```
+ 
+#### To unlock your specific minor version and continue to receive the latest RHEL version, do the following:
+1. Remove the EUS repositories
+   ```bash
+   sudo yum remove rhui-azure-rhel7-eus 
+   ```
+1. Re-enable all repositories
+   ```bash
+   sudo yum-config-manager --enable \* --save
+   ```
+1. Update your RHEL
+   ```bash
+   sudo yum update
+   ```
 ### Troubleshoot connection problems to Azure RHUI
 If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM, follow these steps:
 
@@ -72,7 +131,7 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 
     b. If it points to a location with the following pattern, `mirrorlist.*cds[1-4].cloudapp.net`, a configuration update is required. You're using the old VM snapshot, and you need to update it to point to the new Azure RHUI.
 
-2. Access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges] (https://www.microsoft.com/download/details.aspx?id=41653).
+2. Access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
  
 3. If you're using the new configuration, have verified that the VM connects from the Azure IP range, and still can't connect to Azure RHUI, file a support case with Microsoft or Red Hat.
 
