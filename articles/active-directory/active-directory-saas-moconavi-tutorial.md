@@ -199,7 +199,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Testing single sign-on](./media/active-directory-saas-moconavi-tutorial/testing1.png)
 
-4. Enter `https://mcs-admin.moconavi.biz/gateway` into **Connect to URL** then click **Done** button.
+4. Enter `https://mcs-admin.moconavi.biz/gateway` into **Connect to URL** textbox and then click **Done** button.
 
 	![Testing single sign-on](./media/active-directory-saas-moconavi-tutorial/testing2.png)
 
@@ -213,7 +213,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	c. Click **LOGIN**.
 
-6. Input your Azure AD password to **Password** then click **Login** button.
+6. Input your Azure AD password to **Password** textbox and then click **Login** button.
 
 	![Testing single sign-on](./media/active-directory-saas-moconavi-tutorial/testing4.png)
 
