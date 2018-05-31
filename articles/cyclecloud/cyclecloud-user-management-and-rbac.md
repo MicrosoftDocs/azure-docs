@@ -21,7 +21,7 @@ You can test a user's credentials by entering the username and password then cli
 4. In a separate browser or incognito window, log in as the domain account you added in step 2.
 5. If the login in step 4 is successful, you can log out of your first session. Authentication is correctly configured.
 
-![Active Directory configuration](~images/shared_content/images/AD.png)
+![Active Directory configuration](~/images/AD.png)
 
 The example above shows a sample configuration for an Active Directory environment. Windows users
 log in as EXAMPLE\\username, so "EXAMPLE" is entered as the Domain. Authentication is handled by
@@ -98,7 +98,7 @@ Resources can be shared directly with a user or a group. They can also be shared
 To share a resource, click on the **Clusters** tab within CycleCloud. Select the resource to
 share from the list on the left. In the main window, click **Share**:
 
-![Share Resource screen](~/images/shared_content/images/share.png)
+![Share Resource screen](~/images/share.png)
 
 **Change Resource Owner**: Select a new owner from the dropdown menu and click **Save**. The user will
 now have access to manage the resource.
