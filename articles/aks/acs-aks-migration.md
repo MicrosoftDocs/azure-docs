@@ -14,15 +14,15 @@ ms.custom: mvc
 
 # Migrating from Azure Container Service (ACS) to Azure Kubernetes Service (AKS)
 
-This article will help you plan and execute a successful migration from an unmanaged Kubernetes cluster running on Azure Container Service to the new managed Azure Kubernetes Service. Every application and migration is unique, but this guide should give you an overview of the migration process and help you make key decisions.
+This article will help you plan and execute a successful migration from Azure Container Service with Kubernetes (ACS) to Azure Kubernetes Service (AKS). Every application and migration is unique. This guide should give you an overview of the migration process and help you make key decisions.
 
 ## Plan for Migration
 
-The first step in any migration effort is to identify the services that you will be migrating. You will want to plan for nodes and applications, as well as think about how you will integrate your new AKS cluster into your deployment process.
+The first step in any migration effort is to identify the services that you'll be migrating. You'll want to plan for nodes and applications, and think about how you'll integrate your new AKS cluster into your deployment process.
 
 ## Differences between ACS and AKS
 
-ACS and AKS do have some differences that impact migration. You should be aware of the following and plan accordingly before attempting a migration.
+ACS and AKS do have some differences that impact migration. You should be review and plan to to address the following before any migration.
 
 * AKS nodes use Managed Disks
     * Unmanaged disks will need to be converted before they can be attached to AKS nodes
@@ -31,18 +31,18 @@ ACS and AKS do have some differences that impact migration. You should be aware 
 * AKS currently supports only one agent pool
 * Windows Server-based nodes are currently in [private preview](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)
 * Check the list of AKS [supported regions](https://docs.microsoft.com/en-us/azure/aks/container-service-quotas)
-* AKS is a managed service with a hosted Kubernetes control plane. You may need to modify your application if you have previously modified the configuration of your ACS masters
+* AKS is a managed service with a hosted Kubernetes control plane. You may need to modify your application if you've previously modified the configuration of your ACS masters
 
 ### Differences between Kubernetes versions
 
-If you are migrating to a newer version of Kubernetes (ex: 1.7.x to 1.9.x), there are a few changes to the k8s API that will require your attention. 
+If you're migrating to a newer version of Kubernetes (ex: 1.7.x to 1.9.x), there are a few changes to the k8s API that will require your attention. 
 
 * [Migrate a ThirdPartyResource to CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
 * [Workloads API changes in versions 1.8 and 1.9](https://kubernetes.io/docs/reference/workloads-18-19/).
 
 ### Agent Pools
 
-While AKS manages the Kubernetes control plane, you still define the size and number of nodes you want to include in your new cluster. Assuming you want a 1:1 mapping from ACS to AKS, you'll want to capture your existing ACS node information. You'll use this when creating your new AKS cluster.
+While AKS manages the Kubernetes control plane, you still define the size and number of nodes you want to include in your new cluster. Assuming you want a 1:1 mapping from ACS to AKS, you'll want to capture your existing ACS node information. You'll use this data when creating your new AKS cluster.
 
 Example:
 
@@ -51,13 +51,13 @@ Example:
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
 
-Because you will be deploying additional virtual machines into your subscription during your migration period, you should ensure that your quotas and limits can sufficient for the resources that will be created. You can learn more by reviewing [Azure subscription and service limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). To check your current quotas, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure Portal, select your subscription, then select `Usage + quotas`.
+You'll be deploying additional virtual machines into your subscription during your migration period, so you should make sure that your quotas and limits are sufficient for these resources. You can learn more by reviewing [Azure subscription and service limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). To check your current quotas, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal, select your subscription, then select `Usage + quotas`.
 
 ### Networking
 
-Complex migrations are often performed over time rather than as a single event. In these cases, the old and new environments may need to communicate over the network. Applications which were previously able to use `ClusterIP` services to communicate may need to be exposed as type `LoadBalancer` and secured appropriately.
+For complex applications, you'll typically migrate over time rather than all at once. In these cases, the old and new environments may need to communicate over the network. Applications that were previously able to use `ClusterIP` services to communicate may need to be exposed as type `LoadBalancer` and secured appropriately.
 
-To complete the migration, you will want to point clients to the new deployments running on AKS. The recommended way to do this is by redirecting DNS to point to the public IP address of the Load Balancer attached to the new cluster.
+To complete the migration, you'll want to point clients to the new deployments running on AKS. The recommended way to redirect traffic is by updating DNS to point to the Load Balancer that sits in front of your AKS cluster.
 
 ### Stateless Applications
 
@@ -69,16 +69,16 @@ Migrating stateful applications requires careful planning to avoid data loss or 
 
 #### Highly Available Applications
 
-Some stateful applications can be deployed in a high availability configuration and are able to copy data across replicas. If this describes your current deployment, it may be possible to create a new member on the new AKS cluster, and migrate with minimal impact to downstream callers. The migration steps for this scenario generally are:
+Some stateful applications can be deployed in a high availability configuration and can copy data across replicas. If this describes your current deployment, it may be possible to create a new member on the new AKS cluster, and migrate with minimal impact to downstream callers. The migration steps for this scenario generally are:
 
 1. Create a new secondary replica on AKS
 2. Wait for data to replicate
-3. Failover to make secondary replica the new primary
+3. Fail over to make secondary replica the new primary
 4. Point traffic to the AKS cluster
 
 #### Migrating Persistent Volumes
 
-There are several factors to consider if you are migrating existing Persistent Volumes to AKS. Generally, the steps involved are:
+There are several factors to consider if you're migrating existing Persistent Volumes to AKS. Generally, the steps involved are:
 
 1. (Optional) Quiesce writes to the application (requires downtime)
 2. Snapshot disks
@@ -89,20 +89,20 @@ There are several factors to consider if you are migrating existing Persistent V
 7. Validate
 8. Point traffic to the AKS cluster
 
-> **Important**: If you choose not to quiesce writes, you will need to replicate data to the new deployment, as you will be missing data that was written since the disk snapshot
+> **Important**: If you choose not to quiesce writes, you'll need to replicate data to the new deployment, as you'll be missing data that was written since the disk snapshot
 
-Open source tools exist that can help you create Managed Disks and migrate volumes between Kubernetes clusters.
+Open-source tools exist that can help you create Managed Disks and migrate volumes between Kubernetes clusters.
 
 * [noelbundick/azure-cli-disk-extension](https://github.com/noelbundick/azure-cli-disk-copy-extension) - copy and convert disks across Resource Groups and Azure regions
 * [yaron2/azure-kube-cli](https://github.com/yaron2/azure-kube-cli) - enumerate ACS Kubernetes volumes and migrate them to an AKS cluster
 
 #### Azure Files
 
-Unlike disks, Azure Files can be mounted to multiple hosts concurrently. This means that neither Azure nor Kubernetes will prevent you from creating a Pod in your AKS cluster that is still being used by your ACS cluster. To prevent data loss and unexpected behavior, you should pay special attention to ensure that the same files are not being written by both clusters at the same time.
+Unlike disks, Azure Files can be mounted to multiple hosts concurrently. Neither Azure nor Kubernetes will prevent you from creating a Pod in your AKS cluster that is still being used by your ACS cluster. To prevent data loss and unexpected behavior, you should ensure that both clusters are not writing to the same files at the same time.
 
-If your application is able to host multiple replicas pointing to the same file share, you can follow the stateless migration steps and deploy your YAML definitions to your new cluster.
+If your application can host multiple replicas pointing to the same file share, you can follow the stateless migration steps and deploy your YAML definitions to your new cluster.
 
-If this is not the case, one possible migration approach involves the following steps:
+If not, one possible migration approach involves the following steps:
 
 1. Deploy your application to AKS with a replica count of 0
 2. Scale the application on ACS to 0 (requires downtime)
@@ -114,7 +114,7 @@ In cases where you'd like to start with an empty share, then make a copy of the 
 
 ### Deployment Strategy
 
-The recommended method is to use your existing CI/CD pipeline to deploy a known-good configuration to AKS. This will involve cloning your existing deploy tasks, and ensuring that your `kubeconfig` points to the new AKS cluster.
+The recommended method is to use your existing CI/CD pipeline to deploy a known-good configuration to AKS. You'll clone your existing deploy tasks, and ensure that your `kubeconfig` points to the new AKS cluster.
 
 In cases where that's not possible, you will need to export resource definition from ACS, and then apply them to AKS. You can use `kubectl` to export objects.
 
@@ -122,7 +122,7 @@ In cases where that's not possible, you will need to export resource definition 
 kubectl get deployment -o=yaml --export > deployments.yaml
 ```
 
-There are also several open source tools that can help, depending on your needs:
+There are also several open-source tools that can help, depending on your needs:
 
 * [heptio/ark](https://github.com/heptio/ark) - requires k8s 1.7
 * [yaron2/azure-kube-cli](https://github.com/yaron2/azure-kube-cli)
@@ -132,7 +132,7 @@ There are also several open source tools that can help, depending on your needs:
 
 ### 1. Create an AKS cluster
 
-You can follow the docs to [create an AKS cluster](https://docs.microsoft.com/en-us/azure/aks/create-cluster) via the Azure Portal, Azure CLI, or ARM template.
+You can follow the docs to [create an AKS cluster](https://docs.microsoft.com/en-us/azure/aks/create-cluster) via the Azure portal, Azure CLI, or Resource Manager template.
 
 > You can find sample ARM templates for AKS at the [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) repository on GitHub
 
