@@ -43,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 
-## Create a public load balancer
+## Create a Standard Load Balancer
 
 In this section, you create a public load balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, and you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
 
@@ -60,7 +60,7 @@ In this section, you create a public load balancer that helps load balance virtu
    
 ## Create load balancer resources
 
-In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer and NAT rules.
+In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer rules.
 
 ### Create a backend address pool
 
@@ -68,12 +68,7 @@ To distribute traffic to the VMs, a backend address pool contains the IP address
 
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then click **Add**.
-3. On the **Add a backend pool** page, do the following:
-    - For name, type *myBackEndPool*, as the name for your backend pool.
-    - For **Associated to**, from the drop-down menu, click **Availability set**
-    - For **Availability set**, click, **myAvailabilitySet**.
-    - Click **Add a target network IP configuration** to add each virtual machine (*myVM1* & *myVM2*) that you created to the backend pool.
-    - Click **OK**.
+3. On the **Add a backend pool** page, for name, type *myBackEndPool*, as the name for your backend pool, and then click **OK**.
 
 ### Create a health probe
 
@@ -134,7 +129,7 @@ In this section, you create a virtual network, create two virtual machines for t
     - *myNetworkSecurityGroup* - for the name of the new network security group (firewall) that you must create.
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
-7. Create two more VMs, named, *VM2* and *VM3* with *myAvailibilityset* as the Availability set, *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group using steps 1-6. 
+7. Create two more VMs, named, *VM2* and *VM3* with *myAvailibilityset* as the availability set, *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group using steps 1-6. 
 
 ### Create NSG rules
 
@@ -166,7 +161,7 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
 
 ### Install IIS on VMs
 
-1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM1** that is located in the *myResourceGroupLB* resource group.
+1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM1** that is located in the *myResourceGroupSLB* resource group.
 2. On the **Overview** page, click **Connect** to RDP into the VM.
 3. Log into the VM with username *azureuser*.
 4. On the server desktop, navigate to **Windows Administrative Tools**>**Windows PowerShell**.
@@ -245,7 +240,7 @@ With port forwarding, you can create a remote desktop connection to the VMs in t
     mstsc /v:<publicIpAddress>:4222
     ```
   
-4. Open the downloaded RDP file. If prompted, select **Connect**.
+3. Open the downloaded RDP file. If prompted, select **Connect**.
 
 4. Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
  
