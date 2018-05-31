@@ -7,14 +7,14 @@ manager: vamshik
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/31/2018
 ms.author: mihauss
 ---
-# Soft delete for Azure Storage blobs (Preview)
+# Soft delete for Azure Storage blobs
 
 ## Overview
 
-Azure Storage now offers soft delete (Preview) for blob objects so that you can more
+Azure Storage now offers soft delete for blob objects so that you can more
 easily recover your data when it is erroneously modified or deleted by an
 application or other storage account user.
 
@@ -33,11 +33,6 @@ is permanently expired.
 Soft delete is backwards compatible; you don’t have to make any changes to your
 applications to take advantage of the protections this feature affords. However,
 [data recovery](#recovery) introduces a new **Undelete Blob** API.
-
-> [!NOTE]
-> During Public Preview, calling Set Blob Tier on a blob with snapshots is disallowed.
-Soft delete generates snapshots to protect your data when it is overwritten. We
-are actively working on a solution to enable tiering of blobs with snapshots.
 
 ### Configuration settings
 
@@ -206,7 +201,7 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
-See the [Next steps](#Next steps) section for a pointer to the application that produced this output.
+See the [Next steps](#next-steps) section for a pointer to the application that produced this output.
 
 ## Pricing and billing
 
@@ -279,6 +274,19 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+### Azure CLI 
+To enable soft delete, update a blob client’s service properties:
+
+```azurecli-interactive
+az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
+```
+
+To verify soft delete is turned on, use the following command: 
+
+```azurecli-interactive
+az storage blob service-properties delete-policy show --account-name mystorageaccount 
+```
+
 ### Python Client Library
 
 To enable soft delete, update a blob client’s service properties:
@@ -358,7 +366,7 @@ Currently, soft delete is only available for blob (object) storage.
 **Is soft delete available for all storage account types?**
 
 Yes, soft delete is available for blob storage accounts as well as for blobs
-in general-purpose storage accounts. This applies to both standard and
+in general-purpose (both GPv1 and GPv2) storage accounts. This applies to both standard and
 premium accounts. Soft delete is not available for managed disks.
 
 **Is soft delete available for all storage tiers?**
@@ -366,6 +374,10 @@ premium accounts. Soft delete is not available for managed disks.
 Yes, soft delete is available for all storage tiers including hot, cool and
 archive. However, soft delete does not afford overwrite protection for blobs
 in the archive tier.
+
+**Can I use the Set Blob Tier API to tier blobs with soft deleted snapshots?**
+
+Yes. The soft deleted snapshots will remain in the original tier, but the base blob will move to the new tier. 
 
 **Premium storage accounts have a per blob snapshot limit of 100. Do soft
 deleted snapshots count toward this limit?**

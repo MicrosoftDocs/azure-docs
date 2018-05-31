@@ -3,7 +3,7 @@ title: Authentication and user permissions in Azure Analysis Services | Microsof
 description: Learn about authentication and user permissions in Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend

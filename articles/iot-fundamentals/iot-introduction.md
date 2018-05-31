@@ -1,20 +1,13 @@
 ---
 title: Azure Internet of Things (IoT) Introduction 
 description: Overview Azure IoT and related services and technologies.
-services: iot-fundamentals
-documentationcenter: ''
 author: BryanLa
 manager: timlt
-editor: bryanla
-
 ms.service: iot-fundamentals
-ms.devlang: na
+services: iot-fundamentals
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/18/2018
-ms.author: bryanla; v-clay
-layout: LandingPage
+ms.author: bryanla
 ---
 
 # Introduction to Azure and the Internet of Things
@@ -181,6 +174,6 @@ Explore the following areas of technologies and solutions, or see the Table of C
 [lnk-iot-sa]: ../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
 [lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
-[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-refarch]: https://aka.ms/iotrefarchitecture
 
 

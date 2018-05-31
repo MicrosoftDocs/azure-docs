@@ -1,23 +1,15 @@
 ---
 title: Predictive Maintenance solution accelerator walkthrough - Azure | Microsoft Docs
 description: A walkthrough of the Azure IoT Predictive Maintenance solution accelerator.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 3c48a716-b805-4c99-8177-414cc4bec3de
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: dobett
-
 ---
+
 # Predictive Maintenance solution accelerator walkthrough
 
 The Predictive Maintenance solution accelerator is an end-to-end solution for a business scenario that predicts the point at which a failure is likely to occur. You can use this solution accelerator proactively for activities such as optimizing maintenance. The solution combines key Azure IoT solution accelerators services, such as IoT Hub, Stream analytics, and an [Azure Machine Learning][lnk-machine-learning] workspace. This workspace contains a model, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your own specific business requirements.
@@ -32,7 +24,7 @@ The blue items are Azure services provisioned in the region where you deployed t
 
 The green item is a simulated device that represents an aircraft engine. You can learn more about these simulated devices in the [Simulated devices](#simulated-devices) section.
 
-The gray items represent components that implement *device management* capabilities. The current release of the Predictive Maintenance solution accelerator does not provision these resources. To learn more about device management, refer to the [remote monitoring pre-configured solution][lnk-remote-monitoring].
+The gray items represent components that implement *device management* capabilities. The current release of the Predictive Maintenance solution accelerator does not provision these resources. To learn more about device management, refer to the [Remote Monitoring solution accelerator][lnk-remote-monitoring].
 
 ## Simulated devices
 
@@ -66,7 +58,7 @@ The Machine Learning component uses a model derived from data collected from rea
 
 
 ## Next steps
-Now you've seen the key components of the Predictive Maintenance solution accelerator, you may want to customize it. See [Guidance on customizing solution accelerators][lnk-customize].
+Now you've seen the key components of the Predictive Maintenance solution accelerator, you may want to customize it.
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
@@ -75,10 +67,9 @@ You can also explore some of the other features and capabilities of the IoT solu
 
 [img-architecture]: media/iot-accelerators-predictive-walkthrough/architecture.png
 
-[lnk-remote-monitoring]: ../iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md
+[lnk-remote-monitoring]: iot-accelerators-remote-monitoring-explore.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-customize]: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
-[lnk-faq]: ../iot-suite/iot-suite-v1-faq.md
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
+[lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

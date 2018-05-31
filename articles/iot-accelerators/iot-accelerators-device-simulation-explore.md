@@ -1,17 +1,13 @@
 ---
 title: Get started with the Device Simulation solution - Azure | Microsoft Docs 
 description: The IoT solution accelerators simulation solution is a tool that can be used to assist in the development and testing of an IoT solution. The simulation service is a standalone offering that can be used in conjunction with other solution accelerators or used with your own custom solutions.
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: 
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/15/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
 # Device Simulation walkthrough
@@ -35,7 +31,7 @@ If you haven't deployed Device Simulation yet, you should complete the [Deploy A
 
 ## Configuring Device Simulation
 
-You can configure and run Device Simulation completely from within the dashboard. Open the dashboard from the IoT solution accelerators [Provisioned solutions](https://www.azureiotsuite.com/) page. Click **Launch** under your new Device Simulation deployment.
+You can configure and run Device Simulation completely from within the dashboard. Open the dashboard from the IoT solution accelerators [Provisioned solutions](https://www.azureiotsolutions.com/) page. Click **Launch** under your new Device Simulation deployment.
 
 ### Target IoT Hub
 

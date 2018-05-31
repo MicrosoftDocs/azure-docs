@@ -16,6 +16,7 @@ ms.author: v-jerkin
 # Try the Speech service for free
 
 Getting started with the Speech service is easy and affordable. A 30-day free trial lets you discover what the service can do and decide whether it's right for your application's needs.
+Getting started with the Speech service is easy and affordable. A 30 day free trial lets you discover the capabilities of the service and decide whether it's right for your application's needs.
 
 If you need more time, sign up for a Microsoft Azure account—it comes with $200 in service credit that you can apply toward a paid Speech service subscription for up to 30 days.
 
@@ -29,23 +30,23 @@ The 30-day free trial gives you access to the S0 standard pricing tier for a lim
 
 1. Switch to the Speech tab and click the **Get API key** button next to "Speech services".
 
-    ![Speech Services tab](.media/index/try-speech-api-free-trial1.png)<br>
-    ![API key](.media/index/try-speech-api-free-trial2.png)
+   ![Speech Services tab](.media/index/try-speech-api-free-trial1.png)<br>
+   ![API key](.media/index/try-speech-api-free-trial2.png)
 
 3. Agree to the terms and select your locale from the drop-down menu.
 
-    ![Agree to terms](.media/index/try-speech-api-free-trial3.png)
+   ![Agree to terms](.media/index/try-speech-api-free-trial3.png)
 
 4. Sign in using your Microsoft, Facebook, LinkedIn, or GitHub account. Or you may sign up for a free Microsoft account:
 
     * Go to the [Microsoft account portal](https://account.microsoft.com/account).
     * Click **Sign in with Microsoft**.
 
-        ![Sign in](.media/index/try-speech-api-free-trial4.png)
+    ![Sign in](.media/index/try-speech-api-free-trial4.png)
 
     * When asked to sign in, click "Create one."
 
-        ![Create new account](.media/index/try-speech-api-free-trial5.png)
+    ![Create new account](.media/index/try-speech-api-free-trial5.png)
 
     * In the steps that follow, enter your e-mail address or phone number, assign a password, and follow the instructions to verify your new Microsoft account.
 
@@ -97,6 +98,8 @@ To add a Speech service resource to your Azure account, follow these steps.
 
 1. In the search results, click "Speech (preview)."
 
+1. In the new window, search for Speech.
+
     ![Click Speech](.media/index/try-speech-api-create-speech2.png)
 
 5. Click the **Create** button at the bottom of the Speech service panel.
@@ -113,7 +116,7 @@ To add a Speech service resource to your Azure account, follow these steps.
     * For convenient access to your subscription in the future, mark the **Pin to dashboard** checkbox.
     * Click **Create.**
 
-        ![Click create in panel](.media/index/try-speech-api-create-speech4.png)
+    ![Click create in panel](.media/index/try-speech-api-create-speech4.png)
 
     It may take a moment to create and deploy your new Speech resource. The Quickstart panel appears with information about your new resource.
 

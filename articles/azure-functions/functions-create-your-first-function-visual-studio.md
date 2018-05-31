@@ -17,9 +17,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2018
 ms.author: glenga
-ms.custom: mvc, devcenter
-experimental: true  
-experiment_id: 23113853-34f2-4f
+ms.custom: mvc, devcenter, 23113853-34f2-4f
 
 ---
 # Create your first function using Visual Studio
@@ -36,7 +34,7 @@ To complete this tutorial:
 
 * Install [Visual Studio 2017](https://azure.microsoft.com/downloads/) and ensure that the **Azure development** workload is also installed.
 
-* If you installed the Azure development workload with Visual Studio 2017 version 15.4 or earlier, you will need to [update your Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
+* Make sure you have the [latest Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,9 +88,8 @@ You must have a function app in your Azure subscription before you can publish y
 
 ## Next steps
 
-You have used Visual Studio to create and publish a C# function app with a simple HTTP triggered function. 
+You have used Visual Studio to create and publish a C# function app with a simple HTTP triggered function.
 
-* To learn how to configure your project to support other types of triggers and bindings, see the [Configure the project for local development](functions-develop-vs.md#configure-the-project-for-local-development) section in [Azure Functions Tools for Visual Studio](functions-develop-vs.md).
-* To learn more about local testing and debugging using the Azure Functions Core Tools, see [Code and test Azure Functions locally](functions-run-local.md).
-* To learn more about developing functions as .NET class libraries, see [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md).
-
+* [Learn how to add input and output bindings that integrate with other services.](functions-develop-vs.md#add-bindings)
+* [Learn more about local testing and debugging using the Azure Functions Core Tools.](functions-run-local.md#vs-debug)
+* [Learn more about developing functions as .NET class libraries](functions-dotnet-class-library.md).

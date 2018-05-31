@@ -47,8 +47,8 @@ Use phrase lists for rare, proprietary, and foreign words. LUIS may be unable to
 * A list entity explicitly defines every value an entity can take, and only identifies values that match exactly. A list entity may be appropriate for an app in which all instances of an entity are known and don't change often, like the food items on a restaurant menu that changes infrequently. 
 
 ## Best practices
-See [Entity best practices](luis-concept-best-practices.md#entities) to learn more.
+Learn [best practices](luis-concept-best-practices.md).
 
 ## Next steps
 
-See [Add Features](Add-Features.md) to learn more about how to add features to your LUIS app.
+See [Add Features](luis-how-to-add-features.md) to learn more about how to add features to your LUIS app.
