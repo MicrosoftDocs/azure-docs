@@ -2,14 +2,16 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Azure IoT Edge C# module | Microsoft Docs 
 description: Create an IoT Edge module with C# code and deploy it to an edge device
+services: iot-edge
 author: kgremban
 manager: timlt
+
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
 ms.custom: mvc
+
 ---
 
 # Develop and deploy a C# IoT Edge module to your simulated device - preview
@@ -56,19 +58,11 @@ The following steps show you how to create an IoT Edge module based on .NET core
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
-3. Create a project for the new module. The following command creates the project folder, **FilterModule**, with your container repository. The second parameter should be in the form of `<your container registry name>.azurecr.io` if you are using Azure container registry. Enter the following command in the current working folder:
-
-    ```cmd/sh
-    dotnet new aziotedgemodule -n FilterModule -r <your container registry address>/filtermodule
-    ```
+3. In VS Code command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**FilterModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/filtermodule`). You need to replace the `localhost:5000` with the **Login server** (the registry address) of the Azure Container Registry you created.
  
-4. Select  **File** > **Open Folder**.
-5. Browse to the **FilterModule**  folder and click **Select Folder** to open the project in VS Code.
-6. In VS Code explorer, click **Program.cs** to open it.
+4. The VS Code window will load your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder and a deployment manifest template file in the workspace folder. Browse to the **FilterModule**  folder in the **modules** folder, and click **Program.cs** to open it.
 
-   ![Open Program.cs][1]
-
-7. At the top of the **FilterModule** namespace, add three `using` statements for types used later on:
+5. At the top of the **FilterModule** namespace, add three `using` statements for types used later on:
 
     ```csharp
     using System.Collections.Generic;     // for KeyValuePair<>
@@ -76,13 +70,13 @@ The following steps show you how to create an IoT Edge module based on .NET core
     using Newtonsoft.Json;                // for JsonConvert
     ```
 
-8. Add the `temperatureThreshold` variable to the **Program** class. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
+6. Add the `temperatureThreshold` variable to the **Program** class. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-9. Add the `MessageBody`, `Machine`, and `Ambient` classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
+7. Add the `MessageBody`, `Machine`, and `Ambient` classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
 
     ```csharp
     class MessageBody
@@ -103,7 +97,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
 
-10. In the **Init** method, the code creates and configures a **DeviceClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string used in the **Init** method is supplied to the module by IoT Edge runtime. After creating the **DeviceClient**, the code reads the TemperatureThreshold from the Module Twin's desired properties and registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the `SetInputMessageHandlerAsync` method with a new one, and add a `SetDesiredPropertyUpdateCallbackAsync` method for desired properties updates. To make this change, replace the last line of the **Init** method with the following code:
+8. In the **Init** method, the code creates and configures a **DeviceClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string used in the **Init** method is supplied to the module by IoT Edge runtime. After creating the **DeviceClient**, the code reads the TemperatureThreshold from the Module Twin's desired properties and registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the `SetInputMessageHandlerAsync` method with a new one, and add a `SetDesiredPropertyUpdateCallbackAsync` method for desired properties updates. To make this change, replace the last line of the **Init** method with the following code:
 
     ```csharp
     // Register callback to be called when a message is received by the module
@@ -115,7 +109,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
     try {
         temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
     } catch(ArgumentOutOfRangeException e) {
-        Console.WriteLine("Property TemperatureThreshold not exist");
+        Console.WriteLine("Proerty TemperatureThreshold not exist");
     }
 
     // Attach callback for Twin desired properties updates
@@ -125,7 +119,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
-11. Add the `onDesiredPropertiesUpdate` method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code running inside a module directly from the cloud.
+9. Add the `onDesiredPropertiesUpdate` method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code running inside a module directly from the cloud.
 
     ```csharp
     static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -156,7 +150,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
 
-12. Replace the `PipeMessage` method with the `FilterMessages` method. This method is called whenever the module receives a message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin. It also adds the **MessageType** property to the message with the value set to **Alert**. 
+10. Replace the `PipeMessage` method with the `FilterMessages` method. This method is called whenever the module receives a message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin. It also adds the **MessageType** property to the message with the value set to **Alert**. 
 
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
@@ -212,9 +206,9 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
 
-13. Save this file.
+11. Save this file.
 
-## Create a Docker image and publish it to your registry
+## Build your IoT Edge solution
 
 1. Sign in to Docker by entering the following command in the VS Code integrated terminal: 
      
@@ -223,86 +217,64 @@ The following steps show you how to create an IoT Edge module based on .NET core
    ```
    To find the user name, password and login server to use in this command, go to the [Azure portal] (https://portal.azure.com). From **All resources**, click the tile for your Azure container registry to open its properties, then click **Access keys**. Copy the values in the **Username**, **password**, and **Login server** fields. 
 
-2. In VS Code explorer, Right-click the **module.json** file and click **Build and Push IoT Edge module Docker image**. In the pop-up dropdown box at the top of the VS Code window, select your container platform, either **amd64** for Linux container or **windows-amd64** for Windows container. VS Code then builds your code, containerize the `FilterModule.dll` and push it to the container registry you specified.
+2. In VS Code explorer, click **deployment.template.json** to open it. This file describes the modules and routes for your IoT Edge solution. There are two modules will be deployed, one is the `tempSensor` and the other is `FilterModule`. In `FilterModule` section, the image URL is parsed from the `module.json` file in the **FilterModule** folder. If you want to run your solution in Windows container, you need to update the `.amd64` to `.windows-amd64`. In `routes` section under `$edgeHub`, you can see a `sensorToFilterModule` route, which routes the message from `tempSensor` to `FilterModule`.
 
+3. Add below JSON content at the bottom of **deployment.template.json** for the `FilterModule` module twin and save this file: 
+    ```json
+        "FilterModule": {
+            "properties.desired":{
+                "TemperatureThreshold":25
+            }
+        }
+    ```
 
-3. You can get the full container image address with tag in the VS Code integrated terminal. For more infomation about the build and push definition, you can refer to the `module.json` file.
+4. Right-click the **deployment.template.json** file and click **Build IoT Edge solution**. VS Code then generates the actual `deployment.json` into **config** folder, builds your code, containerizes the `FilterModule.dll` and pushes it to the container registry you specified. You can get the full container image address with tag in the VS Code integrated terminal. For more information about the build and push definition, you can refer to the `module.json` file.
 
 ## Add registry credentials to Edge runtime
-Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. These credentials give the runtime access to pull the container. 
+Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. These credentials give the runtime access to pull the container. In VS Code command palette, type and run the command **Azure IoT Edge: Log in to Container Registry**. And then enter your ACR registry address, usename and password.
 
-- For Windows, run the following command:
-    
-    ```cmd/sh
-    iotedgectl login --address <your container registry address> --username <username> --password <password> 
-    ```
+> [!NOTE]
+> You can see actual command line in VS Code integrated terminal. For example, the command **Azure IoT Edge: Log in to Container Registry** will trigger below iotedgectl CLI to login. You can also run this command directly in VS Code integrated terminal.
+> - For Windows, the login command is:
+>     
+>     ```cmd/sh
+>     iotedgectl login --address <your container registry address> --username <username> --password <password> 
+>     ```
+> 
+> - For Linux, the login command is:
+>     
+>     ```cmd/sh
+>     sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
+>     ```
 
-- For Linux, run the following command:
-    
-    ```cmd/sh
-    sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
-    ```
+## Deploy and run the solution
 
-## Run the solution
+1. Configure the Azure IoT Toolkit extension with connection string for your IoT hub: 
+    1. Open the VS Code explorer by selecting **View** > **Explorer**. 
+    2. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Select IoT Hub**. Follow the instructions to log in you Azure account and choose your IoT hub.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
-2. Go to **IoT Edge (preview)** and select your IoT Edge device.
-3. Select **Set Modules**. 
-4. Check that the **tempSensor** module is automatically populated. If it's not, use the following steps to add it:
-    1. Select **Add IoT Edge Module**.
-    2. In the **Name** field, enter `tempSensor`.
-    3. In the **Image URI** field, enter `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-    4. Leave the other settings unchanged and click **Save**.
-5. Add the **filterModule** module that you created in the previous sections. 
-    1. Select **Add IoT Edge Module**.
-    2. In the **Name** field, enter `filterModule`.
-    3. In the **Image URI** field, enter your image address; for example `<your container registry address>/filtermodule:0.0.1-amd64`. The full image address can be found from the previous section.
-    4. Check the **Enable** box so that you can edit the module twin. 
-    5. Replace the JSON in the text box for the module twin with the following JSON: 
+       > [!NOTE]
+       > You can also setup by clicking **Set IoT Hub Connection String**. Enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window. 
 
-        ```json
-        {
-           "properties.desired":{
-              "TemperatureThreshold":25
-           }
-        }
-        ```
- 
-    6. Click **Save**.
-6. Click **Next**.
-7. In the **Specify Routes** step, copy the JSON below into the text box. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where the messages flow. In this tutorial, you need two routes. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint, which is the endpoint that you configured with the  **FilterMessages** handler. The second route transports messages from the filter module to IoT Hub. In this route, `upstream` is a special destination that tells Edge Hub to send messages to IoT Hub. 
+2. In Azure IoT Hub Devices explorer, right-click your IoT Edge device, then click **Setup IoT Edge**. Then run command **Azure IoT Edge: Start IoT Edge** in VS Code command palette.
 
-    ```json
-    {
-       "routes":{
-          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterModule/inputs/input1\")",
-          "filterToIoTHub":"FROM /messages/modules/filterModule/outputs/output1 INTO $upstream"
-       }
-    }
-    ```
+3. In Azure IoT Hub Devices explorer, right-click your IoT Edge device, then click **Create Deployment for IoT Edge device**. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**.
 
-8. Click **Next**.
-9. In the **Review Template** step, click **Submit**. 
-10. Return to the IoT Edge device details page and click **Refresh**. You should see the new **filtermodule** running along with the **tempSensor** module and the **IoT Edge runtime**. 
+4. Click the refresh button. You should see the new **FilterModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
 
 ## View generated data
 
-To monitor device to cloud messages sent from your IoT Edge device to your IoT hub:
-1. Configure the Azure IoT Toolkit extension with connection string for your IoT hub: 
-    1. Open the VS Code explorer by selecting **View** > **Explorer**. 
-    2. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window. 
-
-        To find the connection string, click the tile for your IoT hub in the Azure portal and then click **Shared access policies**. In **Shared access policies**, click the **iothubowner** policy and copy the IoT Hub connection string in the **iothubowner** window.   
-
-2. To monitor data arriving at the IoT hub, select **View** > **Command Palette** and search for the **IoT: Start monitoring D2C message** menu command. 
-3. To stop monitoring data, use the **IoT: Stop monitoring D2C message** menu command. 
+1. To monitor data arriving at the IoT hub, click **...**, and select **Start Monitoring D2C Messages**.
+2. To monitor the D2C message for a specific device, right-click the device in the list, and select **Start Monitoring D2C Messages**.
+3. To stop monitoring data, run the command **Azure IoT Hub: Stop monitoring D2C message** in command palette. 
 
 ## Next steps
 
 In this tutorial, you created an IoT Edge module that contains code to filter raw data generated by your IoT Edge device. You can continue on to either of the following tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Develop and deploy Python code as a module](tutorial-python-module.md)
+> [Deploy Azure Function as a module](tutorial-deploy-function.md)
+> [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
 
 
 <!-- Links -->
