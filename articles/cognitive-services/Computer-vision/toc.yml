@@ -18,10 +18,16 @@
       href: QuickStarts/CSharp-print-text.md
     - name: Extract handwritten text
       href: QuickStarts/CSharp-hand-text.md
-#  - name: cURL
-#    items:
-#    - name: Summary
-#      href: QuickStarts/curl.md
+  - name: cURL
+    items:
+    - name: Summary
+      href: QuickStarts/curl.md
+    - name: Analyze an image
+      href: QuickStarts/curl-analyze.md
+    - name: Generate a thumbnail
+      href: QuickStarts/curl-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/curl-print-text.md
   - name: Java
     items:
     - name: Summary
@@ -46,10 +52,18 @@
       href: QuickStarts/javascript-print-text.md
     - name: Extract handwritten text
       href: QuickStarts/javascript-hand-text.md
-#  - name: PHP
-#    items:
-#    - name: Summary
-#      href: QuickStarts/PHP.md
+  - name: PHP
+    items:
+    - name: Summary
+      href: QuickStarts/PHP.md
+    - name: Analyze an image
+      href: QuickStarts/php-analyze.md
+    - name: Use a domain model
+      href: QuickStarts/php-domain.md
+    - name: Generate a thumbnail
+      href: QuickStarts/php-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/php-print-text.md
   - name: Python
     items:
     - name: Summary
@@ -66,20 +80,18 @@
       href: QuickStarts/python-hand-text.md
     - name: Analyze a disk image
       href: QuickStarts/python-disk.md
-#  - name: Ruby
-#    items:
-#    - name: Summary
-#      href: QuickStarts/Ruby.md
+  - name: Ruby
+    items:
+    - name: Summary
+      href: QuickStarts/Ruby.md
+    - name: Analyze an image
+      href: QuickStarts/ruby-analyze.md
+    - name: Generate a thumbnail
+      href: QuickStarts/ruby-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/ruby-print-text.md
 - name: How-to guides
   items:
-  - name: Try Computer Vision 
-    items:
-    - name: cURL
-      href: QuickStarts/curl.md
-    - name: PHP
-      href: QuickStarts/PHP.md
-    - name: Ruby
-      href: QuickStarts/Ruby.md
   - name: First Computer Vision apps
     items:
     - name: C#

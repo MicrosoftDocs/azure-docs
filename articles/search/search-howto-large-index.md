@@ -37,7 +37,7 @@ A strategy for parallel processing has these elements:
 
 + Divide source data among multiple containers or multiple virtual folders inside the same container. 
 + Map each mini data set to a [date source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), paired to its own [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
-+ For cognitive search, reference the same [skillset](ref-create-skillset.md) in each indexer definition.
++ For cognitive search, reference the same [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) in each indexer definition.
 + Write into the same target search index. 
 + Schedule all indexers to run at the same time.
 

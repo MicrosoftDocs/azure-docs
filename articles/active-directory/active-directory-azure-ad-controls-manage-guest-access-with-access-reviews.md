@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
-ms.author: billmath
+ms.author: rolyon
 ---
 
 # Manage guest access with Azure AD access reviews

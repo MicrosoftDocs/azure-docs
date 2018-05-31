@@ -2,7 +2,7 @@
 title: Azure Content Moderator code samples | Microsoft Docs
 description: Use Content Moderator in your applications
 services: cognitive-services
-author: easyj2j
+author: noellelacharite
 manager: nolachar
 ms.service: cognitive-services
 ms.component: content-moderator
