@@ -1,7 +1,6 @@
 ---
-title: Find region with C# in Language Understanding (LUIS) boundaries | Microsoft Docs
-titleSuffix: Programmatically find region when subscription key and application ID for LUIS.
-description: This article contains known limits of LUIS.
+title: Find LUIS region with C# in Language Understanding (LUIS) boundaries | Microsoft Docs
+description: Programmatically find publish region when subscription key and application ID for LUIS.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -12,31 +11,29 @@ ms.date: 05/31/2018
 ms.author: v-geberr
 ---
 # Region can be determined from API call 
-The three main pieces of data for a LUIS endpoint request are the endpoint subscription key, the LUIS app ID, and the host region the app is published. The host region can be determined from the subscription key and the LUIS app ID. 
+If you have the LUIS app ID and the LUIS subscription ID, you can use LUIS to find which region to use for endpoint queries.
 
 ## LUIS endpoint query strategy
-The LUIS HTTPS endpoint query requires:
+The LUIS endpoint query requires:
 
 * A correct endpoint subscription key with existing quota.
 * A LUIS app ID.
 * A correct host region where app is published.
 
- If the LUIS HTTPS endpoint query uses the the correct subscription key, and app ID but uses the _wrong_ host region, LUIS responds with a 4xx and is not counted toward the subscription quota.
+If the LUIS endpoint query uses the correct subscription key and app ID but the wrong region, the response code is 401. The 401 request is not counted toward the subscription quota. Turn this request into a strategy to poll all regions to find the correct region. The correct region is the only request of all the regions queried that returns a 2xx status code. 
 
 |Response code|Parameters|
 |--|--|
 |2xx LUIS query response|correct subscription key<br>correct app ID<br>correct host region|
 |4xx LUIS query response|correct subscription key<br>correct app ID<br>_incorrect_ host region|
 
-Knowing how LUIS will respond for correct and incorrect regions allows us to poll all the regions, looking for 2xx as the response. When a 2xx region is found, capture that region and use it for all endpoint queries moving forward.
+Knowing how LUIS responds for correct and incorrect regions provides a way to poll all the regions, looking for 2xx as the response. When a 2xx region is found, capture that region and use it for all endpoint queries.
 
 ## When to use this strategy
-If your LUIS apps are not created dynamically, use this strategy when the client application starts because every 2xx successful call will count against your subscription quote. 
-
-If your LUIS app is created dynamically so that your LUIS app Id and subscription key change often, use this on startup and polled periodically. 
+If your LUIS apps are not created dynamically, use this strategy when the client application starts because every 2xx successful call counts against your subscription quote. 
 
 ## C# class code to find region
-The console application takes the LUIS app id and the subscription key and returns all regions associated with it. Currently, a subscription key is associated with a region so only one region should return.
+The console application takes the LUIS app ID and the subscription key and returns all regions associated with it. Currently, a subscription key is created by region so only one region should return.
 
 Include the .Net library dependencies:
 
