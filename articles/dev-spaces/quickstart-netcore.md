@@ -28,13 +28,14 @@ In this guide, you will learn how to:
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
 - A Kubernetes cluster running Kubernetes 1.9.6, in the EastUS, WestEurope, or CanadaEast region, with **Http Application Routing** enabled.
 - Visual Studio Code. Download [here](https://code.visualstudio.com/download).
-- .NET Core. Download [here](https://www.microsoft.com/net).
+- .NET Core installed. Download [here](https://www.microsoft.com/net).
 
 ## Install tools and configure a cluster
 
 1. Install the Azure CLI (version 2.0.33 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Download the [VS Azure Dev Spaces extension](https://aka.ms/get-azds-code)and install it: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
+1. Download the [VS Azure Dev Spaces extension](https://aka.ms/get-azds-code).
+1. Install the extension: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
 
 ## Prepare your code
 
