@@ -22,7 +22,7 @@ The first step in any migration effort is to identify the services that you'll b
 
 ## Differences between ACS and AKS
 
-ACS and AKS do have some differences that impact migration. You should be review and plan to to address the following before any migration.
+ACS and AKS differ in some key areas that impact migration. You should be review and plan to address the following differences before any migration.
 
 * AKS nodes use Managed Disks
     * Unmanaged disks will need to be converted before they can be attached to AKS nodes
@@ -51,11 +51,11 @@ Example:
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
 
-You'll be deploying additional virtual machines into your subscription during your migration period, so you should make sure that your quotas and limits are sufficient for these resources. You can learn more by reviewing [Azure subscription and service limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). To check your current quotas, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal, select your subscription, then select `Usage + quotas`.
+You'll deploy additional virtual machines into your subscription as you migrate, so you should make sure that your quotas and limits are sufficient for these resources. You can learn more by reviewing [Azure subscription and service limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). To check your current quotas, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal, select your subscription, then select `Usage + quotas`.
 
 ### Networking
 
-For complex applications, you'll typically migrate over time rather than all at once. In these cases, the old and new environments may need to communicate over the network. Applications that were previously able to use `ClusterIP` services to communicate may need to be exposed as type `LoadBalancer` and secured appropriately.
+For complex applications, you'll typically migrate over time rather than all at once. That means that the old and new environments may need to communicate over the network. Applications that were previously able to use `ClusterIP` services to communicate may need to be exposed as type `LoadBalancer` and secured appropriately.
 
 To complete the migration, you'll want to point clients to the new deployments running on AKS. The recommended way to redirect traffic is by updating DNS to point to the Load Balancer that sits in front of your AKS cluster.
 
@@ -98,7 +98,7 @@ Open-source tools exist that can help you create Managed Disks and migrate volum
 
 #### Azure Files
 
-Unlike disks, Azure Files can be mounted to multiple hosts concurrently. Neither Azure nor Kubernetes will prevent you from creating a Pod in your AKS cluster that is still being used by your ACS cluster. To prevent data loss and unexpected behavior, you should ensure that both clusters are not writing to the same files at the same time.
+Unlike disks, Azure Files can be mounted to multiple hosts concurrently. Neither Azure nor Kubernetes will prevent you from creating a Pod in your AKS cluster that is still being used by your ACS cluster. To prevent data loss and unexpected behavior, you should ensure that both clusters aren't writing to the same files at the same time.
 
 If your application can host multiple replicas pointing to the same file share, you can follow the stateless migration steps and deploy your YAML definitions to your new cluster.
 
@@ -116,7 +116,7 @@ In cases where you'd like to start with an empty share, then make a copy of the 
 
 The recommended method is to use your existing CI/CD pipeline to deploy a known-good configuration to AKS. You'll clone your existing deploy tasks, and ensure that your `kubeconfig` points to the new AKS cluster.
 
-In cases where that's not possible, you will need to export resource definition from ACS, and then apply them to AKS. You can use `kubectl` to export objects.
+In cases where that's not possible, you'll need to export resource definition from ACS, and then apply them to AKS. You can use `kubectl` to export objects.
 
 ```
 kubectl get deployment -o=yaml --export > deployments.yaml
@@ -158,4 +158,4 @@ Update DNS to point clients to your AKS deployment.
 
 ### 7. Post-migration tasks
 
-If you migrated volumes and chose not to quiesce writes, you will need to copy that data to the new cluster.
+If you migrated volumes and chose not to quiesce writes, you'll need to copy that data to the new cluster.
