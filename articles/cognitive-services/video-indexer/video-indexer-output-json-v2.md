@@ -15,9 +15,9 @@ ms.author: juliako
 # Examine the Video Indexer output produced by v2 API
 
 > [!Note]
-> The Video Indexer v1 API is going to be deprecated on August 1, 2018. You should start using the Video Indexer v2 API. 
-> 
-> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://aka.ms/viapi). 
+> The Video Indexer V1 APIs are now deprecated, and will be removed on August 1st, 2018. You should start using the Video Indexer v2 APIs to avoid disruptions.
+>
+> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
 
 When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, ocrs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
 
