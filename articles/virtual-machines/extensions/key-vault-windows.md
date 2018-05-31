@@ -3,7 +3,7 @@ title: Key Vault VM Extension for Windows | Microsoft Docs
 description: Deploy an agent performing automatic refresh of Key Vault secrets on virtual machines using a virtual machine extension.
 services: virtual-machines-windows
 documentationcenter: ''
-author: dragav
+author: barclayn
 manager: jeconnoc 
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
-ms.author: dragosav
+ms.author: barclayn
 
 ---
 # Key Vault virtual machine extension for Windows
