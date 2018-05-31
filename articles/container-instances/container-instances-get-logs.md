@@ -16,7 +16,7 @@ ms.custom: mvc
 
 When you have a misbehaving container, start by viewing its logs with [az container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
 
-### View logs
+## View logs
 
 To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command.
 
@@ -44,7 +44,7 @@ Traceback (most recent call last):
 urllib.error.HTTPError: HTTP Error 404: Not Found
 ```
 
-### Attach output streams
+## Attach output streams
 
 The [az container attach][az-container-attach] command provides diagnostic information during container startup. Once the container has started, it streams STDOUT and STDERR to your local console.
 
@@ -141,6 +141,8 @@ The output includes the core properties of your container, along with deployment
   ...
 }
 ```
+## Next steps
+Learn how to [troubleshoot common container and deployment issues](container-instances-troubleshooting.md) for Azure Container Instances.
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az_container_attach

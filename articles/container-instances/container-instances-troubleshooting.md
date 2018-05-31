@@ -16,25 +16,14 @@ ms.custom: mvc
 
 This article shows how to troubleshoot common issues for managing or deploying containers to Azure Container Instances.
 
-## Common deployment issues
-
-The following sections describe common issues that account for most errors in container deployment:
-
-* [Naming conventions](#naming-conventions)
-* [Image version not supported](#image-version-not-supported)
-* [Unable to pull image](#unable-to-pull-image)
-* [Container continually exits and restarts](#container-continually-exits-and-restarts)
-* [Container takes a long time to start](#container-takes-a-long-time-to-start)
-* ["Resource not available" error](#resource-not-available-error)
-
 ## Naming conventions
 
-When defining your container specification, certain parameters require adherence to naming conventions. Below is a table with specific requirements for container group properties.
+When defining your container specification, certain parameters require adherence to naming restrictions. Below is a table with specific requirements for container group properties.
 Read more about general Azure naming conventions [here](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).
 
 | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-| Container Group | 1-64 |Case insensitive |Alphanumeric and hyphen |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Container Group name | 1-64 |Case insensitive |Alphanumeric and hyphen |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | DNS name label | 1-63 |Case insensitive |Alphanumeric and hyphen anywhere except the first or last character |`<name>.region.azurecontainer.io` |`frontend-site1.westus.azurecontainer.io` |
 
 ## Image version not supported
@@ -130,7 +119,7 @@ The two primary factors that contribute to container startup time in Azure Conta
 * [Image size](#image-size)
 * [Image location](#image-location)
 
-Windows images have [additional considerations](#use-recent-windows-images).
+Windows images have [additional considerations](#cached-windows-images).
 
 ### Image size
 
@@ -150,7 +139,7 @@ The key to keeping image sizes small is ensuring that your final image does not 
 
 Another way to reduce the impact of the image pull on your container's startup time is to host the container image in [Azure Container Registry](/azure/container-registry/) in the same region where you intend to deploy container instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
 
-### Use recent Windows images
+### Cached Windows images
 
 Azure Container Instances uses a caching mechanism to help speed container startup time for images based on certain Windows images.
 
@@ -158,6 +147,10 @@ To ensure the fastest Windows container startup time, use one of the **three mos
 
 * [Windows Server 2016][docker-hub-windows-core] (LTS only)
 * [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+
+### Windows containers slow network readiness
+
+Windows containers may incur no inbound or outbound connectivity for up to 5 seconds on initial creation. After initial setup container networking should resume appropriately.
 
 ## Resource not available error
 
@@ -171,6 +164,9 @@ This error indicates that due to heavy load in the region in which you are attem
 * Specify lower CPU and memory settings for the container
 * Deploy to a different Azure region
 * Deploy at a later time
+
+## Next steps
+Learn how to [retrieve container logs & events](container-instances-get-logs.md) to help debug your containers.
 
 <!-- LINKS - External -->
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
