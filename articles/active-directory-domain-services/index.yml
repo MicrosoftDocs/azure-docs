@@ -33,7 +33,7 @@ sections:
         src: https://docs.microsoft.com/en-us/media/common/i_deploy.svg
       title: Get started
     - href: active-directory-ds-contact-us.md
-      html: <pReceive help when you need it.</p>
+      html: <p>Receive help when you need it.</p>
       image:
         src: https://docs.microsoft.com/en-us/media/common/i_support.svg
       title: Get support
@@ -57,7 +57,7 @@ sections:
     - html: <a href="active-directory-ds-features.md">Feature</a>
     - html: <a href="active-directory-ds-scenarios.md">How can you use the service?</a>
     - html: <a href="active-directory-ds-synchronization.md">Understand how synchronization works in Azure AD Domain Services</a>
-    - html: <a href="https://azure.microsoft.com/en-us/pricing/details/active-directory-ds/">•	Pricing of Azure AD Domain Services</a>
+    - html: <a href="https://azure.microsoft.com/en-us/pricing/details/active-directory-ds/">Pricing of Azure AD Domain Services</a>
 
 - title: Applications and Azure AD Domain Services 
   items:
