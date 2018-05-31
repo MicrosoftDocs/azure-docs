@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 05/31/2017
 ms.component: hybrid
 ms.author: billmath
 
@@ -35,16 +35,16 @@ You can view the IssuerUri by using the PowerShell command `Get-MsolDomainFedera
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
-A problem arises when we want to add more than one top-level domain.  For example, let's say you have setup federation between Azure AD and your on-premises environment.  For this document I am using bmcontoso.com.  Now I have added a second, top-level domain, bmfabrikam.com.
+A problem arises when you add more than one top-level domain.  For example, let's say you have set up federation between Azure AD and your on-premises environment.  For this document I am using bmcontoso.com.  Now I have added a second, top-level domain, bmfabrikam.com.
 
 ![Domains](./media/active-directory-multiple-domains/domains.png)
 
-When we attempt to convert our bmfabrikam.com domain to be federated, we receive an error.  The reason for this is, Azure AD has a constraint that does not allow the IssuerUri property to have the same value for more than one domain.  
+When you attempt to convert the bmfabrikam.com domain to be federated, an error occurs.  The reason is, Azure AD has a constraint that does not allow the IssuerUri property to have the same value for more than one domain.  
 
 ![Federation error](./media/active-directory-multiple-domains/error.png)
 
 ### SupportMultipleDomain Parameter
-To workaround this, we need to add a different IssuerUri which can be done by using the `-SupportMultipleDomain` parameter.  This parameter is used with the following cmdlets:
+To work around this, you need to add a different IssuerUri which can be done by using the `-SupportMultipleDomain` parameter.  This parameter is used with the following cmdlets:
 
 * `New-MsolFederatedDomain`
 * `Convert-MsolDomaintoFederated`
@@ -72,18 +72,18 @@ The following is the customized claim rule that implements this logic:
 
 
 > [!IMPORTANT]
-> In order to use the -SupportMultipleDomain switch when attempting to add new or convert already added domains, you need to have setup your federated trust to support them originally.  
+> In order to use the -SupportMultipleDomain switch when attempting to add new or convert already existing domains, your federated trust needs to have already been set up to support them.
 >
 >
 
 ## How to update the trust between AD FS and Azure AD
-If you did not setup the federated trust between AD FS and your instance of Azure AD, you may need to re-create this trust.  This is because, when it is originally setup without the `-SupportMultipleDomain` parameter, the IssuerUri is set with the default value.  In the screenshot below you can see the IssuerUri is set to https://adfs.bmcontoso.com/adfs/services/trust.
+If you did not set up the federated trust between AD FS and your instance of Azure AD, you may need to re-create this trust.  This is because, when it is originally set up without the `-SupportMultipleDomain` parameter, the IssuerUri is set with the default value.  In the screenshot below you can see the IssuerUri is set to https://adfs.bmcontoso.com/adfs/services/trust.
 
-So now, if we have successfully added an new domain in the Azure AD portal and then attempt to convert it using `Convert-MsolDomaintoFederated -DomainName <your domain>`, we get the following error.
+If you have successfully added a new domain in the Azure AD portal and then attempt to convert it using `Convert-MsolDomaintoFederated -DomainName <your domain>`, we get the following error.
 
 ![Federation error](./media/active-directory-multiple-domains/trust1.png)
 
-If you try to add the `-SupportMultipleDomain` switch we will receive the following error:
+If you try to add the `-SupportMultipleDomain` switch you will receive the following error:
 
 ![Federation error](./media/active-directory-multiple-domains/trust2.png)
 
@@ -136,19 +136,19 @@ When you add a sub-domain, because of the way Azure AD handled domains, it will 
 So lets say for example that I have bmcontoso.com and then add corp.bmcontoso.com.  This means that the IssuerUri for a user from corp.bmcontoso.com will need to be **http://bmcontoso.com/adfs/services/trust.**  However the standard rule implemented above for Azure AD, will generate a token with an issuer as **http://corp.bmcontoso.com/adfs/services/trust.** which will not match the domain's required value and authentication will fail.
 
 ### How To enable support for sub-domains
-In order to work around this the AD FS relying party trust for Microsoft Online needs to be updated.  To do this, you must configure a custom claim rule so that it strips off any sub-domains from the user’s UPN suffix when constructing the custom Issuer value.
+In order to work around this, the AD FS relying party trust for Microsoft Online needs to be updated.  To do this, you must configure a custom claim rule so that it strips off any sub-domains from the user’s UPN suffix when constructing the custom Issuer value.
 
 The following claim will do this:
 
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
 [!NOTE]
-The last number in the regular expression set the how many parent domains there is in your root domain. Here i have bmcontoso.com so two parent domains are necessary. If three parent domains were to be kept (i.e.: corp.bmcontoso.com), then the number would have been three. Eventually a range can be indicated, the match will always be made to match the maximum of domains. "{2,3}" will match two to three domains (i.e.: bmfabrikam.com and corp.bmcontoso.com).
+The last number in the regular expression set is how many parent domains there are in your root domain. Here i have bmcontoso.com so two parent domains are necessary. If three parent domains were to be kept (i.e.: corp.bmcontoso.com), then the number would have been three. Eventually a range can be indicated, the match will always be made to match the maximum of domains. "{2,3}" will match two to three domains (i.e.: bmfabrikam.com and corp.bmcontoso.com).
 
 Use the following steps to add a custom claim to support sub-domains.
 
 1. Open AD FS Management
-2. Right click the Microsoft Online RP trust and choose Edit Claim rules
+2. Right-click the Microsoft Online RP trust and choose Edit Claim rules
 3. Select the third claim rule, and replace
    ![Edit claim](./media/active-directory-multiple-domains/sub1.png)
 4. Replace the current claim:
@@ -162,3 +162,13 @@ Use the following steps to add a custom claim to support sub-domains.
     ![Replace claim](./media/active-directory-multiple-domains/sub2.png)
 
 5. Click Ok.  Click Apply.  Click Ok.  Close AD FS Management.
+
+## Next steps
+## Next steps
+Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](active-directory-aadconnect-whats-next.md).
+
+Learn more about these features, which were enabled with the installation: [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md), [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md), and [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
+
+Learn more about these common topics: [scheduler and how to trigger sync](active-directory-aadconnectsync-feature-scheduler.md).
+
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
