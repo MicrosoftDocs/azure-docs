@@ -12,7 +12,7 @@ ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-# Entity Search SDK Node quickstart (preview)
+# Entity Search SDK Node quickstart
 
 The Bing Entity Search SDK contains the functionality of the REST API for entity queries and parsing results. 
 
