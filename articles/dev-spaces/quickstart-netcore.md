@@ -18,7 +18,7 @@ In this guide, you will learn how to:
 
 - Create a Kubernetes-based environment in Azure that is optimized for development - a _dev space_.
 - Iteratively develop code in containers using VS Code and the command line.
-- Productively develop and test your code in a team environment.
+- Debug the code in your dev space from VS Code
 
 > [!Note]
 > **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page. You can also try the more detailed [tutorial](get-started-netcore.md).
@@ -34,8 +34,7 @@ In this guide, you will learn how to:
 
 1. Install the Azure CLI (version 2.0.33 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Download the [VS Azure Dev Spaces extension](https://aka.ms/get-azds-code).
-1. Install the VS Code extension: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
+1. Download the [VS Azure Dev Spaces extension](https://aka.ms/get-azds-code)and install it: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
 
 ## Prepare your code
 
@@ -142,6 +141,8 @@ Refresh the web app in the browser, and go to the About page. You should see you
 **Now you have a method for rapidly iterating on code and debugging directly in Kubernetes!**
 
 ## Next steps
+
+With dev spaces, you can manage multiple containers and simplify collaborative development by isolating different running instances of your code in different spaces. 
 
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](get-started-netcore.md#call-a-service-running-in-a-separate-container)
