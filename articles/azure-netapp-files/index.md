@@ -17,7 +17,7 @@ ms.author: b-juche
 Learn how to use Azure NetApp Files to create and manage volumes, create a mount target, configure export policy, mount a volume for a virtual machine, and manage snapshots.
 
 > [!IMPORTANT] 
-> All tasks described in this documentation require that you be whitelisted for accessing the Microsoft.NetApp Azure Resource Provider and using the Azure NetApp Files service.  For details about the whitelisting process, see the [Azure NetApp Files Public Preview survey page](https://aka.ms/nfspublicpreview). 
+> All tasks described in this documentation require that you be part of the Public Preview program and whitelisted for accessing the Microsoft.NetApp Azure Resource Provider. For details about joining the Public Preview program, see the [Azure NetApp Files Public Preview survey page](https://aka.ms/nfspublicpreview). 
 
 <ul class="panelContent cardsFTitle">
     <li>
