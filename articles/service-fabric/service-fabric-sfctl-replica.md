@@ -54,7 +54,7 @@ Gets the details of the replica deployed on a Service Fabric node. The informati
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl replica deployed-list
@@ -79,7 +79,7 @@ Gets the list containing the information about replicas deployed on a Service Fa
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl replica health
@@ -103,7 +103,7 @@ Gets the health of a Service Fabric replica. Use EventsHealthStateFilter to filt
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl replica info
@@ -126,7 +126,7 @@ The response includes the ID, role, status, health, node name, uptime, and other
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl replica list
@@ -149,7 +149,7 @@ The GetReplicas endpoint returns information about the replicas of the specified
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl replica remove
@@ -174,7 +174,7 @@ This API simulates a Service Fabric replica failure by removing a replica from a
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl replica report-health
@@ -206,7 +206,7 @@ Reports health state of the specified Service Fabric replica. The report must co
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl replica restart
@@ -230,7 +230,7 @@ Restarts a service replica of a persisted service running on a node. Warning - T
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## Next steps

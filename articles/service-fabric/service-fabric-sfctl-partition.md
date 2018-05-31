@@ -62,7 +62,7 @@ It will trigger a call to the OnDataLossAsync API of the partition.  This API wi
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition data-loss-status
@@ -86,7 +86,7 @@ Gets the progress of a data loss operation started with StartDataLoss, using the
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition health
@@ -111,7 +111,7 @@ Gets the health information of the specified partition. Use EventsHealthStateFil
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition info
@@ -133,7 +133,7 @@ Gets the information about the specified partition. The response includes the pa
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition list
@@ -156,7 +156,7 @@ Gets the list of partitions of a Service Fabric service. The response includes t
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition load
@@ -178,7 +178,7 @@ Returns information about the load of a specified partition. The response includ
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition load-reset
@@ -200,7 +200,7 @@ Resets the current load of a Service Fabric partition to the default load for th
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition quorum-loss
@@ -226,7 +226,7 @@ Induces quorum loss for a given stateful service partition.  This API is useful 
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition quorum-loss-status
@@ -250,7 +250,7 @@ Gets the progress of a quorum loss operation started with StartQuorumLoss, using
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition recover
@@ -272,7 +272,7 @@ Indicates to the Service Fabric cluster that it should attempt to recover a spec
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition recover-all
@@ -293,7 +293,7 @@ Indicates to the Service Fabric cluster that it should attempt to recover any se
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition report-health
@@ -323,7 +323,7 @@ Reports health state of the specified Service Fabric partition. The report must 
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition restart
@@ -348,7 +348,7 @@ This API is useful for testing failover. If used to target a stateless service p
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition restart-status
@@ -372,7 +372,7 @@ Gets the progress of a PartitionRestart started with StartPartitionRestart using
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl partition svc-name
@@ -394,7 +394,7 @@ Gets name of the service for the specified partition. A 404 error is returned if
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## Next steps

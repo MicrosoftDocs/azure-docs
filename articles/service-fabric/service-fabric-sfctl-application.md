@@ -69,7 +69,7 @@ Creates a Service Fabric application using the specified description.
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application delete
@@ -92,7 +92,7 @@ Deletes an existing Service Fabric application. An application must be created b
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application deployed
@@ -116,7 +116,7 @@ Gets the information about an application deployed on a Service Fabric node.  Th
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application deployed-health
@@ -142,7 +142,7 @@ Gets the information about health of an application deployed on a Service Fabric
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application deployed-list
@@ -167,7 +167,7 @@ Gets the list of applications deployed on a Service Fabric node. The results do 
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application health
@@ -193,7 +193,7 @@ Returns the heath state of the service fabric application. The response reports 
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application info
@@ -216,7 +216,7 @@ Returns the information about the application that was created or in the process
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application list
@@ -242,7 +242,7 @@ Gets the information about the applications that were created or in the process 
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application load
@@ -264,7 +264,7 @@ Returns the load information about the application that was created or in the pr
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application manifest
@@ -287,7 +287,7 @@ Gets the manifest describing an application type. The response contains the appl
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application provision
@@ -314,7 +314,7 @@ Provisions a Service Fabric application type with the cluster. This is required 
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application report-health
@@ -344,7 +344,7 @@ Reports health state of the specified Service Fabric application. The report mus
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application type
@@ -370,7 +370,7 @@ Returns the information about the application types that are provisioned or in t
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application type-list
@@ -395,7 +395,7 @@ Returns the information about the application types that are provisioned or in t
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application unprovision
@@ -419,7 +419,7 @@ Removes or unregisters a Service Fabric application type from the cluster. This 
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application upgrade
@@ -456,7 +456,7 @@ Validates the supplied application upgrade parameters and starts upgrading the a
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application upgrade-resume
@@ -479,7 +479,7 @@ Resumes an unmonitored manual Service Fabric application upgrade. Service Fabric
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application upgrade-rollback
@@ -501,7 +501,7 @@ Starts rolling back the current application upgrade to the previous version. Thi
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application upgrade-status
@@ -523,7 +523,7 @@ Returns information about the state of the latest application upgrade along with
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl application upload
@@ -546,7 +546,7 @@ Optionally display upload progress for each file in the package. Upload progress
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 

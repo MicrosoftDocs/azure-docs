@@ -56,7 +56,7 @@ To get the next segment of the Chaos events, you can specify the ContinuationTok
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl chaos get
@@ -77,7 +77,7 @@ Get the status of Chaos indicating whether or not Chaos is running, the Chaos pa
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl chaos start
@@ -110,7 +110,7 @@ If Chaos is not already running in the cluster, it starts Chaos with the passed 
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl chaos stop
@@ -131,7 +131,7 @@ Stops Chaos from executing new faults. In-flight faults will continue to execute
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## Next steps

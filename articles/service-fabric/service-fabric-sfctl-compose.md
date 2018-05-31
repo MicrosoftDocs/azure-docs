@@ -52,7 +52,7 @@ Creates a Service Fabric compose deployment.
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl compose list
@@ -75,7 +75,7 @@ Gets the status about the compose deployments that were created or in the proces
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl compose remove
@@ -97,7 +97,7 @@ Deletes an existing Service Fabric compose deployment.
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl compose status
@@ -119,7 +119,7 @@ Returns the status of the compose deployment that was created or in the process 
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl compose upgrade
@@ -159,7 +159,7 @@ Validates the supplied upgrade parameters and starts upgrading the deployment if
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl compose upgrade-status
@@ -181,7 +181,7 @@ Returns the information about the state of the compose deployment upgrade along 
 | --debug | Increase logging verbosity to show all debug logs. |
 | --help -h | Show this help message and exit. |
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. For more information and examples, see http\://jmespath.org/. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 
