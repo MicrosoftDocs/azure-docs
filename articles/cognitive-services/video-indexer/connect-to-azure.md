@@ -40,40 +40,38 @@ When using a Video Indexer free trial account, you're limited by the quota and n
 
 ## Connect to Azure
 
-To connect to Azure, sign in with that user and click on the **Connect to Azure** button:
+1. Sign in with that user and click on the **Connect to Azure** button:
 
-![connect to Azure](./media/create-account/connect-to-azure.png)
+    ![connect to Azure](./media/create-account/connect-to-azure.png)
 
-A dialog with a list of user subscriptions appears.
+2. When the subscriptions list appears, select the subscription you want to use. 
 
-![connect Video Indexer to Azure](./media/create-account/connect-vi-to-azure-subscription.png)
+    ![connect Video Indexer to Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-1. Select the one that you want to use.
-2. Select the Azure region, which you want to use.
+3. Select an Azure region from the supported locations: West US 2, North Europe, or East Asia.
+4. Under **Azure Media Services account**, choose one of these options:
 
-    Currently supported locations are: West US 2, North Europe, and East Asia.
-3. Choose if you to use an existing Media Services account or provision a new Media Services account into your Azure subscription.
+     * To create a new Media Services account, select **Create new resource group**. Provide a name for your resource group.
 
-    * If you prefer a new Media Services account provisioned to your Azure subscription, click on **Create a new resource group** and provide a name for the resource group to be created. 
+         Azure will create your new account in your subscription, including a new Azure Storage account. Your new Media Services account has a default initial configuration with a Streaming Endpoint and 10 S3 Reserved Units.
 
-        The new Media services account will be created with a new Storage account and with a default initial configuration of a Streaming Endpoint and 10 S3 Reserved Units.     
-    * If you prefer to use an existing Media Services account, it must reside in the same region as the Video Indexer account.
+    * To use an existing Media Services account, select **Use existing resource**. From the accounts list, select your account.
 
-        It is recommended to adjust the type and number of Reserved Units of your Media Services account to "10 S3 Reserved Units", otherwise indexing might run for a long duration and with a low throughput.
+        Your Media Services account must have the same region as your Video Indexer account. To minimize indexing duration and low throughput, adjust the type and number of Reserved Units to **10 S3 Reserved Units** in your Media Services account.
         
-You may also connect to an existing Media Services account using the manual configuration, by clicking on "Switch to manual configuration", where you can provide the following necessary information:
+    * To manually configure your connection, click the **Switch to manual configuration** link, and provide the necessary information:
 
-![connect Video Indexer to Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
+    ![connect Video Indexer to Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
 
-To connect to Azure, click **Connect**. This operation may take up to a few minutes.
+5. When you're done, choose **Connect**. This operation might take up to a few minutes. 
 
-Once you connect to Azure, you see your new Video Indexer account in the accounts drop down:
+    After you're connected to Azure, your new Video Indexer account appears in the account list:
 
-![new account](./media/create-account/new-account.png)
+    ![new account](./media/create-account/new-account.png)
 
-Navigate to your new account:  
+6. Browse to your new account: 
 
-![Video Indexer account](./media/create-account/vi-account.png)
+    ![Video Indexer account](./media/create-account/vi-account.png)
 
 ## Considerations
 
