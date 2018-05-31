@@ -29,7 +29,7 @@ Alerts in Log Analytics is being replaced by Azure Alerts and as part of this tr
 The following steps describe how to migrate alerts for the workspace from the OMS portal.  
 
 1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-2. In the Log Analytics subscriptions pane, select a workspace and then select the **OMS Portal** tile.<br><br> ![Log Search button](../media/monitor-alerts-extend/azure-portal-01.png)<br><br> 
+2. In the Log Analytics subscriptions pane, select a workspace and then select the **OMS Portal** tile.<br><br> ![Log Search button](./media/monitor-alerts-extend/azure-portal-01.png)<br><br> 
 3. After you are redirected to the OMS portal, click the Settings tile on the top right-hand side of the page.<br><br> ![OMS portal Settings option](./media/monitor-alerts-extend/oms-portal-settings-option.png)<br><br> 
 4. From the **Settings** page, select **Alerts**.  
 5. Click the button **Extend into Azure**.<br><br> ![OMS portal Alert Settings page with Extend option](./media/monitor-alerts-extend/ExtendInto.png)
