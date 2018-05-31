@@ -53,33 +53,37 @@ The following section describes various issues that you can encounter when onboa
 
 **Reason for the error:**
 
-
-
-#### Error 1001
-
-This error code means that the deployment failed due to violation of one or more policies.
-
-##### Example 1
+You receive one of the following messages:
 
 ```
-Manifest download error from https://<endpoint>/<endpointId>/Microsoft.EnterpriseCloud.Monitoring_MicrosoftMonitoringAgent_australiaeast_manifest.xml. Error: UnknownError. An exception occurred during a WebClient request.
-```
-
-##### Example 2
-
 Please verify the VM has a running VM agent, and can establish outbound connections to Azure storage.
+```
 
-There is a proxy configured in the VM, that only allows specific ports.
-A firewall setting has blocked access to the required ports and addresses.
+```
+'Manifest download error from https://<endpoint>/<endpointId>/Microsoft.EnterpriseCloud.Monitoring_MicrosoftMonitoringAgent_australiaeast_manifest.xml. Error: UnknownError. An exception occurred during a WebClient request.
+```
 
-For a list of ports and addresses, see [planning your network](../automation-hybrid-runbook-worker.md#network-planning).
+**Troubleshooting tips:**
+
+These errors could occur due to one or more of the following reasons:
+
+* There is a proxy configured in the VM, that only allows specific ports.
+
+* A firewall setting has blocked access to the required ports and addresses. For a list of ports and addresses, see [planning your network](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### Transient MMA State Conflict
 
-#### Example 1
+**Reason for the error:**
 
+You receive one of the following messages:
+
+```
 The Microsoft Monitoring Agent failed to install on this machine. Please try to uninstall and reinstall the extension. If the issue persists, please contact support.
+```
 
+```
+'Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 1618'
+```
 As errors of this sort are commonly (when they occur) due to transient environment issues (such as when a domain join extension triggers a reboot, and in the meantime the guest agent happens to start trying to install the MMA extension as the machine is shutting down), simply retrying to deploy the solution addresses the issue.
 
 **Troubleshooting tips:**
