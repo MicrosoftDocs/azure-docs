@@ -81,7 +81,7 @@ This article provides details for using the Visual Studio Connected Service feat
 
 Now that you’ve added support for the Bing News Search API to your project, here’s how to use the API to add intelligent search to a web page.
 
-1.  In *Startup.cs*, in the `ConfigureServices` method, add a call to `IServiceCollection.AddSingleton` to make the configuration object that contains the key settings available to the code in your project.
+1.  In *Startup.cs*, in the `ConfigureServices` method, add a call to `IServiceCollection.AddSingleton`. This makes the configuration object that contains the key settings available to the code in your project.
  
    ```csharp
         public void ConfigureServices(IServiceCollection services)
@@ -92,7 +92,7 @@ Now that you’ve added support for the Bing News Search API to your project, he
    ```
 
 
-1. Add a new class file under Models folder, called *BingNewsModel.cs*. If you named your project differently, use your own project's namespace instead of MyWebApplication. Replace the contents with the following code:
+1. Add a new class file under the **Models** folder, called *BingNewsModel.cs*. If you named your project differently, use your own project's namespace, instead of **MyWebApplication**. Replace the contents with the following code:
  
     ```csharp
     using Microsoft.Azure.CognitiveServices.Search.NewsSearch.Models;
@@ -111,9 +111,9 @@ Now that you’ve added support for the Bing News Search API to your project, he
     }
     ```
 
-   This model will be used to store the results of a call to the Bing News Search service.
+   This model is used to store the results of a call to the Bing News Search service.
  
-1. In the Controllers folder, add a new class file called IntelligentSearchController.cs. Replace the contents with the following code:
+1. In the **Controllers** folder, add a new class file called *IntelligentSearchController.cs*. Replace the contents with the following code:
 
    ```csharp
     using System.Net.Http;
@@ -171,9 +171,9 @@ Now that you’ve added support for the Bing News Search API to your project, he
     }
    ```
 
-   In this code, the constructor sets up the configuration object that contains your keys. The method for the "Search" route is just a redirection to the `BingSearchResult` function, which calls the `GetNewsSearchClient` method to get the `NewsSearchAPI` client object.  The `NewsSearchAPI` client object contains the `SearchAsync` method which actually calls the service and returns the results in the `SearchResult` model that you just created. 
+   In this code, the constructor sets up the configuration object that contains your keys. The method for the `Search` route is just a redirection to the `BingSearchResult` function. This calls the `GetNewsSearchClient` method to get the `NewsSearchAPI` client object.  The `NewsSearchAPI` client object contains the `SearchAsync` method, which actually calls the service and returns the results in the `SearchResult` model that you just created. 
 
-1. Add a class `MyHandler`, which was referenced in the preceding code. This delegates the asynchronous call to the Search service to its base class, `DelegatingHandler`.
+1. Add a class, `MyHandler`, which was referenced in the preceding code. This delegates the asynchronous call to the search service to its base class, `DelegatingHandler`.
 
    ```csharp
     using System.Net.Http;
@@ -193,7 +193,7 @@ Now that you’ve added support for the Bing News Search API to your project, he
     }
    ```
 
-1. To add support for submitting searches and viewing the results, add a view *BingSearchResult.cshtml* to a new folder, IntelligentSearch, in the Views folder. Copy in the following code.
+1. To add support for submitting searches and viewing the results, in the **Views** folder, create a new folder called **IntelligentSearch**. In this new folder, add a view *BingSearchResult.cshtml*. Copy in the following code:
 
     ```cshtml
     @using System
@@ -248,17 +248,17 @@ Now that you’ve added support for the Bing News Search API to your project, he
     </div>
     ```
 
-1. Start the web application locally, enter the URL for the page you just created (/IntelligentSearch/BingSearchResult), and post a search request using the Search button.
+1. Start the web application locally, enter the URL for the page you just created (/IntelligentSearch/BingSearchResult), and post a search request by using the Search button.
 
-   ![Bing News Search Results](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
+   ![Screenshot of Bing News Search results](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
            
 ## Clean up resources
 
-When no longer needed, delete the resource group. This deletes the cognitive service and related resources. To delete the resource group through the portal:
+When the resource group is no longer needed, you can delete it. This deletes the cognitive service and related resources. To delete the resource group through the portal:
 
-1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this QuickStart in the search results, select it.
+1. Enter the name of your resource group in the search box at the top of the portal. Select the resource group you want to delete.
 2. Select **Delete resource group**.
-3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
+3. In the **Type the Resource Group Name** box, enter the name of the resource group and select **Delete**.
 
 ## Next steps
 
