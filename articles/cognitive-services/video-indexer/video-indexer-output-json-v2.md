@@ -233,7 +233,7 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The OCR line id.|
+|id|The OCR line ID.|
 |text|The OCR text.|
 |confidence|The recognition confidence.|
 |language|The OCR language.|
@@ -324,13 +324,13 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The face id.|
+|id|The face ID.|
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
 |description|If it is a celebrity, its description might be: "Satya Nadella was born at...". |
 |thumbnalId|The id of the thumbnail of that face.|
-|knownPersonId|If it is a known person, its internal id.|
-|referenceId|If it is a Bing celebrity, its Bing id.|
+|knownPersonId|If it is a known person, its internal ID.|
+|referenceId|If it is a Bing celebrity, its Bing ID.|
 |referenceType|Currently just Bing.|
 |title|If it is a celebrity, its title (for example "Microsoft's CEO").|
 |imageUrl|If it is a celebrity, its image url.|
@@ -369,7 +369,7 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The label id.|
+|id|The label ID.|
 |name|The label name (for example, 'Computer', 'TV').|
 |language|The label name language (when translated). BCP-47|
 |instances|A list of time ranges where this label appeared (a label can appear multiple times). Each instance has a confidence field. |
@@ -428,7 +428,7 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The shot id.|
+|id|The shot ID.|
 |keyFrames|A list of key frames within the shot (each has an ID and a list of instances time ranges). Key frames instances have a thumbnailId field with the keyFrame’s thumbnail ID.|
 |instances|A list of time ranges of this shot (shots have only 1 instance).|
 
