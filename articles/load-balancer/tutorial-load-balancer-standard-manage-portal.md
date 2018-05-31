@@ -31,10 +31,9 @@ Load balancing provides a higher level of availability and scale by spreading in
 > * Create load balancer traffic rules
 > * Create virtual machines and install IIS server
 > * Attach virtual machines to a load balancer
-> * Create load balancer inbound NAT rules
 > * View a load balancer in action
 > * Add and remove VMs from a load balancer
-> * View port forwarding in action
+
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
@@ -103,7 +102,7 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
     
 ## Create backend servers
 
-In this section, you create a virtual network, create two virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.
+In this section, you create a virtual network, create three virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.
 
 ### Create a virtual network
 1. On the top left-hand side of the screen click **New** > **Networking** > **Virtual network** and enter these values for the virtual network:
@@ -195,21 +194,6 @@ To distribute traffic to the VMs, add virtual machines *VM1* and *VM2* to the pr
 
 4. Check to make sure your load balancer backend pool setting displays all the VMs **VM1**, **VM2**, and **myVM3**.
 
-## Create inbound NAT rules
-With Load Balancer, you can create an inbound NAT rule to port forward traffic from a specific port of a frontend IP address to a specific port of a backend instance inside the virtual network.
-
-Create inbound NAT rule to port forward traffic from load balancer's frontend ports to port 3389 for the backend VMs.
-
-1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
-2. Under **Settings**, click **Inbound NAT rules**, then within the backend pool's list, click **myBackendPool**.
-3. In the **Add inbound NAT rule** page, enter the following values:
-    a. For the name of the NAT rule, type *myNATRuleRDPVM1*,
-    b. For port, type *4221*.
-    c. For **Target virtual machine**, from the drop-down, select *myVM1*.
-    d. For **Port mapping**, click custom, anf then for **Target port**, type **3389**.
-    e. Click **OK**.
-4. Repeat step 2 & 3 to create inbound NAT rules named *myNATRuleRDPVM2* and *myNATRuleRDPVM2* for virutal machines *myVM2* & *myVM3* using frontend ports *4222* & *4223*.
-
 ## Test the load balancer
 1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**.
 
@@ -229,22 +213,6 @@ You may need to perform maintenance on the VMs running your app, such as install
 With *myVM1* no longer in the backend address pool, you can perform any maintenance tasks on *myVM1*, such as installing software updates. In the absence of *VM1**, the load is now balanced across *myVM2* and *myVM3*. 
 
 To add *myVM1* back to the backend pool, follow the procedure in the *Add VMs to the backend pool* section of this article.
-
-## Test port forwarding
-With port forwarding, you can create a remote desktop connection to the VMs in the backend address pool using the IP address of the load balancer and the frontend port value that were defined in the preceding step.
-
-1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**.
-2. Use the following command to create a remote desktop session with the *myVM2* VM from your local computer. Replace `<publicIpAddress>` with the IP address returned from the previous step.
-
-    ```
-    mstsc /v:<publicIpAddress>:4222
-    ```
-  
-3. Open the downloaded RDP file. If prompted, select **Connect**.
-
-4. Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
- 
-   The RDP connection succeeds, as per the inbound NAT rule *myNATRuleRDPVM2*, traffic from the load balancer's Frontend port **4222** is configured to redirect to port 3389 of the virtual machine *myVM2*.
 
 ## Clean up resources
 
