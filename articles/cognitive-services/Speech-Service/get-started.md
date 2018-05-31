@@ -29,23 +29,23 @@ The 30-day free trial gives you access to the S0 standard pricing tier for a lim
 
 1. Switch to the Speech tab and click the **Get API key** button next to "Speech services".
 
-![Speech Services tab](.media/index/try-speech-api-free-trial1.png)<br>
-![API key](.media/index/try-speech-api-free-trial2.png)
+    ![Speech Services tab](.media/index/try-speech-api-free-trial1.png)<br>
+    ![API key](.media/index/try-speech-api-free-trial2.png)
 
 3. Agree to the terms and select your locale from the drop-down menu.
 
-![Agree to terms](.media/index/try-speech-api-free-trial3.png)
+    ![Agree to terms](.media/index/try-speech-api-free-trial3.png)
 
 4. Sign in using your Microsoft, Facebook, LinkedIn, or GitHub account. Or you may sign up for a free Microsoft account:
 
     * Go to the [Microsoft account portal](https://account.microsoft.com/account).
     * Click **Sign in with Microsoft**.
 
-    ![Sign in](.media/index/try-speech-api-free-trial4.png)
+        ![Sign in](.media/index/try-speech-api-free-trial4.png)
 
     * When asked to sign in, click "Create one."
 
-    ![Create new account](.media/index/try-speech-api-free-trial5.png)
+        ![Create new account](.media/index/try-speech-api-free-trial5.png)
 
     * In the steps that follow, enter your e-mail address or phone number, assign a password, and follow the instructions to verify your new Microsoft account.
 
