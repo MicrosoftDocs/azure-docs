@@ -10,13 +10,15 @@ editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 05/30/2018
 ---
-# Configure users to access job information in Azure Data Lake Analytics 
+# Configure user access to job information to job information in Azure Data Lake Analytics 
 
 In Azure Data Lake Analytics, you can use multiple user accounts or service principals to run jobs. 
 
 In order for those same users to see the detailed job information, the users need to be able to read the contents of the job folders. The job folders are located in `/system/` directory. 
 
-If the necessary permissions are not configured, the user may see an error `Graph data not available - You don't have permissions to access the graph data.` 
+If the necessary permissions are not configured, the user may see an error: `Graph data not available - You don't have permissions to access the graph data.` 
+
+## Configure user access to job information
 
 You can use the **Add User Wizard** to configure the ACLs on the folders. For more information, see [Add a new user](data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
