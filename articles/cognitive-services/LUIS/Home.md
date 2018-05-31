@@ -127,7 +127,7 @@ Create a [new LUIS app](LUIS-get-started-create-app.md).
 [speech]:../Speech/index.md
 [flow]:https://docs.microsoft.com/connectors/luis/
 [entity-concept]:luis-concept-entity-types.md
-[add-intents]:Add-intents.md
+[add-intents]:luis-how-to-add-intents.md
 [add-entities]:luis-how-to-add-entities.md
 [authoring-apis]:https://aka.ms/luis-authoring-api
 [endpoint-apis]:https://aka.ms/luis-endpoint-apis
