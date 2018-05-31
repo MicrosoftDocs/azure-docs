@@ -85,9 +85,6 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 
 3. Select **Static IP Address** and specify an available address from the Automatic Private IP Addressing (APIPA) range: 169.254.0.1 to 169.254.255.254 in the Address text box. For this example you can use any address in that range. For example `169.254.0.1`. Then, click **OK**.
 
-   >[!IMPORTANT]
-   >An APIPA address for the WSFC IP address is only for demonstration purposes with this tutorial. It is not supported for a production environment. In a production environment, create an [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) with an IP address from the VM local subnet. For instructions, see [Create a public Basic load balancer by using the Azure portal](../../../load-balancer/quickstart-create-basic-load-balancer-portal.md). Then use that IP address in the WSFC IP address.
-
 4. In the **Cluster Core Resources** section, right-click cluster name and click **Bring Online**. Then, wait until both resources are online. When the cluster name resource comes online, it updates the DC server with a new AD computer account. Use this AD account to run the Availability Group clustered service later.
 
 ### <a name="addNode"></a>Add the other SQL Server to cluster
