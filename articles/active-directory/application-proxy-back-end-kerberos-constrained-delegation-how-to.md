@@ -19,9 +19,9 @@ ms.reviewer: harshja
 
 ---
 
-# Troubleshoot Kerberos constrained delegation configurations for Azure Active Directory Application Proxy
+# Troubleshoot Kerberos constrained delegation configurations for Application Proxy
 
-The methods available for achieving SSO to published applications can vary from one application to another. One option that Azure AD Application Proxy offers by default is Kerberos constrained delegation (KCD). You can configure a connector, for your users, to run constrained Kerberos authentication to back-end applications.
+The methods available for achieving SSO to published applications can vary from one application to another. One option that Azure Active Directory (Azure AD) Application Proxy offers by default is Kerberos constrained delegation (KCD). You can configure a connector, for your users, to run constrained Kerberos authentication to back-end applications.
 
 The procedure for enabling KCD is straightforward. It requires no more than a general understanding of the various components and authentication flow that support SSO. But sometimes, KCD SSO doesn’t function as expected. You need good sources of information to troubleshoot these scenarios.
 
@@ -31,9 +31,9 @@ This article makes the following assumptions:
 
 -   Deployment of Azure AD Application Proxy per [Get started with Application Proxy](manage-apps/application-proxy-enable.md) and general access to non-KCD applications work as expected.
 
--   The published target application is based on Microsoft Internet Information Services (IIS) and Microsoft’s implementation of Kerberos.
+-   The published target application is based on Internet Information Services (IIS) and the Microsoft implementation of Kerberos.
 
--   The server and application hosts reside in a single Azure Active Directory domain. For detailed information on cross-domain and forest scenarios, see the [KCD whitepaper](https://aka.ms/KCDPaper).
+-   The server and application hosts reside in a single Azure Active Directory domain. For detailed information on cross-domain and forest scenarios, see the [KCD white paper](https://aka.ms/KCDPaper).
 
 -   The subject application is published in an Azure tenant with pre-authentication enabled. Users are expected to authenticate to Azure via forms-based authentication. Rich client authentication scenarios aren't covered by this article. They might be added at some point in the future.
 
@@ -65,7 +65,7 @@ Both of these images show the same symptom: SSO failure. User access to the appl
 
 ## Troubleshooting
 
-How you troubleshoot depends on the issue and the symptoms you observe. Before going any farther, explore the following articles. They provide useful troubleshooting information:
+How you troubleshoot depends on the issue and the symptoms you observe. Before you go any farther, explore the following articles. They provide useful troubleshooting information:
 
 -   [Troubleshoot Application Proxy problems and error messages](active-directory-application-proxy-troubleshoot.md)
 
@@ -73,11 +73,13 @@ How you troubleshoot depends on the issue and the symptoms you observe. Before g
 
 -   [Working with SSO when on-premises and cloud identities aren't identical](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
-If you’ve got to this point, then your main issue exists. To start, separate the flow into three distinct stages that you can troubleshoot.
+If you got to this point, then your main issue exists. To start, separate the flow into the following three stages that you can troubleshoot.
 
-**Client pre-authentication**. The external user authenticating to Azure via a browser. The ability to pre-authenticate to Azure is necessary for KCD SSO to function. Test and address this ability if there are any issues. The pre-authentication stage isn't related to KCD or the published application. It's easy to correct any discrepancies by sanity checking that the subject account exists in Azure. Also check that it's not disabled or blocked. The error response in the browser is descriptive enough to explain the cause. If you're uncertain, check other Microsoft troubleshooting articles to verify.
+### Client pre-authentication 
+The external user authenticating to Azure via a browser. The ability to pre-authenticate to Azure is necessary for KCD SSO to function. Test and address this ability if there are any issues. The pre-authentication stage isn't related to KCD or the published application. It's easy to correct any discrepancies by sanity checking that the subject account exists in Azure. Also check that it's not disabled or blocked. The error response in the browser is descriptive enough to explain the cause. If you're uncertain, check other Microsoft troubleshooting articles to verify.
 
-**Delegation service**. The Azure Proxy connector that gets a Kerberos service ticket for users from a Kerberos Key Distribution Center (KCD).
+### Delegation service 
+The Azure Proxy connector that gets a Kerberos service ticket for users from a Kerberos Key Distribution Center (KCD).
 
 The external communications between the client and the Azure front end have no bearing on KCD. These communications only make sure that KCD works. The Azure Proxy service is provided a valid user ID that is used to get a Kerberos ticket. Without this ID, KCD isn't possible and fails.
 
@@ -93,17 +95,18 @@ The corresponding entries seen in the event log show as events 13019 or 12027. F
 
 1.   Use an **A** record in your internal DNS for the application’s address, not a **CName**.
 
-2.   Reconfirm that the connector host has been granted the right to delegate to the designated target account’s SPN. Reconfirm that **Use any authentication protocol** is selected. For more information, see [SSO configuration article](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md).
+2.   Reconfirm that the connector host has been granted the right to delegate to the designated target account’s SPN. Reconfirm that **Use any authentication protocol** is selected. For more information, see the [SSO configuration article](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md).
 
-3.   Verify that there's only one instance of the SPN in existence in Azure AD. Issue a `setspn -x` from a command prompt on any domain member host.
+3.   Verify that there's only one instance of the SPN in existence in Azure AD. Issue `setspn -x` from a command prompt on any domain member host.
 
 4.   Check that a domain policy is enforced that limits the [maximum size of issued Kerberos tokens](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/). This policy stops the connector from getting a token if it's found to be excessive.
 
-A network trace that captures the exchanges between the connector host and a domain KDC is the next best step to get more low-level detail on the issues. For more information, see [deep dive Troubleshoot paper](https://aka.ms/proxytshootpaper).
+A network trace that captures the exchanges between the connector host and a domain KDC is the next best step to get more low-level detail on the issues. For more information, see the [deep dive Troubleshoot paper](https://aka.ms/proxytshootpaper).
 
-If ticketing looks good, you see an event in the logs stating that authentication failed because the application returned a 401. This event indicates that the target application rejected your ticket. Go to the next step:
+If ticketing looks good, you see an event in the logs stating that authentication failed because the application returned a 401. This event indicates that the target application rejected your ticket. Go to the next stage.
 
-**Target application**. The consumer of the Kerberos ticket provided by the connector. At this stage, expect the connector to have sent a Kerberos service ticket to the back end. This ticket is a header in the first application request.
+### Target application 
+The consumer of the Kerberos ticket provided by the connector. At this stage, expect the connector to have sent a Kerberos service ticket to the back end. This ticket is a header in the first application request.
 
 1.   By using the application’s internal URL defined in the portal, validate that the application is accessible directly from the browser on the connector host. Then you can sign in successfully. Details can be found on the connector **Troubleshoot** page.
 
@@ -113,48 +116,48 @@ If ticketing looks good, you see an event in the logs stating that authenticatio
 
     a. The next Kerberos blob that is returned in the response from the browser to the application starts with **YII**. These letters tell you that Kerberos is running. Microsoft NT LAN Manager (NTLM), on the other hand, always starts with **TlRMTVNTUAAB**, which reads NTLM Security Support Provider (NTLMSSP) when decoded from Base64. If you see **TlRMTVNTUAAB** at the start of the blob, Kerberos is not available. If you don’t see **TlRMTVNTUAAB**, Kerberos is likely available.
 
-        > [!NOTE]
-        > If you use Fiddler, this method requires that you temporarily disable extended protection on the application’s configuration in IIS.
+       > [!NOTE]
+       > If you use Fiddler, this method requires that you temporarily disable extended protection on the application’s configuration in IIS.
 
-        ![Browser network inspection window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
+       ![Browser network inspection window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
 
     b. The blob in this figure doesn't start with **TIRMTVNTUAAB**. So in this example, Kerberos is available, and the Kerberos blob doesn’t start with **YII**.
 
-4.  Temporarily remove NTLM from the providers list on the IIS site. Access the app directly from IE on the connector host. NTLM is no longer in the providers list. You can access the application by using Kerberos only. If access fails, there might be a problem with the application’s configuration. Kerberos authentication isn't functioning.
+4.  Temporarily remove NTLM from the providers list on the IIS site. Access the app directly from Internet Explorer on the connector host. NTLM is no longer in the providers list. You can access the application by using Kerberos only. If access fails, there might be a problem with the application’s configuration. Kerberos authentication isn't functioning.
 
     a. If Kerberos isn't available, check the application’s authentication settings in IIS. Make sure **Negotiate** is listed at the top, with NTLM just beneath it. If you see **Not Negotiate**, **Kerberos or Negotiate**, or **PKU2U**, continue only if Kerberos is functional.
 
-        ![Windows authentication providers](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
+       ![Windows authentication providers](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
-    b.   With Kerberos and NTLM in place, temporarily disable pre-authentication for the application in the portal. Try to access it from the Internet by using the external URL. You're prompted to authenticate. You're able to do so with the same account used in the previous step. If not, there's a problem with the back-end application, not KCD.
+    b. With Kerberos and NTLM in place, temporarily disable pre-authentication for the application in the portal. Try to access it from the internet by using the external URL. You're prompted to authenticate. You're able to do so with the same account used in the previous step. If not, there's a problem with the back-end application, not KCD.
 
-    c.   Re-enable pre-authentication in the portal. Authenticate through Azure by attempting to connect to the application via its external URL. If SSO fails, you see a forbidden error message in the browser and event 13022 in the log:
+    c. Re-enable pre-authentication in the portal. Authenticate through Azure by attempting to connect to the application via its external URL. If SSO fails, you see a forbidden error message in the browser and event 13022 in the log:
 
-        *Microsoft AAD Application Proxy Connector cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error.*
+       *Microsoft AAD Application Proxy Connector cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error.*
 
-        ![HTTTP 401 forbidden error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
+       ![HTTTP 401 forbidden error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
 
-    d.   Check the IIS application. Make sure that the configured application pool and the SPN are configured to use the same account in Azure AD. Navigate in IIS as shown in the following illustration:
+    d. Check the IIS application. Make sure that the configured application pool and the SPN are configured to use the same account in Azure AD. Navigate in IIS as shown in the following illustration:
 
-        ![IIS application configuration window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
+       ![IIS application configuration window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
 
-        Once you know the identity, make sure this account is configured with the SPN in question. An example is `setspn –q http/spn.wacketywack.com`. Enter the following text in a command prompt:
+       After you know the identity, make sure this account is configured with the SPN in question. An example is `setspn –q http/spn.wacketywack.com`. Enter the following text in a command prompt:
 
-        ![SetSPN command window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
+       ![SetSPN command window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 
-    e.   Check the SPN defined against the application’s settings in the portal. Make sure that the same SPN configured against the target Azure AD account is used by the application’s app pool.
+    e. Check the SPN defined against the application’s settings in the portal. Make sure that the same SPN configured against the target Azure AD account is used by the application’s app pool.
 
-        ![SPN configuration in Azure portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
+       ![SPN configuration in the Azure portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
-    f.   Go into IIS and select the **Configuration Editor** option for the application. Navigate to **system.webServer/security/authentication/windowsAuthentication**. Make sure the value **UseAppPoolCredentials** is **True**.
+    f. Go into IIS and select the **Configuration Editor** option for the application. Navigate to **system.webServer/security/authentication/windowsAuthentication**. Make sure the value **UseAppPoolCredentials** is **True**.
 
-        ![IIS configuration app pools credential option](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+       ![IIS configuration app pools credential option](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 
-        Change this value to **True**. Remove all cached Kerberos tickets from the back-end server by running the following command:
+       Change this value to **True**. Remove all cached Kerberos tickets from the back-end server by running the following command:
 
-        ```powershell
-        Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
-        ``` 
+       ```powershell
+       Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
+       ``` 
 
 For more information, see [Purge the Kerberos client ticket cache for all sessions](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf).
 
