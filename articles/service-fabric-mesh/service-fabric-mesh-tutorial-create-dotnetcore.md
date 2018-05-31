@@ -3,7 +3,7 @@ title: Test and deploy a .NET Core app for Azure Service Fabric Mesh
 description: In this tutorial you create an ASP.NET Core website and deploy it to the local Service Fabric test cluster. After that, you will deploy to Azure.
 services: service-fabric-mesh
 documentationcenter: .net
-author: thraka
+author: TylerMSFT
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: adegeo
+ms.author: twhitney
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to use visual studio to locally run a .net core application on Service Fabric Mesh so that I can see it run and then I will deploy it to Azure.
 ---

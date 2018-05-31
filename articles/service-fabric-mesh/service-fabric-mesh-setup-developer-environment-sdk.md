@@ -3,8 +3,8 @@ title: Setup new Windows environment for Service Fabric Mesh on Azure
 description: Details all of the prerequisites required to create a Service Fabric Application to deploy to Azure Service Fabric Mesh.
 services: Azure Service Fabric Mesh
 keywords: 
-author: thraka
-ms.author: adegeo
+author: TylerMSFT
+ms.author: twhitney
 ms.date: 05/24/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
