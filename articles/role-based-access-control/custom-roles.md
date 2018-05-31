@@ -24,25 +24,22 @@ If the [built-in roles](built-in-roles.md) don't meet the specific needs of your
 
 ## Steps to create a custom role
 
-1. Identify the relevant operations you want to include in the custom role
+1. Determine the required permissions
 
-    When you create a custom role, you'll need to know the resource provider operations that are available. You can view the list of operations or you can use the Get-AzureRMProviderOperation or az provider operation list commands.
+    When you create a custom role, you need to know the resource provider operations that are available. To view the list of operations, you can use the [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list) commands.
+    To create the permissions you want, you'll add the operations to the `actions` or `notActions` sections of the [role definition](role-definitions.md) If you have data operations, you add those to the `dataActions` or `notDataActions` sections.
 
-2. Determine the effective permissions
+2. Create the custom role
 
-    You'll need to determine the effective permissions you want to achieve. You do this by adding operations to the `actions` and `notActions` sections of the [role definition](role-definitions.md).
+    Depending on the language that you use, there are different ways to create a custom role. Typically, you start with a built-in role and then modify it for your needs. When you use PowerShell, you can also create a custom role from scratch.
 
-3. Create the custom role
-
-    Depending on the language that you use, there are different ways to create a custom role. Typically, you start with a built-in role and then modify it for your needs. Whe you can use PowerShell, you can also create a custom role from scratch.
-
-4. Test the custom role and update as needed
+3. Test the custom role
 
     Once you created the custom role, you need to test the custom role works as you expect. If adjustments need to be made, you can update the custom role.
 
 ## How are custom roles different than built-in roles?
 
-Custom roles are the same as built-in roles, but there are a couple of differences. Just like built-in roles, the `assignableScopes` section specifies the scopes that the role is available for assignment. However, You can't use the root scope (`"/"`) in your own custom roles. If you try, you will get an authorization error. The `assignableScopes` section for a custom role also controls who can create, delete, modify, or view the custom role.
+Custom roles are essentially the same as built-in roles, but there are a couple of differences. Just like built-in roles, the `assignableScopes` section specifies the scopes that the role is available for assignment. However, You can't use the root scope (`"/"`) in your own custom roles. If you try, you will get an authorization error. The `assignableScopes` section for a custom role also controls who can create, delete, modify, or view the custom role.
 
 <!-- Do custom roles support management groups? -->
 
