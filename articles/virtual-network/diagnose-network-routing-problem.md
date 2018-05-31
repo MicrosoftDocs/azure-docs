@@ -1,5 +1,5 @@
 ---
-title: Diagnose a virtual machine routing problem | Microsoft Docs
+title: Diagnose an Azure virtual machine routing problem | Microsoft Docs
 description: Learn how to diagnose a virtual machine routing problem by viewing the effective routes for a virtual machine.
 services: virtual-network
 documentationcenter: na
