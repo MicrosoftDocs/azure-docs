@@ -1,6 +1,6 @@
 ---
-title: Guidelines for table design | Microsoft Docs
-description: Design your Table service to support read operations efficiently.
+title: Guidelines for Azure storage table design | Microsoft Docs
+description: Design your Azure table service to support read operations efficiently.
 services: storage
 documentationcenter: na
 author: SnehaGunda

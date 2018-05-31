@@ -1,6 +1,6 @@
 ---
 title: Tutorial learning how to call a Language Understanding Intelligent Services (LUIS) app using Node.js | Microsoft Docs
-description: In this tutorial, you learn to call a LUIS app using Node.js in this quickstart.
+description: In this tutorial, you learn to call a LUIS app using Node.js.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -32,7 +32,7 @@ To get an API key, follow these steps:
 
 2. Log in to the Azure portal at https://portal.azure.com. 
 
-3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
+3. Follow the steps in [Creating Subscription Keys using Azure](./luis-how-to-azure-subscription.md) to get a key.
 
 4. Go back to the [LUIS](luis-reference-regions.md) website and log in using your Azure account. 
 
@@ -73,6 +73,6 @@ The two resources created in this tutorial are the LUIS subscription key and the
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Add utterances](luis-quickstart-node-add-utterance.md)
+> [Add utterances](luis-get-started-node-add-utterance.md)
 
 [LUIS]: luis-reference-regions.md#luis-website

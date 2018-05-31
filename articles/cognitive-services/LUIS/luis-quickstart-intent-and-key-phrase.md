@@ -1,30 +1,39 @@
 ---
-title: Create a LUIS app that returns key phrases - Azure | Microsoft Docs 
-description: Learn how to add and return key phrase entity to your LUIS app to analyze utterances for key subject matter. 
+title: Tutorial create a LUIS app that returns key phrases - Azure | Microsoft Docs 
+description: In this tutorial, learn how to add and return keyPhrase entity to your LUIS app to analyze utterances for key subject matter. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand key subject matter in a user's utterances. 
 
 --- 
 
-# Quickstart: Create app that returns key phrases found in utterances
-In this quickstart, create an app that demonstrates how to extract key subject matter from utterances.
+# Tutorial: Create app that returns keyPhrases entity data found in utterances
+In this tutorial, create an app that demonstrates how to extract key subject matter from utterances.
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Understand keyPhrase entities 
+> * Create new LUIS app for the human resources domain
+> * Add _None_ intent and add example utterances
+> * Add keyPhrase entity to extract content from utterance
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response
 
 For this article, you can use the free [LUIS][LUIS] account in order to author your LUIS application.
 
-## Key phrase extraction
-Key subject matter is provided by the Prebuilt entity, **Key phrase**. This entity returns key subject matter in the utterance
+## keyPhrase entity extraction
+Key subject matter is provided by the Prebuilt entity, **keyPhrase**. This entity returns key subject matter in the utterance
 
 The following utterances show examples of key phrases:
 
-|Utterance|Key phrase|
+|Utterance|keyPhrase entity values|
 |--|--|
 |Is there a new medical plan with a lower deductible offered next year?|"lower deductible"<br>"new medical plan"<br>"year"|
 |Is vision therapy covered in the high deductible medical plan?|"high deductible medical plan"<br>"vision therapy"|
@@ -49,8 +58,8 @@ Download the [Human Resources](https://github.com/Microsoft/LUIS-Samples/blob/ma
 
     [![](media/luis-quickstart-intent-and-key-phrase/intents-list.png "Screenshot of Intents lists page")](media/luis-quickstart-intent-and-key-phrase/intents-list.png#lightbox)
 
-## Add Key phrase entity 
-Add Key phrase prebuilt entity to extract subject matter from utterances.
+## Add keyPhrase entity 
+Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
 1. Select **Entities** from the left menu.
 
@@ -142,8 +151,8 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 
 ## Next steps
 
-[Quickstart: Create app that returns sentiment along with intent prediction](luis-quickstart-intent-and-sentiment-analysis.md). 
-
+> [!div class="nextstepaction"]
+> [Create app that returns sentiment along with intent prediction](luis-quickstart-intent-and-sentiment-analysis.md)
 
 <!--References-->
 [LUIS]:luis-reference-regions.md#luis-website

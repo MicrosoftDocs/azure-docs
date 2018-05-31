@@ -166,4 +166,4 @@ There are also tutorials on how to load balance VMs and create highly available 
 
 - Learn how to configure [user-defined routes and IP forwarding](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Learn how to configure [VNet to VNet connections](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- Learn how to [Troubleshoot routes](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md).
+- Learn how to [Troubleshoot routes](../articles/virtual-network/diagnose-network-routing-problem.md).
