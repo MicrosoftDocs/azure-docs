@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/30/2018
 ms.author: bwren
 
 ---
@@ -50,6 +50,13 @@ Once you [add the Office 365 solution to your subscription](../log-analytics/log
 4. Click on **Connect Office 365**.<br>![Connnect Office 365](media/oms-solution-office-365/configure.png)
 5. Sign in to Office 365 with an account that is a Global Administrator for your subscription. 
 6. The subscription will be listed with the workloads that the solution will monitor.<br>![Connnect Office 365](media/oms-solution-office-365/connected.png) 
+
+## Configuration
+There are three steps to configuring the Office 365 management solution that are described in this section.
+
+1. Create and Office 365 application in Azure Active Directory. This gives the management solution authorization to connect to Office 365.
+1. Give the application administrative access to Office 365.
+1. 
 
 
 ## Data collection
