@@ -38,7 +38,7 @@ Azure DNS provides the following benefits:
 
 * **Hostname resolution between virtual networks**. Unlike Azure-provided host names, private DNS zones can be shared between virtual networks. This capability simplifies cross-network and service-discovery scenarios, such as virtual network peering.
 
-* **Familiar tools and user experience**. To reduce the learning curve, this new offering uses well-established Azure DNS tools (PowerShell, Resource Manager templates, and the REST API).
+* **Familiar tools and user experience**. To reduce the learning curve, this new offering uses well-established Azure DNS tools (PowerShell, Azure Resource Manager templates, and the REST API).
 
 * **Split-horizon DNS support**. With Azure DNS, you can create zones with the same name that resolve to different answers from within a virtual network and from the public internet. A typical scenario for split-horizon DNS is to provide a dedicated version of a service for use inside your virtual network.
 
