@@ -107,9 +107,9 @@
     - name: Configure NFS Mounts and Exports
       href: cyclecloud-storage-nfs-mounts.md
     - name: Blobs
-      href: cyclecloud-blobs.md
+      href: cyclecloud-storage-blobs.md
   - name: User Creation and RBAC
-    href:
+    href: cyclecloud-user-management-and-rbac.md
 - name: How-To
   items:
   - name: Create Custom Images
