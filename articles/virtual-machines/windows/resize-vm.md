@@ -55,7 +55,7 @@ $vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
 $vm.HardwareProfile.VmSize = "<newVMSize>"
 Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
 Start-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
-    ```
+```
 
 > [!WARNING]
 > Deallocating the VM releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected. 
@@ -63,6 +63,7 @@ Start-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
 > 
 
 ## Resize a Windows VM in an availability set
+
 If the new size for a VM in an availability set is not available on the hardware cluster currently hosting the VM, then all VMs in the availability set will need to be deallocated to resize the VM. You also might need to update the size of other VMs in the availability set after one VM has been resized. To resize a VM in an availability set, perform the following steps.
 
 ```powershell
