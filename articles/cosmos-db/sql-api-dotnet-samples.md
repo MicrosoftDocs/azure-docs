@@ -7,6 +7,7 @@ author: rnagpal
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: sample
 ms.date: 02/22/2017

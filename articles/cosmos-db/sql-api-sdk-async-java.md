@@ -6,6 +6,7 @@ author: SnehaGunda
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 05/18/2018

@@ -6,6 +6,7 @@ author: luisbosquez
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018

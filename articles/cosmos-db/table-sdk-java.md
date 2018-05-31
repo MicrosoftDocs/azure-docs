@@ -7,6 +7,7 @@ manager: kfile
 editor: ''
 
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/20/2017

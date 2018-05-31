@@ -7,6 +7,7 @@ author: SnehaGunda
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect
 ms.devlang: gremlin
 ms.topic: conceptual

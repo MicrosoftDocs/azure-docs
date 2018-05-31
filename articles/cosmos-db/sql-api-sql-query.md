@@ -8,6 +8,7 @@ manager: kfile
 editor: monicar
 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
