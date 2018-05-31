@@ -1,6 +1,6 @@
 ---
-title: How to extend (copy) alerts from OMS portal into Azure | Microsoft Docs
-description: Tools and API by which extending alerts from OMS into Azure Alerts, can be done by customers voluntarily.
+title: How to migrate alerts from Log Analytcs to Azure | Microsoft Docs
+description: This article describes the tools and API by which you can migrate alerts from Log Analytics to Azure Alerts.
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -12,61 +12,47 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 05/30/2018
 ms.author: vinagara
 
 ---
-# How to extend (copy) alerts from OMS into Azure
-Beginning **May 14, 2018**, all customers using alerts that are configured in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), will be extended into Azure. Alerts that are extended to Azure behave the same way as in OMS. Monitoring capabilities remain intact. Extending alerts created in OMS to Azure provides many benefits. For more information about the advantages and process of extending alerts from OMS to Azure, see [Extend alerts from OMS to Azure](monitoring-alerts-extend.md).
+# How to migrate alerts from Log Analytics into Azure Alerts
+Alerts in Log Analytics is being replaced by Azure Alerts and as part of this transition, alerts that you configured in Log Analytics will be migrated into Azure.  If you don't want to wait for them to be automatically moved into Azure, you can initiate the process following one of the options:
+
+1. Manually from the OMS portal 
+2. Programatically using the AlertsVersion API  
 
 > [!NOTE]
-> Starting 14 May 2018 - Microsoft will begin the process of automatically extending alerts to Azure. Not all workspaces and alerts will be extended on this day; instead Microsoft will begin to extend alerts automatically in tranches in upcoming weeks. Hence your alerts in OMS portal will not auto-extend into Azure immediately on 14 May 2018 and user's can still manually extend their alerts using options details below.
+> Microsoft will automatically migrate alerts created in Log Analytics to Azure alerts starting on **14 May 2018** in a phased approach until completed. From this day forward, Microsoft will begin to schedule migrating the alerts to Azure, and during this transition, alerts can be managed from both the OMS portal and Azure portal. This process is nondestructive and not interruptive.  
 
-Customers wanting to move their alerts from OMS into Azure immediately, can do so by using one of the options stated.
+## Option 1 - Initiate from the OMS Portal
+The following steps describe how to migrate alerts for the workspace from the OMS portal.  
 
-## Option 1 - Using OMS portal
-To voluntarily initiate the extending of alerts from OMS portal into Azure, follow the steps listed below.
+1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+2. In the Log Analytics subscriptions pane, select a workspace and then select the **OMS Portal** tile.<br><br> ![Log Search button](./media/monitor-alerts-extend/azure-portal-01.png)<br><br> 
+3. After you are redirected to the OMS portal, click the Settings tile on the top right-hand side of the page.<br><br> ![OMS portal Settings option](./media/monitor-alerts-extend/oms-portal-settings-option.png)<br><br> 
+4. From the **Settings** page, select **Alerts**.  
+5. Click the button **Extend into Azure**.<br><br> ![OMS portal Alert Settings page with Extend option](./media/monitor-alerts-extend/ExtendInto.png)
+6. A wizard is presented in the pane, with the first of three steps providing an overview of the process.  Click **Next** to proceed.<br><br> ![Migrate alerts from Log Analytics to Azure - Step 1](./media/monitor-alerts-extend/ExtendStep1.png)  
+7. In the second step, a summary of proposed changes is presented listing appropriate [Action Groups](monitoring-action-groups.md) for the alerts. If similar actions are seen across more than one alert, the service will propose to associate with all of them a single action group.  Action group proposed follow the naming convention: *WorkspaceName_AG_#Number*. To be proceed, click **Next**.<br><br> ![Migrate alerts from Log Analytics to Azure - Step 2](./media/monitor-alerts-extend/ExtendStep2.png)  
+8. In the last step of wizard, click **Finish** and confirm when prompted to initiate the process.  Optionally, you can provide an email addresses so that you are notified when the process completes and all alerts have been successfully moved to Azure Alerts.<br><br> ![Migrate alerts from Log Analytics to Azure - Step 3](./media/monitor-alerts-extend/ExtendStep3.png)
 
-1. In the OMS portal Overview page, go to Settings and then Alerts section. Click the button labeled "Extend into Azure", as highlighted in illustration below.
-
-    ![OMS portal Alert Settings page with Extend option](./media/monitor-alerts-extend/ExtendInto.png)
-
-2. Once the button is clicked a 3-step wizard will be shown, with the first step providing details of the process. Press Next, to proceed.
-
-    ![Extend Alerts from OMS portal into Azure - Step 1](./media/monitor-alerts-extend/ExtendStep1.png)
-
-3. In the second step, the system will show a summary of the proposed change, by listing appropriate [Action Groups](monitoring-action-groups.md), for the alerts in OMS portal. If similar actions are seen across more than one alert - system will propose to associate with all of them a single action group.  Action group proposed follow the naming convention: *WorkspaceName_AG_#Number*. To be proceed, click Next.
-A sample screen below.
-
-    ![Extend Alerts from OMS portal into Azure - Step 2](./media/monitor-alerts-extend/ExtendStep2.png)
+Once the wizard is finished, you notice on the **Alert Settings** page that the option to migrate alerts to Azure is removed.  In the background, your alerts are moved into Azure and this can take some time.  During the operation, you will not be able to make changes to alerts from the OMS portal.  The current status will be shown from the banner at the top of the portal, and if you provided an email address earlier you will receive an email when the process is successfully completed.  
 
 
-4. In the last step of wizard, you can ask the OMS portal to schedule extending all your alerts into Azure - by creating new Action Groups and associating them with alerts, as shown in the earlier screen. To proceed choose click Finish and confirm at the prompt to initiate the process. Optionally, customers can also provide email addresses to which they would like the OMS portal to send a report on finishing the processing.
-
-    ![Extend Alerts from OMS portal into Azure - Step 3](./media/monitor-alerts-extend/ExtendStep3.png)
-
-5. Once the wizard is finished, control will return to the Alert Settings page and "Extend into Azure" option will be removed. In the background, OMS portal will schedule alerts in Log Analytics to be extended into Azure; this can take some time and when the operation begins for a brief period alerts in OMS portal will not be available for modification. Current status will be shown via banner and if email addresses where provided during step 4, then they will be informed when background process successfully extends all alerts into Azure. 
-
-6. Alerts will continue to be listed in OMS portal, even after they get successfully extended into Azure.
-
-    ![After Extending alerts in OMS portal to Azure](./media/monitor-alerts-extend/PostExtendList.png)
+Alerts continue to be listed in OMS portal, even after they are successfully moved into Azure.<br><br> ![After moving alerts in Log Analytics to Azure](./media/monitor-alerts-extend/PostExtendList.png)
 
 
-## Option 2 - Using API
-For customers who want to programmatically control or automate, the process of extending alerts in OMS portal into Azure; Microsoft has provided new AlertsVersion API under Log Analytics.
+## Option 2 - Using the AlertsVersion API
+You can use the Log Analytics AlertsVersion API to migrate alerts from Log Analytics into Azure Alerts from any client that can call a REST API. You can access from PowerShell using [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the API.  Using the API will output the results in JSON.  
 
-The Log Analytics AlertsVersion API is RESTful and can be accessed via the Azure Resource Manager REST API. In this document, you will find examples where the API is accessed from a PowerShell command line using [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the API. The API will output results in JSON format, allowing usage of the results in many different ways programmatically.
-
-By using GET on the API, one can obtain in result the summary of the proposed change, as list of appropriate [Action Groups](monitoring-action-groups.md) for the alerts in OMS portal, in JSON format. If similar actions are seen across more than one alert - system will propose to create associate with all of them a single action group.  Action group proposed follow the naming convention: *WorkspaceName_AG_#Number*.
+To use the API, you first create a GET request, which will evaluate and return a summary of the proposed changes before you attempt to actually migrate into Azure using a POST request. The results list your alerts and proposed list of [action groups](monitoring-action-groups.md) in JSON format.  If similar actions are seen across more than one alert, the service will propose associating all of them with a single action group.  Action groups proposed follow the naming convention: *WorkspaceName_AG_#Number*.
 
 ```
 armclient GET  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-> [!NOTE]
-> GET call to the API will not result in alerts in OMS portal getting extended into Azure. It will only provide as response the summary of changes proposed. To confirm these changes be done to extend alerts into Azure, a POST call needs to be done to the API.
-
-If the GET call to API is successful, along with 200 OK response, a JSON list of alerts along with proposed action groups would be provided. Sample response below:
+If the GET request is successful, an HTTP status code 200 is returned along with a list of alerts and proposed action groups in the JSON data. The following is an example response:
 
 ```json
 {
@@ -123,7 +109,7 @@ If the GET call to API is successful, along with 200 OK response, a JSON list of
 }
 
 ```
-In case, there are no alerts in the specified workspace, along with 200 OK response for the GET operation the JSON would be:
+If the specified workspace does not have any alert rules defined, along with the HTTP 200 OK status code for the GET operation the JSON data returns:
 
 ```json
 {
@@ -132,14 +118,15 @@ In case, there are no alerts in the specified workspace, along with 200 OK respo
 }
 ```
 
-If all alerts in the specified workspace, have already been extended into Azure - the response to GET call would be:
+If all alert rules in the specified workspace have already been migrated to Azure - the response to the GET request is:
+
 ```json
 {
     "version": 2
 }
 ```
 
-To initiate the scheduling of extending the alerts in OMS portal to Azure, initiate a POST to the API. Doing this call/command confirms the user's intent as well as acceptance to have their alerts in OMS portal extended to Azure and perform the changes as indicated in response of GET call to the API. Optionally, user can provide a list of email addresses to which OMS portal will mail a report, when scheduled background process of extending the alerts in OMS portal to Azure finishes successfully.
+To initiate migrating the alerts to Azure, initiate a POST response. The POST response confirms your intent as well as acceptance to have alerts migrated from Log Analytics to Auzre alerts.  The activity is scheduled and the alerts are processed as indicated based on the results when you performed the GET response earlier.  Optionally, you can provide a list of email addresses to which Log Analytics will mail a report when the scheduled background process of migrating the alerts completes successfully.  This is performed by using the following request example:
 
 ```
 $emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
@@ -147,17 +134,17 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 
 > [!NOTE]
-> Result of extending OMS portal alerts into Azure, may vary from the summary provided by GET - on account of any change done in system. Once scheduled, alerts in OMS portal will be temporarily unavailable for editing/modification - while new alerts can be created. 
+> Result of migrating alerts into Azure Alerts may vary based on the summary provided by GET response.  Once scheduled, alerts in Log Analytics will be temporarily unavailable for editing/modification in the OMS portal.  However, new alerts can be created. 
 
-If the POST is successful, it shall return a 200 OK response along with:
+If the POST resquest is successful, it returns a HTTP 200 OK status along with the following response:
+
 ```json
 {
     "version": 2
 }
 ```
-Indicating that the alerts have been extended into Azure, as indicated by version 2. This version is only for checking if alerts have been extended into Azure and have no bearing in usage with [Log Analytics Search API](../log-analytics/log-analytics-api-alerts.md). Once the alerts are extended into Azure successfully, all email addresses provided during GET will be sent a report with details of the changes done.
 
-And finally, if all the alerts in the specified workspace, are already scheduled to be extended into Azure - the response to POST will be 403 Forbidden. To view any error message or understand if extend process is stuck, user can do a GET call and error message if any will be returned along with summary.
+This response indicates the alerts have been successfully migrated into Azure Alerts. The  version property is only for checking if alerts have been migrated to Azure and have no relation to the [Log Analytics Search API](../log-analytics/log-analytics-api-alerts.md). Once the alerts are migrated to Azure successfully, any email addresses provided with the POST request are sent a report with details of the changes performed.  If all of the alerts in the specified workspace are already scheduled to be migrated, the response to your POST request is a 403 status code meaning the attempt was forbidden. To view any error message or understand if the process is stuck, you can submit a GET request and an error message if any, will be returned along with the summary information.
 
 ```json
 {
@@ -221,10 +208,12 @@ And finally, if all the alerts in the specified workspace, are already scheduled
 ```
 
 ## Troubleshooting 
-During the process of extending alerts from OMS into Azure, there can be occasional issue that prevents the system from creating necessary [Action Groups](monitoring-action-groups.md). In such cases an error message will be shown in OMS portal via banner in Alert section and in GET call done to API.
+During the process of migrating your alerts from Log Analytics to Azure Alerts, an issue could prevent the service from creating the required [Action Groups](monitoring-action-groups.md). In such cases an error message will be shown in a banner at the top of the OMS portal under **Alert Settings** section and in the resulting JSON when you create a GET request.
 
-Listed below are the remediation steps for each error:
-1. **Error: The subscription is not registered to use the namespace 'microsoft.insights'**:
+Listed below are the remediation steps for each error:  
+
+1. **Error: The subscription is not registered to use the namespace 'microsoft.insights'**:  
+
     ![OMS portal Alert Settings page with Registration Error message](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
 
     a. The subscription associated with your OMS workspace - has not been registered to use Azure Monitor (microsoft.insights) functionality; due to which OMS unable to extend you alerts into Azure Monitor & Alerts.
@@ -232,24 +221,26 @@ Listed below are the remediation steps for each error:
     b. To resolve, register microsoft.insights (Azure monitor & alerts) use in your subscription using Powershell, Azure CLI, or Azure portal. To learn more, view the article on [resolving errors on resource provider registration](../azure-resource-manager/resource-manager-register-provider-errors.md)
     
     c. Once resolved as per steps illustrated in the article, OMS will extend your alerts into Azure within the next day's scheduled run; without the need of any action or initiation.
-2. **Error: Scope Lock is present at subscription/resource group level for write operations**:
+
+2. **Error: Scope Lock is present at subscription/resource group level for write operations**:  
+
     ![OMS portal Alert Settings page with ScopeLock Error message](./media/monitor-alerts-extend/ErrorScopeLock.png)
 
-    a. When Scope Lock is enabled, restricting any new change in subscription or resource group containing the Log Analytics (OMS) workspace; the system is unable to extend (copy) alerts into Azure and create necessary action groups.
+    a. When Scope Lock is enabled, any new change in subscription or resource group containing the Log Analytics workspace is restricted.  The service is unable to migrate alerts to Azure Alerts and create the required action groups.
     
-    b. To resolve, delete the *ReadOnly* lock on your subscription or resource group containing the workspace; using Azure portal, Powershell, Azure CLI, or API. To learn more, view the article on [resource lock usage](../azure-resource-manager/resource-group-lock-resources.md). 
+    b. To resolve this, delete the *ReadOnly* lock on your subscription or resource group containing the workspace from the Azure portal, Powershell, Azure CLI, or API. To learn more, review the article [resource lock usage](../azure-resource-manager/resource-group-lock-resources.md). 
     
-    c. Once resolved as per steps illustrated in the article, OMS will extend your alerts into Azure within the next day's scheduled run; without the need of any action or initiation.
+    c. Once you have completed the steps to remove the lock, you can reattempt to migrate your alerts to Azure Alerts within the next day's scheduled run without the need of any action or initiation.
 
-3. **Error: Policy is present at subscription/resource group level**: 
+3. **Error: Policy is present at subscription/resource group level**:  
+
     ![OMS portal Alert Settings page with Policy Error message](./media/monitor-alerts-extend/ErrorPolicy.png)
 
-    a. When [Azure Policy](../azure-policy/azure-policy-introduction.md) is applied, restricting any new resource in subscription or resource group containing the Log Analytics (OMS) workspace; the system is unable to extend (copy) alerts into Azure and create necessary action groups.
+    a. When [Azure Policy](../azure-policy/azure-policy-introduction.md) is applied, any new resource in subscription or resource group containing the Log Analytics (OMS) workspace is restricted.  The service is unable to migrate your alerts into Azure Alerts and create the required action groups.
     
-    b. To resolve, edit the policy causing *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* error, which prevents creation of new resources on your subscription or resource group containing the workspace. Using Azure portal, Powershell, Azure CLI or API; you can audit actions to find the appropriate policy causing failure. To learn more, view the article on [viewing activity logs to audit actions](../azure-resource-manager/resource-group-audit.md). 
+    b. To resolve this, edit the policy causing *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* error, which prevents creation of new resources in your subscription or resource group containing the workspace. Using Azure portal, Powershell, Azure CLI or API, you can audit actions to find the appropriate policy causing this failure. To learn more, review the article [viewing activity logs to audit actions](../azure-resource-manager/resource-group-audit.md). 
     
-    c. Once resolved as per steps illustrated in the article, OMS will extend your alerts into Azure within the next day's scheduled run; without the need of any action or initiation.
-
+    c. Once you have completed the steps to remove the restriction, Log Analytics will migrate your alerts to Azure Alerts within the next day's scheduled run without the need of any action or initiation.
 
 ## Next steps
 
