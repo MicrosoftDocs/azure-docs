@@ -21,7 +21,7 @@ This article provides an introduction to Field programmable gate arrays (FPGA) a
 
 FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects that allow the blocks to be configured in different ways after manufacturing.
 
-FPGA provides a combination of programmability and performance comparing other chips:
+FPGA provides a combination of programmability and performance comparing to other chips:
 
 ![Azure Machine Learning FPGA comparison](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
@@ -65,15 +65,15 @@ The following scenarios are two real-world Brainwave:
 
 The following is the high-level flow of creating an image recognition service using ResNet50 as a featurizer:
 
-1. ResNet50 is already deployed in Brainwave. You need to build other graphs (date input, classification, and so on) with TensorFlow, and define a pipeline (input -> featurize -> classify) using service definition json file. Compress the definition and graphs into a zip file, and upload the zip file to Azure Blob storage.
-2. Register the model using Azure ML Model Management API.
+1. ResNet50 is already deployed in Brainwave. You need to build other graphs (date input, classification, and so on) with TensorFlow, and define a pipeline (input -> featurize -> classify) using a service definition json file. Compress the definition and graphs into a zip file, and upload the zip file to Azure Blob storage.
+2. Register the model using Azure ML Model Management API with the zip file in the Blob storage.
 3. Deploy the service with the registered model using Azure ML Model Management API.
 
 For a tutorial, see [Azure ML Hardware Accelerated Models Quickstart](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/resnet50/00_QuickStart.ipynb).
 
 ## Where do I start?
 
-Azure Machine Learning Hardware Accelerated Models allow you to deploy trained Deep Neural Networks (DNN) models to FPGAs in the Azure cloud. To get started, see:
+Azure Machine Learning Hardware Accelerated Models allow you to deploy trained DNN models to FPGAs in the Azure cloud. To get started, see:
 
 - [Deploy a model as a web service on an FPGA](how-to-deploy-fpga-web-service.md)
 - [Microsoft Azure Machine Learning Hardware Accelerated Models Powered by Project Brainwave](https://github.com/azure/aml-real-time-ai).
