@@ -149,9 +149,9 @@ az storage container create --name $containerName \
     --account-key $storageAccountKey \
     --public-access off 
 
-# The storage account name must be globally unique, so add a random number to the end.
+# The Service Bus namespace must be globally unique, so add a random number to the end.
 sbNameSpace=ContosoSBNamespace$RANDOM
-echo "Service bus namespace = " $storageAccountName
+echo "Service bus namespace = " $sbNameSpace
 
 # Create the Service Bus namespace.
 az servicebus namespace create --resource-group $resourceGroup \
@@ -479,7 +479,7 @@ To see the data in a PowerBI visualization, first set up a Stream Analytics job 
 
 4. Click **Save**.
 
-5. Close the Query pane. This returns you to the resource group view. Click the Stream Analytics job. This tutorial calls it **contosoJob**.
+5. Close the Query pane. This returns you to the view of the resources in the Resource Group. Click the Stream Analytics job. This tutorial calls it **contosoJob**.
 
 ### Run the Stream Analytics job
 
