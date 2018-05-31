@@ -68,7 +68,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
      <tr>
      <td>TCP</td>
      <td>.Net SDK</td>
-     <td> Port within 10,000-20,000 range</td>
+     <td> Ports within 10,000-20,000 range</td>
      </tr>
      </table>
 
