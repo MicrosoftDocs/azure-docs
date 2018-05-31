@@ -15,5 +15,5 @@
 ## [Mount or unmount a volume for virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 ## [Manage snapshots](azure-netapp-files-manage-snapshots.md)
 
-# Moniter and troubleshoot
+# Monitor and troubleshoot
 ## [Troubleshoot SDE Resource Provider errors](azure-netapp-files-troubleshoot-sde-resource-provider-errors.md)
