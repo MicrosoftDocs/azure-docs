@@ -171,7 +171,7 @@ Here’s a way to find out using your browser of choice:
      - **An example URL**: https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
    - The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
 
-     ```
+     ```json
      {
        "authorization_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/authorize",
        "tenant_region_scope":"USG"
