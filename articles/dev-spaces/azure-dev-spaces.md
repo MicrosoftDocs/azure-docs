@@ -14,9 +14,11 @@ manager: "douge"
 # Azure Dev Spaces
 Azure Dev Spaces helps you develop with speed on Kubernetes. With Azure Dev Spaces, you also add full development capabilities such as debugging to your Azure Kubernetes containers, and you can iteratively develop containers in the cloud using familiar tools like VS Code, Visual Studio, or the command line. Azure Dev Spaces is especially relevant in team development where isolation of individual code branches in their own spaces is a critical part of the development lifecycle.
 
+[!INCLUDE[](includes/dev-spaces-preview.md)]
+
 ## How Azure Dev Spaces simplifies Kubernetes development 
 
-A _dev space_ is the complete virtual infrastructure, hosted in the Azure cloud, required to build and run your set of related web apps and services. Azure Dev Spaces deploys a controller on your cluster which can manage multiple dev spaces that your team can use for different code branches.
+A _dev space_ is the complete virtual infrastructure, hosted in an Azure Kubernetes Service (AKS) cluster, required to build and run your set of related web apps and services. Azure Dev Spaces deploys a controller on your cluster which can manage multiple dev spaces that your team can use for different code branches.
 
 This approach carries several benefits:
 
@@ -28,3 +30,7 @@ This approach carries several benefits:
 [!INCLUDE[](includes/get-started.md)]
 
 ![](media/azure-dev-spaces/vscode-overview.png)
+
+## See Also
+
+[Azure Kubernetes Service](/azure/aks)

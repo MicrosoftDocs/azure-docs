@@ -6,7 +6,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: "ghogen"
-ms.date: "05/11/2018"
+ms.date: "06/01/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
@@ -26,11 +26,13 @@ In this guide, you will learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
-- A Kubernetes cluster running Kubernetes 1.9.6, in the EastUS, WestEurope, or CanadaEast region, with **Http Application Routing** enabled.
-- [Visual Studio Code](https://code.visualstudio.com/download).
-- [.NET Core](https://www.microsoft.com/net).
+- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.9.6, in the EastUS, WestEurope, or CanadaEast region, with **Http Application Routing** enabled.
 
-## Install tools and configure a cluster
+  ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
+
+- [Visual Studio Code](https://code.visualstudio.com/download).
+
+## Set up Azure Dev Spaces
 
 1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.33 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
@@ -42,7 +44,7 @@ In this guide, you will learn how to:
 1. Download sample code from GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
 1. Change directory to the webfrontend folder: `cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
 1. Generate Docker and Helm chart assets: `azds prep --public`
-1. Build your dev space in AKS. In the terminal window, run this command from the **root code folder**, webfrontend: `azds up`
+1. Build and run your code in AKS. In the terminal window, run this command from the **root code folder**, webfrontend: `azds up`
 1. Scan the console output for information about the URL that was created by the `up` command. It will be in the form: 
 
    `Service 'webfrontend' port 'http' is available at <url>` 
