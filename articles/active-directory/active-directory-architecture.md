@@ -9,6 +9,7 @@ manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -23,18 +24,18 @@ Azure Active Directory (Azure AD) enables you to securely manage access to Azure
 With Azure AD, you can create and manage users and groups, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](https://docs.microsoft.com/azure/active-directory/fundamentals-identity).
 
 ## Azure AD architecture
-Azure AD's geographically distributed architecture combines extensive monitoring, automated rerouting, failover, and recovery capabilities enable us to deliver enterprise-level availability and performance to our customers.
+Azure AD's geographically distributed architecture combines extensive monitoring, automated rerouting, failover, and recovery capabilities, which deliver company-wide availability and performance to customers.
 
 The following architecture elements are covered in this article:
  *	Service architecture design
- *	Scalability 
+ *	Usability 
  *	Continuous availability
  *	Data centers
 
 ### Service architecture design
-The most common way to build a scalable, highly-available, data-rich system is through independent building blocks or scale units for the Azure AD data tier, scale units are called *partitions*. 
+The most common way to build an accessible and usable, data-rich system is through independent building blocks or scale units for the Azure AD data tier, scale units are called *partitions*. 
 
-The data tier has several front-end services that provide read-write capability. The diagram below shows how the components of a single-directory partition are distributed throughout geographically-distributed data centers. 
+The data tier has several front-end services that provide read-write capability. The diagram below shows how the components of a single-directory partition are delivered throughout geographically distributed data centers. 
 
   ![Single Directory Partitions](./media/active-directory-architecture/active-directory-architecture.png)
 
@@ -46,21 +47,21 @@ The *primary replica* receives all *writes* for the partition it belongs to. Any
 
 **Secondary replicas**
 
-All directory *reads* are serviced from *secondary replicas*, which are at data centers that are physically located across different geographies. There are many secondary replicas, as data is replicated asynchronously. Directory reads, such as authentication requests, are serviced from data centers that are close to our customers. The secondary replicas are responsible for read scalability.
+All directory *reads* are serviced from *secondary replicas*, which are at data centers that are physically located across different geographies. There are many secondary replicas, as data is replicated asynchronously. Directory reads, such as authentication requests, are serviced from data centers that are close to customers. The secondary replicas are responsible for read scalability.
 
 ### Scalability
 
 Scalability is the ability of a service to expand to meet increasing performance demands. Write scalability is achieved by partitioning the data. Read scalability is achieved by replicating data from one partition to multiple secondary replicas distributed throughout the world.
 
-Requests from directory applications are generally routed to the datacenter that they are physically closest to. Writes are transparently redirected to the primary replica to provide read-write consistency. Secondary replicas significantly extend the scale of partitions because the directories are typically serving reads most of the time.
+Requests from directory applications are routed to the datacenter that they are physically closest to. Writes are transparently redirected to the primary replica to provide read-write consistency. Secondary replicas significantly extend the scale of partitions because the directories are typically serving reads most of the time.
 
-Directory applications connect to the nearest datacenters. This improves performance, and therefore scaling out is possible. Since a directory partition can have many secondary replicas, secondary replicas can be placed closer to the directory clients. Only internal directory service components that are write-intensive target the active primary replica directly.
+Directory applications connect to the nearest datacenters. This connection improves performance, and therefore scaling out is possible. Since a directory partition can have many secondary replicas, secondary replicas can be placed closer to the directory clients. Only internal directory service components that are write-intensive target the active primary replica directly.
 
 ### Continuous availability
 
-Availability (or uptime) defines the ability of a system to perform uninterrupted. The key to Azure AD’s high-availability is that our services can quickly shift traffic across multiple geographically-distributed data centers. Each data center is independent, which enables de-correlated failure modes.
+Availability (or uptime) defines the ability of a system to perform uninterrupted. The key to Azure AD’s high-availability is that the services can quickly shift traffic across multiple geographically distributed data centers. Each data center is independent, which enables de-correlated failure modes.
 
-Azure AD’s partition design is simplified compared to the enterprise AD design, which is critical for scaling up the system. We adopted a single-master design that includes a carefully orchestrated and deterministic primary replica failover process.
+Azure AD’s partition design is simplified compared to the enterprise AD design, using a single-master design that includes a carefully orchestrated and deterministic primary replica failover process.
 
 **Fault tolerance**
 
@@ -70,9 +71,11 @@ Read operations (which outnumber writes by many orders of magnitude) only go to 
 
 **Data durability**
 
-A write is durably committed to at least two data centers prior to it being acknowledged. This happens by first committing the write on the primary, and then immediately replicating the write to at least one other data center. This ensures that a potential catastrophic loss of the data center hosting the primary does not result in data loss.
+A write is durably committed to at least two data centers prior to it being acknowledged. This happens by first committing the write on the primary, and then immediately replicating the write to at least one other data center. This write action ensures that a potential catastrophic loss of the data center hosting the primary does not result in data loss.
 
-Azure AD maintains a zero [Recovery Time Objective (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) for token issuance and directory reads and in the order of minutes (~5 minutes) RTO for directory writes. We also maintain zero [Recovery Point Objective (RPO)](https://en.wikipedia.org/wiki/Recovery_point_objective) and will not lose data on failovers.
+Azure AD maintains a zero [Recovery Time Objective (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) to not lose data on failovers. This includes:
+-  Token issuance and directory reads
+-  Allowing only about 5 minutes RTO for directory writes
 
 ### Data centers
 
@@ -80,13 +83,13 @@ Azure AD’s replicas are stored in datacenters located throughout the world. Fo
 
 Azure AD operates across data centers with the following characteristics:
 
- * Authentication, Graph and other AD services reside behind the Gateway service. The Gateway manages load balancing of these services. It will failover automatically if any unhealthy servers are detected using transactional health probes. Based on these health probes, the Gateway dynamically routes traffic to healthy data centers.
+ * Authentication, Graph, and other AD services reside behind the Gateway service. The Gateway manages load balancing of these services. It will fail over automatically if any unhealthy servers are detected using transactional health probes. Based on these health probes, the Gateway dynamically routes traffic to healthy data centers.
  * For *reads*, the directory has secondary replicas and corresponding front-end services in an active-active configuration operating in multiple data centers. In case of a failure of an entire data center, traffic will be automatically routed to a different datacenter.
- *	For *writes*, the directory will failover primary (master) replica across data centers via planned (new primary is synchronized to old primary) or emergency failover procedures. Data durability is achieved by replicating any commit to at least two data centers.
+ *	For *writes*, the directory will fail over primary (master) replica across data centers via planned (new primary is synchronized to old primary) or emergency failover procedures. Data durability is achieved by replicating any commit to at least two data centers.
 
 **Data consistency**
 
-The directory model is one of eventual consistency. One typical problem with distributed asynchronously replicating systems is that the data returned from a “particular” replica may not be up to date. 
+The directory model is one of eventual consistencies. One typical problem with distributed asynchronously replicating systems is that the data returned from a “particular” replica may not be up-to-date. 
 
 Azure AD provides read-write consistency for applications targeting a secondary replica by routing its writes to the primary replica, and synchronously pulling the writes back to the secondary replica.
 
@@ -98,19 +101,19 @@ Application writes using the Graph API of Azure AD are abstracted from maintaini
 
 **Backup protection**
 
-The directory implements soft deletes, instead of hard deletes, for users and tenants for easy recovery in case of accidental deletes by a customer. If your tenant administrator accidently deletes users, they can easily undo and restore the deleted users. 
+The directory implements soft deletes, instead of hard deletes, for users and tenants for easy recovery in case of accidental deletes by a customer. If your tenant administrator accidental deletes users, they can easily undo and restore the deleted users. 
 
-Azure AD implements daily backups of all data, and therefore can authoritatively restore data in case of any logical deletions or corruptions. Our data tier employs error correcting codes, so that it can check for errors and automatically correct particular types of disk errors.
+Azure AD implements daily backups of all data, and therefore can authoritatively restore data in case of any logical deletions or corruptions. The data tier employs error correcting codes, so that it can check for errors and automatically correct particular types of disk errors.
 
 **Metrics and monitors**
 
-Running a high availability service requires world-class metrics and monitoring capabilities. Azure AD continually analyzes and reports key service health metrics and success criteria for each of its services. We continuously develop and tune metrics, monitoring and alerting for each scenario, within each Azure AD service and across all services.
+Running a high availability service requires world-class metrics and monitoring capabilities. Azure AD continually analyzes and reports key service health metrics and success criteria for each of its services. There is also continuous development and tuning of metrics and monitoring and alerting for each scenario, within each Azure AD service and across all services.
 
-If any Azure AD service is not working as expected, we immediately take action to restore functionality as quickly as possible. The most important metric Azure AD tracks is how quickly we can detect and mitigate a customer or live site issue. We invest heavily in monitoring and alerts to minimize time to detect (TTD Target: <5 minutes) and operational readiness to minimize time to mitigate (TTM Target: <30 minutes).
+If any Azure AD service is not working as expected, action is immediately taken to restore functionality as quickly as possible. The most important metric Azure AD tracks is how quickly live site issues can be detected and mitigated for customers. We invest heavily in monitoring and alerts to minimize time to detect (TTD Target: <5 minutes) and operational readiness to minimize time to mitigate (TTM Target: <30 minutes).
 
 **Secure operations**
 
-We employ operational controls such as multi-factor authentication (MFA) for any operation, as well as auditing of all operations. In addition, we use a just-in-time elevation system to grant necessary temporary access for any operational task-on-demand on an ongoing basis. For more information, see [The Trusted Cloud](https://azure.microsoft.com/support/trust-center).
+Using operational controls such as multi-factor authentication (MFA) for any operation, as well as auditing of all operations. In addition, using a just-in-time elevation system to grant necessary temporary access for any operational task-on-demand on an ongoing basis. For more information, see [The Trusted Cloud](https://azure.microsoft.com/support/trust-center).
 
 ## Next steps
 [Azure Active Directory developer's guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
