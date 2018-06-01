@@ -27,7 +27,7 @@ With Azure Active Directory Identity Protection, you can:
 
 The response of the system to these issues has an impact on a user's sign-in experience because just directly signing-in by providing a user name and a password won't be possible anymore. Additional steps are required to get a user safely back into business.
 
-This topic gives you an overview of a user's sign-in experience for all cases that can occur.
+This article gives you an overview of a user's sign-in experience for all cases that can occur.
 
 **Multi-factor authentication**
 
@@ -62,7 +62,7 @@ Administrators can set a policy that requires users to set up their accounts for
     ![Remediation](./media/active-directory-identityprotection-flows/142.png "Remediation")
 
 ## Risky sign-in recovery
-When an administrator has configured a policy for sign-in risks, the affected users are notified when they try to sign-in. 
+When an administrator has configured a policy for sign-in risks, the affected users are notified when they try to sign in. 
 
 **The risky sign-in flow has two steps:** 
 
@@ -79,14 +79,14 @@ Administrators can also choose to set a Sign-In Risk policy to block users upon 
 ![Remediation](./media/active-directory-identityprotection-flows/200.png "Remediation")
 
 ## Compromised account recovery
-When a user risk security policy has been configured, users who meet the user risk level specified in the policy (and are therefore assumed compromised) must go through the user compromise recovery flow before they can sign-in. 
+When a user risk security policy has been configured, users who meet the user risk level specified in the policy (and are therefore assumed compromised) must go through the user compromise recovery flow before they can sign in. 
 
 **The user compromise recovery flow has three steps:**
 
 1. The user is informed that their account security is at risk because of suspicious activity or leaked credentials.
    
     ![Remediation](./media/active-directory-identityprotection-flows/101.png "Remediation")
-2. The user is required to prove their identity by solving a security challenge. If the user is registered for multi-factor authentication they can self-recover from being compromised. They will need to round-trip a security code to their phone number. 
+2. The user is required to prove their identity by solving a security challenge. If the user is registered for multi-factor authentication they can self-recover from being compromised. They will need to round trip a security code to their phone number. 
    
    ![Remediation](./media/active-directory-identityprotection-flows/110.png "Remediation")
 3. Finally, the user is forced to change their password since someone else may have had access to their account. 
