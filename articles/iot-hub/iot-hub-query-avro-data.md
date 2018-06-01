@@ -1,6 +1,6 @@
 ---
 title: Query Avro data using Azure Data Lake Analytics | Microsoft Docs
-description: How to query Avro data for efficiently routing messages from Azure IoT Hub to Azure services.
+description: Use message body properties to route device telemetry to blob storage and query the Avro format data written to blob storage.
 services: iot-hub
 documentationcenter: 
 author: ksaye
@@ -14,11 +14,11 @@ ms.author: Kevin.Saye
 
 # Query Avro data using Azure Data Lake Analytics
 
-This article is about how to query Avro data for efficiently routing messages from Azure IoT Hub to Azure services. Following the blog post announcement—[Azure IoT Hub message routing: now with routing on message body], IoT Hub supports routing on either properties or the message body.
+This article is about how to query Avro data for efficiently routing messages from Azure IoT Hub to Azure services. Following the blog post announcement—[Azure IoT Hub message routing: now with routing on message body], IoT Hub supports routing on either properties or the message body. See also [Routing on message bodies][Routing on message bodies]. 
 
-The challenge has been that Azure IoT Hub writes the content in Avro format, which has both message body and message properties. The Avro format is great for data/message preservation, but challenging for querying the data. In comparison, JSON or CSV format is much easier for querying data.
+The challenge has been that when Azure IoT Hub routes messages to blob storage, IoT Hub writes the content in Avro format, which has both message body and message properties. Note that IoT Hub only supports writing data to blob storage in the Avro data format, and this format is not used for any other endpoints. See [When using Azure Storage containers][Using Azure storage containers]. While the Avro format is great for data/message preservation, it's challenging for querying the data. In comparison, JSON or CSV format is much easier for querying data.
 
-To solve this, you can use many of the big data patterns for both transforming and scaling data to address non-relational big data needs and formats. One of the patterns, a “pay per query” pattern, is Azure Data Lake Analytics (ADLA). It is the focus of this article.  Though you could easily  execute the query in Hadoop or other solutions, ADLA is often better suited for this “pay per query” approach. There is an “extractor” for Avro in U-SQL. See [U-SQL Avro Example].
+To solve this, you can use many of the big data patterns for both transforming and scaling data to address non-relational big data needs and formats. One of the patterns, a “pay per query” pattern, is Azure Data Lake Analytics (ADLA). It is the focus of this article. Though you could easily execute the query in Hadoop or other solutions, ADLA is often better suited for this “pay per query” approach. There is an “extractor” for Avro in U-SQL. See [U-SQL Avro Example].
 
 ## Query and export Avro data to a CSV file
 The section walks you through querying Avro data and exporting it to a CSV file in Azure Blob Storage, though you could easily place the data in other repositories or data stores.
@@ -177,7 +177,10 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [img-query-avro-data-8]: ./media/iot-hub-query-avro-data/query-avro-data-8.png
 
 <!-- Links -->
-[Azure IoT Hub message routing: now with routing on message body]: https://azure.microsoft.com/en-us/blog/iot-hub-message-routing-now-with-routing-on-message-body/
+[Azure IoT Hub message routing: now with routing on message body]: https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/
+
+[Routing on message bodies]: iot-hub-devguide-query-language.md#routing-on-message-bodies
+[Using Azure storage containers]:iot-hub-devguide-endpoints#when-using-azure-storage-containers
 
 [U-SQL Avro Example]:https://github.com/Azure/usql/tree/master/Examples/AvroExamples
 
