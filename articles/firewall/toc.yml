@@ -13,7 +13,7 @@
 - name: Tutorials
   items:
   - name: Tutorial 1
-    href: tutorial-firewall-powershell.md
+    href: tutorial-firewall-rules-portal.md
 - name: Samples
   items:
   - name: Azure PowerShell

@@ -46,13 +46,13 @@ If you choose to install and use PowerShell locally, this tutorial requires the 
 6. Create a public IP
 7. Add routes for the 
 
-
-
 ## Create firewall
 
 Placeholder
 
-# Configure the route table
+## Configure the route table
+
+Placeholder
 
 ## Configure application rules
 
