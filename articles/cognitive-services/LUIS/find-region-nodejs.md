@@ -1,6 +1,6 @@
 ---
 title: Find LUIS region with Node.js in Language Understanding (LUIS) boundaries | Microsoft Docs
-description: Programmatically find publish region when subscription key and application ID for LUIS.
+description: Programmatically find publish region with subscription key and application ID for LUIS.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
