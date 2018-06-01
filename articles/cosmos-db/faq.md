@@ -169,6 +169,10 @@ Yes. The [Azure Cosmos DB Emulator](local-emulator.md) provides a high-fidelity 
 ### Why are long floating-point values in a document rounded when viewed from data explorer in the portal. 
 This is limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in IEEE 754 and it can safely represent numbers between -(253 - 1) and 253-1 (i.e., 9007199254740991) only.
 
+### Where is permission possible in the object hierarchy?
+ResourceTokens are applicable to Collection resources and its descendants(documents, attachments). This implies  trying to create a permission at database or account level is not valid concept today. 
+
+
 ## Develop against the API for MongoDB
 ### What is the Azure Cosmos DB API for MongoDB?
 The Azure Cosmos DB API for MongoDB is a compatibility layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine by using existing, community-supported Apache MongoDB APIs and drivers. Developers can now use existing MongoDB tool chains and skills to build applications that take advantage of Azure Cosmos DB. Developers benefit from the unique capabilities of Azure Cosmos DB, which include auto-indexing, backup maintenance, financially backed service level agreements (SLAs), and so on.
