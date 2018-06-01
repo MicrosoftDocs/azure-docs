@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -23,7 +24,7 @@ ms.reviewer: jairoc
 
 With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. 
 
-This topic:
+This article:
 
 - Assumes that you are familiar with the [introduction to device management in Azure Active Directory](device-management-introduction.md)
 
