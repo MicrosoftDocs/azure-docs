@@ -452,13 +452,13 @@ Browse to Blob storage, and then:
 2. Enter **Open Web Azure Storage Explorer** or right-click a relative path or the full path in the script editor, and then select **Open Web Azure Storage Explorer**.
 3. Select a Data Lake Analytics account.
 
-Data Lake Tools opens the Azure storage path in the Azure portal. You can find the path and preview the file from the web.
+Data Lake Tools opens the Azure Storage path in the Azure portal. You can find the path and preview the file from the web.
 
 ## Additional features
 
 Data Lake Tools for VS Code supports the following features:
 
--	**IntelliSense autocomplete**: Suggestions appear in pop-up windows around items, such as keywords, methods, and variables. Different icons represent different types of objects:
+-	**IntelliSense autocomplete**: Suggestions appear in pop-up windows around items like keywords, methods, and variables. Different icons represent different types of objects:
 
     - Scala data type
     - Complex data type
@@ -471,17 +471,17 @@ Data Lake Tools for VS Code supports the following features:
  
     ![IntelliSense object types](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-objects.png)
  
--	**IntelliSense autocomplete on Data Lake Analytics metadata**: Data Lake Tools downloads the Data Lake Analytics metadata information locally. The IntelliSense feature automatically populates objects, including the database, schema, table, view, table-valued function, procedures, and C# assemblies, from the Data Lake Analytics metadata.
+-	**IntelliSense autocomplete on Data Lake Analytics metadata**: Data Lake Tools downloads the Data Lake Analytics metadata information locally. The IntelliSense feature automatically populates objects from the Data Lake Analytics metadata. These objects include the database, schema, table, view, table-valued function, procedures, and C# assemblies.
  
     ![IntelliSense metadata](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-metastore.png)
 
--	**IntelliSense error marker**: Data Lake Tools underlines the editing errors for U-SQL and C#. 
--	**Syntax highlights**: Data Lake Tools uses colors to differentiate items, such as variables, keywords, data types, and functions. 
+-	**IntelliSense error marker**: Data Lake Tools underlines editing errors for U-SQL and C#. 
+-	**Syntax highlights**: Data Lake Tools uses colors to differentiate items like variables, keywords, data types, and functions. 
 
     ![Syntax with various colors](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
 >[!NOTE]
->We recommend that users of Azure Data Lake Tools for Visual Studio Code upgrade to version 0.2.13 or later. This version includes changes based on the most recent data protection requirements. Previous versions are not available for download and are deprecated. 
+>The General Data Protection Regulation (GDPR) went into effect on May 25, 2018. We recommend that users of Azure Data Lake Tools for Visual Studio Code upgrade to version 0.2.13 or later. This version includes changes based on the most recent data protection requirements. Previous versions are not available for download and are deprecated. 
  
    
 ## Next steps
