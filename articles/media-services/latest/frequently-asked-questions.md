@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/29/2018
 ms.author: juliako
 ---
 
@@ -35,7 +35,7 @@ The AssetFiles were removed from the AMS API in order to separate Media Services
 
 ## Where did client-side storage encryption go?
 
-We now recommend server-side storage encryption (which is on by default).
+We now recommend server-side storage encryption (which is on by default).For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
 ## What is the recommended upload method?
 
@@ -49,7 +49,9 @@ This allows you to either get a small sample of items using $top (for example, t
 
 Media Services does not support paging through the data with a user specified page size.
 
-## How to retrieve an entity based on its GUID, what used to be ID in v2?
+For more information, see [Filtering, ordering, paging](assets-concept.md#filtering-ordering-paging)
+
+## How to retrieve an entity in Media Services v3?
 
 v3 is based on a unified API surface, which exposes both management and operations functionality built on **Azure Resource Manager**. In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
 

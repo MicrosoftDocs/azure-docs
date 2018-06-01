@@ -1,4 +1,4 @@
-﻿---
+---
 title: Compare default user permissions in Azure Active Directory | Microsoft Docs
 description: Compare member, guest, app owner, and group owner permissions
 services: active-directory
@@ -6,10 +6,9 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
@@ -33,11 +32,11 @@ Default permissions for guests are restrictive by default. Guests can be added t
 **Area** | **Member user permissions** | **Guest user permissions**
 ------------ | --------- | ----------
 Users and contacts | Read all public properties of users and contacts<br>Invite guests<br>Change own password<br>Manage own mobile phone number<br>Manage own photo<br>Invalidate own refresh tokens | Read own properties<br>Read display name, email, sign-in name, photo, user principal name, and user type properties of other users and contacts<br>Change own password
-Groups   | Create security groups<br>Create Office 365 groups<br>Read all properties of groups<br>Read non-hidden group memberships<br>Read hidden Office 365 group memberships for joined group<br>Manage properties, ownership, and membership of owned groups<br>Add guests to owned groups<br>Manage dynamic membership settings<br>Delete owned groups<br>Restore owned Office 365 groups | Read all properties of groups<br>Read non-hidden group memberships<br>Read hidden Office 365 group memberships for joined groups<br>Manage owned groups<br>Add guests to owned groups (if allowed)<br>Delete owned groups<br>Restore owned Office 365 groups           
+Groups | Create security groups<br>Create Office 365 groups<br>Read all properties of groups<br>Read non-hidden group memberships<br>Read hidden Office 365 group memberships for joined group<br>Manage properties, ownership, and membership of owned groups<br>Add guests to owned groups<br>Manage dynamic membership settings<br>Delete owned groups<br>Restore owned Office 365 groups | Read all properties of groups<br>Read non-hidden group memberships<br>Read hidden Office 365 group memberships for joined groups<br>Manage owned groups<br>Add guests to owned groups (if allowed)<br>Delete owned groups<br>Restore owned Office 365 groups 
 Applications | Register (create) new application<br>Read properties of registered and enterprise applications<br>Manage application properties, assignments, and credentials for owned applications<br>Create or delete application password for user<br>Delete owned applications<br>Restore owned applications | Read properties of registered and enterprise applications<br>Manage application properties, assignments, and credentials for owned applications<br>Delete owned applications<br>Restore owned applications
 Devices | Read all properties of devices<br>Manage all properties of owned devices<br> | No permissions<br>Delete owned devices<br>
 Directory | Read all company information<br>Read all domains<br>Read all partner contracts | Read display name and verified domains
-Roles and Scopes | Read all administrative roles and memberships<br>Read all properties and membership of administrative units | No permissions              
+Roles and Scopes | Read all administrative roles and memberships<br>Read all properties and membership of administrative units | No permissions 
 Subscriptions | Read all subscriptions<br>Enable Service Plan Member | No permissions
 Policies | Read all properties of policies<br>Manage all properties of owned policy | No permissions
 

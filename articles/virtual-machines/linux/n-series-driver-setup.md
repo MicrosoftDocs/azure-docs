@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -28,7 +28,7 @@ For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM s
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## Install CUDA drivers for NC, NCv2, NCv3, and ND-series VMs
+## Install CUDA drivers on N-series VMs
 
 Here are steps to install CUDA drivers from the NVIDIA CUDA Toolkit on N-series VMs. 
 
@@ -153,7 +153,7 @@ If the driver is installed, you will see output similar to the following. Note t
 
 ## RDMA network connectivity
 
-RDMA network connectivity can be enabled on RDMA-capable N-series VMs such as NC24r deployed in the same availability set or VM scale set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI 5.x or a later version. Additional requirements follow:
+RDMA network connectivity can be enabled on RDMA-capable N-series VMs such as NC24r deployed in the same availability set or in a single placement group in a VM scale set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI 5.x or a later version. Additional requirements follow:
 
 ### Distributions
 
@@ -165,7 +165,7 @@ Deploy RDMA-capable N-series VMs from one of the images in the Azure Marketplace
 
 * **CentOS-based 7.4 HPC** - RDMA drivers and Intel MPI 5.1 are installed on the VM.
 
-## Install GRID drivers for NV-series VMs
+## Install GRID drivers on NV-series VMs
 
 To install NVIDIA GRID drivers on NV-series VMs, make an SSH connection to each VM and follow the steps for your Linux distribution. 
 
@@ -328,7 +328,7 @@ BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 |
 if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
 ```
 
-Then, create an entry for your upate script in `/etc/rc.d/rc3.d` so the script is invoked as root on boot.
+Then, create an entry for your update script in `/etc/rc.d/rc3.d` so the script is invoked as root on boot.
 
 ## Troubleshooting
 

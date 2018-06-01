@@ -119,9 +119,9 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [!div class="nextstepaction"]
 > [Learn how to add a simple entity to your app](luis-quickstart-primary-and-secondary-data.md)
 
-Add the **number** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
+Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
 
-Add the **datetimeV2** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract dates, times, and datetime ranges.
+Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract dates, times, and datetime ranges.
 
 
 <!--References-->
