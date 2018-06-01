@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 06/01/2018
 ms.author: douglasl
 
 ---
@@ -76,11 +76,11 @@ If you don't have an Azure Automation account, create one by following the instr
 
     ![Verify the required modules](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  Go to the PowerShell Gallery for the [AzureRM.DataFactoryV2 0.5.2 module](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/0.5.2), select **Deploy to Azure Automation**, select your Automation account, and then select **OK**. Go back to view **Modules** in the **SHARED RESOURCES** section on the left menu, and wait until you see the **STATUS** of the **AzureRM.DataFactoryV2 0.5.2** module change to **Available**.
+2.  Go to the PowerShell Gallery for the [AzureRM.DataFactoryV2 module](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/), select **Deploy to Azure Automation**, select your Automation account, and then select **OK**. Go back to view **Modules** in the **SHARED RESOURCES** section on the left menu, and wait until you see the **STATUS** of the **AzureRM.DataFactoryV2** module change to **Available**.
 
     ![Verify the Data Factory module](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-3.  Go to the PowerShell Gallery for the [AzureRM.Profile 4.5.0 module](https://www.powershellgallery.com/packages/AzureRM.profile/4.5.0), click on **Deploy to Azure Automation**, select your Automation account, and then select **OK**. Go back to view **Modules** in the **SHARED RESOURCES** section on the left menu, and wait until you see the **STATUS** of the **AzureRM.Profile 4.5.0** module change to **Available**.
+3.  Go to the PowerShell Gallery for the [AzureRM.Profile module](https://www.powershellgallery.com/packages/AzureRM.profile/), click on **Deploy to Azure Automation**, select your Automation account, and then select **OK**. Go back to view **Modules** in the **SHARED RESOURCES** section on the left menu, and wait until you see the **STATUS** of the **AzureRM.Profile** module change to **Available**.
 
     ![Verify the Profile module](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 

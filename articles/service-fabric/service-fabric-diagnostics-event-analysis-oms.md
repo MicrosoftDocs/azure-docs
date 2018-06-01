@@ -40,9 +40,9 @@ After data is received by Log Analytics, Azure has several *Management Solutions
 
 2. In Summary, you will see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph (first image below) to continue to the Service Fabric Analytics solution (second image below).
 
-    ![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/oms-workspace-all-solutions.png)
+    ![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new.png)
+    ![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
 The image above is the home page of the Service Fabric Analytics solution. This is a snapshot view of what's happening in your cluster. If you enabled diagnostics upon cluster creation, you can see events for 
 
