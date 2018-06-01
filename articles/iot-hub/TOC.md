@@ -218,13 +218,6 @@
 ### [Node.js](iot-hub-node-node-file-upload.md)
 ### [Python](iot-hub-python-python-file-upload.md)
 
-## Schedule and broadcast jobs
-### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
-### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
-### [.NET back end/.NET device](iot-hub-csharp-csharp-schedule-jobs.md)
-### [Java back end/Java device](iot-hub-java-java-schedule-jobs.md)
-### [Python back end/Python device](iot-hub-python-python-schedule-jobs.md)
-
 ## Create an IoT hub 
 ### [Use Azure portal](iot-hub-create-through-portal.md)
 ### [Use Azure PowerShell](iot-hub-create-using-powershell.md)

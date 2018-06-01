@@ -1,19 +1,19 @@
----
-title: Configure the Resource Owner Password Credentials flow in Azure AD B2C | Microsoft Docs
-description: Learn how to configure the Resource Owner Password Credentials flow in Azure AD B2C.
+﻿---
+title: Configure the resource owner password credentials flow in Azure Active Directory B2C | Microsoft Docs
+description: Learn how to configure the resource owner password credentials flow in Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: davidmu
-
+ms.component: B2C
 ---
-# Configure the Resource Owner Password Credentials flow in Azure AD B2C
+
+# Configure the resource owner password credentials flow (ROPC) in Azure AD B2C
 
 The Resource Owner Password Credentials flow is an OAuth standard authentication flow where the application, also known as the relying party, exchanges valid credentials such as userid and password for an ID token, access token, and a refresh token. 
 

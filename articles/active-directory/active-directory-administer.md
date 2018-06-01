@@ -8,7 +8,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: get-started-article
 ms.date: 08/23/2017
 ms.author: curtand
