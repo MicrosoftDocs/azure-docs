@@ -6,7 +6,6 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals

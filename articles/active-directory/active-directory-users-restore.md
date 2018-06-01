@@ -1,5 +1,4 @@
 ﻿---
-
 title: Restore or permanently remove a recently deleted user in Azure Active Directory | Microsoft Docs
 description: How to restore a deleted user, view restorable users, or permanently delete a user in Azure Active Directory
 services: active-directory
@@ -7,7 +6,6 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -16,14 +14,13 @@ ms.date: 05/09/2018
 ms.author: curtand                       
 ms.reviewer: jeffsta
 ms.custom: it-pro
-
 ---
 
 # Restore a deleted user in Azure Active Directory
 
 This article contains instructions to restore or permanently delete a previously deleted user. When you delete a user in the Azure Active Directory (Azure AD), the deleted user is retained for 30 days from the deletion date. During that time, the user and its properties can be restored. 
 
-> [!wARNING]
+> [!WARNING]
 > After it is permanently deleted, the user cannot be restored.
 
 
