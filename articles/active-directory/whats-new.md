@@ -11,6 +11,7 @@ featureFlags:
 
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -103,7 +104,7 @@ With the introduction of a field called **Client App** in the Sign-in activity l
 **Product capability:** GoLocal
  
 
-Customers in Europe requires their data to stay in Europe and not replicated outside of European datacenters for meeting privacy and European laws. This [article](https://go.microsoft.com/fwlink/?linkid=872328%20) provides the specific details on what identity information will be stored within Europe and also provide details on information that will be stored outside European datacenters. 
+Customers in Europe requires their data to stay in Europe and not replicated outside of European datacenters for meeting privacy and European laws. This [article](https://go.microsoft.com/fwlink/?linkid=872328) provides the specific details on what identity information will be stored within Europe and also provide details on information that will be stored outside European datacenters. 
 
  
 
@@ -694,7 +695,7 @@ For more information, see [Optional claims in Azure AD](https://docs.microsoft.c
  
 Azure AD docs have been updated to note support for PKCE, which allows for more secure communication during the OAuth 2.0 Authorization Code grant flow.  Both S256 and plaintext code_challenges are supported on the v1.0 and v2.0 endpoints. 
 
-For more information, see Request an authorization code[](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code). 
+For more information, see [Request an authorization code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code). 
 
  
 ---

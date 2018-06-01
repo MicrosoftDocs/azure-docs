@@ -1,21 +1,15 @@
 ---
 title: Understand Azure IoT Hub custom endpoints | Microsoft Docs
 description: Developer guide - using routing rules to route device-to-cloud messages to custom endpoints.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-
 ---
+
 # Use message routes and custom endpoints for device-to-cloud messages
 
 IoT Hub enables you to route [device-to-cloud messages][lnk-device-to-cloud] to IoT Hub service-facing endpoints based on message properties. Routing rules give you the flexibility to send messages where they need to go without the need for additional services or custom code. Each routing rule you configure has the following properties:

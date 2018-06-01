@@ -1,20 +1,29 @@
 ---
-title: Create a LUIS app to extract data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and a simple entity to extract machine-learned data in this quickstart. 
+title: Tutorial creating a LUIS app to extract data - Azure | Microsoft Docs 
+description: In this tutorial, learn how to create a simple LUIS app using intents and a simple entity to extract machine-learned data. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 03/29/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
-# Quickstart: Create app that uses simple entity
-In this quickstart, create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
+# Tutorial: Create app that uses simple entity
+In this tutorial, create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Understand simple entities 
+> * Create new LUIS app for the communication domain with SendMessage intent
+> * Add _None_ intent and add example utterances
+> * Add simple entity to extract message contents from utterance
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
@@ -206,7 +215,7 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to add a list entity](luis-quickstart-intent-and-list-entity.md)
+> [Learn how to add a hierarchical entity](luis-quickstart-intent-and-hier-entity.md)
 
 
 <!--References-->

@@ -3,7 +3,7 @@ title: Manage server admins in Azure Analysis Services | Microsoft Docs
 description: Learn how to manage server admins for an Analysis Services server in Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
