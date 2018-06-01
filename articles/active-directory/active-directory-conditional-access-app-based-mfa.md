@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
+ms.component: protection
 ms.topic: quickstart 
 ms.devlang: na
 ms.topic: article
