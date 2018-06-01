@@ -1,16 +1,16 @@
 ---
-title: Frequently asked questions - Azure Active Directory B2C
-description: Frequently asked questions (FAQ) about Azure Active Directory B2C
+title: Frequently asked questions for Azure Active Directory B2C | Microsoft Docs
+description: Frequently asked questions (FAQ) about Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
+ms.component: B2C
 ---
 
 # Azure AD B2C: Frequently asked questions (FAQ) 
