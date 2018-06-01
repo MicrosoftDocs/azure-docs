@@ -139,7 +139,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windo
 ```
 
 > [!NOTE]
-> This does not cause the system to reboot or cause a service interuption. It is a metadata licensing flag only.
+> Changing the license type on the VM does not cause the system to reboot or cause a service interuption. It is a metadata licensing flag only.
 >
 
 ## List all VMs with Azure Hybrid Benefit for Windows Server in a subscription
