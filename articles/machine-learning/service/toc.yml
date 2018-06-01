@@ -155,6 +155,8 @@
         href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
       - name: Build and deploy image classification models
         href: how-to-build-deploy-image-classification-models.md
+      - name: Build and deploy object detection models
+        href: how-to-build-deploy-object-detection-models.md        
       - name: Model accuracy
         href: how-to-improve-accuracy-for-computer-vision-models.md
     - name: Forecasting
