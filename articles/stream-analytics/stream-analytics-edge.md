@@ -98,14 +98,14 @@ These steps are described in the IoT Edge documentation for [Windows](https://do
 
 ####  Deployment ASA on your IoT Edge device(s)
 ##### Add ASA to your deployment
-- In the Azure portal, open IoT Hub, navigate to IoT Edge Explorer and open your device blade.
-- Select **Set modules**, then select **Import Azure Service IoT Edge Module**.
-- Select the subscription and the ASA Edge job that you created. Then select your storage account. Click Save.
+- In the Azure portal, open IoT Hub, navigate to **IoT Edge** and click on the device you want to target for this deployment.
+- Select **Set modules**, then select **+ Add** and choose **Azure Stream Analytics Module**.
+- Select the subscription and the ASA Edge job that you created. Click Save.
 ![Add ASA module in your deployment](media/stream-analytics-edge/set_module.png)
 
 
 > [!Note]
-> During this step, ASA requests access to the selected storage container, and then creates a folder named "EdgeJobs". For each  deployment, a new subfolder is created in the "EdgeJobs" folder.
+> During this step, ASA creates a folder named "EdgeJobs" in the storage container (if it does not exist already). For each  deployment, a new subfolder is created in the "EdgeJobs" folder.
 > In order to deploy your job to edge devices, ASA creates a shared access signature (SAS) for the job definition file. The SAS key is securely transmitted to the IoT Edge devices using device twin. The expiration of this key is three years from the day of its creation.
 
 
