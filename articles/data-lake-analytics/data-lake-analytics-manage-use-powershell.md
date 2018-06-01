@@ -9,7 +9,7 @@ manager: kfile
 editor: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
-ms.date: 07/23/2017
+ms.date: 06/01/2018
 ---
 
 # Manage Azure Data Lake Analytics using Azure PowerShell
@@ -19,13 +19,13 @@ This article describes how to manage Azure Data Lake Analytics accounts, data so
 
 ## Prerequisites
 
-When creating a Data Lake Analytics account, you need to know:
+To use PowerShell with Data Lake Analytics you will need need to know: 
 
 * **Subscription ID**: The Azure subscription ID under which your Data Lake Analytics account resides.
 * **Resource group**: The name of the Azure resource group that contains your Data Lake Analytics account.
-* **Data Lake Analytics account name**: The account name must only contain lowercase letters and numbers.
-* **Default Data Lake Store account**: Each Data Lake Analytics account has a default Data Lake Store account. These accounts must be in the same location.
-* **Location**: The location of your Data Lake Analytics account, such as "East US 2" or other supported locations. Supported locations can be seen on the [pricing page](https://azure.microsoft.com/pricing/details/data-lake-analytics/).
+* **Data Lake Analytics account name**: The name of your Data Lake Analytics account.
+* **Default Data Lake Store account name**: Each Data Lake Analytics account has a default Data Lake Store account.
+* **Location**: The location of your Data Lake Analytics account, such as "East US 2" or other supported locations.
 
 The PowerShell snippets in this tutorial use these variables to store this information
 
@@ -37,7 +37,9 @@ $adls = "<DataLakeStoreAccountName>"
 $location = "<Location>"
 ```
 
-## Log in using interactive authentication
+## Log in to Azure
+
+### Log in using interactive user authentication
 
 Log in using a subscription ID or by subscription name
 
@@ -59,24 +61,21 @@ Save-AzureRmProfile -Path D:\profile.json
 Select-AzureRmProfile -Path D:\profile.json 
 ```
 
-## Log in using SPIs
-
+### Log in using a Service Principle Identitiy (SPI)
 
 ```powershell
-$subname = "MySubscription" 
-$subid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
 $tenantid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
 $spi_appname = "appname" 
 $spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" 
 $spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
 
 $pscredential = New-Object System.Management.Automation.PSCredential ($spi_appid, (ConvertTo-SecureString $spi_secret -AsPlainText -Force))
-Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subname
+Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
 ```
 
 ## Manage accounts
 
-### Create a Data Lake Analytics account
+### Create an account
 
 If you don't already have a [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) to use, create one. 
 
@@ -176,7 +175,7 @@ Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "Blob"
 
 ## Submit U-SQL jobs
 
-### Submit a string as a U-SQL script
+### Submit a string as a U-SQL job
 
 ```powershell
 $script = @"
@@ -197,7 +196,7 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-### Submit a file as a U-SQL script
+### Submit a file as a U-SQL job
 
 ```powershell
 $scriptpath = "d:\test.usql"
@@ -207,7 +206,7 @@ Submit-AdlJob -AccountName $adla –ScriptPath $scriptpath -Name "Demo"
 
 ## List jobs in an account
 
-### List all the jobs in the account. 
+### List all the jobs
 
 The output includes the currently running jobs and those jobs that have recently completed.
 
@@ -393,7 +392,7 @@ Export-AdlStoreItem -AccountName $adls -Path "/" -Destination "c:\myData\" -Recu
 > [!NOTE]
 > If the upload or download process is interrupted, you can attempt to resume the process by running the cmdlet again with the ``-Resume`` flag.
 
-## Manage catalog items
+## Manage the U-SQL catalog
 
 The U-SQL catalog is used to structure data and code so they can be shared by U-SQL scripts. The catalog enables the highest performance possible with data in Azure Data Lake. For more information, see [Use U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md).
 
@@ -410,7 +409,7 @@ Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database"
 Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database.schema"
 ```
 
-### List all the assemblies in all the databases in an ADLA Account.
+### List all the assemblies the U-SQL catalog
 
 ```powershell
 $dbs = Get-AdlCatalogItem -Account $adla -ItemType Database
@@ -437,7 +436,7 @@ Get-AdlCatalogItem  -Account $adla -ItemType Table -Path "master.dbo.mytable"
 Test-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
 ```
 
-### Create credentials in a catalog
+### Store credentials in a catalog
 
 Within a U-SQL database, create a credential object for a database hosted in Azure. Currently, U-SQL credentials are the only type of catalog item that you can create through PowerShell.
 
@@ -508,7 +507,7 @@ Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $sta
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
 
-### Allow Azure IP addresses.
+### Allow Azure IP addresses
 
 ```powershell
 Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
