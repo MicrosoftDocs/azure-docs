@@ -278,6 +278,28 @@ Get-AdlJob -Account $adla -SubmittedAfter $d
 
 Using Azure PowerShell to analyze the history of jobs that have run in Data Lake analytics is a powerful technique. You can use it to gain insights into usage and cost. You can learn more by looking at the [Job History Analysis sample repo](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
+### Get job status
+
+Get the status of a specific job.
+
+```powershell
+Get-AdlJob -AccountName $adla -JobId $job.JobId
+```
+
+
+### Cancel a job
+
+```powershell
+Stop-AdlJob -Account $adla -JobID $jobID
+```
+
+### Wait for a job to finish
+
+Instead of repeating `Get-AdlAnalyticsJob` until a job finishes, you can use the `Wait-AdlJob` cmdlet to wait for the job to end.
+
+```powershell
+Wait-AdlJob -Account $adla -JobId $job.JobId
+```
 ## Get information about pipelines and recurrences
 
 Use the `Get-AdlJobPipeline` cmdlet to see the pipeline information previously submitted jobs.
@@ -295,39 +317,6 @@ $recurrences = Get-AdlJobRecurrence -Account $adla
 $recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>"
 ```
 
-## Get information about a job
-
-### Get job status
-
-Get the status of a specific job.
-
-```powershell
-Get-AdlJob -AccountName $adla -JobId $job.JobId
-```
-
-### Examine the job outputs
-
-After the job has ended, check if the output file exists by listing the files in a folder.
-
-```powershell
-Get-AdlStoreChildItem -Account $adls -Path "/"
-```
-
-## Manage running jobs
-
-### Cancel a job
-
-```powershell
-Stop-AdlJob -Account $adla -JobID $jobID
-```
-
-### Wait for a job to finish
-
-Instead of repeating `Get-AdlAnalyticsJob` until a job finishes, you can use the `Wait-AdlJob` cmdlet to wait for the job to end.
-
-```powershell
-Wait-AdlJob -Account $adla -JobId $job.JobId
-```
 
 ## Manage compute policies
 
