@@ -128,25 +128,20 @@ The sync error will be resolved after the next sync. Connect Health will no long
 
 ## FAQ
 **Q.** What happens if execution of the **Apply Fix** fails?
-
 **A.** If execution fails, it's possible that Azure AD Connect is running an export error. Refresh the portal page and retry after the next sync. The default sync cycle is 30 minutes. 
 
 
 **Q.** What if the **existing object** should be the object to be deleted?  
-
 **A.** If the **existing object** should be deleted, the process doesn't involve a change of **sourceAnchor**. Usually, you can fix it from your on-premises Azure AD. 
 
 
 **Q.** What permission does a user need to apply the fix?  
-
 **A.** In the RBAC settings, Global Administrator or Contributor has permission to access the diagnostic and troubleshooting process.
 
 
 **Q.** Do I have to configure AAD Connect or update the Azure AD Connect Health agent for this feature?  
-
 **A.** No, the diagnosis process is a complete cloud-based feature.
 
 
 **Q.** If the existing object is soft deleted, will the diagnosis process make the object active again?  
-
 **A.** No, the fix won't update object attributes other than **sourceAnchor**. 
