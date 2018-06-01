@@ -1,23 +1,23 @@
 ﻿---
-title: Create and populate an Azure Time Series Insights environment
-description: Learn how to create your own Time Series Insights environment, and populate it with data from simulated devices.
+title: Create an Azure Time Series Insights environment
+description: Learn how to create a Time Series Insights environment, populated with data from simulated devices.
 author: BryanLa
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
 ms.author: bryanla
-# Customer intent: As a data analyst or developer, I want learn how to create and populate a TSI environment, so I can use queries to understand the behavior of my devices.
+# Customer intent: As a data analyst or developer, I want learn how to create a TSI environment, so I can use TSI queries to understand device behavior.
 ---
 
-# Tutorial: Create and populate an Azure Time Series Insights environment
+# Tutorial: Create an Azure Time Series Insights environment
 
-This tutorial will guide you through the process of creating and populating your own Time Series Insight (TSI) environment. In this tutorial, you learn how to:
+This tutorial will guide you through the process of creating a Time Series Insight (TSI) environment, populated with data from simulated devices. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a device simulation to generate sample data
 > * Create a TSI environment 
+> * Create a device simulation using a solution accelerator
 > * Connect the TSI environment to the IoT hub event source
-> * Stream the sample data into the IoT hub and TSI environment
+> * Stream the simulated data into the IoT hub and TSI environment
 
 ## Prerequisites
 
@@ -33,10 +33,7 @@ Like all devices, simulated or physical, IoT Hub is the connection point used by
 
 This tutorial will use an [IoT solution accelerator](/azure/iot-accelerators/), to generate and stream sample data to IoT Hub. IoT solution accelerators provide enterprise-grade preconfigured solutions, that enable you to accelerate the development of custom IoT solutions. 
 
-### H3
-<!--
-   [![alttext](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
--->
+TODO: Diagram
 
 ## Create a TSI environment
 
@@ -46,22 +43,22 @@ First, create a TSI environment in your Azure subscription:
 2. Select **+ Create a resource** in the upper left.
 3. Select the **Internet of Things** category, then select **Time Series Insights**.
    
-   ![Select the Time Series Insights environment resource](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi.png)
+   [![Select the Time Series Insights environment resource](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi.png#lightbox)
 
 4. On the **Time Series Insights environment** panel, fill in the required parameters. Then click **Create** to begin the provisioning process:
    
    Setting|Description
    ---|---
    Environment name | Choose a unique name for the TSI environment, used by TSI Explorer and the TSI Query API.
-   Subscription | Choose a subscription to contain your TSI environment and IoT Hub.
-   Resource group | A resource group is a collection of Azure resources used together. You can choose an existing resource group, create a new one.
-   Location | Choose a data center region to contain your TSI environment and IoT Hub. To avoid added cross-region and cross-zone bandwidth costs and added latency, it's best to keep them in the same region.
+   Subscription | Subscrtiptons contain Azure resources. Choose the subscription that will contain the TSI environment.
+   Resource group | A resource group is a logical container for Azure resources. Choose an existing resource group, or create a new one, to contain the TSI environment resource.
+   Location | Choose a data center region to contain your TSI environment. To avoid added bandwidth costs and  latency, it's best to keep the TSI environment in the the same region as other IoT resources.
    Pricing SKU | Choose the throughput needed. For lowest cost and starter capacity, select S1.
    Capacity | Capacity is the multiplier applied to the ingress rate, storage capacity, and cost associated with the selected SKU.  You can change capacity of an environment after creation. For lowest cost, select a capacity of 1. 
 
    ![Create a Time Series Insights environment resource](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)
 
-5. After the deployment succeeds, you'll have a new TSI environment resource, created in the new/existing resource group you specified:  
+5. You can check the **Notifications** panel to monitor deployment completion, which should take about a minute:  
 
    ![Time Series Insights environment deployment succeeded](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)
 
@@ -69,7 +66,7 @@ First, create a TSI environment in your Azure subscription:
 
 Next, create the device simulation solution, which will generate test data to populate your TSI environment:
 
-1. Go to https://www.azureiotsolutions.com, sign-in using your Azure subscription account, and select the "Device Simulation" accelerator:
+1. Go to https://www.azureiotsolutions.com, sign in using your Azure subscription account, and select the "Device Simulation" accelerator:
 
    ![Run the Device Simulation accelerator](media/tutorial-create-populate-tsi-environment/sa-main.png)
 
@@ -77,7 +74,7 @@ Next, create the device simulation solution, which will generate test data to po
 
    Setting|Description
    ---|---
-   Solution name | Requires a unique value. This is also the name used for creation of a new resource group in your subscription. The new resource group will contain all of the Azure resources listed on the left.
+   Solution name | Requires a unique value, which is used for creation of a new resource group in your subscription. The new resource group will contain all of the Azure resources listed on the left.
    Subscription | Specify the same subscription used for creation of your TSI environment, in the previous section.
    Region | Specify the same region used for creation of your TSI environment, in the previous section. 
    Deploy optional Azure Resources | Leave **IoT Hub** checked, as the simulated devices will use it to connect/stream data.
@@ -89,17 +86,39 @@ Next, create the device simulation solution, which will generate test data to po
 3. Once provisioning has finished, the text above your new solution will change from "Provisioning..." to "Ready":
 
    >[!IMPORTANT]
-   > Don't click the **Launch** button yet! Keep this web page/tab open as we will return to it later.
+   > Don't click the **Launch** button yet! But keep this web page open as we will return to it later.
 
    ![Device simulation solution provisioning complete](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-provisioned.png)
 
-4. Now go back to the Azure portal and inspect the newly created resources. You'll notice a new resource group has been created under the **Solution name** you provided in the last step. The resource group contains all of the resources specified on the previous **Create Device Simulation solution** page:
+4. Now go back to the Azure portal and inspect the newly created resources. You'll notice a new resource group has been created under the **Solution name** you provided in the last step. The resource group contains the resources specified on the previous **Create Device Simulation solution** page. Make note of the **Name** of the IoT Hub resource generated for the solution:
 
    [![Device simulation solution resources](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
 
 ## Connect the TSI environment to the IoT hub event source
 
+At this point, you've learned how to:
+- create an empty TSI environment
+- use the IoT Device Simulation solution accelerator, to create the supporting Azure resources, including an IoT hub
 
+In order to get the device data to flow into the TSI environment, you'll need to first connect it to the IoT hub:
+
+1. Using the Azure portal, go to the **Overview** page of the resource group you created for the TSI environment. Select the TSI environment:
+
+   ![TSI environment resource group and environment](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png)
+
+2. Select **Event Sources**, click **+ Add**:
+
+   ![TSI environment resource group and environment](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png)
+
+3. On the add event source panel:
+
+   - Add a name
+   - Designate the source as ‘IoT Hub’
+   - Leave the ‘Import option,’ as is
+   - Select the subscription you used to create the Device Simulation
+   - Find the IoT Hub Consumer Group you just created from the ‘IoT Hub consumer group’ drop down list.
+   - Add ‘Timestamp’ as the ‘Timestamp property name.’  
+     - as you add your own devices, you want to update this property name to the JSON property name that your devices/gateways emit this telemetry signal.  You can always push data into Time Series Insights and look to see what the column header your timestamps show under in the ‘Events’ tab when you explore your data.
 
 ## Stream the sample data to IoT hub and into the TSI environment
 

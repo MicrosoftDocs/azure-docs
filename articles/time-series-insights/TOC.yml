@@ -14,7 +14,7 @@
   items:
   - name: Explore TSI JavaScript client library
     href: tutorial-explore-js-client-lib.md
-  - name: Create and populate a TSI environment
+  - name: Create a TSI environment
     href: tutorial-create-populate-tsi-environment.md
 - name: Concepts
   items:
