@@ -20,7 +20,7 @@ If you have the LUIS app ID and the LUIS subscription ID, you can find which reg
 Each LUIS endpoint query requires:
 
 * A subscription key
-* A app ID
+* An app ID
 * A region
 
 If the LUIS endpoint query uses the correct subscription key and app ID but the wrong region, the response code is 401. The 401 request is not counted toward the subscription quota. Turn this request into a strategy to poll all regions to find the correct region. The correct region is the only request that returns a 2xx status code. 
@@ -41,7 +41,7 @@ Add constants. Replace the variable values for `subscriptionKey` and `appId` wit
 
 [!code-javascript[Add constants](~/samples-luis/documentation-samples/find-region/nodejs/ConsoleAppLUISRegion/Program.cs?range=8-25 "Add constants")]
 
-Add `searchRegions` function to find the region. All incorrect regions return 401 which is caught and ignored.
+Add `searchRegions` function to find the region. All incorrect regions return 401, which is caught and ignored.
 
 [!code-javascript[Find region](~/samples-luis/documentation-samples/find-region/nodejs/ConsoleAppLUISRegion/Program.cs?range=27-37 "Find region")]
 
