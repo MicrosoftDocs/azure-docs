@@ -16,7 +16,7 @@ manager: "douge"
 
 In this guide, you will learn how to:
 
-- Create a Kubernetes-based environment in Azure that is optimized for development - a _dev space_.
+- Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
 - Iteratively develop code in containers using VS Code and the command line.
 - Debug code running in your cluster.
 
@@ -26,10 +26,13 @@ In this guide, you will learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-- A Kubernetes cluster running Kubernetes 1.9.6, in the EastUS or CanadaEast region, with Http Application Routing enabled.
+- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.9.6, in the EastUS or CanadaEast region, with **Http Application Routing** enabled.
+
+  ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
+
 - Visual Studio Code, which you can download [here](https://code.visualstudio.com/download).
 
-## Install tools and configure a cluster
+## Set up Azure Dev Spaces
 
 1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.33 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
