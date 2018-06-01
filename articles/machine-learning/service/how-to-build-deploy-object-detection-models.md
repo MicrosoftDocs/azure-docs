@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
-ms.date: 05/30/2018
+ms.date: 06/01/2018
 ---
 
 # Build and deploy object detection models with Azure Machine Learning
