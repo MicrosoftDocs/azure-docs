@@ -35,19 +35,19 @@ The console application takes the LUIS app ID and the subscription key and retur
 
 Include the NPM dependencies:
 
-[!code-javascript[Add the dependencies](~/samples-luis/documentation-samples/find-region/nodejs/ConsoleAppLUISRegion/Program.cs?range=5-6 "Add the dependencies")]
+[!code-javascript[Add the dependencies](~/samples-luis/documentation-samples/find-region/nodejs/index.js?range=5-6 "Add the dependencies")]
 
 Add constants. Replace the variable values for `subscriptionKey` and `appId` with your own values.  
 
-[!code-javascript[Add constants](~/samples-luis/documentation-samples/find-region/nodejs/ConsoleAppLUISRegion/Program.cs?range=8-25 "Add constants")]
+[!code-javascript[Add constants](~/samples-luis/documentation-samples/find-region/nodejs/index.js?range=8-25 "Add constants")]
 
 Add `searchRegions` function to find the region. All incorrect regions return 401, which is caught and ignored.
 
-[!code-javascript[Find region](~/samples-luis/documentation-samples/find-region/nodejs/ConsoleAppLUISRegion/Program.cs?range=27-37 "Find region")]
+[!code-javascript[Find region](~/samples-luis/documentation-samples/find-region/nodejs/index.js?range=27-37 "Find region")]
 
 Call the `searchRegions` function and return single region:
 
-[!code-javascript[Call the function](~/samples-luis/documentation-samples/find-region/nodejs/ConsoleAppLUISRegion/Program.cs?range=39-43 "Call the function")]
+[!code-javascript[Call the function](~/samples-luis/documentation-samples/find-region/nodejs/index.js?range=39-43 "Call the function")]
 
 When the application is run, the terminal shows the region for the app ID and subscription key.
 
