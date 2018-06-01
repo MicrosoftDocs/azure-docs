@@ -9,6 +9,7 @@ manager: mtillman
 
 ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,11 +20,16 @@ ms.reviewer: nigu
 
 ---
 # Enabling Azure Active Directory Identity Protection
-Azure Active Directory Identity Protection is a new capability that provides a consolidated view into suspicious sign-in activities and potential vulnerabilities and with notifications, remediation recommendations and risk-based policies helps you protect your business. 
 
-The service detects suspicious activities for end user and privileged (admin) identities based on signals like brute force attacks, leaked credentials, sign ins from unfamiliar locations, infected devices, to protect against these activities in real-time. More importantly, based on these suspicious activities, a user risk severity is computed and risk-based policies can be configured and automatically protect the identities of your organization. For more details, see [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+Azure Active Directory Identity Protection is a capability of Azure Active Directory (Azure AD). With Azure AD Identity Protection, you are able to:
 
-This topics shows how to enable Azure Active Directory Identity Protection.
+- Get a consolidated view of flagged users and risk events detected using machine learning algorithms
+- Set risk-based Conditional Access policies to automatically protect your users
+- Improve security posture by acting on vulnerabilities 
+
+For more information, see [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+
+This article shows how to enable Azure Active Directory Identity Protection.
 
 ## Steps to enable Azure Active Directory Identity Protection
 1. [Sign-on](https://ms.portal.azure.com/) to your Azure portal as global administrator. 
