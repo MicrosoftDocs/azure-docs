@@ -11,7 +11,7 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: curtand                       
+ms.author: curtand 
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
 ---
@@ -25,7 +25,7 @@ When you delete an Office 365 group in the Azure Active Directory (Azure AD), th
 
 The permissions required to restore a group can be any of the following:
 
-Role  | Permissions 
+Role | Permissions 
 --------- | ---------
 Company Administrator, Partner Tier2 support, and InTune Service Admins | Can restore any deleted Office 365 group 
 User Account Administrator and Partner Tier1 support | Can restore any deleted Office 365 group except those assigned to the Company Administrator role 
@@ -36,14 +36,14 @@ User | Can restore any deleted Office 365 group that they owned
 The following cmdlets can be used to view the deleted groups to verify that the one or ones you're interested in have not yet been permanently purged. These cmdlets are part of the [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/). More information about this module can be found in the [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0) article.
 
 1.	Run the following cmdlet to display all deleted Office 365 groups in your tenant that are still available to restore.
-  ```
-  Get-AzureADMSDeletedGroup
-  ```
+ ```
+ Get-AzureADMSDeletedGroup
+ ```
 
 2.	Alternately, if you know the objectID of a specific group (and you can get it from the cmdlet in step 1), run the following cmdlet to verify that the specific deleted group has not yet been permanently purged.
-  ```
-  Get-AzureADMSDeletedGroup –Id <objectId>
-  ```
+ ```
+ Get-AzureADMSDeletedGroup –Id <objectId>
+ ```
 
 
 
@@ -51,15 +51,15 @@ The following cmdlets can be used to view the deleted groups to verify that the 
 Once you have verified that the group is still available to restore, restore the deleted group with one of the following steps. If the group contains documents, SP sites, or other persistent objects, it might take up to 24 hours to fully restore a group and its contents.
 
 1.	Run the following cmdlet to restore the group and its contents.
-  
-  ```
-  Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
-  ``` 
+ 
+ ```
+ Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
+ ``` 
 
 Alternatively, the following cmdlet can be run to permanently remove the deleted group.
-  ```
-  Remove-AzureADMSDeletedDirectoryObject –Id <objectId>
-  ```
+ ```
+ Remove-AzureADMSDeletedDirectoryObject –Id <objectId>
+ ```
 
 ## How do you know this worked?
 To verify that you’ve successfully restored an Office 365 group, run the `Get-AzureADGroup –ObjectId <objectId>` cmdlet to display information about the group. After the restore request is completed:

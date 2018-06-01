@@ -11,7 +11,7 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: curtand                       
+ms.author: curtand 
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ---
@@ -22,7 +22,6 @@ This article contains instructions to restore or permanently delete a previously
 
 > [!WARNING]
 > After it is permanently deleted, the user cannot be restored.
-
 
 ## How to restore a recently deleted user
 When a user is recently deleted, all directory information is preserved. If the user is restored, that information is restored as well.
@@ -40,7 +39,7 @@ When a user is recently deleted, all directory information is preserved. If the 
 ## Required permissions
 The following permissions are sufficient to restore a user.
 
-Role  | Permissions 
+Role | Permissions 
 --------- | ---------
 Company Administrator<p>Partner Tier1 Support<p>Partner Tier2 Support<p>User Account Administrator | Can restore deleted users 
 Company Administrator<p>Partner Tier1 Support<p>Partner Tier2 Support<p>User Account Administrator | Can permanently delete users
