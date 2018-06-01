@@ -1,4 +1,4 @@
-﻿---
+---
 title: Compare default user permissions in Azure Active Directory | Microsoft Docs
 description: Compare member, guest, app owner, and group owner permissions
 services: active-directory
