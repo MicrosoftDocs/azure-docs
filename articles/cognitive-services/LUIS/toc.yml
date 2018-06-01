@@ -223,6 +223,8 @@
     items: 
     - name: using C#
       href: find-region-csharp.md
+    - name: using Node.js
+      href: find-region-nodejs.md
 - name: Reference
   items: 
   - name: User privacy
