@@ -148,10 +148,9 @@ The section walks you through querying Avro data and exporting it to a CSV file 
         	FROM @jsonify;
         	
         OUTPUT @cnt TO @output_file USING Outputters.Text();
-    ```  
-            
-    
-    Viewing the output, you now see columns for each item in the select command. 
+    ```
+
+9. Viewing the output, you now see columns for each item in the select command. 
     
     ![Screen capture for step 8][img-query-avro-data-8]
 
