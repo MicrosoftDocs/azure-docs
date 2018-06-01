@@ -25,7 +25,7 @@ With Azure Active Directory Identity Protection, you can:
 * require users to register for multi-factor authentication
 * handle risky sign-ins and compromised users
 
-The response of the system to these issues has an impact on a user's sign-in experience because just directly signing-in by providing a user name and a password won't be possible anymore. Additional steps are required to get a user safely back into business.
+The response of the system to these issues has an impact on a user's sign-in experience because directly signing-in by providing a user name and a password won't be possible anymore. Additional steps are required to get a user safely back into business.
 
 This article gives you an overview of a user's sign-in experience for all cases that can occur.
 
@@ -54,7 +54,7 @@ Administrators can set a policy that requires users to set up their accounts for
 1. In the first step, the user gets a notification about the requirement to set the account up for multi-factor authentication. 
    
     ![Remediation](./media/active-directory-identityprotection-flows/140.png "Remediation")
-2. To set multi-factor authentication up, you need to let the system know how you want to be contacted.
+2. To set up multi-factor authentication, you need to let the system know how you want to be contacted.
    
     ![Remediation](./media/active-directory-identityprotection-flows/141.png "Remediation")
 3. The system submits a challenge to you and you need to respond.
