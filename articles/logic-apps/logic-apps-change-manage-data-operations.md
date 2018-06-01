@@ -7,7 +7,7 @@ author: ecfan
 manager: cfowler
 ms.author: estfan
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/03/2018
 ms.service: logic-apps
 
 # optional metadata
@@ -15,11 +15,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Change or manage data outputs and formats in Azure Logic Apps
+# Change or manage data, outputs, and formats in Azure Logic Apps
 
 This article shows how you can work with the data 
 outputs from triggers and actions in your logic apps 
-by using these built-in data operation actions:
+by using these built-in data operations:
 
 | Action | Description | 
 |--------|-------------| 
@@ -37,7 +37,9 @@ If you don't have an Azure subscription yet,
 
 ## Prerequisites
 
-* The logic app where you're changing or managing data 
+To follow this article, you need these items:
+
+* The logic app where you need the operation for working with data 
 
   If you're new to logic apps, review 
   [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
@@ -48,20 +50,15 @@ as the first step in your logic app
 
   Data operations are currently available only as actions. 
   Before you can use these actions, your logic app 
-  must start with a trigger and have any actions 
-  that create the outputs you're working on.
-
-All the examples in this article use the Recurrence trigger.....
-
-
-## Create tables from output
+  must start with a trigger and include any other actions 
+  required for creating the outputs you're working on.
 
 <a name="create-csv-table"></a>
 
-### Create CSV table from array
+## Create CSV table from array
 
-1. In the Azure portal or Visual Studio, 
-open your logic app in Logic App Designer. 
+1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+or Visual Studio, open your logic app in Logic App Designer. 
 
    This example uses the Azure portal and a 
    logic app that already has a trigger.
@@ -87,8 +84,6 @@ source for the CSV table.
 
    To manually create columns and column headers from the properties 
    in the JSON content, choose **Show advanced options**.
-
-Now, 
 
 If you switch from the designer to the code view editor, 
 this example shows the way this action appears in your logic app definition. 
