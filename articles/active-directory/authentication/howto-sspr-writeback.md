@@ -16,9 +16,7 @@ ms.reviewer: sahenry
 ---
 # How-to: Configure password writeback
 
-We recommend that you use the auto-update feature of [Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md) if you want to use password writeback.
-
-DirSync and Azure AD Sync are no longer supported as a way to enable password writeback. For more information to help with your transition, see [Upgrade from DirSync and Azure AD Sync](../connect/active-directory-aadconnect-dirsync-deprecated.md).
+We recommend that you use the auto-update feature of [Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md) when using password writeback.
 
 The following steps assume you have already configured Azure AD Connect in your environment by using the [Express](./../connect/active-directory-aadconnect-get-started-express.md) or [Custom](./../connect/active-directory-aadconnect-get-started-custom.md) settings.
 
@@ -40,7 +38,7 @@ The account specified in the Azure AD Connect utility must have the following it
 
 * **Reset password** 
 * **Change password** 
-* **Write permissions** on `lockoutTime`  
+* **Write permissions** on `lockoutTime`
 * **Write permissions** on `pwdLastSet`
 * **Extended rights** on either:
    * The root object of *each domain* in that forest
@@ -73,19 +71,8 @@ To set up the appropriate permissions for password writeback to occur, complete 
     * **Write pwdLastSet**
 8. Select **Apply/OK** to apply the changes and exit any open dialog boxes.
 
-
 ## Next steps
 
-* [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../active-directory-passwords-update-your-own-password.md).
-* [Register for self-service password reset](../active-directory-passwords-reset-register.md).
-* [Do you have a licensing question?](concept-sspr-licensing.md)
-* [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
-* [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
-* [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [How do I report on activity in SSPR?](howto-sspr-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
-* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+[What is password writeback?](concept-sspr-writeback.md)
 
 [Writeback]: ./media/howto-sspr-writeback/enablepasswordwriteback.png "Enable password writeback in Azure AD Connect"

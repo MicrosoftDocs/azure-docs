@@ -1,12 +1,12 @@
 ---
-title: License self-service password reset - Azure Active Directory
+title: License Azure Active Directory self-service password 
 description: Azure AD self-service password reset licensing requirements
 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 05/31/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -20,22 +20,6 @@ In order for Azure Active Directory (Azure AD) password reset to function, you *
 
 * **Cloud-only users**: Office 365 any paid SKU, or Azure AD Basic
 * **Cloud** or **on-premises users**: Azure AD Premium P1 or P2, Enterprise Mobility + Security (EMS), or Microsoft 365
-
-## Licenses required for password writeback
-
-To use password writeback, you must have one of the following licenses assigned on your tenant:
-
-* Azure AD Premium P1
-* Azure AD Premium P2
-* Enterprise Mobility + Security E3
-* Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
-* Microsoft 365 F1
-
-> [!WARNING]
-> Standalone Office 365 licensing plans *don't support password writeback* and require that you have one of the preceding plans for this functionality to work.
->
 
 Additional licensing information, including costs, can be found on the following pages:
 
