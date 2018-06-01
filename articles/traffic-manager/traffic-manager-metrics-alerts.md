@@ -30,8 +30,13 @@ Use [this metric](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
 In the example below, Figure 1 displays all the query responses that were returned by the Traffic Manager profile. Figure 2 displays the same information, however, it is split by endpoints. As a result, you can see the volume of query responses in which a specific endpoint was returned.
 
-  <Figure 1: Aggregate view with all queries>
-  <Figure 2: Split view with query volume shown per endpoint returned>
+  
+![Traffic Manager metrics - aggregate view of all queries](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
+*Figure 1: Aggregate view with all queries*
+  
+
+![Traffic Manager metrics - split view of query volume per endpoint](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
+*Figure 2: Split view with query volume shown per endpoint returned*
 
 ## Endpoint status by endpoint
 Use [this metric](../monitoring-and-diagnostics/monitoring-supported-metrics.md) to understand the health status of the endpoints in the profile. It takes two values:
@@ -40,13 +45,20 @@ Use [this metric](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
 This metric can be shown either as an aggregate value representing the status of all the metrics, or, it can be split (see Figure 4) to show the status of specific endpoints. In the case of the former, if the aggregation level is selected as **Avg**, the value of the this metric is the arithmetic average of the status of all endpoints. For example, if a profile has two endpoints and only one is healthy, this metric will have a value of **0.50** as shown in Figure 3. 
 
-<Figure 3: Composite view of endpoint status metric – “Avg” aggregation selected>
-<Figure 4: Figure 4: Split view of endpoint status metric  >
+
+![Traffic Manager metrics - composite view of endpoint status](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
+
+*Figure 3: Composite view of endpoint status metric – “Avg” aggregation selected*
+
+
+![Traffic Manager metrics - split view of  endpoint status](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
+
+*Figure 4: Split view of endpoint status metrics*
 
 You can consume these metrics through [Azure Monitor service](../monitoring-and-diagnostics/monitoring-supported-metrics.md)’s portal, [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), and [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), or through the metrics section of Traffic Manager’s portal experience.
 
 ## Alerts on Traffic Manager metrics
-In addition to processing and displaying metrics from Traffic Manager, Azure Monitor enables customers to configure and receive alerts associated with these metrics. You can choose what conditions need to be met in these metrics for an alert to occur, how often those conditions need to be monitored, and how the alerts should be sent to you. For more information, refer to [Azure Monitor alerts documentation](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+In addition to processing and displaying metrics from Traffic Manager, Azure Monitor enables customers to configure and receive alerts associated with these metrics. You can choose what conditions need to be met in these metrics for an alert to occur, how often those conditions need to be monitored, and how the alerts should be sent to you. For more information, see [Azure Monitor alerts documentation](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
-##Next steps
+## Next steps
 - Learn more about [Azure Monitor service](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
