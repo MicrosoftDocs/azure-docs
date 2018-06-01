@@ -1,4 +1,4 @@
-- name: Azure billing and cost management documentation
+- name: Azure billing + cost management documentation
   href: index.md
 - name: Understand Azure billing
   expanded: true
