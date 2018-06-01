@@ -1,14 +1,4 @@
 ---
-ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
-ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: quickstart
-ms.custom: mvc
-ms.date: 1/12/2018
-ms.author: LADocs; estfan
-
 # required metadata
 title: Create and automate your first workflow - Azure Logic Apps | Microsoft Docs
 description: Quickstart for how to create your first logic app that automates tasks, processes, and workflows with Azure Logic Apps. Create logic apps for system integration and enterprise application integration (EAI) solutions for your systems & cloud services
