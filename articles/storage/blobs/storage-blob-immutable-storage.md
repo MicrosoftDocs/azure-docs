@@ -15,17 +15,17 @@ ms.author: sangsinh
 
 ## Overview
 
-The Immutable Storage feature for Azure Blobs feature allows users to store business-critical data in Azure blob storage in a WORM (Write Once Read Many) state that makes it non-erasable, and non-modifiable for a user-specified interval of time. Blobs can be created and read, but not modified or deleted for the duration of the retention interval. This feature enables organizations in many regulated industries, particularly broker-dealer organizations to store data in a manner compliant with SEC 17a-4(f) and other regulations.
+The Immutable Storage feature for Azure Blobs feature allows users to store business-critical data in Azure blob storage in a WORM (Write Once Read Many) state. This state makes it non-erasable, and non-modifiable for a user-specified interval of time. Blobs can be created and read, but not modified or deleted for the duration of the retention interval. This feature enables organizations in many regulated industries, particularly broker-dealer organizations to store data in a manner compliant with SEC 17a-4(f) and other regulations.
 
 Typical applications include:
 
-- **Regulatory compliance**: The Immutable storage for Azure Blobs feature is designed to help financial institutions and related industries address SEC 17a-4(f), CFTC 1.31©-(d), FINRA etc. A technical whitepaper with details on how the feature addresses these regulatory requirements will soon be available for download from the [Azure Trust Center](https://www.microsoft.com/en-us/trustcenter/compliance)
+- **Regulatory compliance**: The Immutable storage for Azure Blobs feature is designed to help financial institutions and related industries address SEC 17a-4(f), CFTC 1.31©-(d), FINRA etc. A technical whitepaper with details on how the feature addresses these regulatory requirements will soon be available for download from the [Azure Trust Center](https://www.microsoft.com/en-us/trustcenter/compliance).
 
 - **Secure document retention**: Users receive maximum data protection as the Blob storage service ensures that data cannot be modified or deleted by any user including those with account administrative privileges.
 
 - **Legal hold**: The Immutable Storage for Azure blobs enables users to store sensitive information critical to a litigation or criminal investigation etc. in a tamper-proof state for the desired duration.
 
-The Immutable  Storage feature enables:
+The immutable storage feature enables:
 
 - **Time-based retention policy support:** Users set policies to store data for a specified interval of time.
 
@@ -124,9 +124,10 @@ Click on Lock Policy and the policy state will now show as locked. Once locked, 
 
 ### CLI 2.0
 
- Install the [CLI extension](http://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  with `az extension add -n storage-preview`
+Install the [CLI extension](http://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  with `az extension add -n storage-preview`
 
 If you already have the extension installed, use the following command to enable the Immutable Storage feature: `az extension update -n storage-preview`
+
 The feature is included in the following command groups (run “-h” on them to see the commands):
 `az storage container immutability-policy`  and `az storage container legal-hold`.
 
