@@ -232,7 +232,6 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     $null = [System.Reflection.Assembly]::LoadFrom($adal)
     $null = [System.Reflection.Assembly]::LoadFrom($adalforms)
      
-    
     $global:SubscriptionID = $Subscription.SubscriptionId
     # Set Resource URI to Azure Service Management API
     $resourceAppIdURIARM=$ARMResource;
@@ -263,8 +262,6 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     break
     }
     
-    
-    
     Function Connection-API
     {
     $authHeader = $global:authResultARM.CreateAuthorizationHeader()
@@ -275,7 +272,6 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     $connectionAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/connections/office365connection_' + $SubscriptionId + $OfficeTennantId + '?api-version=2017-04-26-preview'
     $connectionAPIUrl
     $line
-    
     
     $xms_client_tenant_Id ='1da8f770-27f4-4351-8cb3-43ee54f14759'
     
