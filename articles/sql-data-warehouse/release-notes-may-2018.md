@@ -7,7 +7,7 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/25/2018
+ms.date: 05/28/2018
 ms.author: twounder
 ms.reviewer: twounder
 ---
@@ -57,13 +57,24 @@ ALTER VIEW test_view AS SELECT 1 [data];
 
 The following example shows concatenating a set of int values with a comma.
 ```sql
-SELECT CONCAT_WS(',', 1, 2, 3);
+SELECT CONCAT_WS(',', 1, 2, 3) [result];
+```
+The statement returns the following result:
+```
+result
+---------
+1,2,3
 ```
 The following example shows concatenating a set of mixed data type values with a comma.
 ```sql
-SELECT CONCAT_WS(',', 1, 2, 'String', GETDATE())
+SELECT CONCAT_WS(',', 1, 2, 'String', NEWID()) [result]
 ```
-
+The statement returns the following result:
+```
+result
+---------
+1,2,String,26E1F74D-5746-44DC-B47F-2FC1DA1B6E49
+```
 ### SP_DATATYPE_INFO
 The [sp_datatype_info](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-datatype-info-transact-sql) system stored procedure returns information about the data types supported by the current environment. It is commonly used by tools connecting through ODBC connections for data type investigation.
 
