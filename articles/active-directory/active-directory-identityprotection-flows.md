@@ -69,7 +69,7 @@ When an administrator has configured a policy for sign-in risks, the affected us
 1. The user is informed that something unusual was detected about their sign-in, such as signing in from a new location, device, or app. 
    
     ![Remediation](./media/active-directory-identityprotection-flows/120.png "Remediation")
-2. The user is required to prove their identity by solving a security challenge. If the user is registered for multi-factor authentication they need to round-trip a security code to their phone number. Since this is a just a risky sign in and not a compromised account, the user won’t have to change the password in this flow. 
+2. The user is required to prove their identity by solving a security challenge. If the user is registered for multi-factor authentication they need to round trip a security code to their phone number. Since this is just a risky sign in and not a compromised account, the user won’t have to change the password in this flow. 
    
     ![Remediation](./media/active-directory-identityprotection-flows/121.png "Remediation")
 
