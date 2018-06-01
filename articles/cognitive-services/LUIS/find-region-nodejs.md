@@ -54,3 +54,6 @@ When the application is run, the terminal shows the region for the app ID and su
 ![Screenshot of console app showing LUIS region](./media/find-region-csharp/console.png)
 
 
+## Next steps
+
+Learn more about LUIS [regions](luis-reference-regions.md).
