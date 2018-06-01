@@ -35,7 +35,7 @@ This tutorial will use an [IoT solution accelerator](/azure/iot-accelerators/), 
 
 ### H3
 <!--
-   [![TSI Client Sample with DevTools](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
+   [![alttext](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
 -->
 
 ## Create a TSI environment
@@ -73,11 +73,20 @@ Next, create the device simulation solution, which will generate test data to po
 
    ![Run the Device Simulation accelerator](media/tutorial-create-populate-tsi-environment/sa-main.png)
 
-2. Enter the required parameters on the **Create Device Simulation solution** page. When finished, click **Create Solution** to provision the solution's Azure resources.
+2. Enter the required parameters on the **Create Device Simulation solution** page. 
+
+   Setting|Description
+   ---|---
+   Solution name | Requires a unique value. This is also the name used for creation of a new resource group in your subscription. The new resource group will contain all of the Azure resources listed on the left.
+   Subscription | Specify the same subscription used for creation of your TSI environment, in the previous section.
+   Region | Specify the same region used for creation of your TSI environment, in the previous section. 
+   Deploy optional Azure Resources | Leave **IoT Hub** checked, as the simulated devices will use it to connect/stream data.
+
+   When finished, click **Create Solution** to provision the solution, which will take a few minutes to complete. The new resource group and all of the Azure resources listed will be created for you, in the subscription you specified.
 
    ![Provision the device simulation solution](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)
 
-3. Provisioning will take a few minutes to complete. Once finished, the text above your new solution will change from "Provisioning..." to "Ready":
+3. Once provisioning has finished, the text above your new solution will change from "Provisioning..." to "Ready":
 
    >[!IMPORTANT]
    > Don't click the **Launch** button yet! Keep this web page/tab open as we will return to it later.
@@ -86,11 +95,7 @@ Next, create the device simulation solution, which will generate test data to po
 
 4. Now go back to the Azure portal and inspect the newly created resources. You'll notice a new resource group has been created under the **Solution name** you provided in the last step. The resource group contains all of the resources specified on the previous **Create Device Simulation solution** page:
 
-   ![Device simulation solution resources](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)
-
-
-
-
+   [![Device simulation solution resources](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
 
 ## Connect the TSI environment to the IoT hub event source
 
