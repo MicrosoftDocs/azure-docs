@@ -19,8 +19,7 @@ Learn how to use Visual Studio to create Azure Data Lake Analytics accounts, def
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 >[!IMPORTANT]
->
->In preparation for the new General Data Protection Regulation (GDPR) going into effect on May 25, 2018, it is recommended that users of Azure Data Lake Tools for Visual Studio upgrade to version 2.3.3000.4 or later. This version includes changes based on the most recent data protection requirements. Note that previous versions are not available for download and are deprecated. 
+> Microsoft recommends you upgrade to Azure Data Lake Tools for Visual Studio version 2.3.3000.4 or later. The previous versions are no longer available for download and are now deprecated. 
 >
 >**What do I need to do?**
 >
