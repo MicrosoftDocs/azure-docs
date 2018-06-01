@@ -28,12 +28,13 @@ Traffic Manager provides the following metrics on a per profile basis which can 
 ### Queries by endpoint returned
 Use [this metric](../monitoring-and-diagnostics/monitoring-supported-metrics.md) to view the number of queries that were processed by a Traffic Manager profile over a specified period. You can also view the same information at an endpoint level granularity that helps you understand how many times an endpoint was returned in the query responses from Traffic Manager.
 
-In the example below, Figure 1 displays all the query responses that were returned by the Traffic Manager profile. Figure 2 displays the same information, however, it is split by endpoints. As a result, you can see the volume of query responses in which a specific endpoint was returned.
+In the example below, Figure 1 displays all the query responses that were returned by the Traffic Manager profile. 
 
   
 ![Traffic Manager metrics - aggregate view of all queries](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 *Figure 1: Aggregate view with all queries*
   
+Figure 2 displays the same information, however, it is split by endpoints. As a result, you can see the volume of query responses in which a specific endpoint was returned.
 
 ![Traffic Manager metrics - split view of query volume per endpoint](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 *Figure 2: Split view with query volume shown per endpoint returned*
@@ -43,7 +44,7 @@ Use [this metric](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
  - use **1** , if the endpoint is up.
  - use **0** if the endpoint is down.
 
-This metric can be shown either as an aggregate value representing the status of all the metrics, or, it can be split (see Figure 4) to show the status of specific endpoints. In the case of the former, if the aggregation level is selected as **Avg**, the value of the this metric is the arithmetic average of the status of all endpoints. For example, if a profile has two endpoints and only one is healthy, this metric will have a value of **0.50** as shown in Figure 3. 
+This metric can be shown either as an aggregate value representing the status of all the metrics (Figure 3), or, it can be split (see Figure 4) to show the status of specific endpoints. In the case of the former, if the aggregation level is selected as **Avg**, the value of the this metric is the arithmetic average of the status of all endpoints. For example, if a profile has two endpoints and only one is healthy, this metric will have a value of **0.50** as shown in Figure 3. 
 
 
 ![Traffic Manager metrics - composite view of endpoint status](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
