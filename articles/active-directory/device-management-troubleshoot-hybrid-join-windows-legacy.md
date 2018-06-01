@@ -51,7 +51,7 @@ This article provides you with troubleshooting guidance on how to resolve potent
 
 - The initial registration / join of devices is configured to perform an attempt at either logon or lock / unlock. There could be 5-minute delay triggered by a task scheduler task. 
 
-- Reinstalling the operating system or manual re-registrations may create a new registration on Azure AD, which results in multiple entries under the USER info tab in the Azure portal. 
+- A reinstallation of the operating system or manual re-registration may create a new registration in Azure AD, which results in multiple entries under the USER info tab in the Azure portal. 
 
 ## Step 1: Retrieve the registration status 
 
