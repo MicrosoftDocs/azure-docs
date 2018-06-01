@@ -1,48 +1,43 @@
 ---
-title: Query Avro data from an Azure IoT Hub route | Microsoft Docs
-description: how to efficiently route data from Azure IoT Hub to Azure services.
+title: Query Avro data using Azure Data Lake Analytics | Microsoft Docs
+description: How to query Avro data for efficiently routing messages from Azure IoT Hub to Azure services.
 services: iot-hub
 documentationcenter: 
-author: v-clay
-manager: Olivier.Bloch
-editor: ''
-
+author: ksaye
+manager: obloch
 ms.service: iot-hub 
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/29/2018
-ms.author: Kevin.Saye; v-clay
+ms.author: Kevin.Saye
 
 ---
 
-# Query Avro data from an Azure IoT Hub route
+# Query Avro data using Azure Data Lake Analytics
 
-This article is about how to efficiently route data from Azure IoT Hub to Azure services.  Following the blog post announcement—[Azure IoT Hub message routing: now with routing on message body], IoT Hub supports routing on either properties or the message body.
+This article is about how to query Avro data for efficiently routing messages from Azure IoT Hub to Azure services. Following the blog post announcement—[Azure IoT Hub message routing: now with routing on message body], IoT Hub supports routing on either properties or the message body.
 
 The challenge has been that Azure IoT Hub writes the content in Avro format, which has both message body and message properties. The Avro format is great for data/message preservation, but challenging for querying the data. In comparison, JSON or CSV format is much easier for querying data.
 
 To solve this, you can use many of the big data patterns for both transforming and scaling data to address non-relational big data needs and formats. One of the patterns, a “pay per query” pattern, is Azure Data Lake Analytics (ADLA). It is the focus of this article.  Though you could easily  execute the query in Hadoop or other solutions, ADLA is often better suited for this “pay per query” approach. There is an “extractor” for Avro in U-SQL. See [U-SQL Avro Example].
 
 ## Query and export Avro data to a CSV file
-The section walks you through querying Avro data and exporting it to a CSV file, though you could easily place the data in other repositories or data stores.
+The section walks you through querying Avro data and exporting it to a CSV file in Azure Blob Storage, though you could easily place the data in other repositories or data stores.
 
-1. Set up Azure IoT Hub to route data to an Azure Blob Storage endpoint.
+1. Set up Azure IoT Hub to route data to an Azure Blob Storage endpoint using a property in the message body to select messages.
 
     ![Screen capture for step 1a][img-query-avro-data-1a]
 
     ![Screen capture for step 1b][img-query-avro-data-1b]
 
-2. Ensure your device has the encoding, the content type, and the needed data in either the properties or the message body as referenced in the product documentation.  When viewed in Device Explorer (see below), you can verify that these attributes are set correctly.
+2. Ensure your device has the encoding, the content type, and the needed data in either the properties or the message body as referenced in the product documentation. When viewed in Device Explorer (see below), you can verify that these attributes are set correctly.
 
     ![Screen capture for step 2][img-query-avro-data-2]
-
 
 3. Set up an Azure Data Lake Store (ADLS) and an Azure Data Lake Analytics instance. While Azure IoT Hub does not route to an Azure Data Lake Store, ADLA requires one.
 
     ![Screen capture for step 3][img-query-avro-data-3]
 
-4. In ADLA, configure the Azure Blob storage as an additional store, the same Blob Storage that Azure IoT Hub routes data to.
+4. In ADLA, configure the Azure Blob Storage as an additional store, the same Blob Storage that Azure IoT Hub routes data to.
 
     ![Screen capture for step 4][img-query-avro-data-4]
  
@@ -54,90 +49,114 @@ The section walks you through querying Avro data and exporting it to a CSV file,
  
     ![Screen capture for step 6][img-query-avro-data-6]
 
-7. Copy and paste the following code. Modify these 3 sections for your ADLA account, the associated DLLs' path, and the correct path for your Storage Account.
+7. Copy the content of the following script and paste it into the newly created file. Modify the 3 highlighted sections: your ADLA account, the associated DLLs' paths, and the correct path for your Storage Account.
     
     ![Screen capture for step 7a][img-query-avro-data-7a]
+
+    The actual U-SQL script for simple output to CSV:
+    
+    ```sql
+        DROP ASSEMBLY IF EXISTS [Avro];
+        CREATE ASSEMBLY [Avro] FROM @"/Assemblies/Avro/Avro.dll";
+        DROP ASSEMBLY IF EXISTS [Microsoft.Analytics.Samples.Formats];
+        CREATE ASSEMBLY [Microsoft.Analytics.Samples.Formats] FROM @"/Assemblies/Avro/Microsoft.Analytics.Samples.Formats.dll";
+        DROP ASSEMBLY IF EXISTS [Newtonsoft.Json];
+        CREATE ASSEMBLY [Newtonsoft.Json] FROM @"/Assemblies/Avro/Newtonsoft.Json.dll";
+        DROP ASSEMBLY IF EXISTS [log4net];
+        CREATE ASSEMBLY [log4net] FROM @"/Assemblies/Avro/log4net.dll";
+
+        REFERENCE ASSEMBLY [Newtonsoft.Json];
+        REFERENCE ASSEMBLY [log4net];
+        REFERENCE ASSEMBLY [Avro];
+        REFERENCE ASSEMBLY [Microsoft.Analytics.Samples.Formats];
+
+        // Blob container storage account filenames, with any path
+        DECLARE @input_file string = @"wasb://hottubrawdata@kevinsayazstorage/kevinsayIoT/{*}/{*}/{*}/{*}/{*}/{*}";
+        DECLARE @output_file string = @"/output/output.csv";
+
+        @rs =
+        EXTRACT
+        EnqueuedTimeUtc string,
+        Body byte[]
+        FROM @input_file
+
+        USING new Microsoft.Analytics.Samples.Formats.ApacheAvro.AvroExtractor(@"
+        {
+        ""type"":""record"",
+        ""name"":""Message"",
+        ""namespace"":""Microsoft.Azure.Devices"",
+        ""fields"":[{
+        ""name"":""EnqueuedTimeUtc"",
+        ""type"":""string""
+        },
+        {
+        ""name"":""Properties"",
+        ""type"":{
+        ""type"":""map"",
+        ""values"":""string""
+        }
+        },
+        {
+        ""name"":""SystemProperties"",
+        ""type"":{
+        ""type"":""map"",
+        ""values"":""string""
+        }
+        },
+        {
+        ""name"":""Body"",
+        ""type"":[""null"",""bytes""]
+        }
+        ]
+        }");
+
+        @cnt =
+        SELECT EnqueuedTimeUtc AS time, Encoding.UTF8.GetString(Body) AS jsonmessage
+        FROM @rs;
+
+        OUTPUT @cnt TO @output_file USING Outputters.Text(); 
+    ```    
 
     Running the script shown below, ADLA took 5 minutes when limited to 10 Analytic Units and processed 177 files, summarizing the output to a CSV file.
     
     ![Screen capture for step 7b][img-query-avro-data-7b]
 
-    Viewing the output, which shows the Avro content converted to a CSV file.  Continue to step 8 if you want to parse the JSON.
+    Viewing the output, you can see the Avro content has converted to a CSV file. Continue to step 8 if you want to parse the JSON.
     
     ![Screen capture for step 7c][img-query-avro-data-7c]
 
-    Actual U-SQL script for simple output to CSV:
     
-```
-    DROP ASSEMBLY IF EXISTS [Avro];
-    CREATE ASSEMBLY [Avro] FROM @"/Assemblies/Avro/Avro.dll";
-    DROP ASSEMBLY IF EXISTS [Microsoft.Analytics.Samples.Formats];
-    CREATE ASSEMBLY [Microsoft.Analytics.Samples.Formats] FROM @"/Assemblies/Avro/Microsoft.Analytics.Samples.Formats.dll";
-    DROP ASSEMBLY IF EXISTS [Newtonsoft.Json];
-    CREATE ASSEMBLY [Newtonsoft.Json] FROM @"/Assemblies/Avro/Newtonsoft.Json.dll";
-    DROP ASSEMBLY IF EXISTS [log4net];
-    CREATE ASSEMBLY [log4net] FROM @"/Assemblies/Avro/log4net.dll";
-    
-    REFERENCE ASSEMBLY [Newtonsoft.Json];
-    REFERENCE ASSEMBLY [log4net];
-    REFERENCE ASSEMBLY [Avro];
-    REFERENCE ASSEMBLY [Microsoft.Analytics.Samples.Formats];
-
-    // Blob container storage account filenames, with any path
-    DECLARE @input_file string = @"wasb://hottubrawdata@kevinsayazstorage/kevinsayIoT/{*}/{*}/{*}/{*}/{*}/{*}";
-    DECLARE @output_file string = @"/output/output.csv";
-    
-    @rs =
-    EXTRACT
-    EnqueuedTimeUtc string,
-    Body byte[]
-    FROM @input_file
-    
-    USING new Microsoft.Analytics.Samples.Formats.ApacheAvro.AvroExtractor(@"
-    {
-    ""type"":""record"",
-    ""name"":""Message"",
-    ""namespace"":""Microsoft.Azure.Devices"",
-    ""fields"":[{
-    ""name"":""EnqueuedTimeUtc"",
-    ""type"":""string""
-    },
-    {
-    ""name"":""Properties"",
-    ""type"":{
-    ""type"":""map"",
-    ""values"":""string""
-    }
-    },
-    {
-    ""name"":""SystemProperties"",
-    ""type"":{
-    ""type"":""map"",
-    ""values"":""string""
-    }
-    },
-    {
-    ""name"":""Body"",
-    ""type"":[""null"",""bytes""]
-    }
-    ]
-    }");
-    
-    @cnt =
-    SELECT EnqueuedTimeUtc AS time, Encoding.UTF8.GetString(Body) AS jsonmessage
-    FROM @rs;
-    
-    OUTPUT @cnt TO @output_file USING Outputters.Text(); 
-```
-
 8. Most IoT messages are in JSON format.  Adding the following lines, you can parse the message into JSON, so you can add the WHERE clauses and only output the needed data.
-    ![Screen capture for step 8a][img-query-avro-data-8a]
 
+    ```sql
+       @jsonify = SELECT Microsoft.Analytics.Samples.Formats.Json.JsonFunctions.JsonTuple(Encoding.UTF8.GetString(Body)) AS message FROM @rs;
+    
+        /*
+        @cnt =
+            SELECT EnqueuedTimeUtc AS time, Encoding.UTF8.GetString(Body) AS jsonmessage
+            FROM @rs;
+        
+        OUTPUT @cnt TO @output_file USING Outputters.Text();
+        */
+        
+        @cnt =
+        	SELECT message["message"] AS iotmessage,
+        		   message["event"] AS msgevent,
+        		   message["object"] AS msgobject,
+        		   message["status"] AS msgstatus,
+        		   message["host"] AS msghost
+        	FROM @jsonify;
+        	
+        OUTPUT @cnt TO @output_file USING Outputters.Text();
+    ```  
+            
+    
     Viewing the output, you now see columns for each item in the select command. 
-     ![Screen capture for step 8b][img-query-avro-data-8b]
+    
+    ![Screen capture for step 8][img-query-avro-data-8]
 
 ## Next steps
-In this tutorial, you learned how to efficiently route data from Azure IoT Hub to Azure services. 
+In this tutorial, you learned how to query Avro data for efficiently routing messages from Azure IoT Hub to Azure services.
 
 To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator][lnk-iot-sa-land].
 
@@ -156,8 +175,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [img-query-avro-data-7a]: ./media/iot-hub-query-avro-data/query-avro-data-7a.png
 [img-query-avro-data-7b]: ./media/iot-hub-query-avro-data/query-avro-data-7b.png
 [img-query-avro-data-7c]: ./media/iot-hub-query-avro-data/query-avro-data-7c.png
-[img-query-avro-data-8a]: ./media/iot-hub-query-avro-data/query-avro-data-8a.png
-[img-query-avro-data-8b]: ./media/iot-hub-query-avro-data/query-avro-data-8b.png
+[img-query-avro-data-8]: ./media/iot-hub-query-avro-data/query-avro-data-8.png
 
 <!-- Links -->
 [Azure IoT Hub message routing: now with routing on message body]: https://azure.microsoft.com/en-us/blog/iot-hub-message-routing-now-with-routing-on-message-body/
