@@ -24,7 +24,7 @@ In this guide, you will learn how to:
 
 ## Prerequisites
 
-- A Kubernetes cluster running Kubernetes 1.9.6, in the EastUS or CanadaEast region, with Http Application Routing enabled.
+- A Kubernetes cluster running Kubernetes 1.9.6, in the EastUS, WestEurope, or CanadaEast region, with Http Application Routing enabled.
 - Visual Studio 2017 with the Web Development workload installed. If you don't have it installed, download it [here](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ## Get the Visual Studio tools 
