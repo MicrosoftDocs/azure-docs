@@ -73,7 +73,7 @@ For information on how to use Azure Resource Manager templates to configure acti
     - alerts-noreply@mail.windowsazure.com
     
 </dd>
-<dd>You may have up to 50 email actions in an Action Group</dd>
+<dd>You may have up to 1000 email actions in an Action Group</dd>
 <dd>See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article</dd>
 
 <dt>ITSM</dt>
