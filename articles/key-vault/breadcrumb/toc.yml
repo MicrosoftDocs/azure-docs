@@ -15,8 +15,8 @@
       topicHref: /azure/key-vault/
       items:
         - name: Spring
-          tocHref: /java/azure/spring-framework/
-          topicHref: /java/azure/spring-framework/
+        tocHref: /java/azure/spring-framework/
+        topicHref: /java/azure/spring-framework/
 
 - name: Azure
   tocHref: /sccm/
@@ -27,5 +27,5 @@
       topicHref: /azure/key-vault/index
       items: 
       - name: Run SCCM scripts
-       tocHref: /sccm/apps/deploy-use/
-       topicHref: /azure/key-vault/index
+      tocHref: /sccm/apps/deploy-use/
+      topicHref: /azure/key-vault/index
