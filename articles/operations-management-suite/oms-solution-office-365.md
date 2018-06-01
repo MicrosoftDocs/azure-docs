@@ -45,12 +45,14 @@ Once you add the Office 365 solution to your subscription, you must perform the 
 ### Required information
 Before you start this procedure, gather the following information.
 
- From your Log Analytics workspace:
+From your Log Analytics workspace:
+
 - Workspace name: The workspace where the Office 365 data will be collected.
 - Resource group name: The resource group that contains the workspace.
 - Azure subscription ID: The subscription that contains the workspace.
 
- From your Office 365 subscription:
+From your Office 365 subscription:
+
 - Username: Email address of an administrative account.
 - Tenant ID: Unique ID for Office 365 subscription.
 - Client ID: 16-character string that represents Office 365 client.
@@ -88,7 +90,7 @@ The first step is to create an application in Azure Active Directory that the ma
     - Read activity data for your organization
     - Read activity reports for your organization
    
-    ![Select API](media/oms-solution-office-365/select-api.png)
+    ![Select API](media/oms-solution-office-365/select-permissions.png)
 
 1. Click **Select** and then **Done**.
 1. Click **Grant permissions** and then click **Yes** when asked for verification.
