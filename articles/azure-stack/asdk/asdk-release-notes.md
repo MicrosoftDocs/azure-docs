@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -55,10 +55,6 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD -  IS ASDK --> You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
 
--	<!-- TBD -  IS ASDK --> In the admin portal, you might see a critical alert for the Microsoft.Update.Admin component. The Alert name, description, and remediation all display as:  
-    - *ERROR - Template for FaultType ResourceProviderTimeout is missing.*
-
-    This alert can be safely ignored. 
 
 #### Health and monitoring
 - <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
@@ -75,7 +71,7 @@ This build includes the following improvements and fixes for Azure Stack.
    - COMPONENT: Health controller
    - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
-  Both alerts can be safely ignored. They will close automatically over time.  
+  Both alerts can be safely ignored and will close automatically over time.  
 
 #### Compute
 - <!-- TBD -  IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
