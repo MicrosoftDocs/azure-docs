@@ -1,32 +1,25 @@
 ---
-title: Get started with Azure Data Lake Analytics using Visual Studio | Microsoft Docs
+title: Get started with Azure Data Lake Analytics using Visual Studio
 description: Learn how to install Data Lake Tools for Visual Studio, and how to develop and test U-SQL scripts. 
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.service: data-lake-analytics
-ms.devlang: na
+author: saveenr
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
+ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/02/2018
-ms.author: saveenr, yanacai
-
 ---
+
 # Develop U-SQL scripts by using Data Lake Tools for Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
-
 
 Learn how to use Visual Studio to create Azure Data Lake Analytics accounts, define jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to the Data Lake Analytics service. For more
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 >[!IMPORTANT]
->
->In preparation for the new General Data Protection Regulation (GDPR) going into effect on May 25, 2018, it is recommended that users of Azure Data Lake Tools for Visual Studio upgrade to version 2.3.3000.4 or later. This version includes changes based on the most recent data protection requirements. Note that previous versions are not available for download and are deprecated. 
+> Microsoft recommends you upgrade to Azure Data Lake Tools for Visual Studio version 2.3.3000.4 or later. The previous versions are no longer available for download and are now deprecated. 
 >
 >**What do I need to do?**
 >
