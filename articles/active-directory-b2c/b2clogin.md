@@ -1,21 +1,19 @@
 ---
-title: Using b2clogin.com| Microsoft Docs
+title: Using b2clogin.com | Microsoft Docs
 description: Learn about using b2clogin.com instead of login.microsoftonline.com. 
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
-
+ms.component: B2C
 ---
 
-#Using b2clogin.com
+# Using b2clogin.com
 
 >[!IMPORTANT]
 >This feature is public preview 
