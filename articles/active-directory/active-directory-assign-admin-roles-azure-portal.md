@@ -21,8 +21,8 @@ ms.custom: it-pro
 
 Using Azure Active Directory (Azure AD), you can designate separate administrators to serve different functions. Administrators have access to various features in the Azure portal and, depending on their role, can create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things. A user who is assigned an admin role will have the same permissions across all of the cloud services to which your organization has subscribed to, regardless of whether you assign the role in the Office 365 portal, or in the Azure portal, or by using the Azure AD module for Windows PowerShell.
 
-## Details about the global administrator role
-The global administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the global administrator role for the directory. Only global administrators can assign other administrator roles.
+## Details about the Global Administrator role
+The Global Administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the global administrator role for the directory. Only global administrators can assign other administrator roles.
 
 ## Assign or remove administrator roles
 To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
@@ -103,24 +103,24 @@ The following administrator roles are available:
 
 ## Administrator permissions
 
-### Billing administrator
+### Billing Administrator
 
 | Can do | Cannot do |
 | --- | --- |
 |<p>View company and user information</p><p>Manage Office support tickets</p><p>Perform billing and purchasing operations for Office products</p> |<p>Reset user passwords</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View audit logs</p>|
 
-### Conditional Access administrator
+### Conditional Access Administrator
 
 | Can do | Cannot do |
 | --- | --- |
 |<p>View company and user information</p><p>Manage conditional access settings</p> |<p>Reset user passwords</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View audit logs</p>|
 
-### Global administrator
+### Global Administrator
 | Can do | Cannot do |
 | --- | --- |
-|<p>View company and user information</p><p>Manage Office support tickets</p><p>Perform billing and purchasing operations for Office products</p><p>Reset user passwords</p><p>Reset other administrator’s passwords</p> <p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>Enable or disable multi-factor authentication</p><p>View audit logs</p> |N/A |
+|<p>View company and user information</p><p>Manage Office support tickets</p><p>Perform billing and purchasing operations for Office products</p><p>Reset user passwords</p><p>Reset other administrators' passwords</p> <p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>Enable or disable multi-factor authentication</p><p>View audit logs</p> |N/A |
 
-### Password administrator / Helpdesk administrator
+### Password Administrator / Helpdesk Administrator
 | Can do | Cannot do |
 | --- | --- |
 | <p>View company and user information</p><p>Manage Office support tickets</p><p>Change passwords for users and other Helpdesk administrators only</p>|<p>Perform billing and purchasing operations for Office products</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View reports</p>|
@@ -149,29 +149,29 @@ View Azure AD sign-in Reports and audit logs<br>View company and user informatio
 | Privileged Identity Management |<ul><li>All permissions of the Security Reader role.<li>**Cannot** manage Azure AD role memberships or settings. |
 | <p>Monitor Office 365 Service Health</p><p>Office 365 Security & Compliance Center |<ul><li>All permissions of the Security Reader role.<li>Can configure all settings in the Advanced Threat Protection feature (malware & virus protection, malicious URL config, URL tracing, etc.). |
 
-### Service administrator
+### Service Administrator
 | Can do | Cannot do |
 | --- | --- |
 | <p>View company and user information</p><p>Manage Office support tickets</p> |<p>Reset user passwords</p><p>Perform billing and purchasing operations for Office products</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View audit logs</p> |
 
-### User Account administrator
+### User Account Administrator
 | Can do | Cannot do |
 | --- | --- |
 | <p>View company and user information</p><p>Manage Office support tickets</p><p>Change passwords for users, Helpdesk administrators, and other User Account administrators only</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses, with limitations. He or she cannot delete a global administrator or create other administrators.</p> |<p>Perform billing and purchasing operations for Office products</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>Enable or disable multi-factor authentication</p><p>View audit logs</p> |
 
-### To add a colleague as a global administrator
+### To add a user as a global administrator
 
-1. Sign in to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) with an account that's a global admin for the tenant directory.
+1. Sign in to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) with an account that's a Global Administrator for the tenant directory.
 
    ![Opening azure AD admin center](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 
 2. Select **Users and groups &gt; All users**
 
-3. Find the user you want to designate as a global administrator and open the blade for that user.
+3. Find the user you want to designate as a Global Administrator and open the blade for that user.
 
 4. On the user blade, select **Directory role**.
  
-5. On the directory role blade, select the **Global administrator** role, and save.
+5. On the directory role blade, select the **Global Administrator** role, and save.
 
 ## Deprecated roles
 
