@@ -148,7 +148,7 @@ To create the project without a local Git repository, use the `--no-source-contr
 
 ## Register extensions
 
-In version 2.x of the Azure Functions runtime, you must explicitly register the [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) that you use in your function app. 
+In version 2.x of the Azure Functions runtime, you have to explicitly register the binding extensions (binding types) that you use in your function app.
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
