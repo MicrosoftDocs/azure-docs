@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/29/2018
+ms.date: 06/01/2018
 ms.author: kumud
 ---
 
@@ -32,11 +32,13 @@ In the example below, Figure 1 displays all the query responses that were return
 
   
 ![Traffic Manager metrics - aggregate view of all queries](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
+
 *Figure 1: Aggregate view with all queries*
   
 Figure 2 displays the same information, however, it is split by endpoints. As a result, you can see the volume of query responses in which a specific endpoint was returned.
 
 ![Traffic Manager metrics - split view of query volume per endpoint](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
+
 *Figure 2: Split view with query volume shown per endpoint returned*
 
 ## Endpoint status by endpoint
