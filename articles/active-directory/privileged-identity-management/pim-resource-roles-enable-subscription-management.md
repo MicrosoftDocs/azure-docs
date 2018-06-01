@@ -3,7 +3,7 @@ title: Privileged Identity Management for Azure resources - enable subscription 
 description: Learn how global administrators can manage subscriptions in the tenant.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity 
 ms.date: 03/27/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
 ---
 
