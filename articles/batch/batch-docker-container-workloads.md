@@ -66,8 +66,10 @@ For Linux container workloads, Batch currently supports the following Linux imag
 These images, designed for the Azure Batch service, feature:
 
 * A pre-installed container runtime 
+
 * Pre-installed NVIDIA GPU drivers, to streamline deployment on Azure N-series VMs
-* Separate images with pre-installed RDMA drivers, to allow pool nodes to access the Azure RDMA network when deployed on RDMA-capable VM sizes including A8, A9, H16r, H16mr, or NC24r 
+
+* Images with or without pre-installed RDMA drivers; these drivers allow pool nodes to access the Azure RDMA network when deployed on RDMA-capable VM sizes including A8, A9, H16r, H16mr, or NC24r 
 
 You can also create custom Linux images from VMs running Docker on the following distributions: Ubuntu 16.04 LTS or CentOS 7.3. If you choose to provide your own custom Linux image, see the instructions in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 
@@ -119,7 +121,7 @@ new_pool = batch.models.PoolAddParameter(
 
 ### Prefetch images for container configuration
 
-To prefetch container images on the pool, add the list of container images (`containerImageNames`) to the `ContainerConfiguration`. 
+To prefetch container images on the pool, add the list of container images (`container_image_names`, in Python) to the `ContainerConfiguration`. 
 
 The following basic Python example shows how to prefetch a standard Ubuntu container image from [Docker Hub](https://hub.docker.com).
 
