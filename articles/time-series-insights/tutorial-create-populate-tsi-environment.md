@@ -104,8 +104,8 @@ In order to get the device data to flow into the TSI environment, you'll need to
 
 1. Using the Azure portal, go to the **Overview** page of the resource group you created for the TSI environment. Select the TSI environment:
 
-   ![TSI environment resource group and environment](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png)
-
+   [![TSI environment resource group and environment](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png#lightbox)
+a
 2. Select **Event Sources**, click **+ Add**:
 
    ![TSI environment resource group and environment](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png)
