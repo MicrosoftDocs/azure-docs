@@ -55,6 +55,9 @@ There is no limit to the total amount of data that a container can store in Azur
 ### What are the throughput limits of Azure Cosmos DB?
 There is no limit to the total amount of throughput that a container can support in Azure Cosmos DB. The key idea is to distribute your workload roughly evenly among a sufficiently large number of partition keys.
 
+### Are both modes of connectivity Direct and Gateway encrypted ? 
+Yes both modes are always completely encrypted. 
+
 ### How much does Azure Cosmos DB cost?
 For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container. The term *containers* here refers to the SQL API collection, Graph API graph, MongoDB API collection, and Table API tables. 
 
