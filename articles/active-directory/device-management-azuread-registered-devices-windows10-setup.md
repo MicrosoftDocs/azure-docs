@@ -47,7 +47,7 @@ When registering a device, you should keep the following in mind:
 
 ## Registering a device
 
-This section provides you with the steps to register your Windows 10 device to your Azure AD. If you have successfully registered your device to Azure AD, your **Access work or school** dialog indicates this with a **Work or school account** entry.
+This section provides you with the steps to register your Windows 10 device to your Azure AD. A successfully registered device shows up with a **Work or school account** entry.
 
 ![Register](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
@@ -72,7 +72,7 @@ This section provides you with the steps to register your Windows 10 device to y
     ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/04.png)
 
 
-5. On the  **Set up a work or school account** dialog, enter your account name (e.g.: someone@example.com), and then click **Next**.
+5. On the  **Set up a work or school account** dialog, enter your account name (for example, someone@example.com), and then click **Next**.
 
     ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/06.png)
 
@@ -92,7 +92,7 @@ To verify whether a device is joined to an Azure AD, you can review the **Access
 
 ![Register](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
-Alternatively, you can also review device settings on the Azure AD portal.
+Alternatively, you can review device settings on the Azure AD portal.
 
 ![Register](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
 
