@@ -319,7 +319,7 @@ For more information, see [Binding at runtime](../azure-functions/functions-dotn
 
 Reference information about each binding type is provided in the Azure Functions documentation. Using Storage queue as an example, you'll find the following information in each binding reference article:
 
-* [Packages](../azure-functions/functions-bindings-storage-queue.md#packages) - What package to install in order to include support for the binding in a WebJobs SDK project.
+* [Packages](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x) - What package to install in order to include support for the binding in a WebJobs SDK project.
 * [Examples](../azure-functions/functions-bindings-storage-queue.md#trigger---example) - The C# class library example applies to the WebJobs SDK; just omit the `FunctionName` attribute.
 * [Attributes](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes) - The attributes to use for the binding type.
 * [Configuration](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration) - Explanations of the attribute properties and constructor parameters.
