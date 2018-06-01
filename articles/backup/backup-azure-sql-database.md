@@ -40,9 +40,9 @@ The following items are the known limitations for the Public Preview.
 
 - The SQL virtual machine requires internet connectivity to access Azure public IP addresses. For more detail, see the section, [Establish network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
 - You can protect up to 2000 SQL databases in one Recovery Services vault. Additional SQL databases should be stored in a separate Recovery Services vault.
-- [Distributed availability groups backup has limitations](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017).
+- [Distributed availability groups backup has limitations](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017).
 - SQL Failover Cluster Instances (FCI) are not supported.
-- Use the Azure portal to configure Azure Backup to protect SQL Server databases. Support for Azure PowerShell, CLI, and REST APIs will be added in the future.
+- Use the Azure portal to configure Azure Backup to protect SQL Server databases. Support for Azure PowerShell, CLI, and REST APIs is not currently available.
 
 ## Supported operating systems and versions of SQL server
 
@@ -380,8 +380,8 @@ To restore a database
 
     When you select the database, its menu opens. This menu provides the backup details for the database including:
 
-       - the oldest and latest restore points, <br/>
-       - log backup status for the last 24 hours (for databases in Full and Bulk logged recovery model, if configured for transactional log backups)
+    * the oldest and latest restore points,
+    * log backup status for the last 24 hours (for databases in Full and Bulk logged recovery model, if configured for transactional log backups)
 
 5. In the selected database menu, click **Restore DB** to open the Restore menu.
 
@@ -566,7 +566,7 @@ This section provides information about the various Azure Backup management oper
 
 ### Monitor Jobs
 
-Azure Backup uses SQL native APIs for all backup operations. Using the native APIs, you can fetch all job information from the [SQL backupset table](https://docs.microsoft.com/en-us/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in the msdb database. Additionally, Azure Backup shows all manually triggered, or adhoc, jobs in the Backup jobs portal. The jobs available in the portal include: all configure backup operations, restore operations, registration and discover database operations, and stop backup operations. All scheduled jobs can also be monitored with OMS Log analytics. Using Log analytics removes jobs clutter, and provides granular flexibility for monitoring or filtering specific jobs.
+Azure Backup uses SQL native APIs for all backup operations. Using the native APIs, you can fetch all job information from the [SQL backupset table](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in the msdb database. Additionally, Azure Backup shows all manually triggered, or adhoc, jobs in the Backup jobs portal. The jobs available in the portal include: all configure backup operations, restore operations, registration and discover database operations, and stop backup operations. All scheduled jobs can also be monitored with OMS Log analytics. Using Log analytics removes jobs clutter, and provides granular flexibility for monitoring or filtering specific jobs.
 
 ![advanced configuration menu](./media/backup-azure-sql-database/jobs-list.png)
 
@@ -595,7 +595,7 @@ If you stop protecting a SQL Server database, Azure Backup asks if you want to r
 * Stop all future backup jobs and delete all recovery points,
 * Stop all future backup jobs, but leave the recovery points 
 
-Leaving the recovery points carries a cost as the recovery points for SQL carry the SQL protected instance pricing charge, plus the storage consumed. For more information about Azure Backup pricing for SQL, see the [Azure Backup pricing page](https://azure.microsoft.com/en-us/pricing/details/backup/). To stop protection for the database:
+Leaving the recovery points carries a cost as the recovery points for SQL carry the SQL protected instance pricing charge, plus the storage consumed. For more information about Azure Backup pricing for SQL, see the [Azure Backup pricing page](https://azure.microsoft.com/pricing/details/backup/). To stop protection for the database:
 
 1. Open the Recovery Services vault registered with the SQL virtual machine.
 
@@ -633,7 +633,7 @@ If the **Retain Backup Data** option was selected when stopping protection for t
 
 1. To resume protection for the SQL database, open the backup item and click **Resume Backup**.
 
-![resume database protection](./media/backup-azure-sql-database/resume-backup-button.png)
+    ![resume database protection](./media/backup-azure-sql-database/resume-backup-button.png)
 
    The Backup Policy menu opens.
 
@@ -641,7 +641,7 @@ If the **Retain Backup Data** option was selected when stopping protection for t
 
 ### Trigger an adhoc backup
 
-You can trigger an adhoc backup whenever you want. There are four types of adhoc backups. For details on each type, see the article, [Types of SQL backups](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-overview-sql-server?view=sql-server-2017#types-of-backups).
+You can trigger an adhoc backup whenever you want. There are four types of adhoc backups. For details on each type, see the article, [Types of SQL backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/backup-overview-sql-server?view=sql-server-2017#types-of-backups).
 
 * Full backup
 * Copy Only Full Backup
