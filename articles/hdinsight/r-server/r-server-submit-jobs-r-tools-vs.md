@@ -12,7 +12,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 06/12/2018
 ms.author: maxluk
 
 ---
@@ -62,11 +62,11 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
     ![Data Science Settings...](./media/r-server-submit-jobs-r-tools-vs/workspace.png)
 
-## Submit jobs to an HDInsight R cluster
+## Submit jobs to an HDInsight ML Services cluster
 
 Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped with PuTTY, you can create a compute context that will run distributed `RevoScaleR` functions from your local client to your HDInsight cluster. Use `RxSpark` to create the compute context, specifying your username, the Hadoop cluster's edge node, SSH switches, and so forth.
 
-1. To find your edge node's host name, open your HDInsight R cluster pane on Azure, then select **Secure Shell (SSH)** on the top menu of the Overview pane.
+1. To find your edge node's host name, open your HDInsight ML Services cluster pane on Azure, then select **Secure Shell (SSH)** on the top menu of the Overview pane.
 
     ![Secure Shell (SSH)](./media/r-server-submit-jobs-r-tools-vs/ssh.png)
 
@@ -118,7 +118,7 @@ Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped 
 
 5. Verify that the `rxHadoopCopy` successfully copied the `people.json` file from the example data folder to the newly created `/user/RevoShare/newUser` folder:
 
-    1. From your HDInsight R cluster pane in Azure, select **Storage accounts** from the left-hand menu.
+    1. From your HDInsight ML Services cluster pane in Azure, select **Storage accounts** from the left-hand menu.
 
         ![Storage accounts](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
 
