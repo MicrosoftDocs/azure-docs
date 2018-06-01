@@ -88,7 +88,7 @@ This question tries to identify the source object of the existing user from on-p
   - If the object is found in the **Pending Add** state, answer **No**. AAD Connect isn't able to connect the object to the right Azure AD object.
   - If the object isn't found, answer **Yes**.
 
-In these examples, the question tries to identify whether **Joe Jackson** still exists in on-premises Azure Active Directory.
+In these examples, the question tries to identify whether **Joe Jackson** still exists in the on-premises Azure Active Directory.
 For the **common scenario**, both users **Joe Johnson** and **Joe Jackson** are present in the on-premises Azure Active Directory. The quarantined objects are two different users.
 
 ![Diagnose sync error common scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixCommonCase.png)
@@ -103,7 +103,7 @@ This question checks an incoming conflicting user and the existing user object i
   - Display Name
   - User Principal Name
   - Object ID
-2.	If Azure AD fails to compare them, check if your Azure Active Directory has objects with the provided **UserPrincipalNames**. Answer **No** if you find both.
+2.	If Azure AD fails to compare them, check whether your Azure Active Directory has objects with the provided **UserPrincipalNames**. Answer **No** if you find both.
 
 In the following example, the two objects belong to the same user **Joe Johnson**.
 
@@ -127,22 +127,22 @@ The sync error will be resolved after the next sync. Connect Health will no long
 
 
 ## FAQ
-Q. What happens if execution of the **Apply Fix** fails?
+**Q.** What happens if execution of the **Apply Fix** fails?
 
-A. If execution fails, it's possible that Azure AD Connect is running an export error. Refresh the portal page and retry after the next sync. The default sync cycle is 30 minutes. 
+**A.** If execution fails, it's possible that Azure AD Connect is running an export error. Refresh the portal page and retry after the next sync. The default sync cycle is 30 minutes. 
 
-Q. What if the **existing object** should be the object to be deleted?  
+**Q.** What if the **existing object** should be the object to be deleted?  
 
-A. If the **existing object** should be deleted, the process doesn't involve a change of **sourceAnchor**. Usually, you can fix it from your on-premises Azure AD. 
+**A.** If the **existing object** should be deleted, the process doesn't involve a change of **sourceAnchor**. Usually, you can fix it from your on-premises Azure AD. 
 
-Q. What permission does a user need to apply the fix?  
+**Q.** What permission does a user need to apply the fix?  
 
-A. In the RBAC settings, Global Administrator or Contributor has permission to access the diagnostic and troubleshooting process.
+**A.** In the RBAC settings, Global Administrator or Contributor has permission to access the diagnostic and troubleshooting process.
 
-Q. Do I have to configure AAD Connect or update the Azure AD Connect Health agent for this feature?  
+**Q.** Do I have to configure AAD Connect or update the Azure AD Connect Health agent for this feature?  
 
-A. No, the diagnosis process is a complete cloud-based feature.
+**A.** No, the diagnosis process is a complete cloud-based feature.
 
-Q. If the existing object is soft deleted, will the diagnosis process make the object active again?  
+**Q.** If the existing object is soft deleted, will the diagnosis process make the object active again?  
 
-A. No, the fix won't update object attributes other than **sourceAnchor**. 
+**A.** No, the fix won't update object attributes other than **sourceAnchor**. 
