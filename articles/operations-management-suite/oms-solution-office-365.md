@@ -36,28 +36,13 @@ The following is required prior to this solution being installed and configured.
 - To receive audit data, you must [configure auditing](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in your Office 365 subscription.  Note that [mailbox auditing](https://technet.microsoft.com/library/dn879651.aspx) is configured separately.  You can still install the solution and collect other data if auditing is not configured.
  
 
-
 ## Management packs
 This solution does not install any management packs in connected management groups.
   
-
 ## Configuration
-Once you [add the Office 365 solution to your subscription](../log-analytics/log-analytics-add-solutions.md), you have to connect it to your Office 365 subscription.
+Once you add the Office 365 solution to your subscription, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
 
-1. Add the Alert Management solution to your Log Analytics workspace using the process described in [Add solutions](../log-analytics/log-analytics-add-solutions.md).
-2. Go to **Settings** in the OMS portal.
-3. Under **Connected Sources**, select **Office 365**.
-4. Click on **Connect Office 365**.<br>![Connnect Office 365](media/oms-solution-office-365/configure.png)
-5. Sign in to Office 365 with an account that is a Global Administrator for your subscription. 
-6. The subscription will be listed with the workloads that the solution will monitor.<br>![Connnect Office 365](media/oms-solution-office-365/connected.png) 
-
-## Configuration
-There are three steps to configuring the Office 365 management solution that are described in this section.
-
-1. Create an Office 365 application in Azure Active Directory.
-1. Give the application administrative access to Office 365.
-1. 
-
+### Required information
 Before you start this procedure, gather the following information.
 
  From your Log Analytics workspace:
@@ -66,39 +51,60 @@ Before you start this procedure, gather the following information.
 - Azure subscription ID: The subscription that contains the workspace.
 
  From your Office 365 subscription:
--  Username: Email address of an administrative account.
+- Username: Email address of an administrative account.
 - Tenant ID: Unique ID for Office 365 subscription.
 - Client ID: 16-character string that represents Office 365 client.
 - Client Secret: Encrypted string necessary for authentication.
 
 ### Create an Office 365 application in Azure Active Directory
+The first step is to create an application in Azure Active Directory that the management solution will use to access your Office 365 solution.
 
-Start by creating the application.
 1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
-1. Select Azure **Active Directory** and then **App registrations**.
+1. Select **Azure Active Directory** and then **App registrations**.
 1. Click **New application registration**.
+
+    ![Add app registration](media/oms-solution-office-365/add-app-registration.png)
 1. Enter an application **Name** and **Sign-on URL**.  The name should be descriptive.  Use _http://localhost_ for the URL, and keep _Web app / API_ for the **Application type**
+    
+    ![Create application](media/oms-solution-office-365/create-application.png)
 1. Click **Create** and validate the application information.
 
-With the application created, you must give 
+    ![Registered app](media/oms-solution-office-365/registered-app.png)
+
+### Configure application for Office 365
+
 1. Click **Settings** to open the **Settings** menu.
 1. Select **Properties**. Change **Multi-tenanted** to _Yes_.
-1. Select **Required permissions** and then click **Add**.
-1. Click **Select an API** and then **Office 365 Management APIs**. click **Office 365 Management APIs**.
-Click **Select permissions** and then select the following options for both **Application permissions** and *Delegated permissions**:
+
+    ![Settings multitenant](media/oms-solution-office-365/settings-multitenant.png)
+
+1. Select **Required permissions** in the **Settings** menu and then click **Add**.
+1. Click **Select an API** and then **Office 365 Management APIs**. click **Office 365 Management APIs**. Click **Select**.
+
+    ![Select API](media/oms-solution-office-365/select-api.png)
+
+1. Under **Select permissions** select the following options for both **Application permissions** and *Delegated permissions**:
     - Read service health information for your organization
     - Read activity data for your organization
     - Read activity reports for your organization
-1. Click **Done**.
+   
+    ![Select API](media/oms-solution-office-365/select-api.png)
+
+1. Click **Select** and then **Done**.
 1. Click **Grant permissions** and then click **Yes** when asked for verification.
 
-The last step is to add a key.
-1. Select **Keys** 
+    ![Grant permissions](media/oms-solution-office-365/grant-permissions.png)
+
+### Add a key for the application
+
+1. Select **Keys** in the **Settings** menu.
 1. Type in a **Description** and **Duration** for the new key.
 1. Click **Save** and then copy the **Value** that's generated.
 
+    ![Keys](media/oms-solution-office-365/keys.png)
+
 ### Add admin consent
-To enable the administrative account, you must provide administrative consent for the application. You can do this with a PowerShell script. 
+To enable the administrative account for the first time, you must provide administrative consent for the application. You can do this with a PowerShell script. 
 
 1. Save the following script as *office365_consent.ps1*.
 
@@ -155,13 +161,26 @@ To enable the administrative account, you must provide administrative consent fo
     AdminConsent -ErrorAction Stop
     ```
 
-2. You will be presented with a window similar to the one below. Click **Accept**.
+2. Run the script with the following command.
+    ```
+    .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
+    ```
+    Example:
+
+    ```
+    .\office365_consent.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631- yyyyyyyyyyyy'
+    ```
+
+1. You will be presented with a window similar to the one below. Click **Accept**.
+    
+    ![Admin consent](media/oms-solution-office-365/admin-consent.png)
 
 ### Subscribe to Log Analytics workspace
+The last step is to subscribe the application to your Log Analytics workspace. You also do this with a PowerShell script.
 
 1. Save the following script as *office365_consent.ps1*.
 
-```
+    ```
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -332,13 +351,42 @@ To enable the administrative account, you must provide administrative consent fo
     RESTAPI-Auth -ErrorAction Stop
     Connection-API -ErrorAction Stop
     Office-Subscribe-Call -ErrorAction Stop
-```
+    ```
 
 2. Run the script with the following command:
     ```
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
+    Example:
 
+    ```
+    .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
+    ```
+
+### Troublshooting
+
+You may see the following error if you attempt to create a subscription after the subscription already exists.
+
+```
+Invoke-WebRequest : {"Message":"An error has occurred."}
+At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
++ $officeresponse = Invoke-WebRequest @Officeparams
++                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand 
+```
+
+You may see the following error if invalid parameter values are provided.
+
+```
+Select-AzureRmSubscription : Please provide a valid tenant or a valid subscription.
+At line:12 char:18
++ ... cription = (Select-AzureRmSubscription -SubscriptionId $($Subscriptio ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Set-AzureRmContext], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzureRMContextCommand
+
+```
 
 ## Data collection
 ### Supported agents
@@ -565,11 +613,12 @@ The following table provides sample log searches for update records collected by
 
 | Query | Description |
 | --- | --- |
-|Count of all the operations on your Office 365 subscription |Type = OfficeActivity &#124; measure count() by Operation |
-|Usage of SharePoint sites|Type=OfficeActivity OfficeWorkload=sharepoint &#124; measure count() as Count by SiteUrl &#124; sort Count asc|
-|File access operations by user type|Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed &#124; measure count() by UserType|
+|Count of all the operations on your Office 365 subscription |OfficeActivity &#124; summarize count() by Operation |
+|Usage of SharePoint sites|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl | sort by Count asc|
+|File access operations by user type|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |Search with a specific keyword|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
-|Monitor external actions on Exchange|Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true|
+|Monitor external actions on Exchange|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|
+
 
 
 
