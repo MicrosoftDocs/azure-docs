@@ -14,7 +14,7 @@ ms.author: v-geberr
 If you have the LUIS app ID and the LUIS subscription ID, you can find which region to use for endpoint queries.
 
 > [!NOTE] 
-> The complete Node.js solution is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
+> The complete Node.js solution is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
 
 ## LUIS endpoint query strategy
 Each LUIS endpoint query requires:
@@ -51,7 +51,7 @@ Call the `searchRegions` function and return single region:
 
 When the application is run, the terminal shows the region for the app ID and subscription key.
 
-![Screenshot of console app showing LUIS region](./media/find-region-csharp/console.png)
+![Screenshot of console app showing LUIS region](./media/find-region-nodejs/console.png)
 
 
 ## Next steps
