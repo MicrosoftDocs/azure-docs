@@ -11,33 +11,35 @@ manager: carmonm
 ---
 # Troubleshoot errors when onboarding solutions
 
-When onboarding solutions you may encounter errors. The following is a listing of the common errors you may run across.
+You may encounter errors when onboarding solutions. This article describes the various errors that may occur and how to resolve them.
 
-## ComputerGroupQueryFormatError
+## General Errors
 
-### Issue
+### ComputerGroupQueryFormatError
+
+#### Issue
 
 This error code means that the saved search computer group query used to target the solution was not formatted correctly. 
 
-### Cause
+#### Cause
 
 You may have altered the query, or it may have been altered by the system.
 
-### Resolution
+#### Resolution
 
 You can delete the query for this solution, and reonboard the solution, which recreates the query. The query can be found within your workspace, under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the solution associated with this query. If multiple solutions are enabled, the **MicrosoftDefaultComputerGroup** shows multiple times under **Saved Searches**.
 
-## PolicyViolation
+### PolicyViolation
 
-### Issue
+#### Issue
 
 This error code means that the deployment failed due to violation of one or more policies.
 
-### Cause 
+#### Cause 
 
 A policy is in place that is blocking the operation from completing.
 
-### Resolution
+#### Resolution
 
 In order to successfully deploy the solution, you need to consider altering the indicated policy. As there are many different types of policies that can be defined, the specific changes required depend on the policy that is violated. For example, if a policy was defined on a resource group that denied permission to change the contents of certain types of resources within that resource group, you could, for example, do any of the following:
 
@@ -49,11 +51,11 @@ In order to successfully deploy the solution, you need to consider altering the 
 
 Check the notifications in the top right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. To learn more about Azure Policy visit: [Overview of Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-## MMA Extension deployment failures
+## MMA Extension failures
 
-When deploying a solution, a variety of related resources are deployed. One of those resources is the Microsoft Monitoring Agent Extension. This is a Virtual Machine Extension installed by the virtual machine’s Guest Agent that is responsible for communicating with the configured Operations Management Suite (OMS) Workspace, for the purpose of later coordination of the downloading of binaries and other files that the solution you are onboarding depend on once it begins execution.
-You typically first become aware of MMA installation failures from a notification appearing in the Notifications Hub. Clicking on that notification gives further information about the specific failure. Navigation to the Resource Groups resource, and then to the Deployments element within it also provides details on the deployment failures that occurred.
-Installation of MMA can fail for a variety of reasons, and the steps to take to address these failures vary, depending on the issue. Specific troubleshooting steps follow.
+When deploying a solution, a variety of related resources are deployed. One of those resources is the Microsoft Monitoring Agent Extension or OMS Agent for Linux. These are Virtual Machine Extensions installed by the virtual machine’s Guest Agent that is responsible for communicating with the configured Operations Management Suite (OMS) Workspace, for the purpose of later coordination of the downloading of binaries and other files that the solution you are onboarding depend on once it begins execution.
+You typically first become aware of MMA or OMS Agent for Linux installation failures from a notification appearing in the Notifications Hub. Clicking on that notification gives further information about the specific failure. Navigation to the Resource Groups resource, and then to the Deployments element within it also provides details on the deployment failures that occurred.
+Installation of the MMA or OMS Agent for Linux can fail for a variety of reasons, and the steps to take to address these failures vary, depending on the issue. Specific troubleshooting steps follow.
 
 The following section describes various issues that you can encounter when onboarding that cause a failure in the deployment of the MMA extension.
 
@@ -89,7 +91,7 @@ Ensure that you have the proper ports and addresses open for communication. For 
 
 The installation of the Microsoft Monitoring Agent extension failed during deployment due to another installation or action blocking the installation
 
-#### Identifing the Error
+#### Issue
 
 The following are examples of error messages may be returned:
 
@@ -105,14 +107,14 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 'Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.2) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.2\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 1601'
 ```
 
-#### Understand the Cause
+#### Cause
 
 Some potential causes to this error are:
 
 * Another installation is in progress
 * The system is was triggered to reboot during template deployment
 
-#### How to Resolve
+#### Resolution
 
 This error is a transient error in nature. Retry the deployment to install the extension.
 
@@ -120,7 +122,7 @@ This error is a transient error in nature. Retry the deployment to install the e
 
 The installation of the MMA extension did not complete due to a timeout.
 
-#### Identifing the Error
+#### Issue
 
 The following is an example of an error message that may be returned:
 
@@ -128,10 +130,18 @@ The following is an example of an error message that may be returned:
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
 ```
 
-#### Understand the Cause
+#### Cause
 
 This error is due to the virtual machine being under a heavy load during installation.
 
-### How to Resolve
+### Resolution
 
 Attempt to install the MMA extension when the VM is under a lower load.
+
+###
+
+#### Issue
+
+#### Cause
+
+#### Resolution
