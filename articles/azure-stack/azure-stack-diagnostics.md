@@ -9,7 +9,7 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ---

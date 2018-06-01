@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -25,7 +25,7 @@ These release notes provide information about improvements, fixes, and known iss
 
 > Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## Build 1.1805.1.42
+## Build 1.1805.1.47
 
 <!-- ### New features 
 This build includes the following improvements and fixes for Azure Stack.  

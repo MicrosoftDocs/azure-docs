@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -29,7 +29,7 @@ This article describes the improvements and fixes in the 1805 update package, kn
 > This update package is only for Azure Stack integrated systems. Do not apply this update package to the Azure Stack Development Kit.
 
 ## Build reference    
-The Azure Stack 1805 update build number is **1.1805.1.42**.   
+The Azure Stack 1805 update build number is **1.1805.1.47**.   
 <!--
 ### New features
 This update includes the following improvements for Azure Stack.  -->
