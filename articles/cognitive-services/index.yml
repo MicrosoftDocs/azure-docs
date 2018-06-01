@@ -40,8 +40,7 @@ sections:
     - image: 
         src: media/index/logo_java.svg
       title: Java
-
-  rows:
+    rows:
     - title: Computer Vision - API
       values:
       - href:
@@ -49,7 +48,6 @@ sections:
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/Python
       - href:
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/Java
-
     - title: Custom Vision - Build a Classifier
       values:
       - href: /azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier
@@ -57,7 +55,6 @@ sections:
       - href:
       - href:
       - href:
-
     - title: Speech Service - Recognize speech
       values: 
       - href: /azure/cognitive-services/speech-service/get-started
@@ -65,7 +62,6 @@ sections:
       - href: 
       - href: 
       - href: 
-
     - title: Translator Speech - API
       values: 
       - href:
@@ -73,7 +69,6 @@ sections:
       - href: /azure/cognitive-services/translator-speech/quickstarts/python
       - href: /azure/cognitive-services/translator-speech/quickstarts/nodejs
       - href: /azure/cognitive-services/translator-speech/quickstarts/java
-
     - title: LUIS - Use prebuilt domain
       values:
       - href: /azure/cognitive-services/luis/luis-get-started-create-app
@@ -81,7 +76,6 @@ sections:
       - href: 
       - href: 
       - href:
-
     - title: Translator Text - API sign up
       values:
       - href: /azure/cognitive-services/translator/translator-text-how-to-signup
@@ -89,7 +83,6 @@ sections:
       - href: 
       - href: 
       - href:
-
     - title: Bing Web Search - Call and Response
       values: 
       - href:
@@ -97,7 +90,6 @@ sections:
       - href: /azure/cognitive-services/bing-web-search/quickstarts/python
       - href: /azure/cognitive-services/bing-web-search/quickstarts/nodejs
       - href: /azure/cognitive-services/bing-web-search/quickstarts/java
-
     - title: Bing Image Search - Call and Response
       values:
       - href:
