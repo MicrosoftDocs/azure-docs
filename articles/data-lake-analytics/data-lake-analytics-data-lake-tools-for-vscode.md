@@ -347,7 +347,7 @@ Another way to preview the file is through the shortcut menu on the file's full 
 
 1. Right-click the script editor and select **Upload File** or **Upload Folder**.
 2. Choose one file or multiple files if you selected **Upload File**, or choose the whole folder if you selected **Upload Folder**. Then select **Upload**. 
-3. Choose the storage folder in the list, or select **Enter Path** or **Browse from Root**. (We're using **Enter Path** as an example.) 
+3. Choose the storage folder in the list, or select **Enter a path** or **Browse from root path**. (We're using **Enter a path** as an example.) 
 4. Select your Data Lake Analytics account. 
 5. Browse to or enter the storage folder path (for example, /output/). 
 6. Select **Choose Current Folder** to specify your upload destination.
@@ -356,15 +356,15 @@ Another way to preview the file is through the shortcut menu on the file's full 
 
 Another way of uploading files to storage is through the shortcut menu on the file's full path or the file's relative path in the script editor.
 
-At the same time, you can [monitor the upload status](#check-storage-tasks-status).
+You can [monitor the upload status](#check-storage-tasks-status).
 
 
 ### Download a file 
-You can download files by using the command **ADL: Download File** or **ADL: Download File (Advanced)**.
+You can download a file by using the command **ADL: Download File** or **ADL: Download File (Advanced)**.
 
-**To download files through the ADL: Download File (Advanced) command**
+**To download a file through the ADL: Download File (Advanced) command**
 1. Right-click the script editor, and then select **Download File (Advanced)**.
-2. VS Code displays a JSON file. You can enter file paths and download multiple files at the same time. Instructions are displayed in the **Output** window. To proceed to download the file, save (Ctrl+S) the JSON file.
+2. VS Code displays a JSON file. You can enter file paths and download multiple files at the same time. Instructions are displayed in the **Output** window. To proceed to download the file or files, save (Ctrl+S) the JSON file.
 
     ![JSON file with paths for file download](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
 
@@ -372,20 +372,20 @@ The **Output** window displays the file download status.
 
 ![Output window with download status](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-file-result.png)     
 
-At the same time, you can [monitor the download status](#check-storage-tasks-status).
+You can [monitor the download status](#check-storage-tasks-status).
 
-**To download files through the ADL: Download File command**
+**To download a file through the ADL: Download File command**
 
 1. Right-click the script editor, select **Download File**, and then select the destination folder from the **Select Folder** dialog box.
-2. Choose the folder in the list, or select **Enter Path** or **Browse from Root**. (We're using **Enter Path** as an example.) 
+2. Choose the folder in the list, or select **Enter a path** or **Browse from root path**. (We're using **Enter a path** as an example.) 
 3. Select your Data Lake Analytics account. 
 4. Browse to or enter the storage folder path (for example, /output/), and then choose a file to download.
 
-![Steps and result for downloading files](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file.png) 
+![Steps and result for downloading a file](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file.png) 
 
 Another way of downloading storage files is through the shortcut menu on the file's full path or the file's relative path in the script editor.
 
-At the same time, you can [monitor the download status](#check-storage-tasks-status).
+You can [monitor the download status](#check-storage-tasks-status).
 
 ### Check storage tasks' status
 The upload and download status appears on the status bar. Select the status bar, and then the status appears on the **OUTPUT** tab.
@@ -395,7 +395,7 @@ The upload and download status appears on the status bar. Select the status bar,
 
 ## Integrate with Azure Data Lake Analytics from the explorer
 
-After you log in, all the subscriptions under your Azure account are listed in the left pane, under **AZURE DATALAKE**. 
+After you log in, all the subscriptions for your Azure account are listed in the left pane, under **AZURE DATALAKE**. 
 
 ![Data Lake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
