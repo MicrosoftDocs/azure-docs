@@ -1,22 +1,4 @@
 ---
-title: Run steps based on grouped action status - Azure Logic Apps | Microsoft Docs
-description: Group actions into scopes and run steps based on group status
-services: logic-apps
-keywords: branches, parallel processing
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-
-ms.assetid: 
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
-ms.author: estfan; LADocs
-
 # required metadata
 title: Add scopes that run actions based on group status - Azure Logic Apps | Microsoft Docs
 description: How to create scopes that run workflow actions based on group action status in Azure Logic Apps
@@ -33,7 +15,7 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Create scopes for running workflow actions based on group status in Azure Logic Apps
+# Create scopes that run workflow actions based on group status in Azure Logic Apps
 
 To run actions only after another group of actions succeed or fail, 
 group those actions inside a *scope*. This structure is useful when 
