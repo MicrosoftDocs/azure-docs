@@ -43,7 +43,7 @@ Yes, the new Remote Monitoring is available in the same geographic regions.
 
 ### What's the difference between deleting a resource group in the Azure portal and clicking delete on a solution accelerator in azureiotsuite.com?
 
-* If you delete the solution accelerator in [azureiotsuite.com](https://www.azureiotsuite.com/), you delete all the resources that were provisioned when you created the solution accelerator. If you added additional resources to the resource group, these resources are also deleted.
+* If you delete the solution accelerator in [azureiotsuite.com](https://www.azureiotsolutions.com/), you delete all the resources that were provisioned when you created the solution accelerator. If you added additional resources to the resource group, these resources are also deleted.
 * If you delete the resource group in the [Azure portal](https://portal.azure.com), you only delete the resources in that resource group. You also need to delete the Azure Active Directory application associated with the solution accelerator.
 
 ### Can I continue to leverage my existing investments in Azure IoT solution accelerators?

@@ -6,7 +6,8 @@ author: rimman
 manager: kfile
 
 ms.service: cosmos-db
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 

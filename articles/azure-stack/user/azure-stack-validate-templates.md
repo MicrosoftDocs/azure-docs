@@ -96,7 +96,7 @@ This example validates all of the [Azure Stack Quickstart templates](https://git
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
--CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json.json `
+-CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
 -TemplatePattern MyStandardTemplateName.json`
 -IncludeComputeCapabilities`
 -Report TemplateReport.html
