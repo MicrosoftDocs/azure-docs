@@ -31,6 +31,8 @@ For Azure Functions version 1.x, the Event Hubs bindings are provided in the [Mi
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## Trigger
 
 Use the Event Hubs trigger to respond to an event sent to an event hub event stream. You must have read access to the event hub to set up the trigger.
@@ -119,7 +121,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 The following example shows an event hub trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs the message body of the event hub trigger.
 
-Here's the binding data in the *function.json* file:
+The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 1.x, and the second one is for Functions 2.x. 
 
 ```json
 {
@@ -130,6 +132,16 @@ Here's the binding data in the *function.json* file:
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
 Here's the C# script code:
 
 ```cs
@@ -183,7 +195,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 The following example shows an event hub trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function logs the message body of the event hub trigger.
 
-Here's the binding data in the *function.json* file:
+The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 1.x, and the second one is for Functions 2.x. 
 
 ```json
 {
@@ -191,6 +203,15 @@ Here's the binding data in the *function.json* file:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -206,7 +227,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [event metadata](#trigger---event-metadata) and logs the message.
 
-Here's the binding data in the *function.json* file:
+The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 1.x, and the second one is for Functions 2.x. 
 
 ```json
 {
@@ -214,6 +235,15 @@ Here's the binding data in the *function.json* file:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -231,8 +261,7 @@ module.exports = function (context, eventHubMessage) {
 };
 ```
 
-To receive events in a batch, set `cardinality` to `many` in the *function.json* file:
-
+To receive events in a batch, set `cardinality` to `many` in the *function.json* file, as shown in the following examples. The first example is for Functions 1.x, and the second one is for Functions 2.x. 
 
 ```json
 {
@@ -240,6 +269,16 @@ To receive events in a batch, set `cardinality` to `many` in the *function.json*
   "name": "eventHubMessages",
   "direction": "in",
   "path": "MyEventHub",
+  "cardinality": "many",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "eventHubMessages",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -284,7 +323,8 @@ The following table explains the binding configuration properties that you set i
 |**type** | n/a | Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | n/a | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the event item in function code. | 
-|**path** |**EventHubName** | The name of the event hub. | 
+|**path** |**EventHubName** | Functions 1.x only. The name of the event hub.  | 
+|**eventHubName** |**EventHubName** | Functions 2.x only. The name of the event hub.  |
 |**consumerGroup** |**ConsumerGroup** | An optional property that sets the [consumer group](../event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. | 
 |**cardinality** | n/a | For Javascript. Set to `many` in order to enable batching.  If omitted or set to `one`, single message passed to function. | 
 |**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the [namespace](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
@@ -344,13 +384,22 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 The following example shows an event hub trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes a message to an event hub.
 
-Here's the binding data in the *function.json* file:
+The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 1.x, and the second one is for Functions 2.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -385,13 +434,22 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 The following example shows an event hub trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function writes a message to an event hub.
 
-Here's the binding data in the *function.json* file:
+The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 1.x, and the second one is for Functions 2.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -410,13 +468,22 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes a message to an event hub.
 
-Here's the binding data in the *function.json* file:
+The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 1.x, and the second one is for Functions 2.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -474,7 +541,8 @@ The following table explains the binding configuration properties that you set i
 |**type** | n/a | Must be set to "eventHub". |
 |**direction** | n/a | Must be set to "out". This parameter is set automatically when you create the binding in the Azure portal. |
 |**name** | n/a | The variable name used in function code that represents the event. | 
-|**path** |**EventHubName** | The name of the event hub. | 
+|**path** |**EventHubName** | Functions 1.x only. The name of the event hub.  | 
+|**eventHubName** |**EventHubName** | Functions 2.x only. The name of the event hub.  |
 |**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have send permissions to send the message to the event stream.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

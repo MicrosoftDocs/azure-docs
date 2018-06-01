@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: kgremban
 ---

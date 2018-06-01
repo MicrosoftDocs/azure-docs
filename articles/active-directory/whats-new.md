@@ -1,4 +1,4 @@
-﻿---
+---
 title: What's new? Release notes for Azure Active Directory | Microsoft Docs
 description: Learn what is new with Azure Active Directory (Azure AD), such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 services: active-directory
@@ -11,11 +11,12 @@ featureFlags:
 
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/25/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -23,11 +24,11 @@ ms.reviewer: dhanyahk
 # What's new in Azure Active Directory?
 
 
-> Stay up to date with what's new in Azure Active Directory (Azure AD) by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Stay up-to-date with what's new in Azure Active Directory (Azure AD) by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 
 
-Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+Azure AD receives improvements on an ongoing basis. To stay up-to-date with the most recent developments, this article provides you with information about:
 
 -	The latest releases
 -	Known issues
@@ -36,6 +37,286 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 -	Plans for changes
 
 This page is updated monthly, so revisit it regularly.
+
+
+## May 2018
+ 
+
+
+### Microsoft Graph API's for administrative scenarios for TOU
+
+**Type:** New feature  
+**Service category:** Terms of Use  
+**Product capability:** Developer Experience
+ 
+
+ We have added Microsoft Graph API's for administration operation of Azure AD Terms of Use. You are able to create, update, delete the Terms of Use object.
+
+---
+ 
+
+
+### Add Azure AD multi-tenant endpoint as an identity provider in Azure AD B2C
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+
+Using custom policies, you can now add the Azure AD common endpoint as an identity provider in Azure AD B2C. This allows you to have a single point of entry for all Azure AD users that are signing into your applications. For more information, see [Azure Active Directory B2C: Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom).
+
+ 
+
+---
+
+
+### Use Internal URLs to access apps from anywhere with our My Apps Sign-in Extension and the Azure AD Application Proxy
+
+**Type:** New feature  
+**Service category:** My Apps  
+**Product capability:** SSO
+ 
+
+Users can now access applications through internal URLs even when outside your corporate network by using the My Apps Secure Sign-in Extension for Azure AD. This will work with any application that you have published using Azure AD Application Proxy, on any browser that also has the Access Panel browser extension installed. The URL redirection functionality is automatically enabled once a user logs into the extension. The extension is available for download on [Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367), and [Firefox](https://go.microsoft.com/fwlink/?linkid=866366).
+ 
+
+---
+ 
+
+
+### View legacy authentications through Sign-ins activity logs
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+
+With the introduction of a field called **Client App** in the Sign-in activity logs, Customers now can see users that are using legacy authentications. Customers will be able to access this information using the Sign-ins MS Graph API or through the Sign-in activity logs in Azure AD portal where you can use the **Client App** control to filter on legacy authentications. Check out the documentation for more details.
+ 
+
+---
+ 
+
+### Azure Active Directory - Data in Europe for Europe customers
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** GoLocal
+ 
+
+Customers in Europe requires their data to stay in Europe and not replicated outside of European datacenters for meeting privacy and European laws. This [article](https://go.microsoft.com/fwlink/?linkid=872328) provides the specific details on what identity information will be stored within Europe and also provide details on information that will be stored outside European datacenters. 
+
+ 
+
+---
+ 
+
+### New user provisioning SaaS app integrations - May 2018
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+ 
+
+Azure AD allows you to automate the creation, maintenance and removal of user identities in SaaS applications such as Dropbox, Salesforce, ServiceNow and more. For May 2018, we have added user provisioning support for the following applications in the Azure AD app gallery:
+
+- [BlueJeans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-bluejeans-provisioning-tutorial)
+
+- [Cornerstone OnDemand](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial)
+
+- [Zendesk](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-zendesk-provisioning-tutorial)
+
+For a list of all applications that support user provisioning in the Azure AD gallery, see [https://aka.ms/appstutorial](https://aka.ms/appstutorial).
+
+ 
+
+---
+ 
+
+### Azure AD access reviews of groups and app access now provides recurring reviews
+
+**Type:** New feature  
+**Service category:** Access Reviews  
+**Product capability:** Governance
+ 
+
+Access reviews of groups and apps is now generally available as part of Azure AD Premium P2.  Administrators will be able to configure access reviews of group memberships and application assignments to automatically recur at regular intervals, such as monthly or quarterly.
+ 
+
+---
+ 
+
+### Azure AD Activity logs (sign-ins and audit) are now available through MS Graph
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+
+Azure AD Activity logs, which, includes Sign-ins and Audit logs, are now available through MS Graph. We have exposed 2 end points through MS Graph to access these logs. Please check out our [documents](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) for programmatic access to Azure AD Reporting APIs to get started. 
+ 
+
+---
+ 
+
+
+
+### Improvements to the B2B redemption experience and leave an org
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+
+**Just in time redemption:** Once you share a resource with a guest user using B2B API – you don’t need to send out a special invitation email. In most      cases, the guest user can simply access the resource and will be taken through the redemption experience just in time. No more impact due to missed emails. No more asking your guest users “Did you click on that redemption link the system sent you?”. This means once SPO uses the invitation manager – cloudy attachments can have the same canonical URL for all users – internal and external – in any state of redemption.
+
+**Modern redemption experience:** No more split screen redemption landing page. Users will see a modern consent experience with the inviting organization's privacy statement, just like they do for 3rd party apps.
+
+
+**Guest users can leave the org:** Once a user’s relationship with an org is over, they can self-serve leaving the organization. No more calling the inviting org’s admin to “be removed”, no more raising support tickets.
+ 
+
+---
+ 
+
+
+### New Federated Apps available in Azure AD App gallery - May 2018
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+
+In May 2018 we have added following 18 new apps in our App gallery with Federation support:
+
+ 
+
+[AwardSpring](https://docs.microsoft.com/azure/active-directory/active-directory-saas-awardspring-tutorial), [Infogix Data3Sixty Govern](), [Yodeck](https://docs.microsoft.com/azure/active-directory/active-directory-saas-infogix-tutorial), [Jamf Pro](https://docs.microsoft.com/azure/active-directory/active-directory-saas-jamfprosamlconnector-tutorial), [KnowledgeOwl](https://docs.microsoft.com/azure/active-directory/active-directory-saas-knowledgeowl-tutorial), [Envi MMIS](https://docs.microsoft.com/azure/active-directory/active-directory-saas-envimmis-tutorial), [LaunchDarkly](https://docs.microsoft.com/azure/active-directory/active-directory-saas-launchdarkly-tutorial), [Adobe Captivate Prime](https://docs.microsoft.com/azure/active-directory/active-directory-saas-adobecaptivateprime-tutorial), [Montage Online](https://docs.microsoft.com/azure/active-directory/active-directory-saas-montageonline-tutorial), [まなびポケット](https://docs.microsoft.com/azure/active-directory/active-directory-saas-manabipocket-tutorial), OpenReel, [Arc Publishing - SSO](https://docs.microsoft.com/azure/active-directory/active-directory-saas-arc-tutorial), [PlanGrid](https://docs.microsoft.com/azure/active-directory/active-directory-saas-plangrid-tutorial), [iWellnessNow](https://docs.microsoft.com/azure/active-directory/active-directory-saas-iwellnessnow-tutorial), [Proxyclick](https://docs.microsoft.com/azure/active-directory/active-directory-saas-proxyclick-tutorial), [Riskware](https://docs.microsoft.com/azure/active-directory/active-directory-saas-riskware-tutorial), [Flock](https://docs.microsoft.com/azure/active-directory/active-directory-saas-flock-tutorial), [Reviewsnap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-reviewsnap-tutorial)
+
+ 
+
+You can also find the documentation of all the applications [here](https://aka.ms/appstutorial).
+
+For listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing). 
+
+ 
+
+---
+ 
+
+### Deployment Plans - Guidance to get you started with Azure Active Directory
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Directory
+ 
+
+Looking for step by step guidance to deploy  (SSPR, SSO, CA, App Proxy, User Provisioning, ADFS to PTA, or ADFS to PHS?). We've got deployment plans to help!
+
+Go to [Aka.ms/DeploymentPlans](http://Aka.ms/DeploymentPlans) where you can access end to end guides to start getting value from those capabilities.
+
+
+
+- [How can I get the deployment plans](http://Aka.ms/DeploymentPlans)? 
+
+- You can provide feedback [here](http://aka.ms/DeploymentPlanFeedback)
+
+- Questions? Reach out to: [IDGitDeploy@microsoft.com](mailto:IDGitDeploy@microsoft.com)
+
+
+
+     
+
+ 
+
+---
+ 
+
+### Enterprise Applications Search - Load More Apps
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** SSO
+ 
+
+Having trouble finding your applications / service principals? We've added the ability to load more applications in your enterprise applications all applications list. By default, we show 20 applications. You can now click load more to view additional applications. 
+ 
+
+---
+ 
+
+
+### Public Preview of new and improved Sign-ins User experience in Azure Portal
+
+**Type:** Changed feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+
+We are excited to introduce the new and improved Sign-in logs user experience from within the Azure AD portal. With the new Sign-ins User experience, customers now can get the following:
+
+- Improved latency from 2 hours to within 5 mins. Check out our [latency](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-latencies-azure-portal) docs for more information.
+
+- Ability to add filters dynamically using the "Columns" button. By adding columns to the Sign-in report in UX, you can automatically see them as filters for you to use.
+
+- Ability to sort by Date, User Name and Application.
+
+- Inclusion of legacy authentications and ability to filter for legacy authentications using the "Client App" column.
+
+- Inclusion of a downloadable PowerShell script which is customized based on the filter conditions you choose in the UX. With this PowerShell script, you can get as many rows of data as you want (based on your filter criteria) which will provide the output in a .csv format.
+
+For more details of this feature, see [Sign-in activity reports in the Azure Active Directory portal](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins).
+ 
+
+---
+ 
+
+
+### The May release of AADConnect contains a public preview of the integration with PingFederate, important security updates, many bug fixes and new great new troubleshooting tools. 
+
+**Type:** Changed feature  
+**Service category:** AD Connect  
+**Product capability:** Identity Lifecycle Management
+ 
+
+The May release of AADConnect contains a public preview of the integration with PingFederate, important security updates, many bug fixes and new great new troubleshooting tools. You can find the release notes [here](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
+
+ 
+
+---
+ 
+
+
+### Azure AD access reviews: auto-apply
+
+**Type:** Changed feature  
+**Service category:** Access Reviews  
+**Product capability:** Governance
+ 
+
+Access reviews of groups and apps are now generally available as part of Azure AD Premium P2. An administrator can configure to automatically apply the reviewer's changes to that group or app as the access review completes. The administrator can also specify what happens to the user's continued access if reviewers didn't respond, remove access, keep access or take system recommendations. 
+
+ 
+
+---
+ 
+
+
+### ID tokens can no longer be returned using the query response_mode for new apps. 
+
+**Type:** Changed feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+
+Apps created on or after 4/25/2018 will no longer be able to request an **id_token** using the **query** response_mode.  This brings Azure AD inline with the OIDC specifications and helps reduce your apps attack surface.  Apps created before 4/25/2018 are not blocked from using the **query** response_mode with a response_type of **id_token**.  The error returned, when requesting an id_token from AAD, is **AADSTS70007: ‘query’ is not a supported value of ‘response_mode’ when requesting a token**.
+
+The **fragment** and **form_post** response_modes continue to work - when creating new application objects (e.g. for App Proxy usage), ensure use of one of these response_modes before they create a new application.  
+ 
+
+---
+ 
+
 
 
 ## April 2018
@@ -259,7 +540,7 @@ For more information, see [Azure AD password reset from the login screen](https:
  
 Azure AD sends a notification when a certificate for a gallery or non-gallery application is about to expire. 
 
-Some users did not receive notifications for enterprise applications configured for SAML-based single sign-on. This issue was resolved. Azure AD sends notification for certificates expiring in 7, 30 and 60 days. You ere able to see this event in the audit logs. 
+Some users did not receive notifications for enterprise applications configured for SAML-based single sign-on. This issue was resolved. Azure AD sends notification for certificates expiring in 7, 30 and 60 days. You are able to see this event in the audit logs. 
 
 For more information, see:
 
@@ -331,7 +612,7 @@ For more information, see [AzureAD](https://docs.microsoft.com/powershell/module
  
 User using Office 365 native clients (version 16.0.8730.xxxx and above) get a silent sign-on experience using Seamless SSO. This support is provided by the addition a non-interactive protocol (WS-Trust) to Azure AD.
 
-For more information, see [How does sign-in on a native client with Seamless SSO work?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work).
+For more information, see [How does sign-in on a native client with Seamless SSO work?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work)
 
  
 ---
@@ -343,7 +624,7 @@ For more information, see [How does sign-in on a native client with Seamless SSO
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
  
-Users get a silent sign-on experience, with Seamless SSO, if an application (for example, `https://contoso.sharepoint.com`) sends sign-in requests to Azure AD's tenanted endpoints - that is, `https://login.microsoftonline.com/contoso.com/<..>` or `https://login.microsoftonline.com/<tenant_ID>/<..>` - instead of Azure AD's common endpoint (`https://login.microsoftonline.com/common/<...>`).
+Users get a silent sign-on experience, with Seamless SSO, if an application (for example, `https://contoso.sharepoint.com`) sends sign-in requests to Azure AD's tenant endpoints - that is, `https://login.microsoftonline.com/contoso.com/<..>` or `https://login.microsoftonline.com/<tenant_ID>/<..>` - instead of Azure AD's common endpoint (`https://login.microsoftonline.com/common/<...>`).
 
 For more information, see [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
 
@@ -414,7 +695,7 @@ For more information, see [Optional claims in Azure AD](https://docs.microsoft.c
  
 Azure AD docs have been updated to note support for PKCE, which allows for more secure communication during the OAuth 2.0 Authorization Code grant flow.  Both S256 and plaintext code_challenges are supported on the v1.0 and v2.0 endpoints. 
 
-For more information, see Request an authorization code[](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code). 
+For more information, see [Request an authorization code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code). 
 
  
 ---
@@ -654,7 +935,7 @@ This release has the following updates and changes:
 
 **Fixed issues**
 
-- Fix timing window on background tasks for Paritition Filtering page when switching to next page.
+- Fix timing window on background tasks for Partition Filtering page when switching to next page.
 - Fixed a bug that caused Access violation during the ConfigDB custom action.
 - Fixed a bug to recover from sql connection timeout.
 - Fixed a bug where certificates with SAN wildcards fail pre-req check.
@@ -663,12 +944,7 @@ This release has the following updates and changes:
 
 **New features and improvements**
 
-- For GDPR, we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to you to change your preferences.  This check-in adds the following:
-    - Data sharing and privacy notification on the clean install EULA page.
 
-    - Data sharing and privacy notification on the upgrade page.
-
-    - A new additional task **Privacy Settings** where the user can change their preferences.
  
 - Application telemetry - Administrators can switch this class of data on/off.
 

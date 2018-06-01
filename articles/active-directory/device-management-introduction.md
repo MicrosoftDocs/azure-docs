@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -27,9 +28,9 @@ In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables 
 
 Through devices, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to have control over these devices. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance. 
 
-Device management is also the foundation for [device-based conditional access](active-directory-conditional-access-policy-connected-applications.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with trusted devices.   
+Device management is also the foundation for [device-based conditional access](active-directory-conditional-access-policy-connected-applications.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.   
 
-This topic explains how device management in Azure Active Directory works.
+This article explains how device management in Azure Active Directory works.
 
 ## Getting devices under the control of Azure AD
 
@@ -120,7 +121,7 @@ You should use Azure AD hybrid joined devices if:
 
 - You have Win32 apps deployed to these devices that use NTLM / Kerberos.
 
-- You require GP or SCCM / DCM to manage devices.
+- You require GP to manage devices.
 
 - You want to continue to use imaging solutions to configure devices for your employees.
 

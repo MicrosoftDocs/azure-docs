@@ -12,12 +12,11 @@ ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-# Video Search SDK Node quickstart (preview)
+# Video Search SDK Node quickstart
 
 The Bing Video Search SDK contains the functionality of the REST API for video queries and parsing results. 
 
-> [!NOTE] 
-> Some SDKs are now in GA and changes to documentation are pending. 
+The [source code for Node Bing Video Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js) is available on Git Hub.
 
 ## Application dependencies
 

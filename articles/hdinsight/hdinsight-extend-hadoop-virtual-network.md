@@ -87,10 +87,10 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        For more information, see the [Troubleshoot network security groups](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) document.
+        For more information, see the [Troubleshoot network security groups](../virtual-network/diagnose-network-traffic-filter-problem.md) document.
 
         > [!IMPORTANT]
-        > Network security group rules are applied in order based on rule priority. The first rule that matches the traffic pattern is applied, and no others are applied for that traffic. Order rules from most permissive to least permissive. For more information, see the [Filter network traffic with network security groups](../virtual-network/virtual-networks-nsg.md) document.
+        > Network security group rules are applied in order based on rule priority. The first rule that matches the traffic pattern is applied, and no others are applied for that traffic. Order rules from most permissive to least permissive. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
 
     * User-defined routes
 
@@ -104,7 +104,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        For more information, see the [Troubleshoot routes](../virtual-network/virtual-network-routes-troubleshoot-portal.md) document.
+        For more information, see the [Troubleshoot routes](../virtual-network/diagnose-network-routing-problem.md) document.
 
 4. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
 
@@ -211,7 +211,7 @@ To connect to Ambari and other web pages through the virtual network, use the fo
 
 Network traffic in an Azure Virtual Networks can be controlled using the following methods:
 
-* **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/virtual-networks-nsg.md) document.
+* **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
 
     > [!WARNING]
     > HDInsight does not support restricting outbound traffic.
@@ -239,7 +239,7 @@ If you plan on using **network security groups** or **user-defined routes** to c
 
 For more information on network security groups or user-defined routes, see the following documentation:
 
-* [Network security group](../virtual-network/virtual-networks-nsg.md)
+* [Network security group](../virtual-network/security-overview.md)
 
 * [User-defined routes](../virtual-network/virtual-networks-udr-overview.md)
 
@@ -663,6 +663,6 @@ After completing these steps, you can connect to resources in the virtual networ
 * For configuring HBase geo-replication, see [Set up HBase cluster replication in Azure virtual networks](hbase/apache-hbase-replication.md).
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
-* For more information on network security groups, see [Network security groups](../virtual-network/virtual-networks-nsg.md).
+* For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
 
 * For more information on user-defined routes, see [USer-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).

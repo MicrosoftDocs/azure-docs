@@ -10,10 +10,10 @@
   editor: ''
 
   ms.service: active-directory
-  ms.component: users-groups-roles
+  ms.component: fundamentals
   ms.topic: article
   ms.workload: identity
-  ms.date: 03/29/2018
+  ms.date: 05/21/2018
   ms.author: curtand
   ms.reviewer: piotrci
 
@@ -23,7 +23,7 @@
 
 # Group-based licensing basics in Azure Active Directory
 
-Using Microsoft paid cloud services, such as Office 365, Enterprise Mobility + Security, Dynamics CRM, and other similar products, requires licenses. These licenses are assigned to each user who needs access to these services. To manage licenses, administrators use one of the management portals (Office or Azure) and PowerShell cmdlets. Azure Active Directory (Azure AD) is the underlying infrastructure that supports identity management for all Microsoft cloud services. Azure AD stores information about license assignment states for users.
+Microsoft paid cloud services, such as Office 365, Enterprise Mobility + Security, Dynamics 365, and other similar products, require licenses. These licenses are assigned to each user who needs access to these services. To manage licenses, administrators use one of the management portals (Office or Azure) and PowerShell cmdlets. Azure Active Directory (Azure AD) is the underlying infrastructure that supports identity management for all Microsoft cloud services. Azure AD stores information about license assignment states for users.
 
 Until now, licenses could only be assigned at the individual user level, which can make large-scale management difficult. For example, to add or remove user licenses based on organizational changes, such as users joining or leaving the organization or a department, an administrator often must write a complex PowerShell script. This script makes individual calls to the cloud service.
 
@@ -40,7 +40,7 @@ Here are the main features of group-based licensing:
 
 - When a product license is assigned to a group, the administrator can disable one or more service plans in the product. Typically, this is done when the organization is not yet ready to start using a service included in a product. For example, the administrator might assign Office 365 to a department, but temporarily disable the Yammer service.
 
-- All Microsoft cloud services that require user-level licensing are supported. This includes all Office 365 products, Enterprise Mobility + Security, and Dynamics CRM.
+- All Microsoft cloud services that require user-level licensing are supported. This includes all Office 365 products, Enterprise Mobility + Security, and Dynamics 365.
 
 - Group-based licensing is currently available only through [the Azure portal](https://portal.azure.com). If you primarily use other management portals for user and group management, such as the Office 365 portal, you can continue to do so. But you should use the Azure portal to manage licenses at group level.
 
@@ -54,7 +54,7 @@ Here are the main features of group-based licensing:
 
 ## Your feedback is welcome!
 
-If you have feedback or feature requests, please share them with us using [this forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/317677-group-based-licensing).
+If you have feedback or feature requests, please share them with us using [the Azure AD admin forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=162510).
 
 ## Next steps
 

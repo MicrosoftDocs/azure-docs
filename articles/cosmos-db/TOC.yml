@@ -1,3 +1,6 @@
+metadata:
+  experimental: true
+  experiment_id: "d1c17cc0-2ae0-4b"
 items:
   - name: Azure Cosmos DB Documentation
     href: index.yml
@@ -70,6 +73,8 @@ items:
     items:
     - name: Global distribution
       href: distribute-data-globally.md
+    - name: Multi-master setup
+      href: multi-region-writers.md
     - name: Partitioning
       href: partition-data.md
     - name: Throughput
@@ -80,8 +85,6 @@ items:
       href: unique-keys.md
     - name: Serverless database
       href: serverless-computing-database.md
-    - name: BulkExecutor overview
-      href: bulk-executor-overview.md
     - name: Security
       href: database-security.md
       items:
@@ -167,8 +170,6 @@ items:
           href: sql-api-resources.md
         - name: Model document data
           href: modeling-data.md
-        - name: Multi-master setup
-          href: multi-region-writers.md
       - name: How To Guides
         items:
         - name: BulkExecutor - .NET
@@ -399,8 +400,6 @@ items:
           href: table-storage-how-to-use-dotnet.md
         - name: F#
           href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
-        - name: Node.js 
-          href: table-storage-cloud-service-nodejs.md
         - name: Java
           href: table-storage-how-to-use-java.md
         - name: Node.js
@@ -413,8 +412,6 @@ items:
           href: table-storage-how-to-use-python.md
         - name: Ruby
           href: table-storage-how-to-use-ruby.md
-        - name: PowerShell
-          href: table-storage-how-to-use-powershell.md
       - name: Reference
         items:
           - name: .NET
@@ -467,10 +464,14 @@ items:
       href: regional-failover.md
     - name: Diagnostic logging
       href: logging.md
+    - name: BulkExecutor overview
+      href: bulk-executor-overview.md
     - name: Cost-effective reads and writes
       href: key-value-store-cost.md
     - name: Expire data automatically
       href: time-to-live.md
+    - name: Manage using PowerShell
+      href: manage-account-with-powershell.md
     - name: Manage using Storage Explorer
       href: storage-explorer.md
   - name: Resources

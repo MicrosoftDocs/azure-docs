@@ -55,6 +55,6 @@ If your chat bot requires a specific LUIS score to indicate confidence in an int
 
 ## Next steps
 
-See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.
+See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
 
 [LUIS]:luis-reference-regions.md

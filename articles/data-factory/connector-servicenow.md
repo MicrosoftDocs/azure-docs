@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/22/2018
+ms.topic: conceptual
+ms.date: 05/28/2018
 ms.author: jingwang
 
 ---
@@ -44,8 +44,8 @@ The following properties are supported for ServiceNow linked service:
 | type | The type property must be set to: **ServiceNow** | Yes |
 | endpoint | The endpoint of the ServiceNow server (`http://<instance>.service-now.com`).  | Yes |
 | authenticationType | The authentication type to use. <br/>Allowed values are: **Basic**, **OAuth2** | Yes |
-| username | The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.  | No |
-| password | The password corresponding to the user name for Basic and OAuth2 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| username | The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.  | Yes |
+| password | The password corresponding to the user name for Basic and OAuth2 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | clientId | The client ID for OAuth2 authentication.  | No |
 | clientSecret | The client secret for OAuth2 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |

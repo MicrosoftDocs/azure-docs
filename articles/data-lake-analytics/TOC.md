@@ -22,7 +22,9 @@
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
 #### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Add users](data-lake-analytics-add-users.md)
 ### [Policies](data-lake-analytics-policies.md)
+### [Secure job folders](data-lake-analytics-secure.md)
 ### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
 ### [Adjust quota limits](data-lake-analytics-quota-limits.md)
 
@@ -38,6 +40,10 @@
 #### [Cognitive extensions](data-lake-analytics-u-sql-cognitive.md)
 #### [Programmability guide](data-lake-analytics-u-sql-programmability-guide.md)
 
+### U-SQL SDK
+#### [Local run & debug](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Run & test](data-lake-analytics-u-sql-sdk.md) 
+
 ### Visual Studio
 #### [Install](data-lake-analytics-data-lake-tools-install.md)
 #### [Browse and view jobs](data-lake-analytics-data-lake-tools-view-jobs.md)
@@ -46,6 +52,7 @@
 #### [Vertex execution details](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 #### [Export U-SQL database](data-lake-analytics-data-lake-tools-export-database.md)
 #### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
+#### [Resolve data-skew](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
 #### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ### Visual Studio Code
@@ -64,7 +71,7 @@
 # Resources
 ## [Azure Data Lake Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Request changes](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

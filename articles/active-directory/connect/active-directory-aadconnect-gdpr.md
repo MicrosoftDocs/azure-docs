@@ -11,7 +11,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -22,7 +23,7 @@ ms.author: billmath
 >[!NOTE] 
 >This article deals with Azure AD Connect and user privacy.  For information on Azure AD Connect Health and user privacy see the article [here](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
 
-User privacy compliance for Azure AD Connect installations can be reached in two ways:
+Improve user privacy for Azure AD Connect installations in two ways:
 
 1.	Upon request, extract data for a person and remove data from that person from the installations
 2.	Ensure no data is retained beyond 48 hours.

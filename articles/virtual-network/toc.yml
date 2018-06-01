@@ -61,12 +61,10 @@
       href: virtual-networks-acl.md
 - name: How-to guides
   items:
-  - name: Plan and design
+  - name: Plan
     items:
     - name: Virtual networks
       href: virtual-network-vnet-plan-design-arm.md
-    - name: Network security groups
-      href: virtual-networks-nsg.md
   - name: Deploy
     items:
     - name: Network security groups
@@ -207,17 +205,9 @@
   - name: Troubleshoot
     items:
     - name: Network security groups
-      items:
-      - name: Azure portal
-        href: virtual-network-nsg-troubleshoot-portal.md
-      - name: Azure PowerShell
-        href: virtual-network-nsg-troubleshoot-powershell.md
+      href: diagnose-network-traffic-filter-problem.md
     - name: Routes
-      items:
-      - name: Azure portal
-        href: virtual-network-routes-troubleshoot-portal.md
-      - name: Azure PowerShell
-        href: virtual-network-routes-troubleshoot-powershell.md
+      href: diagnose-network-routing-problem.md
     - name: Throughput testing
       href: virtual-network-bandwidth-testing.md
     - name: Cannot delete virtual networks
