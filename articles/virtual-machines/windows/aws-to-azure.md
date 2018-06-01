@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move a Windows AWS VMs to Azure | Microsoft Docs
 description: Move an Amazon Web Services (AWS) EC2 Windows instance to Azure Virtual Machines using Azure PowerShell. 
 services: virtual-machines-windows
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/01/2018
 ms.author: cynthn
 
 ---
