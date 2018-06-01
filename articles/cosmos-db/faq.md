@@ -55,8 +55,8 @@ There is no limit to the total amount of data that a container can store in Azur
 ### What are the throughput limits of Azure Cosmos DB?
 There is no limit to the total amount of throughput that a container can support in Azure Cosmos DB. The key idea is to distribute your workload roughly evenly among a sufficiently large number of partition keys.
 
-### Are both modes of connectivity Direct and Gateway encrypted ? 
-Yes both modes are always completely encrypted. 
+### Are Direct and Gateway connectivity modes encrypted ? 
+Yes both modes are always fully encrypted. 
 
 ### How much does Azure Cosmos DB cost?
 For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container. The term *containers* here refers to the SQL API collection, Graph API graph, MongoDB API collection, and Table API tables. 
@@ -169,8 +169,9 @@ Yes. The [Azure Cosmos DB Emulator](local-emulator.md) provides a high-fidelity 
 ### Why are long floating-point values in a document rounded when viewed from data explorer in the portal. 
 This is limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in IEEE 754 and it can safely represent numbers between -(253 - 1) and 253-1 (i.e., 9007199254740991) only.
 
-### Where is permission possible in the object hierarchy?
-ResourceTokens are applicable to Collection resources and its descendants(documents, attachments). This implies  trying to create a permission at database or account level is not valid concept today. 
+### Where are permissions allowed in the object hierarchy?
+
+Creating permissions by using ResourceTokens is allowed at the collection level and its descendants (such as documents, attachments). This implies that trying to create a permission at the database or an account level is not currently allowed.
 
 
 ## Develop against the API for MongoDB
