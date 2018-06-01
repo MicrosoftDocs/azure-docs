@@ -116,17 +116,13 @@ When you're done, select **OK** to move to the next section.
 On the **Prepare source** page, select **+ Configuration Server**.
 
 1. Use an EC2 instance that's running Windows Server 2012 R2 to create a configuration server and register it with your recovery vault.
-
 2. Configure the proxy on the EC2 instance VM you're using as the configuration server so that it can access the [service URLs](site-recovery-support-matrix-to-azure.md).
-
 3. Download [Microsoft Azure Site Recovery Unified Setup](http://aka.ms/unifiedinstaller_wus). You can download it to your local machine and then copy it to the VM you're using as the configuration server.
-
 4. Select the **Download** button to download the vault registration key. Copy the downloaded file to the VM you're using as the configuration server.
-
 5. On the VM, right-click the installer you downloaded for Microsoft Azure Site Recovery Unified Setup, and then select **Run as administrator**.
 
 	1. Under **Before You Begin**, select **Install the configuration server and process server**, and then select **Next**.
-	2. Ini **Third-Party Software License**, select **I accept the third-party license agreement**, and then select **Next**.
+	2. In **Third-Party Software License**, select **I accept the third-party license agreement**, and then select **Next**.
 	3. In **Registration**, select **Browse**, and then go to where you put the vault registration key file. Select **Next**.
 	4. In **Internet Settings**, select **Connect to Azure Site Recovery without a proxy server**, and then select **Next**.
 	5. The **Prerequisites Check** page runs checks for several items. When it's finished, select **Next**.
@@ -136,7 +132,6 @@ On the **Prepare source** page, select **+ Configuration Server**.
 	9. In **Network Selection**, select **Next** to accept the default.
 	10. In **Summary**, select **Install**.
 	11. **Installation Progress** shows you information about the installation process. When it's finished, select **Finish**. A window displays a message about a reboot. Select **OK**. Next, a window displays a message about the configuration server connection passphrase. Copy the passphrase to your clipboard and save it somewhere safe.
-
 6. On the VM, run cspsconfigtool.exe to create one or more management accounts on the configuration server. Make sure that the management accounts have administrator permissions on the EC2 instances that you want to migrate.
 
 When you're done setting up the configuration server, go back to the portal and select the server that you created for **Configuration Server**. Select **OK** to go to 3: Prepare target.
@@ -163,7 +158,7 @@ Before you can enable replication, you must create a replication policy.
 
 In **Have you completed deployment planning**, select **I will do it later**, and then select **OK**.
 
-When you are finished with all five sections under **Prepare Infrastructure**, select **OK**.
+When you're finished with all five sections under **Prepare Infrastructure**, select **OK**.
 
 
 ## Enable replication
@@ -172,7 +167,7 @@ Enable replication for each VM that you want to migrate. When replication is ena
 
 1. Go to the [Azure portal](htts://portal.azure.com).
 1. On the page for your vault, under **Getting Started**, select **Site Recovery**.
-2. Under **For on-premises machines and Azure VMs**, select **Step 1: Replicate application**. Complete the wizard pages with the following information. Select **OK** on each page when you are done:
+2. Under **For on-premises machines and Azure VMs**, select **Step 1: Replicate application**. Complete the wizard pages with the following information. Select **OK** on each page when you're done:
 	- 1: Configure source
 
     |  |  |
@@ -217,27 +212,22 @@ When you enable replication for a VM, changes can take 15 minutes or longer to t
 
 When you run a test failover, the following events occur:
 
-- A prerequisites check runs to make sure that all of the conditions required for failover are in place.
+- A prerequisites check runs to make sure that all the conditions required for failover are in place.
 - Failover processes the data so that an Azure VM can be created. If you select the latest recovery point, a recovery point is created from the data.
 - An Azure VM is created by using the data processed in the preceding step.
 
 In the portal, run the test failover:
 
 1. On the page for your vault, go to **Protected items** > **Replicated Items**. Select the VM, and then select **Test Failover**.
-
 2. Select a recovery point to use for the failover:
     - **Latest processed**: Fails over the VM to the latest recovery point that was processed by Site Recovery. The time stamp is shown. With this option, no time is spent processing data, so it provides a low recovery time objective (RTO).
     - **Latest app-consistent**: This option fails over all VMs to the latest app-consistent recovery point. The time stamp is shown.
     - **Custom**: Select any recovery point.
 
 3. In **Test Failover**, select the target Azure network to which Azure VMs will be connected after failover occurs. This should be the network you created in [Prepare Azure resources](#prepare-azure-resources).
-
 4. Select **OK** to begin the failover. To track progress, select the VM to view its properties. Or you can select the **Test Failover** job on the page for your vault. To do this, select **Monitoring and reports** > **Jobs** >  **Site Recovery jobs**.
-
 5. When the failover finishes, the replica Azure VM appears in the Azure portal. To view the VM, select **Virtual Machines**. Ensure that the VM is the appropriate size, that it's connected to the right network, and that it's running.
-
 6. You should now be able to connect to the replicated VM in Azure.
-
 7. To delete Azure VMs that were created during the test failover, select **Cleanup test failover** in the recovery plan. In **Notes**, record and save any observations associated with the test failover.
 
 In some scenarios, failover requires additional processing. Processing takes 8 to 10 minutes to finish.
