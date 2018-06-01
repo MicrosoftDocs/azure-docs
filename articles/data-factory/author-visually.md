@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: "03/27/2018"
+ms.date: 06/01/2018
 ms.author: shlo
 
 ---
@@ -75,7 +75,7 @@ A configuration pane appears. For details about the configuration settings, see 
 
 #### Switch to a different Git repo
 
-To switch to a different Git repo, locate the icon in the upper right corner of the Data Factory **Authoring canvas**, as shown in the following screenshot. If you can’t see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
+To switch to a different Git repo, locate the icon in the upper right corner of the Data Factory overview page, as shown in the following screenshot. If you can’t see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
 
 After you remove the association with the current repo, you can configure your Git settings to use a different repo. Then you can import existing Data Factory resources to the new repo.
 
