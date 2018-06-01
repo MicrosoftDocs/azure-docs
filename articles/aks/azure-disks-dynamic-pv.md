@@ -38,7 +38,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 
 A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use one of the pre-created storage classes to create a standard or premium Azure managed disk.
 
-Create a file named `azure-premimum.yaml`, and copy in the following manifest.
+Create a file named `azure-premium.yaml`, and copy in the following manifest.
 
 Take note that the `managed-premium` storage class is specified in the annotation, and the claim is requesting a disk `5GB` in size with `ReadWriteOnce` access.
 
@@ -60,7 +60,7 @@ spec:
 Create the persistent volume claim with the [kubectl apply][kubectl-apply] command.
 
 ```azurecli-interactive
-kubectl apply -f azure-premimum.yaml
+kubectl apply -f azure-premium.yaml
 ```
 
 ## Using the persistent volume

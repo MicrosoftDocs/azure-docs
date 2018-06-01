@@ -54,9 +54,10 @@ There is a core set of bindings in version 2.x that are not provided as extensio
 
 For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md). Version 2.x of the Functions runtime is currently in preview. 
 
-The package versions shown in this section are provided only as examples. Check the [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) to determine which version of a given extension are required by the other dependencies in your function app.    
+The package versions shown in this section are provided only as examples. Check the [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) to determine which version of a given extension are required by the other dependencies in your function app.
+<a name="local-csharp"></a>
 
-###  Local C# development using Visual Studio or VS Code 
+### Local C# development using Visual Studio or VS Code
 
 When you use Visual Studio or Visual Studio Code to locally develop functions in C#, you simply need to add the NuGet package for the extension. 
 
@@ -73,7 +74,7 @@ When you use Visual Studio or Visual Studio Code to locally develop functions in
 
 ### Local development Azure Functions Core Tools
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [Install extensions locally](../../includes/functions-core-tools-install-extension.md)]
 
 ### Azure portal development
 

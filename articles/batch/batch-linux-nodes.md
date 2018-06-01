@@ -213,7 +213,7 @@ The following table lists the Marketplace virtual machine images that are compat
 | **Publisher** | **Offer** | **Image SKU** | **Version** | **Node agent SKU ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
 | Canonical | UbuntuServer | 14.04.5-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 16.04.0-LTS | latest | batch.node.ubuntu 16.04 |
+| Canonical | UbuntuServer | 16.04-LTS | latest | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | latest | batch.node.debian 8 |
 | OpenLogic | CentOS | 7.0 | latest | batch.node.centos 7 |
 | OpenLogic | CentOS | 7.1 | latest | batch.node.centos 7 |

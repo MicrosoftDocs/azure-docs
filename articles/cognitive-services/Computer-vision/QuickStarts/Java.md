@@ -1,7 +1,7 @@
 ---
-title: Computer Vision API Java quickstart | Microsoft Docs
+title: Computer Vision API Java quickstart summary | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze an image using Computer Vision with Java in Cognitive Services.
+description: In these quickstarts, you analyze an image, create a thumbnail, and extract printed and handwritten text using Computer Vision with Java in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -21,7 +21,7 @@ These quickstarts provide information and code samples to help you quickly get s
 * [Detect and extract printed text from an image](java-print-text.md)
 * [Detect and extract handwritten text from an image](java-hand-text.md)
 
-The code in these samples is similar, which is expected since the majority of the work is setting up the request, and retrieving and displaying the response. The differences appear in the request parameters sent and the response received. These differences are summarized in the following table:
+The code in these samples is similar. However, they highlight different Computer Vision features along with different techniques for exchanging data with the service, as summarized in the following table:
 
 | Quickstart               | Request Parameters                          | Response          |
 | ------------------------ | ------------------------------------------- | ----------------  |

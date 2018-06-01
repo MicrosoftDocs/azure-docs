@@ -31,6 +31,8 @@ The Service Bus bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## Trigger
 
 Use the Service Bus trigger to respond to messages from a Service Bus queue or topic. 

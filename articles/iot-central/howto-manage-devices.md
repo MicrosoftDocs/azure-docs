@@ -1,23 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Manage the devices in your Azure IoT Central application | Microsoft Docs
 description: As an operator, learn how to manage devices in your Azure IoT Central application.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-manager: timlt
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
 ---
 
 # Manage devices in your Azure IoT Central application
@@ -39,7 +29,7 @@ To view an individual device:
 
 1. In the right-hand pane, you see a list of devices created from that device template. Choose an individual device to see the **Device Details** page for that device:
 
-    ![Device Details Page](./media/howto-manage-devices/image1.png)
+    [![Device Details Page](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
 
 ## Add a device
 
@@ -52,6 +42,39 @@ To add a device to your Azure IoT Central application:
 1. Choose + **New**.
 
 1. Choose **Real** or **Simulated**. A real device is for a physical device that you connect to your Azure IoT Central application. A simulated device has sample data generated for you by Azure IoT Central. This example uses a real device. Choose **Real** to navigate to the **Device Details** page for your new device.
+
+
+## Bulk-import devices
+
+To connect large number of devices to your application, Azure IoT Central offers bulk importing devices via a CSV file. 
+
+CSV file requirements:
+1. The CSV file should have only one column containing the Device IDs.
+
+1. File should not have any header.
+
+
+To bulk-register devices in your application:
+
+1. Choose **Explorer** on the left navigation menu.
+
+1. On the left panel, choose the device template for which you want to bulk create the devices.
+
+1. Choose **New** and select **Bulk Import**.
+
+    [![Bulk Import Action](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+
+1. Select the CSV file that has the list of Device IDs to be imported.
+
+1. Device import starts once the file has been uploaded. You can track the import status at the top of the device grid.
+
+1. Once the import completes, a success message is shown on the device grid.
+
+    [![Bulk Import Success](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+
+If the device import operation fails, there will be an error shown on the Device grid. A log file capturing all the errors is generated and can be downloaded by clicking the error message.
+
+
 
 ## Delete a device
 

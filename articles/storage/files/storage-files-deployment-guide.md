@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 05/22/2018
 ms.author: wgries
 ---
 
@@ -88,7 +88,7 @@ The following steps will import data from an on-premises location to your Azure 
     > [!Warning]  
     > Do not modify the data on the hard disk drives or the journal file after completing disk preparation.
 
-7. [Create an import job](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-an-export-job).
+7. [Create an import job](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
 ### Robocopy
 Robocopy is a well known copy tool that ships with Windows and Windows Server. Robocopy may be used to transfer data into Azure Files by mounting the file share locally, and then using the mounted location as the destination in the Robocopy command. Using Robocopy is quite simple:

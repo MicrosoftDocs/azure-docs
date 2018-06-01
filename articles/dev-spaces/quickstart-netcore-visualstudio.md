@@ -92,4 +92,4 @@ Click on the **About** link at the top of the page to trigger the breakpoint. Yo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-netcore-visualstudio.md)
+> [Working with multiple containers and team development](get-started-netcore-visualstudio.md#call-another-container)

@@ -4,7 +4,7 @@ description: Architectural overview of how to deploy SAP HANA on Azure (Large In
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-linux

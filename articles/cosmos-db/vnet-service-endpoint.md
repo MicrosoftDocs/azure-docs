@@ -6,8 +6,8 @@ author: kanshiG
 manager: kfile
 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
 
@@ -217,9 +217,13 @@ This is required only when you want your Azure Cosmos DB account to be accessed 
 
 64 virtual network service endpoints are allowed for an Azure Cosmos DB account.
 
-### What is the relationship of Service Endpoint with respect to Network Security Group (NSG) rules?  
+### What is the relationship between Service Endpoint and Network Security Group (NSG) rules?  
 
-NSG 's  Azure Cosmos DB rule allows to restric access only to Azure Cosmos DB IP address range.
+NSG rules in Azure Cosmos DB allow you to restrict access to specific Azure Cosmos DB IP address range. If you want to allow access to an Azure Cosmos DB instance that is present in a specific [region](https://azure.microsoft.com/global-infrastructure/regions/), you can specify the region in the following format: 
+
+    AzureCosmosDB.<region name>
+
+To learn more about NSG tags see [virtual network service tags](../virtual-network/security-overview.md#service-tags) article. 
   
 ### What is relationship between an IP firewall and Virtual Network service endpoint capability?  
 

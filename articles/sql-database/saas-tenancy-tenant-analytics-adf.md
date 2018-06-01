@@ -13,7 +13,7 @@ ms.custom: "scale out apps"
 ms.workload: "Inactive"
 ms.tgt_pltfrm: ""
 ms.devlang: ""
-ms.topic: "article"
+ms.topic: conceptual
 ms.date: "11/08/2017"
 ms.author: "anjangsh"
 ---

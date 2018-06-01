@@ -6,7 +6,8 @@ author: czeumault
 manager: mtillman
 layout: LandingPage
 ms.assetid: 
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page

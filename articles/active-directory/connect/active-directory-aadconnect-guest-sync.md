@@ -8,6 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/19/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -178,6 +179,6 @@ In order to verify that this is working properly, you need to sign-in to an endp
 ![Success](media/active-directory-aadconnect-guest-sync/guest12.png)
 
 ## Next steps
-- [Properties of an Azure Active Directory B2B collaboration user](../../active-directory/active-directory-b2b-user-properties.md#key-properties-of-the-azure-ad-b2b-collaboration-user)
+- [Properties of an Azure Active Directory B2B collaboration user](../../active-directory/b2b/user-properties.md#key-properties-of-the-azure-ad-b2b-collaboration-user)
 - [Configuring Alternate Login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 - [Azure AD Connect: Version release history](active-directory-aadconnect-version-history.md)

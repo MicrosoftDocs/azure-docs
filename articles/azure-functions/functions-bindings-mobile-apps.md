@@ -32,6 +32,8 @@ Mobile Apps bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Mob
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## Input
 
 The Mobile Apps input binding loads a record from a mobile table endpoint and passes it into your function. In C# and F# functions, any changes made to the record are automatically sent back to the table when the function exits successfully.

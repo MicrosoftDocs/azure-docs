@@ -1,7 +1,19 @@
-﻿### Enable logging with diagnostics settings
+﻿---
+ title: include file
+ description: include file
+ services: iot-hub
+ author: dominicbetts
+ ms.service: iot-hub
+ ms.topic: include
+ ms.date: 05/17/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
+### Enable logging with diagnostics settings
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT Hub.
-1. Select **Diagnostic settings**.
+1. Select **Diagnostics settings**.
 1. Select **Turn on diagnostics**.
 
    ![Turn on diagnostics][1]

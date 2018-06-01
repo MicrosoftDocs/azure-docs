@@ -1,20 +1,13 @@
 ---
-title: Use Modern Backup Storage with Azure Backup Server v2 | Microsoft Docs
+title: Use Modern Backup Storage with Azure Backup Server v2
 description: Learn about the new features in Azure Backup Server v2. This article describes how to upgrade your Backup Server installation.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
-
-ms.assetid:
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
+ms.author: markgal
 ---
 
 # Add storage to Azure Backup Server v2

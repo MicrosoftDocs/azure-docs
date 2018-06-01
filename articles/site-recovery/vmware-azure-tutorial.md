@@ -6,15 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.author: raynew
 ms.custom: MVC
 
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs
 
-This tutorial shows you how to set up disaster recovery to Azure for on-premises VMware VMs running
-Windows. In this tutorial, you learn how to:
+This tutorial shows you how to set up disaster recovery to Azure for on-premises VMware VMs running Windows. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Enter the replication source and target.
@@ -22,13 +21,18 @@ Windows. In this tutorial, you learn how to:
 > * Create a replication policy.
 > * Enable replication for a VM.
 
-This tutorial is the third in a series. This tutorial assumes that you finished the tasks in the previous tutorials:
+This tutorial is the third in a series, and assumes that you finished the tasks in the previous tutorials:
 
 * [Prepare Azure](tutorial-prepare-azure.md). This tutorial describes how to set up an Azure storage account and network, make sure your Azure account has the right permissions, and create a Recovery Services vault.
-* [Prepare on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md). In this tutorial you prepare accounts so that Site Recovery can access VMware servers to discover VMs, and to optionally do a push installation of the Site Recovery Mobility service component when you enable replication for a VM. You also make sure that your VMware servers and VMs comply with Site Recovery requirements.
+* [Prepare on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md). In this tutorial you prepare accounts so that Site Recovery can access VMware servers to discover VMs, and to optionally do a push installation of the Site Recovery Mobility service component when you enable replication for a VM. You also make sure that your VMware servers and VMs comply with Site Recovery requirements and prerequisites.
 
-Before you start, it's helpful to [review the architecture](vmware-azure-architecture.md)
-for disaster recovery scenarios.
+Before you start, it's helpful to:
+
+- [Review the architecture](vmware-azure-architecture.md) for this disaster recovery scenario.
+- This tutorial sets up VMware disaster recovery to Azure with the simplest settings. If you want to learn about other options, read through our How To guides:
+    - Set up the [replication source](vmware-azure-set-up-source.md) and [configuration server](vmware-azure-deploy-configuration-server.md).
+    - Set up the [replication target](vmware-azure-set-up-target.md).
+    - Configure a [replication policy](vmware-azure-set-up-replication.md), and [enable replication](vmware-azure-enable-replication.md).
 
 
 ## Select a replication goal

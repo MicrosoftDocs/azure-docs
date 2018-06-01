@@ -63,6 +63,8 @@
       items:
       - name: Prepare Azure Backup Server workloads in Azure portal
         href: backup-azure-microsoft-azure-backup.md
+      - name: Install Azure Backup Server on Azure Stack
+        href: backup-mabs-install-azure-stack.md        
       - name: Add storage to Azure Backup Server
         href: backup-mabs-add-storage.md
       - name: Upgrade Azure Backup Server to v.2

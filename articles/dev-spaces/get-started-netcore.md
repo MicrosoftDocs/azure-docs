@@ -25,6 +25,9 @@ You're now ready to create a Kubernetes-based development environment in Azure.
 ## Install the Azure CLI
 Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
+> [!IMPORTANT]
+> If you already have the Azure CLI installed, make sure you are using version 2.0.33 or higher.
+
 [!INCLUDE[](includes/sign-into-azure.md)]
 
 [!INCLUDE[](includes/use-dev-spaces.md)]
@@ -43,8 +46,6 @@ dotnet new mvc --name webfrontend
 Or, **download sample code from GitHub** by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/dotnetcore/getting-started/webfrontend`.
 
 [!INCLUDE[](includes/azds-prep.md)]
-
-[!INCLUDE[](includes/ensure-env-created.md)]
 
 [!INCLUDE[](includes/build-run-k8s-cli.md)]
 
