@@ -224,8 +224,6 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
                     $ARMResource ="https://management.azure.com/";break} 
                     }
     
-    
-    
     Function RESTAPI-Auth { 
     
     # Load ADAL Azure AD Authentication Library Assemblies
