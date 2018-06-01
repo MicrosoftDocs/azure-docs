@@ -62,7 +62,7 @@
       href: stream-analytics-clean-up-your-job.md
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md
-- name: Build solutions
+  - name: Build solutions
     items:
     - name: Twitter sentiment analysis
       href: stream-analytics-twitter-sentiment-analysis-trends.md
