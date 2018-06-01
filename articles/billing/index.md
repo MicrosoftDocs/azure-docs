@@ -25,7 +25,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Understand Azure charges</h3>
+                        <h3>Understand Azure billing</h3>
                         <p>
                         <a href="/azure/billing/billing-understand-your-bill">Understand your bill</a><br/>
                         <a href="/azure/billing/billing-download-azure-invoice-daily-usage-date">Get invoice and usage data</a><br/>
