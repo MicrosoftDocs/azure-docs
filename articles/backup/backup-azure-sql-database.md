@@ -19,9 +19,9 @@ ms.author: markgal;anuragm
 ms.custom: 
 
 ---
-# Back up SQL database in Azure
+# Back up SQL Server database in Azure
 
-SQL databases are critical workloads requiring low Recovery Point Objective (RPO) and long-term retention. Azure Backup provides an enterprise-class SQL backup solution that requires zero infrastructure, which means no complex backup server, no management agent, or backup storage to manage. Azure Backup provides centralized management for your backups across all SQL servers, or even different workloads. 
+SQL Server databases are critical workloads requiring low Recovery Point Objective (RPO) and long-term retention. Azure Backup provides a SQL Serverbackup solution that requires zero infrastructure, which means no complex backup server, no management agent, or backup storage to manage. Azure Backup provides centralized management for your backups across all SQL servers, or even different workloads.
 
  In this article you learn:
 
@@ -46,7 +46,7 @@ The following items are the known limitations for the Public Preview.
 
 ## Supported operating systems and versions of SQL server
 
-The following supported operating systems and versions of SQL Server apply to both the SQL marketplace Azure virtual machines, as well as the virtual machines where SQL Server is manually installed.
+The following supported operating systems and versions of SQL Server apply to SQL marketplace Azure virtual machines, and non-marketplace virtual machines (where SQL Server is manually installed).
 
 ### Supported operating systems
 
@@ -110,7 +110,7 @@ To configure permissions:
 
     ![Click + Backup to open the Backup goal menu](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    The **Backup Goal** menu displays two new steps: Discover DBs in VMs and Configure Backup. The **Discover DBs in VMs** step starts a search for Azure virtual machines.
+    The **Backup Goal** menu displays two new steps: **Discover DBs in VMs** and **Configure Backup**. **Discover DBs in VMs** starts a search for Azure virtual machines.
 
     ![Shows the new Backup goal steps](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -118,13 +118,13 @@ To configure permissions:
 
     ![Backup pending](./media/backup-azure-sql-database/discovering-sql-databases.png)
  
-    Once an unprotected virtual machine is discovered, it appears in the list. Multiple virtual machines can have the same name. However, virtual machines with the same name belong to different resource groups. The unprotected virtual machines are listed by their virtual machine name and resource group. If an expected virtual machine is not listed, see if that virtual machine is already protected to a vault.
+    Once an unprotected virtual machine is discovered, it appears in the list. Unprotected virtual machines are listed by their virtual machine name and resource group. It is possible for multiple virtual machines to have the same name. However, virtual machines with the same name belong to different resource groups. If an expected virtual machine does not appear in the list, see if the virtual machine is already protected to a vault.
 
 6. From the list of virtual machines, select the VM containing the SQL database you want to back up, and click **Discover DBs**. 
 
     The discovery process installs the **AzureBackupWindowsWorkload** extension on the virtual machine. The extension allows the Azure Backup service to communicate with the virtual machine so it can back up the SQL databases. Once the extension installs, Azure Backup creates the Windows virtual service account, **NT Service\AzureWLBackupPluginSvc**, on the virtual machine. The virtual service account requires SQL sysadmin permission. During the virtual service account installation process, if you see the error, **UserErrorSQLNoSysadminMembership**, see the section, [Fixing SQL sysadmin permissions](backup-azure-sql-database.md#fixing-sql-sysadmin-permissions).
 
-    The Notifications area shows the progress of the database discovery. Depending on how many databases are on the virtual machine, it can take a while for the job to complete. When selected databases have been discovered, a success message appears in the Notifications area.
+    The Notifications area shows the progress of the database discovery. Depending on how many databases are on the virtual machine, it can take a while for the job to complete. When selected databases have been discovered, a success message appears.
 
     ![successful deployment notification message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
