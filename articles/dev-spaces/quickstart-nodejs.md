@@ -36,23 +36,15 @@ In this guide, you will learn how to:
 1. Download the [Azure Dev Spaces extension](https://aka.ms/get-azds-code)
 1. Install the extension: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
 
-## Prepare your code
-
-Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
-
-1. Launch VS Code and open the `webfrontend` folder. (You can ignore any default prompts to add debug assets or restore the project.)
-1. Open the Integrated Terminal in VS Code (using the **View > Integrated Terminal** menu).
-1. Add necessary support files by running this command (be sure that **webfrontend** is your current folder): `azds prep --public`
-
-   This includes `Dockerfile`, a [Helm chart](https://docs.helm.sh), and the `azds.yaml` config file.
-
 ## Build and run code in Kubernetes
 
+1. Download sample code from GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
+1. Change directory to the webfrontend folder: `cd dev-spaces/samples/nodejs/getting-started/webfrontend`
+1. Generate Docker and Helm chart assets: `azds prep --public`
 1. Build your dev space in AKS. In the terminal window, run this command from the **root code folder**, webfrontend: `azds up`
+1. Scan the console output for information about the URL that was created by the `up` command. It will be in the form: 
 
-1. Scan the console output for information about the public URL that was created by the `up` command. It will be in the form: 
-
-   `Running at public URL: http://<servicename>-<cluster-name>.<guid>.<region>.aksapp.io` 
+   `Service 'webfrontend' port 'http' is available at <url>` 
 
    Open this URL in a browser window, and you should see the web app load. 
 
