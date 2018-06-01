@@ -33,6 +33,7 @@ Keep in mind the following points about the preview:
     - Python
         - [Blob](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-blob)
         - [Queue](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-queue)
+    - Node.js ([npm](https://www.npmjs.com/package/azure-storage) | [package](https://aka.ms/downloadazurestoragejs))
 
 > [!IMPORTANT]
 > This preview is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications.

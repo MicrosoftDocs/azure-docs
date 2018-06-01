@@ -14,14 +14,14 @@ ms.author: saneppal
 # Migrate a knowledge base using export-import
 QnA Maker announced General Availability on May 7, 2018 at the \\\build\ conference. QnA Maker GA has a new architecture built on Azure. Knowledge bases created with QnA Maker Free Preview will need to be migrated to QnA Maker GA. QnA Maker Preview will be deprecated in November 2018. For more information about the changes in QnA Maker GA, see the QnA Maker GA announcement [blog post](https://aka.ms/qnamakerga-blog).
 
-QnAMaker now has a [pricing model](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
+QnA Maker now has a [pricing model](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
 
 Prerequisites
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-> * Setup a new [QnA Maker service](./set-up-qnamaker-service-azure.md)
+> * Setup a new [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
 
-## Migrate a knowledge base from QnAMaker Preview portal
+## Migrate a knowledge base from QnA Maker Preview portal
 1. Navigate to [QnA Maker Preview portal](https://aka.ms/qnamaker-old-portal
 ) and click on **My services**.
 2. Select the knowledge base you want to migrate by clicking on the edit icon.
@@ -55,8 +55,8 @@ Prerequisites
 
    ![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)
 
-9. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](./test-knowledge-base.md).
-10. **Publish** the knowledge base. Learn how to [publish your knowledge base](./publish-knowledge-base.md).
+9. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
+10. **Publish** the knowledge base. Learn how to [publish your knowledge base](../How-To/publish-knowledge-base.md).
 11. Use the endpoint below in your application or bot code. See here how to [create a QnA bot](../Tutorials/create-qna-bot.md).
 
     ![QnA Maker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
@@ -71,4 +71,4 @@ There is no way to migrate chatlogs, since the new stack uses Application Insigh
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Edit a knowledge base](./edit-knowledge-base.md)
+> [Edit a knowledge base](../How-To/edit-knowledge-base.md)

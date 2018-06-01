@@ -22,8 +22,10 @@
     href: Quickstarts/create-publish-knowledge-base.md
   - name: Create a knowledge base
     href: How-To/create-knowledge-base.md
-  - name: Import a knowledge base
-    href: How-To/migrate-knowledge-base.md
+  - name: Use metadata with GenerateAnswer API
+    href: How-To/metadata-generateanswer-usage.md
+  - name: Migrate a knowledge base from Preview
+    href: Tutorials/migrate-knowledge-base.md
   - name: Edit a knowledge base
     href: How-To/edit-knowledge-base.md
   - name: Collaborate on a knowledge base
