@@ -26,6 +26,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a custom role
+> * List custom roles
 > * Update a custom role
 > * Delete a custom role
 
@@ -35,9 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The easiest way to create a custom role is to start with a built-in role, edit it, and then create a new role.
 
-1. In PowerShell, use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command to get the list of operations for the Microsoft.Support resource provider.
-
-    It's helpful to know the operations that are available to create your permissions. You can also see a list of all the operations at [Azure Resource Manager resource provider operations](resource-provider-operations.md#microsoftsupport).
+1. In PowerShell, use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command to get the list of operations for the Microsoft.Support resource provider. It's helpful to know the operations that are available to create your permissions. You can also see a list of all the operations at [Azure Resource Manager resource provider operations](resource-provider-operations.md#microsoftsupport).
 
     ```azurepowershell
     Get-AzureRMProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
@@ -57,7 +56,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
     ```
 
-1. Open the ReaderSupportRole.json file.
+1. Open the **ReaderSupportRole.json** file.
 
     The following shows the JSON output. For information about the different sections, see [Understand role definitions](role-definitions.md).
 
@@ -145,11 +144,27 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
         
-    The new custom role is available in the Azure portal and can be assigned to users just like built-in roles.
+    The new custom role is now available in the Azure portal and can be assigned to users, groups, or service principals just like built-in roles.
+
+## List custom roles
+
+- To list all your custom roles, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command.
+
+    ```azurepowershell
+    Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+    ```
+
+    ```Output
+    Name                   IsCustom
+    ----                   --------
+    Reader Support Tickets     True
+    ```
     
+    You can also see the custom role in the Azure portal.
+
     ![screenshot of custom role imported in the Azure portal](./media/tutorial-custom-role-powershell/custom-role-reader-support-tickets.png)
 
-## Update the custom role
+## Update a custom role
 
 To update the custom role, you can update the JSON file or use the `PSRoleDefinition` object.
 
@@ -238,7 +253,7 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
     
-## Delete the custom role
+## Delete a custom role
 
 1. Use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command to get the ID of the custom role.
 

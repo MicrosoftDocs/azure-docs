@@ -26,6 +26,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a custom role
+> * List custom roles
 > * Update a custom role
 > * Delete a custom role
 
@@ -35,9 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The easiest way to create a custom role is to start with a JSON template, add your changes, and then create a new role.
 
-1. Review the list of operations for the [Microsoft.Support resource provider](resource-provider-operations.md#microsoftsupport).
-
-    It's helpful to know the operations that are available to create your permissions.
+1. Review the list of operations for the [Microsoft.Support resource provider](resource-provider-operations.md#microsoftsupport). It's helpful to know the operations that are available to create your permissions.
 
     | Operation | Description |
     | --- | --- |
@@ -45,7 +44,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
     | Microsoft.Support/supportTickets/read | Gets Support Ticket details (including status, severity, contact details and communications) or gets the list of Support Tickets across subscriptions. |
     | Microsoft.Support/supportTickets/write | Creates or Updates a Support Ticket. You can create a Support Ticket for Technical, Billing, Quotas or Subscription Management related issues. You can update severity, contact details and communications for existing support tickets. |
     
-1. Create a new file named ReaderSupportRole.json.
+1. Create a new file named **ReaderSupportRole.json**.
 
 1. Add the following JSON template to ReaderSupportRole.json.
 
@@ -151,12 +150,53 @@ The easiest way to create a custom role is to start with a JSON template, add yo
       "type": "Microsoft.Authorization/roleDefinitions"
     }
     ```
-        
-    The new custom role is available in the Azure portal and can be assigned to users just like built-in roles.
+
+    The new custom role is now available and can be assigned to users, groups, or service principals just like built-in roles.
+
+## List custom roles
+
+- To list all your custom roles, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command with the `--custom-role-only` parameter.
+
+    ```azurecli
+    az role definition list --custom-role-only true
+    ```
     
+    ```Output
+    [
+      {
+        "additionalProperties": {},
+        "assignableScopes": [
+          "/subscriptions/00000000-0000-0000-0000-000000000000"
+        ],
+        "description": "View everything in the subscription and also open support tickets.",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/22222222-2222-2222-2222-222222222222",
+        "name": "22222222-2222-2222-2222-222222222222",
+        "permissions": [
+          {
+            "actions": [
+              "*/read",
+              "Microsoft.Support/*",
+              "Microsoft.Resources/deployments/*",
+              "Microsoft.Insights/diagnosticSettings/*/read"
+            ],
+            "additionalProperties": {},
+            "dataActions": [],
+            "notActions": [],
+            "notDataActions": []
+          }
+        ],
+        "roleName": "Reader Support Tickets",
+        "roleType": "CustomRole",
+        "type": "Microsoft.Authorization/roleDefinitions"
+      }
+    ]
+    ```
+    
+    You can also see the custom role in the Azure portal.
+
     ![screenshot of custom role imported in the Azure portal](./media/tutorial-custom-role-cli/custom-role-reader-support-tickets.png)
 
-## Update the custom role
+## Update a custom role
 
 To update the custom role, update the JSON file and then update the custom role.
 
@@ -225,7 +265,7 @@ To update the custom role, update the JSON file and then update the custom role.
     }
     ```
     
-## Delete the custom role
+## Delete a custom role
 
 - Use the [az role definition delete](/cli/azure/role/definition#az-role-definition-delete) command and specify the role name or role ID to delete the custom role.
 
