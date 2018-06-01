@@ -41,7 +41,7 @@ The Immutable  Storage feature enables:
 
 ## How it works
 
-The Immutable Storage for Azure Blobs supports two types of WORM or immutable policies: time-based retention and legal holds. Refer to the Getting Started section (link here) below for details on how to create these immutable policies. 
+The Immutable Storage for Azure Blobs supports two types of WORM or immutable policies: time-based retention and legal holds. Refer to the Getting Started section (link here) below for details on how to create these immutable policies.
 When a time-based retention policy or legal hold is applied on a container, all existing blobs will move to the immutable (write and delete protected) state.  All new blobs uploaded to the container will also move to the immutable state.
 
 > [!NOTE]
@@ -51,7 +51,7 @@ When a time-based retention policy or legal hold is applied on a container, all 
 
 > [!TIP]
 > *Example:*
-> *User creates a time-based retention policy with a retention interval of five years.* 
+> *User creates a time-based retention policy with a retention interval of five years.*
 > *There is an existing blob, testblob1, in that container that was created one year ago. The effective retention period for testblob1 will be four years.*
 > *A new blob, testblob2, is now uploaded to the container. The effective retention period for this new blob will be five years.*
 
@@ -77,7 +77,7 @@ Refer to [Azure Blob Service API](https://docs.microsoft.com/en-us/rest/api/stor
 
 ## Pricing
 
-There is no additional charge for using this feature and Immutable data is priced in the same way as normal, mutable data. Refer to the [Azure Storage Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) for the related pricing details.
+There is no additional charge for using this feature and Immutable data is priced in the same way as regular, mutable data. Refer to the [Azure Storage Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) for the related pricing details.
 
 ### Restrictions
 
@@ -86,39 +86,39 @@ The following restrictions apply during public preview:
 - **Do not store production or business critical data**
 - All preview/NDA restrictions apply
 
-
 ## Getting Started
 
 Azure Immutable Storage for Azure Blobs is supported on the most recent releases of [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), and Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
 
 ### Azure portal
 
-**Step 1:** Create a new container or select an existing container to store the blobs that need to be kept in the immutable state.  
+1. Create a new container or select an existing container to store the blobs that need to be kept in the immutable state.
  The container must be in a blob or GPv2 storage account.
- Click on Access Policy in the Container settings and then click on **+ Add Policy** under **Immutable blob storage** policy as illustrated below.
+2. Click on Access Policy in the Container settings and then click on **+ Add Policy** under **Immutable blob storage** policy as illustrated below.
 
 ![Portal](media/storage-blob-immutable-storage/portal-image-1.jpg)
-  
-**Step 2:** To enable time-based retention, choose Time-Based Retention from the drop-down menu. Enter the desired retention interval in days (minimum is one day)
- 
+
+3. To enable time-based retention, choose Time-Based Retention from the drop-down menu. 
+
 ![Retention](media/storage-blob-immutable-storage/portal-image-2.JPG)
 
-![Time-Based Retention](media/storage-blob-immutable-storage/portal-image-3-time-based-retention.JPG)
+4. Enter the desired retention interval in days (minimum is one day)
 
- As you can see above, the state of the policy will initially be unlocked. This will allow you to test the feature with a smaller retention interval, and make changes to the policy before locking it.
- Locking is essential for SEC 17a-4 etc. regulatory compliance.
+![Retention Interval](media/storage-blob-immutable-storage/portal-image-5-retention-interval.JPG)
 
- **Step 3:** Lock the policy by right-clicking on the ..., and the following menu will appear:-
+As you can see above, the initial state of the policy is unlocked. This will allow you to test the feature with a smaller retention interval, and make changes to the policy before locking it. Locking is essential for SEC 17a-4 etc. regulatory compliance.
+
+5. Lock the policy by right-clicking on the ..., and the following menu will appear:-
 
 ![Lock Policy](media/storage-blob-immutable-storage/portal-image-4-lock-policy.JPG)
- 
+
 Click on Lock Policy and the policy state will now show as locked. Once locked, the policy can longer be deleted and only extensions of the retention interval will be allowed.
 
- **Step 4:** To enable legal holds, click on + Add Policy and  choose Legal hold from the drop-down menu
+6. To enable legal holds, click on + Add Policy and  choose Legal hold from the drop-down menu
 
 ![Legal Hold](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.jpg)
- 
-Create a legal hold with one or more tags
+
+7. Create a legal hold with one or more tags
 
 ![Set legal hold tags](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.jpg)
 
@@ -126,7 +126,7 @@ Create a legal hold with one or more tags
 
  Install the [CLI extension](http://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  with `az extension add -n storage-preview`
 
-If you already have this extension installed, then to enable the Immutable Storage feature, use the command  the extension and just  `az extension update -n storage-preview`
+If you already have the extension installed, use the following command to enable the Immutable Storage feature: `az extension update -n storage-preview`
 The feature is included in the following command groups (run “-h” on them to see the commands):
 `az storage container immutability-policy`  and `az storage container legal-hold`.
 
