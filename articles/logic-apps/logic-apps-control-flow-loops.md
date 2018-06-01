@@ -1,7 +1,7 @@
 ---
 # required metadata
-title: Add loops to workflows - Azure Logic Apps | Microsoft Docs
-description: How to create loops that process arrays or repeat actions for workflows in Azure Logic Apps
+title: Add loops that repeat actions or process arrays - Azure Logic Apps | Microsoft Docs
+description: How to create loops that repeat workflow actions or process arrays in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -15,9 +15,9 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Create loops that repeat actions or process arrays for workflows in Azure Logic Apps
+# Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 
-To iterate over arrays in your logic app, 
+To iterate through arrays in your logic app, 
 you can use a ["Foreach" loop](#foreach-loop) or a 
 [sequential "Foreach" loop](#sequential-foreach-loop). 
 The iterations for a standard "Foreach" loop run in parallel, 
