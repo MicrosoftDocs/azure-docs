@@ -51,6 +51,8 @@ Connect-AzureRmAccount -SubscriptionId $subId
 Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
+## Saving authenticaiton context
+
 The `Connect-AzureRmAccount` cmdlet always prompts for credentials. You can avoid being prompted by using the following cmdlets:
 
 ```powershell
@@ -75,23 +77,24 @@ Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscreden
 
 ## Manage accounts
 
-### Create an account
 
-If you don't already have a [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) to use, create one. 
+### List accounts
 
 ```powershell
-New-AzureRmResourceGroup -Name  $rg -Location $location
+# List Data Lake Analytics accounts within the current subscription.
+Get-AdlAnalyticsAccount
+
+# List Data Lake Analytics accounts within a specific resource group.
+Get-AdlAnalyticsAccount -ResourceGroupName $rg
 ```
+
+### Create an account
 
 Every Data Lake Analytics account requires a default Data Lake Store account that it uses for storing logs. You can reuse an existing account or create an account. 
 
 ```powershell
+# Create a data lake store if needed, or you can re-use an existing one
 New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
-```
-
-Once a Resource Group and Data Lake Store account is available, create a Data Lake Analytics account.
-
-```powershell
 New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
@@ -103,24 +106,10 @@ Get details about an account.
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-Check the existence of a specific Data Lake Analytics account. The cmdlet returns either `$true` or `$false`.
+### Check if an account exists
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
-```
-
-### List accounts
-
-List Data Lake Analytics accounts within the current subscription.
-
-```powershell
-Get-AdlAnalyticsAccount
-```
-
-List Data Lake Analytics accounts within a specific resource group.
-
-```powershell
-Get-AdlAnalyticsAccount -ResourceGroupName $rg
 ```
 
 ## Manage data sources
@@ -220,7 +209,7 @@ By default the list of jobs is sorted on submit time. So the most recently submi
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
 
-### List jobs based on the value of job property
+### List jobs by job state
 
 Using the `-State` parameter. You can combine any of these values:
 
@@ -245,6 +234,8 @@ Get-AdlJob -Account $adla -State Ended
 Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 ```
 
+### List jobs by job result
+
 Use the `-Result` parameter to detect whether ended jobs completed successfully. It has these values:
 
 * Cancelled
@@ -260,11 +251,15 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
 
+### List jobs by job submitter
+
 The `-Submitter` parameter helps you identify who submitted a job.
 
 ```powershell
 Get-AdlJob -Account $adla -Submitter "joe@contoso.com"
 ```
+
+### List jobs by submission time
 
 The `-SubmittedAfter` is useful in filtering to a time range.
 
@@ -279,7 +274,7 @@ $d = [DateTime]::Now.AddDays(-7)
 Get-AdlJob -Account $adla -SubmittedAfter $d
 ```
 
-### Analyzing job history
+## Analyzing job history
 
 Using Azure PowerShell to analyze the history of jobs that have run in Data Lake analytics is a powerful technique. You can use it to gain insights into usage and cost. You can learn more by looking at the [Job History Analysis sample repo](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
