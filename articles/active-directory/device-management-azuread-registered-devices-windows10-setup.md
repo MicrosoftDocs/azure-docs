@@ -23,12 +23,12 @@ ms.reviewer: jairoc
 
 With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more information, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
 
-If you want to enable the **Bring Your Own Device (BYOD)** scenario, you can accomplish this by configuring Azure AD registered devices. In Azure AD, you can configure Azure AD registered devices for Windows 10, iOS, Android and macOS. This article provides you with the related steps for Windows 10 devices. 
+If you want to enable the **Bring Your Own Device (BYOD)** scenario, you can accomplish this by configuring Azure AD registered devices. In Azure AD, you can configure Azure AD registered devices for Windows 10, iOS, Android, and macOS. This article provides you with the related steps for Windows 10 devices. 
 
 
 ## Before you begin
 
-To register a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to registering devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
+To register a Windows 10 device, the device registration service must be configured to enable you to register devices. Additionally, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
 
 ## What you should know
 
