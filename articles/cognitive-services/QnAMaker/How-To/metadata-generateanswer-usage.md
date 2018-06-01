@@ -27,7 +27,7 @@ Each QnA entity has a unique and persistent ID. The ID can be used to make updat
 
 You use the GenerateAnswer API in your Bot or application to query your knowledge base with a user question to get the best match from the question/answer sets.
 
-### GenerateAnswer end point
+### GenerateAnswer endpoint
 
 Once you publish your knowledge base, either from the [QnA Maker portal](https://www.qnamaker.ai), or using the [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), you can get the details of your GenerateAnswer endpoint.
 
@@ -39,23 +39,23 @@ To get your endpoint details:
 ![endpoint details](../media/qnamaker-how-to-metadata-usage/view-code.png)
 4. You can also get your endpoint details from the **Settings** tab of your knowledge base.
 
-### GenerateAnswer Request
+### GenerateAnswer request
 
 You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/csharp.md).
 
 - **Request URL**: https://{QnA Maker endpoint}/knowledgebases/{knowledge base ID}/generateAnswer
 
 - **Request parameters**: 
-    - **Knowledge base ID** (string) - The GUID for your knowledge base.
-    - **QnAMaker endpoint** (string) - The hostname of the endpoint deployed in your Azure subscription.
+    - **Knowledge base ID** (string): The GUID for your knowledge base.
+    - **QnAMaker endpoint** (string): The hostname of the endpoint deployed in your Azure subscription.
 - **Request headers**
-    - **Content-Type** (string) - The media type of the body sent to the API.
-    - **Authorization** (string) - Your endpoint key.
+    - **Content-Type** (string): The media type of the body sent to the API.
+    - **Authorization** (string): Your endpoint key.
 - **Request body**
-    - **question** (string) - A user question to be queried against your knowledge base.
-    - **top** (optional, integer) - The number of ranked results to include in the output. The default value is 1.
-    - **userId** (optional, string) - A unique ID to identify the user. This ID will be recorded in the chat logs.
-    - **strictFilters** (optional, string) - If specified, tells QnA Maker to return only answers that have the specified metadata. For more information, see below.
+    - **question** (string): A user question to be queried against your knowledge base.
+    - **top** (optional, integer): The number of ranked results to include in the output. The default value is 1.
+    - **userId** (optional, string): A unique ID to identify the user. This ID will be recorded in the chat logs.
+    - **strictFilters** (optional, string): If specified, tells QnA Maker to return only answers that have the specified metadata. For more information, see below.
     ```json
     {
         "question": "qna maker and luis",
