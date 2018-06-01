@@ -94,7 +94,7 @@ For single databases, the following tables show the resources available for a si
 |Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|32|48|80|
+|vCores|2|4|8|16|24|32|40|80|
 |Memory (GB)|11|22|44|88|132|176|220|440|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
@@ -174,7 +174,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Performance level|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|32|48|80|
+|vCores|2|4|8|16|24|32|40|80|
 |Memory (GB)|11|22|44|88|132|176|220|440|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -224,7 +224,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|32|48|80|
+|vCores|2|4|8|16|24|32|40|80|
 |Memory (GB)|11|22|44|88|132|176|220|440|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
