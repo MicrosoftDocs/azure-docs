@@ -93,7 +93,8 @@ To configure a container-enabled pool without prefetched container images, defin
 
 
 ```python
-image_ref_to_use = batch.models.ImageReference(              publisher='microsoft-azure-batch',
+image_ref_to_use = batch.models.ImageReference(
+        publisher='microsoft-azure-batch',
         offer='ubuntu-server-container',
         sku='16-04-lts',
         version='latest')
@@ -123,7 +124,8 @@ To prefetch container images on the pool, add the list of container images (`con
 The following basic Python example shows how to prefetch a standard Ubuntu container image from [Docker Hub](https://hub.docker.com).
 
 ```python
-image_ref_to_use = batch.models.ImageReference(              publisher='microsoft-azure-batch',
+image_ref_to_use = batch.models.ImageReference(
+    publisher='microsoft-azure-batch',
     offer='ubuntu-server-container',
     sku='16-04-lts',
     version='latest')
@@ -237,7 +239,7 @@ task = batch.models.TaskAddParameter(
 
 ```
 
-The following C# example shows another basic container configuration for a cloud task:
+The following C# example shows basic container settings for a cloud task:
 
 ```csharp
 // Simple container task command
