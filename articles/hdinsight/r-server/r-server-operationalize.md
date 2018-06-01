@@ -11,7 +11,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 05/30/2018
+ms.date: 06/12/2018
 ms.author: nitinme
 
 ---
@@ -27,7 +27,7 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
 ## Operationalize ML Services cluster with one-box configuration
 
-1. SSH into the edge node.  
+1. SSH into the edge node.
 
         ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
