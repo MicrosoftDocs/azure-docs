@@ -19,9 +19,9 @@ This article describes how to manage Azure Data Lake Analytics accounts, data so
 
 ## Prerequisites
 
-To use PowerShell with Data Lake Analytics you will need need to know: 
+To use PowerShell with Data Lake Analytics, collect the following pieces of information: 
 
-* **Subscription ID**: The Azure subscription ID under which your Data Lake Analytics account resides.
+* **Subscription ID**: The ID of the Azure subscription that contains your Data Lake Analytics account.
 * **Resource group**: The name of the Azure resource group that contains your Data Lake Analytics account.
 * **Data Lake Analytics account name**: The name of your Data Lake Analytics account.
 * **Default Data Lake Store account name**: Each Data Lake Analytics account has a default Data Lake Store account.
@@ -61,7 +61,7 @@ Save-AzureRmProfile -Path D:\profile.json
 Select-AzureRmProfile -Path D:\profile.json 
 ```
 
-### Log in using a Service Principle Identitiy (SPI)
+### Log in using a Service Principle Identity (SPI)
 
 ```powershell
 $tenantid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
@@ -129,9 +129,7 @@ Azure Data Lake Analytics currently supports the following data sources:
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Azure Storage](../storage/common/storage-introduction.md)
 
-When you create an Analytics account, you must designate a Data Lake Store account to be the default 
-data source. The default Data Lake Store account is used to store job metadata and job audit logs. After you have 
-created a Data Lake Analytics account, you can add additional Data Lake Store accounts and/or Storage accounts. 
+Every Data Lake Analytics account has a default Data Lake Store account. The default Data Lake Store account is used to store job metadata and job audit logs. 
 
 ### Find the default Data Lake Store account
 
@@ -348,7 +346,7 @@ $policies = Get-AdlAnalyticsComputePolicy -Account $adla
 
 ### Create a compute policy
 
-The `New-AdlAnalyticsComputePolicy` cmdlet creates a new compute policy for a Data Lake Analytics account. This example sets  the maximum AUs available to the specified user to 50, and the minimum job priority to 250.
+The `New-AdlAnalyticsComputePolicy` cmdlet creates a new compute policy for a Data Lake Analytics account. This example sets the maximum AUs available to the specified user to 50, and the minimum job priority to 250.
 
 ```powershell
 $userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
