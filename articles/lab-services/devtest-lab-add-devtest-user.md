@@ -70,17 +70,11 @@ The following steps guide you through the process of adding an owner or user to 
 
     ![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 1. In the **Add permissions** window, do the following actions: 
-    1. Select a role (for example: DevTest Labs User). 
+    1. Select a role (for example: DevTest Labs User). The section [Actions that can be performed in each role](#actions-that-can-be-performed-in-each-role) lists the various actions that can be performed by users in the Owner, DevTest User, and Contributor roles.
     2. Select the user to be added to the role. 
     3. Select **Save**. 
 
-        ![Add user to the role](./media/devtest-lab-add-devtest-user/add-user.png)
-    
-
-7. On the **Select a role** blade, select the desired role. The section [Actions that can be performed in each role](#actions-that-can-be-performed-in-each-role) lists the various actions that can be performed by users in the Owner, DevTest User, and Contributor roles.
-8. On the **Add users** blade, enter the email address or name of the user you want to add in the role you specified. If the user can't be found, an error message explains the issue. If the user is found, that user is listed and selected. 
-9. Select **Select**.
-10. Select **OK** to close the **Add access** blade.
+        ![Add user to the role](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. When you return to the **Users** blade, the user has been added.  
 
 ## Add an external user to a lab using PowerShell
