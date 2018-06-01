@@ -3,7 +3,7 @@ title: Review access by using Azure AD access reviews | Microsoft Docs
 description: Learn how to review access by using Azure Active Directory access reviews.
 services: active-directory
 author: markwahl-msft
-manager: femila
+manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: billmath
+ms.author: rolyon
 ---
 
 # Review access with Azure AD access reviews

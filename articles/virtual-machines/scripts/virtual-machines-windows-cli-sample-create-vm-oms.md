@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Create a Windows Server 2016 VM with OMS 
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: 
 
@@ -52,6 +52,6 @@ This script uses the following commands to create a resource group, virtual mach
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
 Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

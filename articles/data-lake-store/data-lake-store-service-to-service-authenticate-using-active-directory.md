@@ -9,10 +9,8 @@ editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 09/28/2017
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
 
 ---
@@ -74,6 +72,9 @@ When programmatically logging in, you need the ID for your application. If the a
 7. In the **Add Custom Access** blade, click **OK**. The newly added group, with the associated permissions, are listed in the **Access** blade.
    
     ![Assign permissions to group](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Assign permissions to group")
+
+> [!NOTE]
+> If you plan on restricting your Azure Active Directory application to a specific folder, you will also need to to give that same Azure Active directory application **Execute** permisison to the root to enable file creation access via the .NET SDK.
 
 > [!NOTE]
 > If you want to use the SDKs to create a Data Lake Store account, you must assign the Azure AD web application as a role to the Resource Group in which you create the Data Lake Store account.

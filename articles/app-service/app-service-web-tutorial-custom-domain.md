@@ -1,6 +1,7 @@
 ﻿---
 title: Map an existing custom DNS name to Azure Web Apps | Microsoft Docs 
 description: Learn how to add an existing custom DNS domain name (vanity domain) to a web app, mobile app backend, or API app in Azure App Service.
+keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -17,7 +18,7 @@ ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Map an existing custom DNS name to Azure Web Apps
+# Tutorial: Map an existing custom DNS name to Azure Web Apps
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to map an existing custom DNS name to Azure Web Apps.
 
@@ -54,6 +55,8 @@ To complete this tutorial:
 
 To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**). In this step, you make sure that the App Service app is in the supported pricing tier.
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 ### Sign in to Azure
 
 Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
@@ -74,19 +77,19 @@ In the left navigation of the app page, scroll to the **Settings** section and s
 
 ![Scale-up menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-The app's current tier is highlighted by a blue border. Check to make sure that the app is not in the **Free** tier. Custom DNS is not supported in the **Free** tier. 
+The app's current tier is highlighted by a blue border. Check to make sure that the app is not in the **F1** tier. Custom DNS is not supported in the **F1** tier. 
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-If the App Service plan is not **Free**, close the **Choose your pricing tier** page and skip to [Map a CNAME record](#cname).
+If the App Service plan is not in the **F1** tier, close the **Scale up** page and skip to [Map a CNAME record](#cname).
 
 <a name="scaleup"></a>
 
 ### Scale up the App Service plan
 
-Select any of the non-free tiers (**Shared**, **Basic**, **Standard**, or **Premium**). 
+Select any of the non-free tiers (**D1**, **B1**, **B2**, **B3**, or any tier in the **Production** category). For additional options, click **See additional options**.
 
-Click **Select**.
+Click **Apply**.
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -265,6 +268,27 @@ Select the **+** icon again to add another hostname that matches the wildcard do
 Browse to the DNS name(s) that you configured earlier (for example, `contoso.com`,  `www.contoso.com`, `sub1.contoso.com`, and `sub2.contoso.com`).
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
+## Resolve 404 error “Web Site not found”
+
+If you receive an HTTP 404 (Not Found) error when browsing to the URL of your custom domain, verify that your domain resolves to your app's IP address using <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. If not, it may be due to one of the following reasons:
+
+- The custom domain configured is missing an A record and/or a CNAME record.
+- The browser client has cached the old IP address of your domain. Clear the cache and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
+
+<a name="virtualdir"></a>
+
+## Direct default URL to a custom directory
+
+By default, App Service directs web requests to the root directory of your app code. However, certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. To continue the `contoso.com` DNS example, such an app would be accessible at `http://contoso.com/public`, but you would really want to direct `http://contoso.com` to the `public` directory instead. This step doesn't involve DNS resolution, but customizing the virtual directory.
+
+To do this, select **Application settings** in the left-hand navigation of your web app page. 
+
+At the bottom of the page, the root virtual directory `/` points to `site\wwwroot` by default, which is the root directory of your app code. Change it to point to the `site\wwwroot\public` instead, for example, and save your changes. 
+
+![Customize virtual directory](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
+
+Once the operation completes, your app should return the right page at the root path (for example, http://contoso.com).
 
 ## Automate with scripts
 

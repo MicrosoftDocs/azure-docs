@@ -55,7 +55,7 @@ Before creating an export job, you need to obtain a shipping location name and a
 
 Follow the steps below to obtain the shipping location:
 
--   Identify the name of the location of your storage account. This value can be found under the **Location** field on the storage account's **Dashboard** in the classic portal or queried for by using the service management API operation [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Identify the name of the location of your storage account. This value can be found under the **Location** field on the storage account's **Dashboard** in the Azure portal or queried for by using the service management API operation [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
 -   Retrieve the location that are available to process this storage account by calling the `Get Location` operation.
 
@@ -89,6 +89,8 @@ Follow the steps below to obtain the shipping location:
 
 ## Receiving the package
  After your export job has been processed, your drives will be returned to you with your encrypted data. You can retrieve the BitLocker key for each of the drives by calling the [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) operation. You can then unlock the drive using the key. The drive manifest file on each drive contains the list of files on the drive, as well as the original blob address for each file.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## Next steps
 

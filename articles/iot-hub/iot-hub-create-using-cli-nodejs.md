@@ -1,22 +1,15 @@
 ---
 title: Create an IoT hub using Azure CLI (azure.js) | Microsoft Docs
 description: How to create an Azure IoT hub using the cross-platform Azure CLI (azure.js).
-services: iot-hub
-documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
-editor: ''
-
-ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/04/2017
-ms.author: boltean
-
+services: iot-hub
+ms.topic: conceptual
+ms.date: 04/01/2018
+ms.author: kgremban
 ---
+
 # Create an IoT hub using the Azure CLI
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -85,10 +78,10 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 ```
 
 * **resource-group**. The resource group name. The format is case insensitive alphanumeric, underscore, and hyphen, 1-64 length.
-* **name**. The name of the IoT hub to be created. The format is case insensitive alphanumeric, underscore, and hyphen, 3-50 length.
+* **name**. The name of the IoT hub to be created. The format is case insensitive alphanumeric and hyphen, 3-50 length.
 * **location**. The location (azure region/datacenter) to provision the IoT hub.
-* **sku-name**. The name of the sku, one of: [F1, S1, S2, S3]. For the latest full list, refer to the pricing page for IoT Hub.
-* **units**. The number of provisioned units. Range: F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.
+* **sku-name**. The name of the sku, one of: [F1, S1, S2, S3]. For details about each sku, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/). Currently, basic tiers are only available through the portal. 
+* **units**. The number of provisioned units. For details about unit limits, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

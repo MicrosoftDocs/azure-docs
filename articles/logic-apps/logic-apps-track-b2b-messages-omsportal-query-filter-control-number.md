@@ -1,6 +1,6 @@
 ---
-title: Query for B2B messages in Operations Management Suite - Azure Logic Apps  | Microsoft Docs
-description: Create queries to track AS2, X12, and EDIFACT messages in the Operations Management Suite 
+title: Query for B2B messages in Log Analytics - Azure Logic Apps  | Microsoft Docs
+description: Create queries to track AS2, X12, and EDIFACT messages in Log Analytics 
 author: padmavc
 manager: anneta
 editor: ''
@@ -17,18 +17,17 @@ ms.date: 07/21/2017
 ms.author: LADocs; padmavc
 ---
 
-# Query for AS2, X12, and EDIFACT messages in the Microsoft Operations Management Suite (OMS)
+# Query for AS2, X12, and EDIFACT messages in Log Analytics
 
 To find the AS2, X12, or EDIFACT messages that you're tracking with 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
-in the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), 
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md), 
 you can create queries that filter actions based on specific criteria. 
 For example, you can find messages based on a specific interchange control number.
 
 ## Requirements
 
 * A logic app that's set up with diagnostics logging. 
-Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
+Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * An integration account that's set up with monitoring and logging. 
@@ -36,50 +35,49 @@ Learn [how to create an integration account](../logic-apps/logic-apps-enterprise
 and [how to set up monitoring and logging for that account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
 * If you haven't already, [publish diagnostic data to Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) 
-and [set up message tracking in OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+and [set up message tracking in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
 > After you've met the previous requirements, 
-> you should have a workspace in the 
-> [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). 
-> You should use the same OMS workspace for tracking 
-> your B2B communication in OMS. 
+> you should have a workspace in Log Analytics. 
+> You should use the same workspace for tracking 
+> your B2B communication in Log Analytics. 
 >  
-> If you don't have an OMS workspace, 
-> learn [how to create an OMS workspace](../log-analytics/log-analytics-get-started.md).
+> If you don't have a Log Analytics workspace, 
+> learn [how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## Create message queries with filters in the Operations Management Suite portal
+## Create message queries with filters in Log Analytics
 
 This example shows how you can find messages based on their interchange control number.
 
 > [!TIP] 
-> If you know your OMS workspace name, go to your workspace home page 
+> If you know your Log Analytics workspace name, go to your workspace home page 
 (`https://{your-workspace-name}.portal.mms.microsoft.com`), 
 > and start at Step 4. Otherwise, start at Step 1.
 
-1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
+1. In the [Azure portal](https://portal.azure.com), choose **All Services**. 
 Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 
-2. Under **Log Analytics**, find and select your OMS workspace.
+2. Under **Log Analytics**, find and select your Log Analytics workspace.
 
-   ![Select your OMS workspace](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+   ![Select your Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
 3. Under **Management**, choose **OMS Portal**.
 
    ![Choose OMS portal](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
 
-4. On your OMS home page, choose **Log Search**.
+4. On your home page, choose **Log Search**.
 
-   ![On your OMS home page, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![On your home page, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    -or-
 
-   ![On the OMS menu, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![On the menu, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
 5. In the search box, enter a field that you want to find, and press **Enter**. 
-When you start typing, OMS shows you possible matches and operations that you can use. 
+When you start typing, Log Analytics shows you possible matches and operations that you can use. 
 Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
    This example searches for events with **Type=AzureDiagnostics**.
@@ -130,16 +128,16 @@ To update the query so you can find different results, edit the query.
 
    ![Select your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
-## Find and run saved queries in the Operations Management Suite portal
+## Find and run saved queries in Log Analytics
 
-1. Open your OMS workspace home page (`https://{your-workspace-name}.portal.mms.microsoft.com`), 
+1. Open your Log Analytics workspace home page (`https://{your-workspace-name}.portal.mms.microsoft.com`), 
 and choose **Log Search**.
 
-   ![On your OMS home page, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![On your Log Analytics home page, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    -or-
 
-   ![On the OMS menu, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![On the menu, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
 2. On the **Log Search** home page, choose **Favorites**.
 

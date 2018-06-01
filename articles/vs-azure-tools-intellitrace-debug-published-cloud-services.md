@@ -4,7 +4,7 @@ description: Learn how to debug a cloud service with Visual Studio and IntelliTr
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: 5e6662fc-b917-43ea-bf2b-4f2fc3d213dc

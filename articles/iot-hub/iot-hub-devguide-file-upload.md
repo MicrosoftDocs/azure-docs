@@ -1,22 +1,15 @@
 ---
 title: Understand Azure IoT Hub file upload | Microsoft Docs
 description: Developer guide - use the file upload feature of IoT Hub to manage uploading files from a device to an Azure storage blob container.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: a0427925-3e40-4fcd-96c1-2a31d1ddc14b
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-
 ---
+
 # Upload files with IoT Hub
 
 As detailed in the [IoT Hub endpoints][lnk-endpoints] article, a device can initiate a file upload by sending a notification through a device-facing endpoint (**/devices/{deviceId}/files**). When a device notifies IoT Hub that an upload is complete, IoT Hub sends a file upload notification message through the **/messages/servicebound/filenotifications** service-facing endpoint.
@@ -93,7 +86,7 @@ The following reference topics provide you with more information about uploading
 
 ## File upload notifications
 
-Optionally, when a device notifies IoT Hub that an upload is complete, IoT Hub can generate a notification message that contains the name and storage location of the file.
+Optionally, when a device notifies IoT Hub that an upload is complete, IoT Hub generates a notification message that contains the name and storage location of the file.
 
 As explained in [Endpoints][lnk-endpoints], IoT Hub delivers file upload notifications through a service-facing endpoint (**/messages/servicebound/fileuploadnotifications**) as messages. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message lifecycle][lnk-lifecycle]. Each message retrieved from the file upload notification endpoint is a JSON record with the following properties:
 
@@ -150,7 +143,7 @@ Now you have learned how to upload files from devices using IoT Hub, you may be 
 * [Invoke a direct method on a device][lnk-devguide-directmethods]
 * [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
+To try out some of the concepts described in this article, see the following IoT Hub tutorial:
 
 * [How to upload files from devices to the cloud with IoT Hub][lnk-fileupload-tutorial]
 

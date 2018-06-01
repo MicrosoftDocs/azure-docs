@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
@@ -94,4 +94,3 @@ The policy assignment appears in the portal.
 
 * For an introduction to managed applications, see [Managed application overview](overview.md).
 * For sample projects, see [Sample projects for Azure managed applications](sample-projects.md).
-* For information about publishing managed applications to the Azure Marketplace, see [Managed applications in the Marketplace](publish-marketplace-app.md).

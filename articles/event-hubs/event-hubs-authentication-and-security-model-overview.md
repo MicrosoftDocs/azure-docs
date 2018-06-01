@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
-ms.author: sethm;clemensv
+ms.date: 04/30/2018
+ms.author: sethm
 
 ---
 # Event Hubs authentication and security model overview

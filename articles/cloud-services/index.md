@@ -121,7 +121,7 @@ Learn how to use Cloud Services to host and run highly available, scalable cloud
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee460812">REST API</a></p>
+                        <p><a href="/rest/api/compute/cloudservices">REST API</a></p>
                     </div>
                 </div>
             </div>

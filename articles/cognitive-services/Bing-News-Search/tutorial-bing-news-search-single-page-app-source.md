@@ -1,8 +1,22 @@
+---
+title: Bing News Search single-page Web app (source code) | Microsoft Docs
+description: Source code for tutorial showing how to use the Bing News Search API in a single-page Web application.
+services: cognitive-services
+author: mikedodaro
+manager: rosh
+ms.service: cognitive-services
+ms.component: bing-news-search
+ms.topic: article
+ms.date: 11/15/2017
+ms.author: rosh
+ms.reviewer: v-gedod
+---
+
 # Tutorial: Single-page News Search app
 
 This is the complete source code discussed in the [single-page app tutorial](tutorial-bing-news-search-single-page-app.md) for Bing News Search. To run the app, copy the source code into Notepad or another text editor and save it as `bing.html`. Then open the saved file in Microsoft Edge or another popular browser.
 
-````html
+```html
 <!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
 <!-- the above Mark of the Web lets IE run this page in the Internet security zone,
@@ -59,7 +73,7 @@ API_KEY_COOKIE   = "bing-search-api-key";
 CLIENT_ID_COOKIE = "bing-search-client-id";
 
 // Bing Search API endpoint
-BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
+BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/news";
 
 // Various browsers differ in their support for persistent storage by local
 // HTML files (IE won't use localStorage, but Chrome won't use cookies). So
@@ -274,7 +288,6 @@ function handleBingResponse() {
         if (clientid) retrieveValue(CLIENT_ID_COOKIE, clientid);
         if (json.length) {
             if (jsobj._type === "News") {
-                if (jsobj.nextOffset) document.forms.bing.nextoffset.value = jsobj.nextOffset;
                 renderSearchResults(jsobj);
             } else {
                 renderErrorMessage("No search results in JSON response");
@@ -316,13 +329,23 @@ function bingNewsSearch(query, options, key) {
 
     // scroll to top of window
     window.scrollTo(0, 0);
-    if (!query.trim().length) return false;     // empty query, do nothing
+    //if (!query.trim().length) return false;     // empty query, do nothing
 
     showDiv("noresults", "Working. Please wait.");
     hideDivs("results", "related", "_json", "_http", "paging1", "paging2", "error");
 
     var request = new XMLHttpRequest();
-    var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&" + options;
+    if (category.valueOf() != "all".valueOf()) {
+        var queryurl = BING_ENDPOINT + "?" + options;
+    }
+    else {
+        if (query){
+            var queryurl = BING_ENDPOINT + "/search" + "?q=" + encodeURIComponent(query) + "&" + options;
+        }
+        else {
+            var queryurl = BING_ENDPOINT + "?" + options;
+        }
+    }
 
     // open the request
     try {
@@ -364,14 +387,17 @@ function bingSearchOptions(form) {
     options.push("mkt=" + form.where.value);
     options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
     if (form.when.value.length) options.push("freshness=" + form.when.value);
-    var category = "all";
+
     for (var i = 0; i < form.category.length; i++) {
         if (form.category[i].checked) {
             category = form.category[i].value;
             break;
         }
     }
-    options.push("category=" + category);
+    
+    if (category.valueOf() != "all".valueOf()){
+        options.push("category=" + category);
+    }
     options.push("count=" + form.count.value);
     options.push("offset=" + form.offset.value);
     return options.join("&");
@@ -398,11 +424,10 @@ function doRelatedSearch(query) {
     var bing = document.forms.bing;
     bing.query.value = query;
     return newBingNewsSearch(bing);
-}
+    }
 
 // generate the HTML for paging links (prev/next)
 function renderPagingLinks(results) {
-
     var html = [];
     var bing = document.forms.bing;
     var offset = parseInt(bing.offset.value, 10);
@@ -414,45 +439,43 @@ function renderPagingLinks(results) {
     return html.join("");
 }
 
-// go to the next page (used by next page link)
-function doNextSearchPage() {
+    // go to the next page (used by next page link)
+    function doNextSearchPage() {
 
-    var bing = document.forms.bing;
-    var query = bing.query.value;
-    var offset = parseInt(bing.offset.value, 10);
-    var stack = JSON.parse(bing.stack.value);
-    stack.push(parseInt(bing.offset.value, 10));
-    bing.stack.value = JSON.stringify(stack);
-    bing.offset.value = bing.nextoffset.value;
-    return bingNewsSearch(query, bingSearchOptions(bing), getSubscriptionKey());
-}
-
-// go to the previous page (used by previous page link)
-function doPrevSearchPage() {
-
-    var bing = document.forms.bing;
-    var query = bing.query.value;
-    var stack = JSON.parse(bing.stack.value);
-    if (stack.length) {
-        var offset = stack.pop();
+        var bing = document.forms.bing;
+        var query = bing.query.value;
+        var offset = parseInt(bing.offset.value, 10);
         var count = parseInt(bing.count.value, 10);
-        bing.stack.value = JSON.stringify(stack);
+        offset += count;
         bing.offset.value = offset;
         return bingNewsSearch(query, bingSearchOptions(bing), getSubscriptionKey());
     }
-    alert("You're already at the beginning!");
-    return false;
-}
 
+    // go to the previous page (used by previous page link)
+    function doPrevSearchPage() {
+
+        var bing = document.forms.bing;
+        var query = bing.query.value;
+        var offset = parseInt(bing.offset.value, 10);
+        var count = parseInt(bing.count.value, 10);
+        if (offset) {
+            offset -= count;
+            if (offset < 0) offset = 0;
+            bing.offset.value = offset;
+            return bingNewsSearch(query, bingSearchOptions(bing), getSubscriptionKey());
+        }
+        alert("You're already at the beginning!");
+        return false;
+    }
 function newBingNewsSearch(form) {
     form.offset.value = "0";
-    form.stack.value = "[]";
+    count = 25;
     return bingNewsSearch(form.query.value, bingSearchOptions(form), getSubscriptionKey());
 }
 // --></script>
 
 </head>
-<body onload="document.forms.bing.query.focus(); getSubscriptionKey();">
+<body onload="document.forms.bing.query.focus();">
 
 <form name="bing" onsubmit="return newBingNewsSearch(this)">
 
@@ -531,8 +554,7 @@ function newBingNewsSearch(form) {
 
     <!-- these hidden fields control paging -->
     <input type=hidden name="count" value="25">
-    <input type=hidden name="offset" value="0">
-    <input type=hidden name="nextoffset" value="">    
+    <input type=hidden name="offset" value="0">   
     <input type=hidden name="stack" value="[]">
   </div>
 </form>
@@ -577,3 +599,4 @@ function newBingNewsSearch(form) {
 
 </body>
 </html>
+```

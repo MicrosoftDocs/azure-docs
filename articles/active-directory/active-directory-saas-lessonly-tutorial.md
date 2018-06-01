@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 8c9dc6e6-5d85-4553-8a35-c7137064b928
 ms.service: active-directory
@@ -26,7 +26,7 @@ Integrating Lesson.ly with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Lesson.ly (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -140,7 +140,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| ---------------  | ----------------|
 	| urn:oid:2.5.4.42 |user.givenname |
 	| urn:oid:2.5.4.4  |user.surname |
-	| urn:oid:0.9.2342.19200300.1001.3 |user.mail |
+	| urn:oid:0.9.2342.19200300.100.1.3 |user.mail |
+	| urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |user.objectid |
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -246,7 +247,7 @@ When you click the Lesson.ly tile in the Access Panel, you should get automatica
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

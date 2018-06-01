@@ -3,8 +3,8 @@ title: Add push notifications to your Universal Windows Platform (UWP) app | Mic
 description: Learn how to use Azure App Service Mobile Apps and Azure Notification Hubs to send push notifications to your Universal Windows Platform (UWP) app.
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: syntaxc4
+author: conceptdev
+manager: crdun 
 editor: ''
 
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: yuaxu
+ms.author: crdun 
 
 ---
 # Add push notifications to your Windows app
@@ -29,18 +29,18 @@ If you do not use the downloaded quick start server project, you will need the p
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## Register your app for push notifications
-You need to submit your app to the Windows Store, then configure your server project to integrate with Windows Notification Services (WNS) to send push.
+You need to submit your app to the Microsoft Store, then configure your server project to integrate with Windows Notification Services (WNS) to send push.
 
 1. In Visual Studio Solution Explorer, right-click the UWP app project, click **Store** > **Associate App with the Store...**.
 
-    ![Associate app with Windows Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+    ![Associate app with Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 2. In the wizard, click **Next**, sign in with your Microsoft account, type a name for your app in **Reserve a new app name**, then click **Reserve**.
-3. After the app registration is successfully created, select the new app name, click **Next**, and then click **Associate**. This adds the required Windows Store registration information to the application manifest.  
+3. After the app registration is successfully created, select the new app name, click **Next**, and then click **Associate**. This adds the required Microsoft Store registration information to the application manifest.
 4. Navigate to the [Windows Dev Center](https://dev.windows.com/en-us/overview), sign-in with your Microsoft account, click the new app registration in **My apps**, then expand **Services** > **Push notifications**.
 5. In the **Push notifications** page, click **Live Services site** under **Microsoft Azure Mobile Services**.
 6. In the registration page, make a note of the value under **Application secrets** and the **Package SID**, which you will next use to configure your mobile app backend.
 
-    ![Associate app with Windows Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
+    ![Associate app with Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > The client secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app. The **Application Id** is used with the secret to configure Microsoft Account authentication.
@@ -182,16 +182,16 @@ Next, your app must register for push notifications on start-up. When you have a
 ## <a id="more"></a>Next steps
 Learn more about push notifications:
 
-* [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
+* [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)
   Templates give you flexibility to send cross-platform pushes and localized pushes. Learn how to register templates.
-* [Diagnose push notification issues](../notification-hubs/notification-hubs-push-notification-fixer.md)  
+* [Diagnose push notification issues](../notification-hubs/notification-hubs-push-notification-fixer.md)
   There are various reasons why notifications may get dropped or do not end up on devices. This topic shows you how to analyze and figure out the root cause of push notification failures.
 
 Consider continuing on to one of the following tutorials:
 
-* [Add authentication to your app](app-service-mobile-windows-store-dotnet-get-started-users.md)  
+* [Add authentication to your app](app-service-mobile-windows-store-dotnet-get-started-users.md)
   Learn how to authenticate users of your app with an identity provider.
-* [Enable offline sync for your app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+* [Enable offline sync for your app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)
   Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 <!-- Anchors. -->

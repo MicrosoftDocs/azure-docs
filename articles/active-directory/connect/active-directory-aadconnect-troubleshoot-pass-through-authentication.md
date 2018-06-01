@@ -5,14 +5,15 @@ services: active-directory
 keywords: Troubleshoot Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/05/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -75,7 +76,7 @@ Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Dire
 
 ### Registration of the Authentication Agent failed due to blocked ports
 
-Ensure that the server on which the Authentication Agent has been installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Ensure that the server on which the Authentication Agent has been installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### Registration of the Authentication Agent failed due to token or account authorization errors
 
@@ -101,7 +102,7 @@ You need to have at least one active Authentication Agent to enable Pass-through
 
 ### Enabling the feature failed due to blocked ports
 
-Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### Enabling the feature failed due to token or account authorization errors
 
@@ -161,7 +162,7 @@ If audit logging is enabled, additional information can be found in the security
     </QueryList>
 ```
 
-### Performance Monitor counters
+## Performance Monitor counters
 
 Another way to monitor Authentication Agents is to track specific Performance Monitor counters on each server where the Authentication Agent is installed. Use the following Global counters (**# PTA authentications**, **#PTA failed authentications** and **#PTA successful authentications**) and Error counters (**# PTA authentication errors**):
 

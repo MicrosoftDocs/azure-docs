@@ -1,25 +1,16 @@
 ---
 title: "Azure Analysis Services tutorial supplemental lesson: Dynamic security | Microsoft Docs"
 description: Describes how to use dynamic security by using row filters in the Azure Analysis Services tutorial.
-services: analysis-services
-documentationcenter: ''
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 11/01/2017
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
+
 ---
 # Supplemental lesson - Dynamic security
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 In this supplemental lesson, you create an additional role that implements dynamic security. Dynamic security provides row-level security based on the user name or login id of the user currently logged on. 
   

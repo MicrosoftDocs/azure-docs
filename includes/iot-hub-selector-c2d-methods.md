@@ -3,8 +3,11 @@
 > * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-direct-methods.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-direct-methods.md)
+> * [Python](../articles/iot-hub/iot-hub-python-python-direct-methods.md)
 
 Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. IoT Hub also gives you the ability to invoke non-durable methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTPS call in that they succeed or fail immediately (after a user-specified timeout) to let the user know the status of the call. [Invoke a direct method on a device][lnk-devguide-methods] describes direct methods in more detail and offers guidance about when to use direct methods rather than cloud-to-device messages or desired properties.
+
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
 This tutorial shows you how to:
 

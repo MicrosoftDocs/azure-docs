@@ -22,7 +22,7 @@ ms.custom: mvc
 
 This sample script creates a web app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. 
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure. Also, ensure that:
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzureRmAccount` to create a connection with Azure. Also, ensure that:
 
 - A connection with Azure has been created using the `az login` command.
 - You have access to your domain registrar's DNS configuration page.

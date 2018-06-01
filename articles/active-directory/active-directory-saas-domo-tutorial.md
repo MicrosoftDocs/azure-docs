@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2017
+ms.date: 03/20/2017
 ms.author: jeedes
 
 ---
@@ -26,7 +26,7 @@ Integrating Domo with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Domo (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -165,7 +165,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
    ![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_configure.png) 
 
-9. To configure single sign-on on **Domo** side, you need to send the downloaded **Certificate**, **SAML Entity ID**, the **SAML Single Sign-On Service URL** and the **Sign-Out URL** to [Domo support team](mailto:support@domo.com). They set this setting to have the SAML SSO connection set properly on both sides.
+9. To configure single sign-on on **Domo** side, please navigate to Domo's Knowledge Base article found [here](http://knowledge.domo.com?cid=azuread), and follow the instructions.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -247,9 +247,7 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

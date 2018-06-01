@@ -10,10 +10,8 @@ editor: cgronlun
 ms.assetid: a8c45a83-a8e3-4227-8b02-1bc1e1de6767
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 08/14/2017
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
 
 ---
@@ -53,7 +51,7 @@ In this section, you create a HDInsight cluster with Data Lake Store accounts as
 
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Add service principal to HDInsight cluster")
 
-    - **Select Data Lake Store account**: Select an existing Data Lake Store account. An existing Data Lake Store account is required.  See [Prerequisites](#prereuisites).
+    - **Select Data Lake Store account**: Select an existing Data Lake Store account. An existing Data Lake Store account is required.  See [Prerequisites](#prerequisites).
     - **Root path**: Enter a path where the cluster-specific files are to be stored. On the screenshot, it is __/clusters/myhdiadlcluster/__, in which the __/clusters__ folder must exist, and the Portal creates *myhdicluster* folder.  The *myhdicluster* is the cluster name.
     - **Data Lake Store access**: Configure access between the Data Lake Store account and HDInsight cluster. For instructions, see [Configure Data Lake Store access](#configure-data-lake-store-access).
     - **Additional storage accounts**: Add Azure Storage Accounts as additional storage accounts for the cluster. To add additional Data Lake Stores is done by giving the cluster permissions on data in more Data Lake Store accounts while configuring a Data Lake Store account as the primary storage type. See [Configure Data Lake Store access](#configure-data-lake-store-access).
@@ -203,6 +201,7 @@ You can use a Spark cluster to run Spark jobs on data that is stored in a Data L
 You can use the Data Lake Store to write data from a Storm topology. For instructions on how to achieve this scenario, see [Use Azure Data Lake Store with Apache Storm with HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
 ## See also
+* [Use Data Lake Store with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx

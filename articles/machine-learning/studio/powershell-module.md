@@ -5,7 +5,8 @@ keywords: experiment,linear regression,machine learning algorithms,machine learn
 services: machine-learning
 documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 
 ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: garye;haining
 
 ---
 # PowerShell module for Microsoft Azure Machine Learning

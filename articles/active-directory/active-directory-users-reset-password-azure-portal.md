@@ -5,11 +5,12 @@ description: Administrator initiated password reset for a user in Azure Active D
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -35,6 +36,9 @@ Administrators may need to reset a user's password in cases where they forgot, w
     
 6. On **Reset password**, select **Reset password**.
 7. A temporary password is displayed that you can then provide to the user. The user will be asked to then change their password the next time they logon. 
+
+   > [!NOTE]
+   > This temporary password does not have an expiration time so it will be valid until they log in and are then are forced to change it. 
 
 ## Next steps
 * [Add a user](active-directory-users-create-azure-portal.md)

@@ -1,23 +1,19 @@
 ---
-title: 'Azure Active Directory B2C: Create an Azure Active Directory B2C tenant | Microsoft Docs'
-description: A topic on how to create an Azure Active Directory B2C tenant
+title: Create an Azure Active Directory B2C tenant | Microsoft Docs
+description: A topic on how to create an Azure Active Directory B2C tenant.
 services: active-directory-b2c
-documentationcenter: ''
-author: swkrish
-manager: mbaldwin
-editor: patricka
+author: davidmu1
+manager: mtillman
 
-ms.assetid: eec4d418-453f-4755-8b30-5ed997841b56
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 06/07/2017
-ms.author: swkrish
-
+ms.author: davidmu
+ms.component: B2C
 ---
-# Create an Azure Active Directory B2C tenant in the Azure portal
+
+# Create an Azure Active Directory B2C tenant
 
 This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B2C tenant in just a few minutes. When you're finished, you have a B2C tenant (also known as a directory) to use for registering B2C applications.
 
@@ -25,7 +21,7 @@ This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-##  Log in to Azure
+## Log in to Azure
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
@@ -35,7 +31,7 @@ B2C features can't be enabled in your existing tenants. You need to create an Az
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
-Congratulations, you have created an Azure Active Directory B2C tenant. You are a Global Administrator of the tenant. You can add other Global Administrators as required. To switch to your new tenant, click the *manage your new tenant link*.
+Congratulations, you have created an Azure Active Directory B2C tenant. You are a Global Administrator of the tenant. You can add other Global Administrators as required. To switch to your new tenant, click *manage your new tenant*.
 
 ![Manage your new tenant link](./media/active-directory-b2c-get-started/manage-new-b2c-tenant-link.png)
 

@@ -4,15 +4,15 @@ description: Describes how to create create predictive pipelines using Azure Dat
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/10/2017
+ms.topic: conceptual
+ms.date: 01/16/2018
 ms.author: shlo
 
 ---
@@ -83,33 +83,6 @@ For the above mentioned end-to-end workflow to work, you need to create two Azur
 2. An Azure Machine Learning linked service to the update resource endpoint of the predictive web service. This linked service is used by Update Resource activity to update the predictive web service using the iLearner file returned from above step. 
 
 For the second Azure Machine Learning linked service, the configuration is different when your Azure Machine Learning Web Service is a classic Web Service or a new Web Service. The differences are discussed separately in the following sections. 
-
-## Web service is a classic web service
-If the predict web service is a **classic web service**, create the second **non-default and updatable endpoint** by using the Azure portal. See [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for steps. After you create the non-default updatable endpoint, do the following steps:
-
-* Click **BATCH EXECUTION** to get the URI value for the **mlEndpoint** JSON property.
-* Click **UPDATE RESOURCE** link to get the URI value for the **updateResourceEndpoint** JSON property. The API key is on the endpoint page itself (in the bottom-right corner).
-
-![updatable endpoint](./media/update-machine-learning-models/updatable-endpoint.png)
-
-After that, using the following linked service sample to create a new Azure Machine Learning linked service. The linked service uses the apiKey for authentication.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-        	},
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## Web service is new Azure Resource Manager web service 
 

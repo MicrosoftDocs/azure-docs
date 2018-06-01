@@ -3,18 +3,18 @@ title: SQL Server Stored Procedure Activity
 description: Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure SQL Data Warehouse from a Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: craigg
+
 
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/01/2017
-ms.author: spelluru
+ms.topic: conceptual
+ms.date: 01/10/2018
+ms.author: douglasl
 
 robots: noindex
 ---
@@ -159,7 +159,7 @@ Notice the following properties:
 
 - The **type** property is set to **SqlServerStoredProcedure**. 
 - The **storedProcedureName** in type properties is set to **sp_sample** (name of the stored procedure).
-- The **storedProcedureParameters** section contains one parameter named **DataTime**. Name and casing of the parameter in JSON must match the name and casing of the parameter in the stored procedure definition. If you need pass null for a parameter, use the syntax: `"param1": null` (all lowercase).
+- The **storedProcedureParameters** section contains one parameter named **DateTime**. Name and casing of the parameter in JSON must match the name and casing of the parameter in the stored procedure definition. If you need pass null for a parameter, use the syntax: `"param1": null` (all lowercase).
  
 1. Click **... More** on the command bar and click **New pipeline**.
 2. Copy/paste the following JSON snippet:   

@@ -1,22 +1,15 @@
 ---
 title: Schedule jobs with Azure IoT Hub (.NET/Node) | Microsoft Docs
 description: How to schedule an Azure IoT Hub job to invoke a direct method on multiple devices. You use the Azure IoT device SDK for Node.js to implement the simulated device apps and the Azure IoT service SDK for .NET to implement a service app to run the job.
-services: iot-hub
-documentationcenter: .net
 author: juanjperez
-manager: timlt
-editor: ''
-
-ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: juanpere
-
 ---
+
 # Schedule and broadcast jobs (.NET/Node.js)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
@@ -33,6 +26,8 @@ To learn more about each of these capabilities, see:
 
 * Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
 * Direct methods: [IoT Hub developer guide - direct methods][lnk-dev-methods] and [Tutorial: Use direct methods][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 This tutorial shows you how to:
 
@@ -77,6 +72,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
 1. Add the following `using` statement if not already present in the default statements.
 
     ```csharp
+    using System.Threading;
     using System.Threading.Tasks;
     ```
 
@@ -114,7 +110,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
             "deviceId='myDeviceId'",
             directMethod,
             DateTime.Now,
-            10);
+            (long)TimeSpan.FromMinutes(2).TotalSeconds);
 
         Console.WriteLine("Started Method Job");
     }
@@ -134,7 +130,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
             "deviceId='myDeviceId'",
             twin,
             DateTime.Now,
-            10);
+            (long)TimeSpan.FromMinutes(2).TotalSeconds);
 
         Console.WriteLine("Started Twin Update Job");
     }
@@ -254,7 +250,7 @@ In this tutorial, you used a job to schedule a direct method to a device and the
 
 To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, read [Tutorial: How to do a firmware update][lnk-fwupdate].
 
-To continue getting started with IoT Hub, see [Getting started with IoT Edge][lnk-iot-edge].
+To learn about deploying AI to edge devices with Azure IoT Edge, see [Getting started with IoT Edge][lnk-iot-edge].
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png
@@ -266,7 +262,7 @@ To continue getting started with IoT Hub, see [Getting started with IoT Edge][ln
 [lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

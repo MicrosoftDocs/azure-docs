@@ -1,4 +1,4 @@
----
+﻿---
 title: Generate recommendations using Mahout HDInsight from PowerShell - Azure | Microsoft Docs
 description: Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop) from a PowerShell script running on your client.
 services: hdinsight
@@ -11,11 +11,9 @@ tags: azure-portal
 ms.assetid: 07b57208-32aa-4e59-900a-6c934fa1b7a7
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/14/2017
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
 
 ---
@@ -29,8 +27,8 @@ Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning 
 
 * A Linux-based HDInsight cluster. For information about creating one, see [Get started using Linux-based Hadoop in HDInsight][getstarted].
 
-> [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+    > [!IMPORTANT]
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Azure PowerShell](/powershell/azure/overview)
 
@@ -53,16 +51,16 @@ The following example is a simplified walk-through of how the recommendation pro
 
 ### Understanding the data
 
-[GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. This data is available on the default storage for your cluster at `/HdiSamples//HdiSamples/MahoutMovieData`.
+[GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. This data is available on the default storage for your cluster at `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 There are two files, `moviedb.txt` (information about the movies) and `user-ratings.txt`. The `user-ratings.txt` file is used during analysis. The `moviedb.txt` file is used to provide user-friendly text when displaying the results of the analysis.
 
-The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells us how highly each user rated a movie. Here is an example of the data:
+The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells how highly each user rated a movie. Here is an example of the data:
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ### Run the job
@@ -147,7 +145,7 @@ To avoid errors when running Mahout jobs, delete temporary and output files betw
 $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 # Get cluster info
