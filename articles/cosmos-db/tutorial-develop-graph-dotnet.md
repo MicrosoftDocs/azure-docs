@@ -6,7 +6,6 @@ author: luisbosquez
 manager: kfile
 editor: ''
 
-ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial

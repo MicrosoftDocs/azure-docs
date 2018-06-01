@@ -61,7 +61,7 @@ The following table shows how the solutions map to specific IoT features:
 * *Predictive analytics*: The solution back end analyzes device-to-cloud data to predict when specific actions should take place. For example, analyzing aircraft engine telemetry to determine when engine maintenance is due.
 
 > [!NOTE]
-> To deploy a solution accelerator and learn more about how to customize them, visit [Microsoft Azure IoT solution accelerators](https://www.azureiotsuite.com/).
+> To deploy a solution accelerator and learn more about how to customize them, visit [Microsoft Azure IoT solution accelerators](https://www.azureiotsolutions.com/).
 
 ## Azure services
 

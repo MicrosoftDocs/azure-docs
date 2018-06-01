@@ -88,13 +88,13 @@ The Functions runtime uses an Azure Storage account internally. For all trigger 
 
 [!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
 
- To set the storage account connection string:
+To set the storage account connection string:
 
 1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then select **Properties** and copy the **Primary Connection String** value.
 
 2. In your project, open the local.settings.json file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
 
-3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.  
+3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.
 
 ## Create a function
 
@@ -157,7 +157,7 @@ As with triggers, input and output bindings are added to your function as bindin
         }
     }
     ```
-The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding.
+The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 

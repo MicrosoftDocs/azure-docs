@@ -31,7 +31,7 @@ An active Azure subscription. If you do not have one, you can register via one o
 
 ## Create an Azure IoT Remote Monitoring solution accelerator
 
-1. Go to [Azure IoT solution acclerators site](https://www.azureiotsuite.com/) and click **Create a new solution**.
+1. Go to [Azure IoT solution accelerators site](https://www.azureiotsolutions.com/) and click **Create a new solution**.
   ![Select Azure IoT solution accelerator type](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
   > By default, this sample creates an S2 IoT Hub after it creates one IoT Remote Monitoring solution accelerator. If this IoT hub is not used with massive number of devices, we highly recommend you downgrade it from S2 to S1, and delete the IoT Remote Monitoring solution accelerator so the related IoT Hub can also be deleted, when you no longer need it. 

@@ -92,14 +92,14 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
   sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
   ```
 
-2.  Set up the package feed, replacing `<version>` in the following command with the appropriate version name from the table:
+2.  Verify your Ubuntu server is running one of the appropriate versions from the table below. To add the apt source, run:
 
   ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
   sudo apt-get update
   ```
 
-  | Linux distribution | `<version>` |
+  | Linux distribution | Version |
   | --------------- | ----------- |
   | Ubuntu 17.10    | `artful`    |
   | Ubuntu 17.04    | `zesty`     |

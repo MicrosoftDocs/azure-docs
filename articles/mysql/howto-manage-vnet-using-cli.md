@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 05/31/2018
 ---
 # Create and manage Azure Database for MySQL VNet service endpoints using Azure CLI
 Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for MySQL server. Using convenient Azure Command Line Interface (CLI) commands, you can create, update, delete, list, and show VNet service endpoints and rules to manage your server. For an overview of Azure Database for MySQL VNet service endpoints, including limitations, see [Azure Database for MySQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in public preview in all supported regions for Azure Database for MySQL.
@@ -32,6 +32,26 @@ If you are running the CLI locally, you need to log in to your account using the
 ```azurecli-interactive
 az login
 ```
+
+Install the CLI extension for Azure Database for MySQL VNet service endpoints using the `az extension add --name rdbms-vnet` command. 
+```azurecli-interactive
+az extension add --name rdbms-vnet
+```
+
+Run the `az extension list` command to verify the installation of the CLI extension.
+```azurecli-interactive
+az extension list
+```
+The output of the command lists all installed extensions. The Azure Database for MySQL CLI extension is:
+
+ {
+    "extensionType": "whl",
+    "name": "rdbms-vnet",
+    "version": "10.0.0"
+  }
+
+> [!NOTE]
+> To uninstall the CLI extension run the `az extension remove -n rdbms-vnet` command. 
 
 If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account#az_account_set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
 
