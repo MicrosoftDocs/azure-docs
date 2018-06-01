@@ -1,7 +1,7 @@
 ---
 # required metadata
 title: Add switch statements to workflows - Azure Logic Apps | Microsoft Docs
-description: How to create switch statements that control actions for workflows in Azure Logic Apps
+description: How to create switch statements that control workflow actions based on specific values in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -15,7 +15,7 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Add switch statements for running workflow actions based on specific values in Azure Logic Apps
+# Create switch statements that run workflow actions based on specific values in Azure Logic Apps
 
 To run specific actions based on the values of objects, expressions, or tokens, 
 add a *switch* statement. This structure evaluates the object, expression, or token, 
