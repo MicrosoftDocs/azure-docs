@@ -128,7 +128,7 @@ If you install, configure, and enable Azure AD Connect, you have the following a
 
 ![Writeback][Writeback]
 
-This page provides you a quick status of the on-premises writeback client one of the following messages are displayed based on the current configuration:
+This page provides you a quick status of the on-premises writeback client, one of the following messages is displayed based on the current configuration:
 
 * Your On-premises writeback client is up and running.
 * Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.

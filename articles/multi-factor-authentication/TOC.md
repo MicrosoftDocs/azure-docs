@@ -12,15 +12,15 @@
 # Tutorials
 
 ## [Define authentication methods](../active-directory/authentication/tutorial-authentication-methods.md)
-Enroll Users
-Configure authentication options
-Configure banned passsword list
-Enable a SSPR pilot
-Enable MFA with CA for Azure Portal
-Enable MFA with Azure Identity Protection
+## Enroll Users
+## Configure authentication options
+## Configure banned passsword list
+## Enable a SSPR pilot
+## Enable MFA with CA for Azure Portal
+## Enable MFA with Azure Identity Protection
 ## [Enable password writeback](../active-directory/authentication/tutorial-enable-writeback.md)
 ## [Enable Windows 10 password reset](../active-directory/authentication/tutorial-sspr-windows.md)
-Enable Windows Hello
+## Enable Windows Hello
 
 # Concepts
 
