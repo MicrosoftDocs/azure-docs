@@ -58,7 +58,7 @@ The following table illustrates the actions that can be performed by users in ea
 
 ## Add an owner or user at the lab level
 Owners and users can be added at the lab level via the Azure portal. 
-This includes external users with a valid [Microsoft account (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
+A user can be an external user with a valid [Microsoft account (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
 The following steps guide you through the process of adding an owner or user to a lab in Azure DevTest Labs:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -85,7 +85,7 @@ The following steps guide you through the process of adding an owner or user to 
 
 ## Add an external user to a lab using PowerShell
 In addition to adding users in the Azure portal, you can add an external user to your lab using a PowerShell script. 
-In the following example, simply modify the parameter values under the **Values to change** comment.
+In the following example, modify the parameter values under the **Values to change** comment.
 You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab blade in the Azure portal.
 
 > [!NOTE]
