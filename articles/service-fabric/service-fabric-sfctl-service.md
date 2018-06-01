@@ -3,7 +3,7 @@ title: Azure Service Fabric CLI- sfctl service | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl service commands.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: Christina-Kang
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 05/23/2018
-ms.author: ryanwi
+ms.author: bikang
 
 ---
 # sfctl service

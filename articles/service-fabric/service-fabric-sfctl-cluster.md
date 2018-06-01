@@ -3,7 +3,7 @@ title: Azure Service Fabric CLI- sfctl cluster | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl cluster commands.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: Christina-Kang
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 05/23/2018
-ms.author: ryanwi
+ms.author: bikang
 
 ---
 # sfctl cluster
@@ -135,7 +135,7 @@ Get the Service Fabric cluster manifest. The cluster manifest contains propertie
 ## sfctl cluster operation-cancel
 Cancels a user-induced fault operation.
 
-The following is a list of APIs that start fault operations that may be canceled using CancelOperation -  <br> - StartDataLoss - StartQuorumLoss  <br> - StartPartitionRestart - StartNodeTransition If force is false, then the specified user-induced operation will be gracefully stopped and cleaned up.  If force is true, the command will be aborted, and some internal state may be left behind.  Specifying force as true should be used with care. Calling this API with force set to true is not allowed until this API has already been called on the same test command with force set to false first, or unless the test command already has an OperationState of OperationState.RollingBack. Clarification\: OperationState.RollingBack means that the system will be/is cleaning up internal system state caused by executing the command. It will not restore data if the test command was to cause data loss.  For example, if you call StartDataLoss then call this API, the system will only clean up internal state from running the command. It will not restore the target partition's data, if the command progressed far enough to cause data loss. Important note\:  if this API is invoked with force==true, internal state may be left behind.
+The following APIs start fault operations that may be cancelled by using CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. If force is false, then the specified user-induced operation will be gracefully stopped and cleaned up.  If force is true, the command will be aborted, and some internal state may be left behind.  Specifying force as true should be used with care. Calling this API with force set to true is not allowed until this API has already been called on the same test command with force set to false first, or unless the test command already has an OperationState of OperationState.RollingBack. Clarification\: OperationState.RollingBack means that the system will be/is cleaning up internal system state caused by executing the command. It will not restore data if the test command was to cause data loss.  For example, if you call StartDataLoss then call this API, the system will only clean up internal state from running the command. It will not restore the target partition's data, if the command progressed far enough to cause data loss. Important note\:  if this API is invoked with force==true, internal state may be left behind.
 
 ### Arguments
 
@@ -164,9 +164,9 @@ Gets the list of user-induced fault operations filtered by provided input.
 
 |Argument|Description|
 | --- | --- |
-| --state-filter | Used to filter on OperationState's for user-induced operations. 65535 - select All 1     - select Running 2     - select RollingBack 8     - select Completed 16    - select Faulted 32    - select Cancelled 64    - select ForceCancelled.  Default\: 65535. |
+| --state-filter | Used to filter on OperationState's for user-induced operations. <br> 65535 - select All <br> 1 - select Running <br> 2     - select RollingBack <br>8     - select Completed <br>16    - select Faulted <br>32    - select Cancelled <br>64    - select ForceCancelled.  <br>Default\: 65535. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
-| --type-filter | Used to filter on OperationType for user-induced operations. 65535 - select all 1     - select PartitionDataLoss. 2     - select PartitionQuorumLoss. 4     - select PartitionRestart. 8     - select NodeTransition.  Default\: 65535. |
+| --type-filter | Used to filter on OperationType for user-induced operations. <br> 65535 - select all <br> 1     - select PartitionDataLoss. <br> 2     - select PartitionQuorumLoss. <br> 4     - select PartitionRestart. <br> 8     - select NodeTransition.  <br> Default\: 65535. |
 
 ### Global Arguments
 
