@@ -107,6 +107,10 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
     az vm update --resource-group myResourceGroup --name myVM --set licenseType=Windows_Server
     ```
     
+> [!NOTE]
+> This does not cause the system to reboot or cause a service interuption. It is a metadata licensing flag only.
+>
+
 ### How to verify your VM is utilizing the licensing benefit
 Once you have deployed your VM through either PowerShell, Resource Manager template or portal, you can verify the setting in the following methods.
 
