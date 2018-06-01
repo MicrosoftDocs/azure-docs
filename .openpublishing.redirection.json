@@ -12967,7 +12967,12 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-cli-options.md",
-            "redirect_url": "/azure/virtual-machines/windows/cli-options",
+            "redirect_url": "/cli/azure/install-azure-cli-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/cli-options.md",
+            "redirect_url": "/cli/azure/install-azure-cli-windows",
             "redirect_document_id": false
         },
         {
