@@ -72,7 +72,9 @@ The following steps show the logic that is used to calculate **ageGroup** from t
     a. Calculate the date that the user must have been born on to be considered an adult. For example, if the current date is March 14, 2015, and **MinorConsent** is 18, the birth date must be no later than March 14, 2000.
 
     b. Compare the minimum birth date with the actual birth date. If the minimum birth date is before the user’s birth date, the calculation returns **Minor** as the age group calculation.
+
 3. If the **MinorNoConsentRequired** node is present in the country element, repeat steps 2a and 2b using the value from **MinorNoConsentRequired**. The output of 2b returns **MinorNoConsentRequired** if the minimum birth date is before the user’s birth date. 
+
 4. If neither calculation returns true, the calculation returns **Adult**.
 
 If an application has reliably gathered DOB or country data by other methods, the application may use the Graph API to update the user record with this information. For example:
