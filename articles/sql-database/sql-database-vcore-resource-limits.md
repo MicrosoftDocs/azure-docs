@@ -97,13 +97,13 @@ For single databases, the following tables show the resources available for a si
 |vCores|2|4|8|16|24|32|48|80|
 |Memory (GB)|11|22|44|88|132|176|220|440|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|1.571|3.142|6.284|15.768|25.252|37.936|68.104|131.64|
+|In-memory OLTP storage (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data size (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Max log size|307|307|307|307|614|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
-|Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
+|Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
 |Number of replicas|3|3|3|3|3|3|3|3|
@@ -187,7 +187,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Max concurrent workers (requests)|210|420|840|1680|2520|3360|4200|8400
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
 |Max pool density|100|200|500|500|500|500|500|500|
-|Min/max elastic pool click-stops|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|Min/max elastic pool click-stops|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Number of replicas|1|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -233,11 +233,11 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Max data size (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Max log size|307|307|307|307|614|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
-|Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
+|Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Max concurrent workers (requests)|210|420|840|1680|2520|3360|5040|8400|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
 |Max pool density|N/A|50|100|100|100|100|100|100|
-|Min/max elastic pool click-stops|N/A|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|Min/max elastic pool click-stops|N/A|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Number of replicas|3|3|3|3|3|3|3|3|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
