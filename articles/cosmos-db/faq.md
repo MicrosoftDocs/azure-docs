@@ -161,7 +161,7 @@ You can bulk-insert documents into Azure Cosmos DB in either of two ways:
 * Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](programming.md).
 
 ### I have setup my collection to use lazy indexing, I see that my queries do not return expected results. 
-As explained in the indexing section, lazy indexing can result in this behavior. You should almost always use Consistent indexing for all the applications. 
+As explained in the indexing section, lazy indexing can result in this behavior. You should always use consistent indexing for all the applications. 
 
 
 ### Does the SQL API support resource link caching?
