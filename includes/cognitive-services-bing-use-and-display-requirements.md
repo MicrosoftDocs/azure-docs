@@ -14,14 +14,14 @@ ms.author: rosh, v-gedod
 Use and display requirements apply to any implementation of the content and associated information. For example, the requirements apply to relationships, metadata, and other signals. These can be available through calls to the following APIs:
 
 - Bing Custom Search
-- Entity Search
-- Image Search
-- News Search
-- Video Search
-- Visual Search
-- Web Search
-- Spell Check
-- Autosuggest
+- Bing Entity Search
+- Bing Image Search
+- Bing News Search
+- Bing Video Search
+- Bing Visual Search
+- Bing Web Search
+- Bing Spell Check
+- Bing Autosuggest
 
 You can find implementation details related to these requirements in the documentation for specific features and results.     
 
@@ -42,7 +42,7 @@ Do not:
 
 ## Search APIs
 
-The requirements in this section apply to the Search APIs.
+The requirements in this section apply to the Search APIs. The Search APIs do not include Bing Spell Check or Bing Autosuggest. The requirements for those two APIs are covered in the preceding section.
 
 ### Internet search experience
 
@@ -66,13 +66,13 @@ Do not:
 - Reorder, including by omission, results displayed in an answer, when an order or ranking is provided, unless required by law or agreed to by Microsoft. (For the Bing Custom Search API, this rule does not apply to reordering implemented through the customsearch.ai portal.)
 - Display other content within any part of a response in a way that would lead a user to believe that the other content is part of the response. 
 - Display advertising that is not provided by Microsoft on any page that displays any part of a response. 
-- Display any advertising with responses (i) from the Bing Image, News, Video Search, or Visual Search APIs; or (ii) that are filtered or limited primarily (or solely) to image, news and/or video or visual results.
+- Display any advertising with responses (i) from the Bing Image, News Search, Video Search, or Visual Search APIs; or (ii) that are filtered or limited primarily (or solely) to image, news and/or video or visual results.
 
 ### Notices and branding 
 
-- Prominently include a functional hyperlink to the Microsoft Privacy Statement, available at  https://go.microsoft.com/fwlink/?LinkId=521839, near each point in the user experience (UX) that offers a user the ability to input a search query. Label the hyperlink **Microsoft Privacy Statement**.
-- Prominently display Bing branding, consistent with the guidelines available at [Bing Trademark Usage Guidelines](https://go.microsoft.com/fwlink/?linkid=833278), near each point in the UX that offers a user the ability to input a search query. Such branding must clearly denote to the user that Microsoft is powering the internet search experience.
-- You can attribute each response (or portion of a response) displayed from the Bing Web, Image, News, Video, and Visual APIs to Microsoft, unless Microsoft specifies otherwise in writing for your use. This is described in [Bing Trademark Usage Guidelines](https://go.microsoft.com/fwlink/?linkid=833278). 
+- Prominently include a functional hyperlink to the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839), near each point in the user experience (UX) that offers a user the ability to input a search query. Label the hyperlink **Microsoft Privacy Statement**.
+- Prominently display Bing branding, consistent with the [Bing Trademark Usage Guidelines](https://go.microsoft.com/fwlink/?linkid=833278), near each point in the UX that offers a user the ability to input a search query. Such branding must clearly denote to the user that Microsoft is powering the internet search experience.
+- You can attribute each response (or portion of a response) displayed from the Bing Web Search, Image Search, News Search, Video Search, and Visual Search APIs to Microsoft, unless Microsoft specifies otherwise in writing for your use. This is described in [Bing Trademark Usage Guidelines](https://go.microsoft.com/fwlink/?linkid=833278). 
 - Do not attribute responses (or portions of responses) displayed from the Bing Custom Search API to Microsoft, unless Microsoft specifies otherwise in writing for your particular use.
 
 ### Transferring responses
