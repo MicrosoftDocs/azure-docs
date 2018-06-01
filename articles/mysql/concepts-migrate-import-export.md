@@ -109,7 +109,6 @@ You can use the **Data Import** tab to import or restore exported data from the 
 2. Click **Start Import** to begin the import process.
 
 ## Next steps
-As another migration approach, read [Migrate your MySQL database using dump and restore in Azure Database for MySQL](concepts-migrate-dump-restore.md).
+- As another migration approach, read [Migrate your MySQL database using dump and restore in Azure Database for MySQL](concepts-migrate-dump-restore.md).
 
-
-For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](http://aka.ms/datamigration). 
+- For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](http://aka.ms/datamigration). 

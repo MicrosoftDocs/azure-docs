@@ -122,6 +122,6 @@ Importing your database is similar to exporting. Do the following actions:
 - Click the **Go** button to export the backup, execute the SQL commands, and re-create your database.
 
 ## Next steps
-[Connect applications to Azure Database for MySQL](./howto-connection-string.md)
+- [Connect applications to Azure Database for MySQL](./howto-connection-string.md).
 
-For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](http://aka.ms/datamigration).
+- For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](http://aka.ms/datamigration).
