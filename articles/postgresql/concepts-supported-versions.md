@@ -28,4 +28,4 @@ Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.5/stat
 Azure Database for PostgreSQL automatically manages patching for minor version updates. Currently, major version upgrade is not supported. For example, upgrading from PostgreSQL 9.5 to PostgreSQL 9.6 is not supported.
 
 ## Next steps
-For information about the support of different PostgreSQL extensions, see [PostgreSQL Extensions](concepts-extensions.md)
+For information about the support of different PostgreSQL extensions, see [PostgreSQL Extensions](concepts-extensions.md).
