@@ -1,18 +1,16 @@
----
-title: Twitter configuration for Azure AD B2C | Microsoft Docs
+﻿---
+title: Twitter configuration for Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to customers with Twitter accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 4/17/2018
 ms.author: davidmu
-
+ms.component: B2C
 ---
 
 # Provide sign-up and sign-in to consumers with Twitter accounts using Azure AD B2C

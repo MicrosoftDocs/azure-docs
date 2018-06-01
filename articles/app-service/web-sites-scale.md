@@ -52,7 +52,7 @@ For information about the pricing and features of individual App Service plans, 
 2. In your App Service app page, click **All settings**, and then click **Scale Up**.
    
     ![Navigate to scale up your Azure app.][ChooseWHP]
-3. Choose your tier, and then click **Select**.
+3. Choose your tier, and then click **Apply**.
    
     The **Notifications** tab will flash a green **SUCCESS** after the operation is complete.
 
