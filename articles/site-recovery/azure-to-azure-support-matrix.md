@@ -7,16 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 05/31/2018
 ms.author: sujayt
 
 ---
 # Support matrix for replicating from one Azure region to another
 
 
->[!NOTE]
->
-> Site Recovery replication for Azure virtual machines is currently in preview.
 
 This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region.
 
