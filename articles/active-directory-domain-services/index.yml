@@ -54,7 +54,7 @@ sections:
     style: unordered
     items: 
     - html: <a href="active-directory-ds-comparison.md">Decide if the service is right for you?</a>
-    - html: <a href="active-directory-ds-features.md">Feature</a>
+    - html: <a href="active-directory-ds-features.md">Features of Azure AD Domain Services</a>
     - html: <a href="active-directory-ds-scenarios.md">How can you use the service?</a>
     - html: <a href="active-directory-ds-synchronization.md">Understand how synchronization works in Azure AD Domain Services</a>
     - html: <a href="https://azure.microsoft.com/en-us/pricing/details/active-directory-ds/">Pricing of Azure AD Domain Services</a>
