@@ -26,20 +26,26 @@ You may be wondering why the portal used the name OMS instead of Log Analytics. 
 ## Where do I find Log Analytics in Azure?
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).  Click **All services**, and in the list of resources, type **Log Analytics**. Select **Log Analytics** and then select your workspace. The summary page for the workspace is displayed.
 
-![Log Analytics workspace]()
+![Log Analytics workspace](media/log-analytics-new-portal/log-analytics.png)
 
 ## Where is my overview page?
 The main screen in the OMS portal displays the tiles for all the management solutions installed in your workspace. In the Azure portal, this is referred to as the **Overview** page. From your workspace in the Azure portal, either select **Overview** in the menu or click the **Overview** button on the main page.
 
-![Overview page]()
+![Overview page](media/log-analytics-new-portal/overview.png)
 
 
 ## How do I create a new workspace? 
 From the list of workspaces in the Azure portal, click **Add** in the list of workspaces.  For complete details, see [Create a Log Analytics workspace in the Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 
 
+![Overview page](media/log-analytics-new-portal/new-workspace.png)
+
 ## Where do I find my settings?
-The following table lists how you can access settings that were previously available in the **Settings** section of the OMS portal.
+Many of the settings in the **Settings** section of the OMS portal are available in the **Advanced settings** menu in the Azure portal for the workspace.
+
+![Advanced settings](media/log-analytics-new-portal/advanced-settings.png)
+
+The following table is a complete list of how you can access settings that were previously available in the **Settings** section of the OMS portal.
 
 
 | Setting in the OMS portal | Equivalent in the Azure portal |
@@ -58,8 +64,6 @@ The following table lists how you can access settings that were previously avail
 | Upgrade Summary | No longer required. |
 
 
-![Advanced settings]()
-
 ## How do I install and remove management solutions?
 In the OMS portal, you install management solutions from the Solutions Gallery and removed them from **Settings**. In the Azure portal, [install management solutions](../monitoring/monitoring-solutions.md#install-a-management-solution) from the Azure Marketplace. [Remove solutions](../monitoring/monitoring-solutions.md#remove-a-management-solution) from the list of installed solutions.
 
@@ -73,9 +77,9 @@ You can now permissions to your Log Analytics workspace using [Azure role-based 
 ## How do I check my usage?
 You can now easily view and manage your usage and cost of Log Analytics by selecting **Usage and estimated costs** in your workspace.
 
-![Usage and estimated costs]()
+![Usage and estimated costs](media/log-analytics-new-portal/usage.png)
 
 
 ## Can I still use the classic portal?
 For a limited time, you can still access the portal through this url, with your own workspace name:
-https://<your workspace name>.portal.mms.microsoft.com
+https://\<your workspace name\>.portal.mms.microsoft.com
