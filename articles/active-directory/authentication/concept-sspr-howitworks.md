@@ -151,7 +151,8 @@ This control designates whether users who visit the password reset portal should
 * If set to **Yes**, then users are given the option to reset their password and unlock the account, or to unlock their account without having to reset the password.
 * If set to **No**, then users are only be able to perform a combined password reset and account unlock operation.
 
-## How does password reset work for B2B users?
+## Password reset for B2B users
+
 Password reset and change are fully supported on all business-to-business (B2B) configurations. B2B user password reset is supported in the following three cases:
 
    * **Users from a partner organization with an existing Azure AD tenant**: If the organization you're partnering with has an existing Azure AD tenant, we *respect whatever password reset policies are enabled on that tenant*. For password reset to work, the partner organization just needs to make sure that Azure AD SSPR is enabled. There is no additional charge for Office 365 customers, and it can be enabled by following the steps in our [Get started with password management](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guide.
