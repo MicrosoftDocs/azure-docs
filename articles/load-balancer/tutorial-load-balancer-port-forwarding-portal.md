@@ -43,12 +43,13 @@ Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
 ## Create a Standard Load Balancer
 
-In this section, you create a public load balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, and you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
+In this section, you create a public load balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Create a load balancer** page enter these values for the load balancer:
     - *myLoadBalancer* - for the name of the load balancer.
-    - **Public** - for the type of the load balancer.
+    - *Standard** - for the SKU version of the load balancer.
+    - - **Public** - for the type of the load balancer.
      - *myPublicIP* - for the **New** Public IP that you create.
     - *myResourceGroupSLB* -  for the name of the **New** resource group that you select to create.
     - **westeurope** - for the location.
@@ -121,13 +122,12 @@ In this section, you create a virtual network, create two virtual machines for t
 2. Click **OK**.
 3. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
 4. Enter these values for the VM settings:
-    - *myAvailabilitySet* - for the name of the new Availability set that you create.
     -  *myVNet* - ensure it is selected as the virtual network.
     - *myBackendSubnet* - ensure it is selected as the subnet.
     - *myNetworkSecurityGroup* - for the name of the new network security group (firewall) that you must create.
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
-7. Create another VM, named, *VM2* with *myAvailibilityset* as the availability set, *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group using steps 1-6. 
+7. Create another VM, named, *VM2* with *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group using steps 1-6. 
 
 ### Create NSG rules
 
@@ -186,11 +186,8 @@ To distribute traffic to the VMs, add virtual machines *VM1* and *VM2* to the pr
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then within the backend pool's list, click **myBackendPool**.
 3. On the **myBackendPool** page, do the following:
-    - For **Associated to**, from the drop-down menu, click **Availability set**
-    - For **Availability set**, click, **myAvailabilitySet**.
     - Click **Add a target network IP configuration** to add each virtual machine (*myVM1* and *myVM2*) that you created to the backend pool.
     - Click **OK**.
-
 4. Check to make sure your load balancer backend pool setting displays all the VMs **VM1** and **VM2**.
 
 ## Create inbound NAT rules
