@@ -70,7 +70,6 @@ While you wait for the dev space to be created, look at the files that have been
 
 - A folder named `charts` has been added and within this folder a [Helm chart](https://docs.helm.sh) for your application has been scaffolded. These files are used to deploy your application into the dev space.
 - `Dockerfile` has information needed to package your application in the standard Docker format.
-- `HeaderPropagation.cs` will be discussed later in the tutorial series.
 - `azds.yaml` contains configuration information that is needed by the dev space, such as whether the application should be accessible via a public endpoint.
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
