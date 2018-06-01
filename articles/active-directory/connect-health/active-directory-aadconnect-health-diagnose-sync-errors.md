@@ -127,7 +127,7 @@ The sync error will be resolved after the next sync. Connect Health will no long
 
 
 ## FAQ
-**Q.** What happens if execution of the **Apply Fix** fails?
+**Q.** What happens if execution of the **Apply Fix** fails?  
 **A.** If execution fails, it's possible that Azure AD Connect is running an export error. Refresh the portal page and retry after the next sync. The default sync cycle is 30 minutes. 
 
 
