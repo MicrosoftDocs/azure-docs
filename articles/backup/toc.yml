@@ -161,7 +161,7 @@
       href: backup-client-automation.md
   - name: SQL on Azure VMs
     items:
-    - name: Back up and restore SQL database
+    - name: Back up SQL database in Azure
       href: backup-azure-sql-database.md
   - name: Windows Server
     items:

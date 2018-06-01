@@ -21,7 +21,7 @@ ms.custom:
 ---
 # Back up SQL database in Azure
 
-SQL databases running on Azure virtual machines have a large amount of data. However not all data needs the same type of protection. With Azure Backup, store your [automatic database backups](../sql-database/sql-database-automated-backups.md) and [long-term retention backups](../sql-database/sql-database-long-term-retention.md) in a Recovery Services vault. A key benefit of using Azure Backup is cost savings, centralized management for your databases, and more.
+SQL databases are critical workloads requiring low Recovery Point Objective (RPO) and long-term retention. Azure Backup provides an enterprise-class SQL backup solution that requires zero infrastructure, which means no complex backup server, no management agent, or backup storage to manage. Azure Backup provides centralized management for your backups across all SQL servers, or even different workloads. 
 
  In this article you learn:
 
@@ -44,22 +44,11 @@ The following items are the known limitations for the Public Preview.
 - SQL Failover Cluster Instances (FCI) are not supported.
 - Use the Azure portal to configure Azure Backup to protect SQL Server databases. Support for Azure PowerShell, CLI, and REST APIs will be added in the future.
 
-## Prerequisites for using Azure Backup to protect SQL Server 
-
-Before you can back up your SQL Server database, check the following conditions. :
-
-- Identify or [create a Recovery Services vault](backup-azure-sql-database.md#create-a-recovery-services-vault) in the same region, or locale, as the virtual machine hosting SQL Server.
-- [Check the permissions on the virtual machine](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) needed to back up SQL databases.
-- SQL virtual machine has 'AzureBackupWindowsWorkload' extension installed.
-- [SQL virtual machine has network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
-
-If these conditions exist in your environment, proceed to the section, [Configure your vault to protect a SQL database](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database). If any of the prerequisites do not exist, continue reading this section.
-
-### Supported operating systems and versions of SQL server
+## Supported operating systems and versions of SQL server
 
 The following supported operating systems and versions of SQL Server apply to both the SQL marketplace Azure virtual machines, as well as the virtual machines where SQL Server is manually installed.
 
-**Supported operating systems**
+### Supported operating systems
 
 - Windows Server 2012
 - Windows Server 2012 R2
@@ -67,16 +56,24 @@ The following supported operating systems and versions of SQL Server apply to bo
 
 Linux is currently not supported.
 
-**Supported versions/editions of SQL Server**
+### Supported versions/editions of SQL Server
 
 - SQL 2012 Enterprise, Standard, Web, Developer, Express
 - SQL 2014 Enterprise, Standard, Web, Developer, Express
 - SQL 2016 Enterprise, Standard, Web, Developer, Express
 - SQL 2017 Enterprise, Standard, Web, Developer, Express
 
-Use a Recovery Services vault to protect your SQL database. You can create a new Recovery Services vault, or you can use an existing vault. If you already have a vault, proceed to the next section.
 
-[!INCLUDE [Section explaining how to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+## Prerequisites for using Azure Backup to protect SQL Server 
+
+Before you can back up your SQL Server database, check the following conditions. :
+
+- Identify or [create a Recovery Services vault](backup-azure-sql-database.md#create-a-recovery-services-vault) in the same region, or locale, as the virtual machine hosting SQL Server.
+- [Check the permissions on the virtual machine](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) needed to back up SQL databases.
+- [SQL virtual machine has network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
+
+If these conditions exist in your environment, proceed to the section, [Configure your vault to protect a SQL database](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database). If any of the prerequisites do not exist, continue reading this section.
+
 
 ## Establish network connectivity
 
@@ -98,11 +95,7 @@ The tradeoffs between the choices are: manageability, granular control, and cost
 
 ## Set permissions for non-marketplace SQL VMs
 
-To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension be installed. All Azure marketplace virtual machines have the **AzureBackupWindowsWorkload** extension installed. If you are using Azure marketplace virtual machines, skip ahead to [Discover SQL server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine hosting your SQL databases was not created from the Azure marketplace, complete the following section to install the extension and set appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. While discovering databases on the virtual machine, Azure Backup creates an account, NT Service\AzureWLBackupPluginSvc. For Azure Backup to discover SQL databases, the NT Service\AzureWLBackupPluginSvc account must have SQL log in and SQL sysadmin permissions. The following procedure explains how to provide these permissions.
-
-> [!NOTE]
-> **Need more information about this note.** Full and differential backups happen from the primary node, as SQL platform has that limitation. Log backup can happen based on your backup preference. Due to this limitation, the primary node must be registered.
->
+To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension be installed. If you are using Azure marketplace virtual machines, skip ahead to [Discover SQL server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine hosting your SQL databases was not created from the Azure marketplace, complete the following section to install the extension and set appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. While discovering databases on the virtual machine, Azure Backup creates an account, NT Service\AzureWLBackupPluginSvc. For Azure Backup to discover SQL databases, the NT Service\AzureWLBackupPluginSvc account must have SQL log in and SQL sysadmin permissions. The following procedure explains how to provide these permissions.
 
 To configure permissions:
 
@@ -170,6 +163,8 @@ During the installation process, if you see the error, **UserErrorSQLNoSysadminM
     ![successful deployment notification message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
 Once you associate the database with the Recovery Services vault, the next step is to [configure the backup](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database).
+
+[!INCLUDE [Section explaining how to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Discover SQL Server databases
 
@@ -246,7 +241,11 @@ Azure Backup provides management services to protect your SQL databases and mana
 
     ![Shows the new Backup goal steps](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    The Azure Backup service displays all SQL instances with standalone databases, as well as SQL AlwaysOn availability groups. To view the standalone databases in the SQL instance, click the chevron next to the instance name to view the databases. The following images show examples of a standalone instance and an Always On availability group. 
+    The Azure Backup service displays all SQL instances with standalone databases, as well as SQL AlwaysOn availability groups. To view the standalone databases in the SQL instance, click the chevron next to the instance name to view the databases. The following images show examples of a standalone instance and an Always On availability group.
+
+    > [!NOTE]
+    > Full and differential backups happen from the primary node, as SQL platform has that limitation. Log backup can happen based on your backup preference. Due to this limitation, the primary node must be registered.
+    >
 
     ![List of databases in SQL instance](./media/backup-azure-sql-database/discovered-databases.png)
 
