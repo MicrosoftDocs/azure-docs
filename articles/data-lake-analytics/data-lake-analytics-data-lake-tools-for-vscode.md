@@ -108,7 +108,7 @@ You can set the default context to apply this setting to all script files if you
 2. Enter **ADL: Set Default Context**. Or right-click the script editor and select **ADL: Set Default Context**.
 3. Choose the account, database, and schema that you want. The setting is saved to the xxx_settings.json configuration file.
 
-![Account, database, and schema set as the default context](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-sequence.png)
+   ![Account, database, and schema set as the default context](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-sequence.png)
 
 **To set script parameters**
 
