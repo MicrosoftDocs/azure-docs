@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -22,7 +23,7 @@ ms.reviewer: jairoc
 
 With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
 
-If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. The topic provides you with the related steps. 
+If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. This article provides you with the related steps. 
 
 
 ## Before you begin
@@ -33,7 +34,7 @@ If you are relying on the [System Preparation Tool (Sysprep)](https://docs.micro
 
 All domain-joined devices running Windows 10 Anniversary Update and Windows Server 2016 automatically register with Azure AD at device restart or user sign-in once the configuration steps mentioned below are complete. **If this automatic register behavior is not preferred or if a controlled rollout is desired**, please follow instructions in the "Step 4: Control Deployment and Rollout" section below first to selectively enable or disable automatic rollout before following the other configuration steps.  
 
-To improve the readability of the descriptions, this topic uses the following term: 
+To improve the readability of the descriptions, this article uses the following term: 
 
 - **Windows current devices** - This term refers to domain-joined devices running Windows 10 or Windows Server 2016.
 - **Windows down-level devices** - This term refers to all **supported** domain-joined Windows devices that are neither running Windows 10 nor Windows Server 2016.  

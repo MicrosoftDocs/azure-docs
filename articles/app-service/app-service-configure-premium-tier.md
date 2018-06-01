@@ -49,9 +49,9 @@ The pricing tier of an App Service app is defined in the [App Service plan](azur
 
 When configuring the App Service plan in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, select **Pricing tier**. 
 
-Choose one of the **PremiumV2** options and click **Select**.
+Select **Production**, then select **P1V2**, **P2V2**, or **P3V2**, then click **Apply**.
 
-![](media/app-service-configure-premium-tier/pick-premium-tier.png)
+![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > If you don't see **P1V2**, **P2V2**, and **P3V2** as options, either **PremiumV2** isn't available in your region of choice, or you're configuring a Linux App Service plan, which doesn't support **PremiumV2**.
@@ -68,7 +68,7 @@ In the left navigation of your App Service app page, select **Scale up (App Serv
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Select one of the **PremiumV2** sizes, then click **Select**.
+Select **Production**, then select **P1V2**, **P2V2**, or **P3V2**, then click **Apply**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
