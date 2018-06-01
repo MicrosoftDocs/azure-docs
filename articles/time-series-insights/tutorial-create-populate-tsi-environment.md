@@ -27,7 +27,7 @@ Your Azure sign-in account also needs to be a member of the subscription's "Owne
 
 ## Overview
 
-The TSI environment is where device data is collected and stored. Once stored in the TSI environment, you can use the [TSI Explorer](time-series-quickstart.md) and [TSI Query API](time-series-insights-reference-queryapi.md) to query and analyze the data.
+The TSI environment is where device data is collected and stored. Once stored in the TSI environment, you can use the [TSI Explorer](time-series-quickstart.md) and [TSI Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) to query and analyze the data.
 
 Like all devices, simulated or physical, IoT Hub is the connection point used by devices to securely connect and transmit data to the cloud. As discussed in the [TSI Overview](time-series-insights-overview.md), IoT Hub also provides an event source, for streaming data into the TSI environment. 
 
@@ -73,10 +73,23 @@ Next, create the device simulation solution, which will generate test data to po
 
    ![Run the Device Simulation accelerator](media/tutorial-create-populate-tsi-environment/sa-main.png)
 
-2. x
+2. Enter the required parameters on the **Create Device Simulation solution** page. When finished, click **Create Solution** to provision the solution's Azure resources.
+
+   ![Provision the device simulation solution](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)
+
+3. Provisioning will take a few minutes to complete. Once finished, the text above your new solution will change from "Provisioning..." to "Ready":
+
+   >[!IMPORTANT]
+   > Don't click the **Launch** button yet! Keep this web page/tab open as we will return to it later.
+
+   ![Device simulation solution provisioning complete](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-provisioned.png)
+
+4. Now go back to the Azure portal and inspect the newly created resources. You'll notice a new resource group has been created under the **Solution name** you provided in the last step. The resource group contains all of the resources specified on the previous **Create Device Simulation solution** page:
+
+   ![Device simulation solution resources](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)
 
 
-Note: this creates a several resources in your subscription, including an IoT Hub instance, XX web app, etc.. The web app requires sign-in, and consent upon first use:
+
 
 
 ## Connect the TSI environment to the IoT hub event source
@@ -85,7 +98,7 @@ Note: this creates a several resources in your subscription, including an IoT Hu
 
 ## Stream the sample data to IoT hub and into the TSI environment
 
-
+Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard)
 
 ## Clean up resources
 
