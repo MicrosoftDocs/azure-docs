@@ -92,7 +92,7 @@ Now that you’ve added support for the Bing News Search API to your project, he
    ```
 
 
-1. Add a new class file under the **Models** folder, called *BingNewsModel.cs*. If you named your project differently, use your own project's namespace, instead of **MyWebApplication**. Replace the contents with the following code:
+1. Add a new class file under the **Models** folder, called *BingNewsModel.cs*. If you named your project differently, use your own project's namespace, instead of MyWebApplication. Replace the contents with the following code:
  
     ```csharp
     using Microsoft.Azure.CognitiveServices.Search.NewsSearch.Models;
