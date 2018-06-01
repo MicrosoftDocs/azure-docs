@@ -15,7 +15,7 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Add conditional statements for running workflow actions in Azure Logic Apps
+# Create conditional statements that control workflow actions in Azure Logic Apps
 
 To run specific actions in your logic app only after passing a specified condition, 
 add a *conditional statement*. This structure compares the data in your 
