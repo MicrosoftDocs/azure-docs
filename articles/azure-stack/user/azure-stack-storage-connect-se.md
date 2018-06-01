@@ -72,7 +72,7 @@ Use the following steps to connect storage explorer to an Azure Stack subscripti
 
     ![Add an Azure Stack account](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. In the Connect to Azure Storage dialog box, under **Azure environment**, select **Azure** or **Azure China**, depending on the Azure Stack account that you're using. Select  **Sign in** to sign in to the Azure Stack account that's associated with at least one active Azure Stack subscription.
+3. In the Connect to Azure Storage dialog box, under **Azure environment**, select **Azure** or **Azure China**, which depends on the Azure Stack account that is being used, select **Sign in** to sign in with the Azure Stack account associated with at least one active Azure Stack subscription.
 
     ![Connect to Azure storage](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
