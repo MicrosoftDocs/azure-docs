@@ -187,7 +187,7 @@ You can view and copy the BitLocker keys to help users to recover their encrypte
  
 ![View BitLocker keys](./media/device-management-azure-portal/36.png)
 
-To view or copy the BitLocker keys, you need to have at least one of the following roles assigned:
+to view or copy the BitLocker keys, you need to be either the owner of the device, or a user that has at least one of the following roles assigned:
 
 - Global admins
 - Helpdesk Admins
