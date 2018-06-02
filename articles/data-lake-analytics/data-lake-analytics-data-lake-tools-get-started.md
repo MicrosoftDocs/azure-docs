@@ -43,21 +43,7 @@ information about Data Lake Analytics, see [Azure Data Lake Analytics overview](
 
 ## Install Azure Data Lake Tools for Visual Studio
 
-### Install Azure Data Lake Tools for Visual Studio 2017
-
-Azure Data Lake Tools for Visual Studio is supported in Visual Studio 2017 15.3 or above. The tool is part of the **Data storage and processing** and **Azure Development** workloads in Visual Studio Installer. Enable either one of these two workloads as part of your Visual Studio installation.  
-
-Enable the **Data storage and processing** workload as shown:
-    ![Enable Data storage and processing workload](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-01.png)
-
-Enable the **Azure development** workload as shown:
-    ![Enable Azure development workload](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-02.png)
-
-### Install Azure Data Lake Tools for Visual Studio 2013 and 2015
-
-Download and install Azure Data Lake Tools for Visual Studio [from the Download Center](http://aka.ms/adltoolsvs). After installation, note that:
-* The **Server Explorer** > **Azure** node contains a **Data Lake Analytics** node. 
-* The **Tools** menu has a **Data Lake** item.
+This tutorial requires that Data Lake Tools for Visual Studio is installed. Follow the [installation instructions](data-lake-analytics-data-lake-tools-install.md).
 
 ## Connect to an Azure Data Lake Analytics account
 
