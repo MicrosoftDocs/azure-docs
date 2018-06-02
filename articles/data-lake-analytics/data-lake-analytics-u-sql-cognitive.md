@@ -30,9 +30,6 @@ The overall process is simple:
 * Use the `REFERENCE ASSEMBLY` statement to enable the cognitive features for the U-SQL Script
 * Use the `PROCESS` on an input Rowset using a Cognitive UDO, to generate an output RowSet
 
-### Detecting objects in images
-
-The following example shows how to use the cognitive capabilities to detect objects in images.
 
 
 
