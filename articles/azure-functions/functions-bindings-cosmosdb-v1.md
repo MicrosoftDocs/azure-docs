@@ -808,7 +808,7 @@ See also the [input example](#input---c-examples) that uses `DocumentClient`.
 
 This section contains the following examples:
 
-* Queue trigger, write doc
+* Queue trigger, write one doc
 * Queue trigger, write docs using IAsyncCollector
 
 The examples refer to a simple `ToDoItem` type:
@@ -826,7 +826,7 @@ namespace CosmosDBSamplesV1
 
 [Skip output examples](#output---attributes)
 
-#### Queue trigger, write doc from POCO in queue message (C#)
+#### Queue trigger, write one doc (C#)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
 
@@ -837,42 +837,9 @@ using System;
 
 namespace CosmosDBSamplesV1
 {
-    public static class WriteDocFromPOCO
+    public static class WriteOneDoc
     {
-        [FunctionName("WriteDocFromPOCO")]
-        public static void Run(
-            [QueueTrigger("todoqueueforwrite")] string queueMessage,
-            [DocumentDB(
-                databaseName: "ToDoItems",
-                collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection")]out dynamic document,
-            TraceWriter log)
-        {
-            document = new { Description = queueMessage, id = Guid.NewGuid() };
-
-            log.Info($"C# Queue trigger function inserted one row");
-            log.Info($"Description={queueMessage}");
-        }
-    }
-}
-```
-
-[Skip output examples](#output---attributes)
-
-#### Queue trigger, write doc from POCO in queue message (C#)
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using System;
-
-namespace CosmosDBSamplesV1
-{
-    public static class WriteDocFromPOCO
-    {
-        [FunctionName("WriteDocFromPOCO")]
+        [FunctionName("WriteOneDoc")]
         public static void Run(
             [QueueTrigger("todoqueueforwrite")] string queueMessage,
             [DocumentDB(
