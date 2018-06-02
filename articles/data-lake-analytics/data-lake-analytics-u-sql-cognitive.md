@@ -40,11 +40,6 @@ REFERENCE ASSEMBLY FaceSdk;
 REFERENCE ASSEMBLY ImageEmotion;
 REFERENCE ASSEMBLY ImageTagging;
 REFERENCE ASSEMBLY ImageOcr;
-
-// Get the image data
-
-
-
 ```
 
 
