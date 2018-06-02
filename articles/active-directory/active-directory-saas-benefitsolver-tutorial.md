@@ -27,7 +27,7 @@ Integrating Benefitsolver with Azure AD provides you with the following benefits
 - You can enable your users to automatically get signed-on to Benefitsolver (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -140,7 +140,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**.
 
-6. On the **SAML Signing Certificate** section, click **Metadta XML** and then save the metadata file on your computer.
+6. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
 
@@ -148,7 +148,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
 
-8. To configure single sign-on on **Benefitsolver** side, you need to send the downloaded **Metadta XML** to [Benefitsolver support team](https://www.businessolver.com/contact).
+8. To configure single sign-on on **Benefitsolver** side, you need to send the downloaded **Metadata XML** to [Benefitsolver support team](https://www.businessolver.com/contact).
 
 	> [!NOTE]
 	> Your Benefitsolver support team has to do the actual SSO configuration. You will get a notification when SSO has been enabled for your subscription.
@@ -236,7 +236,7 @@ For more information about the Access Panel, see [Introduction to the Access 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

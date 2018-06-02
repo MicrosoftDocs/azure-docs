@@ -4,9 +4,8 @@ description: Learn how to use the Entity Linking Intelligence Service API for en
 services: cognitive-services
 author: DavidLiCIG
 manager: wkwok
-
 ms.service: cognitive-services
-ms.technology: entitylinking
+ms.component: entity-linking-intelligence
 ms.topic: article
 ms.date: 03/28/2016
 ms.author: davl

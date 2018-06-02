@@ -1,22 +1,18 @@
----
-title: 'SSO session management using custom policies - Azure AD B2C | Microsoft Docs'
+﻿---
+title: SSO session management using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Learn how to manage SSO sessions using custom policies in Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
 
-ms.assetid: 809f6000-2e52-43e4-995d-089d85747e1f
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: parja
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure AD B2C: Single sign-on (SSO) session management
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -47,6 +43,9 @@ As the name dictates, this provider does nothing. This provider can be used for 
 ### DefaultSSOSessionProvider
 
 This provider can be used for storing claims in a session. This provider is typically referenced in a technical profile used for managing local accounts. 
+
+> [!NOTE]
+> When using the DefaultSSOSessionProvider to store claims in a session, you need to ensure that any claims that need to be returned to the application or used by pre-conditions in subsequent steps, are stored in the session or augmented by a read from the users profile in directory. This will ensure that your authentication journey’s will not fail on missing claims.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">

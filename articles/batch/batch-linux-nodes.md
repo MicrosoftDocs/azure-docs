@@ -3,18 +3,18 @@ title: Run Linux on virtual machine compute nodes - Azure Batch | Microsoft Docs
 description: Learn how to process your parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 services: batch
 documentationcenter: python
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: 
 ms.workload: na
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -213,7 +213,7 @@ The following table lists the Marketplace virtual machine images that are compat
 | **Publisher** | **Offer** | **Image SKU** | **Version** | **Node agent SKU ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
 | Canonical | UbuntuServer | 14.04.5-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 16.04.0-LTS | latest | batch.node.ubuntu 16.04 |
+| Canonical | UbuntuServer | 16.04-LTS | latest | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | latest | batch.node.debian 8 |
 | OpenLogic | CentOS | 7.0 | latest | batch.node.centos 7 |
 | OpenLogic | CentOS | 7.1 | latest | batch.node.centos 7 |

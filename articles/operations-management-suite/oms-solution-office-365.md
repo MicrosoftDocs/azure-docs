@@ -1,6 +1,6 @@
 ---
-title: Office 365 solution in Operations Management Suite (OMS) | Microsoft Docs
-description: This article provides details on configuration and use of the Office 365 solution in OMS.  It includes detailed description of the Office 365 records created in Log Analytics.
+title: Office 365 management solution in Azure | Microsoft Docs
+description: This article provides details on configuration and use of the Office 365 solution in Azure.  It includes detailed description of the Office 365 records created in Log Analytics.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -12,21 +12,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 05/03/2018
 ms.author: bwren
 
 ---
-# Office 365 solution in Operations Management Suite (OMS)
+# Office 365 management solution in Azure (Preview)
 
 ![Office 365 logo](media/oms-solution-office-365/icon.png)
 
-The Office 365 solution for Operations Management Suite (OMS) allows you to monitor your Office 365 environment in Log Analytics.  
+The Office 365 management solution allows you to monitor your Office 365 environment in Log Analytics.
 
 - Monitor user activities on your Office 365 accounts to analyze usage patterns as well as identify behavioral trends. For example, you can extract specific usage scenarios, such as files that are shared outside your organization or the most popular SharePoint sites.
 - Monitor administrator activities to track configuration changes or high privilege operations.
 - Detect and investigate unwanted user behavior, which can be customized for your organizational needs.
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
-- Perform operational troubleshooting by using OMS Search on top of Office 365 activity data of your organization.
+- Perform operational troubleshooting by using [log searches](../log-analytics/log-analytics-log-search.md) on top of Office 365 activity data of your organization.
 
 ## Prerequisites
 The following is required prior to this solution being installed and configured.
@@ -44,7 +44,7 @@ This solution does not install any management packs in connected management grou
 ## Configuration
 Once you [add the Office 365 solution to your subscription](../log-analytics/log-analytics-add-solutions.md), you have to connect it to your Office 365 subscription.
 
-1. Add the Alert Management solution to your OMS workspace using the process described in [Add solutions](../log-analytics/log-analytics-add-solutions.md).
+1. Add the Alert Management solution to your Log Analytics workspace using the process described in [Add solutions](../log-analytics/log-analytics-add-solutions.md).
 2. Go to **Settings** in the OMS portal.
 3. Under **Connected Sources**, select **Office 365**.
 4. Click on **Connect Office 365**.<br>![Connnect Office 365](media/oms-solution-office-365/configure.png)
@@ -60,7 +60,7 @@ The Office 365 solution doesn't retrieve data from any of the [OMS agents](../lo
 Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Log Analytics each time a record is created.
 
 ## Using the solution
-When you add the Office 365 solution to your OMS workspace, the **Office 365** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
+When you add the Office 365 solution to your Log Analytics workspace, the **Office 365** tile will be added to your dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
 ![Office 365 Summary Tile](media/oms-solution-office-365/tile.png)  
 
 Click on the **Office 365** tile to open the **Office 365** dashboard.
@@ -291,9 +291,9 @@ If your Office 365 solution is not collecting data as expected, check its status
 
 | Status | Description |
 |:--|:--|
-| Active | The Office 365 subscription is active and the workload is successfully connected to your OMS workspace. |
-| Pending | The Office 365 subscription is active but the workload is not yet connected to your OMS workspace successfully. The first time you connect the Office 365 subscription, all the workloads will be at this status until they are successfully connected. Please allow 24 hours for all the workloads to switch to Active. |
-| Inactive | The Office 365 subscription is in an inactive state. Check your Office 365 Admin page for details. After you activate your Office 365 subscription, unlink it from your OMS workspace and link it again to start receiving data. |
+| Active | The Office 365 subscription is active and the workload is successfully connected to your Log Analytics workspace. |
+| Pending | The Office 365 subscription is active but the workload is not yet connected to your Log Analytics workspace successfully. The first time you connect the Office 365 subscription, all the workloads will be at this status until they are successfully connected. Please allow 24 hours for all the workloads to switch to Active. |
+| Inactive | The Office 365 subscription is in an inactive state. Check your Office 365 Admin page for details. After you activate your Office 365 subscription, unlink it from your Log Analytics workspace and link it again to start receiving data. |
 
 
 

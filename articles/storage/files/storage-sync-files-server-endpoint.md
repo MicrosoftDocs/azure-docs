@@ -29,7 +29,7 @@ To create a server endpoint, you must first ensure that the following criteria a
 - The server has the Azure File Sync agent installed and has been registered. Instructions for installing the Azure File Sync Agent can be found in the [Register/unregister a server with Azure File Sync (preview)](storage-sync-files-server-registration.md) article. 
 - Ensure that a Storage Sync Service has been deployed. See [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) for details on how to deploy a Storage Sync Service. 
 - Ensure that a sync group has been deployed. Learn how to [Create a sync group](storage-sync-files-deployment-guide.md#create-a-sync-group).
-- Ensure that the server is connected to the internet and that Azure is accessible.
+- Ensure that the server is connected to the internet and that Azure is accessible. We use port 443 for all communication between the server and our service.
 
 ## Add a server endpoint
 To add a server endpoint, navigate to the desired sync group, and select "Add server endpoint".
@@ -46,7 +46,7 @@ The following information is required under **Add server endpoint**:
 Select **Create** to add the server endpoint. The files within a namespace of a sync group will now be kept in sync. 
 
 ## Remove a server endpoint
-When enabled for a server endpoint, cloud tiering will *tier* files to your Azure File shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, if a server endpoint is removed with tiered files still locally on the server, those files will become unaccessible. Therefore, if continued file access is desired, you must recall all tiered files from Azure Files before continuing with deregistration. 
+When enabled for a server endpoint, cloud tiering will *tier* files to your Azure File shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, **if a server endpoint is removed with tiered files still locally on the server, those files will become inaccessible**. Therefore, if continued file access is desired on on-premises file shares, you must recall all tiered files from Azure Files before continuing with deleting the server endpoint. 
 
 This can be done with the PowerShell cmdlet as shown below:
 

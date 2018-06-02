@@ -4,7 +4,7 @@ description: This article walks through the platform-supported migration of reso
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

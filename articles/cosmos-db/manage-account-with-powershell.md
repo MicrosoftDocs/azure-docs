@@ -3,24 +3,20 @@ title: Azure Cosmos DB Automation - Management with Powershell | Microsoft Docs
 description: Use Azure Powershell manage your Azure Cosmos DB accounts. 
 services: cosmos-db
 author: dmakwana
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: azure-resource-manager
-documentationcenter: ''
 
-ms.assetid:
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: dimakwan
 
 ---
 # Create an Azure Cosmos DB account using PowerShell
 
-The following guide describes commands to automate management of your Azure Cosmos DB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB account, you can use either [Azure CLI](cli-samples.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](create-documentdb-dotnet.md#create-account).
+The following guide describes commands to automate management of your Azure Cosmos DB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB account, you can use either [Azure CLI](cli-samples.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](create-sql-api-dotnet.md#create-account).
 
 ## Getting Started
 
@@ -191,8 +187,7 @@ Example:
 
 ## Next steps
 
-* To connect using .NET, see [Connect and query with .NET](create-documentdb-dotnet.md).
-* To connect using .NET Core, see [Connect and query with .NET Core](create-documentdb-dotnet-core.md).
+* To connect using .NET, see [Connect and query with .NET](create-sql-api-dotnet.md).
 * To connect using Node.js, see [Connect and query with Node.js and a MongoDB app](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
@@ -201,4 +196,4 @@ Example:
 [distribute-data-globally]: distribute-data-globally.md
 [azure-resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-resource-tags]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-[rp-rest-api]: https://docs.microsoft.com/rest/api/documentdbresourceprovider/
+[rp-rest-api]: https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/

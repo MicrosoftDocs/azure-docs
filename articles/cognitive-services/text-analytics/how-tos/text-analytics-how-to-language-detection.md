@@ -3,12 +3,11 @@ title: How-to language detection in Text Analytics REST API (Microsoft Cognitive
 description: How to detect language using the Text Analytics REST API in Microsoft Cognitive Services on Azure in this walkthrough tutorial.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
-
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
-ms.date: 08/26/2017
+ms.date: 3/07/2018
 ms.author: heidist
 ---
 
@@ -73,7 +72,7 @@ Analysis is performed upon receipt of the request. The service accepts up to 100
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
 
-## Step 3: Handle results
+## Step 3: View results
 
 All POST requests return a JSON formatted response with the IDs and detected properties.
 

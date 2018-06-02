@@ -1,0 +1,9 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Key Vault
+    tocHref: /azure/
+    topicHref: /azure/key-vault/index
+
+    

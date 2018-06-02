@@ -3,12 +3,11 @@ title: Access key for Text Analytics API (Microsoft Cognitive Services on Azure)
 description: Get an access key for Text Analytics operations to submit raw text for processing in Cognitive Services.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
-
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: get-started-article
-ms.date: 08/24/2017
+ms.date: 3/07/2018
 ms.author: heidist
 ---
 
@@ -22,7 +21,7 @@ If you need help finding the key, or to determine whether your subscription alre
 
 1. Sign in to [Azure portal](https://portal.azure.com).
 
-2. In the left navigation pane, scroll down and click **More services >**.
+2. In the left navigation pane, select **All services**.
 
 3. In Filter, type *Cognitive Services*. If your subscription has Text Analytics, it appears in the list, with an API Type of **Text Analytics API**.
 

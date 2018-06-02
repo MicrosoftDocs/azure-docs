@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 05/22/2018
 ms.author: wgries
 ---
 
@@ -32,7 +32,7 @@ This article assumes that you have already completed the following steps:
 You may wish to migrate existing file shares, such as those stored on-premises, to your new Azure File share. This section will show you how to move data into an Azure File share via several popular methods detailed from the [planning guide](storage-files-planning.md#data-transfer-method)
 
 ### Azure File Sync (Preview)
-Azure File Sync (Preview) allows you centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
+Azure File Sync (Preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
 Azure File Sync may be used to migrate data into an Azure File share, even if the sync mechanism isn't desired for long-term use. More information on how to use Azure File Sync to transfer data into Azure File share can be found in [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 
@@ -88,7 +88,7 @@ The following steps will import data from an on-premises location to your Azure 
     > [!Warning]  
     > Do not modify the data on the hard disk drives or the journal file after completing disk preparation.
 
-7. [Create an import job](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-an-export-job).
+7. [Create an import job](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
 ### Robocopy
 Robocopy is a well known copy tool that ships with Windows and Windows Server. Robocopy may be used to transfer data into Azure Files by mounting the file share locally, and then using the mounted location as the destination in the Robocopy command. Using Robocopy is quite simple:
@@ -142,9 +142,9 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### Linux
 A simple bash script combined with SSH can yield the same result in the following example. The `$computer` variable is similarly left to be populated by the user:
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done

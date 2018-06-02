@@ -7,6 +7,7 @@ author: ajamess
 manager: mtillman
 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,7 +18,7 @@ ms.author: asteen
 ---
 
 # Troubleshoot Azure Active Directory Application Development
-The following links will bring you to a content map which will help you to resolve some of the most common issues with application developement with the **Application Registry** in Azure Active Directory.
+The following links will bring you to a content map which will help you to resolve some of the most common issues with application development with the **Application Registry** in Azure Active Directory.
 
 * [Problems with Application Configuration and Registration](active-directory-application-dev-config-content-map.md)
 * [Problems with Application Development](active-directory-application-dev-development-content-map.md)

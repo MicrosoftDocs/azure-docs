@@ -3,8 +3,11 @@
 > * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
 Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it.
+
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
 Use device twins to:
 
@@ -13,8 +16,7 @@ Use device twins to:
 * Synchronize the state of long-running workflows (such as firmware and configuration updates) between a device app and a back-end app.
 * Query your device metadata, configuration, or state.
 
-> [!NOTE]
-> Device twins are designed for synchronization and for querying device configurations and conditions. More informations on when to use device twins can be found in [Understand device twins][lnk-twins].
+Device twins are designed for synchronization and for querying device configurations and conditions. More information on when to use device twins can be found in [Understand device twins][lnk-twins].
 
 Device twins are stored in an IoT hub and contain:
 

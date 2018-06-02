@@ -1,6 +1,6 @@
 ---
 title: Archive Azure monitoring data | Microsoft Docs
-description: Archive log and metric data produced within Azure to a storage account. 
+description: Archive log and metric data produced within Azure to a storage account.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -19,11 +19,11 @@ Several layers of your Azure environment produce log and metric data that can be
 
 > [!div class="checklist"]
 > * Create a storage account to hold monitoring data
-> * Route subscription logs to it 
-> * Route resource data to it 
-> * Route virtual machine (guest OS) data to it 
-> * View the monitoring data in it 
-> * Clean up your resources 
+> * Route subscription logs to it
+> * Route resource data to it
+> * Route virtual machine (guest OS) data to it
+> * View the monitoring data in it
+> * Clean up your resources
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -63,10 +63,10 @@ Monitoring data from your subscription is now flowing into the storage account.
 
 Now we configure resource-level data (resource metrics and diagnostic logs) to be routed to the storage account by setting up **resource diagnostic settings**.
 
-1. Click the **Monitor** button found on the left-hand navigation list, then on **Diagnostic Settings**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. If you do not have any resources in this list, you can [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) before proceeding so that you have a resource that you can configure a diagnostic setting on.
+1. Click the **Monitor** button found on the left-hand navigation list, then on **Diagnostic Settings**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. If you do not have any resources in this list, you can [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) before proceeding so that you have a resource that you can configure a diagnostic setting on.
 
 2. Click on a resource in the list, and then click **Turn on diagnostics**.
-   
+
    ![Turn on diagnostics](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
    If there is already a setting configured, you instead see the existing settings, and a button to **Add diagnostic setting**. Click this button.
@@ -84,12 +84,19 @@ Now we configure resource-level data (resource metrics and diagnostic logs) to b
 5. Check all the boxes under **Log** and **Metric**. Depending on the resource type, you may only have one of these options. These checkboxes control what categories of log and metric data available for that resource type are sent to the destination you've selected, in this case, a storage account.
 
    ![Diagnostic settings categories](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-categories.png)
-   
+
 6. Set the **Retention (days)** slider to 30. This slider sets a number of days to retain the monitoring data in the storage account. Azure Monitor automatically deletes data older than the number of days specified. A retention of zero days stores the data indefinitely.
 
 7. Click **Save**.
 
 Monitoring data from your resource is now flowing into the storage account.
+
+> [!NOTE]
+> Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+>
+> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
+>
+>
 
 ## Route virtual machine (guest OS) data to the storage account
 
@@ -110,7 +117,7 @@ Monitoring data from your resource is now flowing into the storage account.
 6. Once the diagnostic setting has correctly saved, the **Overview** tab shows a list of the data being collected and where it is being stored. Click on the **Performance counters** section to review the set of Windows performance counters being collected.
 
    ![Performance counters settings](media/monitor-tutorial-archive-monitoring-data/guest-perf-counters.png)
-   
+
 7. Click on the **Logs** tab and check the checkboxes for **Information** level logs on Application and System logs.
 
    ![Logs settings](media/monitor-tutorial-archive-monitoring-data/guest-logs.png)
@@ -163,16 +170,16 @@ You have now successfully set up monitoring data to be archived to a storage acc
 
 ## Next steps
 
-In this tutorial, you learned how to set up monitoring data from your Azure environment (subscription, resource, and guest OS) to be archived to a storage account. 
+In this tutorial, you learned how to set up monitoring data from your Azure environment (subscription, resource, and guest OS) to be archived to a storage account.
 
 
 > [!div class="checklist"]
 > * Create a storage account to hold monitoring data
-> * Route subscription logs to it 
-> * Route resource data to it 
-> * Route virtual machine (guest OS) data to it 
-> * View the monitoring data in it 
-> * Clean up your resources 
+> * Route subscription logs to it
+> * Route resource data to it
+> * Route virtual machine (guest OS) data to it
+> * View the monitoring data in it
+> * Clean up your resources
 
 To get more out of your data and derive additional insights, also  send your data into Log Analytics.
 

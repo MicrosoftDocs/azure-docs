@@ -4,7 +4,7 @@ description: Create a Linux cluster of size H16r, H16mr, A8, or A9 VMs to use th
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -148,7 +148,7 @@ To capture the image, first run the following command on the Linux VM. This comm
 sudo waagent -deprovision
 ```
 
-From your client computer, run the following Azure CLI commands to capture the image. For more information, see [How to capture a classic Linux virtual machine as an image](capture-image.md).  
+From your client computer, run the following Azure CLI commands to capture the image. For more information, see [How to capture a classic Linux virtual machine as an image](capture-image-classic.md).  
 
 ```
 azure vm shutdown <vm-name>
@@ -207,7 +207,7 @@ On a CentOS-based HPC cluster, there are two methods for establishing trust betw
 
 A sample script contributed from the community is available on [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) to enable easy user authentication on a CentOS-based HPC cluster. Download and use this script by using the following steps. You can also modify this script or use any other method to establish passwordless SSH authentication between the cluster compute nodes.
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+    wget https://raw.githubusercontent.com/tanewill/utils/master/user_authentication.sh
 
 To run the script, you need to know the prefix for your subnet IP addresses. Get the prefix by running the following command on one of the cluster nodes. Your output should look something like 10.1.3.5, and the prefix is the 10.1.3 portion.
 
@@ -301,7 +301,7 @@ cluster12
 The following Intel MPI command runs a pingpong benchmark to verify the cluster configuration and connection to the RDMA network.
 
 ```
-mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
+mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
 On a working cluster with two nodes, you should see output like the following. On the Azure RDMA network, expect latency at or below 3 microseconds for message sizes up to 512 bytes.

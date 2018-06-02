@@ -3,7 +3,7 @@ title: Build and optimize tables for fast parallel import of data into a SQL Ser
 description: Parallel Bulk Data Import Using SQL Partition Tables
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Parallel Bulk Data Import Using SQL Partition Tables

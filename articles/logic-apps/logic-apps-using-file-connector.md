@@ -34,7 +34,7 @@ For the steps, see [Connect to data sources on premises](http://aka.ms/logicapps
 You must install the gateway on an on-premises machine 
 before you can continue with these steps.
 
-* Basic knowledge about [how to create logic apps](../logic-apps/logic-apps-create-a-logic-app.md)
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## Add trigger and actions for connecting to your file system
 

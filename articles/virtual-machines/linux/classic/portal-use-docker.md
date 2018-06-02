@@ -4,7 +4,7 @@ description: Describes Docker and the Azure Virtual Machines extensions, and how
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -151,7 +151,7 @@ You are ready to go to the [Docker User Guide] and use your Docker VM. If you wa
 
 <!--Link references-->
 [How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Azure Linux Agent]:../agent-user-guide.md
+[Azure Linux Agent]:../../extensions/agent-linux.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
 
 [Running Docker with https]:http://docs.docker.com/articles/https/

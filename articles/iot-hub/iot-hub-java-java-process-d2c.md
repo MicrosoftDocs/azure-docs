@@ -1,22 +1,16 @@
 ---
 title: Routing messages with Azure IoT Hub (Java) | Microsoft Docs
 description: How to process Azure IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: bd9af5f9-a740-4780-a2a6-8c0e2752cf48
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: dobett
-
 ---
+
 # Routing messages with IoT Hub (Java)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
@@ -102,7 +96,7 @@ In this section, you modify the device app you created in the [Get started with 
     }
     ```
    
-    This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+    This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application supports routing messages based on message body.
    
    > [!NOTE]
    > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot path example shown here.
@@ -123,6 +117,9 @@ In this section, you modify the device app you created in the [Get started with 
 In this section, you create a Service Bus queue, connect it to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message. For more information about how to process messages from Service Bus queues, see [Get started with queues][lnk-sb-queues-java].
 
 1. Create a Service Bus queue as described in [Get started with queues][lnk-sb-queues-java]. Make a note of the namespace and queue name.
+
+    > [!NOTE]
+    > Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
 
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
 
@@ -202,7 +199,7 @@ In this tutorial, you learned how to reliably dispatch device-to-cloud messages 
 
 The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your solution back end.
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite][lnk-suite].
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator][lnk-suite].
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 

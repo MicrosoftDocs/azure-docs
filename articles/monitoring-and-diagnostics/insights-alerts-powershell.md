@@ -1,4 +1,4 @@
----
+﻿---
 title: Create alerts for Azure services - PowerShell | Microsoft Docs
 description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the conditions you specify are met.
 author: rboucher
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 03/28/2018
 ms.author: robb
 
 ---
-# Create metric alerts in Azure Monitor for Azure services - PowerShell
+# Create classic metric alerts in Azure Monitor for Azure services - PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -26,14 +26,20 @@ ms.author: robb
 >
 
 ## Overview
-This article shows you how to set up Azure metric alerts using PowerShell.  
+
+> [!NOTE]
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer, better metric alerts](monitoring-near-real-time-metric-alerts.md). These alerts can monitor multiple metrics and allow for alerting on dimensional metrics. Powershell support for newer metric alerts is coming soon.
+>
+>
+
+This article shows you how to set up Azure classic metric alerts using PowerShell.  
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
 * **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
-* **Activity log events** - An alert can trigger on *every* event, or, only when a certain events occurs. To learn more about activity log alerts [click here](monitoring-activity-log-alerts.md)
+* **Activity log events** - An alert can trigger on *every* event, or, only when a certain event occurs. To learn more about activity log alerts [click here](monitoring-activity-log-alerts.md)
 
-You can configure a metric alert to do the following when it triggers:
+You can configure a classic metric alert to do the following when it triggers:
 
 * send email notifications to the service administrator and co-administrators
 * send email to additional emails that you specify.
@@ -53,7 +59,7 @@ For additional information, you can always type ```Get-Help``` and then the Powe
 1. Log in to Azure.   
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     ```
 2. Get a list of the subscriptions you have available. Verify that you are working with the right subscription. If not, set it to the right one using the output from `Get-AzureRmSubscription`.
@@ -126,8 +132,8 @@ For additional information, you can always type ```Get-Help``` and then the Powe
 
 ## Next steps
 * [Get an overview of Azure monitoring](monitoring-overview.md) including the types of information you can collect and monitor.
-* Learn more about [configuring webhooks in alerts](insights-webhooks-alerts.md).
-* Learn more about [configuring alerts on Activity log events](monitoring-activity-log-alerts.md).
+* Learn to [configure webhooks in alerts](insights-webhooks-alerts.md).
+* Learn to [configure alerts on Activity log events](monitoring-activity-log-alerts.md).
 * Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
 * Get an [overview of collecting diagnostic logs](monitoring-overview-of-diagnostic-logs.md) to collect detailed high-frequency metrics on your service.
 * Get an [overview of metrics collection](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

@@ -3,9 +3,10 @@ title: Retrain a Classic web service | Microsoft Docs
 description: Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: raymondlaghaeian
-editor: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
 
 ---
 # Retrain a Classic web service
@@ -113,7 +113,7 @@ The *apiKey* and the *endpointUrl* for the call can be obtained from endpoint da
 
 The value of the *Name* parameter in *Resources* should match the Resource Name of the saved Trained Model in the predictive experiment. To get the Resource Name:
 
-1. Sign in to the [classic Azure portal](https://manage.windowsazure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left menu, click **Machine Learning**.
 3. Under Name, click your workspace and then click **Web Services**.
 4. Under Name, click **Census Model [predictive exp.]**.

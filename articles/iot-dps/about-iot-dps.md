@@ -1,22 +1,16 @@
 ---
 title: Overview of Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: Describes device provisioning in Azure with the Device Provisioning Service and IoT Hub
-services: iot-dps
-keywords: 
 author: nberdy
 ms.author: nberdy
 ms.date: 12/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-
+services: iot-dps
+manager: briz
 ---
 
-# Provisioning devices with Azure IoT Hub Device Provisioning Service (preview)
+# Provisioning devices with Azure IoT Hub Device Provisioning Service
 Microsoft Azure provides a rich set of integrated public cloud services for all your IoT solution needs. The IoT Hub Device Provisioning Service is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, enabling customers to provision millions of devices in a secure and scalable manner.
 
 ## When to use Device Provisioning Service

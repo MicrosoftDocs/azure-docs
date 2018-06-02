@@ -1,22 +1,16 @@
 ---
 title: Upload files from devices to Azure IoT Hub with .NET | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for .NET. Uploaded files are stored in an Azure storage blob container.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
+manager: 
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: elioda
-
 ---
+
 # Upload files from your device to the cloud with IoT Hub using .NET
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
@@ -33,7 +27,7 @@ The [Get started with IoT Hub](iot-hub-csharp-csharp-getstarted.md) and [Send Cl
 * Vibration data sampled at high frequency
 * Some form of preprocessed data
 
-These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.md) stack. When you need to upload files from a device, you can still use the security and reliability of IoT Hub.
+These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, you can still use the security and reliability of IoT Hub.
 
 At the end of this tutorial you run two .NET console apps:
 
@@ -189,7 +183,7 @@ To further explore the capabilities of IoT Hub, see:
 
 [Azure portal]: https://portal.azure.com/
 
-[Azure IoT Developer Center]: http://www.azure.com/develop/iot
+[Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

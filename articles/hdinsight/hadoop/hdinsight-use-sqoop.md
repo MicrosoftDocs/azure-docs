@@ -1,4 +1,4 @@
----
+﻿---
 title: Run Apache Sqoop jobs with Azure HDInsight (Hadoop) | Microsoft Docs
 description: Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an Hadoop cluster and an Azure SQL database.
 editor: cgronlun
@@ -11,11 +11,9 @@ author: mumian
 ms.assetid: 2fdcc6b7-6ad5-4397-a30b-e7e389b66c7a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/25/2017
+ms.topic: conceptual
+ms.date: 05/16/2018
 ms.author: jgao
 
 ---
@@ -123,7 +121,7 @@ If you choose to use existing Azure SQL database or Microsoft SQL Server
   > 
   > 
   
-  * To create and configure a virtual network, see [Create a virtual network using the Azure portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+  * To create and configure a virtual network, see [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
     
     * When you are using SQL Server in your datacenter, you must configure the virtual network as *site-to-site* or *point-to-site*.
       
@@ -226,7 +224,7 @@ The PowerShell sample performs the following steps:
    > Other than connection string information, the steps in this section should work for an Azure SQL database or for SQL Server. These steps were tested by using the following configuration:
    > 
    > * **Azure virtual network point-to-site configuration**: A virtual network connected the HDInsight cluster to a SQL Server in a private datacenter. See [Configure a Point-to-Site VPN in the Management Portal](../../vpn-gateway/vpn-gateway-point-to-site-create.md) for more information.
-   > * **Azure HDInsight 3.1**: See [Create Hadoop clusters in HDInsight using custom options](../hdinsight-hadoop-provision-linux-clusters.md) for information about creating a cluster on a virtual network.
+   > * **Azure HDInsight**: See [Create Hadoop clusters in HDInsight using custom options](../hdinsight-hadoop-provision-linux-clusters.md) for information about creating a cluster on a virtual network.
    > * **SQL Server 2014**: Configured to allow authentication and running the VPN client configuration package to connect securely to the virtual network.
    > 
    > 
@@ -313,7 +311,7 @@ $ErrorActionPreference = "Stop"
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
-catch{Login-AzureRmAccount}
+catch{Connect-AzureRmAccount}
 #endregion
 
 #region - Create Azure resouce group

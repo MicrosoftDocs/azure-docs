@@ -4,17 +4,13 @@ description: Learn how to use unique keys in your Azure Cosmos DB database.
 services: cosmos-db
 keywords: unique key constraint, violation of unique key constraint
 author: rafats
-manager: jhubbard
+manager: kfile
 editor: monicar
-documentationcenter: ''
 
-ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/27/2017
+ms.topic: conceptual
+ms.date: 03/21/2018
 ms.author: rafats
 
 ---
@@ -24,7 +20,7 @@ ms.author: rafats
 Unique keys provide developers with the ability to add a layer of data integrity to their database. By creating a unique key policy when a container is created, you ensure the uniqueness of one or more values per [partition key](partition-data.md). Once a container has been created with a unique key policy, it prevents the creation of any new or updated items with values that duplicate values specified by the unique key constraint.   
 
 > [!NOTE]
-> Unique keys are supported by the latest versions of the [.NET](documentdb-sdk-dotnet.md) and [.NET Core](documentdb-sdk-dotnet-core.md) SQL SDKs, and the [MongoDB API](mongodb-feature-support.md#unique-indexes). The Table API and Graph API do not support unique keys at this time. 
+> Unique keys are supported by the latest versions of the [.NET](sql-api-sdk-dotnet.md) and [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDKs, and the [MongoDB API](mongodb-feature-support.md#unique-indexes). The Table API and Graph API do not support unique keys at this time. 
 > 
 >
 
@@ -56,7 +52,7 @@ Once a container is created with a unique key policy, the policy cannot be chang
 
 A maximum of 16 path values (for example /firstName, /lastName, /address/zipCode, etc.) can be included in each unique key. 
 
-Each unique key policy can have a maximum of 10 unique key constraints or combinations. So the earlier example that uses first name, last name, and email address is just one constraint, and it uses three of the 16 possible paths available. 
+Each unique key policy can have a maximum of 10 unique key constraints or combinations and the combined paths for all unique index properties should not exceed 60 characters. So the earlier example that uses first name, last name, and email address is just one constraint, and it uses three of the 16 possible paths available. 
 
 Request unit charges for creating, updating, and deleting an item are slightly higher when there is a unique key policy on the container. 
 
@@ -87,9 +83,8 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
                 UniqueKeys =
                 new Collection<UniqueKey>
                 {
-                    new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
-                    new UniqueKey { Paths = new Collection<string> { "/address/zipCode" } },
-
+                    new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" } },
+                    new UniqueKey { Paths = new Collection<string> { "/address/zipCode" } }
                 }
             };
             await client.CreateDocumentCollectionAsync(
@@ -109,6 +104,7 @@ Sample JSON document.
 ```json
 {
     "id": "1",
+    "pk": "1234",
     "firstName": "Gaby",
     "lastName": "Duperre",
     "email": "gaby@contoso.com",
@@ -130,6 +126,20 @@ The following command sample shows how to create a unique index on the firstName
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
+## Configure unique keys by using Azure portal
+
+In the sections above you'll find code samples that will show how you can define unique key constraints when a collection is created using the SQL API or MongoDB API. But it's also possible to define unique keys when you create a collection via the web UI in the Azure Portal. 
+
+- Navigate to the **Data Explorer** in your Cosmos DB account
+- Click **New Collection**
+- In the section **Unique keys** you can add the desired unique key constraints by clicking **Add unique key**
+
+![Define Unique Keys in the Data Explorer](./media/unique-keys/unique-keys-azure-portal.png)
+
+- If you'd like to create a unique key constraint on the lastName path, you add `/lastName`.
+- If you'd like to create a unique key constraint for the lastName firstName combination, you add `/lastName,/firstName`
+
+When done click **OK** to create the collection.
 
 ## Next steps
 

@@ -2,16 +2,12 @@
 title: Azure CosmosDB Graph API .NET SDK & Resources | Microsoft Docs
 description: Learn all about the Azure CosmosDB Graph API including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
-documentationcenter: .net
 author: luisbosquez
-manager: jhubbard
+manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 10/17/2017
 ms.author: lbosq
 
@@ -28,6 +24,8 @@ ms.author: lbosq
 
 
 ## Release notes
+
+We recommend using the open-source Gremlin driver for .NET, Gremlin.Net. Learn how to get started in [Azure Cosmos DB: Create a graph app using .NET and the Graph API](create-graph-dotnet.md).
 
 ### <a name="0.3.1-preview"/>0.3.1-preview
 
