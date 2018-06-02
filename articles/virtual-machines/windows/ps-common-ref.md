@@ -35,7 +35,7 @@ These variables might be useful for you if running more than one of the commands
 | Task | Command |
 | ---- | ------- |
 | Create a simple VM | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) -Name $myVM <BR></BR><BR></BR> New-AzureRMVM has a set of *simplified* parameters, where all that is required is a single name. The value for -Name will be used as the name for all of the resources required for creating a new VM. You can specify more, but this is all that is required.|
-| Create a VM from a custom image | New-AzureRmVm -ResourceGroupName $myResourceGroup -Name $myVM ImageName "myImage" -Location $location  <BR></BR><BR></BR>You need to have already created a your own [managed image](capture-image-resource.md). You can use an image to make multiple, identical VMs. |
+| Create a VM from a custom image | New-AzureRmVm -ResourceGroupName $myResourceGroup -Name $myVM ImageName "myImage" -Location $location  <BR></BR><BR></BR>You need to have already created your own [managed image](capture-image-resource.md). You can use an image to make multiple, identical VMs. |
 
 
 
