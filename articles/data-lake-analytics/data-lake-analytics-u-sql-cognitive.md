@@ -43,14 +43,7 @@ REFERENCE ASSEMBLY ImageOcr;
 
 // Get the image data
 
-@imgs =
-    EXTRACT 
-        FileName string, 
-        ImgData byte[]
-    FROM @"/usqlext/samples/cognition/{FileName}.jpg"
-    USING new Cognition.Vision.ImageExtractor();
 
-//  Extract the number of objects on each image and tag them 
 
 ```
 
