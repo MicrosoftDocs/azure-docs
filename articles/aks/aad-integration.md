@@ -16,23 +16,63 @@ ms.custom: mvc
 
 ## Create server application
 
-Create an Azure AD application for the AKS server. Take note of the password and the returned application ID. These values are used when deploying the cluster.
+Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-```azurecli
-$ az ad app create --display-name aks-server-application --identifier-uris https://example007.com --password P@ssword12 --query appId -o tsv
+Give the application a name, select **WEb app / API** for the application type, and enter any URI formatted value for **Redirect URI**.
 
-cf7897ef-0000-0000-0000-952ca28b7cd7
-```
+![Create AAD registration](media/aad-integration/app-registration.png)
+
+Select **Manifest** and edit the `groupMembershipClaims` value to `All`. Select **Save** when complete.
+
+![Create AAD registration](media/aad-integration/edit-manifest.png)
+
+Back on the AAD application, select **Settings** > **Required permissions** > **Add** > **Select an API** > **Microsoft Graph** > **Select**.
+
+Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
+
+![Create AAD registration](media/aad-integration/read-directory.png)
+
+Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**.
+
+Click **Select** when complete.
+
+![Create AAD registration](media/aad-integration/delegated-permissions.png)
+
+Select **Done** and **Grant Permissions** to complete this step.
+
+![Create AAD registration](media/aad-integration/grant-permissions.png)
+
+Finally, you need to take note of the application ID and application secret. Back on the AD application, take note of the **Application ID**.
+
+![Create AAD registration](media/aad-integration/application-id.png)
+
+Next, select **Settings** > **Keys**. Add a key description, select an expiration deadline, and select **Save**. Take note of the key value.
+
+![Create AAD registration](media/aad-integration/application-key.png)
 
 ## Create client application
 
-Create an Azure AD application for the Kubernetes client. Take note of the returned application ID. This value is used when deploying the cluster.
+Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-```azurecli
-$ az ad app create --display-name aks-client-application --native-app --query appId -o tsv
+Give the application a name, select **Native** for the application type, and enter any URI formatted value for **Redirect URI**.
 
-2e364fb9-0000-0000-0000-b407b05de88b
-```
+![Create AAD registration](media/aad-integration/app-registration-client.png)
+
+Back on the AAD application, select **Settings** > **Required permissions** > **Add** > **Select an API** and search for the name of the server application created in the last step of this document.
+
+![Create AAD registration](media/aad-integration/select-api.png)
+
+Place a check mark next to the application and click **Select**.
+
+![Create AAD registration](media/aad-integration/select-server-app.png)
+
+Select **Done** and **Grant Permissions** to complete this step.
+
+![Create AAD registration](media/aad-integration/grant-permissions-client.png)
+
+Finally, you need to take note of the application ID]. Back on the AD application, take note of the **Application ID**.
+
+![Create AAD registration](media/aad-integration/application-id-client.png)
 
 ## Get tenant ID
 
