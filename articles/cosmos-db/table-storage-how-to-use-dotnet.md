@@ -5,10 +5,9 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
 

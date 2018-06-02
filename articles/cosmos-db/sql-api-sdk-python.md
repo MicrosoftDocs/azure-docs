@@ -6,10 +6,9 @@ author: rnagpal
 manager: kfile
 editor: cgronlun
 
-ms.assetid: 3ac344a9-b2fa-4a3f-a4cc-02d287e05469
 ms.service: cosmos-db
 ms.devlang: python
-ms.topic: article
+ms.topic: reference
 ms.date: 5/8/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017

@@ -5,11 +5,8 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018

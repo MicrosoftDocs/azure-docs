@@ -5,10 +5,9 @@ services: cosmos-db
 author: luisbosquez
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 10/17/2017
 ms.author: lbosq
 

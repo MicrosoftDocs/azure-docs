@@ -5,10 +5,9 @@ services: cosmos-db
 author: rnagpal
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 03/26/2018
 ms.author: rnagpal
 

@@ -6,10 +6,9 @@ services: cosmos-db
 author: dennyglee
 manager: kfile
 
-ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: denlee
 

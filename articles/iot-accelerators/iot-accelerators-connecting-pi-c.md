@@ -67,6 +67,18 @@ The following steps show you how to prepare your Raspberry Pi for building a C a
     sudo make install
     ```
 
+1. Use the following commands to download, build, and install the Azure shared C library on your Raspberry Pi:
+
+    ```sh
+    cd ~
+    git clone --recursive https://github.com/Azure/azure-c-shared-utility.git
+    cd azure-c-shared-utility
+    mkdir cmake
+    cd cmake
+    cmake ..
+    sudo make install
+    ```
+
 ## Create a project
 
 Complete the following steps using the **ssh** connection to your Raspberry Pi:

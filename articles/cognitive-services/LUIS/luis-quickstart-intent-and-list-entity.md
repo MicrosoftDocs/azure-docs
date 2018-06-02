@@ -1,20 +1,29 @@
 ---
-title: Create a LUIS app to get exact text match listed data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and list entities to extract data in this quickstart. 
+title: Tutorial create a LUIS app to get exact text match listed data - Azure | Microsoft Docs 
+description: In this tutorial, learn how to create a simple LUIS app using intents and list entities to extract data in this quickstart. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
 
-# Quickstart: Create app using a list entity
-In this quickstart, create an app that demonstrates how to get data that matches a predefined list. 
+# Tutorial: Create app using a list entity
+In this tutorial, create an app that demonstrates how to get data that matches a predefined list. 
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Understand list entities 
+> * Create new LUIS app for the beverage domain with OrderDrinks intent
+> * Add _None_ intent and add example utterances
+> * Add list entity to extract drink items from utterance
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
@@ -251,11 +260,12 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 
 ## Next steps
 
-[Learn how to add a hierarchical entity](luis-quickstart-intent-and-hier-entity.md). 
+> [!div class="nextstepaction"]
+> [Learn how to add a regular expression entity](luis-quickstart-intents-regex-entity.md)
 
-Add the **number** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
+Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
 
-Add the **dimension** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the volume for each drink type such as liters or gallons.
+Add the **dimension** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the volume for each drink type such as liters or gallons.
 
 
 <!--References-->

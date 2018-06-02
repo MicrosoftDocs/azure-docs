@@ -17,12 +17,11 @@ ms.date: 12/05/2016
 Cognitive capabilities for U-SQL enable developers to use put intelligence in their big data programs. 
 
 The following cognitive capabilities are available:
-* Imaging: Detect faces
-* Imaging: Detect emotion
-* Imaging: Detect objects (tagging)
-* Imaging: OCR (optical character recognition)
-* Text: Key Phrase Extraction
-* Text: Sentiment Analysis
+* Imaging: Detect faces [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Imaging: Detect emotion [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* Imaging: Detect objects (tagging) [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Imaging: OCR (optical character recognition) [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Text: Key Phrase Extraction & Sentiment Analysis [Sample](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
 ## How to use Cognitive in your U-SQL script
 
@@ -53,25 +52,8 @@ REFERENCE ASSEMBLY ImageOcr;
 
 //  Extract the number of objects on each image and tag them 
 
-@tags =
-    PROCESS @imgs 
-    PRODUCE FileName,
-            NumObjects int,
-            Tags SQL.MAP<string, float?>
-    READONLY FileName
-    USING new Cognition.Vision.ImageTagger();
-
-@tags_serialized =
-    SELECT FileName,
-           NumObjects,
-           String.Join(";", Tags.Select(x => String.Format("{0}:{1}", x.Key, x.Value))) AS TagsString
-    FROM @tags;
-
-OUTPUT @tags_serialized
-    TO "/tags.csv"
-    USING Outputters.Csv();
 ```
-For more examples, look at the **U-SQL/Cognitive Samples** in the **Next steps** section.
+
 
 ## Next steps
 * [U-SQL/Cognitive Samples](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
