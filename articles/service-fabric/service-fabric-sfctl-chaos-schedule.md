@@ -70,7 +70,68 @@ Set the Chaos Schedule currently in use by Chaos. Chaos will automatically sched
 ### Examples
 
 The following command sets a schedule (assuming the current schedule has version 0) that starts on 2016-01-01 and expires on 2038-01-01 that runs Chaos 24 hours of the day, 7 days a week. Chaos will be scheduled on the cluster for that time.
-sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z" --chaos-parameters-dictionary [{\"Key\":\"adhoc\",\"Value\":{\"MaxConcurrentFaults\":3,\"EnableMoveReplicaFaults\":true,\"ChaosTargetFilter\":{\"NodeTypeInclusionList\":[\"N0010Ref\",\"N0020Ref\",\"N0030Ref\",\"N0040Ref\",\"N0050Ref\"]},\"MaxClusterStabilizationTimeoutInSeconds\":60,\"WaitTimeBetweenIterationsInSeconds\":15,\"WaitTimeBetweenFaultsInSeconds\":30,\"TimeToRunInSeconds\":\"600\",\"Context\":{\"Map\":{\"test\":\"value\"}},\"ClusterHealthPolicy\":{\"MaxPercentUnhealthyNodes\":0,\"ConsiderWarningAsError\":true,\"MaxPercentUnhealthyApplications\":0}}}] --jobs [{\"ChaosParameters\":\"adhoc\",\"Days\":{\"Sunday\":true,\"Monday\":true,\"Tuesday\":true,\"Wednesday\":true,\"Thursday\":true,\"Friday\":true,\"Saturday\":true},\"Times\":[{\"StartTime\":{\"Hour\":0,\"Minute\":0},\"EndTime\":{\"Hour\":23,\"Minute\":59}}]}]
+
+    sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
+    --chaos-parameters-dictionary 
+    [  
+    {  
+        "Key":"adhoc",
+        "Value":{  
+            "MaxConcurrentFaults":3,
+            "EnableMoveReplicaFaults":true,
+            "ChaosTargetFilter":{  
+                "NodeTypeInclusionList":[  
+                "N0010Ref",
+                "N0020Ref",
+                "N0030Ref",
+                "N0040Ref",
+                "N0050Ref"
+                ]
+            },
+            "MaxClusterStabilizationTimeoutInSeconds":60,
+            "WaitTimeBetweenIterationsInSeconds":15,
+            "WaitTimeBetweenFaultsInSeconds":30,
+            "TimeToRunInSeconds":"600",
+            "Context":{  
+                "Map":{  
+                "test":"value"
+                }
+            },
+            "ClusterHealthPolicy":{  
+                "MaxPercentUnhealthyNodes":0,
+                "ConsiderWarningAsError":true,
+                "MaxPercentUnhealthyApplications":0
+            }
+        }
+    }
+    ]
+    --jobs 
+    [  
+    {  
+        "ChaosParameters":"adhoc",
+        "Days":{  
+            "Sunday":true,
+            "Monday":true,
+            "Tuesday":true,
+            "Wednesday":true,
+            "Thursday":true,
+            "Friday":true,
+            "Saturday":true
+        },
+        "Times":[  
+            {  
+                "StartTime":{  
+                "Hour":0,
+                "Minute":0
+                },
+                "EndTime":{  
+                "Hour":23,
+                "Minute":59
+                }
+            }
+        ]
+    }
+    ]
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
