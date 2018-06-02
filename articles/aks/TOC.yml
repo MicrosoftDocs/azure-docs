@@ -37,7 +37,7 @@
     items:
     - name: Create an AKS cluster
       href: create-cluster.md
-    - name: Create an AAD enable AKS cluster
+    - name: Create AAD enable AKS cluster
       href: aad-integration.md
     - name: Scale an AKS cluster
       href: scale-cluster.md

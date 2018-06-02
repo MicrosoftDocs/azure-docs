@@ -18,7 +18,7 @@ ms.custom: mvc
 
 Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-Give the application a name, select **WEb app / API** for the application type, and enter any URI formatted value for **Redirect URI**.
+Give the application a name, select **Web app / API** for the application type, and enter any URI formatted value for **Redirect URI**.
 
 ![Create AAD registration](media/aad-integration/app-registration.png)
 
