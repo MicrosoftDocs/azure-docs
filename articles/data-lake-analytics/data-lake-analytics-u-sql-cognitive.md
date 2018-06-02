@@ -17,12 +17,11 @@ ms.date: 12/05/2016
 Cognitive capabilities for U-SQL enable developers to use put intelligence in their big data programs. 
 
 The following cognitive capabilities are available:
-* Imaging: Detect faces
-* Imaging: Detect emotion
-* Imaging: Detect objects (tagging)
-* Imaging: OCR (optical character recognition)
-* Text: Key Phrase Extraction
-* Text: Sentiment Analysis
+* Imaging: Detect faces [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Imaging: Detect emotion [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* Imaging: Detect objects (tagging) [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Imaging: OCR (optical character recognition) [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Text: Key Phrase Extraction & Sentiment Analysis [Sample](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
 ## How to use Cognitive in your U-SQL script
 
