@@ -35,9 +35,6 @@ The overall process is simple:
 The following example shows how to use the cognitive capabilities to detect objects in images.
 
 ```
-REFERENCE ASSEMBLY ImageCommon;
-REFERENCE ASSEMBLY FaceSdk;
-REFERENCE ASSEMBLY ImageEmotion;
 REFERENCE ASSEMBLY ImageTagging;
 REFERENCE ASSEMBLY ImageOcr;
 ```
