@@ -208,7 +208,7 @@ related resources to match.
   - Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually.
   - If any matching related resource evaluates to true, the effect is satisfied and does not trigger the audit.
   - Can use [field()] to check equivalence with values in the **if** condition.
-  - As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
+  - For example, could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 
 ### AuditIfNotExists Example
 
@@ -283,7 +283,7 @@ related resources to match and the template deployment to execute.
   - Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually.
   - If any matching related resource evaluates to true, the effect is satisfied and does not trigger the audit.
   - Can use [field()] to check equivalence with values in the **if** condition.
-  - As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
+  - For example, could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 - **Deployment** [required]
   - This property should contain the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/rest/api/resources/deployments).
 
