@@ -24,7 +24,7 @@ ms.custom: aaddev
 The OAuth 2.0 On-Behalf-Of (OBO) flow serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from Azure Active Directory (Azure AD), on behalf of the user.
 
 > [!IMPORTANT]
-> Public clients that use the [OAuth 2.0 implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md) cannot use the On-Behalf-Of flow. These clients must use pass their access token to a middle-tier confidential client to perform OBO flows. For more info about which clients can perform OBO calls, see [Client limitations](#client-limitations).
+> Public clients that use the [OAuth 2.0 implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md) cannot use the OBO flow. These clients must pass their access token to a middle-tier confidential client to perform OBO flows. For more info about which clients can perform OBO calls, see [Client limitations](#client-limitations).
 
 ## On-Behalf-Of flow diagram
 Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](active-directory-protocols-oauth-code.md). At this point, the application has an access token (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
