@@ -66,6 +66,9 @@ The following diagram shows the typical installation, activation and license bin
                                                                                                                                
     }
     ```
+## ISV partners
+
+You can find a list of ISV partners who have adapted their components and extensions for the Azure-SSIS IR at the end of this blog post - [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/).
 
 ## Next steps
 

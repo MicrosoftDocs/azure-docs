@@ -56,8 +56,8 @@ The **ConnectionAuthMethod** property contains a JSON serialized object, with th
 
 ```json
 {
-  "scope": "{ hub | device}",
-  "type": "{ symkey | sas}",
+  "scope": "{ hub | device }",
+  "type": "{ symkey | sas | x509 }",
   "issuer": "iothub"
 }
 ```
