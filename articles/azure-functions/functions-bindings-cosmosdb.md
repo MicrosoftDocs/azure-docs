@@ -63,7 +63,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
 
-namespace CosmosDBSamplesV1
+namespace CosmosDBSamplesV2
 {
     public static class CosmosTrigger
     {
@@ -242,7 +242,7 @@ This section contains the following examples:
 The examples refer to a simple `ToDoItem` type:
 
 ```cs
-namespace CosmosDBSamplesV1
+namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
@@ -259,7 +259,7 @@ namespace CosmosDBSamplesV1
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by a queue message that contains a JSON object. The queue trigger parses the JSON into an object named `ToDoItemLookup`, which contains the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
-namespace CosmosDBSamplesV1
+namespace CosmosDBSamplesV2
 {
     public class ToDoItemLookup
     {
@@ -272,7 +272,7 @@ namespace CosmosDBSamplesV1
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 
-namespace CosmosDBSamplesV1
+namespace CosmosDBSamplesV2
 {
     public static class DocByIdFromPOCO
     {
@@ -314,7 +314,7 @@ using Microsoft.Azure.WebJobs.Host;
 using System.Net;
 using System.Net.Http;
 
-namespace CosmosDBSamplesV1
+namespace CosmosDBSamplesV2
 {
     public static class DocByIdFromQueryString
     {
@@ -350,24 +350,13 @@ namespace CosmosDBSamplesV1
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
-namespace CosmosDBSamplesV1
-{
-    public class ToDoItem
-    {
-        public string Id { get; set; }
-        public string Description { get; set; }
-    }
-}
-```
-
-```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Net;
 using System.Net.Http;
 
-namespace CosmosDBSamplesV1
+namespace CosmosDBSamplesV2
 {
     public static class DocByIdFromRouteData
     {
@@ -413,7 +402,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 
-namespace CosmosDBSamplesV1
+namespace CosmosDBSamplesV2
 {
     public static class DocByIdFromRouteDataUsingSqlQuery
     {
@@ -453,7 +442,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 
-namespace CosmosDBSamplesV1
+namespace CosmosDBSamplesV2
 {
     public static class DocsBySqlQuery
     {
@@ -504,26 +493,21 @@ namespace CosmosDBSamplesV2
     {
         [FunctionName("DocsByUsingDocumentClient")]
         public static async Task<HttpResponseMessage> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
-                Route = null)]HttpRequestMessage req,
-            [CosmosDB(
-                databaseName: "ToDoItems",
-                collectionName: "Items",
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req,
+            [CosmosDB("ToDoItems", "Items", 
                 ConnectionStringSetting = "CosmosDBConnection")] DocumentClient client,
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
-
             var searchterm = req.RequestUri.ParseQueryString().Get("searchterm");
+            Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
+
             if (string.IsNullOrWhiteSpace(searchterm))
             {
                 return req.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
-
-            log.Info($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
-
+            log.Info($"Searching for: {searchterm}");
             IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
                 .Where(p => p.Description.Contains(searchterm))
                 .AsDocumentQuery();
@@ -825,7 +809,7 @@ This section contains the following examples:
 The examples refer to a simple `ToDoItem` type:
 
 ```cs
-namespace CosmosDBSamplesV1
+namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
@@ -846,11 +830,11 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System;
 
-namespace CosmosDBSamplesV1
+namespace CosmosDBSamplesV2
 {
-    public static class WriteDocFromPOCO
+    public static class WriteOneDoc
     {
-        [FunctionName("WriteDocFromPOCO")]
+        [FunctionName("WriteOneDoc")]
         public static void Run(
             [QueueTrigger("todoqueueforwrite")] string queueMessage,
             [CosmosDB(
@@ -879,7 +863,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Threading.Tasks;
 
-namespace CosmosDBSamplesV1
+namespace CosmosDBSamplesV2
 {
     public static class WriteDocsIAsyncCollector
     {
