@@ -7,7 +7,7 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/25/2018
+ms.date: 05/28/2018
 ms.author: twounder
 ms.reviewer: twounder
 ---
@@ -22,6 +22,24 @@ Azure SQL Data Warehouse Compute Optimized Gen2 tier sets new performance standa
 See the [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) blog announcement from Rohan Kumar, Corporate Vice President, Azure Data.
 
 ## Features
+
+### Auto Statistics
+Statistics are critical to optimize query plan generation in moderl cost-based optimizers such as the engine in SQL Data Warehouse. When all queries are known in advance, determining what statistics objects need to be created is an achievable task. However, when the system is faced with ad-hoc and random queries which is typical for the data warehousing workloads, system administrators may struggle to predict what statistics need to be created leading to potentially suboptimal query execution plans and longer query response times. One way to mitigate this problem is to create statistics objects on all the table columns in advance. However, that process comes with a penalty as statistics objects need to be maintained during table loading process, causing longer loading times.
+
+SQL Data Warehouse now supports automatic creation of statistics objects providing greater flexibility, productivity, and ease of use for system administrators and developers, while ensuring the system continues to offer quality execution plans and best response times.
+
+To enable or disable automatic statistics creation in SQL Data Warehouse, execute the following statement:
+```sql
+ALTER DATABASE { database_name } SET { AUTO_CREATE_STATISTICS { OFF | ON } } [;]
+```
+
+As a best practice and guidance, we recommend setting `AUTO_CREATE_STATISTICS` option to `ON`.
+
+> [!NOTE]
+> Automatic statistic creation is *enabled by default* for all new data warehouses.
+>  
+
+See the [ALTER DATABASE SET Options](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) article for additional details.
 
 ### Rejected Row Support
 Customers often use [PolyBase (External Tables) to load data](design-elt-data-loading.md) into SQL Data Warehouse because of the high performance, parallel nature of data loading. PolyBase is the default loading model when loading data via [Azure Data Factory](http://azure.com/adf) as well. 
@@ -57,13 +75,24 @@ ALTER VIEW test_view AS SELECT 1 [data];
 
 The following example shows concatenating a set of int values with a comma.
 ```sql
-SELECT CONCAT_WS(',', 1, 2, 3);
+SELECT CONCAT_WS(',', 1, 2, 3) [result];
+```
+The statement returns the following result:
+```
+result
+---------
+1,2,3
 ```
 The following example shows concatenating a set of mixed data type values with a comma.
 ```sql
-SELECT CONCAT_WS(',', 1, 2, 'String', GETDATE())
+SELECT CONCAT_WS(',', 1, 2, 'String', NEWID()) [result]
 ```
-
+The statement returns the following result:
+```
+result
+---------
+1,2,String,26E1F74D-5746-44DC-B47F-2FC1DA1B6E49
+```
 ### SP_DATATYPE_INFO
 The [sp_datatype_info](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-datatype-info-transact-sql) system stored procedure returns information about the data types supported by the current environment. It is commonly used by tools connecting through ODBC connections for data type investigation.
 
