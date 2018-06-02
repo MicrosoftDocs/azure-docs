@@ -34,10 +34,6 @@ The overall process is simple:
 
 The following example shows how to use the cognitive capabilities to detect objects in images.
 
-```
-REFERENCE ASSEMBLY ImageTagging;
-REFERENCE ASSEMBLY ImageOcr;
-```
 
 
 ## Next steps
