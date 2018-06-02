@@ -26,7 +26,7 @@ sections:
     style: dataMatrix
     columns: 
     - image:
-        src: ../media/common/i_web-color.svg
+        src: media/index/blue_globe_icon.svg
       title: Web
     - image: 
         src: media/index/logo_Csharp.svg
