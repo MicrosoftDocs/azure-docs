@@ -6,7 +6,7 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 06/01/2018
 ms.author: nberdy
 ---
 
