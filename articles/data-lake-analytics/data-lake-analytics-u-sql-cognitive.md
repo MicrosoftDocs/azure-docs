@@ -52,14 +52,6 @@ REFERENCE ASSEMBLY ImageOcr;
 
 //  Extract the number of objects on each image and tag them 
 
-@tags =
-    PROCESS @imgs 
-    PRODUCE FileName,
-            NumObjects int,
-            Tags SQL.MAP<string, float?>
-    READONLY FileName
-    USING new Cognition.Vision.ImageTagger();
-
 ```
 
 
