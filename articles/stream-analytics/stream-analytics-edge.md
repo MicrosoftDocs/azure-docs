@@ -44,7 +44,6 @@ ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT E
 The high-level steps are described in the following table. More details are given in the following sections.
 |      |Step   | Place     | Notes   |
 | ---   | ---   | ---       |  ---      |
-
 | 1   | **Create a storage container**   | Azure portal       | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.     |
 | 2   | **Create an ASA edge job**   | Azure portal      |  Create a new job, select **Edge** as **hosting environment**. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices.     |
 | 3   | **Set up your IoT Edge environment on your device(s)**   | Device(s)      | Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
