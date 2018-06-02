@@ -23,12 +23,8 @@ The following cognitive capabilities are available:
 * Imaging: OCR (optical character recognition) [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
 * Text: Key Phrase Extraction & Sentiment Analysis [Sample](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
-## How to use Cognitive in your U-SQL script
 
-The overall process is simple:
 
-* Use the `REFERENCE ASSEMBLY` statement to enable the cognitive features for the U-SQL Script
-* Use the `PROCESS` on an input Rowset using a Cognitive UDO, to generate an output RowSet
 
 
 
