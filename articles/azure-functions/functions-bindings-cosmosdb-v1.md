@@ -223,8 +223,8 @@ See the language-specific examples that read a single document by specifying an 
 
 * [C#](#input---c-examples)
 * [C# script (.csx)](#input---c-script-examples)
-* [F#](#input---f-examples)
 * [JavaScript](#input---javascript-examples)
+* [F#](#input---f-examples)
 
 [Skip input examples](#input---attributes)
 
@@ -348,17 +348,6 @@ namespace CosmosDBSamplesV1
 #### HTTP trigger, look up ID from route data (C#)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
-
-```cs
-namespace CosmosDBSamplesV1
-{
-    public class ToDoItem
-    {
-        public string Id { get; set; }
-        public string Description { get; set; }
-    }
-}
-```
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -547,12 +536,12 @@ namespace CosmosDBSamplesV1
 
 This section contains the following examples that read a single document by specifying an ID value from various sources:
 
-* Queue trigger, ID from queue message string
-* Queue trigger, look up ID from POCO in queue message
+* Queue trigger, look up ID from queue message
+* Queue trigger, look up ID from queue message, using SqlQuery
 
 [Skip input examples](#input---attributes)
 
-#### Queue trigger, ID from queue message string (C# script)
+#### Queue trigger, look up ID from queue message (C# script)
 
 The following example shows a Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads a single document and updates the document's text value.
 
@@ -586,7 +575,7 @@ Here's the C# script code:
 
 [Skip input examples](#input---attributes)
 
-#### Queue trigger, look up ID from POCO in queue message (C# script)
+#### Queue trigger, look up ID from queue message, using SqlQuery (C# script)
 
 The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
 
@@ -631,12 +620,12 @@ Here's the C# script code:
 
 This section contains the following examples that read a single document by specifying an ID value from various sources:
 
-* Queue trigger, ID from queue message string
-* Queue trigger, look up ID from POCO in queue message
+* Queue trigger, look up ID from queue message
+* Queue trigger, look up ID from queue message, using Sqlquery
 
 [Skip input examples](#input---attributes)
 
-#### Queue trigger, ID from queue message string (JavaScript)
+#### Queue trigger, look up ID from queue message (JavaScript)
 
 The following example shows a Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads a single document and updates the document's text value.
 
@@ -679,7 +668,7 @@ Here's the JavaScript code:
 
 [Skip input examples](#input---attributes)
 
-#### Queue trigger, look up ID from POCO in queue message, using SqlQuery (JavaScript)
+#### Queue trigger, look up ID from queue message, using SqlQuery (JavaScript)
 
 The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
 
@@ -808,8 +797,8 @@ See the language-specific example:
 
 * [C#](#output---c-examples)
 * [C# script (.csx)](#output---c-script-examples)
-* [F#](#output---f-examples)
 * [JavaScript](#output---javascript-examples)
+* [F#](#output---f-examples)
 
 See also the [input example](#input---c-examples) that uses `DocumentClient`.
 
