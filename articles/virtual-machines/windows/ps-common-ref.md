@@ -67,14 +67,6 @@ These variables might be useful for you if running more than one of the commands
 | Delete a VM |[Remove-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
 
 
-## Manage data disks
-
-|Create a data disk | $diskConfig = [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) -Location $location -CreateOption Empty -DiskSizeGB 128 <BR></BR><BR></BR>$dataDisk = [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk) -ResourceGroupName $myResourceGroup -DiskName "myDataDisk" -Disk $diskConfig|
-| Add the data disk to the VM | $vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -Name "myVM" <BR></BR><BR></BR>$vm = [Add-AzureRmVMDataDisk](/powershell/module/azurerm.compute/add-azurermvmdatadisk) -VM $vm -Name "myDataDisk" -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 1 <BR></BR><BR></BR>Update-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -VM $vm |
-| Remove a data disk from a VM |[Remove-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmdatadisk) -VM $vm -Name "myDataDisk"<BR></BR><BR></BR>Use Get-AzureRmVM to get the VM object. Run Update-AzureRmVM to apply the configuration changes to the VM. |
-| Add an extension to a VM |[Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) -ResourceGroupName $myResourceGroup -Location $location -VMName $myVM -Name "extensionName" -Publisher "publisherName" -Type "extensionType" -TypeHandlerVersion "#.#" -Settings $Settings -ProtectedSettings $ProtectedSettings<BR></BR><BR></BR>Run this command with the appropriate [configuration information](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) for the extension that you want to install. |
-| Remove a VM extension |[Remove-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmextension) -ResourceGroupName $myResourceGroup -Name "extensionName" -VMName $myVM |
-
 ## Next steps
 * See the basic steps for creating a virtual machine in [Create a Windows VM using Resource Manager and PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
