@@ -232,12 +232,12 @@ See the language-specific examples that read a single document by specifying an 
 
 This section contains the following examples:
 
-* Queue trigger, look up ID from POCO
-* HTTP trigger, look up ID from query string
-* HTTP trigger, look up ID from route data
-* HTTP trigger, look up ID from route data, using SqlQuery
-* HTTP trigger, get multiple docs, using SqlQuery
-* HTTP trigger, get multiple docs, using DocumentClient
+* [Queue trigger, look up ID from POCO](#queue-trigger-look-up-id-from-poco-c)
+* [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-c)
+* [HTTP trigger, look up ID from route data](#http-trigger-look-up-id-from-route-data-c)
+* [HTTP trigger, look up ID from route data, using SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
+* [HTTP trigger, get multiple docs, using SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c)
+* [HTTP trigger, get multiple docs, using DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c)
 
 The examples refer to a simple `ToDoItem` type:
 
