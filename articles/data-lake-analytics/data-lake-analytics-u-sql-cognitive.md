@@ -60,17 +60,8 @@ REFERENCE ASSEMBLY ImageOcr;
     READONLY FileName
     USING new Cognition.Vision.ImageTagger();
 
-@tags_serialized =
-    SELECT FileName,
-           NumObjects,
-           String.Join(";", Tags.Select(x => String.Format("{0}:{1}", x.Key, x.Value))) AS TagsString
-    FROM @tags;
-
-OUTPUT @tags_serialized
-    TO "/tags.csv"
-    USING Outputters.Csv();
 ```
-For more examples, look at the **U-SQL/Cognitive Samples** in the **Next steps** section.
+
 
 ## Next steps
 * [U-SQL/Cognitive Samples](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
