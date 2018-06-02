@@ -29,7 +29,7 @@ Learn about Azure Marketplace, an online applications and services marketplace t
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Marketplace seller guide</h3>
+                        <h3>AppSource and Azure Marketplace Publisher guide</h3>
                     </div>
                 </div>
             </div>
