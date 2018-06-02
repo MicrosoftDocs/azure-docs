@@ -29,10 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 - Ensure that the VMs that you want to migrate are running a supported OS version. Supported versions include: 
     - Windows Server 2016
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - 64-bit version of Windows Server 2008 R2 SP1 or later
-    - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only), with a Citrix Paravirtual driver or an AWS Paravirtual driver. Instances that run Red Hat Paravirtual drivers *aren't* supported.
+    - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only) and  must have only Citrix PV or AWS PV drivers. Instances running Red Hat PV drivers **aren't** supported.
 
 - The Mobility service must be installed on each VM that you want to replicate. 
 

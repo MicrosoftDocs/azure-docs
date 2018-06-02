@@ -55,7 +55,7 @@ All Linux distributions supported by Azure IaaS can be used with MSI via the IMD
 Note: The MSI VM Extension only supports the following Linux distributions:
 - CoreOS Stable
 - CentOS 7.1
-- RedHat 7.2
+- Red Hat 7.2
 - Ubuntu 15.04
 - Ubuntu 16.04
 
