@@ -44,8 +44,8 @@ When using Managed Disks, the following billing considerations apply:
 
 Let's take a closer look at these.
 
-**Storage Type:** Managed Disks offers 2 performance tiers:
-[Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD-based) and [Standard](../articles/virtual-machines/windows/standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+**Storage Type:** Managed Disks offers 3 performance tiers:
+[Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD-based), Standard SSD (Preview) and [Standard HDD](../articles/virtual-machines/windows/standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
 
 
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
@@ -57,10 +57,15 @@ Here are the disk sizes available for a premium managed disk:
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
 | Disk Size        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
+Here are the disk sizes available for a standard SSD managed disk:
 
-Here are the disk sizes available for a standard managed disk:
+| **Standard SSD Managed <br>Disk Type** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** |
+|------------------|--------|--------|--------|----------------|----------------|----------------| 
+| Disk Size        | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
-| **Standard Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+Here are the disk sizes available for a standard HDD managed disk:
+
+| **Standard HDD Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
 | Disk Size        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
