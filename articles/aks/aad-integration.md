@@ -20,9 +20,13 @@ Select **Azure Active Directory** > **App registrations** > **New application re
 
 Give the application a name, select **Web app / API** for the application type, and enter any URI formatted value for **Redirect URI**.
 
+Select **Create** when done.
+
 ![Create AAD registration](media/aad-integration/app-registration.png)
 
-Select **Manifest** and edit the `groupMembershipClaims` value to `All`. Select **Save** when complete.
+Select **Manifest** and edit the `groupMembershipClaims` value to `All`.
+
+Select **Save** when complete.
 
 ![Create AAD registration](media/aad-integration/edit-manifest.png)
 
@@ -56,9 +60,11 @@ Select **Azure Active Directory** > **App registrations** > **New application re
 
 Give the application a name, select **Native** for the application type, and enter any URI formatted value for **Redirect URI**.
 
+Select **Create** when done.
+
 ![Create AAD registration](media/aad-integration/app-registration-client.png)
 
-Back on the AAD application, select **Settings** > **Required permissions** > **Add** > **Select an API** and search for the name of the server application created in the last step of this document.
+From the AAD application, select **Settings** > **Required permissions** > **Add** > **Select an API** and search for the name of the server application created in the last step of this document.
 
 ![Create AAD registration](media/aad-integration/select-api.png)
 
@@ -70,7 +76,7 @@ Select **Done** and **Grant Permissions** to complete this step.
 
 ![Create AAD registration](media/aad-integration/grant-permissions-client.png)
 
-Finally, you need to take note of the application ID]. Back on the AD application, take note of the **Application ID**.
+Back on the AD application, take note of the **Application ID**.
 
 ![Create AAD registration](media/aad-integration/application-id-client.png)
 
@@ -89,4 +95,39 @@ Name                                TenantID
 ----------------------------------  ------------------------------------
 Microsoft Internal - Billable       00000000-0000-0000-0000-000000000000
 Microsoft Internal - Rate Capped    00000000-0000-0000-0000-000000000000
+```
+
+## Deploy Cluster
+
+TBD
+
+## Create RBAC binding
+
+```
+az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
+```
+
+```
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: contoso-cluster-admins
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: "nepeters@microsoft.com"
+```
+
+## Access cluster with AAD
+
+```
+az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
+```
+
+```
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BUJHWDGNL to authenticate.
 ```

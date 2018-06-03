@@ -37,14 +37,14 @@
     items:
     - name: Create an AKS cluster
       href: create-cluster.md
-    - name: Create AAD enable AKS cluster
-      href: aad-integration.md
     - name: Scale an AKS cluster
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
     - name: Delete an AKS cluster
       href: delete-cluster.md
+    - name: AAD enable AKS clusters
+      href: aad-integration.md
   - name: Configure data volumes
     items:
     - name: Azure Disk - Dynamic
