@@ -181,7 +181,7 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 ## Create Standard SSD disks
 
-Refer to [Disks FAQ document](../faq-for-disks) for the current list of regions supported for Standard SSD Preview.
+Refer to [Disks FAQ document](./faq-for-disks) for the current list of regions supported for Standard SSD Preview.
 You can create Standard SSD disks using Azure Resource Manager(ARM) templates in the same way as the regular Managed Disks. Below are the parameters needed in the ARM template for creating Standard SSD Disks:
 * apiVersion for Microsoft.Compute must be set as “2018-04-01” (or later)
 * Specify managedDisk storageAccountType as “StandardSSD_LRS” for creating a Standard SSD Disk
