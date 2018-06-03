@@ -262,14 +262,6 @@ Multiple confirmation prompts will occur. Read and accept if you agree with the 
    @inject JavaScriptSnippet snippet
    ```
 
-    ```csharp
-    @using DotNetCore
-    @namespace DotNetCore.Pages
-    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-    @using Microsoft.ApplicationInsights.AspNetCore
-    @inject JavaScriptSnippet snippet
-    ```
-
 3. In **_Layout.cshtml** add the line below before the ``</head>`` tag, but also prior to any other scripts.
 
     ```csharp
@@ -324,14 +316,17 @@ To better understand how Application Insights search works in Visual Studio for 
 
 If you search the output for the word _insight_ it will highlight results similar to the following:
 
-```
+```DebugOuput
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\store\x64\netcoreapp2.0\microsoft.aspnetcore.applicationinsights.hostingstartup\2.0.3\lib\netcoreapp2.0\Microsoft.AspNetCore.ApplicationInsights.HostingStartup.dll'.
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\store\x64\netcoreapp2.0\microsoft.applicationinsights.aspnetcore\2.1.1\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll'.
 
 Application Insights Telemetry (unconfigured): {"name":"Microsoft.ApplicationInsights.Dev.Message","time":"2018-06-03T17:32:38.2796801Z","tags":{"ai.location.ip":"127.0.0.1","ai.operation.name":"DEBUG /","ai.internal.sdkVersion":"aspnet5c:2.1.1","ai.application.ver":"1.0.0.0","ai.cloud.roleInstance":"CONTOSO-SERVER","ai.operation.id":"de85878e-4618b05bad11b5a6","ai.internal.nodeName":"CONTOSO-SERVER","ai.operation.parentId":"|de85878e-4618b05bad11b5a6."},"data":{"baseType":"MessageData","baseData":{"ver":2,"message":"Request starting HTTP/1.1 DEBUG http://localhost:53022/  0","severityLevel":"Information","properties":{"AspNetCoreEnvironment":"Development","Protocol":"HTTP/1.1","CategoryName":"Microsoft.AspNetCore.Hosting.Internal.WebHost","Host":"localhost:53022","Path":"/","Scheme":"http","ContentLength":"0","DeveloperMode":"true","Method":"DEBUG"}}}}
 ```
 
-So CoreCLR is loading two assemblies: _Microsoft.AspNetCore.ApplicationInsights.HostingStartup.dll_ and _Microsoft.ApplicationInsights.AspNetCore.dll_.
+CoreCLR is loading two assemblies: 
+
+- _Microsoft.AspNetCore.ApplicationInsights.HostingStartup.dll_
+- _Microsoft.ApplicationInsights.AspNetCore.dll_.
 
 And the _unconfigured_ in each instance of Application Insights telemetry indicates that this application isn't associated with an ikey so the data that is generated while your app is running isn't being sent to Azure and is only available for local search and analysis.
 
