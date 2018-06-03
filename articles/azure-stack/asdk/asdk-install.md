@@ -54,7 +54,7 @@ The steps in this article show you how to deploy the ASDK using a graphical user
     - Type in a valid **Time server IP** address. This required field sets the time server to be used by the development kit. This parameter must be provided as a valid time server IP address. Server names are not supported.
 
       > [!TIP]
-      > To find a time server IP address, visit [pool.ntp.org](http:\\pool.ntp.org) or ping time.windows.com. 
+      > To find a time server IP address, visit [pool.ntp.org](http://pool.ntp.org) or ping time.windows.com. 
 
     - **Optionally**, you set the following values:
         - **VLAN ID**: Sets the VLAN ID. Only use this option if the host and AzS-BGPNAT01 must configure VLAN ID to access the physical network (and internet). 
