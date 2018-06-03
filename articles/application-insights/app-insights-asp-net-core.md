@@ -335,13 +335,13 @@ So CoreCLR is loading two assemblies: _Microsoft.AspNetCore.ApplicationInsights.
 
 And the _unconfigured_ in each instance of Application Insights telemetry indicates that this application isn't associated with an ikey so the data that is generated while your app is running isn't being sent to Azure and is only available for local search and analysis.
 
-Part of how this is possible is that the NuGet package _Microsoft.AspNetCore.All_ takes as a dependency _Microsoft.ASPNetCoreApplicationInsights.HostingStartup_
+Part of how this is possible is that the NuGet package _Microsoft.AspNetCore.All_ takes as a dependency [_Microsoft.ASPNetCoreApplicationInsights.HostingStartup_](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.applicationinsights.hostingstartup.applicationinsightshostingstartup?view=aspnetcore-2.1)
 
 ![Screenshot of NuGet dependency Graph for Microsoft.AspNETCore.all](./media/app-insights-asp-net-core/013-dependency.png)
 
-Outside of Visual Studio if you were editing a ASP.NET Core project in VSCode or some other editor these assemblies wouldn't load during debug if you haven't explicitly added Application Insights to your project.
+Outside of Visual Studio if you were editing a ASP.NET Core project in VSCode or some other editor these assemblies wouldn't automatically load during debug if you haven't explicitly added Application Insights to your project.
 
-However, in Visual Studio this lighting up of local Application Insights features from external assemblies is accomplished via the [IHostingStartup Interface](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) which dynamically adds Application Insights during debug.
+However, in Visual Studio this lighting up of local Application Insights features from external assemblies is accomplished via use of the [IHostingStartup Interface](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) which dynamically adds Application Insights during debug.
 
 To learn more about enhancing an app from an [external assembly in ASP.NET Core with IHostingStartup](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/platform-specific-configuration?view=aspnetcore-2.1). 
 
