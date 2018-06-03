@@ -113,6 +113,34 @@ No. You can't update the computer name property. The new VM inherits it from the
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## Standard SSD Disks (Preview)
+
+**What are Azure Standard SSD Disks?**
+
+Azure Standard SSD Disks are a new type of durable disks for Microsoft Azure Virtual machines, optimized as cost effective storage for workloads that need consistent performance at lower IOPS levels.
+
+**What are the regions currently supported for Standard SSD Preview?**
+* North Europe
+
+**Upcoming regions:**
+*	France Central
+*	East US 2
+*	Central US
+*	Canada Central
+*	East Asia
+*	Korea South
+*	Australia East
+
+**How do I create Standard SSD Disks?**
+
+You can create Standard SSD disks using ARM Templates, in the same way as the regular Managed Disks. Below are the parameters needed in the ARM template for creating Standard SSD Disks:
+*	apiVersion for Microsoft.Compute must be set as “2018-04-01” (or later)
+*	Specify managedDisk storageAccountType as “StandardSSD_LRS” for creating a Standard SSD Disk
+
+**Can I use Standard SSDs as Unmanaged Disks?**
+
+No, Standard SSDs are offered exclusively as Managed Disks. 
+
 ## Migrate to Managed Disks 
 
 **What changes are required in a pre-existing Azure Backup service configuration prior/after migration to Managed Disks?**
