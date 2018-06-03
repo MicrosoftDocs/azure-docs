@@ -53,7 +53,7 @@ To test out this functionality:
 
    ![Screenshot of Visual Studio Diagnostic Tools](./media/app-insights-asp-net-core/005-view-other-windows-search.png)
 
-3. The debug session telemetry is currently available for local analysis only. To fully enable Application Insights and link your application to an Azure subscription you can select **Telemetry Readiness** in the upper right, or follow the steps in the next section.
+3. The debug session telemetry is currently available for local analysis only. To fully enable Application Insights, select **Telemetry Readiness** in the upper right, or follow the steps in the next section.
 
    ![Screenshot of Visual Studio Application Insights Search](./media/app-insights-asp-net-core/006-search.png)
 
@@ -62,7 +62,7 @@ To test out this functionality:
 
 ## Add Application Insights Telemetry
 
-1. Select **Project** > **Add Application Insights Telemetry...** (Alternatively you can right-click **Connected Services** > Add Connected Service.)
+1. Select **Project** > **Add Application Insights Telemetry...**. (Or you can right-click **Connected Services** and select Add Connected Service.)
 
     ![Screenshot of Visual Studio File New Project Selection Menu](./media/app-insights-asp-net-core/007-project-add-telemetry.png)
 
@@ -74,7 +74,7 @@ To test out this functionality:
 
 ## Changes Made to your project
 
-Application Insights is very low overhead. To review the modifications made to your project by adding Application Insights telemetry:
+Application Insights is low overhead. To review the modifications made to your project by adding Application Insights telemetry:
 
 Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
 
@@ -179,7 +179,7 @@ namespace DotNetCore
 
 ## Synthetic transactions with PowerShell
 
-Launching your app, and then clicking around on links manually can be used to generate test traffic. However, it is often helpful to create a simple synthetic transaction in PowerShell.
+To automate requests against your app with synthetic transactions.
 
 1. Run your app by clicking IIS Express ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/004-iis-express.png)
 
@@ -249,7 +249,7 @@ From Visual Studio, select **Project** > **Manage NuGet Packages** > **Microsoft
 
   ![Screenshot of NuGet Package Manager](./media/app-insights-asp-net-core/012-nuget-update.png)
 
-Multiple confirmation prompts will occur, read and accept if you agree with the changes.
+Multiple confirmation prompts will occur. Read and accept if you agree with the changes.
 
 ### Page View Load Time
 
@@ -270,7 +270,7 @@ Multiple confirmation prompts will occur, read and accept if you agree with the 
     @inject JavaScriptSnippet snippet
     ```
 
-3. In **_Layout.cshtml** add the line below before the ``</head>`` tag, but prior to any other scripts.
+3. In **_Layout.cshtml** add the line below before the ``</head>`` tag, but also prior to any other scripts.
 
     ```C#
     @Html.Raw(snippet.FullScript)
@@ -278,13 +278,13 @@ Multiple confirmation prompts will occur, read and accept if you agree with the 
 
 ### Test Failed Requests, Page View Load Time, Live Stream
 
-Now that you have completed the previous steps you can test out and confirm that everything is working.
+To test out and confirm that everything is working:
 
 1. Run your app by clicking IIS Express ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. Navigate to the **About** page to trigger the test exception. (If you are running in Debug mode, you will need to click **Continue** in Visual Studio before the exception will be picked up by Application Insights.)
+2. Navigate to the **About** page to trigger the test exception. (If you are running in Debug mode, you will need to click **Continue** in Visual Studio for the exception to show up in Application Insights.)
 
-3. Re-run the simulated PowerShell transaction script from earlier (You may need to adjust the port number in the script.)
+3. Rerun the simulated PowerShell transaction script from earlier (You may need to adjust the port number in the script.)
 
 4. If the Applications Insights Overview is not still open, from Visual Studio menu select **Project** > **Application Insights** > **Open Application Insights Portal**. 
 
@@ -301,7 +301,7 @@ Now that you have completed the previous steps you can test out and confirm that
 
 ## App Insights SDK Comparison
 
-The Application Insights product group has been working hard to achieve as close to feature parity as possible between the [full .NET Framework SDK](https://github.com/Microsoft/ApplicationInsights-dotnet) and the .Net Core SDK. The 2.2.0 release of the [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) for Application Insights has largely closed the feature gap.
+The Application Insights product group has been working hard to achieve  feature parity between the [full .NET Framework SDK](https://github.com/Microsoft/ApplicationInsights-dotnet) and the .Net Core SDK. The 2.2.0 release of the [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) for Application Insights has largely closed the feature gap.
 
 To understand more about the differences and tradeoffs between [.NET and .NET Core](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
@@ -320,7 +320,7 @@ _Performance Counters_ in this context refers to [server-side performance counte
 
 ## Application Insights search continued
 
-To better understand how Application Insights search works in Visual Studio for an ASP.NET Core 2 project even when explicit install of the Application Insights Nuget packages hasen't happened yet. It can be helpful to examine the Debug Output.
+To better understand how Application Insights search works in Visual Studio for an ASP.NET Core 2 project even when an explicit install of the Application Insights NuGet packages haven't happened yet. It can be helpful to examine the Debug Output.
 
 If you search the output for the word _insight_ it will highlight results similar to the following:
 
@@ -341,13 +341,13 @@ Part of how this is possible is that the NuGet package _Microsoft.AspNetCore.All
 
 Outside of Visual Studio if you were editing a ASP.NET Core project in VSCode or some other editor these assemblies wouldn't load during debug if you haven't explicitly added Application Insights to your project.
 
-However, in Visual Studio this lighting up of local Application Insights features from external assemblies is accomplished via the [IHostingStartup Interface](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) which dynamically injects Application Insights during debug.
+However, in Visual Studio this lighting up of local Application Insights features from external assemblies is accomplished via the [IHostingStartup Interface](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) which dynamically adds Application Insights during debug.
 
 To learn more about enhancing an app from an [external assembly in ASP.NET Core with IHostingStartup](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/platform-specific-configuration?view=aspnetcore-2.1). 
 
 ### How to disable Application Insights in Visual Studio .NET Core projects
 
-While the automatic light up of Application Insights search funcitonality can be useful to some, seeing debug telemetry generated when you weren't expecting it can be confusing.
+While the automatic light up of Application Insights search functionality can be useful to some, seeing debug telemetry generated when you weren't expecting it can be confusing.
 
 If just disabling telemetry generation is sufficient you can add this code block to the Configure method of your _Startup.cs_ file:
 
@@ -359,9 +359,9 @@ If just disabling telemetry generation is sufficient you can add this code block
 
 The CoreCLR will still load _Microsoft.AspNetCore.ApplicationInsights.HostingStartup.dll_ and _Microsoft.ApplicationInsights.AspNetCore.dll_, but they won't do anything.
 
-If you want to completely disable Application Insights in your Visual Studio .NET Core project the preferred method is to to **Tools** > **Options** > **Projects and Solutions** > **Web Projects** > and check the box to disable local Application Insights for ASP.NET Core web projects. This functionality was added in Visual Studio 15.6.
+If you want to completely disable Application Insights in your Visual Studio .NET Core project, the preferred method is to select **Tools** > **Options** > **Projects and Solutions** > **Web Projects** > and check the box to disable local Application Insights for ASP.NET Core web projects. This functionality was added in Visual Studio 15.6.
 
-If you are running an earlier version of Visual Studio and you want to completely remove all assemblies loaded via IHostingStartup you can either add:
+If you are running an earlier version of Visual Studio, and you want to completely remove all assemblies loaded via IHostingStartup you can either add:
 
 `.UseSetting(WebHostDefaults.PreventHostingStartupKey, "true")`
 
@@ -396,7 +396,7 @@ namespace DotNetCore
 }
 ```
 
-Or alternatively you could add ``"ASPNETCORE_preventHostingStartup": "True"`` to _lunchSettings.json_ environment variables.
+Or alternatively you could add ``"ASPNETCORE_preventHostingStartup": "True"`` to _launchSettings.json_ environment variables.
 
 The issue with using either of these methods is it won't just disable Application Insights it will disable anything in Visual Studio that was leveraging the IHostingStartup light up functionality.
 
