@@ -32,10 +32,10 @@ ms.author: robb
 
 This article shows you how to set up Azure classic metric alerts by using PowerShell.  
 
-You can receive an alert based on metrics for your Azure services, or you can receive alerts for events that occur in Azure.
+You can receive alerts based on metrics for your Azure services, or you can receive alerts for events that occur in Azure.
 
 * **Metric values**: The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then when that condition is no longer being met.    
-* **Activity log events**: An alert can trigger on *every* event or when only certain events occurs. To learn more about activity log alerts, see [Create activity log alerts (classic)](monitoring-activity-log-alerts.md).
+* **Activity log events**: An alert can trigger on *every* event or when certain events occurs. To learn more about activity log alerts, see [Create activity log alerts (classic)](monitoring-activity-log-alerts.md).
 
 You can configure a classic metric alert to do the following tasks when it triggers:
 
@@ -48,7 +48,7 @@ You can configure and get information about alert rules from the following locat
 
 * [Azure portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
-* [Command-line interface (CLI)](insights-alerts-command-line-interface.md)
+* [Azure command-line interface (CLI)](insights-alerts-command-line-interface.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 For additional information, you can always type ```Get-Help``` followed by the PowerShell command that you want help on.
@@ -60,7 +60,7 @@ For additional information, you can always type ```Get-Help``` followed by the P
     Connect-AzureRmAccount
 
     ```
-2. Get a list of the subscriptions that are available to you. Verify that you're working with the right subscription. If not, set it to the right subscription by using the output from `Get-AzureRmSubscription`.
+2. Get a list of the subscriptions that are available to you. Verify that you're working with the right subscription. If not, get to the right subscription by using the output from `Get-AzureRmSubscription`.
 
     ```PowerShell
     Get-AzureRmSubscription
@@ -77,7 +77,9 @@ For additional information, you can always type ```Get-Help``` followed by the P
     - The **Resource ID** for the resource you want to set an alert for.
     - The **metric definitions** that are available for that resource.
 
-     One way to get the resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, in the **Settings** section, select **Properties**. **RESOURCE ID** is a field in the next blade. Another way to get the resource ID to use [Azure Resource Explorer](https://resources.azure.com/).
+     One way to get the resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, in the **Settings** section, select **Properties**. **RESOURCE ID** is a field in the next blade. 
+     
+     You can also get the resource ID by using [Azure Resource Explorer](https://resources.azure.com/).
 
      Following is an example resource ID for a web app:
 
@@ -113,7 +115,7 @@ For additional information, you can always type ```Get-Help``` followed by the P
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Actions $actionEmail, $actionWebhook -Description "alert on any website activity"
     ```
 
-7. Verify that your alerts have been created properly by looking at the individual rules.
+7. Look at the individual rules to verify that your alerts have been created properly.
 
     ```PowerShell
     Get-AzureRmAlertRule -Name myMetricRuleWithWebhookAndEmail -ResourceGroup myresourcegroup -DetailedOutput

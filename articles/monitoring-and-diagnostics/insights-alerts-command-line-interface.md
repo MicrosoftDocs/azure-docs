@@ -1,6 +1,6 @@
 ---
 title: Use the cross-platform Azure CLI to create alerts for Azure services | Microsoft Docs
-description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the conditions you specify are met.
+description: Trigger emails, notifications, or call websites URLs (webhooks), or automation when the conditions you specify are met.
 author: rboucher
 manager: carmonm
 editor: ''
@@ -25,8 +25,6 @@ ms.author: robb
 > * [CLI](insights-alerts-command-line-interface.md)
 >
 >
-
-
 > [!NOTE]
 > This article describes how to create older classic metric alerts. Azure Monitor now supports [newer, better metric alerts](monitoring-near-real-time-metric-alerts.md). These alerts can monitor multiple metrics and allow for alerting on dimensional metrics. Azure CLI support for newer metric alerts is coming soon.
 >
@@ -37,7 +35,7 @@ This article shows you how to set up Azure classic metric alerts by using the cr
 > [!NOTE]
 > Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the following commands still contain the word "insights".
 
-You can receive an alert based on metrics for your Azure services, or based that occur in Azure.
+You can receive an alert based on metrics for your Azure services, or based on events that occur in Azure.
 
 * **Metric values**: The alert triggers when the value of a specified metric crosses a threshold that you assign in either direction. That is, it triggers both when the condition is first met and then when that condition is no longer being met.    
 
@@ -86,7 +84,9 @@ You can also get help for commands by typing a command with**-help** at the end.
     * The **Resource ID** for the resource you want to set an alert for.
     * The **metric definitions** that are available for that resource.
 
-     One way to get the resource ID is to use the Azure portal. Assuming that the resource is already created, select it in the portal. Then, in the next blade, in the **Settings** section, select **Properties**. The *RESOURCE ID* is a field in the next blade. You can also get the Resource ID by using  [Azure Resource Explorer](https://resources.azure.com/).
+     One way to get the resource ID is to use the Azure portal. Assuming that the resource is already created, select it in the portal. Then, in the next blade, in the **Settings** section, select **Properties**. **RESOURCE ID** is a field in the next blade. 
+     
+     You can also get the resource ID by using  [Azure Resource Explorer](https://resources.azure.com/).
 
      Following is an example resource ID for a web app:
 
@@ -101,7 +101,7 @@ You can also get help for commands by typing a command with**-help** at the end.
      ```
 
      *PT1M* is the granularity of the available measurement (in one-minute intervals). Using different granularities gives you different metric options.
-4. To create a metric-based alert rule, use a command of the following type:
+4. To create a metric-based alert rule, use a command in the following format:
 
     **azure insights alerts rule metric set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;windowSize&gt; &lt;operator&gt; &lt;threshold&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
 
@@ -141,7 +141,7 @@ You can also get help for commands by typing a command with**-help** at the end.
 ## Next steps
 * [Get an overview of Azure monitoring](monitoring-overview.md), including the types of information you can collect and monitor.
 * Learn more about [configuring webhooks in alerts](insights-webhooks-alerts.md).
-* Learn more about [configuring alerts on Activity log events](monitoring-activity-log-alerts.md).
+* Learn more about [configuring alerts on Activity log events](monitoring-activity-log-alerts.md.
 * Learn more about [Azure Automation runbooks](../automation/automation-starting-a-runbook.md).
 * Get an [overview of collecting diagnostic logs](monitoring-overview-of-diagnostic-logs.md) to collect detailed high-frequency metrics for your service.
 * Get an [overview of metrics collection](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

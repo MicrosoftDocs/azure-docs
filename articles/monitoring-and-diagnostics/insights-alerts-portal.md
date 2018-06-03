@@ -35,7 +35,7 @@ You can receive an alert based on  metrics for your Azure services, or you can r
 
 * **Metric values**: The alert triggers when the value of a specified metric crosses a threshold that you assign in either direction. That is, it triggers both when the condition is first met and and then when that condition is no longer being met.    
 
-* **Activity log events**: An alert can trigger on *every* event or when only certain events occur. Learn more about [activity log alerts](monitoring-activity-log-alerts.md).
+* **Activity log events**: An alert can trigger on *every* event or when certain events occur. Learn more about [activity log alerts](monitoring-activity-log-alerts.md).
 
 You can configure a classic metric alert to do the following when it triggers:
 
@@ -48,7 +48,7 @@ You can configure and get information about classic metric alert rules from the 
 
 * [Azure portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
-* [Command-line interface (CLI)](insights-alerts-command-line-interface.md)
+* [Azure command-line interface (CLI)](insights-alerts-command-line-interface.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## Create an alert rule on a metric with the Azure portal
@@ -79,7 +79,7 @@ You can configure and get information about classic metric alert rules from the 
 Within a few minutes, the alert is active and triggers as previously described.
 
 ## Managing your alerts
-After you have created an alert, you can select it and do one of the following tasks:
+After you create an alert, you can select it and do one of the following tasks:
 
 * View a graph that shows the metric threshold and the actual values from the previous day.
 * Edit or delete it.
@@ -89,7 +89,6 @@ After you have created an alert, you can select it and do one of the following t
 * [Get an overview of Azure monitoring](monitoring-overview.md), including the types of information you can collect and monitor.
 * Learn more about the [newer metric alerts](monitoring-near-real-time-metric-alerts.md).
 * Learn more about [configuring webhooks in alerts](insights-webhooks-alerts.md).
-* Learn more about [configuring alerts on activity log events](monitoring-activity-log-alerts.md).
-* Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
+* Learn more about [configuring alerts on activity log events](monitoring-activity-log-alerts.md)* Learn more about [Azure Automation runbooks](../automation/automation-starting-a-runbook.md).
 * Get an [overview of diagnostic logs](monitoring-overview-of-diagnostic-logs.md), and collect detailed high-frequency metrics on your service.
 * Get an [overview of metrics collection](insights-how-to-customize-monitoring.md) to make sure that your service is available and responsive.
