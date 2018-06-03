@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 05/31/2018
 ms.author: cshoe
 ---
 
@@ -501,8 +501,7 @@ For more information about CORS and how to enable it, check out these resources.
 
    Microsoft leaves it up to each customer to decide whether to enable FIPS mode. We believe there is no compelling reason for customers who are not subject to government regulations to enable FIPS mode by default.
 
-   **Resources**
-
+### Resources
 * [Why We're Not Recommending "FIPS Mode" Anymore](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   This blog article gives an overview of FIPS and explains why they don't enable FIPS mode by default.
