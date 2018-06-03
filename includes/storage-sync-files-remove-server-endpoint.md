@@ -1,6 +1,6 @@
 ---
- title: storage-sync-files-remove-server-endpoint
- description: Provide guidance on whether the user should remove the server endpoint for troubleshooting.
+ title: "include file"
+ description: "include file"
  services: storage
  author: wmgries
  ms.service: storage
