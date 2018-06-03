@@ -196,18 +196,26 @@ When no valid storage connection string is set for **AzureWebJobsStorage**, the 
   
 [!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
-### Configure app settings
+### Obtain your storage connection strings
 
-To set a value for connection strings, you can do one of the following options:
-* Enter the connection string from [Azure Storage Explorer](http://storageexplorer.com/).
-* Use one of the following commands:
+You can get a storage connection string value to set in your local settings file in one of the following ways:
 
+* Use [Azure Storage Explorer](http://storageexplorer.com/) to connect to your Azure account. In the **Explorer**, expand your subscription, select your storage account, and copy the primary or secondary connection string. 
+
+    ![Copy string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
+
+* Use one of the following commands to download the connection string from Azure:
+
+    * Download all settings from an existing function app:
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+    
+    * Get the Connection string for a specific storage account:
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
+    
     Both commands require you to first sign in to Azure.
 
 <a name="create-func"></a>
