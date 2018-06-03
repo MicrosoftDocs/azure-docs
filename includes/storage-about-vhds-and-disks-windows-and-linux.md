@@ -29,18 +29,19 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 
 Azure Disks are designed for 99.999% availability. Azure Disks have consistently delivered enterprise-grade durability, with an industry-leading ZERO% Annualized Failure Rate.
 
-There are two performance tiers for storage that you can choose from when creating your disks -- Standard Storage and Premium Storage. Also, there are two types of disks -- unmanaged and managed -- and they can reside in either performance tier.
-
-
-### Standard storage 
-
-Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/common/storage-redundancy.md). 
-
-For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](../articles/virtual-machines/windows/standard-storage.md).
+There are three performance tiers for storage that you can choose from when creating your disks -- Premium Storage, Standard SSD (Preview) and Standard HDD Storage. Also, there are two types of disks -- unmanaged and managed.
 
 ### Premium storage 
 
 Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. Typically you can use Premium Storage with sizes that include an "s" in the series name. For example, there is the Dv3-Series and the Dsv3-series, the Dsv3-series can be used with Premium Storage.  For more information, please see [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
+
+### Standard SSD storage (Preview)
+Standard SSD is optimized for low-IOPS workloads. It is offered exclusively as a Managed Disk, and is currently in preview. See FAQ for more information. 
+
+### Standard HDD storage
+Standard HDD Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard HDD storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/common/storage-redundancy.md). 
+
+For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](../articles/virtual-machines/windows/standard-storage.md).
 
 ### Unmanaged disks
 
@@ -58,12 +59,11 @@ We recommend that you use Azure Managed Disks for new VMs, and that you convert 
 
 The following table provides a comparison of Premium vs Standard for both unmanaged and managed disks to help you decide what to use.
 
-|    | Azure Premium Disk | Azure Standard Disk |
-|--- | ------------------ | ------------------- |
-| Disk Type | Solid State Drives (SSD) | Hard Disk Drives (HDD)  |
-| Overview  | SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment | HDD-based cost effective disk support for Dev/Test VM scenarios |
-| Scenario  | Production and performance sensitive workloads | Dev/Test, non-critical, <br>Infrequent access |
-| Disk Size | P4: 32 GB (Managed Disks only)<br>P6: 64 GB (Managed Disks only)<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Unmanaged Disks: 1 GB – 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
-| Max Throughput per Disk | 250 MB/s | 60 MB/s | 
-| Max IOPS per Disk | 7500 IOPS | 500 IOPS | 
-
+|    | Azure Premium Disk |Azure Standard SSD Disk (Preview)| Azure Standard HDD Disk 
+|--- | ------------------ | ------------------------------- | ----------------------- 
+| Disk Type | Solid State Drives (SSD) | Solid State Drives (SSD) | Hard Disk Drives (HDD)  
+| Overview  | SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment |More consistent performance and reliability than HDD. Optimized for low-IOPS workloads| HDD-based cost effective disk for infrequent access
+| Scenario  | Production and performance sensitive workloads |Web servers, lightly used enterprise applications and Dev/Test| Backup, Non-critical, Infrequent access 
+| Disk Size | P4: 32 GB (Managed Disks only)<br>P6: 64 GB (Managed Disks only)<br>P10: 128 GB<br>P15: 256 GB (Managed Disks only)<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB |Managed Disks only:<br>E10: 128 GB<br>E15: 256 GB<br>E20: 512 GB<br>E30: 1024 GB<br>E40: 2048 GB<br>E50: 4095 GB | Unmanaged Disks: 1 GB – 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S15: 256 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB
+| Max Throughput per Disk | 250 MB/s | Upto 60 MB/s | Upto 60 MB/s 
+| Max IOPS per Disk | 7500 IOPS | Upto 500 IOPS | Upto 500 IOPS 
