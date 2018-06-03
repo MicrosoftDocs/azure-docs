@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/03/2018
 ms.author: glenga
 
 ---
@@ -168,9 +168,6 @@ The file local.settings.json stores app settings, connection strings, and settin
   "Host": {
     "LocalHttpPort": 7071, 
     "CORS": "*" 
-  },
-  "ConnectionStrings": {
-    "SQLConnectionString": "Value"
   }
 }
 ```
@@ -181,9 +178,8 @@ The file local.settings.json stores app settings, connection strings, and settin
 | **Host** | Settings in this section customize the Functions host process when running locally. | 
 | **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
 | **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (\*) is supported, which allows requests from any origin. |
-| **ConnectionStrings** | Contains the database connection strings for your functions. Connection strings in this object are added to the environment with the provider type of **System.Data.SqlClient**.  | 
 
-These settings can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
+The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
 
 + [C# precompiled](functions-dotnet-class-library.md#environment-variables)
 + [C# script (.csx)](functions-reference-csharp.md#environment-variables)
