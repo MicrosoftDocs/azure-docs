@@ -22,6 +22,7 @@
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
 #### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Add users](data-lake-analytics-add-users.md)
 ### [Policies](data-lake-analytics-policies.md)
 ### [Secure job folders](data-lake-analytics-secure.md)
 ### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)

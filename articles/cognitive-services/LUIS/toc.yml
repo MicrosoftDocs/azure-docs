@@ -219,6 +219,12 @@
     href: migration-v1-to-v2.md
   - name: Build app programmatically using Node.js
     href: luis-tutorial-node-import-utterances-csv.md
+  - name: Find region programmatically
+    items: 
+    - name: Using C#
+      href: find-region-csharp.md
+    - name: Using Node.js
+      href: find-region-nodejs.md
 - name: Reference
   items: 
   - name: User privacy

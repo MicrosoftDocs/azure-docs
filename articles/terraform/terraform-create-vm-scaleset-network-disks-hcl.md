@@ -54,7 +54,7 @@ variable "location" {
 
 variable "resource_group_name" {
   description = "The name of the resource group in which the resources will be created"
-  default     = "myResourceGroup"
+  default     = "myresourcegroup"
 }
 ```
 
@@ -163,7 +163,7 @@ resource "azurerm_lb" "vmss" {
   resource_group_name = "${azurerm_resource_group.vmss.name}"
 
   frontend_ip_configuration {
-    name                 = "PublicIPAddress"
+    name                 = "publicipaddress"
     public_ip_address_id = "${azurerm_public_ip.vmss.id}"
   }
 
@@ -175,7 +175,7 @@ resource "azurerm_lb" "vmss" {
 resource "azurerm_lb_backend_address_pool" "bpepool" {
   resource_group_name = "${azurerm_resource_group.vmss.name}"
   loadbalancer_id     = "${azurerm_lb.vmss.id}"
-  name                = "BackEndAddressPool"
+  name                = "backendaddresspool"
 }
 
 resource "azurerm_lb_probe" "vmss" {
@@ -193,7 +193,7 @@ resource "azurerm_lb_rule" "lbnatrule" {
     frontend_port                  = "${var.application_port}"
     backend_port                   = "${var.application_port}"
     backend_address_pool_id        = "${azurerm_lb_backend_address_pool.bpepool.id}"
-    frontend_ip_configuration_name = "PublicIPAddress"
+    frontend_ip_configuration_name = "publicipaddress"
     probe_id                       = "${azurerm_lb_probe.vmss.id}"
 }
 
@@ -250,7 +250,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
     primary = true
 
     ip_configuration {
-      name                                   = "IPConfiguration"
+      name                                   = "ipconfiguration"
       subnet_id                              = "${azurerm_subnet.vmss.id}"
       load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
     }
@@ -341,7 +341,7 @@ resource "azurerm_network_interface" "jumpbox" {
   resource_group_name = "${azurerm_resource_group.vmss.name}"
 
   ip_configuration {
-    name                          = "IPConfiguration"
+    name                          = "ipconfiguration"
     subnet_id                     = "${azurerm_subnet.vmss.id}"
     private_ip_address_allocation = "dynamic"
     public_ip_address_id          = "${azurerm_public_ip.jumpbox.id}"
