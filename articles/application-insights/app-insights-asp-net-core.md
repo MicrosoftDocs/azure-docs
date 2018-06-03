@@ -58,7 +58,7 @@ To test out this functionality:
    ![Screenshot of Visual Studio Application Insights Search](./media/app-insights-asp-net-core/006-search.png)
 
 > [!NOTE]
-> To learn more about how Visual Studio lights up features like [Application Insights Search](app-insights-visual-studio) and [CodeLens](app-insights-visual-studio-codelens) locally before you have added Application Insights to your ASP.NET Core project check out the explanation at the [end of this article.]()
+> To learn more about how Visual Studio lights up features like [Application Insights Search](app-insights-visual-studio.md) and [CodeLens](app-insights-visual-studio-codelens.md) locally before you have added Application Insights to your ASP.NET Core project check out the explanation at the [end of this article.](#Application-Insights-search-continued)
 
 ## Add Application Insights Telemetry
 
