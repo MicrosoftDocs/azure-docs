@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: iainfoulds
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 06/03/2018
+ ms.author: iainfoulds
+ ms.custom: include file
+--
 # Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
 
 This article answers some frequently asked questions about Azure Managed Disks and Azure Premium Storage.
@@ -112,6 +123,25 @@ No. You can't update the computer name property. The new VM inherits it from the
 **Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+## Standard SSD Disks (Preview)
+
+**What are Azure Standard SSD Disks?**
+
+Azure Standard SSD Disks are a new type of durable disks for Microsoft Azure Virtual machines, optimized as cost effective storage for workloads that need consistent performance at lower IOPS levels.
+
+**What are the regions currently supported for Standard SSD Preview?**
+* North Europe
+
+**How do I create Standard SSD Disks?**
+
+You can create Standard SSD disks using Azure Resource Manager(ARM) Templates, in the same way as the regular Managed Disks. Below are the parameters needed in the ARM template for creating Standard SSD Disks:
+*	apiVersion for Microsoft.Compute must be set as “2018-04-01” (or later)
+*	Specify managedDisk storageAccountType as “StandardSSD_LRS” for creating a Standard SSD Disk
+
+**Can I use Standard SSDs as Unmanaged Disks?**
+
+No, Standard SSDs are offered exclusively as Managed Disks. 
 
 ## Migrate to Managed Disks 
 
