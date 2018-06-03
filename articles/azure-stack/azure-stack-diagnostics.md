@@ -9,7 +9,7 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/28/2018
+ms.date: 04/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ---
@@ -137,7 +137,7 @@ if($s)
 
 - If the **FromDate** and **ToDate** parameters are not specified, logs are collected for the past four hours by default.
 - You can use the **TimeOutInMinutes** parameter to set the timeout for log collection. It is set to 150 (2.5 hours) by default.
-- In verion 1805 and later, dump file log collection is disabled by default. To enable it, use the **IncludeDumpFile** switch parameter. 
+
 - Currently, you can use the **FilterByRole** parameter to filter log collection by the following roles:
 
    |   |   |   |

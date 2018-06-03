@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -23,7 +23,7 @@ This tutorial describes how to fail over a single Azure VM to a secondary Azure 
 > * Fail back the secondary VM
 > * Reprotect the primary VM back to the secondary region
 
-Azure to Azure replication is currently in preview.
+
 
 ## Prerequisites
 

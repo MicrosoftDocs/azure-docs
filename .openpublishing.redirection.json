@@ -3891,6 +3891,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/user/sql-server-vm-considerations.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-sql-server-vm-considerations",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/best-practices-resource-manager-security.md",
             "redirect_url": "/azure/best-practices-network-security",
             "redirect_document_id": false
@@ -12952,7 +12957,12 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-cli-options.md",
-            "redirect_url": "/azure/virtual-machines/windows/cli-options",
+            "redirect_url": "/cli/azure/install-azure-cli-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/cli-options.md",
+            "redirect_url": "/cli/azure/install-azure-cli-windows",
             "redirect_document_id": false
         },
         {
@@ -22050,6 +22060,22 @@
             "source_path": "articles/cognitive-services/LUIS/Add-Features.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-features",
             "redirect_document_id": true
+        },
+        {            
+            "source_path": "articles/cognitive-services/LUIS/AzureIbizaSubscription.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/extensions/key-vault-windows.md",
+            "redirect_url": "/azure/key-vault/key-vault-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/data-factory/how-to-create-event-trigger.md",
+            "redirect_url": "/azure/data-factory/concepts-pipeline-execution-triggers",
+            "redirect_document_id": false
         }
+
     ]
 }
