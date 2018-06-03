@@ -162,8 +162,9 @@ The file local.settings.json stores app settings, connection strings, and settin
 {
   "IsEncrypted": false,   
   "Values": {
-    "AzureWebJobsStorage": "<connection string>", 
-    "AzureWebJobsDashboard": "<connection string>" 
+    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsDashboard": "<connection-string>",
+    "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
     "LocalHttpPort": 7071, 
@@ -174,7 +175,7 @@ The file local.settings.json stores app settings, connection strings, and settin
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
-| **Values** | Collection of application settings used when running locally. **AzureWebJobsStorage** and **AzureWebJobsDashboard** are examples; for a complete list, see [app settings reference](functions-app-settings.md). Many triggers and bindings have a property that refers to an app setting, such as **Connection** for the Blob storage trigger. For such properties, you need an application setting defined in the **Values** array. This also applies to any binding property that you set to an app setting name by wrapping the value in percent signs, for example `%AppSettingName%`. |
+| **Values** | Collection of application settings used when running locally. These correspond to app settings in your function app in Azure. **AzureWebJobsStorage** and **AzureWebJobsDashboard** are examples, with **AzureWebJobsStorage** being required for triggers other than HTTP. Many triggers and bindings have a required property that refers to an app setting, such as **Connection** for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the **Values** array. |
 | **Host** | Settings in this section customize the Functions host process when running locally. | 
 | **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
 | **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (\*) is supported, which allows requests from any origin. |
