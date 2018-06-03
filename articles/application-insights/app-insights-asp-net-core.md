@@ -146,7 +146,7 @@ Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
 
    _Program.cs_
 
-```C#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -219,7 +219,7 @@ Technically **Failed Requests** are being collected, but none have occurred yet.
 
 2. Add an Exception under ``Message=`` and save the change to the file.
 
-    ```C#
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -257,12 +257,12 @@ Multiple confirmation prompts will occur. Read and accept if you agree with the 
 
 2. In __ViewImports.cshtml_, add:
 
-   ```C#
+   ```csharp
    @using Microsoft.ApplicationInsights.AspNetCore
    @inject JavaScriptSnippet snippet
    ```
 
-    ```C#
+    ```csharp
     @using DotNetCore
     @namespace DotNetCore.Pages
     @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
@@ -272,7 +272,7 @@ Multiple confirmation prompts will occur. Read and accept if you agree with the 
 
 3. In **_Layout.cshtml** add the line below before the ``</head>`` tag, but also prior to any other scripts.
 
-    ```C#
+    ```csharp
     @Html.Raw(snippet.FullScript)
     ```
 
@@ -351,7 +351,7 @@ While the automatic light up of Application Insights search functionality can be
 
 If just disabling telemetry generation is sufficient you can add this code block to the Configure method of your _Startup.cs_ file:
 
-```C#
+```csharp
   var configuration = app.ApplicationServices.GetService<Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration>();
             configuration.DisableTelemetry = true;
             if (env.IsDevelopment())
@@ -361,13 +361,15 @@ The CoreCLR will still load _Microsoft.AspNetCore.ApplicationInsights.HostingSta
 
 If you want to completely disable Application Insights in your Visual Studio .NET Core project, the preferred method is to select **Tools** > **Options** > **Projects and Solutions** > **Web Projects** > and check the box to disable local Application Insights for ASP.NET Core web projects. This functionality was added in Visual Studio 15.6.
 
+![Screenshot of Visual Studio Options Window Web Projects screen](./media/app-insights-asp-net-core/014-disable.png)
+
 If you are running an earlier version of Visual Studio, and you want to completely remove all assemblies loaded via IHostingStartup you can either add:
 
 `.UseSetting(WebHostDefaults.PreventHostingStartupKey, "true")`
 
 to _Program.cs_:
 
-```C#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.IO;
