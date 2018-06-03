@@ -308,19 +308,20 @@ namespace CosmosDBSamplesV2
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
-using System.Net;
-using System.Net.Http;
 
 namespace CosmosDBSamplesV2
 {
     public static class DocByIdFromQueryString
     {
         [FunctionName("DocByIdFromQueryString")]
-        public static HttpResponseMessage Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req,
+        public static IActionResult Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
+                HttpRequest req,
             [CosmosDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
@@ -329,6 +330,7 @@ namespace CosmosDBSamplesV2
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
+
             if (toDoItem == null)
             {
                 log.Info($"ToDo item not found");
@@ -337,7 +339,7 @@ namespace CosmosDBSamplesV2
             {
                 log.Info($"Found ToDo item, Description={toDoItem.Description}");
             }
-            return req.CreateResponse(HttpStatusCode.OK);
+            return new OkResult();
         }
     }
 }
@@ -350,21 +352,20 @@ namespace CosmosDBSamplesV2
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
-using System.Net;
-using System.Net.Http;
 
 namespace CosmosDBSamplesV2
 {
     public static class DocByIdFromRouteData
     {
         [FunctionName("DocByIdFromRouteData")]
-        public static HttpResponseMessage Run(
-            [HttpTrigger(
-                AuthorizationLevel.Anonymous, "get", "post", 
-                Route = "todoitems/{id}")]HttpRequestMessage req,
+        public static IActionResult Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
+                Route = "todoitems/{id}")]HttpRequest req,
             [CosmosDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
@@ -382,7 +383,7 @@ namespace CosmosDBSamplesV2
             {
                 log.Info($"Found ToDo item, Description={toDoItem.Description}");
             }
-            return req.CreateResponse(HttpStatusCode.OK);
+            return new OkResult();
         }
     }
 }
@@ -392,37 +393,40 @@ namespace CosmosDBSamplesV2
 
 #### HTTP trigger, look up ID from route data, using SqlQuery (C#)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection. 
+
+The example shows how to use a binding expression in the `SqlQuery` parameter. You can pass route data to the `SqlQuery` parameter as shown, but currently [you can't pass query string values](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
+
 
 ```cs
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
 
 namespace CosmosDBSamplesV2
 {
     public static class DocByIdFromRouteDataUsingSqlQuery
     {
         [FunctionName("DocByIdFromRouteDataUsingSqlQuery")]
-        public static HttpResponseMessage Run(
+        public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
-                Route = "todoitems2/{id}")]HttpRequestMessage req,
-            [CosmosDB(
-                databaseName: "ToDoItems",
-                collectionName: "Items",
+                Route = "todoitems2/{id}")]HttpRequest req,
+            [CosmosDB("ToDoItems", "Items", 
                 ConnectionStringSetting = "CosmosDBConnection", 
-                SqlQuery = "select * from ToDoItems r where r.id = {id}")] IEnumerable<ToDoItem> toDoItems,
+                SqlQuery = "select * from ToDoItems r where r.id = {id}")]
+                IEnumerable<ToDoItem> toDoItems,
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
+
             foreach (ToDoItem toDoItem in toDoItems)
             {
                 log.Info(toDoItem.Description);
             }
-            return req.CreateResponse(HttpStatusCode.OK);
+            return new OkResult();
         }
     }
 }
@@ -435,21 +439,21 @@ namespace CosmosDBSamplesV2
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The query is specified in the `SqlQuery` attribute property.
 
 ```cs
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
 
 namespace CosmosDBSamplesV2
 {
     public static class DocsBySqlQuery
     {
         [FunctionName("DocsBySqlQuery")]
-        public static HttpResponseMessage Run(
+        public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
-                HttpRequestMessage req,
+                HttpRequest req,
             [CosmosDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
@@ -463,10 +467,11 @@ namespace CosmosDBSamplesV2
             {
                 log.Info(toDoItem.Description);
             }
-            return req.CreateResponse(HttpStatusCode.OK);
+            return new OkResult();
         }
     }
 }
+
 ```
 
 [Skip input examples](#input---attributes)
@@ -476,6 +481,8 @@ namespace CosmosDBSamplesV2
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `DocumentClient` instance provided by the Azure Cosmos DB binding to read a list of documents. The `DocumentClient` instance could also be used for write operations.
 
 ```cs
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
 using Microsoft.Azure.WebJobs;
@@ -483,8 +490,6 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace CosmosDBSamplesV2
@@ -492,22 +497,27 @@ namespace CosmosDBSamplesV2
     public static class DocsByUsingDocumentClient
     {
         [FunctionName("DocsByUsingDocumentClient")]
-        public static async Task<HttpResponseMessage> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req,
-            [CosmosDB("ToDoItems", "Items", 
+        public static async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
+                Route = null)]HttpRequest req,
+            [CosmosDB(
+                databaseName: "ToDoItems",
+                collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")] DocumentClient client,
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
-            var searchterm = req.RequestUri.ParseQueryString().Get("searchterm");
-            Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
 
+            var searchterm = req.Query["searchterm"];
             if (string.IsNullOrWhiteSpace(searchterm))
             {
-                return req.CreateResponse(HttpStatusCode.NotFound);
+                return (ActionResult)new NotFoundResult();
             }
 
+            Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
+
             log.Info($"Searching for: {searchterm}");
+
             IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
                 .Where(p => p.Description.Contains(searchterm))
                 .AsDocumentQuery();
@@ -519,7 +529,7 @@ namespace CosmosDBSamplesV2
                     log.Info(result.Description);
                 }
             }
-            return req.CreateResponse(HttpStatusCode.OK);
+            return new OkResult();
         }
     }
 }
