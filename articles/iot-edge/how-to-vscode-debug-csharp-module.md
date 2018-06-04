@@ -1,16 +1,13 @@
 ---
 title: Debug C# modules with Azure IoT Edge | Microsoft Docs
 description: Use Visual Studio Code to debug a C# module with Azure IoT Edge in Visual Studio Code.
-services: iot-edge
-keywords: 
 author: shizn
-manager: timlt
-
+manager: 
 ms.author: xshi
 ms.date: 03/18/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-
+services: iot-edge
 ---
 
 # Use Visual Studio Code to debug a C# module with Azure IoT Edge

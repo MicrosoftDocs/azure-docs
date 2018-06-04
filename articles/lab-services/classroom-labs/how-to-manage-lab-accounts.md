@@ -17,13 +17,13 @@ ms.author: spelluru
 
 ---
 # Manage lab accounts in Azure Lab Services 
-This article describes how to create a lab account, view all lab accounts, or delete a lab account.
+In Azure Lab Services, a lab account is a container for managed labs such as classroom labs. An administrator sets up a lab account with Azure Lab Services and provides access to lab owners who can create labs in the account. This article describes how to create a lab account, view all lab accounts, or delete a lab account.
 
 ## Create a lab account
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. From the main menu on the left side, select **Create a resource**.
 3. Search for **Lab Services** in the Azure Marketplace, and select **Lab Services** in the drop-down list. 
-4. Select **Lab Sercices (Preview)** in the flitered list of services. 
+4. Select **Lab Services (Preview)** in the filtered list of services. 
 5. In the **Create a lab account** window, select **Create**.
 7. In the **Lab account** window, do the following actions: 
     1. For **Lab account name**, enter a name. 
@@ -69,4 +69,4 @@ Follow instructions from the previous section that displays lab accounts in a li
 Get started with setting up a lab using Azure Lab Services:
 
 - [Set up a classroom lab](tutorial-setup-classroom-lab.md)
-- [Set up a custom lab](../tutorial-create-custom-lab.md)
+- [Set up a lab](../tutorial-create-custom-lab.md)

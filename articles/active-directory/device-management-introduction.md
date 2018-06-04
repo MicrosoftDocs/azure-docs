@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -29,7 +30,7 @@ Through devices, your users are getting access to your corporate assets. To prot
 
 Device management is also the foundation for [device-based conditional access](active-directory-conditional-access-policy-connected-applications.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.   
 
-This topic explains how device management in Azure Active Directory works.
+This article explains how device management in Azure Active Directory works.
 
 ## Getting devices under the control of Azure AD
 

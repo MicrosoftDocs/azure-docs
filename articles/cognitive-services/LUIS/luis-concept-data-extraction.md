@@ -704,6 +704,6 @@ The LUIS endpoint can discover the same data in different entities:
 
 ## Next steps
 
-See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.
+See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
 
 [LUIS]:luis-reference-regions.md

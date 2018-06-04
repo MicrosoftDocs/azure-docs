@@ -7,9 +7,7 @@ author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
-ms.workload: storage-backup-recovery
 manager: carmonm
-
 ---
 
 # Troubleshoot problems backing up Azure File Shares

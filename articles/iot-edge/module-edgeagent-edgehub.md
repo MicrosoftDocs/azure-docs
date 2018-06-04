@@ -1,17 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Azure IoT EdgeAgent and EdgeHub reference | Microsoft Docs 
 description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-
+services: iot-edge
 ---
 
 # Properties of the Edge agent and Edge hub module twins

@@ -1,19 +1,13 @@
 ---
-title: Azure Quick Start - Back up a VM with Azure CLI | Microsoft Docs
+title: Azure Quick Start - Back up a VM with Azure CLI
 description: Learn how to back up your virtual machines with the Azure CLI
 services: backup
-documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor:
 tags: azure-resource-manager, virtual-machine-backup
-
-ms.assetid: 
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
-ms.workload: storage-backup-recovery
 ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc

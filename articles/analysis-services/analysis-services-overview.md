@@ -3,7 +3,7 @@ title: Azure Analysis Services overview| Microsoft Docs
 description: Get the big picture of Analysis Services in Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: overview
 ms.date: 05/16/2018
 ms.author: owend

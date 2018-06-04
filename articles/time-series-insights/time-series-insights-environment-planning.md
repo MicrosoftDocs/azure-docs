@@ -6,11 +6,10 @@ ms.service: time-series-insights
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ---
 

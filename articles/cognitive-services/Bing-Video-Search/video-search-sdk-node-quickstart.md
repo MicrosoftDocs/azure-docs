@@ -12,7 +12,7 @@ ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-# Video Search SDK Node quickstart (preview)
+# Video Search SDK Node quickstart
 
 The Bing Video Search SDK contains the functionality of the REST API for video queries and parsing results. 
 

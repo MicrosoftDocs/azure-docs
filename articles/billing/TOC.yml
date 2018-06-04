@@ -75,6 +75,8 @@
       href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
     - name: Cancel subscription
       href: billing-how-to-cancel-azure-subscription.md
+    - name: Export top-level subscription information
+      href: billing-export-subscriptions.md
   - name: Manage account
     items:
     - name: Edit profile

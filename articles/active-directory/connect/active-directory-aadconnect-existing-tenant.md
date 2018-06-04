@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -53,7 +54,7 @@ For mail-enabled groups and contacts, you can soft-match based on proxyAddresses
 ## Create a new on-premises Active Directory from data in Azure AD
 Some customers start with a cloud-only solution with Azure AD and they do not have an on-premises AD. Later they want to consume on-premises resources and want to build an on-premises AD based on Azure AD data. Azure AD Connect cannot help you for this scenario. It does not create users on-premises and it does not have any ability to set the password on-premises to the same as in Azure AD.
 
-If the only reason why you plan to add on-premises AD is to support LOBs (Line-of-Business apps), then maybe you should consider to use [Azure AD domain services](../../active-directory-domain-services/index.md) instead.
+If the only reason why you plan to add on-premises AD is to support LOBs (Line-of-Business apps), then maybe you should consider to use [Azure AD domain services](../../active-directory-domain-services/index.yml) instead.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

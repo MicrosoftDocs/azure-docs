@@ -2,18 +2,14 @@
 title: Develop locally with the Azure Cosmos DB Emulator | Microsoft Docs
 description: Using the Azure Cosmos DB Emulator, you can develop and test your application locally for free, without creating an Azure subscription. 
 services: cosmos-db
-documentationcenter: ''
 keywords: Azure Cosmos DB Emulator
 author: David-Noble-at-work
 manager: kfile
 editor: ''
 
-ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
 

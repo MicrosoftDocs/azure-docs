@@ -4,7 +4,7 @@ title: 'Troubleshooting Azure Active Directory Activity logs content pack errors
 description: Provides you with a list of error messages of the Azure Active Directory Activity content pack and steps to fix them.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
 
 ---

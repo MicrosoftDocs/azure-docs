@@ -1,19 +1,13 @@
 ---
 title: Configure and monitor IoT devices at scale with Azure IoT Hub | Microsoft Docs
 description: Use Azure IoT Hub automatic device configurations to assign a configuration to multiple devices
-services: iot-hub
-documentationcenter: ''
 author: ChrisGMsft
-manager: timlt
-editor: ''
-
+manager: bruz
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-
 ---
 
 # Configure and monitor IoT devices at scale - preview
@@ -53,7 +47,7 @@ Before you can create a configuration, you must specify which devices you want t
 ## Create a configuration
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **Device configuration (preview)**.
+1. Select **IoT device configuration (preview)**.
 1. Select **Add Configuration**.
 
 There are five steps to create a configuration. The following sections walk through each one. 
@@ -87,7 +81,7 @@ Metrics provide summary counts of the various states that a device may report ba
 
 For example: `SELECT deviceId FROM devices WHERE properties.reported.chillerWaterSettings.status='pending'`
 
-You can include a clause that the configuration was applied, for example: `SELECT deviceId FROM devices WHERE configurations.yourconfigname.status='Applied'`
+You can include a clause that the configuration was applied, for example: `SELECT deviceId FROM devices WHERE configurations.[[yourconfigname]].status='Applied'` including the double brackets.
 
 
 ### Step 4: Target Devices
@@ -109,7 +103,7 @@ Review your configuration information, then select **Submit**.
 To view the details of a configuration and monitor the devices running it, use the following steps:
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **Device configuration (preview)**.
+1. Select **IoT device configuration (preview)**.
 1. Inspect the configuration list. For each configuration, you can view the following details:
    * **ID** - the name of the configuration.
    * **Target condition** - the query used to define targeted devices.
@@ -137,7 +131,7 @@ If you update the target condition, the following updates occur:
 To modify a configuration, use the following steps: 
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **Device configuration (preview)**. 
+1. Select **IoT device configuration (preview)**. 
 1. Select the configuration that you want to modify. 
 1. Make updates to the following fields: 
    * Target condition 
@@ -152,7 +146,7 @@ To modify a configuration, use the following steps:
 When you delete a configuration, any device twins take on their next highest priority configuration. If device twins don't meet the target condition of any other configuration, then no other settings are applied. 
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **Device configuration (preview)**. 
+1. Select **IoT device configuration (preview)**. 
 1. Use the checkbox to select the configuration that you want to delete. 
 1. Select **Delete**.
 1. A prompt will ask you to confirm.
