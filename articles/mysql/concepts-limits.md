@@ -74,8 +74,6 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 - Restoring to different service tier and/or Compute Units and Storage size is not allowed.
 - Restoring a deleted server is not supported.
 
-## Functional limitations
-
 ### Subscription management
 - Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
