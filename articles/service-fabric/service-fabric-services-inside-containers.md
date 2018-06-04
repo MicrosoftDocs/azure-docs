@@ -98,7 +98,24 @@ This document provides guidance to get your service running inside a Windows con
 </Policies>
  ```
 
-9. To test this application, you need to deploy it to a cluster that is running version 5.7 or higher. If you are running version 6.1 or lower, you need to edit and update the cluster settings to enable this preview feature. Follow the steps in this [article](service-fabric-cluster-fabric-settings.md) to add the setting shown next.
+9. For configuring container isolation mode, see [Configure isolation mode]( https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows supports two isolation modes for containers: process and Hyper-V. The following snippets show how the isolation mode is specified in the application manifest file.
+
+ ```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
+  ...
+  </ContainerHostPolicies>
+</Policies>
+ ```
+  ```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+  ...
+  </ContainerHostPolicies>
+</Policies>
+ ```
+
+10. To test this application, you need to deploy it to a cluster that is running version 5.7 or higher. For runtime versions 6.1 or lower, you need to edit and update the cluster settings to enable this preview feature. Follow the steps in this [article](service-fabric-cluster-fabric-settings.md) to add the setting shown next.
 ```
       {
         "name": "Hosting",
@@ -110,7 +127,8 @@ This document provides guidance to get your service running inside a Windows con
         ]
       }
 ```
-10. Next [deploy](service-fabric-deploy-remove-applications.md) the edited application package to this cluster.
+
+11. Next [deploy](service-fabric-deploy-remove-applications.md) the edited application package to this cluster.
 
 You should now have a containerized Service Fabric application running your cluster.
 
