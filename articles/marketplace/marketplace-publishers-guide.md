@@ -3,7 +3,7 @@ title: Azure Marketplace and AppSource publisher guide
 description: Overview of what Azure Marketplace and AppSource are for app and service publishers
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: v-josepm
+author: jm-aditi-ms
 manager: pabutler
 editor:
 
@@ -115,10 +115,10 @@ Each storefront provides specialized options to help you maximize your publishin
 
 ### [Comparing AppSource and Azure Marketplace](./comparing-appsource-and-azure-marketplace.md)  
 
-### [Grow your business with AppSource](./marketplace-grow-your-business-with-appsource.md)  
+### [Grow your business with AppSource](./grow-your-business-with-appsource.md)  
 
 
-### [Grow your business with Azure Marketplace](./grow-your-business-azure-marketplace.md)  
+### [Grow your business with Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
 ---   
 
 ## How to Publish in the storefronts on the marketplace  
