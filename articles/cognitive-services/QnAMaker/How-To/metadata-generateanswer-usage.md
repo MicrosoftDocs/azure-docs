@@ -36,6 +36,7 @@ To get your endpoint details:
 2. In **My knowledge bases**, click on **View Code** for your knowledge base.
 ![my knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 3. Get your GenerateAnswer endpoint details.
+
 ![endpoint details](../media/qnamaker-how-to-metadata-usage/view-code.png)
 4. You can also get your endpoint details from the **Settings** tab of your knowledge base.
 
