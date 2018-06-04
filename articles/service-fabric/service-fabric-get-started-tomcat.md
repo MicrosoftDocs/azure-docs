@@ -19,7 +19,7 @@ ms.author: v-jamebr
 
 ---
 
-# Create Service Fabric container running an Apache Tomcat server application on Linux
+# Create Service Fabric container running Apache Tomcat server on Linux
 Some text
 
 ## Prerequisites
@@ -72,8 +72,9 @@ TBD
    docker stop tomcat-site
    ```
 
-1. If you don't already have an Azure Container Registry, [create one with the Azure CLI](service-fabric-tutorial-create-container-images#deploy-azure-container-registry).  
-2. Push the image you created to your container registry.
+1. If you don't already have an Azure Container Registry, [create one with the Azure CLI](./service-fabric-tutorial-create-container-images#deploy-azure-container-registry).  
+
+1. Push the image you created to your container registry.
    1. Run `docker login` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
 
       The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could log in using your registry username and password.
