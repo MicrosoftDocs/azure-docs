@@ -3,7 +3,7 @@ title: Support for Azure Marketplace and Cloud Partner Portal
 description: Support information and links for Azure Marketplace and Cloud Partner Portal.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: v-josepm
+author: jm-aditi-ms
 manager: pabutler
 editor:
 
