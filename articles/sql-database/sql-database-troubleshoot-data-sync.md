@@ -235,9 +235,7 @@ Before you proceed, check for the following conditions:
 
 -   The SQL Data Sync (Preview) Windows service is running.  
 -   The service account for SQL Data Sync (Preview) Preview Windows service has network access.    
--   The client agent can contact the Locator Service. Check that the following registry key has the value https://locator.sync.azure.com/LocatorServiceApi.svc:  
-    -   On an x86 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   On an x64 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   The outbound 1433 port is open on your local firewall rule.
 
 #### Cause
 
