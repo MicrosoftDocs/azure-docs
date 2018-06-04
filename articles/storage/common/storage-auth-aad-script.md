@@ -38,7 +38,7 @@ To install the preview extension for Azure CLI:
 2. Run the following command to install the preview extension: 
 
     ```azurecli
-    az extension add -n storage-preview`
+    az extension add -n storage-preview
     ```
 
 The preview extension adds a new `--auth-mode` parameter to supported commands:
