@@ -24,7 +24,7 @@ The [Azure Stack Development Kit (ASDK)](.\asdk\asdk-what-is.md) is a testing an
 
 ## Prerequisites
 
-### ADSK host computer requirements
+### ASDK host computer requirements
 
 Before installing the ASDK, you need to prepare the computer that will host the development kit. The development kit host computer must meet the hardware, software, and network requirements described in **[Review the ASDK deployment planning considerations](.\asdk\asdk-deploy-considerations.md)**.
 
