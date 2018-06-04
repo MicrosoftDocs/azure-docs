@@ -21,13 +21,13 @@ would have the following tags created automatically:
 
 Within a resource that supports [Resource Manager Operations](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags) you can create additional tags to assign to the instance by specifying them with a node definition inside your template:
 
-  [cluster Demo]
-    [[node master]]
-      tags.Application = my application
-      tags.CustomValue = 57
-      tags.Custom Text = Hello world
+    [cluster Demo]
+      [[node master]]
+        tags.Application = my application
+        tags.CustomValue = 57
+        tags.Custom Text = Hello world
 
-Creating a node with this definition will result in three additional tags being set on the node::
+Creating a node with this definition will result in three additional tags being set on the node:
 
     Name => "Demo: master"
     ClusterName => "Demo"
@@ -39,4 +39,4 @@ Creating a node with this definition will result in three additional tags being 
 > This syntax will not work if your tag name includes quote marks or periods.
 
 > [!WARNING]  
-> Resources created in Azure with the classic portal cannot use tags.
+> Resources created with the Azure classic portal cannot use tags.

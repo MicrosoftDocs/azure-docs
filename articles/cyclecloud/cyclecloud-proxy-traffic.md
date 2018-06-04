@@ -7,4 +7,4 @@ Click on your user or account name in the upper right corner of your CycleCloud 
 
 To connect to Azure from behind a proxy, you will need to modify your  `cycle_server/config/cycle_server.properties ` file and add the following to the  `webServerJvmOptions ` property:
 
-  webServerJvmOptions= -Dhttp.proxyHost=<%= @http_proxy_host %> -Dhttp.proxyPort=<%= @http_proxy_port %>
+    webServerJvmOptions= -Dhttp.proxyHost=<%= @http_proxy_host %> -Dhttp.proxyPort=<%= @http_proxy_port %>
