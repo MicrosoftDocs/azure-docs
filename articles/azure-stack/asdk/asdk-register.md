@@ -41,11 +41,7 @@ Follow these steps to register the ASDK with Azure.
 
 1. Open a PowerShell console as an administrator.  
 
-2. Run the following PowerShell commands to register your ASDK installation with Azure (you will need to log in to both your Azure subscription and the local ASDK installation):
-
-  > [!NOTE]
-  > If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
-
+2. Run the following PowerShell commands to register your ASDK installation with Azure. You will need to log in to both your Azure subscription and the local ASDK installation. If you don’t have an Azure subscription yet, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
 
   ```powershell
   # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
@@ -65,8 +61,8 @@ Follow these steps to register the ASDK with Azure.
       -PrivilegedEndpoint AzS-ERCS01 `
       -BillingModel Development
   ```
-
-3. When the script completes, you should see this message: **Your environment is now registered and activated using the provided parameters.**
+  
+  3. When the script completes, you should see this message: **Your environment is now registered and activated using the provided parameters.**
 
     ![](media/asdk-register/1.PNG)
 
