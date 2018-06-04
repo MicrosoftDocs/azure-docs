@@ -25,7 +25,7 @@ AAD authentication is provided to Azure Kuberntees Clusters with OpenID Connect.
 From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication token. More information on Webhook token authentication can be found [here](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication)
 
 > [!NOTE]
-> When configuring AAD for AKS suthentication, two AAD application are configured. This operation must be completed by an Azure tennat administrator.
+> When configuring AAD for AKS authentication, two AAD application are configured. This operation must be completed by an Azure tennat administrator.
 
 ## Create server application
 
@@ -51,7 +51,7 @@ Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user p
 
 ![Create AAD registration](media/aad-integration/delegated-permissions.png)
 
-Select **Done** and **Grant Permissions** to complete this step.
+Select **Done** and **Grant Permissions** to complete this step. This step will fail if the current account is not a tenant admin.
 
 ![Create AAD registration](media/aad-integration/grant-permissions.png)
 
