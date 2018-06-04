@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -42,7 +42,7 @@ In your email:
 -	Use Enable Application Proxy for Tableau as subject
 -	Include your tenant ID in the body    
 
-You get a confirmation when you are ready to use the application. Typically, this takes about a week. However, you can finish the configurations while waiting for the confirmation.
+You get a confirmation when you are ready to use the application. You can finish the configurations while waiting for the confirmation.
 
 
  

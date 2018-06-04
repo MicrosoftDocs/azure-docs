@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/24/2018
+ms.date: 05/31/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -87,19 +87,19 @@ Authentication needs to be configured between the AKS cluster and the ACR regist
 First, get the ID of the service principal configured for AKS. Update the resource group name and AKS cluster name to match your environment.
 
 ```azurecli
-CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv
 ```
 
 Get the ACR registry resource id. Update the regsitry name to that of your ACR registry and the resource group to the resource group where the ACR registry is located.
 
 ```azurecli
-ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
+az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv
 ```
 
-Create the role assignment, which grants the proper access.
+Create the role assignment, which grants the proper access. Replace `<clientID`> and `<acrID>` with the values gathered in the last two steps.
 
 ```azurecli
-az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
+az role assignment create --assignee <clientID> --role Reader --scope <acrID>
 ```
 
 ## Next steps

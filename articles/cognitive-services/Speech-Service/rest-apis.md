@@ -13,7 +13,7 @@ ms.author: v-jerkin
 ---
 # Speech service REST APIs
 
-The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service). The endpoints differ from the endpoints used by the previous speech service.
+The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service). The endpoints differ from the endpoints used by the previous Speech service.
 
 ## Speech to Text
 

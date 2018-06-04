@@ -6,10 +6,9 @@ author: rnagpal
 manager: kfile
 editor: cgronlun
 
-ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2
 ms.service: cosmos-db
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017

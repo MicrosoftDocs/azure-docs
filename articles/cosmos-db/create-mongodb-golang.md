@@ -6,6 +6,7 @@ author: Durgaprasad-Budhwani
 manager: kfile
 
 ms.service: cosmos-db
+ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sngun

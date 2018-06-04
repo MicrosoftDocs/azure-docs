@@ -61,7 +61,7 @@ The following table shows how the solutions map to specific IoT features:
 * *Predictive analytics*: The solution back end analyzes device-to-cloud data to predict when specific actions should take place. For example, analyzing aircraft engine telemetry to determine when engine maintenance is due.
 
 > [!NOTE]
-> To deploy a solution accelerator and learn more about how to customize them, visit [Microsoft Azure IoT solution accelerators](https://www.azureiotsuite.com/).
+> To deploy a solution accelerator and learn more about how to customize them, visit [Microsoft Azure IoT solution accelerators](https://www.azureiotsolutions.com/).
 
 ## Azure services
 
@@ -82,7 +82,7 @@ When you deploy a solution accelerator, the provisioning process configures a nu
 > For more information about the resources deployed in the Remote Monitoring solution accelerator, see this [article](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) on GitHub.
 
 * [Azure IoT Hub](../iot-hub/index.yml). This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key solution accelerator services. The service enables you to receive messages from your devices at scale, and send commands to your devices. The service also enables you to [manage your devices](../iot-hub/iot-hub-device-management-overview.md). For example, you can configure, reboot, or perform a factory reset on one or more devices connected to the hub.
-* [Azure Event Hubs](../active-directory-domain-services/index.md). This service provides high-volume event ingestion to the cloud. See [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).
+* [Azure Event Hubs](../active-directory-domain-services/index.yml). This service provides high-volume event ingestion to the cloud. See [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).
 * [Azure Time Series Insights](../time-series-insights/index.yml). The solution accelerators use this service to analyze and display the telemetry data from your devices.
 * [Azure Container Service](../container-service/index.yml). This service hosts and manages the microservices in the solution accelerators.
 * [Azure Cosmos DB](../cosmos-db/index.yml) and [Azure Storage](../storage/index.yml) for data storage.

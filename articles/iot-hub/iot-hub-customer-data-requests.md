@@ -1,11 +1,13 @@
 ---
-# required metadata
 title: Customer data request features​
+description: Summary of customer data request features
 author: dominicbetts
 ms.author: dobett
+manager: timlt
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
+services: iot-hub
 ---
 
 # Summary of customer data request features

@@ -163,7 +163,9 @@ When you override the 0.0.0.0/0 address prefix, in addition to outbound traffic 
         - Be able to network address translate and forward, or proxy the traffic to the destination resource in the subnet, and return the traffic back to the Internet. 
     - **Virtual network gateway**: If the gateway is an ExpressRoute virtual network gateway, an Internet-connected device on-premises can network address translate and forward, or proxy the traffic to the destination resource in the subnet, via ExpressRoute's [private peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering). 
 
-  See [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) and [DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) for implementation details when using virtual network gateways and virtual appliances between the Internet and Azure.
+If your virtual network is connected to an Azure VPN gateway, do not associate a route table to the [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) that includes a route with a destination of 0.0.0.0/0. Doing so can prevent the gateway from functioning properly.
+
+See [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) and [DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) for implementation details when using virtual network gateways and virtual appliances between the Internet and Azure.
 
 ## Routing example
 
@@ -255,5 +257,5 @@ The route table for *Subnet2* contains all Azure-created default routes and the 
 - [Create a user-defined route table with routes and a network virtual appliance](tutorial-create-route-table-portal.md)
 - [Configure BGP for an Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Use BGP with ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [View all routes for a subnet](virtual-network-routes-troubleshoot-portal.md). A user-defined route table only shows you the user-defined routes, not the default, and BGP routes for a subnet. Viewing all routes shows you the default, BGP, and user-defined routes for the subnet a network interface is in.
+- [View all routes for a subnet](diagnose-network-routing-problem.md). A user-defined route table only shows you the user-defined routes, not the default, and BGP routes for a subnet. Viewing all routes shows you the default, BGP, and user-defined routes for the subnet a network interface is in.
 - [Determine the next hop type](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) between a virtual machine and a destination IP address. The Azure Network Watcher next hop feature enables you to determine whether traffic is leaving a subnet and being routed to where you think it should be.

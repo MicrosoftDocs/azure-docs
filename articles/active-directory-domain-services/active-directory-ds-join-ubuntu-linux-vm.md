@@ -8,7 +8,8 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

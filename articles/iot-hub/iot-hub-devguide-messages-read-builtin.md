@@ -1,21 +1,15 @@
 ---
 title: Understand the Azure IoT Hub built-in endpoint | Microsoft Docs
 description: Developer guide - describes how to use the built-in, Event Hub-compatible endpoint toread device-to-cloud messages.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-
 ---
+
 # Read device-to-cloud messages from the built-in endpoint
 
 By default, messages are routed to the built-in service-facing endpoint (**messages/events**) that is compatible with [Event Hubs][lnk-event-hubs]. This endpoint is currently only exposed using the [AMQP][lnk-amqp] protocol on port 5671. An IoT hub exposes the following properties to enable you to control the built-in Event Hub-compatible messaging endpoint **messages/events**.
