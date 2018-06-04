@@ -54,8 +54,8 @@ For example, if you are starting the following runbook from the Azure portal and
 
 For the following runbook, if you have the following properties for the WebhookData parameter:
 
-1. WebhookName: *MyWebhook*
-1. RequestBody: *[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*
+* WebhookName: *MyWebhook*
+* RequestBody: *[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*
 
 Then you would pass the following JSON value in the UI for the WebhookData parameter. The following example with the carriage returns and newline characters matches the format that is passed in from a webhook.
 
