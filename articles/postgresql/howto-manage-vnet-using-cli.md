@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 06/01/2018
 ---
 # Create and manage Azure Database for PostgreSQL VNet service endpoints using Azure CLI
 Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for PostgreSQL server. Using convenient Azure Command Line Interface (CLI) commands, you can create, update, delete, list, and show VNet service endpoints and rules to manage your server. For an overview of Azure Database for PostgreSQL VNet service endpoints, including limitations, see [Azure Database for PostgreSQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in public preview in all supported regions for Azure Database for PostgreSQL.
@@ -18,6 +18,9 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 To step through this how-to guide, you need:
 - Install [Azure CLI 2.0](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
 - An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md).
+
+> [!NOTE]
+> Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
 ## Configure Vnet service endpoints for Azure Database for PostgreSQL
 The [az network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) commands are used to configure Virtual Networks.
