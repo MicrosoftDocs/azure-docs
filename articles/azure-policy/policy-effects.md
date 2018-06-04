@@ -349,10 +349,10 @@ A resource may be impacted by multiple assignments. These assignments may be at 
 (specific resource, resource group, subscription, or management group) or at different scopes. Each
 of these assignments is also likely to have a different effect defined. Regardless, the condition
 and effect for each policy (assigned directly or as part of an initiative) is independently
-evaluated. For example, if policy 1 that restricts location for subscription A
-resources to 'westus' with an effect of deny and policy 2 that restricts location for resource
-group B (as part of subscription A) resources to 'eastus' with an effect of audit are assigned, the
-resulting outcome would be:
+evaluated. For example, if policy 1 has a condition that restricts location for subscription A from
+being created in 'westus' with the deny effect and policy 2 that restricts resources in resource
+group B (which is in subscription A) from being created in 'eastus' with the audit effect are both
+assigned, the resulting outcome would be:
 
 - Any resource already in resource group B in 'eastus' is compliant to policy 2, but marked as non-compliant to policy 1.
 - Any resource already in resource group B not in 'eastus' will be marked as non-compliant to policy 2, and would also be marked not-compliant to policy 1 if not 'westus'.
@@ -369,10 +369,10 @@ If both policy 1 and policy 2 had effect of deny, the situation would change to:
 As each assignment is individually evaluated, there isn't an opportunity for a resource to slip
 through a gap due to differences in scope. Therefore, the net result of layering policies or policy
 overlap is considered to be **cumulative most restrictive**. In other words, a resource you want
-created could be blocked due to overlapping and conflicting policies (in the example: if policy 1
-and policy 2 are both deny and a new resource is to be created in resource group B). If you still need the
-resource to be created in the target scope, review the exclusions on each assignment to ensure the
-right policies are affecting the right scopes.
+created could be blocked due to overlapping and conflicting policies such as the example above if
+both policy 1 and policy 2 had a deny effect. If you still need the resource to be created in the
+target scope, review the exclusions on each assignment to ensure the right policies are affecting
+the right scopes.
 
 ## Next steps
 
