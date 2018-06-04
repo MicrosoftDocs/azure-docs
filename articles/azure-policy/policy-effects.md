@@ -345,13 +345,14 @@ not, then a deployment to enable it is executed.
 
 ## Layering policies
 
-Resources can be impacted by more than one policy being assigned at different levels of scope
-(specific resource, resource group, subscription, or management group) and each of these policies
-may have a different effect. The conditional for each policy is independently evaluated and acted
-upon. For example, if policy 1 that restricts location for subscription A resources to 'westus'
-with an effect of deny and policy 2 that restricts location for resource group B (as part of
-subscription A) resources to 'eastus' with an effect of audit are assigned, the resulting outcome
-would be:
+A resource may be impacted by multiple assignments. These assignments may be at the same scope
+(specific resource, resource group, subscription, or management group) or at different scopes. Each
+of these assignments is also likely to have a different effect defined. Regardless, the condition
+and effect for each policy (assigned directly or as part of an initiative) is independently
+evaluated. For example, if policy 1 that restricts location for subscription A
+resources to 'westus' with an effect of deny and policy 2 that restricts location for resource
+group B (as part of subscription A) resources to 'eastus' with an effect of audit are assigned, the
+resulting outcome would be:
 
 - Any resource already in resource group B in 'eastus' is compliant to policy 2, but marked as non-compliant to policy 1.
 - Any resource already in resource group B not in 'eastus' will be marked as non-compliant to policy 2, and would also be marked not-compliant to policy 1 if not 'westus'.
