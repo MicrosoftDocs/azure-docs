@@ -59,7 +59,8 @@ Authentication for the Batch transcription API is carried out as follows. As wit
 3. click on the option Generate API Key
 4. Copy paste that key in the client code as shown on line 5 of the earlier code sample
 
-    ![The Upload View](../media/Subscriptions.jpg)
+    ![The Upload View](media/stt/Subscriptions.jpg)
+
 
 ## Sample Code
 Making use of the API is fairly straight forward. The Sample code below can be customized with a subscription key and an API key.
