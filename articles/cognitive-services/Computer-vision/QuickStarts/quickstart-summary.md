@@ -29,7 +29,7 @@ The code in each sample is similar. However, they highlight different Computer V
 * _Analyze a disk image_ requires the image to be included in the request as a byte array.
 * _Extract handwritten text_ requires two calls to retrieve the text.
 
-These differences are summarized in the following table:
+## Summary
 
 | Quickstart               | Request Parameters                          | Response          |
 | ------------------------ | ------------------------------------------- | ----------------  |
