@@ -99,7 +99,7 @@ The deploy and remove scripts use the following commands. Each command in the fo
 | [Remove-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/remove-azurermpolicyassignment) | Removes an existing Azure Policy assignment. |
 | [Remove-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/remove-azurermpolicydefinition) | Removes an existing Azure Policy definition. |
 
-### Azure CLI
+## Azure CLI
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
