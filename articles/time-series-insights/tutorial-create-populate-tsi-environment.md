@@ -152,7 +152,7 @@ Now we will connect the new IoT hub "consumer group" event endpoint, to the TSI 
 
 Now that all of the configuration work is complete, it's time to populate the TSI environment with sample data from the simulated devices.
 
-You may recall from the [Create a device simulation section](#create-a-device-simulation), several Azure resources were created by the accelerator, to support the device simulation solution. In addition to the IoT hub discussed previously, an Azure App Service web application was generated to support device simulation. 
+You may recall from the [Create a device simulation section](#create-a-device-simulation), several Azure resources were created by the accelerator to support the solution. In addition to the IoT hub discussed previously, an Azure App Service web application was generated to create and transmit simulated device telemetry.
 
 1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Sign in again if necessary, using the same Azure account you've been using in this tutorial. Now you can click the **Launch** button under your "Device Simulation" solution:
 
@@ -174,7 +174,7 @@ You may recall from the [Create a device simulation section](#create-a-device-si
 
    These parameters will cause the simulation to run for a total of 5 minutes, generating data from 1000 simulated devices, every 10 seconds (30 times). When finished, click **Start Simulation**. 
 
-   ![Device simulation setup](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)
+   ![Device simulation setup](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png)
 
 
 4. TBD
