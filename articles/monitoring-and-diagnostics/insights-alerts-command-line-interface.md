@@ -81,7 +81,7 @@ You can also get help for commands by typing a command with**-help** at the end.
 
    ```
 3. To create a rule, you need to have several important pieces of information first.
-    * The **Resource ID** for the resource you want to set an alert for.
+    * The **resource ID** for the resource you want to set an alert for.
     * The **metric definitions** that are available for that resource.
 
      One way to get the resource ID is to use the Azure portal. Assuming that the resource is already created, select it in the portal. Then, in the next blade, in the **Settings** section, select **Properties**. **RESOURCE ID** is a field in the next blade. 
@@ -142,7 +142,7 @@ You can also get help for commands by typing a command with**-help** at the end.
 ## Next steps
 * [Get an overview of Azure monitoring](monitoring-overview.md), including the types of information you can collect and monitor.
 * Learn more about [configuring webhooks in alerts](insights-webhooks-alerts.md).
-* Learn more about [configuring alerts on Activity log events](monitoring-activity-log-alerts.md.
+* Learn more about [configuring alerts on activity log events](monitoring-activity-log-alerts.md).
 * Learn more about [Azure Automation runbooks](../automation/automation-starting-a-runbook.md).
 * Get an [overview of collecting diagnostic logs](monitoring-overview-of-diagnostic-logs.md) to collect detailed high-frequency metrics for your service.
 * Get an [overview of metrics collection](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

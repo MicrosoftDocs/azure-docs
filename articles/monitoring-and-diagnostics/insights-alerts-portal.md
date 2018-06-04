@@ -66,7 +66,7 @@ You can configure and get information about classic metric alert rules from the 
 
 5. Select the **Metric** that you want to monitor. Then choose a **Condition** and **Threshold** value for the metric. Also choose the **Period** of time that the metric rule must be satisfied before the alert triggers. For example, if you use the period "Over the last five minutes" and your alert looks for a CPU above 80%, the alert triggers when the CPU has been consistently above 80% for five minutes. After the first trigger occurs, it triggers again when the CPU stays below 80% for five minutes. The CPU metric measurement happens every minute.
 
-6. Check **Email owners...** if you want administrators and co-administrators to receive email notifications when the alert fires.
+6. Select **Email owners...** if you want administrators and co-administrators to receive email notifications when the alert fires.
 
 7. If you want to send notifications to additional email addresses when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semi-colons, in the following format: *email@contoso.com; email2@contoso.com*
 
@@ -89,7 +89,7 @@ After you create an alert, you can select it and do one of the following tasks:
 * [Get an overview of Azure monitoring](monitoring-overview.md), including the types of information you can collect and monitor.
 * Learn more about the [newer metric alerts](monitoring-near-real-time-metric-alerts.md).
 * Learn more about [configuring webhooks in alerts](insights-webhooks-alerts.md).
-* Learn more about [configuring alerts on activity log events](monitoring-activity-log-alerts.md)
+* Learn more about [configuring alerts on activity log events](monitoring-activity-log-alerts.md).
 * Learn more about [Azure Automation runbooks](../automation/automation-starting-a-runbook.md).
 * Get an [overview of diagnostic logs](monitoring-overview-of-diagnostic-logs.md), and collect detailed high-frequency metrics on your service.
 * Get an [overview of metrics collection](insights-how-to-customize-monitoring.md) to make sure that your service is available and responsive.
