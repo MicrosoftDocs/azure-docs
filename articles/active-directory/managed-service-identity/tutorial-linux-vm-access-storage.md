@@ -115,7 +115,7 @@ You can use the VM's managed identity to retrieve the data in the Azure storage 
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown and then set **Resource Group** to **All resource groups**.  
 7. Under **Select**, choose your VM and then click **Save**.
 
-    ![Assign permissions](~/articles/active-directory/managed-service-identity/media/tutorial-linux-vm-access-storage/access-storage-perms.png.png)
+    ![Assign permissions](~/articles/active-directory/managed-service-identity/media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
 ## Get an access token and use it to call Azure Storage
 
