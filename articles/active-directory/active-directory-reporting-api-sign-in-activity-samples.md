@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
-ms.date: 05/30/2018
+ms.date: 05/31/2018
 ms.author: dhanyahk;rolyon
 ms.reviewer: dhanyahk 
 
@@ -88,7 +88,7 @@ if ($oauth.access_token -ne $null) {
 
 
 ## Executing the script
-Once you finish editing the script, run it and verify that the expected data from the Audit logs report is returned.
+Once you finish editing the script, run it and verify that the expected data from the sign-in logs report is returned.
 
 The script returns output from the sign-in report in JSON format. It also creates an `SignIns.json` file with the same output. You can experiment by modifying the script to return data from other reports, and comment out the output formats that you do not need.
 

@@ -1037,7 +1037,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/azure-netapp-files/">
-                                                <img src="/azure/azure-netapp-files/media/index/netapp.png" alt="" />
+                                                <img src="media/index/NetAppStorage.svg" alt="" />
                                                 <p>Azure NetApp Files</p>
                                             </a>
                                         </li>
@@ -2298,6 +2298,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Archive Storage</h3>
                                                     <p>Low cost, secure cloud storage for rarely accessed data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-netapp-files/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/NetAppStorage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure NetApp Files</h3>
+                                                    <p>Enterprise-grade network file services powered by NetApp</p>
                                                 </div>
                                             </div>
                                         </div>

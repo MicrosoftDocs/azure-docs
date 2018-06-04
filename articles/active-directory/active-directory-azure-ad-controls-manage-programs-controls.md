@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2018
-ms.author: billmath
+ms.author: rolyon
 ---
 
 # Manage programs and their controls 

@@ -27,7 +27,7 @@ Learn how to use Azure NetApp Files to create and manage volumes, create a mount
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/netapp.png" alt="" />
+                            <img src="/azure/media/index/NetAppStorage.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
