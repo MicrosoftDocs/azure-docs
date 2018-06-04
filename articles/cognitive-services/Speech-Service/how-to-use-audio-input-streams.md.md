@@ -71,11 +71,11 @@ In general, the following steps are involved when using Audio input streams:
      public class ContosoAudioStream : AudioInputStream {
         ContosoConfig config;
 
-        public ContosoAudioStream(ContosoConfig config) {
+        public ContosoAudioStream(const ContosoConfig& config) {
             this.config = config;
         }
 
-        public void GetFormat(AudioInputStreamFormat format) {
+        public void GetFormat(AudioInputStreamFormat& format) {
             format.FormatTag = config.*;
             // ...
         }
@@ -106,8 +106,29 @@ In general, the following steps are involved when using Audio input streams:
     delete contosoStream;
     ```
 
-    Note, the contosoStream must be deleted explicitly after the result has been obtained.
+    Note, the contosoStream must be deleted explicitly after the result has been obtained. While this is easy to see in the previous example, it must be taken care not to release the ContosoAudioStream in scenarios like StartContinuousRecognitionAsync().
 
+    ```
+    var contosoStream = new ContosoAudioStream(contosoConfig);
+
+    var factory = SpeechFactory.FromSubscription(...);
+    var recognizer = CreateSpeechRecognizerWithStream(contosoStream);
+
+    recognizer.
+
+    // run stream through recognizer
+    await recognizer.StartContinuousRecognitionAsync();
+
+    // ERROR: don not delete the contosoStream before ending recognition!
+    // delete contosoStream;
+
+    await recognizer.StopContinuousRecognitionAsync();
+
+    // OK: Safe to delete the contosoStream.
+    delete contosoStream;
+    ```
+
+  
 
 ## Next steps
 
