@@ -40,7 +40,7 @@ This guide uses the following NuGet packages:
 
 |Library|Description|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library (MSAL)|
+|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
 
 
 ## Set up your project
@@ -71,7 +71,7 @@ This guide creates an application that displays a button that queries Graph API,
     ```
 
 > [!NOTE]
-> This command installs [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL acquires, caches, and refreshes user tokens that access APIs protected by Azure Active Directory v2.
+> This command installs [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL acquires, caches, and refreshes user tokens that access APIs protected by Azure Active Directory v2.
 
 ## Initialize MSAL
 This step helps you create a class to handle interaction with MSAL, such as handling tokens.
@@ -113,7 +113,7 @@ A **MainPage.xaml** file is created automatically as a part of your project temp
     </Grid>
     ```
     
-## Use Microsoft Authentication Library (MSAL) to get a token for Microsoft Graph API
+## Use MSAL to get a token for Microsoft Graph API
 
 This section shows how to use MSAL to get a token for Microsoft Graph API.
 
@@ -198,7 +198,7 @@ Eventually, the `AcquireTokenSilentAsync` method fails. Reasons for failure migh
 
 ## Call Microsoft Graph API by using the token you just obtained
 
-* Add the following new method to your **MainPage.xaml.cs**. This method is used to make a `GET` request against Graph API by using an [Authorize] header:
+* Add the following new method to **MainPage.xaml.cs**. This method is used to make a `GET` request against Graph API by using an [Authorize] header:
 
     ```csharp
     /// <summary>
@@ -266,7 +266,7 @@ The application in this sample supports a single user. But MSAL supports scenari
 
 ## Display basic token information
 
-* Add the following method to your **MainPage.xaml.cs** to display basic information about the token:
+* Add the following method to **MainPage.xaml.cs** to display basic information about the token:
 
     ```csharp
     /// <summary>
@@ -325,11 +325,11 @@ To enable Windows Integrated Authentication when it's used with a federated Azur
 
 ## Test your code
 
-To test your application, select `F5` to run your project in Visual Studio. Your main window appears:
+To test your application, select F5 to run your project in Visual Studio. Your main window appears:
 
 ![Application's user interface](media/active-directory-uwp-v2.md/testapp-ui.png)
 
-When you're ready to test, select *Call Microsoft Graph API*. Then use a Microsoft Azure Active Directory organizational account or a Microsoft account, such as live.com or outlook.com, to sign in. If it's your first time, you see a window asking the user to sign in:
+When you're ready to test, select **Call Microsoft Graph API**. Then use a Microsoft Azure Active Directory organizational account or a Microsoft account, such as live.com or outlook.com, to sign in. If it's your first time, you see a window asking the user to sign in:
 
 ![Sign-in page](media/active-directory-uwp-v2.md/sign-in-page.png)
 
