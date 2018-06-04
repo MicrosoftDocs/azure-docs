@@ -3,7 +3,7 @@ title: Enable Trial using Azure AD
 description: Enable Trial listing type using Azure Active Directory (Azure AD) in Azure Marketplace and AppSource for app and service publishers
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: v-josepm
+author: vjm-aditi-ms
 manager: pabutler
 editor:
 
