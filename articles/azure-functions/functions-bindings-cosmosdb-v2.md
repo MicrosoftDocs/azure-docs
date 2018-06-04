@@ -205,8 +205,8 @@ The following table explains the binding configuration properties that you set i
 
 The trigger requires a second collection that it uses to store _leases_ over the partitions. Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
 
- >[!IMPORTANT]
- > If multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection. Otherwise, only one of the functions will be triggered. 
+>[!IMPORTANT]
+> If multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `LeaseCollectionPrefix` for each function. For information about the prefix, see the [Configuration section](#trigger---configuration).
 
 The trigger doesn't indicate whether a document was updated or inserted, it just provides the document itself. If you need to handle updates and inserts differently, you could do that by implementing timestamp fields for insertion or update.
 
