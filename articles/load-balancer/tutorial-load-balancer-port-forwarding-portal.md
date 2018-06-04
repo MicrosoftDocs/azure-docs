@@ -48,9 +48,9 @@ In this section, you create a public load balancer that helps load balance virtu
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Create a load balancer** page enter these values for the load balancer:
     - *myLoadBalancer* - for the name of the load balancer.
-    - *Standard** - for the SKU version of the load balancer.
-    - - **Public** - for the type of the load balancer.
-     - *myPublicIP* - for the **New** Public IP that you create.
+    - **Standard** - for the SKU version of the load balancer.
+    - **Public** - for the type of the load balancer.
+    - *myPublicIP* - for the **New** Public IP that you create.
     - *myResourceGroupSLB* -  for the name of the **New** resource group that you select to create.
     - **westeurope** - for the location.
 3. Click **Create** to create the load balancer.
@@ -198,11 +198,11 @@ Create inbound NAT rule to port forward traffic from load balancer's frontend po
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Inbound NAT rules**, then within the backend pool's list, click **myBackendPool**.
 3. In the **Add inbound NAT rule** page, enter the following values:
-    a. For the name of the NAT rule, type *myNATRuleRDPVM1*,
-    b. For port, type *4221*.
-    c. For **Target virtual machine**, from the drop-down, select *myVM1*.
-    d. For **Port mapping**, click custom, anf then for **Target port**, type **3389**.
-    e. Click **OK**.
+    - For the name of the NAT rule, type *myNATRuleRDPVM1*,
+    - For port, type *4221*.
+    - For **Target virtual machine**, from the drop-down, select *myVM1*.
+    - For **Port mapping**, click custom, anf then for **Target port**, type **3389**.
+    - Click **OK**.
 4. Repeat step 2 & 3 to create inbound NAT rules named *myNATRuleRDPVM2* for virutal machines *myVM2* using frontend port *4222*.
 
 ## Test the load balancer
