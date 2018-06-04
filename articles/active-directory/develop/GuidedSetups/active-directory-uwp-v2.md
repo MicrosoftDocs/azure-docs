@@ -259,7 +259,7 @@ In this sample application, the `GetHttpContentWithToken` method is used to make
     }
     ```
 
-### More information on sign out
+### More information on sign-out
 
 The `SignOutButton_Click` method removes the user from the MSAL user cache. This method effectively tells MSAL to forget the current user. Then a future request to acquire a token succeeds only if it's made to be interactive.
 The application in this sample supports a single user. But MSAL supports scenarios where more than one account can be signed in at the same time. An example is an email application where a user has several accounts.
