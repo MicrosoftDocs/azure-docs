@@ -21,7 +21,7 @@ ms.author: wolfma
 
 - AudioInputStream
 
-  A recognizer can now consume a stream as the audio source. For detailed information, see the [documentation](https://aka.ms/csspeech) under the section `Concepts`.
+  A recognizer can now consume a stream as the audio source. For detailed information, see the [documentation](https://aka.ms/csspeech) under the section **How-to guides**.
 	
 - Detailed Output Format
 
@@ -51,7 +51,7 @@ ms.author: wolfma
 
   `Region` is required information to create a recognizer.
 	
-More samples have been added and are constantly being updated. For the latest set of samples, see the (Speech SDK Sample GitHub repository)[https://aka.ms/csspeech/samples].
+More samples have been added and are constantly being updated. For the latest set of samples, see the [Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 
 ## Cognitive Services Speech SDK 0.3.0 - Release 2018-May

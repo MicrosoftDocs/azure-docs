@@ -14,7 +14,7 @@ ms.author: fmegen
 ---                                                                   
 # About the audio input stream API
 
-The **Audio Input Stream** API provides a way to stream audio streams into the recognizers instead of using either the microphone or the wave file APIs.
+The **Audio Input Stream** API provides a way to stream audio streams into the recognizers instead of using either the microphone or the input file APIs.
 
 ## API overview
 
@@ -36,7 +36,7 @@ The `AudioInputStreamFormat` defines the format of the audio data. It can be com
 
   - `AvgBytesPerSec`
   
-    Average bytes per second, calculated as `SamplesPerSec * Channels * ceil(BitsPerSample, 8)`. Verge bytes per second can be different for audio streams that use variable bitrates.
+    Average bytes per second, calculated as `SamplesPerSec * Channels * ceil(BitsPerSample, 8)`. Average bytes per second can be different for audio streams that use variable bitrates.
 
   - `BlockAlign`
   
@@ -66,7 +66,7 @@ In general, the following steps are involved when using Audio input streams:
 
   - Identify the format of the audio stream. The format must be supported by the SDK and the speech service. Currently the following configuration is supported:
 
-    1 TAG (PCM), 1 channel, 16000 samples per second, 32,000 bytes per second, 2 block align (16 bit including padding for a sample), 16 bits per sample
+    One tag (PCM), one channel, 16000 samples per second, 32000 bytes per second, two block align (16 bit including padding for a sample), 16 bits per sample
 
   - Make sure your code can provide the RAW audio data as to the specs identified above. If your audio source data doesn't match the supported formats, the audio must be transcoded into the required format.
 
