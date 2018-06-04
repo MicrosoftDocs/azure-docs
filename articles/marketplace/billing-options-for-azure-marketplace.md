@@ -3,7 +3,7 @@ title: Billing options on Azure Marketplace
 description: Billing options on Azure Marketplace for publishers.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: v-josepm
+author: jm-aditi-ms
 manager: pabutler
 editor:
 
