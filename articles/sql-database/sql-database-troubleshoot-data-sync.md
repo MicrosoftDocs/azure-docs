@@ -235,7 +235,8 @@ Before you proceed, check for the following conditions:
 
 -   The SQL Data Sync (Preview) Windows service is running.  
 -   The service account for SQL Data Sync (Preview) Preview Windows service has network access.    
--   The outbound 1433 port is open on your local firewall rule.
+-   The outbound 1433 port is open in your local firewall rule.
+-   The local ip is added to the server or database firewall rule for the sync metadata database.
 
 #### Cause
 
