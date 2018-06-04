@@ -44,8 +44,8 @@ ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT E
 The high-level steps are described in the following table. More details are given in the following sections.
 |      |Step   | Place     | Notes   |
 | ---   | ---   | ---       |  ---      |
-| 1   | **Create an ASA edge job**   | Azure portal      |  Create a new job, select **Edge** as **hosting environment**. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices.     |
-| 2   | **Create a storage container**   | Azure portal       | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.     |
+| 1   | **Create a storage container**   | Azure portal       | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.     |
+| 2   | **Create an ASA edge job**   | Azure portal      |  Create a new job, select **Edge** as **hosting environment**. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices.     |
 | 3   | **Set up your IoT Edge environment on your device(s)**   | Device(s)      | Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Deploy ASA on your IoT Edge device(s)**   | Azure portal      |  ASA job definition is exported to the storage container created earlier.       |
 You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) to deploy your first ASA job on IoT Edge. The following video should help you understand the process to run a Stream Analytics job on an IoT edge device:  
@@ -53,7 +53,12 @@ You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
-
+#### Create a storage container
+A storage container is required in order to export the ASA compiled query and the job configuration. It is used to configure the ASA Docker image with your specific query. 
+1. Follow [these instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to create a storage account from the Azure portal. You can keep all default options to use this account with ASA.
+2. In the newly created storage account, create a blob storage container:
+    1. Click on "Blobs" , then "+ Container". 
+    2. Enter a name and keep the container as "Private"
 
 #### Create an ASA Edge job
 > [!Note]
@@ -68,17 +73,11 @@ You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot
     2. Define Reference data (optional).
     3. **Define Output Stream(s)**. Define one or several outputs streams for your job. 
     4. **Define query**. Define the ASA query in the cloud using the inline editor. The compiler automatically checks the syntax enabled for ASA edge. You can also test your query by uploading sample data. 
-4. Set optional settings
+4. Set the storage container information in the "IoT Edge settings" menu.
+5. Set optional settings
     1. **Event ordering**. You can configure out-of-order policy in the portal. Documentation is available [here](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Locale**. Set the internalization format.
 
-
-#### Create a storage container
-A storage container is required in order to export the ASA compiled query and the job configuration. It is used to configure the ASA Docker image with your specific query. 
-1. Follow [these instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to create a storage account from the Azure portal. You can keep all default options to use this account with ASA.
-2. In the newly created storage account, create a blob storage container:
-    1. Click on "Blobs" , then "+ Container". 
-    2. Enter a name and keep the container as "Private"
 
 
 > [!Note]
@@ -98,14 +97,14 @@ These steps are described in the IoT Edge documentation for [Windows](https://do
 
 ####  Deployment ASA on your IoT Edge device(s)
 ##### Add ASA to your deployment
-- In the Azure portal, open IoT Hub, navigate to IoT Edge Explorer and open your device blade.
-- Select **Set modules**, then select **Import Azure Service IoT Edge Module**.
-- Select the subscription and the ASA Edge job that you created. Then select your storage account. Click Save.
+- In the Azure portal, open IoT Hub, navigate to **IoT Edge** and click on the device you want to target for this deployment.
+- Select **Set modules**, then select **+ Add** and choose **Azure Stream Analytics Module**.
+- Select the subscription and the ASA Edge job that you created. Click Save.
 ![Add ASA module in your deployment](media/stream-analytics-edge/set_module.png)
 
 
 > [!Note]
-> During this step, ASA requests access to the selected storage container, and then creates a folder named "EdgeJobs". For each  deployment, a new subfolder is created in the "EdgeJobs" folder.
+> During this step, ASA creates a folder named "EdgeJobs" in the storage container (if it does not exist already). For each  deployment, a new subfolder is created in the "EdgeJobs" folder.
 > In order to deploy your job to edge devices, ASA creates a shared access signature (SAS) for the job definition file. The SAS key is securely transmitted to the IoT Edge devices using device twin. The expiration of this key is three years from the day of its creation.
 
 
