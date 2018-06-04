@@ -82,15 +82,14 @@ Standard Storage is backed by HDDs, and delivers cost-effective storage while st
 New Standard SSD disks are backed by SSDs, and are optimized for low-IOPS workloads. They are ideal for Web Servers, lightly used enterprise applications and other low-end workloads, and Dev/Test. Standard SSD disks support all Azure VM series.
 
 ### Premium disk
-Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. When selecting, a disk size the value is rounded up to the next type. For example, if the disk size is less than 128 GB, the disk type is P10. If the disk size is between 129 GB and 512 GB, the size is a P20. Anything over 512 GB, the size is a P30.
+Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. When selecting, a disk size the value is rounded up to the next type. For example, if the disk size is less than 128 GiB, the disk type is P10. If the disk size is between 129 GiB and 512 GiB, the size is a P20. Anything over 512 GiB, the size is a P30.
 
 ### Premium disk performance
-
 |Premium storage disk type | P10 | P20 | P30 |
 | --- | --- | --- | --- |
-| Disk size (round up) | 128 GB | 512 GB | 1,024 GB (1 TB) |
+| Disk size (round up) | 128 GiB | 512 GiB | 1,024 GB (1 TiB) |
 | Max IOPS per disk | 500 | 2,300 | 5,000 |
-Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
+| Throughput per disk | 100 MiB/s | 150 MiB/s | 200 MiB/s |
 
 While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS. For detailed information on max IOPS per VM, see [Linux VM sizes](sizes.md).
 
