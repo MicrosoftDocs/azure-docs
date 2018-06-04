@@ -6,10 +6,10 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Summary
+    href: QuickStarts/quickstart-summary.md
   - name: C#
     items:
-    - name: Summary
-      href: QuickStarts/CSharp.md
     - name: Analyze an image
       href: QuickStarts/CSharp-analyze.md
     - name: Generate a thumbnail
@@ -20,8 +20,6 @@
       href: QuickStarts/CSharp-hand-text.md
   - name: cURL
     items:
-    - name: Summary
-      href: QuickStarts/curl.md
     - name: Analyze an image
       href: QuickStarts/curl-analyze.md
     - name: Generate a thumbnail
@@ -30,8 +28,6 @@
       href: QuickStarts/curl-print-text.md
   - name: Java
     items:
-    - name: Summary
-      href: QuickStarts/Java.md
     - name: Analyze an image
       href: QuickStarts/java-analyze.md
     - name: Generate a thumbnail
@@ -42,8 +38,6 @@
       href: QuickStarts/java-hand-text.md
   - name: JavaScript
     items:
-    - name: Summary
-      href: QuickStarts/JavaScript.md
     - name: Analyze an image
       href: QuickStarts/javascript-analyze.md
     - name: Generate a thumbnail
@@ -54,8 +48,6 @@
       href: QuickStarts/javascript-hand-text.md
   - name: PHP
     items:
-    - name: Summary
-      href: QuickStarts/PHP.md
     - name: Analyze an image
       href: QuickStarts/php-analyze.md
     - name: Use a domain model
@@ -66,8 +58,6 @@
       href: QuickStarts/php-print-text.md
   - name: Python
     items:
-    - name: Summary
-      href: QuickStarts/Python.md
     - name: Analyze an image
       href: QuickStarts/python-analyze.md
     - name: Use a domain model
@@ -82,8 +72,6 @@
       href: QuickStarts/python-disk.md
   - name: Ruby
     items:
-    - name: Summary
-      href: QuickStarts/Ruby.md
     - name: Analyze an image
       href: QuickStarts/ruby-analyze.md
     - name: Generate a thumbnail

@@ -19,18 +19,22 @@
   items: 
   - name: Get data from entity
     items: 
-      - name: Simple entity
-        href: luis-quickstart-primary-and-secondary-data.md
-      - name: Hierarchical entity
-        href: luis-quickstart-intent-and-hier-entity.md
-      - name: List entity
-        href: luis-quickstart-intent-and-list-entity.md
-      - name: Regular expresion entity
-        href: luis-quickstart-intents-regex-entity.md
-      - name: KeyPhrase entity
-        href: luis-quickstart-intent-and-key-phrase.md
-      - name: Sentiment analysis
-        href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: Simple entity
+      href: luis-quickstart-primary-and-secondary-data.md
+    - name: Hierarchical entity
+      href: luis-quickstart-intent-and-hier-entity.md
+    - name: List entity
+      href: luis-quickstart-intent-and-list-entity.md
+    - name: Regular expresion entity
+      href: luis-quickstart-intents-regex-entity.md
+    - name: KeyPhrase entity
+      href: luis-quickstart-intent-and-key-phrase.md
+    - name: Sentiment analysis
+      href: luis-quickstart-intent-and-sentiment-analysis.md
+  - name: Improve prediction 
+    items: 
+    - name: With patterns
+      href: luis-tutorial-pattern.md
   - name: Use APIs
     items: 
     - name: Get utterance prediction with endpoint query
@@ -177,8 +181,6 @@
       items: 
       - name: How to add      
         href: luis-how-to-model-intent-pattern.md
-      - name: How to use
-        href: luis-tutorial-pattern.md
   - name: Train
     href: luis-how-to-train.md
   - name: Test
@@ -221,8 +223,10 @@
     href: luis-tutorial-node-import-utterances-csv.md
   - name: Find region programmatically
     items: 
-    - name: using C#
+    - name: Using C#
       href: find-region-csharp.md
+    - name: Using Node.js
+      href: find-region-nodejs.md
 - name: Reference
   items: 
   - name: User privacy

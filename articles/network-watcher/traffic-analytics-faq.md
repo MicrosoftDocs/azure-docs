@@ -26,7 +26,14 @@ ms.author: jdial
     - NSG flow logs enabled for the NSGs you want to monitor
     - An Azure Storage account, to store raw flog logs
     - A Log Analytics (OMS) Workspace, with read and write access
-    - Your account must be assigned the following actions on the Microsoft.Network provider:
+    - Your account must be assigned with either one of the following permissions at subscription level:
+    
+            All permissions *
+            All Read permissions */read
+            All network permissions Microsoft.Network/*
+            All network read permissions Microsoft.Network/*/read
+
+    Or, your account must be assigned with following all actions at subscription level: 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read

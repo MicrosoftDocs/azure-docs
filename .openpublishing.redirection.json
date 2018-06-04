@@ -8741,6 +8741,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/CSharp.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/CSharp-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/curl.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/curl-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/Java.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/java-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/JavaScript.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/javascript-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/PHP.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/php-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/Python.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/python-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/Ruby.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/ruby-analyze",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Content-Moderator/index.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/overview",
             "redirect_document_id": false
@@ -12957,7 +12992,12 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-cli-options.md",
-            "redirect_url": "/azure/virtual-machines/windows/cli-options",
+            "redirect_url": "/cli/azure/install-azure-cli-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/cli-options.md",
+            "redirect_url": "/cli/azure/install-azure-cli-windows",
             "redirect_document_id": false
         },
         {
