@@ -16,11 +16,11 @@ ms.author: fmegen
 
 The **Audio Input Stream** API provides a way to stream audio streams into the recognizers instead of using either the microphone or the wave file APIs.
 
-## API capabilities
+## API overview
 
-The API uses two components, the `AudioInputStream` (the raw audio data) as well as the `AudioInputStreamFormat` (the description of the audio format).
+The API uses two components, the `AudioInputStream` (the raw audio data) and as the `AudioInputStreamFormat`.
 
-The `AudioInputStreamFormat` defines the format of the audio data. It can be compared to the standard `WAVEFORMAT` stucture for wave files on Windows and contains these fields:
+The `AudioInputStreamFormat` defines the format of the audio data. It can be compared to the standard `WAVEFORMAT` structure for wave files on Windows.
 
   - `FormatTag`
   
@@ -28,7 +28,7 @@ The `AudioInputStreamFormat` defines the format of the audio data. It can be com
 
   - `Channels`
   
-    The number of channels. The current speech service supports only 1 channel (mono) audio material.
+    The number of channels. The current speech service supports only one channel (mono) audio material.
 
   - `SamplesPerSec` 
   
@@ -36,17 +36,17 @@ The `AudioInputStreamFormat` defines the format of the audio data. It can be com
 
   - `AvgBytesPerSec`
   
-    Average bytes per second, usually calculated as `SamplesPerSec * Channels * ceil(BitsPerSample, 8)`. This can be different for audio streams that use variable bitrates.
+    Average bytes per second, calculated as `SamplesPerSec * Channels * ceil(BitsPerSample, 8)`. Verge bytes per second can be different for audio streams that use variable bitrates.
 
   - `BlockAlign`
   
-    The size of a single frame, usually calculated as `Channels * ceil(wBitsPerSample, 8)`. The actual value might be higher, due to padding.
+    The size of a single frame, calculated as `Channels * ceil(wBitsPerSample, 8)`. Due to padding, the actual value might be higher than this value.
 
   - `BitsPerSample`
   
-    The bits per sample. A typcial audio stream uses 16 bits per sample (CD quality).
+    The bits per sample. A typical audio stream uses 16 bits per sample (CD quality).
 
-The `AudioInputStream` base class is expected to be overriden by a custom stream adapters. It has to implement these functions:
+The `AudioInputStream` base class will be overridden by your custom stream adapter. This adapter has to implement these functions:
 
    - `GetFormat()`
    
@@ -54,7 +54,7 @@ The `AudioInputStream` base class is expected to be overriden by a custom stream
 
    - `Read()`
    
-     This function is called to get data from the audio stream. It gets the a pointer to the buffer to which to copy the audio data and the size of the buffer. The function returns the number of bytes being copied to the buffer or 0, indicating the end of the stream. 
+     This function is called to get data from the audio stream. One parameter is a pointer to the buffer to copy the audio data into. The second parameter is the size of the buffer. The function returns the number of bytes copied to the buffer. A return value of `0` indicates the end of the stream. 
 
    - `Close()`
    
@@ -64,13 +64,13 @@ The `AudioInputStream` base class is expected to be overriden by a custom stream
 
 In general, the following steps are involved when using Audio input streams:
 
-  - Identify the format of the audio stream and verify that it is supported by The SDK and the speech service. Currently the following configuration is supported:
+  - Identify the format of the audio stream. The format must be supported by the SDK and the speech service. Currently the following configuration is supported:
 
-    1 TAG (PCM), 1 channel, 16000 samples per second, 32000 bytes per second, 2 block align (16 bit including padding for a sample), 16 bits per sample
+    1 TAG (PCM), 1 channel, 16000 samples per second, 32,000 bytes per second, 2 block align (16 bit including padding for a sample), 16 bits per sample
 
-  - Make sure your code can provide the RAW audio data as to the specs identified above. This can be done by configuring your audio source to match the configuration or by transcoding data into the required format.
+  - Make sure your code can provide the RAW audio data as to the specs identified above. If your audio source data doesn't match the supported formats, the audio must be transcoded into the required format.
 
-  - Implement your `AudioInputStream` implementation and derive it from AudioInputStream. You have to override the `GetFormat()`, `Read()`, and `Close()` operation. The exact function signature is language dependent, but the code will look similar to this:
+  - Implement your `AudioInputStream` implementation and derive it from AudioInputStream. Implement the `GetFormat()`, `Read()`, and `Close()` operation. The exact function signature is language-dependent, but the code will look similar to this code sample:
 
     ```
      public class ContosoAudioStream : AudioInputStream {
@@ -111,7 +111,7 @@ In general, the following steps are involved when using Audio input streams:
     delete contosoStream;
     ```
 
-  - Note, the contosoStream must be deleted explicitly after the result has been obtained. While this is easy to see in the previous example, you are not allowed to release the AudioStream before the input is consumed. In a scenario using `Start- / StopContinuousRecognitionAsync` it requires a concept like this:
+  - The contosoStream must be deleted explicitly after the final result has been received. You can't release the AudioStream before the complete input is read. In a scenario using `StopContinuousRecognitionAsync` and `StopContinuousRecognitionAsync` it requires a concept illustrated in this sample:
 
     ```
     var contosoStream = new ContosoAudioStream(contosoConfig);
