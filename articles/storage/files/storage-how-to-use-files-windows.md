@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2018
+ms.date: 06/07/2018
 ms.author: renash
 ---
 
@@ -24,7 +24,7 @@ In order to mount an Azure file share outside of the Azure region it is hosted i
 
 You can mount Azure file shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support mounting file shares in which environment:
 
-| Windows Version        | SMB Version | Mountable in Azure VM | Mountable On-Premises |
+| Windows version        | SMB version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
 | Windows Server 2019 (preview)<sup>1</sup> | 3.0 | Yes | Yes |
 | Windows 10<sup>2</sup> | SMB 3.0 | Yes | Yes |
@@ -43,7 +43,7 @@ You can mount Azure file shares on a Windows installation that is running either
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
 
-## </a>Prerequisites for Mounting Azure file share with Windows 
+## Prerequisites for mounting Azure file share with Windows 
 * **Storage account name**: To mount an Azure file share, you will need the name of the storage account.
 
 * **Storage account key**: To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
@@ -57,7 +57,6 @@ You can mount Azure file shares on a Windows installation that is running either
     `TCP port 445 (Microsoft-ds service): FILTERED`
 
     For more information about how to use Portqry, see [Description of the Portqry.exe command-line utility](https://support.microsoft.com/help/310099).
-
 
 ## Persisting connections across reboots
 ### CmdKey
@@ -153,28 +152,84 @@ Once the credentials have been persisted, you no longer have to supply them when
 >   cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 >   ```
 
-## Next steps
-See these links for more information about Azure Files.
+## Securing Windows/Windows Server
+In order to mount an Azure file share on Windows, port 445 must be accessible. Many organizations block port 445 access to Azure because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with Windows and Windows Server. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and all supported versions of Windows and Windows Server make it possible to remove or disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) removing or disabling the SMB 1 client and server in Windows before continuing with this guide.
 
+The following table provides detailed information on the status of SMB 1 each version of Windows:
+
+| Windows version                           | SMB 1 default status | Disable/Remove method       | 
+|-------------------------------------------|----------------------|-----------------------------|
+| Windows Server 2019 (preview)             | Disabled             | Remove with Windows feature |
+| Windows Server, versions 1709 and 1803    | Disabled             | Remove with Windows feature |
+| Windows 10, versions 1709+                | Disabled             | Remove with Windows feature |
+| Windows Server 2016                       | Enabled              | Remove with Windows feature |
+| Windows 10, versions 1507, 1607, and 1703 | Enabled              | Remove with Windows feature |
+| Windows Server 2012 R2                    | Enabled              | Remove with Windows feature | 
+| Windows 8.1                               | Enabled              | Remove with Windows feature | 
+| Windows Server 2012                       | Enabled              | Disable with Registry       | 
+| Windows Server 2008 R2                    | Enabled              | Disable with Registry       |
+| Windows 7                                 | Enabled              | Disable with Registry       | 
+
+### Auditing SMB 1 usage
+> Applies to Windows Server 2019 (preview), Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows 10 (versions 1507, 1607, 1703, 1709, and 1804), Windows Server 2012 R2, and Windows 8.1
+
+Before removing SMB 1 in your environment, you may wish to audit SMB 1 usage to see if any clients will be broken by the change. If any requests are made against SMB shares with SMB 1, an audit event will be logged in the event log under `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
+
+> [!Note]  
+> To enable auditing support on Windows Server 2012 R2 and Windows 8.1, install at least [KB4022720](https://support.microsoft.com/help/4022720/windows-8-1-windows-server-2012-r2-update-kb4022720).
+
+To enable auditing, execute the following cmdlet from an elevated PowerShell session:
+
+```PowerShell
+Set-SmbServerConfiguration –AuditSmb1Access $true
+```
+
+### Removing SMB 1 from Windows Server
+> Applies to Windows Server 2019 (preview), Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows Server 2012 R2
+
+To remove SMB 1 from a Windows Server instance, execute the following cmdlet from an elevated PowerShell session:
+
+```PowerShell
+Remove-WindowsFeature -Name FS-SMB1
+```
+
+To complete the removal process, restart your server. 
+
+> [!Note]  
+> Starting with Windows 10 and Windows Server version 1709, SMB 1 is not installed by default and has separate Windows features for the SMB 1 client and SMB 1 server. We always recommend leaving both the SMB 1 server (`FS-SMB1-SERVER`) and the SMB 1 client (`FS-SMB1-CLIENT`) uninstalled.
+
+### Removing SMB 1 from Windows client
+> Applies to Windows 10 (versions 1507, 1607, 1703, 1709, and 1804) and Windows 8.1
+
+To remove SMB 1 from your Windows client, execute the following cmdlet from an elevated PowerShell session:
+
+```PowerShell
+Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+```
+
+To complete the removal process, restart your PC.
+
+### Disabling SMB 1 on legacy versions of Windows/Windows Server
+> Applies to Windows Server 2012, Windows Server 2008 R2, and Windows 7
+
+SMB 1 cannot be completely removed on legacy versions of Windows/Windows Server, but it can be disabled through the Registry. To disable SMB 1, create a new registry key `SMB1` of type `DWORD` with a value of `0` under `HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Services > LanmanServer > Parameters`.
+
+You can easily accomplish this with the following PowerShell cmdlet as well:
+
+```PowerShell
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
+```
+
+After creating this registry key, you must restart your server to disable SMB 1.
+
+### SMB resources
+- [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
+- [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
+- [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
+- [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+
+## Next steps
+See these links for more information about Azure Files:
+- [Planning for an Azure Files deployment](storage-files-planning.md)
 * [FAQ](../storage-files-faq.md)
 * [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)      
-
-### Conceptual articles and videos
-* [Azure Files: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [How to use Azure Files with Linux](../storage-how-to-use-files-linux.md)
-
-### Tooling support for Azure Files
-* [How to use AzCopy with Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Troubleshooting Azure Files problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Troubleshooting Azure Files problems - Linux](storage-troubleshoot-linux-file-connection-problems.md)
-
-### Blog posts
-* [Azure Files is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inside Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Migrating data to Azure File ](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
-
-### Reference
-* [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
