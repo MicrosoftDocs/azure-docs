@@ -7,7 +7,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2017
+ms.date: 06/04/2017
 ms.author: cahann
 ---
 
