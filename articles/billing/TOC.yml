@@ -103,6 +103,8 @@
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
 - name: Reference
   items:
+  - name: Billing Automation Scenarios
+    href: billing-and-cost-management-automation-scenarios.md  
   - name: Azure Billing API Overview
     href: billing-usage-rate-card-overview.md
     items:
@@ -110,7 +112,8 @@
       href: https://docs.microsoft.com/rest/api/billing
     - name: Partner solution – Cloud Cruiser
       href: billing-usage-rate-card-partner-solution-cloudcruiser.md
-  - name: Azure Consumption API
+  - name: Azure Consumption API Overview
+    href: billing-consumption-api-overview.md
     items:
     - name: Azure Consumption REST API
       href: https://docs.microsoft.com/rest/api/consumption
