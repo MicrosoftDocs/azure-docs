@@ -38,7 +38,8 @@ To get your endpoint details:
 3. Get your GenerateAnswer endpoint details.
 
 ![endpoint details](../media/qnamaker-how-to-metadata-usage/view-code.png)
-4. You can also get your endpoint details from the **Settings** tab of your knowledge base.
+
+You can also get your endpoint details from the **Settings** tab of your knowledge base.
 
 ### GenerateAnswer request
 
