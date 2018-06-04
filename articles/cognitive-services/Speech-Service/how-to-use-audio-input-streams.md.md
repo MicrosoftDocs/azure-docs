@@ -66,6 +66,7 @@ In general, the following steps are involved when using Audio input streams:
   2. Make sure your code can provide the RAW audio data as to the specs identified in step 1. This can be done by configuring your audio source to match the configuration or by transcoding data in case the data source cannot provide the required type natively.
 
   3. Implement your own class, and derive it from AudioInputStream, overriding the GetFormat(), Read(), and Close() operation. The exact function signature is language mapping dependent, but in pseudo code, the code will look like this:
+
     ```
      public class ContosoAudioStream : AudioInputStream {
         ContosoConfig config;
@@ -88,8 +89,9 @@ In general, the following steps are involved when using Audio input streams:
         }
      };
     ```
-        
+
   4. Call the Carbon APIs with an instance of your class:
+
     ```
     var contosoStream = new ContosoAudioStream(contosoConfig);
 
@@ -103,6 +105,7 @@ In general, the following steps are involved when using Audio input streams:
 
     delete contosoStream;
     ```
+
     Note, the contosoStream must be deleted explicitly after the result has been obtained.
 
 
