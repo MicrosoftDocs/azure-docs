@@ -7,7 +7,7 @@ To enable a Return Proxy, the cluster nodes will need access to the Return Proxy
 node on ports 37140-37141. This can be accomplished by adding a security
 rule to allow access to those ports from within your cluster.
 
-Next, declare a node as the Return Proxy by setting `IsReturnProxy` equal to `True`.
+Next, declare a node as a Return Proxy by setting `IsReturnProxy` equal to `True`.
 
 Finally, you need to define `KeyPair`, `KeyPairLocation`, and `Username` for the Return Proxy node.
 
@@ -19,15 +19,15 @@ by setting ReturnProxyAddress to `public`. The default case is sufficient for th
 
 An example Return Proxy node might look like the following:
 
-  [[node master]]
-  IsReturnProxy = true  # access to CycleServer is proxied through this node
-  ReturnProxyAddress = <public>  # use the public address of the proxy rather than the default private address
+    [[node master]]
+    IsReturnProxy = true  # access to CycleServer is proxied through this node
+    ReturnProxyAddress = <public>  # use the public address of the proxy rather than the default private address
 
-  Username = cyclecloud
+    Username = cyclecloud
 
-  # Custom keypair
-  KeyPair = custom-keypair
-  KeyPairLocation = ~/.ssh/custom-keypair.pem
+    # Custom keypair
+    KeyPair = custom-keypair
+    KeyPairLocation = ~/.ssh/custom-keypair.pem
 
 Only one node may be declared the Return Proxy of the cluster. If multiple nodes are defined,
 the cluster will not start. This setting is currently only supported on CentOS, Ubuntu, and Suse nodes.
