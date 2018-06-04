@@ -13,18 +13,29 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 05/17/2018
 ms.author: seguler
 
 ---
 # Transfer data with the AzCopy on Windows
 AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
-There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
+There are two versions of AzCopy that you can download. AzCopy on Windows offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
 
 ## Download and install AzCopy on Windows
 
-Download the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy).
+### Latest Preview version (v8.0.0)
+Download the [latest preview version of AzCopy on Windows](http://aka.ms/downloadazcopypr). This Preview version offers significant performance improvements and packages .NET Core in the installation.
+
+#### AzCopy on Windows 8.0 Preview Release Notes
+- Table service is no longer supported in the latest version. If you use Table export feature, download the stable version.
+- Built with .NET Core 2.1, and all .NET Core dependencies are now packaged in the installation.
+- Significant performance improvements for both upload and download scenarios
+
+### Latest Stable version (v7.1.0)
+Download the [latest stable version of AzCopy on Windows](http://aka.ms/downloadazcopy).
+
+### Post-installation Step
 
 After installing AzCopy on Windows using the installer, open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
@@ -607,6 +618,20 @@ You can also run it for tables:
 AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
 ```
 
+### Automatically determine Content Type of a Blob
+
+AzCopy determines content type of a blob based on a JSON file that stores content type to file extension mapping. This JSON file is named AzCopyConfig.json, and is located in the AzCopy directory. If you have a file type that is not in the list you can append the mapping to the JSON file:
+
+```
+{
+  "MIMETypeMapping": {
+    ".myext": "text/mycustomtype",
+    .
+    .
+  }
+}
+```     
+
 ## AzCopy Parameters
 
 Parameters for AzCopy are described below. You can also type one of the following commands from the command line for help in using AzCopy:
@@ -939,10 +964,6 @@ Let's take a look at some of the known issues and best practices.
 When you copy blobs or files with AzCopy, keep in mind that another application may be modifying the data while you are copying it. If possible, ensure that the data you are copying is not being modified during the copy operation. For example, when copying a VHD associated with an Azure virtual machine, make sure that no other applications are currently writing to the VHD. A good way to do this is by leasing the resource to be copied. Alternately, you can create a snapshot of the VHD first and then copy the snapshot.
 
 If you cannot prevent other applications from writing to blobs or files while they are being copied, then keep in mind that by the time the job finishes, the copied resources may no longer have full parity with the source resources.
-
-### Run one AzCopy instance on one machine.
-
-AzCopy is designed to maximize the utilization of your machine resource to accelerate the data transfer, we recommend you run only one AzCopy instance on one machine, and specify the option `/NC` if you need more concurrent operations. For more details, type `AzCopy /?:NC` at the command line.
 
 ### Enable FIPS-compliant MD5 algorithms for AzCopy when you "Use FIPS-compliant algorithms for encryption, hashing and signing."
 
