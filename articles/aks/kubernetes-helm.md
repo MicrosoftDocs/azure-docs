@@ -147,38 +147,43 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## Run Helm charts
 
-To deploy an NGINX ingress controller, use the [helm install][helm-install] command.
+To deploy Wordpress, use the [helm install][helm-install] command.
 
 ```azurecli-interactive
-helm install stable/nginx-ingress --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
+helm install stable/wordpress
 ```
 
 The output looks similar to the following, but includes additional information such as instructions on how to use the Kubernetes deployment.
 
-```
-NAME:   tufted-ocelot
-LAST DEPLOYED: Thu Oct  5 00:48:04 2017
-NAMESPACE: default
-STATUS: DEPLOYED
-
+NAME:   geared-squidLAST DEPLOYED: Mon Jun  4 15:42:38 2018
+NAMESPACE: defaultSTATUS: DEPLOYED
 RESOURCES:
+==> v1beta1/DeploymentNAME                    DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
+geared-squid-mariadb    1        1        1           0          1sgeared-squid-wordpress  1        1        1           0          1s
+==> v1/Pod(related)
+NAME                                    READY  STATUS   RESTARTS  AGEgeared-squid-mariadb-76bb69c7c8-hktpb   0/1    Pending  0         1s
+geared-squid-wordpress-bcd4c7c68-fnfcg  0/1    Pending  0         1s
+==> v1/SecretNAME                    TYPE    DATA  AGE
+geared-squid-mariadb    Opaque  2     1sgeared-squid-wordpress  Opaque  2     1s
+
 ==> v1/ConfigMap
-NAME                                    DATA  AGE
-tufted-ocelot-nginx-ingress-controller  1     5s
+NAME                        DATA  AGE
+geared-squid-mariadb        1     1s
+geared-squid-mariadb-tests  1     1s
+
+==> v1/PersistentVolumeClaim
+NAME                    STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
+geared-squid-mariadb    Pending  default  1s
+geared-squid-wordpress  Pending  default  1s
 
 ==> v1/Service
-NAME                                         CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
-tufted-ocelot-nginx-ingress-controller       10.0.140.10  <pending>    80:30486/TCP,443:31358/TCP  5s
-tufted-ocelot-nginx-ingress-default-backend  10.0.34.132  <none>       80/TCP                      5s
-
-==> v1beta1/Deployment
-NAME                                         DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-tufted-ocelot-nginx-ingress-controller       1        1        1           0          5s
-tufted-ocelot-nginx-ingress-default-backend  1        1        1           1          5s
+NAME                    TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)                     AGE
+geared-squid-mariadb    ClusterIP     10.0.187.211  <none>       3306/TCP                    1s
+geared-squid-wordpress  LoadBalancer  10.0.103.20   <pending>    80:30826/TCP,443:32284/TCP  1s
 ...
 ```
 
-For more information on using an NGINX ingress controller with Kubernetes, see [NGINX Ingress Controller][nginx-ingress].
+For more information on deploying Wordpress with Helm, see [the WordPress chart repo]][wordpress].
 
 ## List Helm charts
 
@@ -212,7 +217,7 @@ For more information about managing Kubernetes charts, see the Helm documentatio
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
 [helm-search]: https://docs.helm.sh/helm/#helm-search
-[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[wordpress]: https://github.com/kubernetes/charts/tree/master/stable/wordpress
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
