@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: terrylan
 ---
 
@@ -93,4 +93,4 @@ In this article, you learned how to configure security policies in Security Cent
 * [Azure Security Center FAQ](security-center-faq.md): Get answers to frequently asked questions about using the service.
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
 
-To learn more about Azure Policy, see [What is Azure Policy?](../azure-policy/azure-policy-introduction)
+To learn more about Azure Policy, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md)
