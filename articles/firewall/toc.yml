@@ -12,7 +12,7 @@
 
 - name: Tutorials
   items:
-  - name: Tutorial 1
+  - name: Configure rules
     href: tutorial-firewall-rules-portal.md
 - name: Samples
   items:
