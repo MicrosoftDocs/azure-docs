@@ -248,6 +248,6 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to improve accuracy with batch testing](luis-tutorial-batch-testing.md)
+> [Get utterance prediction with endpoint query](luis-get-started-cs-get-intent.md)
 
 [LUIS]: luis-reference-regions.md
