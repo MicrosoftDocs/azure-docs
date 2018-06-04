@@ -3,7 +3,7 @@ title: Register in Dev Center
 description: How to Register in Developer Center (Dev Center).
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: v-josepm
+author: jm-aditi-ms
 manager: pabutler
 editor:
 
