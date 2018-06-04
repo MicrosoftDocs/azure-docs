@@ -58,6 +58,8 @@
       href: cyclecloud-cluster-management.md
     - name: Nodes and Node Arrays
       href: cyclecloud-nodes.md
+    - name: Node Tags
+      href: 
     - name: Images
       href: cyclecloud-images.md
     - name: Auto-Scale
@@ -68,7 +70,7 @@
       href: cyclecloud-cluster-init-projects.md
     - name: Cluster Init
       href: cyclecloud-cluster-init.md
-  - name: Disaster Recovery
+  - name: Business Continuity
     items:
     - name: Overview
       href: cyclecloud-disaster-recovery-overview.md
@@ -108,14 +110,20 @@
       href: cyclecloud-storage-nfs-mounts.md
     - name: Blobs
       href: cyclecloud-storage-blobs.md
+  - name: Network Configuration
+    items:
+      - name: Network Security
+        href:
+      - name: Proxy Settings
+        href:
+      - name: Transfer Listeners
+        href:
   - name: User Creation and RBAC
     href: cyclecloud-user-management-and-rbac.md
 - name: How-To
   items:
   - name: Create Custom Images
     href: cyclecloud-custom-images.md
-  - name: Create Custom Alerts
-    href: cyclecloud-custom-alerts.md
   - name: Transfer Data
     href: cyclecloud-transfer-data.md
   - name: Enable Return Nodes
