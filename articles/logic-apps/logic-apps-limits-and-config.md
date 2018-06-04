@@ -309,14 +309,14 @@ based on where your logic apps exist:
 ### Connectors
 
 To support the calls that [connectors](../connectors/apis-list.md) make, 
-set up your firewall configurations so they include these outbound 
-IP addresses, based on where your logic apps exist.
+set up your firewall configurations so they include these outbound IP addresses, 
+based on the regions where your logic apps exist.
 
 > [!IMPORTANT]
 >
-> If you have existing configurations, please update your 
-> configurations so that they include all the IP addresses 
-> in this list **as soon as possible before September 1, 2018**. 
+> Please update any existing configurations so they include 
+> the IP addresses for the regions where your logic apps exist 
+> **as soon as possible before September 1, 2018**. 
 
 | Logic Apps region | Outbound IP | 
 |-------------------|-------------|  
