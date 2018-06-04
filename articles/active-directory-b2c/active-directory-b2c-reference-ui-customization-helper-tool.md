@@ -1,19 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Page UI customization helper tool | Microsoft Docs'
-description: A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C
+title: Page UI customization helper tool in Azure Active Directory B2C | Microsoft Docs
+description: A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: A helper tool used to demonstrate the page user interface (UI) customization feature
 This article is a companion to the [main UI customization article](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. The following steps describe how to exercise the page UI customization feature by using sample HTML and CSS content that we've provided.
 
