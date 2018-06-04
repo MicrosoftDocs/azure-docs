@@ -60,6 +60,8 @@
   items:
   - name: Register an Edge device
     items: 
+    - name: Azure portal
+      href: how-to-register-device-portal.md
     - name: Azure CLI
       href: how-to-register-device-cli.md
   - name: Develop and test modules
@@ -70,6 +72,8 @@
       href: how-to-vscode-debug-azure-function.md
   - name: Deploy modules
     items:
+    - name: Azure portal
+      href: how-to-deploy-modules-portal.md
     - name: Azure CLI
       href: how-to-deploy-modules-cli.md
   - name: Deploy and monitor at scale
