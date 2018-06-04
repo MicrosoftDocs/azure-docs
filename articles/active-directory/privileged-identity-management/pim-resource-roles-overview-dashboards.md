@@ -3,7 +3,7 @@ title: 'Overview: Perform an access review in Privileged Identity Management for
 description: This document describes how to perform an access review in PIM for Azure resources.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 editor: mwahl
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
 ---
 

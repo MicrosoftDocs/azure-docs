@@ -78,7 +78,7 @@ While you wait for the development environment to be created, look at the files 
 
 First, you can see a folder named `charts` has been added and within this folder a [Helm chart](https://docs.helm.sh) for your application has been scaffolded. These files are used to deploy your application into the development environment.
 
-You will see a file named `Dockerfile` has been added. This file has information needed to package your application in the standard Docker format. A `HeaderPropagation.cs` file is also created, we will discuss this file later in the walkthrough. 
+You will see a file named `Dockerfile` has been added. This file has information needed to package your application in the standard Docker format.
 
 Lastly, you will see a file named `azds.yaml`, which contains configuration information that is needed by the development environment, such as whether the application should be accessible via a public endpoint.
 
@@ -117,22 +117,25 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`. Switch
    {
       ViewData["Message"] = "Hello from webfrontend";
 
-      // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
-      // headers in the incoming request to any outgoing requests
-      using (var client = new HeaderPropagatingHttpClient(this.Request))
-      {
-          // Call *mywebapi*, and display its response in the page
-          var response = await client.GetAsync("http://mywebapi/api/values/1");
-          ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-      }
+      using (var client = new System.Net.Http.HttpClient())
+            {
+                // Call *mywebapi*, and display its response in the page
+                var request = new System.Net.Http.HttpRequestMessage();
+                request.RequestUri = new Uri("http://mywebapi/api/values/1");
+                if (this.Request.Headers.ContainsKey("azds-route-as"))
+                {
+                    // Propagate the dev space routing header
+                    request.Headers.Add("azds-route-as", this.Request.Headers["azds-route-as"] as IEnumerable<string>);
+                }
+                var response = await client.SendAsync(request);
+                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
+            }
 
       return View();
    }
    ```
 
-Note how Kubernetes' DNS service discovery is employed to refer to the service as `http://mywebapi`. **Code in your development environment is running the same way it will run in production**.
-
-The code example above also makes use of a `HeaderPropagatingHttpClient` class. This helper class is the file `HeaderPropagation.cs` that was added to your project when you configured it to use Azure Dev Spaces. `HeaderPropagatingHttpClient` is derived from the well-known `HttpClient` class, and it adds functionality to propagate specific headers from an existing ASP .NET HttpRequest object into an outgoing HttpRequestMessage object. You'll see later how this facilitates a more productive development experience in team scenarios.
+The preceding code example forwards the `azds-route-as` header from the incoming request to the outgoing request. You'll see later how this facilitates a more productive development experience in team scenarios.
 
 ## Debug across multiple services
 1. At this point, `mywebapi` should still be running with the debugger attached. If it is not, hit F5 in the `mywebapi` project.

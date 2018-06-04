@@ -6,7 +6,6 @@ keywords: global distribution, Table
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
