@@ -73,7 +73,7 @@ $Oms=Get-AzureRmOperationalInsightsWorkspace `
   -Name myLaWorkspace
 ```
 
-If you don't have an existing workspace, you can create one with [New-AzureRmOperationalInsightsWorkspace](powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace).
+If you don't have an existing workspace, you can create one with [New-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace).
 
 There are two categories of logging you can enable logs for. For more information, see [Log categories](#log-categories). Enable diagnostic logging for the NSG with [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting). The following example logs both event and counter category data to the workspace for an NSG, using the IDs for the NSG and workspace you retrieved previously:
 
@@ -93,7 +93,7 @@ View and analyze logs. For more information, see [View and analyze logs](#view-a
 Diagnostics data can be:
 - [Written to an Azure Storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), for auditing or manual inspection. You can specify the retention time (in days) using resource diagnostic settings.
 - [Streamed to an Event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for ingestion by a third-party service, or custom analytics solution, such as PowerBI.
-- [Written to Azure Log Analytics](../log-analytics/log-analytics-azure-storage#azure-diagnostics-direct-to-log-analytics?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- [Written to Azure Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## Log categories
 
