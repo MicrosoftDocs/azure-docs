@@ -66,7 +66,7 @@ The following steps show you how to create an IoT Edge module project based on .
    4. Name your module **CSharpModule**. 
    5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/csharpmodule**.
  
-4. The VS Code window will load your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder and a deployment manifest template file in the workspace folder. Browse to the **CSharpModule**  folder in the **modules** folder, and click **Program.cs** to open it.
+4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder and a deployment manifest template file. Open **modules** > **CSharpModule** > **Program.cs**.
 
 5. At the top of the **CSharpModule** namespace, add three `using` statements for types used later on:
 
@@ -216,16 +216,18 @@ The following steps show you how to create an IoT Edge module project based on .
 
 ## Build your IoT Edge solution
 
-1. Sign in to Docker by entering the following command in the VS Code integrated terminal: 
+In the previous section you created an IoT Edge solution and added code to the CSharpModule that will filter out messages where the reported machine temperature is below the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry. 
+
+1. Sign in to Docker by entering the following command in the Visual Studio Code integrated terminal: 
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   To find the user name, password and login server to use in this command, go to the [Azure portal] (https://portal.azure.com). From **All resources**, click the tile for your Azure container registry to open its properties, then click **Access keys**. Copy the values in the **Username**, **password**, and **Login server** fields. 
+   Use the username, password, and login server that you copied from your Azure Container Registry in the first section. Or retrieve them again from the **Access keys** section of your registry in the Azure portal.
 
-2. In VS Code explorer, click **deployment.template.json** to open it. This file describes the modules and routes for your IoT Edge solution. There are two modules will be deployed, one is the `tempSensor` and the other is `CSharpModule`. In `CSharpModule` section, the image URL is parsed from the `module.json` file in the **CSharpModule** folder. If you want to run your solution in Windows container, you need to update the `.amd64` to `.windows-amd64`. In `routes` section under `$edgeHub`, you can see a `sensorToCSharpModule` route, which routes the message from `tempSensor` to `CSharpModule`.
+2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the `$edgeAgent` to deploy two modules: **tempSensor** and **CSharpModule**. The `CSharpModule.image` value is set to a Linux amd64 version of the image. If you want to run your solution in Windows container, change **.amd64** to **.windows-amd64**. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-3. Add below JSON content at the bottom of **deployment.template.json** for the `CSharpModule` module twin and save this file: 
+3. Add the CSharpModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
     ```json
         "CSharpModule": {
             "properties.desired":{
@@ -234,9 +236,15 @@ The following steps show you how to create an IoT Edge module project based on .
         }
     ```
 
-4. Right-click the **deployment.template.json** file and click **Build IoT Edge solution**. VS Code then generates the actual `deployment.json` into **config** folder, builds your code, containerizes the `CSharpModule.dll` and pushes it to the container registry you specified. You can get the full container image address with tag in the VS Code integrated terminal. For more information about the build and push definition, you can refer to the `module.json` file.
+4. Save this file.
+5. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build IoT Edge solution**. 
+
+When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a `deployment.json` file in a new **config** folder. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the `CSharpModule.dll`, and the push it to the container registry that you specified when you initialized the solution. 
+
+You can see the full container image address with tag in the VS Code integrated terminal. The image address is built from information in the `module.json` file, with the format **\<repository\>:\<version\>-\<platform\>**. For this tutorial, you should see **\<container registry\>.azurecr.io/csharpmodule:0.0.1-amd64**.
 
 ## Add registry credentials to Edge runtime
+
 Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. These credentials give the runtime access to pull the container. In VS Code command palette, type and run the command **Azure IoT Edge: Log in to Container Registry**. And then enter your ACR registry address, usename and password.
 
 > [!NOTE]
