@@ -7,7 +7,7 @@
   expanded: true
   items:
   - name: Summary
-    href: QuickStarts/qs-summary.md
+    href: QuickStarts/quickstart-summary.md
   - name: C#
     items:
     - name: Analyze an image
