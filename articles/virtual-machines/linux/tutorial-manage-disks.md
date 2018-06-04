@@ -87,7 +87,7 @@ Premium disks are backed by SSD-based high-performance, low-latency disk. Perfec
 ### Premium disk performance
 |Premium storage disk type | P10 | P20 | P30 |
 | --- | --- | --- | --- |
-| Disk size (round up) | 128 GiB | 512 GiB | 1,024 GB (1 TiB) |
+| Disk size (round up) | 128 GiB | 512 GiB | 1,024 GiB (1 TiB) |
 | Max IOPS per disk | 500 | 2,300 | 5,000 |
 | Throughput per disk | 100 MiB/s | 150 MiB/s | 200 MiB/s |
 
