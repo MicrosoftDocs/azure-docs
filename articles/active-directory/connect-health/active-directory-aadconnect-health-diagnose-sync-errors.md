@@ -33,11 +33,11 @@ For example, this image indicates that two users have a conflict of their **User
 ![Diagnose sync error common scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixCommonCase.png)
 
 ### Orphaned object scenario
-Occasionally, you might find that an existing user loses the **sourceAnchor**. The deletion of the source object happened in on-premises Azure AD. But the change of deletion signal never got synchronized to Azure AD. This loss happens for reasons like sync engine issues or domain migration. When the same object gets restored or recreated, logically, an existing user should be the user to sync from the **sourceAnchor**. 
+Occasionally, you might find that an existing user loses the **Source Anchor**. The deletion of the source object happened in on-premises Azure AD. But the change of deletion signal never got synchronized to Azure AD. This loss happens for reasons like sync engine issues or domain migration. When the same object gets restored or recreated, logically, an existing user should be the user to sync from the **Source Anchor**. 
 
-When an existing user is a cloud-only object, you can also see the conflicting user synchronized to Azure AD. The user can't be matched in sync to the existing object. There's no direct way to remap the **sourceAnchor**. See more about the [existing knowledge base](https://support.microsoft.com/help/2647098). 
+When an existing user is a cloud-only object, you can also see the conflicting user synchronized to Azure AD. The user can't be matched in sync to the existing object. There's no direct way to remap the **Source Anchor**. See more about the [existing knowledge base](https://support.microsoft.com/help/2647098). 
 
-As an example, the existing object in Azure AD preserves the license of Joe. A newly synchronized object with a different **sourceAnchor** occurs in a duplicated attribute state in Azure AD. Changes for Joe in on-premises AD won't be applied to Joe’s original user (existing object) in Azure AD.  
+As an example, the existing object in Azure AD preserves the license of Joe. A newly synchronized object with a different **Source Anchor** occurs in a duplicated attribute state in Azure AD. Changes for Joe in on-premises AD won't be applied to Joe’s original user (existing object) in Azure AD.  
 
 ![Diagnose sync error orphaned object scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixOrphanedCase.png)
 
@@ -52,7 +52,7 @@ The diagnose feature supports user objects with the following duplicated attribu
 | OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> To access this feature, Global Administrator or Contributor permission is required from the RBAC settings.
+> To access this feature, **Global Admin** permission, or **Contributor** permission from the RBAC settings, is required .
 >
 
 Follow the steps from the Azure portal to narrow down the sync error details and provide more specific solutions:
@@ -111,8 +111,8 @@ In the following example, the two objects belong to the same user **Joe Johnson*
 
 
 ## What happens after the fix is applied in the orphaned object scenario
-Based on the answers to the preceding questions, you'll see the **Apply Fix** button when there's a fix available from Azure AD. In this case, the on-premises object is syncing with an unexpected Azure AD object. The two objects are mapped by using the **sourceAnchor**. The **Apply Fix** change takes these or similar steps:
-1. Updates the **sourceAnchor** to the correct object in Azure AD.
+Based on the answers to the preceding questions, you'll see the **Apply Fix** button when there's a fix available from Azure AD. In this case, the on-premises object is syncing with an unexpected Azure AD object. The two objects are mapped by using the **Source Anchor**. The **Apply Fix** change takes these or similar steps:
+1. Updates the **Source Anchor** to the correct object in Azure AD.
 2. Deletes the conflicting object in Azure AD if it's present.
 
 ![Diagnose sync error after the fix](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixAfterFix.png)
@@ -132,11 +132,11 @@ The sync error will be resolved after the next sync. Connect Health will no long
 
 
 **Q.** What if the **existing object** should be the object to be deleted?  
-**A.** If the **existing object** should be deleted, the process doesn't involve a change of **sourceAnchor**. Usually, you can fix it from your on-premises Azure AD. 
+**A.** If the **existing object** should be deleted, the process doesn't involve a change of **Source Anchor**. Usually, you can fix it from your on-premises Azure AD. 
 
 
 **Q.** What permission does a user need to apply the fix?  
-**A.** In the RBAC settings, Global Administrator or Contributor has permission to access the diagnostic and troubleshooting process.
+**A.** **Global Admin**, or **Contributor** from the RBAC settings, has permission to access the diagnostic and troubleshooting process.
 
 
 **Q.** Do I have to configure AAD Connect or update the Azure AD Connect Health agent for this feature?  
@@ -144,4 +144,4 @@ The sync error will be resolved after the next sync. Connect Health will no long
 
 
 **Q.** If the existing object is soft deleted, will the diagnosis process make the object active again?  
-**A.** No, the fix won't update object attributes other than **sourceAnchor**. 
+**A.** No, the fix won't update object attributes other than **Source Anchor**.
