@@ -32,22 +32,22 @@ sections:
         src: media/index/logo_Csharp.svg
       title: C#
     - image: 
+        src: media/index/logo_java.svg
+      title: Java
+    - image: 
         src: media/index/logo_python.svg
       title: Python
     - image: 
         src: media/index/logo_nodejs.svg
       title: Node.js
-    - image: 
-        src: media/index/logo_java.svg
-      title: Java
     rows:
     - title: Computer Vision - API
       values:
       - href:
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/Java
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/Python
       - href:
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/Java
     - title: Custom Vision - Build a Classifier
       values:
       - href: /azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier
@@ -66,9 +66,9 @@ sections:
       values: 
       - href:
       - href: /azure/cognitive-services/translator-speech/quickstarts/csharp
+      - href: /azure/cognitive-services/translator-speech/quickstarts/java
       - href: /azure/cognitive-services/translator-speech/quickstarts/python
       - href: /azure/cognitive-services/translator-speech/quickstarts/nodejs
-      - href: /azure/cognitive-services/translator-speech/quickstarts/java
     - title: LUIS - Use prebuilt domain
       values:
       - href: /azure/cognitive-services/luis/luis-get-started-create-app
@@ -87,16 +87,16 @@ sections:
       values: 
       - href:
       - href: /azure/cognitive-services/bing-web-search/quickstarts/csharp
+      - href: /azure/cognitive-services/bing-web-search/quickstarts/java
       - href: /azure/cognitive-services/bing-web-search/quickstarts/python
       - href: /azure/cognitive-services/bing-web-search/quickstarts/nodejs
-      - href: /azure/cognitive-services/bing-web-search/quickstarts/java
     - title: Bing Image Search - Call and Response
       values:
       - href:
       - href: /azure/cognitive-services/bing-image-search/quickstarts/csharp
+      - href: /azure/cognitive-services/bing-image-search/quickstarts/java
       - href: /azure/cognitive-services/bing-image-search/quickstarts/python
       - href: /azure/cognitive-services/bing-image-search/quickstarts/nodejs
-      - href: /azure/cognitive-services/bing-image-search/quickstarts/java
 
 - title: Step-by-Step Tutorials
   items:
