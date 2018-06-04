@@ -20,7 +20,7 @@ ms.author: vinagara
 Alerts in Log Analytics is being replaced by Azure Alerts and as part of this transition, alerts that you configured in Log Analytics will be migrated into Azure.  If you don't want to wait for them to be automatically moved into Azure, you can initiate the process following one of the options:
 
 1. Manually from the OMS portal 
-2. Programatically using the AlertsVersion API  
+2. Programmatically using the AlertsVersion API  
 
 > [!NOTE]
 > Microsoft will automatically migrate alerts created in Log Analytics to Azure alerts starting on **14 May 2018** in a phased approach until completed. From this day forward, Microsoft will begin to schedule migrating the alerts to Azure, and during this transition, alerts can be managed from both the OMS portal and Azure portal. This process is nondestructive and not interruptive.  
@@ -136,7 +136,7 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 > [!NOTE]
 > Result of migrating alerts into Azure Alerts may vary based on the summary provided by GET response.  Once scheduled, alerts in Log Analytics will be temporarily unavailable for editing/modification in the OMS portal.  However, new alerts can be created. 
 
-If the POST resquest is successful, it returns a HTTP 200 OK status along with the following response:
+If the POST request is successful, it returns an HTTP 200 OK status along with the following response:
 
 ```json
 {
@@ -209,7 +209,7 @@ This response indicates the alerts have been successfully migrated into Azure Al
 
 
 ## Option 3 - Using custom PowerShell script
- After May 14, 2018 - if Microsoft has not successfully extended your alerts from OMS portal to Azure; then till **July 5, 2018** - user can manually do the same via [Option1 - Via GUI](#option-1---initiate-from-the-oms-portal) or [Option 2 - Via API](#option-2---using-the-alertsversion-api).
+ After May 14, 2018 - if Microsoft has not successfully extended your alerts from OMS portal to Azure; then until **July 5, 2018** - user can manually do the same via [Option1 - Via GUI](#option-1---initiate-from-the-oms-portal) or [Option 2 - Via API](#option-2---using-the-alertsversion-api).
 
 After **July 5, 2018** - all alerts from OMS portal will be extended into Azure. Users who didn't take the [necessary remediation steps suggested](#troubleshooting), will have their alerts running without firing actions or notifications due to the lack of associated [Action Groups](monitoring-action-groups.md). 
 
@@ -432,19 +432,19 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 
 
 **Using the custom PowerShell script** 
-- Pre-requisite is the installation of [ARMclient](https://github.com/projectkudu/ARMClient),an open-source command-line tool that simplifies invoking the Azure Resource Manager API
+- Pre-requisite is the installation of [ARMclient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API
 - User running the said script must have Contributor or Owner role in the Azure Subscription
 - The following are the parameters to be provided for the script:
-    - $subscriptionId: The Azure Subscription id associated with the OMS/LA Workspace
+    - $subscriptionId: The Azure Subscription ID associated with the OMS/LA Workspace
     - $resourceGroup: The Azure Resource Group where lies the OMS/LA Workspace
     - $workspaceName: The name of the OMS/LA Workspace
 
 **Output of the custom PowerShell script**
 The script is verbose and will output the steps as it executes. 
-- It will display the  summary which contains the information about the existing OMS/LA alerts in the workspace and the Azure action groups to be created for the actions associated with them. 
+- It will display the  summary, which contains the information about the existing OMS/LA alerts in the workspace and the Azure action groups to be created for the actions associated with them. 
 - User will be prompted to go ahead with the extension or exit after viewing the summary.
 - If the user prompts to go ahead with extension, new Azure action groups will be created and all the existing alerts will be associated with them. 
-- In the end, the script exits by displaying the message "Extension complete!!". In case of any intermediate failures, subsequent errors will be displayed.
+- In the end, the script exits by displaying the message "Extension complete!." In case of any intermediate failures, subsequent errors will be displayed.
 
 ## Troubleshooting 
 During the process of extending alerts from OMS into Azure, there can be occasional issue that prevents the system from creating necessary [Action Groups](monitoring-action-groups.md). In such cases an error message will be shown in OMS portal via banner in Alert section and in GET call done to API.
