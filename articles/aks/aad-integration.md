@@ -29,6 +29,8 @@ From inside of the Kubernetes cluster, Webhook Token Authentication is used to v
 
 ## Create server application
 
+The first AAD application provides back-end authentication services using OAuth.
+
 Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
 Give the application a name, select **Web app / API** for the application type, and enter any URI formatted value for **Redirect URI**.
@@ -59,15 +61,17 @@ Select **Done** and **Grant Permissions** to complete this step.
 
 ![Create AAD registration](media/aad-integration/grant-permissions.png)
 
-Finally, you need to take note of the application ID and application secret. Back on the AD application, take note of the **Application ID**.
+On the AD application, take note of the **Application ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application ID`.
 
 ![Create AAD registration](media/aad-integration/application-id.png)
 
-Next, select **Settings** > **Keys**. Add a key description, select an expiration deadline, and select **Save**. Take note of the key value.
+Next, select **Settings** > **Keys**. Add a key description, select an expiration deadline, and select **Save**. Take note of the key value. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application secret`.
 
 ![Create AAD registration](media/aad-integration/application-key.png)
 
 ## Create client application
+
+The second AAD application is used when logging in with the Kubernetes CLI (kubectl.)
 
 Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
@@ -89,7 +93,7 @@ Select **Done** and **Grant Permissions** to complete this step.
 
 ![Create AAD registration](media/aad-integration/grant-permissions-client.png)
 
-Back on the AD application, take note of the **Application ID**.
+Back on the AD application, take note of the **Application ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Client application ID`.
 
 ![Create AAD registration](media/aad-integration/application-id-client.png)
 
@@ -97,18 +101,9 @@ Back on the AD application, take note of the **Application ID**.
 
 Finally, get the ID of your Azure tenant. This value is also used when deploying the AKS cluster.
 
-```azurecli
-az account list --query "[].{Name:name,TenantID:tenantId}" -o table
-```
+From the Azure portal, select **Azure Active Directory** > **Properties** and take note of the **Directory ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Tenant ID`.
 
-Output:
-
-```
-Name                                TenantID
-----------------------------------  ------------------------------------
-Microsoft Internal - Billable       00000000-0000-0000-0000-000000000000
-Microsoft Internal - Rate Capped    00000000-0000-0000-0000-000000000000
-```
+![Create AAD registration](media/aad-integration/tenant-id.png)
 
 ## Deploy Cluster
 
