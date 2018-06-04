@@ -46,7 +46,7 @@ The following variations exist for Face API from Commercial Azure:
 - Endpoint: https://virginia.api.cognitive.microsoft.us/face/v1.0/
 - Available SKUs: F0, S0
  
-For more information, please see [public documentation](../cognitive-services/Face/yml.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, please see [public documentation](../cognitive-services/Face/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 ##### Emotion API
 Emotion API is being deprecated and all of its technology has been incorporated to Face API.
