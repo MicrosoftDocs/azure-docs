@@ -33,8 +33,6 @@ Like all devices, simulated or physical, IoT Hub is the connection point used by
 
 This tutorial also uses an [IoT solution accelerator](/azure/iot-accelerators/), to generate and stream sample data to IoT Hub. IoT solution accelerators provide enterprise-grade preconfigured solutions, that enable you to accelerate the development of custom IoT solutions. 
 
-TODO: Diagram
-
 ## Create a TSI environment
 
 First, create a TSI environment in your Azure subscription:
@@ -90,7 +88,7 @@ Next, create the device simulation solution, which will generate test data to po
    >[!IMPORTANT]
    > Don't click the **Launch** button yet! But keep this web page open as you will return to it later.
 
-   ![Device simulation solution provisioning complete](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-provisioned.png)
+   ![Device simulation solution provisioning complete](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)
 
 4. Now go back to the Azure portal and inspect the newly created resources. You'll notice a new resource group has been created using the **Solution name** you provided in the last step. The resource group contains the resources created for the device simulation solution:
 
@@ -156,15 +154,15 @@ Now that all of the configuration work is complete, it's time to populate the TS
 
 You may recall from the [Create a device simulation section](#create-a-device-simulation), several Azure resources were created by the accelerator, to support the device simulation solution. In addition to the IoT hub discussed previously, an Azure App Service web application was generated to support device simulation. 
 
-1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Now you can click the **Launch** button under your "Device Simulation" solution:
+1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Sign in again if necessary, using the same Azure account you've been using in this tutorial. Now you can click the **Launch** button under your "Device Simulation" solution:
 
-     ![Solution accelerators dashboard](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-provisioned.png)
+     ![Solution accelerators dashboard](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)
 
-2. The device simulation web app will start at this point, and may take several seconds upon initial load. You will also be prompted to give the web application consent for the "Sign you in and read your profile" permission upon initial sign-in. Profile access is required in order to pull your user name, email address, and any other user profile information required to support the application. Be sure to use the same Azure account you've been using in this tutorial:
+2. The device simulation web app will start at this point, and may take several seconds upon initial load. You will also be prompted to give the web application consent to receive the "Sign you in and read your profile" permission. This allows the application to retreive the user profile information necessary to support the functioning of the application:
 
-     ![Solution accelerators dashboard](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)
+     ![Device simulation web application consent](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)
 
-3. Enter the required parameters on the **Simulation setup** page: 
+3. Once the **Simulation setup** page loads, enter the required parameters: 
 
    Parameter|Description
    ---|---
@@ -174,23 +172,21 @@ You may recall from the [Create a device simulation section](#create-a-device-si
    **Telemetry frequency** | Enter 10 seconds.
    **Simulation duration** | Enter 5 minutes.
 
-   When finished, click **Create **.
+   These parameters will cause the simulation to run for a total of 5 minutes, generating data from 1000 simulated devices, every 10 seconds (30 times). When finished, click **Start Simulation**. 
 
+   ![Device simulation setup](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)
+
+
+4. TBD
 
 ## Clean up resources
 
-If you plan to continue working through the next tutorial, do not clean up the resources created in this tutorial and proceed to [Next steps](#next-steps). If you do not plan to continue, use the following steps to delete all resources created by this Tutorial:  
-- Close the device client sample output window on your machine.
-- Close the TPM simulator window on your machine.
-- From the left-hand menu in the Azure portal, click All resources and then select your Device Provisioning service. At the top of the All resources blade, click Delete. 
-- From the left-hand menu in the Azure portal, click All resources and then select your IoT hub. At the top of the All resources blade, click Delete. 
+At this point, you might have the IoT Hub and TSI Environment services running in the portal. If you wish to abandon and/or delay completion of this tutorial series, we recommend delete all resources to avoid incurring unnecessary costs. 
 
--OR-
+From the left-hand menu in the Azure portal:
 
-At this point, you might have the IoT Hub and TSI Environment services running in the portal. If you wish to abandon and/or delay completion of this tutorial series, we recommend shutting them down to avoid incurring unnecessary costs:
-
-- From the left-hand menu in the Azure portal, click All resources and then select your Device Provisioning service. At the top of the All resources blade, click Delete. 
-- From the left-hand menu in the Azure portal, click All resources and then select your IoT hub. At the top of the All resources blade, click Delete.
+- click the **Resource groups** icon, then select the resource group you created for the TSI Environment. At the top of the page, click **Delete resource group**, enter the name of the resource group, then click **Delete**. 
+- click the **Resource groups** icon, then select the resource group that was created by the device simulation solution accelerator. At the top of the page, click **Delete resource group**, enter the name of the resource group, then click **Delete**. 
 
 ## Next steps
 
