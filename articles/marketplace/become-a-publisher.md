@@ -3,7 +3,7 @@ title: Become a Publisher in the storefronts on the marketplace
 description: This article describes how to become a publisher on the marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: v-josepm
+author: jm-aditi-ms
 manager: pabutler
 editor:
 
