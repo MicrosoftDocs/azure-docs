@@ -31,17 +31,21 @@ From inside of the Kubernetes cluster, Webhook Token Authentication is used to v
 
 The first AAD application provides back-end authentication services using OAuth.
 
-Select **Azure Active Directory** > **App registrations** > **New application registration**.
+1. Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
 Give the application a name, select **Web app / API** for the application type, and enter any URI formatted value for **Redirect URI**.
 
 ![Create AAD registration](media/aad-integration/app-registration.png)
 
-Select **Manifest** and edit the `groupMembershipClaims` value to `All`. Save the updates once complete.
+2. Select **Manifest** and edit the `groupMembershipClaims` value to `All`. Save the updates once complete.
 
 ![Create AAD registration](media/aad-integration/edit-manifest.png)
 
-Back on the AAD application, select **Settings** > **Required permissions** > **Add** > **Select an API** > **Microsoft Graph** > **Select**.
+3. Back on the AAD application, select **Settings** > **Keys**. Add a key description, select an expiration deadline, and select **Save**. Take note of the key value. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application secret`.
+
+![Create AAD registration](media/aad-integration/application-key.png)
+
+4. Back on the AAD application, select **Settings** > **Required permissions** > **Add** > **Select an API** > **Microsoft Graph** > **Select**.
 
 Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
 
@@ -55,25 +59,21 @@ Select **Done** and **Grant Permissions** to complete this step. This step will 
 
 ![Create AAD registration](media/aad-integration/grant-permissions.png)
 
-On the AD application, take note of the **Application ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application ID`.
+5. On the AD application, take note of the **Application ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application ID`.
 
 ![Create AAD registration](media/aad-integration/application-id.png)
-
-Next, select **Settings** > **Keys**. Add a key description, select an expiration deadline, and select **Save**. Take note of the key value. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application secret`.
-
-![Create AAD registration](media/aad-integration/application-key.png)
 
 ## Create client application
 
 The second AAD application is used when logging in with the Kubernetes CLI (kubectl.)
 
-Select **Azure Active Directory** > **App registrations** > **New application registration**.
+1. Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
 Give the application a name, select **Native** for the application type, and enter any URI formatted value for **Redirect URI**. Save the updates once done.
 
 ![Create AAD registration](media/aad-integration/app-registration-client.png)
 
-From the AAD application, select **Settings** > **Required permissions** > **Add** > **Select an API** and search for the name of the server application created in the last step of this document.
+2. From the AAD application, select **Settings** > **Required permissions** > **Add** > **Select an API** and search for the name of the server application created in the last step of this document.
 
 ![Create AAD registration](media/aad-integration/select-api.png)
 
@@ -85,7 +85,7 @@ Select **Done** and **Grant Permissions** to complete this step.
 
 ![Create AAD registration](media/aad-integration/grant-permissions-client.png)
 
-Back on the AD application, take note of the **Application ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Client application ID`.
+3. Back on the AD application, take note of the **Application ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Client application ID`.
 
 ![Create AAD registration](media/aad-integration/application-id-client.png)
 
