@@ -56,7 +56,7 @@ Are you an EA customer? If so, see [How am I impacted if I'm an EA customer?](#e
 
 ## What do I need to do to ensure uninterrupted access to my data?
 
-If you have an S1, S2, or S3 collection, you should migrate the collection to a single partition collection programmatically [by using the by using the .NET SDK](#migrate-diy). 
+If you have an S1, S2, or S3 collection, you should migrate the collection to a single partition collection programmatically [by using the .NET SDK](#migrate-diy). 
 
 <a name="collection-change"></a>
 
@@ -94,7 +94,7 @@ Only existing accounts with S1, S2, and S3 performance can be changed and alter 
 
 ## How do I migrate from the S1, S2, S3 performance levels to single partition collections on my own?
 
-You can migrate from the S1, S2, and S3 performance levels to single partition collections programmatically by using the .NET SDK. You can do this on your own before the planned migration to benefit from the flexible throughput options available with single partition collections.
+You can migrate from the S1, S2, and S3 performance levels to single partition collections programmatically [by using the .NET SDK](#migrate-diy). You can do this on your own before the planned migration to benefit from the flexible throughput options available with single partition collections.
 
 ### Migrate to single partition collections by using the .NET SDK
 
