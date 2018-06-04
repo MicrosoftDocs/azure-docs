@@ -29,7 +29,7 @@ If your app is meant to predict a wide variety of user utterances, consider impl
 Schedule a periodic [review of endpoint utterances](label-suggested-utterances.md) for active learning, such as every two weeks, then retrain and republish. 
 
 ## When you need to combine several LUIS and QnA maker apps
-Divide your intents into multiple LUIS apps using the dispatcher model. This approach allows you to have different subject domains in separate apps. The chat bot receives the utterances, then sends to the parent LUIS app for prediction. The top intent from this prediction will allow the chat bot to send the utterance to a specific LUIS domain.
+Divide your intents into multiple LUIS apps using the dispatcher model. This approach allows you to have different subject domains in separate apps. The chat bot receives the utterances, then sends to the parent LUIS app for prediction. The top intent from this prediction allows the chat bot to send the utterance to a specific LUIS domain.
 
 For example, let's say you're developing an office assistant that has over 500 intents. If 100 intents relate to scheduling meetings, 100 are about reminders, 100 are about getting information about colleagues, and 100 are for sending email, group intents so that each group is in a single app, then create a top-level app containing each intent. Pass the utterance to LUIS twice, first to the top-level app, then based on the top prediction results, to the group-level app. 
 
