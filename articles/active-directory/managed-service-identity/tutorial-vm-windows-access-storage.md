@@ -89,7 +89,7 @@ Files require blob storage so you need to create a blob container in which to st
 
     ![Create storage container](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-5. Using an editor of your choose, create a file titled *hello world.txt* on your local machine.  Open the file and add the text (without the quotes) "Hello world! :)" and then save it. 
+5. Using an editor of your choice, create a file titled *hello world.txt* on your local machine.  Open the file and add the text (without the quotes) "Hello world! :)" and then save it. 
 6. Upload the file to the newly created container by clicking on the container name, then **Upload**
 7. In the **Upload blob** pane, under **Files**, click the folder icon and browse to the file **hello_world.txt** on your local machine, select the file, then click **Upload**.
     ![Upload text file](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
@@ -105,6 +105,7 @@ You can use the VM's managed identity to retrieve the data in the Azure storage 
 5. In the next dropdown, under **Assign access to**, choose **Virtual Machine**.  
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown and then set **Resource Group** to **All resource groups**.  
 7. Under **Select**, choose your VM and then click **Save**. 
+
     ![Assign permissions](~/articles/active-directory/managed-service-identity/media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
 ## Get an access token and use it to call Azure Storage 
@@ -187,7 +188,7 @@ The response contains the contents of the file:
 
 ## Next steps
 
-In this tutorial, you learned how enable a Linux virtual machine Managed Identity to access Azure Storage.  To learn more about Azure Storage see:
+In this tutorial, you learned how enable a Windows virtual machine Managed Identity to access Azure Storage.  To learn more about Azure Storage see:
 
 > [!div class="nextstepaction"]
 > [Azure Storage](/azure/storage/common/storage-introduction)
