@@ -33,9 +33,9 @@ If your authoring key is compromised, reset the key. The key is reset on all you
 See [Data storage and removal](luis-concept-data-storage.md#accounts) for information about what data is deleted when you delete your account. 
 
 ## Azure Active Directory tenant user
-LUIS uses standard Azure Active Directory (AAD) consent flow. 
+LUIS uses standard Azure Active Directory (Azure AD) consent flow. 
 
-The tenant admin should work directly with the user who needs access granted to use LUIS in the AAD. 
+The tenant admin should work directly with the user who needs access granted to use LUIS in the Azure AD. 
 
 First, the user signs into LUIS, and sees the pop-up dialog needing admin approval. The user contacts the tenant admin before continuing. 
 
