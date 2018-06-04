@@ -3,7 +3,7 @@ title: Publishing checklist for AppSource
 description: Publishing checklist for AppSource.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: v-josepm
+author: jm-aditi-ms
 manager: pabutler
 editor:
 
