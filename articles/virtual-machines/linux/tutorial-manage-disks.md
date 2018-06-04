@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 06/04/2017
 ms.author: iainfou
 ms.custom: mvc
 
@@ -73,15 +73,15 @@ Additional data disks can be added for installing applications and storing data.
 | [High performance](sizes-hpc.md) | A and H series | 32 |
 
 ## VM disk types
-
-Azure provides two types of disk.
+Azure provides three types of disk.
 
 ### Standard disk
-
 Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
 
-### Premium disk
+### Standard SSD disks (preview)
+New Standard SSD disks are backed by SSDs, and are optimized for low-IOPS workloads. They are ideal for Web Servers, lightly used enterprise applications and other low-end workloads, and Dev/Test. Standard SSD disks support all Azure VM series.
 
+### Premium disk
 Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. When selecting, a disk size the value is rounded up to the next type. For example, if the disk size is less than 128 GB, the disk type is P10. If the disk size is between 129 GB and 512 GB, the size is a P20. Anything over 512 GB, the size is a P30.
 
 ### Premium disk performance
