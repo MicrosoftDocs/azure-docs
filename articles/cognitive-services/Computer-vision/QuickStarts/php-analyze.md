@@ -38,7 +38,7 @@ To run the sample, do the following steps:
 1. Change `uriBase` to use the location where you obtained your subscription keys, if necessary.
 1. Optionally, set `imageUrl` to the image you want to analyze.
 1. Optionally, change the response language (`'language' => 'en'`).
-1. Save the file with an `.php` extension.
+1. Save the file with a `.php` extension.
 1. Open the file in a browser window with PHP support.
 
 ```php

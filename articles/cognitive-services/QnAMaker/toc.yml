@@ -50,6 +50,8 @@
     href: Tutorials/choosing-capacity-qnamaker-deployment.md
   - name: Upgrade your QnA Maker service
     href: How-To/upgrade-qnamaker-service.md
+  - name: Troubleshoot and update QnAMaker runtime
+    href: How-To/troubleshooting-runtime.md
   - name: Use QnA Maker API
     items:
     - name: C#

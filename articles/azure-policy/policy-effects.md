@@ -279,9 +279,9 @@ related resources to match and the template deployment to execute.
   - For _Subscription_, queries the entire subscription for the related resource.
   - Default is _ResourceGroup_.
 - **ExistenceCondition** (optional)
-  - If not specified, any related resource of **type** satisfies the effect and does not trigger the audit.
+  - If not specified, any related resource of **type** satisfies the effect and does not trigger the deployment.
   - Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually.
-  - If any matching related resource evaluates to true, the effect is satisfied and does not trigger the audit.
+  - If any matching related resource evaluates to true, the effect is satisfied and does not trigger the deployment.
   - Can use [field()] to check equivalence with values in the **if** condition.
   - As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 - **Deployment** [required]
