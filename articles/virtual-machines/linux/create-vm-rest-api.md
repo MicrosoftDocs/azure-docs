@@ -29,17 +29,6 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-## URI parameters
-
-The following parameters are required as part of the PUT operation:
-
-| Name                | In    | Required | Type   | Description |
-|---------------------|-------|----------|--------|-------------|
-| *subscriptionId*    | path  | True     | string | Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. |
-| *resourceGroupName* | path  | True     | string | The name of the resource group. |
-| *vmName*            | path  | True     | string | The name of the virtual machine. |
-| *api-version*       | query | True     | string | Client API Version. |
-
 ## Request body
 
 The following common definitions are used to build a request body:
@@ -64,7 +53,7 @@ For a complete list of the available definitions in the request body, see [Virtu
 
 ## Build a request
 
-The `{subscription-id}` parameter is required. If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions).
+The `{subscription-id}` parameter is required. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions).
 
 The `api-version` parameter is required. This example uses `api-version=2017-12-01`.
 
@@ -134,65 +123,12 @@ The following example request body defines an Ubuntu 16.04-LTS image that uses P
 
 ## Example response
 
-Status code: 200
+A condensed status code 200 response shows the *vmId* assigned to the virtual machine and shows the *provisioningState* of *Creating*:
 
 ```json
 {
-  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "type": "Microsoft.Compute/virtualMachines",
-  "properties": {
-    "hardwareProfile": {
-      "vmSize": "Standard_DS1_v2"
-    },
-    "storageProfile": {
-      "imageReference": {
-        "sku": "16.04-LTS",
-        "publisher": "Canonical",
-        "version": "latest",
-        "offer": "UbuntuServer"
-      },
-      "osDisk": {
-        "osType": "Linux",
-        "caching": "ReadWrite",
-        "managedDisk": {
-          "storageAccountType": "Premium_LRS"
-        },
-        "name": "myVMosdisk",
-        "createOption": "FromImage"
-      },
-      "dataDisks": []
-    },
-    "osProfile": {
-      "adminUsername": "azureuser",
-      "secrets": [],
-      "computerName": "myVM",
-      "linuxConfiguration": {
-        "ssh": {
-          "publicKeys": [
-            {
-              "path": "/home/azureuser/.ssh/authorized_keys",
-              "keyData": "ssh-rsa AAAAB3NzaC1{snip}mf69/J1"
-            }
-          ]
-        },
-        "disablePasswordAuthentication": true
-      }
-    },
-    "networkProfile": {
-      "networkInterfaces": [
-        {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic",
-          "properties": {
-            "primary": true
-          }
-        }
-      ]
-    },
     "vmId": "e0de9b84-a506-4b95-9623-00a425d05c90",
     "provisioningState": "Creating"
-  },
-  "name": "myVM",
-  "location": "eastus"
 }
 ```
 
