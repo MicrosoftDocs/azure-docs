@@ -315,9 +315,9 @@ based on the regions where your logic apps exist.
 > [!IMPORTANT]
 >
 > If you have existing configurations, please update them 
-> **as soon as you can before September 1, 2018** so they 
-> include all the IP addresses for the regions where your 
-> logic apps currently exist. 
+> **as soon as possible before September 1, 2018** so they 
+> include and match the IP addresses in this list for the 
+> regions where your logic apps exist. 
 
 | Logic Apps region | Outbound IP | 
 |-------------------|-------------|  
