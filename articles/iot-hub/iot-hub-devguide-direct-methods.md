@@ -6,7 +6,7 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 06/01/2018
 ms.author: nberdy
 ---
 
@@ -74,6 +74,11 @@ The back-end app receives a response that comprises:
     ```
 
     Both `status` and `body` are provided by the device and used to respond with the device's own status code and/or description.
+
+### Method invocation for IoT Edge modules
+Invoking direct methods using a module ID is supported in the C# preview SDK (available [here](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004)).
+
+For this purpose, use the `ServiceClient.InvokeDeviceMethodAsync()` method and pass in the `deviceId` and `moduleId` as parameters.
 
 ## Handle a direct method on a device
 ### MQTT
