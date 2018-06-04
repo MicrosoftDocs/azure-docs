@@ -128,8 +128,6 @@
     href: cyclecloud-transfer-data.md
   - name: Enable Return Proxy
     href: cyclecloud-return-proxy.md
-  - name:
-    href:
 - name: Reference
   items:
   - name: CLI
