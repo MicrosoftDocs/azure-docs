@@ -17,7 +17,7 @@ ms.author: vinagara
 
 ---
 # Migrate Log Analytics alerts to Azure Alerts
-Until recently, Azure Log Analytics included its own alert functionality which could proactively notify you of conditions based on Log Analytics data.  Management of alert rules were performed in [Microsoft Operation Management Suite (OMS) portal](../operations-management-suite/operations-management-suite-overview.md). The new alerts experience has now integrated the alerting experience across various services in Microsoft Azure. The new experience is available as **Alerts** under Azure Monitor in the Azure portal, and supports alerting from activity logs, metrics, and logs from both Log Analytics and Application Insights. 
+Until recently, Azure Log Analytics included its own alert functionality, which could proactively notify you of conditions based on Log Analytics data.  Management of alert rules were performed in [Microsoft Operation Management Suite (OMS) portal](../operations-management-suite/operations-management-suite-overview.md). The new alerts experience has now integrated the alerting experience across various services in Microsoft Azure. The new experience is available as **Alerts** under Azure Monitor in the Azure portal, and supports alerting from activity logs, metrics, and logs from both Log Analytics and Application Insights. 
 
 ## Benefits of migrating your alerts
 There are several advantages of creating and managing alerts in the Azure port, such as:
@@ -31,7 +31,7 @@ There are several advantages of creating and managing alerts in the Azure port, 
 The process of moving alerts from Log Analytics into Azure Alerts, does **not** involve changing your alert definition, query, or configuration in any way. The only change required is that in Azure, all actions such as email notification, a webhook call, running an Automation runbook or connecting to your ITSM tool are performed using an Action Group. If action groups are already associated with your alert - they will be included when migrated into Azure.
 
 > [!NOTE]
-> Microsoft will automatically migrate alerts created in Log Analytics to Azure alerts starting on **14 May 2018** in a recurring series until completed. From this day forward, Microsoft will begin to schedule migrating the alerts to Azure, and during this transition, alerts can be managed from both the OMS portal and Azure portal. This process of migrating your alerts is nondestructive and not interruptive, and if your alerts haven't been automatically migrated, you can [manually migrate your alerts](monitoring-alerts-extend-tool.md) during this time.  
+> Microsoft will automatically migrate alerts created in Log Analytics to Azure alerts starting on **14 May 2018** in a recurring series until completed. If there are issues in creating [Action Groups](monitoring-action-groups.md), user can use [remediation steps listed](monitoring-alerts-extend-tool.md#troubleshooting) till **July 5, 2018** to get action groups created automatically. 
 > 
 
 When alerts in a Log Analytics workspace are scheduled for migrating to Azure, they will continue to work and will **not** in any way compromise your configuration. When scheduled, your alerts may be unavailable for modification/editing temporarily; but new Azure alerts can continue to be created during this time. If you attempt to edit or create alerts from the OMS portal, you will have the option to continue creating them from your Log Analytics workspace or from Azure Alerts in the Azure portal.
@@ -44,10 +44,10 @@ When alerts in a Log Analytics workspace are scheduled for migrating to Azure, t
 You can enjoy the benefits of migrating alerts before this date by voluntarily opting to move them to Azure Alerts.
 
 ### How to voluntarily migrate your alerts
-To migrate your alerts to Azure Alerts, we have included two methods to complete this task in your workspace.  You can accomlish this either from a wizard available in the OMS portal or programatically using a new API.  For more information, see [Migrating alerts into Azure using OMS portal and API](monitoring-alerts-extend-tool.md).
+To migrate your alerts to Azure Alerts, we have included two methods to complete this task in your workspace.  You can accomplish this either from a wizard available in the OMS portal or programmatically using a new API.  For more information, see [Migrating alerts into Azure using OMS portal and API](monitoring-alerts-extend-tool.md).
 
 ## Experience after migrating your alerts
-After your alerts are migrated to Azure Alerts, they will continue to be available in the OMS portal for management no differently than before .<br><br> ![OMS Portal listing alerts after being migrated to Azure](./media/monitor-alerts-extend/PostExtendList.png)
+After your alerts are migrated to Azure Alerts, they will continue to be available in the OMS portal for management no differently than before.<br><br> ![OMS Portal listing alerts after being migrated to Azure](./media/monitor-alerts-extend/PostExtendList.png)
 
 When you attempt to edit an existing alert or create a new alert in the OMS portal, you are automatically redirected to Azure Alerts.  
 
