@@ -33,7 +33,7 @@ The following list includes best practices for LUIS apps:
 |[Build your app iteratively](#do-build-the-app-iteratively)|[Add many example utterances of the same format, ignoring other formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Add phrase lists and patterns in later iterations](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Mix the definition of intents and entities](#dont-mix-the-definition-of-intents-and-entities)|
 |[Add example utterances to None intent](#do-add-example-utterances-to-none-intent)|[Create phrase lists with all possible values](#dont-create-phrase-lists-with-all-the-possible-values)|
-|[Leverage the suggest feature for active learning](#leverage-the-suggest-feature-for-active-learning)|[Add so many patterns](#dont-add-many-patterns)|
+|[Leverage the suggest feature for active learning](#do-leverage-the-suggest-feature-for-active-learning)|[Add so many patterns](#dont-add-many-patterns)|
 |[Monitor the performance of your app](#do-monitor-the-performance-of-your-app)|[Train and publish with every single example utterance added](#dont-train-and-publish-with-every-single-example-utterance)|
 
 ## Do define distinct intents
