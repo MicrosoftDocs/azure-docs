@@ -95,6 +95,21 @@ public static async Task Run(
     // do something based on the current status.
 }
 ```
+## Querying all instances
+
+You can use the GetStatusAsync method queries the statuses of all orchestration instances. It doesn't take any parameter, or you can pass the CancellationToken in case if you want to cancel it. The method returns objects with the same properties as the `GetStatusAsync` with parameters except for not having History. 
+
+```csharp
+[FunctionName("GetAllStatus")]
+public static async Task Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    TraceWriter log)
+{
+    var statuses = await client.GetStatusAsync(); // You can pass CancellationToken as a parameter.
+    // do something based on the retrun statuses
+}
+```
 
 ## Terminating instances
 
