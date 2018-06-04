@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: iainfoulds
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 06/03/2018
+ ms.author: iainfoulds
+ ms.custom: include file
+---
 # Azure Managed Disks Overview
 
 Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](../articles/virtual-machines/windows/premium-storage.md) or [Standard](../articles/virtual-machines/windows/standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
@@ -44,8 +55,8 @@ When using Managed Disks, the following billing considerations apply:
 
 Let's take a closer look at these.
 
-**Storage Type:** Managed Disks offers 2 performance tiers:
-[Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD-based) and [Standard](../articles/virtual-machines/windows/standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+**Storage Type:** Managed Disks offers 3 performance tiers:
+[Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD-based), Standard SSD (Preview) and [Standard HDD](../articles/virtual-machines/windows/standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
 
 
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
@@ -55,17 +66,26 @@ Here are the disk sizes available for a premium managed disk:
 
 | **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Disk Size        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| Disk Size        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
+Here are the disk sizes available for a standard SSD managed disk:
 
-Here are the disk sizes available for a standard managed disk:
+| **Standard SSD Managed <br>Disk Type** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** |
+|------------------|--------|--------|--------|----------------|----------------|----------------| 
+| Disk Size        | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
-| **Standard Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+Here are the disk sizes available for a standard HDD managed disk:
+
+| **Standard HDD Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
-| Disk Size        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| Disk Size        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
-**Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk. There is no cost for transactions for a premium managed disk.
+**Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk.
+
+Standard SSD Disks use IO Unit size of 256KB. If the data being transferred is less than 256 KB, it is considered 1 I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KB. For example, a 1,100 KB I/O is counted as five I/O units.
+
+There is no cost for transactions for a premium managed disk.
 
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
@@ -139,6 +159,6 @@ For more information about Managed Disks, please refer to the following articles
 
 ### Operational guidance
 
-* [Migrate from AWS and other platforms to Managed Disks in Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
+* [Migrate from AWS and other platforms to Managed Disks in Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
 
 * [Convert Azure VMs to managed disks in Azure](../articles/virtual-machines/windows/migrate-to-managed-disks.md)
