@@ -1,73 +1,134 @@
 ---
-title: Azure Policy json sample - Approved VM images  | Microsoft Docs
-description: This json sample policy requires that only approved custom images are deployed in your environment.
+title: Azure Policy sample - Approved VM images
+description: This policy requires that only approved custom images are deployed in your environment.
 services: azure-policy
-documentationcenter:
 author: DCtheGeek
 manager: carmonm
-editor:
-ms.assetid:
 ms.service: azure-policy
-ms.devlang:
 ms.topic: sample
-ms.tgt_pltfrm:
-ms.workload:
-ms.date: 10/30/2017
+ms.date: 06/03/2018
 ms.author: dacoulte
 ms.custom: mvc
 ---
-
 # Approved VM images
 
-This policy requires that only approved custom images are deployed in your environment. You specify an array of approved image IDs.
+This policy requires that only approved custom images are deployed in your environment. You specify
+an array of approved image IDs.
+
+You can deploy this sample policy using the [Azure portal](#deploy-with-the-portal), with
+[Azure PowerShell](#deploy-with-azure-powershell), or with the [Azure CLI](#deploy-with-azure-cli).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Sample template
+## Sample policy
 
 [!code-json[main](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.json "Approved VM images")]
 
-You can deploy this template using the [Azure portal](#deploy-with-the-portal), with [PowerShell](#deploy-with-powershell) or with the [Azure CLI](#deploy-with-azure-cli).
+## Parameters
+
+|Name |Type |Field |Description |
+|---|---|---|---|
+|imageIds |Array |Microsoft.Compute/imageIds |The list of approved VM images|
+
+When creating an assignment via PowerShell or Azure CLI, the parameter values can be passed as
+JSON in either a string or via a file using `-PolicyParameter` (PowerShell) or `--params` (Azure CLI).
+PowerShell also supports `-PolicyParameterObject` which requires passing the cmdlet a Name/Value
+hashtable where **Name** is the parameter name and **Value** is the single value or array of values
+being passed during assignment.
+
+In this example parameter, only Windows Server 2016 Datacenter and Windows Server 2016 Datacenter
+(smalldisk), located in 'Central US' and 'West US 2' (respectively), will be allowed.
+
+```json
+{
+    "imageIds": {
+        "value": [
+            "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510",
+            "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus2/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter-smalldisk/Versions/2016.127.20180510",
+        ]
+    }
+}
+```
 
 ## Deploy with the portal
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
+[![Deploy to Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
+[![Deploy to Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
 
-## Deploy with PowerShell
+## Deploy with Azure PowerShell
+
+References:
+
+- [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)
+- [Get-AzureRmResourceGroup](/powershell/module/azurerm.resources/get-azurermresourcegroup)
+- [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment)
+- [Remove-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/remove-azurermpolicyassignment)
+- [Remove-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/remove-azurermpolicydefinition)
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-```powershell
-$definition = New-AzureRmPolicyDefinition -Name "allowed-custom-images" -DisplayName "Approved VM images" -description "This policy governs the approved VM images" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' -Mode All
-$definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -imageIds <Approved VM images> -PolicyDefinition $definition
-$assignment
+```azurepowershell-interactive
+# Create the Policy Definition
+$definition = New-AzureRmPolicyDefinition -Name 'allowed-custom-images' -DisplayName 'Approved VM images' -description 'This policy governs the approved VM images' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' -Mode All
+
+# Set the scope to a resource group; may also be a specific resource, subscription, or management group
+$scope = Get-AzureRmResourceGroup -Name 'YourResourceGroup'
+
+# Set the Policy Parameter (JSON format)
+$policyparam = '{ "imageIds": { "value": [ "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510", "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus2/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter-smalldisk/Versions/2016.127.20180510" ] } }'
+
+# Create the Policy Assignment
+$assignment = New-AzureRmPolicyAssignment -Name 'allowed-custom-images-assignment' -DisplayName 'Approved VM images Assignment -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
 ```
 
-### Clean up PowerShell deployment
+### Remove with Azure PowerShell
 
-Run the following command to remove the resource group, VM, and all related resources.
+Run the following commands to remove the previous assignment and definition:
 
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+```azurepowershell-interactive
+# Remove the Policy Assignment
+Remove-AzureRmPolicyAssignment -Id $assignment.ResourceId
+
+# Remove the Policy Definition
+Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
 ```
 
 ## Deploy with Azure CLI
 
+References:
+
+- [az policy definition create](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create)
+- [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show)
+- [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [az policy assignment delete](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete)
+- [az policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete)
+
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ```azurecli-interactive
-az policy definition create --name 'allowed-custom-images' --display-name 'Approved VM images' --description 'This policy governs the approved VM images' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' --mode All
+# Create the Policy Definition
+definition=$(az policy definition create --name 'allowed-custom-images' --display-name 'Approved VM images' --description 'This policy governs the approved VM images' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' --mode All)
 
-az policy assignment create --name <assignmentname> --scope <scope> --policy "allowed-custom-images"
+# Set the scope to a resource group; may also be a specific resource, subscription, or management group
+scope=$(az group show --name 'YourResourceGroup')
+
+# Set the Policy Parameter (JSON format)
+policyparam='{ "imageIds": { "value": [ "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510", "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus2/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter-smalldisk/Versions/2016.127.20180510" ] } }'
+
+# Create the Policy Assignment
+assignment=$(az policy assignment create --name 'allowed-custom-images-assignment' --display-name 'Approved VM images Assignment' --scope `echo $scope | jq '.id' -r` --policy `echo $definition | jq '.name' -r` --params "$policyparam")
 ```
 
-### Clean up Azure CLI deployment
+### Remove with Azure CLI
 
-Run the following command to remove the resource group, VM, and all related resources.
+Run the following commands to remove the previous assignment and definition:
 
 ```azurecli-interactive
-az group delete --name myResourceGroup --yes
+# Remove the Policy Assignment
+az policy assignment delete --name `echo $assignment | jq '.name' -r`
+
+# Remove the Policy Definition
+az policy definition delete --name `echo $definition | jq '.name' -r`
 ```
 
 ## Next steps
