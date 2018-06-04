@@ -51,7 +51,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a Linux virtual machine in a new resource group
 
-For this tutorial, we create a new Linux VM. You can also enable Managed Identity on an existing VM.
+In this section, you create a Linux VM that is later granted a Managed Identity.
 
 1. Select the **New** button in the upper-left corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
@@ -119,9 +119,9 @@ You can use the VM's managed identity to retrieve the data in the Azure storage 
 
 ## Get an access token and use it to call Azure Storage
 
-For the remainder of the tutorial, you need to work from the VM you created earlier.
+Azure Storage natively supports Azure AD authentication, so it can directly accept access tokens obtained using a Managed Identity. This is part of Azure Storage's integration with Azure AD, and is different from supplying credentials on the connection string.
 
-To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
+To complete the following steps, you need to work from the VM created earlier and you need an SSH client to connect to it. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect**. Copy the string to connect to your VM.
 2. **Connect** to the VM with the SSH client of your choice. 
@@ -144,7 +144,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 
 ## Next steps
 
-In this tutorial, you learned how enable a Linux virtual machine Managed Service Identity to access Azure Storage.  To learn more about Azure Storage see:
+In this tutorial, you learned how enable a Linux virtual machine Managed Identity to access Azure Storage.  To learn more about Azure Storage see:
 
 > [!div class="nextstepaction"]
 > [Azure Storage](/azure/storage/common/storage-introduction)
