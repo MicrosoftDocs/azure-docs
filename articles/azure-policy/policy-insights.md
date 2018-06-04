@@ -107,7 +107,7 @@ Use the following procedure to create a policy definition.
   }
   ```
 
-2. Create the policy definition in using the following call:
+2. Create the policy definition using one of the following calls:
 
   ```
   # For defining a policy in a subscription
