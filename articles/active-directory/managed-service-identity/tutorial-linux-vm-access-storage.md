@@ -26,7 +26,7 @@ This tutorial shows you how to create and use a Linux VM Managed Identity to acc
 
 > [!div class="checklist"]
 > * Create a Linux virtual machine in a new resource group
-> * Enable Managed Identity on a Windows Virtual Machine (VM)
+> * Enable Managed Identity on a Linux Virtual Machine (VM)
 > * Create a blob container in a storage account
 > * Grant the Linux VM's Managed Identity access to an Azure Storage container
 > * Get an access token and use it to call Azure Storage
