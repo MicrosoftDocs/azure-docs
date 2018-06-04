@@ -59,7 +59,7 @@
     - name: Nodes and Node Arrays
       href: cyclecloud-nodes.md
     - name: Node Tags
-      href: 
+      href:
     - name: Images
       href: cyclecloud-images.md
     - name: Auto-Scale
@@ -112,12 +112,12 @@
       href: cyclecloud-storage-blobs.md
   - name: Network Configuration
     items:
-      - name: Network Security
-        href:
-      - name: Proxy Settings
-        href:
+      - name: Network Connectivity
+        href: cyclecloud-network-connectivity.md
+      - name: Proxy Traffic
+        href: cyclecloud-proxy-traffic.md
       - name: Transfer Listeners
-        href:
+        href: cyclecloud-transfer-listeners.md
   - name: User Creation and RBAC
     href: cyclecloud-user-management-and-rbac.md
 - name: How-To
@@ -126,6 +126,8 @@
     href: cyclecloud-custom-images.md
   - name: Transfer Data
     href: cyclecloud-transfer-data.md
+  - name: Enable Return Proxy
+    href: cyclecloud-return-proxy.md
   - name: Enable Return Nodes
     href: cyclecloud-return-nodes.md
 - name: Reference

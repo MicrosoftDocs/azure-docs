@@ -41,19 +41,19 @@ When an immediate transfer is initiated or a scheduled or recurring transfer beg
 transfer details are displayed in the bottom pane of the Transfer Manager page.
 You may need to click the refresh button for an accurate transfer progress reading.
 
-![CycleCloud Data Transfer Pane](~images/transfer_pane.png)
+![CycleCloud Data Transfer Pane](~/images/transfer_pane.png)
 
 Double-clicking on a transfer displays further transfer details.
 
-![CycleCloud Data Transfer Details](~images/transfer_details_window.png)
+![CycleCloud Data Transfer Details](~/images/transfer_details_window.png)
 
 Clicking on the Scheduled Transfers tab displays a queue of future transfers that have already been scheduled.
 
-![CycleCloud Scheduled Data Transfer Pane](~images/scheduled_transfer_pane.png)
+![CycleCloud Scheduled Data Transfer Pane](~/images/scheduled_transfer_pane.png)
 
 Double-clicking a queued transfer displays further details about the scheduled transfer.
 
-![CycleCloud Data Transfer Request Details](~images/transfer_request_details.png)
+![CycleCloud Data Transfer Request Details](~/images/transfer_request_details.png)
 
 # Transfer Listeners
 Azure CycleCloud's Data Management tool supports writing plugins that are executed based on transfer events such as individual file transfer completion or failure or entire transfer completion or failure. Listener plugins must set the Implements attribute to be `DataTransferStateListener` and can subscribe to the states that they are interested in receiving events for. For example, if individual file upload events are of interest, the plugin must subscribe to the events from the "Transferring" state. Other attributes pertaining to the plugin can be set on the DataTransferStateListener attribute as a nested record. Currently supported attributes are:
@@ -65,25 +65,25 @@ Azure CycleCloud's Data Management tool supports writing plugins that are execut
 
 The plugin function is provided with a record containing the details of the transfer event, such as FileName transferred, number of bytes transferred, number of files transferred, etc:
 
-   Implements = DataTransferStateListener
-   DataTransferStateListener := [States={"Transferring","Completed"}; FunctionName="handleTransferEvent"]
+      Implements = DataTransferStateListener
+      DataTransferStateListener := [States={"Transferring","Completed"}; FunctionName="handleTransferEvent"]
 
 An example plugin that implements the handleTransferEvent method:
 
-   from application import logger
+     from application import logger
 
-   def handleTransferEvent(record):
-      logger.info("Triggerring transfer event handler for %s" % record.getAsString("FileName"))
+     def handleTransferEvent(record):
+        logger.info("Triggerring transfer event handler for %s" % record.getAsString("FileName"))
 
 An example of the record that is sent to plugin method as an argument:
 
-   [ Bytes=1024.0; FileCount=1.0; FileName="dir1/file1001.txt"; State="Transferring" ]
+     [ Bytes=1024.0; FileCount=1.0; FileName="dir1/file1001.txt"; State="Transferring" ]
 
 # Advanced Settings
 
 In order to tune Azure CycleCloud transfers, a number of settings can be adjusted. Open the settings page from the user drop-down menu on the top right of the screen.
 
-![CycleCloud Data Transfer Settings menu](~images/settings_dropdown.png)
+![CycleCloud Data Transfer Settings menu](~/images/settings_dropdown.png)
 
 On the settings page, double clicking on an entry will display the Configuration screen:
 
