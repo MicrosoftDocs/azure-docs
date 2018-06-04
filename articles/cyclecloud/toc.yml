@@ -77,7 +77,7 @@
     - name: Synchronization
       href: cyclecloud-disaster-recovery-synchronization.md
     - name: Virtualization
-      href:
+      href: cyclecloud-disaster-recovery-virtualization.md
   - name: Monitoring
     items:
     - name: Monitoring
