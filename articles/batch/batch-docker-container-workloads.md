@@ -16,9 +16,9 @@ ms.author: danlep
 
 # Run container applications on Azure Batch
 
-Azure Batch lets you run and scale large numbers of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in Docker containers on the nodes. This article shows you how to create a pool of compute nodes that support running container tasks, and then run container tasks on the pool. 
+Azure Batch lets you run and scale large numbers of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in Docker-compatible containers on the nodes. This article shows you how to create a pool of compute nodes that support running container tasks, and then run container tasks on the pool. 
 
-You should be familiar with Docker container concepts and how to create a Batch pool and job. The code examples use the Batch .NET and Python SDKs. You can also use other Batch SDKs and tools, including the Azure portal, to create container-enabled Batch pools and to run container tasks.
+You should be familiar with container concepts and how to create a Batch pool and job. The code examples use the Batch .NET and Python SDKs. You can also use other Batch SDKs and tools, including the Azure portal, to create container-enabled Batch pools and to run container tasks.
 
 ## Why use containers?
 
@@ -35,7 +35,7 @@ Using containers provides an easy way to run Batch tasks without having to manag
 
 * **Accounts**: In your Azure subscription, you need to create a Batch account and optionally an Azure Storage account.
 
-* **A supported VM image**: Containers are only supported in pools created with the Virtual Machine Configuration, from images detailed in the following section, "Supported virtual machine images." If you provide a custom image, your application must use Azure Active Directory [(Azure AD) authentication](batch-aad-auth.md) and meet other requirements detailed in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md). 
+* **A supported VM image**: Containers are only supported in pools created with the Virtual Machine Configuration, from images detailed in the following section, "Supported virtual machine images." If you provide a custom image, see the considerations in the following section and the requirements in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md). 
 
 ### Limitations
 
@@ -47,7 +47,7 @@ Use one of the following supported Windows or Linux images to create a pool of V
 
 ### Windows images
 
-For Windows container workloads, Batch currently supports the **Windows Server 2016 Datacenter with Containers** image in the Azure Marketplace. The type of container supported is currently limited to Docker.
+For Windows container workloads, Batch currently supports the **Windows Server 2016 Datacenter with Containers** image in the Azure Marketplace. Both Windows Server Containers and Hyper-V Isolation Containers are supported.
 
 You can also create custom images from VMs running Docker on Windows.
 
@@ -63,13 +63,13 @@ For Linux container workloads, Batch currently supports the following Linux imag
 
 * **Ubuntu Server (with RDMA drivers) for Azure Batch container pools**
 
-These images, which should only be used to create Azure Batch pools, feature:
+These images are only supported for use in Azure Batch pools. They feature:
 
 * A pre-installed container runtime 
 
 * Pre-installed NVIDIA GPU drivers, to streamline deployment on Azure N-series VMs
 
-* Images with or without pre-installed RDMA drivers; these drivers allow pool nodes to access the Azure RDMA network when deployed on RDMA-capable VM sizes including A8, A9, H16r, H16mr, or NC24r 
+* Images with or without pre-installed RDMA drivers; these drivers allow pool nodes to access the Azure RDMA network when deployed on RDMA-capable VM sizes  
 
 You can also create custom images from VMs running Docker on one of the Linux distributions that is compatible with Batch. If you choose to provide your own custom Linux image, see the instructions in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 
@@ -79,7 +79,7 @@ Additional considerations for using a custom Linux image:
 
 * To take advantage of the GPU performance of Azure N-series sizes when using a custom image, pre-install NVIDIA drivers. Also, you need to install the Docker Engine Utility for NVIDIA GPUs, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
 
-* To access the Azure RDMA network, use RDMA-capable VM sizes, such as A8, A9, H16r, H16mr, or NC24r. Necessary RDMA drivers are installed in the CentOS HPC and Ubuntu 16.04 LTS images supported by Batch. Additional configuration may be needed to run MPI workloads. See [Use RDMA-capable or GPU-enabled instances in Batch pool](batch-pool-compute-intensive-sizes.md).
+* To access the Azure RDMA network, use an RDMA-capable VM size. Necessary RDMA drivers are installed in the CentOS HPC and Ubuntu images supported by Batch. Additional configuration may be needed to run MPI workloads. See [Use RDMA-capable or GPU-enabled instances in Batch pool](batch-pool-compute-intensive-sizes.md).
 
 
 ## Container configuration for Batch pool
@@ -267,3 +267,5 @@ CloudTask containerTask = new CloudTask (
 * For more information on installing and using Docker CE on Linux, see the [Docker](https://docs.docker.com/engine/installation/) documentation.
 
 * For more information on using custom images, see [Use a managed custom image to create a pool of virtual machines ](batch-custom-images.md).
+
+* Learn more about the [Moby project](https://mobyproject.org/), a framework for creating container-based systems.
