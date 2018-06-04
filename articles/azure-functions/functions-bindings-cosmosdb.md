@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB bindings for Functions 2.x (Preview)
+title: Azure Cosmos DB bindings for Functions 1.x
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
@@ -18,26 +18,26 @@ ms.date: 11/21/2017
 ms.author: glenga
 ---
 
-# Azure Cosmos DB bindings for Azure Functions 2.x (Preview)
+# Azure Cosmos DB bindings for Azure Functions 1.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Version 1 - GA](functions-bindings-cosmosdb-v1.md)
 > * [Version 2 - Preview](functions-bindings-cosmosdb.md)
 
-This article explains how to work with [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) bindings in Azure Functions 2.x. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
+This article explains how to work with [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
 > [!NOTE]
-> This article is for [Azure Functions version 2.x](functions-versions.md), which is in Preview.  For information about how to use these bindings in Functions 1.x, see [Azure Cosmos DB bindings for Azure Functions 1.x](functions-bindings-cosmosdb-v1.md).
+> This article is for Azure Functions 1.x.  For information about how to use these bindings in Functions 2.x, see [Azure Cosmos DB bindings for Azure Functions 2.x](functions-bindings-cosmosdb.md).
 >
-> This binding was originally named DocumentDB. In Functions version 2.x, the trigger, bindings, and package are all named Cosmos DB.
+>This binding was originally named DocumentDB. In Functions version 1.x, only the trigger was renamed Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Packages - Functions 2.x
+## Packages - Functions 1.x
 
-The Azure Cosmos DB bindings for Functions version 2.x are provided in the [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) NuGet package, version 3.x. Source code for the bindings is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) GitHub repository.
+The Azure Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet package, version 1.x. Source code for the bindings is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub repository.
 
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## Trigger
 
@@ -63,7 +63,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
 
-namespace CosmosDBSamplesV2
+namespace CosmosDBSamplesV1
 {
     public static class CosmosTrigger
     {
@@ -242,7 +242,7 @@ This section contains the following examples:
 The examples refer to a simple `ToDoItem` type:
 
 ```cs
-namespace CosmosDBSamplesV2
+namespace CosmosDBSamplesV1
 {
     public class ToDoItem
     {
@@ -259,7 +259,7 @@ namespace CosmosDBSamplesV2
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by a queue message that contains a JSON object. The queue trigger parses the JSON into an object named `ToDoItemLookup`, which contains the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
-namespace CosmosDBSamplesV2
+namespace CosmosDBSamplesV1
 {
     public class ToDoItemLookup
     {
@@ -272,14 +272,14 @@ namespace CosmosDBSamplesV2
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 
-namespace CosmosDBSamplesV2
+namespace CosmosDBSamplesV1
 {
     public static class DocByIdFromPOCO
     {
         [FunctionName("DocByIdFromPOCO")]
         public static void Run(
             [QueueTrigger("todoqueueforlookup")] ToDoItemLookup toDoItemLookup,
-            [CosmosDB(
+            [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
@@ -308,21 +308,20 @@ namespace CosmosDBSamplesV2
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using System.Net;
+using System.Net.Http;
 
-namespace CosmosDBSamplesV2
+namespace CosmosDBSamplesV1
 {
     public static class DocByIdFromQueryString
     {
         [FunctionName("DocByIdFromQueryString")]
-        public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
-                HttpRequest req,
-            [CosmosDB(
+        public static HttpResponseMessage Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req,
+            [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
@@ -330,7 +329,6 @@ namespace CosmosDBSamplesV2
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
-
             if (toDoItem == null)
             {
                 log.Info($"ToDo item not found");
@@ -339,7 +337,7 @@ namespace CosmosDBSamplesV2
             {
                 log.Info($"Found ToDo item, Description={toDoItem.Description}");
             }
-            return new OkResult();
+            return req.CreateResponse(HttpStatusCode.OK);
         }
     }
 }
@@ -352,21 +350,22 @@ namespace CosmosDBSamplesV2
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using System.Net;
+using System.Net.Http;
 
-namespace CosmosDBSamplesV2
+namespace CosmosDBSamplesV1
 {
     public static class DocByIdFromRouteData
     {
         [FunctionName("DocByIdFromRouteData")]
-        public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
-                Route = "todoitems/{id}")]HttpRequest req,
-            [CosmosDB(
+        public static HttpResponseMessage Run(
+            [HttpTrigger(
+                AuthorizationLevel.Anonymous, "get", "post", 
+                Route = "todoitems/{id}")]HttpRequestMessage req,
+            [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
@@ -383,7 +382,7 @@ namespace CosmosDBSamplesV2
             {
                 log.Info($"Found ToDo item, Description={toDoItem.Description}");
             }
-            return new OkResult();
+            return req.CreateResponse(HttpStatusCode.OK);
         }
     }
 }
@@ -393,40 +392,37 @@ namespace CosmosDBSamplesV2
 
 #### HTTP trigger, look up ID from route data, using SqlQuery (C#)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection. 
-
-The example shows how to use a binding expression in the `SqlQuery` parameter. You can pass route data to the `SqlQuery` parameter as shown, but currently [you can't pass query string values](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
-
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 
-namespace CosmosDBSamplesV2
+namespace CosmosDBSamplesV1
 {
     public static class DocByIdFromRouteDataUsingSqlQuery
     {
         [FunctionName("DocByIdFromRouteDataUsingSqlQuery")]
-        public static IActionResult Run(
+        public static HttpResponseMessage Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
-                Route = "todoitems2/{id}")]HttpRequest req,
-            [CosmosDB("ToDoItems", "Items", 
+                Route = "todoitems2/{id}")]HttpRequestMessage req,
+            [DocumentDB(
+                databaseName: "ToDoItems",
+                collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
-                SqlQuery = "select * from ToDoItems r where r.id = {id}")]
-                IEnumerable<ToDoItem> toDoItems,
+                SqlQuery = "select * from ToDoItems r where r.id = {id}")] IEnumerable<ToDoItem> toDoItems,
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
-
             foreach (ToDoItem toDoItem in toDoItems)
             {
                 log.Info(toDoItem.Description);
             }
-            return new OkResult();
+            return req.CreateResponse(HttpStatusCode.OK);
         }
     }
 }
@@ -439,22 +435,22 @@ namespace CosmosDBSamplesV2
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The query is specified in the `SqlQuery` attribute property.
 
 ```cs
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 
-namespace CosmosDBSamplesV2
+namespace CosmosDBSamplesV1
 {
     public static class DocsBySqlQuery
     {
         [FunctionName("DocsBySqlQuery")]
-        public static IActionResult Run(
+        public static HttpResponseMessage Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
-                HttpRequest req,
-            [CosmosDB(
+                HttpRequestMessage req,
+            [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
@@ -467,11 +463,10 @@ namespace CosmosDBSamplesV2
             {
                 log.Info(toDoItem.Description);
             }
-            return new OkResult();
+            return req.CreateResponse(HttpStatusCode.OK);
         }
     }
 }
-
 ```
 
 [Skip input examples](#input---attributes)
@@ -481,8 +476,6 @@ namespace CosmosDBSamplesV2
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `DocumentClient` instance provided by the Azure Cosmos DB binding to read a list of documents. The `DocumentClient` instance could also be used for write operations.
 
 ```cs
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
 using Microsoft.Azure.WebJobs;
@@ -490,17 +483,18 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace CosmosDBSamplesV2
+namespace CosmosDBSamplesV1
 {
     public static class DocsByUsingDocumentClient
     {
         [FunctionName("DocsByUsingDocumentClient")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
-                Route = null)]HttpRequest req,
-            [CosmosDB(
+        public static async Task<HttpResponseMessage> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req,
+            [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")] DocumentClient client,
@@ -508,16 +502,17 @@ namespace CosmosDBSamplesV2
         {
             log.Info("C# HTTP trigger function processed a request.");
 
-            var searchterm = req.Query["searchterm"];
-            if (string.IsNullOrWhiteSpace(searchterm))
+            Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
+            string searchterm = req.GetQueryNameValuePairs()
+                .FirstOrDefault(q => string.Compare(q.Key, "searchterm", true) == 0)
+                .Value;
+
+            if (searchterm == null)
             {
-                return (ActionResult)new NotFoundResult();
+                return req.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
-
-            log.Info($"Searching for: {searchterm}");
-
+            log.Info($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
             IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
                 .Where(p => p.Description.Contains(searchterm))
                 .AsDocumentQuery();
@@ -529,7 +524,7 @@ namespace CosmosDBSamplesV2
                     log.Info(result.Description);
                 }
             }
-            return new OkResult();
+            return req.CreateResponse(HttpStatusCode.OK);
         }
     }
 }
@@ -555,12 +550,12 @@ Here's the binding data in the *function.json* file:
 ```json
 {
     "name": "inputDocument",
-    "type": "cosmosDB",
+    "type": "documentDB",
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "id" : "{queueTrigger}",
     "partitionKey": "{partition key value}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",     
     "direction": "in"
 }
 ```
@@ -580,7 +575,7 @@ Here's the C# script code:
 
 [Skip input examples](#input---attributes)
 
-#### Queue trigger, look up ID queue message, using SqlQuery (C# script)
+#### Queue trigger, look up ID from queue message, using SqlQuery (C# script)
 
 The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
 
@@ -591,12 +586,12 @@ Here's the binding data in the *function.json* file:
 ```json
 {
     "name": "documents",
-    "type": "cosmosDB",
+    "type": "documentdb",
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
     "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
-    "connectionStringSetting": "CosmosDBConnection"
+    "connection": "CosmosDBConnection"
 }
 ```
 
@@ -626,7 +621,7 @@ Here's the C# script code:
 This section contains the following examples that read a single document by specifying an ID value from various sources:
 
 * Queue trigger, look up ID from queue message
-* Queue trigger, look up ID from queue message, using SqlQuery
+* Queue trigger, look up ID from queue message, using Sqlquery
 
 [Skip input examples](#input---attributes)
 
@@ -639,22 +634,22 @@ Here's the binding data in the *function.json* file:
 ```json
 {
     "name": "inputDocumentIn",
-    "type": "cosmosDB",
+    "type": "documentDB",
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "id" : "{queueTrigger_payload_property}",
     "partitionKey": "{queueTrigger_payload_property}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",     
     "direction": "in"
 },
 {
     "name": "inputDocumentOut",
-    "type": "cosmosDB",
+    "type": "documentDB",
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": false,
     "partitionKey": "{queueTrigger_payload_property}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",
+    "connection": "MyAccount_COSMOSDB",
     "direction": "out"
 }
 ```
@@ -684,12 +679,12 @@ Here's the binding data in the *function.json* file:
 ```json
 {
     "name": "documents",
-    "type": "cosmosDB",
+    "type": "documentdb",
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
     "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
-    "connectionStringSetting": "CosmosDBConnection"
+    "connection": "CosmosDBConnection"
 }
 ```
 
@@ -721,11 +716,11 @@ Here's the binding data in the *function.json* file:
 ```json
 {
     "name": "inputDocument",
-    "type": "cosmosDB",
+    "type": "documentDB",
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "id" : "{queueTrigger}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",     
     "direction": "in"
 }
 ```
@@ -761,24 +756,24 @@ To add a `project.json` file, see [F# package management](functions-reference-fs
 
 ## Input - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribute.
+In [C# class libraries](functions-dotnet-class-library.md), use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [the following configuration section](#input---configuration). 
 
 ## Input - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `CosmosDB` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file and the `DocumentDB` attribute.
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type**     || Must be set to `cosmosDB`.        |
+|**type**     || Must be set to `documentdb`.        |
 |**direction**     || Must be set to `in`.         |
 |**name**     || Name of the binding parameter that represents the document in the function.  |
 |**databaseName** |**DatabaseName** |The database containing the document.        |
 |**collectionName** |**CollectionName** | The name of the collection that contains the document. |
 |**id**    | **Id** | The ID of the document to retrieve. This property supports [binding expressions](functions-triggers-bindings.md#binding-expressions-and-patterns). Don't set both the **id** and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved. |
 |**sqlQuery**  |**SqlQuery**  | An Azure Cosmos DB SQL query used for retrieving multiple documents. The property supports runtime bindings, as in this example: `SELECT * FROM c where c.departmentId = {departmentId}`. Don't set both the **id** and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved.|
-|**connectionStringSetting**     |**ConnectionStringSetting**|The name of the app setting containing your Azure Cosmos DB connection string.        |
+|**connection**     |**ConnectionStringSetting**|The name of the app setting containing your Azure Cosmos DB connection string.        |
 |**partitionKey**|**PartitionKey**|Specifies the partition key value for the lookup. May include binding parameters.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -819,7 +814,7 @@ This section contains the following examples:
 The examples refer to a simple `ToDoItem` type:
 
 ```cs
-namespace CosmosDBSamplesV2
+namespace CosmosDBSamplesV1
 {
     public class ToDoItem
     {
@@ -840,14 +835,14 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System;
 
-namespace CosmosDBSamplesV2
+namespace CosmosDBSamplesV1
 {
     public static class WriteOneDoc
     {
         [FunctionName("WriteOneDoc")]
         public static void Run(
             [QueueTrigger("todoqueueforwrite")] string queueMessage,
-            [CosmosDB(
+            [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")]out dynamic document,
@@ -873,14 +868,14 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Threading.Tasks;
 
-namespace CosmosDBSamplesV2
+namespace CosmosDBSamplesV1
 {
     public static class WriteDocsIAsyncCollector
     {
         [FunctionName("WriteDocsIAsyncCollector")]
         public static async Task Run(
             [QueueTrigger("todoqueueforwritemulti")] ToDoItem[] toDoItemsIn,
-            [CosmosDB(
+            [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")]
@@ -929,11 +924,11 @@ Here's the binding data in the *function.json* file:
 ```json
 {
     "name": "employeeDocument",
-    "type": "cosmosDB",
+    "type": "documentDB",
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": true,
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",     
     "direction": "out"
 }
 ```
@@ -995,11 +990,11 @@ Here's the binding data in the *function.json* file:
 ```json
 {
     "name": "employeeDocument",
-    "type": "cosmosDB",
+    "type": "documentDB",
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": true,
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",     
     "direction": "out"
 }
 ```
@@ -1052,11 +1047,11 @@ Here's the binding data in the *function.json* file:
 ```json
 {
     "name": "employeeDocument",
-    "type": "cosmosDB",
+    "type": "documentDB",
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": true,
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",     
     "direction": "out"
 }
 ```
@@ -1105,15 +1100,15 @@ To add a `project.json` file, see [F# package management](functions-reference-fs
 
 ## Output - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribute.
+In [C# class libraries](functions-dotnet-class-library.md), use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute.
 
-The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Output - configuration](#output---configuration). Here's a `CosmosDB` attribute example in a method signature:
+The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Output - configuration](#output---configuration). Here's a `DocumentDB` attribute example in a method signature:
 
 ```csharp
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         ...
     }
@@ -1123,19 +1118,19 @@ For a complete example, see [Output - C# example](#output---c-example).
 
 ## Output - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `CosmosDB` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file and the `DocumentDB` attribute.
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type**     || Must be set to `cosmosDB`.        |
+|**type**     || Must be set to `documentdb`.        |
 |**direction**     || Must be set to `out`.         |
 |**name**     || Name of the binding parameter that represents the document in the function.  |
 |**databaseName** | **DatabaseName**|The database containing the collection where the document is created.     |
 |**collectionName** |**CollectionName**  | The name of the collection where the document is created. |
-|**createIfNotExists**  |**CreateIfNotExists**    | A boolean value to indicate whether the collection is created when it doesn't exist. The default is *false* because new collections are created with reserved throughput, which has cost implications. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
+|**createIfNotExists**  |**CreateIfNotExists**    | A boolean value to indicate whether the collection is created when it doesn't exist. The default is *false* because new collections are created with reserved throughput, which has cost implications. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**partitionKey**|**PartitionKey** |When `CreateIfNotExists` is true, defines the partition key path for the created collection.|
 |**collectionThroughput**|**CollectionThroughput**| When `CreateIfNotExists` is true, defines the [throughput](../cosmos-db/set-throughput.md) of the created collection.|
-|**connectionStringSetting**    |**ConnectionStringSetting** |The name of the app setting containing your Azure Cosmos DB connection string.        |
+|**connection**    |**ConnectionStringSetting** |The name of the app setting containing your Azure Cosmos DB connection string.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
