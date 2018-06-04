@@ -4,10 +4,10 @@ description: "Learn how to troubleshoot common issues with Azure SQL Data Sync (
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
-ms.service: "sql-database"
-author: "douglaslMS"
-ms.author: "douglasl"
-manager: "craigg"
+ms.service: sql-database
+author: douglaslMS
+ms.author: douglasl
+manager: craigg
 ms.custom: data-sync
 ---
 # Troubleshoot issues with SQL Data Sync (Preview)
