@@ -5433,7 +5433,7 @@ Persistence Policy extension for the Service Type
 |minOccurs|0|
 
 ## PlacementConstraints Element
-Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the services requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
+Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the services requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
 
 |Attribute|Value|
 |---|---|

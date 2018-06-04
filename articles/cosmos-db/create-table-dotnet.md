@@ -5,7 +5,6 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
 ms.custom: quickstart connect, mvc
 ms.devlang: dotnet

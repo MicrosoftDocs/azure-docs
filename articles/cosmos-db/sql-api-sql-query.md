@@ -7,10 +7,9 @@ author: LalithaMV
 manager: kfile
 editor: monicar
 
-ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
 

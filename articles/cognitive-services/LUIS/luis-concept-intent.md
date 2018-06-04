@@ -95,7 +95,7 @@ If reducing the number of intents or dividing your intents into multiple apps do
 ## Next steps
 
 * Learn more about [entities](luis-concept-entity-types.md), which are important words relevant to intents
-* Learn how to [add and manage intents](Add-intents.md) in your LUIS app.
+* Learn how to [add and manage intents](luis-how-to-add-intents.md) in your LUIS app.
 * Review intent [best practices](luis-concept-best-practices.md)
 
 [LUIS]:luis-reference-regions.md#luis-website

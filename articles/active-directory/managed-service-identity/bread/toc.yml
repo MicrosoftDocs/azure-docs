@@ -3,9 +3,23 @@
   topicHref: /azure/index
   items:
   - name: Active Directory
-    tocHref: /azure/active-directory/index
+    tocHref: /event-hubs/
     topicHref: /azure/active-directory/index
     items:
     - name: Managed Service Identity
-      tocHref: /azure/active-directory/managed-service-identity/index
+      tocHref: /event-hubs-managed-service-identity/
+      topicHref: /azure/active-directory/managed-service-identity/index
+  - name: Active Directory
+    tocHref: /service-bus-messaging/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Managed Service Identity
+      tocHref: /service-bus-managed-service-identity/
+      topicHref: /azure/active-directory/managed-service-identity/index
+  - name: Active Directory       
+    tocHref: /app-service/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Managed Service Identity
+      tocHref: /app-service-managed-service-identity/
       topicHref: /azure/active-directory/managed-service-identity/index

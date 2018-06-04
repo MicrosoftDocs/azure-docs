@@ -3,7 +3,7 @@ title: Data sources supported in Azure Analysis Services | Microsoft Docs
 description: Describes data sources supported for data models in Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend

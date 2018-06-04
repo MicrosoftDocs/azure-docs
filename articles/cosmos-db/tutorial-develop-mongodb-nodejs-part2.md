@@ -6,7 +6,6 @@ author: SnehaGunda
 manager: kfile
 editor: ''
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.devlang: nodejs
 ms.topic: tutorial

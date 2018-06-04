@@ -6,10 +6,9 @@ services: cosmos-db
 author: rnagpal
 manager: kfile
 
-ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
 
