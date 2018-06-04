@@ -3,9 +3,9 @@ title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
 description: Troubleshooting Azure Files problems in Linux
 services: storage
 documentationcenter: ''
-author: genlin
-manager: willchen
-editor: na
+author: wmgries
+manager: aungoo
+editor: tamram
 tags: storage
 
 ms.service: storage
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: wgries
 
 ---
 # Troubleshoot Azure Files problems in Linux
@@ -83,7 +83,7 @@ Some Linux distributions do not yet support encryption features in SMB 3.0 and u
 
 ### Solution
 
-Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure File share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu 17.04 and Ubuntu 16.10. If your Linux SMB client does not support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
+Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure file share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu 17.04 and Ubuntu 16.10. If your Linux SMB client does not support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
 
 <a id="slowperformance"></a>
 ## Slow performance on an Azure file share mounted on a Linux VM
@@ -126,7 +126,7 @@ Use the storage account user for copying the files:
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## Cannot connect or mount an Azure File share
+## Cannot connect or mount an Azure file share
 
 ### Cause
 
