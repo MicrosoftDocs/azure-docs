@@ -14,6 +14,19 @@ ms.custom: mvc
 
 # Integrate Azure Active Directory with AKS
 
+Azure Kuernetes Service (AKS) includes the capability of integrating authentication services with Azure Active Directory. In this configuration, you can log into an Azure Kubernetes Service cluster using your Azure Active Directory authentication token. Additionally, cluster administrators are also able to configure Kubernetes role-based access control based on a users directory group membership.
+
+This document details creating all necessary prerequisites for AKS and AAD, deplying an AAD enabled cluster, and creating a simple RBAC role in the AKS cluster.
+
+## Authentication details
+
+AAD authentication is provided to Azure Kuberntees Clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. More information on OpenID Connect can be found [here](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication)
+
+From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication token. More information on Webhook token authentication can be found [here](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication)
+
+> [!NOTE]
+> When configuring AAD for AKS suthentication, two AAD application are configured. This operation must be completed by an Azure tennat administrator.
+
 ## Create server application
 
 Select **Azure Active Directory** > **App registrations** > **New application registration**.
