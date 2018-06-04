@@ -7,10 +7,9 @@ author: voellm
 manager: kfile
 editor: ''
 
-ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
+ms.devlang: na
+ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017

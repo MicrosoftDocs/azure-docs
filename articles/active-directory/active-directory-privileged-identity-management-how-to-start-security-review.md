@@ -3,7 +3,7 @@ title: How to start an access review | Microsoft Docs
 description: Learn how to create an access review for privileged identities with the Azure Privileged Identity Management application.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -12,7 +12,7 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 05/04/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
 ---
 # How to start an access review in Azure AD Privileged Identity Management
