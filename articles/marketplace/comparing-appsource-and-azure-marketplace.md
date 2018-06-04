@@ -1,7 +1,5 @@
-
 ---  
-
-title: Comparing AppSource and Azure Marketplace 
+title: Comparing AppSource and Azure Marketplace
 description: This article describes the storefronts on the marketplaces: AppSource and Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
@@ -10,7 +8,6 @@ manager: pabutler
 editor:
 
 ms.assetid: 
-ms.service: marketplace
 ms.workload: 
 ms.tgt_pltfrm: 
 ms.devlang: 
