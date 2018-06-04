@@ -3,9 +3,9 @@
 ### Overview  
 ### Benefits  
 ### Storefronts  
-#### [Comparing AppSource and Azure Marketplace](./appSource-vs-azure-marketplace.md)  
-#### [Grow your business with AppSource](./marketplace-grow-your-business-with-appsource.md)  
-#### [Grow your business with Azure Marketplace](./grow-your-business-azure-marketplace.md)  
+#### [Comparing AppSource and Azure Marketplace](./comparing-appsource-and-azure-marketplace.md)  
+#### [Grow your business with AppSource](./grow-your-business-with-appsource.md)  
+#### [Grow your business with Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
 ### How to Publish in the storefronts on the marketplace  
 #### [Determine the Listing Type for Your Solution](./determine-your-listing-type.md)  
 #### [Become a Publisher in the storefronts on the marketplace](./become-a-publisher.md)  
