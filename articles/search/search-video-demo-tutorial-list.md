@@ -53,8 +53,8 @@ Fully functional web applications using Azure Search for the search experience. 
 
 Multi-session demos and labs for Azure Search.
 
-| Link | Description | Date |
-|------|-------------|------|
+| Link | Provider| Description | Date
+|------|-------------|------|------|
 [Building Intelligent Cross-Platform Mobile Applications Using Xamarin and Azure Search](https://mva.microsoft.com/training-courses/building-intelligent-crossplatform-mobile-applications-using-xamarin-and-azure-search-16890) | Microsoft Virtual Academy | Typeahead, full text search and paging, filtering, lookup, moreLikeThis, machine learning, scoring and tuning, analytics | December 2016 |
 [Azure Data Series > part 3: Azure Search](https://mva.microsoft.com/training-courses/data-series-platform-azure-data-services-17696) | Microsoft Virtual Academy | Learn how to use Azure Search with Azure SQL Database and Azure Cosmos DB. | July 2017 | 
 [Web and Data Application Development with Visual Studio 2017 and Azure > Part 5: Azure Search & Language Understanding Intelligent Services](https://mva.microsoft.com/training-courses/web-and-data-application-development-with-visual-studio-2017-and-azure-16931) | Microsoft Virtual Academy | Video and lesson series for developers. In part 5, learn how to build a basic search experience, and then extend it with LUIS for natural language processing. | November 2016| 
