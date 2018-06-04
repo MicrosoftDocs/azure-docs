@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 06/04/2018
 ms.author: juliako
 
 ---
@@ -56,7 +56,7 @@ Each call to the Operations API should be associated with an access token, match
 
 You can control whether these tokens are readonly or they allow editing by specifying **allowEdit=true/false**.
 
-For most server-to-server scenarios, you will probably use the same **account** token since it covers both **account** operations and **video** operations. However, if you are planning to make client side calls to Video Indexer (e.g. from javascript), you would want to use a **video** access token, to prevent clients from getting access to the entire account. That is also the reason that when embedding VideoIndexer client code in your client (e.g. using **Get Insights Widget** or **Get Player Widget**) you must provide a **video** access token.
+For most server-to-server scenarios, you will probably use the same **account** token since it covers both **account** operations and **video** operations. However, if you are planning to make client side calls to Video Indexer (e.g. from javascript), you would want to use a **video** access token, to prevent clients from getting access to the entire account. That is also the reason that when embedding VideoIndexer client code in your client (for example, using **Get Insights Widget** or **Get Player Widget**) you must provide a **video** access token.
 
 To make things easier, you can use the **Authorization** API > **GetAccounts** to get your accounts without obtaining a user token first. You can also ask to get the accounts with valid tokens, enabling you to skip an additional call to get an account token.
 
@@ -92,6 +92,10 @@ The Account ID parameter is required in all operational API calls. Account ID is
 * Use the API to programmatically get the Account ID.
 
     Use the [Get accounts](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
+    
+    > [!TIP]
+    > You can generate access tokens for the accounts by defining `generateAccessTokens=true`.
+    
 * Get the account ID from the URL of a player page in your account.
 
     When you watch a video, the ID appears after the `accounts` section and before the `videos` section.
