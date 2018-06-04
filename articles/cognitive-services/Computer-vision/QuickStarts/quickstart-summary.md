@@ -43,3 +43,10 @@ These differences are summarized in the following table:
 &ast; Two API calls are required. The first call returns a URL, which is used by the second call to get the text.
 
 To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+
+## Next steps
+
+Explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text.
+
+> [!div class="nextstepaction"]
+> [Explore Computer Vision APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
