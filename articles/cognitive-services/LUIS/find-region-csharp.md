@@ -1,6 +1,6 @@
 ---
 title: Find LUIS region with C# in Language Understanding (LUIS) boundaries | Microsoft Docs
-description: Programmatically find publish region when subscription key and application ID for LUIS.
+description: Programmatically find publish region with subscription key and application ID for LUIS.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -20,7 +20,7 @@ If you have the LUIS app ID and the LUIS subscription ID, you can find which reg
 Each LUIS endpoint query requires:
 
 * A subscription key
-* A app ID
+* An app ID
 * A region
 
 If the LUIS endpoint query uses the correct subscription key and app ID but the wrong region, the response code is 401. The 401 request is not counted toward the subscription quota. Turn this request into a strategy to poll all regions to find the correct region. The correct region is the only request that returns a 2xx status code. 
@@ -49,4 +49,6 @@ When the application is run, the console shows the region for the app ID and sub
 
 ![Screenshot of console app showing LUIS region](./media/find-region-csharp/console.png)
 
+## Next steps
 
+Learn more about LUIS [regions](luis-reference-regions.md).

@@ -4,8 +4,8 @@ description: Learn to manage Azure file shares using Azure PowerShell.
 services: storage
 documentationcenter: ''
 author: wmgries	
-manager: jeconnoc
-editor: 
+manager: aungoo
+editor: tamram
 
 ms.service: storage
 ms.workload: storage
