@@ -40,19 +40,19 @@ and [RStudio Server](https://www.rstudio.com/products/rstudio/#Server).
 The DSVM can be provisioned with either Windows or Linux as the operating system.
 
 If you want to get started with R in the cloud quickly and easily, this is your best bet.  The environment will be
-very familiar to anyone who has worked with R on a local workstation.  However, instead of using local resources,
+familiar to anyone who has worked with R on a local workstation.  However, instead of using local resources,
 the R environment runs on a VM in the cloud.  If your data is already stored in Azure, this has the added benefit of
 allowing your R scripts to run "closer to the data." Instead of transferring the data across the Internet, the data can
 be accessed over Azure's extremely fast internal network.
 
 The DSVM can be particularly useful to small teams of R developers.  Instead of investing in powerful workstations
 for each developer and requiring team members to synchronize on which versions of the various software packages they
-will use, each developer can simply spin up an instance of the DSVM whenever needed.
+will use, each developer can spin up an instance of the DSVM whenever needed.
 
-In addition to being used as a workstation, the DSVM can also be used as an elastically scalable compute platform for
-R projects.  Using the <code>[AzureDSVM](https://github.com/Azure/AzureDSVM)</code> R package, you can programatically
+In addition to being used as a workstation, the DSVM is also used as an elastically scalable compute platform for
+R projects.  Using the <code>[AzureDSVM](https://github.com/Azure/AzureDSVM)</code> R package, you can programmatically
 control the creation and deletion of DSVM instances.  You can form the instances into a cluster and deploy a distributed
-analyses to be performed in the cloud.  This entire process can be controlled by R code running on your local workstation.
+analysis to be performed in the cloud.  This entire process can be controlled by R code running on your local workstation.
 
 To learn more about the DSVM, consult the
 ["Introduction to Azure Data Science Virtual Machine for Linux and Windows."](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview)
@@ -89,7 +89,7 @@ in the Databricks environment.  These notebooks fully support R and give users a
 
 Since Databricks is built on Spark and has a strong focus on collaboration, the platform is an excellent option for teams
 of data scientists that work together on complex analyses of large data sets.  Because the notebooks in Databricks support
-other languages in addition to R, it is especially useful for teams where analysts uses different languages for their
+other languages in addition to R, it is especially useful for teams where analysts use different languages for their
 primary work.
 
 The article ["What is Azure Databricks?"](https://docs.microsoft.com/en-us/azure/azure-databricks/what-is-azure-databricks)
@@ -116,7 +116,7 @@ in two ways.
 First, you can extend the data manipulation and machine learning capabilities of ML Studio by writing custom R scripts.
 Although ML Studio includes many powerful modules for preparing and analyzing data, it cannot match the capabilities
 of a mature and popular language like R.  Therefore, the service was designed to allow you to introduce your own
-custom R scripts in cases where the provided modules do not meet the your needs.
+custom R scripts in cases where the provided modules do not meet your needs.
 
 To leverage this capability, simply drag and drop an "Execute R Script" module into your experiment.  Then use the code
 editor in the "Properties" pane to write a new R script or paste an existing script.  Within the script, you can
@@ -124,7 +124,7 @@ reference external R packages.  You can use the script to manipulate data or to 
 part of the standard ML Studio model library.
 
 For a thorough introduction on using R within ML Studio experiments, check out the
-["Quickstart tutorial for the R programming language for Azure Machine Learning"](https://docs.microsoft.com/en-us/azure/machine-learning/studio/r-quickstart).
+["Quickstart tutorial for the R programming language for Azure Machine Learning."](https://docs.microsoft.com/en-us/azure/machine-learning/studio/r-quickstart)
 
 The other way that you can use R with ML Studio is to use the
 <code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> package
@@ -146,24 +146,24 @@ for Azure Web Apps, you can get your R code running in Azure Functions.  This pr
 functions built with R to the cloud.
 
 For full details on how this can be configured, please consult
-["Go serverless with R Scripts on Azure Functions"](https://azure.microsoft.com/en-us/blog/azure-function-r/).
+["Go serverless with R Scripts on Azure Functions."](https://azure.microsoft.com/en-us/blog/azure-function-r/)
 
 ### Azure Notebooks
-[Azure Notebooks](https://notebooks.azure.com) is a a low-cost, low-friction method for R developers who prefer working
+[Azure Notebooks](https://notebooks.azure.com) is a low-cost, low-friction method for R developers who prefer working
 with notebooks to bring their code to Azure.  It is a free service for anyone to develop and run code in their browser
-using [Jupyter](https://jupyter.org/), which is an open source project that enables combing markdown prose, executable
+using [Jupyter](https://jupyter.org/), which is an open-source project that enables combing markdown prose, executable
 code, and graphics onto a single canvas.
 
 While Azure Notebooks is an excellent option for small-scale projects, it has some limitations that make it inappropriate
-for large-scale data science projects.  Currently, the service limits each notebook's process to 4GB of memory and data
-sets can only be 1GB.  However, for publishing smaller analyses, this is a very easy, no-cost option.
+for large-scale data science projects.  Currently, the service limits each notebook's process to 4 GB of memory and data
+sets can only be 1 GB.  However, for publishing smaller analyses, this is an easy, no-cost option.
 
 ### Azure SQL Database
 [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/) is Microsoft's intelligent, fully
 managed relational cloud database service.  It allows you to use the full power of SQL Server without any hassle of setting
 up the infrastructure.  This includes
 [Machine Learning Services](https://docs.microsoft.com/en-us/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017),
-which is one of the more recent additons to SQL Service.
+which is one of the more recent additions to SQL Service.
 
 This feature offers an embedded, predictive analytics and data science engine that can execute R code within a SQL Server
 database as stored procedures, as T-SQL scripts containing R statements, or as R code containing T-SQL.  Instead of extracting data
@@ -176,14 +176,14 @@ but will continue to evolve.
 
 ### Azure Batch
 For large-scale R jobs, you can use [Azure Batch](https://azure.microsoft.com/en-us/services/batch/).  This service provides
-cloud-scale job scheduling and compute managment so you can scale your R workload across tens, hundreds, or thousands of
+cloud-scale job scheduling and compute management so you can scale your R workload across tens, hundreds, or thousands of
 virtual machines.
 
 One option for running an R script in Azure Batch is to bundle your code with "RScript.exe" as a Batch App in the Azure portal.
-For a detailed walk-through, consult ["R Workloads on Azure Batch"](https://azure.microsoft.com/en-us/blog/r-workloads-on-azure-batch/).
+For a detailed walk-through, consult ["R Workloads on Azure Batch."](https://azure.microsoft.com/en-us/blog/r-workloads-on-azure-batch/)
 
 Another, more powerful option is to use the [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK),
-which allows you to provision on-demand Spark clusters using Docker containers in Azure Batch.  This provides a very economical way
+which allows you to provision on-demand Spark clusters using Docker containers in Azure Batch.  This provides an economical way
 to run Spark jobs in Azure.  By using [SparklyR with AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), your
 R scripts can be scaled out in the cloud simply and cheaply.
 
