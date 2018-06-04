@@ -51,7 +51,7 @@ You can configure and get information about alert rules from the following locat
 * [Azure command-line interface (CLI)](insights-alerts-command-line-interface.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-For additional information, you can always type ```Get-Help``` followed by the PowerShell command that you want help on.
+For additional information, you can always type ```Get-Help``` followed by the PowerShell command that you need help with.
 
 ## Create alert rules in PowerShell
 1. Sign in to Azure.   
@@ -74,10 +74,10 @@ For additional information, you can always type ```Get-Help``` followed by the P
    ```
 4. To create a rule, you need to have several important pieces of information first.
 
-    - The **Resource ID** for the resource you want to set an alert for.
+    - The **resource ID** for the resource you want to set an alert for.
     - The **metric definitions** that are available for that resource.
 
-     One way to get the resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, in the **Settings** section, select **Properties**. **RESOURCE ID** is a field in the next blade. 
+     One way to get the resource ID is to use the Azure portal. Assuming that the resource has already been created, select it in the portal. Then in the next blade, in the **Settings** section, select **Properties**. **RESOURCE ID** is a field in the next blade. 
      
      You can also get the resource ID by using [Azure Resource Explorer](https://resources.azure.com/).
 
@@ -106,7 +106,7 @@ For additional information, you can always type ```Get-Help``` followed by the P
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"
 
     ```
-6. To create a webhook or send email when an alert triggers, first create the email and/or webhooks. Then immediately create the rule afterwards with the -Actions tag as shown in the following example. You can't associate webhooks or emails with rules that have already been created.
+6. To create a webhook or send email when an alert triggers, first create the email or webhook. Then immediately create the rule afterwards with the -Actions tag as shown in the following example. You can't associate webhooks or emails with rules that have already been created.
 
     ```PowerShell
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com

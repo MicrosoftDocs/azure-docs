@@ -30,10 +30,10 @@ ms.author: robb
 >
 >
 
-This article shows you how to set up Azure classic metric alerts by using the cross-platform command line interface (Azure CLI).
+This article shows you how to set up Azure classic metric alerts by using the cross-platform command-line interface (Azure CLI).
 
 > [!NOTE]
-> Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the following commands still contain the word "insights".
+> Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands that are described here still contain the word "insights."
 
 You can receive an alert based on metrics for your Azure services, or based on events that occur in Azure.
 
@@ -63,7 +63,7 @@ You can also get help for commands by typing a command with**-help** at the end.
     ```
 
 ## Create alert rules by using Azure CLI
-1. After you've installed the prerequisites, sign in to Azure. See [Azure Monitor CLI samples](insights-cli-samples.md) for the commands that you need to get started. These commands help you get signed in, show you what subscription you are using, and prepare you to run Azure Monitor commands.
+1. After you've installed the prerequisites, sign in to Azure. See [Azure Monitor CLI samples](insights-cli-samples.md) for the commands that you need to get started. These commands help you get signed in, show you what subscription you're using, and prepare you to run Azure Monitor commands.
 
     ```console
     azure login
@@ -100,7 +100,8 @@ You can also get help for commands by typing a command with**-help** at the end.
      azure insights metrics list /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename PT1M
      ```
 
-     *PT1M* is the granularity of the available measurement (in one-minute intervals). Using different granularities gives you different metric options.
+     *PT1M* is the granularity of the available measurement (in one-minute intervals). You have different metric options when you use different granularities.
+     
 4. To create a metric-based alert rule, use a command in the following format:
 
     **azure insights alerts rule metric set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;windowSize&gt; &lt;operator&gt; &lt;threshold&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
@@ -111,7 +112,7 @@ You can also get help for commands by typing a command with**-help** at the end.
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-5. To create a webhook or send an email when a classic metric alert fires, first create the email and/or webhook. Then create the rule immediately afterwards. You can't associate webhooks or emails with rules that have already been created.
+5. To create a webhook or send an email when a classic metric alert fires, first create the email or webhook. Then create the rule immediately afterwards. You can't associate webhooks or emails with rules that have already been created.
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com
