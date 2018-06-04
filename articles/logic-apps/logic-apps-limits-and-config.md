@@ -242,13 +242,13 @@ Here are the limits that apply to B2B protocols:
 
 ### Azure Logic Apps service
 
-All logic apps in a region use the same range of IP addresses. 
+All logic apps in a region use the same ranges of IP addresses. 
 To support the calls that logic apps directly make with 
 [HTTP](../connectors/connectors-native-http.md), 
 [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), 
 and other HTTP requests, set up your firewall configurations so 
-that they include these outbound and inbound IP addresses based 
-on the regions where your logic apps exist:
+they include these outbound and inbound IP addresses, 
+based on where your logic apps exist:
 
 | Logic Apps region | Outbound IP |
 |-------------------|-------------|
@@ -309,8 +309,8 @@ on the regions where your logic apps exist:
 ### Connectors
 
 To support the calls that [connectors](../connectors/apis-list.md) make, 
-set up your firewall configurations so that they include these outbound 
-IP addresses based on the regions where your logic apps exist.
+set up your firewall configurations so they include these outbound 
+IP addresses, based on where your logic apps exist.
 
 > [!IMPORTANT]
 >
