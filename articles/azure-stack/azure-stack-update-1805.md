@@ -29,12 +29,27 @@ This article describes the improvements and fixes in the 1805 update package, kn
 > This update package is only for Azure Stack integrated systems. Do not apply this update package to the Azure Stack Development Kit.
 
 ## Build reference    
-The Azure Stack 1805 update build number is **1.1805.1.47**.   
-<!--
-### New features
-This update includes the following improvements for Azure Stack.  -->
+The Azure Stack 1805 update build number is **1.1805.1.47**.  
 
-<!-- # - applicability -->   
+> [!TIP]  
+> Based on customer feedback, there is an update to the version schema in use for Microsoft Azure Stack.  Starting with this update, 1805, the new schema better represents the current cloud version.  
+> 
+> The version schema is now *Version.YearYearMonthMonth.MinorVersion.BuildNumber* where the second and third sets indicate the version and release. For example, 1805.1 represents the *release to manufacturing* (RTM) version of 1805.  
+
+
+### New features
+This update includes the following improvements for Azure Stack.
+<!-- 2297790 - IS, ASDK --> 
+- **Azure Stack now includes a *Syslog* client** as a *preview feature*. This client allows the forwarding of audit and security logs related to the Azure Stack infrastructure to a Syslog server or security information and event management (SIEM) software that is external to Azure Stack. Currently, the Syslog client only supports unauthenticated UDP connections over default port 514. The payload of each Syslog message is formatted in Common Event Format (CEF). 
+
+  To configure the Syslog client, use  the **Set-SyslogServer** cmdlet exposed in the Privileged Endpoint. 
+
+  With this preview, you might see the following three alerts. When presented by Azure Stack, these alerts include *descriptions* and *remediation* guidance. 
+  - TITLE: Code Integrity Off  
+  - TITLE: Code Integrity in Audit Mode 
+  - TITLE: User Account Created
+
+  While this feature is in preview, it should not be relied upon in production environments.   
 
 
 
@@ -147,7 +162,7 @@ The following are post-installation known issues for this build version.
 
   Currently, you must use only new public IP addresses for new VMs you create.
 
-  This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one.
+  This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the original VM, and not to the new one.
 
 - <!-- 2292271 - IS ASDK --> If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased.
 
