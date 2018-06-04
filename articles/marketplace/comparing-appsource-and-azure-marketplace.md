@@ -1,6 +1,6 @@
 ---  
 title: Comparing AppSource and Azure Marketplace 
-description: This article describes the storefronts on the marketplace: AppSource and Azure Marketplace.
+description: This article describes the storefronts on the marketplaces: AppSource and Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
