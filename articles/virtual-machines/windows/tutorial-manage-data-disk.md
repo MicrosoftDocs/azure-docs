@@ -72,11 +72,15 @@ Additional data disks can be added for installing applications and storing data.
 
 ## VM disk types
 
-Azure provides two types of disk.
+Azure provides three types of disks.
 
-### Standard disk
+### Standard HDD disk
 
-Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
+Standard HDD Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for backup and infrequent access.
+
+### Standard SSD disk (Preview)
+
+New Standard SSD Disks are backed by SSDs, and are optimized for low-IOPS workloads. They are ideal for Web Servers, lightly used enterprise applications and other low-end workloads, and Dev/Test. Standard SSD disks support all Azure VM series.
 
 ### Premium disk
 
@@ -174,6 +178,13 @@ Initialize-Disk -PartitionStyle MBR -PassThru | `
 New-Partition -AssignDriveLetter -UseMaximumSize | `
 Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
+
+## Create Standard SSD disks
+
+Refer to [Disks FAQ document](./faq-for-disks.md) for the current list of regions supported for Standard SSD Preview.
+You can create Standard SSD disks using Azure Resource Manager(ARM) templates in the same way as the regular Managed Disks. Below are the parameters needed in the ARM template for creating Standard SSD Disks:
+* apiVersion for Microsoft.Compute must be set as “2018-04-01” (or later)
+* Specify managedDisk storageAccountType as “StandardSSD_LRS” for creating a Standard SSD Disk
 
 ## Next steps
 
