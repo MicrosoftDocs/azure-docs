@@ -59,7 +59,7 @@ For the above runbook, if you have the following properties for the WebhookData 
 
 Then you would pass the following JSON value in the UI for the WebhookData parameter:
 
-* `"{'WebhookName':'mywebhook','RequestBody':'[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]'}"`
+* `{"WebhookName":"mywebhook","RequestBody":"[\r\n {\r\n \"ResourceGroup\": \"vm01\",\r\n \"Name\": \"vm01\"\r\n },\r\n {\r\n \"ResourceGroup\": \"vm02\",\r\n \"Name\": \"vm02\"\r\n }\r\n]"}`
 
 ![Start WebhookData parameter from UI](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
 
