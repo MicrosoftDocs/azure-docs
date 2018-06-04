@@ -126,26 +126,26 @@ To add the server endpoint, select **Create**. Your files are now kept in sync a
 ## Onboarding with Azure File Sync
 The recommended steps to onboard on Azure File Sync for the first with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:
  
-1.	Deploy a Storage Sync Service.
-2.	Create a sync group.
-3.	Install Azure File Sync agent on the server with the full data set.
-4.	Register that server and create a server endpoint on the share. 
-5.	Let sync do the full upload to the Azure file share (cloud endpoint).  
-6.	After the initial upload is complete, install Azure File Sync agent on each of the remaining servers.
-7.	Create new file shares on each of the remaining servers.
-8.	Create server endpoints on new file shares with cloud tiering policy, if desired. (This step requires additional storage to be available for the initial setup.)
-9.	Let Azure File Sync agent to do a rapid restore of the full namespace without the actual data transfer. After the full namespace sync, sync engine will fill the local disk space based on the cloud tiering policy for the server endpoint. 
-10.	Ensure sync completes and test your topology as desired. 
-11.	Redirect users and applications to this new share.
-12.	You can optionally delete any duplicate shares on the servers.
+1. Deploy a Storage Sync Service.
+2. Create a sync group.
+3. Install Azure File Sync agent on the server with the full data set.
+4. Register that server and create a server endpoint on the share. 
+5. Let sync do the full upload to the Azure file share (cloud endpoint).  
+6. After the initial upload is complete, install Azure File Sync agent on each of the remaining servers.
+7. Create new file shares on each of the remaining servers.
+8. Create server endpoints on new file shares with cloud tiering policy, if desired. (This step requires additional storage to be available for the initial setup.)
+9. Let Azure File Sync agent to do a rapid restore of the full namespace without the actual data transfer. After the full namespace sync, sync engine will fill the local disk space based on the cloud tiering policy for the server endpoint. 
+10. Ensure sync completes and test your topology as desired. 
+11. Redirect users and applications to this new share.
+12. You can optionally delete any duplicate shares on the servers.
  
 If you don't have extra storage for initial onboarding and would like to attach to the existing shares, you can pre-seed the data in the Azure files shares. This approach is suggested, if and only if you can accept downtime and absolutely guarantee no data changes on the server shares during the initial onboarding process. 
  
-1.	Ensure that data on any of the server can't change during the onboarding process.
-2.	Pre-seed Azure file shares with the server data using any data transfer tool over the SMB e.g. Robocopy, direct SMB copy. Since AzCopy does not upload data over the SMB so it can’t be used for pre-seeding.
-3.	Create Azure File Sync topology with the desired server endpoints pointing to the existing shares.
-4.	Let sync finish reconciliation process on all endpoints. 
-5.	Once reconciliation is complete, you can open shares for changes.
+1. Ensure that data on any of the server can't change during the onboarding process.
+2. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB e.g. Robocopy, direct SMB copy. Since AzCopy does not upload data over the SMB so it can't be used for pre-seeding.
+3. Create Azure File Sync topology with the desired server endpoints pointing to the existing shares.
+4. Let sync finish reconciliation process on all endpoints. 
+5. Once reconciliation is complete, you can open shares for changes.
  
 Please be aware that currently, pre-seeding approach has a few limitations - 
 - Full fidelity on files is not preserved. For example, files lose ACLs and timestamps.

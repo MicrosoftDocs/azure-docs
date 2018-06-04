@@ -60,7 +60,7 @@ You can mount Azure file shares on a Windows installation that is running either
 
 ## Persisting connections across reboots
 ### CmdKey
-The easiest way to establish a persistent connection is to save your storage account credentials into windows using the “CmdKey” command-line utility. The following is an example command-line for persisting your storage account credentials into your VM:
+The easiest way to establish a persistent connection is to save your storage account credentials into windows using the "CmdKey" command-line utility. The following is an example command-line for persisting your storage account credentials into your VM:
 ```
 C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
 ```
