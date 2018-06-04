@@ -9,7 +9,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: danlep
 
 ---
@@ -63,7 +63,7 @@ For Linux container workloads, Batch currently supports the following Linux imag
 
 * **Ubuntu Server (with RDMA drivers) for Azure Batch container pools**
 
-These images, designed for the Azure Batch service, feature:
+These images, which should only be used to create Azure Batch pools, feature:
 
 * A pre-installed container runtime 
 
@@ -71,15 +71,15 @@ These images, designed for the Azure Batch service, feature:
 
 * Images with or without pre-installed RDMA drivers; these drivers allow pool nodes to access the Azure RDMA network when deployed on RDMA-capable VM sizes including A8, A9, H16r, H16mr, or NC24r 
 
-You can also create custom Linux images from VMs running Docker on the following distributions: Ubuntu 16.04 LTS or CentOS 7.3. If you choose to provide your own custom Linux image, see the instructions in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
+You can also create custom images from VMs running Docker on one of the Linux distributions that is compatible with Batch. If you choose to provide your own custom Linux image, see the instructions in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 
 For Docker support on a custom image, install [Docker Community Edition (CE)](https://www.docker.com/community-edition) or [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition).
 
 Additional considerations for using a custom Linux image:
 
-* To take advantage of the GPU performance of Azure N-series sizes when using a custom image, pre-install NVIDIA drivers. Also, you need to install and run the Docker Engine Utility for NVIDIA GPUs, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
+* To take advantage of the GPU performance of Azure N-series sizes when using a custom image, pre-install NVIDIA drivers. Also, you need to install the Docker Engine Utility for NVIDIA GPUs, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
 
-* To access the Azure RDMA network, use RDMA-capable VM sizes, such as A8, A9, H16r, H16mr, or NC24r. Necessary RDMA drivers are installed in the CentOS 7.3 HPC and Ubuntu 16.04 LTS images from the Azure Marketplace. Additional configuration may be needed to run MPI workloads. See [Use RDMA-capable or GPU-enabled instances in Batch pool](batch-pool-compute-intensive-sizes.md).
+* To access the Azure RDMA network, use RDMA-capable VM sizes, such as A8, A9, H16r, H16mr, or NC24r. Necessary RDMA drivers are installed in the CentOS HPC and Ubuntu 16.04 LTS images supported by Batch. Additional configuration may be needed to run MPI workloads. See [Use RDMA-capable or GPU-enabled instances in Batch pool](batch-pool-compute-intensive-sizes.md).
 
 
 ## Container configuration for Batch pool
@@ -226,10 +226,10 @@ If you run tasks on container images, the [cloud task](/dotnet/api/microsoft.azu
 
 When you configure the container settings, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
 
-The following Python snippet shows a basic command line running in an Ubuntu container pulled from Docker Hub. The container run options are additional arguments to the `docker create` command that the task runs:
+The following Python snippet shows a basic command line running in an Ubuntu container pulled from Docker Hub. The container run options are additional arguments to the `docker create` command that the task runs. Here, the `--rm` option removes the container after the task finishes.
 
 ```python
-task_id = 'task1'
+task_id = 'sampletask'
 task_container_settings = batch.models.TaskContainerSettings(
     image_name='ubuntu', 
     container_run_options='--rm')
