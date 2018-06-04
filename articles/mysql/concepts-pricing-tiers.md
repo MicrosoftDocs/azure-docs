@@ -58,8 +58,8 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Southeast Asia | X | X |
 | Australia East |  | X |
 | Australia Southeast |  | X |
-| Central India | X |  |
-| West India | X |  |
+| Central India | X | X |
+| West India | X | X |
 | South India |  | X |
 | Japan East | X | X |
 | Japan West | X | X |
