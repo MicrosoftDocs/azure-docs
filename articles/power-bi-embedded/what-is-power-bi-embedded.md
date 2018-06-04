@@ -6,7 +6,7 @@ manager: kfile
 ms.author: maghan
 ms.service: power-bi-embedded
 ms.component: ''
-ms.devlang: NA
+ms.devlang: csharp, javascript
 ms.topic: overview
 ms.reviewer: ''
 ms.date: 05/31/2018
