@@ -61,8 +61,7 @@ Follow these steps to register the ASDK with Azure.
       -PrivilegedEndpoint AzS-ERCS01 `
       -BillingModel Development
   ```
-  
-  3. When the script completes, you should see this message: **Your environment is now registered and activated using the provided parameters.**
+3. When the script completes, you should see this message: **Your environment is now registered and activated using the provided parameters.**
 
     ![](media/asdk-register/1.PNG)
 
