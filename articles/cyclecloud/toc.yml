@@ -58,8 +58,8 @@
       href: cyclecloud-cluster-management.md
     - name: Nodes and Node Arrays
       href: cyclecloud-nodes.md
-    - name: Node Tags
-      href:
+    - name: Tags
+      href: cyclecloud-tag-nodes.md
     - name: Images
       href: cyclecloud-images.md
     - name: Auto-Scale
@@ -77,7 +77,7 @@
     - name: Synchronization
       href: cyclecloud-disaster-recovery-synchronization.md
     - name: Virtualization
-      href: cyclecloud-disaster-recovery-virtualization.md
+      href:
   - name: Monitoring
     items:
     - name: Monitoring
@@ -98,7 +98,7 @@
       href: cyclecloud-data-overview.md
     - name: Endpoint Creation
       href: cyclecloud-endpoint-creation.md
-    - name: Data Encrytion
+    - name: Data Encryption
       href: cyclecloud-data-encryption.md
   - name: Storage
     items:
@@ -116,8 +116,8 @@
         href: cyclecloud-network-connectivity.md
       - name: Proxy Traffic
         href: cyclecloud-proxy-traffic.md
-      - name: Transfer Listeners
-        href: cyclecloud-transfer-listeners.md
+  - name: Scheduler
+    href: cyclecloud-scheduler-integration.md
   - name: User Creation and RBAC
     href: cyclecloud-user-management-and-rbac.md
 - name: How-To
@@ -128,8 +128,8 @@
     href: cyclecloud-transfer-data.md
   - name: Enable Return Proxy
     href: cyclecloud-return-proxy.md
-  - name: Tag Nodes
-    href: cyclecloud-tag-nodes.md
+  - name:
+    href:
 - name: Reference
   items:
   - name: CLI
