@@ -1,5 +1,5 @@
 ---  
-title: Grow your business using Azure Marketplace
+title: Grow your business with Azure Marketplace
 description: Step-by-step guide and publishing checklists for new publishers to the Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
@@ -18,7 +18,7 @@ ms.author: ellacroi
 
 ---  
 
-# Grow your business using Azure Marketplace  
+# Grow your business with Azure Marketplace  
 After you have developed the technical assets for your Azure Marketplace listing, you are able to increase the number of users coming to your offer and the growth in usage of your product by following marketing best practices. 
 
 >[!NOTE]
