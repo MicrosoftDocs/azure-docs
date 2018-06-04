@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/04/2018
 ms.author: vinagara
 
 ---
@@ -207,40 +207,270 @@ This response indicates the alerts have been successfully migrated into Azure Al
 
 ```
 
-## Troubleshooting 
-During the process of migrating your alerts from Log Analytics to Azure Alerts, an issue could prevent the service from creating the required [Action Groups](monitoring-action-groups.md). In such cases an error message will be shown in a banner at the top of the OMS portal under **Alert Settings** section and in the resulting JSON when you create a GET request.
 
-Listed below are the remediation steps for each error:  
+## Option 3 - Using custom PowerShell script
+ After May 14, 2018 - if Microsoft has not successfully extended your alerts from OMS portal to Azure; then till **July 5, 2018** - user can manually do the same via [Option1 - Via GUI](#option-1---initiate-from-the-oms-portal) or [Option 2 - Via API](#option-2---using-the-alertsversion-api).
 
-1. **Error: The subscription is not registered to use the namespace 'microsoft.insights'**:  
+After **July 5, 2018** - all alerts from OMS portal will be extended into Azure. Users who didn't take the [necessary remediation steps suggested](#troubleshooting), will have their alerts running without firing actions or notifications due to the lack of associated [Action Groups](monitoring-action-groups.md). 
 
-    ![OMS portal Alert Settings page with Registration Error message](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
+To manually create [Action Groups](monitoring-action-groups.md) for alerts in Log Analytics, users can use the sample script below.
+```PowerShell
+########## Input Parameters Begin ###########
 
-    a. The subscription associated with your OMS workspace - has not been registered to use Azure Monitor (microsoft.insights) functionality; due to which OMS unable to extend you alerts into Azure Monitor & Alerts.
+
+$subscriptionId = ""
+$resourceGroup = ""
+$workspaceName = "" 
+
+
+########## Input Parameters End ###########
+
+armclient login
+
+try
+{
+    $workspace = armclient get /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/"$workspaceName"?api-version=2015-03-20 | ConvertFrom-Json
+    $workspaceId = $workspace.properties.customerId
+    $resourceLocation = $workspace.location
+}
+catch
+{
+    "Please enter valid input parameters i.e. Subscription Id, Resource Group and Workspace Name !!"
+    exit
+}
+
+# Get Extend Summary of the Alerts
+"`nGetting Extend Summary of Alerts for the workspace...`n"
+try
+{
+
+    $value = armclient get /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/alertsversion?api-version=2017-04-26-preview
+
+    "Extend preview summary"
+    "=========================`n"
+
+    $value
+
+    $result = $value | ConvertFrom-Json
+}
+catch
+{
+
+    $ErrorMessage = $_.Exception.Message
+    "Error occured while fetching/parsing Extend summary: $ErrorMessage"
+    exit 
+}
+
+if ($result.version -eq 2)
+{
+    "`nThe alerts in this workspace have already been extended to Azure."
+    exit
+}
+
+$in = Read-Host -Prompt "`nDo you want to continue extending the alerts to Azure? (Y/N)"
+
+if ($in.ToLower() -ne "y")
+{
+    exit
+} 
+
+
+# Check for resource provider registration
+try
+{
+    $val = armclient get subscriptions/$subscriptionId/providers/microsoft.insights/?api-version=2017-05-10 | ConvertFrom-Json
+    if ($val.registrationState -eq "NotRegistered")
+    {
+        $val = armclient post subscriptions/$subscriptionId/providers/microsoft.insights/register/?api-version=2017-05-10
+    }
+}
+catch
+{
+    "`nThe user does not have required access to register the resource provider. Please try with user having Contributor/Owner role in the subscription"
+    exit
+}
+
+$actionGroupsMap = @{}
+try
+{
+    "`nCreating new action groups for alerts extension...`n"
+    foreach ($actionGroup in $result.migrationSummary.actionGroups)
+    {
+        $actionGroupName = $actionGroup.actionGroupName
+        $actions = $actionGroup.actions
+        if ($actionGroupsMap.ContainsKey($actionGroupName))
+        {
+            continue
+        } 
+        
+        # Create action group payload
+        $shortName = $actionGroupName.Substring($actionGroupName.LastIndexOf("AG_"))
+        $properties = @{"groupShortName"= $shortName; "enabled" = $true}
+        $emailReceivers = New-Object Object[] $actions.emailIds.Count
+        $webhookReceivers = New-Object Object[] $actions.webhookActions.Count
+        
+        $count = 0
+        foreach ($email in $actions.emailIds)
+        {
+            $emailReceivers[$count] = @{"name" = "Email$($count+1)"; "emailAddress" = "$email"}
+            $count++
+        }
+
+        $count = 0
+        foreach ($webhook in $actions.webhookActions)
+        {
+            $webhookReceivers[$count] = @{"name" = "$($webhook.name)"; "serviceUri" = "$($webhook.serviceUri)"}
+            $count++
+        }
+
+        $itsmAction = $actions.itsmAction
+        if ($itsmAction.connectionId -ne $null)
+        {
+            $val = @{
+            "name" = "ITSM"
+            "workspaceId" = "$subscriptionId|$workspaceId"
+            "connectionId" = "$($itsmAction.connectionId)"
+            "ticketConfiguration" = $itsmAction.templateInfo
+            "region" = "$resourceLocation"
+            }
+            $properties["itsmReceivers"] = @($val)  
+        }
+
+        $properties["emailReceivers"] = @($emailReceivers)
+        $properties["webhookReceivers"] = @($webhookReceivers)
+        $armPayload = @{"properties" = $properties; "location" = "Global"} | ConvertTo-Json -Compress -Depth 4
+
     
-    b. To resolve, register microsoft.insights (Azure monitor & alerts) use in your subscription using Powershell, Azure CLI, or Azure portal. To learn more, view the article on [resolving errors on resource provider registration](../azure-resource-manager/resource-manager-register-provider-errors.md)
+        # ARM call to create action group
+        $response = $armPayload | armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroupName/?api-version=2017-04-01
+
+        "Created Action Group with name $actionGroupName" 
+        $actionGroupsMap[$actionGroupName] = $actionGroup.actionGroupResourceId.ToLower()
+        $index++
+    }
+
+    "`nSuccessfully created all action groups!!"
+}
+catch
+{
+    $ErrorMessage = $_.Exception.Message
+
+    #Delete all action groups in case of failure
+    "`nDeleting newly created action groups if any as some error happened..."
+    
+    foreach ($actionGroup in $actionGroupsMap.Keys)
+    {
+        $response = armclient delete /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroup/?api-version=2017-04-01      
+    }
+
+    "`nError: $ErrorMessage"
+    "`nExiting..."
+    exit
+}
+
+# Update all alerts configuration to the new version
+"`nExtending OMS alerts to Azure...`n"
+
+try
+{
+    $index = 1
+    foreach ($alert in $result.migrationSummary.alerts)
+    {
+        $uri = $alert.alertId + "?api-version=2015-03-20"
+        $config = armclient get $uri | ConvertFrom-Json
+        $aznsNotification = @{
+            "GroupIds" = @($actionGroupsMap[$alert.actionGroupName])
+        }
+        if ($alert.customWebhookPayload)
+        {
+            $aznsNotification.Add("CustomWebhookPayload", $alert.customWebhookPayload)
+        }
+        if ($alert.customEmailSubject)
+        {
+            $aznsNotification.Add("CustomEmailSubject", $alert.customEmailSubject)
+        }      
+
+        # Update alert version
+        $config.properties.Version = 2
+
+        $config.properties | Add-Member -MemberType NoteProperty -Name "AzNsNotification" -Value $aznsNotification
+        $payload = $config | ConvertTo-Json -Depth 4
+        $response = $payload | armclient put $uri
+    
+        "Extended alert with name $($alert.alertName)"
+        $index++
+    }
+}
+catch
+{
+    $ErrorMessage = $_.Exception.Message   
+    if ($index -eq 1)
+    {
+        "`nDeleting all newly created action groups as no alerts got extended..."
+        foreach ($actionGroup in $actionGroupsMap.Keys)
+        {
+            $response = armclient delete /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroup/?api-version=2017-04-01      
+        }
+        "`nDeleted all action groups."  
+    }
+    
+    "`nError: $ErrorMessage"
+    "`nPlease resolve the issue and try extending again!!"
+    "`nExiting..."
+    exit
+}
+
+"`nSuccessfully extended all OMS alerts to Azure!!" 
+
+# Update version of workspace to indicate extension
+"`nUpdating alert version information in OMS workspace..." 
+
+$response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/alertsversion?api-version=2017-04-26-preview&iversion=2"
+
+"`nExtension complete!!"
+```
+
+
+**Using the custom PowerShell script** 
+- Pre-requisite is the installation of [ARMclient](https://github.com/projectkudu/ARMClient),an open-source command-line tool that simplifies invoking the Azure Resource Manager API
+- User running the said script must have Contributor or Owner role in the Azure Subscription
+- The following are the parameters to be provided for the script:
+    - $subscriptionId: The Azure Subscription id associated with the OMS/LA Workspace
+    - $resourceGroup: The Azure Resource Group where lies the OMS/LA Workspace
+    - $workspaceName: The name of the OMS/LA Workspace
+
+**Output of the custom PowerShell script**
+The script is verbose and will output the steps as it executes. 
+- It will display the  summary which contains the information about the existing OMS/LA alerts in the workspace and the Azure action groups to be created for the actions associated with them. 
+- User will be prompted to go ahead with the extension or exit after viewing the summary.
+- If the user prompts to go ahead with extension, new Azure action groups will be created and all the existing alerts will be associated with them. 
+- In the end, the script exits by displaying the message "Extension complete!!". In case of any intermediate failures, subsequent errors will be displayed.
+
+## Troubleshooting 
+During the process of extending alerts from OMS into Azure, there can be occasional issue that prevents the system from creating necessary [Action Groups](monitoring-action-groups.md). In such cases an error message will be shown in OMS portal via banner in Alert section and in GET call done to API.
+
+> [!WARNING]
+> If user doesn't take the precribed remediation steps provided below, before **July 5, 2018** - then alerts will run in Azure but without firing any action or notification. To get notifications for alerts, users must manually edit and add [Action Groups](monitoring-action-groups.md) or use the [custom PowerShell script](#option-3---using-custom-powershell-script) provided above.
+
+Listed below are the remediation steps for each error:
+1. **Error: Scope Lock is present at subscription/resource group level for write operations**:
+    ![OMS portal Alert Settings page with ScopeLock Error message](./media/monitor-alerts-extend/ErrorScopeLock.png)
+
+    a. When Scope Lock is enabled, restricting any new change in subscription or resource group containing the Log Analytics (OMS) workspace; the system is unable to extend (copy) alerts into Azure and create necessary action groups.
+    
+    b. To resolve, delete the *ReadOnly* lock on your subscription or resource group containing the workspace; using Azure portal, Powershell, Azure CLI, or API. To learn more, view the article on [resource lock usage](../azure-resource-manager/resource-group-lock-resources.md). 
     
     c. Once resolved as per steps illustrated in the article, OMS will extend your alerts into Azure within the next day's scheduled run; without the need of any action or initiation.
 
-2. **Error: Scope Lock is present at subscription/resource group level for write operations**:  
-
-    ![OMS portal Alert Settings page with ScopeLock Error message](./media/monitor-alerts-extend/ErrorScopeLock.png)
-
-    a. When Scope Lock is enabled, any new change in subscription or resource group containing the Log Analytics workspace is restricted.  The service is unable to migrate alerts to Azure Alerts and create the required action groups.
-    
-    b. To resolve this, delete the *ReadOnly* lock on your subscription or resource group containing the workspace from the Azure portal, Powershell, Azure CLI, or API. To learn more, review the article [resource lock usage](../azure-resource-manager/resource-group-lock-resources.md). 
-    
-    c. Once you have completed the steps to remove the lock, you can reattempt to migrate your alerts to Azure Alerts within the next day's scheduled run without the need of any action or initiation.
-
-3. **Error: Policy is present at subscription/resource group level**:  
-
+2. **Error: Policy is present at subscription/resource group level**: 
     ![OMS portal Alert Settings page with Policy Error message](./media/monitor-alerts-extend/ErrorPolicy.png)
 
-    a. When [Azure Policy](../azure-policy/azure-policy-introduction.md) is applied, any new resource in subscription or resource group containing the Log Analytics (OMS) workspace is restricted.  The service is unable to migrate your alerts into Azure Alerts and create the required action groups.
+    a. When [Azure Policy](../azure-policy/azure-policy-introduction.md) is applied, restricting any new resource in subscription or resource group containing the Log Analytics (OMS) workspace; the system is unable to extend (copy) alerts into Azure and create necessary action groups.
     
-    b. To resolve this, edit the policy causing *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* error, which prevents creation of new resources in your subscription or resource group containing the workspace. Using Azure portal, Powershell, Azure CLI or API, you can audit actions to find the appropriate policy causing this failure. To learn more, review the article [viewing activity logs to audit actions](../azure-resource-manager/resource-group-audit.md). 
+    b. To resolve, edit the policy causing *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* error, which prevents creation of new resources on your subscription or resource group containing the workspace. Using Azure portal, Powershell, Azure CLI or API; you can audit actions to find the appropriate policy causing failure. To learn more, view the article on [viewing activity logs to audit actions](../azure-resource-manager/resource-group-audit.md). 
     
-    c. Once you have completed the steps to remove the restriction, Log Analytics will migrate your alerts to Azure Alerts within the next day's scheduled run without the need of any action or initiation.
+    c. Once resolved as per steps illustrated in the article, OMS will extend your alerts into Azure within the next day's scheduled run; without the need of any action or initiation.
+
 
 ## Next steps
 
