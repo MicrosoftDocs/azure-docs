@@ -21,41 +21,19 @@ ms.author: iainfou
 
 # Create a Linux virtual machine that uses SSH authentication with the REST APIs
 
-To create or update a virtual machine:
+A virtual machine (VM) in Azure is defined by various parameters such as location, hardware size, operating system image, and logon credentials. This article shows you how to use the REST APIs to create a Linux virtual machine that uses SSH authentication.
+
+To create or update a virtual machine, use the following *PUT* operation:
 
 ``` http
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01
+PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 Content-Type: application/json
 Authorization: Bearer
 ```
 
-## Request body
+## Create a request
 
-The following common definitions are used to build a request body:
-
-| Name                       | Required | Type                                                                                | Description  |
-|----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | string                                                                              | Resource location |
-| name                       |          | string                                                                              | Name for the virtual machine. |
-| properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Specifies the hardware settings for the virtual machine. |
-| properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Specifies the storage settings for the virtual machine disks. |
-| properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Specifies the operating system settings for the virtual machine. |
-| properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Specifies the network interfaces of the virtual machine. |
-
-For a complete list of the available definitions in the request body, see [Virtual machines create or update request body defintions](/rest/api/compute/virtualmachines/createorupdate#definitions)
-
-## Responses
-
-| Name        | Type                                                                              | Description |
-|-------------|-----------------------------------------------------------------------------------|-------------|
-| 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
-| 201 Created | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Created     |
-
-## Build a request
-
-The `{subscription-id}` parameter is required. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions).
-
-The `api-version` parameter is required. This example uses `api-version=2017-12-01`.
+To create the *PUT* request, the `{subscription-id}` parameter is required. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). You define a `{resourceGroupName}` and `{vmName}` for your resources, along with the `api-version` parameter. This article uses `api-version=2017-12-01`.
 
 The following headers are required:
 
@@ -63,6 +41,23 @@ The following headers are required:
 |--------------------|-----------------|
 |*Content-Type:*|Required. Set to `application/json`.|
 |*Authorization:*|Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+
+For more information about how to create the request, see [Components of a REST API request/response](/rest/api/azure/#components-of-a-rest-api-requestresponse).
+
+## Create the request body
+
+The following common definitions are used to build a request body:
+
+| Name                       | Required | Type                                                                                | Description  |
+|----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
+| location                   | True     | string                                                                              | Resource location. |
+| name                       |          | string                                                                              | Name for the virtual machine. |
+| properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Specifies the hardware settings for the virtual machine. |
+| properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Specifies the storage settings for the virtual machine disks. |
+| properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Specifies the operating system settings for the virtual machine. |
+| properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Specifies the network interfaces of the virtual machine. |
+
+For a complete list of the available definitions in the request body, see [Virtual machines create or update request body defintions](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ### Example request body
 
@@ -121,9 +116,22 @@ The following example request body defines an Ubuntu 16.04-LTS image that uses P
 }
 ```
 
-## Example response
+## Responses
 
-A condensed status code 200 response shows the *vmId* assigned to the virtual machine and shows the *provisioningState* of *Creating*:
+There are two successful responses for the operation to create or update a virtual machine:
+
+| Name        | Type                                                                              | Description |
+|-------------|-----------------------------------------------------------------------------------|-------------|
+| 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
+| 201 Created | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Created     |
+
+The *200 OK* response is returned when the request has been accepted by the Azure platform. The *201 Created* response is returned when the virtual machine has been created or updated.
+
+For more information about REST API responses, see [Process the response message](/rest/api/azure/#process-the-response-message).
+
+### Example response
+
+A condensed *200 OK* response shows the *vmId* assigned to the virtual machine and shows the *provisioningState* of *Creating*:
 
 ```json
 {
