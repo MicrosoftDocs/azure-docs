@@ -106,15 +106,13 @@ In general, the following steps are involved when using Audio input streams:
     delete contosoStream;
     ```
 
-  5. Note, the contosoStream must be deleted explicitly after the result has been obtained. While this is easy to see in the previous example, it must be taken care not to release the ContosoAudioStream in scenarios like StartContinuousRecognitionAsync().
+  5. Note, the contosoStream must be deleted explicitly after the result has been obtained. While this is easy to see in the previous example, it must be taken care not to release the ContosoAudioStream in scenarios like ContinuousRecognition.
 
     ```
     var contosoStream = new ContosoAudioStream(contosoConfig);
 
     var factory = SpeechFactory.FromSubscription(...);
     var recognizer = CreateSpeechRecognizerWithStream(contosoStream);
-
-    recognizer.
 
     // run stream through recognizer
     await recognizer.StartContinuousRecognitionAsync();
