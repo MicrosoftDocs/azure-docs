@@ -3,7 +3,7 @@ title: Add bank and tax information
 description: Add bank and tax infromation to your Dev Center account
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: v-josepm
+author: jm-aditi-ms
 manager: pabutler
 editor:
 
