@@ -13,7 +13,7 @@ ms.date: 06/04/2018
 # Limitations in Azure Database for MySQL
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
 
-## Service tier maximums
+## Maximum connections
 The maximum number of connections per pricing tier and vCores are as follows: 
 
 |**Pricing Tier**|**vCore(s)**| **Max Connections**|
