@@ -1,6 +1,6 @@
 ---
 title: Metrics and Alerts in Azure Traffic Manager| Microsoft Docs
-description: This article will help you understand what Traffic Manager is, and whether it is the right traffic routing choice for your application
+description: This article describes metrics available for Traffic Manager in Azure.
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
@@ -65,3 +65,4 @@ In addition to processing and displaying metrics from Traffic Manager, Azure Mon
 
 ## Next steps
 - Learn more about [Azure Monitor service](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
+- Learn how to [create a new chart using Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-charts.md#how-do-i-create-a-new-chart)
