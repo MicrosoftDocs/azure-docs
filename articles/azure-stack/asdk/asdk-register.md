@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -64,6 +64,7 @@ Follow these steps to register the ASDK with Azure.
         -PrivilegedEndpointCredential $CloudAdminCred `
         -PrivilegedEndpoint AzS-ERCS01 `
         -BillingModel Development
+    ```
 
 3. When the script completes, you should see this message: **Your environment is now registered and activated using the provided parameters.**
 
