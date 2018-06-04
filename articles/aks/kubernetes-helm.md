@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/13/2018
+ms.date: 06/13/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -24,7 +24,7 @@ The steps detailed in this document assume that you have created an AKS cluster 
 
 ## Install Helm CLI
 
-The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm charts.
+The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm.
 
 If you're using Azure CloudShell, the Helm CLI is already installed. To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm][helm-install-options].
 
@@ -45,7 +45,42 @@ Bash completion has been installed to:
 🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
 ```
 
-## Configure Helm
+## Configure Helm RBAC
+
+Before configuring Helm in an RBAC enabled cluster, you need a service account and role binding for the Tiller service. Both the service account and role binding can be created with the following sample manifest.
+
+Create a file named `helm-rbac.yaml` and copy in the following YAML.
+
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: tiller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
+```
+
+Now install tiller using the [helm init][helm-init] command
+
+```
+helm init --service-account tiller
+```
+
+When using an RBAC enabled clusters, you have options on the level of access Tiller has to the cluster. See [Helm: role-based access controls][helm-rbac] for more information on configuration options.
+
+## Configure Helm non-RBAC
 
 The [helm init][helm-init] command is used to install Helm components in a Kubernetes cluster and make client-side configurations. Run the following command to install Helm on your AKS cluster and configure the Helm client.
 
@@ -174,6 +209,7 @@ For more information about managing Kubernetes charts, see the Helm documentatio
 [helm-install]: https://docs.helm.sh/helm/#helm-install
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
 [helm-search]: https://docs.helm.sh/helm/#helm-search
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
