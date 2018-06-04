@@ -78,7 +78,7 @@ In this section, you create a Hadoop cluster in HDInsight using an Azure Resourc
 
 ## Use VSCode to run Hive queries
 
-How to get HDInsight Tools in VSCode, see [Use Azure HDInsight Tools for Visual Studio Code](../hdinsight-for-vscode.md)
+How to get HDInsight Tools in VSCode, see [Use Azure HDInsight Tools for Visual Studio Code](../hdinsight-for-vscode.md).
 
 ### Submit interactive Hive queries
 
@@ -126,7 +126,7 @@ Running the interactive query takes much less time than [running a Hive batch jo
 
 ## Use VisualStudio to run Hive queries
 
-How to get HDInsight Tools in Visual Studio, see [Use Data Lake Tools for Visual Studio](./apache-hadoop-visual-studio-tools-get-started.md)
+How to get HDInsight Tools in Visual Studio, see [Use Data Lake Tools for Visual Studio](./apache-hadoop-visual-studio-tools-get-started.md).
 
 ### Run Hive queries
 
