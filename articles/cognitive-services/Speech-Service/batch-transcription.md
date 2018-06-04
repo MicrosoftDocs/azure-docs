@@ -13,16 +13,16 @@ ms.author: panosper
 ---
 
 # Batch Transcription
-Batch transcription is ideal for use cases with large amounts of audio where the developer wishes to simply point to audio files and get back trnascriptions in asynchronous mode.
+Batch transcription is ideal for use cases with large amounts of audio where the developer wishes to point to audio files and get back transcriptions in asynchronous mode.
 
-## Offline API
-The Offline API makes the above scenario possible. It offers asynchronous speech to text transcription along with some interesting out of the box features.
+## Batch transcription API
+The Batch transcription API makes the above scenario possible. It offers asynchronous speech to text transcription along with some interesting out of the box features.
 
 > [!NOTE]
-> The Offline API is idea for Call Centers which typically accummulate thousands of hours of audio in a daily basis
+> The Batch transcription API is idea for Call Centers which typically accummulate thousands of hours of audio in a daily basis
 
 ### Supported Formats
-The offline API aims to become the de-facto for all call centre related scenarios and we aim to offer support for all related format. We currently support
+The Batch transcription API aims to become the de-facto for all offline call center related scenarios and offer support for all related formats. Currently supported formats:
 
 Name| Channel  |
 ----|----------|
@@ -31,7 +31,7 @@ mp3 |  Stereo  |
 wav |   Mono   |
 wav |  Stereo  |
 
-In addition the Offline API is capable of doing channel splitting (L/R) should the audio be recorded in Stereo. Stereo files result in 2 JSON files, each corresponding to the transcript of either channel with clearly indicated timestamps per channel per utterance. This enables the developer to create an ordered final transcript clearly demostrating which party said what and at what time internal. The following JSON sample represents the output of a channel.
+In addition, the Batch transcription API is capable of doing channel splitting (L/R) should the audio be recorded in Stereo. Stereo files result in two JSON files, each corresponding to the transcript of either channel with clearly indicated timestamps per channel per utterance. This feature enables the developer to create an ordered final transcript clearly demonstrating which party said what and at what time internal. The following JSON sample represents the output of a channel.
 
     ```
        {
@@ -49,12 +49,12 @@ In addition the Offline API is capable of doing channel splitting (L/R) should t
     ```
 
 > [!NOTE]
-> The Offline API is calling is using a REST service for requesting transcriptions their status and accociated results. It is based on .NET and does not have any external dependencies. Let us however in the next section describe how it is used
+> The OfflBatch transcriptionine API is calling is using a REST service for requesting transcriptions their status and accociated results. It is based on .NET and does not have any external dependencies. The next section describes how it is used
 
 ## Authorization token
-Authentication for the Offline API is carried out as follows. As with all features of the Unified Speech Service the users needs to obtain a subscription key from the [Azure Portal](https://portal.azure.com). In addition he is required to generate an API key from the Speech Portal. This is carried out as follows.
+Authentication for the Batch transcription API is carried out as follows. As with all features of the Unified Speech Service the users need to obtain a subscription key from the [Azure Portal](https://portal.azure.com). In addition, one is required to generate an API key from the Speech Portal. Api key generation is carried out as follows.
 
-1. Login to https://customspeech.ai
+1. Log in to https://customspeech.ai
 2. Click on Subscriptions.
 3. click on the option Generate API Key
 4. Copy paste that key in the client code as shown on line 5 of the earlier code sample
@@ -67,7 +67,7 @@ Making use of the API is fairly straight forward. The Sample code below can be c
 ```cs
    static async Task TranscribeAsync()
         { 
-            // Creating an Offline API Client
+            // Creating an Batch transcription API Client
             var client = await CrisClient.CreateApiV1ClientAsync(
                 "<your msa>", // MSA email
                 "<your api key>", // API key
@@ -118,15 +118,15 @@ Making use of the API is fairly straight forward. The Sample code below can be c
             Console.ReadLine();
         }
 ```
-Notice the Async set up for posting audio and receiving transcription status. The Client we create is a NET Http client. There is PostTranscriptions method for sending the audio file details and a GetTranscriptions method. PostTranscriptions returns a handle GetTranscriptions method is using to create a handle via which one can obtain status.
+Notice the Async set up for posting audio and receiving transcription status. The Client created is a NET Http client. There is PostTranscriptions method for sending the audio file details and a GetTranscriptions method. PostTranscriptions returns a handle GetTranscriptions method is using to create a handle via which one can obtain status.
 
-Also notice that in the current sample code we do not specify any custom models. The service will use the baseline models for transcribing the file(s). If the user wishes to specify the models, he can pass on the same method the modelIDs for the acoustic and the language model. 
+Also notice that the current sample code does not specify any custom models. The service will use the baseline models for transcribing the file(s). If the user wishes to specify the models, one can pass on the same method the modelIDs for the acoustic and the language model. 
 
-If one does not wish to use baseline he must pass model Ids for both acoustic and language models.
+If one does not wish to use baseline, one must pass model Ids for both acoustic and language models.
 
 ### Supported Storage
 
-Currently the only storage supported is Azure blob. We do plan to create more storage options in the future.
+Currently the only storage supported is Azure blob. More storage options are planned in the future.
 
 ## Downloading the sample
 
