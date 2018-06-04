@@ -1,6 +1,6 @@
 ﻿---
 title: Manage the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
-description: This article describes how to manage an existing configuration server for VMware disaster recovery to Azure with Azure Site Recovery.
+description: This article describes how to manage an existing configuration server for VMware disaster recovery to Azure with Azure Site RecoveryS.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -18,8 +18,8 @@ You set up an on-premises configuration server when you use [Azure Site Recovery
 ## Modify VMware settings
 
 You can access the configuration server as follows:
-    - sign in to the VM on which it's deployed, and Start Azure Site Recovery Configuration Manager from the desktop shortcut.
-    - Alternatively, you can access remotely with **https://*ConfigurationServerName*/:44315/**, and sign in with administrator credentials.
+    - Sign in to the VM on which it's deployed, and Start Azure Site Recovery Configuration Manager from the desktop shortcut.
+    - Alternatively, you can access the configuration server remotely from **https://*ConfigurationServerName*/:44315/**. Sign in with administrator credentials.
    
 ### Modify VMware server settings
 
