@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
 ---
 # Networking considerations for an App Service Environment #
@@ -195,6 +195,8 @@ To create the same routes manually, follow these steps:
 ## Service Endpoints ##
 
 Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
+
+[!NOTE] Service endpoints with SQL does not work with ASE in the US Government regions. This information is only valid in the Azure public regions.
 
 When you enable Service Endpoints on a resource, there are routes created with higher priority than all other routes. If you use Service Endpoints with a forced tunneled ASE, the Azure SQL and Azure Storage management traffic isn't forced tunneled. 
 
