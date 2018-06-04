@@ -100,51 +100,18 @@ Because files require blob storage, you need to create a blob container in which
 
     ![Upload text file](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## Retrieve the principalID of the Linux VM's MSI
+## Grant your VM access to an Azure Storage container 
 
-To grant the Linux VM's MSI access to an Azure Storage container in the following section, you need to retrieve the `principalID` of the Linux VM's MSI.  Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resource group in which you VM resides), and `<VM NAME>` parameter values with your own values.
+You can use an MSI to retrieve Azure storage blob containers and data.   
 
-```azurecli-interactive
-az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME> --api-version 2017-12-01
-```
-The response includes the details of the system-assigned MSI (note the `principalID` as it is used in the next section):
+1. Navigate back to your newly created storage account.  
+2. Click the **Access control (IAM)** link in the left panel.  
+3. Click **+ Add** on top of the page to add a new role assignment for your VM.
+4. Set **Role** to **Storage Blob Data Reader (Preview)**, on the right side of the page. 
+5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
+6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
+7. Finally, under **Select** choose your Windows Virtual Machine in the dropdown, then click **Save**.
 
-```bash  
-{
-    "id": "/subscriptions/<SUBSCRIPTION ID>/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe>",
-  "identity": {
-    "principalId": "6891c322-314a-4e85-b129-52cf2daf47bd",
-    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533f8",
-    "type": "SystemAssigned"
- }
-
-```
-
-## Grant the Linux VM's MSI access to an Azure Storage container
-
-By using an MSI, your code can get access tokens to authenticate to resources that support Azure AD authentication. In this tutorial, you use Azure Storage.
-
-First you grant the MSI identity access to an Azure Storage container. In this case, you use the container created earlier. Update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, and `<CONTAINER NAME>` as appropriate for your environment. Additionally, replace `<MSI PRINCIPALID>` with the `principalId` property returned by the `az resource show` command in [Retrieve the `principalID` of the Linux VM's MSI](#retrieve-the-principalid-of-the-linux-vms-msi):
-
-```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role 'Storage Blob Data Reader (Preview)' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
-```
-
-The response includes the details for the role assignment created:
-
-```
-{
-  "id": "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Authorization/roleAssignments/b402bd74-157f-425c-bf7d-zed3a3a581ll",
-  "name": "b402bd74-157f-425c-bf7d-zed3a3a581ll",
-  "properties": {
-    "principalId": "f5fdfdc1-ed84-4d48-8551-999fb9dedfbl",
-    "roleDefinitionId": "/subscriptions/<SUBSCRIPTION ID>/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "scope": "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.storage/storageAccounts/<STORAGE ACCOUNT NAME>/blogServices/default/<CONTAINER NAME>"
-  },
-  "resourceGroup": "<RESOURCE GROUP>",
-  "type": "Microsoft.Authorization/roleAssignments"
-}
-```
 ## Get an access token and use it to call Azure Storage
 
 For the remainder of the tutorial, you need to work from the VM you created earlier.
