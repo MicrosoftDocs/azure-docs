@@ -3,7 +3,7 @@ title: Determine your listing type in Azure Marketplace
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: v-josepm
+author: vjm-aditi-ms
 manager: pabutler
 editor:
 
