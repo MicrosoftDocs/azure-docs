@@ -54,7 +54,7 @@ The Azure portal has a wizard that walks you through creating the deployment man
 
 By default the wizard gives you a route called **route** and defined as **FROM /* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
 
-Add or update the routes with information from [Declare routes](module-composition#declare-routes), then select **Next** to continue to the review section.
+Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next** to continue to the review section.
 
 ### Review deployment
 
