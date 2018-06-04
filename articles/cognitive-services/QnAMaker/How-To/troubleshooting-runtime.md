@@ -16,7 +16,7 @@ ms.author: saneppal
 QnAMaker comprises of components hosted in the user's Azure account. Debugging may require users to manipulate their QnAMaker Azure resources or provide QnAMaker support team with additional information about their setup.
 
 ## How to get latest QnAMaker runtime updates
-QnAMaker runtime is part of the Azure App Service deployed when you [create a QnAMaker service](./set-up-qnamaker-service-azure) in Azure portal. Updates are made periodically to the runtime. To apply the latest updates to apply to your QnAMaker setup, you must restart the App Service.
+QnAMaker runtime is part of the Azure App Service deployed when you [create a QnAMaker service](./set-up-qnamaker-service-azure.md) in Azure portal. Updates are made periodically to the runtime. To apply the latest updates to apply to your QnAMaker setup, you must restart the App Service.
 1. Go to your QnAMaker service (resource group) in the [Azure portal](https://portal.azure.com)
 
     ![QnAMaker Azure resource group](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
