@@ -618,6 +618,20 @@ You can also run it for tables:
 AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
 ```
 
+### Automatically determine Content Type of a Blob
+
+AzCopy determines content type of a blob based on a JSON file that stores content type to file extension mapping. This JSON file is named AzCopyConfig.json, and is located in the AzCopy directory. If you have a file type that is not in the list you can append the mapping to the JSON file:
+
+```
+{
+  "MIMETypeMapping": {
+    ".myext": "text/mycustomtype",
+    .
+    .
+  }
+}
+```     
+
 ## AzCopy Parameters
 
 Parameters for AzCopy are described below. You can also type one of the following commands from the command line for help in using AzCopy:
@@ -950,10 +964,6 @@ Let's take a look at some of the known issues and best practices.
 When you copy blobs or files with AzCopy, keep in mind that another application may be modifying the data while you are copying it. If possible, ensure that the data you are copying is not being modified during the copy operation. For example, when copying a VHD associated with an Azure virtual machine, make sure that no other applications are currently writing to the VHD. A good way to do this is by leasing the resource to be copied. Alternately, you can create a snapshot of the VHD first and then copy the snapshot.
 
 If you cannot prevent other applications from writing to blobs or files while they are being copied, then keep in mind that by the time the job finishes, the copied resources may no longer have full parity with the source resources.
-
-### Run one AzCopy instance on one machine.
-
-AzCopy is designed to maximize the utilization of your machine resource to accelerate the data transfer, we recommend you run only one AzCopy instance on one machine, and specify the option `/NC` if you need more concurrent operations. For more details, type `AzCopy /?:NC` at the command line.
 
 ### Enable FIPS-compliant MD5 algorithms for AzCopy when you "Use FIPS-compliant algorithms for encryption, hashing and signing."
 
