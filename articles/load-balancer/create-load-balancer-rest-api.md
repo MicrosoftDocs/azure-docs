@@ -21,10 +21,10 @@ ms.author: kumud
 
 Creates or updates a load balancer.
 
-    ```HTTP
-    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}?api-version=2018-02-01
+ ```HTTP
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}?api-version=2018-02-01
 
-    ```
+  ```
 
 ## URI parameters
 
@@ -62,15 +62,15 @@ Media Types: "application/json", "text/json"
 
 ### Sample request
 
-    ```HTTP    
-    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
-    ```
+  ```HTTP    
+  PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
+  ```
 
 ### Request body
 
-    ```JSON
-    {
-  "properties": {
+  ```JSON
+  {
+    "properties": {
     "frontendIPConfigurations": [
       {
         "name": "fe-lb",
@@ -161,4 +161,4 @@ Media Types: "application/json", "text/json"
     "outboundNatRules": []
   }
 }
-    ```
+```
