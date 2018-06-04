@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Integrate Azure Active Directory with AKS
 
-Azure Kuernetes Service (AKS) includes the capability of integrating authentication services with Azure Active Directory. In this configuration, you can log into an Azure Kubernetes Service cluster using your Azure Active Directory authentication token. Additionally, cluster administrators are also able to configure Kubernetes role-based access control based on a users directory group membership.
+Azure Kubernetes Service (AKS) includes the capability of integrating authentication services with Azure Active Directory. In this configuration, you can log into an Azure Kubernetes Service cluster using your Azure Active Directory authentication token. Additionally, cluster administrators are also able to configure Kubernetes role-based access control based on a users directory group membership.
 
 This document details creating all necessary prerequisites for AKS and AAD, deplying an AAD enabled cluster, and creating a simple RBAC role in the AKS cluster.
 
@@ -35,13 +35,9 @@ Select **Azure Active Directory** > **App registrations** > **New application re
 
 Give the application a name, select **Web app / API** for the application type, and enter any URI formatted value for **Redirect URI**.
 
-Select **Create** when done.
-
 ![Create AAD registration](media/aad-integration/app-registration.png)
 
-Select **Manifest** and edit the `groupMembershipClaims` value to `All`.
-
-Select **Save** when complete.
+Select **Manifest** and edit the `groupMembershipClaims` value to `All`. Save the updates once complete.
 
 ![Create AAD registration](media/aad-integration/edit-manifest.png)
 
@@ -51,9 +47,7 @@ Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
 
 ![Create AAD registration](media/aad-integration/read-directory.png)
 
-Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**.
-
-Click **Select** when complete.
+Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Save the updates once done.
 
 ![Create AAD registration](media/aad-integration/delegated-permissions.png)
 
@@ -75,9 +69,7 @@ The second AAD application is used when logging in with the Kubernetes CLI (kube
 
 Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-Give the application a name, select **Native** for the application type, and enter any URI formatted value for **Redirect URI**.
-
-Select **Create** when done.
+Give the application a name, select **Native** for the application type, and enter any URI formatted value for **Redirect URI**. Save the updates once done.
 
 ![Create AAD registration](media/aad-integration/app-registration-client.png)
 
