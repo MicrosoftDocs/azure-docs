@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -193,10 +193,10 @@ The following example shows the body of the request that is available to the run
 ]
 ```
 
-The following image shows the request being sent from Windows PowerShell and the resulting response.  The job id is extracted from the response and converted to a string.
+The following image shows the request being sent from Windows PowerShell and the resulting response. The job id is extracted from the response and converted to a string.
 
 ![Webhooks button](media/automation-webhooks/webhook-request-response.png)
 
 ## Next steps
 
-* To learn how to use Azure Automation to take action on Azure Alerts, see [Use an alert to trigger an Azure Automation runbook](automation-alert-triggered-runbook.md).
+* To learn how to use Azure Automation to take action on Azure Alerts, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).
