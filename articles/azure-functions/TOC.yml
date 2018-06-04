@@ -205,9 +205,9 @@
     - name: Azure Cosmos DB
       items: 
       - name: Functions 1.x
-        href: functions-bindings-cosmosdb-v1.md
-      - name: Functions 2.x
         href: functions-bindings-cosmosdb.md
+      - name: Functions 2.x
+        href: functions-bindings-cosmosdb-v2.md
     - name: Event Grid
       href: functions-bindings-event-grid.md
     - name: Event Hubs
