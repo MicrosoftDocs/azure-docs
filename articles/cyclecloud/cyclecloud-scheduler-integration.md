@@ -341,10 +341,9 @@ HTCondor has large number of configuration settings, including user-defined attr
 
 | Attribute                                             | Description                                                                                               |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| htcondor.custom_config.enabled        | If true, a configuration file is generated using the specified attributes. Default: false                                                              |
-| htcondor.custom_config.file_name   |   The name of the file (placed in `htcondor.data_dir`/config) to write. Default: ZZZ-custom_config.txt   |
-| htcondor.custom_config.settings.
-   |   The attributes to write to the custom config file (e.g. `htcondor.custom_config.settings.max_jobs_running = 5000`)|
-   
+| htcondor.custom_config.enabled | If true, a configuration file is generated using the specified attributes. Default: false                                                              |
+| htcondor.custom_config.file_name | The name of the file (placed in `htcondor.data_dir`/config) to write. Default: ZZZ-custom_config.txt   |
+| htcondor.custom_config.settings | The attributes to write to the custom config file such as `htcondor.custom_config.settings.max_jobs_running = 5000`|
+
 > [!NOTE]
 > HTCondor configuration attributes containing a . cannot be specified using this method. If such attributes are needed, they should be specified in a cookbook or a file installed with cluster-init.
