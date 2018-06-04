@@ -53,7 +53,7 @@ If you have more than 1500 virtual machines in a single vCenter Server, you need
 
 ### Multi-tenant environment
 
-If you have an environment that is shared across tenants and you do not want to discover the VMs of one tenant in another tenant's subscription, you can use the Scope field in the collector appliance to scope the discovery. If the tenants are sharing hosts, create a credential that has read-only access to only the VMs belonging to Tenant1 and then use the credential and specify the Scope in the collector appliance as the host to do the discovery. Alternatively, you can also create folders in vCenter Server, under the shared host, and specify the folder as the scope in the collector appliance to do the discovery.
+If you have an environment that is shared across tenants and you do not want to discover the VMs of one tenant in another tenant's subscription, you can use the Scope field in the collector appliance to scope the discovery. If the tenants are sharing hosts, create a credential that has read-only access to only the VMs belonging to the specific tenant and then use this credential in the collector appliance and specify the Scope as the host to do the discovery. Alternatively, you can also create folders in vCenter Server (let's say folder1 for tenant1 and folder2 for tenant2), under the shared host, move the VMs for tenant1 into folder1 and for tenant2 into folder2 and then scope the discoveries in the collector accordingly by specifying the appropriate folder.
 
 ## Discover on-premises environment
 
