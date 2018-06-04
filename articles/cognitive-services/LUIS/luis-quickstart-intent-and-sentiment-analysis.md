@@ -1,21 +1,30 @@
 ---
-title: Create a LUIS app that returns sentiment analysis - Azure | Microsoft Docs 
-description: Learn how to add sentiment analysis to your LUIS app to analyze utterances for positive, negative, and neutral feelings. 
+title: Tutorial to create a LUIS app that returns sentiment analysis - Azure | Microsoft Docs 
+description: In this tutorial, learn how to add sentiment analysis to your LUIS app to analyze utterances for positive, negative, and neutral feelings. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand what sentiment is conveyed in a user's utterances. 
 
 --- 
 
-# Quickstart: Create app that returns sentiment along with intent prediction
-In this quickstart, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances.
+# Tutorial: Create app that returns sentiment along with intent prediction
+In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances.
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Understand hierarchical entities and contextually learned children 
+> * Create new LUIS app for travel domain with Bookflight intent
+> * Add _None_ intent and add example utterances
+> * Add location hierarchical entity with origin and destination children
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response including hierarchical children 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
@@ -143,8 +152,8 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 
 ## Next steps
 
-[Call LUIS endpoint API with C#](luis-get-started-cs-get-intent.md). 
-
+> [!div class="nextstepaction"] 
+> [Call LUIS endpoint API with C#](luis-get-started-cs-get-intent.md) 
 
 <!--References-->
 [LUIS]:luis-reference-regions.md#luis-website

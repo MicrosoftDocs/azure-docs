@@ -52,10 +52,18 @@
       href: QuickStarts/javascript-print-text.md
     - name: Extract handwritten text
       href: QuickStarts/javascript-hand-text.md
-#  - name: PHP
-#    items:
-#    - name: Summary
-#      href: QuickStarts/PHP.md
+  - name: PHP
+    items:
+    - name: Summary
+      href: QuickStarts/PHP.md
+    - name: Analyze an image
+      href: QuickStarts/php-analyze.md
+    - name: Use a domain model
+      href: QuickStarts/php-domain.md
+    - name: Generate a thumbnail
+      href: QuickStarts/php-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/php-print-text.md
   - name: Python
     items:
     - name: Summary
@@ -84,10 +92,6 @@
       href: QuickStarts/ruby-print-text.md
 - name: How-to guides
   items:
-  - name: Try Computer Vision 
-    items:
-    - name: PHP
-      href: QuickStarts/PHP.md
   - name: First Computer Vision apps
     items:
     - name: C#
