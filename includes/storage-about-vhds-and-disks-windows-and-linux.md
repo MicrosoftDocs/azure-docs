@@ -35,8 +35,8 @@ There are three performance tiers for storage that you can choose from when crea
 
 Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. Typically you can use Premium Storage with sizes that include an "s" in the series name. For example, there is the Dv3-Series and the Dsv3-series, the Dsv3-series can be used with Premium Storage.  For more information, please see [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
 
-### Standard SSD storage (Preview)
-Standard SSD is optimized for low-IOPS workloads. It is offered exclusively as a Managed Disk, and is currently in preview. See FAQ for more information on how to create Standard SSD Disks. 
+### Standard SSD disks (preview)
+Standard SSD disks are optimized for low-IOPS workloads. Standard SSD disks are only available as Managed Disks. See the frequently asked questions for more information on how to create Standard SSD disks. 
 
 ### Standard HDD storage
 Standard HDD Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard HDD storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/common/storage-redundancy.md). 
@@ -57,9 +57,9 @@ We recommend that you use Azure Managed Disks for new VMs, and that you convert 
 
 ### Disk comparison
 
-The following table provides a comparison of Premium vs Standard for both unmanaged and managed disks to help you decide what to use.
+The following table provides a comparison of Standard HDD, Standard SSD, and Premium SSD for unmanaged and managed disks to help you decide what to use.
 
-|    | Azure Premium Disk |Azure Standard SSD Disk (Preview)| Azure Standard HDD Disk 
+|    | Azure Premium Disk |Azure Standard SSD Disk (preview)| Azure Standard HDD Disk 
 |--- | ------------------ | ------------------------------- | ----------------------- 
 | Disk Type | Solid State Drives (SSD) | Solid State Drives (SSD) | Hard Disk Drives (HDD)  
 | Overview  | SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment |More consistent performance and reliability than HDD. Optimized for low-IOPS workloads| HDD-based cost effective disk for infrequent access
