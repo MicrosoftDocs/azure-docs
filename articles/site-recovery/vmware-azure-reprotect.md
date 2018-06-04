@@ -74,13 +74,13 @@ After you create a master target server, do the following tasks:
     - The volume capacity is nonzero.
     - The default retention volume for Windows is the R volume.
     - The default retention volume for Linux is /mnt/retention.
-- You must add a new drive if you're using an existing process server/configuration server machine or a scale or process server/master target server machine. The new drive should meet the preceding requirements. If the retention drive isn't present, it doesn't appear in the selection drop-down list on the portal. After you add a drive to the on-premises master target, it takes up to 15 minutes for the drive to appear in the selection on the portal. You can also refresh the configuration server if the drive doesn't appear after 15 minutes.
+- You must add a new drive if you're using an existing process server/configuration server machine or a scale or process server/master target server machine. The new drive must meet the preceding requirements. If the retention drive isn't present, it doesn't appear in the selection drop-down list on the portal. After you add a drive to the on-premises master target, it takes up to 15 minutes for the drive to appear in the selection on the portal. You can also refresh the configuration server if the drive doesn't appear after 15 minutes.
 - Install VMware tools or open-vm-tools on the master target server. Without the tools, the datastores on the master target's ESXi host can't be detected.
 - Set the `disk.EnableUUID=true` setting in the configuration parameters of the master target virtual machine in VMware. If this row doesn't exist, add it. This setting is required to provide a consistent UUID to the VMDK so that it mounts correctly.
 - The ESX host on which the master target is created must have at least one virtual machine file system (VMFS) datastore attached to it. If no VMFS datastores are attached, the **Datastore** input on the reprotect page is empty and you can't proceed.
 - The master target server can't have snapshots on the disks. If there are snapshots, reprotection and failback fail.
 - The master target can't have a Paravirtual SCSI controller. The controller can only be an LSI Logic controller. Without an LSI Logic controller, reprotection fails.
-- For any instance, the master target can have at most 60 disks attached to it. If the number of virtual machines being reprotected to the on-premises master target has a sum total number of disks more than 60, then reprotects to the master target start to fail. Ensure that you have enough master target disk slots, or deploy additional master target servers.
+- For any instance, the master target can have at most 60 disks attached to it. If the number of virtual machines being reprotected to the on-premises master target has more than a total number of 60 disks, reprotects to the master target begin to fail. Ensure that you have enough master target disk slots, or deploy additional master target servers.
     
 
 ## Enable reprotection
@@ -91,7 +91,7 @@ After a virtual machine boots in Azure, it takes some time for the agent to regi
 1. Select **Vault** > **Replicated items**. Right-click the virtual machine that failed over, and then select **Re-Protect**. Or, from the command buttons, select the machine, and then select **Re-Protect**.
 2. Verify that the **Azure to On-premises** direction of protection is selected.
 3. In **Master Target Server** and **Process Server**, select the on-premises master target server and the process server.  
-4. For **Datastore**, select the datastore to which you want to recover the disks on-premises. This option is used when the on-premises virtual machine is deleted and you need to create new disks. This option is ignored if the disks already exist. You still need to specify a value.
+4. For **Datastore**, select the datastore to which you want to recover the disks on-premises. This option is used when the on-premises virtual machine is deleted, and you need to create new disks. This option is ignored if the disks already exist. You still need to specify a value.
 5. Select the retention drive.
 6. The failback policy is automatically selected.
 7. Select **OK** to begin reprotection. A job begins to replicate the virtual machine from Azure to the on-premises site. You can track the progress on the **Jobs** tab. When the reprotection succeeds, the virtual machine enters a protected state.
@@ -111,7 +111,7 @@ Note the following information:
 ## Common issues
 
 - Currently, Site Recovery supports failing back only to a VMFS or vSAN datastore. An NFS datastore isn't supported. Due to this limitation, the datastore selection input on the reprotect screen is empty for NFS datastores, or it shows the vSAN datastore but fails during the job. If you intend to fail back, you can create a VMFS datastore on-premises and fail back to it. This failback causes a full download of the VMDK.
-- If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds and failover works. During reprotection, failover fails because the datastores can't be discovered. A symptom is that the datastores aren't listed during reprotection. To resolve this problem, you can update the vCenter credentials with an appropriate account that has permissions and then retry the job. 
+- If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds, and failover works. During reprotection, failover fails because the datastores can't be discovered. A symptom is that the datastores aren't listed during reprotection. To resolve this problem, you can update the vCenter credentials with an appropriate account that has permissions and then retry the job. 
 - When you fail back a Linux virtual machine and run it on-premises, you can see that the Network Manager package has been uninstalled from the machine. This uninstallation occurs because the Network Manager package is removed when the virtual machine is recovered in Azure.
 - When a Linux virtual machine is configured with a static IP address and is failed over to Azure, the IP address is acquired from DHCP. When you fail over to on-premises, the virtual machine continues to use DHCP to acquire the IP address. Manually sign in to the machine, and then set the IP address back to a static address if necessary. A Windows virtual machine can acquire its static IP address again.
 - If you use either the ESXi 5.5 free edition or the vSphere 6 Hypervisor free edition, failover succeeds, but failback doesn't succeed. To enable failback, upgrade to either program's evaluation license.
