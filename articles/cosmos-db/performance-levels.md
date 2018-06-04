@@ -68,9 +68,7 @@ If you have an S2 collection, you can migrate them to a single partition collect
 
 If you have an S3 collection, you can migrate them to a single partition collection with 2.5 K RU/s. You will see no change to your throughput level.
 
-In each of these cases, after you migrate the collection, you will be able to customize your throughput level, or scale it up and down as needed to provide low-latency access to your users. To change the throughput level after your collection has migrated, simply open your Azure Cosmos DB account in the Azure portal, click Scale, choose your collection, and then adjust the throughput level, as shown in the following screenshot:
-
-![How to scale throughput in the Azure portal](./media/performance-levels/portal-scale-throughput.png)
+In each of these cases, after you migrate the collection, you will be able to customize your throughput level, or scale it up and down as needed to provide low-latency access to your users. 
 
 <a name="billing-change"></a>
 
