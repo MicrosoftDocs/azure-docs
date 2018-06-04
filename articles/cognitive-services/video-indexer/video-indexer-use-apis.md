@@ -70,13 +70,35 @@ All operation APIs require a Location parameter, which indicates the region to w
 
 The values described in the following table apply. The **Param value** is the value you pass when using the API.
 
-
 |**Name**|**Param value**|**Description**|
 |---|---|---|
 |Trial|trial|Used for trial accounts.|
 |West US|westus2|Used for the Azure West US 2 region.|
 |North Europe |northeurope|Used for the Azure North Europe region.|
 |East Asia|eastasia|Used for the Azure East Asia region.|
+
+## Account ID 
+
+The Account ID parameter is required in all operational API calls. Account ID is a GUID that can be obtained in one of the following ways:
+
+* Use the Video Indexer portal to get the Account ID:
+
+    1. Sign in to [videoindexer](https://www.videoindexer.ai/).
+    2. Browse to the **Settings** page.
+    3. Copy the account ID.
+
+        ![Account ID](./media/video-indexer-use-apis/account-id.png)
+
+* Use the API to programmatically get the Account ID.
+
+    Use the [Get accounts](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
+* Get the account ID from the URL of a player page in your account.
+
+    When you watch a video, the ID appears after the `accounts` section and before the `videos` section.
+
+    ```
+    https://www.videoindexer.ai/accounts/00000000-f324-4385-b142-f77dacb0a368/videos/d45bf160b5/
+    ```
 
 ## Recommendations
 
