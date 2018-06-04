@@ -5,14 +5,10 @@ keywords: NoSQL example
 services: cosmos-db
 author: rnagpal
 manager: kfile
-documentationcenter: .net
 
-ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
 

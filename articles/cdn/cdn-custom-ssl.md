@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial - Configure HTTPS on an Azure CDN custom domain | Microsoft Docs
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure CDN endpoint custom domain.
 services: cdn
@@ -22,9 +22,9 @@ ms.custom: mvc
 # Tutorial: Configure HTTPS on an Azure CDN custom domain
 
 > [!IMPORTANT]
-> This feature is not available with **Azure CDN Standard from Akamai** products. For a comparison of CDN features, see [Azure CDN overview](cdn-features.md).
+> This feature is not available with **Azure CDN Standard from Akamai** products. For a comparison of Azure Content Delivery Network (CDN) features, see [Compare Azure CDN product features](cdn-features.md).
 
-This tutorial shows how to enable the HTTPS protocol for a custom domain that is associated with an Azure Content Delivery Network (CDN) endpoint. By using the HTTPS protocol on your custom domain (for example, https:\//www.contoso.com), you ensure that your sensitive data is delivered securely via SSL encryption when it is sent across the internet. HTTPS provides trust, authentication, and protects your web applications from attacks. 
+This tutorial shows how to enable the HTTPS protocol for a custom domain that's associated with an Azure CDN endpoint. By using the HTTPS protocol on your custom domain (for example, https:\//www.contoso.com), you ensure that your sensitive data is delivered securely via TLS/SSL encryption when it is sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site’s security certificate and verifies it’s issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
 
 Azure CDN supports HTTPS on a CDN endpoint hostname, by default. For example, if you create a CDN endpoint (such as https:\//contoso.azureedge.net), HTTPS is automatically enabled.  
 
@@ -120,9 +120,9 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
     ![Create new access policy](./media/cdn-custom-ssl/cdn-new-access-policy.png)
 
-    ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
+2. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, and choose **Microsoft.Azure.Cdn**. Click **Select**.
 
-2. In **Select principal**, search, and select **Azure CDN**.
+    ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
 3. In **Secret permissions**, select **Get** to allow CDN to perform these permissions to get and list the certificates. 
 
@@ -237,7 +237,7 @@ The following table shows the operation progress that occurs when you enable HTT
 | | The certificate has been successfully deployed to CDN network. |
 | 4 Complete | HTTPS has been successfully enabled on your domain. |
 
-\* This message does not appear unless an error has occurred. 
+\* This message doesn't appear unless an error has occurred. 
 
 If an error occurs before the request is submitted, the following error message is displayed:
 
@@ -289,7 +289,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 2. Do you use IP-based or SNI TLS/SSL?
 
-    **Azure CDN from Verizon** uses IP-based TLS/SSL. **Azure CDN Standard from Microsoft** used SNI TLS/SSL.
+    **Azure CDN from Verizon** uses IP-based TLS/SSL. **Azure CDN Standard from Microsoft** uses SNI TLS/SSL.
 
 3. *What if I don't receive the domain verification email from DigiCert?*
 

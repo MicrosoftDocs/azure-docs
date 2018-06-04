@@ -245,7 +245,7 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 > The default LUIS app that the template created contains example utterances for Cancel, Greeting, and Help intents. In the list of apps, find the app that begins with the name specified in **App name** in the **Bot Service** blade when you created the Bot Service. -->
 
 > [!div class="nextstepaction"]
-> [Add intents](./add-intents.md)
+> [Add intents](./luis-how-to-add-intents.md)
 > [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
 
 

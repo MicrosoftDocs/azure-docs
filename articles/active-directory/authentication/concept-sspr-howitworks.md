@@ -151,6 +151,8 @@ Custom security questions are not localized for different locales. All custom qu
 
 The maximum length of a custom security question is 200 characters.
 
+To view the password reset portal and questions in a different localized language append "?mkt=<Locale>" to the end of the password reset URL with the example that follows localizing to Spanish [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
+
 ### Security question requirements
 
 * The minimum answer character limit is three characters.

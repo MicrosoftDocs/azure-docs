@@ -10,11 +10,12 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2018
+ms.date: 05/26/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -80,32 +81,8 @@ With Azure AD conditional access, you can control how authorized users can acces
 
 One benefit of using a policy-based approach to protect access to your cloud apps is that you can start drafting the policy requirements for your environment using the structure outlined in this article without worrying about the technical implementation. 
 
-## What you need to know
 
-### General requirements for using conditional access
-
-You can use Azure AD conditional access to protect cloud apps when an authentication attempt comes from:
-
-- A web browser
-
-- A client app that uses modern authentication
-
-- Exchange ActiveSync
-
-For more information, see [client apps](active-directory-conditional-access-conditions.md#client-apps).
-
-Some [cloud apps](active-directory-conditional-access-conditions.md#cloud-apps) also support legacy authentication protocols. This applies, for example, to SharePoint Online and Exchange Online. When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a conditional access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps.
-
-Examples for client apps conditional access does not apply to are:
-
-- Office 2010 and earlier
-
-- Office 2013 when modern authentication is not enabled
-
-For more information, see [Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access](active-directory-conditional-access-no-modern-authentication.md).
-
-
-### License requirements for using conditional access
+## License requirements for using conditional access
 
 Using conditional access requires a Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 

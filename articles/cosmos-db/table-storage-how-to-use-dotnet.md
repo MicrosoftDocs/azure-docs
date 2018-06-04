@@ -1,17 +1,13 @@
 ---
-title: Get started with Azure Table storage and Cosmos DB Table API using .NET | Microsoft Docs
+title: Get started with Azure Table storage and Azure Cosmos DB Table API using .NET | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
 
