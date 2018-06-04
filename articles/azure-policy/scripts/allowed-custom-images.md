@@ -15,8 +15,8 @@ ms.custom: mvc
 This policy requires that only approved custom images are deployed in your environment. You specify
 an array of approved image IDs.
 
-You can deploy this sample policy using the [Azure portal](#deploy-with-the-portal), with
-[Azure PowerShell](#deploy-with-azure-powershell), or with the [Azure CLI](#deploy-with-azure-cli).
+You can deploy this sample policy using the [Azure portal](#azure-portal), with
+[Azure PowerShell](#azure-powershell), or with the [Azure CLI](#azure-cli).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -50,22 +50,16 @@ In this example parameter, only Windows Server 2016 Datacenter and Windows Serve
 }
 ```
 
-## Deploy with the portal
+## Azure Portal
 
 [![Deploy to Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
 [![Deploy to Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
 
-## Deploy with Azure PowerShell
-
-References:
-
-- [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)
-- [Get-AzureRmResourceGroup](/powershell/module/azurerm.resources/get-azurermresourcegroup)
-- [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment)
-- [Remove-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/remove-azurermpolicyassignment)
-- [Remove-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/remove-azurermpolicydefinition)
+## Azure PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+
+### Deploy with Azure PowerShell
 
 ```azurepowershell-interactive
 # Create the Policy Definition
@@ -93,17 +87,23 @@ Remove-AzureRmPolicyAssignment -Id $assignment.ResourceId
 Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
 ```
 
-## Deploy with Azure CLI
+### Azure PowerShell explanation
 
-References:
+The deploy and remove scripts use the following commands. Each command in the following table links to command-specific documentation:
 
-- [az policy definition create](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create)
-- [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show)
-- [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
-- [az policy assignment delete](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete)
-- [az policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete)
+| Command | Notes |
+|---|---|
+| [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) | Creates a new Azure Policy definition. |
+| [Get-AzureRmResourceGroup](/powershell/module/azurerm.resources/get-azurermresourcegroup) | Gets a single resource group. |
+| [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) | Creates a new Azure Policy assignment. In this example, we provide it a definition, but it can also take an initiative. |
+| [Remove-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/remove-azurermpolicyassignment) | Removes an existing Azure Policy assignment. |
+| [Remove-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/remove-azurermpolicydefinition) | Removes an existing Azure Policy definition. |
+
+### Azure CLI
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+### Deploy with Azure CLI
 
 ```azurecli-interactive
 # Create the Policy Definition
@@ -130,6 +130,16 @@ az policy assignment delete --name `echo $assignment | jq '.name' -r`
 # Remove the Policy Definition
 az policy definition delete --name `echo $definition | jq '.name' -r`
 ```
+
+### Azure CLI explanation
+
+| Command | Notes |
+|---|---|
+| [az policy definition create](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | Creates a new Azure Policy definition. |
+| [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show) | Gets a single resource group. |
+| [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | Creates a new Azure Policy assignment. In this example, we provide it a definition, but it can also take an initiative. |
+| [az policy assignment delete](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | Removes an existing Azure Policy assignment. |
+| [az policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | Removes an existing Azure Policy definition. |
 
 ## Next steps
 
