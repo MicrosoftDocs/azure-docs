@@ -75,10 +75,10 @@ The following table shows connectivity locations and the service providers for e
 | **Chicago** |AT&T NetBond, Comcast, Coresite, Equinix, PacketFabric, Level 3 Communications, Megaport, Verizon, Zayo |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Telmex Uninet+, Verizon, Zayo|
 | **Denver** |CoreSite, Megaport |
-| **Dublin** |Colt, eir, Interxion, Megaport, Telecity Group |
+| **Dublin** |Colt, eir, Equinix, Interxion, Megaport |
 | **Hong Kong** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Las Vegas** |CenturyLink Cloud Connect, Megaport |
-| **London** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
+| **London** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Optus+, Telstra Corporation |
 | **Miami** |C3ntro+, Equinix, Megaport, Neutrona Networks |
