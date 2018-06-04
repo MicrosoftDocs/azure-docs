@@ -63,16 +63,6 @@ Media Types: "application/json", "text/json"
 |sku     |         |   LoadBalancerSku       |     The load balancer SKU.    |
 |tags     |         |  <string, string>       |  Resource tags.       |
 
-## Responses
-
-|Name  |Type | Description|
-|---------|---------|---------|
-|200 OK     |   LoadBalancer       | Update successful. The operation returns the resulting LoadBalancer resource. Media Types: "application/json", "text/json"|
-|201 Created   |  LoadBalancer        | Create successful. The operation returns the resulting LoadBalancer resource. Media Types: "application/json", "text/json" |
-||||
-
-
-
 ## Example: Create a load balancer
 
 ### Sample request
@@ -198,6 +188,5 @@ Media Types: "application/json", "text/json"
   }
 }
 ```
-### Handle the response
-Status code 201 is returned when successfully creating the load balancer. A full list of response codes are available in the [reference documentation](/rest/api/rest/api/load-balancer/loadbalancers/createorupdate).
+
 
