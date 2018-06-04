@@ -19,14 +19,19 @@ ms.author: kumud
 
 # Create a load balancer using REST API
 
-Creates or updates a load balancer.
+This how-to shows how to create a new [Azure Load Balancer](load-balancer-overview.md) using [Azure REST API](/rest/api/azure/). 
+Complete reference documention and additional samples are available in the [Azure SQL Database REST reference](/rest/api/load-balancer/).
+ 
+
+## Build the request
+Use the following HTTP PUT request to create a new Azure Load Balancer.
 
  ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}?api-version=2018-02-01
 
   ```
 
-## URI parameters
+### URI parameters
 
 |Name  |In  |Required |Type |Description |
 |---------|---------|---------|---------|--------|
@@ -37,7 +42,7 @@ Creates or updates a load balancer.
 
 
 
-## Request body
+### Request body
 
 Media Types: "application/json", "text/json"
 
@@ -58,6 +63,16 @@ Media Types: "application/json", "text/json"
 |sku     |         |   LoadBalancerSku       |     The load balancer SKU.    |
 |tags     |         |  <string, string>       |  Resource tags.       |
 
+## Responses
+
+|Name  |Type | Description|
+|---------|---------|---------|
+|200 OK     |   LoadBalancer       | Update successful. The operation returns the resulting LoadBalancer resource. Media Types: "application/json", "text/json"|
+|201 Created   |  LoadBalancer        | Create successful. The operation returns the resulting LoadBalancer resource. Media Types: "application/json", "text/json" |
+||||
+
+
+
 ## Example: Create a load balancer
 
 ### Sample request
@@ -69,12 +84,24 @@ Media Types: "application/json", "text/json"
 ### Request body
 
   ```JSON
-  {
-    "properties": {
+{
+  "name": "lb",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb",
+  "type": "Microsoft.Network/loadBalancers",
+  "location": "westus",
+  "sku": {
+    "name": "Basic"
+  },
+  "properties": {
+    "provisioningState": "Succeeded",
     "frontendIPConfigurations": [
       {
         "name": "fe-lb",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
         "properties": {
+          "provisioningState": "Succeeded",
+          "privateIPAddress": "10.0.1.4",
+          "privateIPAllocationMethod": "Dynamic",
           "subnet": {
             "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb"
           },
@@ -94,7 +121,9 @@ Media Types: "application/json", "text/json"
     "backendAddressPools": [
       {
         "name": "be-lb",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
         "properties": {
+          "provisioningState": "Succeeded",
           "loadBalancingRules": [
             {
               "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/loadBalancingRules/rulelb"
@@ -106,7 +135,9 @@ Media Types: "application/json", "text/json"
     "loadBalancingRules": [
       {
         "name": "rulelb",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/loadBalancingRules/rulelb",
         "properties": {
+          "provisioningState": "Succeeded",
           "frontendIPConfiguration": {
             "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb"
           },
@@ -121,14 +152,17 @@ Media Types: "application/json", "text/json"
           },
           "probe": {
             "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb"
-          }
+          },
+          "disableOutboundSnat": false
         }
       }
     ],
     "probes": [
       {
         "name": "probe-lb",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
         "properties": {
+          "provisioningState": "Succeeded",
           "protocol": "Http",
           "port": 80,
           "requestPath": "healthcheck.aspx",
@@ -145,7 +179,9 @@ Media Types: "application/json", "text/json"
     "inboundNatRules": [
       {
         "name": "in-nat-rule",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/inboundNatRules/in-nat-rule",
         "properties": {
+          "provisioningState": "Succeeded",
           "frontendIPConfiguration": {
             "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb"
           },
@@ -157,8 +193,11 @@ Media Types: "application/json", "text/json"
         }
       }
     ],
-    "inboundNatPools": [],
-    "outboundNatRules": []
+    "outboundNatRules": [],
+    "inboundNatPools": []
   }
 }
 ```
+### Handle the response
+Status code 201 is returned when successfully creating the load balancer. A full list of response codes are available in the [reference documentation](/rest/api/rest/api/load-balancer/loadbalancers/createorupdate).
+
