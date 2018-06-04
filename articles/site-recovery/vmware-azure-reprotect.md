@@ -18,7 +18,7 @@ For a quick overview, watch the following video about how to fail over from Azur
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
 
-## Before you start
+## Before you begin
 
 If you used a template to create your virtual machines, ensure that each virtual machine has its own UUID for the disks. If the on-premises virtual machine's UUID clashes with the UUID of the master target because both were created from the same template, reprotection fails. Deploy another master target that wasn't created from the same template. Note the following information:
 - If you are trying to fail back to an alternate vCenter, make sure that your new vCenter and the master target server are discovered. A typical symptom is that the datastores aren't accessible or aren't visible in the **Reprotect** dialog box.
