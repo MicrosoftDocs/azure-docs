@@ -17,7 +17,7 @@ This tutorial will guide you through the process of creating a Time Series Insig
 > * Create a TSI environment 
 > * Create a device simulation solution containing an IoT Hub
 > * Connect the TSI environment to the IoT hub
-> * Stream the simulated data into the IoT hub and TSI environment
+> * Stream simulated data into the IoT hub and TSI environment
 
 ## Prerequisites
 
@@ -96,37 +96,47 @@ Next, create the device simulation solution, which will generate test data to po
 
    [![Device simulation solution resources](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
 
-## Connect the TSI environment to the IoT hub event source
+## Connect the TSI environment to the IoT hub 
 
 At this point, you've learned how to:
 - create an empty TSI environment
-- use the IoT device simulation solution accelerator, to create the supporting Azure resources, including an IoT hub
+- use the IoT device simulation solution accelerator to create supporting Azure resources, including an IoT hub
 
-Recall that the simulated devices need to connect and stream device data to the IoT hub. To get the data to flow into the TSI environment, you need to first connect the environment to the IoT hub:
+Recall that the simulated devices need to connect to IoT hub, in order to stream device data. To get the data to flow into the TSI environment, you need to make configuration changes to both the TSI environment and the IoT hub. 
+
+### IoT hub configuration: define a consumer group
+
+IoT hub provides various endpoints to expose functionality to other actors. The "Events" endpoint provides a way for other applications to consume data as it is streamed to an IoT hub instance. Specifically, the "Events" endpoint provides the ability to define a named "consumer group", on which applications can listen and pull data from the IoT Hub. 
+
+Next you define a new "consumer group", on the device simulation solution's IoT hub "Events" endpoint. 
 
 1. Using the Azure portal, go to the **Overview** page of the resource group you created for the device simulation solution, then select the IoT Hub resource:
 
    [![Device simulation solution resource group](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png#lightbox)
 
-   Also make note of the **Name** of the IoT Hub resource generated for the solution, as you will use it in the following steps.
+   Also make note of the **Name** of the IoT Hub resource generated for the solution, as you will use it in future steps.
 
-2. Next you add a new "consumer group" to the IoT hub's built-in "Events" endpoint. Consumer groups allow applications to pull data from the IoT Hub. Scroll down and select the **Endpoints** page, then select the **Events** endpoint. On the **Properties** page, enter a unique name for your endpoint under the "$Default" consumer group, then click **Save**:
+2. Scroll down and select the **Endpoints** page, then select the **Events** endpoint. On the **Properties** page, enter a unique name for your endpoint under the "$Default" consumer group, then click **Save**:
 
    [![Device simulation solution IoT hub endpoints](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png#lightbox)
 
-3. Now go to the **Overview** page of the resource group you created for the TSI environment, then select the TSI environment:
+### TSI environment configuration: define an event source
+
+Now we will connect the new IoT hub "consumer group" event endpoint, to the TSI environment, as an "event source".
+
+1. Go to the **Overview** page of the resource group you created for the TSI environment, then select the TSI environment:
 
    [![TSI environment resource group and environment](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png#lightbox)
 
-4. On the TSI environment page, select **Event Sources**, then click **+ Add**:
+2. On the TSI environment page, select **Event Sources**, then click **+ Add**:
 
    ![TSI environment overview](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png)
 
-5. Enter the required parameters on the **New event source** page: 
+3. Enter the required parameters on the **New event source** page: 
 
    Parameter|Description
    ---|---
-   **Name** | Requires a unique value, which is used to name the event source.
+   **Event source name** | Requires a unique value, which is used to name the event source.
    **Source** | Select "IoT Hub."
    **Import option** | Use the defaulted "Use IoT hub from available subscriptions." This option will cause the next drop-down list to be populated with the available subscriptions.
    **Subscription** | Select the same subscription in which you created the TSI environment and Device Simulation resources.
@@ -138,17 +148,34 @@ Recall that the simulated devices need to connect and stream device data to the 
 
    When finished, click **Create **.
 
-   ![TSI environment new event source](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-new-event-source.png)
+   ![TSI environment new event source](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png)
 
 ## Stream the sample data to IoT hub and into the TSI environment
 
 Now that all of the configuration work is complete, it's time to populate the TSI environment with sample data from the simulated devices.
 
+You may recall from the [Create a device simulation section](#create-a-device-simulation), several Azure resources were created by the accelerator, to support the device simulation solution. In addition to the IoT hub discussed previously, an Azure App Service web application was generated to support device simulation. 
+
 1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Now you can click the **Launch** button under your "Device Simulation" solution:
 
      ![Solution accelerators dashboard](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-provisioned.png)
 
-2. 
+2. The device simulation web app will start at this point, and may take several seconds upon initial load. You will also be prompted to give the web application consent for the "Sign you in and read your profile" permission upon initial sign-in. Profile access is required in order to pull your user name, email address, and any other user profile information required to support the application. Be sure to use the same Azure account you've been using in this tutorial:
+
+     ![Solution accelerators dashboard](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)
+
+3. Enter the required parameters on the **Simulation setup** page: 
+
+   Parameter|Description
+   ---|---
+   **Target IoT Hub** | Select "Use pre-provisioned IoT Hub."
+   **Device model** | Select "Chiller."
+   **Number of devices** | Enter 1000.
+   **Telemetry frequency** | Enter 10 seconds.
+   **Simulation duration** | Enter 5 minutes.
+
+   When finished, click **Create **.
+
 
 ## Clean up resources
 
@@ -170,9 +197,10 @@ At this point, you might have the IoT Hub and TSI Environment services running i
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Sign in and explore the TSI Sample application and its source
-> * Use APIs in the TSI JavaScript client library
-> * Use JavaScript to create and populate chart controls with TSI data
+> * Create a TSI environment 
+> * Create a device simulation solution containing an IoT Hub
+> * Connect the TSI environment to the IoT hub
+> * Stream simulated data into the IoT hub and TSI environment
 
 Now that you know how to create your own TSI environment, learning more about the planning process by advancing to the following article:
 
