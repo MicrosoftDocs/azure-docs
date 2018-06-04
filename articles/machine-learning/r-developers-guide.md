@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: R
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 06/04/2018
 ms.author: jepeach
 ---
 # R Developer's Guide to Azure
@@ -84,7 +84,7 @@ collaboration between data scientists, data engineers, and business analysts.
 
 The collaboration in Databricks is enabled by the platform's notebook system.  Users can create, share, and edit notebooks
 with other users of the systems.  These notebooks allow users to write code that executes against Spark clusters managed
-in the Databricks environment.  These notebooks support fully support R and give users access to Spark through both the
+in the Databricks environment.  These notebooks fully support R and give users access to Spark through both the
 `SparkR` and `sparklyr` packages.
 
 Since Databricks is built on Spark and has a strong focus on collaboration, the platform is an excellent option for teams
@@ -97,7 +97,7 @@ can provide more details about the platform and help you get started.
 
 ## Other Options
 In addition to the three options listed above, there are several other ways that R developers can harness the power
-of Azure.  These other options, however, do not have the broad applicability that the solutions above offer.  Instead,
+of Azure.  These other options, however, are not as broadly applicable as the solutions above.  Instead,
 they cover more targeted scenarios.
 
 ### Machine Learning Studio
@@ -107,7 +107,7 @@ analytics solutions.  The service currently provides two different tools for dat
 their machine learning experiments:
 [Azure Machine Learning Studio](https://azure.microsoft.com/en-us/services/machine-learning-studio/),
 which is a web-based tool, and
-[Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/overview-what-is-azure-ml),
+[Azure Machine Learning Workbench](https://azure.microsoft.com/en-us/services/machine-learning-services/),
 which is a desktop application and currently in public preview.
 
 Currently, ML Workbench only supports Python, but ML Studio supports both R and Python.  You can use R with ML Studio
@@ -143,7 +143,7 @@ have to provision virtual machines or setup virtual networks.  Just write your c
 Azure Function supports several programming languages.  Unfortunately, R is not currently one of these supported
 languages.  However, by using the <code>[R Site Extension](http://www.siteextensions.net/packages/R-3.3.3x64/)</code>
 for Azure Web Apps, you can get your R code running in Azure Functions.  This provides a simple way to deploy
-functions built in Azure to the cloud.
+functions built with R to the cloud.
 
 For full details on how this can be configured, please consult
 ["Go serverless with R Scripts on Azure Functions"](https://azure.microsoft.com/en-us/blog/azure-function-r/).
@@ -156,10 +156,10 @@ code, and graphics onto a single canvas.
 
 While Azure Notebooks is an excellent option for small-scale projects, it has some limitations that make it inappropriate
 for large-scale data science projects.  Currently, the service limits each notebook's process to 4GB of memory and data
-sets can only be 1GB.
+sets can only be 1GB.  However, for publishing smaller analyses, this is a very easy, no-cost option.
 
 ### Azure SQL Database
-[Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/) is Microsoft's is the intelligent, fully
+[Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/) is Microsoft's intelligent, fully
 managed relational cloud database service.  It allows you to use the full power of SQL Server without any hassle of setting
 up the infrastructure.  This includes
 [Machine Learning Services](https://docs.microsoft.com/en-us/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017),
