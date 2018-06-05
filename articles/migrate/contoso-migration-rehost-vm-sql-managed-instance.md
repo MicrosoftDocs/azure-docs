@@ -547,7 +547,7 @@ As the final step in the migration process, Contoso updates the connection strin
 - [Learn](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) how to create a recovery plan.
 - [Learn about](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover) failing over to Azure.
 
-## Step 8: Clean up after migration
+## Clean up after migration
 
 With migration complete, the SmartHotel app is running on an Azure VM, and the SmartHotel database is available on the Azure SQL Managed Instance.  
 
@@ -560,7 +560,7 @@ Now, Contoso needs to do some cleanup, as follows:
 - Remove SQLVM from documentation. Alternatively, they could mark it to show as deleted and no longer in the VM inventory.
 - Review any resources that interact with the decommissioned VMs, and update any relevant settings or documentation to reflect the new configuration.
 
-## Step 9: Review the deployment
+## Review the deployment
 
 With the migrated resources in Azure, Contoso needs to fully operationalize and secure their new infrastructure.
 
@@ -591,5 +591,5 @@ In this article, Contoso rehosted the SmartHotel app in Azure by migrating the a
 
 ## Next steps
 
-In the nextarticle in the series, we'll show how Contoso rehost the SmartHotel app to Azure VMs using the Azure Site Recovery service only.
+In the next article in the series, we'll show how Contoso rehost the SmartHotel app to Azure VMs using the Azure Site Recovery service only.
 
