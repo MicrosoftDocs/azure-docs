@@ -17,7 +17,7 @@ ms.date: 06/04/2018
 ms.author: kumud
 ---
 
-# Create a load balancer using REST API
+# Create an Azure Load Balancer using REST API
 
 This how-to shows how to create a new [Azure Load Balancer](load-balancer-overview.md) using [Azure REST API](/rest/api/azure/). 
 Complete reference documentation and additional samples are available in the [Azure Load Balancer REST reference](/rest/api/load-balancer/).
@@ -44,11 +44,11 @@ Use the following HTTP PUT request to create a new Azure Load Balancer.
 
 ### Request body
 
-The only required parameter is `location`. Use [optional parameters](/rest/api/load-balancer/loadbalancers/createorupdate.md#request-body) to customize the database.
+The only required parameter is `location`. Use [optional parameters](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) to customize the load balancer.
 
 | Name | Type | Description |
 | :--- | :--- | :---------- |
-| location | string | Resource location. Get a current list of locations using the [List Locations](/rest/api/resources/subscriptions/listlocations) operation. |
+| location | string | Resource location. Get a current list of locations using the [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) operation. |
 
 ## Example: Create a load balancer
 
