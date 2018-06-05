@@ -16,8 +16,6 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 
-redirect_from: "./marketplace-grow-your-business-with-appsource.md"  
-
 ---  
 
 # Grow your business with AppSource  

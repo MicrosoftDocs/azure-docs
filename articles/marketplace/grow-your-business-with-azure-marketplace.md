@@ -16,8 +16,6 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 
-redirect_from: "./grow-your-business-azure-marketplace.md"  
-
 ---  
 
 # Grow your business with Azure Marketplace  
