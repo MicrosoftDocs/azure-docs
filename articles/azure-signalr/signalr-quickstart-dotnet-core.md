@@ -83,7 +83,7 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
 
 1. Add a reference to the `Microsoft.Azure.SignalR` NuGet package by executing the following command:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview1-10009
+        dotnet add package Microsoft.Azure.SignalR
 
 2. Execute the following command to restore packages for your project.
 
