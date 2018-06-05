@@ -39,6 +39,6 @@ Your go-to-market support includes templates, web content, training, and tools t
 *   Forfor more information about go-to-market support, visit the Microsoft Go-To-Market Services page located at [partner.microsoft.com/reach-customers/gtm](https://partner.microsoft.com/reach-customers/gtm).  
 
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
 ---  
