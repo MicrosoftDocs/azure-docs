@@ -188,35 +188,14 @@ source for the HTML table.
    To manually create columns and column headers from the properties 
    in the JSON content, choose **Show advanced options**.
 
-If you switch from the designer to the code view editor, 
-this example shows the way this action appears in your logic app definition. 
-Here, the action passes in the **Attachments** array and 
-creates columns for each attachment. Each column contains 
-the values for each attachment's properties.
 
 ```json
+
 "Create_HTML_table": {
    "type": "Table",
    "inputs": {
       "format": "HTML",
-      "from": "@triggerBody()?['Attachments']",
-      "columns": [ 
-         {
-            "value": "@item()['ContentBytes']"
-         },
-         {
-            "value": "@item()['ContentId']"
-         },
-         {
-            "value": "@item()['ContentType']"
-         },
-         {
-            "value": "@item()['Name']"
-         },
-         {
-            "value": "@item()['Size']"
-         } 
-      ]
+      "from": "@variables('myItemArray')",
    },
    "runAfter": {}
 }

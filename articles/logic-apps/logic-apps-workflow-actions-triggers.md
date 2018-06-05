@@ -1399,62 +1399,90 @@ This action creates a CSV or HTML table from items in an array.
 
 | Property | Value | Type | Description | 
 |----------|-------|------|-------------| 
-| **format** | "CSV" or "HTML" | String | The table format you want to use | 
-| **from** | <*array*> | Array | The array or expression output that provides items for the table. For example, this array includes column names and values: <p>[ {"ID": 0, "Item": "Apples"}, {"ID": 1, "Item": "Oranges"} ] <p>**Note**: If this property value specifies an empty array, the action's output is an empty table. | 
+| **format** | "CSV" or "HTML" | String | The table format you want to create | 
+| **from** | <*array*> | Array | The array or expression output that provides items for the table. For example, this array includes the column's header names and values: <p>[ {"ID": 0, "Item": "Apples"}, {"ID": 1, "Item": "Oranges"} ] <p>**Note**: If this property value specifies an empty array, the action's output is an empty table. | 
 ||||| 
 
 *Optional*
 
 | Property | Value | Type | Description | 
 |----------|-------|------|-------------| 
-| **columns** | [ <*column-header-and-value-pairs*> ] | Array | An array with the custom column header names and values to use overriding the default table format, for example: | 
-| **header** | <*column-header*> | String | The header name for the custom column | 
+| **columns** | [ <*column-header-and-value-pairs*> ] | Array | An array with the custom column header names and values for overriding the default table format | 
+| **header** | <*column-header*> | String | The name for the custom column header | 
 | **value** | <*column-value*> | String | The value in the custom column | 
 ||||| 
 
 *Example*
 
-Suppose you have a trigger that returns this array as output:
+Suppose you create an array variable named "myItemArray" 
+by using the **Variables - Initialize variable** action 
+and pass in this array as the initial value: 
+
+`[ {"ID": 0, "Item": "Apples"}, {"ID": 1, "Item": "Oranges"} ]`
+
+This **Create CSV table** action definition gets the items from 
+"myItemArray" by using an expression that passes "myItemArray" to 
+the `variables()` function and creates a CSV table from those items: 
 
 ```json
-[ {"ID": 0, "Item": "Apples"}, {"ID": 1, "Item": "Oranges"} ]
-```
-
-And you have this table action definition where the `@triggerBody()` 
-expression passes in the previous array from the trigger:
-
-```json
-"Create_HTML_table": {
+"Create_CSV_table": {
    "type": "Table",
    "inputs": {
-      "format": "HTML",
-      "from": "@triggerBody()"
+      "format": "CSV",
+      "from": "@variables('myItemArray')"
    },
-   "runAfter": {}
+   "runAfter": {
+      "Initialize_variable"  
+   }
 }
 ```
 
-Here is the action output from this example:
+Here is the CSV table that this action creates: 
 
-<table><thead><tr><th>ID</th><th>Item</th></tr></thead><tbody><tr><td>0</td><td>Apples</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
+```
+ID,Item
+0,Apples
+1,Oranges
+```
 
-To customize this table, you can explicitly define 
-the column header names and values, for example:
+This **Create HTML table** action definition gets the items from 
+"myItemArray" by using an expression that passes "myItemArray" to 
+the `variables()` function and creates an HTML table from those items: 
 
 ```json
 "Create_HTML_table": {
    "type": "Table",
    "inputs": {
       "format": "HTML",
-      "from": "@triggerBody()",
+      "from": "@variables('myItemArray')"
+   },
+   "runAfter": {
+      "Initialize_variable"  
+   }
+}
+```
+
+Here is the HTML table that this action creates: 
+
+<table><thead><tr><th>ID</th><th>Item</th></tr></thead><tbody><tr><td>0</td><td>Apples</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
+
+To override the automatically created column headers and values, 
+you can explicitly define those elements, for example:
+
+```json
+"Create_HTML_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "HTML",
+      "from": "@variables('myItemArray')",
       "columns": [ 
          {
             "header": "Produce ID",
-            "value": "@item().id"
+            "value": "@item().ID"
          },
          {
             "header": "Description",
-            "value": "@concat('Organic ', item().name)"
+            "value": "@concat('Organic ', item().Item)"
          }
       ]
    },
