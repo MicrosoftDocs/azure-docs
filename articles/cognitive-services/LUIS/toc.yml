@@ -35,6 +35,8 @@
     items: 
     - name: With patterns
       href: luis-tutorial-pattern.md
+    - name: With a phrase list
+      href: luis-tutorial-interchangeable-phrase-list.md
   - name: Use APIs
     items: 
     - name: Get utterance prediction with endpoint query
@@ -175,8 +177,6 @@
       items: 
       - name: How to add
         href: luis-how-to-add-features.md
-      - name: How to use
-        href: luis-tutorial-interchangeable-phrase-list.md
     - name: Add Patterns
       items: 
       - name: How to add      
