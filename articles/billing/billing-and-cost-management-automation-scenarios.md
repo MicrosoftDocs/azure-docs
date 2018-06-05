@@ -1,5 +1,5 @@
 ﻿---
-title: Azure Billing and Cost Management Automation Scenarios | Microsoft Docs
+title: Azure billing and cost management automation scenarios | Microsoft Docs
 description: Learn how common billing and cost management scenarios are mapped to different APIs.
 services: ''
 documentationcenter: ''
@@ -19,11 +19,11 @@ ms.author: erikre
 
 ---
 
-# Billing and Cost Management Automation Scenarios
+# Billing and cost management automation scenarios
 
 Common scenarios for the billing and cost management space are identified below and mapped to different APIs that can be used in those scenarios. A summary of all the APIs available and the functionality they offer can be found underneath the scenario to API mapping. 
 
-## Common Scenarios 
+## Common scenarios 
 
 You can use the billing and cost management APIs in a variety of scenarios to answer cost and usage related questions.  An outline of common scenarios is provided below.
 
@@ -39,7 +39,7 @@ You can use the billing and cost management APIs in a variety of scenarios to an
 
 - **Set up alerts** – I would like to set up resource-based consumption or monetary-based alerting.
 
-## Scenario to API Mappings
+## Scenario to API mappings
 
 |         API/Scenario        | Invoice Reconciliation    | Cross Charges    | Cost Optimization    | Cost Tracking    | Mid Month Spend    | Alerts    |
 |:---------------------------:|:-------------------------:|:----------------:|:--------------------:|:----------------:|:------------------:|:---------:|
@@ -58,7 +58,7 @@ You can use the billing and cost management APIs in a variety of scenarios to an
 > [!NOTE]
 > The scenario to API mappings below do not include the Enterprise Consumption APIs. Where possible, please utilize the general Consumption APIs to address net new development scenarios moving forward.
 
-## API Summaries
+## API summaries
 
 ### Consumption
 (*Web Direct + Enterprise customers for all APIs except those called out below*)
