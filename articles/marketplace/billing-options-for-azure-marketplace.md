@@ -1,7 +1,7 @@
 ---  
-title: Billing options on Azure Marketplace
+title: Billing options on Azure Marketplace | Azure
 description: Billing options on Azure Marketplace for publishers.
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
 
 ---  
@@ -69,4 +69,7 @@ If you are an Enterprise Agreement (EA) customer with Microsoft, then you may us
 ### Monetary Commitment  
 If you are an EA customer, then you may add Azure to your agreement. You add Azure to your agreement by making an upfront monetary commitment to Azure. Your monetary commitment is consumed throughout the year. Your commitment includes any combination of usage of the wide variety of services in Azure.  
 
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+ 
 ---  
