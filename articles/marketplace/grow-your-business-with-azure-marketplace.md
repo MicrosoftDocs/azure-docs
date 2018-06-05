@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: ellacroi
 
 redirect_from: "./grow-your-business-azure-marketplace.md"  
@@ -91,13 +91,19 @@ As part of being a new publisher in the Azure Marketplace, Microsoft offers you 
 Smart Partner Marketing is a program of the Microsoft Partner Network. 
 *   For additional content on campaign building and marketing practices, visit the Smart Partner Marketing page located at [partner.microsoft.com/smart-partner-marketing](https://partner.microsoft.com/smart-partner-marketing).  
 
-#### [GTM Benefits on the marketplace](./gtm-benefits.md)  
+#### Link to GTM Benefits
+*  Visit the [GTM Benefits on the marketplace](./gtm-benefits.md) page.   
 
-### [Build Your Landing Page](./build-your-landing-page.md)  
+---  
 
-#### [Enable Lead Sharing](./enable-lead-sharing.md)  
+### Link to Landing Page
+*   Visit the [Build Your Landing Page](./build-your-landing-page.md) page.  
 
-#### [Promote Your Business with Microsoft](promote-your-business-with-microsoft.md)  
+#### Link to Enable Lead Sharing  
+*   Visit the [Enable Lead Sharing](./enable-lead-sharing.md) page.  
+
+#### Link to Promote Your Business with Microsoft  
+*   Visit the [Promote Your Business with Microsoft](promote-your-business-with-microsoft.md) page.  
 
 #### Invest in merchandising  
 As part of the publishing process, you should consider what type of offer to create and choose a category for your offer in Azure Marketplace. Make sure you select a category that is accurate for your solution so that it is displayed accurately to potential customers.  
