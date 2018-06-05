@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 06/05/2018
 ms.author: ancav
 ---
 
@@ -36,12 +36,12 @@ Metrics enable you to do the following tasks:
 
 
 * Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold that you have set. Actions are controlled through [action groups](monitoring-action-groups.md). Example actions include email, phone, and SMS notifications, calling a webhook, or starting a runbook. Others are available. Autoscale is a special automated action that enables you to scale out your resource to meet incoming requests or loads on your website monitoring-action-groups.mdor computing resources. You can configure an Autoscale setting rule to scale in or out based on a metric crossing a threshold.
-* **Route** all metrics to **Application Insights** or **Log Analytics** to enable instant analytics, search, and custom alerting on metrics data from your resources. You can also stream metrics to an **Event Hub**, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You set up Event Hub streaming using diagnostic settings.
-* **Archive** the performance or health history of your resource **for compliance, auditing, or offline reporting** purposes.  You can route your metrics to Azure Blob storage when you configure diagnostic settings for your resource.
+* **Route** all metrics to *Application Insights* or *Log Analytics* to enable instant analytics, search, and custom alerting on metrics data from your resources. You can also stream metrics to an *Event Hub*, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You set up Event Hub streaming using diagnostic settings.
+* **Archive** the performance or health history of your resource for compliance, auditing, or offline reporting purposes.  You can route your metrics to Azure Blob storage when you configure diagnostic settings for your resource.
 * Use the **Azure portal** to discover, access, and view all metrics when you select a resource and plot the metrics on a chart. You can track the performance of your resource (such as a VM, website, or logic app) by pinning that chart to your dashboard.  
 * **Perform advanced analytics** or reporting on performance or usage trends of your resource.
-  * **Query** metrics by using the PowerShell cmdlets or the Cross-Platform REST API.
-  * **Consume** the metrics via the new Azure Monitor REST APIs.
+* **Query** metrics by using the PowerShell cmdlets or the Cross-Platform REST API.
+* **Consume** the metrics via the new Azure Monitor REST APIs.
 
   ![Routing of Metrics in Azure Monitor](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 
