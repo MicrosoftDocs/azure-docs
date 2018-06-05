@@ -1,7 +1,7 @@
 ---  
-title: Guidelines for Azure Marketplace and AppSource publisher
+title: Guidelines for Azure Marketplace and AppSource publisher | Azure
 description: Guidelines for Azure Marketplace and AppSource for app and service publishers
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -13,15 +13,16 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
 
 ---  
 
 # Guidelines  
 
+<!--
 ## Guidelines for AppSource  
-
+-->
 ---  
 
 ## Guidelines for Azure Marketplace  
@@ -68,4 +69,7 @@ Microsoft recommends a workaround. Follow these steps to create a new email addr
 
 1.  The forwarding rule sends all email and communications received in the Outlook email account to the email address in a domain registered to your company. Your `outlook.com` email address must be used to authenticate in both Dev Center and Cloud Partner Portal.  
 
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+ 
 ---  
