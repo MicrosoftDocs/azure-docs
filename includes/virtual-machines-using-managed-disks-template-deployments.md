@@ -236,7 +236,7 @@ The following example shows the *properties.storageProfile.osDisk* section for a
 }
 ```
 
-For a complete template example of how to create a Standard SSD disk with a template, see [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.coma/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+For a complete template example of how to create a Standard SSD disk with a template, see [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 ### Additional scenarios and customizations
 
