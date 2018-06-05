@@ -31,7 +31,7 @@ Use AppSource when you engage business customers to find, try, and get line-of-b
 | ***Apps to help improve productivity, efficiency, and business insights*** | Provides apps for lines of business, including customer service, HR, operations, and more |  
 | ***Experienced implementation partner to help adapt apps to the unique situation for your customer*** | Provides a catalog of Consulting Services offerings for solutions based on Dynamics 365, Power BI, PowerApps, and partner apps to help business users deliver predictable outcomes |  
 
-# Grow your business with AppSource  
+<!-- # Grow your business with AppSource  -->
 Both Azure Marketplace and AppSource are the launching points for joint go-to-market activities with Microsoft and a flywheel for business growth. Using launch promotion, demand generation, and joint sales and marketing, your marketplace offer can be the centerpiece of your cloud business engine. There are no fees for participating. Microsoft customers visit the storefronts on the marketplace every day to find the right apps and services to help boost the business for your customer. Microsoft goal is to connect organizations with the solutions and services from Microsoft and Microsoft partners.  
 
 ## Business benefits of joining a cloud marketplace  
