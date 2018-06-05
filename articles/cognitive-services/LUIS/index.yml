@@ -33,6 +33,9 @@ sections:
   - type: list
     style: ordered
     items:
+    - html: <a href="luis-quickstart-primary-and-secondary-data">Get data inside an utterance using the simple entity</a>
+    - html: <a href="luis-quickstart-intent-and-list-entity">Get data inside an utterance using the regular expression entity</a>
+    - html: Improve prediction accuracy with <a href="luis-tutorial-pattern">patterns</a> and <a href="luis-tutorial-interchangeable-phrase-list">phrase lists</a>
     - html: <a href="luis-get-started-cs-get-intent">Send an utterance to LUIS and recieve the endpoint prediction response - C#</a>
     - html: <a href="luis-get-started-cs-add-utterance">Add an example utterance to an intent and train the LUIS app - C#</a>
 
