@@ -303,6 +303,10 @@
         "articles/virtual-network/**/*.md":"https://feedback.azure.com/forums/217313-networking?category_id=77469",
         "articles/visual-studio/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",      
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77470"
+        },
+        "searchScope": {
+          "articles/postgresql/**.md": ["Azure","Azure Database for PostgreSQL","PostgreSQL"],
+          "articles/mysql/**.md": ["Azure","Azure Database for PostgreSQL", "MySQL"]
         }
     },
     "template": [
