@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -52,7 +52,7 @@ To remove the registration resource, use the **Remove-AzsRegistration** cmdlet t
 
   # Unregister Azure Stack
   Remove-AzsRegistration `
-      -CloudAdminCredential $YourCloudAdminCredential `
+      -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
   # Remove the Azure Stack resource group
