@@ -37,10 +37,10 @@ The following is required prior to this solution being installed and configured.
  
 
 ## Management packs
-This solution does not install any management packs in connected management groups.
+This solution does not install any management packs in [connected management groups](../log-analytics/log-analytics-om-agents.md).
   
-## Configuration
-Once you add the Office 365 solution to your subscription, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
+## Install and configure
+Start by adding the [Office 365 solution to your subscription](/monitoring/monitoring-solutions.md#install-a-management-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
 
 ### Required information
 Before you start this procedure, gather the following information.
@@ -180,7 +180,7 @@ To enable the administrative account for the first time, you must provide admini
 ### Subscribe to Log Analytics workspace
 The last step is to subscribe the application to your Log Analytics workspace. You also do this with a PowerShell script.
 
-1. Save the following script as *office365_consent.ps1*.
+1. Save the following script as *office365_subscription.ps1*.
 
     ```
     param (
@@ -316,7 +316,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
                     'properties': {
                                     'AuthProvider':'Office365',
                                     'office365TenantID': '" + $OfficeTennantId + "',
-                                    'connectionID': 'office365connection_" + $OfficeTennantId + "',
+                                    'connectionID': 'office365connection_" + $SubscriptionId + $OfficeTennantId + "',
                                     'office365AdminUsername': '" + $OfficeUsername + "',
                                     'contentTypes':'Audit.Exchange,Audit.AzureActiveDirectory'
                                   },
@@ -384,12 +384,121 @@ At line:12 char:18
 
 ```
 
+## Uninstall
+You can remove the Office 365 management solution using the process in [Remove a management solution](../monitoring/monitoring-solutions.md#remove-a-management-solution). This will not stop data being collected from Office 365 into Log Analytics though. Follow the procedure below to unsubscribe from Office 365 and stop collecting data.
+
+1. Save the following script as *office365_unsubscribe.ps1*.
+
+    ```
+    param (
+        [Parameter(Mandatory=$True)][string]$WorkspaceName,
+        [Parameter(Mandatory=$True)][string]$ResourceGroupName,
+        [Parameter(Mandatory=$True)][string]$SubscriptionId,
+        [Parameter(Mandatory=$True)][string]$OfficeTennantId
+    )
+    $line='#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
+    
+    $line
+    IF ($Subscription -eq $null)
+    	{Login-AzureRmAccount -ErrorAction Stop}
+    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+    $Subscription
+    $option = [System.StringSplitOptions]::RemoveEmptyEntries 
+    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace
+    $WorkspaceLocation= $Workspace.Location
+    
+    # Client ID for Azure PowerShell
+    $clientId = "1950a258-227b-4e31-a9cf-717495945fc2"
+    # Set redirect URI for Azure PowerShell
+    $redirectUri = "urn:ietf:wg:oauth:2.0:oob"
+    $domain='login.microsoftonline.com'
+    $adTenant =  $Subscription[0].Tenant.Id
+    $authority = "https://login.windows.net/$adTenant";
+    $ARMResource ="https://management.azure.com/";
+    $xms_client_tenant_Id ='55b65fb5-b825-43b5-8972-c8b6875867c1'
+    
+    switch ($WorkspaceLocation) {
+           "USGov Virginia" { 
+                             $domain='login.microsoftonline.us';
+                              $authority = "https://login.microsoftonline.us/$adTenant";
+                              $ARMResource ="https://management.usgovcloudapi.net/"; break} # US Gov Virginia
+           default {
+                    $domain='login.microsoftonline.com'; 
+                    $authority = "https://login.windows.net/$adTenant";
+                    $ARMResource ="https://management.azure.com/";break} 
+                    }
+    
+    
+    
+    Function RESTAPI-Auth { 
+    
+    # Load ADAL Azure AD Authentication Library Assemblies
+    $adal = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
+    $adalforms = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll"
+    $null = [System.Reflection.Assembly]::LoadFrom($adal)
+    $null = [System.Reflection.Assembly]::LoadFrom($adalforms)
+     
+    
+    $global:SubscriptionID = $Subscription.SubscriptionId
+    # Set Resource URI to Azure Service Management API
+    $resourceAppIdURIARM=$ARMResource;
+    # Authenticate and Acquire Token 
+    # Create Authentication Context tied to Azure AD Tenant
+    $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
+    # Acquire token
+    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
+    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader
+    }
+    
+    Function Office-UnSubscribe-Call{
+    
+    #----------------------------------------------------------------------------------------------------------------------------------------------
+    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $ResourceName = "https://manage.office.com"
+    $SubscriptionId   = $Subscription[0].Subscription.Id
+    $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_'  + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
+    
+    $Officeparams = @{
+        ContentType = 'application/json'
+        Headers = @{
+        'Authorization'="$($authHeader)"
+        'x-ms-client-tenant-id'=$xms_client_tenant_Id
+        'Content-Type' = 'application/json'
+        }
+        Method = 'Delete'
+        URI = $OfficeAPIUrl
+      }
+    
+    $officeresponse = Invoke-WebRequest @Officeparams 
+    $officeresponse
+    
+    }
+    
+    #GetDetails 
+    RESTAPI-Auth -ErrorAction Stop
+    Office-UnSubscribe-Call -ErrorAction Stop
+    ```
+
+2. Run the script with the following command:
+
+    ```
+    .\office365_unsubscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeTennantID <Tenant ID> 
+    ```
+
+    Example:
+
+    ```
+    .\office365_unsubscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
+    ```
+
 ## Data collection
 ### Supported agents
 The Office 365 solution doesn't retrieve data from any of the [OMS agents](../log-analytics/log-analytics-data-sources.md).  It retrieves data directly from Office 365.
 
 ### Collection frequency
-Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Log Analytics each time a record is created.
+It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Log Analytics each time a record is created. This record is available in Log Analytics within a few minutes after being received.
 
 ## Using the solution
 When you add the Office 365 solution to your Log Analytics workspace, the **Office 365** tile will be added to your dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
@@ -614,19 +723,6 @@ The following table provides sample log searches for update records collected by
 |File access operations by user type|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |Search with a specific keyword|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Monitor external actions on Exchange|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|
-
-
-
-
-## Troubleshooting
-
-If your Office 365 solution is not collecting data as expected, check its status in the OMS portal at **Settings** -> **Connected Sources** -> **Office 365**. The following table describes each status.
-
-| Status | Description |
-|:--|:--|
-| Active | The Office 365 subscription is active and the workload is successfully connected to your Log Analytics workspace. |
-| Pending | The Office 365 subscription is active but the workload is not yet connected to your Log Analytics workspace successfully. The first time you connect the Office 365 subscription, all the workloads will be at this status until they are successfully connected. Please allow 24 hours for all the workloads to switch to Active. |
-| Inactive | The Office 365 subscription is in an inactive state. Check your Office 365 Admin page for details. After you activate your Office 365 subscription, unlink it from your Log Analytics workspace and link it again to start receiving data. |
 
 
 
