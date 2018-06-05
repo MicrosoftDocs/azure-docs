@@ -521,9 +521,9 @@ Before migrating WEBVM, a test failover helps make sure that everything's workin
 
 3. After the failover, Contoso verify that the Azure VM appears as expected in the Azure portal.
 
-    ![Recovery plan](./media/contoso-migration-rehost-vm-sql-managed-instance/failover2.png)
+   ![Recovery plan](./media/contoso-migration-rehost-vm-sql-managed-instance/failover2.png)
 
-6. After verifying the VM in Azure, they complete the migration to finish the migration process, stop replication for the VM, and stop Site Recovery billing for the VM.
+4. After verifying the VM in Azure, they complete the migration to finish the migration process, stop replication for the VM, and stop Site Recovery billing for the VM.
 
     ![Failover](./media/contoso-migration-rehost-vm-sql-managed-instance/failover3.png)
 
