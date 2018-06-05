@@ -35,7 +35,7 @@
       href: get-speech-devices-sdk.md
     - name: Customize device wake word
       href: speech-devices-sdk-create-kws.md
-    - name: Batch transcription (Call Centres)
+    - name: Batch transcription (call centers)
       href: batch-transcription.md
 - name: Samples
   items:
