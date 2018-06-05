@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: ellacroi
 
 ---  
@@ -34,7 +34,7 @@ The following table describes the prerequisite requirements for publishing on Ap
 | ***Integration with Microsoft Cloud Services*** | Your app should integrate with other Microsoft Cloud services like Microsoft Power BI, Cortana Intelligence, or Microsoft Azure services.<ul> <li>An example of a Microsoft Cloud service is Internet of Things.</li> </ul> | Recommended |  
 | ***Audience*** | Your app must be for line-of-business users and business owners. | Required | 
 | ***Software as a service (SaaS) app for business*** | Your app must meet the following requirements.<ul> <li>A line-of-business SaaS app</li> <li>Business-process focused</li> <li>Targeted to business customers</li> <li>Enable users to use their work credentials to sign in such as user name and password</li> </ul> | Required |  
-| ***Free trial period and trial experience*** | Your app must include one the following options in order for a customer to use your app for free for a limited time.<ul> <li>Provide a *try* method, so customers may start a trial of your app within AppSource</li> <li>Provide a *request trial* option in the AppSource, so customers may request a trial version of your app</li> </ul>The free trial that you provide must offer the customer a pre-set amount of time to try out your app with no additional cost. | Required |  
+| ***Free trial period and trial experience*** | Your app must include one the following options in order for a customer to use your app for free for a limited time.<ul> <li>Provide a `try` method, so customers may start a trial of your app within AppSource</li> <li>Provide a `request trial` option in the AppSource, so customers may request a trial version of your app</li> </ul>The free trial that you provide must offer the customer a pre-set amount of time to try out your app with no additional cost. | Required |  
 | ***Easily configurable, ready-to-use solution*** | Your app must be easy and quick to configure and set up with no customization required. | Required |  
 | ***Lead management*** | You must enable your CRM to accept lead data before you receive leads from the storefront.<ul> <li>Examples of CRMs are Marketo, Microsoft Dynamics, or Salesforce</li> </ul> | Required |  
 | ***Privacy policy and terms of use*** | Your app must provide a link to your privacy policy page using a public URL. Your terms of use must be provided during publishing as text. | Required |  
@@ -78,7 +78,7 @@ The List listing type includes the following Offer types on the storefronts in t
 | Service offer characteristics | Your consulting service must meet the following criteria.<ul> <li>Deliver a fixed-scope, fixed-duration, fixed-price (or free) engagement.</li> <li>Orient primarily for pre-sales.</li> <li>Limit to a single customer.</li> <li>Conduct on site.</li> </ul> |  
 | Partner requirements for Consulting Services | You must have silver or gold in one of the following competencies in the relevant area for your service. <table><tr><th>Solution Area</th><th>Competency</th></tr><td>Cloud Platform and Infrastructure</td><td>Cloud Platform<br />Data Center</td><tr><td>Application Development and ISV</td><td>Application Development<br />Application Integration<br />DevOps</td></tr><tr><td>Data Management and Analytics</td><td>Data Analytics<br />Data Platform</td></tr></table><ul> <li>For more information about competencies, visit the Competencies Through Microsoft Partner Network page located at [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies).</li> <li>For more information about listing, visit the Azure Marketplace Consulting Services page located at [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services).</li></ul> |  
 
-#### Requirements: Azure Marketplace: List: Contact Me
+<!-- #### Requirements: Azure Marketplace: List: Contact Me -->
 
 ---   
 
@@ -134,9 +134,9 @@ The List listing type includes the following Offer types on the storefronts in t
 | SaaS app  | Azure Marketplace | [Requirements: Azure Marketplace: Transact: SaaS app](#requirements:-azure-marketplace:-transact:-saas-app) |  
 | Virtual machine | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Virtual machine](#requirements:-azure-marketplace:-transact:-virtual-machine) |  
 
-#### Requirements: Azure Marketplace: Transact: Azure apps: Managed app  
+<!-- #### Requirements: Azure Marketplace: Transact: Azure apps: Managed app  
 
-#### Requirements: Azure Marketplace: Transact: Azure apps: Solution template   
+#### Requirements: Azure Marketplace: Transact: Azure apps: Solution template   -->
 
 #### Requirements: Azure Marketplace: Transact: Container  
 
