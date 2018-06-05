@@ -145,7 +145,7 @@ Status: Released to select customers
 
 #### New features and improvements
 
-* Adding Privacy Settings for the General Data Protection Regulation (GDPR).
+* Adding Privacy Settings for the General Data Protection Regulation (GDPR).  For more information see the article [here](active-directory-aadconnect-gdpr.md).
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]  
 
