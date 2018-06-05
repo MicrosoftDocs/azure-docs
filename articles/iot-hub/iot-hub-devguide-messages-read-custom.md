@@ -62,7 +62,7 @@ The [Process IoT Hub device-to-cloud messages using routes][lnk-d2c-tutorial] tu
 [lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md
 [lnk-devguide-query-language]: iot-hub-devguide-query-language.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md

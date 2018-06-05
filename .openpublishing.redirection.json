@@ -18256,6 +18256,26 @@
           "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-hub/iot-hub-csharp-csharp.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-java-java.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-node-node.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-python-python.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
             "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-gateway-kit-get-started-sensortag.md",
             "redirect_document_id": false
