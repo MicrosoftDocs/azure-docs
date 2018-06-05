@@ -21,7 +21,7 @@ This document is the second in series of articles that document how the fictitio
 **Article** | **Details** | **Status**
 --- | --- | ---
 Article 1: Overview | Provides an overview of Contoso's migration strategy, the article series, and the sample apps we use. | Available
-Article 2: Deploy an Azure infrastructure (This article) | Describes how Contoso prepares its on-premises and Azure infrastructure for migration. The same infrastructure is used for all Contoso migration scenarios. | Available
+Article 2: Deploy an Azure infrastructure (this article) | Describes how Contoso prepares its on-premises and Azure infrastructure for migration. The same infrastructure is used for all Contoso migration scenarios. | Available
 Article 3: Assess on-premises resources | Shows how Contoso runs an assessment of their on-premises two-tier SmartHotel app running on VMware. They assess app VMs with the [Azure Migrate](migrate-overview.md) service, and the app SQL Server database with the [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Available
 Article 4: Refactor (lift-and-shift) to Azure VMs and a SQL Managed Instance | Demonstrates how Contoso migrates the SmartHotel app to Azure. They migrate the app frontend VM using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and the app database using the [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service, to migrate to a SQL Managed Instance. | Available
 Article 5: Refactor (lift-and-shift) to Azure VMs | Shows how Contoso migrate their SmartHotel app VMs using Site Recovery only.
