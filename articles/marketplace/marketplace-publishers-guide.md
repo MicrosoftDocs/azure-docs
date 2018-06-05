@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: ellacroi
 
 ---  
@@ -94,17 +94,17 @@ You do not have to take any additional action. After you publish your offer, Mic
 ## Storefronts  
 Microsoft provides two distinct storefronts on the marketplace. The storefronts enable you to list offers, enable trials, and transact directly with Microsoft customers.  
 *   Comparing AppSource and Azure Marketplace
-    *   For more information about the storefronts, visit the Comparing AppSource and Azure Marketplace page located at [Comparing AppSource and Azure Marketplace](#comparing-appsource-and-azure-marketplace).
+    *   For more information about the storefronts, visit the Comparing AppSource and Azure Marketplace page located at [Comparing AppSource and Azure Marketplace](./comparing-appsource-azure-marketplace.md).
 *   AppSource 
-    *   For more information about AppSource, visit the [Grow your business with AppSource](#grow-your-business-with-appsource) section.  
+    *   For more information about AppSource, visit the Grow your business with AppSource page located at [Grow your business with AppSource](./grow-your-business-with-appsource.md).  
 *   Azure Marketplace 
-    *   For more information about Azure Marketplace, visit the [Grow your business with Azure Marketplace](#grow-your-business-with-azure-marketplace) section.  
+    *   For more information about Azure Marketplace, visit the Grow your business with Azure Marketplace page located at [Grow your business with Azure Marketplace](./grow-your-business-with-azure-marketplace.md).  
 
 The storefronts enable you to find, try, and buy apps and services that accelerate your digital transformation. The storefronts help you grow your businesses by increasing access to Microsoft customers and partners.  
  
 Each storefront provides specialized options to help you maximize your publishing investment. The following table summarizes these options.  
 
-|  | [AppSource](#appsource) | [Azure Marketplace](#azure-marketplace) |  
+|  | AppSource | Azure Marketplace |  
 |:--- |:--- |:--- |  
 | Target audience | Line-of-business decision makers<table> <tr> <th>specialist roles </th> </tr> <tr> <td>Accounting</td> </tr> <tr> <td>Procurement</td> </tr> <tr> <td>Manufacturing</td> </tr> </table> | IT pros and developers<table> <tr> <th>specialist roles </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>DBAs</td> </tr> <tr> <td>SecOps</td> </tr> </table> |  
 | Built with or to extend | Azure<br />Dynamics 365<br />Office 365<br />Power BI<br />PowerApps | Azure |  
@@ -112,54 +112,41 @@ Each storefront provides specialized options to help you maximize your publishin
 | Offer type | Consulting Services<br />Contact Me<br />Free trial<br />Get Now<br />Test drive | Azure apps: Managed apps<br />Azure apps: Solution templates<br />Consulting Services<br />Contact Me<br />Trial<br />virtual machine |  
 | In-app experience to give users access<br />to apps and services in the context of<br />your app | Dynamics 365<br />Office 365<br />Office client apps<br />Power BI | Azure portal<br />Azure Resource Manager CLI |  
 
----  
-
-### [Comparing AppSource and Azure Marketplace](./comparing-appsource-and-azure-marketplace.md)  
-
-### [Grow your business with AppSource](./grow-your-business-with-appsource.md)  
-
-### [Grow your business with Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
-
 ---   
 
 ## How to Publish in the storefronts on the marketplace  
 The following sections help you navigate the publishing options in AppSource and Azure Marketplace.  
 
 Become a publisher in the storefronts on the marketplace in three easy steps.  
-1. [Determine the Listing Type for Your Solution](./determine-your-listing-type.md)  
-2. [Become a Publisher in the storefronts on the marketplace](./become-a-publisher.md)  
-3. [Requirements by Listing Type](./listing-type-requirements.md)  
+1.  Visit the [Determine the Listing Type for Your Solution](./determine-your-listing-type.md) page.  
+2.  Visit the [Become a Publisher in the storefronts on the marketplace](./become-publisher.md) page.  
+3.  Visit the [Requirements by Listing Type](./listing-type-requirements.md) page.  
 
 ---   
 
 ## Publishing Checklists  
+*   Visit the [Publishing Checklist for AppSource](publishing-checklist-appsource.md) page.  
+*   Visit the [Publishing Checklist for Azure Marketplace on Cloud Partner Portal](./publishing-checklist-azure-marketplace.md) page.  
+*   Visit the [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md) page.  
 
-### [Publishing Checklist for AppSource](publishing-checklist-for-appsource.md)  
-
-### [Publishing Checklist for Azure Marketplace on Cloud Partner Portal](./publishing-checklist-for-azure-marketplace.md)  
-
-### [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md)  
+---  
 
 ## Support  
 
-### [Support for AppSource](./support-for-appsource.md)  
+*   Visit the [Support for AppSource](./support-appsource.md) page.  
+*   Visit the [Support for Azure Marketplace](./support-azure-marketplace.md) page.  
 
-### [Support for Azure Marketplace](./support-for-azure-marketplace.md)  
+---  
 
-## Guidelines and Guides  
+## Guides  
+*   Visit the [Azure Marketplace Consulting Service](consulting-services.md) page.  
+*   Visit the [Azure Marketplace SaaS app technical publishing guide](marketplace-saas-applications-technical-publishing-guide.md) page.  
 
-### [Azure Marketplace Consulting Service](consulting-services.md)  
-
-### [Azure Marketplace SaaS app technical publishing guide](marketplace-saas-applications-technical-publishing-guide.md)  
-
-### [Guidelines](./guidelines.md)  
-
-### [Register in Dev Center](./register-in-dev-center.md)  
-
-### [Add Bank and Tax Information](./add-bank-and-tax-info.md)  
-
-### [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md)  
-
-### [Billing Options for Azure Marketplace](./billing-options-for-azure-marketplace.md)  
+## Guidelines  
+*   Visit the [Guidelines](./guidelines.md) page.  
+*   Visit the [Register in Dev Center](./register-dev-center.md) page.  
+*   Visit the [Add Bank and Tax Information](./add-bank-tax-info.md) page.  
+*   Visit the [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md) page.  
+*   Visit the [Billing Options for Azure Marketplace](./billing-options-azure-marketplace.md) page.  
 
 ---  
