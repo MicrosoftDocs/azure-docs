@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: rogara
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 06/03/2018
+ ms.author: rogarana
+ ms.custom: include file
+---
+
 # Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
 
 This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
