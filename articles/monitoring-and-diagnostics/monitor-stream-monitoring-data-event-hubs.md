@@ -94,7 +94,7 @@ Application monitoring data requires that your code is instrumented with an SDK,
 
 1. [Set up continuous export](../application-insights/app-insights-export-telemetry.md) of the Application Insights data to a storage account.
 
-2. Set up a timer-triggered Logic App that [pulls data from blob storage](../connectors/connectors-create-api-azureblobstorage.md#use-an-action) and [pushes it as a message to the event hub](../connectors/connectors-create-api-azure-event-hubs.md#send-events-to-your-event-hub-from-your-logic-app).
+2. Set up a timer-triggered Logic App that [pulls data from blob storage](../connectors/connectors-create-api-azureblobstorage.md#add-action) and [pushes it as a message to the event hub](../connectors/connectors-create-api-azure-event-hubs.md#add-action).
 
 ## What can I do with the monitoring data being sent to my event hub?
 

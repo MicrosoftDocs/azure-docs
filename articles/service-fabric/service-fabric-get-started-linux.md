@@ -11,7 +11,7 @@ ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
@@ -207,8 +207,8 @@ Service Fabric provides scaffolding tools that help you create Service Fabric ap
 
     * Ubuntu
         ```bash
-        sudo apt-get install npm
-        sudo apt install nodejs-legacy
+        curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+        sudo apt-get install -y nodejs 
         ```
 
     * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)

@@ -2,18 +2,15 @@
 title: How to query table data in Azure Cosmos DB? | Microsoft Docs
 description: Learn to query table data in Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: kanshiG
 manager: kfile
 editor: ''
 tags: ''
 
-ms.assetid: 14bcb94e-583c-46f7-9ea8-db010eb2ab43
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc

@@ -30,6 +30,8 @@ By default, Azure AD administrator roles and Azure role-based access control (RB
 
 This elevation should be temporary and only done when needed.
 
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+
 ## Elevate access for a Global administrator using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com).
@@ -72,9 +74,9 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## Delete a role assignment at the root scope (/) using PowerShell
+## Remove a role assignment at the root scope (/) using PowerShell
 
-To delete a User Access Administrator role assignment for a user at the root scope (`/`), use the [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) command.
+To remove a User Access Administrator role assignment for a user at the root scope (`/`), use the [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) command.
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
@@ -106,14 +108,23 @@ Use the following basic steps to elevate access for a Global administrator using
    }
    ```
 
-1. While a User Access Administrator, you can also delete role assignments at the root scope (`/`).
+1. While a User Access Administrator, you can also remove role assignments at the root scope (`/`).
 
-1. Revoke your User Access Administrator privileges until they're needed again.
+1. Remove your User Access Administrator privileges until they're needed again.
 
+## List role assignments at the root scope (/) using the REST API
 
-## How to undo the elevateAccess action with the REST API
+You can list all of the role assignments for a user at the root scope (`/`).
 
-When you call `elevateAccess`, you create a role assignment for yourself, so to revoke those privileges you need to delete the assignment.
+- Call [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope) where `{objectIdOfUser}` is the object ID of the user whose role assignments you want to retrieve.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
+   ```
+
+## Remove elevated access using the REST API
+
+When you call `elevateAccess`, you create a role assignment for yourself, so to revoke those privileges you need to remove the assignment.
 
 1. Call [GET roleDefinitions](/rest/api/authorization/roledefinitions/get) where `roleName` equals User Access Administrator to determine the name ID of the User Access Administrator role.
 
@@ -168,7 +179,7 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 	>A tenant administrator should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at tenant scope level, then filter the results: 
 	> `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
 		
-	2. The previous calls return a list of role assignments. Find the role assignment where the scope is "/" and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the tenant administrator. 
+	2. The previous calls return a list of role assignments. Find the role assignment where the scope is `"/"` and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the tenant administrator. 
 	
 	Sample role assignment:
 
@@ -196,7 +207,7 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 		
 	Again, save the ID from the `name` parameter, in this case e7dd75bc-06f6-4e71-9014-ee96a929d099.
 
-	3. Finally, Use the role assignment ID to delete the assignment added by `elevateAccess`:
+	3. Finally, Use the role assignment ID to remove the assignment added by `elevateAccess`:
 
 	```http
 	DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01

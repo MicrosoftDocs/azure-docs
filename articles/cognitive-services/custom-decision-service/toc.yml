@@ -19,8 +19,6 @@
     href: custom-decision-service-tutorial-news.md
   - name: Machine learning
     href: custom-decision-service-tutorial-ml.md
-  - name: Offline analytics
-    href: custom-decision-service-tutorial-analytics.md
 - name: Reference
   items:
   - name: API

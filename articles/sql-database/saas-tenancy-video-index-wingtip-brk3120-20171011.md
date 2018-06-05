@@ -5,7 +5,7 @@ services: "sql-database"
 ms.date: 05/14/2018
 ms.service: "sql-database"
 ms.reviewer: "billgib"
-ms.topic: "article"
+ms.topic: conceptual
 author: "MightyPen"
 ms.author: "genemi"
 manager: "craigg"

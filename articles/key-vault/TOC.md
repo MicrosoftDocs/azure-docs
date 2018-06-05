@@ -16,11 +16,12 @@
 # Samples
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=key-vault)
 # Concepts
+## [What is Key Vault?](key-vault-whatis.md)
 ## [Security worlds](key-vault-ovw-security-worlds.md)
 ## [Soft-delete](key-vault-ovw-soft-delete.md)
 ## [Storage account keys](key-vault-ovw-storage-keys.md)
 ## [Throttling](key-vault-ovw-throttling.md)
-## [What is Key Vault?](key-vault-whatis.md)
+
 
 # How-to guides
 ## Manage
@@ -73,7 +74,7 @@
 ## [Key Vault Versions](key-vault-versions.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
-## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
+## [Code Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault&type=&language=)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 ## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

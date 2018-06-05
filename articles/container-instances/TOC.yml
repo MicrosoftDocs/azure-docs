@@ -26,7 +26,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
   - name: Resource Manager templates
-    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance
+    href: container-instances-samples-rm.md
 - name: Concepts
   items:
   - name: Quotas and regional limits
@@ -45,8 +45,6 @@
       href: container-instances-using-azure-container-registry.md
     - name: Set environment variables (env)
       href: container-instances-environment-variables.md
-    - name: Troubleshoot deployments
-      href: container-instances-troubleshooting.md
   - name: Manage
     items:
     - name: Execute a command (exec)
@@ -69,6 +67,12 @@
       href: container-instances-volume-gitrepo.md
     - name: secret
       href: container-instances-volume-secret.md
+  - name: Troubleshoot
+    items:
+    - name: Get container logs & events
+      href: container-instances-get-logs.md
+    - name: Troubleshoot common issues
+      href: container-instances-troubleshooting.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -78,7 +82,7 @@
   - name: PowerShell
     href: /powershell/module/azurerm.containerinstance#container_instances
   - name: .NET
-    href: /dotnet/api/overview/azure/containerinstances
+    href: /dotnet/api/overview/azure/containerinstance
   - name: Python
     href: /python/api/overview/azure/containerinstance
   - name: Java

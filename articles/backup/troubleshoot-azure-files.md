@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Files Backup 
+title: Troubleshoot Azure File Shares Backup 
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
 services: backup
 ms.service: backup
@@ -7,16 +7,14 @@ author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
-ms.workload: storage-backup-recovery
 manager: carmonm
-
 ---
 
-# Troubleshoot problems backing up Azure Files
-You can troubleshoot issues and errors encountered while using Azure Files backup with information listed in the following tables.
+# Troubleshoot problems backing up Azure File Shares
+You can troubleshoot issues and errors encountered while using Azure File Shares backup with information listed in the following tables.
 
 ## Preview boundaries
-Azure Files backup is in Preview. The following backup scenarios are not supported for Azure file shares:
+Backup for Azure File shares is in Preview. The following backup scenarios are not supported for Azure file shares:
 - Protecting Azure file shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) or [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication.
 - Protecting Azure file shares in Storage Accounts that have Virtual Networks enabled.
 - Backing up Azure file shares using PowerShell or CLI.
@@ -49,7 +47,7 @@ The following table is for configuring the backup:
 | You have reached the max limit of snapshots for this file share, you will be able to take more once the older ones expire. | <ul><li> This error can occur when you create multiple on-demand backups for a File. <li> There is a limit of 200 snapshots per File share including the ones taken by Azure Backup. Older scheduled backups (or snapshots) are cleaned up automatically. On-demand backups (or snapshots) must be deleted if the maximum limit is reached.<li> Delete the on-demand backups (Azure file share snapshots) from the Azure Files portal. **Note**: You lose the recovery points if you delete snapshots created by Azure Backup. |
 | File share backup or restore failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account.| Retry the operation after some time. |
 | Restore failed with Target File Share Not Found. | <ul><li>Make sure the selected Storage Account exists and the Target File share is not deleted. <li> Make sure the Storage Account is a supported storage account for File share backup. |
-| Azure Backup is currently not supported for Azure Files in Storage Accounts with Virtual Networks enabled. | Disable Virtual Networks on your Storage Account to ensure successful backups or restore operations. |
+| Azure Backup is currently not supported for Azure File Shares in Storage Accounts with Virtual Networks enabled. | Disable Virtual Networks on your Storage Account to ensure successful backups or restore operations. |
 | Backup or Restore jobs failed due to storage account being in Locked state. | Remove the lock on Storage Account or use delete lock instead of read lock and retry the operation. |
 | Recovery failed because number of failed files are more than the threshold. | <ul><li> Recovery failure reasons are listed in a file (path provided in Job details). Please address the failures and retry the restore operation for the failed files only. <li> Common reasons for File restore failures: <br/> - make sure the files that failed are currently not in use, <br/> - a directory with the same name as the failed file exists in the parent directory. |
 | Recovery failed as no file could be recovered. | <ul><li> Recovery failure reasons are listed in a file (path provided in Job details). Address the failures and retry the restore operations for the failed files only. <li> Common reasons for file restore failure: <br/> - Make sure the files that have failed are currently not in use. <br/> - A directory with the same name as the failed file exists in the parent directory. |

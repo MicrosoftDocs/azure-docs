@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 06/04/2018
 ms.author: juliako
 
 ---
@@ -50,9 +50,15 @@ Once you subscribed to the Authorization API, you will be able to obtain access 
 
 Each call to the Operations API should be associated with an access token, matching the authorization scope of the call.
 
-- User level -  user level access tokens let you perform operations on the user level. For example,  get associated accounts.
-- Account level – account level access tokens let you perform operations on the account level. for example, Upload video, list all videos, create a language model, etc.
-- Video level – video level access tokens let you perform operations on specific videos. for example, get video insights, download captions, get widgets, etc. 
+- User level -  user level access tokens let you perform operations on the **user** level. For example, get associated accounts.
+- Account level – account level access tokens let you perform operations on the **account** level or the **video** level. For example, Upload video, list all videos, get video insights, etc.
+- Video level – video level access tokens let you perform operations on a specific **video**. For example, get video insights, download captions, get widgets, etc. 
+
+You can control whether these tokens are readonly or they allow editing by specifying **allowEdit=true/false**.
+
+For most server-to-server scenarios, you will probably use the same **account** token since it covers both **account** operations and **video** operations. However, if you are planning to make client side calls to Video Indexer (e.g. from javascript), you would want to use a **video** access token, to prevent clients from getting access to the entire account. That is also the reason that when embedding VideoIndexer client code in your client (for example, using **Get Insights Widget** or **Get Player Widget**) you must provide a **video** access token.
+
+To make things easier, you can use the **Authorization** API > **GetAccounts** to get your accounts without obtaining a user token first. You can also ask to get the accounts with valid tokens, enabling you to skip an additional call to get an account token.
 
 Access tokens expire after 1 hour. Make sure your access token is valid before using the Operations API. If expires, call the Authorization API again to get a new access token.
  
@@ -64,13 +70,39 @@ All operation APIs require a Location parameter, which indicates the region to w
 
 The values described in the following table apply. The **Param value** is the value you pass when using the API.
 
-
 |**Name**|**Param value**|**Description**|
 |---|---|---|
 |Trial|trial|Used for trial accounts.|
 |West US|westus2|Used for the Azure West US 2 region.|
 |North Europe |northeurope|Used for the Azure North Europe region.|
 |East Asia|eastasia|Used for the Azure East Asia region.|
+
+## Account ID 
+
+The Account ID parameter is required in all operational API calls. Account ID is a GUID that can be obtained in one of the following ways:
+
+* Use the Video Indexer portal to get the Account ID:
+
+    1. Sign in to [videoindexer](https://www.videoindexer.ai/).
+    2. Browse to the **Settings** page.
+    3. Copy the account ID.
+
+        ![Account ID](./media/video-indexer-use-apis/account-id.png)
+
+* Use the API to programmatically get the Account ID.
+
+    Use the [Get accounts](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
+    
+    > [!TIP]
+    > You can generate access tokens for the accounts by defining `generateAccessTokens=true`.
+    
+* Get the account ID from the URL of a player page in your account.
+
+    When you watch a video, the ID appears after the `accounts` section and before the `videos` section.
+
+    ```
+    https://www.videoindexer.ai/accounts/00000000-f324-4385-b142-f77dacb0a368/videos/d45bf160b5/
+    ```
 
 ## Recommendations
 
@@ -110,7 +142,7 @@ client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
 var content = new MultipartFormDataContent();
 Debug.WriteLine("Uploading...");
 var videoUrl = "..."; // replace with the video url 
-var uploadRequestResult = client.PostAsync(string.Format($"{apiUrl}/{location}/Accounts/{accountId}/Videos?accessToken={accountAccessToken}&name=some_name&description=some_description&privacy=private&partition=some_partition&videoUrl={videoUrl}"), content).Result;
+var uploadRequestResult = client.PostAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos?accessToken={accountAccessToken}&name=some_name&description=some_description&privacy=private&partition=some_partition&videoUrl={videoUrl}", content).Result;
 var uploadResult = uploadRequestResult.Content.ReadAsStringAsync().Result;
 
 // get the video id from the upload result
@@ -123,7 +155,7 @@ client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
 var videoTokenRequestResult = client.GetAsync($"{apiUrl}/auth/{location}/Accounts/{accountId}/Videos/{videoId}/AccessToken?allowEdit=true").Result;
 var videoAccessToken = videoTokenRequestResult.Content.ReadAsStringAsync().Result.Replace("\"", "");
 
-client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key"); //workaround
+client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
 
 // wait for the video index to finish
 while (true)
@@ -135,14 +167,14 @@ while (true)
 
   var processingState = JsonConvert.DeserializeObject<dynamic>(videoGetIndexResult)["state"];
 
-  Debug.WriteLine();
+  Debug.WriteLine("");
   Debug.WriteLine("State:");
   Debug.WriteLine(processingState);
 
   // job is finished
   if (processingState != "Uploaded" && processingState != "Processing")
   {
-      Debug.WriteLine();
+      Debug.WriteLine("");
       Debug.WriteLine("Full JSON:");
       Debug.WriteLine(videoGetIndexResult);
       break;
@@ -152,7 +184,7 @@ while (true)
 // search for the video
 var searchRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/Search?accessToken={accountAccessToken}&id={videoId}").Result;
 var searchResult = searchRequestResult.Content.ReadAsStringAsync().Result;
-Debug.WriteLine();
+Debug.WriteLine("");
 Debug.WriteLine("Search:");
 Debug.WriteLine(searchResult);
 
@@ -165,7 +197,7 @@ Debug.WriteLine(insightsWidgetLink);
 // get player widget url
 var playerWidgetRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/{videoId}/PlayerWidget?accessToken={videoAccessToken}").Result;
 var playerWidgetLink = playerWidgetRequestResult.Headers.Location;
-Debug.WriteLine();
+Debug.WriteLine("");
 Debug.WriteLine("Player Widget url:");
 Debug.WriteLine(playerWidgetLink);
 

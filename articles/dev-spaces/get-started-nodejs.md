@@ -25,6 +25,9 @@ You're now ready to create a Kubernetes-based development environment in Azure.
 ## Install the Azure CLI
 Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
+> [!IMPORTANT]
+> If you already have the Azure CLI installed, make sure you are using version 2.0.33 or higher.
+
 [!INCLUDE[](includes/sign-into-azure.md)]
 
 [!INCLUDE[](includes/use-dev-spaces.md)]
@@ -41,8 +44,6 @@ In this section, you'll create a Node.js web app and get it running in a contain
 Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
 
 [!INCLUDE[](includes/azds-prep.md)]
-
-[!INCLUDE[](includes/ensure-env-created.md)]
 
 [!INCLUDE[](includes/build-run-k8s-cli.md)]
 
@@ -178,25 +179,25 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`.
 1. Add these lines of code at the top of `server.js`:
     ```javascript
     var request = require('request');
-    var propagateHeaders = require('./propagateHeaders');
     ```
 
 3. *Replace* the code for the `/api` GET handler. When handling a request, it in turn makes a call to `mywebapi`, and then returns the results from both services.
 
     ```javascript
     app.get('/api', function (req, res) {
-        request({
-            uri: 'http://mywebapi',
-            headers: propagateHeaders.from(req) // propagate headers to outgoing requests
-        }, function (error, response, body) {
-            res.send('Hello from webfrontend and ' + body);
-        });
+       request({
+          uri: 'http://mywebapi',
+          headers: {
+             // propagate the dev space routing header
+             'azds-route-as': req.headers['azds-route-as']
+          }
+       }, function (error, response, body) {
+           res.send('Hello from webfrontend and ' + body);
+       });
     });
     ```
 
-Note how Kubernetes' DNS service discovery is employed to refer to the service as `http://mywebapi`. **Code in your development environment is running the same way it will run in production**.
-
-The code example above uses a helper module named `propagateHeaders`. This helper was added to your code folder at the time you ran `azds prep`. The `propagateHeaders.from()` function propagates specific headers from an existing http.IncomingMessage object into a headers object for an outgoing request. You'll see later how this helps teams with collaborative development.
+The preceding code example forwards the `azds-route-as` header from the incoming request to the outgoing request. You'll see later how this helps teams with collaborative development.
 
 ### Debug across multiple services
 1. At this point, `mywebapi` should still be running with the debugger attached. If it is not, hit F5 in the `mywebapi` project.

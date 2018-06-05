@@ -116,7 +116,7 @@ Review [detailed discussion of HA Ports](load-balancer-ha-ports-overview.md).
 
 Standard Load Balancer is fully onboarded to the virtual network.  The virtual network is a private, closed network.  Because Standard Load Balancers and Standard public IP addresses are designed to allow this virtual network to be accessed from outside of the virtual network, these resources now default to closed unless you open them. This means Network Security Groups (NSGs) are now used to explicitly permit and whitelist allowed traffic.  You can create your entire virtual data center and decide through NSG what and when it should be available.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, we will not permit traffic to reach this resource.
 
-To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
+To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/security-overview.md).
 
 ### <a name="outbound"></a> Outbound connections
 
@@ -234,7 +234,7 @@ Standard Load Balancer is a charged product based on number of load balancing ru
 - Learn about [Standard Load Balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md)
 - Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md)
 - Learn about [Virtual Networks](../virtual-network/virtual-networks-overview.md).
-- Learn more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
+- Learn more about [Network Security Groups](../virtual-network/security-overview.md).
 - Learn about [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
 - Learn more about [Load Balancer](load-balancer-overview.md).

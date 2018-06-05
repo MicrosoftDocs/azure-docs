@@ -4,7 +4,7 @@
   items:
   - name: What is Bing Autosuggest?
     href: get-suggested-search-terms.md
-- name: Quickstarts
+- name: REST API Quickstarts
   expanded: true
   items:
   - name: C#

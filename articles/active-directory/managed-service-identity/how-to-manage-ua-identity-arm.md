@@ -49,8 +49,7 @@ As with the Azure portal and scripting, Azure Resource Manager templates provide
 
 To create a user assigned identity, use the following template. Replace the `<USER ASSIGNED IDENTITY NAME>` value with your own values:
 
-> [!IMPORTANT]
-> Creating user assigned identities only supports alphanumeric and hyphen (0-9 or a-z or A-Z or -) characters. Additionally, name should be limited to 24 character length for the assignment to VM/VMSS to work properly. Check back for updates. For more information, see [FAQs and known issues](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```json
 {
