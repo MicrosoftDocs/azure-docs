@@ -2,16 +2,16 @@
  title: include file
  description: include file
  services: virtual-machines
- author: iainfoulds
+ author: rogara
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 06/03/2018
- ms.author: iainfoulds
+ ms.author: rogarana
  ms.custom: include file
 ---
 # Azure Managed Disks Overview
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](../articles/virtual-machines/windows/premium-storage.md) or [Standard](../articles/virtual-machines/windows/standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
+Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Standard HDD](../articles/virtual-machines/windows/standard-storage.md), Standard SSD, or [Premium SSD](../articles/virtual-machines/windows/premium-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
 
 ## Benefits of managed disks
 
@@ -55,8 +55,7 @@ When using Managed Disks, the following billing considerations apply:
 
 Let's take a closer look at these.
 
-**Storage Type:** Managed Disks offers 3 performance tiers:
-[Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD-based), Standard SSD (Preview) and [Standard HDD](../articles/virtual-machines/windows/standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+**Storage Type:** Managed Disks offers 3 performance tiers: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), Standard SSD (Preview), and [Premium](../articles/virtual-machines/windows/premium-storage.md). The billing of a managed disk depends on which type of storage you have selected for the disk.
 
 
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you

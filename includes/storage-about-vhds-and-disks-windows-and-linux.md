@@ -2,16 +2,15 @@
 title: "include file"
 description: "include file"
 services: storage
-author: tamram
+author: rogara
 ms.service: storage
 ms.topic: "include"
 ms.date: 04/09/2018
-ms.author: tamram
+ms.author: rogarana
 ms.custom: "include file"
 ---
 
 ## About VHDs
-
 The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/virtual-machines/windows/premium-storage.md).
 
 Azure supports the fixed disk VHD format. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx).
@@ -26,29 +25,25 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 > If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.
 
 ## Types of disks 
-
 Azure Disks are designed for 99.999% availability. Azure Disks have consistently delivered enterprise-grade durability, with an industry-leading ZERO% Annualized Failure Rate.
 
 There are three performance tiers for storage that you can choose from when creating your disks -- Premium Storage, Standard SSD (Preview) and Standard HDD Storage. Also, there are two types of disks -- unmanaged and managed.
 
-### Premium storage 
+### Standard HDD disks
+Standard HDD disks are backed by HDDs, and deliver cost-effective storage. Standard HDD storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/common/storage-redundancy.md). 
 
-Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. Typically you can use Premium Storage with sizes that include an "s" in the series name. For example, there is the Dv3-Series and the Dsv3-series, the Dsv3-series can be used with Premium Storage.  For more information, please see [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
+For more information about using Standard HDD disks, please see [Standard Storage and Disks](../articles/virtual-machines/windows/standard-storage.md).
 
 ### Standard SSD disks (preview)
-Standard SSD disks are optimized for low-IOPS workloads. Standard SSD disks are only available as Managed Disks. See the frequently asked questions for more information on how to create Standard SSD disks. 
+Standard SSD disks are designed to address the same kind of workloads as Standard HDD disks, but offer more consistent performance and reliability than HDD. Standard SSD disks combine elements of Premium SSD disks and Standard HDD disks to form a cost-effective solution best suited for applications like web servers which do not need high IOPS on disks. Where available, Standard SSD disks are the recommended deployment option for most workloads. Standard SSD disks are only available as Managed Disks and in preview, are only available with the locally redundant storage (LRS) resiliency typ, and are only available in [selected regions](./faq-for-disks.md).
 
-### Standard HDD storage
-Standard HDD Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard HDD storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/common/storage-redundancy.md). 
-
-For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](../articles/virtual-machines/windows/standard-storage.md).
+### Premium SSD disks 
+Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. Typically you can use Premium Storage with sizes that include an "s" in the series name. For example, there is the Dv3-Series and the Dsv3-series, the Dsv3-series can be used with Premium Storage.  For more information, please see [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
 
 ### Unmanaged disks
-
 Unmanaged disks are the traditional type of disks that have been used by VMs. With these, you create your own storage account and specify that storage account when you create the disk. You have to make sure you don't put too many disks in the same storage account, because you could exceed the [scalability targets](../articles/storage/common/storage-scalability-targets.md) of the storage account (20,000 IOPS, for example), resulting in the VMs being throttled. With unmanaged disks, you have to figure out how to maximize the use of one or more storage accounts to get the best performance out of your VMs.
 
 ### Managed disks 
-
 Managed Disks handles the storage account creation/management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard/Premium), and Azure creates and manages the disk for you. Even as you add disks or scale the VM up and down, you don't have to worry about the storage being used. 
 
 You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, please see the [Managed Disks Overview](../articles/virtual-machines/windows/managed-disks-overview.md).
@@ -56,7 +51,6 @@ You can also manage your custom images in one storage account per Azure region, 
 We recommend that you use Azure Managed Disks for new VMs, and that you convert your previous unmanaged disks to managed disks, to take advantage of the many features available in Managed Disks.
 
 ### Disk comparison
-
 The following table provides a comparison of Standard HDD, Standard SSD, and Premium SSD for unmanaged and managed disks to help you decide what to use.
 
 |    | Azure Premium Disk |Azure Standard SSD Disk (preview)| Azure Standard HDD Disk 
