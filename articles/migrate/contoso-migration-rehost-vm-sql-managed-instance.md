@@ -13,12 +13,12 @@ ms.custom: MVC
 
 # Contoso migration: Rehost an on-premises app to Azure VMs and Azure SQL Managed Instance
 
-This article shows you how Contoso migrate their SmartHotel app frontend VM to Azure VMs using the Azure Site Recovery service, and migrate the app database to an Azure SQL Managed Instance.
+This article shows you how Contoso migrates its SmartHotel app frontend VM to Azure VMs using the Azure Site Recovery service, and the app database to an Azure SQL Managed Instance.
 
 > [!NOTE]
 > Azure SQL Managed Instance is currently in preview.
 
-This document is the fourth in a series of articles that document how the fictitious company Contoso migrates their on-premises resources to the Microsoft Azure cloud. The series includes background information, and a series of scenarios that illustrate how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity, and we'll be adding additional articles over time.
+This document is the fourth in a series of articles that document how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and a series of scenarios that illustrate how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity, and we'll be adding additional articles over time.
 
 
 **Article** | **Details** | **Status**
@@ -74,8 +74,8 @@ In this scenario:
 - Contoso wants to migrate their two-tier on-premises travel app.
 - The app is tiered across two VMs (WEBVM and SQLVM), and located on VMware ESXi host **contosohost1.contoso.com** (version 6.5)
 - The VMware environment is managed by vCenter Server 6.5 (**vcenter.contoso.com**), running on a VM.
-- They'll migrate the app database (SmartHotelDB) to an Azure SQL Managed instance.
-- They'll migrate the on-premises VMware VMs to an Azure VM.
+- They migrate the app database (SmartHotelDB) to an Azure SQL Managed instance.
+- They migrate the on-premises VMware VMs to an Azure VM.
 - Contoso has an on-premises datacenter (contoso-datacenter), with an on-premises domain controller (**contosodc1**).
 - The on-premises VMs in the Contoso datacenter will be decommissioned after the migration is done.
 
@@ -95,7 +95,7 @@ In this scenario:
 
 Contoso will migrate both their web and data tiers of the SmartHotel application to Azure.
 
-1. Contoso already have their Azure infrastructure in place, so they need to add a couple of Azure components for this scenario.
+1. Contoso already has its Azure infrastructure in place, so they just need to add a couple of Azure components for this scenario.
 2. The data tier will be migrated using the Data Migration Service (DMS).  DMS will connect to the on-premises SQL Server VM across a site-to-site VPN connection between the Contoso datacenter and Azure, and then migrate the database.
 3. The web tier will be migrated using a lift-and-shift migration with Azure Site Recovery. This will entail preparing the on-premises VMware environment, setting up and enabling replication, and migrating the VMs by failing them over to Azure.
 
@@ -122,7 +122,7 @@ Here's how Contoso are going to set up the deployment:
 > * **Step 1: Set up a SQL Azure Managed Instance**: They need a pre-created managed instance to which the on-premises SQL Server database will migrate.
 > * **Step 2: Prepare DMS**: They need to register the Database Migration provider, create an instance, and then create a DMS project. They also need to set up SA URI for DMS. A shared access signature (SAS) Uniform Resource Identifier (URI) provides delegated access to resources in your storage account, so that you can grant limited permissions to storage objects. They set up an SAS URI so that the DMS can access the storage account container to which the service uploads the SQL Server back-up files.
 > * **Step 3: Prepare Azure for Site Recovery**: For Site Recovery, they must create an Azure storage account to hold replicated data, and create a Recovery Services vault.
-> * **Step 4: Prepare on-premises VMware for Site Recovery**: Contoso prepare accounts for VM discovery and agent installation, and prepare to connect to Azure VMs after failover.
+> * **Step 4: Prepare on-premises VMware for Site Recovery**: Contoso prepares accounts for VM discovery and agent installation, and prepare to connect to Azure VMs after failover.
 > * **Step 5: Replicate VMs**: To set up replication, they configure the Site Recovery source and target environment, set up a replication policy, and start replicating VMs to Azure storage.
 > * **Step 6: Migrate the database with DMS**: Now they can migrate the database.
 > * **Step 7: Migrate the VMs with Site Recovery**: They run a test failover to make sure everything's working, and then run a full failover to migrate the VMs to Azure.
@@ -190,7 +190,7 @@ The Managed Instance is placed in a private VNET, so Contoso need a route table 
 
     ![Route table](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table.png)
 
-2. After the route table (MIRouteTable)is deployed, to comply with Managed Instance requirement, Contoso add a route with an address prefix of 0.0.0.0/0, and **Next hop type** set to **Internet**.
+2. To comply with Managed Instance requirements, after the route table (MIRouteTable) is deployed, Contoso add a route with an address prefix of 0.0.0.0/0, and **Next hop type** set to **Internet**.
 
     ![Route table prefix](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-prefix.png)
     
@@ -213,10 +213,10 @@ Now, Contoso can provision a SQL Database Managed Instance.
 
 3. After the Managed Instance is deployed, two new resources appear in the ContosoRG resource group:
 
-- A virtual cluster in case you have multiple managed instances,
-- The SQL Server Managed Instance. 
+    - A virtual cluster in case you have multiple managed instances,
+    - The SQL Server Managed Instance. 
 
-![Managed instance](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
+    ![Managed instance](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
 
 **Need more help?**
 
@@ -248,7 +248,7 @@ Complete the steps as follows:
     - They place it there because it must be in a VNet that can access the on-premises SQL Server VM via a VPN gateway.
     - The VNET-PROD-EUS2 is peered to VNET-HUB-EUS2, and is allowed to use remote gateways.  This ensures that DMS will be able to communicate as required.
 
-    ![DMS network](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
+        ![DMS network](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
 
 **Need more help?**
 - [Learn about](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal) setting up DMS.
@@ -384,7 +384,7 @@ Contoso perform these steps as follows:
 10. They then download and install MySQL Server, and VMWare PowerCLI. Then validate the server settings.
 11. After settings are validated, they specify the FQDN or IP address of the vCenter server or vSphere host, on which the VM is located. They leave the default port, and specify a friendly name for the vCenter server in Azure.
 12. They need to specify the account that they created earlier, so that Site Recovery can automatically discover VMware VMs that are available for replication. 
-13. They then specify the credentials that are used to automatically install Mobility Service on machines, when replication is enabled. For Windows machines, the account needs local administrator privileges on the machines you want to replicate. 
+13. Contoso specify credentials that are used to automatically install Mobility Service on machines, when replication is enabled. For Windows machines, the account needs local administrator privileges on the machines you want to replicate. 
 
     ![vCenter](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz2.png)
 

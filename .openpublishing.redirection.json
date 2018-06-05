@@ -9690,6 +9690,7 @@
             "redirect_url": "how-to-create-a-group",
             "redirect_document_id": false
         },
+<<<<<<< HEAD
        {
         "source_path": "articles/migrate/migrate-scenarios-overview.md",
         "redirect_url": "contoso-migration-overview",
@@ -9706,6 +9707,15 @@
         "redirect_document_id": false
        },
        {
+=======
+
+        {
+        "source_path": "articles/migrate/migrate-scenarios-overview.md",
+        "redirect_url": "contoso-migration-overview",
+        "redirect_document_id": false
+        },
+        {
+>>>>>>> 99ae00288747f3f84838b0487300fe80ee240af0
             "source_path": "articles/site-recovery/site-recovery-migrate-azure-to-azure.md",
             "redirect_url": "azure-to-azure-tutorial-migrate",
             "redirect_document_id": false
