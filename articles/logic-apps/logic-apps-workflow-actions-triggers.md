@@ -1,30 +1,30 @@
 ﻿---
-title: Workflow triggers and actions - Azure Logic Apps | Microsoft Docs
-description: Learn about triggers and actions in workflow definitions for Azure Logic Apps
+# required metadata
+title: Workflow Definition Language triggers and actions reference - Azure Logic Apps | Microsoft Docs
+description: This technical reference describes built-in triggers and actions for automating workflows with Azure Logic Apps
 services: logic-apps
-author: kevinlam1
-manager: SyntaxC4
-editor: 
-documentationcenter: 
-
-ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: 
-ms.devlang: 
+author: kevinlam1
+ms.author: klam
+manager: cfowler
 ms.topic: reference
-ms.date: 5/8/2018
-ms.author: klam; LADocs
+ms.date: 05/08/2018
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
-# Triggers and actions for workflow definitions in Azure Logic Apps
+# Workflow Definition Language triggers and actions reference for Azure Logic Apps
 
 In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
 all logic app workflows start with triggers followed by actions. 
-This article describes the triggers and actions that you can 
-use to build logic apps for automating business workflows or 
-processes in your integration solutions. You can build logic 
-apps either visually with the Logic Apps Designer, 
+This article describes the built-in triggers and actions you can use when 
+creating automated workflows with [Azure Logic Apps](../logic-apps/logic-apps-overview.md). 
+To learn more about functions in logic app definitions, see 
+[Workflow Definition Language for Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
+
+You can visually create logic apps with the Logic Apps Designer, 
 or by directly authoring the underlying workflow definitions with the 
 [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
 You can use either the Azure portal or Visual Studio. 
@@ -852,11 +852,9 @@ Collection actions can contain many other actions within themselves.
 | **ApiConnection**  | Works like the HTTP action, but uses [Microsoft-managed APIs](https://docs.microsoft.com/azure/connectors/apis-list). | 
 | **ApiConnectionWebhook** | Works like HTTPWebhook, but uses Microsoft-managed APIs. | 
 | **Response** | Defines the response for an incoming call. | 
-| **Compose** | Constructs an arbitrary object from the action's inputs. | 
+| **Compose** | Creates an arbitrary object from the action's inputs. | 
 | **Function** | Represents an Azure function. | 
-| **Wait** | Waits a fixed amount of time or until a specific time. | 
-| **Workflow** | Represents a nested workflow. | 
-| **Compose** | Constructs an arbitrary object from the action's inputs. | 
+| **Join** | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
 | **Query** | Filters an array based on a condition. | 
 | **Select** | Projects each element of an array into a new value. For example, you can convert an array of numbers into an array of objects. | 
 | **Table** | Converts an array of items into a CSV or HTML table. | 
@@ -865,16 +863,16 @@ Collection actions can contain many other actions within themselves.
 | **Workflow** | Represents a nested workflow. | 
 ||| 
 
-### Collection actions
+### Control flow actions
 
 | Action type | Description | 
 | ----------- | ----------- | 
 | **If** | Evaluate an expression and based on the result, runs the corresponding branch. | 
-| **Switch** | Perform different actions based on specific values of an object. | 
 | **ForEach** | This looping action iterates through an array and performs inner actions on each array item. | 
-| **Until** | This looping action performs inner actions until a condition results to true. | 
+| **Switch** | Perform different actions based on specific values of an object. | 
 | **Scope** | Use for logically grouping other actions. | 
-|||  
+| **Until** | This looping action performs inner actions until a condition results to true. | 
+||| 
 
 ## HTTP action  
 
@@ -1206,6 +1204,50 @@ When you save your logic app, the Logic Apps engine performs some checks on the 
 > To work around this issue, save the logic app again, 
 > which causes the logic app to retrieve and cache the trigger URL again.
 
+<a name="join-action"></a>
+
+## Join action
+
+This action creates a string from all the items in an array 
+and separates those items with the specified delimiter character.
+
+```json
+"Join": {
+   "type": "Join",
+   "inputs": {
+      "from": "<array-or-expression>",
+      "joinWith": "<delimiter>"
+   },
+   "runAfter": {}
+}
+```
+
+| Element name | Required | Type | Description | 
+| ------------ | -------- | ---- | ----------- | 
+| <*array-or-expression*> | Yes | Array | The array or expression that provides the array items for creating the string | 
+| <*delimiter*> | Yes | String | The character that separates each item in the string | 
+||||| 
+
+For example, suppose you have an array variable 
+named "myIntegerArray" that contains integers, 
+such as `[1,2,3,4]`. This example gets the 
+values from the variable by using the `variables()` 
+function in an expression and creates this string with 
+those values, which are separted by a comma: `"1,2,3,4"`
+
+```json
+"Join": {
+   "type": "Join",
+   "inputs": {
+      "from": "@variables('myIntegerArray')",
+      "joinWith": ","
+   },
+   "runAfter": {}
+}
+```
+
+For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-change-manage-data-operations.md#join-array-items).
+
 ## Select action
 
 This action lets you project each element of an array into a new value. 
@@ -1449,7 +1491,7 @@ in the `Response` action for the child workflow.
 If the child workflow doesn't define a `Response` action, 
 the outputs are empty.
 
-## Collection actions overview
+## Control flow actions overview
 
 To help you control workflow execution, collection actions can include other actions. 
 You can directly refer to referencing actions in a collection outside of the collection. 

@@ -1,23 +1,21 @@
 ---
-title: Workflow Definition Language schema - Azure Logic Apps | Microsoft Docs
-description: Write custom workflow definitions for Azure Logic Apps with the Workflow Definition Language
+# required metadata
+title: Workflow Definition Language schema reference - Azure Logic Apps | Microsoft Docs
+description: This technical reference describes the schema for creating automated workflows in Azure Logic Apps with the Workflow Definition Language
 services: logic-apps
-author: ecfan
-manager: cfowler
-editor: 
-documentationcenter: 
-
-ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: 
-ms.devlang: 
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.topic: reference
 ms.date: 04/30/2018
-ms.author: estfan
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
-# Logic Apps workflow definitions with the Workflow Definition Language schema
+# Workflow Definition Language schema reference for creating workflow definitions with Azure Logic Apps
 
 When you create a logic app workflow with 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 

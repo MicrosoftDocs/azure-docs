@@ -51,7 +51,7 @@ data using JavaScript Object Notation (JSON).
 ||| 
 
 To create more complex JSON transformations, see 
-[Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise).
+[Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-liquid-transform.md).
 
 ## Prerequisites
 
@@ -161,10 +161,13 @@ you want for separating each array item.
 
    ![Provide the separator character](./media/logic-apps-change-manage-data-operations/finished-join-action.png)
 
+For more information about this action in your underlying workflow definition, 
+see [Join action](../logic-apps/logic-apps-workflow-actions-triggers.md#join-action).
+
 ### Test your logic app
 
 To check that the **Join** action creates the expected results, 
-send yourself a notification that has the output from the join operation. 
+send yourself a notification that includes output from the join operation. 
 
 1. In your logic app, add an action that can send you 
 the results from the join operation.
@@ -178,10 +181,15 @@ select **Output**.
 
    !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-action.png)
 
-3. Now, manually run your logic app.
+3. Now, manually run your logic app. 
+On the designer toolbar, choose **Run**. 
+
+   After your logic app finishes running, 
 
 
-When you're done testing, remove this action.
+   For example, the logic app finishes successfully, 
+
+
 
 <a name="select"></a>
 
