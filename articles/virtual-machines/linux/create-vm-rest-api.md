@@ -1,6 +1,6 @@
 ---
 title: Create a Linux virtual machine with the Azure REST API | Microsoft Docs
-description: Learn how to create a Linux virtual machine in Azure that uses Managed Disks and SSH authentication with Azure REST APIs.
+description: Learn how to create a Linux virtual machine in Azure that uses Managed Disks and SSH authentication with Azure REST API.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -19,16 +19,14 @@ ms.author: iainfou
 
 ---
 
-# Create a Linux virtual machine that uses SSH authentication with the REST APIs
+# Create a Linux virtual machine that uses SSH authentication with the REST API
 
-A virtual machine (VM) in Azure is defined by various parameters such as location, hardware size, operating system image, and logon credentials. This article shows you how to use the REST APIs to create a Linux virtual machine that uses SSH authentication.
+A virtual machine (VM) in Azure is defined by various parameters such as location, hardware size, operating system image, and logon credentials. This article shows you how to use the REST API to create a Linux virtual machine that uses SSH authentication.
 
 To create or update a virtual machine, use the following *PUT* operation:
 
 ``` http
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
-Content-Type: application/json
-Authorization: Bearer
 ```
 
 ## Create a request
@@ -61,7 +59,7 @@ For a complete list of the available definitions in the request body, see [Virtu
 
 ### Example request body
 
-The following example request body defines an Ubuntu 16.04-LTS image that uses Premium managed disks. SSH public key authentication is used, and the VM uses an existing virtual network interface card (NIC):
+The following example request body defines an Ubuntu 18.04-LTS image that uses Premium managed disks. SSH public key authentication is used, and the VM uses an existing virtual network interface card (NIC) that you have [previously created](../../virtual-network/virtual-network-network-interface.md). Provide your SSH public key in the *osProfile.linuxConfiguration.ssh.publicKeys.keyData* field. If needed, you can [generate an SSH key pair](mac-create-ssh-keys.md).
 
 ```json
 {
@@ -72,7 +70,7 @@ The following example request body defines an Ubuntu 16.04-LTS image that uses P
     },
     "storageProfile": {
       "imageReference": {
-        "sku": "16.04-LTS",
+        "sku": "18.04-LTS",
         "publisher": "Canonical",
         "version": "latest",
         "offer": "UbuntuServer"
