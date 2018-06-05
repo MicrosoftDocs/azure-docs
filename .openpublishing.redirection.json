@@ -7071,6 +7071,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-bus-messaging/service-bus-architecture.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-messaging-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-bus-messaging/service-bus-automation-manage.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-management-libraries",
             "redirect_document_id": false
@@ -8741,6 +8746,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/CSharp.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/CSharp-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/curl.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/curl-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/Java.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/java-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/JavaScript.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/javascript-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/PHP.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/php-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/Python.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/python-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/Ruby.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/ruby-analyze",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Content-Moderator/index.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/overview",
             "redirect_document_id": false
@@ -9649,6 +9689,12 @@
             "source_path": "articles/migrate/how-to-tag-v-center.md",
             "redirect_url": "how-to-create-a-group",
             "redirect_document_id": false
+        },
+
+        {
+        "source_path": "articles/migrate/migrate-scenarios-overview.md",
+        "redirect_url": "contoso-migration-overview",
+        "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/site-recovery-migrate-azure-to-azure.md",
@@ -12957,7 +13003,12 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-cli-options.md",
-            "redirect_url": "/azure/virtual-machines/windows/cli-options",
+            "redirect_url": "/cli/azure/install-azure-cli-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/cli-options.md",
+            "redirect_url": "/cli/azure/install-azure-cli-windows",
             "redirect_document_id": false
         },
         {
@@ -22065,6 +22116,11 @@
             "source_path": "articles/virtual-machines/extensions/key-vault-windows.md",
             "redirect_url": "/azure/key-vault/key-vault-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/data-factory/how-to-create-event-trigger.md",
+            "redirect_url": "/azure/data-factory/concepts-pipeline-execution-triggers",
+            "redirect_document_id": false
         }
 
     ]

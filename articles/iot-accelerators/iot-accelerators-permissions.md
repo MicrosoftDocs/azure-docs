@@ -14,7 +14,7 @@ ms.author: dobett
 
 ## What happens when you sign in
 
-The first time you sign in at [azureiotsuite.com][lnk-azureiotsuite], the site determines the permission levels you have based on the currently selected Azure Active Directory (AAD) tenant and Azure subscription.
+The first time you sign in at [azureiotsuite.com][lnk-azureiotsolutions], the site determines the permission levels you have based on the currently selected Azure Active Directory (AAD) tenant and Azure subscription.
 
 1. First, to populate the list of tenants seen next to your username, the site finds out from Azure which AAD tenants you belong to. Currently, the site can only obtain user tokens for one tenant at a time. Therefore, when you switch tenants using the dropdown in the top right corner, the site logs you in to that tenant to obtain the tokens for that tenant.
 

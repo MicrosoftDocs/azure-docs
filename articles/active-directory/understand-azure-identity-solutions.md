@@ -9,7 +9,8 @@ ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
 ms.prod:
-ms.service: azure
+ms.service: azure-directory
+ms.component: fundamentals
 ms.technology:
 ms.assetid:
 

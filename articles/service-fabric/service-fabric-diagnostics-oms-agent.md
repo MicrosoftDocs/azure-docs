@@ -87,7 +87,7 @@ Now that you have added the OMS agent, head on over to the Log Analytics portal 
 
 8. You will see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
 
-9. You will see a few tiles with graphs on operational channel and reliable services events. The graphical representation of the data flowing in for the counters you have selected will appear under Node Metrics.
+9. You will see a few tiles with graphs on operational channel and reliable services events. The graphical representation of the data flowing in for the counters you have selected will appear under Node Metrics. 
 
 10. Click on a Container Metric graph to see additional details. You can also query on performance counter data similarly to cluster events and filter on the nodes, perf counter name, and values using the Kusto query language.
 
