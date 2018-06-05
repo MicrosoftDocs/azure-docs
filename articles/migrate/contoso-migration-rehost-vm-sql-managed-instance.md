@@ -171,7 +171,7 @@ Contoso sets up the VNet as follows:
 
 **Need more help?**
 
-- [Get an overview]https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) of Azure SQL Managed Instances.
+- [Get an overview](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) of Azure SQL Managed Instances.
 - [Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances) about creating a VNet for SQL Managed Instance.
 - [Learn about](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering) setting up peering.
 - [Learn about](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns) updating Azure AD DNS settings.
@@ -426,19 +426,18 @@ Now Contoso can start replicating the WebVM.
 1. In **Replicate application** > **Source** > **+Replicate** they select the source settings.
 2. They indicate that they want to enable virtual machines, select the vCenter server, and the configuration server.
 
-
-     ![Enable replication](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication1.png)
-
+ ![Enable replication](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication1.png)
+ 
 3. Now, they specify the target settings, including the resource group and network in which the Azure VM will be located after failover, and the storage account in which replicated data will be stored.
 
      ![Enable replication](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication2.png)
 
-3. Contoso selects the WebVM for replication. Site Recovery installs the Mobility Service on each VM when you enable replication for it. 
+4. Contoso selects the WebVM for replication. Site Recovery installs the Mobility Service on each VM when you enable replication for it. 
 
     ![Enable replication](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
-4. Contoso checks that the correct replication policy is selected, and enables replication for WEBVM. They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
-5. In **Essentials** in the Azure portal, Contoso can see the structure for the VMs replicating to Azure.
+5. Contoso checks that the correct replication policy is selected, and enables replication for WEBVM. They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
+6. In **Essentials** in the Azure portal, Contoso can see the structure for the VMs replicating to Azure.
 
     ![Infrastructure view](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
 
