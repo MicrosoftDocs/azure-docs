@@ -1,4 +1,4 @@
-- name: Azure Machine Learning Documentation (Preview)
+- name: Azure Machine Learning Services Documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -68,7 +68,7 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Export or delete account data
     href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
-  - name: Preview docs (Deprecated) 
+  - name: Deprecated docs (pre-GA)
     items:  
     - name: Workbench quickstart
       href: quickstart-installation.md
