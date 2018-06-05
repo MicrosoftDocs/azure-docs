@@ -14,9 +14,13 @@ ms.reviewer: minewiskan
 # What is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services is a fully managed platform as a service (PaaS) that provides  enterprise-grade data models in the cloud. Mashup and combine data from multiple data sources, define metrics, and secure your data in a single, trusted tabular semantic data model. The data model provides an easier and faster way for users to browse massive amounts of data with client applications like Power BI, Excel, Reporting Services, third-party, and custom apps.
+Azure Analysis Services is a fully managed platform as a service (PaaS) that provides  enterprise-grade data models in the cloud. Mashup and combine data from multiple data sources, define metrics, and secure your data in a single, trusted tabular semantic data model. The data model provides an easier and faster way for users to browse massive amounts of data with client applications like Power BI, Excel, Reporting Services, third-party, and custom apps. 
 
-![Data sources](./media/analysis-services-overview/aas-overview-data-sources.png)
+<center>
+
+![Data sources](./media/analysis-services-overview/aas-overview-data-sources2.png)
+
+</center>
 
 **Video:** Check out [Azure Analysis Services Overview](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4)  to learn how Azure Analysis Services fits in with Microsoft's overall BI capabilities.
 
@@ -29,10 +33,6 @@ Tabular models in both in-memory and DirectQuery modes are supported. In-memory 
 DirectQuery mode* supports extremely large data sets in single SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle, and Teradata data sources. For some data sources, DirectQuery has many benefits over in-memory tabular models. For example, model datasets can exceed available memory resources for your server, and complex data model refresh scenarios aren't needed because queries are against the backend datasource. There are also some restrictions, such as limted datasource types, DAX formula limitations, and some advanced data modeling features aren't supported. Before determining the best mode for you, see [Direct Query mode](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* Feature availability depends on tier.
-
-## Supported datasources
-
-Tabular models in Azure Analysis Services support a wide variety of data sources from simple text files to Big Data in Azure Data Lake Store. To learn more, see [Data sources supported in Azure Analysis Services](analysis-services-datasource.md).
 
 ## Get up and running quickly
 
@@ -128,6 +128,10 @@ Just like with changing tiers, you can scale-out query replicas according to you
 
 Total cost depends on a number of factors; for example, your chosen region, tier, query replicas, pausing and resuming your server resource, etc.. Use the [Azure Analysis Services Pricing](https://azure.microsoft.com/pricing/details/analysis-services/) calculator to determine typical pricing for your region. This tool calculates pricing for a single server instance for a single region. Keep in mind, each query replica server is billed at the same rate as the server. 
 
+## Supported datasources
+
+Tabular models in Azure Analysis Services support a wide variety of data sources from simple text files to Big Data in Azure Data Lake Store. To learn more, see [Data sources supported in Azure Analysis Services](analysis-services-datasource.md).
+
 ## Your data is secure
 
 Azure Analysis Services provides security for your sensitive data at multiple levels. At the server level: Firewall, Azure authentication, server administrator roles, and Server Side Encryption. And at the data model level, user roles, row-level and object-level security ensure your data is safe and gets seen by only those who are meant to see it.
@@ -137,7 +141,7 @@ Azure Analysis Services provides security for your sensitive data at multiple le
 Azure Analysis Services Firewall blocks all client connections other than those specified in rules. Configure rules specifying allowed IP addresses by individual client IPs or by range. Power BI (service) connections can also be allowed or blocked. Configure firewall and rules in the portal or by using PowerShell. To learn more, see [Configure a server firewall](analysis-services-qs-firewall.md).
 
 ### Authentication
-User authentication for Azure Analysis services is handled by [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). When attempting to log in to an Azure Analysis Services database, users use an organization account identity with access to the database they are trying to access. These user identities must be members of the default Azure Active Directory for the subscription where the Azure Analysis Services server resides. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
+User authentication for Azure Analysis Services is handled by [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). When attempting to log in to an Azure Analysis Services database, users use an organization account identity with access to the database they are trying to access. These user identities must be members of the default Azure Active Directory for the subscription where the Azure Analysis Services server resides. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 ### Data security
 Azure Analysis Services utilizes Azure Blob storage to persist storage and metadata for Analysis Services databases. Data files within Blob are encrypted using [Azure Blob Server Side Encryption (SSE)](../storage/common/storage-service-encryption.md). When using Direct Query mode, only metadata is stored. The actual data is accessed from the data source at query time.
@@ -167,8 +171,6 @@ Service principals are an Azure Active Directory application resource you create
 Azure Analysis Services is governed by the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and the [Microsoft Online Services Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
 
-
-
 ## Use the tools you already know
 
 ![BI developer tools](./media/analysis-services-overview/aas-overview-dev-tools.png)
@@ -189,6 +191,7 @@ Tabular models offer rapid development and are highly customizable.
 Tabular models include the [Tabular Object Model](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) to describe model objects. TOM is exposed in JSON through the [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) and the AMO data definition language through the [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) namespace. 
 
 ## Supports the latest client tools
+
 ![Data visualizations](./media/analysis-services-overview/aas-overview-clients.png)
 
 Modern data exploration and visualization tools like Power BI, Excel, Reporting Services, and third-party tools are all supported, providing users with highly interactive and visually rich insights into your model data. 
