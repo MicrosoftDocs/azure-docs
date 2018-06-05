@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 06/05/2018
 ms.author: barclayn
 
 ---
@@ -109,8 +109,7 @@ az provider register -n Microsoft.KeyVault
 
 Use the `az keyvault create` command to create a key vault. This script has three mandatory parameters: a resource group name, a key vault name, and the geographic location.
 
-,
-You would type:
+To create a new vault with the name **ContosoKeyVault**, in the resource group  **ContosoResourceGroup**, residing in the **East Asia** location, type: 
 
 ```azurecli
 az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --location 'East Asia'
@@ -207,6 +206,25 @@ To authorize the same application to read secrets in your vault, type the follow
 ```azurecli
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
+
+## <a name="bkmk_KVperCLI"></a> Set key vault advanced access policies 
+Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable advanced policies for the key vault. 
+
+ **Enable Key Vault for deployment:** Allows virtual machines to retrieve certificates stored as secrets from the vault.
+ ```azurecli
+ az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
+ ``` 
+
+**Enable Key Vault for disk encryption:** Required when using the vault for Azure Disk encryption.
+
+ ```azurecli
+ az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
+ ```  
+
+**Enable Key Vault for template deployment:** Allows Resource Manager to retrieve secrets from the vault.
+ ```azurecli 
+ az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
+ ```
 
 ## If you want to use a hardware security module (HSM)
 
