@@ -1,7 +1,7 @@
 ---
 
-title: Azure Security and Compliance Blueprint - Web Application for FedRAMP
-description: Azure Security and Compliance Blueprint - Web Application for FedRAMP
+title: Azure Security and Compliance Blueprint - IaaS Web Application for FedRAMP
+description: Azure Security and Compliance Blueprint - IaaS Web Application for FedRAMP
 services: security
 documentationcenter: na
 author: jomolesk
@@ -19,7 +19,7 @@ ms.author: jomolesk
 
 ---
 
-# Azure Security and Compliance Blueprint: Web Application for FedRAMP
+# Azure Security and Compliance Blueprint: IaaS Web Application for FedRAMP
 
 ## Overview
 
