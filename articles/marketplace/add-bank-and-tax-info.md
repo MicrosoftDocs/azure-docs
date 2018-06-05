@@ -1,7 +1,7 @@
 ---  
-title: Add bank and tax information
-description: Add bank and tax infromation to your Dev Center account
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: Add bank and tax information | Azure
+description: Add bank and tax information to your Dev Center account.  
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -12,12 +12,12 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
 
 ---  
 
-### Add bank and tax information  
+# Add bank and tax information  
 The bank and tax information is required for all commercial offers using the transact listing type.  
 *   If you are publishing commercial offers for purchase, then you must add payout and tax information and request validation in Dev Center.  
     >[!IMPORTANT]
@@ -25,7 +25,7 @@ The bank and tax information is required for all commercial offers using the tra
 
 *   If you are publishing only free or BYOL offers, then you are not required to add the information. You may add the information later, but validation of the tax information takes some time. If you plan to offer commercial offers for purchase, then you should add the information as soon as possible.  
 
-#### Add bank information  
+## Add bank information  
 1.  Sign into Dev Center using your Microsoft ID.  
     *   To sign into Dev Center, visit the Windows Dev Center page located at [dev.windows.com](https://dev.windows.com).  
 2.  Select Payout account on the left menu.
@@ -41,7 +41,7 @@ The bank and tax information is required for all commercial offers using the tra
 
 ---   
 
-#### Add tax information  
+## Add tax information  
 1.  Sign into Dev Center using your Microsoft ID.  
     *   To sign into Dev Center, visit the Windows Dev Center page located at [dev.windows.com](https://dev.windows.com).  
 2.  Select Tax profile on the left menu. 
@@ -53,4 +53,7 @@ The bank and tax information is required for all commercial offers using the tra
 4.  Enter your tax details.  
 5.  Click on the Next button.  
 
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+ 
 ---  
