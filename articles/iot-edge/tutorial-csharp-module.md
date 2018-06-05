@@ -265,7 +265,7 @@ You can see the full container image address with tag in the VS Code integrated 
 
 1. Configure the Azure IoT Toolkit extension with connection string for your IoT hub: 
     1. Open the VS Code explorer by selecting **View** > **Explorer**. 
-    2. In the explorer, click **Azure IOT HUB DEVICES** and then click **...**. Click **Select IoT Hub**. Follow the instructions to log in you Azure account and choose your IoT hub.
+    2. In the explorer, click **AZURE IOT HUB DEVICES** and then click **...**. Click **Select IoT Hub**. Follow the instructions to log in you Azure account and choose your IoT hub.
 
        > [!NOTE]
        > You can also setup by clicking **Set IoT Hub Connection String**. Enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window. 
