@@ -130,7 +130,7 @@ No. You can't update the computer name property. The new VM inherits it from the
 **What are Azure Standard SSD disks?**
 Standard SSD disks are standard disks backed by solid-state media, optimized as cost effective storage for workloads that need consistent performance at lower IOPS levels. In preview, they are available in a limited number of regions, with limited manageability (available through Resource Manager templates).
 
-<a id="standard-ssds-azure-regions"></a>**What are the regions currently supported for Standard SSD Preview?**
+<a id="standard-ssds-azure-regions"></a>**What are the regions currently supported for Standard SSD disks (Preview)?**
 * North Europe
 
 **How do I create Standard SSD disks?**
