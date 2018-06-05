@@ -56,6 +56,6 @@ Your leads in the storefronts on the marketplace are different from Microsoft se
 *   For more information about how to access the Co-Sell program, visit the Promote Your Business with Microsoft page located at [promote-your-business-with-microsoft](./promote-your-business-with-microsoft.md).  
 
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
 ---  
