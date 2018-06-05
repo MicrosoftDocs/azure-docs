@@ -54,6 +54,6 @@ The bank and tax information is required for all commercial offers using the tra
 5.  Click on the Next button.  
 
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
 ---  
