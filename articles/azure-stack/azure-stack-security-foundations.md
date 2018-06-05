@@ -65,6 +65,8 @@ Another Windows Server 2016 security feature in Azure Stack is Windows Defender 
 ## Antimalware
 Every component in Azure Stack (both Hyper-V hosts and Virtual Machines) is protected with Windows Defender Antivirus.
 
+In connected scenarios, antivirus signature updates are applied multiple times a day. In disconnected scenarios, signature updates are released as part of [monthly Azure Stack updates](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-apply-updates).
+
 ## Constrained administration model
 Administration in Azure Stack is controlled through the use of three entry points, each with a specific purpose: 
 1. The [Administrator Portal](azure-stack-manage-portals.md) provides a point-and-click experience for daily management operations.
