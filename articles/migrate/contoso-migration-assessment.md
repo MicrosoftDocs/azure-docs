@@ -412,7 +412,7 @@ They run the installation on each VM.
 
 They run the installation on each VM.
 
-#### Install the MMA on Linx VMs
+#### Install the MMA on Linux VMs
 
 1. They install the python ctypes library on each VM using: **sudo apt-get install python-ctypeslib**.
 2. They should run the command to install the MMA agent as root.  To become root run the following command and enter the root password: **sudo -i**.
@@ -425,7 +425,7 @@ They run the installation on each VM.
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
     ```
-    ![MMA installation](./media/contoso-migration-assessment/mma-linux.png)
+ 
 
 
 #### Install the Dependency agent on Linux VMs
