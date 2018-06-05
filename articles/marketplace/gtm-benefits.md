@@ -1,7 +1,7 @@
 ---
-title: Go-to-Market Benefits on the marketplace
+title: Go-to-Market Benefits on the marketplace | Azure
 description: GTM benefits for the Azure Marketplace and AppSource are for app and service publishers
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
 
 ---
@@ -38,4 +38,7 @@ To maximize the impact of these activities, Microsoft encourages you to have you
 Your go-to-market support includes templates, web content, training, and tools to promote your business.  
 *   Forfor more information about go-to-market support, visit the Microsoft Go-To-Market Services page located at [partner.microsoft.com/reach-customers/gtm](https://partner.microsoft.com/reach-customers/gtm).  
 
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+ 
 ---  
