@@ -31,7 +31,7 @@ Lifecycle management policy is available with both General Purpose v2 (GPv2) acc
 
 ## Pricing 
 
-Lifecycle management feature is free of charge in preview. Customers are charged the regular operation cost for the [List Blobs](https://docs.microsoft.com/en-us/rest/api/storageservices/list-blobs) and [Set Blob Tier](https://docs.microsoft.com/en-us/rest/api/storageservices/set-blob-tier) API calls. See [Block Blob pricing](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) to learn more about pricing.
+Lifecycle management feature is free of charge in preview. Customers are charged the regular operation cost for the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) and [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. See [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) to learn more about pricing.
 
 ## Register for preview 
 To enroll in public preview, you will need to submit a request to register this feature to your subscription. After your request is approved (within a few days), any existing and new GPv2 or Blob Storage account in West US 2 and West Central US will have the feature enabled. During preview, only block blob is supported. As with most previews, this feature should not be used for production workloads until it reaches GA.
@@ -87,7 +87,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 ```
 
 > [!NOTE]
-If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock it by providing exceptions. For more information, see the Exceptions section at [Configure firewalls and virtual networks](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#exceptions).
+If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock it by providing exceptions. For more information, see the Exceptions section at [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ## Policies
 
