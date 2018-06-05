@@ -2,8 +2,8 @@
 title: Azure Stream Analytics on IoT Edge (preview)
 description: Create edge jobs in Azure Stream Analytics and deploy them to devices runnning Azure IoT Edge.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: mamccrea
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
@@ -172,6 +172,8 @@ ASA Edge jobs can get inputs and outputs from other modules running on IoT Edge 
 For both inputs and outputs, CSV and JSON formats are supported.
 
 For each input and output stream you create in your ASA job, a corresponding endpoint is created on your deployed module. These endpoints can be used in the routes of your deployment.
+
+At present, the only supported stream input and stream output types are Edge Hub. Reference input supports reference file type. Other outputs can be reached using a cloud jobs downstream. For example, a Stream Analytics job hosted in Edge sends output to Edge Hub, which can then send output to IoT Hub. You can use a second cloud hosted Azure Stream Analytics job with input from IoT Hub and output to Power BI or another output type.
 
 
 
