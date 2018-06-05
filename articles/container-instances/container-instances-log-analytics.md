@@ -31,7 +31,7 @@ To obtain the Log Analytics workspace ID and primary key:
 
 1. Navigate to your Log Analytics workspace in the Azure portal
 1. Under **SETTINGS**, select **Advanced settings**
-1. Select **Connected Sources** > **Windows Servers** (or **Linux Servers**--the keys are the same for both)
+1. Select **Connected Sources** > **Windows Servers** (or **Linux Servers**--the ID and keys are the same for both)
 1. Take note of:
    * **WORKSPACE ID**
    * **PRIMARY KEY**
@@ -77,7 +77,7 @@ You should receive a response from Azure containing deployment details shortly a
 
 ## View logs in Log Analytics
 
-After you've deployed the container group, it can take a few minutes for the first log entries to appear in the Azure portal. To view the container group's logs, open your Log Analytics workspace, then:
+After you've deployed the container group, it can take several minutes for the first log entries to appear in the Azure portal. To view the container group's logs, open your Log Analytics workspace, then:
 
 1. In the **OMS Workspace** overview, select **Log Search**
 1. Under **A few more queries to try**, select the **All collected data** link
@@ -92,28 +92,35 @@ Log Analytics includes an extensive [query language][query_lang] for pulling inf
 
 The Azure Container Instances logging agent sends entries to the `ContainerInstanceLog_CL` table in your Log Analytics workspace. The basic structure of a query is the source table (`ContainerInstanceLog_CL`) followed by a series of operators separated by the pipe character (`|`). You can chain several operators to refine the data and perform advanced functions.
 
-To see some example query results, paste one of the following queries into the query text box (under "Show legacy language converter"), and select the **RUN** button to execute the query.
+To see example query results, paste the following query into the query text box (under "Show legacy language converter"), and select the **RUN** button to execute the query. This query displays all log entries whose "Message" field contains the word "warn":
 
 ```query
 ContainerInstanceLog_CL
 | where Message contains("warn")
 ```
 
+More complex queries are also supported. For example, this example displays only those log entries for the "mycontainergroup001" container group generated within the last hour:
+
 ```query
 ContainerInstanceLog_CL
-| where Message contains("info")
+| where (ContainerGroup_s == "mycontainergroup001")
+| where (TimeGenerated > ago(1h))
 ```
 
-## Configure alerts
-
-`TODO`
-
 ## Next steps
+
+### Log Analytics
 
 For more information about querying logs and configuring alerts in Azure Log Analytics, see:
 
 * [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search.md)
 * [Unified alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+
+### Monitor container CPU and memory
+
+For information about monitoring container instance CPU and memory resources, see:
+
+* [Monitor container resources in Azure Container Instances](container-instances-monitor.md).
 
 <!-- IMAGES -->
 [log-search-01]: ./media/container-instances-log-analytics/portal-query-01.png
