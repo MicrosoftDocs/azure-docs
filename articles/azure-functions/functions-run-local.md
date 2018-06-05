@@ -261,6 +261,7 @@ func host start
 | **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this option creates a trusted certificate on your computer.|
 | **`--pause-on-error`** | Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE).|
+| **`--script-root --prefix`** | Specify the script root path (where the host.json, local.settings.json, and function.json files are). For example, `--script-root MyProject/bin/Debug/netstandard2.0` for a precompiled function.|
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
