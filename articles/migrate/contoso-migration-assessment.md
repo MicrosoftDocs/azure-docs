@@ -86,7 +86,7 @@ Contoso is using Microsoft tools for the assessment. These tools align with thei
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso will use this service to assess their VMware VMs. It assesses the migration suitability of the machines, and provides sizing and cost estimations for running in Azure.  | There's currently (May 2018) no charge for using this service.
 [Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate uses Service Map to show dependencies between machines you want to migrate. |  Service Map is part of Azure Log Analytics. It can currently be used for 180 days without incurring charges.
 
-In this scenario, we'll download and run the DMA to assess the on-premises SQL Server database for our travel app. We'll use Azure migrate with dependency mapping to assess the app VMs, before we migrate them to Azure.
+In this scenario, Contoso downloads and runs the DMA to assess the on-premises SQL Server database for their travel app. They use Azure migrate with dependency mapping to assess the app VMs, before migration to Azure.
 
 
 
