@@ -53,7 +53,7 @@ For more information on how to configure Automated Backup for SQL VMs, see one o
 - **SQL Server 2016/2017**: [Automated Backup v2 for Azure Virtual Machines ](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014**: [Automated Backup for SQL Server 2014 Virtual Machines](virtual-machines-windows-sql-automated-backup.md)
 
-## <a id="azbackup"></a> Azure Backup for SQL VMs
+## <a id="azbackup"></a> Azure Backup for SQL VMs (Public Preview)
 
 [Azure Backup](/azure/backup/) provides an Enterprise class backup capability for SQL Server running in Azure VMs. All backups are stored and managed in a Recovery Services vault. There are several advantages that this solution provides, especially for Enterprises:
 
@@ -135,9 +135,9 @@ The following table summarizes the capabilities of each backup and restore optio
 | Built-in support for SQL Server Always On |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Consolidated email alerts for failures |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Role-based access control |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Backup to Recovery Services vault |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Backup to Azure Storage account(s) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Backup to Azure Storage account(s) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Backup to attached disks on the VM |   |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Monitor backup jobs with SSMS or Transact-SQL scripts | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Restore databases with SSMS or Transact-SQL scripts | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 
 ## Next steps
