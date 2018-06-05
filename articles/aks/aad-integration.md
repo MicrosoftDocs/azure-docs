@@ -31,37 +31,35 @@ From inside of the Kubernetes cluster, Webhook Token Authentication is used to v
 
 The first AAD application provides back-end authentication services using OAuth.
 
-1. Select **Azure Active Directory** > **App registrations** > **New application registration**.
+1. Select **Azure Active Directory** > **App registrations** > **New application registration**. Give the application a name, select **Web app / API** for the application type, and enter any URI formatted value for **Redirect URI**.
 
-Give the application a name, select **Web app / API** for the application type, and enter any URI formatted value for **Redirect URI**.
-
-![Create AAD registration](media/aad-integration/app-registration.png)
+  ![Create AAD registration](media/aad-integration/app-registration.png)
 
 2. Select **Manifest** and edit the `groupMembershipClaims` value to `All`. Save the updates once complete.
 
-![Create AAD registration](media/aad-integration/edit-manifest.png)
+  ![Create AAD registration](media/aad-integration/edit-manifest.png)
 
 3. Back on the AAD application, select **Settings** > **Keys**. Add a key description, select an expiration deadline, and select **Save**. Take note of the key value. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application secret`.
 
-![Create AAD registration](media/aad-integration/application-key.png)
+  ![Create AAD registration](media/aad-integration/application-key.png)
 
-4. Back on the AAD application, select **Settings** > **Required permissions** > **Add** > **Select an API** > **Microsoft Graph** > **Select**.
+4. Return to the AAD application, select **Settings** > **Required permissions** > **Add** > **Select an API** > **Microsoft Graph** > **Select**.
 
-Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
+5. Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
 
-![Create AAD registration](media/aad-integration/read-directory.png)
+  ![Create AAD registration](media/aad-integration/read-directory.png)
 
-Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Save the updates once done.
+6. Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Save the updates once done.
 
-![Create AAD registration](media/aad-integration/delegated-permissions.png)
+  ![Create AAD registration](media/aad-integration/delegated-permissions.png)
 
-Select **Done** and **Grant Permissions** to complete this step. This step will fail if the current account is not a tenant admin.
+7. Select **Done** and **Grant Permissions** to complete this step. This step will fail if the current account is not a tenant admin.
 
-![Create AAD registration](media/aad-integration/grant-permissions.png)
+  ![Create AAD registration](media/aad-integration/grant-permissions.png)
 
-5. On the AD application, take note of the **Application ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application ID`.
+8. Return to the application and take note of the **Application ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application ID`.
 
-![Create AAD registration](media/aad-integration/application-id.png)
+  ![Create AAD registration](media/aad-integration/application-id.png)
 
 ## Create client application
 
