@@ -47,7 +47,7 @@ Use one of the following supported Windows or Linux images to create a pool of V
 
 ### Windows images
 
-For Windows container workloads, Batch currently supports the **Windows Server 2016 Datacenter with Containers** image in the Azure Marketplace. Both Windows Server Containers and Hyper-V Isolation Containers are supported.
+For Windows container workloads, Batch currently supports the **Windows Server 2016 Datacenter with Containers** image in the Azure Marketplace. Only Docker container images are supported on Windows.
 
 You can also create custom images from VMs running Docker on Windows.
 
@@ -65,7 +65,7 @@ For Linux container workloads, Batch currently supports the following Linux imag
 
 These images are only supported for use in Azure Batch pools. They feature:
 
-* A pre-installed container runtime 
+* A pre-installed [Moby](https://github.com/moby/moby) container runtime 
 
 * Pre-installed NVIDIA GPU drivers, to streamline deployment on Azure N-series VMs
 
@@ -86,7 +86,9 @@ Additional considerations for using a custom Linux image:
 
 To enable a Batch pool to run container workloads, you must specify [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) settings in the pool's [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object. (This article provides links to the Batch .NET API reference. Corresponding settings are in the [Batch Python](/python/api/azure.batch) API.)
 
-You can create a container-enabled pool with or without prefetched container images, as shown in the following examples. The pull (or prefetch) process lets you pre-load container images either from Docker Hub or another container registry on the Internet. The advantage of prefetching container images is that when tasks first start running they don't have to wait for the container image to download. The container configuration pulls container images to the VMs when the pool is created. Tasks that run on the pool can then reference the list of container images and container run options.
+You can create a container-enabled pool with or without prefetched container images, as shown in the following examples. The pull (or prefetch) process lets you pre-load container images from either Docker Hub or another container registry on the Internet. For best performance, use an [Azure container registry](../container-registry/container-registry-intro.md) in the same region as the Batch account.
+
+The advantage of prefetching container images is that when tasks first start running they don't have to wait for the container image to download. The container configuration pulls container images to the VMs when the pool is created. Tasks that run on the pool can then reference the list of container images and container run options.
 
 
 ### Pool without prefetched container images
