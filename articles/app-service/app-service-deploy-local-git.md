@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 
 ---
@@ -94,10 +94,6 @@ git push azure master
 ```
 
 You may see runtime-specific automation in the output, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python. 
-
-Once deployment is finished, your app in the Azure portal should now have a record of your `git push` in the **Deployment options** page.
-
-![](./media/app-service-deploy-local-git/deployment_history.png)
 
 Browse to your app to verify that the content is deployed.
 
