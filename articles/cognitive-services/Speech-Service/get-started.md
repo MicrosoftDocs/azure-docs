@@ -1,6 +1,6 @@
 ---
-title: Prepare to use Speech service | Microsoft Docs
-description: Learn how to prepare your Azure and development environment to start using Speech service.
+title: Try the Speech service for free | Microsoft Docs
+description: Discover how you can try the Speech service at no cost.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
