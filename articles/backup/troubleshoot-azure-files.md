@@ -15,9 +15,13 @@ You can troubleshoot issues and errors encountered while using Azure File Shares
 
 ## Preview boundaries
 Backup for Azure File shares is in Preview. The following backup scenarios are not supported for Azure file shares:
-- Protecting Azure file shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) or [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication.
+- Protecting Azure file shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication*.
 - Protecting Azure file shares in Storage Accounts that have Virtual Networks enabled.
 - Backing up Azure file shares using PowerShell or CLI.
+
+\*Azure File Shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication function as GRS and billed at GRS prices
+
+Backup for Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently available only in Central US (CUS) and East US 2 (EUS2)
 
 ### Limitations
 - Maximum #Scheduled-backup per day is 1.
@@ -35,7 +39,7 @@ The following table is for configuring the backup:
 | Selected Storage Account validation or registration failed.| Retry the operation, if the problem persists contact support.|
 | Could not list or find File shares in the selected Storage Account. | <ul><li> Make sure the Storage Account exists in the Resource Group (and has not been deleted or moved after the last validation/registration in vault).<li>Make sure the File share you are looking to protect has not been deleted. <li>Make sure the Storage Account is a supported storage account for File share backup.<li>Check if the File share is already protected in the same Recovery Services vault.|
 | Backup File share configuration (or the protection policy configuration) is failing. | <ul><li>Retry the operation to see if the issue persists. <li> Make sure the File share you want to protect has not been deleted. <li> If you are trying to protect multiple File shares at once, and some of the file shares are failing, retry configuring the backup for the failed File shares again. |
-| Unable to delete the Recovery Services vault after unprotecting a File share. | In the Azure portal, open **Backup Infrastructure** > **Storage accounts** and click **Unregister** to remove the storage account from the Recovery Services vault.|
+| Unable to delete the Recovery Services vault after unprotecting a File share. | In the Azure portal, open your Vault > **Backup Infrastructure** > **Storage accounts** and click **Unregister** to remove the storage account from the Recovery Services vault.|
 
 
 ## Error messages for Backup or Restore Job failures
