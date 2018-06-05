@@ -70,6 +70,6 @@ If you are an Enterprise Agreement (EA) customer with Microsoft, then you may us
 If you are an EA customer, then you may add Azure to your agreement. You add Azure to your agreement by making an upfront monetary commitment to Azure. Your monetary commitment is consumed throughout the year. Your commitment includes any combination of usage of the wide variety of services in Azure.  
 
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
 ---  
