@@ -5,14 +5,14 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: "include"
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: "include file"
 ---
 
 ## Prepare your repository
 
-In order to get automatic builds from App Service, make sure that your repository root has the correct files in your project.
+To get automatic builds from the App Service Kudu build server, make sure that your repository root has the correct files in your project.
 
 | Runtime | Root directory files |
 |-|-|
@@ -26,7 +26,7 @@ In order to get automatic builds from App Service, make sure that your repositor
 | WebJobs | _\<job_name>/run.\<extension>_ under _App\_Data/jobs/continuous_ (for continuous WebJobs) or _App\_Data/jobs/triggered_ (for triggered WebJobs). For more information, see [Kudu WebJobs documentation](https://github.com/projectkudu/kudu/wiki/WebJobs) |
 | Functions | See [Continuous deployment for Azure Functions](../articles/azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
 
-To customize your deployment, you can include a _.deployment_ file in the repository root. For more information, see [Customizing deployments](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) and [Custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+To customize your deployment, include a _.deployment_ file in the repository root. For more information, see [Customizing deployments](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) and [Custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 > [!NOTE]
 > If you develop in Visual Studio, let [Visual Studio create a repository for you](/vsts/git/tutorial/creatingrepo?view=vsts&tabs=visual-studio). The project is immediately ready to be deployed using Git.

@@ -113,7 +113,7 @@ Click **VSTS Continuous Delivery** > **Continue**.
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-In the **Configure** page, configure a new VSTS account or specify an existing account. When finished, click **Continue**.
+In the **Configure** page, configure a new VSTS account, or specify an existing account. When finished, click **Continue**.
 
 In the **Test** page, choose whether to enable load tests, then click **Continue**.
 
@@ -200,7 +200,7 @@ git config --global http.postBuffer 524288000
 **Resolution**: Additional messages with 'npm ERR!' should be logged before this error, and can provide additional context on the failure. The following are known causes of this error and the corresponding 'npm ERR!' message:
 
 * **Malformed package.json file**: npm ERR! Couldn't read dependencies.
-* **Native module that does not have a binary distribution for Windows**:
+* **Native module that doesn't have a binary distribution for Windows**:
 
   * `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
 

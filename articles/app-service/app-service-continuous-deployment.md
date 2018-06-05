@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
 
 ---
@@ -30,7 +30,7 @@ Publish your prepared repository to one of the supported services. For more info
 
 To enable continuous deployment with GitHub, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
 
-In the left menu, click **Deployment Center** > **GitHub** > **Authorize**, then follow the authorization prompts. 
+In the left menu, click **Deployment Center** > **GitHub** > **Authorize**. Follow the authorization prompts. 
 
 ![](media/app-service-continuous-deployment/github-choose-source.png)
 
@@ -75,7 +75,7 @@ When configuration completes, new commits in the selected repository are deploye
 
 To enable continuous deployment with BitBucket, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
 
-In the left menu, click **Deployment Center** > **BitBucket** > **Authorize**, then follow the authorization prompts. 
+In the left menu, click **Deployment Center** > **BitBucket** > **Authorize**. Follow the authorization prompts. 
 
 ![](media/app-service-continuous-deployment/bitbucket-choose-source.png)
 

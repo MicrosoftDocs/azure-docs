@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: cephalin;dariac
 
 ---
@@ -85,9 +85,9 @@ For FTP deployment using [Azure PowerShell](/cli/azure), see [Upload files to a 
 
 The first step for troubleshooting FTP deployment is isolating a deployment issue from a runtime application issue.
 
-A deployment issue typically results in no files or wrong files deployed to your app. It can be addressed by investigating your FTP deployment or selecting an alternate deployment path (such as source control).
+A deployment issue typically results in no files or wrong files deployed to your app. You can troubleshoot by investigating your FTP deployment or selecting an alternate deployment path (such as source control).
 
-A runtime application issue typically results in the right set of files deployed to your app but incorrect app behavior. It can be addressed by focusing on code behavior at runtime and investigating specific failure paths.
+A runtime application issue typically results in the right set of files deployed to your app but incorrect app behavior. You can troubleshoot by focusing on code behavior at runtime and investigating specific failure paths.
 
 To determine a deployment or runtime issue, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 

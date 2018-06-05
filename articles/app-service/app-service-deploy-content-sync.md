@@ -19,13 +19,13 @@ ms.author: cephalin;dariagrigoriu
 # Sync content from a cloud folder to Azure App Service
 This article shows you how to sync your content to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) from Dropbox and OneDrive. 
 
-The on-demand content sync deployment is powered by the App Service [Kudu deployment engine](https://github.com/projectkudu/kudu/wiki). In the [Azure portal](https://portal.azure.com), you can designate a folder in your cloud storage, work with your app code and content in that folder, and sync to App Service on-demand with the click of a button. Content sync utilizes the Kudu build server. 
+The on-demand content sync deployment is powered by the App Service [Kudu deployment engine](https://github.com/projectkudu/kudu/wiki). You can, work with your app code and content in a designated cloud folder, and then sync to App Service with the click of a button. Content sync uses the Kudu build server. 
 
 ## Enable content sync deployment
 
 To enable content sync, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
 
-In the left menu, click **Deployment Center** > **OneDrive** or **Dropbox** > **Authorize**, then follow the authorization prompts. 
+In the left menu, click **Deployment Center** > **OneDrive** or **Dropbox** > **Authorize**. Follow the authorization prompts. 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
@@ -35,14 +35,14 @@ You only need to authorize with OneDrive or Dropbox once. If you're already auth
 
 In the **Configure** page, select the folder you want to synchronize. This folder is created under the following designated content path in OneDrive or Dropbox. 
    
-* **OneDrive**: `Apps\Azure Web Apps` 
+* **OneDrive**: `Apps\Azure Web Apps`
 * **Dropbox**: `Apps\Azure`
 
 When finished, click **Continue**.
 
 In the **Summary** page, verify your options and click **Finish**.
 
-## Sychronize content
+## Synchronize content
 
 When you want to synchronize content in your cloud folder with App Service, go back to the **Deployment Center** page and click **Sync**.
 
