@@ -221,5 +221,22 @@
     "Pdf": {
       "template_folder": "_themes.pdf"
     }
-  }
+  },
+  "redirections": [
+      {
+          "source_path": "articles/marketplace/marketplace-publishers-guide.md",
+          "redirect_url": "https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide"  ,
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/marketplace/grow-your-business-with-azure-marketplace.md",
+          "redirect_url": "https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-azure-marketplace"  ,
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/marketplace/grow-your-business-with appsource.md",
+          "redirect_url": "https://docs.microsoft.com/en-us/azure/marketplace/marketplace-grow-your-business-with-appsource",
+          "redirect_document_id": true
+      }
+  ]
 }
