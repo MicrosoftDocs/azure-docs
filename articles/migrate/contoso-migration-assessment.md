@@ -555,4 +555,4 @@ In this scenario Contoso assessed their SmartHotel app database using the DMA to
 
 ## Next steps
 
-In the next article in this series, Contoso will rehost their SmartHotel app in Azure with a lift-and-shift migration. They'll migrate the frontend WEBVM for the app using Azure Site Recovery, and migrate the app database to an Azure SQL Managed Instance using the Database Migration Service. [Get started](contoso-migration-rehost-vm-sql-managed-instance).
+In the next article in this series, Contoso will rehost their SmartHotel app in Azure with a lift-and-shift migration. They'll migrate the frontend WEBVM for the app using Azure Site Recovery, and migrate the app database to an Azure SQL Managed Instance using the Database Migration Service. [Get started](contoso-migration-rehost-vm-sql-managed-instance.md).
