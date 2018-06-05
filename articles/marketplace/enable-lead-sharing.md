@@ -1,7 +1,7 @@
 ---
-title: Enable Lead Sharing
+title: Enable Lead Sharing | Azure
 description: Enable lead sharing for Azure Marketplace and AppSource are for app and service publishers
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
 
 ---  
@@ -55,4 +55,7 @@ You should have a process in place to follow up with your leads.
 Your leads in the storefronts on the marketplace are different from Microsoft seller-qualified leads that are a feature of the Co-Sell program.  
 *   For more information about how to access the Co-Sell program, visit the Promote Your Business with Microsoft page located at [promote-your-business-with-microsoft](./promote-your-business-with-microsoft.md).  
 
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+ 
 ---  
