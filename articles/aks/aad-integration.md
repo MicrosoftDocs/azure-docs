@@ -97,7 +97,13 @@ From the Azure portal, select **Azure Active Directory** > **Properties** and ta
 
 ## Deploy Cluster
 
-TBD
+```
+az group create --name myAKSCluster --location eastus
+```
+
+```
+az aks create --name myAKSCluser --resource-group myAKSCluster --enable-rbac --aad-server-app-id <> --aad-server-app-secret <> --aad-client-app-id <> --aad-tenant-id
+```
 
 ## Create RBAC binding
 
