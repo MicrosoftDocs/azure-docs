@@ -1,18 +1,19 @@
 ---  
-title: Comparing AppSource and Azure Marketplace
+title: Comparing AppSource and Azure Marketplace | Azure
 description: This article describes the storefronts on AppSource and Azure Marketplace.
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
 editor:
 
 ms.assetid: 
+ms.service: marketplace
 ms.workload: 
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
 
 ---  
@@ -45,4 +46,7 @@ Consider the additional benefits for the storefronts.
 | ***Multiple cloud types*** | Publish on both public cloud and on-premises solutions using the following types.<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>regional clouds, including China and Germany</li> </ul> | 
 | ***In-context presentation to customers*** | Make your solution available in the Azure in-portal experience for contextual search using virtual machines and Azure apps: Solution template. |  
 
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
+*   
 ---  
