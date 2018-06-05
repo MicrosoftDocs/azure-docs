@@ -35,6 +35,8 @@ To run the sample, do the following steps:
 
 The following example identifies a landmark in an image.
 
+This sample uses the PHP5 [HTTP_Request2](http://pear.php.net/package/HTTP_Request2) package.
+
 ```php
 <html>
 <head>
@@ -56,8 +58,6 @@ $domain = 'landmarks';
 $imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/2/23/Space_Needle_2011-07-04.jpg';
 
-// This sample uses the PHP5 HTTP_Request2 package
-// (http://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
 $request = new Http_Request2($uriBase . 'models/' . $domain . '/analyze');

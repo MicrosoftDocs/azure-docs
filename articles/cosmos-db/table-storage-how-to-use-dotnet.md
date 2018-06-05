@@ -6,6 +6,7 @@ author: SnehaGunda
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/14/2018
