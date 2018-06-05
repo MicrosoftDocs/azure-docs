@@ -58,7 +58,7 @@ Managed Disks eliminates the limits associated with storage accounts. However, t
 
 **Can I take an incremental snapshot of a managed disk?**
 
-No. The current snapshot capability makes a full copy of a managed disk. However, support for incremental snapshots is planned for in the future.
+No. The current snapshot capability makes a full copy of a managed disk.
 
 **Can VMs in an availability set consist of a combination of managed and unmanaged disks?**
 
@@ -78,7 +78,7 @@ Depending on the region where the availability set that uses Managed Disks is lo
 
 **How is the standard storage account for diagnostics set up?**
 
-You set up a private storage account for VM diagnostics. Support for diagnostics to Managed Disks is planned for in the future.
+You set up a private storage account for VM diagnostics.
 
 **What kind of Role-Based Access Control support is available for Managed Disks?**
 

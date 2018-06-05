@@ -95,7 +95,7 @@ For detailed information on pricing for Managed Disks, see [Managed Disks Pricin
 
 A Managed Snapshot is a read-only full copy of a managed disk that is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new Managed Disks. They are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, snapshot will be billed only for the used data size of 10 GiB.  
 
-[Incremental snapshots](../articles/virtual-machines/windows/incremental-snapshots.md) are currently not supported for Managed Disks, but will be supported in the future.
+[Incremental snapshots](../articles/virtual-machines/windows/incremental-snapshots.md) are currently not supported for Managed Disks.
 
 To learn more about how to create snapshots with Managed Disks, see the following resources:
 
