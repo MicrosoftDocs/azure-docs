@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: ellacroi
 
 ---
@@ -25,8 +25,8 @@ The activities that Microsoft provides differ depending on your solution status 
 
 | storefront | Additional benefits available  |  
 |:--- |:--- |  
-| AppSource | Trial apps<br />Microsoft Gold partners |  
-| Azure Marketplace | Transact offers<br />Trial offers |  
+| AppSource | <table> <tr><td>Microsoft Gold partners</td></tr> <tr><td>Trial apps</td></tr> </table> |  
+| Azure Marketplace | <table> <tr><td>Transact offers</td></tr> <tr><td>Trial offers</td></tr> </table> |  
 
 To maximize the impact of these activities, Microsoft encourages you to have your launch plan ready to implement. You might want to use your landing page for many of your launch tactics.  
 
