@@ -20,11 +20,11 @@ ms.author: jlian
 
 As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) to share the ability to create subscriptions, and how to audit subscription creations.
 
-To create a subscription, see [Programmatically create Azure Enterprise subscriptions (preview)](programmatically-create-subscriptions.md).
+To create a subscription, see [Programmatically create Azure Enterprise subscriptions (preview)](programmatically-create-subscription.md).
 
 ## Delegate access to an enrollment account using RBAC
 
-To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner role at the scope of the enrollment account](../active-directory/role-based-access-control-manage-access-rest.md). The following example gives a user in the tenant with `principalId` of `<userObjectId>` (for SignUpEngineering@contoso.com) an Owner role on the enrollment account. To find the enrollment account ID and principal ID, see [Programmatically create Azure Enterprise subscriptions (preview)](programmatically-create-subscriptions.md).
+To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner role at the scope of the enrollment account](../active-directory/role-based-access-control-manage-access-rest.md). The following example gives a user in the tenant with `principalId` of `<userObjectId>` (for SignUpEngineering@contoso.com) an Owner role on the enrollment account. To find the enrollment account ID and principal ID, see [Programmatically create Azure Enterprise subscriptions (preview)](programmatically-create-subscription.md).
 
 # [REST](#tab/rest)
 
@@ -93,7 +93,7 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 
 ## Next steps
 
-* To create a subscription, see [Programmatically create Azure Enterprise subscriptions (preview)](programmatically-create-subscriptions.md).
+* To create a subscription, see [Programmatically create Azure Enterprise subscriptions (preview)](programmatically-create-subscription.md).
 * For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * To learn more about Azure Resource Manager and its APIs, see [Azure Resource Manager overview](resource-group-overview.md).
 * To learn more about managing large numbers of subscriptions using Management Groups, see [Organize your resources with Azure Management Groups](management-groups-overview.md)

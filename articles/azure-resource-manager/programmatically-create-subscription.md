@@ -22,103 +22,101 @@ As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/
 
 When you create an Azure subscription from this API, that subscription is governed by the agreement under which you obtained Microsoft Azure services from Microsoft or an authorized reseller. To learn more, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
-## Prerequisites
+## Prerequisite
 
-1. Your account is an Account Owner in an Azure EA enrollment. If not, ask your Enrollment Administrator to [add you as an Account Owner using the EA portal](https://ea.azure.com/helpdocs/addNewAccount) (log-in required). Follow the instructions in the invitation email you receive to manually create an initial subscription. Confirm account ownership and manually create an initial EA subscription before proceeding to the next step. Just adding the account to the enrollment isn't enough.
+Your account must be an Account Owner in an Azure EA enrollment. If not, ask your Enrollment Administrator to [add you as an Account Owner using the EA portal](https://ea.azure.com/helpdocs/addNewAccount) (log-in required). Follow the instructions in the invitation email you receive to manually create an initial subscription. Confirm account ownership and manually create an initial EA subscription before proceeding to the next step. Just adding the account to the enrollment isn't enough.
 
-2. You know the enrollment accounts you can access. After you're added to an Azure EA enrollment as an Account Owner, Azure uses the account-to-enrollment relationship to determine where to bill the subscription charges. If you're currently an EA Account Owner and you try to use this API, Azure checks for the following conditions:
+## Find accounts you have access to
 
-  - Your account has been added to an EA enrollment
-  - You've one or more EA or EA Dev/Test subscriptions, meaning that you've gone through manual sign-up at least once
-  - You're logged into the Account Owner's *home directory*, which is the directory that subscriptions are created in by default
+After you're added to an Azure EA enrollment as an Account Owner, Azure uses the account-to-enrollment relationship to determine where to bill the subscription charges. All subscriptions created under the account are billed towards the EA enrollment that the account is in. To create subscriptions, you must pass in values about the enrollment account and the user principals to own the subscription. 
 
-  If the above three conditions are met, an `enrollmentAccount` resource is returned and you can start creating subscriptions under that account. All subscriptions created under the account are billed towards the EA enrollment that the account is in.
+To run the following commands, you must be logged in to the Account Owner's *home directory*, which is the directory that subscriptions are created in by default.
 
-  # [REST](#tab/rest)
+# [REST](#tab/rest)
 
-  Request to list all enrollment accounts:
+Request to list all enrollment accounts:
 
-  ```json
-  GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
-  ```
+```json
+GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
+```
 
-  Azure responds with a list of all enrollment accounts you have access to:
+Azure responds with a list of all enrollment accounts you have access to:
 
-  ```json
-  {
-    "value": [
-      {
-        "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "type": "Microsoft.Billing/enrollmentAccounts",
-        "properties": {
-          "principalName": "SignUpEngineering@contoso.com"
-        }
-      },
-      {
-        "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "type": "Microsoft.Billing/enrollmentAccounts",
-        "properties": {
-          "principalName": "BillingPlatformTeam@contoso.com"
-        }
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "SignUpEngineering@contoso.com"
       }
-    ]
-  }
-  ```
-
-  # [PowerShell](#tab/azure-powershell)
-
-  Use the [Get-AzureRmEnrollmentAccount command](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) to list all enrollment accounts you have access to.
-
-  ```azurepowershell-interactive
-  Get-AzureRmEnrollmentAccount
-  ```
-
-  Azure responds with a list of the Object IDs and email addresses of accounts.
-
-  ```azurepowershell
-  ObjectId                               | PrincipalName
-  747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
-  4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
-  ```
-
-  # [Azure CLI](#tab/azure-cli)
-
-  Use the [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) command to list all enrollment accounts you have access to.
-
-  ```azurecli-interactive 
-  az billing enrollment-account list
-  ```
-
-  Azure responds with a list of the Object IDs and email addresses of accounts.
-
-  ```json
-  {
-    "value": [
-      {
-        "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "type": "Microsoft.Billing/enrollmentAccounts",
-        "properties": {
-          "principalName": "SignUpEngineering@contoso.com"
-        }
-      },
-      {
-        "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "type": "Microsoft.Billing/enrollmentAccounts",
-        "properties": {
-          "principalName": "BillingPlatformTeam@contoso.com"
-        }
+    },
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
-    ]
-  }
-  ```
+    }
+  ]
+}
+```
 
-  ---
+# [PowerShell](#tab/azure-powershell)
 
-  Use the `principalName` property to identify the account that you want subscriptions to be billed to. Use the `id` as the `enrollmentAccount` value that you use to create the subscription in the next step.
+Use the [Get-AzureRmEnrollmentAccount command](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) to list all enrollment accounts you have access to.
+
+```azurepowershell-interactive
+Get-AzureRmEnrollmentAccount
+```
+
+Azure responds with a list of the Object IDs and email addresses of accounts.
+
+```azurepowershell
+ObjectId                               | PrincipalName
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) command to list all enrollment accounts you have access to.
+
+```azurecli-interactive 
+az billing enrollment-account list
+```
+
+Azure responds with a list of the Object IDs and email addresses of accounts.
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "SignUpEngineering@contoso.com"
+      }
+    },
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "BillingPlatformTeam@contoso.com"
+      }
+    }
+  ]
+}
+```
+
+---
+
+Use the `principalName` property to identify the account that you want subscriptions to be billed to. Use the `id` as the `enrollmentAccount` value that you use to create the subscription in the next step.
 
 ## Create subscriptions under a specific enrollment account 
 
@@ -208,5 +206,5 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 ## Next steps
 
 * For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
-* Now that you've created a subscription, you can grant that ability to other users and audit actions. For more information, see [Programmatically manage Azure Enterprise subscriptions (preview)](programmatically-manage-subscriptions.md).
+* Now that you've created a subscription, you can grant that ability to other users and audit actions. For more information, see [Programmatically manage Azure Enterprise subscriptions (preview)](programmatically-manage-subscription.md).
 * To learn more about managing large numbers of subscriptions using Management Groups, see [Organize your resources with Azure Management Groups](management-groups-overview.md)
