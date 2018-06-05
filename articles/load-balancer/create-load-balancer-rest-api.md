@@ -44,7 +44,7 @@ Use the following HTTP PUT request to create a new Azure Load Balancer.
 
 ### Request body
 
-The only required parameter is `location`. Use [optional parameters](/rest/api/load-balancer/loadbalancers/createorupdate#request-body) to customize the database.
+The only required parameter is `location`. Use [optional parameters](/rest/api/load-balancer/loadbalancers/createorupdate.md#request-body) to customize the database.
 
 | Name | Type | Description |
 | :--- | :--- | :---------- |
