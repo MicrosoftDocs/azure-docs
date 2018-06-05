@@ -26,17 +26,9 @@ that you can use in your logic apps.
 
 | Action | Description | 
 |--------|-------------| 
-| [**Filter array**](#filter-array-items) | Get the items from an array based on the specified filter or condition. | 
-| [**Join**](#join-array-items) | Create a string from all the items in an array and separate each item with the specified character. | 
-| [**Select**](#select-array-properties) | Create an array from the specified properties for all the items in a different array. | 
-||| 
-
-**Table actions**
-
-| Action | Description | 
-|--------|-------------| 
-| [**Create CSV table**](#create-csv-table) | Create a comma-separated value (CSV) table with output from an array or expression. | 
-| [**Create HTML table**](#create-html-table) | Create an HTML table with output from an array or expression. | 
+| [**Filter array**](#filter-array-action) | Get the items from an array based on the specified filter or condition. | 
+| [**Join**](#join-action) | Create a string from all the items in an array and separate each item with the specified character. | 
+| [**Select**](#select-action) | Create an array from the specified properties for all the items in a different array. | 
 ||| 
 
 **JSON actions**
@@ -46,16 +38,24 @@ data using JavaScript Object Notation (JSON).
 
 | Action | Description | 
 |--------|-------------| 
-| [**Compose**](#compose) | Create a JavaScript Object Notation (JSON) object and properties from any output. | 
-| [**Parse JSON**](#parse-json) | Create user-friendly data tokens, which you can use in logic apps, from JSON content by providing or generating a JSON schema.  | 
+| [**Compose**](#compose-action) | Create a JavaScript Object Notation (JSON) object and properties from any output. | 
+| [**Parse JSON**](#parse-json-action) | Create user-friendly data tokens, which you can use in logic apps, from JSON content by providing or generating a JSON schema.  | 
 ||| 
 
 To create more complex JSON transformations, see 
-[Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-liquid-transform.md).
+[Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
+
+**Table actions**
+
+| Action | Description | 
+|--------|-------------| 
+| [**Create CSV table**](#create-csv-table-action) | Create a comma-separated value (CSV) table with output from an array or expression. | 
+| [**Create HTML table**](#create-html-table-action) | Create an HTML table with output from an array or expression. | 
+||| 
 
 ## Prerequisites
 
-To follow this article, you need these items:
+To follow the examples in this article, you need these items:
 
 * An Azure subscription. If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
@@ -74,128 +74,7 @@ as the first step in your logic app
   must start with a trigger and include any other actions 
   required for creating the outputs you want.
 
-
-<a name="filter-array-items"></a>
-
-## Filter array action
-
-To get items from an array based on a specified filter or condition, 
-follow these steps:
-
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
-or Visual Studio, open your logic app in Logic App Designer. 
-
-   This example uses the Azure portal and a 
-   logic app that already has a trigger.
-
-2. In your logic app where you want to get the array items, 
-follow one of these steps: 
-
-   * To add an action under the last step, 
-   choose **New step** > **Add an action**.
-
-     ![Add action](./media/logic-apps-change-manage-data-operations/add-action.png)
-
-   * To add an action between steps, move your mouse 
-   over the connecting arrow so the plus sign (+) appears. 
-   Choose the plus sign, and then select **Add an action**.
-
-3. In the search box, enter "filter array" as your filter. 
-From the actions list, select **Data Operations - Filter array**.
-
-4. In the **Filter array** action, click inside the **From** box. 
-When the dynamic content list opens, select the item to use as the 
-source for the CSV table.
-
-
-<a name="join-array-items"></a>
-
-## Join action
-
-To create a string that has all the items from an array and separates 
-those items with a specified delimiter character, follow these steps.
-
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
-or Visual Studio, open your logic app in Logic App Designer. 
-
-   This example uses the Azure portal and a logic app with a 
-   **Recurrence** trigger and an **Initialize variable** action. 
-   This action is set up for creating a variable whose initial 
-   value is an array that has some sample integers. 
-   When you test your logic app later, you can manually 
-   run your app without waiting for the trigger to fire.
-
-   ![Starting sample logic app](./media/logic-apps-change-manage-data-operations/sample-starting-logic-app-join-action.png)
-
-2. In your logic app where you want to create the string from an array, 
-follow one of these steps: 
-
-   * To add an action under the last step, 
-   choose **New step** > **Add an action**.
-
-     ![Add action](./media/logic-apps-change-manage-data-operations/add-join-action.png)
-
-   * To add an action between steps, move your mouse 
-   over the connecting arrow so the plus sign (+) appears. 
-   Choose the plus sign, and then select **Add an action**.
-
-3. In the search box, enter "join" as your filter. 
-From the actions list, select this action: 
-**Data Operations - Join**
-
-   ![Select "Data Operations - Join" action](./media/logic-apps-change-manage-data-operations/select-join-action.png)
-
-4. In the **Join** action, click inside the **From** box. 
-When the dynamic content list opens, under the action 
-that provides the array output you want, select that output. 
-
-   This example selects the **myIntegerArray** variable 
-   created by the **Initialize variable** action.
-
-   ![Select array output for the "Join" action](./media/logic-apps-change-manage-data-operations/configure-join-action.png)
-
-5. In the **Join with** box, enter the character 
-you want for separating each array item. 
-
-   This example uses a comma as the separator.
-
-   ![Provide the separator character](./media/logic-apps-change-manage-data-operations/finished-join-action.png)
-
-For more information about this action in your underlying workflow definition, 
-see [Join action](../logic-apps/logic-apps-workflow-actions-triggers.md#join-action).
-
-### Test your logic app
-
-To check that the **Join** action creates the expected results, 
-send yourself a notification that includes output from the join operation. 
-
-1. In your logic app, add an action that can send you 
-the results from the join operation.
-
-2. In that action, click anywhere you want the results to appear. 
-When the dynamic content list opens, under the **Join** action, 
-select **Output**. 
-
-   This example uses the **Office 365 Outlook - Send an email** action 
-   and includes **Output** fields in the email's body and subject:
-
-   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-action.png)
-
-3. Now, manually run your logic app. 
-On the designer toolbar, choose **Run**. 
-
-   After your logic app finishes running, 
-
-
-   For example, the logic app finishes successfully, 
-
-
-
-<a name="select"></a>
-
-## Select action
-
-<a name="create-csv-table"></a>
+<a name="create-csv-table-action"></a>
 
 ## Create CSV table action
 
@@ -264,7 +143,7 @@ the values for each attachment's properties.
 }
 ```
 
-<a name="create-html-table"></a>
+<a name="create-html-table-action"></a>
 
 ## Create HTML table action
 
@@ -335,12 +214,12 @@ the values for each attachment's properties.
 }
 ```
 
-<a name="compose"></a>
+<a name="compose-action"></a>
 
 ## Compose action
 
-1. In the Azure portal or Visual Studio, 
-open your logic app in Logic App Designer. 
+1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+or Visual Studio, open your logic app in Logic App Designer. 
 
    This example uses the Azure portal 
    and a logic app with an existing trigger.
@@ -362,7 +241,135 @@ From the actions list, select **Data Operations - Compose**.
 
 4. Now select the inputs to use for creating the JSON object.
 
-<a name="parse-json"></a>
+
+<a name="filter-array-action"></a>
+
+## Filter array action
+
+To get items from an array based on a specified filter or condition, 
+follow these steps:
+
+1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+or Visual Studio, open your logic app in Logic App Designer. 
+
+   This example uses the Azure portal and a 
+   logic app that already has a trigger.
+
+2. In your logic app where you want to get the array items, 
+follow one of these steps: 
+
+   * To add an action under the last step, 
+   choose **New step** > **Add an action**.
+
+     ![Add action](./media/logic-apps-change-manage-data-operations/add-action.png)
+
+   * To add an action between steps, move your mouse 
+   over the connecting arrow so the plus sign (+) appears. 
+   Choose the plus sign, and then select **Add an action**.
+
+3. In the search box, enter "filter array" as your filter. 
+From the actions list, select **Data Operations - Filter array**.
+
+4. In the **Filter array** action, click inside the **From** box. 
+In the dynamic content list that appears, under the action 
+that provides the array output you want, select that output.
+
+5. Save your logic app. On the designer toolbar, choose **Save**.
+
+For more information about this action in your underlying workflow definition, 
+see [Query action](../logic-apps/logic-apps-workflow-actions-triggers.md#query-action).
+
+<a name="join-action"></a>
+
+## Join action
+
+To create a string that has all the items from an array and separates 
+those items with a specified delimiter character, follow these steps:
+
+1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+or Visual Studio, open your logic app in Logic App Designer. 
+
+   This example uses the Azure portal and a logic app with a 
+   **Recurrence** trigger and an **Initialize variable** action. 
+   This action is set up for creating a variable whose initial 
+   value is an array that has some sample integers. 
+   When you test your logic app later, you can manually 
+   run your app without waiting for the trigger to fire.
+
+   ![Starting sample logic app](./media/logic-apps-change-manage-data-operations/sample-starting-logic-app-join-action.png)
+
+2. In your logic app where you want to create the string from an array, 
+follow one of these steps: 
+
+   * To add an action under the last step, 
+   choose **New step** > **Add an action**.
+
+     ![Add action](./media/logic-apps-change-manage-data-operations/add-join-action.png)
+
+   * To add an action between steps, move your mouse 
+   over the connecting arrow so the plus sign (+) appears. 
+   Choose the plus sign, and then select **Add an action**.
+
+3. In the search box, enter "join" as your filter. 
+From the actions list, select this action: 
+**Data Operations - Join**
+
+   ![Select "Data Operations - Join" action](./media/logic-apps-change-manage-data-operations/select-join-action.png)
+
+4. In the **Join** action, click inside the **From** box. 
+In the dynamic content list that appears, under the action 
+that provides the array output you want, select that output. 
+
+   This example selects the **myIntegerArray** variable 
+   created by the **Initialize variable** action.
+
+   ![Select array output for the "Join" action](./media/logic-apps-change-manage-data-operations/configure-join-action.png)
+
+5. In the **Join with** box, enter the character 
+you want for separating each array item. 
+
+   This example uses a comma as the separator.
+
+   ![Provide the separator character](./media/logic-apps-change-manage-data-operations/finished-join-action.png)
+
+6. Save your logic app. On the designer toolbar, choose **Save**.
+
+For more information about this action in your underlying workflow definition, 
+see [Join action](../logic-apps/logic-apps-workflow-actions-triggers.md#join-action).
+
+### Test your logic app
+
+To check that the **Join** action creates the expected results, 
+send yourself a notification that includes output from the join operation. 
+
+1. In your logic app, add an action that can send you 
+the results from the join operation.
+
+2. In that action, click anywhere you want the results to appear. 
+When the dynamic content list opens, under the **Join** action, 
+select **Output**. 
+
+   This example uses the **Office 365 Outlook - Send an email** action 
+   and includes **Output** fields in the email's body and subject:
+
+   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-action.png)
+
+3. Now, manually run your logic app. 
+On the designer toolbar, choose **Run**. 
+
+   After your logic app finishes running, 
+
+
+   For example, the logic app finishes successfully, 
+
+<a name="select-action"></a>
+
+## Select action
+
+
+
+
+<a name="parse-json-action"></a>
 
 ## Parse JSON action
 

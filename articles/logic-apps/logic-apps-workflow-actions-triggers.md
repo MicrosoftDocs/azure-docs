@@ -1209,22 +1209,23 @@ When you save your logic app, the Logic Apps engine performs some checks on the 
 ## Join action
 
 This action creates a string from all the items in an array 
-and separates those items with the specified delimiter character.
+and separates those items with the specified delimiter character. 
+For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-change-manage-data-operations.md#join-action).
 
 ```json
 "Join": {
    "type": "Join",
    "inputs": {
-      "from": "<array-or-expression>",
+      "from": <array>,
       "joinWith": "<delimiter>"
    },
    "runAfter": {}
 }
 ```
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| <*array-or-expression*> | Yes | Array | The array or expression that provides the array items for creating the string | 
+| Value | Required | Type | Description | 
+| ----- | -------- | ---- | ----------- | 
+| <*array*> | Yes | Array | The array or an expression that provides the array items for creating the string | 
 | <*delimiter*> | Yes | String | The character that separates each item in the string | 
 ||||| 
 
@@ -1246,7 +1247,45 @@ those values, which are separted by a comma: `"1,2,3,4"`
 }
 ```
 
-For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-change-manage-data-operations.md#join-array-items).
+<a name="query-action"></a>
+
+## Query action
+
+This action gets items from an array based on a specified filter or condition. 
+The output from this action is an array with the items 
+from the input array that satisfy the condition.
+For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-change-manage-data-operations.md#filter-array).
+
+```json
+"Filter_array": {
+   "type": "Query",
+   "inputs": {
+      "from": <array>,
+      "where": "<filter-or-condition>"
+   },
+   "runAfter": {}
+}
+```
+
+| Name | Required | Type | Description | 
+| ---- | -------- | ---- | ----------- | 
+| from | Yes | Array | The source array |
+| where | Yes | String | The condition that's applied to each element from the source array. If no values satisfy the `where` condition, the result is an empty array. |
+||||| 
+
+For example, to select numbers greater than two:
+
+```json
+"filterNumbersAction": {
+   "type": "Query",
+   "inputs": {
+      "from": [ 1, 3, 0, 5, 4, 2 ],
+      "where": "@greater(item(), 2)"
+   }
+}
+```
+
+<a name="select-action"></a>
 
 ## Select action
 
@@ -1272,6 +1311,8 @@ This example converts an array of numbers into an array of objects:
 The output from the `select` action is an array that has the same cardinality as the input array. 
 Each element is transformed as defined by the `select` property. 
 If the input is an empty array, the output is also an empty array.
+
+<a name="terminate-action"></a>
 
 ## Terminate action
 
@@ -1302,47 +1343,29 @@ For example, to stop a run that has `Failed` status:
 | runError message | No | String | The run's error message | 
 ||||| 
 
-## Query action
-
-This action lets you filter an array based on a condition. 
-
-> [!NOTE]
-> You can't use the Compose action to construct any output, 
-> including objects, arrays, and any other type natively 
-> supported by logic apps like XML and binary.
-
-For example, to select numbers greater than two:
-
-```json
-"filterNumbersAction": {
-    "type": "Query",
-    "inputs": {
-        "from": [ 1, 3, 0, 5, 4, 2 ],
-        "where": "@greater(item(), 2)"
-    }
-}
-```
-
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- | 
-| from | Yes | Array | The source array |
-| where | Yes | String | The condition that's applied to each element from the source array. If no values satisfy the `where` condition, the result is an empty array. |
-||||| 
-
-The output from the `query` action is an array that 
-has elements from the input array that satisfy the condition.
+<a name="table-action"></a>
 
 ## Table action
 
-This action lets you convert an array into a CSV or HTML table. 
+This action creates a CSV or HTML table from an array.
 
 ```json
-"ConvertToTable": {
-    "type": "Table",
-    "inputs": {
-        "from": "<source-array>",
-        "format": "CSV | HTML"
-    }
+"Create_CSV_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "CSV",
+      "from": "<array-or-expression>"
+   }
+}
+```
+
+```json
+"Create_HTML_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "HTML",
+      "from": "<array-or-expression>"
+   }
 }
 ```
 
@@ -1403,6 +1426,8 @@ Here is the output from this example:
 
 <table><thead><tr><th>Produce ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>
 
+<a name="wait-action"></a>
+
 ## Wait action  
 
 This action suspends workflow execution for the specified interval. 
@@ -1446,6 +1471,8 @@ you can use this example:
 | interval unit | Yes | String | The unit of time. Use only one of these values: "second", "minute", "hour", "day", "week", or "month" | 
 | interval count | Yes | Integer | A positive integer representing the number of interval units used for the wait duration | 
 ||||| 
+
+<a name="workflow-action"></a>
 
 ## Workflow action
 
