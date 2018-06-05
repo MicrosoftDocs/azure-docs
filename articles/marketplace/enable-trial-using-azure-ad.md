@@ -1,7 +1,7 @@
 ---  
-title: Enable Trial using Azure AD
+title: Enable Trial using Azure AD | Azure
 description: Enable Trial listing type using Azure Active Directory (Azure AD) in Azure Marketplace and AppSource for app and service publishers
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
 
 ---  
@@ -52,5 +52,8 @@ Support one of the following options for your single-tenant solution.
 *   Manually set up trials for customers using Contact Me.  
 *   Develop a per-customer test drive.  
 *   Build a multitenant sample demo app with SSO.  
-  
+
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+ 
 ---  
