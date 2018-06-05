@@ -22118,6 +22118,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/role-based-access-control/role-assignments-users.md",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-portal",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/data-factory/how-to-create-event-trigger.md",
             "redirect_url": "/azure/data-factory/concepts-pipeline-execution-triggers",
             "redirect_document_id": false
