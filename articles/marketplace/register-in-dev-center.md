@@ -1,7 +1,7 @@
 ---  
-title: Register in Dev Center
+title: Register in Dev Center | Azure
 description: How to Register in Developer Center (Dev Center).
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
 
 ---  
@@ -99,4 +99,7 @@ If you have issues with Dev Center registration, then follow these steps to subm
 2.  Fill in the details of the issue.  
 3.  To submit the ticket, click on the Submit button. 
 
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+ 
 ---  
