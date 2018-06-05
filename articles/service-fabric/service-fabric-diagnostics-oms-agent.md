@@ -91,7 +91,7 @@ Now that you have added the OMS agent, head on over to the Log Analytics portal 
 
 10. Click on a Container Metric graph to see additional details. You can also query on performance counter data similarly to cluster events and filter on the nodes, perf counter name, and values using the Kusto query language.
 
-![OMS perf counter query](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.png)
+![OMS perf counter query](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
 ## Next steps
 
