@@ -4,15 +4,15 @@
   items:
   - name: About Azure CycleCloud
     href: cyclecloud-overview.md
-- name: CycleCloud Tools and Software
+- name: Azure CycleCloud Tools and Software
   items:
   - name: Prerequisites
     href: cyclecloud-prerequisites.md
   - name: Installation
     href: cyclecloud-installation.md
-  - name: Configure CycleCloud
+  - name: Configure Azure CycleCloud
     href: cyclecloud-configuration.md
-  - name: Install CycleCloud CLI
+  - name: Install Azure CycleCloud CLI
     href: cyclecloud-install-cli.md
   - name: Jetpack
     href: cyclecloud-jetpack.md
@@ -64,6 +64,8 @@
       href: cyclecloud-images.md
     - name: Auto-Scale
       href: cyclecloud-autoscale-api.md
+    - name: Cluster Templates
+      href: cyclecloud-cluster-templates.md
   - name: Projects
     items:
     - name: Cluster-Init Projects
