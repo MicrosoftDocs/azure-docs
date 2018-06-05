@@ -7,7 +7,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 05/29/2018
+ms.date: 06/05/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -36,7 +36,6 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 * The primary key connection string for the IoT Edge device.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
-* [Docker](https://docs.docker.com/engine/installation/) on the same computer that has Visual Studio Code. The Community Edition (CE) is sufficient for this tutorial. 
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd).
 
 ## Bugbash-only Prerequisites
@@ -47,7 +46,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
     ![manual install](media/tutorial-csharp-module/bugbash-install-vsix.png)
 
 * [C# module template package - 2.0.0-rc3](https://github.com/Azure/dotnet-template-azure-iot-edge-module/releases/download/v2.0.0-rc3/Microsoft.Azure.IoT.Edge.Module.2.0.0-rc3.nupkg).
-    In VS Code integrated terminal (select **View** > **Integrated Terminal** to open), enter the followint command to install the **AzureIoTEdgeModule** template in dotnet.
+    In VS Code integrated terminal (select **View** > **Integrated Terminal** to open), enter the following command to install the **aziotedgemodule** template in dotnet.
 
     ```cmd/sh
     dotnet new -i [path to Microsoft.Azure.IoT.Edge.Module.2.0.0-rc3.nupkg]
@@ -227,7 +226,7 @@ The following steps show you how to create an IoT Edge module project based on .
 
 In the previous section you created an IoT Edge solution and added code to the CSharpModule that will filter out messages where the reported machine temperature is below the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry. 
 
-1. Sign in to Docker by entering the following command in the Visual Studio Code integrated terminal: 
+1. Sign in to Docker by entering the following command in the Visual Studio Code integrated terminal, so you can push your module image to the ACR: 
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -254,9 +253,9 @@ In the previous section you created an IoT Edge solution and added code to the C
             "address":"edgeshared.azurecr.io"
         },
         "YourACR": {
-            "username":"EdgeShared",
-            "password":"WPruG6Zt4OBs4hZySY9VQAp2dKEM/pDn",
-            "address":"edgeshared.azurecr.io"
+            "username":"[Username]",
+            "password":"[Password]",
+            "address":"[Login server]"
         }
     ```
 
