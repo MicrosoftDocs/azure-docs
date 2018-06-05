@@ -214,7 +214,7 @@ To facilitate integration, Contoso use the [Azure AD Connect tool](https://docs.
 
     ![AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz2.png) 
 
-4. In *Connect to AD DS**, they specify credentials for their on-premises AD.
+4. In **Connect to AD DS**, they specify credentials for their on-premises AD.
 
      ![AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz3.png) 
 
@@ -590,8 +590,8 @@ AD is a critical service in networking, and must be configured correctly. Contos
 
     ![DC links](./media/contoso-migration-infrastructure/dc-links.png)
 
-
 4. After everything is configured, the Active Directory replication topology is in place.
+    
     ![DC replication](./media/contoso-migration-infrastructure/ad-resolution.png)
 
 5. With everything complete, a list of the domain controllers and sites are shown in the on-premises Active Directory Administrative Center.
