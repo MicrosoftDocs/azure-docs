@@ -1399,20 +1399,29 @@ This action creates a CSV or HTML table from items in an array.
 
 | Property | Value | Type | Description | 
 |----------|-------|------|-------------| 
-| **format** | "CSV" or "HTML" | String | The table format you want | 
-| **from** | <*array*> | Array | The array or outputs from an expression that provide the array items for the table. <p>**Note**: If this property value specifies an empty array, the action's output is an empty table. | 
+| **format** | "CSV" or "HTML" | String | The table format you want to use | 
+| **from** | <*array*> | Array | The array or expression output that provides items for the table. For example, this array includes column names and values: <p>[ {"ID": 0, "Item": "Apples"}, {"ID": 1, "Item": "Oranges"} ] <p>**Note**: If this property value specifies an empty array, the action's output is an empty table. | 
 ||||| 
 
 *Optional*
 
 | Property | Value | Type | Description | 
 |----------|-------|------|-------------| 
-| **columns** | [ <*column-header-and-value-pairs*> ] | Array | An array with the custom column header names and values to use overriding the default table format | 
+| **columns** | [ <*column-header-and-value-pairs*> ] | Array | An array with the custom column header names and values to use overriding the default table format, for example: | 
 | **header** | <*column-header*> | String | The header name for the custom column | 
 | **value** | <*column-value*> | String | The value in the custom column | 
 ||||| 
 
-For example, suppose you have this table action definition:
+*Example*
+
+Suppose you have a trigger that returns this array as output:
+
+```json
+[ {"ID": 0, "Item": "Apples"}, {"ID": 1, "Item": "Oranges"} ]
+```
+
+And you have this table action definition where the `@triggerBody()` 
+expression passes in the previous array from the trigger:
 
 ```json
 "Create_HTML_table": {
@@ -1420,45 +1429,42 @@ For example, suppose you have this table action definition:
    "inputs": {
       "format": "HTML",
       "from": "@triggerBody()"
-   }
+   },
+   "runAfter": {}
 }
 ```
 
-And the `@triggerBody()` expression provides this triggeroutput:
+Here is the action output from this example:
+
+<table><thead><tr><th>ID</th><th>Item</th></tr></thead><tbody><tr><td>0</td><td>Apples</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
+
+To customize this table, you can explicitly define 
+the column header names and values, for example:
 
 ```json
-[ {"ID": 0, "Name": "apples"}, {"ID": 1, "Name": "oranges"} ]
-```
-
-Here is the output from this example:
-
-<table><thead><tr><th>ID</th><th>Name</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>
-
-To customize this table, you can specify the columns explicitly, for example:
-
-```json
-"ConvertToTableAction": {
-    "type": "Table",
-    "inputs": {
-        "format": "HTML",
-        "from": "@triggerBody()",
-        "columns": [ 
-            {
-                "header": "Produce ID",
-                "value": "@item().id"
-            },
-            {
-              "header": "Description",
-              "value": "@concat('fresh ', item().name)"
-            }
-        ]
-    }
+"Create_HTML_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "HTML",
+      "from": "@triggerBody()",
+      "columns": [ 
+         {
+            "header": "Produce ID",
+            "value": "@item().id"
+         },
+         {
+            "header": "Description",
+            "value": "@concat('Organic ', item().name)"
+         }
+      ]
+   },
+   "runAfter": {}
 }
 ```
 
 Here is the output from this example:
 
-<table><thead><tr><th>Produce ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>
+<table><thead><tr><th>Produce ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples</td></tr><tr><td>1</td><td>Organic Oranges</td></tr></tbody></table>
 
 <a name="wait-action"></a>
 

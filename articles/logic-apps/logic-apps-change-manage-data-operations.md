@@ -106,11 +106,13 @@ follow one of these steps:
 From the actions list, select **Data Operations - Create CSV table**.
 
 4. In the **Create CSV table** action, click inside the **From** box. 
-When the dynamic content list opens, select the item to use as the 
-source for the CSV table.
+When the dynamic content list opens, select the source data for the CSV table.
 
-   To manually create columns and column headers from the properties 
-   in the JSON content, choose **Show advanced options**.
+   By default, this action automatically creates the column headers 
+   and values from the selected source data. 
+   To manually override these default column headers and values, 
+   choose **Show advanced options**. 
+
 
 If you switch from the designer to the code view editor, 
 this example shows the way this action appears in your logic app definition. 
@@ -119,30 +121,30 @@ creates columns for each attachment. Each column contains
 the values for each attachment's properties.
 
 ```json
-{
-   "Create_CSV_table": {
-      "type": "Table",
-      "inputs": {
-         "from": "@triggerBody()?['Attachments']",
-         "format": "CSV",
-         "columns": [ {
-            "value": "@item()['ContentBytes']"
-         },
-         {
-            "value": "@item()['ContentId']"
-         },
-         {
-            "value": "@item()['ContentType']"
-         },
-         {
-            "value": "@item()['Name']"
-         },
-         {
-            "value": "@item()['Size']"
-         } ],
-      },
-      "runAfter": {}
-   }
+"Create_CSV_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "CSV",
+      "from": "@triggerBody()?['Attachments']",
+      "columns": [ 
+        {
+           "value": "@item()['ContentBytes']"
+        },
+        {
+           "value": "@item()['ContentId']"
+        },
+        {
+           "value": "@item()['ContentType']"
+        },
+        {
+           "value": "@item()['Name']"
+        },
+        {
+           "value": "@item()['Size']"
+        } 
+     ]
+   },
+   "runAfter": {}
 }
 ```
 
@@ -193,13 +195,13 @@ creates columns for each attachment. Each column contains
 the values for each attachment's properties.
 
 ```json
-{
-   "Create_HTML_table": {
-      "type": "Table",
-      "inputs": {
-         "from": "@triggerBody()?['Attachments']",
-         "format": "HTML",
-         "columns": [ {
+"Create_HTML_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "HTML",
+      "from": "@triggerBody()?['Attachments']",
+      "columns": [ 
+         {
             "value": "@item()['ContentBytes']"
          },
          {
@@ -213,10 +215,10 @@ the values for each attachment's properties.
          },
          {
             "value": "@item()['Size']"
-         } ],
-      },
-      "runAfter": {}
-   }
+         } 
+      ]
+   },
+   "runAfter": {}
 }
 ```
 
