@@ -20,7 +20,7 @@ ms.author: jdial
 ---
 # Check resource usage against limits
 
-In this article, you learn how to see how many of each network resource type you have deployed in your subscription and what the [subscription limits](../azure-subscription-service-limits.md#networking-limits) are. The ability to view usage against quota is helpful to track current usage and plan for future use. You can use the [Azure Portal](#azure-portal), [PowerShell](#powershell), or the [Azure CLI](#azure-cli) to track usage.
+In this article, you learn how to see how many of each network resource type you have deployed in your subscription and what the [subscription limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) are. The ability to view usage against quota is helpful to track current usage and plan for future use. You can use the [Azure Portal](#azure-portal), [PowerShell](#powershell), or the [Azure CLI](#azure-cli) to track usage.
 
 ## Azure Portal
 
@@ -39,7 +39,7 @@ In this article, you learn how to see how many of each network resource type you
 
         ![View usage data](./media/check-usage-against-limits/view-usage.png)
 
-    The limits shown are the limits for your subscription. You can sort the columns by selecting the column heading. If you need to increase your limit, select **Request Increase**, then complete and submit the support request. All resources have a maximum limit, as listed in Azure [limits]((../azure-subscription-service-limits.md#networking-limits)). If your current limit is already at the maximum, it can't be increased.
+    The limits shown are the limits for your subscription. You can sort the columns by selecting the column heading. If you need to increase your limit, select **Request Increase**, then complete and submit the support request. All resources have a maximum limit, as listed in Azure [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). If your current limit is already at the maximum, it can't be increased.
 
 ## PowerShell
 
