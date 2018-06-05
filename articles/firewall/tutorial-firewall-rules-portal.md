@@ -26,9 +26,6 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
-If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. To find the version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Set up the environment
 
@@ -56,11 +53,11 @@ Placeholder
 
 ## Configure application rules
 
-Placeholder
+Placeholder - rule to allow some URLs
 
 ## Configure network rules
 
-Placeholder
+Placeholder - rule to allow DNS out, or perhaps RDP in
 
 ## Test the firewall
 
