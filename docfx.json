@@ -148,8 +148,8 @@
     },
     "fileMetadata": {
       "breadcrumb_path": {
-        "articles/active-directory/managed-service-identity/**/*.md": "/azure/active-directory/managed-service-identity/bread.toc.json",
-        "articles/active-directory/managed-service-identity/**/*.yml": "/azure/active-directory/managed-service-identity/bread.toc.json",
+        "articles/active-directory/managed-service-identity/**/*.md": "/azure/active-directory/managed-service-identity/bread/toc.json",
+        "articles/active-directory/managed-service-identity/**/*.yml": "/azure/active-directory/managed-service-identity/bread/toc.json",
         "articles/**/*.md": "/azure/bread/toc.json",
         "articles/**/*.yml": "/azure/bread/toc.json"
       },
