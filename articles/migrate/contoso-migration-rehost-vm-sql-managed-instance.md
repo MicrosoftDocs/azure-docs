@@ -171,7 +171,7 @@ Contoso sets up the VNet as follows:
 
 **Need more help?**
 
-- [Get an overview][SQL Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) of SQL Managed Instances.
+- [Get an overview]https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) of Azure SQL Managed Instances.
 - [Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances) about creating a VNet for SQL Managed Instance.
 - [Learn about](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering) setting up peering.
 - [Learn about](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns) updating Azure AD DNS settings.
