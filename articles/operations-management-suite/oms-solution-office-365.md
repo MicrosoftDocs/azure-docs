@@ -429,8 +429,6 @@ You can remove the Office 365 management solution using the process in [Remove a
                     $ARMResource ="https://management.azure.com/";break} 
                     }
     
-    
-    
     Function RESTAPI-Auth { 
     
     # Load ADAL Azure AD Authentication Library Assemblies
@@ -439,7 +437,6 @@ You can remove the Office 365 management solution using the process in [Remove a
     $null = [System.Reflection.Assembly]::LoadFrom($adal)
     $null = [System.Reflection.Assembly]::LoadFrom($adalforms)
      
-    
     $global:SubscriptionID = $Subscription.SubscriptionId
     # Set Resource URI to Azure Service Management API
     $resourceAppIdURIARM=$ARMResource;
