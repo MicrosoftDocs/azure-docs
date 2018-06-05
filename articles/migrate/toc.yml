@@ -22,7 +22,7 @@
     items:
     - name: 1. Contoso-Migration overview
       href: contoso-migration-overview.md
-    - name: 2: Contoso-Set up an Azure infrastructure
+    - name: 2. Contoso-Set up an Azure infrastructure
       href: contoso-migration-infrastructure.md
     - name: 3. Contoso-Assess on-premises resources for migration to Azure
       href: migrate-scenarios-assessment.md
