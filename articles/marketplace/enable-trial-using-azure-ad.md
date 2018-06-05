@@ -54,6 +54,7 @@ Support one of the following options for your single-tenant solution.
 *   Build a multitenant sample demo app with SSO.  
 
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
 ---  
+
