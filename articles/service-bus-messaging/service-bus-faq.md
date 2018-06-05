@@ -2,22 +2,17 @@
 title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
 description: Answers some frequently-asked questions about Azure Service Bus.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
 
-ms.assetid: cc75786d-3448-4f79-9fec-eef56c0027ba
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2017
+ms.date: 06/05/2018
 ms.author: sethm
 
 ---
 # Service Bus FAQ
+
 This article discusses some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQs](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information.
 
 ## General questions about Azure Service Bus
@@ -34,9 +29,11 @@ A [Service Bus queue](service-bus-queues-topics-subscriptions.md) is an entity i
 A topic can be visualized as a queue and when using multiple subscriptions, it becomes a richer messaging model; essentially a one-to-many communication tool. This publish/subscribe model (or *pub/sub*) enables an application that sends a message to a topic with multiple subscriptions to have that message received by multiple applications.
 
 ### What is a partitioned entity?
-A conventional queue or topic is handled by a single message broker and stored in one messaging store. A [partitioned queue or topic](service-bus-partitioning.md) is handled by multiple message brokers and stored in multiple messaging stores. This means that the overall throughput of a partitioned queue or topic is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable.
+A conventional queue or topic is handled by a single message broker and stored in one messaging store. Supported only in the Basic and Standard messaging tiers, a [partitioned queue or topic](service-bus-partitioning.md) is handled by multiple message brokers and stored in multiple messaging stores. This means that the overall throughput of a partitioned queue or topic is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable.
 
 Note that ordering is not ensured when using partitioned entities. In the event that a partition is unavailable, you can still send and receive messages from the other partitions.
+
+ Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
 
 ## Best practices
 ### What are some Azure Service Bus best practices?
