@@ -6,6 +6,7 @@ author: ealsur
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
