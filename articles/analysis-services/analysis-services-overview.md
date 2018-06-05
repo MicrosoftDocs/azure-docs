@@ -18,7 +18,7 @@ Azure Analysis Services is a fully managed platform as a service (PaaS) that pro
 
 <center>
 
-![Data sources](./media/analysis-services-overview/aas-overview-data-sources2.png)
+![Data sources](./media/analysis-services-overview/aas-overview-overall.png)
 
 </center>
 
