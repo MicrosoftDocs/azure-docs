@@ -103,6 +103,7 @@ Microsoft provides two distinct storefronts on the marketplace. The storefronts 
 The storefronts enable you to find, try, and buy apps and services that accelerate your digital transformation. The storefronts help you grow your businesses by increasing access to Microsoft customers and partners.  
  
 Each storefront provides specialized options to help you maximize your publishing investment. The following table summarizes these options.  
+
 |  | [AppSource](#appsource) | [Azure Marketplace](#azure-marketplace) |  
 |:--- |:--- |:--- |  
 | Target audience | Line-of-business decision makers<table> <tr> <th>specialist roles </th> </tr> <tr> <td>Accounting</td> </tr> <tr> <td>Procurement</td> </tr> <tr> <td>Manufacturing</td> </tr> </table> | IT pros and developers<table> <tr> <th>specialist roles </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>DBAs</td> </tr> <tr> <td>SecOps</td> </tr> </table> |  
