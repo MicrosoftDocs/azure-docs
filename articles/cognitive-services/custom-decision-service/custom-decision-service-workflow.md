@@ -1,6 +1,6 @@
 ---
 title: Custom Decision Service workflow - Azure Cognitive Services | Microsoft Docs
-description: This article overviews the Azure Custom Decision Service workflow.
+description: This article gives an overview of the Azure Custom Decision Service workflow.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
