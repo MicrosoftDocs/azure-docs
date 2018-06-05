@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: ellacroi
 
 ---  
@@ -49,8 +49,8 @@ You should have a process in place to follow up with your leads.
 
 | storefront | leads |  
 |:--- |:--- |  
-| AppSource | <table> <tr><td>Offer</td></tr> <tr><td>Technology</td></tr> </table>your CRM<br />Microsoft field seller CRM |  
-| Azure Marketplace | Azure Marketplace<br />Microsoft field seller CRM |  
+| AppSource | <table> <tr><td>your CRM</td></tr> <tr><td>Microsoft field seller CRM</td></tr> </table> |  
+| Azure Marketplace | <table> <tr><td>Azure Marketplace</td></tr> <tr><td>Microsoft field seller CRM</td></tr> </table> |  
 
 Your leads in the storefronts on the marketplace are different from Microsoft seller-qualified leads that are a feature of the Co-Sell program.  
 *   For more information about how to access the Co-Sell program, visit the Promote Your Business with Microsoft page located at [promote-your-business-with-microsoft](./promote-your-business-with-microsoft.md).  
