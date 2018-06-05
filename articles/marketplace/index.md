@@ -2,7 +2,7 @@
 title: Azure Marketplace Documentation | Microsoft Docs
 description: Learn about Azure Marketplace.
 services: Azure, marketplace
-author: v-josepm
+author: jm-aditi-ms
 manager: pabutler
 editor:
 
