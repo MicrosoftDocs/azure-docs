@@ -1,6 +1,6 @@
 ﻿---
-title: Azure Billing Consumption API Overview | Microsoft Docs
-description: Learn how Azure Billing Azure Consumption APIs give you programmatic access to cost and usage data for your Azure resources.
+title: Azure Consumption API Overview | Microsoft Docs
+description: Learn how Azure Consumption APIs give you programmatic access to cost and usage data for your Azure resources.
 services: ''
 documentationcenter: ''
 author: Erikre
@@ -24,6 +24,16 @@ ms.author: erikre
 The Azure Consumption APIs give you programmatic access to cost and usage data for your Azure resources. These APIs currently only support Enterprise Enrollments and Web Direct Subscriptions (with a few exceptions). The APIs are continually updated to support other types of Azure subscriptions.
 
 Azure Consumption APIs provide access to:
+- Enterprise and Web Direct Customers 
+    - Usage Details 
+    - Marketplace Charges 
+    - Reservation Recommendations 
+    - Reservation Details 
+    - Reservation Summaries 
+- Enterprise Customers Only 
+    - Price sheet 
+    - Budgets 
+    - Balances 
 
 ## Usage Details API
 
@@ -32,7 +42,7 @@ Use the Usage Details API to get charge and usage data for all Azure 1st party r
 The API includes:
 
 -	**Meter Level Consumption Data** - See data including usage cost, the meter emitting the charge, and what Azure resource the charge pertains to. All usage detail records map to a daily bucket.
--	**Azure Role-based Access Control** - Configure access policies on the Azure portal, the Azure CLI or Azure PowerShell cmdlets to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription. 
+-	**Azure Role-based Access Control** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription. 
 -	**Filtering** - Trim your API result set down to a smaller set of usage detail records using the following filters:
     - Usage end / usage start
     - Resource Group
@@ -58,56 +68,17 @@ The API includes:
 
 For more information, see the [technical specification for the Marketplace Charges API](https://docs.microsoft.com/rest/api/consumption/marketplaces).
 
-## Reservation Details API
+## Balances API
 
-Use the Reservation Details API to see info on previously purchased VM reservations such as how much consumption has been reserved versus how much is actually being used. You can see data at a per VM level detail. 
-
-The API includes:
-
--	**Azure Role-based Access Control** - Configure access policies on the Azure portal, the Azure CLI or Azure PowerShell cmdlets to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription. 
--	**Filtering** - Trim your API result set down to a smaller set of reservations using the following filter:
-    - Date range
--	**Reservation info for different offer types** - Reservation information is currently available for Enterprise and Web Direct customers.
-
-For more information, see the [technical specification for the Reservation Details API](https://docs.microsoft.com/rest/api/consumption/reservationsdetails).
-
-## Reservation Recommendations API
-
-Use this API to get recommendations for purchasing VM reserved instances. Recommendations are designed to allows customers to analyze expected cost savings and purchase amounts. 
+Enterprise customers can use the Balances API to get a monthly summary of information on balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges. You can get this information for the current billing period or any period in the past. Enterprises can use this data to perform a comparison with manually calculated summary charges. This API does not provide resource-specific information and an aggregate view of costs. 
 
 The API includes:
 
 -	**Azure Role-based Access Control** - Configure access policies on the Azure portal, the Azure CLI or Azure PowerShell cmdlets to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription. 
--	**Filtering** - Tailor your recommendation results using the following filters:
-    - Scope
-    - Lookback period
--	**Reservation info for different offer types** - Reservation information is currently available for Enterprise and Web Direct customers.
+-	**Enterprise Customers Only** This API is only available EA customers. 
+    - Customers must have Enterprise Admin permissions to call this API 
 
-For more information, see the [technical specification for the Reservation Recommendations API](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations).
-
-## Reservation Summaries API
-
-Use this API to see aggregate information on previously purchased VM reservations such as how much consumption has been reserved versus how much is actually being used in the aggregate. 
-
-The API includes:
-
--	**Azure Role-based Access Control** - Configure access policies on the Azure portal, the Azure CLI or Azure PowerShell cmdlets to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription. 
--	**Filtering** - Tailor your results when using the daily grain with the following filter:
-    - Usage Date
--	**Reservation info for different offer types** - Reservation information is currently available for Enterprise and Web Direct customers.
--	**Daily or monthly aggregations** – Callers can specify whether they want their reservation summary data in the daily or monthly grain.
-
-For more information, see the [technical specification for the Reservation Summaries API](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations).
-
-## Price Sheet API
-Enterprise customer can use this API to retrieve their custom pricing for all meters. Enterprises can use this in combination with usage details and marketplaces usage info to perform cost calculations using usage and marketplace data. 
-
-The API includes:
-
--	**Azure Role-based Access Control** - Configure access policies on the Azure portal, the Azure CLI or Azure PowerShell cmdlets to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription. 
--	**Enterprise Customers Only** - This API is only available EA customers. Web Direct customers should use the RateCard API to get pricing. 
-
-For more information, see the [technical specification for the Price Sheet API](https://docs.microsoft.com/rest/api/consumption/pricesheet).
+For more information, see the [technical specification for the Balances API](https://docs.microsoft.com/rest/api/consumption/getbalancesbybillingaccount).
 
 ## Budgets API
 
@@ -127,34 +98,69 @@ The API includes:
 
 For more information, see the [technical specification for the Budgets API](https://docs.microsoft.com/rest/api/consumption/budgets).
 
-## Balances API
+## Reservation Recommendations API
 
-Enterprise customers can use the Balances API to get a monthly summary of information on balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges. You can get this information for the current billing period or any period in the past. Enterprises can use this data to perform a comparison with manually calculated summary charges. This API does not provide resource-specific information and an aggregate view of costs. 
+Use this API to get recommendations for purchasing VM reserved instances. Recommendations are designed to allows customers to analyze expected cost savings and purchase amounts. 
 
 The API includes:
 
 -	**Azure Role-based Access Control** - Configure access policies on the Azure portal, the Azure CLI or Azure PowerShell cmdlets to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription. 
--	**Enterprise Customers Only** This API is only available EA customers. 
-    - Customers must have Enterprise Admin permissions to call this API 
+-	**Filtering** - Tailor your recommendation results using the following filters:
+    - Scope
+    - Lookback period
+-	**Reservation info for different offer types** - Reservation information is currently available for Enterprise and Web Direct customers.
 
-For more information, see the [technical specification for the Balances API](https://docs.microsoft.com/rest/api/consumption/getbalancesbybillingaccount).
+For more information, see the [technical specification for the Reservation Recommendations API](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations).
+
+## Reservation Details API
+
+Use the Reservation Details API to see info on previously purchased VM reservations such as how much consumption has been reserved versus how much is actually being used. You can see data at a per VM level detail. 
+
+The API includes:
+
+-	**Azure Role-based Access Control** - Configure access policies on the Azure portal, the Azure CLI or Azure PowerShell cmdlets to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription. 
+-	**Filtering** - Trim your API result set down to a smaller set of reservations using the following filter:
+    - Date range
+-	**Reservation info for different offer types** - Reservation information is currently available for Enterprise and Web Direct customers.
+
+For more information, see the [technical specification for the Reservation Details API](https://docs.microsoft.com/rest/api/consumption/reservationsdetails).
+
+## Reservation Summaries API
+
+Use this API to see aggregate information on previously purchased VM reservations such as how much consumption has been reserved versus how much is actually being used in the aggregate. 
+
+The API includes:
+
+-	**Azure Role-based Access Control** - Configure access policies on the Azure portal, the Azure CLI or Azure PowerShell cmdlets to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription. 
+-	**Filtering** - Tailor your results when using the daily grain with the following filter:
+    - Usage Date
+-	**Reservation info for different offer types** - Reservation information is currently available for Enterprise and Web Direct customers.
+-	**Daily or monthly aggregations** – Callers can specify whether they want their reservation summary data in the daily or monthly grain.
+
+For more information, see the [technical specification for the Reservation Summaries API](https://docs.microsoft.com/rest/api/consumption/reservationssummaries).
+
+## Price Sheet API
+Enterprise customer can use this API to retrieve their custom pricing for all meters. Enterprises can use this in combination with usage details and marketplaces usage info to perform cost calculations using usage and marketplace data. 
+
+The API includes:
+
+-	**Azure Role-based Access Control** - Configure access policies on the Azure portal, the Azure CLI or Azure PowerShell cmdlets to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription. 
+-	**Enterprise Customers Only** - This API is only available EA customers. Web Direct customers should use the RateCard API to get pricing. 
+
+For more information, see the [technical specification for the Price Sheet API](https://docs.microsoft.com/rest/api/consumption/pricesheet).
 
 ## Scenarios
 
 Here are some of the scenarios that are made possible via the consumption APIs:
 
--	**Invoice Reconciliation** - Did Microsoft charge me the right amount?  What is my bill and can I reconcile it to my bill?
+-	**Invoice Reconciliation** - Did Microsoft charge me the right amount?  What is my bill and can I calculate it myself?
 -	**Cross Charges** - Now that I know how much I'm being charged, who in my org needs to pay?
 -	**Cost Optimization** - I know how much I've been charged… how can I get more out of the money I am spending on Azure?
 -	**Cost Tracking** - I want to see how much I am spending and using Azure over time. What are the trends? How could I be doing better?
 -	**Azure spend during the month** - How much is my current month’s spend to date? Do I need to make any adjustments in my spending and/or usage of Azure? When during the month am I consuming Azure the most?
 -	**Set up alerts** - I would like to set up resource-based consumption or monetary-based alerting based on a budget.
 
-## Next steps
 
- Check out the code samples on GitHub:
-    
-- [Consumption API code sample](https://github.com/Azure-Samples/consumption-helloworld-dotnet)
 
 
 
