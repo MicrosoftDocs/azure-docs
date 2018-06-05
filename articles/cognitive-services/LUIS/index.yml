@@ -28,14 +28,14 @@ sections:
 
 - title: Step-by-step tutorials
   items:
-  - type: paragraph
-    text: 'Learn how to use the authoring and endpoint APIs:'
   - type: list
     style: ordered
     items:
-    - html: <a href="luis-quickstart-primary-and-secondary-data">Get data inside an utterance using the simple entity</a>
-    - html: <a href="luis-quickstart-intent-and-list-entity">Get data inside an utterance using the regular expression entity</a>
-    - html: Improve prediction accuracy with <a href="luis-tutorial-pattern">patterns</a> and <a href="luis-tutorial-interchangeable-phrase-list">phrase lists</a>
+    - html: <a href="luis-quickstart-primary-and-secondary-data">Extract message data from an utterance using the simple entity</a>
+    - html: <a href="luis-quickstart-intents-regex-entity">Extract KB article numbers from an utterance using the regular expression entity</a>
+    - html: <a href="luis-quickstart-intent-and-list-entity">Extract drink order information from an utterance using the list entity</a>
+    - html: <a href="luis-tutorial-pattern">Improve intent and entity prediction accuracy with patterns</a>
+    - html: <a href="luis-tutorial-interchangeable-phrase-list">Improve word significance with a phrase list</a>
     - html: <a href="luis-get-started-cs-get-intent">Send an utterance to LUIS and recieve the endpoint prediction response - C#</a>
     - html: <a href="luis-get-started-cs-add-utterance">Add an example utterance to an intent and train the LUIS app - C#</a>
 
