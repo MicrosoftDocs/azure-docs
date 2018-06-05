@@ -73,6 +73,10 @@ You can use the billing and cost management APIs in a variety of scenarios to an
 -	**RateCard**: Web Direct customers can use the [RateCard API](https://msdn.microsoft.com/library/azure/mt219005.aspx) to get their meter rates. They can then use the returned information with their resource usage information to manually calculate expected bill. 
 -	**Unrated Usage**: You can use the [Unrated Usage API](https://msdn.microsoft.com/library/azure/mt219003.aspx) to obtain raw usage information, prior to any metering/charging done by Azure.
 
+### Billing
+-	**Billing Periods**: Use the [Billing Periods API](https://docs.microsoft.com/rest/api/billing/billingperiods) to determine a billing period to analyze, along with the invoice ID’s for that period. Invoice ID’s can be used with the Invoice API below. 
+-	**Invoices**: Use the [Invoices API](https://docs.microsoft.com/rest/api/billing/invoices) to get the download URL for an invoice for a given billing period in PDF form.
+
 ### Enterprise Consumption
 *(All APIs Enterprise ONLY)*
 
@@ -83,6 +87,3 @@ You can use the billing and cost management APIs in a variety of scenarios to an
 -	**Billing Periods**: Use the [Billing Periods API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) to get a list of billing periods along with a property pointing to the API route for the four sets of Enterprise API data that pertain to that billing period - BalanceSummary, UsageDetails, Marketplace Charges, and PriceSheet.
 -	**Reserved Instance Recommendations**: The [Reserved Instance Recommendations API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) looks at Customer's 7 days, 30 days, or 60 days of virtual machine usage and offers Single and Shared Purchase recommendations. The reserved instance API allows customers to analyze expected cost savings and recommended purchase amounts.
 
-### Billing
--	**Billing Periods**: Use the [Billing Periods API](https://docs.microsoft.com/rest/api/billing/billingperiods) to determine a billing period to analyze, along with the invoice ID’s for that period. Invoice ID’s can be used with the Invoice API below. 
--	**Invoices**: Use the [Invoices API](https://docs.microsoft.com/rest/api/billing/invoices) to get the download URL for an invoice for a given billing period in PDF form.
