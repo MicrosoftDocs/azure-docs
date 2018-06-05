@@ -7071,6 +7071,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-bus-messaging/service-bus-architecture.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-messaging-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-bus-messaging/service-bus-automation-manage.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-management-libraries",
             "redirect_document_id": false
@@ -8738,6 +8743,41 @@
         {
             "source_path": "articles/cognitive-services/Computer-vision/index.md",
             "redirect_url": "/azure/cognitive-services/Computer-vision/Home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/CSharp.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/CSharp-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/curl.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/curl-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/Java.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/java-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/JavaScript.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/javascript-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/PHP.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/php-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/Python.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/python-analyze",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/Ruby.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/ruby-analyze",
             "redirect_document_id": false
         },
         {

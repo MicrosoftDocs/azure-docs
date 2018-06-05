@@ -6,6 +6,7 @@ author: vidhoonv
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom:
 ms.devlang: nodejs
 ms.topic: conceptual

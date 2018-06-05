@@ -6,6 +6,7 @@ author: alekseys
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
