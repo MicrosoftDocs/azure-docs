@@ -98,7 +98,7 @@ follow one of these steps:
 
    * To add an action between steps, move your mouse 
    over the connecting arrow so the plus sign (+) appears. 
-   Choose the plus sign, and then choose **Add an action**.
+   Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "filter array" as your filter. 
 From the actions list, select **Data Operations - Filter array**.
@@ -112,35 +112,76 @@ source for the CSV table.
 
 ## Join action
 
-To create a string that includes all the items from an array and separates 
-those items by specifying a delimiter character, follow these steps:
+To create a string that has all the items from an array and separates 
+those items with a specified delimiter character, follow these steps.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
 
-   This example uses the Azure portal and a 
-   logic app that uses a **Recurrence** trigger. 
-   However, you can run this example manually 
-   without waiting for the trigger to fire.
+   This example uses the Azure portal and a logic app with a 
+   **Recurrence** trigger and an **Initialize variable** action. 
+   This action is set up for creating a variable whose initial 
+   value is an array that has some sample integers. 
+   When you test your logic app later, you can manually 
+   run your app without waiting for the trigger to fire.
 
-2. In your logic app where you want to create a string from array items, 
+   ![Starting sample logic app](./media/logic-apps-change-manage-data-operations/sample-starting-logic-app-join-action.png)
+
+2. In your logic app where you want to create the string from an array, 
 follow one of these steps: 
 
    * To add an action under the last step, 
    choose **New step** > **Add an action**.
 
-     ![Add action](./media/logic-apps-change-manage-data-operations/add-action.png)
+     ![Add action](./media/logic-apps-change-manage-data-operations/add-join-action.png)
 
    * To add an action between steps, move your mouse 
    over the connecting arrow so the plus sign (+) appears. 
-   Choose the plus sign, and then choose **Add an action**.
+   Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "join" as your filter. 
-From the actions list, select **Data Operations - Join**.
+From the actions list, select this action: 
+**Data Operations - Join**
 
-4. In the **Filter array** action, click inside the **From** box. 
-When the dynamic content list opens, select the item to use as the 
-source for the CSV table.
+   ![Select "Data Operations - Join" action](./media/logic-apps-change-manage-data-operations/select-join-action.png)
+
+4. In the **Join** action, click inside the **From** box. 
+When the dynamic content list opens, under the action 
+that provides the array output you want, select that output. 
+
+   This example selects the **myIntegerArray** variable 
+   created by the **Initialize variable** action.
+
+   ![Select array output for the "Join" action](./media/logic-apps-change-manage-data-operations/configure-join-action.png)
+
+5. In the **Join with** box, enter the character 
+you want for separating each array item. 
+
+   This example uses a comma as the separator.
+
+   ![Provide the separator character](./media/logic-apps-change-manage-data-operations/finished-join-action.png)
+
+### Test your logic app
+
+To check that the **Join** action creates the expected results, 
+send yourself a notification that has the output from the join operation. 
+
+1. In your logic app, add an action that can send you 
+the results from the join operation.
+
+2. In that action, click anywhere you want the results to appear. 
+When the dynamic content list opens, under the **Join** action, 
+select **Output**. 
+
+   This example uses the **Office 365 Outlook - Send an email** action 
+   and includes **Output** fields in the email's body and subject:
+
+   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-action.png)
+
+3. Now, manually run your logic app.
+
+
+When you're done testing, remove this action.
 
 <a name="select"></a>
 
@@ -169,7 +210,7 @@ follow one of these steps:
 
    * To add an action between steps, move your mouse 
    over the connecting arrow so the plus sign (+) appears. 
-   Choose the plus sign, and then choose **Add an action**.
+   Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "create csv table" as your filter. 
 From the actions list, select **Data Operations - Create CSV table**.
@@ -238,7 +279,7 @@ follow one of these steps:
 
    * To add an action between steps, move your mouse 
    over the connecting arrow so the plus sign (+) appears. 
-   Choose the plus sign, and then choose **Add an action**.
+   Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "create html table" as your filter. 
 From the actions list, select **Data Operations - Create HTML table**.
@@ -306,7 +347,7 @@ follow one of these steps:
 
    * To add an action between steps, move your mouse 
    over the connecting arrow so the plus sign (+) appears. 
-   Choose the plus sign, and then choose **Add an action**.
+   Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "compose" as your filter. 
 From the actions list, select **Data Operations - Compose**.
