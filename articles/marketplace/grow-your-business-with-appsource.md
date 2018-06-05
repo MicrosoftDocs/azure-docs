@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: ellacroi
 
 redirect_from: "./marketplace-grow-your-business-with-appsource.md"  
@@ -156,13 +156,19 @@ https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-87
 >When you prepare the URL, do not include the language code, such as `/en-us/`.  
 
 
-#### [GTM Benefits on the marketplace](./gtm-benefits.md)  
+#### Link to GTM Benefits
+*  Visit the [GTM Benefits on the marketplace](./gtm-benefits.md) page.   
 
-### [Build Your Landing Page](./build-your-landing-page.md)  
+---  
 
-#### [Enable Lead Sharing](./enable-lead-sharing.md)  
+### Link to Landing Page
+*   Visit the [Build Your Landing Page](./build-your-landing-page.md) page.  
 
-#### [Promote Your Business with Microsoft](promote-your-business-with-microsoft.md)  
+#### Link to Enable Lead Sharing  
+*   Visit the [Enable Lead Sharing](./enable-lead-sharing.md) page.  
+
+#### Link to Promote Your Business with Microsoft  
+*   Visit the [Promote Your Business with Microsoft](promote-your-business-with-microsoft.md) page.  
 
 #### Search engine optimization  
 You can influence the ranking of your offer in search engine results. Partner with your marketing team, identify keywords, and make sure to follow the guidance below to help improve your apps search results:
