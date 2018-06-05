@@ -99,6 +99,10 @@ Browse to your app to verify that the content is deployed.
 
 ## Deploy to local Git with VSTS builds
 
+> [!NOTE]
+> For App Service to create the necessary build and release definitions in your VSTS account, your Azure account must have the role of **Owner** in your Azure subscription.
+>
+
 To enable local Git deployment for your app with the Kudu build server, navigate to your app in the [Azure portal](https://portal.azure.com).
 
 In the left navigation of your app page, click **Deployment Center** > **Local Git** > **Continue**. 

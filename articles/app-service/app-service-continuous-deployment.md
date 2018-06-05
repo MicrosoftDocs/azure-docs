@@ -48,9 +48,9 @@ In the **Configure** page, select the organization, repository, and branch from 
 
 ### Option 2: use VSTS continuous delivery
 
-Click **VSTS Continuous Delivery** > **Continue**.
-
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+> [!NOTE]
+> For App Service to create the necessary build and release definitions in your VSTS account, your Azure account must have the role of **Owner** in your Azure subscription.
+>
 
 In the **Configure** page, in the **Code** section, select the organization, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
 
@@ -107,9 +107,9 @@ In the **Configure** page, select the VSTS account, project, repository, and bra
 
 ### Option 2: use VSTS continuous delivery
 
-Click **VSTS Continuous Delivery** > **Continue**.
-
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+> [!NOTE]
+> For App Service to create the necessary build and release definitions in your VSTS account, your Azure account must have the role of **Owner** in your Azure subscription.
+>
 
 In the **Configure** page, in the **Code** section, select the VSTS account, project, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
 
