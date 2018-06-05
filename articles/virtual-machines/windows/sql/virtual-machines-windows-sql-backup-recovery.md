@@ -134,6 +134,7 @@ The following table summarizes the capabilities of each backup and restore optio
 | Long-term backup retention policy (months, years) |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Built-in support for SQL Server Always On |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Backup to Azure Storage account(s) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png)| ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(customer managed) |
+| Management of storage and backup files | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(customer managed)| ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(customer managed) |
 | Backup to attached disks on the VM |   |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Customized backup reports |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Consolidated email alerts for failures |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
