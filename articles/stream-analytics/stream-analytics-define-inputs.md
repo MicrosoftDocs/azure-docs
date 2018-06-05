@@ -77,10 +77,6 @@ Azure Iot Hub is a highly scalable publish-subscribe event ingestor optimized fo
 
 The default timestamp of events coming from an IoT Hub in Stream Analytics is the timestamp that the event arrived in the IoT Hub, which is `EventEnqueuedUtcTime`. To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword.
 
-> [!NOTE]
-> Only messages sent with a `DeviceClient` property can be processed.
-> 
-
 ### Consumer groups
 You should configure each Stream Analytics IoT Hub input to have its own consumer group. When a job contains a self-join or when it has multiple inputs, some input might be read by more than one reader downstream. This situation impacts the number of readers in a single consumer group. To avoid exceeding the Azure IoT Hub limit of five readers per consumer group per partition, it's a best practice to designate a consumer group for each Stream Analytics job.
 
