@@ -1,7 +1,7 @@
 ---
-title: Promote Your Business with Microsoft
+title: Promote Your Business with Microsoft | Azure
 description: Promote your business using Azure Marketplace and AppSource for app and service publishers
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
 
 ---  
