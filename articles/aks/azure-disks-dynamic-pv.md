@@ -35,7 +35,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Persistent volume claims are specified in GiB but Azure managed disks are billed by SKU of a specific size. These SKUs range from 32GiB for S4 or P4 disks to 4TiB for S50 or P50 disks. Furthermore, the throughput and IOPS performance of a Premium managed disk depends on the both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
+> Persistent volume claims are specified in GiB but Azure managed disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 4TiB for S50 or P50 disks. Furthermore, the throughput and IOPS performance of a Premium managed disk depends on the both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
 
 ## Create persistent volume claim
 
@@ -111,7 +111,7 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-[managed-disk-pricing-performance]: https://azure.microsoft.com/en-us/pricing/details/managed-disks/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md 
