@@ -35,7 +35,7 @@ Once your model is built and published, your client application sends utterances
 
 ### Example of JSON endpoint response
 
-The JSONe endpoint response, at a minimum contains the query utterance, and the top scoring intent. 
+The JSON endpoint response, at a minimum contains the query utterance, and the top scoring intent. 
 
 ```JSON
 {
