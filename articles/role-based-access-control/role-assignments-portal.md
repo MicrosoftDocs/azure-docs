@@ -74,7 +74,7 @@ When managing access, you want to know who has access, what are their permission
 
 1. Choose a resource group and then choose **Access control (IAM)**.
 
-   On the Access control (IAM) bladee, you can see who has access to this resource group. Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to the resource group or inherited from an assignment to the parent subscription.
+   On the Access control (IAM) blade, you can see who has access to this resource group. Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to the resource group or inherited from an assignment to the parent subscription.
 
    ![Resource groups](./media/role-assignments-portal/resource-group-access-control.png)
 
@@ -116,7 +116,7 @@ In RBAC, to grant access, you create a role assignment.
 
 1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
 
-1. In the **Select** list, select a user, group, or application. You can search the directory with display names, email addresses, and object identifiers.
+1. In the **Select** list, select a user, group, or application. If you don't see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
 
 1. Choose **Save** to create the role assignment.
 
@@ -140,7 +140,7 @@ In RBAC, to grant access, you create a role assignment.
 
 1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
 
-1. In the **Select** list, select a user, group, or application. You can search the directory with display names, email addresses, and object identifiers.
+1. In the **Select** list, select a user, group, or application. If you don't see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
 
 1. Choose **Save** to create the role assignment.
 
@@ -155,6 +155,8 @@ In RBAC, to remove access, you remove a role assignment.
 1. Open the **Access control (IAM)** blade for the subscription, resource group, or resource that has the role assignment you want to remove.
 
 1. In the list of role assignments, add a checkmark next to the security principal with the role assignment you want to remove.
+
+   ![Remove role assignment message](./media/role-assignments-portal/remove-role-assignment-select.png)
 
 1. Choose **Remove**.
 
