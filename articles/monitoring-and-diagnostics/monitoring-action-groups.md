@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/1/2018
 ms.author: dukek
 
 ---
 # Create and manage action groups in the Azure portal
 ## Overview ##
-This article shows you how to create and manage action groups in the Azure portal.
+An action group is a collection of notification preferences defined by the user. Azure Monitor and Service Health alerts are configured to use a specific action group when the alert is triggered. Various alerts may use the same action group or different action groups depending on the user's requirements.
 
-You can configure a list of actions with action groups. These groups can then be used by each alert you define, ensuring that the same actions are taken each time an alert is triggered.
+This article shows you how to create and manage action groups in the Azure portal.
 
 Each action is made up of the following properties:
 
@@ -73,7 +73,7 @@ For information on how to use Azure Resource Manager templates to configure acti
     - alerts-noreply@mail.windowsazure.com
     
 </dd>
-<dd>You may have up to 50 email actions in an Action Group</dd>
+<dd>You may have up to 1000 email actions in an Action Group</dd>
 <dd>See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article</dd>
 
 <dt>ITSM</dt>

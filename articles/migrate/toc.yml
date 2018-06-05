@@ -10,7 +10,7 @@
     href: tutorial-assessment-vmware.md
 - name: Concepts
   items:
-  - name: Collector Concepts
+  - name: About the collector
     href: concepts-collector.md
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
@@ -18,13 +18,15 @@
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
-  - name: Migrate your on-premises resources to Azure
+  - name: Contoso migration series
     items:
-    - name: Scenario overview - Migrate your on-premises resources to Azure
-      href: migrate-scenarios-overview.md
-    - name: Scenario 1 - Assess on-premises resources for migration to Azure
+    - name: 1. Contoso-Migration overview
+      href: contoso-migration-overview.md
+    - name: 2. Contoso-Set up an Azure infrastructure
+      href: contoso-migration-infrastructure.md
+    - name: 3. Contoso-Assess on-premises resources for migration to Azure
       href: migrate-scenarios-assessment.md
-    - name: Scenario 2- Lift and shift migration to Azure
+    - name: 4. Contoso-Rehost on Azure VMs and Azure SQL Managed Instance 
       href: migrate-scenarios-lift-and-shift.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
