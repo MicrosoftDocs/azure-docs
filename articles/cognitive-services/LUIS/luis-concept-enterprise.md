@@ -7,7 +7,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: v-geberr
 ---
 
