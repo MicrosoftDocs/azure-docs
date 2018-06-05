@@ -54,7 +54,7 @@ Get-AzureRmNetworkUsage `
   | Format-Table ResourceType, CurrentValue, Limit
 ```
 
-You receive output formated the same as the following example output:
+You receive output formatted the same as the following example output:
 
 ```powershell
 ResourceType            CurrentValue Limit
@@ -78,7 +78,7 @@ az network list-usages \
   --out table
 ```
 
-You receive output formated the same as the following example output:
+You receive output formatted the same as the following example output:
 
 ```azurecli
 Name                    CurrentValue Limit
