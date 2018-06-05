@@ -40,7 +40,7 @@ You only need to authorize with GitHub once. If you're already authorized, just 
 
 In the **Build provider** page, choose the build provider and click > **Continue**.
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-continuous-deployment/vsts-build-server.png)
 
 ### Option 1: use App Service Kudu build server
 
@@ -99,7 +99,7 @@ In the left menu, click **Deployment Center** > **VSTS** > **Continue**.
 
 In the **Build provider** page, choose the build provider and click > **Continue**.
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-continuous-deployment/vsts-build-server.png)
 
 ### Option 1: use App Service Kudu build server
 
