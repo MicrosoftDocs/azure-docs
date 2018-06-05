@@ -1,7 +1,7 @@
 ---  
-title: Grow your business with Azure Marketplace
+title: Grow your business with Azure Marketplace | Azure
 description: Step-by-step guide and publishing checklists for new publishers to the Azure Marketplace
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -13,8 +13,10 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
+
+redirect_from: "./grow-your-business-azure-marketplace.md"  
 
 ---  
 
@@ -86,7 +88,8 @@ Whatever the maturity of your offer and the goals of your organization, the the 
 
 As part of being a new publisher in the Azure Marketplace, Microsoft offers you some free Marketplace GTM benefits. You should think critically about how to use these benefits in your campaign strategy. Let our marketing team know your Marketplace campaign goals and your desired audience action. Microsoft may customize these deliverables to work into your plan.
 
-For additional content on campaign building and marketing best practices, visit [Smart Partner Marketing](https://partner.microsoft.com/smart-partner-marketing). It is a program of the Microsoft Partner Network.
+Smart Partner Marketing is a program of the Microsoft Partner Network. 
+*   For additional content on campaign building and marketing practices, visit the Smart Partner Marketing page located at [partner.microsoft.com/smart-partner-marketing](https://partner.microsoft.com/smart-partner-marketing).  
 
 #### [GTM Benefits on the marketplace](./gtm-benefits.md)  
 
@@ -147,5 +150,8 @@ The best practice for the information in these reports is to reconcile it with y
 The Analytics section of Cloud Partner Portal Insights provides a rich dashboard based on Power BI. You are able to use this dashboard to see traffic on the detail page of your offer. New features for this dashboard are rolled out in an ongoing way.  
 
 Also in the Cloud Partner Portal is documentation on Microsoft Campaigns. You may use the Microsoft Campaigns documentation to set up your campaign and track your campaign on the Cloud Partner Portal.  
+
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
 
 ---  
