@@ -245,9 +245,15 @@ In the previous section you created an IoT Edge solution and added code to the C
         }
     ```
 
-4. **Bugbash-only** Add the container repository credentials in the edgeAgent desired properties. You can simply replace the `<password>` placeholder with the password in below json. 
+4. Add the container repository credentials in the edgeAgent desired properties. **Bugbash-only** - The first credential is for the system module. The next credential is for your own ACR. Put **Login server** in to address, **Username** in to username, and **Password** into password.
+
     ```json
         "EdgeShared": {
+            "username":"EdgeShared",
+            "password":"WPruG6Zt4OBs4hZySY9VQAp2dKEM/pDn",
+            "address":"edgeshared.azurecr.io"
+        },
+        "YourACR": {
             "username":"EdgeShared",
             "password":"WPruG6Zt4OBs4hZySY9VQAp2dKEM/pDn",
             "address":"edgeshared.azurecr.io"
@@ -270,11 +276,9 @@ You can see the full container image address with tag in the VS Code integrated 
        > [!NOTE]
        > You can also setup by clicking **Set IoT Hub Connection String**. Enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window. 
 
-2. In Azure IoT Hub Devices explorer, right-click your IoT Edge device, then click **Setup IoT Edge**. Then run command **Azure IoT Edge: Start IoT Edge** in VS Code command palette.
+2. In Azure IoT Hub Devices explorer, right-click your IoT Edge device, then click **Create Deployment for IoT Edge device**. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**.
 
-3. In Azure IoT Hub Devices explorer, right-click your IoT Edge device, then click **Create Deployment for IoT Edge device**. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**.
-
-4. Click the refresh button. You should see the new **CSharpModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
+3. Click the refresh button. You should see the new **CSharpModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
 
 ## View generated data
 
