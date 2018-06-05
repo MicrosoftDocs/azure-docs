@@ -193,7 +193,7 @@
         href: ../desktop-workbench/scenario-image-classification-using-cntk.md
       - name: Deep Learning for Predictive Maintenance 
         href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
-    - name: Reference for preview
+    - name: Reference
       items:
       - name: Python extensions for data preparation
         href: ../desktop-workbench/data-prep-python-extensibility-overview.md
