@@ -45,19 +45,19 @@ The first AAD application provides back-end authentication services using OAuth.
 
 4. Return to the AAD application, select **Settings** > **Required permissions** > **Add** > **Select an API** > **Microsoft Graph** > **Select**.
 
-5. Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
+  Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
 
   ![Create AAD registration](media/aad-integration/read-directory.png)
 
-6. Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Save the updates once done.
+5. Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Save the updates once done.
 
   ![Create AAD registration](media/aad-integration/delegated-permissions.png)
 
-7. Select **Done** and **Grant Permissions** to complete this step. This step will fail if the current account is not a tenant admin.
+6. Select **Done** and **Grant Permissions** to complete this step. This step will fail if the current account is not a tenant admin.
 
   ![Create AAD registration](media/aad-integration/grant-permissions.png)
 
-8. Return to the application and take note of the **Application ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application ID`.
+7. Return to the application and take note of the **Application ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application ID`.
 
   ![Create AAD registration](media/aad-integration/application-id.png)
 
@@ -67,25 +67,25 @@ The second AAD application is used when logging in with the Kubernetes CLI (kube
 
 1. Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-Give the application a name, select **Native** for the application type, and enter any URI formatted value for **Redirect URI**. Save the updates once done.
+  Give the application a name, select **Native** for the application type, and enter any URI formatted value for **Redirect URI**. Save the updates once done.
 
-![Create AAD registration](media/aad-integration/app-registration-client.png)
+  ![Create AAD registration](media/aad-integration/app-registration-client.png)
 
 2. From the AAD application, select **Settings** > **Required permissions** > **Add** > **Select an API** and search for the name of the server application created in the last step of this document.
 
-![Create AAD registration](media/aad-integration/select-api.png)
+  ![Create AAD registration](media/aad-integration/select-api.png)
 
-Place a check mark next to the application and click **Select**.
+3. Place a check mark next to the application and click **Select**.
 
-![Create AAD registration](media/aad-integration/select-server-app.png)
+  ![Create AAD registration](media/aad-integration/select-server-app.png)
 
-Select **Done** and **Grant Permissions** to complete this step.
+4. Select **Done** and **Grant Permissions** to complete this step.
 
-![Create AAD registration](media/aad-integration/grant-permissions-client.png)
+  ![Create AAD registration](media/aad-integration/grant-permissions-client.png)
 
-3. Back on the AD application, take note of the **Application ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Client application ID`.
+5. Back on the AD application, take note of the **Application ID**. When deploying an AAD enabled AKS cluster, this value is referred to as the `Client application ID`.
 
-![Create AAD registration](media/aad-integration/application-id-client.png)
+  ![Create AAD registration](media/aad-integration/application-id-client.png)
 
 ## Get tenant ID
 
