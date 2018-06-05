@@ -40,7 +40,7 @@ To submit a request, run the following PowerShell or CLI commands.
 
 ### PowerShell
 
-To submit a requst:
+To submit a request:
 
 ```powershell
 Register-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
@@ -66,7 +66,7 @@ If the feature is approved and properly registered, you should receive the "Regi
 
 ## Add or remove policies 
 
-You can add, edit, or remove a policy uisng Azure Portal, PowerShell, REST APIs, or client tools in the following langugages: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](	https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+You can add, edit, or remove a policy using Azure portal, PowerShell, REST APIs, or client tools in the following languages: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](	https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### Azure portal
 
@@ -87,7 +87,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 ```
 
 > [!NOTE]
-If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can un-block it by providing exceptions. For more information, see the Exceptions section at [Configure firewalls and virtual networks](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#exceptions).
+If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock it by providing exceptions. For more information, see the Exceptions section at [Configure firewalls and virtual networks](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#exceptions).
 
 ## Policies
 
