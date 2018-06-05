@@ -14,7 +14,7 @@ ms.author: marsma
 
 Log Analytics workspaces provide a centralized location for storing and querying log data from not only Azure resources, but also on premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending data to Log Analytics.
 
-To send container instance data to Log Analytics, you must create a container group by using the Azure CLI (or Cloud Shell) and a YAML file. The following sections describe creating a logging-enabled container group, querying logs, and configuring alerts.
+To send container instance data to Log Analytics, you must create a container group by using the Azure CLI (or Cloud Shell) and a YAML file. The following sections describe creating a logging-enabled container group and querying logs.
 
 ## Prerequisites
 
