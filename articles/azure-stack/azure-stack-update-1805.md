@@ -275,7 +275,7 @@ The following are post-installation known issues for this build version.
 
 
 ## Download the update
-You can download the Azure Stack 1804 update package from [here](https://aka.ms/azurestackupdatedownload).
+You can download the Azure Stack 1805 update package from [here](https://aka.ms/azurestackupdatedownload).
 
 
 ## See also
