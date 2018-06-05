@@ -1216,18 +1216,18 @@ For more information, see [Change or manage data, outputs, and formats](../logic
 "Join": {
    "type": "Join",
    "inputs": {
-      "from": <array>,
+      "from": <array-or-expression>,
       "joinWith": "<delimiter>"
    },
    "runAfter": {}
 }
 ```
 
-| Value | Required | Type | Description | 
-| ----- | -------- | ---- | ----------- | 
-| <*array*> | Yes | Array | The array or an expression that provides the array items for creating the string | 
-| <*delimiter*> | Yes | String | The character that separates each item in the string | 
-||||| 
+| Property | Required | Value | Type | Description | 
+|----------|----------|-------|------|-------------| 
+| **from** | Yes | <*array*> <br>-or- <br>"<*expression*>" | Array | The array or expression that provides the array items for creating the string | 
+| **joinWith** | Yes | <*delimiter*> | Single character string | The character that separates each item in the string | 
+||||||  
 
 For example, suppose you have an array variable 
 named "myIntegerArray" that contains integers, 
@@ -1254,24 +1254,24 @@ those values, which are separted by a comma: `"1,2,3,4"`
 This action gets items from an array based on a specified filter or condition. 
 The output from this action is an array with the items 
 from the input array that satisfy the condition.
-For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-change-manage-data-operations.md#filter-array).
+For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-change-manage-data-operations.md#filter-array-action).
 
 ```json
 "Filter_array": {
    "type": "Query",
    "inputs": {
-      "from": <array>,
+      "from": <array-or-expression>,
       "where": "<filter-or-condition>"
    },
    "runAfter": {}
 }
 ```
 
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- | 
-| from | Yes | Array | The source array |
-| where | Yes | String | The condition that's applied to each element from the source array. If no values satisfy the `where` condition, the result is an empty array. |
-||||| 
+| Property | Required | Value | Type | Description | 
+|----------|----------|-------|------|-------------| 
+| **from** | Yes | <*array*> <br>or <br>"<*expression*>" | Array | The array or expression that provides the array items to filter |
+| **where** | Yes | "<*filter-or-condition*>" | String | The condition that's applied to each element from the source array. If no values satisfy the `where` condition, the result is an empty array. |
+|||||| 
 
 For example, to select numbers greater than two:
 
@@ -1347,53 +1347,87 @@ For example, to stop a run that has `Failed` status:
 
 ## Table action
 
-This action creates a CSV or HTML table from an array.
+This action creates a CSV or HTML table from items in an array.
+
+**Create CSV table**
 
 ```json
 "Create_CSV_table": {
    "type": "Table",
    "inputs": {
       "format": "CSV",
-      "from": "<array-or-expression>"
-   }
+      "from": <array>,
+      "columns": [ 
+         {
+            "header": "<column-header>",
+            "value": "<column-value>"
+         },
+         {
+            "header": "<column-header>",
+            "value": "<column-value>"
+         } 
+      ]
+   },
+   "runAfter": {}
 }
 ```
+
+**Create HTML table**
 
 ```json
 "Create_HTML_table": {
    "type": "Table",
    "inputs": {
       "format": "HTML",
-      "from": "<array-or-expression>"
+      "from": <array>,
+      "columns": [ 
+         {
+            "header": "<column-header>",
+            "value": "<column-value>"
+         },
+         {
+            "header": "<column-header>",
+            "value": "<column-value>"
+         } 
+      ]
+   },
+   "runAfter": {}
+}
+```
+
+*Required* 
+
+| Property | Value | Type | Description | 
+|----------|-------|------|-------------| 
+| **format** | "CSV" or "HTML" | String | The table format you want | 
+| **from** | <*array*> | Array | The array or outputs from an expression that provide the array items for the table. <p>**Note**: If this property value specifies an empty array, the action's output is an empty table. | 
+||||| 
+
+*Optional*
+
+| Property | Value | Type | Description | 
+|----------|-------|------|-------------| 
+| **columns** | [ <*column-header-and-value-pairs*> ] | Array | An array with the custom column header names and values to use overriding the default table format | 
+| **header** | <*column-header*> | String | The header name for the custom column | 
+| **value** | <*column-value*> | String | The value in the custom column | 
+||||| 
+
+For example, suppose you have this table action definition:
+
+```json
+"Create_HTML_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "HTML",
+      "from": "@triggerBody()"
    }
 }
 ```
 
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- | 
-| from | Yes | Array | The source array. If the `from` property value is an empty array, the output is an empty table. | 
-| format | Yes | String | The table format that you want, either "CSV" or "HTML" | 
-| columns | No | Array | The table columns that you want. Use to override the default table shape. | 
-| column header | No | String | The column header | 
-| column value | Yes | String | The column value | 
-||||| 
-
-Suppose you define a table action like this example:
+And the `@triggerBody()` expression provides this triggeroutput:
 
 ```json
-"convertToTableAction": {
-    "type": "Table",
-    "inputs": {
-        "from": "@triggerBody()",
-        "format": "HTML"
-    }
-}
-```
-
-And use this array for `@triggerBody()`:
-
-```json
-[ {"ID": 0, "Name": "apples"},{"ID": 1, "Name": "oranges"} ]
+[ {"ID": 0, "Name": "apples"}, {"ID": 1, "Name": "oranges"} ]
 ```
 
 Here is the output from this example:
@@ -1406,8 +1440,8 @@ To customize this table, you can specify the columns explicitly, for example:
 "ConvertToTableAction": {
     "type": "Table",
     "inputs": {
+        "format": "HTML",
         "from": "@triggerBody()",
-        "format": "html",
         "columns": [ 
             {
                 "header": "Produce ID",

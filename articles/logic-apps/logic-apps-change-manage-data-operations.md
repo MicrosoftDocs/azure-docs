@@ -1,7 +1,7 @@
 ---
 # required metadata
-title: Change or manage data, outputs, and formats - Azure Logic Apps | Microsoft Docs
-description: Convert, transform, or manage data, outputs, and formats in Azure Logic Apps
+title: Change or manage data outputs and formats - Azure Logic Apps | Microsoft Docs
+description: Convert, transform, and manage data outputs and formats in Azure Logic Apps
 services: logic-apps
 author: ecfan
 manager: cfowler
@@ -15,14 +15,16 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Change or manage data, outputs, and formats in Azure Logic Apps
+# Change or manage data outputs and formats in Azure Logic Apps
 
-This article shows how you can work with the outputs and formats for 
-the data that is handled by triggers and actions in your logic apps. 
-Azure Logic Apps provides these data operations as built-in actions 
+This article shows how you can perform various operations on data 
+outputs from the triggers and actions in your logic apps. 
+Azure Logic Apps provides these operations as built-in actions 
 that you can use in your logic apps.
 
 **Array actions** 
+
+These actions help you work with data in arrays.
 
 | Action | Description | 
 |--------|-------------| 
@@ -33,8 +35,7 @@ that you can use in your logic apps.
 
 **JSON actions**
 
-These built-in operations help you handle and manage 
-data using JavaScript Object Notation (JSON). 
+These actions help you manage data that is in JavaScript Object Notation (JSON) format.
 
 | Action | Description | 
 |--------|-------------| 
@@ -47,10 +48,12 @@ To create more complex JSON transformations, see
 
 **Table actions**
 
+These actions help you create tables from various data sources.
+
 | Action | Description | 
 |--------|-------------| 
-| [**Create CSV table**](#create-csv-table-action) | Create a comma-separated value (CSV) table with output from an array or expression. | 
-| [**Create HTML table**](#create-html-table-action) | Create an HTML table with output from an array or expression. | 
+| [**Create CSV table**](#create-csv-table-action) | Create a comma-separated value (CSV) table from an array or output from an expression. | 
+| [**Create HTML table**](#create-html-table-action) | Create an HTML table with output from an array or output from an expression. | 
 ||| 
 
 ## Prerequisites
@@ -78,8 +81,8 @@ as the first step in your logic app
 
 ## Create CSV table action
 
-To create a CSV table that has output from an array or expression, 
-follow these steps.
+To create a CSV table from an array or outputs from an expression, 
+follow these steps:
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -143,12 +146,15 @@ the values for each attachment's properties.
 }
 ```
 
+For more information about this action in your underlying workflow definition, 
+see [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
+
 <a name="create-html-table-action"></a>
 
 ## Create HTML table action
 
-To create an HTML table that has output from an array or expression, 
-follow these steps.
+To create an HTML table from an array or outputs from an expression, 
+follow these steps:
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -213,6 +219,9 @@ the values for each attachment's properties.
    }
 }
 ```
+
+For more information about this action in your underlying workflow definition, 
+see [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
 <a name="compose-action"></a>
 
@@ -367,25 +376,16 @@ On the designer toolbar, choose **Run**.
 ## Select action
 
 
-
-
 <a name="parse-json-action"></a>
 
 ## Parse JSON action
 
-When your logic app needs to work with data in JSON format, 
-For services that work with data and produce output in JSON format, 
-such as Azure Service Bus, Azure Cosmos DB, and others, 
-
-When you want to use elements from JSON content in your logic app, 
-you can create data fields or tokens for those elements. That way, 
-you can select those fields from the dynamic content list while 
-building your logic app. In this action, you can either 
-provide a JSON schema or generate 
-a JSON schema from sample JSON content. 
-
-
-
+To use properties from JSON content in your logic app, 
+you can create fields or tokens for those properties. 
+That way, you can select those fields from the dynamic 
+content list when providing input for your logic app. 
+For this action, you can either provide a JSON schema 
+or generate a JSON schema from your sample JSON content or payload.
 
 
 
