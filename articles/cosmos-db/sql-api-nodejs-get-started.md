@@ -8,6 +8,7 @@ manager: kfile
 editor: monicar
 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/14/2017
