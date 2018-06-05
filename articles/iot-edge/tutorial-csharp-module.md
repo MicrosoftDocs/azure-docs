@@ -40,9 +40,12 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 * [Azure IoT Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 * [Azure IoT Edge extension for Visual Studio Code - 0.5.0-private](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/bugbash-rc/azure-iot-edge-0.5.0-private.vsix).
     You need to manually install the downloaded VSIX package in VS Code and reload the VS Code window.
+
     ![manual install](media/tutorial-csharp-module/bugbash-install-vsix.png)
+
 * [C# module template package - 2.0.0-rc3](https://github.com/Azure/dotnet-template-azure-iot-edge-module/releases/download/v2.0.0-rc3/Microsoft.Azure.IoT.Edge.Module.2.0.0-rc3.nupkg).
     In VS Code integrated terminal (select **View** > **Integrated Terminal** to open), enter the followint command to install the **AzureIoTEdgeModule** template in dotnet.
+    
     ```cmd/sh
     dotnet new -i [path to Microsoft.Azure.IoT.Edge.Module.2.0.0-rc3.nupkg]
     ```
