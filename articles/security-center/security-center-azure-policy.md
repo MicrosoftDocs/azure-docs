@@ -3,7 +3,7 @@ title: Azure Security Center security policies integration with Azure Policy | M
 description: This document helps you to configure Azure Security Center security policies integration with Azure Policy.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
+ms.date: 06/05/2018
+ms.author: terrylan
 ---
 
 # Integrate Security Center security policies with Azure Policy
 This article helps you configure Azure Security Center security policies, which are powered by Azure Policy.
 
 ## How security policies work
-Security Center automatically creates a default security policy for each of your Azure subscriptions. You can edit the policies in Security Center or use [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) to do the following:
+Security Center automatically creates a default security policy for each of your Azure subscriptions. You can edit the policies in Security Center or use [Azure Policy](../azure-policy/azure-policy-introduction.md) to do the following:
 * Create new policy definitions.
 * Assign policies across management groups, which can represent an entire organization or a business unit within the organization.
 * Monitor policy compliance.
 
 > [!NOTE]
-> Azure Policy is in limited preview. To join, go to [Sign up for Azure Policy](https://aka.ms/getpolicy). For more information about Azure Policy, see [Create and manage policies to enforce compliance](http://docs.microsoft.com/azure/azure-policy/create-manage-policy).
+> For more information about Azure Policy, see [Create and manage policies to enforce compliance](../azure-policy/create-manage-policy.md).
 
 ## Edit security policies
 You can edit the default security policy for each of your Azure subscriptions in Security Center. To modify a security policy, you must be an owner, contributor, or security administrator of the subscription or the containing management group. To view your security polices in Security Center, do the following:
@@ -92,3 +92,5 @@ In this article, you learned how to configure security policies in Security Cent
 * [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md): Get answers to frequently asked questions about using the service.
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
+
+To learn more about Azure Policy, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md)
