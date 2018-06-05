@@ -5,7 +5,15 @@
 ### Storefronts  
 #### [Comparing AppSource and Azure Marketplace](./comparing-appsource-and-azure-marketplace.md)  
 #### [Grow your business with AppSource](./grow-your-business-with-appsource.md)  
+##### [Build Your Landing Page](./build-your-landing-page.md)  
+##### [Enable lead sharing](./enable-lead-sharing.md)  
+##### [GTM Benefits on the marketplace](./gtm-benefits.md)  
+##### [Promote Your Business with Microsoft](./promote-your-business-with-microsoft.md)  
 #### [Grow your business with Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
+##### [Build Your Landing Page](./build-your-landing-page.md)  
+##### [Enable lead sharing](./enable-lead-sharing.md)  
+##### [GTM Benefits on the marketplace](./gtm-benefits.md)  
+##### [Promote Your Business with Microsoft](./promote-your-business-with-microsoft.md)  
 ### How to Publish in the storefronts on the marketplace  
 #### [Determine the Listing Type for Your Solution](./determine-your-listing-type.md)  
 #### [Become a Publisher in the storefronts on the marketplace](./become-a-publisher.md)  
@@ -16,9 +24,7 @@
 ## Support  
 ### [Support for AppSource](./support-for-appsource.md)  
 ### [Support for Azure Marketplace](./support-for-azure-marketplace.md)  
-## Checklists  
-### [Publishing Checklist for AppSource](publishing-checklist-for-appsource.md)  
-### [Publishing Checklist for Azure Marketplace on Cloud Partner Portal](./publishing-checklist-for-azure-marketplace.md)  
+
 ## Guidelines and Guides  
 ### [Azure Marketplace Consulting Service](consulting-services.md)  
 ### [Azure Marketplace SaaS app technical publishing guide](marketplace-saas-applications-technical-publishing-guide.md)  
