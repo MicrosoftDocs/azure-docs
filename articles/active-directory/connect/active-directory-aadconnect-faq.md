@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -38,6 +38,20 @@ Yes, this scenario is supported. Refer to [Multiple Domains](active-directory-aa
  
 **Q: Can you have multiple connectors for the same Active Directory domain in Azure AD connect?**</br> 
 No, multiple connectors for the same AD domain is not supported. 
+
+**Q: Can I move the Azure AD Connect database from the local database to a remote SQL Server?**</br> 
+Yes, the following steps will provide general guidance on how to do this.  We are currently working on a more detailed document which will be available soon.
+
+
+   1. Backup the LocalDB “ADSync” Database
+The simplest way to do this is to use SQL Server Management Studio installed on the same machine as Azure AD Connect. Connect to “(localdb)\.\ADSync” – then Backup the ADSync database
+   2. Restore the “ADSync” Database to your Remote SQL Instance
+   3. Install Azure AD Connect against the existing [remote SQL database](active-directory-aadconnect-existing-database.md)
+   The link shows the steps required when migrating to using a Local SQL Database. If you are migrating to using a Remote SQL Database then in Step 5 of this process you will also need to enter an existing service account that the Windows Sync Service will run as. This sync engine service account is described here:</br></br>
+   **Use an existing service account**- By default Azure AD Connect uses a virtual service account for the synchronization services to use. If you use a remote SQL server or use a proxy that requires authentication, you need to use a managed service account or use a service account in the domain and know the password. In those cases, enter the account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account).</br></br> 
+   With the latest build, provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights. For more information see [Install Azure AD Connect using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md).
+
+To keep things simple it is recommended that the user installing Azure AD Connect is an SA in SQL. (However with recent builds you can now use delegated SQL admin as described [here](active-directory-aadconnect-sql-delegation.md).
 
 ## Network
 **Q: I have a firewall, network device, or something else that limits the maximum time connections can stay open on my network. How long should my client-side timeout threshold be when using Azure AD Connect?**  
