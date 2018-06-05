@@ -1,6 +1,6 @@
 ---
-title: Reviewing Security Center policy compliance with Azure REST API | Microsoft Docs
-description: Learn how to use Azure REST APIs to review current compliance with Security Center policies.
+title: Create a Linux virtual machine with the Azure REST API | Microsoft Docs
+description: Learn how to create a Linux virtual machine in Azure that uses Managed Disks and SSH authentication with Azure REST APIs.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: iainfou
 
 ---
@@ -37,10 +37,10 @@ To create the *PUT* request, the `{subscription-id}` parameter is required. If y
 
 The following headers are required:
 
-|Request header|Description|
-|--------------------|-----------------|
-|*Content-Type:*|Required. Set to `application/json`.|
-|*Authorization:*|Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| Request header   | Description |
+|------------------|-----------------|
+| *Content-Type:*  | Required. Set to `application/json`. |
+| *Authorization:* | Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 For more information about how to create the request, see [Components of a REST API request/response](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -125,13 +125,11 @@ There are two successful responses for the operation to create or update a virtu
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Created | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Created     |
 
-The *200 OK* response is returned when the request has been accepted by the Azure platform. The *201 Created* response is returned when the virtual machine has been created or updated.
-
 For more information about REST API responses, see [Process the response message](/rest/api/azure/#process-the-response-message).
 
 ### Example response
 
-A condensed *200 OK* response shows the *vmId* assigned to the virtual machine and shows the *provisioningState* of *Creating*:
+A condensed *201 Created* response from the previous example request body that creates a VM shows a *vmId* has been assigned and the *provisioningState* is *Creating*:
 
 ```json
 {
