@@ -14,7 +14,7 @@ ms.author: v-geberr
 # What is Language Understanding (LUIS)?
 Language Understanding (LUIS) is a cloud-based service that applies custom machine-learning to a user's conversational, natural language text to predict overall meaning and pull out relevant, detailed information. 
 
-A client application for LUIS can be any conversational application that communicates with a user in natural language to complete a task. Examples of client applications include social media apps, chatbots, a speech-enabled desktop applications.  
+A client application for LUIS can be any conversational application that communicates with a user in natural language to complete a task. Examples of client applications include social media apps, chatbots, and speech-enabled desktop applications.  
 
 ![Conceptual image of 3 applications feeding information info LUIS](./media/luis-overview/luis-entry-point.png)
 
