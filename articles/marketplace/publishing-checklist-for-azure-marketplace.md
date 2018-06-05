@@ -39,6 +39,6 @@ The following artifacts are required to complete the Create Offer publishing wor
 | Transact | SaaS app | <table> <tr><th>Storefronts</th></tr> <tr><td>Title (50 characters)</td></tr> <tr><td>Summary (200 characters)</td></tr> <tr><td>Long summary (256 characters)</td></tr> <tr><td>HTML-based description (3,000 characters)</td></tr> <tr><td>Company logos (40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> |  
 
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
 ---  
