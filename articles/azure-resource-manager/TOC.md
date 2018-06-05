@@ -48,6 +48,7 @@
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
 ### [Programmatically create EA subscriptions](programmatically-create-subscription.md)
+### [Programmatically manage EA subscriptions](programmatically-manage-subscription.md)
 ### [Create management groups](management-groups-create.md)
 ### [Manage your management groups](management-groups-manage.md)
 
