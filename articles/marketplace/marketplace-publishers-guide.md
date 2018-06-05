@@ -1,7 +1,7 @@
 ---  
-title: Azure Marketplace and AppSource publisher guide
+title: Azure Marketplace and AppSource publisher guide | Azure
 description: Overview of what Azure Marketplace and AppSource are for app and service publishers
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
 
 ---  
@@ -117,8 +117,8 @@ Each storefront provides specialized options to help you maximize your publishin
 
 ### [Grow your business with AppSource](./grow-your-business-with-appsource.md)  
 
-
 ### [Grow your business with Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
+
 ---   
 
 ## How to Publish in the storefronts on the marketplace  
@@ -131,7 +131,7 @@ Become a publisher in the storefronts on the marketplace in three easy steps.
 
 ---   
 
-## Resources  
+## Publishing Checklists  
 
 ### [Publishing Checklist for AppSource](publishing-checklist-for-appsource.md)  
 
@@ -139,6 +139,26 @@ Become a publisher in the storefronts on the marketplace in three easy steps.
 
 ### [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md)  
 
+## Support  
+
+### [Support for AppSource](./support-for-appsource.md)  
+
 ### [Support for Azure Marketplace](./support-for-azure-marketplace.md)  
+
+## Guidelines and Guides  
+
+### [Azure Marketplace Consulting Service](consulting-services.md)  
+
+### [Azure Marketplace SaaS app technical publishing guide](marketplace-saas-applications-technical-publishing-guide.md)  
+
+### [Guidelines](./guidelines.md)  
+
+### [Register in Dev Center](./register-in-dev-center.md)  
+
+### [Add Bank and Tax Information](./add-bank-and-tax-info.md)  
+
+### [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md)  
+
+### [Billing Options for Azure Marketplace](./billing-options-for-azure-marketplace.md)  
 
 ---  
