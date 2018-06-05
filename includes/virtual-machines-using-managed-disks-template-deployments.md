@@ -215,6 +215,29 @@ To create managed availability sets with VMs using managed disks, add the `sku` 
 }
 ```
 
+### Standard SSD disks
+
+Below are the parameters needed in the Resource Manager template to create Standard SSD Disks:
+
+* *apiVersion* for Microsoft.Compute must be set as `2018-04-01` (or later)
+* Specify *managedDisk.storageAccountType* as `StandardSSD_LRS`
+
+The following example shows the *properties.storageProfile.osDisk* section for a VM that uses Standard SSD Disks:
+
+```json
+"osDisk": {
+    "osType": "Windows",
+    "name": "myOsDisk",
+    "caching": "ReadWrite",
+    "createOption": "FromImage",
+    "managedDisk": {
+        "storageAccountType": "StandardSSD_LRS"
+    }
+}
+```
+
+For a complete template example of how to create a Standard SSD disk with a template, see [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.coma/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+
 ### Additional scenarios and customizations
 
 To find full information on the REST API specifications, please review the [create a managed disk REST API documentation](/rest/api/manageddisks/disks/disks-create-or-update). You will find additional scenarios, as well as default and acceptable values that can be submitted to the API through template deployments. 
