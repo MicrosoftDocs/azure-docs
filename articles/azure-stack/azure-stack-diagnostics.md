@@ -181,7 +181,7 @@ To learn more about the ERCS_AzureStackLogs.ps1 PowerShell script, you can watch
 * The command takes some time to run based on which role(s) the logs are collecting. Contributing factors also include the time duration specified for log collection, and the numbers of nodes in the Azure Stack environment.
 * As log collection runs, check the new folder created in the **OutputSharePath** parameter specified in the command.
 * Each role has its logs inside individual zip files. Depending on the size of the collected logs, a role may have its logs split in to multiple zip files. For such a role, if you want to have all the log files unzipped in to a single folder, use a tool that can  unzip in bulk (such as 7zip). Select all the zipped files for the role, and select **extract here**. This unzips all the log files for that role in a single merged folder.
-* A file called **Get-AzureStackLog_Output.log** is also created in the folder that contains the zipped log files. This file is a log of the command output, which can be used for troubleshooting problems during log collection.
+* A file called **Get-AzureStackLog_Output.log** is also created in the folder that contains the zipped log files. This file is a log of the command output, which can be used for troubleshooting problems during log collection. Sometimes the log file includes `PS>TerminatingError` entries which can be safely ignored, unless expected log files are missing after log collection runs.
 * To investigate a specific failure, logs may be needed from more than one component.
     -	System and Event logs for all infrastructure VMs are collected in the *VirtualMachines* role.
     -	System and Event logs for all hosts are collected in the *BareMetal* role.

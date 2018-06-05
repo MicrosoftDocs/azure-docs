@@ -32,7 +32,7 @@ In addition to intents that you define, you can use prebuilt intents from one of
 You assign an utterance to a single intent. When LUIS receives an utterance on the endpoint, it returns the one top intent for that utterance. If you want all intents, you can provide `verbose=true` flag on the query string of the API [endpoint call](https://aka.ms/v1-endpoint-api-docs). 
 
 ## Intent compared to entity
-The intent represents action the chat bot should take for the user and is based on the entire utterance. The entity represents words or phrases contained inside the utterance. An utterance can have only one top scoring intent but it can have many entities. 
+The intent represents action the chatbot should take for the user and is based on the entire utterance. The entity represents words or phrases contained inside the utterance. An utterance can have only one top scoring intent but it can have many entities. 
 
 <a name="how-do-intents-relate-to-entities"></a>
 Create an intent when this intent would trigger an action in your client application, like a call to the checkweather() function, and create an entity to represent parameters required to execute the action. 
@@ -81,7 +81,7 @@ Intents that are too similar can make it more difficult for LUIS to distinguish 
 ### Dispatcher model
 Learn more about combining LUIS and QnA maker apps with the [dispatch model](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps). 
 <!-- 
-If you cannot use fewer intents, divide your intents into multiple LUIS apps using the dispatcher model. This approach allows you to have different domains in separate apps controlled by a parent domain. The parent domain the general domain of each child. The chat bot receives this first intent, then sends a second prediction request to the correct child app. 
+If you cannot use fewer intents, divide your intents into multiple LUIS apps using the dispatcher model. This approach allows you to have different domains in separate apps controlled by a parent domain. The parent domain the general domain of each child. The chatbot receives this first intent, then sends a second prediction request to the correct child app. 
 
 For example, let's say you're developing an office assistant that has over 500 intents. If 100 intents relate to scheduling meetings, 100 are about reminders, 100 are about getting information about colleagues, and 100 are for sending email, you can group intents so that each group is in a single app, then create a top-level group with each intent. Base the utterance to LUIS twice, first to the top-level app, then based on the results, to the group-level app. -->
  
