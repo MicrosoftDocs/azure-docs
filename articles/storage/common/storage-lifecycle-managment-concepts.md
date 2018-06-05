@@ -14,14 +14,14 @@ ms.author: yzheng
 
 # Managing the Azure Blob Storage Lifecycle (Preview)
 
-Data has unique lifecycles. Some data is accessed often early in the lifecycle, but the need for retrieval drops drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored. Some data expires days or months after creation while other sets of data are actively read and modified throughout its lifetime. Azure Blob Storage lifecycle management (Preview) offers rule-based automation to transition your data to the best access tier and expire data at the end of its lifecycle.
+Data sets have unique lifecycles. Some data is accessed often early in the lifecycle, but the need for access drops drastically as the data ages. Some data remain idle in the cloud and is rarely accessed once stored. Some data expire days or months after creation while other data sets are actively read and modified throughout their lifetimes. Azure Blob Storage lifecycle management (Preview) offers a rich, rule-based policy which you can use to transition your data to the best access tier and to expire data at the end of its lifecycle.
 
 Lifecycle management policy helps you:
 
-- Transition blobs to a cooler storage tier ([Hot to Cool, Hot to Archive, or Cool to Archive](../blobs/storage-blob-storage-tiers.md) to optimize for performance and cost
-- Delete blobs at the end of its lifecycle
-- Define rules at the storage account level (supports both GPV2 and Blob storage accounts)
-- Apply rules to all or a subset of blobs (using the blob name prefixes as filters)
+- Transition blobs to a cooler storage tier (Hot to Cool, Hot to Archive, or Cool to Archive) to optimize for performance and cost
+- Delete blobs at the end of their lifecycles
+- Define rules to be executed once a day at the storage account level (it supports both GPv2 and Blob storage accounts)
+- Apply rules to containers or a subset of blobs (using prefixes as filters)
 
 Consider a set of data that is accessed frequently during the early stage of the lifecycle, is needed only occasionally after two weeks, and is rarely accessed after a month and beyond. In this scenario, hot storage is best during the early stages, cool storage is most appropriate for occasional access, and archive storage is the best tier option after the data ages over a month. By adjusting storage tiers in respect to the age of data, you can design the least expensive storage options for your needs. To achieve this transition, lifecycle management policies are available to move aging data to cooler tiers.
 
@@ -31,7 +31,63 @@ Lifecycle management policy is available with both General Purpose v2 (GPv2) acc
 
 ## Pricing 
 
-During preview, lifecycle management is free. Customers are charged the regular transaction fee on listing and updating blob access tier.
+Lifecycle management feature is free of charge in preview. Customers are charged the regular operation cost for the [List Blobs](https://docs.microsoft.com/en-us/rest/api/storageservices/list-blobs) and [Set Blob Tier](https://docs.microsoft.com/en-us/rest/api/storageservices/set-blob-tier) API calls. See [Block Blob pricing](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) to learn more about pricing.
+
+## Register for preview 
+To enroll in public preview, you will need to submit a request to register this feature to your subscription. After your request is approved (within a few days), any existing and new GPv2 or Blob Storage account in West US 2 and West Central US will have the feature enabled. During preview, only block blob is supported. As with most previews, this feature should not be used for production workloads until it reaches GA.
+
+To submit a request, run the following PowerShell or CLI commands.
+
+### PowerShell
+
+To submit a requst:
+
+```powershell
+Register-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
+```
+You can check the registration approval status with the following command:
+```powershell
+Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
+```
+If the feature is approved and properly registered, you should receive the "Registered" state.
+
+### CLI 2.0
+
+To submit a request: 
+```cli
+az feature register –-namespace Microsoft.Storage –-name DLM
+```
+You can check the registration approval status with the following command:
+```cli
+-az feature show –-namespace Microsoft.Storage –-name DLM
+```
+If the feature is approved and properly registered, you should receive the "Registered" state. 
+
+
+## Add or remove policies 
+
+You can add, edit, or remove a policy uisng Azure Portal, PowerShell, REST APIs, or client tools in the following langugages: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](	https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+
+### Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. To navigate to your storage account, select All Resources, then select your storage account.
+
+3. In the Settings blade, click **Lifecycle Management** grouped under Blob Service to view and/or change policies.
+
+### PowerShell
+
+```powershell
+$rules = '{ ... }' 
+
+Set-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
+
+Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
+```
+
+> [!NOTE]
+If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can un-block it by providing exceptions. For more information, see the Exceptions section at [Configure firewalls and virtual networks](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#exceptions).
 
 ## Policies
 
@@ -39,16 +95,16 @@ A lifecycle management policy is a collection of rules in a JSON document:
 
 ```json
 {
-  "version": 0.5,
+  "version": "0.5",
   "rules": [
     {
       "name": "rule1",
-      "type": "lifecycle",
+      "type": "Lifecycle",
       "definition": {...}
     },
     {
       "name": "rule2",
-      "type": "lifecycle",
+      "type": "Lifecycle",
       "definition": {...}
     }
   ]
@@ -60,8 +116,8 @@ Within a policy, two parameters are required:
 
 | Parameter name | Parameter type | Notes |
 |----------------|----------------|-------|
-| version        | A number expressed as `x.x` | The preview version number is 0.5 |
-| rules          | An array of rule objects | At least one rule is required in each policy. During preview, you can specify up to 4 rules per policy. |
+| version        | A string expressed as `x.x` | The preview version number is 0.5 |
+| rules          | An array of rule objects | At least one rule is required in each policy. During preview, you can specify up to 10 rules per policy. |
 
 Parameters required within a rule are:
 
@@ -82,7 +138,7 @@ Each rule definition includes a filter set and an action set. The following samp
 
 ```json
 {
-  "version": 0.5,
+  "version": "0.5",
   "rules": [ 
     {
       "name": "ruleFoo", 
@@ -90,7 +146,7 @@ Each rule definition includes a filter set and an action set. The following samp
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
-          "nameMatch": [ "foo" ]
+          "prefixMatch": [ "foo" ]
         },
         "actions": {
           "baseBlob": {
@@ -148,7 +204,7 @@ The following example demonstrates how to transition block blobs prefixed with `
 
 ```json
 {
-  "version": 0.5,
+  "version": "0.5",
   "rules": [ 
     {
       "name": "agingRule", 
@@ -177,7 +233,7 @@ Some data remains idle in the cloud and is rarely, if ever, accessed once stored
 
 ```json
 {
-  "version": 0.5,
+  "version": "0.5",
   "rules": [ 
     {
       "name": "archiveRule", 
@@ -206,7 +262,7 @@ Some data is expected to expire days or months after creation to reduce costs or
 
 ```json
 {
-  "version": 0.5,
+  "version": "0.5",
   "rules": [ 
     {
       "name": "expirationRule", 
@@ -233,7 +289,7 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 
 ```json
 {
-  "version": 0.5,
+  "version": "0.5",
   "rules": [ 
     {
       "name": "snapshotRule", 
