@@ -70,6 +70,6 @@ Microsoft recommends a workaround. Follow these steps to create a new email addr
 1.  The forwarding rule sends all email and communications received in the Outlook email account to the email address in a domain registered to your company. Your `outlook.com` email address must be used to authenticate in both Dev Center and Cloud Partner Portal.  
 
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
 ---  
