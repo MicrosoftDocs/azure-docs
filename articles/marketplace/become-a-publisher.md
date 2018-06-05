@@ -47,7 +47,7 @@ If your organization has an existing membership, then you may join your organiza
 Your Microsoft ID enables you to access Cloud Partner Portal. The email address must be registered as a Microsoft ID and is used for both Cloud Partner Portal and Dev Center. The selected email address should preferably be in your corporate domain and controlled by your IT team.  
 *   For more information about registering in Dev Center, visit the [Register in Dev Center](#register-in-dev-center) section.  
 *   For more information about signing into Cloud Partner Portal, visit the [Sign into Cloud Partner Portal](#sign-into-cloud-partner-portal) section.  
-*   To review the guidelines for creating a Microsoft ID, visit the [Guidelines for creating a Microsoft ID to manage an Azure Marketplace account](./guideline.md#guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account) section.  
+*   To review the guidelines for creating a Microsoft ID, visit the [Guidelines for creating a Microsoft ID to manage an Azure Marketplace account](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account) section.  
 
 ---  
 
@@ -101,6 +101,9 @@ After your Nomination is approved and you have registered in both the MPN and De
 *   To access Dev Center, visit the Windows Dev Center page located at [dev.windows.com](https://dev.windows.com).  
 *   To access the Microsoft Cloud Partner Portal, visit the Cloud Partner Portal page located at [cloudpartner.azure.com](https://cloudpartner.azure.com).  
 *   For more information about using Cloud Partner Portal, visit the Learn section located at [cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn).  
-*   For documentation about Cloud Partner Portal, visit the Documentation section located at [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).
+*   For documentation about Cloud Partner Portal, visit the Documentation section located at [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).  
 
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
+ 
 ---  
