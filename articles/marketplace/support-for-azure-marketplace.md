@@ -1,7 +1,7 @@
 ---
-title: Support for Azure Marketplace and Cloud Partner Portal
-description: Support information and links for Azure Marketplace and Cloud Partner Portal.
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: Support for Azure Marketplace | Azure
+description: Support information and links for Azure Marketplace.
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
 
 ---  
@@ -57,4 +57,7 @@ The support options for Azure Marketplace.
 | Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Support for GTM benefits and program questions. | Business hours are in the Pacific time zone. |  
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |  
 
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+ 
 ---  
