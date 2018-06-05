@@ -60,8 +60,8 @@ Article 7: Refactor (lift-and-shift) to Azure VMs and Azure MySQL Server | Demon
 
 The articles use two demo apps - SmartHotel, and osTicket.
 
-    - SmartHotel360: This app was developed by Microsoft as a test app that you can use when working with Azure. It's provided as open source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360). It's an ASP.NET app connected to a SQL Server database. Currently the app is on two VMware VMs running Windows Server 2008 R2, and SQL Server 2008 R2. The app VMs are hosted on-premises and managed by vCenter Server.
-    - osTicket is an open-source service desk ticketing app that runs on Linux. You can download it from [GitHub](https://github.com/osTicket/osTicket). Current the app is on two VMware VMs running Ubuntu 16.04LTS, using Apache 2, PHP 7.0, and MySQL 5.7
+- SmartHotel360: This app was developed by Microsoft as a test app that you can use when working with Azure. It's provided as open source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360). It's an ASP.NET app connected to a SQL Server database. Currently the app is on two VMware VMs running Windows Server 2008 R2, and SQL Server 2008 R2. The app VMs are hosted on-premises and managed by vCenter Server.
+- osTicket is an open-source service desk ticketing app that runs on Linux. You can download it from [GitHub](https://github.com/osTicket/osTicket). Current the app is on two VMware VMs running Ubuntu 16.04LTS, using Apache 2, PHP 7.0, and MySQL 5.7
     
 
 ## Next steps
