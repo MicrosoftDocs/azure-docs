@@ -37,13 +37,15 @@ If you have several LUIS and QnA maker apps that need to respond to a bot, use t
 ## Dispatch tool and model
 Use the [Dispatch][dispatch-tool] command-line tool, found in [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) to combine multiple LUIS and/or QnA Maker apps into a parent LUIS app. This approach allows you to have a parent domain including all subjects and different child subject domains in separate apps. 
 
+![Conceptual image of dispatch architecture](./media/luis-concept-enterprise/dispatch-architecure.png)
+
 The parent domain is noted in LUIS as a **V Dispatch** app. 
 
 ![Screenshot of LUIS apps list with LUIS app created by dispatch tool](./media/luis-concept-enterprise/dispatch.png)
 
 The chatbot receives the utterance, then sends to the parent LUIS app for prediction. The top predicted intent from the parent app determines which child LUIS app is called next. The chatbot sends the utterance to the child app for a more specific prediction.
 
-Understand how this cascade of calls works from the Bot Builder v4 [dispatcher-application-tutorial](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csaddref%2Ccsbotconfig).  
+Understand how this hierarchy of calls is made from the Bot Builder v4 [dispatcher-application-tutorial](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csaddref%2Ccsbotconfig).  
 
 ## Next steps
 
