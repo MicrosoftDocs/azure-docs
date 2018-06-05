@@ -67,8 +67,6 @@ The IT Leadership team has worked closely with their business partners to unders
 - **Increase efficiency**: Contoso needs to remove unnecessary procedures, and streamline processes for their developers and users.  The business needs IT to be fast and not waste time or money, thus delivering faster on customer requirements.
 - **Increase agility**:  Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes in the marketplace, to enable the success in a global economy.  It mustn't get in the way, or become a business blocker.
 - **Scale**: As the business grows successfully, Contoso IT must provide systems that are able to grow at the same pace.
-- 
-- 
 
 ## Assessment goals
 
@@ -191,6 +189,7 @@ Now Contoso can run an assessment to analyze their on-premises SQL Server for th
 Results are displayed as soon as they're available. If they fix issues they need to click **Restart Assessment** to rerun the assessment.
 
 1. In the **Compatibility Issues** report, they check for any issues at each compatibility level. Compatibility levels map to SQL Server versions as follows:
+
     - 100: SQL Server 2008/Azure SQL Database
     - 110: SQL Server 2012/Azure SQL Database
     - 120: SQL Server 2014/Azure SQL Database
@@ -362,7 +361,7 @@ After collection completes, Contoso checks that the VMs appear in the portal.
 
 
 
-## Step 6: Prepare for dependency analysis
+## Step 5: Prepare for dependency analysis
 
 To view dependencies between VMs that Contoso want to access, they download and install agents on the app VMs. Contoso does this on all VMs for their apps, both Windows and Linux.
 
@@ -460,7 +459,7 @@ Contoso can now verify machine dependencies and create a group. Then, they run t
     - Dependent machines with the Azure Migrate agents installed are shown as separate boxes
     - Machines without the agents installed show port and IP address information.
 
- 3. For machines with the agent installed (WEBVM), they click on the machine box to view more information, including the FQDN, operating system, and MAC address.
+3. For machines with the agent installed (WEBVM), they click on the machine box to view more information, including the FQDN, operating system, and MAC address.
 
     ![View group dependencies](./media/contoso-migration-assessment/sqlvm-dependencies.png)
 
@@ -537,7 +536,7 @@ This view shows the total compute and storage cost of running the VMs in Azure, 
 - Estimated monthly costs for compute and storage are aggregated for all VMs in the group.
 
 
-Step 7: Clean up after assessment
+## Clean up after assessment
 
 - After the assessment finishes, Contoso retains the Azure Migration appliance for future evaluations.
 - They turn off the VM VMware. They'll start it again when they evaluate additional VMs.
