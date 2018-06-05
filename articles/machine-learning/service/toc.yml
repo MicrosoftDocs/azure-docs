@@ -7,6 +7,8 @@
     href: overview-what-is-azure-ml.md
   - name: Choose an machine learning solution
     href: overview-more-machine-learning.md    
+  - name: What happened to Workbench?
+    href: what-happened-to-workbench.md
 - name: Quickstarts
   items:
   - name: Install and start
