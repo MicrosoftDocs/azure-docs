@@ -58,6 +58,6 @@ The support options for Azure Marketplace.
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |  
 
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
 ---  
