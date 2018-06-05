@@ -1,6 +1,6 @@
-- name: Azure billing documentation
+- name: Azure billing + cost management documentation
   href: index.md
-- name: Understand Azure charges
+- name: Understand Azure billing
   expanded: true
   items:
   - name: Understand your bill
@@ -13,7 +13,7 @@
     href: billing-understand-your-usage.md
   - name: Invoice terms explained
     href: billing-understand-your-invoice.md
-- name: Forecast and track costs
+- name: Manage costs
   items:
   - name: Prevent unexpected costs
     href: billing-getting-started.md
@@ -25,34 +25,22 @@
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Understand spending limit
     href: billing-spending-limit.md
-- name: Manage subscription 
-  items: 
-  - name: Reactivate subscription
-    href: billing-subscription-become-disable.md
-  - name: Transfer ownership
-    href: billing-subscription-transfer.md
-  - name: Cancel subscription
-    href: billing-how-to-cancel-azure-subscription.md
-  - name: Change credit card
-    href: billing-how-to-change-credit-card.md
-  - name: Change administrator
-    href: billing-add-change-azure-subscription-administrator.md
-  - name: Switch subscription offer
-    href: billing-how-to-switch-azure-offer.md
-  - name: Pay by invoice
-    href: billing-how-to-pay-by-invoice.md 
-  - name: Create management groups
-    href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json  
-  - name: Move Azure resources
-    href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
-  - name: Create Enterprise subscriptions
-    href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
-  - name: Export subscription information
-    href: billing-export-subscriptions.md
-  - name: Link Azure AD tenant
-    href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
-  - name: Limits and quotas
-    href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
+  - name: Save with Reserved VM Instances
+    items:
+    - name: What are reserved instances?
+      href: billing-save-compute-costs-reservations.md
+    - name: Buy a reserved instance 
+      href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+    - name: How discount is applied
+      href: billing-understand-vm-reservation-charges.md
+    - name: Software costs not included
+      href: billing-reserved-instance-windows-software-costs.md
+    - name: Usage for Pay-As-You-Go
+      href: billing-understand-reserved-instance-usage.md
+    - name: Usage for Enterprise
+      href: billing-understand-reserved-instance-usage-ea.md
+    - name: Manage reserved instances
+      href: billing-manage-reserved-vm-instance.md
 - name: Manage account
   items:
   - name: Free account 
@@ -81,22 +69,34 @@
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Sign up for Office 365 with Azure account
     href: billing-use-existing-azure-account-for-office-365-subscription.md
-- name: Save with reserved instances
-  items:
-    - name: What are reserved instances?
-      href: billing-save-compute-costs-reservations.md
-    - name: Buy a reserved instance 
-      href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
-    - name: How discount is applied
-      href: billing-understand-vm-reservation-charges.md
-    - name: Software costs not included
-      href: billing-reserved-instance-windows-software-costs.md
-    - name: Usage for Pay-As-You-Go
-      href: billing-understand-reserved-instance-usage.md
-    - name: Usage for Enterprise
-      href: billing-understand-reserved-instance-usage-ea.md
-    - name: Manage reserved instances
-      href: billing-manage-reserved-vm-instance.md
+- name: Manage subscription 
+  items: 
+  - name: Reactivate subscription
+    href: billing-subscription-become-disable.md
+  - name: Transfer ownership
+    href: billing-subscription-transfer.md
+  - name: Cancel subscription
+    href: billing-how-to-cancel-azure-subscription.md
+  - name: Change credit card
+    href: billing-how-to-change-credit-card.md
+  - name: Change administrator
+    href: billing-add-change-azure-subscription-administrator.md
+  - name: Switch subscription offer
+    href: billing-how-to-switch-azure-offer.md
+  - name: Pay by invoice
+    href: billing-how-to-pay-by-invoice.md 
+  - name: Create management groups
+    href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json  
+  - name: Move Azure resources
+    href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
+  - name: Create Enterprise subscriptions
+    href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
+  - name: Export subscription information
+    href: billing-export-subscriptions.md
+  - name: Link Azure AD tenant
+    href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
+  - name: Limits and quotas
+    href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Troubleshoot
   items:
   - name: No subscriptions found

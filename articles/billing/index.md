@@ -1,6 +1,6 @@
 ---
 layout: LandingPage
-title: Azure billing documentation | Microsoft Docs
+title: Azure billing and cost management documentation | Microsoft Docs
 description: Learn how to understand your Azure billing, manage and monitor usage and costs, and manage your account and subscriptions. 
 services: billing
 author: cwatson-cat
@@ -15,7 +15,7 @@ ms.date: 05/24/2018
 ms.author: cwatson
 ---
 
-# Azure billing documentation
+# Azure billing and cost management documentation
 
 Learn how to understand your Azure billing, monitor usage and costs, and manage your account and subscriptions.
 
@@ -25,7 +25,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Understand Azure charges</h3>
+                        <h3>Understand Azure billing</h3>
                         <p>
                         <a href="/azure/billing/billing-understand-your-bill">Understand your bill</a><br/>
                         <a href="/azure/billing/billing-download-azure-invoice-daily-usage-date">Get invoice and usage data</a><br/>
@@ -42,7 +42,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Forecast + track costs</h3>
+                        <h3>Manage costs</h3>
                         <p>
                         <a href="/azure/billing/billing-getting-started">Prevent unexpected costs</a><br/>
                         <a href="/azure/billing/billing-set-up-alerts">Set up billing alerts</a><br/>
@@ -59,7 +59,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Manage subscription + account</h3>
+                        <h3>Manage account + subscription</h3>
                         <p>
                         <a href="/azure/billing/billing-subscription-become-disable">Reactivate subscription</a><br/>
                         <a href="/azure/billing/billing-subscription-transfer">Transfer ownership</a><br/>
@@ -78,7 +78,6 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                     <div class="cardText">
                         <h3>Free account</h3>
                         <p>
-                        <a href="https://azure.microsoft.com/free/">Create free account</a><br/>
                         <a href="/azure/billing/billing-create-free-services-included-free-account">Create free services</a><br/>
                         <a href="/azure/billing/billing-avoid-charges-free-account">Avoid charges</a><br/>
                         <a href="/azure/billing/billing-check-free-service-usage">Check usage</a><br/>
@@ -116,7 +115,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <a href="/azure/billing/billing-usage-rate-card-overview">Azure Billing APIs</a><br/>
                         <a href="/rest/api/consumption/">Azure Consumption APIs </a><br/>
                         <a href="/azure/billing/billing-enterprise-api">Enterprise reporting APIs</a><br/>
-                        <a href="/azure/azure-resource-manager/programmatically-create-subscription?toc=/azure/billing/TOC.json">Create Enterprise subscriptions</a>                       
+                        <a href="/azure/azure-resource-manager/programmatically-create-subscription?toc=/azure/billing/TOC.json">Programmatically create Enterprise subscriptions</a>                       
                         </p>
                     </div>
                 </div>
@@ -128,7 +127,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Save with reserved instances</h3>
+                        <h3>Save with Reserved VM Instances</h3>
                         <p>
                         <a href="/azure/billing/billing-save-compute-costs-reservations">What are reserved instances?</a><br/>
                         <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Buy a reserved instance</a><br/>
