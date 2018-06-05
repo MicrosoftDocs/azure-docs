@@ -115,6 +115,9 @@ Click **VSTS Continuous Delivery** > **Continue**.
 
 In the **Configure** page, configure a new VSTS account, or specify an existing account. When finished, click **Continue**.
 
+> [!NOTE]
+> If you want to use an existing VSTS account that is not listed, you need to [link the VSTS account to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+
 In the **Test** page, choose whether to enable load tests, then click **Continue**.
 
 Depending on the [pricing tier](/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to enable deployment slots, then click **Continue**.
