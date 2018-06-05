@@ -1,7 +1,7 @@
 ---
-title: Publishing checklist for Azure Marketplace
+title: Publishing checklist for Azure Marketplace | Azure
 description: Publishing checklist for Azure Marketplace using Cloud Partner Portal.
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -13,12 +13,12 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
 
 ---  
 
-# Publishing Checklist for Azure Marketplace on Cloud Partner Portal  
+# Publishing Checklist for Azure Marketplace    
 Review required components prior to starting the publishing process.  
 
 The following artifacts are required to complete the Create Offer publishing workflow on Cloud Partner Portal.  
@@ -38,4 +38,7 @@ The following artifacts are required to complete the Create Offer publishing wor
 | Transact | Container | <table> <tr><th>Storefronts</th></tr> <tr><td>Title (50 characters)</td></tr> <tr><td>Summary (200 characters)</td></tr> <tr><td>Long summary (256 characters)</td></tr> <tr><td>HTML-based description (3,000 characters)</td></tr> <tr><td>Company logos (40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Azure Container Registry (ACR) Image repository details: Subscription ID</td></tr> <tr><td>ACR Image repository details: Resource group name</td></tr> <tr><td>ACR Image repository details: Registry name</td></tr> <tr><td>ACR Image repository details: Repository name</td></tr> <tr><td>ACR Image repository details: User name</td></tr> <tr><td>ACR Image repository details: Password</td></tr> <tr><td>ACR Image repository details: Image Tags (optional)</td></tr> </table> |  
 | Transact | SaaS app | <table> <tr><th>Storefronts</th></tr> <tr><td>Title (50 characters)</td></tr> <tr><td>Summary (200 characters)</td></tr> <tr><td>Long summary (256 characters)</td></tr> <tr><td>HTML-based description (3,000 characters)</td></tr> <tr><td>Company logos (40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> |  
 
----   
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+ 
+---  
