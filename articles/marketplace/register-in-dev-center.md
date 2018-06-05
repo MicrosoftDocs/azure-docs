@@ -100,6 +100,6 @@ If you have issues with Dev Center registration, then follow these steps to subm
 3.  To submit the ticket, click on the Submit button. 
 
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publisher-guide.md) page.  
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
 ---  
