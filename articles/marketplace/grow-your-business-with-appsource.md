@@ -1,7 +1,7 @@
 ---
-title: Grow your business in Azure with AppSource
+title: Grow your business in Azure with AppSource | Azure
 description: Information about using AppSource, which enables Microsoft partners to make partner technology and services discoverable to customers through a Microsoft-supported online storefront.
-services: Marketplace, AppSource, Compute, Storage, Networking, Security
+services: Azure, Marketplace, AppSource, Compute, Storage, Networking, Security
 documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
@@ -13,8 +13,10 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
+
+redirect_from: "./marketplace-grow-your-business-with-appsource.md"  
 
 ---  
 
@@ -144,15 +146,15 @@ When you link from the AppSource badge on your site to your listing on AppSource
 *   **mktcmpid**  
     Your marketing campaign ID, which can include up to 16 characters using any combination of letter, number, underscore, and hyphen. For example, `blogpost_12` 
 
-The following example shows a URL that includes the two query parameters:
+The following example shows a URL that includes the two query parameters. Adding the parameters to your AppSource URL enables you to review the effectiveness of your campaign in the analytics dashboard in the Cloud Partner Portal.  
 
 ```html
 https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12
-```
+```  
 
-**Important:** When you prepare the URL, do not include the language code, such as `/en-us/`. 
+>[!Important]  
+>When you prepare the URL, do not include the language code, such as `/en-us/`.  
 
-Adding these parameters to your AppSource URL enables you to review the effectiveness of your campaign in the analytics dashboard in the Cloud Partner Portal. 
 
 #### [GTM Benefits on the marketplace](./gtm-benefits.md)  
 
@@ -168,10 +170,13 @@ You can influence the ranking of your offer in search engine results. Partner wi
 *   Include search keywords in the offer summary.
 *   List the top three search keywords for your offer in the storefront details.
 *   Associate your offer with the correct category and industry.
-*   Regularly tweet about the availability of your offer and include a link to your offer.
+*   Regularly tweet about the availability of your offer and include a link to your offer.  
 
 #### Merchandising  
 Microsoft Gold Partners can become eligible to have the partner app featured, when providing an app trial experience (free app, free trial, or Test Drive) on AppSource. Apps can be featured by category or industry, and are typically promoted for a minimum of two weeks. 
 For more information on how featured apps fit in the context of your Go-To-Market benefits, review the Marketplace GTM Benefits section of this guide.   
+
+## Next steps
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
 
 ---  
