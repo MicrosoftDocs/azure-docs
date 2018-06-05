@@ -20,30 +20,30 @@ The Microsoft Translator Text API supports the following languages for text to t
 |:----------- |:-------:|:-------------:|
 | Afrikaans      | Statistical |`af`          |
 | Arabic      | Neural | `ar`          |
-| Bangla      | Statistical |`bn`          |
+| Bangla      | Neural |`bn`          |
 | Bosnian (Latin)      | Statistical |`bs`          |
 | Bulgarian     |  Neural |`bg`          |
 | Cantonese (Traditional)      | Statistical |`yue`          |
 | Catalan      | Statistical |`ca`          |
 | Chinese Simplified        |  Neural |`zh-Hans`          | 
 | Chinese Traditional        |  Neural |`zh-Hant`          |
-| Croatian      | Statistical |`hr`          |
+| Croatian      | Neural |`hr`          |
 | Czech        |  Neural |`cs`          |
 | Danish        |  Neural |`da`          |
 | Dutch        |  Neural |`nl`          |
 | English       |  Neural |`en`          |
-| Estonian      | Statistical |`et`          |
+| Estonian      | Neural |`et`          |
 | Fijian      | Statistical |`fj`          |
 | Filipino      | Statistical |`fil`          |
-| Finnish      | Statistical |`fi`          |
+| Finnish      | Neural |`fi`          |
 | French        |  Neural |`fr`          |
 | German       |  Neural |`de`          |
-| Greek      | Statistical |`el`          |
+| Greek      | Neural |`el`          |
 | Haitian Creole      | Statistical |`ht`          |
-| Hebrew      | Statistical |`he`          |
+| Hebrew      | Neural |`he`          |
 | Hindi        |  Neural |`hi`          |
 | Hmong Daw      | Statistical |`mww`          |
-| Hungarian      | Statistical |`hu`          |
+| Hungarian      | Neural |`hu`          |
 | Icelandic      |  Neural |`is`           |
 | Indonesian      | Statistical |`id`          |
 | Italian        |  Neural |`it`          |
@@ -52,8 +52,8 @@ The Microsoft Translator Text API supports the following languages for text to t
 | Klingon      | Statistical |`tlh`          |
 | Klingon (plqaD)      | Statistical |`tlh-Qaak`          |
 | Korean        |  Neural |`ko`          |
-| Latvian      | Statistical |`lv`          |
-| Lithuanian      | Statistical |`lt`          |
+| Latvian      | Neural |`lv`          |
+| Lithuanian      | Neural |`lt`          |
 | Malagasy      | Statistical |`mg`          |
 | Malay      | Statistical |`ms`          |
 | Maltese      | Statistical |`mt`          |
@@ -67,19 +67,19 @@ The Microsoft Translator Text API supports the following languages for text to t
 | Samoan      | Statistical |`sm`          |
 | Serbian (Cyrillic)      | Statistical |`sr-Cyrl`          |
 | Serbian (Latin)      | Statistical |`sr-Latn`          |
-| Slovak     | Statistical |`sk`          |
-| Slovenian      | Statistical |`sl`          |
+| Slovak     | Neural |`sk`          |
+| Slovenian      | Neural |`sl`          |
 | Spanish        |  Neural |`es`          |
 | Swedish        |  Neural |`sv`          |
 | Tahitian      | Statistical |`ty`          |
 | Tamil      | Statistical |`ta`          |
-| Thai      | Statistical |`th`          |
+| Thai      | Neural |`th`          |
 | Tongan      | Statistical |`to`          |
 | Turkish       |  Neural |`tr`          |
-| Ukrainian      | Statistical |`uk`          |
+| Ukrainian      | Neural |`uk`          |
 | Urdu      | Statistical |`ur`          |
 | Vietnamese      | Statistical |`vi`          |
-| Welsh      | Statistical |`cy`          |
+| Welsh      | Neural |`cy`          |
 | Yucatec Maya      | Statistical |`yua`          |
 
 ## Transliteration

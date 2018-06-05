@@ -8,6 +8,7 @@ manager: kfile
 tags: azure-service-management
 
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
