@@ -45,7 +45,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 * [C# module template package - 2.0.0-rc3](https://github.com/Azure/dotnet-template-azure-iot-edge-module/releases/download/v2.0.0-rc3/Microsoft.Azure.IoT.Edge.Module.2.0.0-rc3.nupkg).
     In VS Code integrated terminal (select **View** > **Integrated Terminal** to open), enter the followint command to install the **AzureIoTEdgeModule** template in dotnet.
-    
+
     ```cmd/sh
     dotnet new -i [path to Microsoft.Azure.IoT.Edge.Module.2.0.0-rc3.nupkg]
     ```
@@ -110,7 +110,7 @@ The following steps show you how to create an IoT Edge module project based on .
     }
     ```
 
-8. In the **Init** method, the code creates and configures a **DeviceClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string used in the **Init** method is supplied to the module by IoT Edge runtime. After creating the **DeviceClient**, the code reads the TemperatureThreshold from the Module Twin's desired properties and registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the `SetInputMessageHandlerAsync` method with a new one, and add a `SetDesiredPropertyUpdateCallbackAsync` method for desired properties updates. To make this change, replace the last line of the **Init** method with the following code:
+8. In the **Init** method, the code creates and configures a **ModuleClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string used in the **Init** method is supplied to the module by IoT Edge runtime. After creating the **ModuleClient**, the code reads the TemperatureThreshold from the Module Twin's desired properties and registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the `SetInputMessageHandlerAsync` method with a new one, and add a `SetDesiredPropertyUpdateCallbackAsync` method for desired properties updates. To make this change, replace the last line of the **Init** method with the following code:
 
     ```csharp
     // Register callback to be called when a message is received by the module
