@@ -35,11 +35,11 @@ If you'd like to use the sample app used in this article, it's provided as open 
 
 Before they can migrate to Azure, it's critical that Contoso prepare their infrastructure.  Generally there are five broad areas they need to think about:
 
-1. **1: Azure subscriptions**: How will they purchase and interact with the Azure platform and services?
-2. **2: Hybrid identity**: How will they manage and control access to on-premises and Azure resources after migration? How do they extend or move identity management to the cloud?
-3. **3. Disaster recovery and resilience**: How will they ensure that their apps and infrastructure are resilient if outages and disasters occur?
-4. **4. Networking**: How should they design your networking infrastructure, and establish connectivity on-premises and in Azure?
-5. **5. Security and governance**: How will their your hybrid/Azure deployment secure, and in line with security and governance requirements?
+1. **Azure subscriptions**: How will they purchase and interact with the Azure platform and services?
+2. **Hybrid identity**: How will they manage and control access to on-premises and Azure resources after migration? How do they extend or move identity management to the cloud?
+3. **Disaster recovery and resilience**: How will they ensure that their apps and infrastructure are resilient if outages and disasters occur?
+4. **Networking**: How should they design your networking infrastructure, and establish connectivity on-premises and in Azure?
+5. **Security and governance**: How will their your hybrid/Azure deployment secure, and in line with security and governance requirements?
 
 ## Before you start
 
