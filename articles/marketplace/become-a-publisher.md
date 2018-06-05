@@ -47,7 +47,7 @@ If your organization has an existing membership, then you may join your organiza
 Your Microsoft ID enables you to access Cloud Partner Portal. The email address must be registered as a Microsoft ID and is used for both Cloud Partner Portal and Dev Center. The selected email address should preferably be in your corporate domain and controlled by your IT team.  
 *   For more information about registering in Dev Center, visit the [Register in Dev Center](#register-in-dev-center) section.  
 *   For more information about signing into Cloud Partner Portal, visit the [Sign into Cloud Partner Portal](#sign-into-cloud-partner-portal) section.  
-*   To review the guidelines for creating a Microsoft ID, visit the [Guidelines for creating a Microsoft ID to manage an Azure Marketplace account](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account) section.  
+*   To review the guidelines for creating a Microsoft ID, visit the [Guidelines for creating a Microsoft ID to manage a marketplace account](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) section.  
 
 ---  
 
