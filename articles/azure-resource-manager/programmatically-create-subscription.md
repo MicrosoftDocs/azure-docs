@@ -26,7 +26,7 @@ When you create an Azure subscription from this API, that subscription is govern
 
 * Your account must be an Account Owner in an Azure EA enrollment. If not, ask your Enrollment Administrator to [add you as an Account Owner using the EA portal](https://ea.azure.com/helpdocs/addNewAccount) (log-in required). Follow the instructions in the invitation email you receive to manually create an initial subscription. Confirm account ownership and manually create an initial EA subscription before proceeding to the next step. Just adding the account to the enrollment isn't enough.
 
-* If you want to use a service principal to create the EA subscription, you must [grant that service principal the ability to create subscriptions](grant-access-to-create-subscriptions.md).
+* If you want to use a service principal to create the EA subscription, you must [grant that service principal the ability to create subscriptions](grant-access-to-create-subscription.md).
 
 ## Find accounts you have access to
 
@@ -208,5 +208,5 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 ## Next steps
 
 * For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
-* Now that you've created a subscription, you can grant that ability to other users and audit actions. For more information, see [Programmatically manage Azure Enterprise subscriptions (preview)](programmatically-manage-subscription.md).
+* Now that you've created a subscription, you can grant that ability to other users and service principals. For more information, see [Grant access to create Azure Enterprise subscriptions (preview)](grant-access-to-create-subscription.md).
 * To learn more about managing large numbers of subscriptions using Management Groups, see [Organize your resources with Azure Management Groups](management-groups-overview.md)
