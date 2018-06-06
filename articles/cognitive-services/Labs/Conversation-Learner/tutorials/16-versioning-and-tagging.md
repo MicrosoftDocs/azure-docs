@@ -45,7 +45,7 @@ When editing, you are always editing the tag called “master” -- you can crea
 ### Configure the emulator
 
 - In the Conversation Learner root folder, open the .env file.
-- Paste the Model ID as the value of CONVERSATION_LEARNER_APP_ID
+- Paste the Model ID as the value of CONVERSATION_LEARNER_MODEL_ID
 - Restart the Conversation Learner service by exiting from the command prompt, and rerunning:
  
 	npm run tutorial-general 

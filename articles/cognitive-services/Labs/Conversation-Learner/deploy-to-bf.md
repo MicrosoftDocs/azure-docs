@@ -57,7 +57,7 @@ This deploys a bot to your local machine, and shows how you can access it using 
 When running a bot locally, add the Application ID to the bot's `.env` file:
 
     ```
-    CONVERSATION_LEARNER_APP_ID=<YOUR_APP_ID>
+    CONVERSATION_LEARNER_MODEL_ID=<YOUR_MODEL_ID>
     ```
 
 Then, start your bot:
@@ -111,7 +111,7 @@ Below are step-by-step instructions for deploying a Conversation Learner Bot to 
         Environment variable | value
         --- | --- 
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_APP_ID      | Application Id GUID, obtained from the Conversation Learner UI under the "settings" for the model>
+        CONVERSATION_LEARNER_MODEL_ID      | Application Id GUID, obtained from the Conversation Learner UI under the "settings" for the model>
         LUIS_AUTHORING_KEY      		 | LUIS authoring key for this model
     
     4. Click on "Save" near the top of the page
