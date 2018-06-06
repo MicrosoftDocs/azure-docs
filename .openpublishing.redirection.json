@@ -8741,11 +8741,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Computer-vision/index.md",
-            "redirect_url": "/azure/cognitive-services/Computer-vision/Home",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/CSharp.md",
             "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/CSharp-analyze",
             "redirect_document_id": false
@@ -8798,11 +8793,6 @@
         {
             "source_path": "articles/cognitive-services/Emotion/index.md",
             "redirect_url": "/azure/cognitive-services/Emotion/Home",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Face/index.md",
-            "redirect_url": "/azure/cognitive-services/Face/Overview",
             "redirect_document_id": false
         },
         {
