@@ -74,7 +74,7 @@ To complete this quickstart, make sure you have:
     mvn exec:java -Dexec.mainClass="TestConsumer"                                    
     ```
 
-If your Event Hubs Kafka cluster has events queued from the producer, you should now start receiving them from the consumer.
+If your Event Hubs Kafka cluster has events, you should now start receiving them from the consumer.
 
 ## Next steps
 
