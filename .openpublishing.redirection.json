@@ -6971,6 +6971,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/monitoring-and-diagnostics/insights-how-to-scale.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-versioning-history.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-schema",
             "redirect_document_id": false
@@ -18406,6 +18411,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/marketplace/grow-your-business-azure-marketplace.md",
+            "redirect_url": "/azure/marketplace/grow-your-business-with-azure-marketplace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/marketplace/marketplace-grow-your-business-with-appsource.md",
+            "redirect_url": "/azure/marketplace/grow-your-business-with-appsource", 
+            "redirect_document_id": false
+        },
+	{
             "source_path": "articles/marketplace/seller-guide/cloud-partner-portal-seller-guide.md",
             "redirect_url": "/azure/marketplace/marketplace-publishers-guide",
             "redirect_document_id": false
