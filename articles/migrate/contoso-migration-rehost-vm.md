@@ -67,10 +67,10 @@ Here's the current environment
 
 Contoso will migrate the app frontend and database VMs to Azure VMs using Site Recovery:
 
-    - As a first step, they'll need to prepare and set up Azure components for Site Recovery, and prepare the on-premises VMware infrastructure.
-    - They already have their [Azure infrastructure](contoso-migration-infrastructure.md) in place, so they just need to add a couple of Azure components specifically for Site Recovery.
-    - With everything prepared, they can then start replicating the VMs.
-    After replication is enabled and working, they migrate the VM by failing it over to Azure.
+- As a first step, they'll prepare and set up Azure components for Site Recovery, and prepare the on-premises VMware infrastructure.
+- They already have their [Azure infrastructure](contoso-migration-infrastructure.md) in place, so they just need to add a couple of Azure components specifically for Site Recovery.
+- With everything prepared, they can start replicating the VMs.
+-After replication is enabled and working, they migrate the VM by failing it over to Azure.
 
 ![Migration process](./media/contoso-migration-rehost-vm/migraton-process.png) 
 
