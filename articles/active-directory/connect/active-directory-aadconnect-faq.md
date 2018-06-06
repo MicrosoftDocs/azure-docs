@@ -23,7 +23,7 @@ ms.author: billmath
 With the builds from February 2016, this scenario is supported.
 
 **Q: Is there a way to install Azure AD Connect unattended?**  
-It is only supported to install Azure AD Connect using the installation wizard. An unattended and silent installation is not supported.
+It is only supported to install Azure AD Connect using the installation wizard. An unattended and silent installation are not supported.
 
 **Q: I have a forest where one domain cannot be contacted. How do I install Azure AD Connect?**  
 With the builds from February 2016, this scenario is supported.
@@ -37,14 +37,14 @@ Yes. After installing the agent, you can complete the registration process using
 Yes, this scenario is supported. Refer to [Multiple Domains](active-directory-aadconnect-multiple-domains.md)
  
 **Q: Can you have multiple connectors for the same Active Directory domain in Azure AD connect?**</br> 
-No, multiple connectors for the same AD domain is not supported. 
+No, multiple connectors for the same AD domain are not supported. 
 
 **Q: Can I move the Azure AD Connect database from the local database to a remote SQL Server?**</br> 
 Yes, the following steps will provide general guidance on how to do this.  We are currently working on a more detailed document which will be available soon.
 
 
-   1. Backup the LocalDB “ADSync” Database
-The simplest way to do this is to use SQL Server Management Studio installed on the same machine as Azure AD Connect. Connect to “(localdb)\.\ADSync” – then Backup the ADSync database
+   1. Back up the LocalDB “ADSync” Database
+The simplest way to do this is to use SQL Server Management Studio installed on the same machine as Azure AD Connect. Connect to “(localdb)\.\ADSync” – then Back up the ADSync database
    2. Restore the “ADSync” Database to your Remote SQL Instance
    3. Install Azure AD Connect against the existing [remote SQL database](active-directory-aadconnect-existing-database.md)
    The link shows the steps required when migrating to using a Local SQL Database. If you are migrating to using a Remote SQL Database then in Step 5 of this process you will also need to enter an existing service account that the Windows Sync Service will run as. This sync engine service account is described here:</br></br>
