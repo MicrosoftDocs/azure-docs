@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect Health - Diagnose duplicated attribute synchronization errors | Microsoft Docs
-description: This document describes the diagnosis process of duplicated attribute synchronization errors and a potential fix of the orphaned object scenarios directly from Azure portal.
+description: This document describes the diagnosis process of duplicated attribute synchronization errors and a potential fix of the orphaned object scenarios directly from the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: zhiweiw
@@ -18,7 +18,7 @@ ms.author: zhiweiw
 # Diagnose and remediate duplicated attribute sync errors
 
 ## Overview
-Taking one step farther to highlight sync errors, Azure Active Directory Connect Health introduces self-service remediation. It troubleshoots duplicated attribute sync errors and fixes objects that are orphaned from Azure AD.
+Taking one step farther to highlight sync errors, Azure Active Directory (Azure AD) Connect Health introduces self-service remediation. It troubleshoots duplicated attribute sync errors and fixes objects that are orphaned from Azure AD.
 The diagnosis feature has these benefits:
 - It provides a diagnostic procedure that narrows down duplicated attribute sync errors. And it gives specific fixes.
 - It applies a fix for dedicated scenarios from Azure AD to resolve the error in a single step.
@@ -33,18 +33,18 @@ For example, this image indicates that two users have a conflict of their **User
 ![Diagnose sync error common scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixCommonCase.png)
 
 ### Orphaned object scenario
-Occasionally, you might find that an existing user loses the **Source Anchor**. The deletion of the source object happened in on-premises Azure AD. But the change of deletion signal never got synchronized to Azure AD. This loss happens for reasons like sync engine issues or domain migration. When the same object gets restored or recreated, logically, an existing user should be the user to sync from the **Source Anchor**. 
+Occasionally, you might find that an existing user loses the **Source Anchor**. The deletion of the source object happened in on-premises Active Directory. But the change of deletion signal never got synchronized to Azure AD. This loss happens for reasons like sync engine issues or domain migration. When the same object gets restored or recreated, logically, an existing user should be the user to sync from the **Source Anchor**. 
 
 When an existing user is a cloud-only object, you can also see the conflicting user synchronized to Azure AD. The user can't be matched in sync to the existing object. There's no direct way to remap the **Source Anchor**. See more about the [existing knowledge base](https://support.microsoft.com/help/2647098). 
 
-As an example, the existing object in Azure AD preserves the license of Joe. A newly synchronized object with a different **Source Anchor** occurs in a duplicated attribute state in Azure AD. Changes for Joe in on-premises AD won't be applied to Joe’s original user (existing object) in Azure AD.  
+As an example, the existing object in Azure AD preserves the license of Joe. A newly synchronized object with a different **Source Anchor** occurs in a duplicated attribute state in Azure AD. Changes for Joe in on-premises Active Directory won't be applied to Joe’s original user (existing object) in Azure AD.  
 
 ![Diagnose sync error orphaned object scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixOrphanedCase.png)
 
 ## Diagnostic and troubleshooting steps in Connect Health 
 The diagnose feature supports user objects with the following duplicated attributes:
 
-| Attribute Name | Synchronization Error Types|
+| Attribute name | Synchronization error types|
 | ------------------ | -----------------|
 | UserPrincipalName | QuarantinedAttributeValueMustBeUnique or AttributeValueMustBeUnique | 
 | ProxyAddresses | QuarantinedAttributeValueMustBeUnique or AttributeValueMustBeUnique | 
@@ -52,7 +52,7 @@ The diagnose feature supports user objects with the following duplicated attribu
 | OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> To access this feature, **Global Admin** permission, or **Contributor** permission from the RBAC settings, is required .
+> To access this feature, **Global Admin** permission, or **Contributor** permission from the RBAC settings, is required.
 >
 
 Follow the steps from the Azure portal to narrow down the sync error details and provide more specific solutions:
@@ -79,21 +79,21 @@ From the Azure portal, take a few steps to identify specific fixable scenarios:
 5.	After the next sync cycle, the error should be removed from the list.
 
 ## How to answer the diagnosis questions 
-### Does the user exist in your on-premises Azure Active Directory?
+### Does the user exist in your on-premises Active Directory?
 
-This question tries to identify the source object of the existing user from on-premises Azure Active Directory.  
-1.	Check if your Azure Active Directory has an object with the provided **UserPrincipalName**. If not, answer **No**.
+This question tries to identify the source object of the existing user from on-premises Active Directory.  
+1.	Check if Azure Active Directory has an object with the provided **UserPrincipalName**. If not, answer **No**.
 2.	If it does, check whether the object is still in scope for syncing.  
   - Search in the Azure AD connector space by using the DN.
-  - If the object is found in the **Pending Add** state, answer **No**. AAD Connect isn't able to connect the object to the right Azure AD object.
+  - If the object is found in the **Pending Add** state, answer **No**. Azure AD Connect can't connect the object to the right Azure AD object.
   - If the object isn't found, answer **Yes**.
 
-In these examples, the question tries to identify whether **Joe Jackson** still exists in the on-premises Azure Active Directory.
-For the **common scenario**, both users **Joe Johnson** and **Joe Jackson** are present in the on-premises Azure Active Directory. The quarantined objects are two different users.
+In these examples, the question tries to identify whether **Joe Jackson** still exists in on-premises Active Directory.
+For the **common scenario**, both users **Joe Johnson** and **Joe Jackson** are present in on-premises Active Directory. The quarantined objects are two different users.
 
 ![Diagnose sync error common scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixCommonCase.png)
 
-For the **orphaned object scenario**, only the single user **Joe Johnson** is present in the on-premises Azure Active Directory:
+For the **orphaned object scenario**, only the single user **Joe Johnson** is present in on-premises Active Directory:
 
 ![Diagnose sync error orphaned object *does user exist* scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixOrphanedCase.png)
 
@@ -103,7 +103,7 @@ This question checks an incoming conflicting user and the existing user object i
   - Display Name
   - User Principal Name
   - Object ID
-2.	If Azure AD fails to compare them, check whether your Azure Active Directory has objects with the provided **UserPrincipalNames**. Answer **No** if you find both.
+2.	If Azure AD fails to compare them, check whether Active Directory has objects with the provided **UserPrincipalNames**. Answer **No** if you find both.
 
 In the following example, the two objects belong to the same user **Joe Johnson**.
 
@@ -132,14 +132,14 @@ The sync error will be resolved after the next sync. Connect Health will no long
 
 
 **Q.** What if the **existing object** should be the object to be deleted?  
-**A.** If the **existing object** should be deleted, the process doesn't involve a change of **Source Anchor**. Usually, you can fix it from your on-premises Azure AD. 
+**A.** If the **existing object** should be deleted, the process doesn't involve a change of **Source Anchor**. Usually, you can fix it from on-premises Active Directory. 
 
 
 **Q.** What permission does a user need to apply the fix?  
 **A.** **Global Admin**, or **Contributor** from the RBAC settings, has permission to access the diagnostic and troubleshooting process.
 
 
-**Q.** Do I have to configure AAD Connect or update the Azure AD Connect Health agent for this feature?  
+**Q.** Do I have to configure Azure AD Connect or update the Azure AD Connect Health agent for this feature?  
 **A.** No, the diagnosis process is a complete cloud-based feature.
 
 
