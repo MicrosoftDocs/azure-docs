@@ -14,7 +14,7 @@
     href: concepts-collector.md
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
-  - name: Dependency visualization
+  - name: About dependency visualization
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
