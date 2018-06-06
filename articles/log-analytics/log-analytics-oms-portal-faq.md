@@ -53,6 +53,7 @@ Many of the settings in the **Settings** section of the OMS portal are available
 The following sections provide a complete list of how you can access settings that were previously available in the **Settings** section of the OMS portal.
 
 ### Accounts 
+Accounts settings are managed in different places in the Azure portal as described in the following table.
 
 | Setting in the OMS portal | Equivalent in the Azure portal |
 |:---|:---|
@@ -62,15 +63,13 @@ The following sections provide a complete list of how you can access settings th
 | Workspace Information | Information available on **OMS Workspace** menu for the workspace. |
 
 ### Alerts
-Alert rules based on Log Analytics queries are now managed in the [unified alerting experience](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+Alert rules based on Log Analytics queries are now managed in the [unified alerting experience](#how-do-i-create-and-manage-alerts). 
 
 ### Computer Groups
-
-| Setting in the OMS portal | Equivalent in the Azure portal |
-|:---|:---|
-| Computer Groups   | **Advanced settings** menu for the workspace. |
+Manage Computer Groups in the **Advanced settings** menu for the workspace. 
 
 ### Connected Sources
+Manage most Connected Source settings the  in the **Advanced settings** menu for the workspace. The following table provides details for each section of this menu.
 
 | Setting in the OMS portal | Equivalent in the Azure portal |
 |:---|:---|
@@ -83,6 +82,7 @@ Alert rules based on Log Analytics queries are now managed in the [unified alert
 | ITSM Connector    | **ITSM Connections** menu for the workspace. See  [Connect ITSM products/services with IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) |
 
 ### Data
+Manage most Data settings the  in the **Advanced settings** menu for the workspace. The following table provides details for each section of this menu.
 
 | Setting in the OMS portal | Equivalent in the Azure portal |
 |:---|:---|
