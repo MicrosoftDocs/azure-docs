@@ -136,8 +136,11 @@ A condensed *201 Created* response from the previous example request body that c
 }
 ```
 
-## See also
+## Next steps
+
+For more information on the Azure REST APIs or other management tools such as Azure CLI 2.0 or Azure PowerShell, see the following:
 
 - [Azure Compute provider REST API](/rest/api/compute/)
 - [Get started with Azure REST API](/rest/api/azure/)
+- [Azure CLI 2.0](/cli/azure/)
 - [Azure PowerShell module](/powershell/azure/overview)
