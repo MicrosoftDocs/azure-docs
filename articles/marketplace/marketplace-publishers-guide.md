@@ -143,7 +143,7 @@ This is the list of the support options for the Azure Marketplace:
 |Support channel  |Description  |
 |---------|---------|
 |MSDN forums: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network forum.         |
-|Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Stack Overflow environment to get solutions and ask questions about everything related to Azure and the Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
+|Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Stack Overflow environment to get solutions and ask questions about everything related to Azure and the Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li><li>[Containers on Azure](https://stackoverflow.com/search?q=azure+container)</li></ul> |
 
 
 **Marketing resources**
@@ -214,7 +214,10 @@ For more information on our GTM benefits and ways to grow your business in the m
 |**Requirement**  |**Details** |**Publishing option**  |
 |---------|---------|---------|
 |**Billing and metering**   |  Your container must support either free or Bring Your Own License billing models.       |  Transaction       |
-|**Docker-based image**    |   Container images must be based on the Docker image format and must be pulled from Azure Container Registries.      |  Transaction       |
+|**Image built from Dockerfile**    |   Container images must be based on the Docker image specification and must be built from a Dockerfile. Learn more about building docker images [here].(https://docs.docker.com/engine/reference/builder/#usage)     |  Transaction       |
+|**Hosting in ACR**    |   Container images must be hosted in an Azure Container Registry (ACR) repository. Learn more about working with ACR [here].(https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     |  Transaction       |
+|**Image tagging**    |   Container images must contain at least 1 tag (maximum tags: 16). Learn more about tagging an image [here].(https://docs.docker.com/engine/reference/commandline/tag/)     |  Transaction       |
+
 
 #### Prerequisites Specific to Transation Publishing for SaaS App Subscriptions
 
@@ -222,8 +225,9 @@ For more information on our GTM benefits and ways to grow your business in the m
 |---------|---------|---------|
 |**Billing and metering**    |   Your offer is priced at a monthly flat rate. Usage-based pricing and usage-based "true-up" capabilities are not supported at this time.      |   Transaction      |
 |**Cancelation**  |   Your offer is cancelable by the customer at any time.      |   Transaction      |
-|**Transaction Landing Page**     |   You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account.      |    Transaction     |
-|**SaaS Subscription API**    |   You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically.      |     Transaction    |
+|**Transaction landing page**     |   You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account.      |    Transaction     |
+|**Subscription API**    |   You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically.      |     Transaction    |
+
 
 ### Prerequisites Specific to Consulting Services Publishing
 
