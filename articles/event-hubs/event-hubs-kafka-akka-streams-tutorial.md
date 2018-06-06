@@ -19,16 +19,15 @@ ms.author: bahariri
 
 # Using Akka Streams with Event Hubs for Kafka Ecosystem
 
-One of the key benefits of using Apache Kafka is the ecosystem of frameworks it can connect to. Kafka enabled Event Hubs allow users to combine the flexibility of the Kafka ecosystem with the scalability, consistency, and support of the Azure ecosystem without having to manage on prem clusters or resources - it's the best of both worlds!
+One of the key benefits of using Apache Kafka is the ecosystem of frameworks it can connect to. Kafka enabled Event Hubs allow users to combine the flexibility Kafka with the scalability, consistency, and support of the Azure ecosystem without having to manage on prem clusters or resources - it's the best of both worlds!
 
-This tutorial shows you how to stream into Kafka enabled Event Hubs using Akka Streams without changing your protocol clients or running your own clusters. Azure Event Hubs for Kafka Ecosystem supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
+This tutorial shows you how to connect Akka Streams to Kafka enabled Event Hubs without changing your protocol clients or running your own clusters. Azure Event Hubs for Kafka Ecosystem supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+To complete this tutorial, make sure you have:
 
-In addition:
-
+* An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * [Java Development Kit (JDK) 1.8+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
@@ -78,14 +77,14 @@ akka.kafka.producer {
 
 ### Run producer from the command line
 
-To run the producer from the command line, generate the JAR and then run from within Maven (alternatively, generate the JAR using Maven, then run in Java by adding the necessary Kafka JAR(s) to the classpath):
+To run the producer from the command line, generate the JAR and then run from within Maven (or generate the JAR using Maven, then run in Java by adding the necessary Kafka JAR(s) to the classpath):
 
 ```shell
 mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 ```
 
-The producer will now begin sending events to the Kafka enabled Event Hub at topic `test` and printing the events to stdout. If you would like to change the topic, change the TOPIC constant in `producer/src/main/java/com/example/app/AkkaTestProducer.java`.
+The producer will now begin sending events to the Kafka enabled Event Hub at topic `test` and printing the events to stdout.
 
 ## Akka Streams Consumer
 
@@ -118,14 +117,14 @@ akka.kafka.consumer {
 
 ### Run consumer from the command line
 
-To run the consumer from the command line, generate the JAR and then run from within Maven (alternatively, generate the JAR using Maven, then run in Java by adding the necessary Kafka JAR(s) to the classpath):
+To run the consumer from the command line, generate the JAR and then run from within Maven (or generate the JAR using Maven, then run in Java by adding the necessary Kafka JAR(s) to the classpath):
 
 ```shell
 mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 ```
 
-If the Kafka enabled Event Hub has events (for instance, if your producer is also running), then the consumer should now begin receiving events from topic `test`. If you would like to change the topic, change the TOPIC constant in `producer/src/main/java/com/example/app/AkkaTestConsumer.java`.
+If the Kafka enabled Event Hub has events (for instance, if your producer is also running), then the consumer should now begin receiving events from topic `test`. 
 
 Check out the [Akka Streams Kafka Guide](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) for more detailed information on Akka Streams.
 
