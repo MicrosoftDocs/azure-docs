@@ -55,34 +55,43 @@ It is important to understand few concepts in DNS that are extensively used to d
 - **Priority Routing** – Priority routing is based on health checks of endpoints. By default, Azure Traffic manager sends all traffic to the highest priority endpoint, and upon a failure or disaster, Traffic Manager routes the traffic to the secondary endpoint. For more information, see [Priority routing method](../traffic-manager/traffic-manager-routing-methods.md#priority).
 
 ## Manual failover using Azure DNS
-The Azure DNS manual failover solution for disaster recovery uses the standard DNS mechanism to fail over to the backup site. The manual option via Azure DNS works best when used in conjunction with the cold standby or the pilot light approach. The assumptions made for the solution are:
+The Azure DNS manual failover solution for disaster recovery uses the standard DNS mechanism to fail over to the backup site. The manual option via Azure DNS works best when used in conjunction with the cold standby or the pilot light approach. 
+
+![Manual failover using Azure DNS](./media/disaster-recovery-dns-traffic-manager/manual-failover-using-dns.png)
+*Figure - Manual failover using Azure DNS*
+
+The assumptions made for the solution are:
 -	Both primary and secondary endpoints have static IPs that don’t change often. Say for the primary site the IP is 100.168.124.44 and the IP for the secondary site is 100.168.124.43.
 -	An Azure DNS zone exists for both the primary and secondary site. Say for the primary site the endpoint is prod.contoso.com and for the backup site is dr.contoso.com. A DNS record for the main application known as www.contoso.com also exists.   
 -	The TTL is at or below the RTO SLA set in the organization. For example, if an enterprise sets the RTO of the application disaster response to be 60 mins, then the TTL should be less than 60 mins, preferably the lower the better. 
+You can set up Azure DNS for manual failover as follows:
+1. Create a DNS zone
+2. Create DNS zone records
+3. Update CNAME record
 
-    ![Manual failover using Azure DNS](./media/disaster-recovery-dns-traffic-manager/manual-failover-using-dns.png)
+### Step 1: Create a DNS
+Create a DNS zone (for example, www.contoso.com) as shown below:
 
-    *Figure - Manual failover using Azure DNS*
-Set up Azure DNS for manual failover as follows:
-### Step 1: Create a DNS zone contoso.com.
-
-   ![Create a DNS zone in Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
+![Create a DNS zone in Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
+*Figure - Create a DNS zone in Azure*
 
 ### Step 2: Create DNS zone records
 
- Within this zone create three records namely – www.contoso.com, prod.contoso.com and dr.consoto.com.
+Within this zone create three records (for example - www.contoso.com, prod.contoso.com and dr.consoto.com) as show below.
 
-   ![Create DNS zone records](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
+![Create DNS zone records](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
+*Figure - Create DNS zone records in Azure*
 
-    In this setup the www.contoso.com has a TTL of 30 mins, which is well below the stated RTO, and is pointing to the production site prod.contoso.com. This will be the setup during normal business operations. The TTL of prod.contoso.com and dr.contoso.com has been set to 300 seconds or 5 mins. 
-    The enterprise customer might be using some sort of Azure monitoring like Azure Monitor, Azure App Insights etc. or partner monitoring solutions like Dynatrace or even home grown solutions that can monitor or detect application or virtual infrastructure level failures.
+In this scenario, site, www.contoso.com has a TTL of 30 mins, which is well below the stated RTO, and is pointing to the production site prod.contoso.com. This will be the setup during normal business operations. The TTL of prod.contoso.com and dr.contoso.com has been set to 300 seconds or 5 mins. 
+The enterprise customer might be using some sort of Azure monitoring like Azure Monitor, Azure App Insights etc. or partner monitoring solutions like Dynatrace or even home grown solutions that can monitor or detect application or virtual infrastructure level failures.
 
 ### Step 3: Update the CNAME record
 
 Once failure is detected, change the record value to point to dr.contoso.com as shown below:
        
-   ![Update CNAME record](./media/disaster-recovery-dns-traffic-manager/update-cname-record.png)
- 
+![Update CNAME record](./media/disaster-recovery-dns-traffic-manager/update-cname-record.png)
+*Figure - Update the CNAME record in Azure*
+
 Within 30 minutes, during which most resolvers will refresh the cached zone file, any query to www.contoso.com will be redirected to dr.contoso.com.
 You can also run the following Azure CLI command to change the CNAME value:
  ```azurecli
@@ -102,6 +111,7 @@ When you have complex architectures and multiple sets of resources capable of pe
 In the following example, both the primary region and the secondary region have a full deployment. This deployment includes the cloud services and a synchronized database. 
 
 ![Automatic failover using Azure Traffic Manager](./media/disaster-recovery-dns-traffic-manager/automatic-failover-using-traffic-manager.png)
+*Figure - Automatic failover using Azure Traffic Manager*
 
 However, only the primary region is actively handling network requests from the users. The secondary region becomes active only when the primary region experiences a service disruption. In that case, all new network requests route to the secondary region. Since the backup of the database is near instantaneous, both the load balancers have IPs that can be health checked, and the instances are always up and running, this topology provides an option for going in for a low RTO and failover without any manual intervention. The secondary failover region must be ready to go immediately after failure of the primary region.
 This is an ideal candidate for the use of Azure Traffic Manager which has inbuilt probes for various types of health checks including http / https and TCP. Azure Traffic manager also has a rule engine that can be configured to failover in the event of a failure as we will see below. Let’s consider the following for the solution using Traffic Manager:
@@ -111,12 +121,16 @@ This is an ideal candidate for the use of Azure Traffic Manager which has inbuil
 -	Autoscaling is preconfigured in advance. 
 
 The steps taken to configure the failover with Azure Traffic Manager are as follows:
+1. Create a new Azure Traffic Manager profile
+2. Create endpoints within the Traffic Manager profile
+3. Set up health check and failover configuration
 
-### Step 1: Create a new Azure Traffic Manager profile.
+### Step 1: Create a new Azure Traffic Manager profile
 We create a new Azure Traffic manager profile with the name contoso123 and select the Routing method as Priority. 
 If we have a pre-existing resource group that we want to associate with then we select the resource group else, we create a new resource group.
 
 ![Create Traffic Manager profile](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+*Figure - Create a Traffic Manager profile*
 
 ### Step 2: Create endpoints within the Traffic Manager profile
 
@@ -124,6 +138,7 @@ In this step, you create endpoints that point to the production and disaster rec
 Similarly, create the disaster recovery endpoint within Traffic Manager as well.
 
 ![Create disaster recovery endpoints](./media/disaster-recovery-dns-traffic-manager/create-disaster-recovery-endpoint.png)
+*Figure - Create disaster recovery endpoints*
 
 ### Step 3: Set up health check and failover configuration
 
@@ -134,6 +149,7 @@ If the Retry is set to 1 and TTL is set to 10 secs then the time for failover 10
 
 
 ![Set up health check](./media/disaster-recovery-dns-traffic-manager/set-up-health-check.png)
+*Figure - Set up health check and failover configuration*
 
 ### Result
 
