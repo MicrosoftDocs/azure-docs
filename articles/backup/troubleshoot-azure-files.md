@@ -16,7 +16,7 @@ You can troubleshoot issues and errors encountered while using Azure File Shares
 ## Preview boundaries
 Backup for Azure File shares is in Preview. The following backup scenarios are not supported for Azure file shares:
 - Protecting Azure file shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication*.
-- Protecting Azure file shares in Storage Accounts that have Virtual Networks enabled.
+- Protecting Azure file shares in Storage Accounts that have Virtual Networks or Firewall enabled.
 - Backing up Azure file shares using PowerShell or CLI.
 
 \*Azure File Shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication function as GRS and billed at GRS prices
