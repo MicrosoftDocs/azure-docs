@@ -1432,7 +1432,7 @@ the `variables()` function and creates a CSV table from those items:
       "from": "@variables('myItemArray')"
    },
    "runAfter": {
-      "Initialize_variable"  
+      "Initialize_variable": [ "Succeeded" ]
    }
 }
 ```
@@ -1457,7 +1457,7 @@ the `variables()` function and creates an HTML table from those items:
       "from": "@variables('myItemArray')"
    },
    "runAfter": {
-      "Initialize_variable"  
+      "Initialize_variable": [ "Succeeded" ]
    }
 }
 ```
@@ -1465,6 +1465,8 @@ the `variables()` function and creates an HTML table from those items:
 Here is the HTML table that this action creates: 
 
 <table><thead><tr><th>ID</th><th>Item</th></tr></thead><tbody><tr><td>0</td><td>Apples</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
+
+### Override default table format
 
 To override the automatically created column headers and values, 
 you can explicitly define those elements, for example:
@@ -1490,7 +1492,7 @@ you can explicitly define those elements, for example:
 }
 ```
 
-Here is the output from this example:
+Here is the HTML table that this action creates:
 
 <table><thead><tr><th>Produce ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples</td></tr><tr><td>1</td><td>Organic Oranges</td></tr></tbody></table>
 

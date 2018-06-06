@@ -77,6 +77,33 @@ as the first step in your logic app
   must start with a trigger and include any other actions 
   required for creating the outputs you want.
 
+<a name="compose-action"></a>
+
+## Compose action
+
+1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+or Visual Studio, open your logic app in Logic App Designer. 
+
+   This example uses the Azure portal 
+   and a logic app with an existing trigger.
+
+2. In your logic app where you want to create the JSON object, 
+follow one of these steps: 
+
+   * To add an action under the last step, 
+   choose **New step** > **Add an action**.
+
+     ![Add action](./media/logic-apps-create-variables-store-values/add-action.png)
+
+   * To add an action between steps, move your mouse 
+   over the connecting arrow so the plus sign (+) appears. 
+   Choose the plus sign, and then select **Add an action**.
+
+3. In the search box, enter "compose" as your filter. 
+From the actions list, select **Data Operations - Compose**.
+
+4. Now select the inputs to use for creating the JSON object.
+
 <a name="create-csv-table-action"></a>
 
 ## Create CSV table action
@@ -87,8 +114,13 @@ follow these steps:
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
 
-   This example uses the Azure portal and a 
-   logic app that already has a trigger.
+   This example uses the Azure portal and a logic app with a 
+   **Recurrence** trigger and an **Initialize variable** action. 
+   The action is set up for creating a variable whose initial 
+   value is an array that has some properties and values in 
+   JavaScript Object Notation (JSON) format. When you test 
+   your logic app later, you can manually run your app 
+   without waiting for the trigger to fire.
 
 2. In your logic app where you want to create the CSV table, 
 follow one of these steps: 
@@ -96,7 +128,7 @@ follow one of these steps:
    * To add an action under the last step, 
    choose **New step** > **Add an action**.
 
-     ![Add action](./media/logic-apps-change-manage-data-operations/add-action.png)
+     ![Add action](./media/logic-apps-change-manage-data-operations/add-create-csv-table-action.png)
 
    * To add an action between steps, move your mouse 
    over the connecting arrow so the plus sign (+) appears. 
@@ -112,41 +144,6 @@ When the dynamic content list opens, select the source data for the CSV table.
    and values from the selected source data. 
    To manually override these default column headers and values, 
    choose **Show advanced options**. 
-
-
-If you switch from the designer to the code view editor, 
-this example shows the way this action appears in your logic app definition. 
-Here, the action passes in the **Attachments** array and 
-creates columns for each attachment. Each column contains 
-the values for each attachment's properties.
-
-```json
-"Create_CSV_table": {
-   "type": "Table",
-   "inputs": {
-      "format": "CSV",
-      "from": "@triggerBody()?['Attachments']",
-      "columns": [ 
-        {
-           "value": "@item()['ContentBytes']"
-        },
-        {
-           "value": "@item()['ContentId']"
-        },
-        {
-           "value": "@item()['ContentType']"
-        },
-        {
-           "value": "@item()['Name']"
-        },
-        {
-           "value": "@item()['Size']"
-        } 
-     ]
-   },
-   "runAfter": {}
-}
-```
 
 For more information about this action in your underlying workflow definition, 
 see [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
@@ -183,54 +180,11 @@ From the actions list, select **Data Operations - Create HTML table**.
 When the dynamic content list opens, select the item to use as the 
 source for the HTML table. 
 
-
-
    To manually create columns and column headers from the properties 
    in the JSON content, choose **Show advanced options**.
 
-
-```json
-
-"Create_HTML_table": {
-   "type": "Table",
-   "inputs": {
-      "format": "HTML",
-      "from": "@variables('myItemArray')",
-   },
-   "runAfter": {}
-}
-```
-
 For more information about this action in your underlying workflow definition, 
 see [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
-
-<a name="compose-action"></a>
-
-## Compose action
-
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
-or Visual Studio, open your logic app in Logic App Designer. 
-
-   This example uses the Azure portal 
-   and a logic app with an existing trigger.
-
-2. In your logic app where you want to create the JSON object, 
-follow one of these steps: 
-
-   * To add an action under the last step, 
-   choose **New step** > **Add an action**.
-
-     ![Add action](./media/logic-apps-create-variables-store-values/add-action.png)
-
-   * To add an action between steps, move your mouse 
-   over the connecting arrow so the plus sign (+) appears. 
-   Choose the plus sign, and then select **Add an action**.
-
-3. In the search box, enter "compose" as your filter. 
-From the actions list, select **Data Operations - Compose**.
-
-4. Now select the inputs to use for creating the JSON object.
-
 
 <a name="filter-array-action"></a>
 
@@ -352,11 +306,6 @@ On the designer toolbar, choose **Run**.
 
    For example, the logic app finishes successfully, 
 
-<a name="select-action"></a>
-
-## Select action
-
-
 <a name="parse-json-action"></a>
 
 ## Parse JSON action
@@ -368,6 +317,9 @@ content list when providing input for your logic app.
 For this action, you can either provide a JSON schema 
 or generate a JSON schema from your sample JSON content or payload.
 
+<a name="select-action"></a>
+
+## Select action
 
 
 ## Get support
