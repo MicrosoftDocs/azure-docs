@@ -5,17 +5,11 @@
 To install CycleCloud, you must have administrator rights. In addition, your system needs to meet the following minimum requirements:
 
 * A 32-bit or 64-bit Linux distribution or Windows Server 2008 or newer
-
 * Java Runtime Environment (version 8 or higher)
-
 * At least 8GB of RAM
-
 * Two or more CPU cores
-
 * At least 50GB of free disk space
-
 * Administrator (root) privileges
-
 * Phraseless SSH key
 
 > [!NOTE]
