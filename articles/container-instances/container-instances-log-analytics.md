@@ -77,7 +77,7 @@ You should receive a response from Azure containing deployment details shortly a
 
 ## View logs in Log Analytics
 
-After you've deployed the container group, it can take several minutes for the first log entries to appear in the Azure portal. To view the container group's logs, open your Log Analytics workspace, then:
+After you've deployed the container group, it can take several minutes (up to 10) for the first log entries to appear in the Azure portal. To view the container group's logs, open your Log Analytics workspace, then:
 
 1. In the **OMS Workspace** overview, select **Log Search**
 1. Under **A few more queries to try**, select the **All collected data** link
@@ -90,7 +90,7 @@ You should see several results displayed by the `search *` query. If at first yo
 
 Log Analytics includes an extensive [query language][query_lang] for pulling information from potentially thousands of lines of log output.
 
-The Azure Container Instances logging agent sends entries to the `ContainerInstanceLog_CL` table in your Log Analytics workspace. The basic structure of a query is the source table (`ContainerInstanceLog_CL`) followed by a series of operators separated by the pipe character (`|`). You can chain several operators to refine the data and perform advanced functions.
+The Azure Container Instances logging agent sends entries to the `ContainerInstanceLog_CL` table in your Log Analytics workspace. The basic structure of a query is the source table (`ContainerInstanceLog_CL`) followed by a series of operators separated by the pipe character (`|`). You can chain several operators to refine the results and perform advanced functions.
 
 To see example query results, paste the following query into the query text box (under "Show legacy language converter"), and select the **RUN** button to execute the query. This query displays all log entries whose "Message" field contains the word "warn":
 
@@ -99,7 +99,7 @@ ContainerInstanceLog_CL
 | where Message contains("warn")
 ```
 
-More complex queries are also supported. For example, this example displays only those log entries for the "mycontainergroup001" container group generated within the last hour:
+More complex queries are also supported. For example, this query displays only those log entries for the "mycontainergroup001" container group generated within the last hour:
 
 ```query
 ContainerInstanceLog_CL
