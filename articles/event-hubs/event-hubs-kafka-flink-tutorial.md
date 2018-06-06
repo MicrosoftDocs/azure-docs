@@ -116,6 +116,7 @@ Check out [Flink's Kafka Connector Guide](https://ci.apache.org/projects/flink/f
 
 ## Next steps
 
-* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
 * [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
 * Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on-prem to Kafka enabled Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Learn how to stream into Kafka enabled Event Hubs using [native Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md) or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md).

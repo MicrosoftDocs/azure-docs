@@ -78,8 +78,7 @@ If your Event Hubs Kafka cluster has events queued from the producer, you should
 
 ## Next steps
 
-* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
 * [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
 * Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on-prem to Kafka enabled Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
-* Use [Apache Flink](https://flink.apache.org) to [stream events to/from Kafka enabled Event Hub](event-hubs-kafka-flink-tutorial.md)
-* Use [Akka Streams](https://akka.io/docs/) to [stream events to/from Kafka enabled Event Hubs](event-hubs-kafka-akka-streams-tutorial.md)
+* Learn how to stream into Kafka enabled Event Hubs using [Apache Flink](event-hubs-kafka-flink-tutorial.md) or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md).
