@@ -97,21 +97,35 @@ From the Azure portal, select **Azure Active Directory** > **Properties** and ta
 
 ## Deploy Cluster
 
-```
+Use the [az group create][az-group-create] command to create a resource group for the AKS cluster.
+
+```azurecli
 az group create --name myAKSCluster --location eastus
 ```
 
-```
-az aks create --name myAKSCluser --resource-group myAKSCluster --enable-rbac --aad-server-app-id <> --aad-server-app-secret <> --aad-client-app-id <> --aad-tenant-id
+Deploy the cluster using the [az aks create][az-aks-create] command. Replace the values in this sample with the values returned when creating the AAD applications.
+
+```azurecli
+az aks create --name myAKSCluser --resource-group myAKSCluster --enable-rbac \
+  --aad-server-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
+  --aad-server-app-secret P@ssword12 \
+  --aad-client-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
+  --aad-tenant-id 72f988bf-0000-0000-0000-2d7cd011db47
 ```
 
 ## Create RBAC binding
 
-```
+Before an Azure Active Directory account can be used with the AKS cluster, use the admin account to create a role binding or cluster role binding for the AAD account.
+
+First, use the [az aks get-credentials][az-aks-get-credentials] command with the `--admin` argument to log into the cluster with admin access.
+
+```azurecli
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
 ```
 
-```
+Next, use the following manifest to create a ClusterRoleBinding for the AAD account. Update the user name with one from your AAD tenant.
+
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -126,12 +140,26 @@ subjects:
   name: "nepeters@microsoft.com"
 ```
 
+ For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC Authorization][rbac-authorization]
+
 ## Access cluster with AAD
 
-```
+```azurecli
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
 ```
 
-```
+```azurecli
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BUJHWDGNL to authenticate.
 ```
+
+## Next Steps
+
+Learn more about securing Kubernetes cluster with RBAC with the [Using RBAC Authorization][rbac-authorization] documentation.
+
+<!-- LINKS - external -->
+[rbac-authorization]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+
+<!-- LINKS - internal -->
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
+[az-group-create]: /cli/azure/group#az_group_create
