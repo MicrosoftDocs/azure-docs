@@ -14,9 +14,13 @@ ms.author: v-geberr
 # What is Language Understanding (LUIS)?
 Language Understanding (LUIS) is a cloud-based service that applies custom machine-learning to a user's conversational, natural language text to predict overall meaning and pull out relevant, detailed information. 
 
-Your client application sends user text of what a person wants in their own words to LUIS in an HTTP request. LUIS applies your learned model to the natural language to make sense of the user input and returns a JSON format response. Your client application uses the JSON response to fulfill the user's requests. 
+A client application for LUIS can be any conversational application that communicates with a user in natural language to complete a task. Examples of client applications include social media apps, chatbots, and speech-enabled desktop applications.  
 
-![Conceptual imagery of LUIS working with Chat bot](./media/luis-overview/luis-overview-process.png)
+![Conceptual image of 3 applications feeding information info LUIS](./media/luis-overview/luis-entry-point.png)
+
+Your client application (such as a chatbot) sends user text of what a person wants in their own words to LUIS in an HTTP request. LUIS applies your learned model to the natural language to make sense of the user input and returns a JSON format response. Your client application uses the JSON response to fulfill the user's requests. 
+
+![Conceptual imagery of LUIS working with Chatbot](./media/luis-overview/luis-overview-process-2.png)
 
 ## What is a LUIS app?
 A LUIS app is a domain-specific language model you design. You can start your app with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
@@ -31,7 +35,7 @@ Once your model is built and published, your client application sends utterances
 
 ### Example of JSON endpoint response
 
-The JSONe endpoint response, at a minimum contains the query utterance, and the top scoring intent. 
+The JSON endpoint response, at a minimum contains the query utterance, and the top scoring intent. 
 
 ```JSON
 {
@@ -60,8 +64,6 @@ A LUIS model includes:
 * **[intents](#intents)**: categories of user intentions (intended action or result)
 * **[entities](#entities)**: specific types of data in utterances such as number, email, or name
 * **[example utterances](#example-utterances)**: example text a user enters in your client application
-
-A client application but be anything but typically it has a conversational interaction between a user and the software such as a chat bot, virtual reality game, or a digital personal assistant such as Cortana. 
 
 ### Intents 
 An [intent][add-intents], short for _intention_, is a purpose or goal expressed in a user's utterance, such as booking a flight, paying a bill, or finding a news article. You create an intent for each action. A travel app may define an intent named "BookFlight." Your client application can use the top scoring intent to trigger an action. For example, when "BookFlight" intent is returned from LUIS, your client application could trigger an API call to an external service for booking a plane ticket.
@@ -105,7 +107,7 @@ You can build your LUIS app from the [www.luis.ai](http://www.luis.ai) website o
 Several Microsoft technologies work with LUIS:
 
 * [Bing Spell Check API][bing-spell-check-api] provides text correction before prediction. 
-* [Bot Framework][bot-framework] allows a chat bot to talk with a user via text input. Select [3.x](https://github.com/Microsoft/BotBuilder) or [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK for a complete bot experience.
+* [Bot Framework][bot-framework] allows a chatbot to talk with a user via text input. Select [3.x](https://github.com/Microsoft/BotBuilder) or [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK for a complete bot experience.
 * [QnA Maker][qnamaker] allows several types of text to combine into a question and answer knowledge base.
 * [Speech][speech] converts spoken language requests into text. Once converted to text, LUIS processes the requests. See [Speech SDK](https://aka.ms/csspeech) for more information.
 * [Text Analytics][text-analytics] provides sentiment analysis and key phrase data extraction.
