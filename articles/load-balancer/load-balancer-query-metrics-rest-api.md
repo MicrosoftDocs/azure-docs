@@ -16,11 +16,11 @@ ms.author: KumudD
 
 This how-to shows how to collect the number of bytes processed by a Standard [Load Balancer](/azure/load-balancer/load-balancer-overview) in a given interval of time using the [Azure REST API](/rest/api/azure/).
 
-Complete reference documention and additional samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). A complete list of [Load Balancer metrics](/azure/load-balancer/load-balancer-standard-diagnostics) is also available.
+Complete reference documention and additional samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). 
 
 ## Build the request
 
-Use the following GET request to collect the [ByteCount metric](/azure/load-balancer/load-balancer-standard-diagnostics#a-name--multidimensionalmetricsamulti-dimensional-metrics) from a Standard Load Balancer.
+Use the following GET request to collect the [ByteCount metric](/azure/load-balancer/load-balancer-standard-diagnostics#a-name--multidimensionalmetricsamulti-dimensional-metrics) from a Standard Load Balancer. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -42,6 +42,7 @@ The following headers are required:
 | subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions) |
 | resourceGroupName | The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API, CLI, or the portal. |
 | loadBalancerName | The name of the Azure Load Balancer. |
+| metricnames | Comma-separated list of valid  [Load Balancer metrics](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | api-version | The API version to use for the request.<br /><br /> This document covers api-version `2018-01-01`, included in the above URL.  |
 | timespan | The timespan of the query. It is a string with the following format 'startDateTime_ISO/endDateTime_ISO'. This optional paramaeter is set to return a day's worth of data in the example. |
 | &nbsp; | &nbsp; |
