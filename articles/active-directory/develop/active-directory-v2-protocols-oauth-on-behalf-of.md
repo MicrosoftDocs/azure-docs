@@ -29,7 +29,7 @@ The OAuth 2.0 On-Behalf-Of flow serves the use case where an application invokes
 
 
 > [!IMPORTANT]
-> Public clients using the [implicit grant](active-directory-v2-protocols-implicit.md) cannot use the On-Behalf-Of flow - they must pass their access token to a middle-tier confidential client to perform OBO flows.  See [limitations](#Client-limitations) for more details on which clients can perform On-Behalf-Of calls.  
+> The [implicit grant](active-directory-v2-protocols-implicit.md) cannot be used for the On-Behalf-Of flow - SPAs must pass their (implicit flow) access token to a middle-tier confidential client to perform OBO flows.  See [limitations](#Client-limitations) for more details on which clients can perform On-Behalf-Of calls.  
 
 ## Protocol diagram
 Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](active-directory-v2-protocols-oauth-code.md). At this point, the application has an access token *for API A* (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
@@ -178,7 +178,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 ```
 
 ## Client limitations
-Public clients with wildcard reply URLs cannot use an id_token for On-Behalf-Of flows.  However, access tokens acquired via the implicit grant flow can still be redeemed by a confidential client even if the public client has a wildcard redirect uri registered. 
+If a client uses the implicit flow to get an id_token, and that client also has wildcards in a reply URL, the id_token cannot be used for an OBO flow.  However, access tokens acquired via the implicit grant flow can still be redeemed by a confidential client even if the initiating client has a wildcard reply URL registered. 
 
 ## Next steps
 Learn more about the OAuth 2.0 protocol and another way to perform service to service auth using client credentials.
