@@ -31,7 +31,7 @@
 | Endpoint Access Control Lists (ACLs) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Networking Limits - Azure Resource Manager
-The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](..articles/networking/check-usage-against-limits.md).
+The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
