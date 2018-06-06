@@ -134,7 +134,7 @@ Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## Next Steps
+## For resizing Data Disks
 Though in this article, we focused primarily on expanding the Unamanged/Managed OS disk of the VM, the developed script may also be used for expanding the data disks attached to the VM. For example, to expand the first data disk attached to the VM, replace the ```OSDisk``` object of ```StorageProfile``` with ```DataDisks``` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
 
 Unamanged Disk:
