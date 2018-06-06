@@ -153,9 +153,9 @@ To view the container's logs, under **SETTINGS** select **Containers**, then **L
 ## Secure values
 Objects with secure values are intended to hold sensitive information like passwords or keys for your application. Using secure values for environment variables is both safer and more flexible than including it in your container's image. Another option is to use secret volumes, described in [Mount a secret volume in Azure Container Instances](container-instances-volume-secret.md).
 
-Environment variables with secure values won't show up in your container's properties and can only be accessed from within your container. For example, container properties viewed in the Azure portal or Azure CLI won't display an environment variable with a secure value.
+Secure environment variables with secure values won't reveal the secure value in your container's properties so the value can only be accessed from within your container. For example, container properties viewed in the Azure portal or Azure CLI won't display an environment variable with a secure value.
 
-Set this by specifying the value type of your environment variable associated with a specific container with the `secureValue` property instead of the regular `value`.
+Set a secure environment variable by specifying the `secureValue` property instead of the regular `value` for the variable's type. The two variables defined in the following YAML demonstrate the two variable types.
 
 ### YAML deployment
 
@@ -172,6 +172,8 @@ properties:
       environmentVariables:
         - "name": "SECRET"
           "secureValue": "my-secret-value"
+        - "name": "NOTSECRET"
+          "value": "my-exposed-value"
       image: nginx
       ports: []
       resources:
@@ -190,7 +192,19 @@ Run the following command to deploy the container group with YAML.
 az container create --resource-group myRG --name securetest -f secure-env.yaml
 ```
 
-The JSON response with details for this container will show no environment variables are set. You can review the environment variable is set with the `exec` command which enables executing a command from within a running container.
+The JSON response with details for this container will show only the non-secure environment variable and secure environment variable's key.
+
+```json
+  "environmentVariables": [
+    {
+      "name": "NOTSECRET",
+      "value": "my-exposed-value"
+    },
+    {
+      "name": "SECRET"
+    }
+```
+You can review the secure environment variable is set with the `exec` command which enables executing a command from within a running container. 
 
 Run the following command to start an interactive bash session with the container.
 ```azurecli-interactive
