@@ -12,9 +12,9 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Integrate Azure Active Directory with AKS
+# Integrate Azure Active Directory with AKS - Preview
 
-Azure Kubernetes Service (AKS) includes the capability of integrating authentication services with Azure Active Directory. In this configuration, you can log into an Azure Kubernetes Service cluster using your Azure Active Directory authentication token. Additionally, cluster administrators are also able to configure Kubernetes role-based access control based on a users directory group membership.
+Azure Kubernetes Service (AKS) includes the capability of using Azure Active Directory for user authentication. In this configuration, you can log into an Azure Kubernetes Service cluster using your Azure Active Directory authentication token. Additionally, cluster administrators are also able to configure Kubernetes role-based access control based on a users directory group membership.
 
 This document details creating all necessary prerequisites for AKS and AAD, deplying an AAD enabled cluster, and creating a simple RBAC role in the AKS cluster.
 
@@ -22,7 +22,7 @@ This document details creating all necessary prerequisites for AKS and AAD, depl
 
 AAD authentication is provided to Azure Kuberntees Clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. More information on OpenID Connect can be found [here](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication)
 
-From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication token. More information on Webhook token authentication can be found [here](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication)
+From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication tokens. More information on Webhook token authentication can be found [here](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication)
 
 > [!NOTE]
 > When configuring AAD for AKS authentication, two AAD application are configured. This operation must be completed by an Azure tennat administrator.
@@ -103,19 +103,19 @@ Use the [az group create][az-group-create] command to create a resource group fo
 az group create --name myAKSCluster --location eastus
 ```
 
-Deploy the cluster using the [az aks create][az-aks-create] command. Replace the values in this sample with the values returned when creating the AAD applications.
+Deploy the cluster using the [az aks create][az-aks-create] command. Replace the values in this sample with the values collected when creating the AAD applications.
 
 ```azurecli
 az aks create --name myAKSCluser --resource-group myAKSCluster --enable-rbac \
   --aad-server-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
-  --aad-server-app-secret P@ssword12 \
+  --aad-server-app-secret wHYomLe2i1mHR2B3/d4sFrooHwADZccKwfoQwK2QHg= \
   --aad-client-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
   --aad-tenant-id 72f988bf-0000-0000-0000-2d7cd011db47
 ```
 
 ## Create RBAC binding
 
-Before an Azure Active Directory account can be used with the AKS cluster, use the admin account to create a role binding or cluster role binding for the AAD account.
+Before an Azure Active Directory account can be used with the AKS cluster, a role binding or cluster role binding needs to be created.
 
 First, use the [az aks get-credentials][az-aks-get-credentials] command with the `--admin` argument to log into the cluster with admin access.
 
@@ -137,19 +137,30 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: "nepeters@microsoft.com"
+  name: "user@contoso.com"
 ```
 
- For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC Authorization][rbac-authorization]
+ This example gives the account full access to all namespaces of the cluster. For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC Authorization][rbac-authorization]
 
 ## Access cluster with AAD
+
+Next, pull the context for the non-admin user using the [az aks get-credentials][az-aks-get-credentials] command.
 
 ```azurecli
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
 ```
 
-```azurecli
+After running any kubectl command, you will be prompted to authenticate with Azure. Follow the on-screen instructions
+
+```console
+$ kubectl get nodes
+
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BUJHWDGNL to authenticate.
+
+NAME                       STATUS    ROLES     AGE       VERSION
+aks-nodepool1-42032720-0   Ready     agent     1h        v1.9.6
+aks-nodepool1-42032720-1   Ready     agent     1h        v1.9.6
+aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
 ```
 
 ## Next Steps
