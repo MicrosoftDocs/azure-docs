@@ -39,7 +39,7 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 The following arguments are r
 
 | Argument: | Description | Required |
-|:---|:---|---|
+|---|---|:---:|
 | `--connector-name` | Name of the ACI Connector.| Yes |
 | `--name` `-n` | Name of the managed cluster. | Yes |
 | `--resource-group` `-g` | Name of resource group. | Yes |
