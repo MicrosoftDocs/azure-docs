@@ -22,7 +22,7 @@ As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/
 
 When you create an Azure subscription from this API, that subscription is governed by the agreement under which you obtained Microsoft Azure services from Microsoft or an authorized reseller. To learn more, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
-## Prerequisite
+## Prerequisites
 
 * Your account must be an Account Owner in an Azure EA enrollment. If not, ask your Enrollment Administrator to [add you as an Account Owner using the EA portal](https://ea.azure.com/helpdocs/addNewAccount) (log-in required). Follow the instructions in the invitation email you receive to manually create an initial subscription. Confirm account ownership and manually create an initial EA subscription before proceeding to the next step. Just adding the account to the enrollment isn't enough.
 
