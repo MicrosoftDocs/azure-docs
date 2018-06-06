@@ -54,9 +54,9 @@ Before you can migrate data from an on-premises SQL Server instance to Azure SQL
 
     Both report types are selected by default.
 
-4.	In the Data Migration Assistant, on the **Options** screen, select **Next**.
-5.  On the **Select sources** screen, in the **Connect to a server** dialog box, provide the connection details to your SQL Server, and then select **Connect**.
-6.	In the **Add sources** dialog box, select **AdventureWorks2012**, select **Add**, and then select **Start Assessment**.
+3.	In the Data Migration Assistant, on the **Options** screen, select **Next**.
+4.  On the **Select sources** screen, in the **Connect to a server** dialog box, provide the connection details to your SQL Server, and then select **Connect**.
+5.	In the **Add sources** dialog box, select **AdventureWorks2012**, select **Add**, and then select **Start Assessment**.
 
     When the assessment is complete, the results display as shown in the following graphic:
 
@@ -67,7 +67,7 @@ Before you can migrate data from an on-premises SQL Server instance to Azure SQL
     - The **SQL Server feature parity** category provides a comprehensive set of recommendations, alternative approaches available in Azure, and mitigating steps to help you plan the effort into your migration projects.
     - The **Compatibility issues** category identifies partially supported or unsupported features that reflect compatibility issues that might block migrating on-premises SQL Server database(s) to Azure SQL Database. Recommendations are also provided to help you address those issues.
 
-7.	Review the assessment results for migration blocking issues and feature parity issues by selecting the specific options.
+6.	Review the assessment results for migration blocking issues and feature parity issues by selecting the specific options.
 
 ## Migrate the sample schema
 After you are comfortable with the assessment and satisfied that the selected database is a viable candidate for migration to Azure SQL Database, use the Data Migration Assistant to migrate the schema to Azure SQL Database.
