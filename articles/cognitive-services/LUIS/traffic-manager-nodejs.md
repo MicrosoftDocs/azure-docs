@@ -32,15 +32,23 @@ Traffic Manager polls the endpoints periodically to make sure the endpoint is st
 
 Because each LUIS endpoint needs its own path, it will need its own Traffic Manager profile. In order to manage across profiles, create a nested Traffic Manager architecture. One parent profile will point to the children profiles and manage traffic across them.
 
+In this article, there are two endpoint subscriptions for LUIS: one in the East US region, and one in the West US region. The region is part of the endpoint URL:  
+
+https://**westus**.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=
+https://**eastus**.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=
+
+
 ## Configure Traffic Manager with nested Profiles with PowerShell
 In the [Azure][azure-portal] portal, open the PowerShell window. The icon for the PowerShell window is the **>_** in the top navigation bar. By using PowerShell from the portal, you are sure to get the latest version and you are authenticated. PowerShell in the portal requires a [Azure Storage] account. 
 
-Before creating the Traffic Manager profiles, create a resource group to contain all the profiles. In the following example, the name of the resource group is `luis-traffic-manager` and the region is `West US`.
+### Create Azure resource for the Traffic Manager profiles
+Before creating the Traffic Manager profiles, create a resource group to contain all the profiles. In the following example, the name of the resource group is `luis-traffic-manager` and the region is `West US`. The region of the resource group stores metadata about the group. It won't slow down your resources if they are in another region. 
 
 ```PowerShell
 > $resourcegroup = New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
+### Create the 
 
 
 ### Create Traffic Manager profile for each endpoint
