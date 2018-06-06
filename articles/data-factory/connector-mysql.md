@@ -4,15 +4,15 @@ description: Learn about MySQL connector in Azure Data Factory that lets you cop
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
 
 ---
@@ -37,7 +37,7 @@ Specifically, this MySQL connector supports MySQL **version 5.1 and above**.
 To use this MySQL connector, you need to:
 
 - Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version 6.6.5 or above on the Integration Runtime machine. This 32 bit driver is compatible with 64 bit IR.
+- Install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version between 6.6.5 and 6.10.7 on the Integration Runtime machine. This 32 bit driver is compatible with 64 bit IR.
 
 > [!TIP]
 > If you hit error on "Authentication failed because the remote party has closed the transport stream.", consider to upgrade the MySQL Connector/Net to higher version.
@@ -59,7 +59,7 @@ The following properties are supported for MySQL linked service:
 | database | Name of the MySQL database. | Yes |
 | schema | Name of the schema in the database. | No |
 | username | Specify user name to connect to the MySQL database. | Yes |
-| password | Specify password for the user account you specified. Mark this field as SecureString. | Yes |
+| password | Specify password for the user account you specified. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**

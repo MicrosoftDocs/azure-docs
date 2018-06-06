@@ -4,15 +4,15 @@ description: Learn how to copy data from Azure Database for PostgreSQL to suppor
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/30/2017
+ms.topic: conceptual
+ms.date: 04/28/2018
 ms.author: jingwang
 
 ---
@@ -42,8 +42,15 @@ The following properties are supported for Azure Database for PostgreSQL linked 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzurePostgreSql** | Yes |
-| connectionString | An ODBC connection string to connect to Azure Database for PostgreSQL. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectionString | An ODBC connection string to connect to Azure Database for PostgreSQL. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+A typical connection string is `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>@admstest;Password=<Password>`. More properties you can set per your case:
+
+| Property | Description | Options | Required |
+|:--- |:--- |:--- |:--- |:--- |
+| EncryptionMethod (EM)| The method the driver uses to encrypt data sent between the driver and the database server. E.g. `ValidateServerCertificate=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | No |
+| ValidateServerCertificate (VSC) | Determines whether the driver validates the certificate that is sent by the database server when SSL encryption is enabled (Encryption Method=1). E.g. `ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | No |
 
 **Example:**
 

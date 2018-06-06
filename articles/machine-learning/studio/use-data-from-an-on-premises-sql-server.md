@@ -3,8 +3,9 @@ title: Use an on-premises SQL Server in Azure Machine Learning | Microsoft Docs
 description: Use data from an on-premises SQL Server database to perform advanced analytics with Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.author: garye;krishnan
 
 ---
 # Perform advanced analytics with Azure Machine Learning using data from an on-premises SQL Server database

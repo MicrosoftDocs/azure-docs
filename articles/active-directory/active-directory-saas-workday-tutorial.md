@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/04/2018
 ms.author: jeedes
 
 ---
@@ -27,7 +27,7 @@ Integrating Workday with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Workday (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -171,21 +171,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     b. In the Azure portal, on the **Configure sign-on** window, copy the **SAML Entity ID** value, and then paste it into the **Issuer** textbox.
 
-    ![SAML Identity Providers](./media/active-directory-saas-workday-tutorial/IC7829271(1).png "SAML Identity Providers")
+    ![SAML Identity Providers](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML Identity Providers")
    
-    c. Select **Enable Workday Initiated Logout**.
-   
-    d. In the Azure portal, on the **Configure sign-on** window, copy the **Sign-Out URL** value, and then paste it into the **Logout Response URL** textbox.
+    c. In the Azure portal, on the **Configure sign-on** window, copy the **Sign-Out URL** value, and then paste it into the **Logout Response URL** textbox.
 
-	e. In the Azure portal, on the **Configure sign-on** window, copy the **SAML Single Sign-On Service URL** value, and then paste it into the **IdP SSO Service URL** textbox.
+	d. In the Azure portal, on the **Configure sign-on** window, copy the **SAML Single Sign-On Service URL** value, and then paste it into the **IdP SSO Service URL** textbox.
 
-	f. In **Used for Environments** textbox, select the environment name.
+	e. In **Used for Environments** textbox, select the environment name.
 
-    g. Click **Identity Provider Public Key Certificate**, and then click **Create**. 
+    f. Click **Identity Provider Public Key Certificate**, and then click **Create**. 
 
     ![Create](./media/active-directory-saas-workday-tutorial/IC782928.png "Create")
 
-    h. Click **Create x509 Public Key**. 
+    g. Click **Create x509 Public Key**. 
 
     ![Create](./media/active-directory-saas-workday-tutorial/IC782929.png "Create")
 
@@ -226,9 +224,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -263,7 +258,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Workday test user
 
-In this section, you create a user called Britta Simon in Workday. Work with [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to add the users in the Workday platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in Workday. Work with [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to add the users in the Workday platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
@@ -300,13 +295,12 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Workday tile in the Access Panel, you should get automatically signed-on to your Workday application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->
@@ -322,4 +316,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/active-directory-saas-workday-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workday-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workday-tutorial/tutorial_general_203.png
-

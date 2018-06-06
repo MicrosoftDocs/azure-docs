@@ -2,13 +2,13 @@
 title: Copy data to or from Azure Blob storage by using Data Factory | Microsoft Docs
 description: Learn how to copy data from supported source data stores to Azure Blob storage, or from Blob storage to supported sink data stores, by using Data Factory.
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
-ms.date: 01/05/2018
+ms.topic: conceptual
+ms.date: 04/27/2018
 ms.author: jingwang
 
 ---
@@ -49,7 +49,7 @@ You can create a Storage linked service by using the account key. It provides th
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureStorage**. |Yes |
-| connectionString | Specify the information needed to connect to Storage for the connectionString property. Mark this field as SecureString. |Yes |
+| connectionString | Specify the information needed to connect to Storage for the connectionString property. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -92,7 +92,7 @@ To use service shared access signature authentication, the following properties 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureStorage**. |Yes |
-| sasUri | Specify the shared access signature URI to the Storage resources, such as blob, container, or table. Mark this field as SecureString. |Yes |
+| sasUri | Specify the shared access signature URI to the Storage resources, such as blob, container, or table. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure Integration Runtime or the Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -131,10 +131,13 @@ To copy data to and from Blob storage, set the type property of the dataset to *
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to **AzureBlob**. |Yes |
-| folderPath | The path to the container and folder in the blob storage. An example is myblobcontainer/myblobfolder/. |Yes |
-| fileName | Specify the name of the blob in **folderPath** if you want to copy to and from a specific blob. If you don't specify a value for this property, the dataset points to all blobs in the folder.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the blob name with the following format: `Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]`. An example is `Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz`. |No |
+| folderPath | Path to the container and folder in the blob storage. Wildcard filter is not supported. An example is myblobcontainer/myblobfolder/. |Yes |
+| fileName | **Name or wildcard filter** for the blob(s) under the specified "folderPath". If you don't specify a value for this property, the dataset points to all blobs in the folder. <br/><br/>For filter, allowed wildcards are: `*` (multiple characters) and `?` (single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the blob name with the following pattern: "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*". An example is "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |No |
 | format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs.md#text-format), [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
+
+>[!TIP]
+>To copy all blobs under a folder, specify **folderPath** only.<br>To copy a single blob with a given name, specify **folderPath** with folder part and **fileName** with file name.<br>To copy a subset of blobs under a folder, specify **folderPath** with folder part and **fileName** with wildcard filter. 
 
 **Example:**
 

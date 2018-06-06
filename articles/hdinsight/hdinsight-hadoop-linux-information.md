@@ -12,10 +12,8 @@ ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2017
+ms.topic: conceptual
+ms.date: 02/27/2018
 ms.author: larryfr
 
 ---
@@ -32,7 +30,7 @@ Many of the steps in this document use the following utilities, which may need t
 
 * [cURL](https://curl.haxx.se/) - used to communicate with web-based services
 * [jq](https://stedolan.github.io/jq/) - used to parse JSON documents
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (preview) - used to remotely manage Azure services
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) - used to remotely manage Azure services
 
 ## Users
 

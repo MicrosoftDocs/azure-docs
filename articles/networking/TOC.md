@@ -10,7 +10,6 @@
 ### [Combine load balancing methods](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Plan and design
 ### [Virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Traffic filtering](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Cross-premises connectivity - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Cross-premises connectivity - dedicated private](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -22,6 +21,7 @@
 ### [DNS-based traffic distribution](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connect on-premises - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connect on-premises - dedicated](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 
 # Get started
 ## [Create your first virtual network](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -43,10 +43,9 @@
 ### [Create a dedicated private connection (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Management
+### [Network monitoring overview](network-monitoring-overview.md)
+### [Check resource usage against Azure limits](check-usage-against-limits.md)
 ### [View network topology](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Manage packet capture](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Determine routing next hop](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Verify IP flows for a VM](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Sample scripts
 ### [Azure CLI](cli-samples.md)

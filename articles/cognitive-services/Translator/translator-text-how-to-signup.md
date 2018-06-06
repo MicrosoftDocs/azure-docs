@@ -4,9 +4,8 @@ description: How to sign up for the Microsoft Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: olivierf
-
 ms.service: cognitive-services
-ms.technology: microsoft translator
+ms.component: translator-text
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: v-jansko
@@ -41,9 +40,7 @@ ms.author: v-jansko
 - [Translator Text API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 
 ## Customization
-**Translator Hub**
-
-Use the Translator Hub tool to customize your translations and create a translation system tuned to your own terminology and style, starting from generic Microsoft Translator statistical machine translation systems. [Learn more](customization.md)
+Use Custom Translator to customize your translations and create a translation system tuned to your own terminology and style, starting from generic Microsoft Translator neural machine translation systems. [Learn more](customization.md)
  
 ## Additional resources
 - [Get Started with Azure (5-minute video)](https://azure.microsoft.com/get-started/?b=16.24)

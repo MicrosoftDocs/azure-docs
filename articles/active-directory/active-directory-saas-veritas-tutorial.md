@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/31/2017
 ms.author: jeedes
 
 ---
@@ -26,7 +26,7 @@ Integrating Veritas Enterprise Vault.cloud SSO with Azure AD provides you with t
 - You can enable your users to automatically get signed-on to Veritas Enterprise Vault.cloud SSO (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -108,7 +108,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+
+	b. In the **Identifier** textbox, use the URL as per the Datacenter
+
+	| Datacenter| URL |
+	|----------|----|
+	| North America| `https://auth.lax.archivecloud.net` |
+	| Europe | `https://auth.ams.archivecloud.net` |
+	| Asia Pacific| `https://auth.syd.archivecloud.net`|
+
+	c. In the **Reply URL** textbox, use the URL as per the Datacenter
+
+	| Datacenter| URL |
+	|----------|----|
+	| North America| `https://auth.lax.archivecloud.net` |
+	| Europe | `https://auth.ams.archivecloud.net` |
+	| Asia Pacific| `https://auth.syd.archivecloud.net`|
 	
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Sign-On URL. Contact [Veritas Enterprise Vault.cloud SSO Client support team](https://www.veritas.com/support/.html) to get this value. 
@@ -205,7 +221,7 @@ When you click the Veritas Enterprise Vault.cloud SSO tile in the Access Panel, 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

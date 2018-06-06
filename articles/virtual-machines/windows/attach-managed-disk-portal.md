@@ -4,7 +4,7 @@ description: How to attach new managed data disk to a Windows VM in the Azure po
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

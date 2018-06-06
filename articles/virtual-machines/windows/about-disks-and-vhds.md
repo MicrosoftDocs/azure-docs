@@ -2,7 +2,7 @@
 title: About unmanaged (page blobs) and managed disks storage for Microsoft Azure Windows VMs | Microsoft Docs
 description: Learn about the basics of unmanaged (page blobs) and managed disks storage for Windows virtual machines in Azure.
 services: virtual-machines
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 
 ms.service: virtual-machines
@@ -10,7 +10,7 @@ ms.workload: storage
 ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: iainfou
+ms.author: rogarana
 
 ---
 # About disks storage for Azure Windows VMs
@@ -67,7 +67,7 @@ fsutil behavior set DisableDeleteNotify 0
 ```
 
 > [!NOTE]
-> Note: Trim support starts with Windows Server 2012 / Windows 8 and above, see see [New API allows apps to send "TRIM and Unmap" hints to storage media](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
+> Note: Trim support starts with Windows Server 2012 / Windows 8 and above, see [New API allows apps to send "TRIM and Unmap" hints to storage media](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->

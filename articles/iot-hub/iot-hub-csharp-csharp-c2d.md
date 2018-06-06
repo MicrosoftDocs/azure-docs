@@ -1,27 +1,23 @@
 ---
 title: Cloud-to-device messages with Azure IoT Hub (.NET) | Microsoft Docs
 description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for .NET. You modify a device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: a31c05ed-6ec0-40f3-99ab-8fdd28b1a89a
+manager: 
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-
 ---
+
 # Send messages from the cloud to your device with IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## Introduction
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a device app that sends device-to-cloud messages.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
@@ -171,7 +167,7 @@ In this section, you modify the **SendCloudToDevice** app to request feedback, a
 ## Next steps
 In this tutorial, you learned how to send and receive cloud-to-device messages. 
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite].
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator].
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 
@@ -190,5 +186,5 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [IoT Hub developer guide]: iot-hub-devguide.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure IoT Suite]: https://docs.microsoft.com/azure/iot-suite/
+[Azure IoT Remote Monitoring solution accelerator]: https://docs.microsoft.com/azure/iot-suite/
 [Azure IoT device SDKs]: iot-hub-devguide-sdks.md

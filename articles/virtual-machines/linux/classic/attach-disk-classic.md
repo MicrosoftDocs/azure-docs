@@ -4,7 +4,7 @@ description: Learn how to attach a data disk to a Linux VM using the Classic dep
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -230,5 +230,5 @@ You can read more about using your Linux VM in the following articles:
 * [Configure LVM on a Linux VM in Azure](../configure-lvm.md)
 
 <!--Link references-->
-[Agent]:../agent-user-guide.md
+[Agent]:../../extensions/agent-linux.md
 [Logon]:../mac-create-ssh-keys.md

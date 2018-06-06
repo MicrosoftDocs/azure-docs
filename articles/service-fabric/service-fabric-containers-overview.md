@@ -10,24 +10,17 @@ editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/20/2017
+ms.date: 5/21/2018
 ms.author: msfussell
 
 ---
 # Service Fabric and containers
-> [!NOTE]
-> Deploying containers to a Service Fabric cluster in Windows 10 or with Docker CE isn't supported. 
->   
-
-> [!NOTE]
-> Service Fabric version 6.1 has preview support for Windows Server version 1709. Open networking and Service Fabric DNS Service do not work with Windows Server version 1709. 
-> 
 
 ## Introduction
-Azure Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines, with years of usage and optimization in massive scale services at Microsoft. Services can be developed in many ways, from using the [Service Fabric programming models](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). By default, Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in a cluster. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application.   
+Azure Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines, with years of usage and optimization in massive scale services at Microsoft. Services can be developed in many ways, from using the [Service Fabric programming models](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-guest-executables-introduction.md). By default, Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in a cluster. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application.   
 
 ## What are containers?
 Containers are encapsulated, individually deployable components that run as isolated instances on the same kernel to take advantage of virtualization that an operating system provides. Thus, each application and its runtime, dependencies, and system libraries run inside a container with full, private access to the container's own isolated view of operating system constructs. Along with portability, this degree of security and resource isolation is the main benefit for using containers with Service Fabric, which otherwise runs services in processes.
@@ -41,10 +34,6 @@ Containers are a virtualization technology that virtualizes the underlying opera
 
 ## Container types and supported environments
 Service Fabric supports containers on both Linux and Windows, and also supports Hyper-V isolation mode on the latter. 
-
-> [!NOTE]
-> Deploying containers to a Service Fabric cluster on Windows 10 isn't currently supported. 
-> 
 
 ### Docker containers on Linux
 Docker provides high-level APIs to create and manage containers on top of Linux kernel containers. Docker Hub is a central repository to store and retrieve container images.
@@ -69,7 +58,7 @@ Here are typical examples where a container is a good choice:
 ## Service Fabric support for containers
 Service Fabric supports the deployment of Docker containers on Linux and Windows Server containers on Windows Server 2016, along with support for Hyper-V isolation mode. 
 
-In the Service Fabric [application model](service-fabric-application-model.md), a container represents an application host in which multiple service replicas are placed. Service Fabric can run any containers, and the scenario is similar to the [guest executable scenario](service-fabric-deploy-existing-app.md), where you package an existing application inside a container. This scenario is the common use-case for containers, and examples include running an application written using any language or frameworks, but not using the built-in Service Fabric programming models.
+In the Service Fabric [application model](service-fabric-application-model.md), a container represents an application host in which multiple service replicas are placed. Service Fabric can run any containers, and the scenario is similar to the [guest executable scenario](service-fabric-guest-executables-introduction.md), where you package an existing application inside a container. This scenario is the common use-case for containers, and examples include running an application written using any language or frameworks, but not using the built-in Service Fabric programming models.
 
 In addition, you can run [Service Fabric services inside containers](service-fabric-services-inside-containers.md) as well. Support for running Service Fabric services inside containers is currently limited, and will be improved in upcoming releases.
 

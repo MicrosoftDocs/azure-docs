@@ -1,22 +1,15 @@
----
+﻿---
 title: Azure IoT Hub high availability and disaster recovery | Microsoft Docs
 description: Describes the Azure and IoT Hub features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
-services: iot-hub
-documentationcenter: ''
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: ae320e58-aa20-45b9-abdc-fa4faae8e6dd
+manager: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: elioda
-
 ---
+
 # IoT Hub high availability and disaster recovery
 As a first step towards designing and implementing a resilient IoT solution, architects, developers and business owners must assess and define the desired uptime goals for the solutions being built, based on specific business objectives. In this context, the article [Azure Business Continuity Technical Guidance]( https://docs.microsoft.com/en-us/azure/architecture/resiliency/) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications][ https://msdn.microsoft.com/en-us/library/dn251004.aspx] paper provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR). 
 The current article discusses the HA and DR features offered by the IoT Hub service and it is strongly recommended that solution architects and developers go through the above-mentioned articles to formulate and operationalize the business continuity and disaster recovery strategy for the entire IoT solution that they are building involving multiple azure services. The broad areas discussed in this article are intra-region high availability, disaster recovery in the event of rare regional failures and an approach to achieve cross-region per-device high availability. Depending on the uptime goals you define for the solutions you are building, you should determine which of the options outlined below best suites your business objectives. Incorporating any of the below solutions into your overall business continuity and disaster recovery plans comes with a level of resiliency: operationalization cost: implementation and maintenance complexity trade-off and this needs to be carefully considered while evaluating each option.

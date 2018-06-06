@@ -18,7 +18,7 @@ ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Map an existing custom DNS name to Azure Web Apps
+# Tutorial: Map an existing custom DNS name to Azure Web Apps
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to map an existing custom DNS name to Azure Web Apps.
 
@@ -77,19 +77,19 @@ In the left navigation of the app page, scroll to the **Settings** section and s
 
 ![Scale-up menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-The app's current tier is highlighted by a blue border. Check to make sure that the app is not in the **Free** tier. Custom DNS is not supported in the **Free** tier. 
+The app's current tier is highlighted by a blue border. Check to make sure that the app is not in the **F1** tier. Custom DNS is not supported in the **F1** tier. 
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-If the App Service plan is not **Free**, close the **Choose your pricing tier** page and skip to [Map a CNAME record](#cname).
+If the App Service plan is not in the **F1** tier, close the **Scale up** page and skip to [Map a CNAME record](#cname).
 
 <a name="scaleup"></a>
 
 ### Scale up the App Service plan
 
-Select any of the non-free tiers (**Shared**, **Basic**, **Standard**, or **Premium**). 
+Select any of the non-free tiers (**D1**, **B1**, **B2**, **B3**, or any tier in the **Production** category). For additional options, click **See additional options**.
 
-Click **Select**.
+Click **Apply**.
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -288,7 +288,7 @@ At the bottom of the page, the root virtual directory `/` points to `site\wwwroo
 
 ![Customize virtual directory](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Once the operation completes, you app should return the right page at the root path (for example, http://contoso.com).
+Once the operation completes, your app should return the right page at the root path (for example, http://contoso.com).
 
 ## Automate with scripts
 

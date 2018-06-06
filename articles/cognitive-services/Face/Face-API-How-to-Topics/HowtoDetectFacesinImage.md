@@ -1,15 +1,15 @@
 ---
 title: Detect faces in images with the Face API | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Use the Face API in Cognitive Services to detect faces in images.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
-
+author: SteveMSFT
+manager: corncar
 ms.service: cognitive-services
-ms.technology: face
+ms.component: face-api
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: anroth
+ms.date: 03/01/2018
+ms.author: sbowles
 ---
 
 # How to Detect Faces in Image
@@ -41,18 +41,18 @@ Every call to the Face API requires a subscription key. This key needs to be eit
 
 ```
 https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
-&subscription-key=<Your subscription key>
+&subscription-key=<Subscription Key>
 ```
 
-As an alternative, the subscription key can also be specified in the HTTP request header: **ocp-apim-subscription-key: &lt;Your subscription key&gt;**
+As an alternative, the subscription key can also be specified in the HTTP request header: **ocp-apim-subscription-key: &lt;Subscription Key&gt;**
 When using a client library, the subscription key is passed in through the constructor of the FaceServiceClient class. For example:
 ```CSharp
-faceServiceClient = new FaceServiceClient("Your subscription key");
+faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
 ## <a name="step2"></a> Step 2: Upload an image to the service and execute face detection
 
-The most basic way to perform face detection is by uploading an image directly. This is done by sending a "POST" request with application/octet-stream content type, with the data read from a JPEG image. The maximum size of the image is 4MB.
+The most basic way to perform face detection is by uploading an image directly. This is done by sending a "POST" request with application/octet-stream content type, with the data read from a JPEG image. The maximum size of the image is 4 MB.
 
 Using the client library, face detection by means of uploading is done by passing in a Stream object. See the example below:
 ```CSharp
@@ -68,8 +68,8 @@ using (Stream s = File.OpenRead(@"D:\MyPictures\image1.jpg"))
 }
 ```
 
-Please note that the DetectAsync method of FaceServiceClient is async. The calling method should be marked as async as well, in order to use the await clause.
-If the image is already on the web and has an URL, face detection can be executed by also providing the URL. In this example, the request body will be a JSON string which contains the URL.
+Note that the DetectAsync method of FaceServiceClient is async. The calling method should be marked as async as well, in order to use the await clause.
+If the image is already on the web and has a URL, face detection can be executed by also providing the URL. In this example, the request body will be a JSON string, which contains the URL.
 Using the client library, face detection by means of a URL can be executed easily using another overload of the DetectAsync method.
 ```CSharp
 string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
@@ -82,11 +82,11 @@ foreach (var face in faces)
 }
 ``` 
 
-The FaceRectangle property that is returned with detected faces is essentially locations on the face in pixels. Usually, this rectangle contains the eyes, eyebrows, the nose and the mouth –the top of head, ears and the chin are not included. If you crop a complete head or mid-shot portrait (a photo ID type image), you may want to expand the area of the rectangular face frame because the area of the face may be too small for some applications. To locate a face more precisely, using face landmarks (locate face features or face direction mechanisms) described in the next section will prove to be very useful.
+The FaceRectangle property that is returned with detected faces is essentially locations on the face in pixels. Usually, this rectangle contains the eyes, eyebrows, the nose, and the mouth –the top of head, ears, and the chin are not included. If you crop a complete head or mid-shot portrait (a photo ID type image), you may want to expand the area of the rectangular face frame because the area of the face may be too small for some applications. To locate a face more precisely, using face landmarks (locate face features or face direction mechanisms) described in the next section will prove to be useful.
 
 ## <a name="step3"></a> Step 3: Understanding and using face landmarks
 
-Face landmarks are a series of specifically detailed points on a face; typically points of face components like the pupils, canthus or nose. Face landmarks are optional attributes that can be analyzed during face detection. You can either pass 'true' as a Boolean value to the returnFaceLandmarks query parameter when calling the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), or use the returnFaceLandmarks optional parameter for the FaceServiceClient class DetectAsync method in order to include the face landmarks in the detection results.
+Face landmarks are a series of detailed points on a face; typically points of face components like the pupils, canthus, or nose. Face landmarks are optional attributes that can be analyzed during face detection. You can either pass 'true' as a Boolean value to the returnFaceLandmarks query parameter when calling the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), or use the returnFaceLandmarks optional parameter for the FaceServiceClient class DetectAsync method in order to include the face landmarks in the detection results.
 
 By default, there are 27 predefined landmark points. The following figure shows how all 27 points are defined:
 

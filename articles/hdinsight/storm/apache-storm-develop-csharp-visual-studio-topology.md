@@ -10,14 +10,12 @@ tags: azure-portal
 
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: ''
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: larryfr
-
+ROBOTS: NOINDEX
 ---
 # Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio
 
@@ -39,9 +37,6 @@ To use a C# topology with a Linux-based cluster, you must update the Microsoft.S
 
 > [!IMPORTANT]
 > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Check [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) for potential incompatibilities.
-
-> [!WARNING]
-> If you encounter problems building projects that use SCP.NET version 1.0.0.x, please contact Microsoft support for assistance.
 
 ## Install Visual Studio
 
@@ -121,7 +116,7 @@ The Data Lake tools for Visual Studio provide the following templates:
 | Storm Sample |A basic word count topology. |
 
 > [!WARNING]
-> Not all templates will work with Linux-based HDInsight. Nuget packages used by the templates may not be compatible with Mono. Check the [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document and use the [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) to identify potential problems.
+> Not all templates work with Linux-based HDInsight. NuGet packages used by the templates may not be compatible with Mono. Check the [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document and use the [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) to identify potential problems.
 
 In the steps in this document, you use the basic Storm Application project type to create a topology.
 
@@ -166,7 +161,7 @@ For an example topology that uses this component and works with Storm on HDInsig
 
    * **Fail** (transactional topology only): Handles tuples that are fail-processing other components in the topology. Implementing a Fail method allows you to re-emit the tuple so that it can be processed again.
 
-2. Replace the contents of the **Spout** class with the following text. This spout randomly emits a sentence into the topology.
+2. Replace the contents of the **Spout** class with the following text: This spout randomly emits a sentence into the topology.
 
     ```csharp
     private Context ctx;
@@ -287,7 +282,7 @@ For an example topology that uses this component and works with Storm on HDInsig
     }
     ```
 
-5. Open **Counter.cs**, and replace the class contents with the following:
+5. Open **Counter.cs**, and replace the class contents with the following code:
 
     ```csharp
     private Context ctx;
@@ -349,7 +344,7 @@ Spouts and bolts are arranged in a graph, which defines how the data flows betwe
 
 Sentences are emitted from the spout, and are distributed to instances of the Splitter bolt. The Splitter bolt breaks the sentences into words, which are distributed to the Counter bolt.
 
-Because word count is held locally in the Counter instance, we want to make sure that specific words flow to the same Counter bolt instance. Each instance keeps track of specific words. Since the Splitter bolt maintains no state, it really doesn't matter which instance of the splitter receives which sentence.
+Because word count is held locally in the Counter instance, you want to make sure that specific words flow to the same Counter bolt instance. Each instance keeps track of specific words. Since the Splitter bolt maintains no state, it really doesn't matter which instance of the splitter receives which sentence.
 
 Open **Program.cs**. The important method is **GetTopologyBuilder**, which is used to define the topology that is submitted to Storm. Replace the contents of **GetTopologyBuilder** with the following code to implement the topology described previously:
 
@@ -469,16 +464,16 @@ For an example of a hybrid topology, create a project and select **Storm Hybrid 
   > This version also demonstrates how to use Clojure code from a text file as a Java component.
 
 
-To switch the topology that is used when the project is submitted, simply move the `[Active(true)]` statement to the topology you want to use, before submitting it to the cluster.
+To switch the topology that is used when the project is submitted, move the `[Active(true)]` statement to the topology you want to use, before submitting it to the cluster.
 
 > [!NOTE]
 > All the Java files that are required are provided as part of this project in the **JavaDependency** folder.
 
 Consider the following when you are creating and submitting a hybrid topology:
 
-* You must use **JavaComponentConstructor** to create an instance of the Java class for a spout or bolt.
+* Use **JavaComponentConstructor** to create an instance of the Java class for a spout or bolt.
 
-* You should use **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** to serialize data into or out of Java components from Java objects to JSON.
+* Use **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** to serialize data into or out of Java components from Java objects to JSON.
 
 * When submitting the topology to the server, you must use the **Additional configurations** option to specify the **Java File paths**. The path specified should be the directory that contains the JAR files that contain your Java classes.
 
@@ -700,7 +695,7 @@ Although it is easy to deploy a topology to a cluster, in some cases, you may ne
 
 ### Log information
 
-You can easily log information from your topology components by using `Context.Logger`. For example, the following creates an informational log entry:
+You can easily log information from your topology components by using `Context.Logger`. For example, the following command creates an informational log entry:
 
 ```csharp
 Context.Logger.Info("Component started");

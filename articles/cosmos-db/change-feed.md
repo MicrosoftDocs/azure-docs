@@ -4,17 +4,12 @@ description: Use Azure Cosmos DB change feed support to track changes in documen
 keywords: change feed
 services: cosmos-db
 author: rafats
-manager: jhubbard
-editor: mimig
-documentationcenter: ''
+manager: kfile
 
-ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: 
-ms.topic: article
-ms.date: 01/29/2018
+ms.devlang: dotnet
+ms.topic: conceptual
+ms.date: 03/26/2018
 ms.author: rafats
 
 ---
@@ -31,7 +26,13 @@ The **change feed support** in Azure Cosmos DB enables you to build efficient an
 ![Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Change feed support is provided for all data models and containers in Azure Cosmos DB. However, the change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. 
+> Change feed support is provided for all data models and containers in Azure Cosmos DB. However, the change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed.
+
+In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates how the Azure Cosmos DB change feed works.
+
+> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
+>
+>
 
 ## How does change feed work?
 
@@ -67,7 +68,6 @@ For example, with a change feed, you can perform the following tasks efficiently
 
 * Update a cache, search index, or a data warehouse with data stored in Azure Cosmos DB.
 * Implement application-level data tiering and archival, that is, store "hot data" in Azure Cosmos DB, and age out "cold data" to [Azure Blob Storage](../storage/common/storage-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
-* Implement batch analytics on data using [Apache Hadoop](run-hadoop-with-hdinsight.md).
 * Perform zero down-time migrations to another Azure Cosmos DB account with a different partitioning scheme.
 * Implement [lambda pipelines on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with Azure Cosmos DB. Azure Cosmos DB provides a scalable database solution that can handle both ingestion and query, and implement lambda architectures with low TCO. 
 * Receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real time with [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md), or [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 
@@ -153,9 +153,14 @@ This section walks through how to use the SQL SDK to work with a change feed.
     }
     ```
 
+> [!NOTE]
+> Instead of `ChangeFeedOptions.PartitionKeyRangeId`, you can use `ChangeFeedOptions.PartitionKey` to specify a single partition key for which to get a change feed. For example, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
+> 
+>
+
 If you have multiple readers, you can use **ChangeFeedOptions** to distribute read load to different threads or different clients.
 
-And that's it, with these few lines of code you can start reading the change feed. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
+And that's it, with these few lines of code you can start reading the change feed. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 
 In the code in step 4 above, the **ResponseContinuation** in the last line has the last logical sequence number (LSN) of the document, which you will use the next time you read new documents after this sequence number. By using the **StartTime** of the **ChangeFeedOption** you can widen your net to get the documents. So, if your **ResponseContinuation** is null, but your **StartTime** goes back in time then you will get all the documents that changed since the **StartTime**. But, if your **ResponseContinuation** has a value then system will get you all the documents since that LSN.
 
@@ -176,6 +181,7 @@ The left client was started first and it started monitoring all the partitions, 
 
 Note that if you have two serverless Azure funtions monitoring the same collection and using the same lease then the two functions may get different documents depending upon how the processor library decides to processs the partitions.
 
+<a id="understand-cf"></a>
 ### Understanding the Change Feed Processor library
 
 There are four main components of implementing the Change Feed Processor: the monitored collection, the lease collection, the processor host, and the consumers. 
@@ -270,7 +276,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 }
 ```
 
-That’s it. After these few steps documents will start coming into the **DocumentFeedObserver ProcessChangesAsync** method.
+That’s it. After these few steps documents will start coming into the **DocumentFeedObserver ProcessChangesAsync** method. Find the above code in [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 
 ## Next steps
 

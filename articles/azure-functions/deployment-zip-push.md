@@ -12,8 +12,8 @@ ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 12/06/2017
+ms.workload: na 
+ms.date: 05/29/2018
 ms.author: glenga
 
 ---
@@ -37,23 +37,33 @@ The .zip file that you use for push deployment must contain all of the project f
 >[!IMPORTANT]
 > When you use .zip push deployment, any files from an existing deployment that aren't found in the .zip file are deleted from your function app.  
 
-### Function app folder structure
-
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-### Download your function app project
+A function app includes all of the files and folders in the `wwwroot` directory. A .zip file deployment includes the contents of the `wwwroot` directory, but not the directory itself.  
+
+## Download your function app files
 
 When you are developing on a local computer, it's easy to create a .zip file of the function app project folder on your development computer. 
 
-However, you might have created your functions by using the editor in the Azure portal. To download your function app project from the portal: 
+However, you might have created your functions by using the editor in the Azure portal. You can download an existing function app project in one of these ways: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and then go to your function app.
++ **From the Azure portal:** 
 
-2. On the **Overview** tab, select **Download app content**. Select your download options, and then select **Download**.     
+    1. Sign in to the [Azure portal](https://portal.azure.com), and then go to your function app.
 
-    ![Download the function app project](./media/deployment-zip-push/download-project.png)
+    2. On the **Overview** tab, select **Download app content**. Select your download options, and then select **Download**.     
 
-The downloaded .zip file is in the correct format to be republished to your function app by using .zip push deployment.
+        ![Download the function app project](./media/deployment-zip-push/download-project.png)
+
+    The downloaded .zip file is in the correct format to be republished to your function app by using .zip push deployment. The portal download can also add the files needed to open your function app directly in Visual Studio.
+
++ **Using REST APIs:** 
+
+    Use the following deployment GET API to download the files from your `<function_app>` project: 
+
+        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+
+    Including `/site/wwwroot/` makes sure your zip file includes only the function app project files and not the entire site. If you are not already signed in to Azure, you will be asked to do so. Note that sending a POST request to the `api/zip/` API is discoraged in favor of the zip deployment method described in this topic. 
 
 You can also download a .zip file from a GitHub repository. Keep in mind that when you download a GitHub repository as a .zip file, GitHub adds an extra folder level for the branch. This extra folder level means that you can't deploy the .zip file directly as you downloaded it from GitHub. If you're using a GitHub repository to maintain your function app, you should use [continuous integration](functions-continuous-deployment.md) to deploy your app.  
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Assess Service Fabric applications with Azure Log Analytics using PowerShell | Microsoft Docs
 description: You can use the Service Fabric solution in Log Analytics using PowerShell to assess the risk and health of your Service Fabric applications, micro-services, nodes and clusters.
 services: log-analytics
@@ -80,7 +80,7 @@ try
 }
 catch [System.Management.Automation.PSInvalidOperationException]
 {
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 $validTables = "WADServiceFabric*EventTable", "WADETWEventTable"
@@ -606,7 +606,7 @@ try
 }
 catch [System.Management.Automation.PSInvalidOperationException]
 {
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 $allResources = Get-AzureRmResource

@@ -28,7 +28,7 @@ The webhook can optionally use token-based authorization for authentication. The
 ## Payload schema
 The JSON payload contained in the POST operation differs based on the payload's data.context.activityLog.eventSource field.
 
-###Common
+### Common
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -55,7 +55,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
     }
 }
 ```
-###Administrative
+### Administrative
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -82,7 +82,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
 }
 
 ```
-###ServiceHealth
+### ServiceHealth
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",

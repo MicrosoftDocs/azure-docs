@@ -4,8 +4,8 @@ description: Learn how to deploy Azure File Sync, from start to finish.
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
@@ -53,13 +53,16 @@ For each server that you intend to use with Azure File Sync, including server no
     4. In the **Internet Explorer Enhanced Security Configuration** dialog box, select **Off** for **Administrators** and **Users**:  
         ![The Internet Explorer Enhanced Security Configuration pop-window with "Off" selected](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
-2. Ensure that you are running at least PowerShell 5.1.\* (PowerShell 5.1 is the default on Windows Server 2016). You can verify that you are running PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
+2. If you are using Windows Server 2012 R2, ensure that you are running at least PowerShell 5.1.\*. You can safely skip this check on Windows Server 2016 as PowerShell 5.1 is the default version out-of-box. On Windows Server 2012 R2, you can verify that you are running PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```PowerShell
     $PSVersionTable.PSVersion
     ```
 
     If your PSVersion value is less than 5.1.\*, as will be the case with most installations of Windows Server 2012 R2, you can easily upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
+
+    > [!Note]  
+    > Azure File Sync does not yet support PowerShell 6 on either Windows Server 2012 R2 or Windows Server 2016.
 
 3. [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). We recommend using the latest version of the Azure PowerShell modules.
 
@@ -89,6 +92,9 @@ After you sign in, you are prompted for the following information:
 
 After you have selected the appropriate information, select **Register** to complete the server registration. As part of the registration process, you are prompted for an additional sign-in.
 
+> [!Note]  
+> A server can only be registered with one Storage Sync Service at a time.
+
 ## Create a sync group
 A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share, and one server endpoint, which represents a path on Windows Server. To create a sync group, in the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, and then select **+ Sync group**:
 
@@ -99,7 +105,7 @@ In the pane that opens, enter the following information to create a sync group w
 - **Sync group name**: The name of the sync group to be created. This name must be unique within the Storage Sync Service, but can be any name that is logical for you.
 - **Subscription**: The subscription where you deployed the Storage Sync Service in [Deploy the Storage Sync Service](#deploy-the-storage-sync-service).
 - **Storage account**: If you select **Select storage account**, another pane appears in which you can select the storage account that has the Azure file share that you want to sync with.
-- **Azure File Share**: The name of the Azure file share with which you want to sync.
+- **Azure file share**: The name of the Azure file share with which you want to sync.
 
 To add a server endpoint, go to the newly created sync group and then select **Add server endpoint**.
 

@@ -27,7 +27,7 @@ Integrating Rollbar with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Rollbar (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -147,11 +147,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Click **Save**.
 
-11. After clicking the save button, the screen will be like this. Perform the following steps in this section:
+11. After clicking the save button, the screen will be like this:
 	
 	![Configuration](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+	> [!NOTE] 
+	> In order to complete the following step, you must first add yourself as a user to the Rollbar app in Azure.
+	a. If you want to require all users to authenticate via Azure, then click **log in via your identity provider** to re-authenticate via Azure.  
 
-	a. Select **Require login via SAML Identity Provider** checkbox.
+	b.  Once you're returned to the screen, select the **Require login via SAML Identity Provider** checkbox.
 
 	b. Click **Save**.
 
@@ -256,7 +259,7 @@ For more information about the Access Panel, see [Introduction to the Access 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

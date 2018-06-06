@@ -149,6 +149,7 @@ With the back end configured with FCM, you can add components and codes to the c
         using Android.App;
         using Android.Content;
         using Android.Media;
+        using Android.Support.V7.App;
         using Android.Util;
         using Firebase.Messaging;
 
@@ -179,7 +180,7 @@ With the back end configured with FCM, you can add components and codes to the c
                 intent.AddFlags(ActivityFlags.ClearTop);
                 var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-                var notificationBuilder = new Notification.Builder(this)
+                var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                     .SetContentTitle("New Todo Item")
                     .SetContentText(messageBody)
@@ -199,7 +200,7 @@ Now, you are ready test push notifications in the app running on an Android devi
 ### Test push notifications in your Android app
 The first two steps are required only when you're testing on an emulator.
 
-1. Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device manager.
+1. Make sure that you are deploying to or debugging on a device or emulator that is configured with Google Play Services. This can be verified by checking that the **Play** apps are installed on the device or emulator.
 2. Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**. Then follow the prompts to add an existing Google account to the device, or to create a new one.
 3. In Visual Studio or Xamarin Studio, right-click the **Droid** project and click **Set as startup project**.
 4. Click **Run** to build the project and start the app on your Android device or emulator.
@@ -209,7 +210,7 @@ The first two steps are required only when you're testing on an emulator.
 ## Configure and run the iOS project (optional)
 This section is for running the Xamarin iOS project for iOS devices. You can skip this section if you are not working with iOS devices.
 
-[!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
+[!INCLUDE [Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 #### Configure the notification hub for APNS
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]

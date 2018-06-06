@@ -3,8 +3,9 @@ title: How to prepare your model for deployment in Azure Machine Learning Studio
 description: How to prepare your trained model for deployment as a web service by converting your Machine Learning Studio training experiment to a predictive experiment.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.author: garye
 
 ---
 # How to prepare your model for deployment in Azure Machine Learning Studio

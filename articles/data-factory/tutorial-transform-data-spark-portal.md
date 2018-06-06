@@ -3,9 +3,8 @@ title: 'Transform data by using Spark in Azure Data Factory | Microsoft Docs'
 description: 'This tutorial provides step-by-step instructions for transforming data by using a Spark activity in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
+author: douglaslMS
+manager: craigg
 
 ms.service: data-factory
 ms.workload: data-services
@@ -13,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
-ms.author: shengc
+ms.author: douglasl
 ---
 # Transform data in the cloud by using a Spark activity in Azure Data Factory
 In this tutorial, you use the Azure portal to create an Azure Data Factory pipeline. This pipeline transforms data by using a Spark activity and an on-demand Azure HDInsight linked service. 
@@ -76,6 +75,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a data factory
 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)

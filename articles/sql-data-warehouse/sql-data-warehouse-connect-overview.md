@@ -1,28 +1,22 @@
 ---
 title: Connect to Azure SQL Data Warehouse | Microsoft Docs
-description: How to find the server name and connection string for your to Azure SQL Data Warehouse
+description: Get connected to Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: ''
-
-ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 12/14/2017
-ms.author: anvang;barbkess;kevin
-
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
 ---
+
 # Connect to Azure SQL Data Warehouse
-This article helps you get connected to SQL Data Warehouse for the first time.
+Get connected to Azure SQL Data Warehouse.
 
 ## Find your server name
-The first step to connecting to SQL Data Warehouse is knowing how to find your server name.  For example, the server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:
+The server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:
 
 1. Go to the [Azure portal][Azure portal].
 2. Click on **SQL data warehouses**.
@@ -32,7 +26,7 @@ The first step to connecting to SQL Data Warehouse is knowing how to find your s
     ![Full server name][1]
 
 ## Supported drivers and connection strings
-Azure SQL Data Warehouse supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. Click on one of the preceding drivers to find the latest version and documentation. To automatically generate the connection string for the driver that you are using from the Azure portal, you can click on the **Show database connection strings** from the preceding example.  Following are also some examples of what a connection string looks like for each driver.
+Azure SQL Data Warehouse supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
 
 > [!NOTE]
 > Consider setting the connection timeout to 300 seconds to allow your connection to survive short periods of unavailability.

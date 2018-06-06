@@ -5,19 +5,17 @@ keywords: hadoop versions,hadoop ecosystem components,hadoop components,how to c
 services: hdinsight
 editor: cgronlun
 manager: asadk
-author: bprakash
+author: kkampf
 tags: azure-portal
 documentationcenter: ''
 
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
-ms.author: bprakash
+ms.author: kakampf
 
 ---
 # What are the Hadoop components and versions available with HDInsight?
@@ -51,9 +49,10 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.1.0 (Linux only) |1.6.2 + 2.0 (Linux only) |1.6.0 (Linux only) |1.5.2 (Linux experimental build only) |1.3.1 (Windows only) |-|-|
-| Apache Kafka | 0.10.0 | 0.10.0 | 0.9.0 |-|-|-|-|
-| Apache Ambari | 2.5.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
+| Apache Spark |2.1.0, 2.2.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (Windows only) |-|-|
+| Apache Livy |0.4 |0.3 |0.3 |0.2 |-|-|-|
+| Apache Kafka | 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 
@@ -75,12 +74,12 @@ The following tables list the versions of HDInsight. The HDP versions that corre
 
 ### Available versions
 
-The following table lists the versions of HDInsight that are available in the Azure Portal as well as other deployement methods like PowerShell and .NET SDK.
+The following table lists the versions of HDInsight that are available in the Azure Portal as well as other deployment methods like PowerShell and .NET SDK.
 
 | HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | | |Yes |Yes |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |September 30, 2016 |September 5, 2017 |May 31, 2018 |Yes |Yes |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |September 30, 2016 |September 5, 2017 |June 28, 2018 |Yes |Yes |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |December 2, 2015 |June 27, 2016 |July 31, 2018 |Yes |No |
 
 > [!NOTE]
@@ -106,7 +105,7 @@ The following table lists the versions of HDInsight that are **not** available i
 
 ## Enterprise Security Package for HDInsight
 
-Azure HDInsight is an optional package that you can add on your HDInsight cluster as part of create cluster workflow. The Enterprise Security Package supports:
+Enterprise Security is an optional package that you can add on your HDInsight cluster as part of create cluster workflow. The Enterprise Security Package supports:
 
 - Integration with Active Directory for authentication.
 

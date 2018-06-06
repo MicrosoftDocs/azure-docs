@@ -25,7 +25,7 @@ If you’re using the [Docker for Windows beta](http://beta.docker.com/), this c
 ## Prerequisites
 The following tools need to be installed.
 
-* [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)
+* [Docker Toolbox](https://github.com/docker/toolbox/releases)
 
 ## Configuring the Docker client with Windows PowerShell
 To configure a Docker client, simply open Windows PowerShell, and perform the following steps:

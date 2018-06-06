@@ -2,18 +2,14 @@
 title: Create an HTTP Trigger with an Azure Cosmos DB input binding | Microsoft Docs
 description: Learn how to use Azure Functions with HTTP Triggers to query Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
 
 ---

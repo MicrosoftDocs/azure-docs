@@ -1,14 +1,14 @@
 ---
-title: Minimal-downtime migration to Azure Database for MySQL | Microsoft Docs
+title: Minimal-downtime migration to Azure Database for MySQL
 description: This article describes how to perform a minimal-downtime migration of a MySQL database to Azure Database for MySQL and how to set up initial load and continuous data sync from the source database to the target database by using Attunity Replicate for Microsoft Migrations.
 services: mysql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 02/28/2018
 ---
 
 # Minimal-downtime migration to Azure Database for MySQL

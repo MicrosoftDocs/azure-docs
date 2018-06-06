@@ -11,8 +11,6 @@ editor: cgronlun
 ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
@@ -111,7 +109,7 @@ If you are experiencing slowdowns in your cluster, consider restarting your serv
 
 HDInsight clusters are composed of different types of nodes running on virtual machine instances. Each node can be monitored for resource starvation, network connectivity issues, and other problems that can slow down the cluster. Every cluster contains two head nodes, and most cluster types contain a combination of worker and edge nodes. 
 
-<!-- For a description of the various nodes each cluster type uses, see [HDInsight Architecture](hdinsight-architecture.md). -->
+For a description of the various nodes each cluster type uses, see [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md).
 
 The following sections describe how to  check the health of each node and of the overall cluster.
 
@@ -254,7 +252,7 @@ Heap dumps contain a snapshot of the application's memory, including the values 
 
 HDInsight clusters are pre-configured with default settings for related services, such as Hadoop, Hive, HBase, and so on. Depending on the type of cluster, its hardware configuration, its number of nodes, the types of jobs you are running, and the data you are working with (and how that data is being processed), you may need to optimize your configuration.
 
-<!-- For detailed instructions on optimizing performance configurations for most scenarios, see [Changing configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimizing Spark jobs for performance](spark/apache-spark-perf.md).  -->
+For detailed instructions on optimizing performance configurations for most scenarios, see [Optimize cluster configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimize Spark jobs for performance](spark/apache-spark-perf.md). 
 
 ## Step 7: Reproduce the failure on a different cluster
 

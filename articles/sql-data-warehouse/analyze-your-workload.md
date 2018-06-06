@@ -2,28 +2,21 @@
 title: Analyze your workload - Azure SQL Data Warehouse | Microsoft Docs
 description: Techniques for analyzing query prioritization for your workload in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: ''
-
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/23/2017
-ms.author: joeyong;barbkess;kavithaj
-
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
 ---
 
-# Analyze your workload
+# Analyze your workload in Azure SQL Data Warehouse
 Techniques for analyzing query prioritization for your workload in Azure SQL Data Warehouse.
 
 ## Workload groups 
-SQL Data Warehouse implements resource classes by using workload groups. There are a total of eight workload groups that control the behavior of the resource classes across the various DWU sizes. For any DWU, SQL Data Warehouse uses only four of the eight workload groups. This makes sense because each workload group is assigned to one of four resource classes: smallrc, mediumrc, largerc, or xlargerc. The importance of understanding the workload groups is that some of these workload groups are set to higher *importance*. Importance is used for CPU scheduling. Queries run with high importance will get three times more CPU cycles than those with medium importance. Therefore, concurrency slot mappings also determine CPU priority. When a query consumes 16 or more slots, it runs as high importance.
+SQL Data Warehouse implements resource classes by using workload groups. There are a total of eight workload groups that control the behavior of the resource classes across the various DWU sizes. For any DWU, SQL Data Warehouse uses only four of the eight workload groups. This approach makes sense because each workload group is assigned to one of four resource classes: smallrc, mediumrc, largerc, or xlargerc. The importance of understanding the workload groups is that some of these workload groups are set to higher *importance*. Importance is used for CPU scheduling. Queries run with high importance get three times more CPU cycles than queries run with medium importance. Therefore, concurrency slot mappings also determine CPU priority. When a query consumes 16 or more slots, it runs as high importance.
 
 The following table shows the importance mappings for each workload group.
 
@@ -42,7 +35,7 @@ The following table shows the importance mappings for each workload group.
 | SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | High               |
 
 <!-- where are the allocation and consumption of concurrency slots charts? -->
-From the **Allocation and consumption of concurrency slots** chart, you can see that a DW500 uses 1, 4, 8 or 16 concurrency slots for smallrc, mediumrc, largerc, and xlargerc, respectively. You can look those values up in the preceding chart to find the importance for each resource class.
+The **Allocation and consumption of concurrency slots** chart shows a DW500 uses 1, 4, 8 or 16 concurrency slots for smallrc, mediumrc, largerc, and xlargerc, respectively. To find the importance for each resource class, you can look up those values in the preceding chart.
 
 ### DW500 mapping of resource classes to importance
 | Resource class | Workload group | Concurrency slots used | MB / Distribution | Importance |
@@ -61,7 +54,7 @@ From the **Allocation and consumption of concurrency slots** chart, you can see 
 | staticrc80     | SloDWGroupC03  | 16                     | 1,600             | High       |
 
 ## View workload groups
-You can use the following DMV query to look at the differences in memory resource allocation in detail from the perspective of the resource governor, or to analyze active and historic usage of the workload groups when troubleshooting.
+The following query shows details of the memory resource allocation from the perspective of the resource governor. This is helpful for analyzing active and historic usage of the workload groups when troubleshooting.
 
 ```sql
 WITH rg
@@ -110,7 +103,7 @@ ORDER BY
 ```
 
 ## Queued query detection and other DMVs
-You can use the `sys.dm_pdw_exec_requests` DMV to identify queries that are waiting in a concurrency queue. Queries waiting for a concurrency slot will have a status of **suspended**.
+You can use the `sys.dm_pdw_exec_requests` DMV to identify queries that are waiting in a concurrency queue. Queries waiting for a concurrency slot have a status of **suspended**.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -150,7 +143,7 @@ SQL Data Warehouse has the following wait types:
 * **LocalQueriesConcurrencyResourceType**: Queries that sit outside of the concurrency slot framework. DMV queries and system functions such as `SELECT @@VERSION` are examples of local queries.
 * **UserConcurrencyResourceType**: Queries that sit inside the concurrency slot framework. Queries against end-user tables represent examples that would use this resource type.
 * **DmsConcurrencyResourceType**: Waits resulting from data movement operations.
-* **BackupConcurrencyResourceType**: This wait indicates that a database is being backed up. The maximum value for this resource type is 1. If multiple backups have been requested at the same time, the others will queue.
+* **BackupConcurrencyResourceType**: This wait indicates that a database is being backed up. The maximum value for this resource type is 1. If multiple backups have been requested at the same time, the others queue.
 
 The `sys.dm_pdw_waits` DMV can be used to see which resources a request is waiting for.
 
@@ -233,16 +226,6 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## Next steps
-For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Rebuilding indexes to improve segment quality].
+For more information about managing database users and security, see [Secure a database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Rebuilding indexes to improve segment quality](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
-<!--Image references-->
 
-<!--Article references-->
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[Rebuilding indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-
-<!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
-
-<!--Other Web references-->

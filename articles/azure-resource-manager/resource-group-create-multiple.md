@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
@@ -341,6 +341,8 @@ You specify that a resource is deployed after another resource by using the `dep
     "outputs": {}
 }
 ```
+
+<a id="looping-on-a-nested-resource" />
 
 ## Iteration for a child resource
 You cannot use a copy loop for a child resource. To create multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the type and name properties.

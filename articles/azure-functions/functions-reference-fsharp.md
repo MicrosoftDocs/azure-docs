@@ -20,7 +20,6 @@ ms.author: syclebsc
 
 ---
 # Azure Functions F# Developer Reference
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 F# for Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. Data flows into your F# function via function arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
 
@@ -169,7 +168,7 @@ An editor that supports F# Compiler Services will not be aware of the namespaces
 #r "Microsoft.Azure.WebJobs.Host.dll"
 #endif
 
-open Sytem
+open System
 open Microsoft.Azure.WebJobs.Host
 
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -181,7 +180,7 @@ When Azure Functions executes your code, it processes the source with `COMPILED`
 <a name="package"></a>
 
 ## Package management
-To use NuGet packages in an F# function, add a `project.json` file to the the function's folder in the function app's file system. Here is an example `project.json` file that adds a NuGet package reference to `Microsoft.ProjectOxford.Face` version 1.1.0:
+To use NuGet packages in an F# function, add a `project.json` file to the function's folder in the function app's file system. Here is an example `project.json` file that adds a NuGet package reference to `Microsoft.ProjectOxford.Face` version 1.1.0:
 
 ```json
 {

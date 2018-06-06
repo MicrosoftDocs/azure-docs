@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/30/2017
+ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: mvc
 ---
@@ -28,7 +28,7 @@ ms.custom: mvc
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine.
+You can follow the steps in this article using a Mac, Windows, or Linux machine.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,7 +37,7 @@ You can follow the steps below using a Mac, Windows, or Linux machine.
 To complete this quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
-* <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">Install .NET Core SDK 1.1</a>
+* <a href="https://www.microsoft.com/net/core/" target="_blank">Install .NET Core</a>
 
 ## Create the app locally
 
@@ -81,19 +81,21 @@ git commit -m "first commit"
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
 Browse to your newly created web app. Replace _&lt;app name>_ with your web app name.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
+
+Here is what your new web app should look like:
 
 ![Empty web app page](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
@@ -136,7 +138,7 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-The .NET Core sample code is running in an web app with built-in image.
+The .NET Core sample code is running in a web app with a built-in image.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 

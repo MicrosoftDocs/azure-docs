@@ -3,8 +3,9 @@ title: Evaluate model performance in Machine Learning | Microsoft Docs
 description: Explains how to evaluate model performance in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bradsev;garye
 
 ---
 # How to evaluate model performance in Azure Machine Learning

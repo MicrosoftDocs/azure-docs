@@ -4,7 +4,7 @@ description: Connect Windows virtual machines created with the classic deploymen
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX

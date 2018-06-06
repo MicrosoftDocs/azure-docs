@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/25/2018
 ms.author: bwren
 
 ---
@@ -47,7 +47,7 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 ### Request URI parameters
 | Parameter | Description |
 |:--- |:--- |
-| CustomerID |The unique identifier for the Microsoft Operations Management Suite workspace. |
+| CustomerID |The unique identifier for the Log Analytics workspace. |
 | Resource |The API resource name: /api/logs. |
 | API Version |The version of the API to use with this request. Currently, it's 2016-04-01. |
 
@@ -55,9 +55,9 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 | Header | Description |
 |:--- |:--- |
 | Authorization |The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
-| Log-Type |Specify the record type of the data that is being submitted. Currently, the log type supports only alpha characters. It does not support numerics or special characters. |
+| Log-Type |Specify the record type of the data that is being submitted. Currently, the log type supports only alpha characters. It does not support numerics or special characters. The size limit for this parameter is 100 characters. |
 | x-ms-date |The date that the request was processed, in RFC 1123 format. |
-| time-generated-field |The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
+| time-generated-field |The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. It may not be null, and it must contain a valid date time. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
 
 ## Authorization
 Any request to the Log Analytics HTTP Data Collector API must include an authorization header. To authenticate a request, you must sign the request with either the primary or the secondary key for the workspace that is making the request. Then, pass that signature as part of the request.   
@@ -68,7 +68,7 @@ Here's the format for the authorization header:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* is the unique identifier for the Operations Management Suite workspace. *Signature* is a [Hash-based Message Authentication Code (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) that is constructed from the request and then computed by using the [SHA256 algorithm](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Then, you encode it by using Base64 encoding.
+*WorkspaceID* is the unique identifier for the Log Analytics workspace. *Signature* is a [Hash-based Message Authentication Code (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) that is constructed from the request and then computed by using the [SHA256 algorithm](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Then, you encode it by using Base64 encoding.
 
 Use this format to encode the **SharedKey** signature string:
 
@@ -202,7 +202,8 @@ In the next sections, you'll find samples of how to submit data to the Log Analy
 
 For each sample, do these steps to set the variables for the authorization header:
 
-1. In the Operations Management Suite portal, select the **Settings** tile, and then select the **Connected Sources** tab.
+1. In the Azure portal, locate your Log Analytics workspace.
+2. Select **Advanced Settings** and then **Connected Sources**.
 2. To the right of **Workspace ID**, select the copy icon, and then paste the ID as the value of the **Customer ID** variable.
 3. To the right of **Primary Key**, select the copy icon, and then paste the ID as the value of the **Shared Key** variable.
 
@@ -309,7 +310,7 @@ namespace OIAPIExample
 		// An example JSON object, with key/value pairs
 		static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-		// Update customerId to your Operations Management Suite workspace ID
+		// Update customerId to your Log Analytics workspace ID
 		static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
 		// For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
@@ -325,7 +326,7 @@ namespace OIAPIExample
 		{
 			// Create a hash for the API signature
 			var datestring = DateTime.UtcNow.ToString("r");
-			var jsonBytes = Encoding.UTF8.GetBytes(message);
+			var jsonBytes = Encoding.UTF8.GetBytes(json);
 			string stringToHash = "POST\n" + jsonBytes.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
 			string hashedString = BuildSignature(stringToHash, sharedKey);
 			string signature = "SharedKey " + customerId + ":" + hashedString;
@@ -387,7 +388,7 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your Operations Management Suite workspace ID
+# Update the customer ID to your Log Analytics workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   

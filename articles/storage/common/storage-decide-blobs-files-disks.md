@@ -2,18 +2,12 @@
 title: Deciding when to use Azure Blobs, Azure Files, or Azure Disks
 description: Learn about the different ways to store and access data in Azure to help you decide which technology to use.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 03/28/2018
 ms.author: tamram
 ---
 
@@ -44,9 +38,9 @@ The following table compares Azure Files with Azure Blobs.
 |Endpoints|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Directories|Flat namespace|True directory objects|  
 |Case sensitivity of names|Case sensitive|Case insensitive, but case preserving|  
-|Capacity|Up to 500 TB containers|5 TB file shares|  
-|Throughput|Up to 60 MB/s per block blob|Up to 60 MB/s per share|  
-|Object Size|Up to 200 GB/block blob|Up to 1TB/file|  
+|Capacity|Up to 500 TiB containers|5 TiB file shares|  
+|Throughput|Up to 60 MiB/s per block blob|Up to 60 MiB/s per share|  
+|Object Size|Up to about 4.75 TiB per block blob|Up to 1 TiB per file|  
 |Billed capacity|Based on bytes written|Based on file size|  
 |Client libraries|Multiple languages|Multiple languages|  
   
@@ -65,9 +59,9 @@ The following table compares Azure Files with Azure Disks.
 |Authentication|Built-in|Set up with net use|  
 |Cleanup|Automatic|Manual|  
 |Access using REST|Files within the VHD cannot be accessed|Files stored in a share can be accessed|  
-|Max Size|4 TB disk|5 TB File Share and 1 TB file within share|  
+|Max Size|4 TiB disk|5 TiB File Share and 1 TiB file within share|  
 |Max 8KB IOps|500 IOps|1000 IOps|  
-|Throughput|Up to 60 MB/s per Disk|Up to 60 MB/s per File Share|  
+|Throughput|Up to 60 MiB/s per Disk|Up to 60 MiB/s per File Share|  
 
 ## Next steps
 

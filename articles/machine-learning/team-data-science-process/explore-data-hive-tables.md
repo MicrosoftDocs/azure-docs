@@ -3,7 +3,7 @@ title: Explore data in Hive tables with Hive queries | Microsoft Docs
 description: Explore data in Hive tables using Hive queries.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Explore data in Hive tables with Hive queries

@@ -3,7 +3,7 @@ title: Azure Application Insights Telemetry Data Model - Dependency Telemetry | 
 description: Application Insights data model for dependency telemetry
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
-ms.author: mbullwin
+ms.author: mbullwin; sergkanz
 
 ---
 # Dependency telemetry: Application Insights data model

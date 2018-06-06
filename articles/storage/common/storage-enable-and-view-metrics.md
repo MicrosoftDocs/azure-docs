@@ -3,8 +3,8 @@ title: Enabling storage metrics in the Azure portal | Microsoft Docs
 description: How to enable storage metrics for the Blob, Queue, Table, and File services
 services: storage
 documentationcenter: ''
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
-ms.author: tamram
+ms.author: rogarana
 
 ---
 # Enabling Azure Storage metrics and viewing metrics data
