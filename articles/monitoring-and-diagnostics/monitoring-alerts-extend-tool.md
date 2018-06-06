@@ -216,11 +216,11 @@ This response indicates the alerts have been successfully extended into Azure Al
 
 
 ## Option 3 - Use a custom PowerShell script
- After May 14, 2018 - if Microsoft has not successfully extended your alerts from OMS portal to Azure; then until **July 5, 2018** - user can manually do the same via [Option1 - Via GUI](#option-1---initiate-from-the-oms-portal) or [Option 2 - Via API](#option-2---using-the-alertsversion-api).
+ If Microsoft has not successfully extended your alerts from the Operations Management Suite portal to Azure, you can do so manually until July 5, 2018. The two options for manual extension are covered in the previous two sections.
 
-After **July 5, 2018** - all alerts from OMS portal will be extended into Azure. Users who didn't take the [necessary remediation steps suggested](#troubleshooting), will have their alerts running without firing actions or notifications due to the lack of associated [Action Groups](monitoring-action-groups.md). 
+After July 5, 2018, all alerts from the Operations Management Suite portal are extended into Azure. Users who didn't take the [necessary remediation steps suggested](#troubleshooting) will have their alerts running without firing actions or notifications, due to the lack of associated [action groups](monitoring-action-groups.md). 
 
-To manually create [Action Groups](monitoring-action-groups.md) for alerts in Log Analytics, users can use the sample script below.
+To create [action groups](monitoring-action-groups.md) for alerts manually in Log Analytics, use the following sample script:
 ```PowerShell
 ########## Input Parameters Begin ###########
 
@@ -348,7 +348,7 @@ try
         $armPayload = @{"properties" = $properties; "location" = "Global"} | ConvertTo-Json -Compress -Depth 4
 
     
-        # ARM call to create action group
+        # Azure Resource Manager call to create action group
         $response = $armPayload | armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroupName/?api-version=2017-04-01
 
         "Created Action Group with name $actionGroupName" 
@@ -438,48 +438,49 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 ```
 
 
-**Using the custom PowerShell script** 
-- Pre-requisite is the installation of [ARMclient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API
-- User running the said script must have Contributor or Owner role in the Azure Subscription
-- The following are the parameters to be provided for the script:
-    - $subscriptionId: The Azure Subscription ID associated with the OMS/LA Workspace
-    - $resourceGroup: The Azure Resource Group where lies the OMS/LA Workspace
-    - $workspaceName: The name of the OMS/LA Workspace
+### About the custom PowerShell script 
+The following is important information about using the script:
+- A pre-requisite is the installation of [ARMclient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API.
+- To run the script, you must have a contributor or owner role in the Azure subscription.
+- You must provide the following parameters:
+    - $subscriptionId: The Azure Subscription ID associated with the Operations Management Suite or Log Analytics workspace.
+    - $resourceGroup: The Azure Resource Group for Operations Management Suite or Log Analytics workspace.
+    - $workspaceName: The name of the Operations Management Suite or Log Analytics workspace.
 
-**Output of the custom PowerShell script**
-The script is verbose and will output the steps as it executes. 
-- It will display the  summary, which contains the information about the existing OMS/LA alerts in the workspace and the Azure action groups to be created for the actions associated with them. 
-- User will be prompted to go ahead with the extension or exit after viewing the summary.
-- If the user prompts to go ahead with extension, new Azure action groups will be created and all the existing alerts will be associated with them. 
-- In the end, the script exits by displaying the message "Extension complete!." In case of any intermediate failures, subsequent errors will be displayed.
+### Output of the custom PowerShell script
+The script is verbose, and outputs the steps as it runs: 
+- It displays the summary, which contains the information about the existing Operations Management Suite or Log Analytics alerts in the workspace. The summary also contains information about the Azure action groups to be created for the actions associated with them. 
+- You are prompted to go ahead with the extension, or exit after viewing the summary.
+- If you go ahead with the extension, new Azure action groups are created, and all the existing alerts are associated with them. 
+- The script exits by displaying the message "Extension complete!" In case of any intermediate failures, the script displays subsequent errors.
 
 ## Troubleshooting 
-During the process of extending alerts from OMS into Azure, there can be occasional issue that prevents the system from creating necessary [Action Groups](monitoring-action-groups.md). In such cases an error message will be shown in OMS portal via banner in Alert section and in GET call done to API.
+During the process of extending alerts, problems can prevent the system from creating the necessary [action groups](monitoring-action-groups.md). In such cases, you see an error message in a banner in the Alert section of the Operations Management Suite portal, or in the GET call done to the API.
 
-> [!WARNING]
-> If user doesn't take the precribed remediation steps provided below, before **July 5, 2018** - then alerts will run in Azure but without firing any action or notification. To get notifications for alerts, users must manually edit and add [Action Groups](monitoring-action-groups.md) or use the [custom PowerShell script](#option-3---using-custom-powershell-script) provided above.
+> [!CAUTION]
+> If you don't take the following remediation steps before July 5, 2018, alerts will run in Azure but will not fire any action or notification. To get notifications for alerts, you must manually edit and add [action groups](monitoring-action-groups.md), or use the preceding [custom PowerShell script](#option-3---using-custom-powershell-script).
 
-Listed below are the remediation steps for each error:
-1. **Error: Scope Lock is present at subscription/resource group level for write operations**:
-    ![OMS portal Alert Settings page with ScopeLock Error message](./media/monitor-alerts-extend/ErrorScopeLock.png)
+Here are the remediation steps for each error:
+- **Error: Scope Lock is present at subscription/resource group level for write operations**:
+    ![Screenshot of the Operations Management Suite portal Alert Settings page, with Scope Lock error message highlighted](./media/monitor-alerts-extend/ErrorScopeLock.png)
 
-    a. When Scope Lock is enabled, restricting any new change in subscription or resource group containing the Log Analytics (OMS) workspace; the system is unable to extend (copy) alerts into Azure and create necessary action groups.
+    When Scope Lock is enabled, the feature restricts any new change in the subscription or resource group containing the Log Analytics (Operations Management Suite) workspace. The system is unable to extend alerts into Azure and create necessary action groups.
     
-    b. To resolve, delete the *ReadOnly* lock on your subscription or resource group containing the workspace; using Azure portal, Powershell, Azure CLI, or API. To learn more, view the article on [resource lock usage](../azure-resource-manager/resource-group-lock-resources.md). 
+    To resolve, delete the *ReadOnly* lock on your subscription or resource group containing the workspace. You can do this by using the Azure portal, PowerShell, Azure CLI, or the API. To learn more, see [resource lock usage](../azure-resource-manager/resource-group-lock-resources.md). 
     
-    c. Once resolved as per steps illustrated in the article, OMS will extend your alerts into Azure within the next day's scheduled run; without the need of any action or initiation.
+    When resolved per the steps illustrated in the article, Operations Management Suite extends your alerts into Azure within the next day's scheduled run. You do not need to take any further action or initiate anything.
 
-2. **Error: Policy is present at subscription/resource group level**: 
-    ![OMS portal Alert Settings page with Policy Error message](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **Error: Policy is present at subscription/resource group level**: 
+    ![Screenshot of the Operations Management Suite portal Alert Settings page, with Policy error message highlighted](./media/monitor-alerts-extend/ErrorPolicy.png)
 
-    a. When [Azure Policy](../azure-policy/azure-policy-introduction.md) is applied, restricting any new resource in subscription or resource group containing the Log Analytics (OMS) workspace; the system is unable to extend (copy) alerts into Azure and create necessary action groups.
+    When [Azure Policy](../azure-policy/azure-policy-introduction.md) is applied, it restricts any new resource in a subscription or resource group containing the Log Analytics (Operations Management Suite) workspace. The system is unable to extend alerts into Azure and create necessary action groups.
     
-    b. To resolve, edit the policy causing *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* error, which prevents creation of new resources on your subscription or resource group containing the workspace. Using Azure portal, Powershell, Azure CLI or API; you can audit actions to find the appropriate policy causing failure. To learn more, view the article on [viewing activity logs to audit actions](../azure-resource-manager/resource-group-audit.md). 
+    To resolve, edit the policy causing the *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* error, which prevents creation of new resources on your subscription or resource group containing the workspace. You can do this by using the Azure portal, PowerShell, Azure CLI or the API. You can audit actions to find the appropriate policy causing failure. To learn more, see [viewing activity logs to audit actions](../azure-resource-manager/resource-group-audit.md). 
     
-    c. Once resolved as per steps illustrated in the article, OMS will extend your alerts into Azure within the next day's scheduled run; without the need of any action or initiation.
+    When resolved per the steps illustrated in the article, Operations Management Suite extends your alerts into Azure within the next day's scheduled run. You do not need to take any further action or initiate anything.
 
 
 ## Next steps
 
-* Learn more about the new [Azure alerts experience](monitoring-overview-unified-alerts.md).
+* Learn more about the new [Azure Alerts experience](monitoring-overview-unified-alerts.md).
 * Learn about [log alerts in Azure Alerts](monitor-alerts-unified-log.md).
