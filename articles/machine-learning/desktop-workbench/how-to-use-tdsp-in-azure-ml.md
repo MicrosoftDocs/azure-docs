@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 10/16/2017
 ms.author: bradsev
 
+ROBOTS: NOINDEX
 ---
 
 # Structure projects with the Team Data Science Process template

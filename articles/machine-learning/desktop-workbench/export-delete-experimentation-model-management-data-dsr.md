@@ -9,6 +9,8 @@ ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.topic: conceptual
 ms.date: 05/22/2018
+
+ROBOTS: NOINDEX
 ---
 # Export or delete your experimentation or model management data in Machine Learning
 

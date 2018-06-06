@@ -10,7 +10,10 @@ ms.service: machine-learning
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
+
+ROBOTS: NOINDEX
 ---
+
 
 # Aerial Image Classification
 

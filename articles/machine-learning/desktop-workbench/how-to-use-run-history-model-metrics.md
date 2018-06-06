@@ -10,6 +10,8 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
+
+ROBOTS: NOINDEX
 ---
 # How to Use Run History and Model Metrics in Azure Machine Learning Workbench
 

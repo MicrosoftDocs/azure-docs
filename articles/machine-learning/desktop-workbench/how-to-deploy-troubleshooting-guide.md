@@ -11,6 +11,8 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Troubleshooting service deployment and environment setup

@@ -16,7 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
+
+ROBOTS: NOINDEX
 ---
+
 
 # Server workload forecasting on terabytes of data
 

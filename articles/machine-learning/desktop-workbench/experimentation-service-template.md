@@ -10,6 +10,8 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
+
+ROBOTS: NOINDEX
 ---
 # Configure the Azure Machine Learning Experimentation Service
 

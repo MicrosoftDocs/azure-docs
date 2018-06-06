@@ -11,7 +11,10 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
+
+ROBOTS: NOINDEX
 ---
+
 
 
 # Image classification using Azure Machine Learning Workbench

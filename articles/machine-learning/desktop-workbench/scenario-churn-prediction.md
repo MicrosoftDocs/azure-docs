@@ -16,7 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
+
+ROBOTS: NOINDEX
 ---
+
 
 # Customer churn prediction using Azure Machine Learning
 

@@ -10,7 +10,10 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
+
+ROBOTS: NOINDEX
 ---
+
 
 # Logging API reference
 

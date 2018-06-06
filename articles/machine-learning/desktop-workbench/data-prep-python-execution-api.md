@@ -12,6 +12,8 @@ ms.custom:
 ms.devlang: 
 ms.topic: article 
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 # Execute Data Sources and Data Preparations packages from Python
 

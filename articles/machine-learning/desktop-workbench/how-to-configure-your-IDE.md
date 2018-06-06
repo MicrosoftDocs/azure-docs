@@ -10,6 +10,8 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 
 # How to configure Azure Machine Learning Workbench to work with an IDE 

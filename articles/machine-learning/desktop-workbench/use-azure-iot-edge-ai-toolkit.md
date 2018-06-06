@@ -10,7 +10,10 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
+
+ROBOTS: NOINDEX
 ---
+
 # Use the AI Toolkit for Azure IoT Edge
 
 Bring the power of artificial intelligence, machine learning, and advanced analytics to the edge. With the AI Toolkit for Azure IoT Edge, you can deploy AI and machine learning where your data lives. Operationalize your model as a Docker container with a REST API, and then push the model to an edge device with Azure IoT Hub. AI Toolkit for Azure IoT Edge brings intelligence, elastic compute, and the power of the cloud to places with limited, intermittent, or no connectivity.

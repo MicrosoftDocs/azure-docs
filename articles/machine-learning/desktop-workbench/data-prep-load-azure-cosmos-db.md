@@ -12,7 +12,10 @@ ms.custom:
 ms.devlang: 
 ms.topic: article 
 ms.date: 09/11/2017
+
+ROBOTS: NOINDEX
 ---
+
 # Connecting to Azure Cosmos DB as a data source
 This article contains a python sample allows you to connect to Cosmos DB in the Azure Machine Learning Workbench.
 

@@ -10,6 +10,8 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
+
+ROBOTS: NOINDEX
 ---
 # Model management setup
 

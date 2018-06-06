@@ -10,7 +10,10 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
+
+ROBOTS: NOINDEX
 ---
+
 
 # Document Collection Analysis
 
