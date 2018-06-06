@@ -12,7 +12,7 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+https://en.wikipedia.org/wiki/Subject_Alternative_Namems.topic: article
 ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
@@ -44,7 +44,7 @@ The following list describes the certificate requirements that are needed to dep
 - The certificate's "Issued to:" field must not be the same as its "Issued by:" field.
 - The passwords to all certificate pfx files must be the same at the time of deployment
 - Password to the certificate pfx has to be a complex password.
-- Ensure that the Subject Names and Subject Alternative Names of all certificates match the specifications described in this article to avoid failed deployments.
+- Ensure that the Subject Names and Subject Alternative Names (https://en.wikipedia.org/wiki/Subject_Alternative_Name) of all certificates match the specifications described in this article to avoid failed deployments.
 
 > [!NOTE]
 > Self Signed certificates are not supported.
