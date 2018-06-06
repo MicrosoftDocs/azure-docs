@@ -28,6 +28,8 @@
       href: contoso-migration-assessment.md
     - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Managed Instance
       href: contoso-migration-rehost-vm-sql-managed-instance.md
+    - name: 5. Contoso-Rehost an app on Azure VMs
+      href: contoso-migration-rehost-vm.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
   - name: Group machines
@@ -48,4 +50,5 @@
     href: https://azure.microsoft.com/migrate
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  
+  - name: FAQ
+    href: resources-faq.md
