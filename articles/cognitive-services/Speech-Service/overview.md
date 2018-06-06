@@ -82,7 +82,7 @@ The Speech Devices SDK allows you to build your own ambient devices with a custo
 
 ## Next steps
 
-Proceed to the next article to get set up for using the Speech service.
+Get a free trial subscription key for the Speech service.
 
 > [!div class="nextstepaction"]
-> [Prepare to use Speech service](get-started.md)
+> [Try the Speech service for free](get-started.md)

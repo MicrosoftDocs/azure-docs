@@ -1,4 +1,5 @@
 - name: Face API Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Face API?
