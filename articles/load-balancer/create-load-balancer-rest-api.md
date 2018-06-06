@@ -13,24 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
-ms.date: 06/04/2018
+ms.date: 06/06/2018
 ms.author: kumud
 ---
 
-# Create an Azure Load Balancer using REST API
+# Create an Azure Basic Load Balancer using REST API
 
-This how-to shows how to create a new [Azure Load Balancer](load-balancer-overview.md) using [Azure REST API](/rest/api/azure/). 
+An Azure Load Balancer distributes new inbound flows that arrive on the load balancer's frontend to the backend pool instances, according to rules and health probes. The Load Balancer is available in two SKUs: Basic and Standard. To understand the difference between the two SKU versions, [Load Balancer SKU comparisons](/load-balancer/load-balancer-overview.md#skus).
+ 
+This how-to shows how to create a new [Azure Basic Load Balancer] using [Azure REST API](/rest/api/azure/) to help load balance incoming request across multiple VMs within an Azure virtual network. 
 Complete reference documentation and additional samples are available in the [Azure Load Balancer REST reference](/rest/api/load-balancer/).
  
-
 ## Build the request
-Use the following HTTP PUT request to create a new Azure Load Balancer.
-
+Use the following HTTP PUT request to create a new Azure Basic Load Balancer.
  ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}?api-version=2018-02-01
-
   ```
-
 ### URI parameters
 
 |Name  |In  |Required |Type |Description |
@@ -44,13 +42,19 @@ Use the following HTTP PUT request to create a new Azure Load Balancer.
 
 ### Request body
 
-The only required parameter is `location`. Use [optional parameters](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) to customize the load balancer.
+The only required parameter is `location`. If you do not define the *SKU* version, a Basic Load Balancer is created by default.  Use [optional parameters](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) to customize the load balancer.
 
 | Name | Type | Description |
 | :--- | :--- | :---------- |
 | location | string | Resource location. Get a current list of locations using the [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) operation. |
 
-## Example: Create a load balancer
+
+## Example: Create a Basic Load Balancer
+
+In this example, you create a Basic Load Balancer along with its resources that include a frontend IP configuration (*fe-lb*), a backend address pool (*be-lb*), a load balancing rule (*rulelb*), a health probe (*probe-lb*), and an inbound NAT rule (*in-nat-rule*).
+
+> ![NOTE]
+> Before you create a load balancer using the example below, you must create a virtual network with a subnet.
 
 ### Sample request
 
