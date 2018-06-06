@@ -30,7 +30,7 @@ To learn more about Apache Tomcat, see the [Apache Tomcat homepage](http://tomca
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Service Fabric CLI](service-fabric-cli.md)
 
-* A registry in Azure Container Registry - Create a container registry [using the Azure portal](../container-registry/container-registry-get-started-portal.md) or [using the Azure CLI](./service-fabric-tutorial-create-container-images#deploy-azure-container-registry) in your Azure subscription. 
+* A container registry in Azure Container Registry. You can create a container registry in your Azure subscription using [the Azure portal](../container-registry/container-registry-get-started-portal.md) or [the Azure CLI](./service-fabric-tutorial-create-container-images#deploy-azure-container-registry). 
 
 ## Steps
 
@@ -120,7 +120,7 @@ To learn more about Apache Tomcat, see the [Apache Tomcat homepage](http://tomca
       ```bash
       docker push myregistry.azurecr.io/samples/tomcattest
       ```
-1. Use yeoman to create a scaffold for a container application: 
+1. Use Yeoman to create a scaffold for a container application: 
 
    ```bash
    yo azuresfcontainer 
@@ -129,14 +129,13 @@ To learn more about Apache Tomcat, see the [Apache Tomcat homepage](http://tomca
 
    * Name your application: ServiceFabricTomcat
    * Name of the application service: TomcatService
-   * Input the Image Name: myregistry.azurecr.io/samples/tomcattest
-   * Commands: 
+   * Input the Image Name: Provide the URL for the container image in your container registry; for example, myregistry.azurecr.io/samples/tomcattest.
+   * Commands: Leave this blank. Since this image has a workload entry-point defined, you don't need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup).
    * Number of instances of guest container application: 1
 
    ![Service Fabric Yeoman generator for containers](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
 10. In the service manifest, add the following XML under the root **ServiceManfest** tag to open the port your application is listening to requests on. The **Endpoint** tag declares the protocol and port for the endpoint. For this article, the containerized service listens on port 8080: 
-
 
     ```xml
     <Resources>
@@ -149,7 +148,7 @@ To learn more about Apache Tomcat, see the [Apache Tomcat homepage](http://tomca
 	</Resources>
     ```
 
-11. In the application manifest, under the **ServiceManifestImport** tag, add the following XML. Replace the **AccountName** and **Password** in the **RepositoryCredentials** tag with the name of your container registry and the password required to login to it.
+11. In the application manifest, under the **ServiceManifestImport** tag, add the following XML. Replace the **AccountName** and **Password** in the **RepositoryCredentials** tag with the name of your container registry and the password required to log in to it.
 
     ```xml
     <Policies>
@@ -166,15 +165,21 @@ To learn more about Apache Tomcat, see the [Apache Tomcat homepage](http://tomca
     * The **RepositoryCredentials** tag specifies the credentials that the container needs to authenticate with the (private) repository where it pulls the image from. You don't need this policy if the image will be pulled from a public repository.
     
 
-12. In the *ServiceFabricTomcat* folder, connect to your service fabric cluster: 
+12. In the *ServiceFabricTomcat* folder, connect to your service fabric cluster. 
 
-    * To connect to the local Service Fabric cluster, run
+    * To connect to the local Service Fabric cluster, run:
 
        ```bash
        sfctl cluster select --endpoint http://localhost:19080
        ```
+    
+    * To connect to an unsecure Azure cluster, run:
+    
+       ```bash
+       sfctl cluster select --endpoint http://PublicIPorFQDN:19080
+       ```
 
-    * To connect to a secure Azure cluster, make sure the client certificate is present as a .pem file in the *ServiceFabricTomcat* folder, and run: 
+    * To connect to a secure Azure cluster, make sure the client certificate is present as a .pem file in the *ServiceFabricTomcat* directory, and run: 
 
        ```bash
        sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
@@ -199,14 +204,15 @@ To learn more about Apache Tomcat, see the [Apache Tomcat homepage](http://tomca
     After you have run the install script, open a browser and navigate to Service Fabric Explorer:
     
     * On a local cluster, use http://localhost:19080/Explorer (replace *localhost* with the private IP of the VM if using Vagrant on Mac OS X).
-    * On an Azure cluster, use https://PublicIPorFQDN:19080/Explorer. 
+    * On an unsecure Azure cluster, use http://PublicIPorFQDN:19080/Explorer.
+    * On a secure Azure cluster, use https://PublicIPorFQDN:19080/Explorer. 
     
     Expand the **Applications** node and note that there is now an entry for your application type, **ServiceFabricTomcatType**, and another for the first instance of that type. It may take a few minutes for the application to fully deploy, so be patient.
 
     ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 
 
-1. To access the application on the Tomcat server, open a browser window and enter any of the following URLs. You will see a variant of the "Hello World!" welcome screen for each URL.
+1. To access the application on the Tomcat server, open a browser window and enter any of the following URLs. If you deployed to the local cluster, use *localhost* for *PublicIPorFQDN*. You will see a variant of the "Hello World!" welcome screen for each URL.
 
    * http://PublicIPorFQDN:8080/hello  
    * http://PublicIPorFQDN:8080/hello/sayhello
