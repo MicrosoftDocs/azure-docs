@@ -122,6 +122,9 @@ For **Log Alerts** alerts can be based on:
 
         ![Suppress Alerts for Log Alerts](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
 
+        > [!TIP]
+        > Specify an suppress alert value greater than frequency of alert to ensure notifications are stopped without overlap
+
 12. As the third and final step, specify if any **Action Group** needs to be triggered for the alert rule when alert condition is met. You can choose any existing Action Group with alert or create a new Action Group. According to selected Action Group, when alert is trigger Azure will: send email(s), send SMS(s), call Webhook(s), remediate using Azure Runbooks, push to your ITSM tool, etc. Learn more about [Action Groups](monitoring-action-groups.md).
 
     For **Log Alerts** some additional functionality is available to override the default Actions:
@@ -130,6 +133,9 @@ For **Log Alerts** alerts can be based on:
     - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups; if one or more webhook action exist in the said Action Group. User can specificy format of JSON to be used for all webhooks configured in associated Action Group; for more information on webhook formats, see [webhook action for Log Alerts](monitor-alerts-unified-log-webhook.md). Test Webhook option is provided to check format and processing by destination using sample JSON and this option as labelled meant only for **testing** purposes.
 
         ![Action Overrides for Log Alerts](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+
+        > [!NOTE]
+        > For **Test Webhook** option to work, the endpoint should support [Cross Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) and user's can use CORS proxy to get around “No Access-Control-Allow-Origin header” problems
 
 13. If all fields are valid and with green tick the **create alert rule** button can be clicked and an alert is created in Azure Monitor - Alerts. All alerts can be viewed from the alerts Dashboard.
 
