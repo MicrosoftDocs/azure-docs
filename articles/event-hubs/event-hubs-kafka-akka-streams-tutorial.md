@@ -45,7 +45,7 @@ An Event Hubs namespace is required to send or receive from any Event Hubs servi
 
 Now that you have a Kafka enabled Event Hubs connection string, clone the Azure Event Hubs repository and navigate to the `akka` subfolder:
 
-```bash
+```shell
 git clone https://github.com/Azure/azure-event-hubs.git
 cd azure-event-hubs/samples/kafka/akka
 ```
@@ -80,7 +80,7 @@ akka.kafka.producer {
 
 To run the producer from the command line, generate the JAR and then run from within Maven (alternatively, generate the JAR using Maven, then run in Java by adding the necessary Kafka JAR(s) to the classpath):
 
-```bash
+```shell
 mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 ```
@@ -120,7 +120,7 @@ akka.kafka.consumer {
 
 To run the consumer from the command line, generate the JAR and then run from within Maven (alternatively, generate the JAR using Maven, then run in Java by adding the necessary Kafka JAR(s) to the classpath):
 
-```bash
+```shell
 mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 ```
