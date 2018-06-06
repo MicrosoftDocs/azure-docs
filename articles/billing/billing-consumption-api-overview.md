@@ -160,7 +160,9 @@ Here are some of the scenarios that are made possible via the consumption APIs:
 -	**Azure spend during the month** - How much is my current month’s spend to date? Do I need to make any adjustments in my spending and/or usage of Azure? When during the month am I consuming Azure the most?
 -	**Set up alerts** - I would like to set up resource-based consumption or monetary-based alerting based on a budget.
 
+## Next Steps
 
+- For information about using Azure Billing APIs to programmatically get insight into your Azure usage, see [Azure Billing API Overview](billing-usage-rate-card-overview.md).
 
 
 

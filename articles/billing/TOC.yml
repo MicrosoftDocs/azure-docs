@@ -104,7 +104,7 @@
 - name: Reference
   items:
   - name: Billing Automation Scenarios
-    href: billing-and-cost-management-automation-scenarios.md  
+    href: billing-cost-management-automation-scenarios.md  
   - name: Azure Billing API Overview
     href: billing-usage-rate-card-overview.md
     items:

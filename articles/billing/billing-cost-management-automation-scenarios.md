@@ -87,3 +87,6 @@ You can use the billing and cost management APIs in a variety of scenarios to an
 -	**Billing Periods**: Use the [Billing Periods API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) to get a list of billing periods along with a property pointing to the API route for the four sets of Enterprise API data that pertain to that billing period - BalanceSummary, UsageDetails, Marketplace Charges, and PriceSheet.
 -	**Reserved Instance Recommendations**: The [Reserved Instance Recommendations API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) looks at Customer's 7 days, 30 days, or 60 days of virtual machine usage and offers Single and Shared Purchase recommendations. The reserved instance API allows customers to analyze expected cost savings and recommended purchase amounts.
 
+## Next Steps
+
+- For information about using Azure Billing APIs to programmatically get insight into your Azure usage, see [Azure Billing API Overview](billing-usage-rate-card-overview.md).
