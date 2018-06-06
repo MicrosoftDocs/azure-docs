@@ -39,23 +39,23 @@ experiments, *etc.*.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## Install the Azure Data Factory Self-hosted Integration Runtime
+## Install the Data Factory Self-hosted Integration Runtime
 To access an on-premises SQL Server database in Azure Machine Learning, you need
-to download and install the Azure Data Factory Self-hosted Integration Runtime, formerly known as the Data Management Gateway. When you configure the connection in Machine Learning Studio, you have the opportunity to download and install the Integration Runtime (IR) using the **Download and register data
+to download and install the Data Factory Self-hosted Integration Runtime, formerly known as the Data Management Gateway. When you configure the connection in Machine Learning Studio, you have the opportunity to download and install the Integration Runtime (IR) using the **Download and register data
 gateway** dialog described below.
 
 
 You also can install the IR ahead of time by downloading and running the MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717).The MSI can also be used to upgrade an existing IR to the latest version, with all settings preserved.
 
-The Integration Runtime (Self-hosted) has the following prerequisites:
+The Data Factory Self-Hosted Integration Runtime has the following prerequisites:
 
-* The Integration Runtime (Self-hosted) requires a 64-bit Operating System with .NET Framework 4.6.1 or above.
+* The Data Factory Self-Hosted Integration requires a 64-bit Operating System with .NET Framework 4.6.1 or above.
 * The supported Windows operating system versions are Windows 10 , Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. 
 * The recommended configuration for the IR machine is at least 2 GHz, 4 Core CPU, 8GB RAM, and 80GB disk.
 * If the host machine hibernates, the IR won’t respond to data requests. Therefore, configure an appropriate power plan on the computer before installing the IR. If the machine is configured to hibernate, the IR installation displays a message.
 * Because copy activity occurs at a specific frequency, the resource usage (CPU, memory) on the machine also follows the same pattern with peak and idle times. Resource utilization also depends heavily on the amount of data being moved. When multiple copy jobs are in progress, you'll observe resource usage go up during peak times. While the minimum configuration listed above is technically sufficient, you may want to have a configuration with more resources than the minimum configuration depending on your specific load for data movement.
 
-Consider the following when setting up and using a Azure Data Factory Self-hosted Integration Runtime:
+Consider the following when setting up and using a Data Factory Self-hosted Integration Runtime:
 
 * You can install only one instance of IR on a single computer.
 * You can use a single IR for multiple on-premises data sources.
@@ -66,13 +66,13 @@ Consider the following when setting up and using a Azure Data Factory Self-hoste
 * If you already have a IR installed on your computer serving Power BI or Azure Data Factory scenarios, install a separate IR for Azure Machine Learning on another computer.
 
   > [!NOTE]
-  > You can't run Azure Data Factory Self-hosted Integration Runtime and Power BI Gateway on the same computer.
+  > You can't run Data Factory Self-hosted Integration Runtime and Power BI Gateway on the same computer.
   >
   >
-* You need to use the Azure Data Factory Self-hosted Integration Runtime for Azure Machine Learning even if you are using Azure ExpressRoute for other data. You should treat your data source as an on-premises data source (that's behind a firewall) even when you use ExpressRoute. Use the Azure Data Factory Self-hosted Integration Runtime to establish connectivity between Machine Learning and the data source.
+* You need to use the Data Factory Self-hosted Integration Runtime for Azure Machine Learning even if you are using Azure ExpressRoute for other data. You should treat your data source as an on-premises data source (that's behind a firewall) even when you use ExpressRoute. Use the Data Factory Self-hosted Integration Runtime to establish connectivity between Machine Learning and the data source.
 
 You can find detailed information on installation prerequisites,
-installation steps, and troubleshooting tips in the article [Integration Runtime in Azure Data Factory](../../data-factory/concepts-integration-runtime.md).
+installation steps, and troubleshooting tips in the article [Integration Runtime in Data Factory](../../data-factory/concepts-integration-runtime.md).
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data from your on-premises SQL Server database into Azure Machine Learning
 In this walkthrough, you will set up a Azure Data Factory Integration Runtime in an Azure
