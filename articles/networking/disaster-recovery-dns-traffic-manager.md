@@ -20,23 +20,23 @@ ms.author: kumud
 ---
 # Disaster recovery using Azure DNS and Traffic Manager
 
-Disaster recovery (DR) is focused on recovering from a severe loss of application functionality. Business and technology owners must determine how much functionality is required during a disaster. This level of functionality can take a few forms: completely unavailable, partially available via reduced functionality or delayed availability, or fully available.
+Disaster recovery (DR) is focused on recovering from a severe loss of application functionality. Business and technology owners must determine how much functionality is required during a disaster. This level of functionality can take a few forms: unavailable, partially available via reduced functionality or delayed availability, or fully available.
 Most enterprise customers are choosing a multi-region architecture for resiliency against an application or infrastructure level failover. Customers can choose several approaches in the quest to achieve failover and high availability via redundant architecture. here are some of the popular approaches:
 
-- **Active-passive with cold stand-by**  : In this approach, the VMs and other appliances running in the standby region is not active until the need for failover. However, the production environment is replicated in the form of backups / VM images / ARM templates to a different region. This is a cost-effective mechanism but takes a longer time to undertake a complete failover.
+- **Active-passive with cold standby: In this approach, the VMs and other appliances running in the standby region is not active until the need for failover. However, the production environment is replicated in the form of backups / VM images / Resource Manager templates to a different region. This is a cost-effective mechanism but takes a longer time to undertake a complete failover.
  
-    ![Active/Passive with cold stand-by](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
-    *Figure - Active/Passive with cold stand-by disaster recovery configuration*
+    ![Active/Passive with cold standby](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
+    *Figure - Active/Passive with cold standby disaster recovery configuration*
 
-- **Active/Passive with pilot light**: In this mechanism, the standby environment is setup with a minimalistic setup with only the necessary services running to support only a minimal and critical set of applications. In its native form, this can only execute minimal functionality but can scale up and spawn additional services to take bulk of the production load in the case of a failover.
+- **Active/Passive with pilot light**: In this mechanism, the standby environment is set up with a minimal setup with only the necessary services running to support only a minimal and critical set of applications. In its native form, this scenario can only execute minimal functionality but can scale up and spawn additional services to take bulk of the production load if a failover occurs.
     
     ![Active/Passive with pilot light](./media/disaster-recovery-dns-traffic-manager/active-passive-with-pilot-light.png)
     *Figure: Active/Passive with pilot light disaster recovery configuration*
 
-- **Active/Passive with warm standby** In this approach, the standby region is pre-warmed and is ready is to take the base load, auto scaling is turned on, and all the instances are up and running. Here the solution is not scaled to take the full production load but is completely functional, and all services are up and running. This is an augmented version of the Pilot Light approach.
+- **Active/Passive with warm standby** In this approach, the standby region is pre-warmed and is ready to take the base load, auto scaling is turned on, and all the instances are up and running. Here the solution is not scaled to take the full production load but is functional, and all services are up and running. This scenario is an augmented version of the Pilot Light approach.
     
     ![Active/Passive with warm standby](./media/disaster-recovery-dns-traffic-manager/active-passive-with-warm-standby.png)
-    *Figure: Active/Passive with warm stand-by disaster recovery configuration*
+    *Figure: Active/Passive with warm standby disaster recovery configuration*
     
 To learn more about failover and high availability, see [Disaster Recovery for Azure Applications](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
@@ -44,19 +44,19 @@ To learn more about failover and high availability, see [Disaster Recovery for A
 ## Planning your disaster recovery architecture
 
 There are two technical aspects towards setting up your disaster recovery architecture:
--  using a deployment mechanism to replicate instances, data, and configurations between primary and standby environments. This can be done natively via Azure Site-Recovery via Microsoft Azure partner appliances/services like Veritas, NetApp, or Veeam, etc. 
+-  using a deployment mechanism to replicate instances, data, and configurations between primary and standby environments. This can be done natively via Azure Site-Recovery via Microsoft Azure partner appliances/services like Veritas or NetApp. 
 - coming up with a solution to divert network/web traffic from the primary site to the standby site. This can be achieved via Azure DNS, Azure Traffic Manager(DNS), or third-party global load balancers.
-This article is limited to mechanism for Network and Web traffic redirection. For instructions to setup Azure Site Recovery, see [Azure Site Recovery Documentation](https://docs.microsoft.com/azure/site-recovery/).
+This article is limited to mechanism for Network and Web traffic redirection. For instructions to set up Azure Site Recovery, see [Azure Site Recovery Documentation](https://docs.microsoft.com/azure/site-recovery/).
 DNS is one of the most efficient mechanisms to divert network traffic because DNS is often global and external to the data center and is insulated from any regional or availability zone (AZ) level failures. One can use a DNS-based failover mechanism and in Azure, two DNS services can accomplish the same in some fashion - Azure DNS (authoritative DNS) and Azure Traffic Manager (DNS-based smart traffic routing). 
-It is important to understand few concepts in DNS which are extensively used to discuss the solutions provided in this article:
-- **DNS A Record** – A Records are pointers that points a domain to a IPv4 address. 
-- **CNAME or Canonical name** - This record type is used to point to another DNS record. CNAME doesn’t respond with a IP response but rather the pointer to the record that contain the IP address. 
-- **Weighted Routing** – one can choose to associate a weight to service endpoints and then distribute the traffic based on the assigned weights. This is one of the four traffic routing mechanism available within Traffic Manager. For more information, see [Weighted routing method](../traffic-manager/traffic-manager-routing-methods.md#weighted).
+It is important to understand few concepts in DNS that are extensively used to discuss the solutions provided in this article:
+- **DNS A Record** – A Records are pointers that point a domain to a IPv4 address. 
+- **CNAME or Canonical name** - This record type is used to point to another DNS record. CNAME doesn’t respond with an IP response but rather the pointer to the record that contains the IP address. 
+- **Weighted Routing** – one can choose to associate a weight to service endpoints and then distribute the traffic based on the assigned weights. This routing method is one of the four traffic routing mechanisms available within Traffic Manager. For more information, see [Weighted routing method](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Priority Routing** – Priority routing is based on health checks of endpoints. By default, Azure Traffic manager sends all traffic to the highest priority endpoint, and upon a failure or disaster, Traffic Manager routes the traffic to the secondary endpoint. For more information, see [Priority routing method](../traffic-manager/traffic-manager-routing-methods.md#priority).
 
 ## Manual failover using Azure DNS
-The Azure DNS manual failover solution for disaster recovery uses the standard DNS mechanism to failover to the backup site. The manual option via Azure DNS works best when used in conjunction with the cold standby or the pilot light approach. The assumptions made for the solution are:
--	Both primary and secondary endpoints have static IPs that doesn’t change often. Say for the primary site the IP is 100.168.124.44 and the IP for the secondary site is 100.168.124.43
+The Azure DNS manual failover solution for disaster recovery uses the standard DNS mechanism to fail over to the backup site. The manual option via Azure DNS works best when used in conjunction with the cold standby or the pilot light approach. The assumptions made for the solution are:
+-	Both primary and secondary endpoints have static IPs that don’t change often. Say for the primary site the IP is 100.168.124.44 and the IP for the secondary site is 100.168.124.43.
 -	An Azure DNS zone exists for both the primary and secondary site. Say for the primary site the endpoint is prod.contoso.com and for the backup site is dr.contoso.com. A DNS record for the main application known as www.contoso.com also exists.   
 -	The TTL is at or below the RTO SLA set in the organization. For example, if an enterprise sets the RTO of the application disaster response to be 60 mins, then the TTL should be less than 60 mins, preferably the lower the better. 
 
@@ -84,7 +84,7 @@ Once failure is detected, change the record value to point to dr.contoso.com as 
    ![Update CNAME record](./media/disaster-recovery-dns-traffic-manager/update-cname-record.png)
  
 Within 30 minutes, during which most resolvers will refresh the cached zone file, any query to www.contoso.com will be redirected to dr.contoso.com.
-You can also run the following Azure CLI command can to change the CNAME value:
+You can also run the following Azure CLI command to change the CNAME value:
     ```azurecli
      az network dns record-set cname set-record \
      --resource-group 123 \
@@ -98,13 +98,13 @@ This step can be executed manually or via automation. It can be done manually vi
 Since the DNS server is outside the failover or disaster zone, it is insulated against any downtime. This enabled user to architect a simple failover scenario that is cost effective and will work all the time assuming that the operator has network connectivity during disaster and can make the flip. If the solution is scripted, then one must ensure that the server or service running the script should be insulated against the problem affecting the production environment. Also, keep in mind the low TTL that was set against the zone so that no resolver around the world keeps the endpoint cached for long and customers can access the site within the RTO. For a cold standby and pilot light, since some prewarming and other administrative activity may be required – one should also give enough time before making the flip.
 
 ## Automatic failover using Azure Traffic Manager
-When you have complex architectures and multiple set of resources capable of performing the same function you can configure Azure Traffic Manager (based on DNS) to check the health of your resources and route the traffic from the non-healthy resource to the healthy resource. 
+When you have complex architectures and multiple sets of resources capable of performing the same function, you can configure Azure Traffic Manager (based on DNS) to check the health of your resources and route the traffic from the non-healthy resource to the healthy resource. 
 In the following example, both the primary region and the secondary region have a full deployment. This deployment includes the cloud services and a synchronized database. 
 
 ![Automatic failover using Azure Traffic Manager](./media/disaster-recovery-dns-traffic-manager/automatic-failover-using-traffic-manager.png)
 
 However, only the primary region is actively handling network requests from the users. The secondary region becomes active only when the primary region experiences a service disruption. In that case, all new network requests route to the secondary region. Since the backup of the database is near instantaneous, both the load balancers have IPs that can be health checked, and the instances are always up and running, this topology provides an option for going in for a low RTO and failover without any manual intervention. The secondary failover region must be ready to go immediately after failure of the primary region.
-This is an ideal candidate for the use of Azure Traffic Manager which has inbuilt probes for various types of health checks including http / https and TCP. Azure Traffic manager also has a rule engine that can be configured to failover in the event of a failure as we will see below. Let’s consider the following for the solution using Traffic Manager
+This is an ideal candidate for the use of Azure Traffic Manager which has inbuilt probes for various types of health checks including http / https and TCP. Azure Traffic manager also has a rule engine that can be configured to failover in the event of a failure as we will see below. Let’s consider the following for the solution using Traffic Manager:
 - Customer has the Region #1 endpoint known as prod.contoso.com with a static IP as 100.168.124.44 and a Region #2 endpoint known as dr.contoso.com with a static IP as 100.168.124.43. 
 -	Each of these environment is fronted via a public facing property like a load balancer. The load balancer can be configured to have a DNS based endpoint or a FQDN as shown above.
 -	All the instances in Region 2 are in near real time replication with Region 1. Furthermore, the machine images are up to date, and all software/configuration data is patched and are in line with Region 1.  
@@ -130,7 +130,7 @@ Similarly, create the disaster recovery endpoint within Traffic Manager as well.
 In this step, you the DNS TTL to 10 seconds which is honored by most internet facing recursive resolvers. This means that no DNS resolver will cache this more than 10 seconds. For the endpoint monitor settings, the path is current set at / or root, but once can customize this to evaluate a path, for example, prod.contoso.com/index, etc. The example below shows the **https** as the probing protocol. However, you can choose **http** or **tcp** as well. The choice of protocol depends upon the end application. The probing interval is set to 10 seconds which enables fast probing, and the retry is set to 3. As a result, Traffic Manager will failover to the second endpoint if three consecutive intervals register a failure. The following formula defines the total time for an automated failover:
 Time for failover = TTL + Retry * Probing interval 
 And in this case, the value is 10 + 3 * 10 = 40 seconds (Max).
-If the Retry is set to 1 and TTL is set to 10 secs then the time for failover 10 + 1 * 10 = 20 seconds. It is recommended to retry more than once to elimintate chances of failovers in case of minor network blips. 
+If the Retry is set to 1 and TTL is set to 10 secs then the time for failover 10 + 1 * 10 = 20 seconds. It is recommended to retry more than once to eliminate chances of failovers in case of minor network blips. 
 
 
 ![Set up health check](./media/disaster-recovery-dns-traffic-manager/set-up-health-check.png)
