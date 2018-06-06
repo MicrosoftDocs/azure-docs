@@ -68,7 +68,7 @@ $request->setHeader($headers);
 $parameters = array(
     // Request parameters
     'language' => 'unk',
-    'detectOrientation ' => 'true'
+    'detectOrientation' => 'true'
 );
 $url->setQueryVariables($parameters);
 
