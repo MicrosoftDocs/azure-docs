@@ -1,12 +1,12 @@
 ﻿---
 title: Create an Azure Time Series Insights single-page web app
-description: Learn how to create an single-page web application that queries and renders data from a TSI environment.
+description: Learn how to create a single-page web application that queries and renders data from a TSI environment.
 author: BryanLa
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/10/2018
 ms.author: bryanla
-# Customer intent: As a developer, I want learn how to create my own Time Series Insights single-page web application (SPA), so I can apply the principles to building my own SPA.
+# Customer intent: As a developer, I want learn how to create a Time Series Insights single-page web application (SPA), so I can apply the principles to building my own SPA.
 ---
 
 # Tutorial: Create an Azure Time Series Insights single-page web app
@@ -22,7 +22,7 @@ This tutorial will guide you through the process of creating a single-page web a
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/) before you begin. 
 
-If you haven't established your own TSI environment, complete the [Create an Azure Time Series Insights environment](tutorial-create-populate-tsi-environment.md) first, before starting this one.
+If you haven't established your own TSI environment, complete the [Create an Azure Time Series Insights environment](tutorial-create-populate-tsi-environment.md) tutorial first, before starting this one.
 
 ## Overview
 
@@ -32,10 +32,10 @@ The TSI Client JavaScript library provides an abstraction for two important cate
 - **Wrapper methods for calling the TSI Query APIs**: REST APIs that allow you to query for TSI data by using aggregate expressions. The methods are organized under the `TsiClient.Server` namespace of the library.
 - **Methods for creating and populating several types of charting controls**: Methods that are used for rendering the TSI aggregate data in a web page. The methods are organized under the `TsiClient.UX` namespace of the library.
 
-For an overview of the structure of the TSI sample app, and how it uses the TSI Client library, please refer to the [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md) tutorial.
-
+For an overview of the structure of the TSI sample app its use of the TSI Client library, please refer to the [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md) tutorial.
 
 ## Download the TSI sample application source code
+
 
 
 ## Register the application with Azure AD 
