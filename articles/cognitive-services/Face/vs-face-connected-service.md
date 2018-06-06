@@ -239,4 +239,4 @@ When no longer needed, delete the resource group. This deletes the cognitive ser
 
 ## Next steps
 
-Learn more about the Face API by reading the [Face API Documentation](index.md).
+Learn more about the Face API by reading the [Face API Documentation](Overview.md).
