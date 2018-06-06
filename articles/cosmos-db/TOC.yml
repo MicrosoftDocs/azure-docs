@@ -474,6 +474,8 @@ items:
       href: manage-account-with-powershell.md
     - name: Manage using Storage Explorer
       href: storage-explorer.md
+    - name: Multi region writers
+      href: multi-master-workaround.md
   - name: Resources
     items:
     - name: Manage using Storage Explorer
