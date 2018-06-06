@@ -1,5 +1,7 @@
 - name: Data Factory V2 Documentation
   href: index.yml
+- name: Switch to version 1 documentation
+  href: v1/data-factory-introduction.md
 - name: Overview
   items:
   - name: Introduction to Data Factory
@@ -372,19 +374,21 @@
       href: create-azure-ssis-integration-runtime.md
   - name: Run SSIS packages in Azure
     items:
-    - name: Join Azure-SSIS integration runtime to a VNET
+    - name: Join Azure-SSIS IR to a VNET
       href: join-azure-ssis-integration-runtime-virtual-network.md
-    - name: Configure high performance for Azure-SSIS integration runtime
+    - name: Enable Azure AD authentication for Azure-SSIS IR
+      href: enable-aad-authentication-azure-ssis-ir.md
+    - name: Configure high performance for Azure-SSIS IR
       href: configure-azure-ssis-integration-runtime-performance.md
-    - name: Provision Enterprise Edition for Azure-SSIS integration runtime
+    - name: Provision Enterprise Edition for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-    - name: Customize setup for Azure-SSIS integration runtime
+    - name: Customize setup for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-custom-setup.md
-    - name: Deploy licensed components for Azure-SSIS integration runtime
+    - name: Install licensed components for Azure-SSIS IR
       href: how-to-develop-azure-ssis-ir-licensed-components.md
-    - name: Run SSIS packages with SSIS activity
+    - name: Run SSIS packages with Execute SSIS Package activity
       href: how-to-invoke-ssis-package-ssis-activity.md
-    - name: Run SSIS packages with stored procedure activity
+    - name: Run SSIS packages with Stored Procedure activity
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md

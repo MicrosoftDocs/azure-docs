@@ -90,7 +90,6 @@ Learn how to use Azure Data Lake Analytics to run big data analysis jobs that sc
         <td><a href="data-lake-analytics-manage-use-cli.md">Azure CLI</a></td>
         <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">Python SDK</a></td>
-        <td><a href="data-lake-analytics-get-started-java-sdk.md">Java SDK</a></td>
     </tr>
 </table>
 

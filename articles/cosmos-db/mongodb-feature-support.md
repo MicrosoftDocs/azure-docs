@@ -4,14 +4,11 @@ description: Learn about the feature support the Azure Cosmos DB MongoDB API pro
 services: cosmos-db
 author: alekseys
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
 experimental: true

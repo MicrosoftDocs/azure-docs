@@ -16,6 +16,10 @@ ms.author: nolachar
 
 In this quickstart, you analyze an image from disk using Computer Vision.
 
+You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+
 ## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
@@ -37,7 +41,7 @@ To run the sample, do the following steps:
 
 The following code uses the Python `requests` library to call the Computer Vision Analyze Image API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary. The types of features to recognize is passed in via the `params` dictionary. The binary image data is passed in via the `data` parameter to `requests.post`.
 
-### Analyze Image request
+## Analyze Image request
 
 ```py
 # Replace <Subscription Key> with your valid subscription key.
@@ -84,7 +88,7 @@ plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
 ```
 
-### Analyze Image response
+## Analyze Image response
 
 A successful response is returned in JSON, for example:
 

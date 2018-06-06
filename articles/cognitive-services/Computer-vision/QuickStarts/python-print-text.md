@@ -16,6 +16,10 @@ ms.author: nolachar
 
 In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
 
+You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+
 ## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
@@ -34,7 +38,7 @@ To run the sample, do the following steps:
 
 The following code uses the Python `requests` library to call the Computer Vision Analyze Image API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary.
 
-### OCR request
+## OCR request
 
 ```python
 # Replace <Subscription Key> with your valid subscription key.
@@ -94,7 +98,7 @@ for word in word_infos:
 plt.axis("off")
 ```
 
-### OCR response
+## OCR response
 
 A successful response is returned in JSON, for example:
 

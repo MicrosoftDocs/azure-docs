@@ -1,20 +1,30 @@
 ---
-title: Create a LUIS app to get regular-expression matched data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and a regular expression entity to extract data in this quickstart. 
+title: Tutorial creating a LUIS app to get regular-expression matched data - Azure | Microsoft Docs 
+description: In this tutorial, learn how to create a simple LUIS app using intents and a regular expression entity to extract data. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
 
-# Quickstart: Use regular expression entity
-In this quickstart, you create an app that demonstrates how to extract consistently formatted data from an utterance using the **Regular Expression** entity.
+# Tutorial: Use regular expression entity
+In this tutorial, you create an app that demonstrates how to extract consistently formatted data from an utterance using the **Regular Expression** entity.
+
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Understand regular expression entities 
+> * Create new LUIS app for a knowledge base domain with FindKnowledgeBase intent
+> * Add _None_ intent and add example utterances
+> * Add regular expression entity to extract KB article number from utterance
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
@@ -93,9 +103,9 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
     |What is going on?|
 
 ## When the utterance is predicted for the None intent
-In your LUIS-calling application (such as a chat bot), when LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
+In your LUIS-calling application (such as a chatbot), when LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
-Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chat bot, your chat bot can follow up with a question that focuses the customer's intent. 
+Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chatbot, your chatbot can follow up with a question that focuses the customer's intent. 
 
 ## Create a KnowledgeBase article regular expression entity 
 Now that the two intents have utterances, LUIS needs to understand what a KB number is. Create a regular expression entity by following the steps:
@@ -126,7 +136,7 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
     ![Image of success notification bar](./media/luis-quickstart-intents-regex-entity/trained.png)
 
 ## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chat bot or other application, you need to publish the app. 
+In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
@@ -172,21 +182,22 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 ## What has this LUIS app accomplished?
 This app, with just two intents and a regular expression entity, identified the intention and returned the extracted data. 
 
-Your chat bot now has enough information to determine the primary action, `FindKnowledgeBase`, and which KB articles were in the search. 
+Your chatbot now has enough information to determine the primary action, `FindKnowledgeBase`, and which KB articles were in the search. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the kb article numbers and search a third-party API. LUIS doesn't do that work. LUIS only determines what the user's intention is and extracts data about that intention. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the kb article numbers and search a third-party API. LUIS doesn't do that work. LUIS only determines what the user's intention is and extracts data about that intention. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
-[Learn about the KeyPhrase entity](luis-quickstart-intent-and-key-phrase.md). 
+> [!div class="nextstepaction"]
+> [Learn about the KeyPhrase entity](luis-quickstart-intent-and-key-phrase.md)
 
-Add the **number** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
+Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
 
-Add the **datetimeV2** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract dates, times, and datetime ranges.
+Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract dates, times, and datetime ranges.
 
 
 <!--References-->

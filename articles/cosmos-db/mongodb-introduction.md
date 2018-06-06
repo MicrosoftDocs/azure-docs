@@ -5,14 +5,11 @@ keywords: what is MongoDB
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sngun
 experimental: true

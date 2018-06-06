@@ -523,6 +523,10 @@
           href: service-fabric-cluster-creation-via-arm.md
         - name: Cluster using certificate common name
           href: service-fabric-create-cluster-using-cert-cn.md
+        - name: Enable Disk Encryption for Windows
+          href: service-fabric-enable-azure-disk-encryption-windows.md
+        - name: Enable Disk Encryption for Linux
+          href: service-fabric-enable-azure-disk-encryption-linux.md
       - name: Scale
         items:
         - name: Manually scale out
@@ -634,20 +638,29 @@
       href: service-fabric-sfctl-application.md
     - name: sfctl chaos
       href: service-fabric-sfctl-chaos.md
+      items:
+      - name: sfctl chaos schedule  
+        href: service-fabric-sfctl-chaos-schedule.md
     - name: sfctl cluster
       href: service-fabric-sfctl-cluster.md
     - name: sfctl compose
       href: service-fabric-sfctl-compose.md
+    - name: sfctl container
+      href: service-fabric-sfctl-container.md
     - name: sfctl is
       href: service-fabric-sfctl-is.md
     - name: sfctl node
       href: service-fabric-sfctl-node.md
     - name: sfctl partition
       href: service-fabric-sfctl-partition.md
+    - name: sfctl property
+      href: service-fabric-sfctl-property.md
     - name: sfctl replica
       href: service-fabric-sfctl-replica.md
     - name: sfctl rpm
       href: service-fabric-sfctl-rpm.md
+    - name: sfctl sa-cluster
+      href: service-fabric-sfctl-sa-cluster.md
     - name: sfctl service
       href: service-fabric-sfctl-service.md
     - name: sfctl store

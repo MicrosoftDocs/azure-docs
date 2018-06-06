@@ -5,14 +5,11 @@ keywords: NoSQL example
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: java
 
-ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: sample
 ms.date: 02/08/2018
 ms.author: sngun
 

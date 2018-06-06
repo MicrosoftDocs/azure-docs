@@ -33,3 +33,6 @@ The following table includes links to Azure CLI examples for Azure Media Service
 | [Create jobs](./scripts/cli-create-jobs.md)|Submits a Job to a simple encoding Transform using HTTPs URL.|
 | [Create EventGrid](./scripts/cli-create-event-grid.md)|Creates an account level Event Grid subscription for Job State Changes.|
 
+## See also
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

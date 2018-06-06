@@ -227,9 +227,9 @@ You can continue getting started with IoT solution accelerators by reading the f
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png
 
 [lnk-preconfigured-solutions]:iot-accelerators-what-are-solution-accelerators.md
-[lnk-customize]: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-customize]: iot-accelerators-connected-factory-customize.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md
+[lnk-permissions]: iot-accelerators-faq.md

@@ -31,16 +31,20 @@
   items:
   - name: Assets
     href: assets-concept.md
-  - name: Autogen adaptive bitrate ladder
-    href: autogen-bitrate-ladder.md
+  - name: Encoding  
+    items:
+    - name: Overview
+      href: encoding-concept.md
+    - name: Autogen adaptive bitrate ladder
+      href: autogen-bitrate-ladder.md
   - name: Media intelligence
     href: intelligence-concept.md
+  - name: Reacting to events
+    href: reacting-to-media-services-events.md
   - name: Storage accounts
     href: storage-account-concept.md
   - name: Transforms and jobs
     href: transform-concept.md
-  - name: Reacting to events
-    href: reacting-to-media-services-events.md    
 - name: How-to guides
   items:
   - name: Migrate from v2 to v3
@@ -57,7 +61,7 @@
       href: job-input-from-http-how-to.md
     - name: From a local file
       href: job-input-from-local-file-how-to.md    
-  - name: Customize encoder presets
+  - name: Customize Transform presets
     items:
     - name: With .NET Core
       href: customize-encoder-presets-how-to.md
@@ -75,6 +79,8 @@
     href: https://docs.microsoft.com/java/api/overview/azure/mediaservices
   - name: Python
     href: https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python
+  - name: Node .js
+    href: https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest
   - name: Event schemas
     href: media-services-event-schemas.md
 - name: Resources

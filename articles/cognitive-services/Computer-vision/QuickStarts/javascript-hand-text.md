@@ -16,6 +16,8 @@ ms.author: nolachar
 
 In this quickstart, you extract handwritten text from an image using Computer Vision.
 
+## Prerequisites
+
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## Recognize Text request
@@ -58,7 +60,7 @@ This sample uses jQuery 1.9.0. For a sample that uses JavaScript without jQuery,
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/RecognizeText";
+            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
 
         // Request parameter.
         // Note: The request parameter changed for APIv2.

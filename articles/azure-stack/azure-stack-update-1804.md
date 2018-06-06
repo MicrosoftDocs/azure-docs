@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -94,6 +94,12 @@ The following are now available, but don't require Azure Stack update 1804.
 The following are post-installation known issues for build  **20180513.1**.
 
 #### Portal
+- <!-- 1272111 - IS --> After you install or update to this version of Azure Stack, you might not be able to view Azure Stack scale units in the Admin portal.  
+  Workaround: Use PowerShell to view information about Scale Units. For more information, see the [help](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) content for Azure Stack Module 1.3.0. 
+
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Workaround:  To resolve this issue after you install this update, use step 3 from the [Trigger automation to configure claims provider trust in Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedure to reset the owner of the default provider subscription.   
+
 - <!-- TBD - IS ASDK --> Some administrative subscription types are not available.  When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](#new-features) are not visible in the console. This is expected. The unavailable subscription types are *Metering subscription*, and *Consumption subscription*. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
 
 
@@ -116,6 +122,24 @@ The following are post-installation known issues for build  **20180513.1**.
 
   This alert can be safely ignored. 
 
+
+#### Health and monitoring
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alert #1:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+
+  Alert #2:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+
+  Both alerts can be safely ignored. They will close automatically over time.  
+ 
 
 #### Compute
 - <!-- TBD - IS --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
@@ -263,7 +287,6 @@ The following are post-installation known issues for build  **20180513.1**.
 
 
 <!-- #### Identity -->
-<!-- #### Health and monitoring --> 
 <!-- #### Marketplace --> 
 
 

@@ -16,6 +16,8 @@ ms.author: nolachar
 
 In this quickstart, you extract handwritten text from an image using Computer Vision.
 
+## Prerequisites
+
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## Recognize Text request
