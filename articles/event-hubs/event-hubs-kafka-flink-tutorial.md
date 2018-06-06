@@ -19,7 +19,7 @@ ms.author: bahariri
 
 # Using Apache Flink with Event Hubs for Kafka Ecosystem
 
-One of the key benefits of using Apache Kafka is the ecosystem of frameworks it can connect to. Kafka enabled Event Hubs allow users to combine the flexibility Kafka with the scalability, consistency, and support of the Azure ecosystem without having to manage on prem clusters or resources - it's the best of both worlds!
+One of the key benefits of using Apache Kafka is the ecosystem of frameworks it can connect to. Kafka enabled Event Hubs combines the flexibility of Kafka with the scalability, consistency, and support of the Azure ecosystem - it's the best of both worlds!
 
 This tutorial shows you how to connect Apache Flink to Kafka enabled Event Hubs without changing your protocol clients or running your own clusters. Azure Event Hubs for Kafka Ecosystem supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
 
