@@ -78,7 +78,7 @@ Contoso will migrate the two VMs running their tiered SmartHotel application to 
 - They already have their [Azure infrastructure](contoso-migration-infrastructure.md) in place, so they just need to add a couple of Azure components specifically for this scenario, prepare their on-premises VMware environment, and enable replication for the VMs.
 - After VMs are replicating to Azure, they'll run a failover from their on-premises site to Azure, to complete the migration.
 
-![Migration process](./media/contoso-migration-rehost-vm/migration-process.png) 
+![Migration process](./media/contoso-migration-rehost-vm/migraton-process.png) 
 
 
 
@@ -90,7 +90,7 @@ Here's what Contoso (and you) needs to run this scenario.
 --- | ---
 
 **Azure subscription** | You should have already created a subscription during early articles in this series. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions.<br/><br/> If you need more granular permissions, review [this article](../site-recovery/site-recovery-role-based-linked-access-control.md). 
-**Azure infrastructure** | Contoso set up their Azure infrastructure as described in [Azure infrastructure for migration](migrate-scenarios-infrastructure.md).<br/><br/> Learn more about specific [network](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) and [storage](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) requirements for Site Recovery.
+**Azure infrastructure** | Contoso set up their Azure infrastructure as described in [Azure infrastructure for migration](contoso-migration-infrastructure.md).<br/><br/> Learn more about specific [network](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) and [storage](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) requirements for Site Recovery.
 **On-premises servers** | Your on-premises vCenter server should be running version 5.5, 6.0, or 6.5<br/><br/> An ESXi host running version 5.5, 6.0 or 6.5<br/><br/> One or more VMware VMs running on the ESXi host.
 **On-premises VMs** | VMs must meet [Azure requirements](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).
 
@@ -229,7 +229,7 @@ Contoso perform these steps as follows:
 
 2. They import the template into VMware to create and deploy the VM.
 
-    ![OVF template](./media/ccontoso-migration-rehost-vm/vcenter-wizard.png)
+    ![OVF template](./media/contoso-migration-rehost-vm/vcenter-wizard.png)
 
 3.  When they turn on the VM for the first time, it boots up into a Windows Server 2016 installation experience. They accept the license agreement, and enter an administrator password.
 
