@@ -14,7 +14,7 @@ ms.author: v-jerkin
 ---
 # Samples for the Cognitive Services Speech SDK
 
-- [Sample Source Code GitHub Repository for Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 - [Download sample for Android (only for the Speech Devices SDK)](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
 

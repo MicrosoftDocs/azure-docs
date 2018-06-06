@@ -96,7 +96,7 @@ The result of the recognition will be displayed on screen.
 
 ## Downloading the sample
 
-The sample from this article can be downloaded [here](https://aka.ms/csspeech/winsample).
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 ## Next steps
 
