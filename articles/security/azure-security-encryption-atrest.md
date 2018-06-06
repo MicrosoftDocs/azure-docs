@@ -13,12 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 06/06/2018
 ms.author: barclayn
 
 ---
 # Azure Data Encryption-at-Rest
+
 There are multiple tools within Microsoft Azure to safeguard data according to your company’s security and compliance needs. This paper focuses on:
+
 - How data is protected at rest across Microsoft Azure
 - Discusses the various components taking part in the data protection implementation,
 - Reviews pros and cons of the different key management protection approaches. 
@@ -26,6 +28,7 @@ There are multiple tools within Microsoft Azure to safeguard data according to y
 Encryption at Rest is a common security requirement. A benefit of Microsoft Azure is that organizations can achieve Encryption at Rest without having the cost of implementation and management and the risk of a custom key management solution. Organizations have the option of letting Azure completely manage Encryption at Rest. Additionally, organizations have various options to closely manage encryption or encryption keys.
 
 ## What is encryption at rest?
+
 Encryption at Rest refers to the cryptographic encoding (encryption) of data when it is persisted. The Encryption at Rest designs in Azure use symmetric encryption to encrypt and decrypt large amounts of data quickly according to a simple conceptual model:
 
 - A symmetric encryption key is used to encrypt data as it is persisted 
@@ -36,6 +39,7 @@ Encryption at Rest refers to the cryptographic encoding (encryption) of data whe
 The above describes the common high-level elements of Encryption at Rest. In practice, key management and control scenarios, as well as scale and availability assurances, require additional constructs. Microsoft Azure Encryption at Rest concepts and components are described below.
 
 ## The purpose of encryption at rest
+
 Encryption at rest is intended to provide data protection for data at-rest (as described above.) Attacks against data at-rest include attempts to obtain physical access to the hardware on which the data is stored, and then compromise the contained data. In such an attack, a server’s hard drive may have been mishandled during maintenance allowing an attacker to remove the hard drive. Later the attacker would put the hard drive into a computer under their control to attempt to access the data. 
 
 Encryption at rest is designed to prevent the attacker from accessing the unencrypted data by ensuring the data is encrypted when on disk. If an attacker were to obtain a hard drive with such encrypted data, and no access to the encryption keys, the attacker would not compromise the data without great difficulty. In such a scenario, an attacker would have to attempt attacks against encrypted data which are much more complex and resource consuming than accessing unencrypted data on a hard drive. For this reason, encryption at rest is highly recommended and is a high priority requirement for many organizations. 
@@ -239,13 +243,13 @@ All Azure Storage services (Blob storage, Queue storage, Table storage, and Azur
 - Client-side: Azure Blobs, Tables, and Queues support client-side encryption. When using client-side encryption, customers encrypt the data and upload the data as an encrypted blob. Key management is done by the customer. For more information, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
-#### SQL Azure
+#### Azure SQL Database
 
-SQL Azure currently supports encryption at rest for Microsoft managed service side and client-side encryption scenarios.
+Azure SQL Database currently supports encryption at rest for Microsoft managed service side and client-side encryption scenarios.
 
-Support for server encryption is currently provided through the SQL feature called Transparent Data Encryption. Once a SQL Azure customer enables TDE key are automatically created and managed for them. Encryption at rest can be enabled at the database and server levels. As of June 2017, [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) will be enabled by default on newly created databases.
+Support for server encryption is currently provided through the SQL feature called Transparent Data Encryption. Once a Azure SQL Database customer enables TDE key are automatically created and managed for them. Encryption at rest can be enabled at the database and server levels. As of June 2017, [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) will be enabled by default on newly created databases.
 
-Client-side encryption of SQL Azure data is supported through the [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) feature. Always Encrypted uses a key that created and stored by the client. Customers can store the master key in a Windows certificate store, Azure Key Vault, or a local Hardware Security Module. Using SQL Server Management Studio, SQL users choose what key they’d like to use to encrypt which column.
+Client-side encryption of Azure SQL Database data is supported through the [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) feature. Always Encrypted uses a key that created and stored by the client. Customers can store the master key in a Windows certificate store, Azure Key Vault, or a local Hardware Security Module. Using SQL Server Management Studio, SQL users choose what key they’d like to use to encrypt which column.
 
 |                                  |                |                     | **Encryption Model**             |                              |        |
 |----------------------------------|----------------|---------------------|------------------------------|------------------------------|--------|
@@ -254,7 +258,7 @@ Client-side encryption of SQL Azure data is supported through the [Always Encryp
 | **Storage and Databases**            |                |                     |                              |                              |        |
 | Disk (IaaS)                      |                | -                   | Yes                          | Yes*                         | -      |
 | SQL Server (IaaS)                |                | Yes                 | Yes                          | Yes                          | Yes    |
-| SQL Azure (PaaS)                 |                | Yes                 | Yes                          | -                            | Yes    |
+| Azure SQL Database (PaaS)                 |                | Yes                 | Yes                          | -                            | Yes    |
 | Azure Storage (Block/Page Blobs) |                | Yes                 | Yes                          | -                            | Yes    |
 | Azure Storage (Files)            |                | Yes                 | Yes                          | -                            | -      |
 | Azure Storage (Tables, Queues)   |                | Yes                 | -                            | -                            | Yes    |
@@ -265,8 +269,8 @@ Client-side encryption of SQL Azure data is supported through the [Always Encryp
 | Azure Data Factory               |                | Yes                 | -                            | -                            | -      |
 | Azure Machine Learning           |                | -                   | Preview                      | -                            | -      |
 | Azure Stream Analytics           |                | Yes                 | -                            | -                            | -      |
-| HDInsights (Azure Blob Storage)  |                | Yes                 | -                            | -                            | -      |
-| HDInsights (Data Lake Storage)   |                | Yes                 | -                            | -                            | -      |
+| HDInsight (Azure Blob Storage)  |                | Yes                 | -                            | -                            | -      |
+| HDInsight (Data Lake Storage)   |                | Yes                 | -                            | -                            | -      |
 | Azure Data Lake Store            |                | Yes                 | Yes                          | -                            | -      |
 | Azure Data Catalog               |                | Yes                 | -                            | -                            | -      |
 | Power BI                         |                | Yes                 | -                            | -                            | -      |
@@ -278,5 +282,5 @@ Client-side encryption of SQL Azure data is supported through the [Always Encryp
 
 ## Conclusion
 
-Protection of customer data stored within Azure Services is of paramount importance to Microsoft. All Azure hosted services are committed to providing Encryption at Rest options. Foundational services such as Azure Storage, SQL Azure and key analytics and intelligence services already provide Encryption at Rest options. Some of these services support either customer controlled keys and client-side encryption as well as service managed keys and encryption. Microsoft Azure services are broadly enhancing Encryption at Rest availability and new options are planned for preview and general availability in the upcoming months.
+Protection of customer data stored within Azure Services is of paramount importance to Microsoft. All Azure hosted services are committed to providing Encryption at Rest options. Foundational services such as Azure Storage, Azure SQL Database and key analytics and intelligence services already provide Encryption at Rest options. Some of these services support either customer controlled keys and client-side encryption as well as service managed keys and encryption. Microsoft Azure services are broadly enhancing Encryption at Rest availability and new options are planned for preview and general availability in the upcoming months.
 
