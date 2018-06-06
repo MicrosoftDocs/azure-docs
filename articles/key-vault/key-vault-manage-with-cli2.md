@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/0/2018
 ms.author: barclayn
 
 ---
@@ -98,7 +98,7 @@ az account list-locations
 ``` 
 
 ## Register the Key Vault resource provider
- You may see the error "The subscription is not registered to use namespace 'Microsoft.KeyVault'" when you try to create a new key vault. If that message appears, make sure that Key Vault resource provider is registered in your subscription. Registering the provider needs to be done once per subscription.
+ You may see the error "The subscription is not registered to use namespace 'Microsoft.KeyVault'" when you try to create a new key vault. If that message appears, make sure that Key Vault resource provider is registered in your subscription. This is a one-time operation for each subscription.
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
@@ -210,18 +210,18 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
 ## <a name="bkmk_KVperCLI"></a> Set key vault advanced access policies 
 Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable advanced policies for the key vault. 
 
- **Enable Key Vault for deployment:** Allows virtual machines to retrieve certificates stored as secrets from the vault.
+ Enable Key Vault for deployment: Allows virtual machines to retrieve certificates stored as secrets from the vault.
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
  ``` 
 
-**Enable Key Vault for disk encryption:** Required when using the vault for Azure Disk encryption.
+Enable Key Vault for disk encryption: Required when using the vault for Azure Disk encryption.
 
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
  ```  
 
-**Enable Key Vault for template deployment:** Allows Resource Manager to retrieve secrets from the vault.
+Enable Key Vault for template deployment: Allows Resource Manager to retrieve secrets from the vault.
  ```azurecli 
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```
