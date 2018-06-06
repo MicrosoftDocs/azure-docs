@@ -1,0 +1,37 @@
+---
+title: Use Microsoft Azure Traffic Manager to increase endpoint quota in Language Understanding (LUIS) in Node.js- Azure | Microsoft Docs
+description: Use Microsoft Azure Traffic Manager  to spread endpoint quota across several subscriptions in Language Understanding (LUIS) to increase endpoint quota in Node.js
+author: v-geberr
+manager: kaiqb
+services: cognitive-services
+ms.service: cognitive-services
+ms.component: language-understanding
+ms.topic: article
+ms.date: 06/06/2018
+ms.author: v-geberr
+#Customer intent: As an advanced user, I want to understand how use multiple LUIS subscription keys to increase the number of endpoint requests my application receives.
+---
+
+# Use Microsoft Azure Traffic Manager to increase total endpoint quota 
+
+## Increase total endpoint quota with more subscription keys
+
+## Manage traffic across keys with Traffic Manager
+
+## Configure Traffic Manager with nested Profiles
+
+### Create Traffic Manager profile for each endpoint
+
+### Create Traffic Manager parent profile 
+
+### Validate Traffic Manager polling works
+
+### Validate DNS response from Traffic Manager works
+
+## Create middle layer to use Traffic Manager
+
+## Test middle layer
+
+## Clean up
+
+## Next steps
