@@ -192,6 +192,14 @@ Run the following command to deploy the container group with YAML.
 az container create --resource-group myRG --name securetest -f secure-env.yaml
 ```
 
+### Verify environment variables
+
+Run the following command to query for your container's environment variables.
+
+```azurecli-interactive
+az container show --resource-group myRG --name securetest --query 'containers[].environmentVariables`
+```
+
 The JSON response with details for this container will show only the non-secure environment variable and secure environment variable's key.
 
 ```json
@@ -204,6 +212,7 @@ The JSON response with details for this container will show only the non-secure 
       "name": "SECRET"
     }
 ```
+
 You can review the secure environment variable is set with the `exec` command which enables executing a command from within a running container. 
 
 Run the following command to start an interactive bash session with the container.
