@@ -13,7 +13,7 @@ ms.author: raynew
 # Contoso migration: Rehost an on-premises app to Azure VMs
 
 
-This article shows you how Contoso are rehosting their SmartHotel app in Azure, by migrating their SmartHotel app to Azure VMs.
+This article shows you how Contoso are rehosting their SmartHotel app in Azure, by migrating the app VMs to Azure VMs.
 
 
 This document is one in a series of articles that document how the fictitious company Contoso migrates their on-premises resources to the Microsoft Azure cloud. The series includes background information, and a series of scenarios that illustrate how to set up a migration infrastructure, assess the suitability of on-premises resources for migration, and run different types of migrations. Scenarios grow in complexity, and we'll add additional articles over time.
