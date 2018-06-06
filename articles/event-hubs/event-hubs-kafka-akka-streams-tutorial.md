@@ -1,6 +1,6 @@
 ---
 title: Using Akka Streams with Event Hubs for Kafka Ecosystem | Microsoft Docs
-description: Send to and receive data from an Event Hubs Kafka endpoint using Akka Streams
+description: Connecting Akka Streams to a Kafka enabled Event Hub
 services: event-hubs
 documentationcenter: ''
 author: basilhariri
