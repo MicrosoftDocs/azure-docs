@@ -1,4 +1,4 @@
-﻿---
+---
 title: Add an Azure Stack marketplace item from a local source| Microsoft Docs
 description: Describes how to add a local operating system image to the Azure Stack Marketplace.
 services: azure-stack
