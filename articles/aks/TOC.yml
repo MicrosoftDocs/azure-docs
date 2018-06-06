@@ -81,18 +81,26 @@
     items:
     - name: Run applications with Helm
       href: kubernetes-helm.md
+    - name: Develop with Dev Spaces
+      href: ../dev-spaces/azure-dev-spaces.md
+      maintainContext: true
     - name: Develop applications with Draft
       href: kubernetes-draft.md
     - name: Open Service Broker for Azure
       href: integrate-azure.md
-    - name: Jenkins continuous deployment
-      href: jenkins-continuous-deployment.md
     - name: Using OpenFaaS with AKS
       href: openfaas.md
     - name: Run Spark jobs on AKS
       href: spark-job.md
     - name: Using GPUs on AKS
       href: gpu-cluster.md
+  - name: DevOps on AKS
+    items:
+    - name: Jenkins continuous deployment
+      href: jenkins-continuous-deployment.md
+    - name: Azure DevOps Project for AKS
+      href: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks
+      maintainContext: true
   - name: Kubernetes basics
     items:
     - name: Use Kubernetes dashboard
