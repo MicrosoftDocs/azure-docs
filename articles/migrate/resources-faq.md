@@ -22,14 +22,11 @@ Azure Migrate is an assessment service that helps you discover your on-premises 
 
 Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Planner is a disaster recovery (DR) planning tool.
 
-**Migration from VMware to Azure**
-If you intend to migrate your on-premises workloads to Azure, use Azure Migrate for migration planning. Azure Migrate assesses on-premises workloads and provides guidance, insights, and mechanisms to assist you in migrating to Azure. Once you are ready with your migration plan, you can use services such as Azure Site Recovery and Azure Database Migration Service to migrate the machines to Azure.
+**Migration from VMware to Azure**: If you intend to migrate your on-premises workloads to Azure, use Azure Migrate for migration planning. Azure Migrate assesses on-premises workloads and provides guidance, insights, and mechanisms to assist you in migrating to Azure. Once you are ready with your migration plan, you can use services such as Azure Site Recovery and Azure Database Migration Service to migrate the machines to Azure.
 
-**Migration from Hyper-V to Azure**
-Azure Migrate currently only supports assessment of VMware virtual machines for migration to Azure. Support for Hyper-V is on the roadmap for Azure Migrate. In the interim, you can use ASR Deployment Planner. Once Hyper-V support is enabled in Azure Migrate, you can use Azure Migrate for planning migration of Hyper-V workloads.
+**Migration from Hyper-V to Azure**: Azure Migrate currently only supports assessment of VMware virtual machines for migration to Azure. Support for Hyper-V is on the roadmap for Azure Migrate. In the interim, you can use ASR Deployment Planner. Once Hyper-V support is enabled in Azure Migrate, you can use Azure Migrate for planning migration of Hyper-V workloads.
 
-**Disaster Recovery from VMware/Hyper-V to Azure**
-If you intend to do disaster recovery (DR) on Azure using Azure Site Recovery (ASR), use ASR Deployment Planner for DR planning. ASR Deployment Planner does a deep, ASR-specific assessment of your on-premises environment. It provides recommendations that are required by ASR for successful DR operations such as replication, failover of your virtual machines.  
+**Disaster Recovery from VMware/Hyper-V to Azure**: If you intend to do disaster recovery (DR) on Azure using Azure Site Recovery (ASR), use ASR Deployment Planner for DR planning. ASR Deployment Planner does a deep, ASR-specific assessment of your on-premises environment. It provides recommendations that are required by ASR for successful DR operations such as replication, failover of your virtual machines.  
 
 ### Does Azure Migrate need vCenter Server to discover a VMware environment?
 
