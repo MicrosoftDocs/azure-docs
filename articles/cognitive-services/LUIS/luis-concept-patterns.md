@@ -35,6 +35,7 @@ Patterns solve the following situations:
 ## Patterns solve missed entity detection
 A second issue is that LUIS doesn't find the employee name in the utterance, to return in an entity. 
 -->
+
 ## Patterns are not a guarantee of intent
 Patterns use a mix of prediction technologies. Setting an intent for a template utterance in a pattern is not a guarantee of the intent prediction but it is a strong signal. 
 
