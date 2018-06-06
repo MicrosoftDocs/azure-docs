@@ -29,7 +29,7 @@ In the left menu, click **Deployment Center** > **OneDrive** or **Dropbox** > **
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
-You only need to authorize with OneDrive or Dropbox once. If you're already authorized, just click **Continue**. You can change the authorized GitHub account by clicking **Change account**.
+You only need to authorize with OneDrive or Dropbox once. If you're already authorized, just click **Continue**. You can change the authorized OneDrive or Dropbox account by clicking **Change account**.
 
 ![](media/app-service-deploy-content-sync/continue.png)
 

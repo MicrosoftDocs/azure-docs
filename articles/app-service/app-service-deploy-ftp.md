@@ -35,11 +35,11 @@ To open the FTP dashboard, click **Continuous Delivery (Preview)** > **FTP** > *
 
 ## Get FTP connection information
 
-In the FTP dashboard, click **Copy** to copy the FTPS endpoint and app-level credentials.
+In the FTP dashboard, click **Copy** to copy the FTPS endpoint and app credentials.
 
 ![Copy FTP information](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-If you click **User Credentials**, you can set credentials that you can use for FTP login to all App Service apps in your subscription.  
+It is more secure to use **App Credentials** to deploy to your app. However, if you click **User Credentials**, you can set user-level credentials that you can use for FTP/S login to all App Service apps in your subscription.
 
 ## Deploy files to Azure
 
@@ -91,7 +91,6 @@ A runtime application issue typically results in the right set of files deployed
 
 To determine a deployment or runtime issue, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
- 
 ### I'm not able to FTP and publish my code. How can I resolve the issue?
 Check that you've entered the correct hostname and [credentials](#step-1--set-deployment-credentials). Check also that the following FTP ports on your machine are not blocked by a firewall:
 
