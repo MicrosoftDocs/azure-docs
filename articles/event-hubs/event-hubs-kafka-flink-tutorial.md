@@ -1,6 +1,6 @@
 ---
 title: Using Apache Flink with Event Hubs for Kafka Ecosystem | Microsoft Docs
-description: Stream into an Event Hubs Kafka endpoint using Apache Flink
+description: Connecting Apache Flink to a Kafka enabled Event Hub
 services: event-hubs
 documentationcenter: ''
 author: basilhariri
@@ -49,7 +49,6 @@ Now that you have a Kafka enabled Event Hubs connection string, clone the Azure 
 git clone https://github.com/Azure/azure-event-hubs.git
 cd azure-event-hubs/samples/kafka/flink
 ```
-
 
 ## Flink Producer
 
