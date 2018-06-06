@@ -85,13 +85,13 @@ Once failure is detected, change the record value to point to dr.contoso.com as 
  
 Within 30 minutes, during which most resolvers will refresh the cached zone file, any query to www.contoso.com will be redirected to dr.contoso.com.
 You can also run the following Azure CLI command to change the CNAME value:
-    ```azurecli
-     az network dns record-set cname set-record \
-     --resource-group 123 \
-     --zone-name contoso.com \
-     --record-set-name www \
-     --cname dr.contoso.com
-    ```
+ ```azurecli
+   az network dns record-set cname set-record \
+   --resource-group 123 \
+   --zone-name contoso.com \
+   --record-set-name www \
+   --cname dr.contoso.com
+```
 This step can be executed manually or via automation. It can be done manually via the console or by the Azure CLI. The Azure SDK and API can be used to automate the CNAME update so that no manual intervention is required. Automation can be built via Azure functions or within a third-party monitoring application or even from on- premises.
 
 ### Result
@@ -137,7 +137,12 @@ If the Retry is set to 1 and TTL is set to 10 secs then the time for failover 10
 
 ### Result
 
-During a failover, the primary endpoint is probed and show as degraded and the disaster recovery site still appears as **Online**. By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint is not available, Traffic Manager routes the traffic to the second endpoint. One has the option to configure more endpoints within traffic manager that could serve as additional failover endpoints or as load balancers sharing the load between endpoints. 
+During a failover, the primary endpoint is probed and show as degraded and the disaster recovery site still appears as **Online**. By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint is not available, Traffic Manager routes the traffic to the second endpoint. One has the option to configure more endpoints within traffic manager that could serve as additional failover endpoints or as load balancers sharing the load between endpoints.
+
+## Next steps
+- Learn more about [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+- Learn more about [Azure DNS](../dns/dns-overview.md).
+
 
 
 
