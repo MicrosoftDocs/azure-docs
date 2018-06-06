@@ -16,7 +16,7 @@ ms.author: sethm
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues and topics, or *messaging entities*, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
 
 > [!NOTE]
-> Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces work as expected.
+> Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected.
  
 It is not possible to change the partitioning option on any existing queue or topic; you can only set the option when you create the entity.
 
@@ -38,7 +38,7 @@ In the Standard messaging tier, you can create Service Bus queues and topics in 
 
 ### Premium
 
-In a Premium tier namespace, partitioning entities is not supported. However, you can create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). You can see the size of your queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
+In a Premium tier namespace, partitioning entities is not supported. However, you can still create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). You can see the size of your queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
 
 ### Create a partitioned entity
 
@@ -64,11 +64,11 @@ Some scenarios, such as sessions or transactions, require messages to be stored 
 
 Depending on the scenario, different message properties are used as a partition key:
 
-**SessionId**: If a message has the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) property set, then Service Bus uses this property as the partition key. This way, all messages that belong to the same session are handled by the same message broker. Sessions enable Service Bus to guarantee message ordering as well as the consistency of session states.
+**SessionId**: If a message has the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) property set, then Service Bus uses **SessionID** as the partition key. This way, all messages that belong to the same session are handled by the same message broker. Sessions enable Service Bus to guarantee message ordering as well as the consistency of session states.
 
-**PartitionKey**: If a message has the [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) property but not the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) property set, then Service Bus uses the [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) property as the partition key. If the message has both the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) and the [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) properties set, both properties must be identical. If the [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) property is set to a different value than the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) property, Service Bus returns an invalid operation exception. The [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) property should be used if a sender sends non-session aware transactional messages. The partition key ensures that all messages that are sent within a transaction are handled by the same messaging broker.
+**PartitionKey**: If a message has the [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) property but not the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) property set, then Service Bus uses the [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) property value as the partition key. If the message has both the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) and the [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) properties set, both properties must be identical. If the [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) property is set to a different value than the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) property, Service Bus returns an invalid operation exception. The [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) property should be used if a sender sends non-session aware transactional messages. The partition key ensures that all messages that are sent within a transaction are handled by the same messaging broker.
 
-**MessageId**: If the queue or topic has the [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) property set to **true** and the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) or [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) properties are not set, then the [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) property serves as the partition key. (The Microsoft .NET and AMQP libraries automatically assign a message ID if the sending application does not.) In this case, all copies of the same message are handled by the same message broker. This ID enables Service Bus to detect and eliminate duplicate messages. If the [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) property is not set to **true**, Service Bus does not consider the [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) property as a partition key.
+**MessageId**: If the queue or topic has the [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) property set to **true** and the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) or [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) properties are not set, then the [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) property value serves as the partition key. (The Microsoft .NET and AMQP libraries automatically assign a message ID if the sending application does not.) In this case, all copies of the same message are handled by the same message broker. This ID enables Service Bus to detect and eliminate duplicate messages. If the [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) property is not set to **true**, Service Bus does not consider the [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) property as a partition key.
 
 ### Not using a partition key
 
@@ -88,10 +88,10 @@ Messages that are sent as part of a transaction must specify a partition key. Th
 CommittableTransaction committableTransaction = new CommittableTransaction();
 using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
-    BrokeredMessage msg = new BrokeredMessage("This is a message");
+    Message msg = new Message("This is a message");
     msg.PartitionKey = "myPartitionKey";
-    messageSender.Send(msg); 
-    ts.Complete();
+    messageSender.SendAsync(msg); 
+    ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```
@@ -108,15 +108,16 @@ Unlike regular (non-partitioned) queues or topics, it is not possible to use a s
 CommittableTransaction committableTransaction = new CommittableTransaction();
 using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
-    BrokeredMessage msg = new BrokeredMessage("This is a message");
+    Message msg = new Message("This is a message");
     msg.SessionId = "mySession";
-    messageSender.Send(msg); 
-    ts.Complete();
+    messageSender.SendAsync(msg); 
+    ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```
 
 ## Automatic message forwarding with partitioned entities
+
 Service Bus supports automatic message forwarding from, to, or between partitioned entities. To enable automatic message forwarding, set the [QueueDescription.ForwardTo][QueueDescription.ForwardTo] property on the source queue or subscription. If the message specifies a partition key ([SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), or [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid)), that partition key is used for the destination entity.
 
 ## Considerations and guidelines
