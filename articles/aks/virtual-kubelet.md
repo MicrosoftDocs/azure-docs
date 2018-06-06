@@ -43,13 +43,13 @@ The following arguments are r
 | `--connector-name` | Name of the ACI Connector.| Yes |
 | `--name` `-n` | Name of the managed cluster. | Yes |
 | `--resource-group` `-g` | Name of resource group. | Yes |
-| `--aci-resource-group` | The resource group to create the ACI container groups. Use the MC_* resource group if it is not specified. | No |
-| `--chart-url` | URL of a Helm chart that installs ACI Connector.  Default: https://github.com/virtual-kubelet/virtual- kubelet/raw/master/charts/virtual-kubelet-for-aks-0.1.3.tgz.. | No |
-| `--client-secret` | Secret associated with the service principal. This argument is required if `--service-principal` is specified. | No |
-| `--image-tag` | The image tag of the virtual kubelet. Use 'latest' if it is not specified. | No |
-| `--location` `-l` | The location to create the ACI container groups. Use the location of the MC_* resource group if it is not specified. | No |
-| `--os-type` | Install support for deploying ACIs of this operating system type.  Allowed values: Both, Linux, Windows. Default: Linux. | No |
-| `--service-principal` | Service principal used for authentication to Azure APIs. If not specified, use the AKS service principal defined in the file /etc/kubernetes/azure.json on the node that runs the virtual kubelet pod. | No |
+| `--aci-resource-group` | The resource group to create the ACI container groups. | No |
+| `--chart-url` | URL of a Helm chart that installs ACI Connector. | No |
+| `--client-secret` | Secret associated with the service principal. | No |
+| `--image-tag` | The image tag of the virtual kubelet. | No |
+| `--location` `-l` | The location to create the ACI container groups. | No |
+| `--os-type` | Container instances operating system type. Allowed values: Both, Linux, Windows. Default: Linux. | No |
+| `--service-principal` | Service principal used for authentication to Azure APIs. | No |
 
 ## Validate Virtual Kubelet
 
