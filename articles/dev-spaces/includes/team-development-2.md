@@ -28,7 +28,7 @@ webfrontend  default  webfrontend-0.1.0  80/TCP  5h ago      http://scott.s.webf
 
 This built-in feature of Azure Dev Spaces enables you test code in a shared environment without requiring each developer to re-create the full stack of services in their space. This routing requires your app code to forward propagation headers, as illustrated in the previous step of this guide.
 
-## Test code in a space
-To test your new version of `mywebapi` in conjunction with `webfrontend`, open your browser to the public access point URL for webfrontend and go to the About page. You should see your new message displayed.
+### Test code in a space
+To test your new version of `mywebapi` with `webfrontend`, open your browser to the public access point URL for webfrontend and go to the About page. You should see your new message displayed.
 
 Now, remove the "scott.s." part of the URL, and refresh the browser. You should see the old behavior (with the `mywebapi` version running in `default`)
