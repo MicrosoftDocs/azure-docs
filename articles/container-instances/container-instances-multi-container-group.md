@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/29/2018
+ms.date: 06/08/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -16,16 +16,23 @@ ms.custom: mvc
 
 Azure Container Instances supports the deployment of multiple containers onto a single host using a [container group](container-instances-container-groups.md). This is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
 
-This document walks you through running a simple multi-container sidecar configuration by deploying an Azure Resource Manager template.
+There are two methods for deploying multi-container groups using the Azure CLI:
+
+* Resource Manager template deployment (this article)
+* [YAML file deployment](container-instances-multi-container-yaml.md)
+
+Deployment with a YAML file is typically the preferred deployment method.
 
 > [!NOTE]
 > Multi-container groups are currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
 
 ## Configure the template
 
-Create a file named `azuredeploy.json` and copy the following JSON into it.
+The sections in this article walk you through running a simple multi-container sidecar configuration by deploying an Azure Resource Manager template.
 
-In this sample, a container group with two containers, a public IP address, and two exposed ports is defined. The first container in the group runs an internet-facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
+Start by creating a file named `azuredeploy.json`, then copy the following JSON into it.
+
+This Resoure Manager template defines a container group with two containers, a public IP address, and two exposed ports. The first container in the group runs an internet-facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
 
 ```json
 {
