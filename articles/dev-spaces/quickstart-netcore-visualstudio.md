@@ -1,12 +1,12 @@
 ---
-title: "Create a Kubernetes dev space in the cloud| Microsoft Docs"
+title: "Create a Kubernetes dev space in the cloud | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 author: "ghogen"
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: "ghogen"
-ms.date: "05/11/2018"
+ms.date: "06/01/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
@@ -16,18 +16,22 @@ manager: "douge"
 
 In this guide, you will learn how to:
 
-- Create a Kubernetes-based environment in Azure that is optimized for development - a _dev space_.
+- Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
 - Iteratively develop code in containers using Visual Studio.
+- Debug code running in your cluster.
 
 > [!Note]
 > **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page. You can also try the more detailed [tutorial](get-started-netcore-visualstudio.md).
 
 ## Prerequisites
 
-- A Kubernetes cluster running Kubernetes 1.9.6, in the EastUS or CanadaEast region, with Http Application Routing enabled.
+- A Kubernetes cluster running Kubernetes 1.9.6, in the EastUS, WestEurope, or CanadaEast region, with Http Application Routing enabled.
+
+  ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
+
 - Visual Studio 2017 with the Web Development workload installed. If you don't have it installed, download it [here](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
-## Get the Visual Studio tools 
+## Set up Azure Dev Spaces
 
 Install the [Visual Studio extension for Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
 
@@ -39,9 +43,7 @@ Next, you'll create and configure a project for Azure Dev Spaces.
 
 From within Visual Studio 2017, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project **webfrontend**.
 
-Select the **Web Application (Model-View-Controller)** template and be sure you're targeting **.NET Core** and **ASP.NET Core 2.0** in the two dropdowns at the top of the dialog. Click **OK** to create the project.
-
-![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
+Select the **Web Application (Model-View-Controller)** template and be sure you're targeting **.NET Core** and **ASP.NET Core 2.0**.
 
 ### Create a dev space in Azure
 

@@ -12,7 +12,7 @@ ms.topic: "include"
 manager: "douge"
 ---
 ### Sign in to Azure CLI
-We'll need to sign in to Azure to create our dev space. Type the following command in a terminal window:
+Sign in to Azure. Type the following command in a terminal window:
 
 ```cmd
 az login

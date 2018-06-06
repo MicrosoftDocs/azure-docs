@@ -28,7 +28,7 @@ Keep an eye on the command's output, you'll notice several things as it progress
 > [!Note]
 > These steps will take longer the first time the `up` command is run, but subsequent runs should be quicker.
 
-## Test the web app
+### Test the web app
 Scan the console output for information about the public URL that was created by the `up` command. It will be in the form: 
 
 `Running at public URL: http://<servicename>-<cluster-name>.<guid>.<region>.aksapp.io` 
