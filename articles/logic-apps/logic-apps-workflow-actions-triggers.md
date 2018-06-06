@@ -1374,9 +1374,7 @@ The expression in the `from` element gets the array from
       "format": "HTML",
       "from": "@variables('myItemArray')"
    },
-   "runAfter": {
-      "Initialize_variable"  
-   }
+   "runAfter": {}
 }
 ```
 
@@ -1388,8 +1386,8 @@ Here is the HTML table that this action creates:
 
 To override the default column header names and values defined by the source array, 
 you can specify different column header names and values. This action definition 
-creates an HTML table by replacing the default header names with "Stock_ID" and 
-"Description" and adding the word "Organic" to the values in the "Description" column.
+creates an HTML table that replaces the default header names with "Stock_ID" and 
+"Description" and adds the word "Organic" to the strings in the "Description" column.
 
 ```json
 "Create_HTML_table": {
@@ -1408,9 +1406,7 @@ creates an HTML table by replacing the default header names with "Stock_ID" and
          }
       ]
     },
-   "runAfter": {
-      "Initialize_variable"  
-   }
+   "runAfter": {}
 },
 ```
 
@@ -1538,9 +1534,11 @@ the outputs are empty.
 ## Control workflow actions overview
 
 These actions help you control workflow execution and often include other actions. 
-From outside a control flow action, you can directly reference actions in a control flow action. 
-For example, if you define an `Http` action in a scope, then `@body('http')` is still valid anywhere in a workflow. 
-Also, actions inside a control flow action can only "run after" other actions in the same control flow structure.
+From outside a control workflow action, you can directly reference actions 
+inside that control workflow action. For example, if you have an `Http` action inside a scope, 
+you can reference the `@body('Http')` expression from anywhere in the workflow. 
+However, actions that exist inside a control workflow action can only "run after" 
+other actions that are in the same control workflow structure.
 
 ## Foreach action
 
