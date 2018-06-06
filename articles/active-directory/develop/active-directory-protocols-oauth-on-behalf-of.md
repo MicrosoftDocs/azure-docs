@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/06/2017
 ms.author: celested
-ms.reviewer: nacanuma; hirsin
+ms.reviewer: hirsin; nacanuma
 ms.custom: aaddev
 ---
 
