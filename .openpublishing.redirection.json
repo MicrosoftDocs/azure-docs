@@ -2491,6 +2491,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-functions/functions-how-to-use-sendgrid.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-sendgrid",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
             "redirect_url": "/azure/automation/automation-create-runas-account",
             "redirect_document_id": false
@@ -8741,11 +8746,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Computer-vision/index.md",
-            "redirect_url": "/azure/cognitive-services/Computer-vision/Home",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/CSharp.md",
             "redirect_url": "/azure/cognitive-services/Computer-vision/QuickStarts/CSharp-analyze",
             "redirect_document_id": false
@@ -8798,11 +8798,6 @@
         {
             "source_path": "articles/cognitive-services/Emotion/index.md",
             "redirect_url": "/azure/cognitive-services/Emotion/Home",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Face/index.md",
-            "redirect_url": "/azure/cognitive-services/Face/Overview",
             "redirect_document_id": false
         },
         {
@@ -9690,12 +9685,21 @@
             "redirect_url": "how-to-create-a-group",
             "redirect_document_id": false
         },
-
-        {
+       {
         "source_path": "articles/migrate/migrate-scenarios-overview.md",
         "redirect_url": "contoso-migration-overview",
         "redirect_document_id": false
-        },
+       },
+       {
+        "source_path": "articles/migrate/migrate-scenarios-assessment.md",
+        "redirect_url": "contoso-migration-assessment",
+        "redirect_document_id": false
+       },
+       {
+        "source_path": "articles/migrate/migrate-scenarios-lift-and-shift.md",
+        "redirect_url": "contoso-migration-rehost-vm-sql-managed-instance",
+        "redirect_document_id": false
+       },
         {
             "source_path": "articles/site-recovery/site-recovery-migrate-azure-to-azure.md",
             "redirect_url": "azure-to-azure-tutorial-migrate",
@@ -18258,6 +18262,26 @@
         },
         {
           "source_path": "articles/iot-hub/iot-hub-python-python-twin-how-to-configure.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-java-java-process-d2c.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-node-node-process-d2c.md",
+          "redirect_url": "/azure/iot-hub/tutorial-routing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-python-python-process-d2c.md",
           "redirect_url": "/azure/iot-hub/tutorial-routing",
           "redirect_document_id": false
         },
