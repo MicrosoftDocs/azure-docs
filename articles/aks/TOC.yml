@@ -43,7 +43,7 @@
       href: upgrade-cluster.md
     - name: Delete an AKS cluster
       href: delete-cluster.md
-    - name: AAD enable AKS clusters
+    - name: Azure AD-enabled AKS
       href: aad-integration.md
   - name: Configure data volumes
     items:
