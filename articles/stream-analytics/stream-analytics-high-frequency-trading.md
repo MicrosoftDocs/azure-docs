@@ -7,7 +7,7 @@ ms.author: zhongc
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/05/2017
 ---
 
