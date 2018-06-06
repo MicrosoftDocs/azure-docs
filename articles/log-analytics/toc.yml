@@ -27,14 +27,8 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Workspace upgrade
-    items:
-      - name: Upgrade overview
-        href: log-analytics-log-search-upgrade.md
-      - name: Summary of changes
-        href: log-analytics-log-search-upgrade-changes.md
-      - name: Upgrade FAQ
-        href: log-analytics-log-search-faq.md
+  - name: OMS portal transition
+    href: log-analytics-oms-portal-faq.md
   - name: Log Analytics FAQ
     href: log-analytics-faq.md
   - name: Data security

@@ -17,7 +17,9 @@ ms.author: bwren
 
 ---
 # Transition from OMS portal to Azure portal for Log Analytics users
-Log Analytics initially used its own portal called the OMS portal to manage its configuration and analyze collected data.  All functionality from this portal has been moved to the Azure portal, and the OMS portal will be deprecated on DATE. This article answers common questions for users making this transition.  If you used Log Analytics in the OMS portal, then you can find answers here for how you can perform the same tasks in the Azure portal.
+Log Analytics initially used its own portal called the OMS portal to manage its configuration and analyze collected data.  All functionality from this portal has been moved to the Azure portal where it will continue to be developed.
+
+This article answers common questions for users making this transition.  If you used Log Analytics in the OMS portal, then you can find answers here for how you can perform the same tasks in the Azure portal.
 
 ## What's the difference between OMS and Log Analytics?
 You may be wondering why the portal used the name OMS instead of Log Analytics. Operations Management Suite (OMS) is actually a bundling of multiple management services in Azure that includes Log Analytics. We recently introduced new pricing that doesn't include this bundling and are moving away from the term. You won't see the term OMS in the Azure portal but instead interact directly with the services that were included in this suite.
