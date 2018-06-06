@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/18/2018
+ms.date: 06/05/2018
 ms.author: ryanwi
 ---
 
@@ -45,11 +45,11 @@ ms.author: ryanwi
 ### Attribute details
 
 #### AccountName
-User name or Service Account Name (i.e., MyMachine\JohnDoe or John.Doe@department.contoso.com).
+User name or Service Account Name (for example, MyMachine\JohnDoe or John.Doe@department.contoso.com).
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|AccountName|
+|type|xs:string|
 |use|optional|
 ##### XML source
 ```xml
@@ -65,8 +65,8 @@ User name or Service Account Name (i.e., MyMachine\JohnDoe or John.Doe@departmen
 Password for the user account.
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|Password|
+|type|xs:string|
 |use|optional|
 ##### XML source
 ```xml
@@ -99,7 +99,7 @@ Attribute group for application instance.
     </xs:attribute>
     <xs:attribute name="ApplicationId" type="xs:string" use="required">
       <xs:annotation>
-        <xs:documentation>Id of this application.</xs:documentation>
+        <xs:documentation>ID of this application.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -111,8 +111,8 @@ Attribute group for application instance.
 Fully qualified name of the application.
 |Attribute|Value|
 |---|---|
-|type|FabricUri|
 |name|NameUri|
+|type|FabricUri|
 |use|required|
 ##### XML source
 ```xml
@@ -128,8 +128,8 @@ Fully qualified name of the application.
 Id of this application.
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|ApplicationId|
+|type|xs:string|
 |use|required|
 ##### XML source
 ```xml
@@ -167,7 +167,7 @@ Attribute group for application manifest.
     </xs:attribute>
     <xs:attribute name="ApplicationTypeVersion" use="required">
       <xs:annotation>
-        <xs:documentation>The version of this application type, an un-structured string.</xs:documentation>
+        <xs:documentation>The version of this application type, an unstructured string.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -177,7 +177,7 @@ Attribute group for application manifest.
     </xs:attribute>
     <xs:attribute name="ManifestId" use="optional" default="" type="xs:string">
       <xs:annotation>
-        <xs:documentation>The identifier of this application manifest, an un-structured string.</xs:documentation>
+        <xs:documentation>The identifier of this application manifest, an unstructured string.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:anyAttribute processContents="skip"/> <!-- Allow unknown attributes to be used. -->
@@ -208,7 +208,7 @@ The type identifier for this application.
 ```
 
 #### ApplicationTypeVersion
-The version of this application type, an un-structured string.
+The version of this application type, an unstructured string.
 |Attribute|Value|
 |---|---|
 |name|ApplicationTypeVersion|
@@ -217,7 +217,7 @@ The version of this application type, an un-structured string.
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationTypeVersion" use="required">
       <xs:annotation>
-        <xs:documentation>The version of this application type, an un-structured string.</xs:documentation>
+        <xs:documentation>The version of this application type, an unstructured string.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -229,18 +229,18 @@ The version of this application type, an un-structured string.
 ```
 
 #### ManifestId
-The identifier of this application manifest, an un-structured string.
+The identifier of this application manifest, an unstructured string.
 |Attribute|Value|
 |---|---|
-|default||
 |name|ManifestId|
-|type|xs:string|
 |use|optional|
+|default||
+|type|xs:string|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ManifestId" use="optional" default="" type="xs:string">
       <xs:annotation>
-        <xs:documentation>The identifier of this application manifest, an un-structured string.</xs:documentation>
+        <xs:documentation>The identifier of this application manifest, an unstructured string.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     
@@ -274,8 +274,8 @@ Identifies configuration overrides for a service package.
 #### ServicePackageName
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|ServicePackageName|
+|type|xs:string|
 |use|required|
 ##### XML source
 ```xml
@@ -287,8 +287,8 @@ Identifies configuration overrides for a service package.
 ID of the rollout in which changes were made to the overrides element.
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|RolloutVersion|
+|type|xs:string|
 |use|required|
 ##### XML source
 ```xml
@@ -329,8 +329,8 @@ ID of the rollout in which changes were made to the overrides element.
         
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|ConnectionString|
+|type|xs:string|
 |use|required|
 ##### XML source
 ```xml
@@ -368,8 +368,8 @@ ID of the rollout in which changes were made to the overrides element.
 The name of the container in Azure blob storage where data is uploaded.
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|ContainerName|
+|type|xs:string|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerName" type="xs:string">
@@ -403,8 +403,8 @@ The name of the container in Azure blob storage where data is uploaded.
 Number of days after which old data is deleted from this location.
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|DataDeletionAgeInDays|
+|type|xs:string|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DataDeletionAgeInDays" type="xs:string">
@@ -438,8 +438,8 @@ Number of days after which old data is deleted from this location.
 Whether or not data transfer to this destination is enabled. By default, it is not enabled.
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|IsEnabled|
+|type|xs:string|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="IsEnabled" type="xs:string">
@@ -473,8 +473,8 @@ Whether or not data transfer to this destination is enabled. By default, it is n
 Level at which ETW events should be filtered. All events at the same or lower level than the specified level are included.
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|LevelFilter|
+|type|xs:string|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LevelFilter" type="xs:string">
@@ -544,8 +544,8 @@ The name of the setting to override.
 The new value of the setting.
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|Value|
+|type|xs:string|
 |use|required|
 ##### XML source
 ```xml
@@ -586,8 +586,8 @@ The new value of the setting.
         
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|Path|
+|type|xs:string|
 |use|required|
 ##### XML source
 ```xml
@@ -625,8 +625,8 @@ The new value of the setting.
 Path to the folder, relative to the application log directory.
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|RelativeFolderPath|
+|type|xs:string|
 |use|required|
 ##### XML source
 ```xml
@@ -687,7 +687,7 @@ The name of the service manifest being referenced. The name must match the Name 
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestName" use="required">
       <xs:annotation>
-        <xs:documentation>The name of the service manifest being referenced. The name must match the Name declared in the ServiceManifest element of the service manifest.</xs:documentation>
+        <xs:documentation>The name of the service manifest. The name must match the Name declared in the ServiceManifest element of the service manifest.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -699,7 +699,7 @@ The name of the service manifest being referenced. The name must match the Name 
 ```
 
 #### ServiceManifestVersion
-The version of the service manifest being referenced. The version must match the version declared in the service manifest.
+The version of the service manifest. The version must match the version declared in the service manifest.
 |Attribute|Value|
 |---|---|
 |name|ServiceManifestVersion|
@@ -742,8 +742,8 @@ The version of the service manifest being referenced. The version must match the
 Interval in minutes at which data is uploaded to this destination.
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|UploadIntervalInMinutes|
+|type|xs:string|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UploadIntervalInMinutes" type="xs:string">
@@ -777,8 +777,8 @@ Attribute group for versioning sections in ApplicationInstance and ServicePackag
 #### RolloutVersion
 |Attribute|Value|
 |---|---|
-|type|xs:string|
 |name|RolloutVersion|
+|type|xs:string|
 |use|required|
 ##### XML source
 ```xml
