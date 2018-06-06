@@ -8,7 +8,7 @@ author: kevinlam1
 ms.author: klam
 manager: cfowler
 ms.topic: reference
-ms.date: 06/11/2018
+ms.date: 05/01/2018
 
 # optional metadata
 ms.reviewer: klam, LADocs
@@ -855,7 +855,7 @@ Control workflow actions can contain many other actions within themselves.
 | **Function** | Calls an Azure Function. | 
 | **HTTP** | Calls an HTTP endpoint. | 
 | **Join** | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
-| **Query** | Gets items from an array based on a condition or filter. | 
+| **Query** | Creates an array from items in another array based on a condition or filter. | 
 | **Response** | Defines the response for an incoming call. | 
 | **Select** | Converts items from one array into different items in another array. For example, you can convert an array of numbers into an array of objects. | 
 | **Table** | Converts an array into a CSV or HTML table. | 
@@ -977,6 +977,102 @@ action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
 | authentication | No | JSON Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
+## Compose action
+
+This action creates a single output from multiple inputs, 
+including expressions. Both the output and inputs can 
+have any type that Azure Logic Apps natively supports, 
+such as arrays, JSON objects, XML, and binary.
+You can then use the action's output in other actions. 
+
+```json
+"Compose": {
+   "type": "Compose",
+   "inputs": "<inputs-to-compose>",
+   "runAfter": {}
+},
+```
+
+*Required* 
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*inputs-to-compose*> | Any | The inputs for creating a single output | 
+|||| 
+
+*Example 1*
+
+*Example 2*
+
+
+
+*Example 3*
+
+For example, you can use the `Compose` action 
+for merging outputs from multiple actions:
+
+```json
+"composeUserRecordAction": {
+    "type": "Compose",
+    "inputs": {
+        "firstName": "@actions('getUser').firstName",
+        "alias": "@actions('getUser').alias",
+        "thumbnailLink": "@actions('lookupThumbnail').url"
+    }
+}
+```
+
+## Function action
+
+This action lets you represent and call an 
+[Azure function](../azure-functions/functions-overview.md), 
+for example:
+
+```json
+"<my-Azure-Function-name>": {
+   "type": "Function",
+    "inputs": {
+        "function": {
+            "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/sites/<your-Azure-function-app-name>/functions/<your-Azure-function-name>"
+        },
+        "queries": {
+            "extrafield": "specialValue"
+        },  
+        "headers": {
+            "x-ms-date": "@utcnow()"
+        },
+        "method": "POST",
+    	"body": {
+            "contentFieldOne": "value100",
+            "anotherField": 10.001
+        }
+    },
+    "runAfter": {}
+}
+```
+
+| Element name | Required | Type | Description | 
+| ------------ | -------- | ---- | ----------- |  
+| function id | Yes | String | The resource ID for the Azure function that you want to call. | 
+| method | No | String | The HTTP method used to call the function. If not specified, "POST" is the default method. | 
+| queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
+| headers | No | JSON Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | No | JSON Object | Represents the payload that's sent to the endpoint. | 
+|||||
+
+When you save your logic app, the Logic Apps engine performs some checks on the referenced function:
+
+* You must have access to the function.
+* You can use only a standard HTTP trigger or generic JSON Webhook trigger.
+* The function shouldn't have any route defined.
+* Only "function" and "anonymous" authorization levels are allowed.
+
+> [!NOTE]
+> The Logic Apps engine retrieves and caches the trigger URL, which is used at runtime. 
+> So if any operation invalidates the cached URL, the action fails at runtime. 
+> To work around this issue, save the logic app again, 
+> which causes the logic app to retrieve and cache the trigger URL again.
+
 ## HTTP action  
 
 An HTTP action calls a specified endpoint and checks the 
@@ -1091,84 +1187,52 @@ This example shows how you can specify limits:
 }
 ```
 
-## Compose action
+## Join action
 
-This action lets you construct an arbitrary object, 
-and the output is the result from evaluating the action's inputs. 
-
-> [!NOTE]
-> You can use the `Compose` action for constructing any output, 
-> including objects, arrays, and any other type natively 
-> supported by logic apps like XML and binary.
-
-For example, you can use the `Compose` action 
-for merging outputs from multiple actions:
+This action creates a string from all the items in an array 
+and separates those items with the specified delimiter character. 
+For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-change-manage-data-operations.md#join-action).
 
 ```json
-"composeUserRecordAction": {
-    "type": "Compose",
-    "inputs": {
-        "firstName": "@actions('getUser').firstName",
-        "alias": "@actions('getUser').alias",
-        "thumbnailLink": "@actions('lookupThumbnail').url"
-    }
+"Join": {
+   "type": "Join",
+   "inputs": {
+      "from": <array>,
+      "joinWith": "<delimiter>"
+   },
+   "runAfter": {}
 }
 ```
 
-## Function action
+*Required*
 
-This action lets you represent and call an 
-[Azure function](../azure-functions/functions-overview.md), 
-for example:
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*array*> | Array | The array or expression that provides the source items. If you specify an expression, enclose that expression with double quotes. | 
+| <*delimiter*> | Single character string | The character that separates each item in the string | 
+|||| 
+
+For example, suppose you have an array variable 
+named "myIntegerArray" that contains integers, 
+such as `[1,2,3,4]`. This example gets the 
+values from the variable by using the `variables()` 
+function in an expression and creates this string with 
+those values, which are separted by a comma: `"1,2,3,4"`
 
 ```json
-"<my-Azure-Function-name>": {
-   "type": "Function",
-    "inputs": {
-        "function": {
-            "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/sites/<your-Azure-function-app-name>/functions/<your-Azure-function-name>"
-        },
-        "queries": {
-            "extrafield": "specialValue"
-        },  
-        "headers": {
-            "x-ms-date": "@utcnow()"
-        },
-        "method": "POST",
-    	"body": {
-            "contentFieldOne": "value100",
-            "anotherField": 10.001
-        }
-    },
-    "runAfter": {}
+"Join": {
+   "type": "Join",
+   "inputs": {
+      "from": "@variables('myIntegerArray')",
+      "joinWith": ","
+   },
+   "runAfter": {}
 }
 ```
-
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- |  
-| function id | Yes | String | The resource ID for the Azure function that you want to call. | 
-| method | No | String | The HTTP method used to call the function. If not specified, "POST" is the default method. | 
-| queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
-| headers | No | JSON Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | JSON Object | Represents the payload that's sent to the endpoint. | 
-|||||
-
-When you save your logic app, the Logic Apps engine performs some checks on the referenced function:
-
-* You must have access to the function.
-* You can use only a standard HTTP trigger or generic JSON Webhook trigger.
-* The function shouldn't have any route defined.
-* Only "function" and "anonymous" authorization levels are allowed.
-
-> [!NOTE]
-> The Logic Apps engine retrieves and caches the trigger URL, which is used at runtime. 
-> So if any operation invalidates the cached URL, the action fails at runtime. 
-> To work around this issue, save the logic app again, 
-> which causes the logic app to retrieve and cache the trigger URL again.
 
 ## Query action
 
-This action creates an array with items from another array
+This action creates an array from items in another array
 based on a specified condition or filter.
 
 ```json
@@ -1184,13 +1248,15 @@ based on a specified condition or filter.
 
 *Required*
 
-| Element name | Value | Type | Description | 
-|--------------|-------|------|-------------| 
-| from | <*array*> | Array | The array or expression that provides the source items |
-| where | "<*condition-or-filter*>" | String | The condition used for filtering items in the source array. If no values satisfy this condition, the action creates an empty array. |
-|||||| 
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*array*> | Array | The array or expression that provides the source items. If you specify an expression, enclose that expression with double quotes. |
+| <*condition-or-filter*> | String | The condition used for filtering items in the source array. If no values satisfy this condition, the action creates an empty array. |
+|||| 
 
-For example, to select numbers greater than two:
+*Example*
+
+For example, to create an array with values greater than two:
 
 ```json
 "Filter_array": {
@@ -1267,46 +1333,29 @@ If the input is an empty array, the output is also an empty array.
 
 ## Table action
 
-This action creates a CSV or HTML table from an array.
+This action creates a CSV or HTML table from an array. 
+For arrays with JSON objects, this action automatically creates 
+the column headers from the objects' property names. 
+For arrays with other data types, you must specify the 
+column headers and values. For example, this array 
+includes the "ID" and "Product_Name" properties that 
+this action can use for the column header names:
 
-**Create CSV table**
+`[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]` 
 
 ```json
-"Create_CSV_table": {
+"Create_<CSV | HTML>_table": {
    "type": "Table",
    "inputs": {
-      "format": "CSV",
+      "format": "<CSV | HTML>",
       "from": <array>,
       "columns": [ 
          {
-            "header": "<column-header>",
+            "header": "<column-name>",
             "value": "<column-value>"
          },
          {
-            "header": "<column-header>",
-            "value": "<column-value>"
-         } 
-      ]
-   },
-   "runAfter": {}
-}
-```
-
-**Create HTML table**
-
-```json
-"Create_HTML_table": {
-   "type": "Table",
-   "inputs": {
-      "format": "HTML",
-      "from": <array>,
-      "columns": [ 
-         {
-            "header": "<column-header>",
-            "value": "<column-value>"
-         },
-         {
-            "header": "<column-header>",
+            "header": "<column-name>",
             "value": "<column-value>"
          } 
       ]
@@ -1317,20 +1366,25 @@ This action creates a CSV or HTML table from an array.
 
 *Required* 
 
-| Element | Value | Type | Description | 
-|---------|-------|------|-------------| 
-| format | "CSV" or "HTML" | String | The table format you want to create | 
-| from | <*array*> | Array | The array or expression that provides the source items for the table. For example, this array contains JSON properties and values, which also automatically specify the column header names and values: <p>[ {"ID": 0, "Item": "Apples"}, {"ID": 1, "Item": "Oranges"} ] <p>**Note**: If the source array is empty, the action creates an empty table. | 
-||||| 
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <CSV *or* HTML>| String | The format for the table you want to create | 
+| <*array*> | Array | The array or expression that provides the source items for the table <p>**Note**: If the source array is empty, the action creates an empty table. | 
+|||| 
 
 *Optional*
 
-| Element | Value | Type | Description | 
-|---------|-------|------|-------------| 
-| columns | [ <*column-headers-and-values*> ] | Array | An array with custom column header names and values for overriding the default column headers and values | 
-| header | <*column-header*> | String | The name for the custom column header | 
-| value | <*column-value*> | String | The value in the custom column | 
-||||| 
+To specify or customize column headers and values, 
+use the `columns` property and define these items as an array. 
+When `header-value` pairs use the same header name, 
+their values appear in the same column under that header name. 
+Otherwise, each unique header name describes a unique column.
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*column-name*> | String | The header name for a column | 
+| <*column-value*> | Any | The value in that column | 
+|||| 
 
 *Example 1*
 
