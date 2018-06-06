@@ -170,7 +170,7 @@ To guarantee local reads and writes, we must partition data not just on partitio
 
 The following diagram shows how reads and writes are performed in a typical application with this setup:
 
-![Azure Cosmos DB multi-master architecture](./media/multi-region-writers/multi-master.png)
+![Azure Cosmos DB multi-master architecture](./media/multi-master-workaround/multi-master.png)
 
 Here is a code snippet showing how to initialize the clients in a DAL running in the `West US` region.
     
