@@ -1,7 +1,7 @@
 ---
-title: How to use branching and undo operations with a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to use branching and undo operations with a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use branching and undo operations with a Conversation Learner application.
+description: Learn how to use branching and undo operations with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -28,7 +28,7 @@ This tutorial requires that the pizza order bot is running:
 
 ### Open the demo
 
-In the App list of the web UI, click on TutorialDemo Pizza Order. 
+In the Model list of the web UI, click on TutorialDemo Pizza Order. 
 
 For details on the Pizza Order demo, see the Pizza order tutorial.
 

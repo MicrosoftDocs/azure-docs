@@ -1,7 +1,7 @@
 ---
-title: Demo Conversation Learner application, password reset - Microsoft Cognitive Services | Microsoft Docs
+title: Demo Conversation Learner model, password reset - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to create a demo Conversation Learner application.
+description: Learn how to create a demo Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -24,7 +24,7 @@ This tutorial requires that the password reset bot is running
 
 ### Open the demo
 
-In the App list of the web UI, click on Tutorial Demo Password Reset. 
+In the Model list of the web UI, click on Tutorial Demo Password Reset. 
 
 ### Actions
 

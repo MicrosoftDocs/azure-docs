@@ -1,7 +1,7 @@
 ---
-title: Demo Conversation Learner application, pizza order - Microsoft Cognitive Services | Microsoft Docs
+title: Demo Conversation Learner model, pizza order - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to create a demo Conversation Learner application.
+description: Learn how to create a demo Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -26,7 +26,7 @@ This tutorial requires that the pizza order bot is running
 
 ### Open the demo
 
-In the App list of the web UI, click on TutorialDemo Pizza Order. 
+In the Model list of the web UI, click on TutorialDemo Pizza Order. 
 
 ## Entities
 

@@ -1,7 +1,7 @@
 ---
-title: How to create a Conversation Learner application using Node.js - Microsoft Cognitive Services | Microsoft Docs
+title: How to create a Conversation Learner model using Node.js - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to create a Conversation Learner application using Node.js.
+description: Learn how to create a Conversation Learner model using Node.js.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -12,9 +12,9 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# Create a Conversation Learner application using Node.js
+# Create a Conversation Learner model using Node.js
 
-Conversation Learner reduces the complexity of building bots. It enables a hybrid development work-flow allowing hand-written code and machine learning to reduce the amount of code required to write bots. Certain fixed parts of your application, such as checking if the user is logged in, or making an API request to check store inventory, can still be coded. However, other changes in state and action selection can be learned from example dialogs given by the domain expert or developer.
+Conversation Learner reduces the complexity of building bots. It enables a hybrid development work-flow allowing hand-written code and machine learning to reduce the amount of code required to write bots. Certain fixed parts of your model, such as checking if the user is logged in, or making an API request to check store inventory, can still be coded. However, other changes in state and action selection can be learned from example dialogs given by the domain expert or developer.
 
 ## Invitation required
 
@@ -91,7 +91,7 @@ You're now using Conversation Learner and can create and teach a Conversation Le
 
 The instructions above started the generic empty bot.  To run a tutorial or demo bot instead:
 
-1. If you have the Conversation Learner web UI open, return to the list of apps at http://localhost:5050/home.
+1. If you have the Conversation Learner web UI open, return to the list of models at http://localhost:5050/home.
     
 2. If another bot is running (like `npm start` or `npm run demo-pizza`), stop it.  You do not need to stop the UI process, or close the web browser.
 
@@ -118,7 +118,7 @@ Source files for the demos are in `cl-bot-01/src/demos`
 
 ## Create a bot which includes back-end code
 
-1. If you have the Conversation Learner web UI open, return to the list of apps at http://localhost:5050/home.
+1. If you have the Conversation Learner web UI open, return to the list of models at http://localhost:5050/home.
     
 2. If a bot is running (like `npm run demo-pizza`), stop it.  You do not need to stop the UI process, or close the web browser.
 
@@ -133,7 +133,7 @@ Source files for the demos are in `cl-bot-01/src/demos`
 
 5. If you're not already, switch to the Conversation Learner web UI in Chrome by loading http://localhost:5050/home. 
 
-6. Create a new Conversation Learner application in the UI, and start teaching.
+6. Create a new Conversation Learner model in the UI, and start teaching.
 
 7. To make code changes in `cl-bot-01/src/app.ts`, repeat the steps above, starting from step 2.
 

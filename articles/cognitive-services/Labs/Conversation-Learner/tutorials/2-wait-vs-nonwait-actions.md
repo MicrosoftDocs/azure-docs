@@ -1,7 +1,7 @@
 ---
-title: How to use wait and non-wait actions with a Conversation Learner application - Microsoft Cognitive Services| Microsoft Docs
+title: How to use wait and non-wait actions with a Conversation Learner model - Microsoft Cognitive Services| Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use wait and non-wait actions with a Conversation Learner application.
+description: Learn how to use wait and non-wait actions with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -28,9 +28,9 @@ This tutorial requires that the general tutorial bot is running
 
 ## Steps
 
-### Create a new app
+### Create a new model
 
-1. In the Web UI, click New App
+1. In the Web UI, click New Model
 2. In Name, enter WaitNonWait. Then click Create.
 
 ### Create the first Wait action

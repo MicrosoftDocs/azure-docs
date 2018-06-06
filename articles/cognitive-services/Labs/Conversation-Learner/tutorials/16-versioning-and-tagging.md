@@ -1,7 +1,7 @@
 ---
-title: How to use versioning and tagging with a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to use versioning and tagging with a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use versioning and tagging with a Conversation Learner application.
+description: Learn how to use versioning and tagging with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -14,7 +14,7 @@ ms.author: v-jaswel
 
 # How to use versioning and tagging
 
-This tutorial illustrates how to tag versions of your Conversation Learner app, and set which version is “live”.  
+This tutorial illustrates how to tag versions of your Conversation Learner model, and set which version is “live”.  
 
 ## Requirements
 This tutorial requires using the bot emulator to create log dialogs, not the Log Dialog Web UI.  
@@ -34,18 +34,18 @@ When editing, you are always editing the tag called “master” -- you can crea
 - Go to [https://github.com/Microsoft/BotFramework-Emulator](https://github.com/Microsoft/BotFramework-Emulator).
 - Download and install the emulator.
 
-### Create an app
+### Create an model
 
-1. Click New App
+1. Click New Model
 2. In the Name field, enter Tutorial-16-Versioning
 3. Click Create 
 4. Click Settings
-5. Copy the App ID
+5. Copy the Model ID
 
 ### Configure the emulator
 
 - In the Conversation Learner root folder, open the .env file.
-- Paste the App ID as the value of CONVERSATION_LEARNER_APP_ID
+- Paste the Model ID as the value of CONVERSATION_LEARNER_APP_ID
 - Restart the Conversation Learner service by exiting from the command prompt, and rerunning:
  
 	npm run tutorial-general 
@@ -68,8 +68,8 @@ Create a new tag:
 	- Call it “version 1”
 4. Set “version 1” to be “live”.  
 	- The effect of setting the live tag to "version 1" is that channels using this bot will use the “version 1” tag.
-	- Tagged versions of applications are not affected by edits (changing actions, entities, adding train dialogs).  
-	- Edits to an application (changing actions, entities, adding train dialogs) are always made on the "master" tag.  In other words, "master" is the only tag that can change; other tags are fixed snapshots.
+	- Tagged versions of models are not affected by edits (changing actions, entities, adding train dialogs).  
+	- Edits to an model (changing actions, entities, adding train dialogs) are always made on the "master" tag.  In other words, "master" is the only tag that can change; other tags are fixed snapshots.
 	- Log dialogs in the Conversation Learner UI always use master (not the live tag).
 
 ![](../media/tutorial16_v1_create.PNG)

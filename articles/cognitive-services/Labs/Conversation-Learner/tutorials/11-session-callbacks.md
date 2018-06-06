@@ -1,7 +1,7 @@
 ---
-title: How to use session callbacks with a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to use session callbacks with a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use session callbacks with a Conversation Learner application.
+description: Learn how to use session callbacks with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -12,7 +12,7 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to use session callbacks with a Conversation Learner application
+# How to use session callbacks with a Conversation Learner model
 
 This tutorial illustrates the onSessionStart and onSessionEnd callbacks.
 
@@ -30,11 +30,11 @@ If there are long breaks, then the bot will go to its next session.  Starting a 
 
 ### Open the demo
 
-In the App list, click on Tutorial-11-SessionCallbacks. 
+In the Model list, click on Tutorial-11-SessionCallbacks. 
 
 ### Entities
 
-We have defined four entities in the application.
+We have defined four entities in the model.
 
 ![](../media/tutorial11_entities.PNG)
 

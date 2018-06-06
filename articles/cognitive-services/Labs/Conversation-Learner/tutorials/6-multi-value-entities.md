@@ -1,7 +1,7 @@
 ---
-title: How to use multi-value entities with a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to use multi-value entities with a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use multi-value entities with a Conversation Learner application.
+description: Learn how to use multi-value entities with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -12,7 +12,7 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to use multi-value entities with a Conversation Learner application
+# How to use multi-value entities with a Conversation Learner model
 This tutorial shows the "multi-value" property of entities.
 
 ##Requirements
@@ -27,9 +27,9 @@ Concretely, if an entity is marked as "multi-value", then each recognized instan
 
 ## Steps
 
-### Create the application
+### Create the model
 
-1. In the Web UI, click New App
+1. In the Web UI, click New Model
 2. In Name, enter MultiValueEntities. Then click Create.
 
 ### Create an entity

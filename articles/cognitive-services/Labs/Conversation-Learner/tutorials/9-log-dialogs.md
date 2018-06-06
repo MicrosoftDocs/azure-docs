@@ -1,7 +1,7 @@
 ---
-title: How to log dialogs in a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to log dialogs in a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to log dialogs in a Conversation Learner application.
+description: Learn how to log dialogs in a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -12,7 +12,7 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to log dialogs in a Conversation Learner application
+# How to log dialogs in a Conversation Learner model
 
 This tutorial shows how to do end-user testing within the Conversation Learner interface; how dialogs are logged; and how to make corrections to logged dialogs in order to improve your model.
 
@@ -26,9 +26,9 @@ You can use the log dialogs to review and make corrections to dialogs conducted 
 
 ## Steps
 
-### Create the application
+### Create the model
 
-1. In the Web UI, click New App
+1. In the Web UI, click New Model
 2. In Name, enter LogDialogs. Then click Create.
 
 ### Create an entity

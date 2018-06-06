@@ -1,7 +1,7 @@
 ---
 title: How to use the "expected entity" property of Conversation Learner actions - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use the "expected entity" property of a Conversation Learner application.
+description: Learn how to use the "expected entity" property of a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -32,9 +32,9 @@ Concretely, if the "expected entity" field of an action is set to $entity, then 
 
 ## Steps
 
-### Create the application
+### Create the model
 
-1. In the Web UI, click New App
+1. In the Web UI, click New Model
 2. In Name, enter ExpectedEntities. Then click Create.
 
 ### Create an entity

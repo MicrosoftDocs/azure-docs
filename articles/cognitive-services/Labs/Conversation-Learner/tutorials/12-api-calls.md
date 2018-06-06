@@ -1,7 +1,7 @@
 ---
-title: How to use use API calls with a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to use use API calls with a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use use API calls with a Conversation Learner application.
+description: Learn how to use use API calls with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -12,9 +12,9 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to add API calls to a Conversation Learner application
+# How to add API calls to a Conversation Learner model
 
-This tutorial shows how to add API calls to your application. API calls are functions that you define and write in your bot, and which Conversation Learner can call.
+This tutorial shows how to add API calls to your model. API calls are functions that you define and write in your bot, and which Conversation Learner can call.
 
 ## Requirements
 This tutorial requires that the "tutorialAPICalls.ts" bot is running.
@@ -29,11 +29,11 @@ This tutorial requires that the "tutorialAPICalls.ts" bot is running.
 
 ### Open the demo
 
-In the App list of the web UI, click on Tutorial-12-APICalls. 
+In the Model list of the web UI, click on Tutorial-12-APICalls. 
 
 ### Entities
 
-We have defined one entity in the application called number.
+We have defined one entity in the model called number.
 
 ![](../media/tutorial12_entities.PNG)
 

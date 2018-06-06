@@ -26,9 +26,9 @@ This tutorial requires that the general tutorial bot is running
 
 ## Steps
 
-### Create the application
+### Create the model
 
-1. In the Web UI, click New App
+1. In the Web UI, click New Model
 2. In Name, enter AlternativeInputs. Then click Create.
 
 ### Create an entity

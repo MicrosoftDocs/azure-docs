@@ -1,7 +1,7 @@
 ---
-title: Demo Conversation Learner application, virtual reality app launcher - Microsoft Cognitive Services | Microsoft Docs
+title: Demo Conversation Learner model, virtual reality app launcher - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to create a demo Conversation Learner application.
+description: Learn how to create a demo Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -14,7 +14,7 @@ ms.author: v-jaswel
 
 # Demo: Virtual reality app launcher
 
-This demo illustrates a virtual reality application launcher, supporting commands like "start Skype and put in on the wall." A user needs to say an app name and location in order to launch the app. App launching is handled by an API call. When an app name is recognized from the user, the entityDetectionCallback checks whether the requested app matches one or more apps in the list of installed apps. It handles the case where the requested app is not installed, and where the app name is ambiguous (matches more than one installed app).
+This demo illustrates a virtual reality model launcher, supporting commands like "start Skype and put in on the wall." A user needs to say an app name and location in order to launch the app. Model launching is handled by an API call. When an app name is recognized from the user, the entityDetectionCallback checks whether the requested app matches one or more apps in the list of installed apps. It handles the case where the requested app is not installed, and where the app name is ambiguous (matches more than one installed app).
 
 ## Requirements
 
@@ -24,7 +24,7 @@ This tutorial requires that the VRAppLauncher bot is running
 
 ### Open the demo
 
-In the App list of the web UI, click on VRAppLauncher. 
+In the Model list of the web UI, click on VRAppLauncher. 
 
 ## Entities
 

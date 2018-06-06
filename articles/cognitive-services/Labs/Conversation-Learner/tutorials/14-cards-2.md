@@ -1,7 +1,7 @@
 ---
-title: How to use cards with a Conversation Learner application, part 2 - Microsoft Cognitive Services | Microsoft Docs
+title: How to use cards with a Conversation Learner model, part 2 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use cards with a Conversation Learner application.
+description: Learn how to use cards with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -28,7 +28,7 @@ Cards are UI elements that allow the user to select an option in the conversatio
 
 ### Open the demo
 
-In the App list of the web UI, click on Tutorial-14-Cards-2. 
+In the Model list of the web UI, click on Tutorial-14-Cards-2. 
 
 ### The Card
 
