@@ -1,6 +1,6 @@
 ---
-title: Programmatically manage and audit Azure Enterprise subscriptions| Microsoft Docs
-description: Learn how to manage and audit Azure Enterprise or Enterprise Dev/Test subscriptions programmatically.
+title: Grant access to create Azure Enterprise subscriptions| Microsoft Docs
+description: Learn how to give a user or service principal the ability to programmatically create Azure Enterprise subscriptions.
 services: azure-resource-manager
 author: jlian
 manager: jlian
@@ -16,7 +16,7 @@ ms.date: 06/05/2018
 ms.author: jlian
 ---
 
-# Programmatically manage Azure Enterprise subscriptions (preview)
+# Grant access to create Azure Enterprise subscriptions (preview)
 
 As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) to share the ability to create subscriptions, and how to audit subscription creations.
 
@@ -93,7 +93,7 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 
 ## Next steps
 
-* To create a subscription, see [Programmatically create Azure Enterprise subscriptions (preview)](programmatically-create-subscription.md).
+* Now that the user or service principal has permission to create a subscription, you can use that identity to [programmatically create Azure Enterprise subscriptions](programmatically-create-subscription.md).
 * For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * To learn more about Azure Resource Manager and its APIs, see [Azure Resource Manager overview](resource-group-overview.md).
 * To learn more about managing large numbers of subscriptions using Management Groups, see [Organize your resources with Azure Management Groups](management-groups-overview.md)

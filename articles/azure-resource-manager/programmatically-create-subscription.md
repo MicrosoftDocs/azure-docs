@@ -24,7 +24,9 @@ When you create an Azure subscription from this API, that subscription is govern
 
 ## Prerequisite
 
-Your account must be an Account Owner in an Azure EA enrollment. If not, ask your Enrollment Administrator to [add you as an Account Owner using the EA portal](https://ea.azure.com/helpdocs/addNewAccount) (log-in required). Follow the instructions in the invitation email you receive to manually create an initial subscription. Confirm account ownership and manually create an initial EA subscription before proceeding to the next step. Just adding the account to the enrollment isn't enough.
+* Your account must be an Account Owner in an Azure EA enrollment. If not, ask your Enrollment Administrator to [add you as an Account Owner using the EA portal](https://ea.azure.com/helpdocs/addNewAccount) (log-in required). Follow the instructions in the invitation email you receive to manually create an initial subscription. Confirm account ownership and manually create an initial EA subscription before proceeding to the next step. Just adding the account to the enrollment isn't enough.
+
+* If you want to use a service principal to create the EA subscription, you must [grant that service principal the ability to create subscriptions](grant-access-to-create-subscriptions.md).
 
 ## Find accounts you have access to
 
