@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: marsma
 ---
 # Set environment variables
@@ -20,7 +20,7 @@ For example, if you run the [microsoft/aci-wordcount][aci-wordcount] container i
 
 *MinLength*: The minimum number of characters in a word for it to be counted. A higher number ignores common words like "of" and "the."
 
-Azure Container Instances also support [secure values](#secure-values) for environment variables in both Windows and Linux containers if you need to pass secrets.
+If you need to pass secrets as environment variables, Azure Container Instances supports [secure values](#secure-values) secure values for both Windows and Linux containers.
 
 ## Azure CLI example
 
@@ -151,15 +151,17 @@ To view the container's logs, under **SETTINGS** select **Containers**, then **L
 ![Portal showing container log output][portal-env-vars-02]
 
 ## Secure values
-Objects with secure values are intended to hold sensitive information like passwords or keys for your application. Utililzing secure values for environment variables is both safer and more flexible than including it in your container's image. Another option is to use secret volumes, see how to [Mount a secret volume in Azure Container Instances](container-instances-volume-secret.md).
+Objects with secure values are intended to hold sensitive information like passwords or keys for your application. Using secure values for environment variables is both safer and more flexible than including it in your container's image. Another option is to use secret volumes, described in [Mount a secret volume in Azure Container Instances](container-instances-volume-secret.md).
 
-Environment variables with secure values won't show up in your container's properties and can only be accessed from within your container.
+Environment variables with secure values won't show up in your container's properties and can only be accessed from within your container. For example, container properties viewed in the Azure portal or Azure CLI won't display an environment variable with a secure value.
 
-Set this by specifying the value type with `secureValue`.
+Set this by specifying the value type of your environment variable associated with a specific container with the `secureValue` property instead of the regular `value`.
 
 ### YAML deployment
+
 Create a `secure-env.yaml` file with the following snippet.
-```
+
+```yaml
 apiVersion: 2018-06-01
 location: westus
 name: securetest
@@ -181,10 +183,24 @@ properties:
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
-Run `az container create --resource-group myRG --name securetest -f secure-env.yaml` to deploy. 
 
-The response with details for this container will show no environment variables. You can review the environment variable is set with `az container exec --resource-group myRG --name securetest --exec-command "/bin/bash"`.
+Run the following command to deploy the container group with YAML.
 
+```azurecli-interactive
+az container create --resource-group myRG --name securetest -f secure-env.yaml
+```
+
+The JSON response with details for this container will show no environment variables are set. You can review the environment variable is set with the `exec` command which enables executing a command from within a running container.
+
+Run the following command to start an interactive bash session with the container.
+```azurecli-interactive
+az container exec --resource-group myRG --name securetest --exec-command "/bin/bash"
+```
+
+From within your container, print your environment variable with the following bash command.
+```bash
+echo $SECRET
+```
 
 ## Next steps
 
