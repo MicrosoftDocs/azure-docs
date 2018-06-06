@@ -113,3 +113,9 @@ mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 If the Kafka enabled Event Hub has events (for instance, if your producer is also running), then the consumer should now begin receiving events from topic `test`. If you would like to change the topic, change the TOPIC constant in `consumer/src/main/java/com/example/app/FlinkTestConsumer.java`.
 
 Check out [Flink's Kafka Connector Guide](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) for more detailed information on connecting Flink to Kafka.
+
+## Next steps
+
+* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
+* [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
+* Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on-prem to Kafka enabled Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
