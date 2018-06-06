@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2018
+ms.date: 06/06/2018
 ms.author: kumud
 
 ---
@@ -124,10 +124,10 @@ In the following example, both the primary region and the secondary region have 
 *Figure - Automatic failover using Azure Traffic Manager*
 
 However, only the primary region is actively handling network requests from the users. The secondary region becomes active only when the primary region experiences a service disruption. In that case, all new network requests route to the secondary region. Since the backup of the database is near instantaneous, both the load balancers have IPs that can be health checked, and the instances are always up and running, this topology provides an option for going in for a low RTO and failover without any manual intervention. The secondary failover region must be ready to go immediately after failure of the primary region.
-This is an ideal candidate for the use of Azure Traffic Manager which has inbuilt probes for various types of health checks including http / https and TCP. Azure Traffic manager also has a rule engine that can be configured to failover in the event of a failure as we will see below. Let’s consider the following for the solution using Traffic Manager:
+This is an ideal candidate for the use of Azure Traffic Manager that has inbuilt probes for various types of health checks including http / https and TCP. Azure Traffic manager also has a rule engine that can be configured to fail over in the event of a failure as described below. Let’s consider the following for the solution using Traffic Manager:
 - Customer has the Region #1 endpoint known as prod.contoso.com with a static IP as 100.168.124.44 and a Region #2 endpoint known as dr.contoso.com with a static IP as 100.168.124.43. 
--	Each of these environment is fronted via a public facing property like a load balancer. The load balancer can be configured to have a DNS based endpoint or a FQDN as shown above.
--	All the instances in Region 2 are in near real time replication with Region 1. Furthermore, the machine images are up to date, and all software/configuration data is patched and are in line with Region 1.  
+-	Each of these environments is fronted via a public facing property like a load balancer. The load balancer can be configured to have a DNS-based endpoint or a FQDN as shown above.
+-	All the instances in Region 2 are in near real-time replication with Region 1. Furthermore, the machine images are up-to-date, and all software/configuration data is patched and are in line with Region 1.  
 -	Autoscaling is preconfigured in advance. 
 
 The steps taken to configure the failover with Azure Traffic Manager are as follows:
@@ -136,8 +136,8 @@ The steps taken to configure the failover with Azure Traffic Manager are as foll
 3. Set up health check and failover configuration
 
 ### Step 1: Create a new Azure Traffic Manager profile
-We create a new Azure Traffic manager profile with the name contoso123 and select the Routing method as Priority. 
-If we have a pre-existing resource group that we want to associate with then we select the resource group else, we create a new resource group.
+Create a new Azure Traffic manager profile with the name contoso123 and select the Routing method as Priority. 
+If you have a pre-existing resource group that you want to associate with, then you can select an existing resource group, otherwise, create a new resource group.
 
 ![Create Traffic Manager profile](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
 *Figure - Create a Traffic Manager profile*
@@ -153,10 +153,10 @@ Similarly, create the disaster recovery endpoint within Traffic Manager as well.
 
 ### Step 3: Set up health check and failover configuration
 
-In this step, you the DNS TTL to 10 seconds which is honored by most internet facing recursive resolvers. This means that no DNS resolver will cache this more than 10 seconds. For the endpoint monitor settings, the path is current set at / or root, but once can customize this to evaluate a path, for example, prod.contoso.com/index, etc. The example below shows the **https** as the probing protocol. However, you can choose **http** or **tcp** as well. The choice of protocol depends upon the end application. The probing interval is set to 10 seconds which enables fast probing, and the retry is set to 3. As a result, Traffic Manager will failover to the second endpoint if three consecutive intervals register a failure. The following formula defines the total time for an automated failover:
+In this step, you set the DNS TTL to 10 seconds, which is honored by most internet-facing recursive resolvers. This means that no DNS resolver will cache this more than 10 seconds. For the endpoint monitor settings, the path is current set at / or root, but once can customize this to evaluate a path, for example, prod.contoso.com/index, etc. The example below shows the **https** as the probing protocol. However, you can choose **http** or **tcp** as well. The choice of protocol depends upon the end application. The probing interval is set to 10 seconds which enables fast probing, and the retry is set to 3. As a result, Traffic Manager will fail over to the second endpoint if three consecutive intervals register a failure. The following formula defines the total time for an automated failover:
 Time for failover = TTL + Retry * Probing interval 
 And in this case, the value is 10 + 3 * 10 = 40 seconds (Max).
-If the Retry is set to 1 and TTL is set to 10 secs then the time for failover 10 + 1 * 10 = 20 seconds. It is recommended to retry more than once to eliminate chances of failovers in case of minor network blips. 
+If the Retry is set to 1 and TTL is set to 10 secs, then the time for failover 10 + 1 * 10 = 20 seconds. It is recommended to retry more than once to eliminate chances of failovers in case of minor network blips. 
 
 
 ![Set up health check](./media/disaster-recovery-dns-traffic-manager/set-up-health-check.png)
@@ -165,7 +165,7 @@ If the Retry is set to 1 and TTL is set to 10 secs then the time for failover 10
 
 ### Result
 
-During a failover, the primary endpoint is probed and show as degraded and the disaster recovery site still appears as **Online**. By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint is not available, Traffic Manager routes the traffic to the second endpoint. One has the option to configure more endpoints within traffic manager that could serve as additional failover endpoints or as load balancers sharing the load between endpoints.
+During a failover, the primary endpoint is probed and shows as degraded and the disaster recovery site still appears as **Online**. By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint is not available, Traffic Manager routes the traffic to the second endpoint. One has the option to configure more endpoints within Traffic Manager that can serve as additional failover endpoints, or, as load balancers sharing the load between endpoints.
 
 ## Next steps
 - Learn more about [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
