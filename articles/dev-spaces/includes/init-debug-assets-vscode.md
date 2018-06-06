@@ -19,6 +19,3 @@ Open the **Command Palette** (using the **View | Command Palette** menu), and us
 This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
 
 ![](../media/common/command-palette.png)
-
-> [!Important]
-> Due to a bug, please close and re-open VS Code before proceeding.

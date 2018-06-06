@@ -6,7 +6,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: "ghogen"
-ms.date: "06/01/2018"
+ms.date: "06/06/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
@@ -36,7 +36,7 @@ In this guide, you will learn how to:
 
 1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.33 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Download the [Azure Dev Spaces extension](https://aka.ms/get-azds-code)
+1. Download the [Azure Dev Spaces extension](https://aka.ms/get-azds-code) for VS Code.
 1. Install the extension: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
 
 ## Build and run code in Kubernetes
@@ -115,9 +115,6 @@ Open the **Command Palette** (using the **View | Command Palette** menu), and us
 This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
 
 ![](./media/common/command-palette.png)
-
-> [!Important]
-> You might need to close and re-open VS Code before proceeding.
 
 ### Select the AZDS debug configuration
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
