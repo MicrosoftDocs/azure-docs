@@ -185,4 +185,4 @@ _ = client.jobs.create(resource_group_name, workspace_name, experiment_name, job
 
 ## Next steps
 
-* See the Batch AI API reference: [CLI](/cli/azure/batchai), [.NET](/dotnet/api/overview/azure/batchai), [Java](s/java/api/overview/azure/batchai), [Node.js](/javascript/api/overview/azure/batchai), [Python](/python/api/overview/azure/batchai), and [REST](/rest/api/batchai)
+* See the Batch AI API reference: [CLI](/cli/azure/batchai), [.NET](/dotnet/api/overview/azure/batchai), [Java](/java/api/overview/azure/batchai), [Node.js](/javascript/api/overview/azure/batchai), [Python](/python/api/overview/azure/batchai), and [REST](/rest/api/batchai)
