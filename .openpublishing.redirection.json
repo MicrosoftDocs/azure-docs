@@ -2491,6 +2491,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-functions/functions-how-to-use-sendgrid.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-sendgrid",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
             "redirect_url": "/azure/automation/automation-create-runas-account",
             "redirect_document_id": false
