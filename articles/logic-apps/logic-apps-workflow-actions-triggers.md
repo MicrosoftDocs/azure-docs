@@ -1376,9 +1376,9 @@ this action can use for the column header names:
 
 To specify or customize column headers and values, 
 use the `columns` property and define these items as an array. 
-When `header-value` pairs use the same header name, 
+When `header-value` pairs have the same header name, 
 their values appear in the same column under that header name. 
-Otherwise, each unique header name describes a unique column.
+Otherwise, each unique header defines a unique column.
 
 | Value | Type | Description | 
 |-------|------|-------------| 
@@ -1393,7 +1393,7 @@ Suppose you have an array variable named "myItemArray" that currently contains t
 `[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]`
 
 This action definition creates a CSV table from "myItemArray". 
-The expression in the `from` element gets the array from 
+The expression used by the `from` property gets the array from 
 "myItemArray" by using the `variables()` function: 
 
 ```json
@@ -1418,7 +1418,7 @@ ID,Product_Name
 *Example 2*
 
 This action definition creates an HTML table from "myItemArray". 
-The expression in the `from` element gets the array from 
+The expression used by the `from` property gets the array from 
 "myItemArray" by using the `variables()` function: 
 
 ```json
@@ -1438,10 +1438,10 @@ Here is the HTML table that this action creates:
 
 *Example 3*
 
-To override the default column header names and values defined by the source array, 
-you can specify different column header names and values. This action definition 
-creates an HTML table that replaces the default header names with "Stock_ID" and 
-"Description" and adds the word "Organic" to the strings in the "Description" column.
+This action definition creates an HTML table from "myItemArray". 
+However, this example overrides the default column header names 
+with "Stock_ID" and "Description", and adds the word "Organic" 
+to the values in the "Description" column.
 
 ```json
 "Create_HTML_table": {
