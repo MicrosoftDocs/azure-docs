@@ -114,7 +114,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 A Linux VM has a dedicated host in Azure that it interacts with. Metrics are automatically collected for the host and can be viewed in the Azure portal as follows:
 
 1. In the Azure portal, select **Resource Groups**, choose **myResourceGroupMonitor**, and then select **myVM** in the resource list.
-1. To see how the host VM is performing, selevt  **Metrics** on the VM window, then choose any of the *[Host]* metrics under **Available metrics**.
+1. To see how the host VM is performing, select  **Metrics** on the VM window, then choose any of the *[Host]* metrics under **Available metrics**.
 
     ![View host metrics](./media/tutorial-monitoring/monitor-host-metrics.png)
 
