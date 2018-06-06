@@ -42,24 +42,45 @@ In the [Azure][azure-portal] portal, open the PowerShell window. The icon for th
 Before creating the Traffic Manager profiles, create a resource group to contain all the profiles. In the following example, the name of the resource group is `luis-traffic-manager` and the region is `West US`. The region of the resource group stores metadata about the group. It won't slow down your resources if they are in another region. 
 
 ```PowerShell
-> $resourcegroup = New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
+$resourcegroup = New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
 ### Create the East US Traffic Manager profile with PowerShell
 To create the East US Traffic Manager profile, there are several steps: create profile, add endpoint, and set endpoint. A Traffic Manager profile can have many endpoint but each endpoint has the same validation path. Because the LUIS endpoint URLs for the east and west subscriptions are different due to region and subscription key, so each LUIS endpoint is also a single endpoint in the profile. 
 
-```PowerShell
-New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 80 -MonitorPath "/luis/v2.0/apps/cc6502f8-cb50-42fb-9192-e064bad2ec4c?subscription-key=f17b82eecf024cfcbe8fdb5a54e4017c&verbose=true&timezoneOffset=0&q=traffic-manager"
-```
+1. Create profile
 
-Change the variables marked with `<>` to your own values or the values in the following table:
+    ```PowerShell
+    $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager"
+    ```
+    
+    Change the variables marked with `<>` to your own values or the values in the following table:
+    
+    |Configuration parameter|Variable name or Value|Purpose|
+    |--|--|--|
+    |-Name|luis-profile-eastus|Traffic Manager name in Azure portal|
+    |-ResourceGroupName|luis-traffic-manager|Created in previous section|
+    |-TrafficRoutingMethod|Performance|For more information, see [Traffic Manager routing methods][routing-methods]. If using performance, the URL request to the Traffic Manager must come from the region of the user. If going through a chatbot or other application, it is the chatbot's responsibility to mimic the region in the call to the Traffic Manager. |
+    |-RelativeDnsName|luis-dns-eastus|This is the subdomain for the service: luis-dns-eastus.trafficmanager.net|
+    |-Ttl|30|Polling interval, 30 seconds|
+    |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Port and protocol for LUIS is HTTPS/443|
+    |-MonitorPath|"/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager"|Replace <appId> and <subscriptionKey> with your own values|
+    
+2. Add endpoint
 
-|Configuration parameter|Variable name or Value|Purpose|
-|--|--|--|
-|-Name|luis-profile-eastus|Traffic Manager name in Azure portal|
-|-ResourceGroupName|luis-traffic-manager|Created in previous section|
-|-TrafficRoutingMethod|Performance|For more information, see [Traffic Manager routing methods][routing-methods]. If using performance, the URL request to the Traffic Manager must come from the region of the user. If going through a chatbot or other application, it is the chatbot's responsibility to mimic the region in the call to the Traffic Manager. |
-|-RelativeDnsName|luis-dns-eastus|This is the subdomain for the service: luis-dns-eastus.trafficmanager.net|
+    ```PowerShell
+    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "EastUS" -EndpointStatus Enabled
+    ```
+
+    |Configuration parameter|Variable name or Value|Purpose|
+    |--|--|--|
+    |-EndpointName|luis-east-endpoint|Endpoint name displayed under the profile|
+    |-TrafficManagerProfile|$profile|Use profile object created in Step 1|
+    |-Type|ExternalEndpoints|For more information, see [Traffic Manager endpoint][traffic-manager-endpoints] |
+    |-Target|eastus.api.cognitive.microsoft.com|This is domain for the LUIS endpoint.|
+    |-EndpointLocation|"EastUS"|Region of the endpoint|
+    |-EndpointStatus|Enabled|Enable endpoint when it is created|
+
 
 ### Create Traffic Manager profile for each endpoint
 
@@ -82,4 +103,5 @@ Change the variables marked with `<>` to your own values or the values in the fo
 [LUIS]:luis-reference-regions.md#luis-website
 [azure-portal]:https://portal.azure.com/
 [azure-storage]:https://azure.microsoft.com/services/storage/
-[routing-methods]:https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods
+[routing-methods]:https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods
+[traffic-manager-endpoints]:https://docs.microsoft.com/azure/traffic-manager/traffic-manager-endpoint-types
