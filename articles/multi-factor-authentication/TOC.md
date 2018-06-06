@@ -6,14 +6,21 @@
 
 # Quickstarts
 
-## [Configure Multi-Factor Authentication](../active-directory/authentication/quickstart-mfa.md)
 ## [Configure password reset](../active-directory/authentication/quickstart-sspr.md)
+## [Configure Multi-Factor Authentication](../active-directory/authentication/quickstart-mfa.md)
 
 # Tutorials
 
 ## [Define authentication methods](../active-directory/authentication/tutorial-authentication-methods.md)
+## Enroll Users
+## Configure authentication options
+## Configure banned passsword list
+## Enable a SSPR pilot
+## Enable MFA with CA for Azure Portal
+## Enable MFA with Azure Identity Protection
 ## [Enable password writeback](../active-directory/authentication/tutorial-enable-writeback.md)
 ## [Enable Windows 10 password reset](../active-directory/authentication/tutorial-sspr-windows.md)
+## Enable Windows Hello
 
 # Concepts
 
@@ -24,9 +31,7 @@
 ### [Password reset options](../active-directory/authentication/concept-sspr-customization.md)
 ### [Password reset policies](../active-directory/authentication/concept-sspr-policy.md)
 ### [What license do I need](../active-directory/authentication/concept-sspr-licensing.md)
-### [Password writeback](../active-directory/authentication/concept-sspr-writeback.md)
-### [SSPR Troubleshooting](../active-directory/authentication/active-directory-passwords-troubleshoot.md)
-### [SSPR FAQ](../active-directory/authentication/active-directory-passwords-faq.md)
+### [On-premises integration]](../active-directory/authentication/concept-sspr-writeback.md)
 
 ## Multi-Factor Authentication
 ### [How MFA works](../active-directory/authentication/concept-mfa-howitworks.md)
@@ -43,6 +48,8 @@
 ### [SSPR Deployment guide](../active-directory/authentication/howto-sspr-deployment.md)
 ### [SSPR Data requirements](../active-directory/authentication/howto-sspr-authenticationdata.md)
 ### [Password writeback](../active-directory/authentication/howto-sspr-writeback.md)
+### [Troubleshoot SSPR](../active-directory/authentication/active-directory-passwords-troubleshoot.md)
+### [SSPR FAQ](../active-directory/authentication/active-directory-passwords-faq.md)
 
 ## Cloud-based MFA
 ### [Deploy cloud-based MFA](../active-directory/authentication/howto-mfa-getstarted.md)

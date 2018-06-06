@@ -1,12 +1,12 @@
 ---
-title: Password writeback how it works with Azure AD SSPR
-description: How password writeback works with Azure AD SSPR
+title: On-premises password writeback integration with Azure AD SSPR
+description: Get cloud passwords written back to on-premises AD infratstructure
 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 05/31/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -16,7 +16,7 @@ ms.reviewer: sahenry
 ---
 # What is password writeback?
 
-Password writeback is a premium feature of Azure Active Directory (Azure AD) enabled through [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md). Password writeback allows features like self-service password reset the ability to write passwords changed in the cloud back to existing on-premises directory environments in real time.
+Having a cloud based password reset utility is great but most companies still have an on-premises directory where their users exist. How does Microsoft support keeping traditional on-premises Active Directory (AD) in sync with password changes in the cloud? Password writeback is a feature enabled with [Azure AD Connect](./../connect/active-directory-aadconnect.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real-time.
 
 Password writeback is supported in environments that use:
 
@@ -26,14 +26,32 @@ Password writeback is supported in environments that use:
 
 Password writeback provides:
 
-* **Enforces your on-premises Active Directory password policies**: When a user resets their password, it is checked to ensure it meets your on-premises Active Directory policy before committing it to that directory. This review includes checking the history, complexity, age, password filters, and any other password restrictions that you have defined in local Active Directory.
+* **Enforcement of on-premises Active Directory password policies**: When a user resets their password, it is checked to ensure it meets your on-premises Active Directory policy before committing it to that directory. This review includes checking the history, complexity, age, password filters, and any other password restrictions that you have defined in local Active Directory.
 * **Zero-delay feedback**: Password writeback is a synchronous operation. Your users are notified immediately if their password did not meet the policy or could not be reset or changed for any reason.
 * **Supports password changes from the access panel and Office 365**: When federated or password hash synchronized users come to change their expired or non-expired passwords, those passwords are written back to your local Active Directory environment.
-* **Supports passwords writeback when an admin resets them from the Azure portal**: Whenever an admin resets a user’s password in the [Azure portal](https://portal.azure.com), if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
-* **Doesn’t require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port.
+* **Supports password writeback when an admin resets them from the Azure portal**: Whenever an admin resets a user’s password in the [Azure portal](https://portal.azure.com), if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
+* **Doesn’t require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.
 
 > [!Note]
 > User accounts that exist within protected groups in on-premises Active Directory cannot be used with password writeback. For more information about protected groups, see [Protected accounts and groups in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+
+## Licensing requirements for password writeback
+
+**Self-Service Password Reset/Change/Unlock with on-premises writeback is a premium feature of Azure AD**. For more information about licensing, see the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+
+To use password writeback, you must have one of the following licenses assigned on your tenant:
+
+* Azure AD Premium P1
+* Azure AD Premium P2
+* Enterprise Mobility + Security E3 or A3
+* Enterprise Mobility + Security E5 or A5
+* Microsoft 365 E3 or A3
+* Microsoft 365 E5 or A5
+* Microsoft 365 F1
+
+> [!WARNING]
+> Standalone Office 365 licensing plans *don't support password writeback* and require that you have one of the preceding plans for this functionality to work.
+>
 
 ## How password writeback works
 
@@ -70,11 +88,7 @@ When a federated or password hash synchronized user attempts to reset or change 
 
     The error messages provide guidance to users so they can attempt to resolve without administrator intervention.
 
-## Licensing requirements for password writeback
-
-Self-Service Password Reset/Change/Unlock with on-premises writeback is a premium feature of Azure AD. For more information about licensing, see the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
-
-## Password writeback security model
+## Password writeback security
 
 Password writeback is a highly secure service. To ensure your information is protected, a four-tiered security model is enabled as the following describes:
 
@@ -131,7 +145,7 @@ Passwords are written back in all the following situations:
    * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com)
    * Any administrator-initiated end-user password reset from the [Azure portal](https://portal.azure.com)
 
-### Unsupported writeback operations
+## Unsupported writeback operations
 
 Passwords are *not* written back in any of the following situations:
 

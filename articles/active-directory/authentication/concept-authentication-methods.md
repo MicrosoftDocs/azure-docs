@@ -37,7 +37,13 @@ Your Azure AD password is considered an authentication method. It is the one met
 
 ## Security questions
 
-Security questions are available **only in Azure AD self-service password reset**.
+Security questions are available **only in Azure AD self-service password reset** to non administrator accounts.
+
+If you use security questions, we recommend using them in conjunction with another method. Security questions can be less secure than other methods because some people might know the answers to another user's questions.
+
+> [!NOTE] 
+> Security questions are stored privately and securely on a user object in the directory and can only be answered by users during registration. There is no way for an administrator to read or modify a user's questions or answers.
+>
 
 ### Predefined questions
 
@@ -117,6 +123,8 @@ The Microsoft Authenticator app or other third-party apps can be used as a softw
 ## Mobile phone
 
 Two options are available to users with mobile phones.
+
+If users don't want their mobile phone number to be visible in the directory, but they still want to use it for password reset, administrators should not populate it in the directory. Users should then populate their **Authentication Phone** attribute via the [password reset registration portal](https://aka.ms/ssprsetup). Administrators can see this information in the user's profile, but it's not published elsewhere.
 
 ### Text message
 
