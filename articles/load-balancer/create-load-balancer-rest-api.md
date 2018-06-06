@@ -21,7 +21,7 @@ ms.author: kumud
 
 An Azure Load Balancer distributes new inbound flows that arrive on the load balancer's frontend to the backend pool instances, according to rules and health probes. The Load Balancer is available in two SKUs: Basic and Standard. To understand the difference between the two SKU versions, [Load Balancer SKU comparisons](/load-balancer/load-balancer-overview.md#skus).
  
-This how-to shows how to create a new [Azure Basic Load Balancer] using [Azure REST API](/rest/api/azure/) to help load balance incoming request across multiple VMs within an Azure virtual network. 
+This how-to shows how to create a Azure Basic Load Balancer using [Azure REST API](/rest/api/azure/) to help load balance incoming request across multiple VMs within an Azure virtual network. 
 Complete reference documentation and additional samples are available in the [Azure Load Balancer REST reference](/rest/api/load-balancer/).
  
 ## Build the request
