@@ -26,5 +26,43 @@ We are planning to introduce the following changes:
 
 - Alert extension was already announced and is-on going (see more) 
 - User role assignment in OMS Portal will be auto extended to Azure portal (see more) 
-- Existing OMS Portal will be deprecated in the next six months – customers are advised to use equivalent experiences in Azure Portal (see more) 
+- Existing OMS Portal will be deprecated in the next six months – customers are advised to use [equivalent experiences in Azure Portal](log-analytics-oms-portal-faq.md).
 - OMS Mobile App will be deprecated (see more) 
+
+
+## Known gaps  
+We are aware of several functional gaps that may necessitate usage of the OMS Portal. We are working on closing these gaps and we will continue to keep this document up to date as we are enabling these capabilities. You should also use Azure Updates <<link>> for on-going announcements about extensions and changes. 
+
+1. Update schedules that were created using the OMS portal may not be reflected in the scheduled update deployments or update job history of the Update management dashboard in the Azure portal. We are targeting to address this gap by the end of June 2018Following solutions are not yet available in Azure portal, we are working on closing the gaps.
+
+Windows Analytics Solutions (Upgrade Readiness, Device Health, and Update Compliance) 
+
+DNS Analytics  
+
+Azure Automation 
+
+Surface Hub 
+
+ 
+
+Custom logs preview feature is only available in classic OMS Portal. By end of June 2018, this will be auto enabled for all work spaces. 
+
+Log search history is not available through the Azure Log search. It is however available through the Advanced Analytics portal, where it shows on the home page (“recent queries”). 
+
+ 
+
+Some solution settings were places in the general solutions settings area: 
+
+Office 365 - @Oleg is following up with Eliav 
+
+ITSM Connector Connected Sources Settings is not part of the solution. - @Oleg to add the details 
+
+New Alert Management experience is now available and will replace Alert Management solution. (see below) Existing Alert Management solution deployed will continue to function. 
+
+AI/OMS Connector and solution are no longer required– same functionality can be enabled through cross-app/cross-workspace queries (reference below) - @Yossi 
+
+NSG Solution is being replaced with enhanced functionality available via Traffic Analytics solution. (see below) 
+
+Management API – TBD - @Yossi to update. 
+
+ 
