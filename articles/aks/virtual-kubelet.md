@@ -20,7 +20,7 @@ When using [Virtual Kubelet] provider for Azure Container Instances, pods can be
 This document details configuring the Virtual Kubelet Azure Container Instance provider on an Azure Container Service (AKS) cluster.
 
 > [!NOTE]
-> A known issue with Virtual Kubelet and AKS prevents public IP addresses from beeing created when using Kuberntes LoadBalancer services.
+> Virtual Kubelet is an experimental open source project and should be used as such. To contribute, file issues, and read more about virtual kubelet, see the [Virtual Kubelet GitHub project][vk-github].
 
 ## Prerequisite
 
@@ -91,7 +91,7 @@ virtual-kubelet-virtual-kubelet-linux   Ready     agent     42s       v1.8.3
 
 ## Schedule a pod in ACI
 
-Create a file named `virtual-kubelete-test.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name given to the Virtual Kubelet node.
+Create a file named `virtual-kubelete-test.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name given to the Virtual Kubelet node. Take note that a `npdeSelector` and `toleration` are being used to schedule the contianer on the Virtual Kubelet node.
 
 ```yaml
 apiVersion: apps/v1beta1
