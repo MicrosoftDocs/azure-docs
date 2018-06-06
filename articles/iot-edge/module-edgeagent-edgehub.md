@@ -26,15 +26,18 @@ The module twin for the Edge agent is called `$edgeAgent` and coordinates the co
 | runtime.type | Has to be "docker" | Yes |
 | runtime.settings.minDockerVersion | Set to the minimum Docker version required by this deployment manifest | Yes |
 | runtime.settings.loggingOptions | A stringified JSON containing the logging options for the Edge agent container. [Docker logging options][lnk-docker-logging-options] | No |
+| runtime.settings.registryCredentials<br>.{registryId}.username | The username of the container registry. For Azure Container Registry, this is usually the registry name.<br><br> Registry credentials are necessary for any module images that are not public. | No |
+| runtime.settings.registryCredentials<br>.{registryId}.password | The password for the container registry. | No |
+| runtime.settings.registrtCredentials<br>.{registryId}.address | The address of the container registry. For Azure Container Registry, this is usually *{registryname}.azurecr.io*. | No |  
 | systemModules.edgeAgent.type | Has to be "docker" | Yes |
 | systemModules.edgeAgent.settings.image | The URI of the image of the Edge agent. Currently, the Edge agent is not able to update itself. | Yes |
-| systemModules.edgeAgent.settings.createOptions | A stringified JSON containing the options for the creation of the Edge agent container. [Docker create options][lnk-docker-create-options] | No |
+| systemModules.edgeAgent.settings<br>.createOptions | A stringified JSON containing the options for the creation of the Edge agent container. [Docker create options][lnk-docker-create-options] | No |
 | systemModules.edgeAgent.configuration.id | The ID of the deployment that deployed this module. | This is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
 | systemModules.edgeHub.type | Has to be "docker" | Yes |
 | systemModules.edgeHub.status | Has to be "running" | Yes |
 | systemModules.edgeHub.restartPolicy | Has to be "always" | Yes |
 | systemModules.edgeHub.settings.image | The URI of the image of the Edge hub. | Yes |
-| systemModules.edgeHub.settings.createOptions | A stringified JSON containing the options for the creation of the Edge hub container. [Docker create options][lnk-docker-create-options] | No |
+| systemModules.edgeHub.settings<br>.createOptions | A stringified JSON containing the options for the creation of the Edge hub container. [Docker create options][lnk-docker-create-options] | No |
 | systemModules.edgeHub.configuration.id | The ID of the deployment that deployed this module. | This is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
 | modules.{moduleId}.version | A user-defined string representing the version of this module. | Yes |
 | modules.{moduleId}.type | Has to be "docker" | Yes |

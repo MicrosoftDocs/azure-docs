@@ -41,7 +41,7 @@ A Json document persisted in the IoT Hub that stores the state information for a
 When two IoT Edge deployments target the same device, the deployment with higher priority gets applied. If two deployments have the same priority, the deployment with the later creation date gets applied. Learn more about [priority](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#priority).
 
 ## IoT Edge runtime
-IoT Edge runtime includes everything that Microsoft distributes to be installed on an IoT Edge device. It included Edge agent, Edge hub and Edge CTL tool.
+IoT Edge runtime includes everything that Microsoft distributes to be installed on an IoT Edge device. It includes Edge agent, Edge hub, and the IoT Edge security daemon.
 
 ## IoT Edge set modules to a single device
 An operation that copies the content of an IoT Edge manifest on one device' module twin. The underlying API is a generic 'apply configuration', which simply takes an IoT Edge manifest as an input.
