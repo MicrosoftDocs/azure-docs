@@ -27,7 +27,7 @@ Azure Cloud Shell runs on `Ubuntu 16.04 LTS`.
 
 ### Secure automatic authentication
 
-Bash in Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0 and Azure PowerShell.
+Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0 and Azure PowerShell.
 
 ### $Home persistence across sessions
 
