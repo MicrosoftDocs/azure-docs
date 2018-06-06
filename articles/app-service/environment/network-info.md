@@ -82,13 +82,13 @@ For outbound access, an ASE depends on multiple external systems. Those system d
 | Use | From | To |
 |-----|------|----|
 | Azure Storage | ASE subnet | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is only needed for ASEv1.) |
-| Azure SQL Database | ASE subnet | database.windows.net: 1433, 11000-11999, 14000-14999 (For more information, see [SQL Database V12 port usage](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
-| Azure management | ASE subnet | management.core.windows.net, management.azure.com: 443 
-| SSL certificate verification |  ASE subnet            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
-| Azure Active Directory        | ASE subnet            |  Internet: 443
-| App Service management        | ASE subnet            |  Internet: 443
-| Azure DNS                     | ASE subnet            |  Internet: 53
-| ASE internal communication    | ASE subnet: All ports |  ASE subnet: All ports
+| Azure SQL Database | ASE subnet | database.windows.net: 1433 |
+| Azure management | ASE subnet | management.core.windows.net, management.azure.com: 443 |
+| SSL certificate verification |  ASE subnet            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443 |
+| Azure Active Directory        | ASE subnet            |  admin.core.windows.net, login.windows.net: 443 |
+| App Service management        | ASE subnet            |  gr-prod-<regionspecific>.cloudapp.net, az-prod.metrics.nsatc.net: 443 |
+| Azure DNS                     | ASE subnet            |  Internet: 53 |
+| ASE internal communication    | ASE subnet: All ports |  ASE subnet: All ports |
 
 If the ASE loses access to these dependencies, it stops working. When that happens long enough, the ASE is suspended.
 
@@ -136,6 +136,9 @@ An ASE has a few IP addresses to be aware of. They are:
 - **App-assigned IP-based SSL addresses**: Only possible with an External ASE and when IP-based SSL is configured.
 
 All these IP addresses are easily visible in an ASEv2 in the Azure portal from the ASE UI. If you have an ILB ASE, the IP for the ILB is listed.
+
+   > [!NOTE]
+   > These IP addresses will not change so long as your ASE stays up and running.  If your ASE becomes suspended and restored, the addresses used by your ASE will change. The normal cause for an ASE to become suspended is if you block inbound management access or block access to an ASE dependency. 
 
 ![IP addresses][3]
 
