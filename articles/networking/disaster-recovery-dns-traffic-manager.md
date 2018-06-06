@@ -23,7 +23,7 @@ ms.author: kumud
 Disaster recovery (DR) is focused on recovering from a severe loss of application functionality. Business and technology owners must determine how much functionality is required during a disaster. This level of functionality can take a few forms: unavailable, partially available via reduced functionality or delayed availability, or fully available.
 Most enterprise customers are choosing a multi-region architecture for resiliency against an application or infrastructure level failover. Customers can choose several approaches in the quest to achieve failover and high availability via redundant architecture. here are some of the popular approaches:
 
-- **Active-passive with cold standby: In this approach, the VMs and other appliances running in the standby region is not active until the need for failover. However, the production environment is replicated in the form of backups / VM images / Resource Manager templates to a different region. This is a cost-effective mechanism but takes a longer time to undertake a complete failover.
+- **Active-passive with cold standby**: In this approach, the VMs and other appliances running in the standby region is not active until the need for failover. However, the production environment is replicated in the form of backups / VM images / Resource Manager templates to a different region. This is a cost-effective mechanism but takes a longer time to undertake a complete failover.
  
     ![Active/Passive with cold standby](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     *Figure - Active/Passive with cold standby disaster recovery configuration*
@@ -33,7 +33,7 @@ Most enterprise customers are choosing a multi-region architecture for resilienc
     ![Active/Passive with pilot light](./media/disaster-recovery-dns-traffic-manager/active-passive-with-pilot-light.png)
     *Figure: Active/Passive with pilot light disaster recovery configuration*
 
-- **Active/Passive with warm standby** In this approach, the standby region is pre-warmed and is ready to take the base load, auto scaling is turned on, and all the instances are up and running. Here the solution is not scaled to take the full production load but is functional, and all services are up and running. This scenario is an augmented version of the Pilot Light approach.
+- **Active/Passive with warm standby**: In this approach, the standby region is pre-warmed and is ready to take the base load, auto scaling is turned on, and all the instances are up and running. Here the solution is not scaled to take the full production load but is functional, and all services are up and running. This scenario is an augmented version of the Pilot Light approach.
     
     ![Active/Passive with warm standby](./media/disaster-recovery-dns-traffic-manager/active-passive-with-warm-standby.png)
     *Figure: Active/Passive with warm standby disaster recovery configuration*
