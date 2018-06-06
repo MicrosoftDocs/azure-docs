@@ -1,3 +1,22 @@
+---
+title: Using Akka Streams with Event Hubs for Kafka Ecosystem | Microsoft Docs
+description: Send to and receive data from an Event Hubs Kafka endpoint using Akka Streams
+services: event-hubs
+documentationcenter: ''
+author: basilhariri
+manager: timlt
+editor: ''
+
+ms.assetid: ''
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.custom: mvc
+ms.date: 06/06/2018
+ms.author: bahariri
+
+---
+
 # Using Akka Streams with Event Hubs for Kafka Ecosystem
 
 One of the key benefits of using Apache Kafka is the ecosystem of frameworks it can connect to. Kafka enabled Event Hubs allow users to combine the flexibility of the Kafka ecosystem with the scalability, consistency, and support of the Azure ecosystem without having to manage on prem clusters or resources - it's the best of both worlds!
