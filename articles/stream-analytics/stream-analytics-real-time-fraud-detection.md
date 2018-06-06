@@ -126,12 +126,12 @@ Before you start the TelcoGenerator app, you configure it so that it will send c
 1.	Open a command window and change to the folder where the TelcoGenerator app is unzipped.
 2.	Enter the following command:
 
-        telcodatagen.exe 1000 .2 2
+        telcodatagen.exe 1000 0.2 2
 
     The parameters are: 
 
     * Number of CDRs per hour. 
-    * SIM Card Fraud Probability: How often, as a percentage of all calls, that the app should simulate a fraudulent call. The value .2 means that about 20% of the call records will look fraudulent.
+    * SIM Card Fraud Probability: How often, as a percentage of all calls, that the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.
     * Duration in hours. The number of hours that the app should run. You can also stop the app any time by pressing Ctrl+C at the command line.
 
     After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub.
