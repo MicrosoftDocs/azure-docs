@@ -43,7 +43,7 @@ To learn more, see [Key features and concepts in Azure Stack](azure-stack-key-fe
 
 Now you can get things ready for your users. The process of creating an offer has several steps. First, you're prompted to create the offer, then a plan, and finally, quotas.
 
-1. **Create an offer**
+**Create an offer**
 
    Offers are groups of one or more plans that providers present to users to purchase or subscribe to.
 
@@ -91,7 +91,7 @@ Now you can get things ready for your users. The process of creating an offer ha
 
    l. On the dashboard menu, select **Offers** and then pick the offer you created.
 
-   m. Select **Change State**, and then chose **Public**.
+   m. Select **Change State**, and then select **Public**.
 
    ![Public state](media/azure-stack-tutorial-tenant-vm/image09.png)
 
