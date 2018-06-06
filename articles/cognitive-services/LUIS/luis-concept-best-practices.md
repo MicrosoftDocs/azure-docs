@@ -92,7 +92,7 @@ The second column uses different verbs (buy, reserve, book), different quantitie
 ## Don't mix the definition of intents and entities
 Create an intent for any action your bot will take. Use entities as parameters that make that action possible. 
 
-For a chat bot that will book airline flights, create a BookFlight intent. Do not create an intent for every airline or every destination. Use those pieces of data as entities and mark them in the example utterances. 
+For a chatbot that will book airline flights, create a BookFlight intent. Do not create an intent for every airline or every destination. Use those pieces of data as entities and mark them in the example utterances. 
 
 ## Don't create phrase lists with all the possible values
 Provide a few examples in the phrase lists but not every word. LUIS generalizes and takes context into account. 
