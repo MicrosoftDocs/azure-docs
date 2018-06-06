@@ -1,4 +1,3 @@
-
 ---
 title: Use Azure AD v2.0 to access secure resources without user interaction | Microsoft Docs
 description: Build web applications by using the Azure AD implementation of the OAuth 2.0 authentication protocol.
