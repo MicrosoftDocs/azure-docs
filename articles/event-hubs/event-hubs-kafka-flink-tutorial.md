@@ -45,7 +45,7 @@ An Event Hubs namespace is required to send or receive from any Event Hubs servi
 
 Now that you have a Kafka enabled Event Hubs connection string, clone the Azure Event Hubs repository and navigate to the `flink` subfolder:
 
-```bash
+```shell
 git clone https://github.com/Azure/azure-event-hubs.git
 cd azure-event-hubs/samples/kafka/flink
 ```
@@ -60,7 +60,7 @@ Using the provided Flink producer example, send messages to the Event Hubs servi
 
 Update the `bootstrap.servers` and `sasl.jaas.config` values in `producer/src/main/resources/producer.config` to direct the producer to the Event Hubs Kafka endpoint with the correct authentication.
 
-```
+```xml
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
 client.id=FlinkExampleProducer
 sasl.mechanism=PLAIN
@@ -74,7 +74,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 To run the producer from the command line, generate the JAR and then run from within Maven (alternatively, generate the JAR using Maven, then run in Java by adding the necessary Kafka JAR(s) to the classpath):
 
-```bash
+```shell
 mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestProducer"
 ```
@@ -91,7 +91,7 @@ Using the provided consumer example, receive messages from the Kafka enabled Eve
 
 Update the `bootstrap.servers` and `sasl.jaas.config` values in `consumer/src/main/resources/consumer.config` to direct the consumer to the Event Hubs Kafka endpoint with the correct authentication.
 
-```config
+```xml
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
 group.id=FlinkExampleConsumer
 sasl.mechanism=PLAIN
@@ -105,7 +105,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 To run the consumer from the command line, generate the JAR and then run from within Maven (alternatively, generate the JAR using Maven, then run in Java by adding the necessary Kafka JAR(s) to the classpath):
 
-```bash
+```shell
 mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 ```
