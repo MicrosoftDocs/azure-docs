@@ -1,5 +1,5 @@
 ---
-title: Create a Kubernetes Cluster with Azure Container Services (AKS) and Terraform
+title: Create a Kubernetes cluster with Azure Container Services (AKS) and Terraform
 description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Container Services and Terraform
 keywords: terraform, devops, virtual machine, azure, kubernetes
 author: tomarcher
@@ -9,7 +9,7 @@ ms.date: 06/06/2018
 ms.topic: article
 ---
 
-# Create a Kubernetes Cluster with Azure Container Services and Terraform
+# Create a Kubernetes cluster with Azure Container Services and Terraform
 [Azure Container Services (AKS)](/azure/aks/) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.
 
 In this tutorial, you learn how to use the [Terraform](http://terriform.io) to perform the following tasks:
