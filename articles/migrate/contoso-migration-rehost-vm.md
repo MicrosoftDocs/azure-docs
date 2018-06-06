@@ -84,13 +84,13 @@ Contoso will migrate the two VMs running their tiered SmartHotel application to 
 
 ## Prerequisites
 
-Here's what Contoso (and you) needs to run this scenario..
+Here's what Contoso (and you) needs to run this scenario.
 
 **Requirements** | **Details**
 --- | ---
 
 **Azure subscription** | You should have already created a subscription during early articles in this series. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions.<br/><br/> If you need more granular permissions, review [this article](../site-recovery/site-recovery-role-based-linked-access-control.md). 
-**Azure infrastructure** | Contoso set up their Azure infrastrcture as described in [Azure infrastructure for migration](migrate-scenarios-infrastructure.md).<br/><br/> Learn more about specific [network](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) and [storage](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) requirements for Site Recovery.
+**Azure infrastructure** | Contoso set up their Azure infrastructure as described in [Azure infrastructure for migration](migrate-scenarios-infrastructure.md).<br/><br/> Learn more about specific [network](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) and [storage](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) requirements for Site Recovery.
 **On-premises servers** | Your on-premises vCenter server should be running version 5.5, 6.0, or 6.5<br/><br/> An ESXi host running version 5.5, 6.0 or 6.5<br/><br/> One or more VMware VMs running on the ESXi host.
 **On-premises VMs** | VMs must meet [Azure requirements](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).
 
@@ -118,16 +118,16 @@ There are a number of elements Contoso need in place to deploy Site Recovery to 
 
 They set up Site Recovery as follows:
 
-1. Contoso needs an Azure VNet into which the VMs will be migrated. They set these networks up when they [deployed the Azure infrastructure](contoso-migration-infrastructure.md)
+1. Contoso needs an Azure VNet into which the VMs will be migrated. They set up these networks when they [deployed the Azure infrastructure](contoso-migration-infrastructure.md)
 
     - Since the VMs host the SmartHotel app, they will be migrated to the Azure production network in the primary East US 2 region.
     - Both VMs will be in the ContosoRG resource group, which contains production resources.
     - WEBVM, containing the app frontend, will migrate to the frontend subnet (PROD-FE-EUS2), in the production network (VNET-PROD-EUS2).
     - SQLVM, containing the database, will migrate to the database subnet (PROD-DB-EUS2), in the production network (VNET-PROD-EUS2).
 
-2. Contoso needs to create an Azure storage acount (contosovmsacc20180528) in the primary region.
+2. Contoso needs to create an Azure storage account (contosovmsacc20180528) in the primary region.
     - The storage account must be in the same region as the Recovery Services vault.
-    - They use a general purpose account, with standard storage, and LRS replication. 
+    - They use a general-purpose account, with standard storage, and LRS replication. 
 
     ![Site Recovery storage](./media/contoso-migration-rehost-vm/asr-storage.png)
 
@@ -206,7 +206,7 @@ Before they can run a migration to Azure, Contoso needs to set up replication, a
 
 ### Confirm deployment planning
 
-To continue, they need to confirm that they have completed deployment planning, by selecting **Yes, I have done it**. n this deployment Contoso are only migrating two VMs, and don't need deployment planning.
+To continue, they need to confirm that they have completed deployment planning, by selecting **Yes, I have done it**. In this deployment Contoso are only migrating two VMs, and don't need deployment planning.
 
 
 ### Set up the source environment
@@ -233,7 +233,7 @@ Contoso perform these steps as follows:
 
 3.  When they turn on the VM for the first time, it boots up into a Windows Server 2016 installation experience. They accept the license agreement, and enter an administrator password.
 
-4. After the installation finishes, they sign in to the VM as the administrator. At first sign in, the Azure Site Recovery Configuration Tool runs by default.
+4. After the installation finishes, they sign in to the VM as the administrator. At first sign-in, the Azure Site Recovery Configuration Tool runs by default.
 5. In the tool, they specify a name to register the configuration server in the vault.
 6. The tool checks that the VM can connect to Azure.
 7. After the connection is established, they sign in to the Azure subscription. The credentials must have access to the vault in which they'll register the configuration server.
@@ -260,7 +260,7 @@ Contoso perform these steps as follows:
 Now Contoso needs to specify target replication settings.
 
 1. In **Prepare infrastructure** > **Target**, they select the target settings.
-2. Site Recovery checks that there's a Azure storage account and network in the specified target.
+2. Site Recovery checks that there's an Azure storage account and network in the specified target.
 
 ### Create a replication policy
 
@@ -293,7 +293,7 @@ Now Contoso can start replicating the WebVM.
 
 4. Contoso selects the WebVM for replication. 
 
-    - At this stage Contoso selects only WEBVM because VNet and subnet must be selected,and the VMs aren't in the same subnet.
+    - At this stage Contoso selects only WEBVM because VNet and subnet must be selected, and the VMs aren't in the same subnet.
     - Site Recovery automatically installs the Mobility service when replication is enabled for the VM.
 
     ![Enable replication](./media/contoso-migration-rehost-vm/enable-replication3.png)
@@ -379,7 +379,7 @@ Now Contoso is ready to run a failover on the recovery plan, to migrate the VMs.
 
     ![Failover](./media/contoso-migration-rehost-vm/failover2.png)  
 
-3. After verification, they complete the migration for each VM. This stops replication for the VM, and stop Site Recovery billing for it.
+3. After verification, they complete the migration for each VM. This stops replication for the VM, and stops Site Recovery billing for it.
 
     ![Failover](./media/contoso-migration-rehost-vm/failover3.png)
 
@@ -416,7 +416,7 @@ The Contoso security team reviews the Azure VMs, to determine any security issue
 
 ### Backups
 
-Azure are going to back up the data on the VMs using the Azure Backup service. [Learn more](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Contoso is going to back up the data on the VMs using the Azure Backup service. [Learn more](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### Licensing and cost optimization
 
