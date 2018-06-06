@@ -20,7 +20,7 @@ ms.author: jdial
 ---
 # Check resource usage against limits
 
-In this article, you learn how to see the number of each network resource type that you have deployed in your subscription and what your [subscription limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) are. The ability to view resource usage against limits is helpful to track current usage, and plan for future use. You can use the [Azure Portal](#azure-portal), [PowerShell](#powershell), or the [Azure CLI](#azure-cli) to track usage.
+In this article, you learn how to see the number of each network resource type that you've deployed in your subscription and what your [subscription limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) are. The ability to view resource usage against limits is helpful to track current usage, and plan for future use. You can use the [Azure Portal](#azure-portal), [PowerShell](#powershell), or the [Azure CLI](#azure-cli) to track usage.
 
 ## Azure Portal
 
@@ -35,15 +35,15 @@ In this article, you learn how to see the number of each network resource type t
     - **Locations**: You can select all Azure locations, or select specific locations.
     - You can select to show all resources, or only the resources where at least one is deployed.
 
-    In the following picture, all resources with at least one resource deployed for the Microsoft.Network provider in the East US are shown:
+    The example in the following picture shows all of the network resources with at least one resource deployed in the East US:
 
         ![View usage data](./media/check-usage-against-limits/view-usage.png)
 
-    The limits shown are the limits for your subscription. You can sort the columns by selecting the column heading. If you need to increase your limit, select **Request Increase**, then complete and submit the support request. All resources have a maximum limit, as listed in Azure [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). If your current limit is already at the maximum, it can't be increased.
+    You can sort the columns by selecting the column heading. The limits shown are the limits for your subscription. If you need to increase a default limit, select **Request Increase**, then complete and submit the support request. All resources have a maximum limit listed in Azure [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). If your current limit is already at the maximum number, the limit can't be increased.
 
 ## PowerShell
 
-You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the *AzureRM* PowerShell module, version 6.0.1 or later. Run `Get-Module -ListAvailable AzureRM` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to log in to Azure.
+You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the *AzureRM* PowerShell module, version 6.0.1 or later. Run `Get-Module -ListAvailable AzureRM` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you're running PowerShell locally, you also need to run `Login-AzureRmAccount` to log in to Azure.
 
 View your usage against limits with [Get-AzureRmNetworkUsage](/powershell/module/azurerm.network/powershell/module/azurerm.network/get-azurermnetworkusage). The following example gets the usage for resources where at least one resource is deployed in the East US location:
 
@@ -68,7 +68,7 @@ Network Watchers                   1     1
 
 ## Azure CLI
 
-If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to log in to Azure.
+If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you're running the Azure CLI locally, you also need to run `az login` to log in to Azure.
 
 View your usage against limits with [az network list-usages](/cli/azure/network?view=azure-cli-latest#az-network-list-usages). The following example gets the usage for resources in the East US location:
 
