@@ -22,6 +22,8 @@ This article lists the operations available for each Azure Resource Manager reso
 
 The resource provider operations are always evolving. To get the latest operations, use [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
 ## Microsoft.AAD
 
 > [!div class="mx-tdCol2BreakAll"]
