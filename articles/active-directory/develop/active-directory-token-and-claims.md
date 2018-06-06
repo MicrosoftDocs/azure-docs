@@ -150,21 +150,31 @@ For a full list of claim validations your app should perform for ID Tokens, refe
 ## Token Revocation
 
 Refresh tokens can be invalidated or revoked at any time, for a variety of reasons. These fall into two main categories: timeouts and revocations. 
-* Token Timeouts
-  * MaxInactiveTime: If the refresh token has not been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid. 
-  * MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then re-authentication will be required after the time set in the MaxAgeSession* elapses. 
-  * Examples:
-    * The tenant has a MaxInactiveTime of 5 days, and the user went on vacation for a week, and so AAD has not seen a new token request from the user in 7 days. The next time the user requests a new token, they will find their Refresh Token has been revoked, and they must enter their credentials again. 
-    * A sensitive application has a MaxAgeSessionSingleFactor of 1 day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they will be required to re-authenticate. 
-* Revocation
-  * Voluntary Password Change: If a user changes their password, they may have to re-authenticate across some of their applications, depending on the way the token was attained. See notes below for exceptions. 
-  * Involuntary Password Change: If an administrator forces a user to change their password or resets it, then the user's tokens are invalidated if they were attained using their password. See notes below for exceptions. 
-  * Security Breach: In the event of a security breach (e.g. the on-premises store of passwords is breached) the admin can revoke all of the refresh tokens currently issued. This will force all users to re-authenticate. 
+
+**Token Timeouts**
+
+* MaxInactiveTime: If the refresh token has not been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid. 
+* MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then re-authentication will be required after the time set in the MaxAgeSession* elapses. 
+* Examples:
+  * The tenant has a MaxInactiveTime of 5 days, and the user went on vacation for a week, and so AAD has not seen a new token request from the user in 7 days. The next time the user requests a new token, they will find their Refresh Token has been revoked, and they must enter their credentials again. 
+  * A sensitive application has a MaxAgeSessionSingleFactor of 1 day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they will be required to re-authenticate. 
+
+**Revocation**
+
+|   | Password based cookie | Password based token | Non-password based cookie | Non-password based token | Confidential client token| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|Password Expires| Stays alive|Stays alive|Stays alive|Stays alive|Stays alive|
+|Password changed by user| Revoked | Revoked | Stays alive|Stays alive|Stays alive|
+|User does SSPR|Revoked | Revoked | Stays alive|Stays alive|Stays alive|
+|Admin resets password|Revoked | Revoked | Stays alive|Stays alive|Stays alive|
+|User revokes their refresh tokens [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked |Revoked | Revoked |
+|Admin revokes all refresh tokens for the tenant [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked |Revoked | Revoked |
+|[Single-Sign Out](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) on web | Revoked | Stays alive |Revoked | Stays alive |Stays alive |Stays alive |
 
 > [!NOTE]
->If a non-password method of authentication was used (Windows Hello, the Authenticator app, biometrics like a face or fingerprint) to attain the token, changing the user's password will not force the user to re-authenticate (but it will force their Authenticator app to re-authenticate). This is because their chosen authentication input (a face, e.g.) has not changed, and therefore can be used again to re-authenticate.
+> A "Non-password based" login is one where the user didn't type in a password to get it.  For example using your face with Windows Hello, a FIDO key, or a PIN. 
 >
-> Confidential clients are not impacted by password change revocations. A confidential client with a refresh token issued before a password change will continue to be abl to use that refresh token to get more tokens. 
+> A known issue exists with the Windows Primary Refresh Token.  If the PRT is obtained via a password, and then the user logs in via Hello, this does not change the origination of the PRT, and it will be revoked if the user changes their password. 
 
 ## Sample Tokens
 

@@ -33,7 +33,7 @@ The following list includes best practices for LUIS apps:
 |[Build your app iteratively](#do-build-the-app-iteratively)|[Add many example utterances of the same format, ignoring other formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Add phrase lists and patterns in later iterations](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Mix the definition of intents and entities](#dont-mix-the-definition-of-intents-and-entities)|
 |[Add example utterances to None intent](#do-add-example-utterances-to-none-intent)|[Create phrase lists with all possible values](#dont-create-phrase-lists-with-all-the-possible-values)|
-|[Leverage the suggest feature for active learning](#leverage-the-suggest-feature-for-active-learning)|[Add so many patterns](#dont-add-many-patterns)|
+|[Leverage the suggest feature for active learning](#do-leverage-the-suggest-feature-for-active-learning)|[Add so many patterns](#dont-add-many-patterns)|
 |[Monitor the performance of your app](#do-monitor-the-performance-of-your-app)|[Train and publish with every single example utterance added](#dont-train-and-publish-with-every-single-example-utterance)|
 
 ## Do define distinct intents
@@ -92,7 +92,7 @@ The second column uses different verbs (buy, reserve, book), different quantitie
 ## Don't mix the definition of intents and entities
 Create an intent for any action your bot will take. Use entities as parameters that make that action possible. 
 
-For a chat bot that will book airline flights, create a BookFlight intent. Do not create an intent for every airline or every destination. Use those pieces of data as entities and mark them in the example utterances. 
+For a chatbot that will book airline flights, create a BookFlight intent. Do not create an intent for every airline or every destination. Use those pieces of data as entities and mark them in the example utterances. 
 
 ## Don't create phrase lists with all the possible values
 Provide a few examples in the phrase lists but not every word. LUIS generalizes and takes context into account. 
