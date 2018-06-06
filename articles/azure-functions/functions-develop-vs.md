@@ -106,7 +106,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
 
     ![Create a queue triggered function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    This trigger example uses a connection string with a key named **QueueStorage**. This connection string setting must be defined in the local.settings.json file.
+    This trigger example uses a connection string with a key named **QueueStorage**. This connection string setting must be defined in the [local.settings.json file](functions-run-local.md#local-settings-file).
 
 3. Examine the newly added class. You see a static **Run** method, that is attributed with the **FunctionName** attribute. This attribute indicates that the method is the entry point for the function.
 
