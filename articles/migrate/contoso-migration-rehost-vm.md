@@ -85,11 +85,10 @@ Contoso will migrate the app frontend and database VMs to Azure VMs using Site R
 
 ## Prerequisites
 
-Here's what Contoso (and you) needs to run this scenario.
+Here's what you (and Contoso) need to run this scenario.
 
 **Requirements** | **Details**
 --- | ---
-
 **Azure subscription** | You should have already created a subscription during early articles in this series. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions.<br/><br/> If you need more granular permissions, review [this article](../site-recovery/site-recovery-role-based-linked-access-control.md). 
 **Azure infrastructure** | [Learn how](contoso-migration-infrastructure.md) Contoso set up an Azure infrastructure.<br/><br/> Learn more about specific [network](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) and [storage](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) requirements for Site Recovery.
 **On-premises servers** | On-premises vCenter Servers should be running version 5.5, 6.0, or 6.5<br/><br/> ESXi hosts should run version 5.5, 6.0 or 6.5<br/><br/> One or more VMware VMs should be running on the ESXi host.
@@ -176,7 +175,7 @@ The Mobility service must be installed on each VM.
 
 ### Prepare to connect to Azure VMs after failover
 
-After failover, Contoso wants to connect to the Azure VMs. To do this, they do the following:
+After failover, Contoso wants to connect to the Azure VMs. To do this, they do the following before migration:
 
 1. For access over the internet they:
 
@@ -253,7 +252,7 @@ Contoso perform these steps as follows:
 10. They select the subscription, resource group, and the vault in which to register the configuration server.
         ![vault](./media/contoso-migration-rehost-vm/cswiz1.png) 
 
-10. They download and install MySQL Server, and VMWare PowerCLI. Then, they validate the server settings.
+10. They download and install MySQL Server, and VMWare PowerCLI. 
 11. After validation, they specify the FQDN or IP address of the vCenter server or vSphere host. They leave the default port, and specify a friendly name for the server in Azure.
 12. They specify the account that they created for automatic discovery, and the credentials that are used to automatically install the Mobility Service. For Windows machines, the account needs local administrator privileges on the VMs.
 
