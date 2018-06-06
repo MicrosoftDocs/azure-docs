@@ -255,4 +255,4 @@ When no longer needed, delete the resource group. This deletes the cognitive ser
 
 ## Next steps
 
-Learn more about the Computer Vision API by reading the [Computer Vision API Documentation](index.md).
+Learn more about the Computer Vision API by reading the [Computer Vision API Documentation](Home.md).

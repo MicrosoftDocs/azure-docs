@@ -54,7 +54,7 @@ assert subscription_key
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
-text_recognition_url = vision_base_url + "RecognizeText"
+text_recognition_url = vision_base_url + "recognizeText"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" + \
