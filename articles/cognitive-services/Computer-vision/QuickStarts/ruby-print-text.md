@@ -42,7 +42,7 @@ uri = URI('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr')
 uri.query = URI.encode_www_form({
     # Request parameters
     'language' => 'unk',
-    'detectOrientation ' => 'true'
+    'detectOrientation' => 'true'
 })
 
 request = Net::HTTP::Post.new(uri.request_uri)
