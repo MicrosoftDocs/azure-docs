@@ -15,7 +15,7 @@ ms.author: nepeters
 
 Azure Container Instances (ACI) provide a hosted environment for running containers in Azure. When using ACI, there is no need to manage the underlying compute infrastructure, Azure handles this management for you. When running containers in ACI, you are charged by the second for each running container.
 
-When using [Virtual Kubelet] provider for Azure Container Instances, pods can be scheduled on a container instance as if it is a standard Kubernetes node. This configuration allows you to take advantage of both the capabilities of Kubernetes and the management value and cost benefit of Container Instances.
+When using the Virtual Kubelet provider for Azure Container Instances, pods can be scheduled on a container instance as if it is a standard Kubernetes node. This configuration allows you to take advantage of both the capabilities of Kubernetes and the management value and cost benefit of Container Instances.
 
 This document details configuring the Virtual Kubelet Azure Container Instance provider on an Azure Container Service (AKS) cluster.
 
@@ -24,52 +24,32 @@ This document details configuring the Virtual Kubelet Azure Container Instance p
 
 ## Prerequisite
 
-This document assumes that you have an AKS cluster. If you an AKS cluster, see the [Azure Kubernetes Service (AKS) quickstart][aks-quick-start].
+This document assumes that you have an AKS cluster. If you need an AKS cluster, see the [Azure Kubernetes Service (AKS) quickstart][aks-quick-start].
 
 You also need the Azure CLI version **2.0.33** or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Installation
 
-To install Virtual Kubelet for an AKS cluster, run the following command. Replace the values for the following arguments:
-
-- resource-group - the resource group of the AKS cluster.
-- name - the name of the AKS cluster.
-- connector-name - the name given to the Virtual Kubelet.
-- os-type - select the OS type for the container instance. This value can be `Linux`, `Windows`, or `Both`. If omitted, `Linux` is selected by default.
+Use the [az aks install-connector][aks-install-connector] command to install Virtual Kubelet.
 
 ```azurecli-interactive
 az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet --os-type linux
 ```
 
-Output:
+The following arguments are r
 
-```
-NAME:   virtual-kubelet-linux
-LAST DEPLOYED: Thu May 24 11:36:47 2018
-NAMESPACE: default
-STATUS: DEPLOYED
-
-RESOURCES:
-==> v1beta1/Deployment
-NAME                                           DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-virtual-kubelet-linux-virtual-kubelet-for-aks  1        1        1           0          1s
-
-==> v1/Pod(related)
-NAME                                                            READY  STATUS             RESTARTS  AGE
-virtual-kubelet-linux-virtual-kubelet-for-aks-594fd95c5c-9w6sc  0/1    ContainerCreating  0         1s
-
-==> v1/Secret
-NAME                                           TYPE    DATA  AGE
-virtual-kubelet-linux-virtual-kubelet-for-aks  Opaque  3     1s
-
-
-NOTES:
-The virtual kubelet is getting deployed on your cluster.
-
-To verify that virtual kubelet has started, run:
-
-  kubectl --namespace=default get pods -l "app=virtual-kubelet-linux-virtual-kubelet-for-aks"
-```
+| Argument: | Description | Required |
+|:---|:---|---|
+| `--connector-name` | Name of the ACI Connector.| Yes |
+| `--name` `-n` | Name of the managed cluster. | Yes |
+| `--resource-group` `-g` | Name of resource group. | Yes |
+| `--aci-resource-group` | The resource group to create the ACI container groups. Use the MC_* resource group if it is not specified. | No |
+| `--chart-url` | URL of a Helm chart that installs ACI Connector.  Default: https://github.com/virtual-kubelet/virtual- kubelet/raw/master/charts/virtual-kubelet-for-aks-0.1.3.tgz.. | No |
+| `--client-secret` | Secret associated with the service principal. This argument is required if `--service-principal` is specified. | No |
+| `--image-tag` | The image tag of the virtual kubelet. Use 'latest' if it is not specified. | No |
+| `--location` `-l` | The location to create the ACI container groups. Use the location of the MC_* resource group if it is not specified. | No |
+| `--os-type` | Install support for deploying ACIs of this operating system type.  Allowed values: Both, Linux, Windows. Default: Linux. | No |
+| `--service-principal` | Service principal used for authentication to Azure APIs. If not specified, use the AKS service principal defined in the file /etc/kubernetes/azure.json on the node that runs the virtual kubelet pod. | No |
 
 ## Validate Virtual Kubelet
 
@@ -91,7 +71,7 @@ virtual-kubelet-virtual-kubelet-linux   Ready     agent     42s       v1.8.3
 
 ## Schedule a pod in ACI
 
-Create a file named `virtual-kubelete-test.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name given to the Virtual Kubelet node. Take note that a `npdeSelector` and `toleration` are being used to schedule the contianer on the Virtual Kubelet node.
+Create a file named `virtual-kubelete-test.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name given to the Virtual Kubelet node. Take note that a `nodeSelector` and `toleration` are being used to schedule the container on the Virtual Kubelet node.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -151,6 +131,7 @@ Read more about Virtual Kubelet at the [Virtual Kubelet Github projet][vk-github
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
 [az-container-list]: /cli/azure/aks#az_aks_list
+[aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create
