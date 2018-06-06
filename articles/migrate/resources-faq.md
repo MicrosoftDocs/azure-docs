@@ -101,5 +101,5 @@ Azure Migrate does not support using an existing workspace for dependency visual
 
 ## Next steps
 
-•	Read the [Azure Migrate overview](migrate-overview.md)
-•	Learn how you can [discover and assess](tutorial-assessment-vmware.md) a VMware environment
+- Read the [Azure Migrate overview](migrate-overview.md)
+- Learn how you can [discover and assess](tutorial-assessment-vmware.md) a VMware environment
