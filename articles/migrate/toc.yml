@@ -25,9 +25,9 @@
     - name: 2. Contoso-Set up an Azure infrastructure
       href: contoso-migration-infrastructure.md
     - name: 3. Contoso-Assess on-premises resources for migration to Azure
-      href: migrate-scenarios-assessment.md
-    - name: 4. Contoso-Rehost on Azure VMs and Azure SQL Managed Instance 
-      href: migrate-scenarios-lift-and-shift.md
+      href: contoso-migration-assessment.md
+    - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Managed Instance
+      href: contoso-migration-rehost-vm-sql-managed-instance.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
   - name: Group machines
