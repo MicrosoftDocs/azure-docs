@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/15/2018
+ms.date: 06/5/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to use visual studio to locally run a .net core application on Service Fabric Mesh so that I can see it run and then I will deploy it to Azure.
@@ -21,7 +21,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Create an ASP.NET Core website for Service Fabric Mesh
 
-In this tutorial you will create a new Service Fabric Mesh project, add an ASP.NET Core website to it, and run it locally in the Service Fabric cluster. After that, you will deploy the project to Azure.
+In this tutorial you will create a new Service Fabric Mesh application which is made up of an ASP.NET Core website, and run it locally in the Service Fabric cluster. After that, you will publish the project to Azure.
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
@@ -57,26 +57,25 @@ You must set the **Service Name** to something unique. Why? Because the name of 
 
 Press **OK** to create the ASP.NET Core project. 
 
-
 ![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
 
 A new dialog is displayed, **New ASP.NET Core Web Application** dialog. Select **Web Application** and then press **OK**.
 
 ![Visual studio new ASP.NET core application](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
-Visual Studio will create both the Service Fabric Application project and the ASP.NET Core project. The combination of these two projects represent your service. 
+Visual Studio will create both the Service Fabric Application project and the ASP.NET Core project.
 
 ## Build and deploy
 
 A Docker image will automatically be built and deployed to your local cluster as soon as your project loads. This process may take some time and you can monitor the progress of the Service Fabric tools in the **Output** pane if you want. Select the **Service Fabric Tools** item in the pane. You are not prevented from running your project.
 
-After the project has been created, press **F5** to compile and run your service locally. This may take some time if your project has never been run before. Whenever the project is run and debugged locally, Visual Studio will: 
+After the project has been created, press **F5** to compile and run your service locally. Whenever the project is run and debugged locally, Visual Studio will: 
 
 1. Make sure that Docker for Windows is running and set to use Windows as the container operating system.
-2. Downloads any missing Docker base images. This part may take some time
-3. Builds (or rebuilds) the Docker image used to host your code project.
+2. Download any missing Docker base images. This part may take some time
+3. Build (or rebuild) the Docker image used to host your code project.
 4. Deploys and runs the container on the local Service Fabric development cluster.
-6. Runs your services and hits any breakpoints you have set.
+6. Run your services and hits any breakpoints you have set.
 
 After the local deployment is finished, and Visual Studio is running your projects, a browser window will open and automatically navigate to the sample webpage.
 
@@ -104,7 +103,7 @@ Back in the **Publish Service Fabric Application** dialog, under **Azure Contain
 
 In the publish dialog, press the **Publish** button to deploy your Service Fabric application to Azure.
 
-When you publish to Azure for the first time, it can take up to 10 or more minutes. Subsequent publishes of the same project generally take around five minutes. Obviously, these estimates will vary based on your internet connection speed and other factors. You can monitor the progress of the deployment by selecting the **Service Fabric Tools** item in the Visual Studio **Output** pane. Once the deployment has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
+When you publish to Azure for the first time, it can take up to 10 or more minutes. Subsequent publishes of the same project generally take around five minutes. Obviously, these estimates will vary based on your internet connection speed and other factors. You can monitor the progress of the deployment by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the deployment has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
 
 ```json
 Packaging Application...
