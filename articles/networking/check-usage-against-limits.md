@@ -20,7 +20,7 @@ ms.author: jdial
 ---
 # Check resource usage against limits
 
-In this article, you learn how to see how many of each network resource type you have deployed in your subscription and what the [subscription limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) are. The ability to view usage against quota is helpful to track current usage and plan for future use. You can use the [Azure Portal](#azure-portal), [PowerShell](#powershell), or the [Azure CLI](#azure-cli) to track usage.
+In this article, you learn how to see the number of each network resource type that you have deployed in your subscription and what your [subscription limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) are. The ability to view resource usage against limits is helpful to track current usage, and plan for future use. You can use the [Azure Portal](#azure-portal), [PowerShell](#powershell), or the [Azure CLI](#azure-cli) to track usage.
 
 ## Azure Portal
 
