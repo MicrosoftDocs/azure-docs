@@ -44,7 +44,7 @@ Linux users can use Bash in Cloud Shell, while Windows users can use PowerShell 
 ### Authenticated and configured Azure workstation
 Cloud Shell is managed by Microsoft so it comes with popular command-line tools and language support. Cloud Shell also securely authenticates automatically for instant access to your resources through the Azure CLI 2.0 or Azure PowerShell cmdlets.
 
-View the full tooling list for the [Bash experience](features.md#tools) and [PowerShell (Preview) experience.](features-powershell.md#tools)
+View the full [tooling list.](features.md#tools)
 
 ### Multiple access points
 Cloud Shell is a flexible tool that can be used from:
