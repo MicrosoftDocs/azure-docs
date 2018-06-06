@@ -22156,11 +22156,17 @@
             "redirect_url": "/azure/key-vault/key-vault-overview",
             "redirect_document_id": true
         },
-        {
-            "source_path": "articles/data-factory/how-to-create-event-trigger.md",
-            "redirect_url": "/azure/data-factory/concepts-pipeline-execution-triggers",
+      {
+        "source_path": "articles/data-factory/how-to-create-event-trigger.md",
+        "redirect_url": "/azure/data-factory/concepts-pipeline-execution-triggers",
+        "redirect_document_id": false
+      },
+      
+      {
+            "source_path": "articles/active-directory/connect/active-directory-aadconnect-guest-sync.md",
+            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
             "redirect_document_id": false
-        }
+       }
 
     ]
 }
