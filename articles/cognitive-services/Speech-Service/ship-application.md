@@ -21,7 +21,15 @@ Depending on the platform you are distributing your application on, different fi
 
 ## Windows
 
-On Windows, you can deploy the required files next to your application, which guarantees that your application can access them. Make sure you select the version (Win32/x64) matching your application.
+We are testing the SDK on Windows 10 as well as on Windows Server 2016.
+
+The Cognitive Services Speech SDK requires the `VS2017 C++ Runtime libraries` on the system. You can find the latest version of the `VS2017 C++ redistributables` here: https://aka.ms/vs/15/release/vc_redist.x86.exe or https://aka.ms/vs/15/release/vc_redist.x64.exe.
+
+If your application is using managed code, the `.Net Framework 4.6.1` or later is required on the target machine.
+
+For microphone input the Media Foundation Libraries need to be installed. These libraries are by default installed on Windows 10 and on Windows Server 2016. In there absence it is possible to use the Speech SDK, as long as the microphone isn't used as an audio input device.
+
+The required Speech SDK files can be deployed in the same directory as your application. This guarantees that your application can access them and won't interfer with other applications using different version of the SDK on your system. Make sure you select the version (Win32/x64) matching your application.
 
 | Name | Function
 |:-----|:----|
