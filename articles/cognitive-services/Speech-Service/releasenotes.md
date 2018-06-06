@@ -54,6 +54,6 @@ ms.author: wolfma
 More samples have been added and are constantly being updated. For the latest set of samples, see the [Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 
-## Cognitive Services Speech SDK 0.3.0 - Release 2018-May
+## Cognitive Services Speech SDK 0.2.12733 - Release 2018-May
 
-The initial public preview release of the Speech SDK.
+The first public preview release of the Cognitive Services Speech SDK.
