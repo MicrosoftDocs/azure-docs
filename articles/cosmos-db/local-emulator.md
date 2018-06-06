@@ -62,6 +62,7 @@ While we created a high-fidelity local emulation of the actual Azure Cosmos DB s
 ## Differences between the Emulator and the service 
 Because the Azure Cosmos DB Emulator provides an emulated environment running on a local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos DB account in the cloud:
 
+* Currently Data Explorer in the emulator supports SQL API collections and MongoDB collections only. Table, Graph, and Cassandra API's are not yet supported.  
 * The Azure Cosmos DB Emulator supports only a single fixed account and a well-known master key.  Key regeneration is not possible in the Azure Cosmos DB Emulator.
 * The Azure Cosmos DB Emulator is not a scalable service and will not support a large number of collections.
 * The Azure Cosmos DB Emulator does not simulate different [Azure Cosmos DB consistency levels](consistency-levels.md).
