@@ -24,7 +24,7 @@ The `AudioInputStreamFormat` defines the format of the audio data. It can be com
 
   - `FormatTag`
   
-    The format of the audio. The Speech SDK currently only supports `format 1` (PCM).
+    The format of the audio. The Speech SDK currently only supports `format 1` (PCM - little-endian).
 
   - `Channels`
   

@@ -29,7 +29,7 @@ If your application is using managed code, the `.Net Framework 4.6.1` or later i
 
 For microphone input, the Media Foundation Libraries need to be installed. These libraries are part of Windows 10 and Windows Server 2016. It is possible to use the Speech SDK without these libraries, as long as microphone is not used as the audio input device.
 
-The required Speech SDK files can be deployed in the same directory as your application. This way your application can directly access the libraries. It also prevents interference with applications using a different version of the SDK. Make sure you select the correct version (Win32/x64) matching your application.
+The required Speech SDK files can be deployed in the same directory as your application. This way your application can directly access the libraries. Make sure you select the correct version (Win32/x64) matching your application.
 
 | Name | Function
 |:-----|:----|
