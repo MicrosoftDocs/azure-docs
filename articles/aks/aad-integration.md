@@ -18,6 +18,10 @@ Azure Kubernetes Service (AKS) includes the capability of using Azure Active Dir
 
 This document details creating all necessary prerequisites for AKS and AAD, deplying an AAD enabled cluster, and creating a simple RBAC role in the AKS cluster.
 
+> [!IMPORTANT]
+> Azure Kubernetes Service (AKS) RBAC and AAD integration is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+>
+
 ## Authentication details
 
 AAD authentication is provided to Azure Kuberntees Clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. More information on OpenID Connect can be found [here](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication)
