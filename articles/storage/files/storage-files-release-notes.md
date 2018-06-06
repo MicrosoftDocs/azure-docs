@@ -3,11 +3,11 @@ title: Release notes for the Azure File Sync agent (preview) | Microsoft Docs
 description: Release notes for the Azure File Sync agent (preview).
 services: storage
 author: wmgries
-manager: jeconnoc
+manager: aungoo
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/31/2018
 ms.author: wgries
 ---
 
@@ -26,12 +26,10 @@ The following versions are supported for the Azure File Sync agent:
 | March update rollup | 2.2.0.0 | March 12, 2018 | Supported |
 | February update rollup | 2.1.0.0 | February 28, 2018 | Supported |
 | Refresh 1 | 2.0.11.0 | February 8, 2018 | Supported |
-| January update rollup | 1.4.0.0 | January 8, 2018 | Supported until May 8, 2018<sup>1</sup> |
-| November update rollup | 1.3.0.0 | November 30, 2017 | Supported until May 8, 2018<sup>1</sup> |
-| October update rollup | 1.2.0.0 | October 31, 2017 | Supported until May 8, 2018<sup>1</sup> |
-| Initial preview release | 1.1.0.0 | September 26, 2017 | Supported until May 8, 2018<sup>1</sup> |
-
-\[1\]: Releases of the Azure File Sync agent during preview intentionally do not conform to the update policy. The update policy will be enforced starting with the first agent release after Azure File Sync is declared generally available.
+| January update rollup | 1.4.0.0 | January 8, 2018 | Supported |
+| November update rollup | 1.3.0.0 | November 30, 2017 | Supported |
+| October update rollup | 1.2.0.0 | October 31, 2017 | Supported |
+| Initial preview release | 1.1.0.0 | September 26, 2017 | Supported |
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

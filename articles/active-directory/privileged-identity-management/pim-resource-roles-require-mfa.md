@@ -3,7 +3,7 @@ title: Enforce Azure Multi-Factor Authentication in Azure resources by using Pri
 description: This document describes how to enable multi-factor authentication for PIM resources.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 editor: mwahl
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
 ---
 

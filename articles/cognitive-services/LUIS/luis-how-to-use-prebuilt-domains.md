@@ -13,7 +13,7 @@ ms.author: v-geberr
 
 # Use prebuilt domains in LUIS apps  
 
-Language Understanding (LUIS) provides *prebuilt domains*, which are prebuilt sets of [intents](Add-intents.md) and [entities](luis-concept-entity-types.md) that work together for domains or common categories of client applications. 
+Language Understanding (LUIS) provides *prebuilt domains*, which are prebuilt sets of [intents](luis-how-to-add-intents.md) and [entities](luis-concept-entity-types.md) that work together for domains or common categories of client applications. 
 The prebuilt domains have been pre-trained and are ready for you to add to your LUIS app. The intents and entities in a prebuilt domain are fully customizable once you've added them to your app - you can train them with utterances from your system so they work for your users. You can use an entire prebuilt domain as a starting point for customization, or just borrow a few intents or entities from a prebuilt domain. 
 
 Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click on the tile for a domain to add it to your app, or click on **Learn more** in its tile to learn about its intents and entities.
