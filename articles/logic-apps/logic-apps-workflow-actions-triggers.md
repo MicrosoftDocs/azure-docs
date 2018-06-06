@@ -1,7 +1,7 @@
 ﻿---
 # required metadata
 title: Workflow trigger and action types - Azure Logic Apps | Microsoft Docs
-description: Learn about the built-in trigger and action types in Azure Logic Apps as described by the Workflow Definition Language schema
+description: Learn about built-in trigger and action types in Azure Logic Apps as described by the Workflow Definition Language schema
 services: logic-apps
 ms.service: logic-apps
 author: kevinlam1
@@ -841,9 +841,16 @@ For example:
 
 ## Actions overview
 
-There are many types of actions, each with unique behavior. 
-Each action type has different inputs that define an action's behavior. 
-Control workflow actions can contain many other actions within themselves. 
+Azure Logic Apps provides various action types, and each type has 
+different inputs that define an action's unique behavior. For example, 
+here are some commonly used action types: 
+
+* **HTTP** and **ApiConnection**, which call HTTP endpoints
+* **Function**, which calls an Azure Function
+* **If**, **ForEach**, and **Until**, which control workflow execution 
+and can contain other actions
+* **Join**, **Query**, **Compose**, **Table**, and **Select**, 
+which create or transform data from various inputs.  
 
 ### Built-in action types
 
@@ -857,11 +864,11 @@ Control workflow actions can contain many other actions within themselves.
 | **Join** | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
 | **Query** | Creates an array from items in another array based on a condition or filter. | 
 | **Response** | Defines the response for an incoming call. | 
-| **Select** | Converts items from one array into different items in another array. For example, you can convert an array of numbers into an array of objects. | 
-| **Table** | Converts an array into a CSV or HTML table. | 
+| **Select** | Creates an array that contains transformed JSON objects from another array. | 
+| **Table** | Creates a CSV or HTML table from an array. | 
 | **Terminate** | Stops an actively running workflow. | 
 | **Wait** | Waits a fixed amount of time or until a specific time. | 
-| **Workflow** | Nest one workflow inside another workflow. | 
+| **Workflow** | Nests a workflow inside another workflow. | 
 ||| 
 
 ### Control workflow action types
@@ -1212,12 +1219,12 @@ For more information, see [Change or manage data, outputs, and formats](../logic
 | <*delimiter*> | Single character string | The character that separates each item in the string | 
 |||| 
 
-For example, suppose you have an array variable 
-named "myIntegerArray" that contains integers, 
-such as `[1,2,3,4]`. This example gets the 
-values from the variable by using the `variables()` 
-function in an expression and creates this string with 
-those values, which are separted by a comma: `"1,2,3,4"`
+*Example*
+
+Suppose you have an array variable named "myIntegerArray" that contains integers, 
+such as `[1,2,3,4]`. This action definition gets the values from the variable by using 
+the `variables()` function in an expression and creates this string with those values, 
+which are separted by a comma: `"1,2,3,4"`
 
 ```json
 "Join": {
@@ -1251,12 +1258,13 @@ based on a specified condition or filter.
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*array*> | Array | The array or expression that provides the source items. If you specify an expression, enclose that expression with double quotes. |
-| <*condition-or-filter*> | String | The condition used for filtering items in the source array. If no values satisfy this condition, the action creates an empty array. |
+| <*condition-or-filter*> | String | The condition used for filtering items in the source array <p>**Note**: If no values satisfy the condition, the action creates an empty array. |
 |||| 
 
 *Example*
 
-For example, to create an array with values greater than two:
+This action definition creates an array that has 
+values greater than the specified value, which is two:
 
 ```json
 "Filter_array": {
@@ -1308,28 +1316,53 @@ and return a "bad request" response.
 
 ## Select action
 
-This action lets you project each element of an array into a new value. 
-This example converts an array of numbers into an array of objects:
+This action creates an array that contains 
+transformed JSON objects from another array.
+
+This action creates an array from items in another 
+array and can convert those items to a different type. 
+For example, you can create an array of objects from an array of numbers.
+The output array has the same number of items as the input array. 
+The `select` property defines the transformation applied to each array item.
 
 ```json
-"selectNumbersAction": {
-    "type": "Select",
-    "inputs": {
-        "from": [ 1, 3, 0, 5, 4, 2 ],
-        "select": { "number": "@item()" }
-    }
-}
+"Select": {
+   "type": "Select",
+   "inputs": {
+      "from": <array>,
+      "select": { "<key-name>": "<value-or-expression>" }
+   },
+   "runAfter": {}
+},
 ```
 
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- | 
-| from | Yes | Array | The source array |
-| select | Yes | Any | The projection applied to each element in the source array |
-||||| 
+*Required* 
 
-The output from the `select` action is an array that has the same cardinality as the input array. 
-Each element is transformed as defined by the `select` property. 
-If the input is an empty array, the output is also an empty array.
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*array*> | Array | The array or expression that provides the source items. If you specify an expression, enclose that expression with double quotes. <p>**Note**: If the source array is empty, the action creates an empty array. | 
+| <*key-name*>  | JSON Object | The transformation applied to each item in the source array | 
+| <*value-or-expression*> | | | 
+|||| 
+
+*Example*
+
+This action definition creates an array of JSON objects from an array of integers:
+
+```json
+"Select": {
+   "type": "Select",
+   "inputs": {
+      "from": [ 1, 2, 3 ],
+      "select": { "number": "@item()" }
+   },
+   "runAfter": {}
+},
+```
+
+Here is the array that this action creates:
+
+`[ { "number": 1 }, { "number": 2 }, { "number": 3 } ]`
 
 ## Table action
 
@@ -1907,4 +1940,3 @@ For example:
 ## Next steps
 
 * Learn more about [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md)
-* Learn more about [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows)
