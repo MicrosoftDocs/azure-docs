@@ -44,10 +44,10 @@ sections:
     - title: Computer Vision - API
       values:
       - href:
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/Java
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/Python
-      - href:
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp-analyze
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
     - title: Custom Vision - Build a Classifier
       values:
       - href: /azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier
@@ -115,11 +115,11 @@ sections:
     className: cardsD
     items:
     - title: Vision
-      html: <p><a class="barLink" href="/azure/cognitive-services/computer-vision/Home"><img src="../media/index/API_Computer_Vision.svg" alt="" />Computer Vision</a></p>
+      html: <p><a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="../media/index/API_Computer_Vision.svg" alt="" />Computer Vision</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="../media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="../media/index/API_Custom_Vision.svg" alt="" /><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
             <p><a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="../media/index/API_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/face/Overview"><img src="../media/index/API_Face.svg" alt="" />Face API</a></p>
+            <p><a class="barLink" href="/azure/cognitive-services/face/"><img src="../media/index/API_Face.svg" alt="" />Face API</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="../media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>      
     - title: Speech
       html: <p><a class="barLink" href="/azure/cognitive-services/speech-service"><img src="../media/index/API_Speech_Service.svg" alt="" />Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></a></p>

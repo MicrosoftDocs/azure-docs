@@ -41,6 +41,10 @@ sections:
         src: media/index/logo_js.svg
       text: JavaScript
       href: QuickStarts/javascript-analyze
+    - image:
+        src: media/index/logo_node.svg
+      text: Node.js
+      href: QuickStarts/node-analyze
     - image: 
         src: media/index/logo_php.svg
       text: PHP
