@@ -429,7 +429,6 @@ Describes an Azure blob store destination for ETW events. Works only in Azure en
 <a id="AzureBlobElementAzureBlobTypeComplexTypeDefinedInDestinationselementDefinedInDestinationselement"></a>
 ## AzureBlob element (type AzureBlobType) 
 Describes an Azure blob store destination for diagnostics data. Works only in Azure cluster environment.
-Describes an Azure blob store destination for diagnostics data. Works only in Azure cluster environment.
 
 |Attribute|Value|
 |---|---|
@@ -579,7 +578,6 @@ Specifies information about an X509 certificate which is to be exposed to the co
 
 <a id="CertificatesElementCertificatesTypeComplexTypeDefinedInNodeTypeelementDefinedInInfrastructureNodeTypecomplexType"></a>
 ## Certificates element (type CertificatesType) 
-Describe the certificates associated with this node type
 Describe the certificates associated with this node type
 
 |Attribute|Value|
@@ -801,7 +799,6 @@ Describes a Microsoft Azure Service Fabric Cluster.
 <a id="CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement"></a>
 ## CodePackage element
 Describes a code package that supports a defined service type. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. The resulting processes are expected to register the supported service types at run time. When there are multiple code packages, they are all activated whenever the system looks for any one of the declared service types.
-Describes a code package that supports a defined service type. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. The resulting processes are expected to register the supported service types at run time. When there are multiple code packages, they are all activated whenever the system looks for any one of the declared service types.
 
 |Attribute|Value|
 |---|---|
@@ -844,7 +841,6 @@ Pass a comma delimited list of commands to the container.
 
 <a id="ConfigOverrideElementConfigOverrideTypeComplexTypeDefinedInConfigOverrideselementDefinedInDigestedConfigPackageelement"></a>
 ## ConfigOverride element
-Describes the configuration overrides for a particular config package in the imported service manifest.
 Describes the configuration overrides for a particular config package in the imported service manifest.
 
 |Attribute|Value|
@@ -902,7 +898,6 @@ Describes configuration overrides for the imported service manifest. Configurati
 
 <a id="ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement"></a>
 ## ConfigPackage element
-Declares a folder, named by the Name attribute, that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.
 Declares a folder, named by the Name attribute, that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.
 
 |Attribute|Value|
@@ -1035,7 +1030,6 @@ EnvironmentBlock for containers.
 
 <a id="ContainerHostPoliciesElementContainerHostPoliciesTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement"></a>
 ## ContainerHostPolicies element
-Specifies policies for activating container hosts.
 Specifies policies for activating container hosts.
 
 |Attribute|Value|
@@ -1170,7 +1164,6 @@ Destinations to which the crash dumps need to be transferred.
 <a id="DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement"></a>
 ## DataPackage element
 Declares a folder, named by the Name attribute, which contains static data files. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
-Declares a folder, named by the Name attribute, which contains static data files. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
 
 |Attribute|Value|
 |---|---|
@@ -1190,8 +1183,6 @@ Declares a folder, named by the Name attribute, which contains static data files
 
 <a id="DebugParametersElementDebugParametersTypeComplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedConfigPackageelementDefinedInDigestedDataPackageelement"></a>
 ## DebugParameters element
-Specifies information on debugger to attach when activating codepackage.
-Specifies information on debugger to attach when activating codepackage.
 Specifies information on debugger to attach when activating codepackage.
 
 |Attribute|Value|
@@ -1293,7 +1284,6 @@ Specifies the default service type health policy, which will replace the default
 <a id="DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType"></a>
 ## DefaultServices element
 Declares service instances that are automatically created whenever an application is instantiated against this application type.
-Declares service instances that are automatically created whenever an application is instantiated against this application type.
 
 |Attribute|Value|
 |---|---|
@@ -1315,8 +1305,6 @@ Declares service instances that are automatically created whenever an applicatio
 <a id="DescriptionElementxs:stringComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInServicePackageTypecomplexType"></a>
 ## Description element
 Text describing this application.
-Text describing this service.
-
 
 |Attribute|Value|
 |---|---|
@@ -1505,7 +1493,6 @@ Destinations to which the folder contents need to be transferred.
 <a id="DiagnosticsElementDiagnosticsTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType"></a>
 ## Diagnostics element (type DiagnosticsType) 
 Describes the diagnostic settings for applications.
-Describes the diagnostic settings for applications.
 
 |Attribute|Value|
 |---|---|
@@ -1524,7 +1511,6 @@ Describes the diagnostic settings for applications.
 
 <a id="DiagnosticsElementServiceDiagnosticsTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInServicePackageTypecomplexType"></a>
 ## Diagnostics element (type ServiceDiagnosticsType) 
-Describes the diagnostic settings for the components of this service manifest.
 Describes the diagnostic settings for the components of this service manifest.
 
 |Attribute|Value|
@@ -2112,10 +2098,6 @@ Unsupported, do not use. DLL hosting support (assembly entry point) is provided 
 <a id="DriverOptionElementDriverOptionTypeComplexTypeDefinedInContainerLoggingDriverTypecomplexTypeDefinedInContainerVolumeTypecomplexType"></a>
 ## DriverOption element
 Driver options to be passed to driver.
-Driver options to be passed to driver. The Azure Files volume plugin supports the following driver options:
-            shareName (the Azure Files file share that provides the volume for the container), storageAccountName (the Azure storage account
-            that contains the Azure Files file share), storageAccountKey (Access key for the Azure storage account that contains the Azure Files file share).
-            These three driver options are required.
 
 |Attribute|Value|
 |---|---|
@@ -2298,7 +2280,6 @@ Destinations to which the crash dumps need to be transferred.
 <a id="EndpointElementEndpointTypeComplexTypeDefinedInEndpointselementDefinedInDigestedEndpointelement"></a>
 ## Endpoint element (type EndpointType) 
 Defines an endpoint for the service. Specific ports can be requested.  If a port is not explicitly specified, a port is assigned from the reserved application port range. Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of the same service running on the same node share the same port. Such ports can be used by the service replicas for various purposes such as replication or listening for client requests.
-Defines an endpoint for the service. Specific ports can be requested.  If a port is not explicitly specified, a port is assigned from the reserved application port range. Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of the same service running on the same node share the same port. Such ports can be used by the service replicas for various purposes such as replication or listening for client requests.
 
 |Attribute|Value|
 |---|---|
@@ -2318,7 +2299,6 @@ Defines an endpoint for the service. Specific ports can be requested.  If a port
 <a id="EndpointBindingPolicyElementEndpointBindingPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedEndpointelement"></a>
 ## EndpointBindingPolicy element
 Specifies a certificate that should be returned to a client for an HTTPS endpoint.
-
 
 |Attribute|Value|
 |---|---|
@@ -2342,8 +2322,6 @@ Specifies a certificate that should be returned to a client for an HTTPS endpoin
 <a id="EndpointCertificateElementEndpointCertificateTypeComplexTypeDefinedInCertificateselementDefinedInDigestedCertificateselementDefinedInDigestedCertificateselement"></a>
 ## EndpointCertificate element
 Specifies information about an X509 certificate used to secure an endpoint.
-Specifies information about an X509 certificate used to secure an endpoint.
-Specifies information about an X509 certificate used to secure an endpoint.
 
 |Attribute|Value|
 |---|---|
@@ -2362,7 +2340,6 @@ Specifies information about an X509 certificate used to secure an endpoint.
 
 <a id="EndpointsElementFabricEndpointsTypeComplexTypeDefinedInNodeTypeelementDefinedInInfrastructureNodeTypecomplexType"></a>
 ## Endpoints element (type FabricEndpointsType) 
-Describe the endpoints associated with this node type
 Describe the endpoints associated with this node type
 
 |Attribute|Value|
@@ -2514,7 +2491,6 @@ The executable specified by EntryPoint is typically the long-running service hos
 <a id="EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType"></a>
 ## EnvironmentVariable element
 Environment variable.
-
 
 |Attribute|Value|
 |---|---|
@@ -2841,7 +2817,6 @@ Describes a file store destination for ETW events. Works only in on-premise envi
 
 <a id="FileStoreElementFileStoreTypeComplexTypeDefinedInDestinationselementDefinedInDestinationselement"></a>
 ## FileStore element (type FileStoreType) 
-Describes a file store destination for diagnostics data. Works only in a standalone cluster environment.
 Describes a file store destination for diagnostics data. Works only in a standalone cluster environment.
 
 |Attribute|Value|
@@ -3590,10 +3565,6 @@ Describe the KtlLogger information associated with this node type
 <a id="LoadMetricElementLoadMetricTypeComplexTypeDefinedInLoadMetricselementDefinedInLoadMetricselementDefinedInLoadMetricselementDefinedInLoadMetricselementDefinedInLoadMetricselement"></a>
 ## LoadMetric element
 A resource that this service should be balanced on, such as memory or CPU usage.  Includes information about how much of that resource each replica or instance of this service consumes by default.
-A resource that this service should be balanced on, such as memory or CPU usage.  Includes information about how much of that resource each replica or instance of this service consumes by default.
-A resource that this service should be balanced on, such as memory or CPU usage.  Includes information about how much of that resource each replica or instance of this service consumes by default.
-A resource that this service should be balanced on, such as memory or CPU usage.  Includes information about how much of that resource each replica or instance of this service consumes by default.
-A resource that this service should be balanced on, such as memory or CPU usage.  Includes information about how much of that resource each replica or instance of this service consumes by default.
 
 |Attribute|Value|
 |---|---|
@@ -3812,7 +3783,6 @@ Describes a store destination within the node for ETW events.
 
 <a id="LocalStoreElementLocalStoreTypeComplexTypeDefinedInDestinationselementDefinedInDestinationselement"></a>
 ## LocalStore element (type LocalStoreType) 
-Describes a store destination within the node for diagnostic data.
 Describes a store destination within the node for diagnostic data.
 
 |Attribute|Value|
@@ -4054,8 +4024,6 @@ Lists the data packages containing ETW manifests for the components of this serv
 
 <a id="MemberElementServiceGroupMemberTypeComplexTypeDefinedInMemberselementDefinedInMemberselement"></a>
 ## Member element
-
-
 |Attribute|Value|
 |---|---|
 |type|[ServiceGroupMemberType](service-fabric-service-model-schema-complex-types.md#servicegroupmembertype-complextype)|
@@ -4480,7 +4448,6 @@ Specifies the network configuration for a container.
 
 <a id="NodeElementFabricNodeTypeComplexTypeDefinedInNodeListelementDefinedInNodeListelement"></a>
 ## Node element (type FabricNodeType) 
-Describes a Microsoft Azure Service Fabric Node.
 Describes a Microsoft Azure Service Fabric Node.
 
 |Attribute|Value|
@@ -5368,8 +5335,6 @@ Persistence Policy extension for the Service Type
 <a id="PlacementConstraintsElementxs:stringComplexTypeDefinedInServiceTypecomplexTypeDefinedInServiceTypeTypecomplexTypeDefinedInServiceGroupTypeTypecomplexType"></a>
 ## PlacementConstraints element
 Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service’s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
-Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service's requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
-Constraints for the placement of services that are part of this package.
 
 |Attribute|Value|
 |---|---|
@@ -5429,7 +5394,6 @@ Describe the properties for this NodeType that will be used as placement constra
 
 <a id="PoliciesElementApplicationPoliciesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType"></a>
 ## Policies element (type ApplicationPoliciesType) 
-Describes the policies (log collection, default run-as, health, and security access) to be applied at the application level.
 Describes the policies (log collection, default run-as, health, and security access) to be applied at the application level.
 
 |Attribute|Value|
@@ -5493,7 +5457,6 @@ Specifies which endpoint resource to bind to the exposed container port.
 <a id="PrincipalsElementSecurityPrincipalsTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType"></a>
 ## Principals element
 Describes the security principals (users, groups) required for this application to run services and secure resources. Principals are referenced in the policies sections.
-Describes the security principals (users, groups) required for this application to run services and secure resources. Principals are referenced in the policies sections.
 
 |Attribute|Value|
 |---|---|
@@ -5533,7 +5496,6 @@ The executable name.  For example, "MySetup.bat" or "MyServiceHost.exe".
 
 <a id="PropertiesElementServiceTypeExtensionPolicyPropertiesTypeComplexTypeDefinedInPersistencePolicyelementDefinedInEvictionPolicyelement"></a>
 ## Properties element
-Defines Properties for the Persistence and Eviction policies.
 Defines Properties for the Persistence and Eviction policies.
 
 |Attribute|Value|
@@ -5734,8 +5696,6 @@ Credentials for container image repository to pull images from.
 <a id="ResourceGovernancePolicyElementResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedEndpointelement"></a>
 ## ResourceGovernancePolicy element
 Specifies resource limits for a code package.
-Specifies resource limits for codepackage.
-Restricts the resources that can be used on the host and declares resource limits for a service code package.
 
 |Attribute|Value|
 |---|---|
@@ -5940,7 +5900,6 @@ Describes the resources used by this service, which can be declared without modi
 <a id="RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement"></a>
 ## RunAsPolicy element
 Specifies the local user or local system account that a service code package will run as. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available. By default, applications run under the account that the Fabric.exe process runs under. Applications can also run as other accounts, which must be declared in the Principals section. If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTP protocol, you must also specify a SecurityAccessPolicy to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. For an HTTPS endpoint, you also define a EndpointBindingPolicy to indicate the name of the certificate to return to the client.
-Specifies the local user or local system account that a service code package will run as. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available. By default, applications run under the account that the Fabric.exe process runs under. Applications can also run as other accounts, which must be declared in the Principals section. If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTP protocol, you must also specify a SecurityAccessPolicy to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. For an HTTPS endpoint, you also define a EndpointBindingPolicy to indicate the name of the certificate to return to the client.
 
 |Attribute|Value|
 |---|---|
@@ -6014,8 +5973,6 @@ A scaling policy description consisting of a trigger and a mechanism for scaling
 
 <a id="SecretsCertificateElementFabricCertificateTypeComplexTypeDefinedInCertificateselementDefinedInCertificateselementDefinedInDigestedCertificateselement"></a>
 ## SecretsCertificate element
-This specifies the certificate information.
-Declares a certificate used to encrypt sensitive information within the application manifest. The application author uses the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt the sensitive information, which is copied to a Parameter in the ConfigOverrides section.
 This specifies the certificate information.
 
 |Attribute|Value|
@@ -6200,8 +6157,6 @@ List of security policies applied to resources at the application level.
 
 <a id="SecurityAccessPolicyElementSecurityAccessPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInSecurityAccessPolicieselementDefinedInDigestedEndpointelement"></a>
 ## SecurityAccessPolicy element
-Grants access permissions to a principal on a resource (such as an endpoint) defined in a service manifest. Typically, it is very useful to control and restrict access of services to different resources in order to minimize security risks. This is especially important when the application is built from a collection of services from a marketplace which are developed by different developers.
-Grants access permissions to a principal on a resource (such as an endpoint) defined in a service manifest. Typically, it is very useful to control and restrict access of services to different resources in order to minimize security risks. This is especially important when the application is built from a collection of services from a marketplace which are developed by different developers.
 Grants access permissions to a principal on a resource (such as an endpoint) defined in a service manifest. Typically, it is very useful to control and restrict access of services to different resources in order to minimize security risks. This is especially important when the application is built from a collection of services from a marketplace which are developed by different developers.
 
 |Attribute|Value|
@@ -6845,7 +6800,6 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
 ## ServicePackageResourceGovernancePolicy element
 Defines the resource governance policy that is applied at the level of the entire service package.
 
-
 |Attribute|Value|
 |---|---|
 |type|[ServicePackageResourceGovernancePolicyType](service-fabric-service-model-schema-complex-types.md#servicepackageresourcegovernancepolicytype-complextype)|
@@ -7165,7 +7119,6 @@ Declares scaling policies for a service. Useful for dynamically scaling the serv
 <a id="ServiceTemplatesElementServiceTemplatesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType"></a>
 ## ServiceTemplates element
 Declares the set of permitted service types that can be created dynamically inside the application instance. Default configuration values, such as replication factor, are specified and used as a template for creating service instances.
-
 
 |Attribute|Value|
 |---|---|
@@ -7534,7 +7487,6 @@ Declares that this service has only one partition.
 <a id="StatefulServiceElementStatefulServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement"></a>
 ## StatefulService element
 Defines a stateful service.
-Defines a stateful service.
 
 |Attribute|Value|
 |---|---|
@@ -7552,7 +7504,6 @@ Defines a stateful service.
 
 <a id="StatefulServiceGroupElementStatefulServiceGroupTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceGroupelement"></a>
 ## StatefulServiceGroup element
-Defines a stateful service group.
 Defines a stateful service group.
 
 |Attribute|Value|
@@ -7590,7 +7541,6 @@ Describes a stateful service group type.
 <a id="StatefulServiceTypeElementStatefulServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType"></a>
 ## StatefulServiceType element
 Describes a stateful service type.
-Describes a stateful ServiceType.
 
 |Attribute|Value|
 |---|---|
@@ -7609,7 +7559,6 @@ Describes a stateful ServiceType.
 <a id="StatelessServiceElementStatelessServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement"></a>
 ## StatelessService element
 Defines a stateless service.
-Defines a stateless service.
 
 |Attribute|Value|
 |---|---|
@@ -7627,7 +7576,6 @@ Defines a stateless service.
 
 <a id="StatelessServiceGroupElementStatelessServiceGroupTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceGroupelement"></a>
 ## StatelessServiceGroup element
-Defines a stateless service group.
 Defines a stateless service group.
 
 |Attribute|Value|
@@ -7665,7 +7613,6 @@ Describes a stateless service group type.
 <a id="StatelessServiceTypeElementStatelessServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType"></a>
 ## StatelessServiceType element
 Describes a stateless service type.
-Describes a stateless ServiceType.
 
 |Attribute|Value|
 |---|---|
