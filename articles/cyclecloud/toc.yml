@@ -116,7 +116,7 @@
     items:
       - name: Network Connectivity
         href: cyclecloud-network-connectivity.md
-      = name: Network Security
+      - name: Network Security
         href: cyclecloud-network-security.md
       - name: Proxy Traffic
         href: cyclecloud-proxy-traffic.md
