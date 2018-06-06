@@ -4,7 +4,7 @@ description: Addresses frequently asked questions on Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/06/2018
 ms.author: snehaa
 ---
 
@@ -16,11 +16,11 @@ This article includes frequently asked questions about Azure Migrate. If you hav
 
 ### How is Azure Migrate different from Azure Site Recovery?
 
-Azure Migrate is an assessment service that helps you discover your on-premises workloads and plan your migration to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), along with being a disaster recovery solution, helps you perform migration of on-premises workloads to IaaS VMs in Azure. In future, the migration capabilities of Azure Site Recovery will be integrated in Azure Migrate to enable a single streamlined experience for assessment and migration.
+Azure Migrate is an assessment service that helps you discover your on-premises workloads and plan your migration to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), along with being a disaster recovery solution, helps you migrate on-premises workloads to IaaS VMs in Azure. In future, the migration capabilities of Azure Site Recovery will be integrated in Azure Migrate to enable a single streamlined experience for assessment and migration.
 
-### How is Azure Migrate different from ASR Deployment Planner?
+### How is Azure Migrate different from Azure Site Recovery Deployment Planner?
 
-Azure Migrate is a migration planning tool and ASR Deployment Planner is a disaster recovery (DR) planning tool.
+Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Planner is a disaster recovery (DR) planning tool.
 
 **Migration from VMware to Azure**
 If you intend to migrate your on-premises workloads to Azure, use Azure Migrate for migration planning. Azure Migrate assesses on-premises workloads and provides guidance, insights, and mechanisms to assist you in migrating to Azure. Once you are ready with your migration plan, you can use services such as Azure Site Recovery and Azure Database Migration Service to migrate the machines to Azure.
@@ -29,7 +29,7 @@ If you intend to migrate your on-premises workloads to Azure, use Azure Migrate 
 Azure Migrate currently only supports assessment of VMware virtual machines for migration to Azure. Support for Hyper-V is on the roadmap for Azure Migrate. In the interim, you can use ASR Deployment Planner. Once Hyper-V support is enabled in Azure Migrate, you can use Azure Migrate for planning migration of Hyper-V workloads.
 
 **Disaster Recovery from VMware/Hyper-V to Azure**
-If you intend to do disaster recovery (DR) on Azure using Azure Site Recovery (ASR), use ASR Deployment Planner for DR planning. ASR Deployment Planner does a deep, ASR-specific assessment of your on-premises environment. It provides recommendations that are required by Azure Site Recovery for successful DR operations such as replication, failover, and DR-Drill of your VMware or Hyper-V virtual machines.  
+If you intend to do disaster recovery (DR) on Azure using Azure Site Recovery (ASR), use ASR Deployment Planner for DR planning. ASR Deployment Planner does a deep, ASR-specific assessment of your on-premises environment. It provides recommendations that are required by ASR for successful DR operations such as replication, failover of your virtual machines.  
 
 ### Does Azure Migrate need vCenter Server to discover a VMware environment?
 
@@ -52,8 +52,8 @@ The appliance-based discovery collects metadata about the on-premises VMs, the c
 - Memory size, Disk sizes
 
 **Performance data of the VM**
-- CPU utilization
-- Memory utilization
+- CPU usage
+- Memory usage
 - For each disk attached to the VM:
   - Disk read throughput
   - Disk write throughput
@@ -63,7 +63,7 @@ The appliance-based discovery collects metadata about the on-premises VMs, the c
   - Network in
   - Network out
 
-The agent-based discovery is an option available on top of the appliance-based discovery and helps customers [visualize dependencies](how-to-create-group-machine-dependencies.md) of the on-prem VMs. The dependency agents collect info about the VMs that includes details like, FQDN, OS, IP address, MAC address, processes running inside the VM and the incoming/outgoing TCP connections from the VM. The agent-based discovery is optional and you can choose to not install the agents if you do not want to visualize the dependencies of the VMs.
+The agent-based discovery is an option available on top of the appliance-based discovery and helps customers [visualize dependencies](how-to-create-group-machine-dependencies.md) of the on-prem VMs. The dependency agents collect details like, FQDN, OS, IP address, MAC address, processes running inside the VM and the incoming/outgoing TCP connections from the VM. The agent-based discovery is optional and you can choose to not install the agents if you do not want to visualize the dependencies of the VMs.
 
 ### Where is the collected data stored and for how long?
 
@@ -73,7 +73,7 @@ For dependency visualization, if you install agents on the VMs, the data collect
 
 ### How does the collector communicate with the vCenter Server and the Azure Migrate service?
 
-The collector appliance connects to the vCenter Server (port 443) using the credentials provided by the user in the appliance. It queries the vCenter Server using VMware PowerCLI to collect metadata about the VMs managed by vCenter Server. It collects both configuration data about VMs (cores, memory, disks, NIC etc.) as well as performance history of each VM for the last one month from vCenter Server. The collected metadata is then pushed to the Azure Migrate service (over internet via https) which can be then used to create assessments in the Azure portal. [Learn more](concepts-collector.md)
+The collector appliance connects to the vCenter Server (port 443) using the credentials provided by the user in the appliance. It queries the vCenter Server using VMware PowerCLI to collect metadata about the VMs managed by vCenter Server. It collects both configuration data about VMs (cores, memory, disks, NIC etc.) as well as performance history of each VM for the last one month from vCenter Server. The collected metadata is then sent to the Azure Migrate service (over internet via https) for assessment. [Learn more](concepts-collector.md)
 
 ### Is the data encrypted at rest and while in transit?
 
