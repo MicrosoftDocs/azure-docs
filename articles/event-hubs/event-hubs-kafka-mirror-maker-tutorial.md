@@ -112,4 +112,6 @@ With MirrorMaker running, any events sent to the source Kafka cluster are receiv
 
 * [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Learn about Event Hubs for Kafka ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
+* Use [Apache Flink](https://flink.apache.org) to [stream events to/from Kafka enabled Event Hub](event-hubs-kafka-flink-tutorial.md)
+* Use [Akka Streams](https://akka.io/docs/) to [stream events to/from Kafka enabled Event Hubs](event-hubs-kafka-akka-streams-tutorial.md)
 * Learn more about [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to stream events from Kafka on-premises to Kafka enabled event hubs on cloud.
