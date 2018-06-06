@@ -53,8 +53,8 @@ The only required parameter is `location`. If you do not define the *SKU* versio
 
 In this example, you create a Basic Load Balancer along with its resources that include a frontend IP configuration (*fe-lb*), a backend address pool (*be-lb*), a load balancing rule (*rulelb*), a health probe (*probe-lb*), and an inbound NAT rule (*in-nat-rule*).
 
-> ![NOTE]
-> Before you create a load balancer using the example below, you must create a virtual network with a subnet.
+> [!IMPORTANT]
+>Before you create a load balancer using the example below, you must create a virtual network with a subnet.
 
 ### Sample request
 
