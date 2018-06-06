@@ -8,8 +8,7 @@
 ## [Features & tools](features.md)
 
 # How-to
-## [Bash - Persisting storage](persisting-shell-storage.md)
-## [PowerShell - Persisting storage](persisting-shell-storage-powershell.md)
+## [Persisting storage](persisting-shell-storage.md)
 ## [Using the window](using-the-shell-window.md)
 
 # Examples
