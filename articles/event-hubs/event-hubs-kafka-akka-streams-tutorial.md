@@ -60,7 +60,7 @@ Using the provided Akka Streams producer example, send messages to the Event Hub
 
 Update the `bootstrap.servers` and `sasl.jaas.config` values in `producer/src/main/resources/application.conf` to direct the producer to the Event Hubs Kafka endpoint with the correct authentication.
 
-```config
+```xml
 akka.kafka.producer {
     #Akka Kafka producer properties can be defined here
 
@@ -97,7 +97,7 @@ Using the provided consumer example, receive messages from the Kafka enabled Eve
 
 Update the `bootstrap.servers` and `sasl.jaas.config` values in `consumer/src/main/resources/application.conf` to direct the consumer to the Event Hubs Kafka endpoint with the correct authentication.
 
-```config
+```xml
 akka.kafka.consumer {
     #Akka Kafka consumer properties defined here
     wakeup-timeout=60s
