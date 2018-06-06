@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 06/05/2018
+ms.date: 06/06/2018
 ms.author: ryanwi
 ---
 
@@ -672,7 +672,7 @@ Declares a certificate used to encrypt sensitive information within the applicat
 
 <a id="ClientCertificateElementFabricCertificateTypeComplexTypeDefinedInCertificatesTypecomplexType"></a>
 ## ClientCertificate element
-The default admin role client certificate used to secure client server communication.
+The default admin role client certificate used to secure client-server communication.
 
 |Attribute|Value|
 |---|---|
@@ -686,7 +686,7 @@ The default admin role client certificate used to secure client server communica
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClientCertificate" type="FabricCertificateType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The default admin role client certificate used to secure client server communication.</xs:documentation>
+          <xs:documentation>The default admin role client certificate used to secure client-server communication.</xs:documentation>
         </xs:annotation>
       </xs:element>
       
@@ -957,7 +957,7 @@ Describes configuration overrides for the imported service manifest. Configurati
 
 <a id="ContainerEntryPointElementxs:stringComplexTypeDefinedInDebugParametersTypecomplexType"></a>
 ## ContainerEntryPoint element
-Overidden entrypoint for containers so debugger can be launched..
+Overidden entrypoint for containers so debugger can be launched.
 
 |Attribute|Value|
 |---|---|
@@ -972,7 +972,7 @@ Overidden entrypoint for containers so debugger can be launched..
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerEntryPoint" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
-          <xs:documentation>Overidden entrypoint for containers so debugger can be launched..</xs:documentation>
+          <xs:documentation>Overidden entrypoint for containers so debugger can be launched.</xs:documentation>
         </xs:annotation>
       </xs:element>
       
@@ -3187,10 +3187,8 @@ Specifies docker HEALTHCHECK integration options for the container.
 
 <a id="ImageElementImageTypeComplexTypeDefinedInImageOverridesTypecomplexType"></a>
 ## Image element
-
-            Container image corresponding to OS build version number to be launched. If the Os attribute is not specified, the container image
+Container image corresponding to OS build version number to be launched. If the Os attribute is not specified, the container image
             is assumed to work across all versions of the OS and overrides the image specified in the service manifest.
-          
 
 |Attribute|Value|
 |---|---|
@@ -3205,10 +3203,8 @@ Specifies docker HEALTHCHECK integration options for the container.
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Image" type="ImageType" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
-          <xs:documentation>
-            Container image corresponding to OS build version number to be launched. If the Os attribute is not specified, the container image
-            is assumed to work across all versions of the OS and overrides the image specified in the service manifest.
-          </xs:documentation>
+          <xs:documentation>Container image corresponding to OS build version number to be launched. If the Os attribute is not specified, the container image
+            is assumed to work across all versions of the OS and overrides the image specified in the service manifest.</xs:documentation>
         </xs:annotation>
       </xs:element>
     
@@ -4024,9 +4020,7 @@ Lists the data packages containing ETW manifests for the components of this serv
 
 <a id="MemberOfElementanonymouscomplexTypeComplexTypeDefinedInUserelement"></a>
 ## MemberOf element
-
-                        Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).
-                      
+Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).
 
 |Attribute|Value|
 |---|---|
@@ -4040,9 +4034,7 @@ Lists the data packages containing ETW manifests for the components of this serv
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="MemberOf" minOccurs="0">
                                         <xs:annotation>
-                                            <xs:documentation>
-                        Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).
-                      </xs:documentation>
+                                            <xs:documentation>Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).</xs:documentation>
                                                                                 </xs:annotation>
                                                                                 <xs:complexType>
                                                                                         <xs:choice maxOccurs="unbounded">
@@ -4992,9 +4984,7 @@ The setting to override.
                 <xs:attributeGroup ref="NameValuePair"/>
                 <xs:attribute name="IsEncrypted" type="xs:boolean" default="false">
                   <xs:annotation>
-                    <xs:documentation>
-                      If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.
-                    </xs:documentation>
+                    <xs:documentation>If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.</xs:documentation>
                                     </xs:annotation>
                                 </xs:attribute>
                             </xs:complexType>
@@ -5005,9 +4995,7 @@ The setting to override.
 ### Attribute details
 
 #### IsEncrypted
-
-                      If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.
-                    
+If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.
 |Attribute|Value|
 |---|---|
 |name|IsEncrypted|
@@ -6001,9 +5989,7 @@ A section in the Settings.xml file to override.
                 <xs:attributeGroup ref="NameValuePair"/>
                 <xs:attribute name="IsEncrypted" type="xs:boolean" default="false">
                   <xs:annotation>
-                    <xs:documentation>
-                      If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.
-                    </xs:documentation>
+                    <xs:documentation>If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.</xs:documentation>
                                     </xs:annotation>
                                 </xs:attribute>
                             </xs:complexType>
@@ -6045,7 +6031,7 @@ The setting to override.
 
 <a id="SectionElementanonymouscomplexTypeComplexTypeDefinedInSettingsTypecomplexType"></a>
 ## Section element (defined in SettingsType) 
-A user defined named section.
+A user-defined named section.
 
 |Attribute|Value|
 |---|---|
@@ -6060,7 +6046,7 @@ A user defined named section.
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Section" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
-          <xs:documentation>A user defined named section.</xs:documentation>
+          <xs:documentation>A user-defined named section.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
@@ -6586,7 +6572,7 @@ Describes the member type of the service group.
       </xs:sequence>
       <xs:attribute name="ServiceTypeName" use="required">
         <xs:annotation>
-          <xs:documentation>User defined type identifier for a Microsoft Azure Service Fabric ServiceGroup Member, .e.g Actor</xs:documentation>
+          <xs:documentation>user-defined type identifier for a Microsoft Azure Service Fabric ServiceGroup Member, .e.g Actor</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -6602,7 +6588,7 @@ Describes the member type of the service group.
 ### Attribute details
 
 #### ServiceTypeName
-User defined type identifier for a Microsoft Azure Service Fabric ServiceGroup Member, .e.g Actor
+user-defined type identifier for a Microsoft Azure Service Fabric ServiceGroup Member, .e.g Actor
 |Attribute|Value|
 |---|---|
 |name|ServiceTypeName|
@@ -7327,7 +7313,7 @@ The SF system services resource governance policy for this node type
 
 <a id="SharedLogFileIdElementanonymouscomplexTypeComplexTypeDefinedInFabricKtlLoggerSettingsTypecomplexType"></a>
 ## SharedLogFileId element
-Specific GUID to use as the shared log id.
+Specific GUID to use as the shared log ID.
 
 |Attribute|Value|
 |---|---|
@@ -7341,7 +7327,7 @@ Specific GUID to use as the shared log id.
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SharedLogFileId" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Specific GUID to use as the shared log id.</xs:documentation>
+          <xs:documentation>Specific GUID to use as the shared log ID.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:attribute name="Value" use="required">
@@ -7875,9 +7861,7 @@ Declares a user as a security principal, which can be referenced in policies.
                                     </xs:element>
                                     <xs:element name="MemberOf" minOccurs="0">
                                         <xs:annotation>
-                                            <xs:documentation>
-                        Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).
-                      </xs:documentation>
+                                            <xs:documentation>Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).</xs:documentation>
                                                                                 </xs:annotation>
                                                                                 <xs:complexType>
                                                                                         <xs:choice maxOccurs="unbounded">
@@ -7993,9 +7977,7 @@ True if the password is encrypted; false if in plain text.
 |minOccurs|0|
 
 #### MemberOf
-
-                        Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).
-                      
+Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).
 |Attribute|Value|
 |---|---|
 |name|MemberOf|
@@ -8003,7 +7985,7 @@ True if the password is encrypted; false if in plain text.
 
 <a id="UserRoleClientCertificateElementFabricCertificateTypeComplexTypeDefinedInCertificatesTypecomplexType"></a>
 ## UserRoleClientCertificate element
-The default user role client certificate used to secure client server communication.
+The default user role client certificate used to secure client-server communication.
 
 |Attribute|Value|
 |---|---|
@@ -8017,7 +7999,7 @@ The default user role client certificate used to secure client server communicat
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UserRoleClientCertificate" type="FabricCertificateType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The default user role client certificate used to secure client server communication.</xs:documentation>
+          <xs:documentation>The default user role client certificate used to secure client-server communication.</xs:documentation>
         </xs:annotation>
       </xs:element>
     
@@ -8073,9 +8055,7 @@ Declares a set of users as security principals, which can be referenced in polic
                                     </xs:element>
                                     <xs:element name="MemberOf" minOccurs="0">
                                         <xs:annotation>
-                                            <xs:documentation>
-                        Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).
-                      </xs:documentation>
+                                            <xs:documentation>Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).</xs:documentation>
                                                                                 </xs:annotation>
                                                                                 <xs:complexType>
                                                                                         <xs:choice maxOccurs="unbounded">

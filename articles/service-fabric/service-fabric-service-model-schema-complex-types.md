@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 06/05/2018
+ms.date: 06/06/2018
 ms.author: ryanwi
 ---
 
@@ -85,7 +85,7 @@ Describes the policy for evaluating health events reported on various applicatio
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationHealthPolicyType">
     <xs:annotation>
-      <xs:documentation>Describes the policy for evaluating health events reported on various application related entities. If no policy is specified, an entity is assumed to be unhealthy if the health report is a warning or error.</xs:documentation>
+      <xs:documentation>Describes the policy for evaluating health events reported on various application-related entities. If no policy is specified, an entity is assumed to be unhealthy if the health report is a warning or error.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="DefaultServiceTypeHealthPolicy" type="ServiceTypeHealthPolicyType" minOccurs="0">
@@ -514,7 +514,7 @@ Describes the policies (log collection, default run-as, health, and security acc
                         </xs:element>
                         <xs:element name="DefaultRunAsPolicy" minOccurs="0">
                                 <xs:annotation>
-                                        <xs:documentation>Specify a default user account for all service code packages that donï¿½t have a specific RunAsPolicy defined in the ServiceManifestImport section.</xs:documentation>
+                                        <xs:documentation>Specify a default user account for all service code packages that don’t have a specific RunAsPolicy defined in the ServiceManifestImport section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                         <xs:attribute name="UserRef" type="xs:string" use="required">
@@ -550,7 +550,7 @@ Specifies whether log collection is enabled. Works only in an Azure cluster envi
 |minOccurs|0|
 
 #### DefaultRunAsPolicy
-Specify a default user account for all service code packages that donï¿½t have a specific RunAsPolicy defined in the ServiceManifestImport section.
+Specify a default user account for all service code packages that don’t have a specific RunAsPolicy defined in the ServiceManifestImport section.
 |Attribute|Value|
 |---|---|
 |name|DefaultRunAsPolicy|
@@ -773,12 +773,12 @@ Describes a diagnostic store in an Azure storage account.
       </xs:element>
       <xs:element name="ClientCertificate" type="FabricCertificateType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The default admin role client certificate used to secure client server communication.</xs:documentation>
+          <xs:documentation>The default admin role client certificate used to secure client-server communication.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="UserRoleClientCertificate" type="FabricCertificateType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The default user role client certificate used to secure client server communication.</xs:documentation>
+          <xs:documentation>The default user role client certificate used to secure client-server communication.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:all>
@@ -1003,7 +1003,7 @@ Describes a Microsoft Azure Service Fabric Cluster.
                 </xs:attribute>
                 <xs:attribute name="Version" use="required">
                         <xs:annotation>
-                                <xs:documentation>User-defined version string for the cluster manifest document.</xs:documentation>
+                                <xs:documentation>user-defined version string for the cluster manifest document.</xs:documentation>
                         </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="Description">
@@ -1025,7 +1025,7 @@ Name of the Cluster.
 |use|required|
 
 #### Version
-User-defined version string for the cluster manifest document.
+user-defined version string for the cluster manifest document.
 |Attribute|Value|
 |---|---|
 |name|Version|
@@ -1205,13 +1205,11 @@ Declares a folder, named by the Name attribute, that contains a Settings.xml fil
 
 ```
 ## ContainerCertificateType complexType
-
-          Specifies information about an X509 certificate which is to be exposed to the container environment. The certificate must be installed in the LocalMachine store of all the cluster nodes.
+Specifies information about an X509 certificate which is to be exposed to the container environment. The certificate must be installed in the LocalMachine store of all the cluster nodes.
           When the application starts, the runtime reads the certificate and generates a PFX file and password (on Windows) or a PEM file (on Linux).
           The PFX file and password are accessible in the container using the Certificates_ServicePackageName_CodePackageName_CertName_PFX and
           Certificates_ServicePackageName_CodePackageName_CertName_Password environment variables. The PEM file is accessible in the container using the
           Certificates_ServicePackageName_CodePackageName_CertName_PEM and Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey environment variables.
-        
 
 |Attribute|Value|
 |---|---|
@@ -1223,13 +1221,11 @@ Declares a folder, named by the Name attribute, that contains a Settings.xml fil
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerCertificateType">
     <xs:annotation>
-        <xs:documentation>
-          Specifies information about an X509 certificate which is to be exposed to the container environment. The certificate must be installed in the LocalMachine store of all the cluster nodes.
+        <xs:documentation>Specifies information about an X509 certificate which is to be exposed to the container environment. The certificate must be installed in the LocalMachine store of all the cluster nodes.
           When the application starts, the runtime reads the certificate and generates a PFX file and password (on Windows) or a PEM file (on Linux).
           The PFX file and password are accessible in the container using the Certificates_ServicePackageName_CodePackageName_CertName_PFX and
           Certificates_ServicePackageName_CodePackageName_CertName_Password environment variables. The PEM file is accessible in the container using the
-          Certificates_ServicePackageName_CodePackageName_CertName_PEM and Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey environment variables.
-        </xs:documentation>
+          Certificates_ServicePackageName_CodePackageName_CertName_PEM and Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey environment variables.</xs:documentation>
     </xs:annotation>
     <xs:attribute name="X509StoreName" type="xs:string" default="My">
         <xs:annotation>
@@ -1358,20 +1354,16 @@ Specifies docker HEALTHCHECK integration options for the container.
     </xs:annotation>
     <xs:attribute name="IncludeDockerHealthStatusInSystemHealthReport" type="xs:boolean" use="optional" default="true">
         <xs:annotation>
-            <xs:documentation>
-            If the container has HEALTHCHECK enabled and docker reports health_status event for this container, 
+            <xs:documentation>If the container has HEALTHCHECK enabled and docker reports health_status event for this container, 
             Service Fabric will include this as part of system reported health. When health_status is unhealthy
-            Service Fabric will report a health warning. By default it is set to true.
-            </xs:documentation>
+            Service Fabric will report a health warning. By default it is set to true.</xs:documentation>
         </xs:annotation>
     </xs:attribute>
     <xs:attribute name="RestartContainerOnUnhealthyDockerHealthStatus" type="xs:boolean" use="optional" default="false">
         <xs:annotation>
-            <xs:documentation>
-            If the container has HEALTHCHECK enabled and docker reports health_status event for this container, 
+            <xs:documentation>If the container has HEALTHCHECK enabled and docker reports health_status event for this container, 
             Service Fabric will restart the container when health_status reported by docker is unhealthy.
-            By default it is set to false.
-            </xs:documentation>
+            By default it is set to false.</xs:documentation>
         </xs:annotation>
     </xs:attribute>
   </xs:complexType>  
@@ -1381,11 +1373,9 @@ Specifies docker HEALTHCHECK integration options for the container.
 ### Attribute details
 
 #### IncludeDockerHealthStatusInSystemHealthReport
-
-            If the container has HEALTHCHECK enabled and docker reports health_status event for this container, 
+If the container has HEALTHCHECK enabled and docker reports health_status event for this container, 
             Service Fabric will include this as part of system reported health. When health_status is unhealthy
             Service Fabric will report a health warning. By default it is set to true.
-            
 |Attribute|Value|
 |---|---|
 |name|IncludeDockerHealthStatusInSystemHealthReport|
@@ -1394,11 +1384,9 @@ Specifies docker HEALTHCHECK integration options for the container.
 |default|true|
 
 #### RestartContainerOnUnhealthyDockerHealthStatus
-
-            If the container has HEALTHCHECK enabled and docker reports health_status event for this container, 
+If the container has HEALTHCHECK enabled and docker reports health_status event for this container, 
             Service Fabric will restart the container when health_status reported by docker is unhealthy.
             By default it is set to false.
-            
 |Attribute|Value|
 |---|---|
 |name|RestartContainerOnUnhealthyDockerHealthStatus|
@@ -1852,7 +1840,7 @@ Declares a folder, named by the Name attribute, which contains static data files
 
 ```
 ## DebugParametersType complexType
-Specifies information on debugger to attach when activating codepackage
+Specifies information on debugger to attach when activating codepackage.
 
 |Attribute|Value|
 |---|---|
@@ -1864,12 +1852,12 @@ Specifies information on debugger to attach when activating codepackage
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DebugParametersType">
     <xs:annotation>
-      <xs:documentation>Specifies information on debugger to attach when activating codepackage</xs:documentation>
+      <xs:documentation>Specifies information on debugger to attach when activating codepackage.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="ContainerEntryPoint" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
-          <xs:documentation>Overidden entrypoint for containers so debugger can be launched..</xs:documentation>
+          <xs:documentation>Overidden entrypoint for containers so debugger can be launched.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ContainerMountedVolume" type="xs:string" minOccurs="0" maxOccurs="unbounded">
@@ -2016,7 +2004,7 @@ Specifies information on debugger to attach when activating codepackage
 ### Content element details
 
 #### ContainerEntryPoint
-Overidden entrypoint for containers so debugger can be launched..
+Overidden entrypoint for containers so debugger can be launched.
 |Attribute|Value|
 |---|---|
 |name|ContainerEntryPoint|
@@ -2317,12 +2305,10 @@ Unsupported, do not use. Defines the isolation policy for the Unmanaged DLLs and
 |name|ManagedAssembly|
 |type|[ManagedAssemblyType](#managedassemblytype-complextype)|
 ## DriverOptionType complexType
-
-            Driver options to be passed to driver. The Azure Files volume plugin supports the following driver options:
+Driver options to be passed to driver. The Azure Files volume plugin supports the following driver options:
             shareName (the Azure Files file share that provides the volume for the container), storageAccountName (the Azure storage account
             that contains the Azure Files file share), storageAccountKey (Access key for the Azure storage account that contains the Azure Files file share).
             These three driver options are required.
-          
 
 |Attribute|Value|
 |---|---|
@@ -2334,12 +2320,10 @@ Unsupported, do not use. Defines the isolation policy for the Unmanaged DLLs and
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DriverOptionType">
         <xs:annotation>
-          <xs:documentation>
-            Driver options to be passed to driver. The Azure Files volume plugin supports the following driver options:
+          <xs:documentation>Driver options to be passed to driver. The Azure Files volume plugin supports the following driver options:
             shareName (the Azure Files file share that provides the volume for the container), storageAccountName (the Azure storage account
             that contains the Azure Files file share), storageAccountKey (Access key for the Azure storage account that contains the Azure Files file share).
-            These three driver options are required.
-          </xs:documentation>
+            These three driver options are required.</xs:documentation>
           
         </xs:annotation>
         <xs:attribute name="Name" type="xs:string" use="required">
@@ -2396,7 +2380,7 @@ The value of the driver option.
     <xs:attribute name="EndpointRef">
       <xs:annotation>
         <xs:documentation>The name of the endpoint, which must be declared in the Resources section of the service manifest.  When using HTTPS, do not use 
-        the same port and certificate for different service instances (independant of the application) deployed to the same node. Upgrading two different services 
+        the same port and certificate for different service instances (independent of the application) deployed to the same node. Upgrading two different services 
         using the same port in different application instances will result in an upgrade failure.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
@@ -3365,7 +3349,7 @@ This is used only when credential is X509. This is the actual name or thumbprint
 
       <xs:element name="SharedLogFileId" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Specific GUID to use as the shared log id.</xs:documentation>
+          <xs:documentation>Specific GUID to use as the shared log ID.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:attribute name="Value" use="required">
@@ -3458,16 +3442,12 @@ Describes a Microsoft Azure Service Fabric Node.
                 </xs:attribute>
                 <xs:attribute name="FaultDomain" type="xs:anyURI" use="optional">
                         <xs:annotation>
-                                <xs:documentation>
-          The fault domain of this node.
-        </xs:documentation>
+                                <xs:documentation>The fault domain of this node.</xs:documentation>
                         </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="UpgradeDomain" type="xs:anyURI" use="optional">
                         <xs:annotation>
-                                <xs:documentation>
-          The upgrade domain of this node.
-        </xs:documentation>
+                                <xs:documentation>The upgrade domain of this node.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
@@ -3509,9 +3489,7 @@ Name of the nodetype defined in the NodeTypes section.
 |use|required|
 
 #### FaultDomain
-
-          The fault domain of this node.
-        
+The fault domain of this node.
 |Attribute|Value|
 |---|---|
 |name|FaultDomain|
@@ -3519,9 +3497,7 @@ Name of the nodetype defined in the NodeTypes section.
 |use|optional|
 
 #### UpgradeDomain
-
-          The upgrade domain of this node.
-        
+The upgrade domain of this node.
 |Attribute|Value|
 |---|---|
 |name|UpgradeDomain|
@@ -3613,12 +3589,10 @@ Specifies if password is encrypted or plain text.
 |ref|Parameters|
 |minOccurs|0|
 ## ImageOverridesType complexType
-
-        Windows Server containers may not be compatible across different versions of the OS.  You can specify multiple OS images per container and tag
+Windows Server containers may not be compatible across different versions of the OS.  You can specify multiple OS images per container and tag
         them with the build versions of the OS. Get the build version of the OS by running "winver" at a Windows command prompt. If the underlying OS
         is build version 16299 (Windows Server version 1709), Service Fabric picks the container image tagged with Os="16299". An untagged container image
         is assumed to work across all versions of the OS and overrides the image specified in the service manifest.
-      
 
 |Attribute|Value|
 |---|---|
@@ -3630,20 +3604,16 @@ Specifies if password is encrypted or plain text.
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ImageOverridesType">
     <xs:annotation>
-      <xs:documentation>
-        Windows Server containers may not be compatible across different versions of the OS.  You can specify multiple OS images per container and tag
+      <xs:documentation>Windows Server containers may not be compatible across different versions of the OS.  You can specify multiple OS images per container and tag
         them with the build versions of the OS. Get the build version of the OS by running "winver" at a Windows command prompt. If the underlying OS
         is build version 16299 (Windows Server version 1709), Service Fabric picks the container image tagged with Os="16299". An untagged container image
-        is assumed to work across all versions of the OS and overrides the image specified in the service manifest.
-      </xs:documentation>
+        is assumed to work across all versions of the OS and overrides the image specified in the service manifest.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Image" type="ImageType" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
-          <xs:documentation>
-            Container image corresponding to OS build version number to be launched. If the Os attribute is not specified, the container image
-            is assumed to work across all versions of the OS and overrides the image specified in the service manifest.
-          </xs:documentation>
+          <xs:documentation>Container image corresponding to OS build version number to be launched. If the Os attribute is not specified, the container image
+            is assumed to work across all versions of the OS and overrides the image specified in the service manifest.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -3654,10 +3624,8 @@ Specifies if password is encrypted or plain text.
 ### Content element details
 
 #### Image
-
-            Container image corresponding to OS build version number to be launched. If the Os attribute is not specified, the container image
+Container image corresponding to OS build version number to be launched. If the Os attribute is not specified, the container image
             is assumed to work across all versions of the OS and overrides the image specified in the service manifest.
-          
 |Attribute|Value|
 |---|---|
 |name|Image|
@@ -4023,7 +3991,7 @@ A resource that this service should be balanced on, such as memory or CPU usage.
       </xs:annotation>
     <xs:attribute name="Name" use="required">
       <xs:annotation>
-        <xs:documentation>A unique identifier for the metric within the cluster from the Cluster Resource Managerï¿½s perspective.</xs:documentation>
+        <xs:documentation>A unique identifier for the metric within the cluster from the Cluster Resource Manager’s perspective.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -4066,7 +4034,7 @@ A resource that this service should be balanced on, such as memory or CPU usage.
 ### Attribute details
 
 #### Name
-A unique identifier for the metric within the cluster from the Cluster Resource Managerï¿½s perspective.
+A unique identifier for the metric within the cluster from the Cluster Resource Manager’s perspective.
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -4752,7 +4720,7 @@ Specifies the local user or local system account that a service code package wil
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RunAsPolicyType">
     <xs:annotation>
-      <xs:documentation>Specifies the local user or local system account that a service code package will run as. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available. By default, applications run under the account that the Fabric.exe process runs under. Applications can also run as other accounts, which must be declared in the Principals section. If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTP protocol, you must also specify a SecurityAccessPolicy to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. For an HTTPS endpoint, you also have define a EndpointBindingPolicy to indicate the name of the certificate to return to the client.</xs:documentation>
+      <xs:documentation>Specifies the local user or local system account that a service code package will run as. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available. By default, applications run under the account that the Fabric.exe process runs under. Applications can also run as other accounts, which must be declared in the Principals section. If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTP protocol, you must also specify a SecurityAccessPolicy to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. For an HTTPS endpoint, you also define a EndpointBindingPolicy to indicate the name of the certificate to return to the client.</xs:documentation>
     </xs:annotation>
     <xs:attribute name="CodePackageRef" use="required">
       <xs:annotation>
@@ -5059,9 +5027,7 @@ Describes the security principals (users, groups) required for this application 
                                     </xs:element>
                                     <xs:element name="MemberOf" minOccurs="0">
                                         <xs:annotation>
-                                            <xs:documentation>
-                        Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).
-                      </xs:documentation>
+                                            <xs:documentation>Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).</xs:documentation>
                                                                                 </xs:annotation>
                                                                                 <xs:complexType>
                                                                                         <xs:choice maxOccurs="unbounded">
@@ -5374,7 +5340,7 @@ Base type that describes a stateful or a stateless ServiceGroupType.
     </xs:sequence>
     <xs:attribute name="ServiceGroupTypeName" use="required">
       <xs:annotation>
-        <xs:documentation>User-defined type identifier for a service group, For example, "ActorQueueSGType". This value is used in the ApplicationManifest.xml file to identify the service group.</xs:documentation>
+        <xs:documentation>user-defined type identifier for a service group, For example, "ActorQueueSGType". This value is used in the ApplicationManifest.xml file to identify the service group.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -5394,7 +5360,7 @@ Base type that describes a stateful or a stateless ServiceGroupType.
 ### Attribute details
 
 #### ServiceGroupTypeName
-User-defined type identifier for a service group, For example, "ActorQueueSGType". This value is used in the ApplicationManifest.xml file to identify the service group.
+user-defined type identifier for a service group, For example, "ActorQueueSGType". This value is used in the ApplicationManifest.xml file to identify the service group.
 |Attribute|Value|
 |---|---|
 |name|ServiceGroupTypeName|
@@ -5591,7 +5557,7 @@ Declaratively describes the service type and version. It lists the independently
     </xs:sequence>
     <xs:attribute name="ManifestId" use="optional" default="" type="xs:string">
       <xs:annotation>
-        <xs:documentation>The identifier of this service manifest, an un-structured string.</xs:documentation>
+        <xs:documentation>The identifier of this service manifest, an unstructured string.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attributeGroup ref="VersionedName"/>
@@ -5603,7 +5569,7 @@ Declaratively describes the service type and version. It lists the independently
 ### Attribute details
 
 #### ManifestId
-The identifier of this service manifest, an un-structured string.
+The identifier of this service manifest, an unstructured string.
 |Attribute|Value|
 |---|---|
 |name|ManifestId|
@@ -5816,12 +5782,12 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
     <xs:attributeGroup ref="VersionedItemAttrGroup"/>
     <xs:attribute name="ManifestChecksum" type="xs:string">
       <xs:annotation>
-        <xs:documentation>Checksum value of the ServiceManifest file</xs:documentation>
+        <xs:documentation>Checksum value of the ServiceManifest file.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="ContentChecksum" type="xs:string">
       <xs:annotation>
-        <xs:documentation>Checksum value of this ServicePackage content</xs:documentation>
+        <xs:documentation>Checksum value of this ServicePackage content.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
@@ -5845,14 +5811,14 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
 |use|required|
 
 #### ManifestChecksum
-Checksum value of the ServiceManifest file
+Checksum value of the ServiceManifest file.
 |Attribute|Value|
 |---|---|
 |name|ManifestChecksum|
 |type|xs:string|
 
 #### ContentChecksum
-Checksum value of this ServicePackage content
+Checksum value of this ServicePackage content.
 |Attribute|Value|
 |---|---|
 |name|ContentChecksum|
@@ -5985,7 +5951,7 @@ Base type that defines a Microsoft Azure Service Fabric service.
             </xs:element>
             <xs:element name="PlacementConstraints" type="xs:string" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the serviceï¿½s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion&gt;12  &amp;&amp; InDMZ == True)".</xs:documentation>
+                    <xs:documentation>Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service’s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion&gt;12  &amp;&amp; InDMZ == True)".</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="ServiceCorrelations" minOccurs="0">
@@ -6129,7 +6095,7 @@ Load metrics reported by this service, used for resource balancing services.
 |minOccurs|0|
 
 #### PlacementConstraints
-Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the serviceï¿½s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
+Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service’s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
 |Attribute|Value|
 |---|---|
 |name|PlacementConstraints|
@@ -6324,7 +6290,7 @@ Base type that describes a stateful or a stateless ServiceType.
     </xs:sequence>
     <xs:attribute name="ServiceTypeName" use="required">
       <xs:annotation>
-        <xs:documentation>User-defined type identifier for a service. For example, "QueueType" or "CalculatorType". This value is used in the ApplicationManifest.xml file to identify the service.</xs:documentation>
+        <xs:documentation>user-defined type identifier for a service. For example, "QueueType" or "CalculatorType". This value is used in the ApplicationManifest.xml file to identify the service.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -6339,7 +6305,7 @@ Base type that describes a stateful or a stateless ServiceType.
 ### Attribute details
 
 #### ServiceTypeName
-User-defined type identifier for a service. For example, "QueueType" or "CalculatorType". This value is used in the ApplicationManifest.xml file to identify the service.
+user-defined type identifier for a service. For example, "QueueType" or "CalculatorType". This value is used in the ApplicationManifest.xml file to identify the service.
 |Attribute|Value|
 |---|---|
 |name|ServiceTypeName|
@@ -6445,9 +6411,7 @@ Declares configuration settings in a service manifest to be overridden. It consi
                 <xs:attributeGroup ref="NameValuePair"/>
                 <xs:attribute name="IsEncrypted" type="xs:boolean" default="false">
                   <xs:annotation>
-                    <xs:documentation>
-                      If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.
-                    </xs:documentation>
+                    <xs:documentation>If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.</xs:documentation>
                                     </xs:annotation>
                                 </xs:attribute>
                             </xs:complexType>
