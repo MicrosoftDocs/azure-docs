@@ -7,7 +7,7 @@ ms.component: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/23/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Update Management solution in Azure
@@ -55,7 +55,7 @@ The following table shows a list of supported operating systems:
 |CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+|Ubuntu 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
 ### Unsupported client types
 
@@ -282,7 +282,7 @@ Deploying updates by update classification may not work on openSUSE Linux due to
 
 This section provides information to help troubleshoot issues with the Update Management solution.
 
-If you encounter issues while attempting to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log for events with  event ID 4502 and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each.
+If you encounter issues while attempting to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log on the local machine for events with  event ID 4502 and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each.
 
 | Message | Reason | Solution |
 |----------|----------|----------|

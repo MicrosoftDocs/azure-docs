@@ -17,12 +17,12 @@ metadata:
   ms.author: v-wiazur
 
 abstract:
-  description: The Microsoft Speech Service and SDK provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, transcription, and dictation. Cortana, Microsoft Office, and others use the same technology. A key differentiator of Microsoft Speech Service is the ability to customize <a href="http://aka.ms/customspeech">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. In fact, customized <a href="http://aka.ms/customvoice">Text-to-speech</a> and <a href="http://aka.ms/customtranslator">Speech-Translation</a> are available as well.<br/><br/>Our Speech SDK is available on multiple platforms in several programming languages, so you can take care of live microphone management, real-time streaming, or batch-based file communication, depending on your application needs.
+  description: The Microsoft Speech Service and SDK provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, transcription, and dictation. Cortana, Microsoft Office, and others use the same technology. A key differentiator of Microsoft Speech Service is the ability to customize <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. In fact, customized <a href="http://aka.ms/customvoice">Text-to-speech</a> and <a href="http://aka.ms/customtranslator">Speech-Translation</a> are available as well.<br/><br/>Our Speech SDK is available on multiple platforms in several programming languages, so you can take care of live microphone management, real-time streaming, or batch-based file communication, depending on your application needs.
 sections:
 - title: 10-Minute Quickstarts - New SDKs
   items:
   - type: paragraph
-    text: 'Learn how to install and use the Speeck SDK with our quickstarts:'
+    text: 'Learn how to install and use the Speech SDK with our quickstarts:'
   - type: table
     style: dataMatrix
     columns:
@@ -43,7 +43,7 @@ sections:
         - href:
         - href: cpp-linux
         - href:
-      - title: Device SDK (Android)
+      - title: Devices SDK (Android)
         values:
         - href:
         - href:
@@ -58,7 +58,7 @@ sections:
     - title: Examples
       html: <ul><li><a href="speech-to-text-sample.md">Speech Recognition</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
     - title: API Reference
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API (Device SDK)</a></li></ul>
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API (Devices SDK)</a></li></ul>
 
 - title: Speech-to-Text
   items:
@@ -169,7 +169,7 @@ sections:
         - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
         - href: https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
 
-- title: SDK's in Consideration
+- title: SDKs in Consideration
   items:
   - type: table
     style: dataMatrix

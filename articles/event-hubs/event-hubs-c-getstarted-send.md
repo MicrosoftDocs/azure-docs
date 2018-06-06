@@ -22,7 +22,7 @@ ms.author: sethm
 ## Introduction
 Event Hubs is a highly scalable ingestion system that can ingest millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into an event hub, you can transform and store data using any real-time analytics provider or storage cluster.
 
-For more information, please see the [Event Hubs overview](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview).
+For more information, please see the [Event Hubs overview](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview).
 
 This tutorial describes how to send events to an event hub using a console application in C. To learn about receiving events, click the appropriate receiving language in the left-hand table of contents.
 

@@ -5,7 +5,7 @@ author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.date: 05/14/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: data-factory
 
 services: data-factory
