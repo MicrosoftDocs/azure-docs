@@ -7,7 +7,7 @@ manager: abhemraj
 editor: raynew
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: bsiva
 
 
@@ -29,7 +29,7 @@ You learn how to:
 > - Failover to the recovery region.
 
 > [!NOTE]
-> Azure Site Recovery PowerShell support for the "*Disaster recovery for Azure virtual machines*" scenario is currently in preview. Not all scenario capabilities available through the portal may be available through Azure PowerShell. Some of the scenario capabilities not currently supported through Azure PowerShell are:
+> Not all scenario capabilities available through the portal may be available through Azure PowerShell. Some of the scenario capabilities not currently supported through Azure PowerShell are:
 > - The ability to replicate Azure virtual machines that use managed disks.
 > - The ability to specify that all disks in a virtual machine should be replicated without having to explicitly specify each disk of the virtual machine.  
 

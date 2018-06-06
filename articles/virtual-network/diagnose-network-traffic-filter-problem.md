@@ -190,7 +190,7 @@ Consider the following points when troubleshooting connectivity problems:
 ## Additional diagnosis
 
 * To run a quick test to determine if traffic is allowed to or from a VM, use the [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) capability of Azure Network Watcher. IP flow verify tells you if traffic is allowed or denied. If denied, IP flow verify tells you which security rule is denying the traffic.
-* If there are no security rules causing a VM???s network connectivity to fail, the problem may be due to:
+* If there are no security rules causing a VM's network connectivity to fail, the problem may be due to:
   * Firewall software running within the VM's operating system
   * Routes configured for virtual appliances or on-premises traffic. Internet traffic can be redirected to your on-premises network via [forced-tunneling](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you force tunnel internet traffic to a virtual appliance, or on-premises, you may not be able to connect to the VM from the internet. To learn how to diagnose route problems that may impede the flow of traffic out of the VM, see [Diagnose a virtual machine network traffic routing problem](diagnose-network-routing-problem.md).
 

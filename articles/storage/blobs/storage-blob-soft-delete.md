@@ -52,7 +52,7 @@ deleted data for between 1 and 365 days.
 You can change the soft delete retention period at any time. An updated
 retention period will only apply to newly deleted data. Previously deleted data
 will expire based on the retention period that was configured when that data
-was deleted.
+was deleted. Attempting to delete a soft deleted object will not affect its expiry time.
 
 ### Saving deleted data
 

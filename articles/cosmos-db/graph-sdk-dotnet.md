@@ -6,6 +6,7 @@ author: luisbosquez
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/17/2017

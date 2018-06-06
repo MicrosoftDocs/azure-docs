@@ -7,6 +7,7 @@ manager: kfile
 editor: tysonn
 
 ms.service: storage
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017

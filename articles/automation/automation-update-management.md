@@ -55,7 +55,7 @@ The following table shows a list of supported operating systems:
 |CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+|Ubuntu 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
 ### Unsupported client types
 

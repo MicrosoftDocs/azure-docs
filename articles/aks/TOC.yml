@@ -45,6 +45,8 @@
       href: delete-cluster.md
     - name: Azure AD-enabled AKS
       href: aad-integration.md
+    - name: Use Virtual Kubelet
+      href: virtual-kubelet.md
   - name: Configure data volumes
     items:
     - name: Azure Disk - Dynamic

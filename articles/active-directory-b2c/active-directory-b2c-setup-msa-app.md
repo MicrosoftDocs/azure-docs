@@ -1,18 +1,16 @@
----
-title: 'Azure Active Directory B2C: Microsoft account configuration | Microsoft Docs'
+﻿---
+title: Microsoft account configuration in Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to consumers with Microsoft accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-
+ms.component: B2C
 ---
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Microsoft accounts
 ## Create a Microsoft account application
