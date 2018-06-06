@@ -171,6 +171,8 @@ Describes an instance of a Microsoft Azure Service Fabric application.
 
 <a id="ApplicationManifestElementApplicationManifestTypeComplexType"></a>
 ## ApplicationManifest element
+Declaratively describes the application type and version. One or more service manifests of the constituent services are referenced to compose an application type. Configuration settings of the constituent services can be overridden using parameterized application settings. Default services, service templates, principals, policies, diagnostics set-up, and certificates can also declared at the application level.
+
 |Attribute|Value|
 |---|---|
 |type|[ApplicationManifestType](service-fabric-service-model-schema-complex-types.md#applicationmanifesttype-complextype)|
@@ -406,6 +408,8 @@ The time interval in seconds to be considered for scaling.
 
 <a id="AzureBlobElementAzureBlobETWTypeComplexTypeDefinedInDestinationselement"></a>
 ## AzureBlob element (type AzureBlobETWType) 
+Describes an Azure blob store destination for ETW events. Works only in Azure environment.
+
 |Attribute|Value|
 |---|---|
 |type|[AzureBlobETWType](service-fabric-service-model-schema-complex-types.md#azureblobetwtype-complextype)|
@@ -424,7 +428,8 @@ The time interval in seconds to be considered for scaling.
 
 <a id="AzureBlobElementAzureBlobTypeComplexTypeDefinedInDestinationselementDefinedInDestinationselement"></a>
 ## AzureBlob element (type AzureBlobType) 
-
+Describes an Azure blob store destination for diagnostics data. Works only in Azure cluster environment.
+Describes an Azure blob store destination for diagnostics data. Works only in Azure cluster environment.
 
 |Attribute|Value|
 |---|---|
@@ -550,6 +555,12 @@ The capacities of various metrics for this node type
 
 <a id="CertificateRefElementContainerCertificateTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType"></a>
 ## CertificateRef element
+Specifies information about an X509 certificate which is to be exposed to the container environment. The certificate must be installed in the LocalMachine store of all the cluster nodes.
+          When the application starts, the runtime reads the certificate and generates a PFX file and password (on Windows) or a PEM file (on Linux).
+          The PFX file and password are accessible in the container using the Certificates_ServicePackageName_CodePackageName_CertName_PFX and
+          Certificates_ServicePackageName_CodePackageName_CertName_Password environment variables. The PEM file is accessible in the container using the
+          Certificates_ServicePackageName_CodePackageName_CertName_PEM and Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey environment variables.
+
 |Attribute|Value|
 |---|---|
 |type|[ContainerCertificateType](service-fabric-service-model-schema-complex-types.md#containercertificatetype-complextype)|
@@ -789,7 +800,8 @@ Describes a Microsoft Azure Service Fabric Cluster.
 
 <a id="CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement"></a>
 ## CodePackage element
-
+Describes a code package that supports a defined service type. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. The resulting processes are expected to register the supported service types at run time. When there are multiple code packages, they are all activated whenever the system looks for any one of the declared service types.
+Describes a code package that supports a defined service type. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. The resulting processes are expected to register the supported service types at run time. When there are multiple code packages, they are all activated whenever the system looks for any one of the declared service types.
 
 |Attribute|Value|
 |---|---|
@@ -832,7 +844,8 @@ Pass a comma delimited list of commands to the container.
 
 <a id="ConfigOverrideElementConfigOverrideTypeComplexTypeDefinedInConfigOverrideselementDefinedInDigestedConfigPackageelement"></a>
 ## ConfigOverride element
-
+Describes the configuration overrides for a particular config package in the imported service manifest.
+Describes the configuration overrides for a particular config package in the imported service manifest.
 
 |Attribute|Value|
 |---|---|
@@ -889,7 +902,8 @@ Describes configuration overrides for the imported service manifest. Configurati
 
 <a id="ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement"></a>
 ## ConfigPackage element
-
+Declares a folder, named by the Name attribute, that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.
+Declares a folder, named by the Name attribute, that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.
 
 |Attribute|Value|
 |---|---|
@@ -1155,7 +1169,8 @@ Destinations to which the crash dumps need to be transferred.
 
 <a id="DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement"></a>
 ## DataPackage element
-
+Declares a folder, named by the Name attribute, which contains static data files. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
+Declares a folder, named by the Name attribute, which contains static data files. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
 
 |Attribute|Value|
 |---|---|
@@ -1175,8 +1190,9 @@ Destinations to which the crash dumps need to be transferred.
 
 <a id="DebugParametersElementDebugParametersTypeComplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedConfigPackageelementDefinedInDigestedDataPackageelement"></a>
 ## DebugParameters element
-
-
+Specifies information on debugger to attach when activating codepackage.
+Specifies information on debugger to attach when activating codepackage.
+Specifies information on debugger to attach when activating codepackage.
 
 |Attribute|Value|
 |---|---|
@@ -1276,7 +1292,8 @@ Specifies the default service type health policy, which will replace the default
 
 <a id="DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType"></a>
 ## DefaultServices element
-
+Declares service instances that are automatically created whenever an application is instantiated against this application type.
+Declares service instances that are automatically created whenever an application is instantiated against this application type.
 
 |Attribute|Value|
 |---|---|
@@ -1487,7 +1504,8 @@ Destinations to which the folder contents need to be transferred.
 
 <a id="DiagnosticsElementDiagnosticsTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType"></a>
 ## Diagnostics element (type DiagnosticsType) 
-
+Describes the diagnostic settings for applications.
+Describes the diagnostic settings for applications.
 
 |Attribute|Value|
 |---|---|
@@ -1506,7 +1524,8 @@ Destinations to which the folder contents need to be transferred.
 
 <a id="DiagnosticsElementServiceDiagnosticsTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInServicePackageTypecomplexType"></a>
 ## Diagnostics element (type ServiceDiagnosticsType) 
-
+Describes the diagnostic settings for the components of this service manifest.
+Describes the diagnostic settings for the components of this service manifest.
 
 |Attribute|Value|
 |---|---|
@@ -2012,6 +2031,8 @@ Specifies resource limits for codepackage.
 
 <a id="DllHostElementDllHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType"></a>
 ## DllHost element
+Unsupported, do not use. DLL hosting support (assembly entry point) is provided through the FWP.exe process. Service Fabric starts the Fabric Worker Process (FWP.exe) and loads the assembly as part of the activation process.
+
 |Attribute|Value|
 |---|---|
 |type|[DllHostEntryPointType](service-fabric-service-model-schema-complex-types.md#dllhostentrypointtype-complextype)|
@@ -2091,7 +2112,10 @@ Specifies resource limits for codepackage.
 <a id="DriverOptionElementDriverOptionTypeComplexTypeDefinedInContainerLoggingDriverTypecomplexTypeDefinedInContainerVolumeTypecomplexType"></a>
 ## DriverOption element
 Driver options to be passed to driver.
-
+Driver options to be passed to driver. The Azure Files volume plugin supports the following driver options:
+            shareName (the Azure Files file share that provides the volume for the container), storageAccountName (the Azure storage account
+            that contains the Azure Files file share), storageAccountKey (Access key for the Azure storage account that contains the Azure Files file share).
+            These three driver options are required.
 
 |Attribute|Value|
 |---|---|
@@ -2273,7 +2297,8 @@ Destinations to which the crash dumps need to be transferred.
 
 <a id="EndpointElementEndpointTypeComplexTypeDefinedInEndpointselementDefinedInDigestedEndpointelement"></a>
 ## Endpoint element (type EndpointType) 
-
+Defines an endpoint for the service. Specific ports can be requested.  If a port is not explicitly specified, a port is assigned from the reserved application port range. Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of the same service running on the same node share the same port. Such ports can be used by the service replicas for various purposes such as replication or listening for client requests.
+Defines an endpoint for the service. Specific ports can be requested.  If a port is not explicitly specified, a port is assigned from the reserved application port range. Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of the same service running on the same node share the same port. Such ports can be used by the service replicas for various purposes such as replication or listening for client requests.
 
 |Attribute|Value|
 |---|---|
@@ -2316,8 +2341,9 @@ Specifies a certificate that should be returned to a client for an HTTPS endpoin
 
 <a id="EndpointCertificateElementEndpointCertificateTypeComplexTypeDefinedInCertificateselementDefinedInDigestedCertificateselementDefinedInDigestedCertificateselement"></a>
 ## EndpointCertificate element
-
-
+Specifies information about an X509 certificate used to secure an endpoint.
+Specifies information about an X509 certificate used to secure an endpoint.
+Specifies information about an X509 certificate used to secure an endpoint.
 
 |Attribute|Value|
 |---|---|
@@ -2432,6 +2458,8 @@ Defines endpoints for the service.
 
 <a id="EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType"></a>
 ## EntryPoint element (type EntryPointDescriptionType) 
+The executable specified by EntryPoint is typically the long-running service host. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by EntryPoint is run after SetupEntryPoint exits successfully. The resulting process is monitored and restarted (beginning again with SetupEntryPoint) if it ever terminates or crashes.
+
 |Attribute|Value|
 |---|---|
 |type|[EntryPointDescriptionType](service-fabric-service-model-schema-complex-types.md#entrypointdescriptiontype-complextype)|
@@ -2510,6 +2538,8 @@ Environment variable.
 
 <a id="EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType"></a>
 ## EnvironmentVariables element
+Pass environment variables to your container or exe. 
+
 |Attribute|Value|
 |---|---|
 |type|[EnvironmentVariablesType](service-fabric-service-model-schema-complex-types.md#environmentvariablestype-complextype)|
@@ -2720,6 +2750,8 @@ Eviction Policy extension for the Service Type.
 
 <a id="ExtensionsElementExtensionsTypeComplexType"></a>
 ## Extensions element
+Describes extensions that can be applied to other elements.
+
 |Attribute|Value|
 |---|---|
 |type|[ExtensionsType](service-fabric-service-model-schema-complex-types.md#extensionstype-complextype)|
@@ -2736,6 +2768,8 @@ Eviction Policy extension for the Service Type.
 
 <a id="FabricSettingsElementSettingsOverridesTypeComplexTypeDefinedInClusterManifestTypecomplexType"></a>
 ## FabricSettings element
+Declares configuration settings in a service manifest to be overridden. It consists of one or more sections of key-value pairs. Parameter values can be encrypted using the Invoke-ServiceFabricEncryptSecret cmdlet.
+
 |Attribute|Value|
 |---|---|
 |type|[SettingsOverridesType](service-fabric-service-model-schema-complex-types.md#settingsoverridestype-complextype)|
@@ -2787,6 +2821,8 @@ Eviction Policy extension for the Service Type.
 
 <a id="FileStoreElementFileStoreETWTypeComplexTypeDefinedInDestinationselement"></a>
 ## FileStore element (type FileStoreETWType) 
+Describes a file store destination for ETW events. Works only in on-premise environment.
+
 |Attribute|Value|
 |---|---|
 |type|[FileStoreETWType](service-fabric-service-model-schema-complex-types.md#filestoreetwtype-complextype)|
@@ -2805,7 +2841,8 @@ Eviction Policy extension for the Service Type.
 
 <a id="FileStoreElementFileStoreTypeComplexTypeDefinedInDestinationselementDefinedInDestinationselement"></a>
 ## FileStore element (type FileStoreType) 
-
+Describes a file store destination for diagnostics data. Works only in a standalone cluster environment.
+Describes a file store destination for diagnostics data. Works only in a standalone cluster environment.
 
 |Attribute|Value|
 |---|---|
@@ -3136,6 +3173,8 @@ Specifies docker HEALTHCHECK integration options for the container.
 
 <a id="HealthPolicyElementApplicationHealthPolicyTypeComplexTypeDefinedInApplicationPoliciesTypecomplexType"></a>
 ## HealthPolicy element
+Describes the policy for evaluating health events reported on various application-related entities. If no policy is specified, an entity is assumed to be unhealthy if the health report is a warning or error.
+
 |Attribute|Value|
 |---|---|
 |type|[ApplicationHealthPolicyType](service-fabric-service-model-schema-complex-types.md#applicationhealthpolicytype-complextype)|
@@ -3235,6 +3274,11 @@ The repo and image on https://hub.docker.com or Azure Container Registry.
 
 <a id="ImageOverridesElementImageOverridesTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType"></a>
 ## ImageOverrides element
+Windows Server containers may not be compatible across different versions of the OS.  You can specify multiple OS images per container and tag
+        them with the build versions of the OS. Get the build version of the OS by running "winver" at a Windows command prompt. If the underlying OS
+        is build version 16299 (Windows Server version 1709), Service Fabric picks the container image tagged with Os="16299". An untagged container image
+        is assumed to work across all versions of the OS and overrides the image specified in the service manifest.
+
 |Attribute|Value|
 |---|---|
 |type|[ImageOverridesType](service-fabric-service-model-schema-complex-types.md#imageoverridestype-complextype)|
@@ -3545,10 +3589,11 @@ Describe the KtlLogger information associated with this node type
 
 <a id="LoadMetricElementLoadMetricTypeComplexTypeDefinedInLoadMetricselementDefinedInLoadMetricselementDefinedInLoadMetricselementDefinedInLoadMetricselementDefinedInLoadMetricselement"></a>
 ## LoadMetric element
-
-
-
-
+A resource that this service should be balanced on, such as memory or CPU usage.  Includes information about how much of that resource each replica or instance of this service consumes by default.
+A resource that this service should be balanced on, such as memory or CPU usage.  Includes information about how much of that resource each replica or instance of this service consumes by default.
+A resource that this service should be balanced on, such as memory or CPU usage.  Includes information about how much of that resource each replica or instance of this service consumes by default.
+A resource that this service should be balanced on, such as memory or CPU usage.  Includes information about how much of that resource each replica or instance of this service consumes by default.
+A resource that this service should be balanced on, such as memory or CPU usage.  Includes information about how much of that resource each replica or instance of this service consumes by default.
 
 |Attribute|Value|
 |---|---|
@@ -3747,6 +3792,8 @@ Load metrics reported by this service, used for resource balancing services.
 
 <a id="LocalStoreElementLocalStoreETWTypeComplexTypeDefinedInDestinationselement"></a>
 ## LocalStore element (type LocalStoreETWType) 
+Describes a store destination within the node for ETW events.
+
 |Attribute|Value|
 |---|---|
 |type|[LocalStoreETWType](service-fabric-service-model-schema-complex-types.md#localstoreetwtype-complextype)|
@@ -3765,7 +3812,8 @@ Load metrics reported by this service, used for resource balancing services.
 
 <a id="LocalStoreElementLocalStoreTypeComplexTypeDefinedInDestinationselementDefinedInDestinationselement"></a>
 ## LocalStore element (type LocalStoreType) 
-
+Describes a store destination within the node for diagnostic data.
+Describes a store destination within the node for diagnostic data.
 
 |Attribute|Value|
 |---|---|
@@ -3912,6 +3960,8 @@ Describe the LogicalDirectories settings associated with this node type
 
 <a id="LogicalDirectoryElementLogicalDirectoryTypeComplexTypeDefinedInLogicalDirectorieselement"></a>
 ## LogicalDirectory element
+Describes a LogicalDirectoryType.
+
 |Attribute|Value|
 |---|---|
 |type|[LogicalDirectoryType](service-fabric-service-model-schema-complex-types.md#logicaldirectorytype-complextype)|
@@ -3929,6 +3979,8 @@ Describe the LogicalDirectories settings associated with this node type
 
 <a id="ManagedAssemblyElementManagedAssemblyTypeComplexTypeDefinedInDllHostEntryPointTypecomplexType"></a>
 ## ManagedAssembly element
+Unsupported, do not use. The name of managed assembly (for example, Queue.dll), to host.
+
 |Attribute|Value|
 |---|---|
 |type|[ManagedAssemblyType](service-fabric-service-model-schema-complex-types.md#managedassemblytype-complextype)|
@@ -3945,6 +3997,8 @@ Describe the LogicalDirectories settings associated with this node type
 
 <a id="ManifestDataPackageElementDataPackageTypeComplexTypeDefinedInManifestDataPackageselement"></a>
 ## ManifestDataPackage element
+Declares a folder, named by the Name attribute, which contains static data files. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
+
 |Attribute|Value|
 |---|---|
 |type|[DataPackageType](service-fabric-service-model-schema-complex-types.md#datapackagetype-complextype)|
@@ -4426,7 +4480,8 @@ Specifies the network configuration for a container.
 
 <a id="NodeElementFabricNodeTypeComplexTypeDefinedInNodeListelementDefinedInNodeListelement"></a>
 ## Node element (type FabricNodeType) 
-
+Describes a Microsoft Azure Service Fabric Node.
+Describes a Microsoft Azure Service Fabric Node.
 
 |Attribute|Value|
 |---|---|
@@ -4445,6 +4500,8 @@ Specifies the network configuration for a container.
 
 <a id="NodeElementInfrastructureNodeTypeComplexTypeDefinedInNodeListelement"></a>
 ## Node element (type InfrastructureNodeType) 
+Describes a Infrastructure information needed.
+
 |Attribute|Value|
 |---|---|
 |type|[InfrastructureNodeType](service-fabric-service-model-schema-complex-types.md#infrastructurenodetype-complextype)|
@@ -4847,6 +4904,8 @@ Describe a node type.
 
 <a id="PackageSharingPolicyElementPackageSharingPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexType"></a>
 ## PackageSharingPolicy element
+Indicates if a code, config or data package should be shared.
+
 |Attribute|Value|
 |---|---|
 |type|[PackageSharingPolicyType](service-fabric-service-model-schema-complex-types.md#packagesharingpolicytype-complextype)|
@@ -5370,7 +5429,8 @@ Describe the properties for this NodeType that will be used as placement constra
 
 <a id="PoliciesElementApplicationPoliciesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType"></a>
 ## Policies element (type ApplicationPoliciesType) 
-
+Describes the policies (log collection, default run-as, health, and security access) to be applied at the application level.
+Describes the policies (log collection, default run-as, health, and security access) to be applied at the application level.
 
 |Attribute|Value|
 |---|---|
@@ -5389,6 +5449,8 @@ Describe the properties for this NodeType that will be used as placement constra
 
 <a id="PoliciesElementServiceManifestImportPoliciesTypeComplexTypeDefinedInServiceManifestImportelement"></a>
 ## Policies element (type ServiceManifestImportPoliciesType) 
+Describes policies (end-point binding, package sharing, run-as, and security access) to be applied on the imported service manifest.
+
 |Attribute|Value|
 |---|---|
 |type|[ServiceManifestImportPoliciesType](service-fabric-service-model-schema-complex-types.md#servicemanifestimportpoliciestype-complextype)|
@@ -5430,7 +5492,8 @@ Specifies which endpoint resource to bind to the exposed container port.
 
 <a id="PrincipalsElementSecurityPrincipalsTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType"></a>
 ## Principals element
-
+Describes the security principals (users, groups) required for this application to run services and secure resources. Principals are referenced in the policies sections.
+Describes the security principals (users, groups) required for this application to run services and secure resources. Principals are referenced in the policies sections.
 
 |Attribute|Value|
 |---|---|
@@ -5470,7 +5533,8 @@ The executable name.  For example, "MySetup.bat" or "MyServiceHost.exe".
 
 <a id="PropertiesElementServiceTypeExtensionPolicyPropertiesTypeComplexTypeDefinedInPersistencePolicyelementDefinedInEvictionPolicyelement"></a>
 ## Properties element
-
+Defines Properties for the Persistence and Eviction policies.
+Defines Properties for the Persistence and Eviction policies.
 
 |Attribute|Value|
 |---|---|
@@ -5671,7 +5735,7 @@ Credentials for container image repository to pull images from.
 ## ResourceGovernancePolicy element
 Specifies resource limits for a code package.
 Specifies resource limits for codepackage.
-
+Restricts the resources that can be used on the host and declares resource limits for a service code package.
 
 |Attribute|Value|
 |---|---|
@@ -5694,6 +5758,8 @@ Specifies resource limits for codepackage.
 
 <a id="ResourceOverridesElementResourceOverridesTypeComplexTypeDefinedInServiceManifestImportelement"></a>
 ## ResourceOverrides element
+Describes the resource overrides for endpoints in service manifest resources.
+
 |Attribute|Value|
 |---|---|
 |type|[ResourceOverridesType](service-fabric-service-model-schema-complex-types.md#resourceoverridestype-complextype)|
@@ -5711,6 +5777,8 @@ Specifies resource limits for codepackage.
 
 <a id="ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType"></a>
 ## Resources element
+Describes the resources used by this service, which can be declared without modifying compiled code and changed when the service is deployed. Access to these resources is controlled through the Principals and Policies sections of the application manifest.
+
 |Attribute|Value|
 |---|---|
 |type|[ResourcesType](service-fabric-service-model-schema-complex-types.md#resourcestype-complextype)|
@@ -5871,7 +5939,8 @@ Specifies resource limits for codepackage.
 
 <a id="RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement"></a>
 ## RunAsPolicy element
-
+Specifies the local user or local system account that a service code package will run as. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available. By default, applications run under the account that the Fabric.exe process runs under. Applications can also run as other accounts, which must be declared in the Principals section. If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTP protocol, you must also specify a SecurityAccessPolicy to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. For an HTTPS endpoint, you also define a EndpointBindingPolicy to indicate the name of the certificate to return to the client.
+Specifies the local user or local system account that a service code package will run as. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available. By default, applications run under the account that the Fabric.exe process runs under. Applications can also run as other accounts, which must be declared in the Principals section. If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTP protocol, you must also specify a SecurityAccessPolicy to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. For an HTTPS endpoint, you also define a EndpointBindingPolicy to indicate the name of the certificate to return to the client.
 
 |Attribute|Value|
 |---|---|
@@ -5926,6 +5995,8 @@ Specifies resource limits for codepackage.
 
 <a id="ScalingPolicyElementScalingPolicyTypeComplexTypeDefinedInServiceScalingPolicieselement"></a>
 ## ScalingPolicy element
+A scaling policy description consisting of a trigger and a mechanism for scaling. 
+
 |Attribute|Value|
 |---|---|
 |type|[ScalingPolicyType](service-fabric-service-model-schema-complex-types.md#scalingpolicytype-complextype)|
@@ -5943,8 +6014,9 @@ Specifies resource limits for codepackage.
 
 <a id="SecretsCertificateElementFabricCertificateTypeComplexTypeDefinedInCertificateselementDefinedInCertificateselementDefinedInDigestedCertificateselement"></a>
 ## SecretsCertificate element
+This specifies the certificate information.
 Declares a certificate used to encrypt sensitive information within the application manifest. The application author uses the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt the sensitive information, which is copied to a Parameter in the ConfigOverrides section.
-
+This specifies the certificate information.
 
 |Attribute|Value|
 |---|---|
@@ -6128,8 +6200,9 @@ List of security policies applied to resources at the application level.
 
 <a id="SecurityAccessPolicyElementSecurityAccessPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInSecurityAccessPolicieselementDefinedInDigestedEndpointelement"></a>
 ## SecurityAccessPolicy element
-
-
+Grants access permissions to a principal on a resource (such as an endpoint) defined in a service manifest. Typically, it is very useful to control and restrict access of services to different resources in order to minimize security risks. This is especially important when the application is built from a collection of services from a marketplace which are developed by different developers.
+Grants access permissions to a principal on a resource (such as an endpoint) defined in a service manifest. Typically, it is very useful to control and restrict access of services to different resources in order to minimize security risks. This is especially important when the application is built from a collection of services from a marketplace which are developed by different developers.
+Grants access permissions to a principal on a resource (such as an endpoint) defined in a service manifest. Typically, it is very useful to control and restrict access of services to different resources in order to minimize security risks. This is especially important when the application is built from a collection of services from a marketplace which are developed by different developers.
 
 |Attribute|Value|
 |---|---|
@@ -6605,6 +6678,8 @@ Load metrics reported by this service, used for resource balancing services.
 
 <a id="ServiceManifestElementServiceManifestTypeComplexType"></a>
 ## ServiceManifest element
+Declaratively describes the service type and version. It lists the independently upgradeable code, configuration, and data packages that together compose a service package to support one or more service types. Resources, diagnostics settings, and service metadata, such as service type, health properties, and load-balancing metrics, are also specified.
+
 |Attribute|Value|
 |---|---|
 |type|[ServiceManifestType](service-fabric-service-model-schema-complex-types.md#servicemanifesttype-complextype)|
@@ -6698,6 +6773,8 @@ Describes configuration overrides for the imported service manifest. Configurati
 
 <a id="ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement"></a>
 ## ServiceManifestRef element
+Imports the service manifest by reference. Currently the service manifest file (ServiceManifest.xml) must be present in the build package.
+
 |Attribute|Value|
 |---|---|
 |type|[ServiceManifestRefType](service-fabric-service-model-schema-complex-types.md#servicemanifestreftype-complextype)|
@@ -7184,6 +7261,8 @@ Defines what service types are supported by a CodePackage in this manifest. When
 
 <a id="SettingsElementSettingsOverridesTypeComplexTypeDefinedInConfigOverrideTypecomplexType"></a>
 ## Settings element (type SettingsOverridesType) 
+Declares configuration settings in a service manifest to be overridden. It consists of one or more sections of key-value pairs. Parameter values can be encrypted using the Invoke-ServiceFabricEncryptSecret cmdlet.
+
 |Attribute|Value|
 |---|---|
 |type|[SettingsOverridesType](service-fabric-service-model-schema-complex-types.md#settingsoverridestype-complextype)|
@@ -7454,7 +7533,8 @@ Declares that this service has only one partition.
 
 <a id="StatefulServiceElementStatefulServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement"></a>
 ## StatefulService element
-
+Defines a stateful service.
+Defines a stateful service.
 
 |Attribute|Value|
 |---|---|
@@ -7472,7 +7552,8 @@ Declares that this service has only one partition.
 
 <a id="StatefulServiceGroupElementStatefulServiceGroupTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceGroupelement"></a>
 ## StatefulServiceGroup element
-
+Defines a stateful service group.
+Defines a stateful service group.
 
 |Attribute|Value|
 |---|---|
@@ -7490,6 +7571,8 @@ Declares that this service has only one partition.
 
 <a id="StatefulServiceGroupTypeElementStatefulServiceGroupTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexType"></a>
 ## StatefulServiceGroupType element
+Describes a stateful service group type.
+
 |Attribute|Value|
 |---|---|
 |type|[StatefulServiceGroupTypeType](service-fabric-service-model-schema-complex-types.md#statefulservicegrouptypetype-complextype)|
@@ -7506,6 +7589,7 @@ Declares that this service has only one partition.
 
 <a id="StatefulServiceTypeElementStatefulServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType"></a>
 ## StatefulServiceType element
+Describes a stateful service type.
 Describes a stateful ServiceType.
 
 |Attribute|Value|
@@ -7524,7 +7608,8 @@ Describes a stateful ServiceType.
 
 <a id="StatelessServiceElementStatelessServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement"></a>
 ## StatelessService element
-
+Defines a stateless service.
+Defines a stateless service.
 
 |Attribute|Value|
 |---|---|
@@ -7542,7 +7627,8 @@ Describes a stateful ServiceType.
 
 <a id="StatelessServiceGroupElementStatelessServiceGroupTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceGroupelement"></a>
 ## StatelessServiceGroup element
-
+Defines a stateless service group.
+Defines a stateless service group.
 
 |Attribute|Value|
 |---|---|
@@ -7560,6 +7646,8 @@ Describes a stateful ServiceType.
 
 <a id="StatelessServiceGroupTypeElementStatelessServiceGroupTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexType"></a>
 ## StatelessServiceGroupType element
+Describes a stateless service group type.
+
 |Attribute|Value|
 |---|---|
 |type|[StatelessServiceGroupTypeType](service-fabric-service-model-schema-complex-types.md#statelessservicegrouptypetype-complextype)|
@@ -7576,6 +7664,7 @@ Describes a stateful ServiceType.
 
 <a id="StatelessServiceTypeElementStatelessServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType"></a>
 ## StatelessServiceType element
+Describes a stateless service type.
 Describes a stateless ServiceType.
 
 |Attribute|Value|
@@ -7770,6 +7859,8 @@ Inclusive high range of the partition key (long).
 
 <a id="UnmanagedDllElementUnmanagedDllTypeComplexTypeDefinedInDllHostEntryPointTypecomplexType"></a>
 ## UnmanagedDll element
+Unsupported, do not use. The name of unmanaged assembly (for example, Queue.dll), to host.
+
 |Attribute|Value|
 |---|---|
 |type|[UnmanagedDllType](service-fabric-service-model-schema-complex-types.md#unmanageddlltype-complextype)|
@@ -8134,6 +8225,8 @@ Declares a user as a security principal, which can be referenced in policies.
 
 <a id="VolumeElementContainerVolumeTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType"></a>
 ## Volume element
+Specifies the volume to be bound to the container.
+
 |Attribute|Value|
 |---|---|
 |type|[ContainerVolumeType](service-fabric-service-model-schema-complex-types.md#containervolumetype-complextype)|
