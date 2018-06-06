@@ -35,11 +35,11 @@ These actions help you work with data in arrays.
 
 **JSON actions**
 
-These actions help you manage data that is in JavaScript Object Notation (JSON) format.
+These actions help you work with data in JavaScript Object Notation (JSON) format.
 
 | Action | Description | 
 |--------|-------------| 
-| [**Compose**](#compose-action) | Create a JavaScript Object Notation (JSON) object and properties from any output. | 
+| [**Compose**](#compose-action) | Create a JSON object from the specified inputs. | 
 | [**Parse JSON**](#parse-json-action) | Create user-friendly data tokens, which you can use in logic apps, from JSON content by providing or generating a JSON schema.  | 
 ||| 
 
@@ -80,6 +80,13 @@ as the first step in your logic app
 <a name="compose-action"></a>
 
 ## Compose action
+
+You can create output such as arrays, JSON objects, 
+and any other native type that Azure Logic Apps supports, 
+for example, binary and XML, by using the **Data Operations - Compose** action.
+
+To create a JavaScript Object Notation (JSON) object from any output, 
+follow these steps:
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 

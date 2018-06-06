@@ -1129,27 +1129,55 @@ in the trigger definition because the call creates multiple runs.
 As a result, check for this case when the workflow operation is PUT, 
 and return a "bad request" response.
 
+<a name="compose-action"></a>
+
 ## Compose action
 
-This action lets you construct an arbitrary object, 
-and the output is the result from evaluating the action's inputs. 
-
-> [!NOTE]
-> You can use the `Compose` action for constructing any output, 
-> including objects, arrays, and any other type natively 
-> supported by logic apps like XML and binary.
-
-For example, you can use the `Compose` action 
-for merging outputs from multiple actions:
+This action creates a single output from more than one input, 
+which can include expressions that transform data between types. 
+The output and inputs can have any type that Azure Logic Apps 
+natively supports such as arrays, JSON objects, XML, and binary.
+You can then reference this output in other actions. 
 
 ```json
-"composeUserRecordAction": {
-    "type": "Compose",
-    "inputs": {
-        "firstName": "@actions('getUser').firstName",
-        "alias": "@actions('getUser').alias",
-        "thumbnailLink": "@actions('lookupThumbnail').url"
-    }
+"Compose": {
+   "type": "Compose",
+   "inputs": "<inputs-to-compose>",
+   "runAfter": {}
+},
+```
+
+*Required* 
+
+| Property | Value | Type | Description | 
+|----------|-------|------|-------------| 
+| <*inputs-to-compose*> | | | | 
+||||| 
+
+
+*Example*
+
+This action creates a single output by merging the results from more than one action:
+
+```json
+"Compose": {
+   "type": "Compose",
+   "inputs": {
+      "firstName": "@actions('getUser').firstName",
+      "lastName": "@actions('getUser').lastName",
+      "email": "@actions('getUser').email"
+    },
+    "runAfter": {}
+},
+```
+
+Here is the output from this example:
+
+```json
+{ 
+   "firstName": "Sophie", 
+   "lastName": "Owen",
+   "email": "Sophie_Owen@contoso.com"
 }
 ```
 
@@ -1182,8 +1210,8 @@ for example:
 }
 ```
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- |  
+| Property | Required | Type | Description | 
+| -------- | -------- | ---- | ----------- |  
 | function id | Yes | String | The resource ID for the Azure function that you want to call. | 
 | method | No | String | The HTTP method used to call the function. If not specified, "POST" is the default method. | 
 | queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
@@ -1209,7 +1237,7 @@ When you save your logic app, the Logic Apps engine performs some checks on the 
 ## Join action
 
 This action creates a string from all the items in an array 
-and separates those items with the specified delimiter character. 
+and separates those items with the specified character. 
 For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-change-manage-data-operations.md#join-action).
 
 ```json
@@ -1223,18 +1251,20 @@ For more information, see [Change or manage data, outputs, and formats](../logic
 }
 ```
 
-| Property | Required | Value | Type | Description | 
-|----------|----------|-------|------|-------------| 
-| **from** | Yes | <*array*> <br>-or- <br>"<*expression*>" | Array | The array or expression that provides the array items for creating the string | 
-| **joinWith** | Yes | <*delimiter*> | Single character string | The character that separates each item in the string | 
-||||||  
+*Required*
 
-For example, suppose you have an array variable 
-named "myIntegerArray" that contains integers, 
-such as `[1,2,3,4]`. This example gets the 
-values from the variable by using the `variables()` 
-function in an expression and creates this string with 
-those values, which are separted by a comma: `"1,2,3,4"`
+| Property | Value | Type | Description | 
+|----------|-------|------|-------------| 
+| **from** | <*array*> <br>-or- <br>"<*expression*>" | Array | The array or expression that provides the array items for creating the string | 
+| **joinWith** | <*delimiter*> | Single character | The character that separates each item in the string | 
+||||| 
+
+*Example*
+
+Suppose you have an array variable named "myIntegerArray" that contains integers, 
+such as `[1,2,3,4]`. This example gets the values from the variable by using 
+the `variables()` function in an expression and creates this string with those values, 
+which are separated by a comma: `"1,2,3,4"`
 
 ```json
 "Join": {
