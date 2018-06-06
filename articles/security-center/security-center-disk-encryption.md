@@ -1,4 +1,4 @@
-﻿---
+---
 title: Encrypt an Azure Virtual Machine | Microsoft Docs
 description: This document helps you to encrypt an Azure Virtual Machine after receiving an alert from Azure Security Center.
 services: security, security-center
@@ -58,7 +58,7 @@ The Azure Disk Encryption Prerequisites Configuration Script will set up all the
 
 Now that the script content is saved, open the script in the PowerShell ISE:
 
-1. Start - Windows Powershell ISE
+1. Start - Windows PowerShell ISE
 2. Right click **Windows PowerShell ISE** and click **Run as administrator**.
 3. In the **Administrator: Windows PowerShell ISE** window, click **View** and then click **Show Script Pane**.
 4. If you see the **Commands** pane on the right side of the window, click the **“x”** in the top right corner of the pane to close it. If the text is too small for you to see, use **CTRL+Add** (“Add” is the “+” sign). If the text is too large, use **CTRL+Subtract** (Subtract is the “-“ sign).
