@@ -20,11 +20,17 @@ You can deploy this sample policy using the [Azure portal](#azure-portal), with
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+> [!IMPORTANT]
+> The code samples on this page use a nomenclature of `<field>` to represent a value that must be
+> replaced prior to the code to work correctly. There may be other fields that should also be
+> replaced (such as region names) to meet your specific requirements, but this code will work
+> without changing those.
+
 ## Sample policy
 
 ### Policy definition
 
-The complete composed JSON policy definition, used by the REST API.
+The complete composed JSON policy definition, used by the REST API and 'Deploy to Azure' buttons.
 
 [!code-json[full](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.json "Complete policy definition (JSON)")]
 
@@ -59,8 +65,8 @@ In this example parameter, only Windows Server 2016 Datacenter and Windows Serve
 {
     "imageIds": {
         "value": [
-            "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510",
-            "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus2/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter-smalldisk/Versions/2016.127.20180510",
+            "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510",
+            "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/westus2/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter-smalldisk/Versions/2016.127.20180510",
         ]
     }
 }
@@ -85,7 +91,7 @@ $definition = New-AzureRmPolicyDefinition -Name 'allowed-custom-images' -Display
 $scope = Get-AzureRmResourceGroup -Name 'YourResourceGroup'
 
 # Set the Policy Parameter (JSON format)
-$policyparam = '{ "imageIds": { "value": [ "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510", "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus2/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter-smalldisk/Versions/2016.127.20180510" ] } }'
+$policyparam = '{ "imageIds": { "value": [ "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510", "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/westus2/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter-smalldisk/Versions/2016.127.20180510" ] } }'
 
 # Create the Policy Assignment
 $assignment = New-AzureRmPolicyAssignment -Name 'allowed-custom-images-assignment' -DisplayName 'Approved VM images Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
@@ -129,7 +135,7 @@ definition=$(az policy definition create --name 'allowed-custom-images' --displa
 scope=$(az group show --name 'YourResourceGroup')
 
 # Set the Policy Parameter (JSON format)
-policyparam='{ "imageIds": { "value": [ "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510", "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus2/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter-smalldisk/Versions/2016.127.20180510" ] } }'
+policyparam='{ "imageIds": { "value": [ "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510", "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/westus2/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter-smalldisk/Versions/2016.127.20180510" ] } }'
 
 # Create the Policy Assignment
 assignment=$(az policy assignment create --name 'allowed-custom-images-assignment' --display-name 'Approved VM images Assignment' --scope `echo $scope | jq '.id' -r` --policy `echo $definition | jq '.name' -r` --params "$policyparam")
