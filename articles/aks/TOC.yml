@@ -43,6 +43,8 @@
       href: upgrade-cluster.md
     - name: Delete an AKS cluster
       href: delete-cluster.md
+    - name: Azure AD-enabled AKS
+      href: aad-integration.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
   - name: Configure data volumes
