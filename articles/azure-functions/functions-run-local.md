@@ -204,19 +204,23 @@ When no valid storage connection string is set for **AzureWebJobsStorage**, the 
 
 You can get a storage connection string value to set in your local settings file in one of the following ways:
 
+* From the [Azure portal]. Navigate to your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
+
+  ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
+
 * Use [Azure Storage Explorer](http://storageexplorer.com/) to connect to your Azure account. In the **Explorer**, expand your subscription, select your storage account, and copy the primary or secondary connection string. 
 
-    ![Copy string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
+  ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
-* Use one of the following commands to download the connection string from Azure:
+* Use Core Tools to download the connection string from Azure with one of the following commands:
 
     * Download all settings from an existing function app:
-    ```
+    ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
     
     * Get the Connection string for a specific storage account:
-    ```
+    ```bash
     func azure storage fetch-connection-string <StorageAccountName>
     ```
     
@@ -227,7 +231,7 @@ You can get a storage connection string value to set in your local settings file
 
 To create a function, run the following command:
 
-```
+```bash
 func new
 ``` 
 `func new` supports the following optional arguments:
@@ -240,21 +244,21 @@ func new
 
 For example, to create a JavaScript HTTP trigger, run:
 
-```
+```bash
 func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
 To create a queue-triggered function, run:
 
-```
+```bash
 func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
-```
+```bash
 <a name="start"></a>
 ## Run functions locally
 
 To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
-```
+```bash
 func host start
 ```
 
@@ -273,7 +277,7 @@ func host start
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
-```
+```bash
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
@@ -289,7 +293,7 @@ To debug C# functions, use `--debug vs`. You can also use [Azure Functions Visua
 
 To launch the host and set up JavaScript debugging, run:
 
-```
+```bash
 func host start --debug vscode
 ```
 
@@ -319,12 +323,12 @@ Make sure to use the same server name and port that the Functions host is listen
 
 The following cURL command triggers the `MyHttpTrigger` quickstart function from a GET request with the _name_ parameter passed in the query string. 
 
-```
+```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 The following example is the same function called from a POST request passing _name_ in the request body:
 
-```
+```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
@@ -346,7 +350,7 @@ To pass test data to the administrator endpoint of a function, you must supply t
 ```` 
 The `<trigger_input>` value contains data in a format expected by the function. The following cURL example is a POST to a `QueueTriggerJS` function. In this case, the input is a string that is equivalent to the message expected to be found in the queue.      
 
-```
+```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
 ```
 
@@ -369,7 +373,7 @@ You can also invoke a function directly by using `func run <FunctionName>` and p
 
 For example, to call an HTTP-triggered function and pass content body, run the following command:
 
-```
+```bash
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -381,7 +385,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 To publish a Functions project to a function app in Azure, use the `publish` command:
 
-```
+```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
