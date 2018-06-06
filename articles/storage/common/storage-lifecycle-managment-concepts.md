@@ -188,7 +188,8 @@ In preview, lifecycle management supports tiering and deletion of blob and delet
 | tierToArchive | Support blobs currently at Hot or Cool tier | Not supported |
 | delete        | Supported                                   | Supported     |
 
->[!NOTE] If more than one action is defined on the same blob, lifecycle management applies the least expensive action to the blob. (e.g., Action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.)
+>[!NOTE] 
+If more than one action is defined on the same blob, lifecycle management applies the least expensive action to the blob. (e.g., Action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.)
 
 In preview, the action execution conditions are based on age. Base blob uses last modified time to track age and blob snapshots uses snapshot creation time to track age.
 
