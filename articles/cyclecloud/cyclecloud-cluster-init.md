@@ -81,7 +81,6 @@ For example, the cluster init directory on a Linux instance will look like this:
 > [!NOTE]
 > The `/mnt/clusterinit` directory may contain other (deprecated) directories as well.
 
-
 ## Scratch
 
 Files in the cluster init scratch directory will be replicated on the local drive of each instance. The scratch directory provides fast local access to its files, but data stored here will not persist when a node is terminated.
@@ -89,7 +88,6 @@ Files in the cluster init scratch directory will be replicated on the local driv
 In Linux, the cluster init scratch directory is found at `/mnt/cluster-init/scratch` and on Windows at `C:\cluster-init\scratch`. Upon start-up, each instance will sync all files from the cloud storage scratch directory (for example `az://com.cyclecloud.demo.locker/clusterinit/default/scratch/`) to the local `/mnt/cluster-init/scratch` directory.
 
 It is not recommended to modify files directly in the cluster init `scratch` directory since they are synced from cloud storage.  Every instance in the cluster has a general purpose `scratch` directory on its local drive. This directory is intended to be used for temporary scratch space or local reference files. As with the cluster init scratch directory, data stored here will not be persisted if a node is terminated. On Linux, this directory is located at `/mnt/scratch` and on Windows it is the `C:\` drive.
-
 
 ## Shared
 
@@ -166,16 +164,16 @@ you can change the port without modifying your cluster init scripts:
 
 There are two main ways that cluster init can fail.
 
-#. The cluster init recipe may fail to download files from the cloud storage provider.
-#. One or more cluster init executable scripts may fail during execution.
+1. The cluster init recipe may fail to download files from the cloud storage provider.
+2. One or more cluster init executable scripts may fail during execution.
 
 To detect failures, the best place to look is in the Chef converge log. On Linux, this is generally found at:
 
-	`/opt/cycle/jetpack/logs/chef-client.log`
+		/opt/cycle/jetpack/logs/chef-client.log
 
 and on Windows, it is generally found at:
 
-	`C:\cycle\logs\chef-client.log`
+		C:\cycle\logs\chef-client.log
 
 The failing line will appear in that log as either a "sync" operation or an execute operation for a specific executable. If it is a failing executable, then the full path to the log files for the execution will appear at the top of the Chef stack trace.
 
@@ -185,11 +183,11 @@ The best way to debug Cluster Init executable failures is to examine the log of 
 
 For Linux, the logs directory is located at:
 
-	`/mnt/cluster-init/logs/executables/`
+		/mnt/cluster-init/logs/executables/
 
 and for Windows, the directory is located at:
 
-	`C:\cluster-init\logs\executables\`
+		C:\cluster-init\logs\executables\
 
 # Tips and Tricks
 
@@ -203,8 +201,8 @@ and for Windows, the directory is located at:
 	* For cluster inits intended for use in mixed Linux and Windows clusters, executable scripts may be placed inside a `windows` subdirectory to denote that they are Windows-specific executables.
 
 * To ensure that files in `scratch` and `shared` are available for use by
-  `executables`, the order each of the directories are processed is as follows:
+  `executables`, the order each of the directories are processed is:
 
-        * `shared`
-        * `scratch`
-        * `executables`
+        * shared
+        * scratch
+        * executables

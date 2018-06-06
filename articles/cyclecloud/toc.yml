@@ -116,8 +116,12 @@
     items:
       - name: Network Connectivity
         href: cyclecloud-network-connectivity.md
+      = name: Network Security
+        href: cyclecloud-network-security.md
       - name: Proxy Traffic
         href: cyclecloud-proxy-traffic.md
+      - name: SSL
+        href: cyclecloud-ssl.md
   - name: Scheduler
     href: cyclecloud-scheduler-integration.md
   - name: User Creation and RBAC
@@ -139,9 +143,9 @@
   - name: HealthCheck
     href: cyclecloud-healthcheck.md
   - name: Node Configuration
-    href:
+    href: cyclecloud-node-configuration-reference.md
   - name: Performance Tuning
-    href:
+    href: cyclecloud-performance-tuning.md
   - name: CycleServer Datastore
     href:
     items:
