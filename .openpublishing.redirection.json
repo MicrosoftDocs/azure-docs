@@ -9690,6 +9690,21 @@
             "redirect_url": "how-to-create-a-group",
             "redirect_document_id": false
         },
+       {
+        "source_path": "articles/migrate/migrate-scenarios-overview.md",
+        "redirect_url": "contoso-migration-overview",
+        "redirect_document_id": false
+       },
+       {
+        "source_path": "articles/migrate/migrate-scenarios-assessment.md",
+        "redirect_url": "contoso-migration-assessment",
+        "redirect_document_id": false
+       },
+       {
+        "source_path": "articles/migrate/migrate-scenarios-lift-and-shift.md",
+        "redirect_url": "contoso-migration-rehost-vm-sql-managed-instance",
+        "redirect_document_id": false
+       },
         {
             "source_path": "articles/site-recovery/site-recovery-migrate-azure-to-azure.md",
             "redirect_url": "azure-to-azure-tutorial-migrate",
