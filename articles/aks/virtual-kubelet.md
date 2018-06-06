@@ -1,5 +1,5 @@
 ---
-title: Run virtual kubelete in an Azure Kubernetes Service (AKS) cluster
+title: Run virtual kubelet in an Azure Kubernetes Service (AKS) cluster
 description: Use virtual kubelet to run Kubernetes containers on Azure Container Instances.
 services: container-service
 author: neilpeterson
@@ -67,7 +67,7 @@ virtual-kubelet-virtual-kubelet-linux   Ready     agent     42s       v1.8.3
 
 ## Use Virtual Kubelet
 
-Create a file named `virtual-kubelete-test.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name given to the Virtual Kubelet node. Take note that a `nodeSelector` and `toleration` are being used to schedule the container on the Virtual Kubelet node.
+Create a file named `virtual-kubelet-test.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name given to the Virtual Kubelet node. Take note that a `nodeSelector` and `toleration` are being used to schedule the container on the Virtual Kubelet node.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -96,7 +96,7 @@ spec:
 Run the application with the [kubectl create][kubectl-create] command.
 
 ```azurecli-interactive
-kubectl create -f virtual-kubelete-test.yaml
+kubectl create -f virtual-kubelet-test.yaml
 ```
 
 Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods with the scheduled node. Notice that the `aci-helloworld` pod has been scheduled on the `virtual-kubelet-virtual-kubelet-linux` node.
