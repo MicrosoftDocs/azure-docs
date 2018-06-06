@@ -1,34 +1,34 @@
 ﻿---
-title: Workflow triggers and actions - Azure Logic Apps | Microsoft Docs
-description: Learn about triggers and actions in workflow definitions for Azure Logic Apps
+# required metadata
+title: Workflow trigger and action types - Azure Logic Apps | Microsoft Docs
+description: Learn about the built-in trigger and action types in Azure Logic Apps as described by the Workflow Definition Language schema
 services: logic-apps
-author: kevinlam1
-manager: SyntaxC4
-editor: 
-documentationcenter: 
-
-ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: 
-ms.devlang: 
+author: kevinlam1
+ms.author: klam
+manager: cfowler
 ms.topic: reference
-ms.date: 5/8/2018
-ms.author: klam; LADocs
+ms.date: 06/11/2018
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
-# Triggers and actions for workflow definitions in Azure Logic Apps
+# Workflow Definition Language trigger and action types in Azure Logic Apps
 
 In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
 all logic app workflows start with triggers followed by actions. 
-This article describes the triggers and actions that you can 
-use to build logic apps for automating business workflows or 
-processes in your integration solutions. You can build logic 
-apps either visually with the Logic Apps Designer, 
+This article describes the built-in trigger and action types 
+you can use when creating automated workflows with 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md). 
+To learn more about triggers and actions in logic app definitions, see 
+[Workflow Definition Language for Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
+
+You can visually create logic apps with the Logic Apps Designer, 
 or by directly authoring the underlying workflow definitions with the 
 [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
 You can use either the Azure portal or Visual Studio. 
-Learn how [pricing works for triggers and actions](../logic-apps/logic-apps-pricing.md).
 
 <a name="triggers-overview"></a>
 
@@ -80,7 +80,7 @@ although some are optional:
 | [operationOptions](#trigger-operation-options) | String | Some triggers provide additional options that let you change the default trigger behavior | 
 ||||| 
 
-## Trigger types and details  
+## Trigger types
 
 Each trigger type has a different interface and inputs that define the trigger's behavior. 
 
@@ -128,6 +128,7 @@ Here is the trigger definition:
    "operationOptions": "singleInstance"
 }
 ```
+
 *Required*
 
 | Element name | Type | Description | 
@@ -842,39 +843,139 @@ For example:
 
 There are many types of actions, each with unique behavior. 
 Each action type has different inputs that define an action's behavior. 
-Collection actions can contain many other actions within themselves. 
+Control workflow actions can contain many other actions within themselves. 
 
-### Standard actions  
+### Built-in action types
 
 | Action type | Description | 
 | ----------- | ----------- | 
-| **HTTP** | Calls an HTTP web endpoint. | 
-| **ApiConnection**  | Works like the HTTP action, but uses [Microsoft-managed APIs](https://docs.microsoft.com/azure/connectors/apis-list). | 
+| **ApiConnection**  | Calls an HTTP endpoint by using [Microsoft-managed APIs](https://docs.microsoft.com/azure/connectors/apis-list). | 
 | **ApiConnectionWebhook** | Works like HTTPWebhook, but uses Microsoft-managed APIs. | 
+| **Compose** | Creates an object from the action's inputs. | 
+| **Function** | Calls an Azure Function. | 
+| **HTTP** | Calls an HTTP endpoint. | 
+| **Join** | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
+| **Query** | Gets items from an array based on a condition or filter. | 
 | **Response** | Defines the response for an incoming call. | 
-| **Compose** | Constructs an arbitrary object from the action's inputs. | 
-| **Function** | Represents an Azure function. | 
+| **Select** | Converts items from one array into different items in another array. For example, you can convert an array of numbers into an array of objects. | 
+| **Table** | Converts an array into a CSV or HTML table. | 
+| **Terminate** | Stops an actively running workflow. | 
 | **Wait** | Waits a fixed amount of time or until a specific time. | 
-| **Workflow** | Represents a nested workflow. | 
-| **Compose** | Constructs an arbitrary object from the action's inputs. | 
-| **Query** | Filters an array based on a condition. | 
-| **Select** | Projects each element of an array into a new value. For example, you can convert an array of numbers into an array of objects. | 
-| **Table** | Converts an array of items into a CSV or HTML table. | 
-| **Terminate** | Stops running a workflow. | 
-| **Wait** | Waits a fixed amount of time or until a specific time. | 
-| **Workflow** | Represents a nested workflow. | 
+| **Workflow** | Nest one workflow inside another workflow. | 
 ||| 
 
-### Collection actions
+### Control workflow action types
 
 | Action type | Description | 
 | ----------- | ----------- | 
-| **If** | Evaluate an expression and based on the result, runs the corresponding branch. | 
-| **Switch** | Perform different actions based on specific values of an object. | 
 | **ForEach** | This looping action iterates through an array and performs inner actions on each array item. | 
-| **Until** | This looping action performs inner actions until a condition results to true. | 
+| **If** | Evaluate an expression and based on the result, runs the corresponding branch. | 
 | **Scope** | Use for logically grouping other actions. | 
+| **Switch** | Perform different actions based on specific values of an object. | 
+| **Until** | This looping action performs inner actions until a condition results to true. | 
 |||  
+
+## APIConnection action
+
+This action references a Microsoft-managed connector, 
+requiring a reference to a valid connection and information about the API and parameters. 
+Here is an example APIConnection action:
+
+```json
+"Send_Email": {
+    "type": "ApiConnection",
+    "inputs": {
+        "host": {
+            "api": {
+                "runtimeUrl": "https://logic-apis-df.azure-apim.net/apim/office365"
+            },
+            "connection": {
+                "name": "@parameters('$connections')['office365']['connectionId']"
+            }
+        },
+        "method": "POST",
+        "body": {
+            "Subject": "New tweet from @{triggerBody()['TweetedBy']}",
+            "Body": "@{triggerBody()['TweetText']}",
+            "To": "me@example.com"
+        },
+        "path": "/Mail"
+    },
+    "runAfter": {}
+}
+```
+
+| Element name | Required | Type | Description | 
+| ------------ | -------- | ---- | ----------- | 
+| host | Yes | JSON Object | Represents the connector information such as the `runtimeUrl` and reference to the connection object. | 
+| method | Yes | String | Uses one of these HTTP methods: "GET", "POST", "PUT", "DELETE", "PATCH", or "HEAD" | 
+| path | Yes | String | The path for the API operation | 
+| queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
+| headers | No | JSON Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | No | JSON Object | Represents the payload that's sent to the endpoint. | 
+| retryPolicy | No | JSON Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | No | String | Defines the set of special behaviors to override. | 
+| authentication | No | JSON Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+||||| 
+
+A retry policy applies to intermittent failures, 
+characterized as HTTP status codes 408, 429, and 5xx, 
+in addition to any connectivity exceptions. 
+You can define this policy with the `retryPolicy` object as shown here:
+
+```json
+"retryPolicy": {
+    "type": "<retry-policy-type>",
+    "interval": <retry-interval>,
+    "count": <number-of-retry-attempts>
+}
+```
+
+## APIConnection webhook action
+
+The APIConnectionWebhook action references a Microsoft-managed connector. 
+This action requires a reference to a valid connection and information 
+about the API and parameters. You can specify limits on a webhook 
+action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
+
+```json
+"Send_approval_email": {
+    "type": "ApiConnectionWebhook",
+    "inputs": {
+        "host": {
+            "api": {
+                "runtimeUrl": "https://logic-apis-df.azure-apim.net/apim/office365"
+            },
+            "connection": {
+                "name": "@parameters('$connections')['office365']['connectionId']"
+            }
+        },
+        "body": {
+            "Message": {
+                "Subject": "Approval Request",
+                "Options": "Approve, Reject",
+                "Importance": "Normal",
+                "To": "me@email.com"
+            }
+        },
+        "path": "/approvalmail",
+        "authentication": "@parameters('$authentication')"
+    },
+    "runAfter": {}
+}
+```
+
+| Element name | Required | Type | Description | 
+| ------------ | -------- | ---- | ----------- | 
+| host | Yes | JSON Object | Represents the connector information such as the `runtimeUrl` and reference to the connection object. | 
+| path | Yes | String | The path for the API operation | 
+| queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
+| headers | No | JSON Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | No | JSON Object | Represents the payload that's sent to the endpoint. | 
+| retryPolicy | No | JSON Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | No | String | Defines the set of special behaviors to override. | 
+| authentication | No | JSON Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+||||| 
 
 ## HTTP action  
 
@@ -980,7 +1081,6 @@ the action's status is marked `Cancelled` with an `ActionTimedOut` code.
 The limit timeout is specified in ISO 8601 format. 
 This example shows how you can specify limits:
 
-
 ``` json
 "<action-name>": {
     "type": "Workflow|Webhook|Http|ApiConnectionWebhook|ApiConnection",
@@ -990,146 +1090,6 @@ This example shows how you can specify limits:
     }
 }
 ```
-  
-## APIConnection action
-
-This action references a Microsoft-managed connector, 
-requiring a reference to a valid connection and information about the API and parameters. 
-Here is an example APIConnection action:
-
-```json
-"Send_Email": {
-    "type": "ApiConnection",
-    "inputs": {
-        "host": {
-            "api": {
-                "runtimeUrl": "https://logic-apis-df.azure-apim.net/apim/office365"
-            },
-            "connection": {
-                "name": "@parameters('$connections')['office365']['connectionId']"
-            }
-        },
-        "method": "POST",
-        "body": {
-            "Subject": "New tweet from @{triggerBody()['TweetedBy']}",
-            "Body": "@{triggerBody()['TweetText']}",
-            "To": "me@example.com"
-        },
-        "path": "/Mail"
-    },
-    "runAfter": {}
-}
-```
-
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| host | Yes | JSON Object | Represents the connector information such as the `runtimeUrl` and reference to the connection object. | 
-| method | Yes | String | Uses one of these HTTP methods: "GET", "POST", "PUT", "DELETE", "PATCH", or "HEAD" | 
-| path | Yes | String | The path for the API operation | 
-| queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
-| headers | No | JSON Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | JSON Object | Represents the payload that's sent to the endpoint. | 
-| retryPolicy | No | JSON Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | No | String | Defines the set of special behaviors to override. | 
-| authentication | No | JSON Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
-||||| 
-
-A retry policy applies to intermittent failures, 
-characterized as HTTP status codes 408, 429, and 5xx, 
-in addition to any connectivity exceptions. 
-You can define this policy with the `retryPolicy` object as shown here:
-
-```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
-}
-```
-
-## APIConnection webhook action
-
-The APIConnectionWebhook action references a Microsoft-managed connector. 
-This action requires a reference to a valid connection and information 
-about the API and parameters. You can specify limits on a webhook 
-action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
-
-```json
-"Send_approval_email": {
-    "type": "ApiConnectionWebhook",
-    "inputs": {
-        "host": {
-            "api": {
-                "runtimeUrl": "https://logic-apis-df.azure-apim.net/apim/office365"
-            },
-            "connection": {
-                "name": "@parameters('$connections')['office365']['connectionId']"
-            }
-        },
-        "body": {
-            "Message": {
-                "Subject": "Approval Request",
-                "Options": "Approve, Reject",
-                "Importance": "Normal",
-                "To": "me@email.com"
-            }
-        },
-        "path": "/approvalmail",
-        "authentication": "@parameters('$authentication')"
-    },
-    "runAfter": {}
-}
-```
-
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| host | Yes | JSON Object | Represents the connector information such as the `runtimeUrl` and reference to the connection object. | 
-| path | Yes | String | The path for the API operation | 
-| queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
-| headers | No | JSON Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | JSON Object | Represents the payload that's sent to the endpoint. | 
-| retryPolicy | No | JSON Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | No | String | Defines the set of special behaviors to override. | 
-| authentication | No | JSON Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
-||||| 
-
-## Response action  
-
-This action contains the entire response payload from an HTTP request 
-and includes a `statusCode`, `body`, and `headers`:
-  
-```json
-"myResponseAction": {
-    "type": "Response",
-    "inputs": {
-        "statusCode": 200,
-        "body": {
-            "contentFieldOne": "value100",
-            "anotherField": 10.001
-        },
-        "headers": {
-            "x-ms-date": "@utcnow()",
-            "Content-type": "application/json"
-        }
-    },
-    "runAfter": {}
-}
-```
-
-The response action has special restrictions that don't apply to other actions, specifically:  
-  
-* You can't have response actions in parallel branches within a logic 
-app definition because the incoming request requires a deterministic response.
-  
-* If the workflow reaches a response action after the 
-incoming request already received a response, 
-the response action is considered failed or in conflict. 
-As a result, the logic app run is marked `Failed`.
-  
-* A workflow with response actions can't use the `splitOn` command 
-in the trigger definition because the call creates multiple runs. 
-As a result, check for this case when the workflow operation is PUT, 
-and return a "bad request" response.
 
 ## Compose action
 
@@ -1206,6 +1166,80 @@ When you save your logic app, the Logic Apps engine performs some checks on the 
 > To work around this issue, save the logic app again, 
 > which causes the logic app to retrieve and cache the trigger URL again.
 
+## Query action
+
+This action creates an array with items from another array
+based on a specified condition or filter.
+
+```json
+"Filter_array": {
+   "type": "Query",
+   "inputs": {
+      "from": <array>,
+      "where": "<condition-or-filter>"
+   },
+   "runAfter": {}
+}
+```
+
+*Required*
+
+| Element name | Value | Type | Description | 
+|--------------|-------|------|-------------| 
+| from | <*array*> | Array | The array or expression that provides the source items |
+| where | "<*condition-or-filter*>" | String | The condition used for filtering items in the source array. If no values satisfy this condition, the action creates an empty array. |
+|||||| 
+
+For example, to select numbers greater than two:
+
+```json
+"Filter_array": {
+   "type": "Query",
+   "inputs": {
+      "from": [ 1, 3, 0, 5, 4, 2 ],
+      "where": "@greater(item(), 2)"
+   }
+}
+```
+
+## Response action  
+
+This action contains the entire response payload from an HTTP request 
+and includes a `statusCode`, `body`, and `headers`:
+  
+```json
+"myResponseAction": {
+    "type": "Response",
+    "inputs": {
+        "statusCode": 200,
+        "body": {
+            "contentFieldOne": "value100",
+            "anotherField": 10.001
+        },
+        "headers": {
+            "x-ms-date": "@utcnow()",
+            "Content-type": "application/json"
+        }
+    },
+    "runAfter": {}
+}
+```
+
+The response action has special restrictions that don't apply to other actions, specifically:  
+  
+* You can't have response actions in parallel branches within a logic 
+app definition because the incoming request requires a deterministic response.
+  
+* If the workflow reaches a response action after the 
+incoming request already received a response, 
+the response action is considered failed or in conflict. 
+As a result, the logic app run is marked `Failed`.
+  
+* A workflow with response actions can't use the `splitOn` command 
+in the trigger definition because the call creates multiple runs. 
+As a result, check for this case when the workflow operation is PUT, 
+and return a "bad request" response.
+
 ## Select action
 
 This action lets you project each element of an array into a new value. 
@@ -1230,6 +1264,159 @@ This example converts an array of numbers into an array of objects:
 The output from the `select` action is an array that has the same cardinality as the input array. 
 Each element is transformed as defined by the `select` property. 
 If the input is an empty array, the output is also an empty array.
+
+## Table action
+
+This action creates a CSV or HTML table from an array.
+
+**Create CSV table**
+
+```json
+"Create_CSV_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "CSV",
+      "from": <array>,
+      "columns": [ 
+         {
+            "header": "<column-header>",
+            "value": "<column-value>"
+         },
+         {
+            "header": "<column-header>",
+            "value": "<column-value>"
+         } 
+      ]
+   },
+   "runAfter": {}
+}
+```
+
+**Create HTML table**
+
+```json
+"Create_HTML_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "HTML",
+      "from": <array>,
+      "columns": [ 
+         {
+            "header": "<column-header>",
+            "value": "<column-value>"
+         },
+         {
+            "header": "<column-header>",
+            "value": "<column-value>"
+         } 
+      ]
+   },
+   "runAfter": {}
+}
+```
+
+*Required* 
+
+| Element | Value | Type | Description | 
+|---------|-------|------|-------------| 
+| format | "CSV" or "HTML" | String | The table format you want to create | 
+| from | <*array*> | Array | The array or expression that provides the source items for the table. For example, this array contains JSON properties and values, which also automatically specify the column header names and values: <p>[ {"ID": 0, "Item": "Apples"}, {"ID": 1, "Item": "Oranges"} ] <p>**Note**: If the source array is empty, the action creates an empty table. | 
+||||| 
+
+*Optional*
+
+| Element | Value | Type | Description | 
+|---------|-------|------|-------------| 
+| columns | [ <*column-headers-and-values*> ] | Array | An array with custom column header names and values for overriding the default column headers and values | 
+| header | <*column-header*> | String | The name for the custom column header | 
+| value | <*column-value*> | String | The value in the custom column | 
+||||| 
+
+*Example 1*
+
+Suppose you have an array variable named "myItemArray" that currently contains this array: 
+
+`[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]`
+
+This action definition creates a CSV table from "myItemArray". 
+The expression in the `from` element gets the array from 
+"myItemArray" by using the `variables()` function: 
+
+```json
+"Create_CSV_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "CSV",
+      "from": "@variables('myItemArray')"
+   },
+   "runAfter": {}
+}
+```
+
+Here is the CSV table that this action creates: 
+
+```
+ID,Product_Name
+0,Apples
+1,Oranges
+```
+
+*Example 2*
+
+This action definition creates an HTML table from "myItemArray". 
+The expression in the `from` element gets the array from 
+"myItemArray" by using the `variables()` function: 
+
+```json
+"Create_HTML_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "HTML",
+      "from": "@variables('myItemArray')"
+   },
+   "runAfter": {
+      "Initialize_variable"  
+   }
+}
+```
+
+Here is the HTML table that this action creates: 
+
+<table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Apples</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
+
+*Example 3*
+
+To override the default column header names and values defined by the source array, 
+you can specify different column header names and values. This action definition 
+creates an HTML table by replacing the default header names with "Stock_ID" and 
+"Description" and adding the word "Organic" to the values in the "Description" column.
+
+```json
+"Create_HTML_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "HTML",
+      "from": "@variables('myItemArray')",
+      "columns": [ 
+         {
+            "header": "Stock_ID",
+            "value": "@item().ID"
+         },
+         {
+            "header": "Description",
+            "value": "@concat('Organic ', item().Product_Name)"
+         }
+      ]
+    },
+   "runAfter": {
+      "Initialize_variable"  
+   }
+},
+```
+
+Here is the HTML table that this action creates: 
+
+<table><thead><tr><th>Stock_ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples</td></tr><tr><td>1</td><td>Organic Oranges</td></tr></tbody></table>
 
 ## Terminate action
 
@@ -1259,107 +1446,6 @@ For example, to stop a run that has `Failed` status:
 | runError code | No | String | The run's error code |
 | runError message | No | String | The run's error message | 
 ||||| 
-
-## Query action
-
-This action lets you filter an array based on a condition. 
-
-> [!NOTE]
-> You can't use the Compose action to construct any output, 
-> including objects, arrays, and any other type natively 
-> supported by logic apps like XML and binary.
-
-For example, to select numbers greater than two:
-
-```json
-"filterNumbersAction": {
-    "type": "Query",
-    "inputs": {
-        "from": [ 1, 3, 0, 5, 4, 2 ],
-        "where": "@greater(item(), 2)"
-    }
-}
-```
-
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- | 
-| from | Yes | Array | The source array |
-| where | Yes | String | The condition that's applied to each element from the source array. If no values satisfy the `where` condition, the result is an empty array. |
-||||| 
-
-The output from the `query` action is an array that 
-has elements from the input array that satisfy the condition.
-
-## Table action
-
-This action lets you convert an array into a CSV or HTML table. 
-
-```json
-"ConvertToTable": {
-    "type": "Table",
-    "inputs": {
-        "from": "<source-array>",
-        "format": "CSV | HTML"
-    }
-}
-```
-
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- | 
-| from | Yes | Array | The source array. If the `from` property value is an empty array, the output is an empty table. | 
-| format | Yes | String | The table format that you want, either "CSV" or "HTML" | 
-| columns | No | Array | The table columns that you want. Use to override the default table shape. | 
-| column header | No | String | The column header | 
-| column value | Yes | String | The column value | 
-||||| 
-
-Suppose you define a table action like this example:
-
-```json
-"convertToTableAction": {
-    "type": "Table",
-    "inputs": {
-        "from": "@triggerBody()",
-        "format": "HTML"
-    }
-}
-```
-
-And use this array for `@triggerBody()`:
-
-```json
-[ {"ID": 0, "Name": "apples"},{"ID": 1, "Name": "oranges"} ]
-```
-
-Here is the output from this example:
-
-<table><thead><tr><th>ID</th><th>Name</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>
-
-To customize this table, you can specify the columns explicitly, for example:
-
-```json
-"ConvertToTableAction": {
-    "type": "Table",
-    "inputs": {
-        "from": "@triggerBody()",
-        "format": "html",
-        "columns": [ 
-            {
-                "header": "Produce ID",
-                "value": "@item().id"
-            },
-            {
-              "header": "Description",
-              "value": "@concat('fresh ', item().name)"
-            }
-        ]
-    }
-}
-```
-
-Here is the output from this example:
-
-<table><thead><tr><th>Produce ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>
 
 ## Wait action  
 
@@ -1449,12 +1535,75 @@ in the `Response` action for the child workflow.
 If the child workflow doesn't define a `Response` action, 
 the outputs are empty.
 
-## Collection actions overview
+## Control workflow actions overview
 
-To help you control workflow execution, collection actions can include other actions. 
-You can directly refer to referencing actions in a collection outside of the collection. 
+These actions help you control workflow execution and often include other actions. 
+From outside a control flow action, you can directly reference actions in a control flow action. 
 For example, if you define an `Http` action in a scope, then `@body('http')` is still valid anywhere in a workflow. 
-Also, actions in a collection can only "run after" other actions in the same collection.
+Also, actions inside a control flow action can only "run after" other actions in the same control flow structure.
+
+## Foreach action
+
+This looping action iterates through an array and performs inner actions on each array item. 
+By default, the Foreach loop runs in parallel. For the maximum number of parallel cycles that 
+"for each" loops can run, see [Limits and config](../logic-apps/logic-apps-limits-and-config.md). 
+To run each cycle sequentially, set the `operationOptions` parameter to `Sequential`. 
+Learn more about [Foreach loops in logic apps](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
+
+```json
+"<my-forEach-loop-name>": {
+    "type": "Foreach",
+    "actions": {
+        "myInnerAction1": {
+            "type": "<action-type>",
+            "inputs": {}
+        },
+        "myInnerAction2": {
+            "type": "<action-type>",
+            "inputs": {}
+        }
+    },
+    "foreach": "<array>",
+    "runAfter": {}
+}
+```
+
+| Name | Required | Type | Description | 
+| ---- | -------- | ---- | ----------- | 
+| actions | Yes | JSON Object | The inner actions to run inside the loop | 
+| foreach | Yes | String | The array to iterate through | 
+| operationOptions | No | String | Specifies any operation options for customizing behavior. Currently supports only `Sequential` for sequentially running iterations where the default behavior is parallel. |
+||||| 
+
+For example:
+
+```json
+"forEach_EmailAction": {
+    "type": "Foreach",
+    "foreach": "@body('email_filter')",
+    "actions": {
+        "Send_email": {
+            "type": "ApiConnection",
+            "inputs": {
+                "body": {
+                    "to": "@item()",
+                    "from": "me@contoso.com",
+                    "message": "Hello, thank you for ordering"
+                },
+                "host": {
+                    "connection": {
+                        "id": "@parameters('$connections')['office365']['connection']['id']"
+                    }
+                }
+            }
+        }
+    },
+    "foreach": "@body('email_filter')",
+    "runAfter": {
+        "email_filter": [ "Succeeded" ]
+    }
+}
+```
 
 ## If action
 
@@ -1543,6 +1692,33 @@ Here are some examples that show how you can use expressions in conditions:
 | `"expression": "parameters('hasSpecialAction')"` | This expression causes an error and isn't a valid condition. Conditions must use the "@" symbol. | 
 ||| 
 
+## Scope action
+
+This action lets you logically group actions in a workflow. 
+The scope also gets its own status after all the actions in that scope finish running. 
+Learn more about [scopes](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md).
+
+```json
+"<my-scope-action-name>": {
+    "type": "Scope",
+    "actions": {
+        "myInnerAction1": {
+            "type": "<action-type>",
+            "inputs": {}
+        },
+        "myInnerAction2": {
+            "type": "<action-type>",
+            "inputs": {}
+        }
+    }
+}
+```
+
+| Name | Required | Type | Description | 
+| ---- | -------- | ---- | ----------- |  
+| actions | Yes | JSON Object | The inner actions to run inside the scope |
+||||| 
+
 ## Switch action
 
 This action, which is a switch statement, performs different actions based on specific values of an object, 
@@ -1619,69 +1795,6 @@ For example:
 }
 ```
 
-## Foreach action
-
-This looping action iterates through an array and performs inner actions on each array item. 
-By default, the Foreach loop runs in parallel. For the maximum number of parallel cycles that 
-"for each" loops can run, see [Limits and config](../logic-apps/logic-apps-limits-and-config.md). 
-To run each cycle sequentially, set the `operationOptions` parameter to `Sequential`. 
-Learn more about [Foreach loops in logic apps](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
-
-```json
-"<my-forEach-loop-name>": {
-    "type": "Foreach",
-    "actions": {
-        "myInnerAction1": {
-            "type": "<action-type>",
-            "inputs": {}
-        },
-        "myInnerAction2": {
-            "type": "<action-type>",
-            "inputs": {}
-        }
-    },
-    "foreach": "<array>",
-    "runAfter": {}
-}
-```
-
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- | 
-| actions | Yes | JSON Object | The inner actions to run inside the loop | 
-| foreach | Yes | String | The array to iterate through | 
-| operationOptions | No | String | Specifies any operation options for customizing behavior. Currently supports only `Sequential` for sequentially running iterations where the default behavior is parallel. |
-||||| 
-
-For example:
-
-```json
-"forEach_EmailAction": {
-    "type": "Foreach",
-    "foreach": "@body('email_filter')",
-    "actions": {
-        "Send_email": {
-            "type": "ApiConnection",
-            "inputs": {
-                "body": {
-                    "to": "@item()",
-                    "from": "me@contoso.com",
-                    "message": "Hello, thank you for ordering"
-                },
-                "host": {
-                    "connection": {
-                        "id": "@parameters('$connections')['office365']['connection']['id']"
-                    }
-                }
-            }
-        }
-    },
-    "foreach": "@body('email_filter')",
-    "runAfter": {
-        "email_filter": [ "Succeeded" ]
-    }
-}
-```
-
 ## Until action
 
 This looping action runs inner actions until a condition evaluates as true. 
@@ -1738,33 +1851,6 @@ For example:
     "runAfter": {}
 }
 ```
-
-## Scope action
-
-This action lets you logically group actions in a workflow. 
-The scope also gets its own status after all the actions in that scope finish running. 
-Learn more about [scopes](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md).
-
-```json
-"<my-scope-action-name>": {
-    "type": "Scope",
-    "actions": {
-        "myInnerAction1": {
-            "type": "<action-type>",
-            "inputs": {}
-        },
-        "myInnerAction2": {
-            "type": "<action-type>",
-            "inputs": {}
-        }
-    }
-}
-```
-
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- |  
-| actions | Yes | JSON Object | The inner actions to run inside the scope |
-||||| 
 
 ## Next steps
 
