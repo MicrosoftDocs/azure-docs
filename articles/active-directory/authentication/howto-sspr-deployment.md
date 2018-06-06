@@ -50,7 +50,7 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
    - We have sample training and communication materials you can download and tailor to your organization's needs from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56768)
 
    > [!IMPORTANT]
-   > Test SSPR with a user, rather than an administrator, as Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md#administrator-password-policy-differences) article.
+   > Test SSPR with a user, rather than an administrator, as Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md) article.
 
 10. Enable Windows 10 users to [reset their passwords from the locon screen](tutorial-sspr-windows.md).
 11. [Review reports to see details about the use of SSPR in your organization over time.](howto-sspr-reporting.md)

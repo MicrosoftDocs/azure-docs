@@ -56,7 +56,7 @@ Log in with a standard user, and register your authentication phone.
 Once complete, click the button marked **looks good** and close the browser window.
 
 > [!TIP]
-> Test SSPR with a user rather than an administrator, because Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md#administrator-password-policy-differences) article.
+> Test SSPR with a user rather than an administrator, because Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md) article.
 
 Open a new browser window in InPrivate mode, and browse to [https://aka.ms/sspr](https://aka.ms/sspr).
 Enter your User ID, the characters from the CAPTCHA, and then click **Next**.
