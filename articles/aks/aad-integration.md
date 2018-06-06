@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Integrate Azure Active Directory with AKS - Preview
 
-Azure Kubernetes Service (AKS) includes the capability of using Azure Active Directory for user authentication. In this configuration, you can log into an Azure Kubernetes Service cluster using your Azure Active Directory authentication token. Additionally, cluster administrators are also able to configure Kubernetes role-based access control based on a users directory group membership.
+Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory for user authentication. In this configuration, you can log into an Azure Kubernetes Service cluster using your Azure Active Directory authentication token. Additionally, cluster administrators are also able to configure Kubernetes role-based access control based on a users identity or directory group membership.
 
 This document details creating all necessary prerequisites for AKS and AAD, deplying an AAD enabled cluster, and creating a simple RBAC role in the AKS cluster.
 
@@ -26,24 +26,30 @@ This document details creating all necessary prerequisites for AKS and AAD, depl
 
 AAD authentication is provided to Azure Kuberntees Clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. More information on OpenID Connect can be found [here](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication)
 
-From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication tokens. More information on Webhook token authentication can be found [here](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication)
+From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster. More information on Webhook token authentication can be found [here](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication)
 
 > [!NOTE]
-> When configuring AAD for AKS authentication, two AAD application are configured. This operation must be completed by an Azure tennat administrator.
+> When configuring AAD for AKS authentication, two AAD application are configured. This operation must be completed by an Azure tenant administrator.
 
 ## Create server application
 
-The first AAD application provides back-end authentication services using OAuth.
+The first AAD application is used to get a users AAD group membership.
 
-1. Select **Azure Active Directory** > **App registrations** > **New application registration**. Give the application a name, select **Web app / API** for the application type, and enter any URI formatted value for **Redirect URI**.
+1. Select **Azure Active Directory** > **App registrations** > **New application registration**.
+
+  Give the application a name, select **Web app / API** for the application type, and enter any URI formatted value for **Redirect URI**. Select **Create** when done.
 
   ![Create AAD registration](media/aad-integration/app-registration.png)
 
-2. Select **Manifest** and edit the `groupMembershipClaims` value to `All`. Save the updates once complete.
+2. Select **Manifest** and edit the `groupMembershipClaims` value to `"All"`.
+
+  Save the updates once complete.
 
   ![Create AAD registration](media/aad-integration/edit-manifest.png)
 
-3. Back on the AAD application, select **Settings** > **Keys**. Add a key description, select an expiration deadline, and select **Save**. Take note of the key value. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application secret`.
+3. Back on the AAD application, select **Settings** > **Keys**.
+
+  Add a key description, select an expiration deadline, and select **Save**. Take note of the key value. When deploying an AAD enabled AKS cluster, this value is referred to as the `Server application secret`.
 
   ![Create AAD registration](media/aad-integration/application-key.png)
 
@@ -71,7 +77,7 @@ The second AAD application is used when logging in with the Kubernetes CLI (kube
 
 1. Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-  Give the application a name, select **Native** for the application type, and enter any URI formatted value for **Redirect URI**. Save the updates once done.
+  Give the application a name, select **Native** for the application type, and enter any URI formatted value for **Redirect URI**. Select **Create** when done.
 
   ![Create AAD registration](media/aad-integration/app-registration-client.png)
 
