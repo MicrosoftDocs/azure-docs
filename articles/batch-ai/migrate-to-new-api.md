@@ -22,13 +22,13 @@ ms.author: danlep
 
 In the upcoming Batch AI REST API version 2018-05-01 and related Batch AI SDKs and tools, significant changes and new features are being introduced.
 
-If you have used a previous version of the Batch AI API, this article explains how to update your code and scripts to work with the new API when it becomes available.
+If you've used a previous version of the Batch AI API, this article explains how to modify your code and scripts to work with the new API. Make these changes only after the new API is available.
 
 ## What's changing?
 
-In response to customer feedback, we’re removing limits on the number of jobs and making it easier to manage Batch AI resources. We’re introducing two new resources, *workspace* and *experiment*. Collect related training jobs under an experiment, and organize all related Batch AI resources (clusters, file servers, experiments, jobs) under a workspace.  
+In response to customer feedback, we’re removing limits on the number of jobs and making it easier to manage Batch AI resources. The new API introduces two new resources, *workspace* and *experiment*. Collect related training jobs under an experiment, and organize all related Batch AI resources (clusters, file servers, experiments, jobs) under a workspace.  
 
-* **Workspace** - A top-level collection of all types of Batch AI resources. Clusters and file servers now reside under a workspace. Workspaces are usually used to separate work belonging to different groups or projects. For example, you might have a dev and a test workspace. It is expected that there you will have a limited number of workspaces per subscription. 
+* **Workspace** - A top-level collection of all types of Batch AI resources. Clusters and file servers are contained in a workspace. Workspaces usually separate work belonging to different groups or projects. For example, you might have a dev and a test workspace. You'll probably need only a limited number of workspaces per subscription. 
 
 * **Experiment** - A collection of related jobs that can be queried and managed together. For example, use an experiment to group all jobs that are performed as part of a hyper-parameter tuning sweep. 
 
@@ -37,7 +37,7 @@ The following image shows an example resource hierarchy.
 ![](./media/migrate-to-new-api/batch-ai-resource-hierarchy.png)
 
 ## Monitor and manage existing resources
-In each resource group that has existing Batch AI clusters, jobs, or file servers, the Batch AI service will create a workspace named `migrated-<region>` (for example, `migrated-eastus`) and an experiment named `migrated`. To access jobs, clusters, or file servers creating using a previous version of the Batch AI API, you need to use the migrated workspace and experiment. 
+In each resource group where you already created Batch AI clusters, jobs, or file servers, the Batch AI service will create a workspace named `migrated-<region>` (for example, `migrated-eastus`) and an experiment named `migrated`. To access the previously created jobs, clusters, or file servers, you need to use the migrated workspace and experiment. 
 
 ### Portal 
 To access previously created jobs, clusters, or file servers by using the portal, first select the `migrated-<region>` workspace. After you select the workspace, perform operations such as resizing or deleting a cluster, and viewing job status and outputs. 
@@ -87,7 +87,7 @@ client.jobs.delete(resource_group_name, 'migrated-<region>', 'migrated', job_nam
  
 ### Azure CLI 
  
-When using the Azure CLI to access previously created jobs, clusters, or file servers, supply workspace and experiment names by using the `-w` and `-e` parameters, respectively. 
+When using the Azure CLI to access previously created jobs, clusters, or file servers, use the `-w` and `-e` parameters to supply workspace and experiment names. 
 
 
 #### Get old clusters
