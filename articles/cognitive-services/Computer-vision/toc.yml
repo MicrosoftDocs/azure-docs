@@ -1,4 +1,5 @@
 - name: Computer Vision Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Computer Vision?
