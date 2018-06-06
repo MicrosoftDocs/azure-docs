@@ -18256,22 +18256,22 @@
           "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-csharp-csharp.md",
+          "source_path": "articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md",
           "redirect_url": "/azure/iot-hub/tutorial-routing",
           "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-java-java.md",
+          "source_path": "articles/iot-hub/iot-hub-java-java-process-d2c.md",
           "redirect_url": "/azure/iot-hub/tutorial-routing",
           "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-node-node.md",
+          "source_path": "articles/iot-hub/iot-hub-node-node-process-d2c.md",
           "redirect_url": "/azure/iot-hub/tutorial-routing",
           "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-python-python.md",
+          "source_path": "articles/iot-hub/iot-hub-python-python-process-d2c.md",
           "redirect_url": "/azure/iot-hub/tutorial-routing",
           "redirect_document_id": false
         },
