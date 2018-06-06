@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -29,7 +29,7 @@ The OAuth 2.0 On-Behalf-Of flow serves the use case where an application invokes
 
 
 > [!IMPORTANT]
-> The [implicit grant](active-directory-v2-protocols-implicit.md) cannot be used for the On-Behalf-Of flow - SPAs must pass their (implicit flow) access token to a middle-tier confidential client to perform OBO flows.  See [limitations](#Client-limitations) for more details on which clients can perform On-Behalf-Of calls.  
+> The [implicit grant](active-directory-v2-protocols-implicit.md) cannot be used for the On-Behalf-Of flow - SPAs must pass their (implicit flow) access token to a middle-tier confidential client to perform OBO flows.  See [limitations](#client-limitations) for more details on which clients can perform On-Behalf-Of calls.  
 
 ## Protocol diagram
 Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](active-directory-v2-protocols-oauth-code.md). At this point, the application has an access token *for API A* (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
