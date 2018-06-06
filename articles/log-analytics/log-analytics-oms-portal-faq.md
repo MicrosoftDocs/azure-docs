@@ -1,5 +1,5 @@
 ---
-title: Transition from OMS portal to Azure portal for Log Analytics users | Microsoft Docs
+title: Common questions for transition from OMS portal to Azure portal for Log Analytics users | Microsoft Docs
 description: Answers to common questions for Log Analytics users transitioning from the OMS portal to the Azure portal.
 services: log-analytics
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 06/06/2018
 ms.author: bwren
 
 ---
-# Transition from OMS portal to Azure portal for Log Analytics users
+# Common questions for transition from OMS portal to Azure portal for Log Analytics users
 Log Analytics initially used its own portal called the OMS portal to manage its configuration and analyze collected data.  All functionality from this portal has been moved to the Azure portal where it will continue to be developed.
 
 This article answers common questions for users making this transition.  If you used Log Analytics in the OMS portal, then you can find answers here for how you can perform the same tasks in the Azure portal.
