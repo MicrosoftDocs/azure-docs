@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 06/05/2018
 ms.author: marsma
 ---
 # Set environment variables
@@ -19,6 +19,8 @@ For example, if you run the [microsoft/aci-wordcount][aci-wordcount] container i
 *NumWords*: The number of words sent to STDOUT.
 
 *MinLength*: The minimum number of characters in a word for it to be counted. A higher number ignores common words like "of" and "the."
+
+Azure Container Instances also support [secure values](#secure-values) for environment variables in both Windows and Linux containers if you need to pass secrets.
 
 ## Azure CLI example
 
@@ -147,6 +149,42 @@ To see an example, start the [microsoft/aci-wordcount][aci-wordcount] container 
 To view the container's logs, under **SETTINGS** select **Containers**, then **Logs**. Similar to the output shown in the previous CLI and PowerShell sections, you can see how the script's behavior has been modified by the environment variables. Only five words are displayed, each with a minimum length of eight characters.
 
 ![Portal showing container log output][portal-env-vars-02]
+
+## Secure values
+Objects with secure values are intended to hold sensitive information like passwords or keys for your application. Utililzing secure values for environment variables is both safer and more flexible than including it in your container's image. Another option is to use secret volumes, see how to [Mount a secret volume in Azure Container Instances](container-instances-volume-secret.md).
+
+Environment variables with secure values won't show up in your container's properties and can only be accessed from within your container.
+
+Set this by specifying the value type with `secureValue`.
+
+### YAML deployment
+Create a `secure-env.yaml` file with the following snippet.
+```
+apiVersion: 2018-06-01
+location: westus
+name: securetest
+properties:
+  containers:
+  - name: mycontainer
+    properties:
+      environmentVariables:
+        - "name": "SECRET"
+          "secureValue": "my-secret-value"
+      image: nginx
+      ports: []
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+```
+Run `az container create --resource-group myRG --name securetest -f secure-env.yaml` to deploy. 
+
+The response with details for this container will show no environment variables. You can review the environment variable is set with `az container exec --resource-group myRG --name securetest --exec-command "/bin/bash"`.
+
 
 ## Next steps
 
