@@ -29,16 +29,17 @@ The Azure Function that you create in this tutorial filters the temperature data
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
+* [Docker CE](https://docs.docker.com/install/) on your development machine. 
 
 ## Bugbash-only Prerequisites
 * [Azure IoT Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 * [Azure IoT Edge extension for Visual Studio Code - 0.5.0-private](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/bugbash-rc/azure-iot-edge-0.5.0-private.vsix).
-    You need to manually install the downloaded VSIX package in VS Code and reload the VS Code window.
+    Download and save the VSIX file locally using the link provided. In VS Code, go to the **Extensions** view. Click the **...** then select **Install from VSIX...**. Reload the VS Code window to enable the extension.
 
     ![manual install](media/tutorial-csharp-module/bugbash-install-vsix.png)
 
 * [C# Functions module template package - 2.0.0-rc2](https://github.com/Azure/dotnet-template-azure-iot-edge-function/releases/download/v2.0.0-rc2/Microsoft.Azure.IoT.Edge.Function.2.0.0-rc2.nupkg).
-    In VS Code integrated terminal (select **View** > **Integrated Terminal** to open), enter the following command to install the **aziotedgefunction** template in dotnet.
+    Download and save the package locally using the link provided. the In VS Code integrated terminal (**View** > **Integrated Terminal**), enter the following command to install the **aziotedgefunction** template in dotnet.
 
     ```cmd/sh
     dotnet new -i [path to Microsoft.Azure.IoT.Edge.Function.2.0.0-rc2.nupkg]
@@ -65,9 +66,9 @@ The following steps show you how to create an IoT Edge function using Visual Stu
    2. Provide a name for your solution or accept the default **EdgeSolution**.
    3. Choose **Azure Functions - C#** as the module template. 
    4. Name your module **CSharpFunction**. 
-   5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/csharpfunctione**.
+   5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/csharpfunction**.
 
-4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder and a deployment manifest template file. Open **modules** > **CSharpFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
+4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder, and a deployment manifest template file. Open **modules** > **CSharpFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
 
 5. Replace the contents of the file with the following code:
 
@@ -142,7 +143,7 @@ In the previous section you created an IoT Edge solution and added code to the C
 
 2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the `$edgeAgent` to deploy two modules: **tempSensor** and **CSharpFunction**. The `CSharpFunction.image` value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-3. Add the container repository credentials in the edgeAgent desired properties. **Bugbash-only** - The first credential is for the system module. The next credential is for your own ACR. Put **Login server** in to address, **Username** in to username, and **Password** into password.
+3. Add the container repository credentials in the edgeAgent desired properties. **Bugbash-only** - The first credential is for the system module. The next credential is for your own ACR. Find the **EdgeShared** property under **registryCredentials**. Update the password field, then add your own registry information so that it looks like the following example: 
 
     ```json
         "EdgeShared": {
