@@ -16,7 +16,7 @@ This article includes frequently asked questions about Azure Migrate. If you hav
 
 ### How is Azure Migrate different from Azure Site Recovery?
 
-Azure Migrate is an assessment service that helps you discover your on-premises workloads and plan your migration to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), along with being a disaster recovery solution, helps you migrate on-premises workloads to IaaS VMs in Azure. In future, the migration capabilities of Azure Site Recovery will be integrated in Azure Migrate to enable a single streamlined experience for assessment and migration.
+Azure Migrate is an assessment service that helps you discover your on-premises workloads and plan your migration to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), along with being a disaster recovery solution, helps you migrate on-premises workloads to IaaS VMs in Azure. 
 
 ### How is Azure Migrate different from Azure Site Recovery Deployment Planner?
 
