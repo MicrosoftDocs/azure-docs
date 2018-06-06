@@ -116,7 +116,7 @@ az group create --name myAKSCluster --location eastus
 Deploy the cluster using the [az aks create][az-aks-create] command. Replace the values in the sample command below with the values collected when creating the Azure AD applications.
 
 ```azurecli
-az aks create --name myAKSCluser --resource-group myAKSCluster --enable-rbac \
+az aks create --resource-group myAKSCluster --name myAKSCluser --enable-rbac \
   --aad-server-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
   --aad-server-app-secret wHYomLe2i1mHR2B3/d4sFrooHwADZccKwfoQwK2QHg= \
   --aad-client-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
@@ -187,4 +187,4 @@ Learn more about securing Kubernetes clusters with RBAC with the [Using RBAC Aut
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-group-create]: /cli/azure/group#az_group_create
-[open-id-connect]: ../active-directory/develop/active-directory-protocols-openid-connect-code
+[open-id-connect]: ../active-directory/develop/active-directory-protocols-openid-connect-code.md
