@@ -48,7 +48,7 @@ The first thing you want to do is handle `Microsoft.EventGrid.SubscriptionValida
 
 Manual validation is in preview. To use it, you must install the [Event Grid extension](/cli/azure/azure-cli-extensions-list) for [AZ CLI 2.0](/cli/azure/install-azure-cli). You can install it with `az extension add --name eventgrid`. If you are using the REST API, ensure you are using `api-version=2018-05-01-preview`.
 
-To programmatically echo the validation code, use the following code (you can also find Samples related to this at https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridConsumer):
+To programmatically echo the validation code, use the following code (you can also find related samples at https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridConsumer):
 
 ```csharp
 using System.Net;
