@@ -31,10 +31,9 @@ ms.custom: mvc, devcenter
 
 To complete this tutorial:
 
-* Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the following workloads:
-    - **ASP.NET and web development**
+Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the **ASP.NET and web development** workload.
 
-If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
+If you've installed Visual Studio already, add the workload in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
 ## Create an ASP.NET Core web app
 
@@ -51,8 +50,6 @@ You can deploy any type of ASP.NET Core web app to Azure. For this quickstart, s
 Select **OK**.
 
 ![New ASP.NET Project dialog box](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
-
-Once the ASP.NET Core project is created, the ASP.NET Core welcome page will be displayed, providing numerous links to resources to help you get started.
 
 From the menu, select **Debug > Start without Debugging** to run the web app locally.
 
