@@ -4,7 +4,7 @@ description: Deploy your first Node.js Hello World in Azure App Service on Linux
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -27,23 +27,35 @@ ms.custom: mvc
 
 ![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-You can follow the steps in this tutorial using a Mac, Windows, or Linux machine. You can also follow along with [the video](#video) that covers this article.
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Install webapp extension in cloud shell
+## Download the sample
 
-To install webapp extension, type `az extension add -n webapp`. When the extension has been added, Cloud Shell shows information similar to the following example:
+In the Cloud Shell, create a quickstart directory and then change to it. You use this Cloud Shell to run all the commands in this quickstart.
 
-```json
-The installed extension 'webapp' is in preview.
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Next, run the following command to clone the sample app repository to your local machine.
+
+```bash
+git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
+```
+
+Change to the directory that contains the sample code.
+
+```bash
+cd nodejs-docs-hello-world
 ```
 
 ## Create a web app
 
-Replace <app_name> with your web app name.
+Install the webapp extension, type `az extension add -n webapp`. Next you'll create the web app using the command below. Replace <app_name> with your web app name.
 
 ```bash
 az webapp up -n <app_name>
@@ -59,7 +71,7 @@ App service plan creation complete
 Creating app '<app_name>' ....
 Webapp creation complete
 Updating app settings to enable build after deployment
-Creating zip with contents of dir /home/mangesh/quickstart/nodejs-docs-hello-world ...
+Creating zip with contents of dir /home/username/quickstart/nodejs-docs-hello-world ...
 Preparing to deploy and build contents to app.
 Fetching changes.
 
@@ -85,20 +97,9 @@ All done.
 }
 ```
 
-Browse to your newly created web app. Replace <app_name> with your web app name.
-
-```bash
-http://<app_name>.azurewebsites.net
-```
-
-Here is what your new web app should look like:
-
-![Empty web app page](media/quickstart-nodejs/app-service-web-service-created.png)
-
-
 ## Browse to the app
 
-Browse to the deployed application using your web browser.
+Browse to the deployed application using your web browser. Replace <app_name> with your web app name.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -112,13 +113,15 @@ The Node.js sample code is running in a web app with built-in image.
 
 ## Update and redeploy the code
 
-In the Cloud Shell, open the `index.js` file in the Node.js app, and make a small change to the text in the call to `response.end`:
+In the Cloud Shell, open the `index.js` file in the Node.js app. Type `nano index.js` and make a small change to the text in the call to `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");
 ```
 
-Push your changes to Azure. Substitute `<app_name>` with your web app.
+Save your changes and exit nano.
+
+You'll now redeploy the app. Substitute `<app_name>` with your web app.
 
 ```bash
 azwebapp up -n <app_name>
@@ -143,10 +146,6 @@ You see your web app's Overview page. Here, you can complete basic management ta
 The left menu provides different pages for configuring your app.
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
-
-## Video
-
-> [!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
 
 ## Next steps
 
