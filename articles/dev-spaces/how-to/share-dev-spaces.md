@@ -21,7 +21,7 @@ To set up an environment for multiple developers:
 1. Create a Dev Space in Azure. Choose [.NET Core and VS Code](../get-started-netcore.md), [.NET Core and Visual Studio](../get-started-netcore-visualstudio.md), or [Node.js and VS Code](../get-started-nodejs.md). You'll need to have Owner or Contributor access to the selected Azure subscription.
 1. Configure the Azure Dev Space's **resource group** to [grant Contributor access](/azure/active-directory/role-based-access-control-configure) for each team member. You can check an environment's resource group by running this command: `azds list`
 1. Ask team members to **select the environment** in order to develop in it.
-     * **Command line or VS Code**: To see existing Azure Dev Spacesyou have access to: `azds space list`. To select an environment: `azds space select`.
+     * **Command line or VS Code**: To see existing Azure Dev Spaces you have access to: `azds space list`. To select an environment: `azds space select`.
      * **Visual Studio IDE**: Open a project in Visual Studio, select **Azure Dev Spaces** from the launch settings drop-down. In the dialog that opens, select an existing development environment.
 
 ![Visual Studio launch settings drop-down](../media/get-started-netcore-visualstudio/LaunchSettings.png)
