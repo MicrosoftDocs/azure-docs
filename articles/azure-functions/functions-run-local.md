@@ -178,7 +178,7 @@ The file local.settings.json stores app settings, connection strings, and settin
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
-| **Values** | Collection of application settings used when running locally. These correspond to app settings in your function app in Azure. **AzureWebJobsStorage** and **AzureWebJobsDashboard** are examples, with **AzureWebJobsStorage** being required for triggers other than HTTP. Many triggers and bindings have a required property that refers to an app setting, such as **Connection** for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the **Values** array. |
+| **Values** | Collection of application settings used when running locally. These correspond to app settings in your function app in Azure. **AzureWebJobsStorage** and **AzureWebJobsDashboard** are examples, with **AzureWebJobsStorage** being required for triggers other than HTTP. Many triggers and bindings have a property that refers to an app setting, such as **Connection** for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the **Values** array. |
 | **Host** | Settings in this section customize the Functions host process when running locally. | 
 | **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
 | **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (\*) is supported, which allows requests from any origin. |
@@ -200,9 +200,9 @@ When no valid storage connection string is set for **AzureWebJobsStorage**, the 
   
 [!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
-### Obtain your storage connection strings
+### Get your storage connection strings
 
-You can get a storage connection string value to set in your local settings file in one of the following ways:
+You can get a storage connection string value to run locally in one of the following ways:
 
 * From the [Azure portal]. Navigate to your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
 
