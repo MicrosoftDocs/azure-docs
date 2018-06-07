@@ -14,7 +14,48 @@ manager: mtillman
 ms.reviewer: richagi
 
 ---
-# Get started with Azure Multi-Factor Authentication in the cloud
+# Deploy cloud-based Azure Multi-Factor Authentication
+
+Getting started with Azure Multi-Factor Authentication (Azure MFA) is a straightforward process.
+
+Before you start you will want to make sure you have the following:
+
+* A global administrator account in your Azure AD tenant. If you need help completing this step, see our article [Get started with Azure AD](../get-started-azure-ad)
+* Correct licenses assigned to users. If you need more information on this see the topic [How to get Azure Multi-Factor Authentication](concept-mfa-licensing.md)
+
+## Choose how to enable
+
+**Enabled by conditional access policy** - This is the method we will discuss in this article. It is the most flexible means to enable two-step verification for your users. Enabling using conditional access policy only works for Azure MFA in the cloud and is a premium feature of Azure AD.
+
+Enabled by Azure AD Identity Protection - This method uses the Azure AD Identity Protection risk policy to require two-step verification based on sign-in risks. This method requires Azure Active Directory P2 licensing
+
+Enabled by changing user state - This is the traditional method for requiring two-step verification. It works with both Azure MFA in the cloud and Azure MFA Server. Using this method will require users to perform two-step verification **every time** they sign in and will override conditionanl access policies. More information on this method can be found in [How to require two-step verification for a user](howto-mfa-userstates.md)
+
+> [!Note] 
+> More information about licenses and pricing can be found on the [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
+) and [Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 This article walks through how to get started using Azure Multi-Factor Authentication in the cloud.
 

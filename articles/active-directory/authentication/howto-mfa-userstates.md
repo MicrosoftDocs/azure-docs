@@ -14,7 +14,7 @@ manager: mtillman
 ms.reviewer: richagi
 
 ---
-# How to require two-step verification for a user or group
+# How to require two-step verification for a user
 
 You can take one of two approaches for requiring two-step verification. The first option is to enable each user for Azure Multi-Factor Authentication (MFA). When users are enabled individually, they perform two-step verification each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remembered devices_ feature is turned on). The second option is to set up a conditional access policy that requires two-step verification under certain conditions.
 
@@ -23,9 +23,9 @@ You can take one of two approaches for requiring two-step verification. The firs
 
 ## Which option is right for you?
 
-**Enabling Azure Multi-Factor Authentication by changing user states** is the traditional approach for requiring two-step verification. It works for both Azure MFA in the cloud and Azure MFA Server. All users that you enable perform two-step verification every time they sign in. Enabling a user overrides any conditional access policies that might affect that user. 
+**Enabling Azure Multi-Factor Authentication by changing user states** is the traditional approach for requiring two-step verification. It works for both Azure MFA in the cloud and Azure MFA Server. All users that you enable perform two-step verification every time they sign in. Enabling a user overrides any conditional access policies that might affect that user.
 
-**Enabling Azure Multi-Factor Authentication with a conditional access policy** is a more flexible approach for requiring two-step verification. It only works for Azure MFA in the cloud, though, and _conditional access_ is a [paid feature of Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features). You can create conditional access policies that apply to groups as well as individual users. High-risk groups can be given more restrictions than low-risk groups, or two-step verification can be required only for high-risk cloud apps and skipped for low-risk ones. 
+**Enabling Azure Multi-Factor Authentication with a conditional access policy** is a more flexible approach for requiring two-step verification. It only works for Azure MFA in the cloud, though, and _conditional access_ is a [paid feature of Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features). You can create conditional access policies that apply to groups as well as individual users. High-risk groups can be given more restrictions than low-risk groups, or two-step verification can be required only for high-risk cloud apps and skipped for low-risk ones.
 
 Both options prompt users to register for Azure Multi-Factor Authentication the first time they sign in after the requirements turn on. Both options also work with the configurable [Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md).
 
