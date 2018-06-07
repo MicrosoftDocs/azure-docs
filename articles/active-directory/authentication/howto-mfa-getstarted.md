@@ -31,9 +31,11 @@ Enabled by Azure AD Identity Protection - This method uses the Azure AD Identity
 
 Enabled by changing user state - This is the traditional method for requiring two-step verification. It works with both Azure MFA in the cloud and Azure MFA Server. Using this method will require users to perform two-step verification **every time** they sign in and will override conditionanl access policies. More information on this method can be found in [How to require two-step verification for a user](howto-mfa-userstates.md)
 
-> [!Note] 
+> [!Note]
 > More information about licenses and pricing can be found on the [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
 ) and [Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages.
+
+## Enable Multi-Factor Authentication
 
 
 
