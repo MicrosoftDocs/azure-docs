@@ -28,10 +28,10 @@ This article and its companion articles provide details for using the Visual Stu
 
 1. Create a new ASP.NET Core web project called TextAnalyticsDemo. Use the MVC project template. It’s important to name the project MyWebApplication, so the namespace matches when you copy code into the project.  The example in this articles uses MVC, but you can use the Text Analytics Connected Service with any ASP.NET project type.
 
-1. In **Solution Explorer**, choose **Add** > **Connected Service**.
+1. In **Solution Explorer**, double-click on the **Connected Service** item.
    The Connected Service page appears, with services you can add to your project.
 
-   ![Screenshot of Connected Service menu item](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Screenshot of Connected Service in Solution Explorer](../media/vs-common/Connected-Services-Solution-Explorer.PNG)
 
 1. In the menu of available services, choose **Evaluate Sentiment with Text Analytics**.
 
@@ -55,7 +55,7 @@ This article and its companion articles provide details for using the Visual Stu
     [6/1/2018 3:04:02.906 PM] Creating new Text Analytics...
     [6/1/2018 3:04:06.314 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Language' version 1.0.0-preview...
     [6/1/2018 3:04:56.759 PM] Retrieving keys...
-    [6/1/2018 3:04:57.822 PM] Updating appsettings.json setting: 'ServiceKey' = '8db4bbc7770942b480b48f8383f6b744'
+    [6/1/2018 3:04:57.822 PM] Updating appsettings.json setting: 'ServiceKey' = '<service key>'
     [6/1/2018 3:04:57.827 PM] Updating appsettings.json setting: 'ServiceEndPoint' = 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0'
     [6/1/2018 3:04:57.832 PM] Updating appsettings.json setting: 'Name' = 'TextAnalyticsDemo'
     [6/1/2018 3:05:01.840 PM] Successfully added Text Analytics to the project.
@@ -67,10 +67,10 @@ This article and its companion articles provide details for using the Visual Stu
  
    ```csharp
    using System.IO;
-   using System.Text;
-   using Microsoft.Extensions.Configuration;
    using System.Net.Http;
    using System.Net.Http.Headers;
+   using System.Text;
+   using Microsoft.Extensions.Configuration;
    ```
  
 1. Add a configuration field, and add a constructor that initializes the configuration field in the Startup class to enable Configuration in your program.
@@ -92,11 +92,11 @@ This article and its companion articles provide details for using the Visual Stu
     using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
-    using TextAnalyticsDemo.Models;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
     using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
     using Microsoft.Extensions.Configuration;
+    using TextAnalyticsDemo.Models;
     
     namespace TextAnalyticsDemo.Controllers
     {
@@ -168,11 +168,11 @@ This article and its companion articles provide details for using the Visual Stu
 1. In the Models folder, add a class for the model.
 
     ```csharp
-    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
     
     namespace Demo.Models
     {
@@ -202,7 +202,8 @@ This article and its companion articles provide details for using the Visual Stu
     
     <div class="row">
         <section>
-            <form asp-controller="DemoTextAnalyze" asp-action="Analyze" method="POST" class="form-horizontal" enctype="multipart/form-data">
+            <form asp-controller="DemoTextAnalyze" asp-action="Analyze" method="POST"
+                  class="form-horizontal" enctype="multipart/form-data">
                 <table width="90%">
                     <tr>
                         <td>
