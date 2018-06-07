@@ -858,6 +858,7 @@ which create or transform data from various inputs.
 | [**Function**](#function-action) | Calls an Azure Function. | 
 | [**HTTP**](#http-action) | Calls an HTTP endpoint. | 
 | [**Join**](#join-action) | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
+| [**Parse JSON**](#parse-json-action) | Creates user-friendly tokens from properties in JSON content. You can then reference those properties by including the tokens in your logic app. | 
 | [**Query**](#query-action) | Creates an array from items in another array based on a condition or filter. | 
 | [**Response**](#response-action) | Creates a response to an incoming call or request. | 
 | [**Select**](#select-action) | Creates an array with JSON objects by transforming items from another array based on the specified map. | 
@@ -1257,6 +1258,115 @@ which are separated by a comma: `"1,2,3,4"`
       "joinWith": ","
    },
    "runAfter": {}
+}
+```
+
+<a name="parse-json-action"></a>
+
+## Parse JSON action
+
+This action creates user-friendly fields or *tokens* from the properties in JSON content. 
+You can then access those properties in your logic app by using the tokens instead. 
+For example, when you want to use JSON output from services such as Azure Service Bus 
+and Azure Cosmos DB, you can include this action in your logic app so that you can more 
+easily reference the data in that output. 
+
+```json
+"Parse_JSON": {
+   "type": "ParseJson",
+   "inputs": {
+      "content": "<JSON-source>",
+         "schema": { "<JSON-schema>" }
+      },
+      "runAfter": {}
+},
+```
+
+*Required*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*JSON-source*> | JSON Object | The JSON content you want to parse | 
+| <*JSON-schema*> | JSON Object | The JSON schema that describes the underlying the JSON content, which the action uses for parsing the source JSON content. <p>**Tip**: In Logic Apps Designer, you can either provide the schema or provide a sample payload so that the action can generate the schema. | 
+|||| 
+
+*Example*
+
+This action definition creates these tokens, 
+which you can use at design time in your logic app workflow, 
+but only in actions that run after this **Parse JSON** action: 
+
+Tokens created: "FirstName", "LastName", "Email"
+
+```json
+"Parse_JSON": {
+   "type": "ParseJson",
+   "inputs": {
+      "content": {
+         "Member": {
+            "Email": "Sophie.Owen@contoso.com",
+            "FirstName": "Sophie",
+            "LastName": "Owen"
+         }
+      },
+      "schema": {
+         "type": "object",
+         "properties": {
+            "Member": {
+               "type": "object",
+               "properties": {
+                  "Email": {
+                     "type": "string"
+                  },
+                  "FirstName": {
+                     "type": "string"
+                  },
+                  "LastName": {
+                     "type": "string"
+                  }
+               }
+            }
+         }
+      }
+   },
+   "runAfter": { }
+},
+```
+
+In this example, the "content" property specifies the JSON content for the action to parse. 
+You can use this content as the sample payload for generating the schema.
+
+```json
+{
+   "Member": { 
+      "FirstName": "Sophie",
+      "LastName": "Owen",
+      "Email": "Sophie.Owen@contoso.com"
+   }
+}
+```
+
+Here is the JSON schema that describes this JSON content:
+
+```json
+{
+   "type": "object",
+   "properties": {
+      "Member": {
+         "type": "object",
+         "properties": {
+            "FirstName": {
+               "type": "string"
+            },
+            "LastName": {
+               "type": "string"
+            },
+            "Email": {
+               "type": "string"
+            }
+         }
+      }
+   }
 }
 ```
 
