@@ -308,6 +308,9 @@ public static class EnvironmentVariablesExample
 }
 ```
 
+> [!NOTE]
+> When developing locally with a local.settings.json file, `System.Environment.GetEnvironmentVariable("WEBSITE_SITE_NAME")` will retrieve the setting of that name under the "Values" property. For instance, `"My Site Name"` would be returned if your file contained `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
+
 ## Binding at runtime
 
 In C# and other .NET languages, you can use an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) binding pattern, as opposed to the [*declarative*](https://en.wikipedia.org/wiki/Declarative_programming) bindings in attributes. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. With this pattern, you can bind to supported input and output bindings on-the-fly in your function code.
