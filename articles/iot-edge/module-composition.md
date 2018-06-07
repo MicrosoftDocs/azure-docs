@@ -12,7 +12,7 @@ services: iot-edge
 
 # Learn how to use deployment manifests to deploy modules and establish routes - preview
 
-Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which make up the IoT Edge runtime. In addition to those standard two, any IoT Edge device can run multiple modules to perform any number of processes. When you deploy all these modules to a device at once, you need a way to declare which modules are included how they interact with each other. 
+Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which make up the IoT Edge runtime. In addition to those standard two, any IoT Edge device can run multiple modules to perform any number of processes. When you deploy all these modules to a device at once, you need a way to declare which modules are included and how they interact with each other. 
 
 The *deployment manifest* is a JSON document that describes:
 
@@ -22,7 +22,7 @@ The *deployment manifest* is a JSON document that describes:
 
 All IoT Edge devices need to be configured with a deployment manifest. A newly installed IoT Edge runtime reports an error code until configured with a valid manifest. 
 
-In the Azure IoT Edge tutorials, you build a deployment manifest by going through a wizard in the Azure IoT Edge portal. You can also apply a deployment manifest programmatically using REST or the IoT Hub Service SDK. Refer to [Deploy and monitor][lnk-deploy] for more information on IoT Edge deployments.
+In the Azure IoT Edge tutorials, you build a deployment manifest by going through a wizard in the Azure IoT Edge portal. You can also apply a deployment manifest programmatically using REST or the IoT Hub Service SDK. For more information, see [Understand IoT Edge deployments][lnk-deploy].
 
 ## Create a deployment manifest
 
@@ -63,7 +63,7 @@ The manifest follows this structure:
 
 ## Configure modules
 
-In addition to establishing the desired properties of any modules that you want to deploy, you need to tell the IoT Edge runtime how to install them. The configuration and management information for all modules goes inside the **$edgeAgent** desired properties. This information includes the configuration parameters for the Edge agent itself. 
+You need to tell the IoT Edge runtime how to install the modules in your deployment. The configuration and management information for all modules goes inside the **$edgeAgent** desired properties. This information includes the configuration parameters for the Edge agent itself. 
 
 For a complete list of properties that can or must be included, see [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md).
 
@@ -159,7 +159,7 @@ The sink defines where the messages are sent. It can be any of the following val
 | `$upstream` | Send the message to IoT Hub |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Send the message to input `{input}` of module `{moduleId}` |
 
-It is important to note that Edge hub provides at-least-once guarantees, which means that messages are stored locally in case a route cannot deliver the message to its sink, for example, the Edge hub cannot connect to IoT Hub, or the target module is not connected.
+IoT Edge provides at-least-once guarantees. The Edge hub stores messages locally in case a route cannot deliver the message to its sink. For example, if the Edge hub cannot connect to IoT Hub, or the target module is not connected.
 
 Edge hub stores the messages up to the time specified in the `storeAndForwardConfiguration.timeToLiveSecs` property of the [Edge hub desired properties](module-edgeagent-edgehub.md).
 
@@ -169,7 +169,7 @@ The deployment manifest can specify desired properties for the module twin of ea
 
 If you do not specify a module twin's desired properties in the deployment manifest, IoT Hub will not modify the module twin in any way, and you will be able to set the desired properties programmatically.
 
-The same mechanisms that allow you to modify device twins are used to modify module twins. Refer to the [device twin developer guide](../iot-hub/iot-hub-devguide-device-twins.md) for further information.   
+The same mechanisms that allow you to modify device twins are used to modify module twins. For more information, see the [device twin developer guide](../iot-hub/iot-hub-devguide-device-twins.md).   
 
 ## Deployment manifest example
 
