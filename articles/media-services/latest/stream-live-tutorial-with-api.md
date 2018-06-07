@@ -236,7 +236,6 @@ if (streamingEndpoint.ResourceState != StreamingEndpointResourceState.Running)
     client.StreamingEndpoints.Start(config.ResourceGroup, config.AccountName, "default");
 }
 
-
 // Get the url to stream the output
 ListPathsResponse paths = await client.StreamingLocators.ListPathsAsync(resourceGroupName, accountName, locatorName);
 
@@ -247,20 +246,7 @@ foreach (StreamingPath path in paths.StreamingPaths)
     uriBuilder.Host = streamingEndpoint.HostName;
 
     uriBuilder.Path = path.Paths[0];
-    streamingUrls.Add(uriBuilder.ToString());
-}
-
-// Get the url to stream the output
-var paths = client.StreamingLocators.ListPaths(config.ResourceGroup, config.AccountName, streamingLocatorName);
-
-foreach (StreamingPath path in paths.StreamingPaths)
-{
-    UriBuilder uriBuilder = new UriBuilder();
-    uriBuilder.Scheme = "https";
-    uriBuilder.Host = streamingEndpoint.HostName;
-
-    uriBuilder.Path = path.Paths[0];
-    streamingUrls.Add(uriBuilder.ToString());
+    // Get the URL from the uriBuilder: uriBuilder.ToString()
 }
 ```
 
