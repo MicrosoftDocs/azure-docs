@@ -1,7 +1,7 @@
 ---
-title: Text Analytics C# VS Connected Services tutorial | Microsoft Docs
+title: Text Analytics C# tutorial | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: Connect to Cognitive Services Text Analytics from an ASP.NET Core web application.
+description: Connect to Text Analytics from an ASP.NET Core web application.
 services: cognitive-services
 author: ghogen
 manager: douge
@@ -11,44 +11,44 @@ ms.topic: conceptual
 ms.date: 06/01/2018
 ms.author: ghogen
 ---
-# Connecting to Cognitive Services Text Analytics Service by using Connected Services in Visual Studio
+# Connect to the Text Analytics Service by using Connected Services in Visual Studio
 
-By using the Cognitive Services Text Analytics Service, you can extract rich information to categorize and process visual data, and perform machine-assisted moderation of images to help curate your services.
+By using the Text Analytics Service, you can extract rich information to categorize and process visual data, and perform machine-assisted moderation of images to help curate your services.
 
-This article and its companion articles provide details for using the Visual Studio Connected Service feature for Cognitive Services Text Analytics Service. The capability is available in both Visual Studio 2017 15.7 or later, with the Cognitive Services extension installed.
+This article and its companion articles provide details for using the Visual Studio Connected Service feature for the Text Analytics Service. The capability is available in both Visual Studio 2017 15.7 or later, with the Cognitive Services extension installed.
 
 ## Prerequisites
 
-- **An Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- An Azure subscription. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
+- Visual Studio 2017 version 15.7, with the Web Development workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../includes/vs-install-cognitive-services-vsix.md)]
 
 ## Add support to your project for Cognitive Services Text Analytics Service
 
-1. Create a new ASP.NET Core web project called TextAnalyticsDemo. Use the MVC project template. 
+1. Create a new ASP.NET Core web project called TextAnalyticsDemo. Use the MVC project template. It’s important to name the project MyWebApplication, so the namespace matches when you copy code into the project.  The example in this articles uses MVC, but you can use the Text Analytics Connected Service with any ASP.NET project type.
 
 1. In **Solution Explorer**, choose **Add** > **Connected Service**.
-   The Connected Service page appears with services you can add to your project.
+   The Connected Service page appears, with services you can add to your project.
 
-   ![Add Connected Service menu item](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Screenshot of Connected Service menu item](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. In the menu of available services, choose **Evaluate Sentiment with Text Analytics**.
 
-   ![Choose the service to connect to](./media/vs-text-connected-service/Cog-Text-Connected-Service-0.PNG)
+   ![Screenshot of Connected Services screen](./media/vs-text-connected-service/Cog-Text-Connected-Service-0.PNG)
 
    If you've signed into Visual Studio, and have an Azure subscription associated with your account, a page appears with a dropdown list with your subscriptions.
 
-   ![Select your subscription](media/vs-text-connected-service/Cog-Text-Connected-Service-1.PNG)
+   ![Screenshot of Text Analytics Connected Service screen](media/vs-text-connected-service/Cog-Text-Connected-Service-1.PNG)
 
-1. Select the subscription you want to use, and then choose a name for the Text Analytics Service, or choose the Edit link to modify the automatically generated name, choose the resource group, and the Pricing Tier.
+1. Select the subscription you want to use, and then choose a name for the Text Analytics Service, or choose the **Edit** link to modify the automatically generated name, choose the resource group, and the Pricing Tier.
 
-   ![Edit connected service details](media/vs-text-connected-service/Cog-Text-Connected-Service-2.PNG)
+   ![Screenshot of resource group and pricing tier fields](media/vs-text-connected-service/Cog-Text-Connected-Service-2.PNG)
 
    Follow the link for details on the pricing tiers.
 
-1. Choose Add to add support for the Connected Service.
-   Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection to the Text Analytics Service. The Output Window shows the log of what is happening to your project. You should see something like the following:
+1. Choose **Add** to add support for the Connected Service.
+   Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection to the Text Analytics Service. The **Output Window** shows the log of what is happening to your project. You should see something like the following:
 
    ```output
     [6/1/2018 3:04:02.347 PM] Adding Text Analytics to the project.
