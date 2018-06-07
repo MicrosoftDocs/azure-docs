@@ -58,7 +58,7 @@ The REST API is the simplest way to recognize speech if you are not using a lang
 > Utterances are limited to 15 seconds or less when using the REST API.
 
 
-For more information on the **Speech to Text** REST API, see [REST APIs](rest-apis.md#speech-to-text). To see it in action, download the [REST API samples](https://github.com/Azure-Samples/SpeechToTeext-REST) from GitHub.
+For more information on the **Speech to Text** REST API, see [REST APIs](rest-apis.md#speech-to-text). To see it in action, download the [REST API samples](https://github.com/Azure-Samples/SpeechToText-REST) from GitHub.
 
 ## Next steps
 
