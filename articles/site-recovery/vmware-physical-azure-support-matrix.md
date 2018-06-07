@@ -200,7 +200,7 @@ On-premises VMs that you replicate to Azure must meet the Azure VM requirements 
 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
-Guest operating system | Verify [supported operating systems](#replicated machines). | Check fails if unsupported.
+Guest operating system | Verify [supported operating systems](#replicated-machines). | Check fails if unsupported.
 Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
 Operating system disk count | 1 | Check fails if unsupported.  

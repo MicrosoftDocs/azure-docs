@@ -11,8 +11,8 @@ ms.date: "05/11/2018"
 ms.topic: "include"
 manager: "douge"
 ---
-## Sign in to Azure CLI
-You'll need to sign in to Azure to create our development environment. Type the following command in a terminal window:
+### Sign in to Azure CLI
+Sign in to Azure. Type the following command in a terminal window:
 
 ```cmd
 az login
@@ -21,7 +21,7 @@ az login
 > [!Note]
 > If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 
-### If you have multiple Azure subscriptions...
+#### If you have multiple Azure subscriptions...
 You can view your subscriptions by running: 
 
 ```cmd

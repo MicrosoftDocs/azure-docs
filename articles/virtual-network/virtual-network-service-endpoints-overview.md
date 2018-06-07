@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom:
 
@@ -29,6 +29,7 @@ This feature is available for the following Azure services and regions:
 - **Azure SQL Database**: Generally Available in all Azure regions
 - **Azure Cosmos DB**: Generally Available in all Azure public cloud regions 
 - **Azure SQL Data Warehouse**: Preview in all Azure public cloud regions
+- **Azure database services for PostgreSQL and MySQL**: Preview in Azure regions where database service is available.
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
