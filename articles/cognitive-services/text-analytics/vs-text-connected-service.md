@@ -261,4 +261,4 @@ When no longer needed, delete the resource group. This deletes the cognitive ser
 
 ## Next steps
 
-Learn more about the Text Analytics Service by reading the [Text Analytics Service Documentation](index.md).
+Learn more about the Text Analytics Service by reading the [Text Analytics Service Documentation](index.yml).
