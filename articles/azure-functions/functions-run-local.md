@@ -202,7 +202,7 @@ When no valid storage connection string is set for **AzureWebJobsStorage** and t
 
 ### Get your storage connection strings
 
-Even when using the storage emulator, you must change to an actual storage connection before deployment. Assuming you have already [created a storage account](../storage/common/storage-create-storage-account.md), you can get a valid storage connection string in one of the following ways:
+Even when using the storage emulator for development, you may want to test with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-create-storage-account.md), you can get a valid storage connection string in one of the following ways:
 
 + From the [Azure portal]. Navigate to your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
 
@@ -394,7 +394,7 @@ You can use the following options:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.|
+| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the storage emulator, you change the app setting to an [actual storage connection](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.|
 
 This command publishes to an existing function app in Azure. An error occurs when the `<FunctionAppName>` doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md).
