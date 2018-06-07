@@ -372,12 +372,18 @@ In this step, you create datasets to represent the data source, the data destina
     2. Enter **SinkTableName** for the **name**, and **String** for the **type**. This dataset takes **SinkTableName** as a parameter. The SinkTableName parameter is set by the pipeline dynamically at runtime. The ForEach activity in the pipeline iterates through a list of table names and passes the table name to this dataset in each iteration.
    
        ![Sink Dataset - properties](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
-5. Switch to the **Connection** tab in the Properties window, and select **AzureSqlLinkedService** for **Linked service**. For **tableName** property, click **Add Dynamic content**, and select **SinkTableName** in the **Parameterizable** section. After clicking **Finish**, you see **@dataset().SinkTableName** as table name.
+5. Switch to the **Connection** tab in the Properties window, and select **AzureSqlLinkedService** for **Linked service**. For **Table** property, click **Add Dynamic content**. 
 
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
- 
+    
+	
+	Select **SinkTableName** in the **Parameters** section
+   
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
+   
+    After clicking **Finish**, you see **@dataset().SinkTableName** as the table name.
+   
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
 ### Create a dataset for a watermark
