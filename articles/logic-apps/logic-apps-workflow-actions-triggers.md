@@ -5,8 +5,8 @@ description: Learn about trigger and action types in Azure Logic Apps as describ
 services: logic-apps
 ms.service: logic-apps
 author: kevinlam1
-ms.author: klam
-manager: cfowler
+ms.author: klam 
+manager: cfowler 
 ms.topic: reference
 ms.date: 05/01/2018
 
@@ -71,7 +71,7 @@ All triggers have these top-level elements, although some are optional:
 
 | Element | Type | Description | 
 |---------|------|-------------| 
-| [conditions](#trigger-conditions) | Array | One or more conditions that determine whether or not to run the workflow | 
+| [conditions](#trigger-conditions) | Array | One or more conditions that determine whether to run the workflow | 
 | [splitOn](#split-on-debatch) | String | An expression that splits up, or *debatches*, array items into multiple workflow instances for processing. This option is available for triggers that return an array and only when working directly in code view. | 
 | [operationOptions](#trigger-operation-options) | String | Some triggers provide additional options that let you change the default trigger behavior | 
 ||||| 
@@ -1206,7 +1206,6 @@ This example shows how you can specify limits:
 
 This action creates a string from all the items in an array 
 and separates those items with the specified delimiter character. 
-For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-change-manage-data-operations.md#join-action).
 
 ```json
 "Join": {
@@ -1230,9 +1229,13 @@ For more information, see [Change or manage data, outputs, and formats](../logic
 *Example*
 
 Suppose you have an array variable named "myIntegerArray" that contains integers, 
-such as `[1,2,3,4]`. This action definition gets the values from the variable by using 
-the `variables()` function in an expression and creates this string with those values, 
-which are separted by a comma: `"1,2,3,4"`
+for example: 
+
+`[1,2,3,4]` 
+
+This action definition gets the values from the variable by using the `variables()` 
+function in an expression and creates this string with those values, 
+which are separated by a comma: `"1,2,3,4"`
 
 ```json
 "Join": {
@@ -1334,9 +1337,9 @@ This action creates an array with JSON objects by transforming
 items from another array based on the specified map. 
 The output array and source array always have the same number of items. 
 Although you can't change the number of objects in the output array, 
-you can add or remove properties and their values across all those objects. 
-The `select` property defines the map that transforms all items in the source 
-array by specifying the properties and values across all objects in the output array. 
+you can add or remove properties and their values across those objects. 
+The `select` property defines the map that transforms the items in the source 
+array by specifying the properties and values across the objects in the output array. 
 
 ```json
 "Select": {
@@ -1492,7 +1495,7 @@ Suppose you have an array variable named "myItemArray" that currently contains t
 
 `[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]`
 
-This action definition creates a CSV table from "myItemArray". 
+This action definition creates a CSV table from the "myItemArray" variable. 
 The expression used by the `from` property gets the array from 
 "myItemArray" by using the `variables()` function: 
 
@@ -1517,7 +1520,7 @@ ID,Product_Name
 
 *Example 2*
 
-This action definition creates an HTML table from "myItemArray". 
+This action definition creates an HTML table from the "myItemArray" variable. 
 The expression used by the `from` property gets the array from 
 "myItemArray" by using the `variables()` function: 
 
@@ -1538,10 +1541,9 @@ Here is the HTML table that this action creates:
 
 *Example 3*
 
-This action definition creates an HTML table from "myItemArray". 
-However, this example overrides the default column header names 
-with "Stock_ID" and "Description", and adds the word "Organic" 
-to the values in the "Description" column.
+This action definition creates an HTML table from the "myItemArray" variable. 
+However, this example overrides the default column header names with "Stock_ID" 
+and "Description", and adds the word "Organic" to the values in the "Description" column.
 
 ```json
 "Create_HTML_table": {
@@ -1890,7 +1892,7 @@ Here are some examples that show how you can use expressions in conditions:
 ## Scope action
 
 This action lets you logically group actions in a workflow. 
-The scope also gets its own status after all the actions in that scope finish running. 
+The scope gets its own status after the actions in that scope finish running. 
 Learn more about [scopes](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md).
 
 ```json
