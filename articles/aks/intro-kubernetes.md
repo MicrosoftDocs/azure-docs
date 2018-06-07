@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) makes it simple to create, configure, and manage a cluster of virtual machines preconfigured to run containerized applications. AKS reduces the complexity and operational overhead of managing a Kubernetes cluster by offloading much of that responsibility to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you. In addition, you pay only for the agent nodes within your clusters, not for the masters.
+Azure Kubernetes Service (AKS) makes it simple to create, configure, and manage a cluster of virtual machines preconfigured to run containerized applications. AKS reduces the complexity and operational overhead of managing a Kubernetes cluster by offloading much of that responsibility to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you. In addition the service is free, you only pay for the agent nodes within your clusters, not for the masters.
 
 This document provides an overview on the features of Azure Kubernetes Service (AKS).
 
@@ -22,9 +22,11 @@ This document provides an overview on the features of Azure Kubernetes Service (
 
 Azure Kubernetes Service has been CNCF certified as Kubernetes conformant. AKS is also complaint with SOC and ISO/HIPPA/HITRUST.
 
+![CErtified Kubernetes](media/acs-intro/certified-kubernetes.svg)
+
 ## Flexible deployment options
 
-Azure Kubernetes Service offers portal, command line, and template driven deployment options. When deploying an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. Additional features such as advanced networking, Azure Active Directory integration, and monitoring can also be configured during the deployment process.
+Azure Kubernetes Service offers portal, command line, and template driven deployment options (ARM templates and Terraform). When deploying an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. Additional features such as advanced networking, Azure Active Directory integration, and monitoring can also be configured during the deployment process.
 
 For more information, see both the [AKS portal quickstart][aks-portal] or the [AKS CLI quickstart][aks-cli].
 
@@ -48,7 +50,7 @@ For more information, see [Scale an Azure Kubernetes Service (AKS) cluster][aks-
 
 ## Cluster node upgrades
 
-Azure Kubernetes Service offers many Kubernetes versions. As new versions become available in AKS, your cluster can be upgraded using the Azure portal or Azure CLI. During the upgrade process, nodes are carefully cordoned and drained to minimize disruption to running application.
+Azure Kubernetes Service offers multiple Kubernetes versions. As new versions become available in AKS, your cluster can be upgraded using the Azure portal or Azure CLI. During the upgrade process, nodes are carefully cordoned and drained to minimize disruption to running application.
 
 For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
