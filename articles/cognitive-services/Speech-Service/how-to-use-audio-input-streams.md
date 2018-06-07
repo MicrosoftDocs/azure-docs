@@ -62,7 +62,7 @@ The `AudioInputStream` base class will be overridden by your custom stream adapt
 
 ## Usage Examples
 
-In general, the following steps are involved when using Audio input streams:
+In general, the following steps are involved when using audio input streams:
 
   - Identify the format of the audio stream. The format must be supported by the SDK and the speech service. Currently the following configuration is supported:
 
@@ -81,7 +81,8 @@ In general, the following steps are involved when using Audio input streams:
         }
 
         public void GetFormat(AudioInputStreamFormat& format) {
-            format.FormatTag = config.*;
+            // returns format data to the caller.
+            // e.g. format.FormatTag = config.XXX;
             // ...
         }
 
@@ -95,7 +96,7 @@ In general, the following steps are involved when using Audio input streams:
      };
     ```
 
-  - Call the Carbon APIs with an instance of your class:
+  - Use your audio input stream:
 
     ```
     var contosoStream = new ContosoAudioStream(contosoConfig);
@@ -108,10 +109,11 @@ In general, the following steps are involved when using Audio input streams:
 
     var text = result.GetText();
 
-    delete contosoStream;
+    // In some languages you need to delete the stream explicitly.
+    // delete contosoStream;
     ```
 
-  - The contosoStream must be deleted explicitly after the final result has been received. You can't release the AudioStream before the complete input is read. In a scenario using `StopContinuousRecognitionAsync` and `StopContinuousRecognitionAsync` it requires a concept illustrated in this sample:
+  - In some languages, the `contosoStream` must be deleted explicitly after the recognition is complete. You can't release the AudioStream before the complete input is read. In a scenario using `StopContinuousRecognitionAsync` and `StopContinuousRecognitionAsync` it requires a concept illustrated in this sample:
 
     ```
     var contosoStream = new ContosoAudioStream(contosoConfig);
@@ -128,7 +130,7 @@ In general, the following steps are involved when using Audio input streams:
     await recognizer.StopContinuousRecognitionAsync();
 
     // OK: Safe to delete the contosoStream.
-    delete contosoStream;
+    // delete contosoStream;
     ```
 
 ## Next steps
