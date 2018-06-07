@@ -53,7 +53,7 @@ The only required parameter is `location`. If you do not define the *SKU* versio
 
 In this example, you first create a Basic Load Balancer along with its resources. Next, you configure the the load balancer resources that include a frontend IP configuration, a backend address pool, a load balancing rule , a health probe, and an inbound NAT rule.
 
-Before you create a load balancer using the example below, create a virtual network named *vnetlb* with a subnet named *subnetlb* in a resourcegroup named *rg1* in the **East US** location.
+Before you create a load balancer using the example below, create a virtual network named *vnetlb* with a subnet named *subnetlb* in a resource group named *rg1* in the **East US** location.
 
 ### STEP 1. Create a Basic Load Balancer
 In this step, you create a Basic Load Balancer, named *lb* at the **EAST US** location within the *rg1* resource group.
