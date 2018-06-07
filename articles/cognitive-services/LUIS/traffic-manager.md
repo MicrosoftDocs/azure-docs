@@ -54,7 +54,6 @@ In the [Azure][azure-portal] portal, open the PowerShell window. The icon for th
 
 The following sections use [Traffic Manager PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/?view=azurermps-6.2.0#traffic_manager).
 
-
 ## Configure Traffic Manager with nested Profiles
 The following sections create two child profiles, one for the East LUIS key and one for the West LUIS key. Then a parent profile is created and the two child profiles are added to the parent profile. 
 
@@ -207,10 +206,14 @@ In the previous sections, three PowerShell variables were created: `$eastprofile
 Replace the items in angle brackets, `<>`, with the correct values for each of the three profiles you need. 
 
 ```PowerShell
-$<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName bot-luis-balance-westus
+$<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
+### View new profiles in Azure portal
+You can verify that all 3 profiles are created by looking at the resources in the `luis-traffic-manager` resource group.
+
 ### Validate Traffic Manager polling works
+
 
 ### Validate DNS response from Traffic Manager works
 
