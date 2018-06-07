@@ -85,11 +85,13 @@ The first step is to create an application in Azure Active Directory that the ma
 
     ![Select API](media/oms-solution-office-365/select-api.png)
 
-1. Under **Select permissions** select the following options for both **Application permissions** and *Delegated permissions**:
+1. Under **Select permissions** select the following options for both **Application permissions** and **Delegated permissions**:
     - Read service health information for your organization
     - Read activity data for your organization
     - Read activity reports for your organization
    
+    This is shown in the following image.
+
     ![Select API](media/oms-solution-office-365/select-permissions.png)
 
 1. Click **Select** and then **Done**.
@@ -202,6 +204,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
+    $OfficeClientSecret =[uri]::EscapeDataString($OfficeClientSecret)
     
     # Client ID for Azure PowerShell
     $clientId = "1950a258-227b-4e31-a9cf-717495945fc2"
