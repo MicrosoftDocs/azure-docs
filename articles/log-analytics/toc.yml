@@ -27,6 +27,8 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: OMS portal transition
+    href: log-analytics-oms-portal-faq.md
   - name: Workspace upgrade
     items:
       - name: Upgrade overview
