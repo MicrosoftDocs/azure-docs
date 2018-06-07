@@ -99,7 +99,7 @@ Manage most Data settings the  in the **Advanced settings** menu for the workspa
 | Linux File Tracking          | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../automation/automation-change-tracking.md) for details. |
 
 ### Solutions
-List and remove management solutions](#How do I install and-remove-management-solutions) from list of solutions in the Azure portal.
+[List and remove management solutions](#how-do-i-install-and-remove-management-solutions) from the list of solutions in the Azure portal.
 
 
 ## How do I install and remove management solutions?
@@ -118,5 +118,5 @@ You can now easily view and manage your usage and cost of Log Analytics by selec
 
 
 ## Can I still use the classic portal?
-For a limited time, you can still access the portal through this url, with your own workspace name:
-https://\<your workspace name\>.portal.mms.microsoft.com
+For a limited time, you can still access the portal through this URL, with your own workspace name:
+https://\<your workspace name\>.portal.mms.microsoft.com. We recommend using Azure portal though and provide us with the feedback at LAUpgradeFeedback@microsoft.com on any blocking issues.
