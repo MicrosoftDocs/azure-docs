@@ -22,7 +22,7 @@ ms.reviewer: luleon
 To assign a user or group to an enterprise app, you must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory.
 
 > [!NOTE]
-> The features discussed in this article require an Azure Active Directory Premium P1 or Premium P2 license. For more information, see the [Azure Active Directory pricing page](https://azure.microsoft.com/en-us/pricing/details/active-directory).
+> The features discussed in this article require an Azure Active Directory Premium P1 or Premium P2 license. For more information, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
 
 > [!NOTE]
 > For Microsoft Applications (such as Office 365 apps), use PowerShell to assign users to an enterprise app.
@@ -78,7 +78,7 @@ To assign a group to an enterprise app, you need to replace `Get-AzureADUser` wi
 
 ### Example
 
-This example assigns the user Britta Simon to the [Microsoft Workplace Analytics](https://products.office.com/en-us/business/workplace-analytics) application using PowerShell.
+This example assigns the user Britta Simon to the [Microsoft Workplace Analytics](https://products.office.com/business/workplace-analytics) application using PowerShell.
 
 1. In PowerShell, assign the corresponding values to the variables $username, $app_name and $app_role_name. 
 
