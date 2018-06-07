@@ -128,7 +128,7 @@ Finally, confirm that the telemetry values from the chiller are back to normal.
 
 If you plan to move on to the tutorials, leave the Remote Monitoring solution accelerator deployed.
 
-If you don't need the solution accelerator any longer, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page:
+If you no longer need the solution accelerator, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page:
 
 ![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 

@@ -3,7 +3,7 @@ title: Introduction to Azure IoT solution accelerators | Microsoft Docs
 description: Learn about the Azure IoT solution accelerators. IoT solution accelerators are complete, end-to-end, ready to deploy IoT solutions.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/01/2018
+ms.date: 06/07/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
@@ -83,4 +83,4 @@ You can deploy the microservice-based solution accelerators in the following con
 
 To try out an IoT solution accelerator, check out the solution accelerator quickstart:
 
-* [Quickstart: Deploy and use the Remote Monitoring solution accelerator](iot-accelerators-get-started.md)
+* [Deploy a cloud-based remote monitoring solution](quickstart-remote-monitoring-deploy.md)
