@@ -25,9 +25,10 @@ Password writeback provides a seamless and secure mechanism to send passwords ba
 
 ## Prerequisites
 
-You need a working Azure AD tenant with at least a trial license enabled.
-An account with Global Administrator privileges.
-An existing server running a current version of [Azure AD Connect](../connect/active-directory-aadconnect-get-started-express.md)
+* Access to a working Azure AD tenant with at least a trial license assigned.
+* An account with Global Administrator privileges in your Azure AD tenant.
+* An existing server configured running a current version of [Azure AD Connect](../connect/active-directory-aadconnect-get-started-express.md).
+* Previous self-service password reset tutorials have been completed.
 
 ## Enable password writeback in Azure AD Connect
 
@@ -55,4 +56,5 @@ Under **Allow users to unlock accounts without resetting their password**, choos
 
 In this tutorial, you have enabled password writeback for SSPR. Leave the Azure portal window open and continue to the next tutorial to configure additional settings related to SSPR before you roll out the solution in a pilot.
 
-[Enabling SSPR at the Windows logon screen](tutorial-sspr-windows.md)
+> [!div class="nextstepaction"]
+> [Enabling SSPR at the Windows logon screen](tutorial-sspr-windows.md)
