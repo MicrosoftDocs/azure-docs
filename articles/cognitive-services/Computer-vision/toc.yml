@@ -47,6 +47,14 @@
       href: QuickStarts/javascript-print-text.md
     - name: Extract handwritten text
       href: QuickStarts/javascript-hand-text.md
+  - name: Node.js
+    items:
+    - name: Analyze an image
+      href: QuickStarts/node-analyze.md
+    - name: Generate a thumbnail
+      href: QuickStarts/node-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/node-print-text.md
   - name: PHP
     items:
     - name: Analyze an image
