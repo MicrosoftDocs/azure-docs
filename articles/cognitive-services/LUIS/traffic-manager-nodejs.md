@@ -69,20 +69,84 @@ To create the East US Traffic Manager profile, there are several steps: create p
 2. Add endpoint
 
     ```PowerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "EastUS" -EndpointStatus Enabled
+    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "EastUS" -EndpointStatus Enabled
     ```
 
     |Configuration parameter|Variable name or Value|Purpose|
     |--|--|--|
     |-EndpointName|luis-east-endpoint|Endpoint name displayed under the profile|
-    |-TrafficManagerProfile|$profile|Use profile object created in Step 1|
+    |-TrafficManagerProfile|$eastprofile|Use profile object created in Step 1|
     |-Type|ExternalEndpoints|For more information, see [Traffic Manager endpoint][traffic-manager-endpoints] |
     |-Target|eastus.api.cognitive.microsoft.com|This is domain for the LUIS endpoint.|
     |-EndpointLocation|"EastUS"|Region of the endpoint|
     |-EndpointStatus|Enabled|Enable endpoint when it is created|
 
+3. Set endpoint
 
-### Create Traffic Manager profile for each endpoint
+    ```PowerShell
+    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $eastprofile
+    ```
+
+Notice that the polling URL is constructed from information in the profile and the endpoint.
+
+### Create the West US Traffic Manager profile with PowerShell
+To create the West US Traffic Manager profile, follow the same steps: create profile, add endpoint, and set endpoint.
+
+1. Create profile
+
+    ```PowerShell
+    $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager"
+    ```
+    
+    Change the variables marked with `<>` to your own values or the values in the following table:
+    
+    |Configuration parameter|Variable name or Value|Purpose|
+    |--|--|--|
+    |-Name|luis-profile-westus|Traffic Manager name in Azure portal|
+    |-ResourceGroupName|luis-traffic-manager|Created in previous section|
+    |-TrafficRoutingMethod|Performance|For more information, see [Traffic Manager routing methods][routing-methods]. If using performance, the URL request to the Traffic Manager must come from the region of the user. If going through a chatbot or other application, it is the chatbot's responsibility to mimic the region in the call to the Traffic Manager. |
+    |-RelativeDnsName|luis-dns-westus|This is the subdomain for the service: luis-dns-westus.trafficmanager.net|
+    |-Ttl|30|Polling interval, 30 seconds|
+    |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Port and protocol for LUIS is HTTPS/443|
+    |-MonitorPath|"/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager"|Replace <appId> and <subscriptionKey> with your own values. Remember this subscription key will be different than the east subscription key|
+    
+2. Add endpoint
+
+    ```PowerShell
+    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "WestUS" -EndpointStatus Enabled
+    ```
+
+    |Configuration parameter|Variable name or Value|Purpose|
+    |--|--|--|
+    |-EndpointName|luis-west-endpoint|Endpoint name displayed under the profile|
+    |-TrafficManagerProfile|$westprofile|Use profile object created in Step 1|
+    |-Type|ExternalEndpoints|For more information, see [Traffic Manager endpoint][traffic-manager-endpoints] |
+    |-Target|westus.api.cognitive.microsoft.com|This is domain for the LUIS endpoint.|
+    |-EndpointLocation|"WestUS"|Region of the endpoint|
+    |-EndpointStatus|Enabled|Enable endpoint when it is created|
+
+3. Set endpoint
+
+    ```PowerShell
+    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $westprofile
+    ```
+### Create parent Traffic Manager profile
+Create the parent Traffic Manager profile and link two child Traffic Manager profiles to the parent.
+
+1. Create parent profile with **New-AzureRmTrafficManagerProfile** cmdlet
+
+    ```PowerShell
+    $parentprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Weighted -RelativeDnsName bot-luis-balance-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
+
+    |Configuration parameter|Variable name or Value|Purpose|
+    |--|--|--|
+    |-Name|luis-profile-parent|Traffic Manager name in Azure portal|
+    |-ResourceGroupName|luis-traffic-manager|Created in previous section|
+    |-TrafficRoutingMethod|Performance|For more information, see [Traffic Manager routing methods][routing-methods]. If using performance, the URL request to the Traffic Manager must come from the region of the user. If going through a chatbot or other application, it is the chatbot's responsibility to mimic the region in the call to the Traffic Manager. |
+    |-RelativeDnsName|luis-dns-westus|This is the subdomain for the service: luis-dns-westus.trafficmanager.net|
+    |-Ttl|30|Polling interval, 30 seconds|
+    |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Port and protocol for LUIS is HTTPS/443|
+    |-MonitorPath|"/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager"|Replace <appId> and <subscriptionKey> with your own values. Remember this subscription key will be different than the east subscription key|
 
 ### Create Traffic Manager parent profile 
 
