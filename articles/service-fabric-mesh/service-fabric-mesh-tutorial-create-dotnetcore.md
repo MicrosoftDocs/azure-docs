@@ -21,7 +21,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Create an ASP.NET Core website for Service Fabric Mesh
 
-In this tutorial you will create a new Service Fabric Mesh application which is made up of an ASP.NET Core website, and run it locally in the Service Fabric cluster. After that, you will publish the project to Azure.
+In this tutorial you will create a new Service Fabric Mesh application which is made up of an ASP.NET Core website, and run it in the local development cluster. After that, you will publish the project to Azure.
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
@@ -29,7 +29,7 @@ In this tutorial you learn how to:
 > * Debug the service locally.
 > * Publish the service to Azure.
 
-If you don’t have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
