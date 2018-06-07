@@ -32,22 +32,22 @@ sections:
         src: media/index/logo_Csharp.svg
       title: C#
     - image: 
+        src: media/index/logo_java.svg
+      title: Java
+    - image: 
         src: media/index/logo_python.svg
       title: Python
     - image: 
         src: media/index/logo_nodejs.svg
       title: Node.js
-    - image: 
-        src: media/index/logo_java.svg
-      title: Java
     rows:
     - title: Computer Vision - API
       values:
       - href:
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/Java
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/Python
       - href:
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/Java
     - title: Custom Vision - Build a Classifier
       values:
       - href: /azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier
@@ -66,9 +66,9 @@ sections:
       values: 
       - href:
       - href: /azure/cognitive-services/translator-speech/quickstarts/csharp
+      - href: /azure/cognitive-services/translator-speech/quickstarts/java
       - href: /azure/cognitive-services/translator-speech/quickstarts/python
       - href: /azure/cognitive-services/translator-speech/quickstarts/nodejs
-      - href: /azure/cognitive-services/translator-speech/quickstarts/java
     - title: LUIS - Use prebuilt domain
       values:
       - href: /azure/cognitive-services/luis/luis-get-started-create-app
@@ -87,16 +87,16 @@ sections:
       values: 
       - href:
       - href: /azure/cognitive-services/bing-web-search/quickstarts/csharp
+      - href: /azure/cognitive-services/bing-web-search/quickstarts/java
       - href: /azure/cognitive-services/bing-web-search/quickstarts/python
       - href: /azure/cognitive-services/bing-web-search/quickstarts/nodejs
-      - href: /azure/cognitive-services/bing-web-search/quickstarts/java
     - title: Bing Image Search - Call and Response
       values:
       - href:
       - href: /azure/cognitive-services/bing-image-search/quickstarts/csharp
+      - href: /azure/cognitive-services/bing-image-search/quickstarts/java
       - href: /azure/cognitive-services/bing-image-search/quickstarts/python
       - href: /azure/cognitive-services/bing-image-search/quickstarts/nodejs
-      - href: /azure/cognitive-services/bing-image-search/quickstarts/java
 
 - title: Step-by-Step Tutorials
   items:
@@ -149,7 +149,7 @@ sections:
             <p><a class="barLink" href="/azure/cognitive-services/bing-visual-search"><img src="../media/index/API_Bing_Visual_Search.svg" alt="" />Bing Visual Search</a></p>
     - title: Labs
       html: <p><a class="barLink" href="https://docs.microsoft.com/gestures/"><img src="../media/index/labs-hand-gesture.svg" alt="" />Project Gesture</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/project-personality-chat/overview"><img src="../media/index/API_QnAMaker.svg" alt="" /><span>Project Personality Chat</a></p>
+            <p><a class="barLink" href="/azure/cognitive-services/project-personality-chat/overview"><img src="../media/index/API_QnAMaker.svg" alt="" />Project Personality Chat</a></p>
             <p><a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview"><img src="../media/index/labs-event-tracker.svg" alt="" />Project Event Tracking</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/academic-knowledge/home"><img src="../media/index/API_Know_Academic.svg" alt="" />Project Academic Knowledge</a></p>
             <p><a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation"><img src="../media/index/labs-local-insight.svg" alt="" />Project Local Insights</a></p>

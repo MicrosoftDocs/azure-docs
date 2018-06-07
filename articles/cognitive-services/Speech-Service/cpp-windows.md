@@ -9,11 +9,13 @@ manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/07/2018
 ms.author: wolfma
 ---
 
 # Quickstart for C++ and Windows
+
+The current version of the Cognitive Services Speech SDK is `0.4.0`.
 
 We describe how to create a C++-based console application for Windows Desktop that makes use of the Speech SDK.
 The application is based on the [Microsoft Cognitive Services SDK NuGet Package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and Microsoft VisualStudio 2017.
@@ -94,7 +96,7 @@ The result of the recognition will be displayed on screen.
 
 ## Downloading the sample
 
-The sample from this article can be downloaded [here](https://aka.ms/csspeech/winsample).
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 ## Next steps
 
