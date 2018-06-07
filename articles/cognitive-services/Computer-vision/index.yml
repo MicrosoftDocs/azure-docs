@@ -30,25 +30,13 @@ sections:
       text: C&#35;
       href: QuickStarts/CSharp-analyze
     - image: 
-        src: media/index/logo_curl.svg
-      text: cURL
-      href: QuickStarts/curl-analyze
-    - image: 
         src: media/index/logo_java.svg
       text: Java
       href: QuickStarts/java-analyze
-    - image: 
-        src: media/index/logo_js.svg
-      text: JavaScript
-      href: QuickStarts/javascript-analyze
     - image:
         src: media/index/logo_nodejs.svg
       text: Node.js
       href: QuickStarts/node-analyze
-    - image: 
-        src: media/index/logo_php.svg
-      text: PHP
-      href: QuickStarts/php-analyze
     - image: 
         src: media/index/logo_python.svg
       text: Python
