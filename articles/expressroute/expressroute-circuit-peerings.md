@@ -84,6 +84,8 @@ You can choose to enable one or more of the routing domains as part of your Expr
 
 If you choose to have all three peering sessions, you must have three pairs of BGP sessions (one pair for each peering type). The BGP session pairs provide a highly available link. If you are connecting through layer 2 connectivity providers, you are responsible for configuring and managing routing. You can learn more by reviewing the [workflows](expressroute-workflows.md) for setting up ExpressRoute.
 
+## ExpressRoute health
+
 ## Next steps
 * Find a service provider. See [ExpressRoute service providers and locations](expressroute-locations.md).
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
