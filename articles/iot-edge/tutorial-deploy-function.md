@@ -142,7 +142,7 @@ In the previous section you created an IoT Edge solution and added code to the C
    **Bugbash-only** Additionally, you need to login to EdgeShared ACR to get access to the base image of the funtions runtime. Enter the following command in the Visual Studio Code integrated terminal.
    
    ```csh/sh
-   docker login -u EdgeShared -p WPruG6Zt4OBs4hZySY9VQAp2dKEM edgeshared.azurecr.io
+   docker login -u EdgeShared -p WPruG6Zt4OBs4hZySY9VQAp2dKEM/pDn edgeshared.azurecr.io
    ```
 
 2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the `$edgeAgent` to deploy two modules: **tempSensor** and **CSharpFunction**. The `CSharpFunction.image` value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
