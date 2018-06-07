@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Stack - PowerShell | Microsoft Docs
-description: In this artical, you install the ASDK from the command line using PowerShell.
+description: In this article, you install the ASDK from the command line using PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
