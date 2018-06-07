@@ -3,7 +3,7 @@ title: Set security policies in Azure Security Center | Microsoft Docs
 description: This article helps you configure security policies in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
+ms.date: 06/05/2018
+ms.author: terrylan
 
 ---
 # Set security policies in Azure Security Center
@@ -24,7 +24,7 @@ This article helps you configure security policies in Security Center.
 Security Center automatically creates a default security policy for each of your Azure subscriptions. In Security Center, you can edit the policies and monitor policy compliance.
 
 > [!NOTE]
-> You can now extend Security Center policies by using Azure Policy, which is in limited preview. To join the preview, go to [Sign up for Azure Policy](https://aka.ms/getpolicy). For more information, see [Integrate Security Center security policies with Azure Policy](security-center-azure-policy.md).
+> You can now extend Security Center policies by using [Azure Policy](../azure-policy/azure-policy-introduction.md). For more information, see [Integrate Security Center security policies with Azure Policy](security-center-azure-policy.md).
 
 The security requirements for resources that are used for development or test might vary from the requirements for resources that are used for production applications. Applications that use regulated data, such as personally identifiable information, might require a higher level of security. Security policies that are enabled in Azure Security Center drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats. For more information about how to determine the option that is appropriate for you, see [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md).
 
@@ -71,3 +71,5 @@ In this article, you learned how to configure security policies in Security Cent
 * [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md): Get answers to frequently asked questions about using the service.
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
+
+To learn more about Azure Policy, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md)

@@ -248,6 +248,6 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get utterance prediction with endpoint query](luis-get-started-cs-get-intent.md)
+> [Use phrase list to improve prediction](luis-tutorial-interchangeable-phrase-list.md)
 
 [LUIS]: luis-reference-regions.md
