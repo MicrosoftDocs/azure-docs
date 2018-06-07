@@ -25,9 +25,13 @@ sections:
     style: icon48
     items:
     - image:
-        src: /azure/media/index/ContainerService.svg
-      text: Create an AKS cluster
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Azure CLI
       href: /azure/aks/kubernetes-walkthrough
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure Portal
+      href: /azure/aks/kubernetes-walkthrough-portal
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
