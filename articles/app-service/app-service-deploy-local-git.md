@@ -39,7 +39,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Deploy to local Git with Kudu builds
+## Deploy from local Git with Kudu builds
 
 The easiest way to enable local Git deployment for your app with the Kudu build server is to use the Cloud Shell.
 
@@ -97,7 +97,7 @@ You may see runtime-specific automation in the output, such as MSBuild for ASP.N
 
 Browse to your app to verify that the content is deployed.
 
-## Deploy to local Git with VSTS builds
+## Deploy from local Git with VSTS builds
 
 > [!NOTE]
 > For App Service to create the necessary build and release definitions in your VSTS account, your Azure account must have the role of **Owner** in your Azure subscription.

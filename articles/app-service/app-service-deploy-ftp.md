@@ -39,7 +39,7 @@ In the FTP dashboard, click **Copy** to copy the FTPS endpoint and app credentia
 
 ![Copy FTP information](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-It is more secure to use **App Credentials** to deploy to your app. However, if you click **User Credentials**, you can set user-level credentials that you can use for FTP/S login to all App Service apps in your subscription.
+It's recommended that you use **App Credentials** to deploy to your app because it's unique to each app. However, if you click **User Credentials**, you can set user-level credentials that you can use for FTP/S login to all App Service apps in your subscription.
 
 ## Deploy files to Azure
 

@@ -53,7 +53,7 @@ When you want to synchronize content in your cloud folder with App Service, go b
    > 
    > 
 
-## Disable continuous deployment
+## Disable content sync deployment
 
 To disable content sync, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
 
