@@ -45,12 +45,13 @@ Security Center goes beyond data discovery to provide recommendations for issues
 
 ## Set up data collection
 
-Before you can get visibility into VM security configurations, you need to set up Security Center data collection. This involves turning on data collection and creating an Azure storage account to hold collected data. 
+Before you can get visibility into VM security configurations, you need to set up Security Center data collection. This involves turning on data collection which automatically installs the Microsoft Monitoring Agent on all the VMs in your subscription.
 
 1. On the Security Center dashboard, click **Security policy**, and then select your subscription. 
-2. For **Data collection**, select **On**.
-3. To create a storage account, select **Choose a storage account**. Then, select **OK**.
-4. On the **Security Policy** blade, select **Save**. 
+2. For **Data collection**, in **Auto Provisioning** select **On**.
+3. For **Default workspace configuration** leave it as **Use workspace(s) created by Security Center (default)**.
+4. Under **Security Events** keep the default option of **Common**.
+4. Click **Save** at the top of the page. 
 
 The Security Center data collection agent is then installed on all VMs, and data collection begins. 
 
@@ -58,17 +59,19 @@ The Security Center data collection agent is then installed on all VMs, and data
 
 Security policies are used to define the items for which Security Center collects data and makes recommendations. You can apply different security policies to different sets of Azure resources. Although by default Azure resources are evaluated against all policy items, you can turn off individual policy items for all Azure resources or for a resource group. For in-depth information about Security Center security policies, see [Set security policies in Azure Security Center](../../security-center/security-center-policies.md). 
 
-To set up a security policy for all Azure resources:
+To set up a security policy for an entire subscription:
 
-1. On the Security Center dashboard, select **Security policy**, and then select your subscription.
-2. Select **Prevention policy**.
-3. Turn on or turn off policy items that you want to apply to all Azure resources.
+1. On the Security Center dashboard, select **Security policy**.
+2. Click the arrow next to your subscription to open the list of resource groups and select one.
+3. Under **Inheritance**, select **Unique** and then click **Save** at the top of the page.
+3. Turn on or turn off policy items that you want to apply to the resource group.
 4. When you're finished selecting your settings, select **OK**.
 5. On the **Security policy** blade, select **Save**. 
 
 To set up a policy for a specific resource group:
 
-1. On the Security Center dashboard, select **Security policy**, and then select a resource group.
+1. On the Security Center dashboard, select **Security policy**,
+2.  and then select a resource group.
 2. Select **Prevention policy**.
 3. Turn on or turn off policy items that you want to apply to the resource group.
 4. Under **INHERITANCE**, select **Unique**.
