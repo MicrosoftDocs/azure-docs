@@ -5,7 +5,7 @@ keywords: terraform, devops, virtual machine, azure, kubernetes
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.topic: article
 ---
 
@@ -56,7 +56,7 @@ The first step is to create the directory that holds your Terraform configuratio
     ```
 
 ## Declare the Azure provider
-Create the Terraform configuration file that declares the Azureprovider.
+Create the Terraform configuration file that declares the Azure provider.
 
 1. In Cloud Shell, create a file named `main.tf`.
 
@@ -138,7 +138,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
     The linux_profile record allows you to configure the settings which enable signing into the worker nodes using SSH.
 
-    With AKS you pay only for the worker nodes. The agent_pool_profile record configure the details for these worker nodes. The agent_pool_profile record includes the number of worker nodes to create and the type of worker nodes. If you need to scale up or scale down the cluster in the future, you modify the **count** value in this record.
+    With AKS, you pay only for the worker nodes. The agent_pool_profile record configures the details for these worker nodes. The agent_pool_profile record includes the number of worker nodes to create and the type of worker nodes. If you need to scale up or scale down the cluster in the future, you modify the **count** value in this record.
 
 1. Exit insert mode by selecting the **Esc** key.
 
@@ -198,7 +198,7 @@ Create the Terraform configuration file that declares the resources for the Kube
     ```
 
 ## Create a Terraform output file
-[Terraform outputs](https://www.terraform.io/docs/configuration/outputs.html) allow you to define values that will be highlighted to the user when Terraform applies a plan, and can be queried using the output command. In this section, you'll create a simple output file that allows access to the cluster with [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
+[Terraform outputs](https://www.terraform.io/docs/configuration/outputs.html) allow you to define values that will be highlighted to the user when Terraform applies a plan, and can be queried using the output command. In this section, you create an output file that allows access to the cluster with [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 1. In Cloud Shell, create a file named `output.tf`.
 
@@ -277,9 +277,9 @@ Create the Terraform configuration file that declares the resources for the Kube
     ```
 
 ## Test the Kubernetes cluster
-In this section, you use the Kubernetes dashboard can be used to test the newly-created cluster. 
+In this section, you use the Kubernetes dashboard can be used to test the newly created cluster. 
 
-1. First, we need to get the Kubernetes config from the Terraform state and store it in a file that kubectl can read.
+1. Get the Kubernetes configuration from the Terraform state and store it in a file that kubectl can read.
 
     ```bash
     echo "$(terraform output kube_config)" > ~/.kube/azurek8s
@@ -321,7 +321,7 @@ In this section, you use the Kubernetes dashboard can be used to test the newly-
 
 
 ## Deploy pods with the Kubernetes Terraform provider
-[Kubernetes pods](https://kubernetes.io/docs/concepts/workloads/pods/pod/#what-is-a-pod) are the smallest deployable units of computing that can be created and managed in Kubernetes. In this section, you learn how to declare theh Kubernetes provider and use it to deploy pods.
+[Kubernetes pods](https://kubernetes.io/docs/concepts/workloads/pods/pod/#what-is-a-pod) are the smallest deployable units of computing that can be created and managed in Kubernetes. In this section, you learn how to declare the Kubernetes provider and use it to deploy pods.
 
 1. In Cloud Shell, modify the `main.tf` file by adding the Kubernetes provider declaration as follows:
 
