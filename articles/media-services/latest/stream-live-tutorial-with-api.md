@@ -1,6 +1,6 @@
 ---
-title: Stream live with Azure Media Services v3 using .NET | Microsoft Docs
-description: This tutorial walks you through the steps of streaming live with Media Services v3 using .NET.
+title: Stream live with Azure Media Services v3 using .NET Core | Microsoft Docs
+description: This tutorial walks you through the steps of streaming live with Media Services v3 using .NET Core.
 services: media-services
 documentationcenter: ''
 author: juliako

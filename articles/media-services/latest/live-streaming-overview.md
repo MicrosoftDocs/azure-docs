@@ -122,4 +122,4 @@ The following table shows how LiveEvent states map to the billing mode.
 
 ## Next steps
 
-[Live streaming tutorial]()
+[Live streaming tutorial](stream-live-tutorial-with-api.md)
