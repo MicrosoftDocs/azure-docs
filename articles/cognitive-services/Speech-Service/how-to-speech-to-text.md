@@ -45,10 +45,7 @@ The [Speech SDK](speech-sdk.md) provides the simplest way to use **Speech to Tex
 
 ### SDK samples
 
-You can download code samples demonstrating the use of the SDK for Speech to Text using the links below.
-
-- [Download samples for Windows](https://aka.ms/csspeech/winsample)
-- [Download samples for Linux](https://aka.ms/csspeech/linuxsample)
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 ## Using the REST API
 
