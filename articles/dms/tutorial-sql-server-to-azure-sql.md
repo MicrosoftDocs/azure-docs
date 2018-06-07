@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/08/2018
 ---
 
 # Migrate SQL Server to Azure SQL Database using DMS
@@ -212,7 +212,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 4. Select **Save**, on the **Select tables** screen, expand the table listing, and then review the list of affected fields.
 
-    Note that the Azure Database Migration Service auto selects all the empty source tables that exist on the target Azure SQL Database instance. If you want to re-migrate tables that already include data, you need to explicitly select the tables on this blade.
+    Note that the Azure Database Migration Service auto selects all the empty source tables that exist on the target Azure SQL Database instance. If you want to remigrate tables that already include data, you need to explicitly select the tables on this blade.
 
     ![Select tables](media\tutorial-sql-server-to-azure-sql\dms-configure-setting-activity1.png)
 
