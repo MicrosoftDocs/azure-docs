@@ -292,16 +292,6 @@ private static void CleanupLocatorAssetAndStreamingEndpoint(IAzureMediaServicesC
     client.Assets.Delete(resourceGroup, accountName, assetName);
 }
 
-private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper config)
-{
-    ArmClientCredentials credentials = new ArmClientCredentials(config);
-
-    return new AzureMediaServicesClient(config.ArmEndpoint, credentials)
-    {
-        SubscriptionId = config.SubscriptionId,
-    };
-}
-
 private static void CleanupAccount(IAzureMediaServicesClient client, string resourceGroup, string accountName)
 {
     try{
