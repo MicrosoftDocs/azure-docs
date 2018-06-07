@@ -17,7 +17,7 @@ Language Understanding (LUIS) offers the ability to increase the endpoint reques
 
 The client-application has to manage the traffic across the keys. LUIS does not do that for you. 
 
-This article explains how to manage the traffic across keys [Traffic Manager][traffic-manager-marketing].
+This article explains how to manage the traffic across keys with [Traffic Manager][traffic-manager-marketing]. To use this article, you must already have a trained and published LUIS app. If you do not already have one, follow the Prebuild domain [quickstart](luis-get-started-create-app.md). 
 
 ## Connect to PowerShell in Azure portal
 In the [Azure][azure-portal] portal, open the PowerShell window. The icon for the PowerShell window is the **>_** in the top navigation bar. By using PowerShell from the portal, you are sure to get the latest version and you are authenticated. PowerShell in the portal requires an [Azure Storage] account. 
@@ -65,10 +65,10 @@ To create the East US Traffic Manager profile, there are several steps: create p
 
 1. Create profile with **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** cmdlet
 
-    Make sure to change the `appIdLuis` and `subscriptionKeyLuis`. The subscriptionKey is for the East US LUIS key. If the path is not correct including the LUIS app ID and subscription key, the Traffic Manager polling will be a statis of `degraded` because Traffic Manage can't successfully request the LUIS endpoint.
+    Make sure to change the `appIdLuis` and `subscriptionKeyLuis`. The subscriptionKey is for the East US LUIS key. If the path is not correct including the LUIS app ID and subscription key, the Traffic Manager polling will be a statis of `degraded` because Traffic Manage can't successfully request the LUIS endpoint. Make sure the value of `q` is `traffic-manager-east` so you can see this value in the LUIS endpoint logs.
 
     ```PowerShell
-    $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager"
+    $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
     
     Change the variables marked with `<>` to your own values or the values in the following table:
@@ -81,11 +81,11 @@ To create the East US Traffic Manager profile, there are several steps: create p
     |-RelativeDnsName|luis-dns-eastus|This is the subdomain for the service: luis-dns-eastus.trafficmanager.net|
     |-Ttl|30|Polling interval, 30 seconds|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Port and protocol for LUIS is HTTPS/443|
-    |-MonitorPath|"/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager"|Replace <appIdLuis> and <subscriptionKeyLuis> with your own values.|
+    |-MonitorPath|"/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east"|Replace <appIdLuis> and <subscriptionKeyLuis> with your own values.|
     
     A successful request will have no response.
 
-2. Add endpoint with **Add-AzureRmTrafficManagerEndpointConfig** cmdlet
+2. Add endpoint with **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/add-azurermtrafficmanagerendpointconfig?view=azurermps-6.2.0)** cmdlet
 
     ```PowerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
@@ -112,14 +112,14 @@ To create the East US Traffic Manager profile, there are several steps: create p
     TrafficRoutingMethod             : Performance
     MonitorProtocol                  : HTTPS
     MonitorPort                      : 443
-    MonitorPath                      : /luis/v2.0/apps/<luis-app-id>?subscription-key=f0517d185bcf467cba5147d6260bb868&q=traffic-manager
+    MonitorPath                      : /luis/v2.0/apps/<luis-app-id>?subscription-key=f0517d185bcf467cba5147d6260bb868&q=traffic-manager-east
     MonitorIntervalInSeconds         : 30
     MonitorTimeoutInSeconds          : 10
     MonitorToleratedNumberOfFailures : 3
     Endpoints                        : {luis-east-endpoint}
     ```
 
-3. Set east endpoint with **Set-AzureRmTrafficManagerProfile** cmdlet
+3. Set east endpoint with **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/set-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** cmdlet
 
     ```PowerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $eastprofile
@@ -130,12 +130,12 @@ To create the East US Traffic Manager profile, there are several steps: create p
 ### Create the West US Traffic Manager profile with PowerShell
 To create the West US Traffic Manager profile, follow the same steps: create profile, add endpoint, and set endpoint.
 
-1. Create profile with **New-AzureRmTrafficManagerProfile** cmdlet
+1. Create profile with **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet
 
-    Make sure to change the `appIdLuis` and `subscriptionKeyLuis`. The subscriptionKey is for the East US LUIS key. If the path is not correct including the LUIS app ID and subscription key, the Traffic Manager polling will be a statis of `degraded` because Traffic Manage can't successfully request the LUIS endpoint.
+    Make sure to change the `appIdLuis` and `subscriptionKeyLuis`. The subscriptionKey is for the East US LUIS key. If the path is not correct including the LUIS app ID and subscription key, the Traffic Manager polling will be a statis of `degraded` because Traffic Manage can't successfully request the LUIS endpoint. Make sure the value of `q` is `traffic-manager-west` so you can see this value in the LUIS endpoint logs.
 
     ```PowerShell
-    $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager"
+    $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
     
     Change the variables marked with `<>` to your own values or the values in the following table:
@@ -148,11 +148,11 @@ To create the West US Traffic Manager profile, follow the same steps: create pro
     |-RelativeDnsName|luis-dns-westus|This is the subdomain for the service: luis-dns-westus.trafficmanager.net|
     |-Ttl|30|Polling interval, 30 seconds|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Port and protocol for LUIS is HTTPS/443|
-    |-MonitorPath|"/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager"|Replace <appId> and <subscriptionKey> with your own values. Remember this subscription key will be different than the east subscription key|
+    |-MonitorPath|"/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"|Replace <appId> and <subscriptionKey> with your own values. Remember this subscription key will be different than the east subscription key|
     
     A successful request will have no response.
 
-2. Add endpoint with **Add-AzureRmTrafficManagerEndpointConfig** cmdlet
+2. Add endpoint with **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** cmdlet
 
     ```PowerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
@@ -179,14 +179,14 @@ To create the West US Traffic Manager profile, follow the same steps: create pro
     TrafficRoutingMethod             : Performance
     MonitorProtocol                  : HTTPS
     MonitorPort                      : 443
-    MonitorPath                      : /luis/v2.0/apps/c3fc5d1e-5187-40cc-af0f-fbde328aa16b?subscription-key=e3605f07e3cc4bedb7e02698a54c19cc&q=traffic-manager
+    MonitorPath                      : /luis/v2.0/apps/c3fc5d1e-5187-40cc-af0f-fbde328aa16b?subscription-key=e3605f07e3cc4bedb7e02698a54c19cc&q=traffic-manager-west
     MonitorIntervalInSeconds         : 30
     MonitorTimeoutInSeconds          : 10
     MonitorToleratedNumberOfFailures : 3
     Endpoints                        : {luis-west-endpoint}
     ```
 
-3. Set west endpoint with **Set-AzureRmTrafficManagerProfile** cmdlet
+3. Set west endpoint with **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet
 
     ```PowerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $westprofile
@@ -197,7 +197,7 @@ To create the West US Traffic Manager profile, follow the same steps: create pro
 ### Create parent Traffic Manager profile
 Create the parent Traffic Manager profile and link two child Traffic Manager profiles to the parent.
 
-1. Create parent profile with **New-AzureRmTrafficManagerProfile** cmdlet
+1. Create parent profile with **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet
 
     ```PowerShell
     $parentprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
@@ -215,7 +215,7 @@ Create the parent Traffic Manager profile and link two child Traffic Manager pro
 
     A successful request will have no response.
 
-2. Add child east profile to parent with **Add-AzureRmTrafficManagerEndpointConfig** and **NestedEndpoints** type
+2. Add child east profile to parent with **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** and **NestedEndpoints** type
 
     ```PowerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
@@ -250,7 +250,7 @@ Create the parent Traffic Manager profile and link two child Traffic Manager pro
     Endpoints                        : {child-endpoint-useast}
     ```
 
-3. Add child west profile to parent with **Add-AzureRmTrafficManagerEndpointConfig** cmdlet and **NestedEndpoints** type
+3. Add child west profile to parent with **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** cmdlet and **NestedEndpoints** type
 
     ```PowerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
@@ -285,7 +285,7 @@ Create the parent Traffic Manager profile and link two child Traffic Manager pro
     Endpoints                        : {child-endpoint-useast, child-endpoint-uswest}
     ```
 
-4. Set endpoints with **Set-AzureRmTrafficManagerProfile** cmdlet 
+4. Set endpoints with **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet 
 
     ```PowerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $parentprofile
@@ -294,7 +294,7 @@ Create the parent Traffic Manager profile and link two child Traffic Manager pro
     A successful response will be the same response as step 3 above.
 
 ### PowerShell variables
-In the previous sections, three PowerShell variables were created: `$eastprofile`, `$westprofile`, `$parentprofile`. These variables are used toward the end of the Traffic Manager configuration. If you chose not to create the variables, or forgot to, or your PowerShell window times out, you can use the PowerShell cmdlet, **Get-AzureRmTrafficManagerProfile**, to get the profile again and assign it to a variable. 
+In the previous sections, three PowerShell variables were created: `$eastprofile`, `$westprofile`, `$parentprofile`. These variables are used toward the end of the Traffic Manager configuration. If you chose not to create the variables, or forgot to, or your PowerShell window times out, you can use the PowerShell cmdlet, **[Get-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)**, to get the profile again and assign it to a variable. 
 
 Replace the items in angle brackets, `<>`, with the correct values for each of the three profiles you need. 
 
@@ -302,23 +302,60 @@ Replace the items in angle brackets, `<>`, with the correct values for each of t
 $<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
+## Verify Traffic Manager works
+To verify that the Traffic Manager profiles work, the profiles need to have the status of `Online` which is based on the polling path of the endpoint. 
+
 ### View new profiles in Azure portal
 You can verify that all 3 profiles are created by looking at the resources in the `luis-traffic-manager` resource group.
 
 ![Screenshot of Azure resource group luis-traffic-manager](./media/traffic-manager/traffic-manager-profiles.png)
 
-### Validate Traffic Manager polling works
+### Verify the profile status is Online
+The Traffic Manager polls the path of each endpoint to make sure it is online. If it is online, the status of the child profiles will be `Online`. This is displayed on the **Overview** of each profile. 
 
+![Screenshot of Azure Traffic Manager profile Overview showing Monitor Status of Online](./media/profile-status-online.png)
+
+### Validate Traffic Manager polling works
+Another way to validate the traffic manager polling works, on the [LUIS][LUIS] website apps list page, export the endpoint log for the application. Because Traffic Manager polls often for the two endpoints, there will be entries in the logs even if they have only been on a few minutes. Remember to look for entries where the query begins with `traffic-manager-west`.
+
+```text
+traffic-manager-west	6/7/2018 19:19	{"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}
+traffic-manager-east	6/7/2018 19:20	{"query":"traffic-manager-east","intents":[{"intent":"None","score":0.944767}],"entities":[]}
+```
 
 ### Validate DNS response from Traffic Manager works
+To validate that the DNS response returns a LUIS endpoint, request the Traffic Manage parent profile DNS using a DNS client library. The DNS name for the parent profile is `luis-dns-parent.trafficmanager.net`.
 
-## Create middle layer to use Traffic Manager
+The following Node.js makes a request for the parent profile and returns a LUIS endpoint:
 
-## Test middle layer
+```javascript
+const dns = require('dns');
+
+dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
+  console.log('ret', ret);
+});
+```
+
+The successful response with the LUIS endpoint is:
+
+```cmd
+[
+    {
+        value: 'westus.api.cognitive.microsoft.com', 
+        type: 'CNAME'
+    }
+]
+```
+
+## Using the Traffic Manager parent profile
+In order to manage traffic across endpoints, you need to insert code such as the previous section's DNS request to find the LUIS endpoint. This call needs to be made for every LUIS endpoint request. Add the DNS response code in between your LUIS client application and the request to LUIS for the endpoint prediction. 
 
 ## Clean up
+Remember to remove the two LUIS subscription keys, the 3 Traffic Manager profiles, and the resource group that contained these five resources. This is done from the Azure portal. You delete the five resources from the resources list. Then delete the resource group. 
 
 ## Next steps
+
+Review [middleware](https://docs.microsoft.com/azure/bot-service/bot-builder-create-middleware?view=azure-bot-service-4.0&tabs=csaddmiddleware%2Ccsetagoverwrite%2Ccsmiddlewareshortcircuit%2Ccsfallback%2Ccsactivityhandler) options in BotFramework v4 to understand how this traffic management code can be added to a BotFramework bot. 
 
 [traffic-manager-marketing]: https://azure.microsoft.com/services/traffic-manager/
 [traffic-manager-docs]: https://docs.microsoft.com/azure/traffic-manager/
