@@ -5,7 +5,7 @@
   items:
   - name: About Service Fabric Mesh
     href: service-fabric-mesh-overview.md
-  - name: Install SDK and developer tools
+  - name: Set up your development environment to build Service Fabric Mesh apps
     href: service-fabric-mesh-setup-developer-environment-sdk.md
 
 - name: Quickstarts
@@ -17,7 +17,7 @@
 
 - name: Tutorials
   items:
-  - name: Create a service - Visual Studio
+  - name: Test and deploy a .NET Core app for Azure Service Fabric Mesh
     href: service-fabric-mesh-tutorial-create-dotnetcore.md
 
 - name: Concepts
