@@ -3,7 +3,7 @@
 # Overview
 ## [What is Resource Manager?](resource-group-overview.md)
 ## [Resource providers and types](resource-manager-supported-services.md)
-## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
+## [Resource Manager and classic deployment](resource-manager-deployment-model.md)
 ## [Subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Organize resources with management groups](management-groups-overview.md)
 
