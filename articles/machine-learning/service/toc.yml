@@ -11,8 +11,8 @@
     href: what-happened-to-workbench.md
 - name: Quickstarts
   items:
-  - name: Install and start
-    href: quickstart-installation.md
+  - name: Create project - CLI
+    href: quickstart-set-up-in-cli.md 
 - name: Tutorials
   items:
   - name: '1: Prepare data'

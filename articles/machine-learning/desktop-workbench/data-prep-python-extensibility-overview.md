@@ -5,6 +5,7 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
