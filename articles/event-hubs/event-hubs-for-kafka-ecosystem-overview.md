@@ -7,7 +7,7 @@ author: djrosanova
 manager: timlt
 
 ms.service: event-hubs
-ms.workload: na
+ms.topic: article
 ms.date: 05/07/2018
 ms.author: darosa
 
@@ -62,8 +62,8 @@ For the public preview of the Event Hubs for Kafka ecosystems integration, the f
 
 This article provided an introduction to Event Hubs for Kafka ecosystems. To learn more, see the following links:
 
-* [How to create Kafka enabled Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Stream into Event Hubs from your Kafka applications](event-hubs-what-is-event-hubs.md)
+* [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md)
+* [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 * Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 

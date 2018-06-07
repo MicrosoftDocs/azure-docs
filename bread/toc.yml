@@ -113,7 +113,7 @@
   - name: Batch AI
     tocHref: /azure/batch-ai/
     topicHref: /azure/batch-ai/
-  - name: Billing
+  - name: Billing + cost management
     tocHref: /azure/billing/
     topicHref: /azure/billing/
   - name: Biztalk Services
@@ -286,7 +286,7 @@
   - name: Event Hubs
     tocHref: /azure/event-hubs/
     topicHref: /azure/event-hubs/
-  - name: Expressroute
+  - name: ExpressRoute
     tocHref: /azure/expressroute/
     topicHref: /azure/expressroute/
   - name: Guidance
@@ -337,8 +337,11 @@
       tocHref: /azure/iot-dps/
       topicHref: /azure/iot-dps/
     - name: IoT solution accelerators
-      tocHref: /azure/iot-suite/
-      topicHref: /azure/iot-suite/   
+      tocHref: /azure/iot-accelerators/
+      topicHref: /azure/iot-accelerators/
+    - name: IoT Central
+      tocHref: /azure/iot-central/
+      topicHref: /azure/iot-central/         
     - name: Maps
       tocHref: /azure/azure-maps/
       topicHref: /azure/azure-maps/
@@ -375,7 +378,7 @@
         topicHref: /azure/machine-learning/team-data-science-process/overview
       - name: Data Science Virtual Machine
         tocHref: /azure/machine-learning/data-science-virtual-machine
-        topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
+        topicHref: /azure/machine-learning/data-science-virtual-machine/
   - name: Marketplace Consumer
     tocHref: /azure/marketplace-consumer/
     topicHref: /azure/marketplace-consumer/
@@ -518,6 +521,9 @@
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
+      - name: Tables
+        tocHref: /azure/storage/tables/
+        topicHref: /azure/storage/tables/table-storage-overview
   - name: StorSimple
     tocHref: /azure/storsimple/
     topicHref: /azure/storsimple/

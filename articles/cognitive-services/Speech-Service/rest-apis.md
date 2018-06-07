@@ -13,7 +13,7 @@ ms.author: v-jerkin
 ---
 # Speech service REST APIs
 
-The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service). The endpoints differ from the endpoints used by the previous speech service.
+The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service). The endpoints differ from the endpoints used by the previous Speech service.
 
 ## Speech to Text
 
@@ -21,9 +21,9 @@ In the Speech to Text API, only the endpoints used differ from the previous Spee
 
 Region|	Speech to Text endpoint
 -|-
-West US| `https://westus.stt.speech.microsoft.com/cognitiveservices/v1`
-East Asia| `https://eastasia.stt.speech.microsoft.com/cognitiveservices/v1`
-North Europe| `https://northeurope.stt.speech.microsoft.com/cognitiveservices/v1`
+West US| `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
+East Asia| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
+North Europe| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
 > If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
@@ -49,8 +49,8 @@ The Speech service now provides two 24-KHz voices:
 
 Locale | Language   | Gender | Service name mapping
 -------|------------|--------|------------
-en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
-en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
+en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
+en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
 The following are the REST endpoints for the unified Speech service Text to Speech API. Use the endpoint that matches your subscription region.
 

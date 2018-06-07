@@ -1,25 +1,24 @@
 ---
-title: Test and debug U-SQL jobs by using local run and the Azure Data Lake U-SQL SDK | Microsoft Docs
-description: 'Learn how to use Azure Data Lake Tools for Visual Studio and the Azure Data Lake U-SQL SDK to test and debug U-SQL jobs on your local workstation.'
+title: Run U-SQL scripts locally using the Azure Data Lake U-SQL SDK
+description: This article describes how to use Azure Data Lake Tools for Visual Studio to test and debug U-SQL jobs on your local workstation.
 services: data-lake-analytics
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/15/2016
+author: mumian
 ms.author: yanacai
-
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
+ms.topic: conceptual
+ms.date: 11/15/2016
 ---
-# Test and debug U-SQL jobs by using local run and the Azure Data Lake U-SQL SDK
 
-You can use Azure Data Lake Tools for Visual Studio and the Azure Data Lake U-SQL SDK to run U-SQL jobs on your workstation, just as you can in the Azure Data Lake service. These two local-run features save you time in testing and debugging your U-SQL jobs.
+# Runing U-SQL scripts locally
+
+Instead of running U-SQL in Azure, you can run U-SQL on your own box. This is called "local run" or "local execution". 
+
+U-SQL Local Run is avaialble in these tools:
+* Azure Data Lake Tools for Visual Studio
+* Azure Data Lake U-SQL SDK
 
 ## Understand the data-root folder and the file path
 

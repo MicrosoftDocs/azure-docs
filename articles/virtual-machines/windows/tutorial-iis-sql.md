@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create VMs running an SQL&#92;IIS&#92;.NET stack in Azure| Microsoft Docs
+title: Tutorial - Create VMs running an SQL&#47;IIS&#47;.NET stack in Azure| Microsoft Docs
 description: In this tutorial, you learn how to install the Azure SQL, IIS, .NET stack on a Windows virtual machine in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -20,9 +20,9 @@ ms.custom: mvc
 #Customer intent: As an IT administrator, I want to learn how to install the LAMP stack so that I can quickly prepare a Windows VM to run web applications.
 ---
 
-# Tutorial: Install the SQL&#92;IIS&#92;.NET stack in a Windows VM with Azure PowerShell
+# Tutorial: Install the SQL&#47;IIS&#47;.NET stack in a Windows VM with Azure PowerShell
 
-In this tutorial, we install a SQL&#92;IIS&#92;.NET stack using Azure PowerShell. This stack consists of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
+In this tutorial, we install a SQL&#47;IIS&#47;.NET stack using Azure PowerShell. This stack consists of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
 
 > [!div class="checklist"]
 > * Create a VM 

@@ -74,7 +74,7 @@ For applications that you trust, you can simplify the user experience by consent
 For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md).
 
 ## Related Articles
-* [Enable secure remote access to on-premises applications with Azure AD Application Proxy](active-directory-application-proxy-get-started.md)
+* [Enable secure remote access to on-premises applications with Azure AD Application Proxy](manage-apps/application-proxy.md)
 * [Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azure-portal-get-started.md)
 * [Managing access to apps with Azure AD](active-directory-managing-access-to-apps.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

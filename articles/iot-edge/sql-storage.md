@@ -1,16 +1,14 @@
 ---
 title: Azure IoT Edge SQL module | Microsoft Docs 
 description: Store data at the edge with Microsoft SQL modules, with Azure Functions to format the data. 
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.reviewer: ebertrams
 ms.date: 02/21/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
+services: iot-edge
 ---
 
 # Store data at the edge with SQL Server databases
@@ -92,7 +90,7 @@ In step 3, you add create options to the SQL Server container, which are importa
         }
    ```
 
-3. Replace the `<docker registry address>` with the address filled in at the completed tutorial [Deploy Azure Function as an IoT Edge module - preview](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function)
+3. Replace the `<docker registry address>` with the address filled in at the completed tutorial [Deploy Azure Function as an IoT Edge module](tutorial-deploy-function.md).
 
    >[!NOTE]
    >The container registry address is the same as the login server that you copied from your registry. It should be in the form of `<your container registry name>.azurecr.io`

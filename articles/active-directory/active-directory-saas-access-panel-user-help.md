@@ -54,10 +54,11 @@ Check to ensure that you are meeting the following browser requirements:
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
 - **Internet Explorer 11**: on Windows 7 or later (limited support).
 
-You can also download the extension for Chrome and Edge directly from following sites:
+You can also download the extension directly from the following sites:
 
-- [Chrome extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Edge extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 If you have installed the extension and are still experiencing issues, try the following:
 
@@ -74,14 +75,14 @@ If you have installed the extension and are still experiencing issues, try the f
    4. Select the extension icon.
    5. To sign in to the extension, select **Sign in to get started**.
 
-* To sign in directly to an app from the browser, do the following:
+* To sign in directly into an app from the browser, do the following:
    1. After you install the extension, sign in to it by selecting **Sign in to get started**.
    2. Sign in to the app with the sign-on URL.  
        The sign-on URL is usually the URL of the app that displays the sign-in form.
        The extension should change state and let you know that a password is available.
    3. To sign in, select the extension icon.
 
-* To start an app from the extension, do the following:
+* To launch an app from the extension, do the following:
    1. After you install the extension, sign in to it by selecting **Sign in to get started**.
    2. Select the extension icon to open its menu.
    3. Search for an app that's available in the My Apps portal.

@@ -95,11 +95,11 @@
       href: security-internet-of-things-overview.md
       items:
       - name: IoT security best practices
-        href: ../iot-suite/iot-security-best-practices.md
+        href: ../iot-accelerators/iot-security-best-practices.md
       - name: IoT security
-        href: ../iot-suite/iot-security-architecture.md#security-in-iot
+        href: ../iot-accelerators/iot-security-architecture.md#security-in-iot
       - name: Secure your IoT deployment
-        href: ../iot-suite/iot-suite-security-deployment.md
+        href: ../iot-accelerators/iot-accelerators-security-deployment.md
   - name: Azure Service Fabric security
     href: azure-service-fabric-security-overview.md
     items:
@@ -143,24 +143,14 @@
     href: ./blueprints/financial-services-regulated-workloads.md
   - name: GDPR
     items:
-    - name: Manage personal data
-      href: manage-personal-data-azure.md
-    - name: Discover, identify, classify personal data
-      href: how-to-discover-classify-personal-data-azure.md
-    - name: Protect personal data in Azure
-      href: protect-personal-data-azure.md
-    - name: Protect personal data with Security Center
-      href: protect-personal-data-azure-security-center.md
-    - name: Protect personal data with Application Gateway
-      href: protect-personal-data-network-security.md
-    - name: Protect personal data by using identity and access controls
-      href: protect-personal-data-identity-access-controls.md
-    - name: Protect personal data at rest by using encryption
-      href: protect-personal-data-at-rest.md
-    - name: Protect personal data in transit by using encryption
-      href: protect-personal-data-in-transit-encryption.md
-    - name: Protect personal data by using Azure reporting tools
-      href: protection-personal-data-azure-reporting-tools.md
+    - name: Data analytics
+      href: ./blueprints/gdpr-analytics-overview.md
+    - name: Data warehouse
+      href: ./blueprints/gdpr-datawarehouse-overview.md
+    - name: IaaS web application
+      href: ./blueprints/gdpr-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/gdpr-paaswa-overview.md  
   - name: FedRAMP
     items:
     - name: Data analytics
@@ -168,7 +158,9 @@
     - name: Data warehouse
       href: ./blueprints/fedramp-datawarehouse-overview.md
     - name: IaaS web application
-      href: ./blueprints/fedramp-iaaswa-overview.md  
+      href: ./blueprints/fedramp-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/fedramp-paaswa-overview.md
   - name: PCI DSS
     href: ./blueprints/payment-processing-blueprint.md
     items:
@@ -207,6 +199,8 @@
     href: ./blueprints/azure-health.md
 - name: White papers
   href: security-white-papers.md
+- name: Azure security services
+  href: azure-security-services-technologies.md
 - name: Technical overviews
   href: security-overviews.md
 - name: Best practices

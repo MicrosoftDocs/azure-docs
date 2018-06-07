@@ -19,9 +19,6 @@ The Bing Web Search API samples include scenarios that:
 3. Query on search term with response filters set to `news` and print the details of news results.
 4. Query on a search term with `answerCount` and `promote` parameters, then print details of results.
 
-> [!NOTE] 
-> Some SDKs are now in GA and changes to documentation are pending. 
-
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 
     * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)
@@ -29,7 +26,7 @@ The Bing Search SDKs make web search functionality readily accessible in the fol
 * Get started with [Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * See also [Node.js libraries](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/webSearch) for definitions and dependencies.
 * Get started with [Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-    * See also [Java libraries](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-websearch) for definitions and dependencies.
+    * See also [Java libraries](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) for definitions and dependencies.
 * Get started with [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * See also [Python libraries](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch) for definitions and dependencies.
 

@@ -280,10 +280,10 @@ The Managed Service Identity endpoint signals errors via the status code field o
 
 | Status Code | Error Reason | How To Handle |
 | ----------- | ------------ | ------------- |
+| 404 Not found. | IMDS endpoint is updating. | Retry with Expontential Backoff. See guidance below. |
 | 429 Too many requests. |  IMDS Throttle limit reached. | Retry with Exponential Backoff. See guidance below. |
 | 4xx Error in request. | One or more of the request parameters was incorrect. | Do not retry.  Examine the error details for more information.  4xx errors are design-time errors.|
 | 5xx Transient error from service. | The MSI sub-system or Azure Active Directory returned a transient error. | It is safe to retry after waiting for at least 1 second.  If you retry too quickly or too often, IMDS and/or Azure AD may return a rate limit error (429).|
-| 404 Not found. | IMDS endpoint is updating. | Retry with Expontential Backoff. See guidance below. |
 | timeout | IMDS endpoint is updating. | Retry with Expontential Backoff. See guidance below. |
 
 If an error occurs, the corresponding HTTP response body contains JSON with the error details:
@@ -310,6 +310,8 @@ This section documents the possible error responses. A "200 OK" status is a succ
 | 500 Internal server error | unknown | Failed to retrieve token from the Active directory. For details see logs in *\<file path\>* | Verify that MSI has been enabled on the VM. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.<br><br>Also verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the [preceding REST section](#rest) for an example, or [Azure services that support Azure AD authentication](services-support-msi.md) for a list of services and their respective resource IDs.
 
 ## Retry guidance 
+
+It is recommended to retry if you receive a 404, 429, or 5xx error code (see [Error handling](#error-handling) above).
 
 Throttling limits apply to the number of calls made to the IMDS endpoint. When the throttling threshold is exceeded, IMDS endpoint limits any further requests while the throttle is in effect. During this period, the IMDS endpoint will return the HTTP status code 429 ("Too many requests"), and the requests fail. 
 

@@ -78,6 +78,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | What is it?   | Deep learning framework      |
 | Supported DSVM Editions      | Ubuntu     |
 | How is it configured / installed on the DSVM?  | Caffe is installed in `/opt/caffe`.    |
+| How to switch to Python 2.7 | Run `source activate root` |
 | Links to Samples      | Samples are included in `/opt/caffe/examples`.      |
 | Related Tools on the DSVM      | Caffe2      |
 ### How to use / run it?  
@@ -86,12 +87,15 @@ Use X2Go to log in to your VM, then start a new terminal and enter
 
 ```
 cd /opt/caffe/examples
+source activate root
 jupyter notebook
 ```
 
 A new browser window opens with sample notebooks.
 
-Binaries are installed in /opt/caffe/build/install/bin. 
+Binaries are installed in /opt/caffe/build/install/bin.
+
+Installed version of Caffe requires Python 2.7 and won't work with Python 3.5 activated by default. Run `source activate root` to switch Anaconda environment. 
 
 ## Caffe2
 
