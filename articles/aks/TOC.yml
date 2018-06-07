@@ -117,6 +117,14 @@
     href: /cli/azure/aks
   - name: REST
     href: /rest/api/aks
+  - name: Python
+    href: /python/api/overview/azure/containerservice
+  - name: Java
+    href: /java/api/overview/azure/containerservice
+  - name: Node.js
+    href: /javascript/api/overview/azure/container-service
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.containerservice/managedclusters
 - name: Resources
   items:
   - name: Region availability
