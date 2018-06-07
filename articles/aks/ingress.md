@@ -32,10 +32,10 @@ Update the chart repository.
 helm repo update
 ```
 
-Install the NGINX ingress controller. This example installs the controller in the `kube-system` namespace, this can be modified to a namespace of your choice.
+Install the NGINX ingress controller. This example installs the controller in the `kube-system` namespace, this can be modified to a namespace of your choice. If your AKS cluster is not RBAC enabled, this command needs to be modified. For more information, see the [nginx-ingress chart][nginx-ingress].
 
 ```
-helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
+helm install stable/nginx-ingress --namespace kube-system
 ```
 
 During the installation, an Azure public IP address is created for the ingress controller. To get the public IP address, use the kubectl get service command. It may take some time for the IP address to be assigned to the service.
@@ -81,12 +81,30 @@ The NGINX ingress controller supports TLS termination. While there are several w
 To install the KUBE-LEGO controller, use the following Helm install command. Update the email address with one from your organization.
 
 ```
-helm install stable/kube-lego \
-  --set config.LEGO_EMAIL=user@contoso.com \
-  --set config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory
+helm install stable/cert-manager \
+  --set ingressShim.defaultIssuerName=letsencrypt-stagi \
+  --set ingressShim.defaultIssuerKind=ClusterIssuer \
+  --set rbac.create=true \
+  --set serviceAccount.create=true
 ```
 
 For more information on KUBE-LEGO configuration, see the [KUBE-LEGO documentation][kube-lego].
+
+## Create CA cluster issuer
+
+```
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    server: https://acme-staging.api.letsencrypt.org/directory
+    email: user@contoso.com
+    privateKeySecretRef:
+      name: letsencrypt-staging
+    http01: {}
+```
 
 ## Run application
 
@@ -100,7 +118,7 @@ Before running the application, add the Azure samples Helm repository on your de
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
- Run the AKS hello world chart with the following command:
+Run the AKS hello world chart with the following command:
 
 ```
 helm install azure-samples/aks-helloworld
@@ -128,8 +146,8 @@ kind: Ingress
 metadata:
   name: hello-world-ingress
   annotations:
-    kubernetes.io/tls-acme: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-staging
 spec:
   tls:
   - hosts:
