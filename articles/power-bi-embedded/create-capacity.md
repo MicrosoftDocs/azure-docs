@@ -1,19 +1,15 @@
 ---
 title: Create Power BI Embedded capacity in the Azure portal | Microsoft Docs
 description: This article walks through how to create a Power BI Embedded capacity in Microsoft Azure.
-services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
 manager: kfile
-editor: ''
-tags: ''
-ms.service: power-bi-embedded
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: powerbi
-ms.date: 05/31/2018
 ms.author: maghan
+ms.service: power-bi-embedded
+ms.component: ''
+ms.devlang: csharp, javascript
+ms.topic: overview
+ms.reviewer: ''
+ms.date: 05/31/2018
 ---
 # Create Power BI Embedded capacity in the Azure portal
 
@@ -52,7 +48,7 @@ To complete this quickstart, you need:
     |**Subscription**|The subscription you would like to create the capacity against.|
     |**Resource group**|The resource group that contains this new capacity. Pick from an existing resource group, or create another. For more information, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).|
     |**Power BI capacity administrator**|Power BI capacity administrators can view the capacity in the Power BI admin portal and give assignment permissions to other users. By default, the capacity administrator is your account. The capacity administrator must be within your Power BI tenant.|
-    |**Location**|The location where Power BI is hosted for your tenant. This setting is resolved automatically, and 0a different location cannot be selected.|
+    |**Location**|The location where Power BI is hosted for your tenant. This setting is resolved automatically, and a different location cannot be selected.|
     |**Pricing tier**|Select the SKU (v-core count and memory size) that meets your needs.  For details, see [Power BI Embedded pricing](https://azure.microsoft.com/pricing/details/power-bi-embedded/)|
 
 6. Select **Create**.
