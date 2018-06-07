@@ -21,7 +21,7 @@ ms.author: wolfma
 
 - AudioInputStream
 
-  A recognizer can now consume a stream as the audio source. For detailed information, see the related [how-to guide]()how-to-use-audio-input-streams.md).
+  A recognizer can now consume a stream as the audio source. For detailed information, see the related [how-to guide](how-to-use-audio-input-streams.md).
 
 - Detailed Output Format
 
@@ -47,9 +47,7 @@ ms.author: wolfma
 
 - On Windows, C# .NET assemblies are now strong-named.
 
-- Documentation fix
-
-  `Region` is required information to create a recognizer.
+- Documentation fix: `Region` is required information to create a recognizer.
 
 More samples have been added and are constantly being updated. For the latest set of samples, see the [Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
