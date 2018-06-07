@@ -21,9 +21,9 @@ Depending on the platform, different dependencies exist to execute your applicat
 
 ## Windows
 
-The Cognitive Services Speech SDK is tested on Windows 10 and on  Windows Server 2016.
+The Cognitive Services Speech SDK is tested on Windows 10 and on Windows Server 2016.
 
-The Cognitive Services Speech SDK requires the `VS2017 C++ Runtime libraries` on the system. You can find the latest version of the `VS2017 C++ redistributables` here: https://aka.ms/vs/15/release/vc\_redist.x86.exe or https://aka.ms/vs/15/release/vc\_redist.x64.exe.
+The Cognitive Services Speech SDK requires the [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) on the system. You can find the latest version of the `Microsoft Visual C++ Redistributable for Visual Studio 2017` here: https://aka.ms/vs/15/release/vc\_redist.x86.exe (Win32) or https://aka.ms/vs/15/release/vc\_redist.x64.exe (x64)
 
 If your application is using managed code, the `.Net Framework 4.6.1` or later is required on the target machine.
 

@@ -18,7 +18,7 @@ The **Audio Input Stream** API provides a way to stream audio streams into the r
 
 ## API overview
 
-The API uses two components, the `AudioInputStream` (the raw audio data) and as the `AudioInputStreamFormat`.
+The API uses two components, the `AudioInputStream` (the raw audio data) and the `AudioInputStreamFormat`.
 
 The `AudioInputStreamFormat` defines the format of the audio data. It can be compared to the standard `WAVEFORMAT` structure for wave files on Windows.
 
@@ -66,11 +66,11 @@ In general, the following steps are involved when using audio input streams:
 
   - Identify the format of the audio stream. The format must be supported by the SDK and the speech service. Currently the following configuration is supported:
 
-    One tag (PCM), one channel, 16000 samples per second, 32000 bytes per second, two block align (16 bit including padding for a sample), 16 bits per sample
+    One audio format tag (PCM), one channel, 16000 samples per second, 32000 bytes per second, two block align (16 bit including padding for a sample), 16 bits per sample
 
   - Make sure your code can provide the RAW audio data as to the specs identified above. If your audio source data doesn't match the supported formats, the audio must be transcoded into the required format.
 
-  - Implement your `AudioInputStream` implementation and derive it from AudioInputStream. Implement the `GetFormat()`, `Read()`, and `Close()` operation. The exact function signature is language-dependent, but the code will look similar to this code sample:
+  - Derive your custom audio input stream class from `AudioInputStream`. Implement the `GetFormat()`, `Read()`, and `Close()` operation. The exact function signature is language-dependent, but the code will look similar to this code sample::
 
     ```
      public class ContosoAudioStream : AudioInputStream {
@@ -87,11 +87,12 @@ In general, the following steps are involved when using audio input streams:
         }
 
         public size_t Read(byte *buffer, size_t size) {
-            return read(config.*, buffer, size);
+            // returns audio data to the caller.
+            // e.g. return read(config.YYY, buffer, size);
         }
 
         public void Close() {
-          // close and cleanup resources.
+            // close and cleanup resources.
         }
      };
     ```
