@@ -1585,32 +1585,64 @@ Here is the HTML table that this action creates:
 
 ## Terminate action
 
-This action stops a workflow run, canceling any actions in progress, 
-and skipping any remaining actions. The terminate action doesn't 
-affect already completed actions.
-
-For example, to stop a run that has `Failed` status:
+This action stops the run for logic app workflow instance, 
+cancels any actions in progress, skips any remaining actions, 
+and returns the specified status. For example, you can use the 
+**Terminate** action when your logic app must exit completely 
+from an error state. This action doesn't affect already completed 
+actions and can't appear inside **Foreach** and **Until** loops, 
+including sequential loops. 
 
 ```json
-"HandleUnexpectedResponse": {
+"Terminate": {
+   "type": "Terminate",
+   "inputs": {
+       "runStatus": "<status>",
+       "runError": {
+            "code": "<error-code-or-name>",
+            "message": "<error-message>"
+       }
+   },
+   "runAfter": {}
+}
+```
+
+*Required*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*status*> | String | The status to return for the run: "Failed", "Cancelled", or "Succeeded" |
+|||| 
+
+*Optional*
+
+The properties for the "runStatus" object apply 
+only when the "runStatus" property value is "Failed".
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*error-code-or-name*> | String | The code or name for the error |
+| <*error-message*> | String | The message or text that describes the error and any actions the app user can take | 
+|||| 
+
+*Example*
+
+This action definition stops a workflow run, sets the run status to "Failed", 
+and returns the status, an error code, and an error message:
+
+```json
+"Terminate": {
     "type": "Terminate",
     "inputs": {
         "runStatus": "Failed",
         "runError": {
-            "code": "UnexpectedResponse",
-            "message": "Received an unexpected response",
+            "code": "Unexpected response",
+            "message": "The service received an unexpected response. Please try again."
         }
-    }
+   },
+   "runAfter": {}
 }
 ```
-
-| Element | Required | Type | Description | 
-|---------|----------|------|-------------| 
-| runStatus | Yes | String | The target run's status, which is either `Failed` or `Cancelled` |
-| runError | No | JSON Object | The error details. Supported only when `runStatus` is set to `Failed`. |
-| runError code | No | String | The run's error code |
-| runError message | No | String | The run's error message | 
-||||| 
 
 <a name="wait-action"></a>
 
@@ -1654,7 +1686,7 @@ but not both.
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*number-of-units*> | Integer | For the **Delay** action, the number of units to wait | 
-| <*interval*> | String | For the **Delay** action, the interval to wait, for example: Second, Minute, Hour, Day, Week, Month | 
+| <*interval*> | String | For the **Delay** action, the interval to wait: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*date-time-stamp*> | String | For the **Delay Until** action, the date and time to resume execution. This value must use the [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
 
