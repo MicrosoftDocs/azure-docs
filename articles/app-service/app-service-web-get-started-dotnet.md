@@ -25,6 +25,10 @@ ms.custom: mvc, devcenter
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
 
+> [!NOTE]
+> If you're looking for how to build and deploy an ASP.NET Framework Web App, that article is available [here](app-service-web-get-started-dotnet-framework.md). 
+>
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
@@ -52,6 +56,8 @@ Select **OK**.
 ![New ASP.NET Project dialog box](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
 
 From the menu, select **Debug > Start without Debugging** to run the web app locally.
+
+![Run app locally](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
 ## Publish to Azure
 
@@ -136,6 +142,8 @@ In the publish summary page, select **Publish**.
 ![Visual Studio publish summary page](./media/app-service-web-get-started-dotnet/publish-summary-page.png)
 
 When publishing completes, Visual Studio launches a browser to the URL of the web app.
+
+![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
 ## Manage the Azure web app
 
