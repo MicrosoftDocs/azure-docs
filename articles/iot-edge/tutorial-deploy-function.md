@@ -31,7 +31,7 @@ The Azure Function that you create in this tutorial filters the temperature data
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 * [Docker CE](https://docs.docker.com/install/) on your development machine. 
 
-## Bugbash-only Prerequisites
+## Bugbash-only prerequisites
 * [Azure IoT Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 * [Azure IoT Edge extension for Visual Studio Code - 0.5.0-private](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/bugbash-rc/azure-iot-edge-0.5.0-private.vsix).
     Download and save the VSIX file locally using the link provided. In VS Code, go to the **Extensions** view. Click the **...** then select **Install from VSIX...**. Reload the VS Code window to enable the extension.
@@ -140,6 +140,11 @@ In the previous section you created an IoT Edge solution and added code to the C
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
    Use the username, password, and login server that you copied from your Azure Container Registry in the first section. Or retrieve them again from the **Access keys** section of your registry in the Azure portal.
+   **Bugbash-only** Additionally, you need to login to EdgeShared ACR to get access to the base image of the funtions runtime. Enter the following command in the Visual Studio Code integrated terminal.
+   
+   ```csh/sh
+   docker login -u EdgeShared -p WPruG6Zt4OBs4hZySY9VQAp2dKEM edgeshared.azurecr.io
+   ```
 
 2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the `$edgeAgent` to deploy two modules: **tempSensor** and **CSharpFunction**. The `CSharpFunction.image` value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
