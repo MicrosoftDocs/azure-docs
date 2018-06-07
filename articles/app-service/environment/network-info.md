@@ -24,9 +24,9 @@ ms.author: ccompy
 - **External ASE**: Exposes the ASE-hosted apps on an internet-accessible IP address. For more information, see [Create an External ASE][MakeExternalASE].
 - **ILB ASE**: Exposes the ASE-hosted apps on an IP address inside your VNet. The internal endpoint is an internal load balancer (ILB), which is why it's called an ILB ASE. For more information, see [Create and use an ILB ASE][MakeILBASE].
 
-There are now two versions of App Service Environment: ASEv1 and ASEv2. For information on ASEv1, see [Introduction to App Service Environment v1][ASEv1Intro]. ASEv1 can be deployed in a classic or Resource Manager VNet. ASEv2 can only be deployed into a Resource Manager VNet.
+There are two versions of App Service Environment: ASEv1 and ASEv2. For information on ASEv1, see [Introduction to App Service Environment v1][ASEv1Intro]. ASEv1 can be deployed in a classic or Resource Manager VNet. ASEv2 can only be deployed into a Resource Manager VNet.
 
-All calls from an ASE that go to the internet leave the VNet through a VIP assigned for the ASE. The public IP of this VIP is then the source IP for all calls from the ASE that go to the internet. If the apps in your ASE make calls to resources in your VNet or across a VPN, the source IP is one of the IPs in the subnet used by your ASE. Because the ASE is within the VNet, it can also access resources within the VNet without any additional configuration. If the VNet is connected to your on-premises network, apps in your ASE also have access to resources there. You don't need to configure the ASE or your app any further.
+All calls from an ASE that go to the internet leave the VNet through a VIP assigned for the ASE. The public IP of this VIP is the source IP for all calls from the ASE that go to the internet. If the apps in your ASE make calls to resources in your VNet or across a VPN, the source IP is one of the IPs in the subnet used by your ASE. Because the ASE is within the VNet, it can also access resources within the VNet without any additional configuration. If the VNet is connected to your on-premises network, apps in your ASE also have access to resources there without additional configuration.
 
 ![External ASE][1] 
 
@@ -39,7 +39,7 @@ If you have an External ASE, the public VIP is also the endpoint that your ASE a
 
 ![ILB ASE][2]
 
-If you have an ILB ASE, the IP address of the ILB is the endpoint for HTTP/S, FTP/S, web deployment, and remote debugging.
+If you have an ILB ASE, the address of the ILB is the endpoint for HTTP/S, FTP/S, web deployment, and remote debugging.
 
 The normal app access ports are:
 
@@ -53,14 +53,14 @@ This is true if you're on an External ASE or on an ILB ASE. If you're on an Exte
 
 ## ASE subnet size ##
 
-The size of the subnet used to host an ASE cannot be altered after the ASE is deployed.  The ASE uses an address for each infrastructure role as well as for each Isolated App Service plan instance.  Additionally, there are 5 addresses used by Azure Networking for every subnet that is created.  An ASE with no App Service plans at all will use 12 addresses before you create an app.  If it is an ILB ASE then it will use 13 addresses before you create an app in that ASE. As you scale out your App Serivce plans it will require additional addresses for each Front End that is added.  By default, Front End servers are added for every 15 total App Service plan instances. 
+The size of the subnet used to host an ASE cannot be altered after the ASE is deployed.  The ASE uses an address for each infrastructure role as well as for each Isolated App Service plan instance.  Additionally, there are 5 addresses used by Azure Networking for every subnet that is created.  An ASE with no App Service plans at all will use 12 addresses before you create an app.  If it is an ILB ASE then it will use 13 addresses before you create an app in that ASE. As you scale out your ASE, infrastructure roles are added every multiple of 15 and 20 of your App Service plan instances.
 
    > [!NOTE]
    > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/25` with 128 addresses.
 
 ## ASE dependencies ##
 
-An ASE inbound access dependency is:
+The ASE inbound access dependencies are:
 
 | Use | From | To |
 |-----|------|----|
@@ -69,7 +69,7 @@ An ASE inbound access dependency is:
 |  Allow Azure load balancer inbound | Azure load balancer | ASE subnet: All ports
 |  App assigned IP addresses | App assigned addresses | ASE subnet: All ports
 
-The inbound traffic provides command and control of the ASE in addition to system monitoring. The source IPs for this traffic are listed in the [ASE Management addresses][ASEManagement] document. The network security configuration needs to allow access from all IPs on ports 454 and 455.
+The inbound management traffic provides command and control of the ASE in addition to system monitoring. The source addresses for this traffic are listed in the [ASE Management addresses][ASEManagement] document. The network security configuration needs to allow access from all IPs on ports 454 and 455. If you block access from those addresses, your ASE will become unhealthy and then become suspended.
 
 Within the ASE subnet there are many ports used for internal component communication and they can change.  This requires all of the ports in the ASE subnet to be accessible from the ASE subnet. 
 
@@ -83,9 +83,9 @@ For outbound access, an ASE depends on multiple external systems. Those system d
 |-----|------|----|
 | Azure Storage | ASE subnet | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is only needed for ASEv1.) |
 | Azure SQL Database | ASE subnet | database.windows.net: 1433 |
-| Azure management | ASE subnet | management.core.windows.net, management.azure.com: 443 |
+| Azure management | ASE subnet | management.core.windows.net, management.azure.com, admin.core.windows.net: 443 |
 | SSL certificate verification |  ASE subnet            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443 |
-| Azure Active Directory        | ASE subnet            |  admin.core.windows.net, login.windows.net: 443 |
+| Azure Active Directory        | ASE subnet            |  login.windows.net: 443 |
 | App Service management        | ASE subnet            |  gr-prod-<regionspecific>.cloudapp.net, az-prod.metrics.nsatc.net: 443 |
 | Azure DNS                     | ASE subnet            |  Internet: 53 |
 | ASE internal communication    | ASE subnet: All ports |  ASE subnet: All ports |
