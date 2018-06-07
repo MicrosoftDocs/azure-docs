@@ -82,7 +82,7 @@ To configure and test Azure AD single sign-on with Settling music, you need to c
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Settling music test user](#create-a-Settling-music-test-user)** - to have a counterpart of Britta Simon in Settling music that is linked to the Azure AD representation of user.
+3. **[Create a Settling music test user](#create-a-settling-music-test-user)** - to have a counterpart of Britta Simon in Settling music that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -104,9 +104,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Settling music Domain and URLs single sign-on information](./media/active-directory-saas-settlingmusic-tutorial/tutorial_settlingmusic_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.rakurakuseisan.jp/<USERACCOUNT>/`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.rakurakuseisan.jp/<USERACCOUNT>/`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Settling music Client support team](https://rakurakuseisan.jp/) to get these values. 
@@ -147,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. In the **ID provider logout URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
 
-	d. Click **Choose File** to upload the Certificate (Base64) which you have downloaded form Azure portal.
+	d. Click **Choose File** to upload the **Certificate (Base64)** which you have downloaded form Azure portal.
 
 	e. Click the **Save** button.
 
@@ -185,7 +185,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Settling music test user
 
-In this section, you create a user called Britta Simon in Settling music. Work with [Settling music Client support team](https://rakurakuseisan.jp/) to add the users in the Settling music platform. Users must be created and activated before you use single sign-on
+In this section, you create a user called Britta Simon in Settling music. Work with [Settling music Client support team](https://rakurakuseisan.jp/) to add the users in the Settling music platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
