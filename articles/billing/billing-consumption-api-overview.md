@@ -1,7 +1,7 @@
 ﻿---
 title: Azure consumption API overview | Microsoft Docs
 description: Learn how Azure Consumption APIs give you programmatic access to cost and usage data for your Azure resources.
-services: 'services'
+services: 'billing'
 documentationcenter: ''
 author: Erikre
 manager: dougeby
