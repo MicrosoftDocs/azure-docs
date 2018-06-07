@@ -250,21 +250,21 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 ## Create the Kubernetes cluster
 
-1. In Cloud Shell, run the following command to download the required providers defined in the configuration:
+1. In Cloud Shell, initialize Terraform (replace the &lt;YourAzureStorageAccount> placeholder with the Azure storage name you want to use):
 
     ```bash
-    terraform init
-    -backend-config "storage_account_name=nictfremotestate" \
+    terraform init \
+    -backend-config "storage_account_name=<YourAzureStorageAccount>" \
     -backend-config="container_name=tfstate"
     ```
 
-1. Create the Terraform plan that defines the infrastructure elements:
+1. Create the Terraform plan that defines the infrastructure elements. The command will request two values: **var.client_id** and **var.client_secret**. For the **var.client_id** variable, enter the **appId** value associated with your service principal. For the **var.client_secret** variable, enter the **password** value associated with your service principal.
 
     ```bash
     terraform plan -out out.plan
     ```
 
-1. If the output from the **terraform plan** command is as expected, apply the plan to create the Kubernetes cluster.
+1. If the output from the **terraform plan** command is as expected, apply the plan to create the Kubernetes cluster. This process can take several minutes.
 
     ```bash
     terraform apply out.plan
