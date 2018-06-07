@@ -10,6 +10,8 @@ ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
+
+ROBOTS: NOINDEX
 ---
 # What's New in Azure Machine Learning
 

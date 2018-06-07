@@ -12,6 +12,8 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Scaling the cluster to manage web service throughput

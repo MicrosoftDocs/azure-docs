@@ -11,6 +11,8 @@ ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
+
+ROBOTS: NOINDEX
 ---
 # Configuring Azure Machine Learning Experimentation Service
 

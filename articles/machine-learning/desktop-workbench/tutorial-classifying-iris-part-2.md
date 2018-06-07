@@ -12,7 +12,10 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
+
+ROBOTS: NOINDEX
 ---
+
 
 # Tutorial 2: Classify Iris - Build a model
 Azure Machine Learning services (preview) are an integrated, data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.

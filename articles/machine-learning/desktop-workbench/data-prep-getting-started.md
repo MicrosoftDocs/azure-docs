@@ -11,6 +11,8 @@ ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
+
+ROBOTS: NOINDEX
 ---
 
 

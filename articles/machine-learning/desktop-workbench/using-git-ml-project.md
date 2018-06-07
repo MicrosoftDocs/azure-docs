@@ -11,7 +11,10 @@ ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
+
+ROBOTS: NOINDEX
 ---
+
 # Use a Git repo with a Machine Learning Workbench project
 Learn how Azure Machine Learning Workbench uses Git to provide version control, and ensure reproducibility in your data science experiment. Learn how to associate your project with a cloud Git repository (repo).
 

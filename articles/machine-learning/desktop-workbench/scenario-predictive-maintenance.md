@@ -12,7 +12,10 @@ ms.workload: data-services
 ms.topic: article 
 ms.custom: mvc 
 ms.date: 10/05/2017 
---- 
+
+ROBOTS: NOINDEX
+---
+
 
 # Predictive maintenance for real-world scenarios
 

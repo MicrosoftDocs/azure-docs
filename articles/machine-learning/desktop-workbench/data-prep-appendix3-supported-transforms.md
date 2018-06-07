@@ -13,6 +13,8 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 # Use data transforms for data preparation in Azure Machine Learning
 

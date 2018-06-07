@@ -13,6 +13,8 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 
 # Supported inspectors for the Azure Machine Learning data preparation preview

@@ -12,6 +12,8 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
+
+ROBOTS: NOINDEX
 ---
 # Azure Machine Learning Model Data Collection API reference
 

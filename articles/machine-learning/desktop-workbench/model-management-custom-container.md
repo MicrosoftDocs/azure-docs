@@ -11,7 +11,10 @@ ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018
+
+ROBOTS: NOINDEX
 ---
+
 
 # Customize the container image used for Azure ML Models
 

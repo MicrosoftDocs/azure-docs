@@ -12,6 +12,8 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Expand JSON transformation
@@ -28,7 +30,7 @@ New columns are added next to the source column. These columns contain propertie
 
 ## Examples
 
-The source columnn *Customer* is expanded into two columns *Customer.Name* and *Customer.Phone*.
+The source column *Customer* is expanded into two columns *Customer.Name* and *Customer.Phone*.
 
 | Customer                                                | Customer.Name   | Customer.Phone |
 |---------------------------------------------------------|-----------------|----------------|

@@ -12,7 +12,10 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
+
+ROBOTS: NOINDEX
 ---
+
 
 # Tutorial 3: Classify Iris: Deploy a model
 Azure Machine Learning (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists. Data scientists can use it to prepare data, develop experiments, and deploy models at cloud scale.

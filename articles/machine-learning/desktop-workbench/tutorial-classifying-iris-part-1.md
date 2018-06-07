@@ -12,7 +12,10 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
+
+ROBOTS: NOINDEX
 ---
+
 
 # Tutorial 1: Classify Iris - Preparing the data
 
