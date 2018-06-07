@@ -313,7 +313,7 @@ You can verify that all 3 profiles are created by looking at the resources in th
 ### Verify the profile status is Online
 The Traffic Manager polls the path of each endpoint to make sure it is online. If it is online, the status of the child profiles will be `Online`. This is displayed on the **Overview** of each profile. 
 
-![Screenshot of Azure Traffic Manager profile Overview showing Monitor Status of Online](./media/profile-status-online.png)
+![Screenshot of Azure Traffic Manager profile Overview showing Monitor Status of Online](./media/traffic-manager/profile-status-online.png)
 
 ### Validate Traffic Manager polling works
 Another way to validate the traffic manager polling works, on the [LUIS][LUIS] website apps list page, export the endpoint log for the application. Because Traffic Manager polls often for the two endpoints, there will be entries in the logs even if they have only been on a few minutes. Remember to look for entries where the query begins with `traffic-manager-west`.
