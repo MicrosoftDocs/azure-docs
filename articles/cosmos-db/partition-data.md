@@ -61,15 +61,16 @@ Azure Cosmos DB uses hash-based partitioning. When you write an item, Azure Cosm
 
 The choice of the partition key is an important decision that you have to make at design time. Pick a property name that has a wide range of values and has even access patterns. It's a best practice to have a partition key with a large number of distinct values (e.g., hundreds or thousands). It lets you distribute your workload evenly across these values. An ideal partition key is one that appears frequently as a filter in your queries and has sufficient cardinality to ensure your solution is scalable.
 
-If a physical partition reaches its storage limit and the data in the partition has the same partition key, Azure Cosmos DB returns the *"Partition key reached maximum size of 10 GB"* message, and the partition is not split. Choosing a good partition key is a very important decision. Partitions are an internal concept of Azure Cosmos DB and are transient. The assumption of how many partitions are allocated at a certain throughput is not quite correct. Azure Cosmos DB will automatically scale partitions based on your workload. So you shouldn’t corelate your database design based on the number of partitions instead you should make sure to choose the right partition key. 
+If a physical partition reaches its storage limit and the data in the partition has the same partition key, Azure Cosmos DB returns the *"Partition key reached maximum size of 10 GB"* message, and the partition is not split. Choosing a good partition key is a very important decision. Physical partitions are an internal concept of Azure Cosmos DB and are transient. Azure Cosmos DB will automatically scale the number of physical partitions based on your workload. So you shouldn’t corelate your database design based on the number of physical partitions instead you should make sure to choose the right partition key (logical partitions). 
 
 Choose a partition key such that:
 
-* The data distribution is even across all the keys.
-* The workload is even across all the keys.
-* It is preferred to have a set of keys as partition keys than a single key.  More number of keys result in an even workload distribution.
+* The storage distribution is even across all the keys.
+* The volume distribution of requests at a given point in time is even across all the keys.
+* Queries that are invoked with high concurrency can be efficiently routed by including the partition key in the filter predicate.  
+* Choosing a partition key with higher cardinality is generally preferred – becaue it typically yields better distribution and scalability. For example, a composite key can be formed by concatenating values from multiple properties to increase the cardinality. 
 
-When you choose a partition key with above considerations, you don’t have to worry about the number of partitions or how much throughput is allocated per physical partition, as we scale each partition independently and linearly as needed.
+When you choose a partition key with above considerations, you don’t have to worry about the number of partitions or how much throughput is allocated per physical partition, as Azure Cosmos DB scales out the number of physical partitions, and it can also scale the individual partitions as needed.
 
 Azure Cosmos DB containers can be created as *fixed* or *unlimited* in the Azure portal. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create a container as unlimited, you must specify a partition key and a minimum throughput of 1,000 RU/s. Azure Cosmos DB containers may also be configured to share throughput between a set of containers, in which each container must specificy a partition key and can grow unlimited.
 
