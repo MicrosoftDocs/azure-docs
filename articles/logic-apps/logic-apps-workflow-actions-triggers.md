@@ -837,9 +837,9 @@ For example:
 
 ## Actions overview
 
-Azure Logic Apps provides various action types, and each type has 
-different inputs that define an action's unique behavior. For example, 
-here are some commonly used action types: 
+Azure Logic Apps provides various action types - each with 
+different inputs that define an action's unique behavior. 
+For example, here are some commonly used action types: 
 
 * **HTTP** and **ApiConnection**, which call HTTP endpoints
 * **Function**, which calls an Azure Function
@@ -854,12 +854,12 @@ which create or transform data from various inputs.
 |-------------|-------------|  
 | **ApiConnection**  | Calls an HTTP endpoint by using [Microsoft-managed APIs](https://docs.microsoft.com/azure/connectors/apis-list). | 
 | **ApiConnectionWebhook** | Works like HTTPWebhook, but uses Microsoft-managed APIs. | 
-| **Compose** | Creates an object from the action's inputs. | 
+| **Compose** | Creates a single output from inputs, which can have various types. | 
 | **Function** | Calls an Azure Function. | 
 | **HTTP** | Calls an HTTP endpoint. | 
 | **Join** | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
 | **Query** | Creates an array from items in another array based on a condition or filter. | 
-| **Response** | Defines the response for an incoming call. | 
+| **Response** | Creates a response to an incoming call or request. | 
 | **Select** | Creates an array with JSON objects by transforming items from another array based on the specified map. | 
 | **Table** | Creates a CSV or HTML table from an array. | 
 | **Terminate** | Stops an actively running workflow. | 
@@ -1579,47 +1579,78 @@ For example, to stop a run that has `Failed` status:
 
 ## Wait action  
 
-This action suspends workflow execution for the specified interval. 
-This example causes the workflow to wait 15 minutes:
-  
-```json
-"waitForFifteenMinutesAction": {
-    "type": "Wait",
-    "inputs": {
-        "interval": {
-            "unit": "minute",
-            "count": 15
-        }
-    }
-}
-```
-  
-Alternatively, to wait until a specific moment in time, 
-you can use this example:
-  
-```json
-"waitUntilOctoberAction": {
-    "type": "Wait",
-    "inputs": {
-        "until": {
-            "timestamp": "2017-10-01T00:00:00Z"
-        }
-    }
-}
-```
-  
-> [!NOTE]  
-> You can specify the wait duration with either the `interval` object 
-> or the `until` object, but not both.
+This action pauses workflow execution for the 
+specified interval or until the specified time, 
+but not both. 
 
-| Element | Required | Type | Description | 
-|---------|----------|------|-------------| 
-| until | No | JSON Object | The wait duration based on a point in time | 
-| until timestamp | Yes | String | The point in time in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) when the wait expires | 
-| interval | No | JSON Object | The wait duration based on the interval unit and count | 
-| interval unit | Yes | String | The unit of time. Use only one of these values: "second", "minute", "hour", "day", "week", or "month" | 
-| interval count | Yes | Integer | A positive integer representing the number of interval units used for the wait duration | 
-||||| 
+**Specified interval**
+
+```json
+"Delay": {
+   "type": "Wait",
+   "inputs": {
+      "interval": {
+         "count": <number-of-units>,
+         "unit": "<interval>"
+      }
+   },
+   "runAfter": {}
+},
+```
+
+**Specified time**
+
+```json
+"Delay_until": {
+   "type": "Wait",
+   "inputs": {
+      "until": {
+         "timestamp": "<date-time-stamp>"
+      }
+   },
+   "runAfter": {}
+},
+```
+
+*Required*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*number-of-units*> | Integer | For the **Delay** action, the number of units to wait | 
+| <*interval*> | String | For the **Delay** action, the interval to wait, for example: Second, Minute, Hour, Day, Week, Month | 
+| <*date-time-stamp*> | String | For the **Delay Until** action, the date and time to resume execution. This value must use the [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
+|||| 
+
+*Example 1*
+
+This action definition pauses the workflow for 15 minutes:
+
+```json
+"Delay": {
+   "type": "Wait",
+   "inputs": {
+      "interval": {
+         "count": 15,
+         "unit": "Minute"
+      }
+   }
+},
+```
+
+*Example 2*
+
+This action definition pauses the workflow until the specified time:
+
+```json
+"Delay_until": {
+   "type": "Wait",
+   "inputs": {
+      "until": {
+         "timestamp": "2017-10-01T00:00:00Z"
+      }
+   }
+},
+```
 
 ## Workflow action
 
