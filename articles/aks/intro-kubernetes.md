@@ -14,17 +14,17 @@ ms.custom: mvc
 
 # Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) makes it simple to create, configure, and manage a cluster of virtual machines preconfigured to run containerized applications. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
+Azure Kubernetes Service (AKS) makes it simple to create, configure, and manage a cluster of virtual machines preconfigured to run containerized applications. AKS reduces the complexity and operational overhead of managing a Kubernetes cluster by offloading much of that responsibility to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you. In addition, you pay only for the agent nodes within your clusters, not for the masters.
 
-By using AKS, you can take advantage of the enterprise-grade features of Azure, while still maintaining application portability through Kubernetes and the Docker image format.
+This document provides an overview on the features of Azure Kubernetes Service (AKS).
 
-## Managed Kubernetes in Azure
+## Certification and compliance
 
-AKS reduces the complexity and operational overhead of managing a Kubernetes cluster by offloading much of that responsibility to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you. In addition, you pay only for the agent nodes within your clusters, not for the masters.
+Azure Kubernetes Service has been CNCF certified as Kubernetes conformant. AKS is also complaint with SOC and ISO/HIPPA/HITRUST.
 
 ## Flexible deployment options
 
-Azure Kubernetes Service offers a portal, command line, and template driven deployment options. When deploying an AKS cluster, the master and all nodes are deployed and configured for you. Additional features such as advanced networking, Azure Active Directory integration, and monitoring can be configured during the deployment process.
+Azure Kubernetes Service offers portal, command line, and template driven deployment options. When deploying an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. Additional features such as advanced networking, Azure Active Directory integration, and monitoring can also be configured during the deployment process.
 
 For more information, see both the [AKS portal quickstart][aks-portal] and the [AKS CLI quickstart][aks-cli].
 
@@ -36,19 +36,19 @@ For more information, see, [Integrate Azure Active Directory with AKS][aks-aad].
 
 ## Integrated logging and monitoring
 
-Container health gives you performance monitoring ability by collecting memory and processor metrics from controllers, nodes, and containers available in Kubernetes through the Metrics API. After enabling container health, these metrics are automatically collected for you using a containerized version of the OMS Agent for Linux and stored in your Log Analytics workspace.
+Container health gives you performance visibility by collecting memory and processor metrics from containers, nodes, and controllers. Additionally, container logs are collected. This data is stored in your Log Analytics workspace, and is available through the Azure portal, Azure CLI, or a REST endpoint.
 
 For more information, see [Monitor Azure Kubernetes Service container health][container-health].
 
 ## Cluster node scaling
 
-As demand for resources increases, the nodes of an AKS cluster can be scaled out to match. If resource demand decreases, nodes can be removed by scaling in the cluster. AKS scale operations can be completed using the Azure portal or the Azure CLI.
+As demand for resources increases, the nodes of an AKS cluster can be scaled out to match. If resource demand drops, nodes can be removed by scaling in the cluster. AKS scale operations can be completed using the Azure portal or the Azure CLI.
 
 For more information, see [Scale an Azure Kubernetes Service (AKS) cluster][aks-scale].
 
 ## Cluster node upgrades
 
-Azure Kubernetes Service offers many Kubernetes versions. As new versions become available, your cluster can be upgraded using the Azure portal or Azure CLI. During the upgrade process, nodes are carefully cordoned and drained to minimize disruption to running application.
+Azure Kubernetes Service offers many Kubernetes versions. As new versions become available in AKS, your cluster can be upgraded using the Azure portal or Azure CLI. During the upgrade process, nodes are carefully cordoned and drained to minimize disruption to running application.
 
 For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
@@ -64,11 +64,11 @@ AKS supports the creation of GPU enabled node pools. Azure currently provides si
 
 For more information, see [Using GPUs on AKS][aks-gpu].
 
-## Rich development tooling integration
+## Development tooling integration
 
-Kubernetes has a rich ecosystem of development and management tools such as Helm, Draft, and Kubernetes extension for Visual Studio Code. These tools work seamlessly with Azure Kuberntees Service.
+Kubernetes has a rich ecosystem of development and management tools such as Helm, Draft, and the Kubernetes extension for Visual Studio Code. These tools work seamlessly with Azure Kuberntees Service.
 
-Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal dev machine setup, you can iteratively run and debug containers directly in Azure Kubernetes Service (AKS). Develop on Windows, Mac, or Linux using familiar tools like Visual Studio, Visual Studio Code, or the command line.
+Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal configuration, you can run and debug containers directly in Azure Kubernetes Service (AKS).
 
 For more information, see [Azure Dev Spaces][azure-dev-spaces]
 
@@ -96,6 +96,7 @@ Learn more about deploying and managing AKS with the AKS quickstart.
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
 
 <!-- LINKS - internal -->
+[azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
 [azure-devops]: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks?view=vsts
 [acr-docs]: ../container-registry
 [aks-aad]: ./aad-integration.md
