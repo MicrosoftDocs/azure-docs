@@ -31,7 +31,7 @@ These records can be used for detecting a variety of issues in Azure Cloud Servi
 > [!NOTE]
 > The base query below checks for issues in a time window of 30 minutes, and assumes a 10 minutes latency in ingesting the telemetry records. These defaults can be configured as you see fit.
 
-```KQL
+```
 let window = 30m;
 let endTime = ago(10m);
 let EventLogs = traces
