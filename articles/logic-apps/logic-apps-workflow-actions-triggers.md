@@ -852,31 +852,33 @@ which create or transform data from various inputs.
 
 | Action type | Description | 
 |-------------|-------------|  
-| **ApiConnection**  | Calls an HTTP endpoint by using [Microsoft-managed APIs](https://docs.microsoft.com/azure/connectors/apis-list). | 
-| **ApiConnectionWebhook** | Works like HTTPWebhook, but uses Microsoft-managed APIs. | 
-| **Compose** | Creates a single output from inputs, which can have various types. | 
-| **Function** | Calls an Azure Function. | 
-| **HTTP** | Calls an HTTP endpoint. | 
-| **Join** | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
-| **Query** | Creates an array from items in another array based on a condition or filter. | 
-| **Response** | Creates a response to an incoming call or request. | 
-| **Select** | Creates an array with JSON objects by transforming items from another array based on the specified map. | 
-| **Table** | Creates a CSV or HTML table from an array. | 
-| **Terminate** | Stops an actively running workflow. | 
-| **Wait** | Waits a fixed amount of time or until a specific time. | 
-| **Workflow** | Nests a workflow inside another workflow. | 
+| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using [Microsoft-managed APIs](https://docs.microsoft.com/azure/connectors/apis-list). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTPWebhook, but uses Microsoft-managed APIs. | 
+| [**Compose**](#compose-action) | Creates a single output from inputs, which can have various types. | 
+| [**Function**](#function-action) | Calls an Azure Function. | 
+| [**HTTP**](#http-action) | Calls an HTTP endpoint. | 
+| [**Join**](#join-action) | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
+| [**Query**](#query-action) | Creates an array from items in another array based on a condition or filter. | 
+| [**Response**](#response-action) | Creates a response to an incoming call or request. | 
+| [**Select**](#select-action) | Creates an array with JSON objects by transforming items from another array based on the specified map. | 
+| [**Table**](#table-action) | Creates a CSV or HTML table from an array. | 
+| [**Terminate**](#terminate-action) | Stops an actively running workflow. | 
+| [**Wait**](#wait-action) | Pauses your workflow for a specified duration or until the specified date and time. | 
+| [**Workflow**](#workflow-action) | Nests a workflow inside another workflow. | 
 ||| 
 
 ### Control workflow action types
 
 | Action type | Description | 
 |-------------|-------------| 
-| **ForEach** | This looping action iterates through an array and performs inner actions on each array item. | 
-| **If** | Evaluate an expression and based on the result, runs the corresponding branch. | 
-| **Scope** | Use for logically grouping other actions. | 
-| **Switch** | Perform different actions based on specific values of an object. | 
-| **Until** | This looping action performs inner actions until a condition results to true. | 
+| [**ForEach**](#foreach-action) | Run the same actions in a loop for every item in an array. | 
+| [**If**](#if-action) | Run actions based on whether the specified condition is true or false. | 
+| [**Scope**](#scope-action) | Run actions based on the group status from a set of actions. | 
+| [**Switch**](#switch-action) | Run actions organized into cases when values from expressions, objects, or tokens match the values specified by each case. | 
+| [**Until**](#until-action) | Run actions in a loop until the specified condition is true. | 
 |||  
+
+<a name="apiconnection-action"></a>
 
 ## APIConnection action
 
@@ -934,6 +936,8 @@ You can define this policy with the `retryPolicy` object as shown here:
 }
 ```
 
+<a name="apiconnectionwebhook-action"></a>
+
 ## APIConnection webhook action
 
 The APIConnectionWebhook action references a Microsoft-managed connector. 
@@ -980,6 +984,8 @@ action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
 | authentication | No | JSON Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
+<a name="compose-action"></a>
+
 ## Compose action
 
 This action creates a single output from multiple inputs, 
@@ -1024,6 +1030,8 @@ for merging outputs from multiple actions:
     }
 }
 ```
+
+<a name="function-action"></a>
 
 ## Function action
 
@@ -1075,6 +1083,8 @@ When you save your logic app, the Logic Apps engine performs some checks on the 
 > So if any operation invalidates the cached URL, the action fails at runtime. 
 > To work around this issue, save the logic app again, 
 > which causes the logic app to retrieve and cache the trigger URL again.
+
+<a name="http-action"></a>
 
 ## HTTP action  
 
@@ -1190,6 +1200,8 @@ This example shows how you can specify limits:
 }
 ```
 
+<a name="join-action"></a>
+
 ## Join action
 
 This action creates a string from all the items in an array 
@@ -1233,6 +1245,8 @@ which are separted by a comma: `"1,2,3,4"`
 }
 ```
 
+<a name="query-action"></a>
+
 ## Query action
 
 This action creates an array from items in another array
@@ -1272,6 +1286,8 @@ values greater than the specified value, which is two:
 }
 ```
 
+<a name="response-action"></a>
+
 ## Response action  
 
 This action contains the entire response payload from an HTTP request 
@@ -1309,6 +1325,8 @@ As a result, the logic app run is marked `Failed`.
 in the trigger definition because the call creates multiple runs. 
 As a result, check for this case when the workflow operation is PUT, 
 and return a "bad request" response.
+
+<a name="select-action"></a>
 
 ## Select action
 
@@ -1410,6 +1428,8 @@ the **Office 365 Outlook - Send an email** action:
    }
 },
 ```
+
+<a name="table-action"></a>
 
 ## Table action
 
@@ -1548,6 +1568,8 @@ Here is the HTML table that this action creates:
 
 <table><thead><tr><th>Stock_ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples</td></tr><tr><td>1</td><td>Organic Oranges</td></tr></tbody></table>
 
+<a name="terminate-action"></a>
+
 ## Terminate action
 
 This action stops a workflow run, canceling any actions in progress, 
@@ -1576,6 +1598,8 @@ For example, to stop a run that has `Failed` status:
 | runError code | No | String | The run's error code |
 | runError message | No | String | The run's error message | 
 ||||| 
+
+<a name="wait-action"></a>
 
 ## Wait action  
 
@@ -1652,6 +1676,8 @@ This action definition pauses the workflow until the specified time:
 },
 ```
 
+<a name="workflow-action"></a>
+
 ## Workflow action
 
 This action lets you nest a workflow. The Logic Apps engine performs 
@@ -1704,6 +1730,8 @@ inside that control workflow action. For example, if you have an `Http` action i
 you can reference the `@body('Http')` expression from anywhere in the workflow. 
 However, actions that exist inside a control workflow action can only "run after" 
 other actions that are in the same control workflow structure.
+
+<a name="foreach-action"></a>
 
 ## Foreach action
 
@@ -1767,6 +1795,8 @@ For example:
     }
 }
 ```
+
+<a name="if-action"></a>
 
 ## If action
 
@@ -1855,6 +1885,8 @@ Here are some examples that show how you can use expressions in conditions:
 | `"expression": "parameters('hasSpecialAction')"` | This expression causes an error and isn't a valid condition. Conditions must use the "@" symbol. | 
 ||| 
 
+<a name="scope-action"></a>
+
 ## Scope action
 
 This action lets you logically group actions in a workflow. 
@@ -1881,6 +1913,8 @@ Learn more about [scopes](../logic-apps/logic-apps-control-flow-run-steps-group-
 |---------|----------|------|-------------|  
 | actions | Yes | JSON Object | The inner actions to run inside the scope |
 ||||| 
+
+<a name="switch-action"></a>
 
 ## Switch action
 
@@ -1957,6 +1991,8 @@ For example:
    }
 }
 ```
+
+<a name="until-action"></a>
 
 ## Until action
 
