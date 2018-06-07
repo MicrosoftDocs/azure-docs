@@ -21,17 +21,17 @@ ms.reviewer: comartin
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure Stack telemetry automatically uploads system data to Microsoft via the Connected User Experience. Microsoft teams use the data that's gathered by Azure Stack telemetry to improve customer experiences, and for security, health, quality, and performance analysis.
+Azure Stack telemetry automatically uploads system data to Microsoft via the Connected User Experience. Microsoft teams use the data that Azure Stack telemetry gathers to improve customer experiences. This data is also used for security, health, quality, and performance analysis.
 
 For an Azure Stack operator, telemetry can provide valuable insights into enterprise deployments and gives you a voice that helps shape future versions of Azure Stack.
 
 > [!NOTE]
-> Azure Stack can also be configured to forward usage information to Azure for billing. This is required for Multi-Node Azure Stack customers who choose pay-as-you-use billing. Usage reporting is controlled independently from telemetry and is not required for Multi-Node customers who choose the capacity model or for Azure Stack Development Kit users. For these scenarios, usage reporting can be turned off [using the registration script](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting).
+> You can also configure Azure Stack to forward usage information to Azure for billing. This is required for Multi-Node Azure Stack customers who choose pay-as-you-use billing. Usage reporting is controlled independently from telemetry and is not required for Multi-Node customers who choose the capacity model or for Azure Stack Development Kit users. For these scenarios, usage reporting can be turned off [using the registration script](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting).
 
-Azure Stack telemetry is based on the Windows Server 2016 Connected User Experience and Telemetry component, which uses the [Event Tracing for Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging technology to gather and store events and data. Azure Stack components use the same technology to publish events and data gathered by using public operating system event logging and tracing APIs. Examples of these Azure Stack components include the: Network Resource Provider, Storage Resource Provider, Monitoring Resource Provider, and Update Resource Provider. The Connected User Experience and Telemetry component encrypts data using SSL and uses certificate pinning to transmit data over HTTPS to the Microsoft Data Management service.
+Azure Stack telemetry is based on the Windows Server 2016 Connected User Experience and Telemetry component, which uses the [Event Tracing for Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging technology to gather and store events and data. Azure Stack components use the same technology to publish events and data gathered by using public operating system event logging and tracing APIs. Examples of these Azure Stack components include these providers: Network Resource, Storage Resource, Monitoring Resource, and Update Resource. The Connected User Experience and Telemetry component encrypts data using SSL and uses certificate pinning to transmit data over HTTPS to the Microsoft Data Management service.
 
 > [!IMPORTANT]
-> To support telemetry data flow, port 443 (HTTPS) must be open in your network. The Connected User Experience and Telemetry component connects to the Microsoft Data Management service at https://v10.vortex-win.data.microsoft.com. The Connected User Experience and Telemetry component also connects to https://settings-win.data.microsoft.com to download configuration information.
+> To enable telemetry data flow, port 443 (HTTPS) must be open in your network. The Connected User Experience and Telemetry component connects to the Microsoft Data Management service at https://v10.vortex-win.data.microsoft.com. The Connected User Experience and Telemetry component also connects to https://settings-win.data.microsoft.com to download configuration information.
 
 ## Privacy considerations
 
