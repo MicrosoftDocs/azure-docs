@@ -15,34 +15,39 @@ ms.custom: mvc
 This policy requires that only approved custom images are deployed in your environment. You specify
 an array of approved image IDs.
 
-You can deploy this sample policy using the [Azure portal](#azure-portal), with
-[Azure PowerShell](#azure-powershell), or with the [Azure CLI](#azure-cli).
+You can deploy this sample policy using:
+
+- The [Azure Portal](#azure-portal)
+- [Azure PowerShell](#azure-powershell)
+- [Azure CLI](#azure-cli)
+- [REST API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-> [!IMPORTANT]
-> The code samples on this page use a nomenclature of `<field>` to represent a value that must be
-> replaced prior to the code to work correctly. There may be other fields that should also be
-> replaced (such as region names) to meet your specific requirements, but this code will work
-> without changing those.
 
 ## Sample policy
 
 ### Policy definition
 
-The complete composed JSON policy definition, used by the REST API and 'Deploy to Azure' buttons.
+The complete composed JSON policy definition, used by the REST API, 'Deploy to Azure' buttons, and
+manually in the portal. Represented as `@<azurepolicy.json>` in example code.
 
 [!code-json[full](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.json "Complete policy definition (JSON)")]
 
+> [!NOTE]
+> If manually creating a policy in the portal, use the **properties.parameters** and **properties.policyRule**
+> portions of the above. Wrap the two sections together with curly braces `{}` to make it valid JSON.
+
 ### Policy rules
 
-The JSON defining the rules of the policy, used by Azure CLI and Azure PowerShell.
+The JSON defining the rules of the policy, used by Azure CLI and Azure PowerShell. Represented as
+`@<azurepolicy.rules.json>` in example code.
 
 [!code-json[rule](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.rules.json "Policy rules (JSON)")]
 
 ### Policy parameters
 
-The JSON defining the policy parameters, used by Azure CLI and Azure PowerShell.
+The JSON defining the policy parameters, used by Azure CLI and Azure PowerShell. Represented as
+`@<azurepolicy.parameters.json>` in example code.
 
 [!code-json[parameters](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.parameters.json "Policy parameters (JSON)")]
 
@@ -58,15 +63,14 @@ PowerShell also supports `-PolicyParameterObject` which requires passing the cmd
 hashtable where **Name** is the parameter name and **Value** is the single value or array of values
 being passed during assignment.
 
-In this example parameter, only Windows Server 2016 Datacenter and Windows Server 2016 Datacenter
-(smalldisk), located in 'Central US' and 'West US 2' (respectively), will be allowed.
+In this example parameter, only the _ContosoStdImage_ in resource group _YourResourceGroup_ or the Windows Server 2016 Datacenter located in 'Central US' will be allowed.
 
 ```json
 {
     "imageIds": {
         "value": [
-            "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510",
-            "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/westus2/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter-smalldisk/Versions/2016.127.20180510",
+            "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage",
+            "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510"
         ]
     }
 }
@@ -84,14 +88,14 @@ In this example parameter, only Windows Server 2016 Datacenter and Windows Serve
 ### Deploy with Azure PowerShell
 
 ```azurepowershell-interactive
-# Create the Policy Definition
+# Create the Policy Definition (Subscription scope)
 $definition = New-AzureRmPolicyDefinition -Name 'allowed-custom-images' -DisplayName 'Approved VM images' -description 'This policy governs the approved VM images' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' -Mode All
 
-# Set the scope to a resource group; may also be a specific resource, subscription, or management group
+# Set the scope to a resource group; may also be a subscription or management group
 $scope = Get-AzureRmResourceGroup -Name 'YourResourceGroup'
 
 # Set the Policy Parameter (JSON format)
-$policyparam = '{ "imageIds": { "value": [ "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510", "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/westus2/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter-smalldisk/Versions/2016.127.20180510" ] } }'
+$policyparam = '{ "imageIds": { "value": [ "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage", "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510" ] } }'
 
 # Create the Policy Assignment
 $assignment = New-AzureRmPolicyAssignment -Name 'allowed-custom-images-assignment' -DisplayName 'Approved VM images Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
@@ -128,14 +132,14 @@ The deploy and remove scripts use the following commands. Each command in the fo
 ### Deploy with Azure CLI
 
 ```azurecli-interactive
-# Create the Policy Definition
+# Create the Policy Definition (Subscription scope)
 definition=$(az policy definition create --name 'allowed-custom-images' --display-name 'Approved VM images' --description 'This policy governs the approved VM images' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' --mode All)
 
-# Set the scope to a resource group; may also be a specific resource, subscription, or management group
+# Set the scope to a resource group; may also be a subscription or management group
 scope=$(az group show --name 'YourResourceGroup')
 
 # Set the Policy Parameter (JSON format)
-policyparam='{ "imageIds": { "value": [ "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510", "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/westus2/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter-smalldisk/Versions/2016.127.20180510" ] } }'
+policyparam='{ "imageIds": { "value": [ "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage", "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510" ] } }'
 
 # Create the Policy Assignment
 assignment=$(az policy assignment create --name 'allowed-custom-images-assignment' --display-name 'Approved VM images Assignment' --scope `echo $scope | jq '.id' -r` --policy `echo $definition | jq '.name' -r` --params "$policyparam")
@@ -163,7 +167,70 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 | [az policy assignment delete](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | Removes an existing Azure Policy assignment. |
 | [az policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | Removes an existing Azure Policy definition. |
 
+## REST API
+
+There are several tools that can be used to interact with the Resource Manager REST API such as
+[ARMClient](https://github.com/projectkudu/ARMClient) or PowerShell. An example of calling REST API
+can be found in the **Aliases** section of [Policy definition structure](../policy-definition.md#aliases).
+
+### Deploy with REST API
+
+- Create the Policy Definition (Subscription scope). Use the [policy definition](#policy-definition) JSON for the Request Body.
+
+  ```http
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images?api-version=2016-12-01
+  ```
+
+- Create the Policy Assignment (Resource Group scope)
+
+  ```http
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/YourResourceGroup/providers/Microsoft.Authorization/policyAssignments/allowed-custom-images-assignment?api-version=2017-06-01-preview
+  ```
+
+  Use the following JSON example for the Request Body:
+
+  ```json
+  {
+      "properties": {
+          "displayName": "Approved VM images Assignment",
+          "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images",
+          "parameters": {
+              "imageIds": {
+                  "value": [
+                      "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage",
+                      "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510"
+                  ]
+              }
+          }
+      }
+  }
+  ```
+
+### Remove with REST API
+
+- Remove the Policy Assignment
+
+  ```http
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/allowed-custom-images-assignment?api-version=2017-06-01-preview
+  ```
+
+- Remove the Policy Definition
+
+  ```http
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images?api-version=2016-12-01
+  ```
+
+### REST API explanation
+
+| Service | Group | Operation | Notes |
+|---|---|---|---|
+| Resource Management | Policy Definitions | [Create](/rest/api/resources/policydefinitions/createorupdate) | Creates a new Azure Policy definition at a subscription. Alternative: [Create at management group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Resource Management | Policy Assignments | [Create](/rest/api/resources/policyassignments/create) | Creates a new Azure Policy assignment. In this example, we provide it a definition, but it can also take an initiative. |
+| Resource Management | Policy Assignments | [Delete](/rest/api/resources/policyassignments/delete) | Removes an existing Azure Policy assignment. |
+| Resource Management | Policy Definitions | [Delete](/rest/api/resources/policydefinitions/delete) | Removes an existing Azure Policy definition. Alternative: [Delete at management group](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+
 ## Next steps
 
-- Review more examples at [Azure Policy samples](../json-samples.md).
-- Additional Azure Policy examples for Virtual Machines at [Apply policies to Windows VMs](../../virtual-machines/windows/policy.md).
+- Review additional [Azure Policy samples](../json-samples.md)
+- Review [Azure Policy definition structure](../policy-definition.md)
+- See Azure Policy examples for Virtual Machines at [Apply policies to Windows VMs](../../virtual-machines/windows/policy.md)
