@@ -7,26 +7,6 @@
     href: asdk-what-is.md
   - name: ASDK release notes
     href: asdk-release-notes.md
-- name: Tutorials
-  items:
-  - name: Deploy the ASDK
-    items:
-    - name: Deploy the ASDK - Installer
-      href: asdk-deploy.md
-  - name: Add a marketplace item
-    items:
-    - name: Download from Azure
-      href: asdk-marketplace-item.md
-    - name: Add from a local source
-      href: asdk-marketplace-item-offline.md
-  - name: Offer IaaS services
-    href: asdk-offer-services.md
-  - name: Subscribe to an offer
-    href: asdk-subscribe-services.md
-  - name: Update offers and plans
-    href: asdk-update-offers.md 
-  - name: Create a VM from a template
-    href: asdk-create-vm-template.md 
 - name: Concepts
   items:
   - name: Deployment planning considerations
