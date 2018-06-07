@@ -468,9 +468,8 @@ Data Lake Tools for VS Code supports the following features:
 
     ![Data Lake Tools for Visual Studio Code syntax highlights](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
-   >[!NOTE]
-   >In preparation for the new General Data Protection Regulation (GDPR) going into effect on May 25, 2018, it is recommended that users of Azure Data Lake Tools for Visual Studio Code upgrade to version 0.2.13 or later. This version includes changes based on the most recent data protection requirements. Note that previous versions are not available for download and are deprecated. 
- 
+   > [!NOTE]
+   > Microsoft recommends you upgrade to Azure Data Lake Tools for Visual Studio version 2.3.3000.4 or later. The previous versions are no longer available for download and are now deprecated.  
    
 ## Next steps
 - [Develop U-SQL with Python, R, and CSharp for Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)

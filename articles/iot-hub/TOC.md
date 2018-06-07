@@ -151,11 +151,7 @@
 #### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
 ### [Develop for constrained devices](iot-hub-devguide-develop-for-constrained-devices.md)
 ### [Develop for mobile devices](iot-hub-how-to-develop-for-mobile-devices.md)
-### Routing messages
-#### [.NET](iot-hub-csharp-csharp-process-d2c.md)
-#### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.js](iot-hub-node-node-process-d2c.md)
-#### [Python](iot-hub-python-python-process-d2c.md)
+### [Query Avro data from a hub route](iot-hub-query-avro-data.md)
 ### Send cloud-to-device messages
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
@@ -217,13 +213,6 @@
 ### [Java](iot-hub-java-java-file-upload.md)
 ### [Node.js](iot-hub-node-node-file-upload.md)
 ### [Python](iot-hub-python-python-file-upload.md)
-
-## Schedule and broadcast jobs
-### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
-### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
-### [.NET back end/.NET device](iot-hub-csharp-csharp-schedule-jobs.md)
-### [Java back end/Java device](iot-hub-java-java-schedule-jobs.md)
-### [Python back end/Python device](iot-hub-python-python-schedule-jobs.md)
 
 ## Create an IoT hub 
 ### [Use Azure portal](iot-hub-create-through-portal.md)

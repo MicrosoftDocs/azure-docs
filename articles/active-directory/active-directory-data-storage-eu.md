@@ -8,6 +8,7 @@ manager: mtillman
 ms.author: lizross
 
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
