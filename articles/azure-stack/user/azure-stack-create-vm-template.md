@@ -3,7 +3,7 @@ title: In this tutorial, you create an Azure Stack VM using a template | Microso
 description: Describes how to use the ASDK to create a VM using a predfined template and a GitHub custom template.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: brenduns
 manager: femila
 editor: ''
 
@@ -14,9 +14,9 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
-ms.author: jeffgilb
-ms.reviewer: misainat
+ms.date: 06/07/2018
+ms.author: brenduns
+ms.reviewer: 
 ---
 
 # Tutorial: create a VM using a community template
@@ -132,6 +132,3 @@ In this tutorial, you learned how to:
 > * Create a VM using a custom GitHub template
 > * Start minikube and install an application
 
-
-> [!div class="nextstepaction"]
-> [Learn about advanced evaluation tasks](asdk-advanced-eval.md)
