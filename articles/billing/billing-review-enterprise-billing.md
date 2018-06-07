@@ -81,7 +81,7 @@ Each item in **data** represents a charge:
 |**nextLink**| When set, specifies a URL for the next "page" of details. Blank when the page is the last one. |  
 ||
   
-Department IDs, resource groups, tags, and related fields are defined by the EA administrator.  To learn more, see 
+Department IDs, resource groups, tags, and related fields are defined by the EA administrator.  
 
 This example is abbreviated; see [Get usage detail](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) for a complete description of each response field. 
 
