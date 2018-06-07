@@ -17,7 +17,7 @@ ms.author: harelbr; mbullwin
 
 ---
 
-# Alert on issues in Azure cloud services using the Azure Diagnostics integration with Application Insights
+# Alert on issues in Azure cloud services using the Azure diagnostics integration with Azure Application Insights
 
 In this article, we will describe how to set up alert rules that monitor for issues like startup failures, crashes, and role recycle loops in Azure Cloud Services (web and worker roles).
 
