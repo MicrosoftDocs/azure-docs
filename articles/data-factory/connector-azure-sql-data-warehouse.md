@@ -66,7 +66,7 @@ For different authentication types, refer to the following sections on prerequis
 
 - [Using SQL authentication](#using-sql-authentication).
 - [Using Azure AD Application token authentication: service principal](#using-service-principal-authentication).
-- [Using Azure AD Application token authentication: managed service identity](#using-managed-service-identity-authentication).
+- [Using Azure AD Application token authentication: Managed Service Identity](#using-managed-service-identity-authentication).
 
 ### Using SQL authentication
 
@@ -115,10 +115,10 @@ To use service principal-based Azure AD application token authentication, follow
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. In ADF, configure an Azure SQL Data Warehouse linked service.
+5. In Azure Data Factory, configure an Azure SQL Data Warehouse linked service.
 
 
-**Linked service example that uses service principal authentication:**
+#### Linked service example that uses service principal authentication
 
 ```json
 {
@@ -147,7 +147,7 @@ To use service principal-based Azure AD application token authentication, follow
 
 ### Managed service identity authentication
 
-A data factory can be associated with a [managed service identity (MSI)](data-factory-service-identity.md) that represents this specific data factory. You can use this service identity for Azure SQL Data Warehouse authentication. This identity allows the designated factory to access and copy data from or to your data warehouse.
+A data factory can be associated with a [Managed Service Identity](data-factory-service-identity.md) that represents this specific data factory. You can use this service identity for Azure SQL Data Warehouse authentication. This identity allows the designated factory to access and copy data from or to your data warehouse.
 
 > [!IMPORTANT]
 > Note that PolyBase isn't currently supported for MSI authentcation.
@@ -378,28 +378,28 @@ Learn more about how to use PolyBase to load efficiently SQL Data Warehouse in t
 
 Using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure SQL Data Warehouse with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. See [copy performance reference number](copy-activity-performance.md#performance-reference) for a detailed comparison. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse in less than 15 minutes with Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
-* If your source data is in **Azure Blob or Azure Data Lake Store**, and the format is compatible with PolyBase, you can directly copy to Azure SQL Data Warehouse using PolyBase. See **[Direct copy using PolyBase](#direct-copy-using-polybase)** with details.
-* If your source data store and format is not originally supported by PolyBase, you can use the **[Staged Copy using PolyBase](#staged-copy-using-polybase)** feature instead. It also provides you better throughput by automatically converting the data into PolyBase-compatible format and storing the data in Azure Blob storage. It then loads data into SQL Data Warehouse.
+* If your source data is in Azure Blob or Azure Data Lake Store, and the format is compatible with PolyBase, copy direct to Azure SQL Data Warehouse by using PolyBase. For details, see **[Direct copy using PolyBase](#direct-copy-using-polybase)**.
+* If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy using PolyBase](#staged-copy-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format. And it stores the data in Azure Blob storage. It then loads the data into SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Note PolyBase is currently not supported for Managed Service Identity (MSI) based AAD Application token authentcation.
+> Note that PolyBase isn't currently supported for MSI-based Azure AD Application token authentcation.
 
 ### Direct copy using PolyBase
 
-SQL Data Warehouse PolyBase directly support Azure Blob and Azure Data Lake Store (using service principal) as source and with specific file format requirements. If your source data meets the criteria described in this section, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase. Otherwise, you can use [Staged Copy using PolyBase](#staged-copy-using-polybase).
+SQL Data Warehouse PolyBase directly supports Azure Blob and Azure Data Lake Store. It uses service principal as a source and has specific file format requirements. If your source data meets the criteria described in this section, copy direct from the source data store to Azure SQL Data Warehouse using PolyBase. Otherwise, use [Staged copy using PolyBase](#staged-copy-using-polybase).
 
 > [!TIP]
 > To copy data from Data Lake Store to SQL Data Warehouse efficiently, learn more from [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
 
-If the requirements are not met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
+If the requirements aren't met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
-1. **Source linked service** is of type: **AzureStorage** or **AzureDataLakeStore** with service principal authentication.
-2. The **input dataset** is of type: **AzureBlob** or **AzureDataLakeStoreFile**, and the format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat** with the following configurations:
+1. The **Source linked service** type is **AzureStorage** or **AzureDataLakeStore** with service principal authentication.
+2. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
 
    1. `rowDelimiter` must be **\n**.
    2. `nullValue` is set to **empty string** (""), or `treatEmptyAsNull` is set to **true**.
-   3. `encodingName` is set to **utf-8**, which is **default** value.
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, and `skipLineCount` are not specified.
+   3. `encodingName` is set to **utf-8**, which is the **default** value.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, and `skipLineCount` aren't specified.
    5. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
 	```json
@@ -419,8 +419,8 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
 	},
 	```
 
-3. There is no `skipHeaderLineCount` setting under **BlobSource** or **AzureDataLakeStore** for the Copy activity in the pipeline.
-4. There is no `sliceIdentifierColumnName` setting under **SqlDWSink** for the Copy activity in the pipeline. (PolyBase guarantees that all data is updated or nothing is updated in a single run. To achieve **repeatability**, you could use `sqlWriterCleanupScript`).
+3. There is no `skipHeaderLineCount` setting under **BlobSource** or **AzureDataLakeStore** for the copy activity in the pipeline.
+4. There is no `sliceIdentifierColumnName` setting under **SqlDWSink** for the copy activity in the pipeline. PolyBase guarantees that all data is updated, or nothing is updated in a single run. To achieve **repeatability**, use `sqlWriterCleanupScript`.
 
 ```json
 "activities":[
@@ -452,11 +452,11 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
 ]
 ```
 
-### Staged Copy using PolyBase
+### Staged copy by using PolyBase
 
-When your source data doesn’t meet the criteria introduced in the previous section, you can enable copying data via an interim staging Azure Blob Storage (cannot be Premium Storage). In this case, Azure Data Factory automatically performs transformations on the data to meet data format requirements of PolyBase, then use PolyBase to load data into SQL Data Warehouse, and then clean-up your temp data from the Blob storage. See [Staged Copy](copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
+When your source data doesn’t meet the criteria in the previous section, you can enable copying data via an interim staging Azure Blob Storage instance. It can't be Premium Storage. In this case, Azure Data Factory automatically performs transformations on the data to meet data format requirements of PolyBase. Then it uses PolyBase to load data into SQL Data Warehouse. And then it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance.md#staged-copy) for details about copying data via a staging Azure Blob instance.
 
-To use this feature, create an [Azure Storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure Storage Account that has the interim blob storage, then specify the `enableStaging` and `stagingSettings` properties for the Copy Activity as shown in the following code:
+To use this feature, create an [Azure Storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure Storage Account that has the interim blob storage. Then specify the `enableStaging` and `stagingSettings` properties for the Copy Activity as shown in the following code:
 
 ```json
 "activities":[
@@ -495,36 +495,36 @@ To use this feature, create an [Azure Storage linked service](connector-azure-bl
 ]
 ```
 
-## Best practices when using PolyBase
+## Best practices for using PolyBase
 
-The following sections provide additional best practices to the ones that are mentioned in [Best practices for Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+The following sections provide best practices in addition to those mentioned in [Best practices for Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
 ### Required database permission
 
-To use PolyBase, it requires the user being used to load data into SQL Data Warehouse has the ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add that user as a member of "db_owner" role. Learn how to do that by following [this section](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+To use PolyBase, the user that loads data into SQL Data Warehouse must have ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add that the user as a member of the **db_owner** role. Learn how to do that in the [SQL Data Warehouse overview](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 ### Row size and data type limitation
 
-Polybase loads are limited to loading rows both smaller than **1 MB** and cannot load to VARCHR(MAX), NVARCHAR(MAX) or VARBINARY(MAX). Refer to [here](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+Polybase loads are limited to rows smaller than **1 MB**. They can't load to VARCHR(MAX), NVARCHAR(MAX), or VARBINARY(MAX). For more information, see [SQL data warehouse service capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
-If you have source data with rows of size greater than 1 MB, you may want to split the source tables vertically into several small ones where the largest row size of each of them does not exceed the limit. The smaller tables can then be loaded using PolyBase and merged together in Azure SQL Data Warehouse.
+If you have source data with rows greater than 1 MB, you might want to split the source tables vertically into several small ones. Make sure that the largest size of each row doesn't exceed the limit. The smaller tables can then be loaded by using PolyBase and merged together in Azure SQL Data Warehouse.
 
 ### SQL Data Warehouse resource class
 
-To achieve best possible throughput, consider assigning a larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase.
+To achieve the best possible throughput, assign a larger resource class to the user that loads data into SQL Data Warehouse via PolyBase.
 
-### tableName in Azure SQL Data Warehouse
+### **tableName** in Azure SQL Data Warehouse
 
-The following table provides examples on how to specify the **tableName** property in dataset JSON for various combinations of schema and table name.
+The following table gives examples of how to specify the **tableName** property in the JSON dataset. It shows several combinations of schema and table names.
 
-| DB Schema | Table name | tableName JSON property |
+| DB Schema | Table name | **tableName** JSON property |
 | --- | --- | --- |
-| dbo |MyTable |MyTable or dbo.MyTable or [dbo].[MyTable] |
-| dbo1 |MyTable |dbo1.MyTable or [dbo1].[MyTable] |
-| dbo |My.Table |[My.Table] or [dbo].[My.Table] |
-| dbo1 |My.Table |[dbo1].[My.Table] |
+| dbo | MyTable | MyTable or dbo.MyTable or [dbo].[MyTable] |
+| dbo1 | MyTable | dbo1.MyTable or [dbo1].[MyTable] |
+| dbo | My.Table | [My.Table] or [dbo].[My.Table] |
+| dbo1 | My.Table | [dbo1].[My.Table] |
 
-If you see the following error, it could be an issue with the value you specified for the tableName property. See the table for the correct way to specify values for the tableName JSON property.
+If you see the following error, the problem might be the value you specified for the **tableName** property. See the preceding table for the correct way to specify values for the **tableName** JSON property.
 
 ```
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
@@ -532,52 +532,52 @@ Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account
 
 ### Columns with default values
 
-Currently, PolyBase feature in Data Factory only accepts the same number of columns as in the target table. Say, you have a table with four columns and one of them is defined with a default value. The input data should still contain four columns. Providing a 3-column input dataset would yield an error similar to the following message:
+Currently, the PolyBase feature in Data Factory accepts only the same number of columns as in the target table. An example is a table with four columns where one of them is defined with a default value. The input data should still contain four columns. A three-column input dataset would yield an error similar to the following message:
 
 ```
 All columns of the table must be specified in the INSERT BULK statement.
 ```
 
-NULL value is a special form of default value. If the column is nullable, the input data (in blob) for that column could be empty (cannot be missing from the input dataset). PolyBase inserts NULL for them in the Azure SQL Data Warehouse.
+The NULL value is a special form of the default value. If the column is nullable, the input data, in the blob, for that column might be empty. But it can't be missing from the input dataset. PolyBase inserts NULL for those values in the Azure SQL Data Warehouse.
 
 ## Data type mapping for Azure SQL Data Warehouse
 
-When copying data from/to Azure SQL Data Warehouse, the following mappings are used from Azure SQL Data Warehouse data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When you copy data from or to Azure SQL Data Warehouse, the following mappings are used from Azure SQL Data Warehouse data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn how copy activity maps the source schema and data type to the sink.
 
-| Azure SQL Data Warehouse data type | Data factory interim data type |
+| Azure SQL Data Warehouse data type | Data Factory interim data type |
 |:--- |:--- |
-| bigint |Int64 |
-| binary |Byte[] |
-| bit |Boolean |
-| char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
-| Decimal |Decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Double |
-| image |Byte[] |
-| int |Int32 |
-| money |Decimal |
-| nchar |String, Char[] |
-| ntext |String, Char[] |
-| numeric |Decimal |
-| nvarchar |String, Char[] |
-| real |Single |
-| rowversion |Byte[] |
-| smalldatetime |DateTime |
-| smallint |Int16 |
-| smallmoney |Decimal |
-| sql_variant |Object * |
-| text |String, Char[] |
-| time |TimeSpan |
-| timestamp |Byte[] |
-| tinyint |Byte |
-| uniqueidentifier |Guid |
-| varbinary |Byte[] |
-| varchar |String, Char[] |
-| xml |Xml |
+| bigint | Int64 |
+| binary | Byte[] |
+| bit | Boolean |
+| char | String, Char[] |
+| date | DateTime |
+| Datetime | DateTime |
+| datetime2 | DateTime |
+| Datetimeoffset | DateTimeOffset |
+| Decimal | Decimal |
+| FILESTREAM attribute (varbinary(max)) | Byte[] |
+| Float | Double |
+| image | Byte[] |
+| int | Int32 |
+| money | Decimal |
+| nchar | String, Char[] |
+| ntext | String, Char[] |
+| numeric | Decimal |
+| nvarchar | String, Char[] |
+| real | Single |
+| rowversion | Byte[] |
+| smalldatetime | DateTime |
+| smallint | Int16 |
+| smallmoney | Decimal |
+| sql_variant | Object * |
+| text | String, Char[] |
+| time | TimeSpan |
+| timestamp | Byte[] |
+| tinyint | Byte |
+| uniqueidentifier | Guid |
+| varbinary | Byte[] |
+| varchar | String, Char[] |
+| xml | Xml |
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
