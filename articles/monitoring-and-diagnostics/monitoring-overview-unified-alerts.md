@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 06/07/2018
 ms.author: mamit,bwren
 ms.custom:
 
@@ -58,6 +58,7 @@ The unified alerts experience uses the following concepts to separate alert rule
 | Criteria | Combination of _signal_ and _logic_ applied on a target resource.<br>Examples: Percentage CPU > 70%, Server Response Time > 4 ms, Result count of a log query > 100 etc. |
 | Logic | User-defined logic to check if the signal is within expected range/values. |
 | Action | Action to perform when the alert is fired. Multiple actions may occur when an alert fires. These alerts support action groups.<br>Examples: emailing an email address, calling a webhook URL. |
+| Monitor Condition | Indicates whether the condition that created a metric alert has subsequently been resolved. Metric alert rules sample a particular metric at regular intervals. If the criteria in the alert rule is met, then a new alert is created with a condition of Fired.  When the metric is sampled again, if the criteria is still met then nothing happens.  If the criteria is not met though, then the condition of the alert is changed to Resolved. The next time that the criteria is met, then a another alert is created with a condition of Fired. |
 
 
 ## Alert pages
@@ -99,6 +100,8 @@ Alerts are available across several Azure monitoring services. For information o
 | Application Insights | Web Availability Tests | Not supported in unified alerts.  See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md). Available to any website instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
 
 ## Enhanced unified alerts (Public Preview)
+> [!NOTE]
+>  The functionality in this section is coming soon. It may not appear in your version of the portal yet. 
 
 An enhanced unified alerts experience was released in public preview for Azure Monitor on June 1, 2018. This experience builds on the benefits of [unified alerts](#overview) released March 2018 and provides the ability to manage and aggregate individual alerts in addition to modifying alert state. This section describes the new features and how to navigate the new alert pages in the Azure portal.
 

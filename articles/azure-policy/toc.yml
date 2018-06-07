@@ -42,7 +42,17 @@
   - name: Azure PowerShell
     href: /powershell/module/azurerm.resources/#policies
   - name: REST API
-    href: /rest/api/policy-insights/
+    items:
+    - name: Events
+      href: /rest/api/policy-insights/policyevents
+    - name: States
+      href: /rest/api/policy-insights/policystates
+    - name: Assignments
+      href: /rest/api/resources/policyassignments
+    - name: Policy Definitions
+      href: /rest/api/resources/policydefinitions
+    - name: Initiatives Definitions
+      href: /rest/api/resources/policysetdefinitions
 - name: Resources
   items:
   - name: GitHub - Azure Policy samples
