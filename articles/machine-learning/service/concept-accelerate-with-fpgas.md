@@ -3,7 +3,7 @@ title: What is an FPGA? – Project Brainwave – Azure Machine Learning
 description: Learn how to accelerate models and deep neural networks with FPGAs. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.component: service
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
