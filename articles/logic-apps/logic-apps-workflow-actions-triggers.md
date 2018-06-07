@@ -1318,11 +1318,11 @@ and return a "bad request" response.
 
 This action creates an array with JSON objects by transforming 
 items from another array based on the specified map. 
-The output array always has the same number of items as the source array. 
+The output array and source array always have the same number of items. 
 Although you can't change the number of objects in the output array, 
-you can add or remove properties and their values across each object. 
-The `select` property specifies the map used for transforming each item 
-and for specifying the number of properties in the output array. 
+you can add or remove properties and their values across all those objects. 
+The `select` property defines the map that transforms all items in the source 
+array by specifying the properties and values across all objects in the output array. 
 
 ```json
 "Select": {
@@ -1342,21 +1342,30 @@ and for specifying the number of properties in the output array.
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*array*> | Array | The array or expression that provides the source items. If you specify an expression, enclose that expression with double quotes. <p>**Note**: If the source array is empty, the action creates an empty array. | 
-| <*key-name*> | String | The property name for the result from the corresponding expression. <p>To add a property and value to each object, add a <*key-name*> entry for that property and the corresponding <*expression*> for the value. <li>To remove a property across each object, just omit the "<*key-name*>" for that property. | 
-| <*expression*> | String | An expression that transforms the item in the source array | 
+| <*array*> | Array | The array or expression that provides the source items. Make sure you enclose an expression with double quotes. <p>**Note**: If the source array is empty, the action creates an empty array. | 
+| <*key-name*> | String | The property name assigned to the result from <*expression*> <p>To add a new property across all objects in the output array, provide a <*key-name*> for that property and an <*expression*> for the property value. <p>To remove a property from all objects in the array, omit the <*key-name*> for that property. | 
+| <*expression*> | String | The expression that transforms the item in the source array and assigns the result to <*key-name*> | 
 |||| 
+
+To reference and use a **Select** action's output in other actions, 
+pass that output into a **Compose** action, and then reference 
+the output from the **Compose** action in your other actions.
 
 *Example*
 
-This action definition creates an array of JSON objects from an array of integers:
+This action definition creates a JSON object array from an integer array. 
+The action iterates through the source array, 
+gets each integer value by using the `@item()` expression, 
+and assigns each value to the "`number`" property in each JSON object: 
 
 ```json
 "Select": {
    "type": "Select",
    "inputs": {
       "from": [ 1, 2, 3 ],
-      "select": { "number": "@item()" }
+      "select": { 
+         "number": "@item()" 
+      }
    },
    "runAfter": {}
 },
@@ -1365,6 +1374,46 @@ This action definition creates an array of JSON objects from an array of integer
 Here is the array that this action creates:
 
 `[ { "number": 1 }, { "number": 2 }, { "number": 3 } ]`
+
+To use this array output in other actions, 
+pass this output into a **Compose** action:
+
+```json
+"Compose": {
+   "type": "Compose",
+   "inputs": "@body('Select')",
+   "runAfter": {
+      "Select": [ "Succeeded" ]
+   }
+},
+```
+
+You can then use the output from the **Compose** 
+action in your other actions, for example, 
+the **Office 365 Outlook - Send an email** action:
+
+```json
+"Send_an_email": {
+   "type": "ApiConnection",
+   "inputs": {
+      "body": {
+         "Body": "@{outputs('Compose')}",
+         "Subject": "Output array from Select and Compose actions",
+         "To": "<your-email@domain>"
+      },
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['office365']['connectionId']"
+         }
+      },
+      "method": "post",
+      "path": "/Mail"
+   },
+   "runAfter": {
+      "Compose": [ "Succeeded" ]
+   }
+},
+```
 
 ## Table action
 
