@@ -49,19 +49,34 @@ The only required parameter is `location`. If you do not define the *SKU* versio
 | location | string | Resource location. Get a current list of locations using the [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) operation. |
 
 
-## Example: Create a Basic Load Balancer
+## Example: Create and update a Basic Load Balancer
 
-In this example, you create a Basic Load Balancer along with its resources that include a frontend IP configuration (*fe-lb*), a backend address pool (*be-lb*), a load balancing rule (*rulelb*), a health probe (*probe-lb*), and an inbound NAT rule (*in-nat-rule*).
+In this example, you first create a Basic Load Balancer along with its resources. Next, you configure the the load balancer resources that include a frontend IP configuration, a backend address pool, a load balancing rule , a health probe, and an inbound NAT rule.
 
-Before you create a load balancer using the example below, create a virtual network that includes VMs in a subnet. To see an example that describes how to create a VM in an availability set using REST API, see Azure Management REST API for [Virtual Machines - Create or Update](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#create_a_vm_in_an_availability_set)
+Before you create a load balancer using the example below, create a virtual network named *vnetlb* with a subnet named *subnetlb* in a resourcegroup named *rg1* in the **East US** location.
 
-### Sample request
+### STEP 1. Create a Basic Load Balancer
+In this step, you create a Basic Load Balancer, named *lb* at the **EAST US** location within the *rg1* resource group.
+#### Sample request
 
   ```HTTP    
   PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
   ```
+#### Request body
 
-### Request body
+  ```JSON
+   {
+    "location": "eastus",
+   }
+  ```
+### STEP 2. Configure load balancer resources
+In this step, you configure the the load balancer *lb* resources that include a frontend IP configuration (*fe-lb*), a backend address pool (*be-lb*), a load balancing rule (*rulelb*), a health probe (*probe-lb*), and an inbound NAT rule (*in-nat-rule*).
+#### Sample request
+
+  ```HTTP    
+  PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
+  ```
+#### Request body
 
   ```JSON
 {
