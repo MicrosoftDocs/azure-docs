@@ -22168,7 +22168,7 @@
             "redirect_document_id": false
       },
       {
-            "source_path": "articles/azure-stack/asdk-deploy.md",
+            "source_path": "articles/azure-stack/asdk/asdk-deploy.md",
             "redirect_url": "/azure/azure-stack/asdk/asdk-install",
              "redirect_document_id": false
       },
