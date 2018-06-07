@@ -18,7 +18,7 @@ What can I do with it? What can't I?
 
 **Try these next steps for this CLI**
 
-+ [Install the CLI and get started](quickstart-set-up-in-python.md)
++ [Install the CLI and get started]()quickstart-set-up-in-python.md
 
 + [Azure Machine Learning CLI reference documentation]()
 
