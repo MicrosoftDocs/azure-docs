@@ -138,4 +138,4 @@ In this quickstart, you've called a direct method on a device from a back-end ap
 To learn how to route device-to-cloud messages to different destinations in the cloud, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Route telemetry to different endpoints for processing](iot-hub-node-node-process-d2c.md)
+> [Tutorial: Route telemetry to different endpoints for processing](tutorial-routing.md)

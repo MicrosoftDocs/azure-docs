@@ -31,7 +31,7 @@ It is important to avoid the use of extended (Latin-1) or Unicode punctuation ch
 |----- | ----- |
 | “Hello world” (open and close double quotes) | "Hello world" (double quotes) |
 | John’s day (right single quotation mark) | John's day (apostrophe) |
-| it was good—no, it was great! (em dash) | it was good--no, it was great! |
+| it was good—no, it was great! (em dash) | it was good--no, it was great! (hyphens) |
 
 ### Text normalization performed by the service
 

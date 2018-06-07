@@ -116,7 +116,7 @@
   - name: Batch AI
     tocHref: /azure/batch-ai/
     topicHref: /azure/batch-ai/
-  - name: Billing
+  - name: Billing + cost management
     tocHref: /azure/billing/
     topicHref: /azure/billing/
   - name: Biztalk Services

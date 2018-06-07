@@ -44,6 +44,34 @@ The following items are the known limitations for the Public Preview.
 - SQL Failover Cluster Instances (FCI) are not supported.
 - Use the Azure portal to configure Azure Backup to protect SQL Server databases. Support for Azure PowerShell, CLI, and REST APIs is not currently available.
 
+## Supported Azure GEOs
+
+- Australia South East (ASE) 
+- Brazil South (BRS)
+- Canada Central (CNC)
+- Canada East (CE)
+- Central US (CUS)
+- East Asia (EA)
+- East Australia (AE) 
+- East US (EUS)
+- East US 2 (EUS2)
+- Japan East (JPE)
+- Japan West (JPW)
+- India Central (INC) 
+- India South (INS)
+- Korea Central (KRC)
+- Korea South (KRS)
+- North Central US (NCUS) 
+- North Europe (NE) 
+- South Central US (SCUS) 
+- South East Asia (SEA)
+- UK South (UKS) 
+- UK West (UKW) 
+- West Europe (WE) 
+- West US (WUS)
+- West Central US (WCUS)
+- West US 2 (WUS 2) 
+
 ## Supported operating systems and versions of SQL server
 
 The following supported operating systems and versions of SQL Server apply to SQL marketplace Azure virtual machines, and non-marketplace virtual machines (where SQL Server is manually installed).
