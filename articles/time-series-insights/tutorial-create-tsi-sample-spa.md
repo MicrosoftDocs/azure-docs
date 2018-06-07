@@ -20,29 +20,28 @@ This tutorial will guide you through the process of creating a single-page web a
 
 ## Prerequisites
 
-If you haven't established your own TSI environment, complete the [Create an Azure Time Series Insights environment](tutorial-create-populate-tsi-environment.md) tutorial first, before starting this one. You also learn how to create a [free Azure subscription](https://azure.microsoft.com/en-us/free/), if you don't already have one.
+If you haven't established your own TSI environment yet, complete the [Create an Azure Time Series Insights environment](tutorial-create-populate-tsi-environment.md) tutorial first, before starting this one. You also learn how to create a [free Azure subscription](https://azure.microsoft.com/en-us/free/), if you don't already have one. You'll use the TSI environment as a data source for this tutorial. 
 
 You'll also need to install Visual Studio if you haven't already. For this tutorial, you can [download/install the free Community version, or a free trial](https://www.visualstudio.com/downloads/).
 
+## Application design overview
 
-## Application design
+As mentioned, the TSI sample application provides the basis for the design and code of this tutorial. The TSI sample application uses the TSI Client JavaScript library to query and visualize data from a TSI environment. 
 
-As mentioned, the TSI sample application provides the basis for the design and code of this tutorial. The TSI sample application uses the TSI Client JavaScript library to query and visualize data from a TSI environment. Both the library source and SPA page source are available in the [tslclient GitHub repository](https://github.com/Microsoft/tsiclient).
-
-The TSI Client JavaScript library provides an abstraction for two important categories:
-- **Wrapper methods for calling the TSI Query APIs**: REST APIs that allow you to query for TSI data by using JSON-based expressions. The methods are organized under the `TsiClient.Server` namespace of the library.
-- **Methods for creating and populating several types of charting controls**: Methods that are used for visualizing the TSI data in a web page. The methods are organized under the `TsiClient.UX` namespace of the library.
+The TSI Client JavaScript library provides an abstraction for two important API categories:
+- **Wrapper methods for calling the TSI Query APIs**: REST APIs that allow you to query for TSI data by using JSON-based expressions. The methods are organized under the `TsiClient.server` namespace of the library.
+- **Methods for creating and populating several types of charting controls**: Methods that are used for visualizing the TSI data in a web page. The methods are organized under the `TsiClient.ux` namespace of the library.
 
 For an overview of the structure of the TSI sample app its use of the TSI Client library, refer to the [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md) tutorial.
 
 ## Register the application with Azure AD 
 
-Before building the application, you register it with Azure AD. The registration serves as the identity configuration for the application, enabling it to use Azure AD's OAuth support for single sign-on. OAuth requires SPA applications to use the "implicit" authorization grant, so you also use the manifest editor to update the corresponding property. An application manifest is a JSON representation of the application's identity configuration. 
+Before building the application, you register it with Azure AD. Registration serves as the identity configuration for an application, enabling it to use Azure AD's OAuth support for single sign-on. OAuth requires SPA applications to use the "implicit" authorization grant, so you also use the manifest editor to update the corresponding property. An application manifest is a JSON representation of the application's identity configuration. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription account.  
 2. Select the **Azure Active Directory** resource in the left pane, then **App registrations**, then **+ New application registration**:  
    
-   [![Azure portal Azure AD application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png#lightbox)
+   ![Azure portal Azure AD application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)
 
 3. On the **Create** page, fill in the required parameters:
    
@@ -54,28 +53,27 @@ Before building the application, you register it with Azure AD. The registration
 
    When finished, click **Create** to create the new application registration.
 
-   [![Azure AD create application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png#lightbox)
+   ![Azure AD create application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)
 
-4. Resource applications provide REST APIs for use by other applications, and are also registered with Azure AD. APIs provide granular/secured access to client applications, by exposing "scopes." Because your application will call the "Azure Time Series Insights" API, you specify the API and scope, for which permission will be requested at runtime. Select **Settings**, then **Required permissions**, then **+ Add**:
+4. Resource applications provide REST APIs for use by other applications, and are also registered with Azure AD. APIs provide granular/secured access to client applications, by exposing "scopes." Because your application will call the "Azure Time Series Insights" API, you need to specify the API and scope, for which permission will be requested at runtime. Select **Settings**, then **Required permissions**, then **+ Add**:
 
-   [![Azure AD create application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png#lightbox)
+   ![Azure AD create application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)
 
-5. On the **Add API access** page, click **1 Select an API**. On the **Select an API** page, enter "azure time" in the search field. Then select the "Azure Time Series Insights" API in the results list, and click **Select**: 
+5. On the **Add API access** page you specify the API. Click **1 Select an API**, on the **Select an API** page, enter "azure time" in the search field. Then select the "Azure Time Series Insights" API in the results list, and click **Select**: 
 
-   [![Azure AD create application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png#lightbox)
+   ![Azure AD create application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)
 
-6. Now that you've selected the TSI API, you need to specify a scope, for which permission will be requested. On the **Add API access** page again, click **2 Select permissions**. On the **Enable Access** page, select the "Access Azure Time Series Insights service." Then click **Select**, then **Done** (once it's enabled) back on the **Add API access** page:
+6. Now you specify a scope on the API. On the **Add API access** page again, click **2 Select permissions**. On the **Enable Access** page, select the "Access Azure Time Series Insights service" scope. Then click **Select**, then click **Done** back on the **Add API access** page:
 
-   [![Azure AD create application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png#lightbox)
+   ![Azure AD create application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)
 
-7. As mentioned previously, you also need to update the application manifest. Click on the breadcrumb to go back to the **Registered app** page, select **Manifest**, change `oauth2AllowImplicitFlow` to `true`, then click **Save**:
+7. As mentioned previously, you also need to update the application manifest. Click on the application name in the breadcrumb to go back to the **Registered app** page. Select **Manifest**, change the `oauth2AllowImplicitFlow` property to `true`, then click **Save**:
 
-   [![Azure AD create application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png#lightbox)
+   ![Azure AD create application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)
 
+8. Finally, click on the breadcrumb to go back to the **Registered app** page again, and copy the **Home page** and **Application ID** properties for your application. You'll use these in a later step:
 
-8. Finally, click on the breadcrumb to go back to the **Registered app** page again, and copy the **Application ID** for your application. You'll use this in a later step:
-
-   [![Azure AD create application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-settings.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-settings.png#lightbox)
+   ![Azure AD create application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)
 
 ## Build and publish the web application
 
