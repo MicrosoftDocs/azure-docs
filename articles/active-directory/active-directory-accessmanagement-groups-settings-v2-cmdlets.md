@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 06/07/2018
 ms.author: curtand
 
 ms.reviewer: rodejo
