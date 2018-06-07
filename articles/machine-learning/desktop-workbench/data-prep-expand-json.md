@@ -29,7 +29,7 @@ New columns are added next to the source column. These columns contain propertie
 
 ## Examples
 
-The source columnn *Customer* is expanded into two columns *Customer.Name* and *Customer.Phone*.
+The source column *Customer* is expanded into two columns *Customer.Name* and *Customer.Phone*.
 
 | Customer                                                | Customer.Name   | Customer.Phone |
 |---------------------------------------------------------|-----------------|----------------|
