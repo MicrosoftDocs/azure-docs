@@ -22166,7 +22166,26 @@
             "source_path": "articles/active-directory/connect/active-directory-aadconnect-guest-sync.md",
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
             "redirect_document_id": false
-       }
-
+      },
+      {
+            "source_path": "articles/azure-stack/asdk-deploy.md",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-install",
+             "redirect_document_id": false
+      },
+      {
+           "source_path": "articles/azure-stack/asdk/asdk-marketplace-item.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-marketplace-publisher",
+            "redirect_document_id": false
+      },
+      {
+            "source_path": "articles/azure-stack/asdk/asdk-marketplace-item-offline.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-create-and-publish-marketplace-item",
+            "redirect_document_id": false
+     },
+     {
+             "source_path": "articles/azure-stack/asdk/asdk-offer-services.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-tenant-vm",
+            "redirect_document_id": false
+     }
     ]
 }
