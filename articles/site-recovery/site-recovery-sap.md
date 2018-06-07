@@ -97,7 +97,7 @@ Below are the steps for setting up the disaster recovery
 6.	Do a failover 
 
 Below is the recommendation for disaster recovery of each tier used in this example. 
-![Screenshot that shows disaster recovery recommendation of each tier](./media/site-recovery-sap/dr_of_each_tier.png)
+![Screenshot that shows disaster recovery recommendation of each tier](./media/site-recovery-sap/dr_of_each_tier.PNG)
 
 ##Replicate virtual machines
 
@@ -138,19 +138,6 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 
 ![SAP Recovery Plan](./media/site-recovery-sap/sap_recovery_plan.png)
 
-### DNS update
-If DNS is configured for dynamic DNS update, virtual machines usually update the DNS with the new IP address when they start. If you want to add an explicit step to update DNS with the new IP addresses of the virtual machines, add a [script to update the IP address in DNS](https://aka.ms/asr-dns-update) as a post-failover action on recovery plan groups.  
-
-## Example Azure-to-Azure deployment
-The following diagram shows the Site Recovery Azure-to-Azure disaster recovery scenario:
-
-![Diagram of an Azure-to-Azure replication scenario](./media/site-recovery-sap/sap-replication-scenario.png)
-
-* The primary datacenter is in Singapore (Azure South-East Asia). The disaster recovery datacenter is in Hong Kong (Azure East Asia). In this scenario, local high availability is provided by two VMs that run SQL Server AlwaysOn in synchronous mode in Singapore.
-* The file share SAP ASCS provides high availability for the SAP single points of failure. The file share ASCS doesn't require a cluster shared disk. Applications like SIOS aren't required.
-* Disaster recovery protection for the DBMS layer is achieved by using asynchronous replication.
-* This scenario shows “symmetrical disaster recovery.” This term describes a disaster recovery solution that is an exact replica of production. The disaster recovery SQL Server solution has local high availability. Symmetrical disaster recovery isn't mandatory for the database layer. Many customers take advantage of the flexibility of cloud deployments to quickly build a local high availability node after a disaster recovery event.
-* The diagram depicts the SAP NetWeaver ASCS and application server layer replicated by Site Recovery.
 
 ## Run a test failover
 
