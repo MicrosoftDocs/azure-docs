@@ -26,7 +26,7 @@ Azure Kubernetes Service has been CNCF certified as Kubernetes conformant. AKS i
 
 Azure Kubernetes Service offers portal, command line, and template driven deployment options. When deploying an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. Additional features such as advanced networking, Azure Active Directory integration, and monitoring can also be configured during the deployment process.
 
-For more information, see both the [AKS portal quickstart][aks-portal] and the [AKS CLI quickstart][aks-cli].
+For more information, see both the [AKS portal quickstart][aks-portal] or the [AKS CLI quickstart][aks-cli].
 
 ## Identity and security management
 
@@ -36,7 +36,7 @@ For more information, see, [Integrate Azure Active Directory with AKS][aks-aad].
 
 ## Integrated logging and monitoring
 
-Container health gives you performance visibility by collecting memory and processor metrics from containers, nodes, and controllers. Additionally, container logs are collected. This data is stored in your Log Analytics workspace, and is available through the Azure portal, Azure CLI, or a REST endpoint.
+Container health gives you performance visibility by collecting memory and processor metrics from containers, nodes, and controllers. Container logs are also collected. This data is stored in your Log Analytics workspace, and is available through the Azure portal, Azure CLI, or a REST endpoint.
 
 For more information, see [Monitor Azure Kubernetes Service container health][container-health].
 
@@ -54,7 +54,7 @@ For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster][ak
 
 ## HTTP application routing
 
-When enabled, the HTTP application routing solution configures an ingress controller in your AKS cluster. As applications are deployed, publically accessible DNS names are auto configured.
+The HTTP Application Routing solution makes it easy to access applications deployed to your AKS cluster. When enabled, the HTTP application routing solution configures an ingress controller in your AKS cluster. As applications are deployed, publically accessible DNS names are auto configured.
 
 For more information, see [HTTP application routing][aks-http-routing].
 
@@ -72,7 +72,7 @@ Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes developmen
 
 For more information, see [Azure Dev Spaces][azure-dev-spaces]
 
-Azure DevOps project provides a simple solution for bringing exsisting code and Git repository into Azure. The DevOps project automatically creates Azure resources such as AKS, creates, and configures a release pipeline in VSTS that includes a build definition for CI, sets up a release definition for CD, and then creates an Azure Application Insights resource for monitoring.
+Azure DevOps project provides a simple solution for bringing existing code and Git repository into Azure. The DevOps project automatically creates Azure resources such as AKS, a release pipeline in VSTS that includes a build definition for CI, sets up a release definition for CD, and then creates an Azure Application Insights resource for monitoring.
 
 For more information, see [Azure DevOps project][azure-devops]
 
@@ -87,7 +87,7 @@ For more information, see [Azure Container Registry (ACR)][acr-docs].
 Learn more about deploying and managing AKS with the AKS quickstart.
 
 > [!div class="nextstepaction"]
-> [AKS Tutorial][aks-quickstart]
+> [AKS Tutorial][aks-cli]
 
 <!-- LINKS - external -->
 [acs-engine]: https://github.com/Azure/acs-engine
@@ -98,13 +98,13 @@ Learn more about deploying and managing AKS with the AKS quickstart.
 <!-- LINKS - internal -->
 [azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
 [azure-devops]: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks?view=vsts
-[acr-docs]: ../container-registry
+[acr-docs]: ../container-registry/container-registry-intro.md
 [aks-aad]: ./aad-integration.md
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./scale-cluster.md
-[aks-upgrade] ./upgrade-cluster.md
+[aks-upgrade]: ./upgrade-cluster.md
 [container-health]: ../monitoring/monitoring-container-health.md
 
