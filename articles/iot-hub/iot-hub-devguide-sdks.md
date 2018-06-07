@@ -50,6 +50,10 @@ Azure IoT Hub device SDK for Python:
 * Install from [pip][lnk-pip-device]
 * [Source code][lnk-python-sdk]
 
+Azure IoT Hub device SDK for iOS: 
+* Install from [CocoaPod][lnk-cocoa-device]
+* [Samples][lnk-ios-sample]
+
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
 > 
@@ -85,6 +89,10 @@ Azure IoT Hub service SDK for Python:
 Azure IoT Hub service SDK for C: 
 * Download from [apt-get, MBED, Arduino IDE, or Nuget][lnk-c-package]
 * [Source code][lnk-c-sdk]
+
+Azure IoT Hub service SDK for iOS: 
+* Install from [CocoaPod][lnk-cocoa-service]
+* [Samples][lnk-ios-sample]
 
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
@@ -134,3 +142,6 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-benefits-blog]: https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/
+[lnk-cocoa-device]: https://cocoapods.org/pods/AzureIoTHubClient
+[lnk-ios-sample]: https://github.com/Azure-Samples/azure-iot-samples-ios
+[lnk-cocoa-service]: https://cocoapods.org/pods/AzureIoTHubServiceClient
