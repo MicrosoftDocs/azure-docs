@@ -1,6 +1,6 @@
 ---
-title: Prepare to use Speech service | Microsoft Docs
-description: Learn how to prepare your Azure and development environment to start using Speech service.
+title: Try the Speech service for free | Microsoft Docs
+description: Discover how you can try the Speech service at no cost.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
@@ -16,7 +16,6 @@ ms.author: v-jerkin
 # Try the Speech service for free
 
 Getting started with the Speech service is easy and affordable. A 30-day free trial lets you discover what the service can do and decide whether it's right for your application's needs.
-Getting started with the Speech service is easy and affordable. A 30 day free trial lets you discover the capabilities of the service and decide whether it's right for your application's needs.
 
 If you need more time, sign up for a Microsoft Azure account—it comes with $200 in service credit that you can apply toward a paid Speech service subscription for up to 30 days.
 
@@ -94,21 +93,19 @@ To add a Speech service resource to your Azure account, follow these steps.
 
     ![Create resource](media/index/try-speech-api-create-speech1.png)
 
-3. In the New window, search for Speech.
-
-1. In the search results, click "Speech (preview)."
-
-1. In the new window, search for Speech.
+1. In the New window, search for Speech.
 
     ![Click Speech](media/index/try-speech-api-create-speech2.png)
 
-5. Click the **Create** button at the bottom of the Speech service panel.
+1. In the search results, click "Speech (preview)."
+
+1. Click the **Create** button at the bottom of the Speech service panel.
 
     ![Click create](media/index/try-speech-api-create-speech3.png)
 
-6. In the Create panel, enter:
+1. In the Create panel, enter:
 
-    * A name for the new resource. The name helps you keep track of all your subscriptions to the same service.
+    * A name for the new resource. The name helps you distinguish among multiple subscriptions to the same service.
     * Choose the Azure subscription that the new resource is associated with to determine how the fees are billed.
     * Choose the region where the resource will be used. Currently, the Speech service is available in East Asia, North Europe, and West US regions.
     * Choose the pricing tier, either F0 (limited free subscription) or S0 (standard subscription). Click **View full pricing details** for complete information on pricing and usage quotas for each tier.
