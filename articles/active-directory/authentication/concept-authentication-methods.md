@@ -27,7 +27,7 @@ Microsoft highly recommends Administrators enable users to select more than the 
 | Password | MFA and SSPR |
 | Security questions | SSPR Only |
 | Email address | SSPR Only |
-| Microsoft Authenticator App | MFA Only |
+| Microsoft Authenticator app | MFA Only |
 | SMS | MFA and SSPR |
 | Voice call | MFA and SSPR |
 | App passwords | MFA only in certain cases |

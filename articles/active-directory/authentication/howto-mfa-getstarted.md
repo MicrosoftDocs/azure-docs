@@ -14,7 +14,8 @@ manager: mtillman
 ms.reviewer: richagi
 
 ---
-# Getting started with Azure Multi-Factor Authentication in the cloud
+# Get started with Azure Multi-Factor Authentication in the cloud
+
 This article walks through how to get started using Azure Multi-Factor Authentication in the cloud.
 
 > [!NOTE]
