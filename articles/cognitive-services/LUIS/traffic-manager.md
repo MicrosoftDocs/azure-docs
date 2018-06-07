@@ -229,7 +229,7 @@ Create the parent Traffic Manager profile and link two child Traffic Manager pro
     ```
 
 ### PowerShell variables
-In the previous sections, three PowerShell variables were created: `$eastprofile`, `$westprofile`, `$parentprofile`. These variables are used toward the end of the Traffic Manager configuration. If you chose not to create the variables, or forgot to, you can use the PowerShell cmdlet, **Get-AzureRmTrafficManagerProfile**, to get the profile again and assign it to a variable. 
+In the previous sections, three PowerShell variables were created: `$eastprofile`, `$westprofile`, `$parentprofile`. These variables are used toward the end of the Traffic Manager configuration. If you chose not to create the variables, or forgot to, or your PowerShell window times out, you can use the PowerShell cmdlet, **Get-AzureRmTrafficManagerProfile**, to get the profile again and assign it to a variable. 
 
 Replace the items in angle brackets, `<>`, with the correct values for each of the three profiles you need. 
 
