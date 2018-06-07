@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/21/2018
+ ms.date: 06/04/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -23,6 +23,8 @@ The following client operating systems are supported:
 * Windows 10
 * Mac OS X version 10.11 (El Capitan)
 * Mac OS X version 10.12 (Sierra)
+* Linux (StrongSwan)
+* iOS
 
 ### How many VPN client endpoints can I have in my Point-to-Site configuration?
 

@@ -1,12 +1,13 @@
 ---
 title: Error handling in Azure Automation graphical runbooks
-description: This article describes how to implement error handling logic in Azure Automation graphical runbooks.  
+description: This article describes how to implement error handling logic in Azure Automation graphical runbooks.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 

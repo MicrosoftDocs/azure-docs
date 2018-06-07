@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
+ms.date: 05/25/2018
+ms.author: msangapu
 ---
 # Azure App Service on Linux FAQ
 
@@ -42,6 +42,10 @@ This action is the same as a Docker restart.
 **Can I use Secure Shell (SSH) to connect to the app container virtual machine (VM)?**
 
 Yes, you can do that through the source control management (SCM) site.
+
+> [!NOTE]
+> You can also connect to the app container directly from your local development machine using SSH, SFTP, or Visual Studio Code (for live debugging Node.js apps). For more information, see [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug).
+>
 
 **How can I create a Linux App Service plan through an SDK or an Azure Resource Manager template?**
 
@@ -105,7 +109,7 @@ You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting
 
 **My custom container takes a long time to start, and the platform restarts the container before it finishes starting up.**
 
-You can configure the amount of time the platform will wait before it restarts your container. To do so, set the `WEBSITES_CONTAINER_START_TIME_LIMIT` app setting to the value you want. The default value is 230 seconds, and the maximum value is 600 seconds.
+You can configure the amount of time the platform will wait before it restarts your container. To do so, set the `WEBSITES_CONTAINER_START_TIME_LIMIT` app setting to the value you want. The default value is 230 seconds, and the maximum value is 1800 seconds.
 
 **What is the format for the private registry server URL?**
 

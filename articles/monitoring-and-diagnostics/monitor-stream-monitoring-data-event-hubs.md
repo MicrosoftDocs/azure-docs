@@ -76,7 +76,7 @@ You need to install an agent to send guest OS monitoring data into an event hub.
 
 ### Stream Linux data to an event hub
 
-The [Linux Azure Diagnostic agent](../virtual-machines/linux/diagnostic-extension.md) can be used to send monitoring data from a Linux machine to an event hub. Do this by adding the event hub as a sink in your LAD configuration file protected settings JSON. [See this article to learn more about adding the event hub sink to your Linux Azure Diagnostic agent](../virtual-machines/linux/diagnostic-extension.md#protected-settings).
+The [Linux Azure Diagnostic agent](../virtual-machines/extensions/diagnostics-linux.md) can be used to send monitoring data from a Linux machine to an event hub. Do this by adding the event hub as a sink in your LAD configuration file protected settings JSON. [See this article to learn more about adding the event hub sink to your Linux Azure Diagnostic agent](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > You cannot set up streaming of guest OS monitoring data to an event hub in the portal. Instead, you must manually edit the configuration file.
@@ -94,7 +94,7 @@ Application monitoring data requires that your code is instrumented with an SDK,
 
 1. [Set up continuous export](../application-insights/app-insights-export-telemetry.md) of the Application Insights data to a storage account.
 
-2. Set up a timer-triggered Logic App that [pulls data from blob storage](../connectors/connectors-create-api-azureblobstorage.md#use-an-action) and [pushes it as a message to the event hub](../connectors/connectors-create-api-azure-event-hubs.md#send-events-to-your-event-hub-from-your-logic-app).
+2. Set up a timer-triggered Logic App that [pulls data from blob storage](../connectors/connectors-create-api-azureblobstorage.md#add-action) and [pushes it as a message to the event hub](../connectors/connectors-create-api-azure-event-hubs.md#add-action).
 
 ## What can I do with the monitoring data being sent to my event hub?
 

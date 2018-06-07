@@ -3,7 +3,7 @@ title: User, session, and event analysis in Azure Application Insights | Microso
 description: Demographic analysis of users of your web app.
 services: application-insights
 documentationcenter: ''
-author: botatoes
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

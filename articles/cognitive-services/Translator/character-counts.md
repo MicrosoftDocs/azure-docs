@@ -15,8 +15,8 @@ ms.author: v-jansko
 
 Microsoft Translator counts every character of the input. Characters in the Unicode sense, not bytes. Unicode surrogates count as two characters. White space and markup count as characters. The length of the response does not matter.
 
-Calls to the Detect() method are not counted in the character consumption. However, we do expect that the calls to the Detect method are in a reasonable proportion to the use of other functions that are counted. So please, if you use Detect(), also use the other functions in your code. Microsoft reserves the right to start counting Detect(). 
+Calls to the Detect and BreakSentence methods are not counted in the character consumption. However, we do expect that the calls to the Detect and BreakSentence methods are in a reasonable proportion to the use of other functions that are counted. Microsoft reserves the right to start counting Detect and BreakSentence. 
 
-Translate() and TranslateArray() offer automatic detection if you omit the From language parameter. TranslateArray() returns to you the language Translator detected and used in the translation.
+Translate offers automatic detection if you omit the From language parameter. 
 
 More information about character counts is in the [Microsoft Translator FAQ](https://www.microsoft.com/en-us/translator/faq.aspx).

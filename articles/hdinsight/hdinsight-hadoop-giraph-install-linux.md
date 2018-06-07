@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 04/23/2018
 ms.author: larryfr
 
 ---
@@ -155,7 +155,7 @@ Once the cluster has been created, use the following steps to run the SimpleShor
     hdfs dfs -text /example/output/shortestpaths/*
     ```
 
-    The output should appear similar to the following text:
+    The output appears similar to the following text:
 
         0    1.0
         4    5.0

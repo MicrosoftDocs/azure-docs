@@ -4,7 +4,7 @@ description: Case studies and customer stories about Azure Search, a hosted clou
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
-
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual

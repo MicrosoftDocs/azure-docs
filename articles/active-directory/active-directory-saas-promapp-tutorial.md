@@ -26,7 +26,7 @@ Integrating Promapp with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Promapp (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -111,15 +111,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     a. In the **Identifier** textbox, type a URL using the following pattern:
 	| |
 	|--|
-	| `https://demo.promapp.com/TENANTNAME`|
-	| `https://go.promapp.com/TENANTNAME`|
-	| `https://demoau.promapp.com/TENANTNAME`|
-	| `https://au.promapp.com/TENANTNAME`|
-	| `https://demous.promapp.com/TENANTNAME`|
-	| `https://us.promapp.com/TENANTNAME`|
-	| `https://dev.promapp.com/TENANTNAME`|
-	| `https://test.promapp.com/TENANTNAME`|
-	| `https://staging.promapp.com/TENANTNAME`|
+	| `https://go.promapp.com/TENANTNAME/`|
+	| `https://au.promapp.com/TENANTNAME/`|
+	| `https://us.promapp.com/TENANTNAME/`|
+	| `https://eu.promapp.com/TENANTNAME/`|
+	| `https://ca.promapp.com/TENANTNAME/`|
+	
+	> [!NOTE] 
+	> Presently Azure AD integration with Promapp has only been configured for service initiated authentication e.g. going to a Promapp URL initiates the authentication process. However the Reply URL is a required field.
 	
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
 
@@ -238,16 +237,12 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-The objective of this section is to test your Azure AD SSO configuration using the Access Panel.
-
-To test your application in **IDP** initiated mode, When you click the Promapp tile in the Access Panel, you should get automatically signed-on to your Promapp application.
-
-To test your application in **SP** initiated mode, you will need to initiate the authentication from your Promapp site. This can be done by leaving the password field blank when logging in whilst **Optional** mode is enabled.
+To test your application in **SP** initiated mode, you will need to initiate the authentication from your Promapp site. This can be done by clicking the 'Login with Single Sign-on' button on your Login page whilst **Optional** mode is enabled.
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

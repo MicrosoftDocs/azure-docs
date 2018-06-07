@@ -17,7 +17,7 @@ ms.workload: iaas-sql-server
 ms.date: 03/20/2018
 ms.author: v-shysun
 ---
-# Frequently asked questions for SQL Server on Windows Azure Virtual Machines
+# Frequently asked questions for SQL Server running on Windows Azure Virtual Machines
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)

@@ -4,7 +4,7 @@ description: Learn how to upload data to an index in Azure Search using the .NET
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
-
+services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart

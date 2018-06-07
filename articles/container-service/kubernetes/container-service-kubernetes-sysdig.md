@@ -3,7 +3,7 @@ title: Monitor Azure Kubernetes cluster - Sysdig
 description: Monitoring Kubernetes cluster in Azure Container Service using Sysdig
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

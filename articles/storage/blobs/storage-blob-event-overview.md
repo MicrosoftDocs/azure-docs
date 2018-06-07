@@ -114,7 +114,7 @@ To match events from blobs created in specific container sharing a blob name pre
 
 To match events from blobs created in specific container sharing a blob suffix, use a `subjectEndsWith` filter like “.log” or “.jpg”
 
-For more information, see [Event Grid Concepts](../../event-grid/concepts.md#filters).
+For more information, see [Event Grid Concepts](../../event-grid/concepts.md#event-subscriptions).
 
 ## Practices for consuming events
 Applications that handle Blob storage events should follow a few recommended practices:

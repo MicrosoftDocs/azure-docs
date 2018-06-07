@@ -13,6 +13,9 @@ ms.author: v-jansko
 
 # How to use the TransformText method
 
+> [!NOTE]
+> This method is deprecated. It is not available in V3.0 of the Translator Text API.
+
 The TransformText method is a text normalization function for social media, which returns a normalized form of the input. The method can be used as a preprocessing step in machine translation or other applications which expect clean input text that is not typically found in social media or user-generated content. The function currently works only with English input. 
 
 The method is a RESTful service using GET over HTTP. It supports simple XML and JSON serialization.

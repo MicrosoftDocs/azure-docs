@@ -24,7 +24,9 @@ In spite of this, Durable Functions ensures reliable execution of orchestrations
 
 ## Orchestration history
 
-Suppose you have the following orchestrator function.
+Suppose you have the following orchestrator function:
+
+#### C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -42,7 +44,22 @@ public static async Task<List<string>> Run(
 }
 ```
 
-At each `await` statement, the Durable Task Framework checkpoints the execution state of the function into table storage. This state is what is referred to as the *orchestration history*.
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const output = [];
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "London"));
+
+    return output;
+});
+```
+
+At each `await` (C#) or `yield` (JavaScript) statement, the Durable Task Framework checkpoints the execution state of the function into table storage. This state is what is referred to as the *orchestration history*.
 
 ## History table
 

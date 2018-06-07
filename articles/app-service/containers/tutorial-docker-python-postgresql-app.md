@@ -184,6 +184,10 @@ The Azure CLI confirms the firewall rule creation with output similar to the fol
 }
 ```
 
+> [!TIP] 
+> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+>
+
 ## Connect your Python Flask application to the database
 
 In this step, you connect your Python Flask sample application to the Azure Database for PostgreSQL server you created.

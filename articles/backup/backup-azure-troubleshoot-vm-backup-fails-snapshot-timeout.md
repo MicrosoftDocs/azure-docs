@@ -1,21 +1,14 @@
 ---
-title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable | Microsoft Docs'
+title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable'
 description: 'Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.'
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
-keywords: Azure backup; VM agent; Network connectivity; 
-
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
+keywords: Azure backup; VM agent; Network connectivity;
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
+ms.author: genli
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension
@@ -60,7 +53,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 
 ## Backup fails because the VM agent is unresponsive
 
-Error message: "Unable to perform the operation as the VM Agent is not responsive" <br>
+Error message: "Could not communicate with the VM agent for snapshot status" <br>
 Error code: "GuestAgentSnapshotTaskStatusError"
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
@@ -88,6 +81,16 @@ Per the deployment requirement, the VM doesn't have internet access. Or, it migh
 
 To function correctly, the Backup extension requires connectivity to Azure public IP addresses. The extension sends commands to an Azure storage endpoint (HTTP URL) to manage the snapshots of the VM. If the extension doesn't have access to the public internet, backup eventually fails.
 
+It it possible to deploy a proxy server to route the VM traffic.
+##### Create a path for HTTP traffic
+
+1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
+2. To allow access to the internet from the HTTP proxy server, add rules to the network security group, if you have one.
+
+To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+
+Either the backed up VM or the proxy server through which the traffic is routed requires access to Azure Public IP addresses
+
 ####  Solution
 To resolve the issue, try one of the following methods:
 
@@ -101,13 +104,6 @@ To understand the step by step procedure to configure service tags, watch [this 
 
 > [!WARNING]
 > Storage service tags are in preview. They are available only in specific regions. For a list of regions, see [Service tags for storage](../virtual-network/security-overview.md#service-tags).
-
-##### Create a path for HTTP traffic
-
-1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
-2. To allow access to the internet from the HTTP proxy server, add rules to the network security group, if you have one.
-
-To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
 
@@ -191,7 +187,7 @@ This issue is specific to managed VMs in which the user locks the resource group
 
 #### Solution
 
-To resolve the issue, complete the following steps to remove the restore point collection: <br>
+To resolve the issue, remove the lock from the resource group and complete the following steps to remove the restore point collection: 
  
 1. Remove the lock in the resource group in which the VM is located. 
 2. Install ARMClient by using Chocolatey: <br>
@@ -206,6 +202,4 @@ To resolve the issue, complete the following steps to remove the restore point c
 	`.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
 6. The next scheduled backup automatically creates a restore point collection and new restore points.
 
- 
-The problem will reoccur if you lock the resource group again. 
-
+Once done, you can again put back the lock on the VM resource group. 

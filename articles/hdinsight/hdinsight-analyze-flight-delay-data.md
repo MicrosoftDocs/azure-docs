@@ -1,4 +1,4 @@
-﻿---
+---
 title: Analyze flight delay data with Hadoop in HDInsight - Azure | Microsoft Docs
 description: Learn how to use one Windows PowerShell script to create an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster.
 services: hdinsight
@@ -259,6 +259,7 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
     <tr><td>Filter Period</td><td>January</td></tr>
     <tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</td></tr>
     </table>
+
 3. Click **Download**.
 4. Unzip the file to the **C:\Tutorials\FlightDelay\2013Data** folder. Each file is a CSV file and is approximately 60GB in size.
 5. Rename the file to the name of the month that it contains data for. For example, the file containing the January data would be named *January.csv*.
@@ -273,6 +274,7 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
     <tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the data to.</td></tr>
     <tr><td>$blobContainerName</td><td>The Blob container where you want to upload the data to.</td></tr>
     </table>
+    
 2. Open Azure PowerShell ISE.
 3. Paste the following script into the script pane:
 
