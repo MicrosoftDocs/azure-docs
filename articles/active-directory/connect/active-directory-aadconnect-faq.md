@@ -171,7 +171,7 @@ Auto-upgrade is the first step in the release process of a newer version, so whe
 **Q: Does auto-upgrade upgrade AAD Connect Health?**</br>  	Yes, auto upgrade also upgrades AAD Connect Health
 
 **Q: Do you also auto-upgrade AAD Connect servers in Staging Mode?**</br> 	
-No, you cannot auto-upgrade an Azure AD Connect server that is in staging mode.
+Yes, you can auto-upgrade an Azure AD Connect server that is in staging mode.
 
 **Q: If Auto-Upgrade fails and my AAD Connect server does not start, what should I do?**</br> 	
 In rare cases, the Azure AD Connect service does not start after performing the upgrade. In these cases, reboot the server, which usually fixes the issue. If the Azure AD Connect service still does not start,  open a support ticket. Here is a [link](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) that explains how to do that. 
