@@ -104,11 +104,11 @@ Click **Done**.
 Under the **Define alert details** section, provide a **Name** and **Description** to the alert rule, and set its **Severity**.
 Also, make sure that the **Enable rule upon creation** button is set to **Yes**.
 
-![Screenshot define alert details](./media/app-insights-proactive-cloud-services/004.png)
+![Screenshot alert details](./media/app-insights-proactive-cloud-services/004.png)
 
 Under the **Define action group** section, you can select an existing **Action group** or create a new one.
 You may choose to have the action group contain multiple actions of various types.
 
-![Screenshot define action group](./media/app-insights-proactive-cloud-services/005.png)
+![Screenshot action group](./media/app-insights-proactive-cloud-services/005.png)
 
 Once you've defined the Action group, confirm your changes and click **Create alert rule**.
