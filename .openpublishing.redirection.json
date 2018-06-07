@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/machine-learning/service/quickstart-installation.md",
+            "redirect_url": "/azure/machine-learning/service/quickstart-set-up-in-python",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
             "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
             "redirect_document_id": true

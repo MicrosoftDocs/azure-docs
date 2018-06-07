@@ -11,6 +11,8 @@
     href: what-happened-to-workbench.md
 - name: Quickstarts
   items:
+  - name: Create project - Python
+    href: quickstart-set-up-in-python.md 
   - name: Create project - CLI
     href: quickstart-set-up-in-cli.md 
 - name: Tutorials
@@ -73,7 +75,7 @@
   - name: Deprecated docs (pre-GA)
     items:  
     - name: Workbench quickstart
-      href: quickstart-installation.md
+      href: ../desktop-workbench/quickstart-installation.md
     - name: 'Tutorial 1: Prepare data'
       href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
     - name: 'Tutorial 2: Build models' 
