@@ -26,10 +26,7 @@ The [Speech SDK](speech-sdk.md) is the simplest way to use speech translation in
 
 ### SDK samples
 
-You can download code samples demonstrating the use of the SDK for *Speech Translation** using the following links:
-
-- [Download samples for Windows](https://aka.ms/csspeech/winsample)
-- [Download samples for Linux](https://aka.ms/csspeech/linuxsample)
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 ## Next steps
 
