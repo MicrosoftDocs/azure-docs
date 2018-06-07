@@ -21,17 +21,18 @@
 ---
 # Security best practices for IaaS workloads in Azure
 
-As you started thinking about moving workloads to Azure infrastructure as a service (IaaS), you probably realized that some considerations are familiar. You might already have experience securing virtual environments. When you move to Azure IaaS, you can apply your expertise in securing virtual environments and use a new set of options to help secure your assets.
-
-Let's start by saying that we should not expect to bring on-premises resources as one-to-one to Azure. The new challenges and the new options bring an opportunity to reevaluate existing deigns, tools, and processes.
+In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (VMs)](https://docs.microsoft.com/azure/virtual-machines/) are the main workload for organizations that use cloud computing. This fact is especially evident in [hybrid scenarios](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) where organizations want to slowly migrate workloads to the cloud. In such scenarios, follow the [general security considerations for IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), and apply security best practices to all your VMs.
 
 Your responsibility for security is based on the type of cloud service. The following chart summarizes the balance of responsibility for both Microsoft and you:
 
 
 ![Areas of responsibility](./media/azure-security-iaas/sec-cloudstack-new.png)
 
+Security requirements vary depending on a number of factors including different types of workloads. Not one of these best practices can by itself secure your systems. Like anything else in security, you have to choose the appropriate options and see how the solutions can complement each other by filling gaps.
 
-We'll discuss some of the options available in Azure that can help you meet your organization’s security requirements. Keep in mind that security requirements can vary for different types of workloads. Not one of these best practices can by itself secure your systems. Like anything else in security, you have to choose the appropriate options and see how the solutions can complement each other by filling gaps.
+This article discusses various VM security best practices, each derived from our customers' and our own direct experiences with VMs.
+
+The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Because opinions and technologies can change over time, we plan to update this article regularly to reflect those changes.
 
 ## Use Privileged Access Workstations
 
@@ -99,25 +100,28 @@ Azure DevTest Labs features include:
 
 No additional cost is associated with the usage of DevTest Labs. The creation of labs, policies, templates, and artifacts is free. You pay for only the Azure resources used in your labs, such as virtual machines, storage accounts, and virtual networks.
 
-
-
 ## Control and limit endpoint access
 
 Hosting labs or production systems in Azure means that your systems need to be accessible from the Internet. By default, a new Windows virtual machine has the RDP port accessible from the Internet, and a Linux virtual machine has the SSH port open. Taking steps to limit exposed endpoints is necessary to minimize the risk of unauthorized access.
 
 Technologies in Azure can help you limit the access to those administrative endpoints. In Azure, you can use [network security groups](../virtual-network/security-overview.md) (NSGs). When you use Azure Resource Manager for deployment, NSGs limit the access from all networks to just the management endpoints (RDP or SSH). When you think NSGs, think router ACLs. You can use them to tightly control the network communication between various segments of your Azure networks. This is similar to creating networks in perimeter networks or other isolated networks. They do not inspect the traffic, but they do help with network segmentation.
 
+### [Site-to-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 
 
-In Azure, you can configure a [site-to-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) from your on-premises network. A site-to-site VPN extends your on-premises network to the cloud. This gives you another opportunity to use NSGs, because you can also modify the NSGs to not allow access from anywhere other than the local network. You can then require that administration is done by first connecting to the Azure network via VPN.
+A site-to-site VPN extends your on-premises network to the cloud. This gives you another opportunity to use NSGs, because you can also modify the NSGs to not allow access from anywhere other than the local network. You can then require that administration is done by first connecting to the Azure network via VPN.
 
 The site-to-site VPN option might be most attractive in cases where you are hosting production systems that are closely integrated with your on-premises resources in Azure.
 
-Alternatively, you can use the [point-to-site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md) option in situations where you want to manage systems that don't need access to on-premises resources. Those systems can be isolated in their own Azure virtual network. Administrators can VPN into the Azure hosted environment from their administrative workstation.
+### [Point-to-site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md) 
+
+In situations where you want to manage systems that don't need access to on-premises resources. Those systems can be isolated in their own Azure virtual network. Administrators can VPN into the Azure hosted environment from their administrative workstation.
 
 >[!NOTE]
 >You can use either VPN option to reconfigure the ACLs on the NSGs to not allow access to management endpoints from the Internet.
 
-Another option worth considering is a [Remote Desktop Gateway](../active-directory/authentication/howto-mfaserver-nps-rdg.md) deployment. You can use this deployment to securely connect to Remote Desktop servers over HTTPS, while applying more detailed controls to those connections.
+### [Remote Desktop Gateway](../active-directory/authentication/howto-mfaserver-nps-rdg.md). 
+
+You can use Remote Desktop Gateway to securely connect to Remote Desktop servers over HTTPS, while applying more detailed controls to those connections.
 
 Features that you would have access to include:
 
@@ -125,6 +129,18 @@ Features that you would have access to include:
 - Smart-card authentication or Azure Multi-Factor Authentication.
 - Control over which systems someone can connect to via the gateway.
 - Control over device and disk redirection.
+
+### VM availability and network access
+
+If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, create at least two VMs in the [availability set](../virtual-machines/windows/tutorial-availability-sets.md).
+
+[Azure Load Balancer](../load-balancer/load-balancer-overview.md) also requires that load-balanced VMs belong to the same availability set. If these VMs must be accessed from the Internet, you must configure an [Internet-facing load balancer](../load-balancer/load-balancer-internet-overview.md).
+
+When VMs are exposed to the Internet, it is important that you [control network traffic flow with network security groups (NSGs)](../virtual-network/security-overview.md). Because NSGs can be applied to subnets, you can minimize the number of NSGs by grouping your resources by subnet and then applying NSGs to the subnets. The intent is to create a layer of network isolation, which you can do by properly configuring the [network security](../best-practices-network-security.md) capabilities in Azure.
+
+You can also use the just-in-time (JIT) VM-access feature from Azure Security Center to control who has remote access to a specific VM, and for how long.
+
+Organizations that don't enforce network-access restrictions to Internet-facing VMs are exposed to security risks, such as a Remote Desktop Protocol (RDP) Brute Force attack.
 
 ## Use a key management solution
 
@@ -161,6 +177,7 @@ Your servers need to be monitored for patching, configuration, events, and activ
 In an IaaS deployment, you are still responsible for the management of the systems that you deploy, just like any other server or workstation in your environment. Patching, hardening, rights assignments, and any other activity related to the maintenance of your system are still your responsibility. For systems that are tightly integrated with your on-premises resources, you might want to use the same tools and procedures that you're using on-premises for things like antivirus, antimalware, patching, and backup.
 
 ### Harden systems
+
 All virtual machines in Azure IaaS should be hardened so that they expose only service endpoints that are required for the applications that are installed. For Windows virtual machines, follow the recommendations that Microsoft publishes as baselines for the [Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx) solution.
 
 Security Compliance Manager is a free tool. You can use it to quickly configure and manage your desktops, traditional datacenter, and private and public cloud by using Group Policy and System Center Configuration Manager.
@@ -181,7 +198,8 @@ For environments that are hosted separately from your production environment, yo
 
 ![Azure Antimalware](./media/azure-security-iaas/azantimalware.png)
 
-### Install the latest security updates
+### Install the latest security updates 
+
 Some of the first workloads that customers move to Azure are labs and external-facing systems. If your Azure-hosted virtual machines host applications or services that need to be accessible to the Internet, be vigilant about patching. Patch beyond the operating system. Unpatched vulnerabilities on third-party applications can also lead to problems that can be avoided if good patch management is in place.
 
 ### Deploy and test a backup solution
