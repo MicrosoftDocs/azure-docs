@@ -21,11 +21,7 @@ ms.custom: mvc
 ---
 # What is Azure Stack?
 
-Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services in your datacenter. Azure Stack is designed to support your evolving business requirements. For example, you can use Azure Stack for the following key scenarios:
-
-- edge and disconnected environments
-- security
-- compliance
+Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services in your datacenter. This platform is designed to support your evolving business requirements. Azure Stack can enable new scenarios for your modern applications, such as edge and disconnected environments, or meet specific security and compliance requirements.
 
 Azure Stack is offered in two deployment options to meet your needs.
 

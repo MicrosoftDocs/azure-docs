@@ -49,7 +49,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 ```cs
 [FunctionName("SendEmail")]
 public static void Run(
-    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] OutgoingEmail email,
     [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
 {
     message = new SendGridMessage();
@@ -172,7 +172,7 @@ For information about attribute properties that you can configure, see [Configur
 ```csharp
 [FunctionName("SendEmail")]
 public static void Run(
-    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] OutgoingEmail email,
     [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
 {
     ...
