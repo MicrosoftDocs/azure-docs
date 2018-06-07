@@ -21,7 +21,7 @@ ms.author: harelbr; mbullwin
 
 In this article, we will describe how to set up alert rules that monitor for issues like startup failures, crashes, and role recycle loops in Azure Cloud Services (web and worker roles).
 
-The method described in the blog post is based on the [Azure Diagnostics integration with Application Insights](https://azure.microsoft.com/en-us/blog/azure-diagnostics-integration-with-application-insights/), and the recently released [Log Alerts for Application Insights](https://azure.microsoft.com/en-in/blog/log-alerts-for-application-insights-preview/) capability.
+The method described in this article is based on the [Azure Diagnostics integration with Application Insights](https://azure.microsoft.com/en-us/blog/azure-diagnostics-integration-with-application-insights/), and the recently released [Log Alerts for Application Insights](https://azure.microsoft.com/en-in/blog/log-alerts-for-application-insights-preview/) capability.
 
 ## Define a base query
 
