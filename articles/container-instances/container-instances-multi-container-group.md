@@ -21,7 +21,7 @@ There are two methods for deploying multi-container groups using the Azure CLI:
 * Resource Manager template deployment (this article)
 * [YAML file deployment](container-instances-multi-container-yaml.md)
 
-Deployment with a YAML file is typically the preferred deployment method.
+Deployment with a Resource Manager template is recommended when you need to deploy additional Azure service resources (for example, an Azure Files share) at the time of container instance deployment. Due to the YAML format's more concise nature, deployment with a YAML file is recommended when your deployment includes *only* container instances.
 
 > [!NOTE]
 > Multi-container groups are currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
@@ -34,7 +34,7 @@ Start by creating a file named `azuredeploy.json`, then copy the following JSON 
 
 This Resoure Manager template defines a container group with two containers, a public IP address, and two exposed ports. The first container in the group runs an internet-facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
 
-```json
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -122,7 +122,7 @@ This Resoure Manager template defines a container group with two containers, a p
 
 To use a private container image registry, add an object to the JSON document with the following format. For an example implementation of this configuration, see the [ACI Resource Manager template reference][template-reference] documentation.
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "[parameters('imageRegistryLoginServer')]",

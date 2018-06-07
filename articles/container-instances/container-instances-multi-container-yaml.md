@@ -20,7 +20,7 @@ There are two methods for deploying multi-container groups using the Azure CLI:
 * YAML file deployment (this article)
 * [Resource Manager template deployment](container-instances-multi-container-group.md)
 
-Deployment with a YAML file is typically the preferred deployment method.
+Due to the YAML format's more concise nature, deployment with a YAML file is recommended when your deployment includes *only* container instances. If you need to deploy additional Azure service resources (for example, an Azure Files share) at the time of container instance deployment, Resource Manager template deployment is recommended.
 
 > [!NOTE]
 > Multi-container groups are currently restricted to Linux containers. While we're working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
@@ -33,7 +33,7 @@ Start by copying the following YAML into a new file named **deploy-aci.yaml**.
 
 This YAML file defines a container group with two containers, a public IP address, and two exposed ports. The first container in the group runs an internet-facing web application. The second container, the sidecar, periodically makes HTTP requests to the web application running in the first container via the container group's local network.
 
-```yaml
+```YAML
 apiVersion: 2018-06-01
 location: eastus
 name: myContainerGroup
@@ -149,7 +149,7 @@ As you can see, the sidecar is periodically making an HTTP request to the main w
 
 To use a private container image registry, include the following YAML with values modified for your environment:
 
-```yaml
+```YAML
   imageRegistryCredentials:
   - server: imageRegistryLoginServer
     username: imageRegistryUsername
@@ -158,7 +158,7 @@ To use a private container image registry, include the following YAML with value
 
 For example, the following YAML deploys a container group with a single container whose image is pulled from a private Azure Container Registry named "myregistry":
 
-```yaml
+```YAML
 apiVersion: 2018-06-01
 location: eastus
 name: myContainerGroup2
