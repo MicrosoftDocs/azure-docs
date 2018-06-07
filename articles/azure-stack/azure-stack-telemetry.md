@@ -69,27 +69,31 @@ Before you change telemetry settings, you should understand the telemetry levels
 
 The telemetry settings are grouped into four levels (0-3) that are cumulative and categorized as the follows:
 
-**0 (Security)**. Security data only. Information that’s required to keep the operating system secure. This includes data about the Connected User Experience and Telemetry component settings, and Windows Defender. No telemetry specific to Azure Stack is emitted at this level.
+**0 (Security)**</br>
+Security data only. Information that’s required to keep the operating system secure. This includes data about the Connected User Experience and Telemetry component settings, and Windows Defender. No telemetry specific to Azure Stack is emitted at this level.
 
-**1 (Basic)**. Security data, and Basic Health and Quality data. Basic device information, including: quality-related data, app compatibility, app usage data, and data from the **Security** level. Setting your telemetry level to Basic enables Azure Stack telemetry. The data gathered at this level includes:
+**1 (Basic)**</br>
+Security data, and Basic Health and Quality data. Basic device information, including: quality-related data, app compatibility, app usage data, and data from the **Security** level. Setting your telemetry level to Basic enables Azure Stack telemetry. The data gathered at this level includes:
 
-- **Basic device information** that provides an understanding about the types and configurations of native and virtual Windows Server 2016 instances in the ecosystem. This includes:
+- *Basic device information* that provides an understanding about the types and configurations of native and virtual Windows Server 2016 instances in the ecosystem. This includes:
 
   - Machine attributes, such as the OEM, and model.
   - Networking attributes, such as the number of network adapters and their speed.
   - Processor and memory attributes, such as the number of cores, and amount of installed memory.
   - Storage attributes, such as the number of drives, type of drive, and drive size.
 
-- **Telemetry Functionality**, including the percentage of uploaded events, dropped events, and the last data upload time.
-- **Quality-related information** that helps Microsoft develop a basic understanding of how Azure Stack is performing. For example, the count of critical alerts on a particular hardware configuration.
-- **Compatibility data** that helps provide an understanding about which Resource Providers are installed on a system and a virtual machine. This identifies potential compatibility problems.
+- *Telemetry functionality*, including the percentage of uploaded events, dropped events, and the last data upload time.
+- *Quality-related information* that helps Microsoft develop a basic understanding of how Azure Stack is performing. For example, the count of critical alerts on a particular hardware configuration.
+- *Compatibility data* that helps provide an understanding about which Resource Providers are installed on a system and a virtual machine. This identifies potential compatibility problems.
 
-**2 (Enhanced)**. Additional insights, including: how the operating system and Azure Stack services are used, how these services perform, advanced reliability data, and data from the **Security** and **Basic** levels.
+**2 (Enhanced)**</br>
+Additional insights, including: how the operating system and Azure Stack services are used, how these services perform, advanced reliability data, and data from the **Security** and **Basic** levels.
 
 > [!NOTE]
 > This is the default telemetry setting.
 
-**3 (Full)**. All data necessary to identify and help to fix problems, plus data from the **Security**, **Basic**, and **Enhanced** levels.
+**3 (Full)**</br>
+All data necessary to identify and help to fix problems, plus data from the **Security**, **Basic**, and **Enhanced** levels.
 
 > [!IMPORTANT]
 > These telemetry levels only apply to Microsoft Azure Stack components. Non-Microsoft software components and services that are running in the Hardware Lifecycle Host from Azure Stack hardware partners may communicate with their cloud services outside of these telemetry levels. You should work with your Azure Stack hardware solution provider to understand their telemetry policy, and how you can opt in or opt out.
