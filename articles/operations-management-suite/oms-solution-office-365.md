@@ -89,8 +89,6 @@ The first step is to create an application in Azure Active Directory that the ma
     - Read service health information for your organization
     - Read activity data for your organization
     - Read activity reports for your organization
-   
-    This is shown in the following image.
 
     ![Select API](media/oms-solution-office-365/select-permissions.png)
 
