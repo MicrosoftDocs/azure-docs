@@ -79,6 +79,8 @@
     href: https://docs.microsoft.com/java/api/overview/azure/mediaservices
   - name: Python
     href: https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python
+  - name: Node .js
+    href: https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest
   - name: Event schemas
     href: media-services-event-schemas.md
 - name: Resources

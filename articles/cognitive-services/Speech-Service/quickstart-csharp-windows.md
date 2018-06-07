@@ -18,7 +18,7 @@ In this article, you learn how to create a C# console application in Windows usi
 
 ## Prerequisites
 
-* Make sure you have the required setup for using the Speech service. See [Prepare to use Speech service](get-started.md).
+* A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
 * Visual Studio 2017, Community Edition or higher.
 * The **.NET desktop development** workload in Visual Studio. You can enable it in **Tools** \> **Get Tools and Features**. 
 
