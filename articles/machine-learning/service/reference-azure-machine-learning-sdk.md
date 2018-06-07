@@ -4,9 +4,8 @@ description: Learn about the Python SDK for Azure Machine Learning.
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: jmartens
-author: j-martens
+author: rastala
+ms.author: roastala
 ms.date: 07/27/2018
 ---
 # What is the Azure Machine Learning Python SDK?
