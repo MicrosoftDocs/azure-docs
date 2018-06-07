@@ -139,7 +139,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 11. On the **Single sign-on setting** section, perform the following steps:
 
-
 	![Settling music step5](./media/active-directory-saas-settlingmusic-tutorial/tutorial_settlingmusic_step4.png)
 
 	a. Click **To enable**.
