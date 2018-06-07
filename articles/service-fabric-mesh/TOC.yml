@@ -5,7 +5,7 @@
   items:
   - name: About Service Fabric Mesh
     href: service-fabric-mesh-overview.md
-  - name: Setup your development environment to build Service Fabric Mesh apps
+  - name: Set up your development environment to build Service Fabric Mesh apps
     href: service-fabric-mesh-setup-developer-environment-sdk.md
 
 - name: Quickstarts
