@@ -11,7 +11,7 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: fmegen
----                                                                   
+---
 # About the audio input stream API
 
 The **Audio Input Stream** API provides a way to stream audio streams into the recognizers instead of using either the microphone or the input file APIs.
@@ -23,41 +23,41 @@ The API uses two components, the `AudioInputStream` (the raw audio data) and as 
 The `AudioInputStreamFormat` defines the format of the audio data. It can be compared to the standard `WAVEFORMAT` structure for wave files on Windows.
 
   - `FormatTag`
-  
+
     The format of the audio. The Speech SDK currently only supports `format 1` (PCM - little-endian).
 
   - `Channels`
-  
+
     The number of channels. The current speech service supports only one channel (mono) audio material.
 
-  - `SamplesPerSec` 
-  
+  - `SamplesPerSec`
+
     The sample rate. A typical microphone recording has 16000 samples per second.
 
   - `AvgBytesPerSec`
-  
+
     Average bytes per second, calculated as `SamplesPerSec * Channels * ceil(BitsPerSample, 8)`. Average bytes per second can be different for audio streams that use variable bitrates.
 
   - `BlockAlign`
-  
+
     The size of a single frame, calculated as `Channels * ceil(wBitsPerSample, 8)`. Due to padding, the actual value might be higher than this value.
 
   - `BitsPerSample`
-  
+
     The bits per sample. A typical audio stream uses 16 bits per sample (CD quality).
 
 The `AudioInputStream` base class will be overridden by your custom stream adapter. This adapter has to implement these functions:
 
    - `GetFormat()`
-   
+
      This function is called to get the format of the audio stream. It gets a pointer to the AudioInputStreamFormat buffer.
 
    - `Read()`
-   
-     This function is called to get data from the audio stream. One parameter is a pointer to the buffer to copy the audio data into. The second parameter is the size of the buffer. The function returns the number of bytes copied to the buffer. A return value of `0` indicates the end of the stream. 
+
+     This function is called to get data from the audio stream. One parameter is a pointer to the buffer to copy the audio data into. The second parameter is the size of the buffer. The function returns the number of bytes copied to the buffer. A return value of `0` indicates the end of the stream.
 
    - `Close()`
-   
+
      This function is called to close the audio stream.
 
 ## Usage Examples
@@ -122,7 +122,7 @@ In general, the following steps are involved when using Audio input streams:
     // run stream through recognizer
     await recognizer.StartContinuousRecognitionAsync();
 
-    // ERROR: don not delete the contosoStream before ending recognition!
+    // ERROR: do not delete the contosoStream before ending recognition!
     // delete contosoStream;
 
     await recognizer.StopContinuousRecognitionAsync();
@@ -130,6 +130,7 @@ In general, the following steps are involved when using Audio input streams:
     // OK: Safe to delete the contosoStream.
     delete contosoStream;
     ```
+
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
