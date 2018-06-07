@@ -110,10 +110,4 @@ You may choose to have the action group contain multiple actions of various type
 
 ![Screenshot 005 of Create rule from](./media/app-insights-proactive-cloud-services/005.png)
 
-Once you've defined the Action group, confirm your changes and click Create alert rule.
-
-
-
-
-
-
+Once you've defined the Action group, confirm your changes and click **Create alert rule**.
