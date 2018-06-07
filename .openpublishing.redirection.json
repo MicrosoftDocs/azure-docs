@@ -102,7 +102,7 @@
         },
         {
             "source_path": "articles/machine-learning/preview/quickstart-installation.md",
-            "redirect_url": "/azure/machine-learning/service/quickstart-installation",
+            "redirect_url": "/azure/machine-learning/service/quickstart-set-up-in-python",
             "redirect_document_id": true
         },
         {
