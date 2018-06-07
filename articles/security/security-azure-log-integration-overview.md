@@ -1,4 +1,4 @@
----
+﻿---
 title: Integrate logs from Azure resources with your SIEM systems | Microsoft Docs
 description: Learn about Azure Log Integration, its key capabilities, and how it works.
 services: security
@@ -19,6 +19,10 @@ ms.custom: azlog
 
 ---
 # Introduction to Azure Log Integration
+
+
+>[!IMPORTANT]
+> The Azure Log integration feature will be deprecated by 06/01/2019.  For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
 
 Azure Log Integration was made available to simplify the task of integrating Azure logs with your on-premises Security Information and Event Management (SIEM) system.
 
