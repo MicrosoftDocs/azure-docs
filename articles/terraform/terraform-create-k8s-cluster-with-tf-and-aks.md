@@ -35,7 +35,7 @@ The first step is to create the directory that holds your Terraform configuratio
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
-    ![Cloud Shell prompt](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell prompt](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
 
 1. Change directories to the `clouddrive` directory.
 
@@ -270,11 +270,9 @@ Create the Terraform configuration file that declares the resources for the Kube
     terraform apply out.plan
     ```
 
-1. Save kube_config.
+1. Once the `terraform apply` command finishes, the **All resources** tab displays your new resources.
 
-    ```bash
-    echo "$(terraform output kube_config)" > ~/.kube/azurek8s.tf
-    ```
+    ![Cloud Shell prompt](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 
 ## Test the Kubernetes cluster
 In this section, you use the Kubernetes dashboard can be used to test the newly created cluster. 
