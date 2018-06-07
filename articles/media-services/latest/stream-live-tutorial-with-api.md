@@ -20,16 +20,10 @@ ms.author: juliako
 
 # Stream live with Azure Media Services v3 using .NET Core
 
-In Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A LiveEvent provides an input endpoint (ingest URL) that you then provide to a live encoder. The LiveEvent receives live input streams from the live encoder and makes it available for streaming through one or more [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). LiveEvents also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
+In Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A LiveEvent provides an input endpoint (ingest URL) that you then provide to a live encoder. The LiveEvent receives live input streams from the live encoder and makes it available for streaming through one or more [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). LiveEvents also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
 
-A LiveEvent can be one of two types: live encoding and pass-through. 
-
-|Type|Description |Usage|
-|---|---|---|
-|pass-through|Pass-through is optimized for long-running live streams or 24x7 linear live encoding using an on-premises live encoder. The on-premises encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (fragmented MP4) to the LiveEvent that is configured for **pass-through** delivery. The **pass-through** delivery is when the ingested streams pass through **LiveEvent**s without any further processing. |Specify **None** when creating the LiveEvent (LiveEventEncodingType.None).|
-|encoding|An on-premises live encoder sends a single-bitrate stream to the LiveEvent that is enabled to perform live encoding with Media Services in one of the following protocols: RTMP or Smooth Streaming (fragmented MP4). The LiveEvent then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.| Specify **Basic** when creating the LiveEvent (LiveEventEncodingType.Basic).|
-
-This tutorial creates a **pass-through** type of a live event. For a detailed explanation about how live streaming works in Media Services v3, see [Live streaming overview](live-streaming-overview.md).
+> [!NOTE]
+> Make sure to review [Live streaming with Media Services v3](live-streaming-overview.md) before proceeding. 
 
 The tutorial shows you how to:    
 
@@ -48,7 +42,7 @@ The tutorial shows you how to:
 The following are required to complete the tutorial.
 
 * Install Visual Studio Code or Visual Studio
-* A camera that is used to broadcast an event.
+* A camera or a device (like laptop) that is used to broadcast an event.
 * An on-premises live encoder that converts signals from the camera to streams that are sent to the Media Services live streaming service. The stream has to be in **RTMP** or **Smooth Streaming** format.
 
 ## Download the sample
