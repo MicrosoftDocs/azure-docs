@@ -12,7 +12,7 @@ manager: dougeby
 ms.custom:
 ---
 
-## View key cost metrics with dashboards
+# View key cost metrics with dashboards
 
 Dashboards in Cloudyn provide a high-level view of reports. Dashboards allow you to view key cost metrics in a single view. They also provide business trend highlights to help you make important business decisions.
 
