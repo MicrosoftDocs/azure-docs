@@ -26,7 +26,7 @@ For the test, you will log in to the Azure Stack user portal as a cloud administ
 > [!TIP]
 > For more a more advanced evaluation experience, you can [create a subscription for a particular user](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm#create-a-subscription-as-a-cloud-operator) and then login as that user in the user portal. 
 
-This tutorial shows you how to subscribe to the offer created in the [previous tutorial](asdk-offer-services.md).
+This tutorial shows you how to subscribe to an Azure Stack offer.
 
 What you will learn:
 
