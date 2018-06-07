@@ -11,6 +11,8 @@ ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
+
+ROBOTS: NOINDEX
 ---
 # Deploy an Azure Machine Learning model to an Azure IoT Edge device
 

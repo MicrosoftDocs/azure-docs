@@ -12,6 +12,8 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
+
+ROBOTS: NOINDEX
 ---
 
 # Enable SSL on an Azure Machine Learning Compute (MLC) cluster 
@@ -46,7 +48,7 @@ az ml env create -c -g <resource group name> -n <cluster name> --cert-cname <CNA
 
 If you are targeting a cluster that was created without SSL, you can add a certificate using Azure PowerShell cmdlets.
 
-You need to provide the key and certificate in raw PEM format. These can be read into PowerShell variables:
+You must provide the key and certificate in raw PEM format. These can be read into PowerShell variables:
 
 ```
 $keyValueInPemFormat = [IO.File]::ReadAllText('<path to key.pem file>')
@@ -60,7 +62,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## Map the CNAME and the IP Address
 
-Create a mapping between the CNAME you selected in the prerequisites and the IP address of the real-time front-end (FE). To discover the IP address of the FE, run the command below. The output displays a field called "publicIpAddress" which contains the IP address of the real-time cluster front-end. Refer to the instructions of your DNS provider to set up a record from the FQDN used in CNAME to the public IP address.
+Create a mapping between the CNAME you selected in the prerequisites and the IP address of the real-time front-end (FE). To discover the IP address of the FE, run the command below. The output displays a field called "publicIpAddress", which contains the IP address of the real-time cluster front end. Refer to the instructions of your DNS provider to set up a record from the FQDN used in CNAME to the public IP address.
 
 
 

@@ -11,6 +11,8 @@ ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
+
+ROBOTS: NOINDEX
 ---
 # Model management setup
 

@@ -11,8 +11,9 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 05/09/2018
----
 
+ROBOTS: NOINDEX
+---
 # Data Preparations Python extensions
 As a way of filling in functionality gaps between built-in features, Azure Machine Learning Data Preparations includes extensibility at multiple levels. In this document, we outline the extensibility via Python script. 
 

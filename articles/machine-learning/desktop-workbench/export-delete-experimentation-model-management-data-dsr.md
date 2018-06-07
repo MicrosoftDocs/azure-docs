@@ -10,6 +10,8 @@ ms.service: machine-learning
 ms.component: desktop-workbench
 ms.topic: conceptual
 ms.date: 05/22/2018
+
+ROBOTS: NOINDEX
 ---
 # Export or delete your experimentation or model management data in Machine Learning
 

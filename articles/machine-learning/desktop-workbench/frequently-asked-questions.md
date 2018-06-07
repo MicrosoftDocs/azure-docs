@@ -11,6 +11,8 @@ ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017 
+
+ROBOTS: NOINDEX
 ---
 # Azure Machine Learning frequently asked questions
 

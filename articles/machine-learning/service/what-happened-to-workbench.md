@@ -1,5 +1,5 @@
 ---
-title: What is Azure Machine Learning? | Microsoft Docs
+title: What happened to Azure Machine Learning Workbench? | Microsoft Docs
 description: Explains basic concepts of machine learning in the cloud, describes what you can use it for, and defines machine learning terms. Overview of Azure Machine Learning -- an integrated, end-to-end data science solution for professional data scientists to develop, experiment and deploy advanced analytics applications at cloud scale.
 services: machine-learning
 author: mwinkle

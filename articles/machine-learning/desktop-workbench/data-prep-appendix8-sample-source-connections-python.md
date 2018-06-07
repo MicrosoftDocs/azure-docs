@@ -13,6 +13,8 @@ ms.custom:
 ms.devlang: 
 ms.topic: article 
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 # Sample of custom source connections (Python) 
 Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).

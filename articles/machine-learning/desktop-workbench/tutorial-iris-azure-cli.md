@@ -12,7 +12,10 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
+
+ROBOTS: NOINDEX
 ---
+
 
 # Tutorial: Classifying Iris using the command-line interface
 Azure Machine Learning services (preview) are an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.

@@ -13,6 +13,8 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
+
+ROBOTS: NOINDEX
 ---
 # Azure Machine Learning Model Management Account API reference
 

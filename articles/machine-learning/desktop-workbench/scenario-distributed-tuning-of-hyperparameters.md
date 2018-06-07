@@ -11,7 +11,10 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
+
+ROBOTS: NOINDEX
 ---
+
 
 # Distributed tuning of hyperparameters using Azure Machine Learning Workbench
 
