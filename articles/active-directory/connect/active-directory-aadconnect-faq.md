@@ -121,7 +121,11 @@ The auto upgrade process will always first establish whether an installation is 
 Depending on the size of the environment, the process can take a couple of hours, and while the upgrade happens, no sync between Windows Server AD and Azure AD will happen.
 
 **Q: I received an email telling me that my auto upgrade no longer works and I need to install new version. Why do I need to do this?**</br>
-Last year, a version of Azure AD Connect that, under certain circumstances, might have disabled the auto upgrade feature on your server, was released. This issue has been fixed in Azure AD Connect version 1.1.750.0. Customers who may have been affected by this issue need to manually upgrade to the latest version of Azure AD Connect to mitigate the problem. To manually upgrade, you must download and run the latest version of the AADConnect.msi file.
+Last year, a version of Azure AD Connect that, under certain circumstances, might have disabled the auto upgrade feature on your server, was released. This issue has been fixed in Azure AD Connect version 1.1.750.0. Customers who may have been affected by this issue need to run a PowerShell script to repair this or manually upgrade to the latest version of Azure AD Connect to mitigate the problem. 
+
+To run the PowerShell script, download the script from [here](https://aka.ms/repairaadconnect) and run the script on your AADConnect server in an administrative PowerShell window. [This is a short video](https://aka.ms/repairaadcau) that explains in detail how to do this.
+
+To manually upgrade, you must download and run the latest version of the AADConnect.msi file.
  
 -  If your current version is older than 1.1.750.0, you must upgrade to the latest version, [which can be downloaded here](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
 - If your Azure AD Connect version is 1.1.750.0 or newer, you do not have to take any action to mitigate the auto upgrade issue, as you’re already on the version that has a fix for this. 
@@ -167,7 +171,7 @@ Auto-upgrade is the first step in the release process of a newer version, so whe
 **Q: Does auto-upgrade upgrade AAD Connect Health?**</br>  	Yes, auto upgrade also upgrades AAD Connect Health
 
 **Q: Do you also auto-upgrade AAD Connect servers in Staging Mode?**</br> 	
-No, you cannot auto-upgrade an Azure AD Connect server that is in staging mode.
+Yes, you can auto-upgrade an Azure AD Connect server that is in staging mode.
 
 **Q: If Auto-Upgrade fails and my AAD Connect server does not start, what should I do?**</br> 	
 In rare cases, the Azure AD Connect service does not start after performing the upgrade. In these cases, reboot the server, which usually fixes the issue. If the Azure AD Connect service still does not start,  open a support ticket. Here is a [link](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) that explains how to do that. 
