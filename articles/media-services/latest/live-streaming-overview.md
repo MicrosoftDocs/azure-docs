@@ -34,7 +34,7 @@ A  [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) can be one 
 
 ### Live encoding with Media Services
 
-TODO: live encoding diagrams
+![live encoding](./media/live-streaming/live-encoding.png)
 
 An on-premises live encoder sends a single-bitrate stream to the LiveEvent that is enabled to perform live encoding with Media Services in one of the following protocols: RTMP or Smooth Streaming (fragmented MP4). The LiveEvent then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
@@ -42,7 +42,7 @@ When creating this type of LiveEvent, specify **Basic** (LiveEventEncodingType.B
 
 ### Pass-through
 
-TODO: pass-through diagrams
+![pass-through](./media/live-streaming/pass-through.png)
 
 Pass-through is optimized for long-running live streams or 24x7 linear live encoding using an on-premises live encoder. The on-premises encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (fragmented MP4) to the LiveEvent that is configured for **pass-through** delivery. The **pass-through** delivery is when the ingested streams pass through **LiveEvent**s without any further processing. 
 
