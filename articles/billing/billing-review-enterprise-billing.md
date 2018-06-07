@@ -1,6 +1,6 @@
 ---
 title: Review enterprise billing data with REST API | Microsoft Docs
-description: Learn how to use Azure REST APIs to review enterprise tenant billing information.
+description: Learn how to use Azure REST APIs to review enterprise enrollment billing information.
 services: billing
 documentationcenter: na
 author: lleonard-msft
@@ -16,7 +16,7 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: alleonar
 
-# As an administrator or developer, I want to use REST APIs to review billing data for all subscriptions and departments in the enterprise.
+# As an administrator or developer, I want to use REST APIs to review billing data for all subscriptions and departments in the enterprise enrollment.
 
 ---
 
@@ -24,7 +24,7 @@ ms.author: alleonar
 
 Azure Reporting APIs help you review and manage your Azure costs.
 
-Here, you learn to retrieve the current bill associated with an enterprise account.
+Here, you learn to retrieve the current bill associated with an enterprise account enrollment.
 
 To retrieve the current bill:
 ``` http

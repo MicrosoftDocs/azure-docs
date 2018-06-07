@@ -22,7 +22,9 @@ ms.author: alleonar
 
 # Review department billing using REST APIs
 
-Azure Reporting APIs help you review and manage your Azure costs.  You can use them to review billing for a subscription; filters help customize the results.
+Azure Reporting APIs help you review and manage your Azure costs.  
+
+Filters help customize results to meet your needs.
 
 Here, you learn to use a REST API to return subscription billing details for a given date range.
 
