@@ -60,9 +60,9 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
 3. Install the Core Tools package:
 
-  ```bash
-  npm install -g azure-functions-core-tools@core
-  ```
+    ```bash
+    npm install -g azure-functions-core-tools@core
+    ```
 
 #### <a name="brew"></a>MacOS with Homebrew
 
@@ -70,9 +70,9 @@ The following steps use Homebrew to install the Core Tools on macOS.
 
 1. Install [.NET Core 2.0 for macOS](https://www.microsoft.com/net/download/macos).
 
-1. Install [Homebrew](https://brew.sh/), if it's not already installed.
+2. Install [Homebrew](https://brew.sh/), if it's not already installed.
 
-2. Install the Core Tools package:
+3. Install the Core Tools package:
 
     ```bash
     brew tap azure/functions
@@ -85,42 +85,43 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 1. Install [.NET Core 2.0 for Linux](https://www.microsoft.com/net/download/linux).
 
-1. Register the Microsoft product key as trusted:
+2. Register the Microsoft product key as trusted:
 
-  ```bash
-  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-  ```
+    ```bash
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    ```
 
-2.  Verify your Ubuntu server is running one of the appropriate versions from the table below. To add the apt source, run:
+3. Verify your Ubuntu server is running one of the appropriate versions from the table below. To add the apt source, run:
 
-  ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-  sudo apt-get update
-  ```
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo apt-get update
+    ```
 
-  | Linux distribution | Version |
-  | --------------- | ----------- |
-  | Ubuntu 17.10    | `artful`    |
-  | Ubuntu 17.04    | `zesty`     |
-  | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+    | Linux distribution | Version |
+    | --------------- | ----------- |
+    | Ubuntu 17.10    | `artful`    |
+    | Ubuntu 17.04    | `zesty`     |
+    | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
-3. Install the Core Tools package:
+4. Install the Core Tools package:
 
-  ```bash
-  sudo apt-get install azure-functions-core-tools
-  ```
+    ```bash
+    sudo apt-get install azure-functions-core-tools
+    ```
 
 ## Run Azure Functions Core Tools
- 
+
 Azure Functions Core Tools adds the following command aliases:
-* **func**
-* **azfun**
-* **azurefunctions**
+
++ **func**
++ **azfun**
++ **azurefunctions**
 
 Any of these aliases can be used where `func` is shown in the examples.
 
-```
+```bash
 func init MyFunctionProj
 ```
 
@@ -130,13 +131,13 @@ When running locally, a Functions project is a directory that has the files [hos
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
-```
+```bash
 func init MyFunctionProj
 ```
 
 The output looks like the following example:
 
-```
+```output
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
@@ -175,11 +176,12 @@ The file local.settings.json stores app settings, connection strings, and settin
   }
 }
 ```
+
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
-| **Values** | Collection of application settings used when running locally. These correspond to app settings in your function app in Azure. **AzureWebJobsStorage** and **AzureWebJobsDashboard** are examples, with **AzureWebJobsStorage** being required for triggers other than HTTP. Many triggers and bindings have a property that refers to an app setting, such as **Connection** for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the **Values** array. |
-| **Host** | Settings in this section customize the Functions host process when running locally. | 
+| **Values** | Collection of application settings used when running locally. These correspond to app settings in your function app in Azure, such as **AzureWebJobsStorage** and **AzureWebJobsDashboard**. Many triggers and bindings have a property that refers to an app setting, such as **Connection** for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the **Values** array. <br/>**AzureWebJobsStorage** is a required app setting for triggers other than HTTP. When you have the [Azure storage emulator](../storage/common/storage-use-emulator.md) installed locally, you can set **AzureWebJobsStorage** to `UseDevelopmentStorage=true` and Core Tools uses the emulator. This is useful during development, but you must change to an actual storage connection before deployment. |
+| **Host** | Settings in this section customize the Functions host process when running locally. |
 | **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
 | **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (\*) is supported, which allows requests from any origin. |
 | **ConnectionStrings** | Contains the database connection strings for your functions. Connection strings in this object are added to the environment with the provider type of [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Do not use this collection for the connection strings used by your function bindings. This collection is only used by frameworks that must get connection strings from the **ConnectionStrings** section of a configuration file, such as [Entity Framework](https://msdn.microsoft.com/en-us/library/aa937723(v=vs.113).aspx). Items in this collection are not published to Azure with other app settings. You must explicitly add these values to the **Connection strings** section of the **Application settings** for your function app. |
@@ -192,34 +194,33 @@ The function app settings values can also be read in your code as environment va
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-Settings in the local.settings.json file are only used by Functions tools when running locally. By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure.
+Settings in the local.settings.json file are only used by Functions tools when running locally. By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure. Values in **ConnectionStrings** are never published.
 
-When no valid storage connection string is set for **AzureWebJobsStorage**, the following error message is shown:  
+When no valid storage connection string is set for **AzureWebJobsStorage** and the emulator isn't being used, the following error message is shown:  
 
 >Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
-  
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
 ### Get your storage connection strings
 
-You can get a storage connection string value to run locally in one of the following ways:
+Even when using the storage emulator, you must change to an actual storage connection before deployment. Assuming you have already [created a storage account](../storage/common/storage-create-storage-account.md), you can get a valid storage connection string in one of the following ways:
 
-* From the [Azure portal]. Navigate to your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
++ From the [Azure portal]. Navigate to your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
 
   ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-* Use [Azure Storage Explorer](http://storageexplorer.com/) to connect to your Azure account. In the **Explorer**, expand your subscription, select your storage account, and copy the primary or secondary connection string. 
++ Use [Azure Storage Explorer](http://storageexplorer.com/) to connect to your Azure account. In the **Explorer**, expand your subscription, select your storage account, and copy the primary or secondary connection string. 
 
   ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
-* Use Core Tools to download the connection string from Azure with one of the following commands:
++ Use Core Tools to download the connection string from Azure with one of the following commands:
 
-    * Download all settings from an existing function app:
+    + Download all settings from an existing function app:
+
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    
-    * Get the Connection string for a specific storage account:
+    + Get the Connection string for a specific storage account:
+
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
     ```
