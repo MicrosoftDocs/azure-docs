@@ -864,7 +864,7 @@ which create or transform data from various inputs.
 | **Join** | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
 | **Query** | Creates an array from items in another array based on a condition or filter. | 
 | **Response** | Defines the response for an incoming call. | 
-| **Select** | Creates an array that contains transformed JSON objects from another array. | 
+| **Select** | Creates an array with JSON objects by transforming items from another array based on the specified map. | 
 | **Table** | Creates a CSV or HTML table from an array. | 
 | **Terminate** | Stops an actively running workflow. | 
 | **Wait** | Waits a fixed amount of time or until a specific time. | 
@@ -1316,21 +1316,23 @@ and return a "bad request" response.
 
 ## Select action
 
-This action creates an array that contains 
-transformed JSON objects from another array.
-
-This action creates an array from items in another 
-array and can convert those items to a different type. 
-For example, you can create an array of objects from an array of numbers.
-The output array has the same number of items as the input array. 
-The `select` property defines the transformation applied to each array item.
+This action creates an array with JSON objects by transforming 
+items from another array based on the specified map. 
+The output array always has the same number of items as the source array. 
+Although you can't change the number of objects in the output array, 
+you can add or remove properties and their values across each object. 
+The `select` property specifies the map used for transforming each item 
+and for specifying the number of properties in the output array. 
 
 ```json
 "Select": {
    "type": "Select",
    "inputs": {
       "from": <array>,
-      "select": { "<key-name>": "<value-or-expression>" }
+      "select": { 
+          "<key-name>": "<expression>",
+          "<key-name>": "<expression>"        
+      }
    },
    "runAfter": {}
 },
@@ -1341,8 +1343,8 @@ The `select` property defines the transformation applied to each array item.
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*array*> | Array | The array or expression that provides the source items. If you specify an expression, enclose that expression with double quotes. <p>**Note**: If the source array is empty, the action creates an empty array. | 
-| <*key-name*>  | JSON Object | The transformation applied to each item in the source array | 
-| <*value-or-expression*> | | | 
+| <*key-name*> | String | The property name for the result from the corresponding expression. <p>To add a property and value to each object, add a <*key-name*> entry for that property and the corresponding <*expression*> for the value. <li>To remove a property across each object, just omit the "<*key-name*>" for that property. | 
+| <*expression*> | String | An expression that transforms the item in the source array | 
 |||| 
 
 *Example*
