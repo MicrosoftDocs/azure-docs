@@ -78,27 +78,6 @@ Once you've added Azure credentials, you can set up an Azure Storage endpoint.
 
 ![Add Azure Endpoint](~/images/add_endpoint-azure.png)
 
-### Adding an AWS S3 Endpoint
-
-After you've created AWS credentials, you can set up an AWS S3 endpoint. From
-the **Add Endpoint** window, enter a descriptive name in the "Name" field. Select
-"Amazon S3" from the "Type" drop-down, then select the credentials you created above.
-Next, select the desired bucket from the drop-down or click the green plus sign to create a new bucket.
-Click "Save" to save the endpoint.
-
-> [!NOTE]
-> If you do not have an S3 bucket created, you can click the green plus button next to the bucket dropdown > to create one.
-
-### Adding a GC Endpoint
-
-Once you've added Google Cloud credentials, you can set up a Google Cloud Storage
-endpoint. From the **Add Endpoint** window, enter a descriptive name in the "Name"
-field. Select "Google Cloud Storage" from the "Type" drop-down. Select the GC
-credentials you created earlier. Select a bucket from the drop-down or click the
-green plus sign to create a new bucket. Click "Save" to save the endpoint.
-
-> [!NOTE] The Data Manager automatically adds the gs:// prefix to the container address.
-
 ### Adding a Remote Host Endpoint
 
 For server-to-server transfers, you can create another "Host" type endpoint. To
