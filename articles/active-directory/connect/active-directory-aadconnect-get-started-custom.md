@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 06/06/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -224,7 +224,7 @@ On a computer that has the Group Policy management tools.
 6.	Click **Ok** twice.
 
 ## Configuring federation with AD FS
-Configuring AD FS with Azure AD Connect is simple with just a few clicks. The following is required before the configuration.
+Configuring AD FS with Azure AD Connect is simple and only requires a few clicks. The following is required before the configuration.
 
 * A Windows Server 2012 R2 or later server for the federation server with remote management enabled
 * A Windows Server 2012 R2 or later server for the Web Application Proxy server with remote management enabled
@@ -301,7 +301,7 @@ When you select the domain to be federated, Azure AD Connect provides you with n
 >
 
 ## Configuring federation with PingFederate
-Configuring PingFederate with Azure AD Connect is simple with just a few clicks. The following is required before the configuration.  However the following prerequisites are required.
+Configuring PingFederate with Azure AD Connect is simple and only requires a few clicks. However, the following prerequisites are required.
 - PingFederate 8.4 or higher.  For more information see [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
 - An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
 
