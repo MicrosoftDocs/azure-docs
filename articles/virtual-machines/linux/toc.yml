@@ -142,6 +142,8 @@
       href: create-cli-complete.md
     - name: Use a template
       href: create-ssh-secured-vm-from-template.md
+    - name: Use REST API
+      href: create-vm-rest-api.md
     - name: Copy or clone a VM
       href: copy-vm.md
   - name: Secure VMs
