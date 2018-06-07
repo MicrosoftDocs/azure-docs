@@ -1,5 +1,5 @@
 ---
-title: Alert on issues in Azure cloud services using the Azure Diagnostics integration with Azure Application Insights | Microsoft Docs
+title: Alert on issues in Azure Cloud Services using the Azure Diagnostics integration with Azure Application Insights | Microsoft Docs
 description: Monitor for issues like startup failures, crashes, and role recycle loops in Azure Cloud Services with Azure Application Insights
 services: application-insights
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.author: harelbr; mbullwin
 
 ---
 
-# Alert on issues in Azure cloud services using the Azure diagnostics integration with Azure Application Insights
+# Alert on issues in Azure Cloud Services using the Azure diagnostics integration with Azure Application Insights
 
 In this article, we will describe how to set up alert rules that monitor for issues like startup failures, crashes, and role recycle loops in Azure Cloud Services (web and worker roles).
 
-The method described in this article is based on the [Azure Diagnostics integration with Application Insights](https://azure.microsoft.com/en-us/blog/azure-diagnostics-integration-with-application-insights/), and the recently released [Log Alerts for Application Insights](https://azure.microsoft.com/en-in/blog/log-alerts-for-application-insights-preview/) capability.
+The method described in this article is based on the [Azure Diagnostics integration with Application Insights](https://azure.microsoft.com/blog/azure-diagnostics-integration-with-application-insights/), and the recently released [Log Alerts for Application Insights](https://azure.microsoft.com/blog/log-alerts-for-application-insights-preview/) capability.
 
 ## Define a base query
 
@@ -112,3 +112,12 @@ You may choose to have the action group contain multiple actions of various type
 ![Screenshot action group](./media/app-insights-proactive-cloud-services/005.png)
 
 Once you've defined the Action group, confirm your changes and click **Create alert rule**.
+
+## Next Steps
+
+Learn more about automatically detecting:
+
+[Failure anomalies](app-insights-proactive-failure-diagnostics.md)
+[Memory Leaks](app-insights-proactive-potential-memory-leak.md)
+[Performance anomalies](app-insights-proactive-performance-diagnostics.md)
+
