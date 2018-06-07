@@ -215,6 +215,8 @@
       href: luis-how-to-manage-versions.md
     - name: Collaborate on a LUIS app
       href: luis-how-to-collaborate.md 
+    - name: Increase endpoint quota with Traffic Manager
+      href: traffic-manager.md  
   - name: Manage your LUIS account
     href: luis-how-to-account-settings.md   
   - name: Migrate to V2 API
