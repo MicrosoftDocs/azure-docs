@@ -29,7 +29,7 @@ You can deploy this sample policy using:
 ### Policy definition
 
 The complete composed JSON policy definition, used by the REST API, 'Deploy to Azure' buttons, and
-manually in the portal. Represented as `@<azurepolicy.json>` in example code.
+manually in the portal.
 
 [!code-json[full](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.json "Complete policy definition (JSON)")]
 
@@ -39,15 +39,13 @@ manually in the portal. Represented as `@<azurepolicy.json>` in example code.
 
 ### Policy rules
 
-The JSON defining the rules of the policy, used by Azure CLI and Azure PowerShell. Represented as
-`@<azurepolicy.rules.json>` in example code.
+The JSON defining the rules of the policy, used by Azure CLI and Azure PowerShell.
 
 [!code-json[rule](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.rules.json "Policy rules (JSON)")]
 
 ### Policy parameters
 
-The JSON defining the policy parameters, used by Azure CLI and Azure PowerShell. Represented as
-`@<azurepolicy.parameters.json>` in example code.
+The JSON defining the policy parameters, used by Azure CLI and Azure PowerShell.
 
 [!code-json[parameters](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.parameters.json "Policy parameters (JSON)")]
 
@@ -171,7 +169,7 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 There are several tools that can be used to interact with the Resource Manager REST API such as
 [ARMClient](https://github.com/projectkudu/ARMClient) or PowerShell. An example of calling REST API
-can be found in the **Aliases** section of [Policy definition structure](../policy-definition.md#aliases).
+from PowerShell can be found in the **Aliases** section of [Policy definition structure](../policy-definition.md#aliases).
 
 ### Deploy with REST API
 
