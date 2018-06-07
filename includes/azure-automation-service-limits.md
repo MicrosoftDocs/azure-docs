@@ -12,8 +12,8 @@ ms.custom: "include file"
 
 | Resource | Maximum Limit |Notes|
 | --- | --- |---|
-| Max number of new jobs that can be submitted every 30 seconds per Automation Account (non Scheduled jobs) |100 |When this limit it hit, the subsequent requests to create a job fail. The client recieves an error response.|
-| Max number of concurrent running jobs at the same instance of time per Automation Account (non Scheduled jobs) |200 |When this limit it hit, the subsequent requests to create a job fail. The client recieves an error response.|
+| Max number of new jobs that can be submitted every 30 seconds per Automation Account (non Scheduled jobs) |100 |When this limit it hit, the subsequent requests to create a job fail. The client receives an error response.|
+| Max number of concurrent running jobs at the same instance of time per Automation Account (non Scheduled jobs) |200 |When this limit it hit, the subsequent requests to create a job fail. The client receives an error response.|
 | Max number of modules that can be imported every 30 seconds per Automation Account |5 ||
 | Max size of a Module |100 MB ||
 | Job Run Time - Free tier |500 minutes per subscription per calendar month ||
