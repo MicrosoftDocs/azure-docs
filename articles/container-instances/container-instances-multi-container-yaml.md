@@ -86,13 +86,13 @@ Within a few seconds, you should receive an initial response from Azure.
 
 ## View deployment state
 
-To view the state of the deployment, use the [az container show][az-container-show] command. This returns the provisioned public IP address by which the application can be accessed.
+To view the state of the deployment, use the following [az container show][az-container-show] command:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Output:
+If you'd like to view the running application, navigate to its IP address in your browser. For example, the IP is `52.168.26.124` in this example output:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location

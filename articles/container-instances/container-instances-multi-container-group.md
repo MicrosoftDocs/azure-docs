@@ -32,7 +32,7 @@ The sections in this article walk you through running a simple multi-container s
 
 Start by creating a file named `azuredeploy.json`, then copy the following JSON into it.
 
-This Resoure Manager template defines a container group with two containers, a public IP address, and two exposed ports. The first container in the group runs an internet-facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
+This Resource Manager template defines a container group with two containers, a public IP address, and two exposed ports. The first container in the group runs an internet-facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
 
 ```JSON
 {
@@ -150,13 +150,13 @@ Within a few seconds, you should receive an initial response from Azure.
 
 ## View deployment state
 
-To view the state of the deployment, use the [az container show][az-container-show] command. This returns the provisioned public IP address by which the application can be accessed.
+To view the state of the deployment, use the following [az container show][az-container-show] command:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Output:
+If you'd like to view the running application, navigate to its IP address in your browser. For example, the IP is `52.168.26.124` in this example output:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
