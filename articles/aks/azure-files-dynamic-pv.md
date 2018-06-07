@@ -20,7 +20,7 @@ For more information on Kubernetes persistent volumes, including static creation
 
 ## Create storage account
 
-When dynamically creating an Azure file share as a Kubernetes volume, any storage account can be used as long as it is in the AKS **node** resource group. This is the one with the `MC_` prefix. Get the resource group name with the [az resource show][az-resource-show] command.
+When dynamically creating an Azure file share as a Kubernetes volume, any storage account can be used as long as it is in the AKS **node** resource group. This is the one with the `MC_` prefix that was created by the provisioning of the resources for the AKS cluster. Get the resource group name with the [az resource show][az-resource-show] command.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
