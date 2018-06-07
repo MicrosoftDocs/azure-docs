@@ -68,15 +68,6 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-To use a private container image registry, add the following YAML, with values configured for your environment:
-
-```yaml
-imageRegistryCredentials:
-- server: imageRegistryLoginServer
-  username: imageRegistryUsername
-  password: imageRegistryPassword
-```
-
 ## Deploy the container group
 
 Create a resource group with the [az group create][az-group-create] command:
@@ -154,6 +145,48 @@ Connection: keep-alive
 
 As you can see, the sidecar is periodically making an HTTP request to the main web application via the group's local network to ensure that it is running. This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than 200 OK.
 
+## Deploy from private registry
+
+To use a private container image registry, include the following YAML with values modified for your environment:
+
+```yaml
+  imageRegistryCredentials:
+  - server: imageRegistryLoginServer
+    username: imageRegistryUsername
+    password: imageRegistryPassword
+```
+
+For example, the following YAML deploys a container group with a single container whose image is pulled from a private Azure Container Registry named "myregistry":
+
+```yaml
+apiVersion: 2018-06-01
+location: eastus
+name: myContainerGroup2
+properties:
+  containers:
+  - name: aci-tutorial-app
+    properties:
+      image: myregistry.azurecr.io/aci-helloworld:latest
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1.5
+      ports:
+      - port: 80
+  osType: Linux
+  ipAddress:
+    type: Public
+    ports:
+    - protocol: tcp
+      port: '80'
+  imageRegistryCredentials:
+  - server: myregistry.azurecr.io
+    username: myregistry
+    password: REGISTRY_PASSWORD
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+```
+
 ## Export container group to YAML
 
 You can export the configuration of an existing container group to a YAML file by using the Azure CLI command [az container export][az-container-export].
@@ -170,7 +203,7 @@ No output is displayed if the command is successful, but you can view the conten
 
 ```console
 $ head deployed-aci.yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-02-01-preview
 location: eastus
 name: myContainerGroup
 properties:
@@ -182,12 +215,18 @@ properties:
       ports:
 ```
 
+> [!NOTE]
+> As of Azure CLI version 2.0.34, there is a [known issue][cli-issue-6525] in which exported container groups specify an older API version of **2018-02-01-preview** (seen in the previous JSON output example). If you'd like to redeploy using the exported YAML file, you can safely update the `apiVersion` value in the exported YAML file to **2018-06-01**.
+
 ## Next steps
 
 This article covered the steps needed for deploying a multi-container Azure container instance. For an end-to-end Azure Container Instances experience, including using a private Azure container registry, see the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial][aci-tutorial]
+
+<!-- LINKS - External -->
+[cli-issue-6525]: https://github.com/Azure/azure-cli/issues/6525
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
