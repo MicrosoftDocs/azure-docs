@@ -45,7 +45,7 @@ The main screen in the OMS portal displays the tiles for all the management solu
 ## How do I open Log Search and View Designer?
 Both **Log Search** and **View Designer** are available on the main page and in the left menu of your workspace in the Azure portal, right next to **Overview**.
 
-## Where do I find my settings?
+## Where do I find settings?
 Many of the settings in the **Settings** section of the OMS portal are available in the **Advanced settings** menu in the Azure portal for the workspace.
 
 ![Advanced settings](media/log-analytics-new-portal/advanced-settings.png)
@@ -93,8 +93,9 @@ Manage most Data settings the  in the **Advanced settings** menu for the workspa
 | Custom Fields                | **Advanced settings** menu for the workspace. |
 | Custom Logs                  | **Advanced settings** menu for the workspace. |
 | Syslog                       | **Advanced settings** menu for the workspace. |
-| Application Insights         | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../automation/automation-change-tracking.md) for details.  |
+| Application Insights         | Need information for this.  |
 | Windows File Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../automation/automation-change-tracking.md) for details. |
+| Windows Registry Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../automation/automation-change-tracking.md) for details. |
 | Linux File Tracking          | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../automation/automation-change-tracking.md) for details. |
 
 ### Solutions
