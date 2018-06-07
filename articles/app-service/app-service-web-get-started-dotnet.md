@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/16/2018
+ms.date: 06/7/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
 ---
