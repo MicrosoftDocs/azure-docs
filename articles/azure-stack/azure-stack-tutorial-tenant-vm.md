@@ -73,7 +73,7 @@ Offers are groups of one or more plans that providers present to users to purcha
 
      ![Quota name](media/azure-stack-tutorial-tenant-vm/image07.png)
 
-    - Pick **Microsoft.Compute** in the namespace list, and then select the quota that you created. This links the quota to the Compute service.
+   - Pick **Microsoft.Compute** in the namespace list, and then select the quota that you created. This links the quota to the Compute service.
 
       ![Select quota](media/azure-stack-tutorial-tenant-vm/image08.png)
 
