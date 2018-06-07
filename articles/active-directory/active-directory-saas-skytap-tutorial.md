@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: jeedes
 
 ---
@@ -112,10 +112,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Skytap Domain and URLs single sign-on information](./media/active-directory-saas-skytap-tutorial/tutorial_skytap_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<custom saasID>&idpid=<custom idpid>`
+    c. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<saasid>&idpid=<idpid>`
 	 
+	d. In the **Relay State** textbox, type a URL using the following pattern: `https://pingone.com/1.0/<Unique ID>`
+
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Sign-On URL. Contact [Skytap Client support team](mailto:support@skytap.com) to get these values. 
+	> These values are not real. Update these values with the actual Identifier, Sign-On URL and Relay State. Contact [Skytap Client support team](mailto:support@skytap.com) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
