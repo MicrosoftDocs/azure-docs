@@ -26,9 +26,9 @@ AKS reduces the complexity and operational overhead of managing a Kubernetes clu
 
 The goal of AKS is to provide a container hosting environment by using open-source tools and technologies that are popular among customers today. To this end, we expose the standard Kubernetes API endpoints. By using these standard endpoints, you can leverage any software that is capable of talking to a Kubernetes cluster. For example, you might choose [kubectl][kubectl-overview], [helm][helm], or [draft][draft].
 
-## Azure Active Directory
+## Identity and access management
 
-## Container Insights
+## Integrated logging and monitoring
 
 ## Cluster upgrades
 
@@ -37,6 +37,8 @@ The goal of AKS is to provide a container hosting environment by using open-sour
 ## Azure DevOps project
 
 ## GPU enabled nodes
+
+## Private container registry
 
 ## Next steps
 
