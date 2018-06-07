@@ -19651,11 +19651,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/machine-learning/desktop-workbench/quickstart-installation.md",
-            "redirect_url": "/azure/machine-learning/service/quickstart-installation",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/machine-learning/desktop-workbench/support-for-aml-services.md",
             "redirect_url": "/azure/machine-learning/service/support-for-aml-services",
             "redirect_document_id": false
